@@ -19,6 +19,8 @@ Bản nền hiện chạy được API, giao diện và bộ lọc/ranker tối 
 
 ## Giao việc để làm song song
 
+Bảng phân công để điền tên, nhánh và checklist làm việc nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả chi tiết của **5 module** nằm trong thư mục [`modules/`](../modules/); mỗi module có một file Markdown riêng.
+
 Mỗi người chọn một cột bên dưới và là người chịu trách nhiệm chính. Trưởng nhóm cũng nhận một module như mọi người, đồng thời review/merge PR. Nếu chưa thống nhất tên người, dùng tạm số 1–5 trên bảng công việc, **không** dùng tên nhánh chung cho nhiều người.
 
 | Người | Module / nhánh gợi ý | File chính được sửa | Sản phẩm đầu tiên cần nộp |
