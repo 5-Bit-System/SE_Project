@@ -1,0 +1,21 @@
+:root { font-family: system-ui, sans-serif; color: #18222e; background: #f3f6f8; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 800px; margin: 0 auto; padding: 36px 20px 60px; }
+header, form, section { background: #fff; border: 1px solid #dae2e7; border-radius: 14px; padding: 24px; margin-bottom: 18px; }
+header { background: #173f48; color: #fff; }
+.eyebrow { color: #a7e0d3; letter-spacing: .07em; text-transform: uppercase; font-size: .8rem; }
+h1 { margin: 8px 0; line-height: 1.2; }
+h2 { margin-top: 0; }
+label { display: block; font-weight: 600; margin: 16px 0 7px; }
+small { color: #64717b; font-weight: 400; }
+select, input:not([type=checkbox]) { width: 100%; border: 1px solid #abbac3; border-radius: 8px; padding: 10px 12px; font: inherit; }
+.course-list { max-height: 220px; overflow: auto; border: 1px solid #dae2e7; border-radius: 8px; padding: 10px; }
+.course-row { display: flex; gap: 10px; align-items: center; font-weight: 400; margin: 5px 0; }
+.notice { background: #fff4d7; border-left: 4px solid #d09a19; padding: 10px 12px; line-height: 1.5; }
+button { margin-top: 20px; background: #126b65; color: white; border: 0; border-radius: 8px; padding: 12px 18px; font: inherit; cursor: pointer; }
+button:hover { background: #0e5651; }
+article { border-top: 1px solid #dae2e7; padding: 10px 0; }
+article h3 { margin-bottom: 4px; }
+article p { margin-top: 0; }
+footer { color: #64717b; font-size: .88rem; text-align: center; }

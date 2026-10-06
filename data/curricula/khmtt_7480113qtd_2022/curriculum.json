@@ -1,0 +1,13 @@
+{
+  "program_id": "khmtt_7480113qtd_2022",
+  "name": "Khoa học máy tính và thông tin (khóa 2022)",
+  "total_credits": 129,
+  "catalog_status": "draft_unverified",
+  "source_file": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+  "source_pages": "9-13",
+  "notes": ["Chưa số hóa toàn bộ bảng học phần.", "Số quyết định giữa trang đầu và phụ lục không nhất quán; cần xác minh."],
+  "choice_groups": [
+    {"id": "software_skills", "name": "Kỹ năng phần mềm", "required_credits": 4},
+    {"id": "ai_software", "name": "AI / phát triển phần mềm", "required_credits": 12}
+  ]
+}

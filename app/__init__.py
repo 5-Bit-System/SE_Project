@@ -1,0 +1,1 @@
+"""Course recommendation starter application."""

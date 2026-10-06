@@ -1,0 +1,15 @@
+{
+  "program_id": "khdl_7460108_2022",
+  "name": "Khoa học dữ liệu (khóa 2022)",
+  "total_credits": 127,
+  "catalog_status": "draft_unverified",
+  "source_file": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+  "source_pages": "9-13",
+  "notes": ["Chưa số hóa toàn bộ bảng học phần.", "PDF ghi 28/63 tín chỉ tự chọn nhưng bốn nhóm liệt kê cộng thành 28/57; cần xác minh, không tự sửa nguồn."],
+  "choice_groups": [
+    {"id": "software_skills", "name": "Kỹ năng phần mềm", "required_credits": 4},
+    {"id": "computer_science", "name": "Khoa học máy tính", "required_credits": 6},
+    {"id": "statistics_data_mining", "name": "Thống kê / khai phá dữ liệu", "required_credits": 9},
+    {"id": "data_science_applications", "name": "Ứng dụng khoa học dữ liệu", "required_credits": 9}
+  ]
+}

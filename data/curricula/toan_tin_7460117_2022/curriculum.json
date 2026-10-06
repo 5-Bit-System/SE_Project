@@ -1,0 +1,13 @@
+{
+  "program_id": "toan_tin_7460117_2022",
+  "name": "Toán tin (khóa 2022)",
+  "total_credits": 132,
+  "catalog_status": "draft_unverified",
+  "source_file": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+  "source_pages": "8-12",
+  "notes": ["Chưa số hóa toàn bộ bảng học phần; cần đối chiếu từng dòng PDF."],
+  "choice_groups": [
+    {"id": "informatics", "name": "Tin học", "required_credits": 15},
+    {"id": "scientific_computing", "name": "Tính toán khoa học", "required_credits": 15}
+  ]
+}

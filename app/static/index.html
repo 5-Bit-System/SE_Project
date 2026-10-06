@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gợi ý học phần</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="eyebrow">SE Project · Bản nền cho nhóm</span>
+      <h1>Gợi ý học phần theo ngành</h1>
+      <p>Chọn đúng chương trình, đánh dấu môn đã qua và nhập mục tiêu học tập.</p>
+    </header>
+    <form id="recommend-form">
+      <label for="program">Chương trình đào tạo</label>
+      <select id="program" required></select>
+      <p id="catalog-note" class="notice"></p>
+
+      <label>Môn đã qua <small>(chỉ hiển thị môn của ngành đã chọn)</small></label>
+      <div id="courses" class="course-list"></div>
+
+      <label for="goal">Mục tiêu học tập</label>
+      <input id="goal" maxlength="500" placeholder="Ví dụ: quan tâm AI và dữ liệu">
+      <label for="credits">Tổng tín chỉ tối đa muốn học kỳ này</label>
+      <input id="credits" type="number" min="1" max="30" value="18" required>
+      <button type="submit">Xem gợi ý</button>
+    </form>
+    <section aria-live="polite">
+      <h2>Kết quả</h2>
+      <div id="result" class="results">Chọn chương trình và nhấn “Xem gợi ý”.</div>
+    </section>
+    <footer>Catalog hiện ở trạng thái nháp; không sử dụng kết quả để thay thế tư vấn học vụ chính thức.</footer>
+  </main>
+</body>
+</html>

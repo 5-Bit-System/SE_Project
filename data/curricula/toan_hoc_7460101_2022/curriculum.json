@@ -1,0 +1,15 @@
+{
+  "program_id": "toan_hoc_7460101_2022",
+  "name": "Toán học (khóa 2022)",
+  "total_credits": 135,
+  "catalog_status": "draft_unverified",
+  "source_file": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+  "source_pages": "8-14",
+  "notes": ["Chưa số hóa toàn bộ bảng học phần; cần đối chiếu từng dòng PDF."],
+  "choice_groups": [
+    {"id": "programming", "name": "Lập trình", "required_credits": 3},
+    {"id": "theoretical_mathematics", "name": "Toán lý thuyết", "required_credits": 15},
+    {"id": "applied_mathematics", "name": "Toán ứng dụng", "required_credits": 15},
+    {"id": "mechanics", "name": "Cơ học", "required_credits": 15}
+  ]
+}
