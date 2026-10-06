@@ -20,6 +20,8 @@ Mở `http://127.0.0.1:8000`; tài liệu API ở `/docs`. Nếu PowerShell ch�
 
 [Bản chia việc 5 người](docs/PHAN_CHIA_CONG_VIEC.md) liên kết tới 5 file đặc tả trong [`modules/`](modules/).
 
+Module chia theo chức năng: Catalog, Hồ sơ/API, Luật, Xếp hạng/LLM và Giao diện. Mỗi người có phần code riêng và một lô nhập dữ liệu khoảng 54–55 dòng; các lô được ghép thành bốn catalog độc lập theo ngành.
+
 Dự án lập kế hoạch hệ gợi ý học phần cho bốn chương trình chuẩn khóa 2022 của Trường Đại học Khoa học Tự nhiên — ĐHQGHN: Toán học, Toán tin, Khoa học máy tính và thông tin, Khoa học dữ liệu.
 
 - [Kế hoạch dự án](KE_HOACH_DU_AN.md)

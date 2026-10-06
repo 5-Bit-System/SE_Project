@@ -1,31 +1,78 @@
 # Bản chia việc cho nhóm 5 người
 
-Nhóm có **5 module**, mỗi module có đúng một file đặc tả trong [`modules/`](../modules/). Điền tên vào cột người nhận khi họp nhóm; trưởng nhóm cũng nhận một module như mọi người và là người review/merge PR. Đây là phân công theo **phạm vi file và đầu ra**, không phải năm người chỉ làm việc riêng lẻ: tất cả cùng review chéo và chạy luồng tổng thể trước demo.
+Mỗi người nhận một phần lập trình, một lô dữ liệu, kiểm thử phần mình và review phần của một bạn khác. Nhóm có **5 module theo chức năng**; bốn catalog vẫn độc lập theo ngành. Điền tên thật vào bảng trước khi tạo nhánh.
 
-| Module | Người nhận | Nhánh | Việc chính | File đặc tả |
+## Phân công lập trình
+
+| Người | Tên | Module và đầu ra chính | File code phụ trách | Nhánh |
 |---|---|---|---|---|
-| 01 — Catalog Toán học + Toán tin | ______ | `feat/catalog-math` | Nhập/đối chiếu đủ hai bảng môn | [01-catalog-math.md](../modules/01-catalog-math.md) |
-| 02 — Catalog KHMTTT + KHDL | ______ | `feat/catalog-cs-ds` | Nhập/đối chiếu đủ hai bảng môn; ghi lỗi nguồn | [02-catalog-cs-ds.md](../modules/02-catalog-cs-ds.md) |
-| 03 — Luật học phần | ______ | `feat/rules` | Tiên quyết, quota, hướng, nhánh tốt nghiệp, lý do loại | [03-rules.md](../modules/03-rules.md) |
-| 04 — Xếp hạng/LLM | ______ | `feat/ranking` | Adapter LLM tùy chọn, kiểm tra mã, fallback, test | [04-ranking-llm.md](../modules/04-ranking-llm.md) |
-| 05 — Giao diện | ______ | `feat/ui` | Chọn ngành, nhập hồ sơ, kết quả, what-if | [05-web-ui.md](../modules/05-web-ui.md) |
+| 1 | ______ | [01 — Catalog](../modules/01-catalog.md): loader, validator, công cụ ghép lô, test dữ liệu | `app/catalog.py`, công cụ mới trong `tools/` | `feat/catalog` |
+| 2 | ______ | [02 — Hồ sơ/API](../modules/02-profile-api.md): validate hồ sơ, ghép luồng gợi ý, guard kết quả, test API | `app/models.py`, `app/main.py`, `app/service.py` | `feat/profile-api` |
+| 3 | ______ | [03 — Luật](../modules/03-rules.md): tiên quyết, quota, hướng, nhánh tốt nghiệp, lý do loại | `app/rules.py` | `feat/rules` |
+| 4 | ______ | [04 — Xếp hạng/LLM](../modules/04-ranking-llm.md): baseline, adapter LLM, timeout, parse kết quả, test mock | `app/ranking.py`, adapter mới | `feat/ranking` |
+| 5 | ______ | [05 — Giao diện](../modules/05-web-ui.md): hồ sơ, kết quả/lý do, what-if, kiểm tra luồng demo | `app/static/` | `feat/ui` |
 
-## Cách phối hợp
+Module 01 xây công cụ dữ liệu cho cả nhóm; mỗi người nhập lô riêng. Module 02 ghép các module bằng code và giữ hợp đồng API. Người giữ quyền merge nhận một trong năm phần trên; các bạn còn lại hỗ trợ review/test trước khi người đó merge.
 
-1. **Ngay sau khi clone:** cả 5 người chạy `python -m pip install -r requirements-dev.txt`, `python -m pytest -q`, `python -m uvicorn app.main:app --reload`; đọc hợp đồng API trong [kế hoạch tổng](TEAM_IMPLEMENTATION_PLAN.md). Mỗi người tạo nhánh của mình từ `main`.
-2. **Song song:** 01–02 số hóa các PDF; 03–05 phát triển trên catalog tổng hợp trong test, không chờ bốn bảng nhập xong. Người 01–02 thống nhất cách ghi AND/OR và nhóm trước khi nhập hàng loạt.
-3. **Đụng file chung:** `app/models.py`, `app/catalog.py`, `app/service.py`, `app/main.py` là điểm tích hợp. Nếu module cần đổi schema/endpoint, người làm nêu thay đổi trong issue/PR nhỏ; trưởng nhóm chốt hợp đồng và merge thay đổi đó trước, rồi các nhánh khác cập nhật `main`. Không tự sửa cùng một file chung ở nhiều nhánh lớn.
-4. **Review chéo:** 01 và 02 kiểm tra một mẫu dữ liệu của nhau; 03 thử luật trên dữ liệu hai ngành; 04 kiểm tra ranker không vượt qua luật; 05 kiểm tra đổi ngành không giữ mã cũ. Sau PR đầu tiên, người 03–05 có thể giúp đối chiếu PDF theo checklist của 01–02 để cân bằng khối lượng.
-5. **Khi gửi PR:** mô tả module/use case, dữ liệu hoặc test đã thêm, cách chạy, ảnh giao diện nếu có, vấn đề còn mở. Trưởng nhóm review, chạy toàn bộ test, thử một luồng thật rồi mới merge vào `main`. Không force-push `main`.
+## Cả năm người cùng nhập toàn bộ khung chương trình
 
-## Thứ tự merge đề xuất
+Theo thống kê bảng nguồn hiện có: Toán học 89 dòng STT, Toán tin 63, KHMTTT 61, KHDL 59, tổng **272 dòng**. Phân công ban đầu như sau:
 
-Schema/contract chung (nếu cần) → catalog 01/02 và rule 03 (có thể merge độc lập khi test đạt) → ranker 04 → UI 05 → PR tích hợp/sửa lỗi. Không đổi `catalog_status` sang `verified` chỉ vì code chạy: phải có kiểm tra đầy đủ bảng học phần theo từng ngành.
+| Người | Phần bảng PDF được nhập | Tổng dòng | Người review lô |
+|---|---|---:|---|
+| 1 | Toán học STT 1–55 | 55 | 5 |
+| 2 | Toán học STT 56–89; Toán tin STT 1–21 | 55 | 1 |
+| 3 | Toán tin STT 22–63; KHMTTT STT 1–12 | 54 | 2 |
+| 4 | KHMTTT STT 13–61; KHDL STT 1–5 | 54 | 3 |
+| 5 | KHDL STT 6–59 | 54 | 4 |
+
+Các khoảng chỉ dùng để chia công việc, không giới hạn số môn của sản phẩm. Một dòng STT có thể chứa nhiều phương án môn; cần nhập đủ mọi phương án. Nếu gặp môn lặp ở một nhóm khác vẫn giữ dòng nguồn để Module 01 hợp nhất sau. Trước khi nhập hàng loạt, cả nhóm kiểm tra STT của PDF và năm dòng mẫu để xác nhận cách ghi. Trang bảng: Toán học PDF 8–14, Toán tin 8–12, KHMTTT/KHDL 9–13.
+
+Số dòng là cách chia ban đầu; dòng khó đọc/tiên quyết phức tạp có thể mất nhiều thời gian hơn. Mỗi buổi họp ngắn, nhóm so khối lượng còn lại và điều chuyển task nhỏ nếu có người đang quá tải. Việc viết tool, test và review/merge đều được tính vào khối lượng, không chỉ số dòng nhập.
+
+## Nhập theo lô để làm trên nhánh riêng
+
+Mỗi người tạo file `data/import_batches/<program_id>/member-0N.json` theo lô được giao. Người phụ trách hai ngành tạo hai file ở hai thư mục ngành; không sửa trực tiếp `courses.json` cuối của cùng một ngành từ nhiều nhánh.
+
+Định dạng lô dưới đây là **hợp đồng cần triển khai** cho công cụ ghép, chưa được loader hiện tại đọc. Mỗi STT nguồn có một mục; danh sách `courses` chứa tất cả phương án môn tại STT đó. Ví dụ giả để hiểu định dạng:
+
+```json
+[
+  {
+    "source_row": 1,
+    "courses": [
+      {
+        "code": "DEMO001",
+        "name": "Môn ví dụ",
+        "credits": 3,
+        "block": "required",
+        "prerequisites": [],
+        "choice_group_ids": [],
+        "source_page": 9
+      }
+    ],
+    "notes": ""
+  }
+]
+```
+
+Module 01 ghép các lô theo từng `program_id`, kiểm tra thiếu/trùng STT và xung đột mã môn. Các ID khối/nhóm, cách ghi AND/OR và trường cần thêm phải được Module 01–02–03 chốt trước khi mọi người nhập hàng loạt. Runtime tiếp tục đọc catalog cuối ở `data/curricula/`. Mỗi lô phải được người khác đối chiếu toàn bộ với PDF; catalog chỉ được chuyển sang `verified` sau khi đủ bảng và review nguồn.
+
+## Cách phối hợp theo mốc
+
+1. **Mốc khởi động:** cả nhóm clone, chạy bản nền; chốt schema và năm dòng mẫu/người. Tạo nhánh theo bảng. Module 01 làm tool ghép tối thiểu, Module 02 chốt interface dùng cho 03–05.
+2. **Mốc làm song song:** mỗi người gửi PR lô dữ liệu riêng và PR code riêng theo task nhỏ. Các module dùng fixture/mock để phát triển trong lúc catalog nhập dở. Mỗi người có test hoặc checklist demo cho phần mình.
+3. **Mốc tích hợp:** ghép lô của cả năm người, rồi Catalog → API → Luật → Xếp hạng → UI. Backend/UI có thể merge sớm với mock; không cần đợi nhập hết bảng mới nộp code.
+4. **Mốc kiểm tra chung:** cả năm người cùng chạy tối thiểu sáu hồ sơ/ngành; chia ca test ngành, lỗi hồ sơ, tiên quyết/quota, lỗi LLM và what-if. Mỗi lỗi có người xử lý cụ thể, mọi người cùng viết phần báo cáo liên quan module mình.
+
+## Quy tắc tránh xung đột
+
+File chung có người chịu trách nhiệm rõ theo bảng. Khi cần đổi interface/schema, người phụ trách gửi PR nhỏ, thông báo các module dùng nó và merge hợp đồng trước. Người khác góp ý hoặc gửi patch phối hợp, thay vì tự sửa cùng file ở nhánh lớn. Review code theo vòng 1 → 2 → 3 → 4 → 5 → 1; trưởng nhóm chốt các quyết định tích hợp và merge.
 
 ## Checklist hoàn thành của mỗi người
 
-- [ ] Đúng phạm vi file của module; file chung đã được cả nhóm chốt.
-- [ ] Có test mới hoặc checklist demo tương ứng tiêu chí nghiệm thu trong file module.
-- [ ] `python -m pytest -q` đạt, không lẫn môn giữa hai `program_id`.
-- [ ] Không commit API key, `.env`, PDF, dữ liệu sinh viên thật.
-- [ ] PR được ít nhất một người khác review trước khi trưởng nhóm merge.
+- [ ] Có phần code chạy được và test/checklist cho module mình.
+- [ ] Nhập đủ lô dữ liệu được giao, giữ trang/STT nguồn và ghi chỗ cần xác minh.
+- [ ] Review code và lô dữ liệu của người kế tiếp; sửa lỗi nhận được từ reviewer.
+- [ ] PR ghi cách kiểm tra; mọi thay đổi interface được cập nhật cho người dùng API.
+- [ ] Tham gia kiểm tra luồng chung và hoàn thành phần báo cáo/demo của mình.

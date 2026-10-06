@@ -13,7 +13,7 @@ Tạo một lớp luật **xác định được và có thể test** để ch�
 ## File phụ trách
 
 - `app/rules.py` và test mới, ví dụ `tests/test_rules.py`.
-- Nếu cần thêm `tracks`/`graduation_paths` vào schema, thống nhất với Module 01–02 và trưởng nhóm trước khi sửa `app/models.py`, `app/catalog.py`, `app/service.py`.
+- Nếu cần thêm `tracks`/`graduation_paths`, chốt cấu trúc với Module 01 và Module 02; Module 02 phụ trách `app/models.py`/`app/service.py`, Module 01 phụ trách loader/catalog.
 
 ## Việc cần làm
 
@@ -30,5 +30,7 @@ Tạo một lớp luật **xác định được và có thể test** để ch�
 - `python -m pytest -q` đạt với các test cũ và mới. PR giải thích thay đổi schema/API nếu có, kèm ví dụ trước–sau.
 
 ## Ranh giới
+
+Người nhận module còn nhập và review lô dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể làm code trước trên fixture tổng hợp. Khi trả kết quả luật hoặc đổi interface, phối hợp Module 02 để ghép vào API; giữ phần kiểm tra luật trong `app/rules.py`.
 
 Không dùng LLM để quyết định tiên quyết hoặc tính tín chỉ. Không suy ra lịch mở môn, điểm số hay quy định công nhận tương đương vì nguồn MVP chưa có các dữ liệu đó.

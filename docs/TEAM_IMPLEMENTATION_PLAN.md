@@ -21,17 +21,9 @@ Bản nền hiện chạy được API, giao diện và bộ lọc/ranker tối 
 
 Bảng phân công để điền tên, nhánh và checklist làm việc nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả chi tiết của **5 module** nằm trong thư mục [`modules/`](../modules/); mỗi module có một file Markdown riêng.
 
-Mỗi người chọn một cột bên dưới và là người chịu trách nhiệm chính. Trưởng nhóm cũng nhận một module như mọi người, đồng thời review/merge PR. Nếu chưa thống nhất tên người, dùng tạm số 1–5 trên bảng công việc, **không** dùng tên nhánh chung cho nhiều người.
+Mỗi người có một module lập trình và một lô nhập dữ liệu khoảng 54–55 dòng nguồn; cả nhóm cùng nhập đủ bốn bảng PDF, review chéo và kiểm thử. Module chia theo chức năng: [Catalog](../modules/01-catalog.md), [Hồ sơ/API](../modules/02-profile-api.md), [Luật](../modules/03-rules.md), [Xếp hạng/LLM](../modules/04-ranking-llm.md), [Giao diện](../modules/05-web-ui.md). Chi tiết phạm vi file, lô dữ liệu và người review chỉ quản lý tại bản phân công để tránh hai bảng lệch nhau.
 
-| Người | Module / nhánh gợi ý | File chính được sửa | Sản phẩm đầu tiên cần nộp |
-|---|---|---|---|
-| 1 | Catalog Toán học + Toán tin / `feat/catalog-math` | `data/curricula/toan_hoc_*/`, `data/curricula/toan_tin_*/` | Nhập đầy đủ hai bảng, nguồn trang, kiểm tra chéo ít nhất 10 dòng/ngành, test tổng hợp |
-| 2 | Catalog KHMTTT + KHDL / `feat/catalog-cs-ds` | `data/curricula/khmtt_*/`, `data/curricula/khdl_*/` | Nhập đầy đủ hai bảng; lập issue cho chênh lệch KHDL 63/57 TC và số quyết định KHMTTT |
-| 3 | Rule engine / `feat/rules` | `app/rules.py`, test rules | Quota nhóm, chọn đúng một hướng, nhánh tốt nghiệp, đếm TC một lần, giải thích vì sao bị loại |
-| 4 | Xếp hạng và LLM / `feat/ranking` | `app/ranking.py`, adapter mới, test ranking | Adapter tùy chọn bằng biến môi trường, chỉ gửi ứng viên hợp lệ; kiểm tra mã trả về, timeout/fallback; không commit API key |
-| 5 | Giao diện + what-if / `feat/ui` | `app/static/`, test giao diện/API | Chọn ngành rõ ràng, xem lý do/cảnh báo, điều chỉnh mục tiêu và so sánh hai lần chạy |
-
-Người 1–2 review chéo ít nhất một phần dữ liệu nhau. Người 3–5 viết test cho module mình. Trưởng nhóm review hợp đồng chung (`app/models.py`, `app/main.py`, `app/service.py`) trước khi ai sửa những file này; thay đổi hợp đồng phải có issue/PR riêng để tránh xung đột.
+Catalog cuối do Module 01 ghép từ file lô riêng của từng người. Module 02 giữ schema, endpoint và service để giảm xung đột; Module 03–05 phối hợp thay đổi hợp đồng qua PR nhỏ. Trưởng nhóm nhận một trong năm module và review/merge sau khi người khác đã kiểm tra PR.
 
 ## Hợp đồng dữ liệu và API đang dùng
 
@@ -67,4 +59,4 @@ Một chương trình là một thư mục `data/curricula/<program_id>/` gồm 
 
 ## Thứ tự tích hợp
 
-Mốc 1: bốn người còn lại clone và chạy bản nền; chốt schema. Mốc 2: hai PR catalog và các unit test rule/ranking/UI có thể chạy song song với dữ liệu giả trong `tests/`. Mốc 3: ghép catalog vào rule engine, thử tối thiểu sáu hồ sơ cho mỗi ngành; đặc biệt môn trùng nhóm, tiên quyết OR/AND, hết quota, chuyển ngành. Mốc 4: bật LLM khi có cấu hình, so với baseline và kiểm tra fallback. Mốc 5: demo, tài liệu, video và kiểm tra không lộ dữ liệu/khóa.
+Mốc 1: cả nhóm clone, chạy bản nền, chốt schema và dòng nhập mẫu. Mốc 2: năm lô nhập dữ liệu và năm phần code chạy song song với fixture/mock; công cụ ghép lô là nhiệm vụ tiếp theo của Module 01. Mốc 3: ghép catalog, API và rule engine, thử tối thiểu sáu hồ sơ cho mỗi ngành; đặc biệt môn trùng nhóm, tiên quyết OR/AND, hết quota, đổi ngành trên UI. Mốc 4: bật LLM khi có cấu hình, so với baseline và kiểm tra fallback/what-if. Mốc 5: cả nhóm cùng kiểm tra demo, tài liệu và video.

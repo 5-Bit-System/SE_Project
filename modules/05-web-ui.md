@@ -13,7 +13,7 @@ Làm luồng demo dễ hiểu cho sinh viên: chọn **một** ngành, khai báo
 ## File phụ trách
 
 - `app/static/index.html`, `app/static/app.js`, `app/static/styles.css`.
-- Test UI/API nếu có; mọi thay đổi endpoint hoặc schema response trong `app/main.py`, `app/models.py`, `app/service.py` cần thống nhất với trưởng nhóm.
+- Test UI/checklist demo. Module 02 phụ trách endpoint/schema trong `app/main.py`, `app/models.py`, `app/service.py`; trao đổi yêu cầu UI với người đó trước khi đổi hợp đồng.
 
 ## Việc cần làm
 
@@ -30,5 +30,7 @@ Làm luồng demo dễ hiểu cho sinh viên: chọn **một** ngành, khai báo
 - PR không đưa thư viện frontend lớn vào nếu chưa trao đổi với nhóm; bản nền hiện chỉ cần HTML/CSS/JavaScript.
 
 ## Ranh giới
+
+Người nhận module còn nhập và review lô dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể phát triển UI bằng mock response trong lúc chờ các module backend; mock chỉ dùng thử, không trở thành catalog của người dùng.
 
 UI chỉ trình bày kết quả backend. Không tính tiên quyết hay quota ở client làm nguồn sự thật; không tự tạo môn hoặc lý do học vụ.
