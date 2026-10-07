@@ -31,6 +31,6 @@ Tạo một lớp luật **xác định được và có thể test** để ch�
 
 ## Ranh giới
 
-Người nhận module còn nhập và review lô dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể làm code trước trên fixture tổng hợp. Khi trả kết quả luật hoặc đổi interface, phối hợp Module 02 để ghép vào API; giữ phần kiểm tra luật trong `app/rules.py`.
+Người nhận module review phần dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể làm code trên fixture tổng hợp và catalog đã số hóa. Khi trả kết quả luật hoặc đổi interface, phối hợp Module 02 để ghép vào API; giữ phần kiểm tra luật trong `app/rules.py`.
 
 Không dùng LLM để quyết định tiên quyết hoặc tính tín chỉ. Không suy ra lịch mở môn, điểm số hay quy định công nhận tương đương vì nguồn MVP chưa có các dữ liệu đó.

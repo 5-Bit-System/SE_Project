@@ -87,5 +87,7 @@ def test_http_contract():
     assert client.get("/courses", params={"program_id": "unknown"}).status_code == 404
     response = client.post("/recommendations", json={"program_id": "toan_hoc_7460101_2022"})
     assert response.status_code == 200
-    assert response.json()["recommendations"] == []
+    assert response.json()["recommendations"]
+    allowed = {course["code"] for course in client.get("/courses", params={"program_id": "toan_hoc_7460101_2022"}).json()}
+    assert all(course["code"] in allowed for course in response.json()["recommendations"])
     assert response.json()["warnings"]

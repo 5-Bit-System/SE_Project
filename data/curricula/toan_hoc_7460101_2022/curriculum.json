@@ -5,11 +5,531 @@
   "catalog_status": "draft_unverified",
   "source_file": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
   "source_pages": "8-14",
-  "notes": ["Chưa số hóa toàn bộ bảng học phần; cần đối chiếu từng dòng PDF."],
+  "notes": [
+    "Đã chuyển toàn bộ bảng Khung chương trình đào tạo sang JSON; cần review chéo các điểm nguồn trước khi dùng tư vấn học vụ.",
+    "Môn có cùng mã giữa các ngành được lưu độc lập; không tự sửa mã hoặc số liệu trong PDF.",
+    "Tóm tắt ghi 15/36 TC tự chọn; bảng chi tiết có ba hướng 15/39, 15/48 và 15/36. Lưu cả tóm tắt và từng hướng."
+  ],
   "choice_groups": [
-    {"id": "programming", "name": "Lập trình", "required_credits": 3},
-    {"id": "theoretical_mathematics", "name": "Toán lý thuyết", "required_credits": 15},
-    {"id": "applied_mathematics", "name": "Toán ứng dụng", "required_credits": 15},
-    {"id": "mechanics", "name": "Cơ học", "required_credits": 15}
+    {
+      "id": "foreign_language_b1",
+      "name": "Ngoại ngữ B1",
+      "required_credits": 5,
+      "listed_credits": 35,
+      "selection_mode": "exactly_one_course",
+      "source_credit_expression": "5/35",
+      "source_page": 8,
+      "source_rows": [
+        8
+      ],
+      "course_codes": [
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707"
+      ]
+    },
+    {
+      "id": "field_electives",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "listed_credits": 13,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "5/13",
+      "source_page": 9,
+      "source_rows": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HIS1056"
+      ]
+    },
+    {
+      "id": "programming",
+      "name": "Lập trình",
+      "required_credits": 3,
+      "listed_credits": 12,
+      "selection_mode": "exactly_one_course",
+      "source_credit_expression": "3/12",
+      "source_page": 10,
+      "source_rows": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "course_codes": [
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ]
+    },
+    {
+      "id": "theoretical_mathematics",
+      "name": "Toán lý thuyết",
+      "required_credits": 15,
+      "listed_credits": 39,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "15/39",
+      "source_page": 11,
+      "source_rows": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "course_codes": [
+        "MAT3339",
+        "MAT3310",
+        "MAT3311",
+        "MAT3313",
+        "MAT3317",
+        "MAT3318",
+        "MAT3345",
+        "MAT3321",
+        "MAT3322",
+        "MAT3323",
+        "MAT3324",
+        "MAT3325",
+        "MAT3326"
+      ]
+    },
+    {
+      "id": "applied_mathematics",
+      "name": "Toán ứng dụng",
+      "required_credits": 15,
+      "listed_credits": 48,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "15/48",
+      "source_page": 12,
+      "source_rows": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "course_codes": [
+        "MAT3327",
+        "MAT3370",
+        "MAT3329",
+        "MAT3360",
+        "MAT3323",
+        "MAT3322",
+        "MAT3452",
+        "MAT3321",
+        "MAT3333",
+        "MAT3334",
+        "MAT3335",
+        "MAT3539",
+        "MAT3324",
+        "MAT3345",
+        "MAT3325",
+        "MAT3337"
+      ]
+    },
+    {
+      "id": "mechanics",
+      "name": "Cơ học",
+      "required_credits": 15,
+      "listed_credits": 36,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "15/36",
+      "source_page": 13,
+      "source_rows": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "course_codes": [
+        "MAT3401",
+        "MAT3361",
+        "MAT3423",
+        "MAT3396",
+        "MAT3406",
+        "MAT3407",
+        "MAT3408",
+        "MAT3411",
+        "MAT3412",
+        "MAT3413",
+        "MAT3415",
+        "MAT3418"
+      ]
+    }
+  ],
+  "schema_version": "1.1",
+  "source_sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+  "source_summary_page": 7,
+  "digitization": {
+    "status": "complete",
+    "date": "2026-10-07",
+    "method": "manual_visual_transcription",
+    "numbered_source_rows": 89,
+    "unnumbered_course_rows": 1,
+    "source_course_entries": 96,
+    "unique_course_codes": 90,
+    "review_status": "pending_peer_review"
+  },
+  "blocks": [
+    {
+      "id": "general",
+      "name": "Khối kiến thức chung",
+      "required_credits": 21,
+      "course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011",
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707",
+        "CME1000",
+        "PES1000",
+        "HUS1012"
+      ],
+      "required_course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011"
+      ]
+    },
+    {
+      "id": "field",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HIS1056"
+      ],
+      "required_course_codes": []
+    },
+    {
+      "id": "discipline",
+      "name": "Khối kiến thức theo khối ngành",
+      "required_credits": 3,
+      "course_codes": [
+        "MAT1076"
+      ],
+      "required_course_codes": [
+        "MAT1076"
+      ]
+    },
+    {
+      "id": "group",
+      "name": "Khối kiến thức theo nhóm ngành",
+      "required_credits": 51,
+      "course_codes": [
+        "MAT2300",
+        "MAT2301",
+        "MAT2302",
+        "MAT2303",
+        "MAT2304",
+        "MAT2314",
+        "MAT2306",
+        "MAT2307",
+        "MAT2308",
+        "MAT2407",
+        "MAT2310",
+        "MAT2311",
+        "MAT2315",
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ],
+      "required_course_codes": [
+        "MAT2300",
+        "MAT2301",
+        "MAT2302",
+        "MAT2303",
+        "MAT2304",
+        "MAT2314",
+        "MAT2306",
+        "MAT2307",
+        "MAT2308",
+        "MAT2407",
+        "MAT2310",
+        "MAT2311",
+        "MAT2315"
+      ]
+    },
+    {
+      "id": "major",
+      "name": "Khối kiến thức ngành",
+      "required_credits": 55,
+      "course_codes": [
+        "MAT3300",
+        "MAT3301",
+        "MAT3302",
+        "MAT3344",
+        "MAT3304",
+        "MAT3305",
+        "MAT3306",
+        "MAT3307",
+        "MAT3347",
+        "MAT3359",
+        "MAT3339",
+        "MAT3310",
+        "MAT3311",
+        "MAT3313",
+        "MAT3317",
+        "MAT3318",
+        "MAT3345",
+        "MAT3321",
+        "MAT3322",
+        "MAT3323",
+        "MAT3324",
+        "MAT3325",
+        "MAT3326",
+        "MAT3327",
+        "MAT3370",
+        "MAT3329",
+        "MAT3360",
+        "MAT3452",
+        "MAT3333",
+        "MAT3334",
+        "MAT3335",
+        "MAT3539",
+        "MAT3337",
+        "MAT3401",
+        "MAT3361",
+        "MAT3423",
+        "MAT3396",
+        "MAT3406",
+        "MAT3407",
+        "MAT3408",
+        "MAT3411",
+        "MAT3412",
+        "MAT3413",
+        "MAT3415",
+        "MAT3418",
+        "MAT4070",
+        "MAT4071",
+        "MAT4072",
+        "MAT3362",
+        "MAT3422"
+      ],
+      "required_course_codes": [
+        "MAT3300",
+        "MAT3301",
+        "MAT3302",
+        "MAT3344",
+        "MAT3304",
+        "MAT3305",
+        "MAT3306",
+        "MAT3307",
+        "MAT3347",
+        "MAT3359"
+      ]
+    }
+  ],
+  "major_credit_structure": {
+    "required": 33,
+    "elective": 15,
+    "graduation": 7,
+    "source_elective_credit_expression": "15/36"
+  },
+  "track_selection": {
+    "mode": "exactly_one_track",
+    "tracks": [
+      {
+        "id": "theoretical_mathematics",
+        "name": "Toán lý thuyết",
+        "choice_group_ids": [
+          "theoretical_mathematics"
+        ]
+      },
+      {
+        "id": "applied_mathematics",
+        "name": "Toán ứng dụng",
+        "choice_group_ids": [
+          "applied_mathematics"
+        ]
+      },
+      {
+        "id": "mechanics",
+        "name": "Cơ học",
+        "choice_group_ids": [
+          "mechanics"
+        ]
+      }
+    ]
+  },
+  "graduation_selection": {
+    "mode": "exactly_one_path",
+    "required_credits": 7,
+    "paths": [
+      {
+        "id": "thesis",
+        "name": "Khóa luận tốt nghiệp",
+        "course_codes": [
+          "MAT4070"
+        ],
+        "allowed_track_ids": []
+      },
+      {
+        "id": "replacement_math",
+        "name": "Học phần thay thế — Toán lý thuyết / Toán ứng dụng",
+        "course_codes": [
+          "MAT4071",
+          "MAT4072"
+        ],
+        "allowed_track_ids": [
+          "theoretical_mathematics",
+          "applied_mathematics"
+        ]
+      },
+      {
+        "id": "replacement_mechanics",
+        "name": "Học phần thay thế — Cơ học",
+        "course_codes": [
+          "MAT3362",
+          "MAT3422"
+        ],
+        "allowed_track_ids": [
+          "mechanics"
+        ]
+      }
+    ]
+  },
+  "excluded_from_total": [
+    "CME1000",
+    "PES1000",
+    "HUS1012"
+  ],
+  "count_once": true,
+  "prerequisite_notation": {
+    "slash": "OR",
+    "separate_lines_without_slash": "AND",
+    "parentheses": "Preserved; converted to AND-of-OR clauses without changing logical meaning",
+    "external_references": "Kept as printed; not automatically matched to another program"
+  },
+  "source_issues": [
+    {
+      "id": "external_prerequisites",
+      "kind": "external_reference",
+      "source_pages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "course_codes": [
+        "MAT2314",
+        "MAT2308",
+        "MAT2407",
+        "MAT2310",
+        "MAT3300",
+        "MAT3344",
+        "MAT3306",
+        "MAT3307",
+        "MAT3359",
+        "MAT3339",
+        "MAT3313",
+        "MAT3317",
+        "MAT3323",
+        "MAT3325",
+        "MAT3327",
+        "MAT3370",
+        "MAT3452",
+        "MAT3333",
+        "MAT3334",
+        "MAT3539",
+        "MAT3423",
+        "MAT4072"
+      ],
+      "referenced_codes": [
+        "MAT1202",
+        "MAT2313",
+        "MAT2320",
+        "MAT2321",
+        "MAT2322",
+        "MAT2323",
+        "MAT2400",
+        "MAT2404",
+        "MAT2405",
+        "MAT2406",
+        "MAT2502",
+        "MAT3340",
+        "MAT3365",
+        "MAT3402",
+        "MAT3500",
+        "MAT3507"
+      ],
+      "message": "Các mã này có trong cột tiên quyết nhưng không nằm trong bảng môn của chính ngành; giữ nguyên, cần xác minh tương đương với đơn vị đào tạo."
+    },
+    {
+      "id": "prerequisites_MAT3325",
+      "kind": "prerequisite_conflict",
+      "source_pages": [
+        12,
+        13
+      ],
+      "source_rows": [
+        56,
+        72
+      ],
+      "course_codes": [
+        "MAT3325"
+      ],
+      "message": "Cùng mã môn nhưng tiên quyết khác nhau giữa các dòng nguồn. prerequisites giữ bản đầu để truy vết; prerequisite_variants giữ mọi bản. Chưa xác minh điều kiện dùng để tư vấn."
+    }
   ]
 }

@@ -2,7 +2,7 @@
 
 ## Trạng thái bản nền
 
-Bản nền hiện chạy được API, giao diện và bộ lọc/ranker tối thiểu. Bốn chương trình được khai báo **riêng** bằng `program_id`. Các file `courses.json` còn rỗng; chưa có hệ thống nào được phép coi đây là catalog hoàn chỉnh. Dữ liệu giả chỉ nằm trong `tests/`, không đi vào gợi ý thật. Chưa tích hợp LLM, chưa xử lý đủ hướng chuyên sâu, nhánh tốt nghiệp, công nhận tương đương hay tiến độ toàn khóa. Mốc đầu của nhóm là chạy được code, thống nhất hợp đồng dữ liệu/API và bắt đầu số hóa đầy đủ bốn bảng PDF.
+Bản nền chạy được API, giao diện và bộ lọc/ranker tối thiểu. Bốn chương trình được lưu **riêng** bằng `program_id`. Đã số hóa đầy đủ bảng nguồn thành 290 bản ghi theo ngành, gồm dữ liệu gốc từng dòng và catalog được sinh tự động; xem [data/README.md](../data/README.md). Catalog đang chờ review chéo các ghi chú nguồn. Chưa tích hợp LLM hoặc xử lý đủ hướng chuyên sâu, nhánh tốt nghiệp, công nhận tương đương hay tiến độ toàn khóa.
 
 ## Use case và tiêu chí nghiệm thu
 
@@ -15,19 +15,19 @@ Bản nền hiện chạy được API, giao diện và bộ lọc/ranker tối 
 | UC05 | Nhận thứ tự ưu tiên | LLM chỉ thấy tập ứng viên hợp lệ; lỗi/không cấu hình thì dùng baseline | `app/ranking.py`, `app/service.py` | Chỉ có baseline |
 | UC06 | Xem lý do | Lý do phải bám dữ liệu/rule; không khẳng định chắc phù hợp nếu catalog nháp | `app/service.py`, `app/static/` | Lý do chung, cần làm tiếp |
 | UC07 | Thử thay đổi mục tiêu/môn đã qua (what-if) | Chạy lại, so sánh kết quả nhưng không sửa catalog | `app/static/`, `app/service.py` | Có thể chạy lại; chưa có so sánh |
-| UC08 | Quản trị/kiểm tra catalog | Đối chiếu đủ từng dòng bảng môn, mã, TC, tiên quyết, nhóm, trang PDF; báo lỗi nguồn | `data/curricula/`, `app/catalog.py`, `tests/` | Chưa số hóa |
+| UC08 | Quản trị/kiểm tra catalog | Đối chiếu đủ từng dòng bảng môn, mã, TC, tiên quyết, nhóm, trang PDF; báo lỗi nguồn | `data/curricula/`, `app/catalog.py`, `tools/build_catalogs.py`, `tests/` | Đã số hóa/kiểm tra cấu trúc; chờ review chéo |
 
 ## Giao việc để làm song song
 
 Bảng phân công để điền tên, nhánh và checklist làm việc nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả chi tiết của **5 module** nằm trong thư mục [`modules/`](../modules/); mỗi module có một file Markdown riêng.
 
-Mỗi người có một module lập trình và một lô nhập dữ liệu khoảng 54–55 dòng nguồn; cả nhóm cùng nhập đủ bốn bảng PDF, review chéo và kiểm thử. Module chia theo chức năng: [Catalog](../modules/01-catalog.md), [Hồ sơ/API](../modules/02-profile-api.md), [Luật](../modules/03-rules.md), [Xếp hạng/LLM](../modules/04-ranking-llm.md), [Giao diện](../modules/05-web-ui.md). Chi tiết phạm vi file, lô dữ liệu và người review chỉ quản lý tại bản phân công để tránh hai bảng lệch nhau.
+Mỗi người có một module lập trình và một phần dữ liệu khoảng 54–56 dòng nguồn để review; công việc nhập bảng đã xong. Module chia theo chức năng: [Catalog](../modules/01-catalog.md), [Hồ sơ/API](../modules/02-profile-api.md), [Luật](../modules/03-rules.md), [Xếp hạng/LLM](../modules/04-ranking-llm.md), [Giao diện](../modules/05-web-ui.md). Chi tiết phạm vi file và người review chỉ quản lý tại bản phân công để tránh hai bảng lệch nhau.
 
-Catalog cuối do Module 01 ghép từ file lô riêng của từng người. Module 02 giữ schema, endpoint và service để giảm xung đột; Module 03–05 phối hợp thay đổi hợp đồng qua PR nhỏ. Trưởng nhóm nhận một trong năm module và review/merge sau khi người khác đã kiểm tra PR.
+Catalog cuối được sinh từ bản chép `source_rows.json` và metadata `curriculum.json`; Module 01 phụ trách công cụ/kiểm tra dữ liệu. Module 02 giữ schema, endpoint và service để giảm xung đột; Module 03–05 phối hợp thay đổi hợp đồng qua PR nhỏ. Trưởng nhóm nhận một trong năm module và review/merge sau khi người khác đã kiểm tra PR.
 
 ## Hợp đồng dữ liệu và API đang dùng
 
-Một chương trình là một thư mục `data/curricula/<program_id>/` gồm `curriculum.json` và `courses.json`. Ví dụ **giả dùng để hiểu schema**, không chép nguyên vào catalog chính thức:
+Một chương trình là một thư mục `data/curricula/<program_id>/` gồm `curriculum.json`, `courses.json` và `source_rows.json`. Ví dụ **giả dùng để hiểu các trường cốt lõi**, không chép nguyên vào catalog chính thức:
 
 ```json
 {
@@ -59,4 +59,4 @@ Một chương trình là một thư mục `data/curricula/<program_id>/` gồm 
 
 ## Thứ tự tích hợp
 
-Mốc 1: cả nhóm clone, chạy bản nền, chốt schema và dòng nhập mẫu. Mốc 2: năm lô nhập dữ liệu và năm phần code chạy song song với fixture/mock; công cụ ghép lô là nhiệm vụ tiếp theo của Module 01. Mốc 3: ghép catalog, API và rule engine, thử tối thiểu sáu hồ sơ cho mỗi ngành; đặc biệt môn trùng nhóm, tiên quyết OR/AND, hết quota, đổi ngành trên UI. Mốc 4: bật LLM khi có cấu hình, so với baseline và kiểm tra fallback/what-if. Mốc 5: cả nhóm cùng kiểm tra demo, tài liệu và video.
+Mốc 1: cả nhóm clone, chạy bản nền, kiểm tra dữ liệu đã số hóa và chốt interface. Mốc 2: năm phần review dữ liệu và năm phần code chạy song song với fixture/mock. Mốc 3: ghép catalog, API và rule engine, thử tối thiểu sáu hồ sơ cho mỗi ngành; đặc biệt môn trùng nhóm, tiên quyết OR/AND, hết quota, đổi ngành trên UI. Mốc 4: bật LLM khi có cấu hình, so với baseline và kiểm tra fallback/what-if. Mốc 5: cả nhóm cùng kiểm tra demo, tài liệu và video.

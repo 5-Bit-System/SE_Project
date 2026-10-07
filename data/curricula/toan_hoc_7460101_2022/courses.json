@@ -1,1 +1,3538 @@
-[]
+[
+  {
+    "code": "PHI1006",
+    "name": "Triết học Mác - Lênin",
+    "name_en": "Marxist - Leninist Philosophy",
+    "credits": 3,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 42,
+      "practice": 6,
+      "self_study": 102
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      1
+    ]
+  },
+  {
+    "code": "PEC1008",
+    "name": "Kinh tế chính trị Mác - Lênin",
+    "name_en": "Marxist-Leninist Political Economy",
+    "credits": 2,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 0,
+      "self_study": 70
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "PHI1006"
+      ]
+    ],
+    "prerequisites_raw": "PHI1006",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "PHI1006"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      2
+    ]
+  },
+  {
+    "code": "PHI1002",
+    "name": "Chủ nghĩa xã hội khoa học",
+    "name_en": "Scientific socialism",
+    "credits": 2,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 28,
+      "practice": 4,
+      "self_study": 68
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "PHI1006"
+      ]
+    ],
+    "prerequisites_raw": "PHI1006",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "PHI1006"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      3
+    ]
+  },
+  {
+    "code": "HIS1001",
+    "name": "Lịch sử Đảng Cộng sản Việt Nam",
+    "name_en": "History of Vietnamese Communist Party",
+    "credits": 2,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 28,
+      "practice": 4,
+      "self_study": 68
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      4
+    ]
+  },
+  {
+    "code": "POL1001",
+    "name": "Tư tưởng Hồ Chí Minh",
+    "name_en": "Ho Chi Minh's Ideology",
+    "credits": 2,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 28,
+      "practice": 4,
+      "self_study": 68
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      5
+    ]
+  },
+  {
+    "code": "THL1057",
+    "name": "Nhà nước và pháp luật đại cương",
+    "name_en": "General State and Law",
+    "credits": 2,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 0,
+      "self_study": 70
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      6
+    ]
+  },
+  {
+    "code": "HUS1011",
+    "name": "Tin học cơ sở",
+    "name_en": "General to Informatics",
+    "credits": 3,
+    "block": "general",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 10,
+      "practice": 40,
+      "self_study": 100
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      7
+    ]
+  },
+  {
+    "code": "FLF1107",
+    "name": "Tiếng Anh B1",
+    "name_en": "English B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1207",
+    "name": "Tiếng Nga B1",
+    "name_en": "Russian B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1307",
+    "name": "Tiếng Pháp B1",
+    "name_en": "French B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1407",
+    "name": "Tiếng Trung Quốc B1",
+    "name_en": "Chinese B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1507",
+    "name": "Tiếng Đức B1",
+    "name_en": "German B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1607",
+    "name": "Tiếng Nhật Bản B1",
+    "name_en": "Japanese B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "FLF1707",
+    "name": "Tiếng Hàn Quốc B1",
+    "name_en": "Korean B1",
+    "credits": 5,
+    "block": "general",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 25,
+      "practice": 50,
+      "self_study": 175
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "foreign_language_b1"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 8,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "CME1000",
+    "name": "Giáo dục quốc phòng-an ninh",
+    "name_en": "National Defence Education",
+    "credits": 8,
+    "block": "general",
+    "requirement_type": "required_excluded",
+    "counted_in_total": false,
+    "hours": null,
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      9
+    ]
+  },
+  {
+    "code": "PES1000",
+    "name": "Giáo dục thể chất",
+    "name_en": "Physical Education",
+    "credits": 4,
+    "block": "general",
+    "requirement_type": "required_excluded",
+    "counted_in_total": false,
+    "hours": null,
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      10
+    ]
+  },
+  {
+    "code": "HUS1012",
+    "name": "Kỹ năng bổ trợ",
+    "name_en": "Soft skills",
+    "credits": 3,
+    "block": "general",
+    "requirement_type": "required_excluded",
+    "counted_in_total": false,
+    "hours": {
+      "lecture": 31,
+      "practice": 14,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      11
+    ]
+  },
+  {
+    "code": "HUS1021",
+    "name": "Khoa học Trái Đất và sự sống",
+    "name_en": "Earth and Life Sciences",
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 33,
+      "practice": 24,
+      "self_study": 93
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "field_electives"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      12
+    ]
+  },
+  {
+    "code": "HUS1022",
+    "name": "Nhập môn Internet kết nối vạn vật",
+    "name_en": "Introduction to Internet of Things",
+    "credits": 2,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 24,
+      "practice": 12,
+      "self_study": 64
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "field_electives"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      13
+    ]
+  },
+  {
+    "code": "HUS1023",
+    "name": "Nhập môn phân tích dữ liệu",
+    "name_en": "Introduction to Data Analysis",
+    "credits": 2,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 20,
+      "practice": 20,
+      "self_study": 60
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "field_electives"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      14
+    ]
+  },
+  {
+    "code": "HUS1024",
+    "name": "Nhập môn Robotic",
+    "name_en": "Introduction to Robotics",
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 20,
+      "self_study": 100
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "field_electives"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      15
+    ]
+  },
+  {
+    "code": "HIS1056",
+    "name": "Cơ sở văn hóa Việt Nam",
+    "name_en": "Introduction to Vietnamese Culture",
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 42,
+      "practice": 6,
+      "self_study": 102
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "field_electives"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      16
+    ]
+  },
+  {
+    "code": "MAT1076",
+    "name": "Cơ học lý thuyết",
+    "name_en": "Theoretical Mechanics",
+    "credits": 3,
+    "block": "discipline",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2302"
+      ]
+    ],
+    "prerequisites_raw": "MAT2302",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2302"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      17
+    ]
+  },
+  {
+    "code": "MAT2300",
+    "name": "Đại số tuyến tính 1",
+    "name_en": "Linear Algebra 1",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      18
+    ]
+  },
+  {
+    "code": "MAT2301",
+    "name": "Đại số tuyến tính 2",
+    "name_en": "Linear Algebra 2",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2300"
+      ]
+    ],
+    "prerequisites_raw": "MAT2300",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2300"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      19
+    ]
+  },
+  {
+    "code": "MAT2302",
+    "name": "Giải tích 1",
+    "name_en": "Analysis 1",
+    "credits": 5,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 60,
+      "self_study": 145
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      20
+    ]
+  },
+  {
+    "code": "MAT2303",
+    "name": "Giải tích 2",
+    "name_en": "Analysis 2",
+    "credits": 5,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 60,
+      "self_study": 145
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2302"
+      ]
+    ],
+    "prerequisites_raw": "MAT2302",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2302"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      21
+    ]
+  },
+  {
+    "code": "MAT2304",
+    "name": "Giải tích 3",
+    "name_en": "Analysis 3",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 40,
+      "practice": 40,
+      "self_study": 120
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2303"
+      ]
+    ],
+    "prerequisites_raw": "MAT2303",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2303"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      22
+    ]
+  },
+  {
+    "code": "MAT2314",
+    "name": "Phương trình vi phân",
+    "name_en": "Differential Equations",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321"
+      ],
+      [
+        "MAT2301",
+        "MAT2303"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321\nMAT2303",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321"
+        ],
+        [
+          "MAT2301",
+          "MAT2303"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 9,
+    "source_rows": [
+      23
+    ]
+  },
+  {
+    "code": "MAT2306",
+    "name": "Phương trình đạo hàm riêng 1",
+    "name_en": "Partial Differential Equations 1",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2304"
+      ],
+      [
+        "MAT2314"
+      ]
+    ],
+    "prerequisites_raw": "MAT2304\nMAT2314",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2304"
+        ],
+        [
+          "MAT2314"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      24
+    ]
+  },
+  {
+    "code": "MAT2307",
+    "name": "Giải tích số 1",
+    "name_en": "Numerical Analysis 1",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ],
+      [
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314\nMAT2316/\nMAT2505/\nMAT2318/\nMAT2319",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ],
+        [
+          "MAT2316",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      25
+    ]
+  },
+  {
+    "code": "MAT2308",
+    "name": "Xác suất 1",
+    "name_en": "Probability 1",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2300",
+        "MAT2320"
+      ],
+      [
+        "MAT2300",
+        "MAT2302"
+      ]
+    ],
+    "prerequisites_raw": "MAT2300/\nMAT2320\nMAT2302",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2300",
+          "MAT2320"
+        ],
+        [
+          "MAT2300",
+          "MAT2302"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2320"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      26
+    ]
+  },
+  {
+    "code": "MAT2407",
+    "name": "Tối ưu hóa",
+    "name_en": "Optimization",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321",
+        "MAT2400",
+        "MAT2502"
+      ],
+      [
+        "MAT2301",
+        "MAT2321",
+        "MAT2303",
+        "MAT2502"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2400",
+          "MAT2502"
+        ],
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2303",
+          "MAT2502"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321",
+      "MAT2400",
+      "MAT2502"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      27
+    ]
+  },
+  {
+    "code": "MAT2310",
+    "name": "Hình học giải tích",
+    "name_en": "Analytic Geometry",
+    "credits": 2,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 20,
+      "practice": 20,
+      "self_study": 60
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      28
+    ]
+  },
+  {
+    "code": "MAT2311",
+    "name": "Thống kê ứng dụng",
+    "name_en": "Applied Statistics",
+    "credits": 4,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2308"
+      ]
+    ],
+    "prerequisites_raw": "MAT2308",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2308"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      29
+    ]
+  },
+  {
+    "code": "MAT2315",
+    "name": "Phương pháp nghiên cứu khoa học",
+    "name_en": "Research Methodology",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": 60,
+      "self_study": 75
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      30
+    ]
+  },
+  {
+    "code": "MAT2316",
+    "name": "Lập trình C/C++",
+    "name_en": "C/C++ Programming",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 22,
+      "practice": 46,
+      "self_study": 82
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "HUS1011"
+      ]
+    ],
+    "prerequisites_raw": "HUS1011",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "HUS1011"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "programming"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      31
+    ]
+  },
+  {
+    "code": "MAT2505",
+    "name": "Lập trình cơ bản",
+    "name_en": "Introduction to Programming",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 22,
+      "practice": 46,
+      "self_study": 82
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "HUS1011"
+      ]
+    ],
+    "prerequisites_raw": "HUS1011",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "HUS1011"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "programming"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      32
+    ]
+  },
+  {
+    "code": "MAT2318",
+    "name": "Lập trình Python",
+    "name_en": "Python Programming",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 22,
+      "practice": 46,
+      "self_study": 82
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "HUS1011"
+      ]
+    ],
+    "prerequisites_raw": "HUS1011",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "HUS1011"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "programming"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      33
+    ]
+  },
+  {
+    "code": "MAT2319",
+    "name": "Lập trình Julia",
+    "name_en": "Julia Programming",
+    "credits": 3,
+    "block": "group",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 22,
+      "practice": 46,
+      "self_study": 82
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "HUS1011"
+      ]
+    ],
+    "prerequisites_raw": "HUS1011",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "HUS1011"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "programming"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      34
+    ]
+  },
+  {
+    "code": "MAT3300",
+    "name": "Đại số đại cương",
+    "name_en": "Abstract Algebra",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      35
+    ]
+  },
+  {
+    "code": "MAT3301",
+    "name": "Giải tích hàm",
+    "name_en": "Functional Analysis",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301"
+      ],
+      [
+        "MAT2304"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301\nMAT2304",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301"
+        ],
+        [
+          "MAT2304"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      36
+    ]
+  },
+  {
+    "code": "MAT3302",
+    "name": "Toán rời rạc",
+    "name_en": "Discrete Mathematics",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 10,
+    "source_rows": [
+      37
+    ]
+  },
+  {
+    "code": "MAT3344",
+    "name": "Giải tích phức",
+    "name_en": "Complex Analysis",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321",
+        "MAT2322"
+      ],
+      [
+        "MAT2301",
+        "MAT2304",
+        "MAT2322"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321\nMAT2304/\nMAT2322",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2322"
+        ],
+        [
+          "MAT2301",
+          "MAT2304",
+          "MAT2322"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321",
+      "MAT2322"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      38
+    ]
+  },
+  {
+    "code": "MAT3304",
+    "name": "Thực hành tính toán",
+    "name_en": "Practicum in Computing",
+    "credits": 2,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": 30,
+      "self_study": 55
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2307"
+      ]
+    ],
+    "prerequisites_raw": "MAT2307",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2307"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      39
+    ]
+  },
+  {
+    "code": "MAT3305",
+    "name": "Tôpô đại cương",
+    "name_en": "General Topology",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2302"
+      ]
+    ],
+    "prerequisites_raw": "MAT2302",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2302"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      40
+    ]
+  },
+  {
+    "code": "MAT3306",
+    "name": "Cơ sở hình học vi phân",
+    "name_en": "Introduction to Differential Geometry",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2300",
+        "MAT2320"
+      ],
+      [
+        "MAT2300",
+        "MAT3305"
+      ]
+    ],
+    "prerequisites_raw": "MAT2300/\nMAT2320\nMAT3305",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2300",
+          "MAT2320"
+        ],
+        [
+          "MAT2300",
+          "MAT3305"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2320"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      41
+    ]
+  },
+  {
+    "code": "MAT3307",
+    "name": "Lý thuyết độ đo và tích phân",
+    "name_en": "Measure and Integration theory",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2304",
+        "MAT2322"
+      ]
+    ],
+    "prerequisites_raw": "MAT2304/\nMAT2322",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2304",
+          "MAT2322"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2322"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      42
+    ]
+  },
+  {
+    "code": "MAT3347",
+    "name": "Lý thuyết Galois",
+    "name_en": "Galois theory",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 60,
+      "practice": 0,
+      "self_study": 140
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3300"
+      ]
+    ],
+    "prerequisites_raw": "MAT3300",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3300"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      43
+    ]
+  },
+  {
+    "code": "MAT3359",
+    "name": "Thực tập chuyên ngành",
+    "name_en": "Professional internship",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": 60,
+      "self_study": 75
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT1202",
+        "MAT3304"
+      ],
+      [
+        "MAT3507",
+        "MAT3304"
+      ]
+    ],
+    "prerequisites_raw": "(MAT1202\nMAT3507)/\nMAT3304",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT1202",
+          "MAT3304"
+        ],
+        [
+          "MAT3507",
+          "MAT3304"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT1202",
+      "MAT3507"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      44
+    ]
+  },
+  {
+    "code": "MAT3339",
+    "name": "Đại số tuyến tính 3",
+    "name_en": "Linear Algebra 3",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321"
+    ],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      45
+    ]
+  },
+  {
+    "code": "MAT3310",
+    "name": "Cơ sở tôpô đại số",
+    "name_en": "Introduction to Algebraic Topology",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3300"
+      ],
+      [
+        "MAT3305"
+      ]
+    ],
+    "prerequisites_raw": "MAT3300\nMAT3305",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3300"
+        ],
+        [
+          "MAT3305"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      46
+    ]
+  },
+  {
+    "code": "MAT3311",
+    "name": "Lý thuyết nhóm và biểu diễn nhóm",
+    "name_en": "Theory of Groups and Group Representations",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3300"
+      ]
+    ],
+    "prerequisites_raw": "MAT3300",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3300"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      47
+    ]
+  },
+  {
+    "code": "MAT3313",
+    "name": "Lý thuyết số",
+    "name_en": "Number Theory",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2321",
+        "MAT2322"
+      ],
+      [
+        "MAT2301",
+        "MAT2304",
+        "MAT2322"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2321\nMAT2304/\nMAT2322",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2322"
+        ],
+        [
+          "MAT2301",
+          "MAT2304",
+          "MAT2322"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2321",
+      "MAT2322"
+    ],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      48
+    ]
+  },
+  {
+    "code": "MAT3317",
+    "name": "Phương trình đạo hàm riêng 2",
+    "name_en": "Partial Differential Equations 2",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3301",
+        "MAT3340"
+      ],
+      [
+        "MAT3301",
+        "MAT3307"
+      ]
+    ],
+    "prerequisites_raw": "MAT3301/\nMAT3340\nMAT3307",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3301",
+          "MAT3340"
+        ],
+        [
+          "MAT3301",
+          "MAT3307"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT3340"
+    ],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      49
+    ]
+  },
+  {
+    "code": "MAT3318",
+    "name": "Giải tích trên đa tạp",
+    "name_en": "Analysis on Manifolds",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3339"
+      ],
+      [
+        "MAT3305"
+      ]
+    ],
+    "prerequisites_raw": "MAT3339\nMAT3305",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3339"
+        ],
+        [
+          "MAT3305"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      50
+    ]
+  },
+  {
+    "code": "MAT3345",
+    "name": "Lý thuyết ổn định của phương trình vi phân",
+    "name_en": "Stability theory of Differential Equations",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 11,
+    "source_rows": [
+      51,
+      71
+    ]
+  },
+  {
+    "code": "MAT3321",
+    "name": "Quá trình ngẫu nhiên",
+    "name_en": "Stochastic Processes",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2311"
+      ]
+    ],
+    "prerequisites_raw": "MAT2311",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2311"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      52,
+      65
+    ]
+  },
+  {
+    "code": "MAT3322",
+    "name": "Xác suất 2",
+    "name_en": "Probability 2",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2308"
+      ],
+      [
+        "MAT3307"
+      ]
+    ],
+    "prerequisites_raw": "MAT2308\nMAT3307",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2308"
+        ],
+        [
+          "MAT3307"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      53,
+      63
+    ]
+  },
+  {
+    "code": "MAT3323",
+    "name": "Tối ưu rời rạc",
+    "name_en": "Discrete Optimization",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2407",
+        "MAT3500"
+      ],
+      [
+        "MAT3302",
+        "MAT3500"
+      ]
+    ],
+    "prerequisites_raw": "MAT2407\nMAT3302/\nMAT3500",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2407",
+          "MAT3500"
+        ],
+        [
+          "MAT3302",
+          "MAT3500"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT3500"
+    ],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      54,
+      62
+    ]
+  },
+  {
+    "code": "MAT3324",
+    "name": "Tổ hợp",
+    "name_en": "Combinatorics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3302"
+      ]
+    ],
+    "prerequisites_raw": "MAT3302",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3302"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      55,
+      70
+    ]
+  },
+  {
+    "code": "MAT3325",
+    "name": "Lịch sử toán học",
+    "name_en": "History of Mathematics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314"
+      ],
+      [
+        "MAT2304"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314\nMAT2304",
+    "prerequisite_status": "source_conflict",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314"
+        ],
+        [
+          "MAT2304"
+        ]
+      ],
+      [
+        [
+          "MAT2304",
+          "MAT2322"
+        ],
+        [
+          "MAT2304",
+          "MAT2314"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2322"
+    ],
+    "choice_group_ids": [
+      "theoretical_mathematics",
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      56,
+      72
+    ]
+  },
+  {
+    "code": "MAT3326",
+    "name": "Xêmina Toán lý thuyết",
+    "name_en": "Seminar in Mathematics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 40,
+      "practice": 10,
+      "self_study": 100
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2308"
+      ]
+    ],
+    "prerequisites_raw": "MAT2308",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2308"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "theoretical_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      57
+    ]
+  },
+  {
+    "code": "MAT3327",
+    "name": "Điều khiển tối ưu",
+    "name_en": "Optimal Control Theory",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2306",
+        "MAT2313",
+        "MAT3365",
+        "MAT2406"
+      ],
+      [
+        "MAT2306",
+        "MAT2313",
+        "MAT2311",
+        "MAT2406"
+      ]
+    ],
+    "prerequisites_raw": "MAT2306/\nMAT2313/\nMAT3365\nMAT2311/\nMAT2406",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2306",
+          "MAT2313",
+          "MAT3365",
+          "MAT2406"
+        ],
+        [
+          "MAT2306",
+          "MAT2313",
+          "MAT2311",
+          "MAT2406"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2313",
+      "MAT2406",
+      "MAT3365"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      58
+    ]
+  },
+  {
+    "code": "MAT3370",
+    "name": "Thống kê Bayes",
+    "name_en": "Elements of Bayesian Statistics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2308",
+        "MAT2405"
+      ]
+    ],
+    "prerequisites_raw": "MAT2308/\nMAT2405",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2308",
+          "MAT2405"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2405"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      59
+    ]
+  },
+  {
+    "code": "MAT3329",
+    "name": "Giải tích số 2",
+    "name_en": "Numerical Analysis 2",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2307"
+      ]
+    ],
+    "prerequisites_raw": "MAT2307",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2307"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      60
+    ]
+  },
+  {
+    "code": "MAT3360",
+    "name": "Tối ưu hoá nâng cao",
+    "name_en": "Advanced Optimization",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2407"
+      ]
+    ],
+    "prerequisites_raw": "MAT2407",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2407"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      61
+    ]
+  },
+  {
+    "code": "MAT3452",
+    "name": "Phân tích thống kê nhiều chiều",
+    "name_en": "Multivariate Statistical Analysis",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2311",
+        "MAT2406",
+        "MAT2323"
+      ]
+    ],
+    "prerequisites_raw": "MAT2311/\nMAT2406/\nMAT2323",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2311",
+          "MAT2406",
+          "MAT2323"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2323",
+      "MAT2406"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      64
+    ]
+  },
+  {
+    "code": "MAT3333",
+    "name": "Các mô hình toán ứng dụng 1",
+    "name_en": "Mathematical Modelling 1",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2304",
+        "MAT2405"
+      ],
+      [
+        "MAT2308",
+        "MAT2405"
+      ]
+    ],
+    "prerequisites_raw": "MAT2304\nMAT2308/\nMAT2405",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2304",
+          "MAT2405"
+        ],
+        [
+          "MAT2308",
+          "MAT2405"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2405"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 12,
+    "source_rows": [
+      66
+    ]
+  },
+  {
+    "code": "MAT3334",
+    "name": "Các mô hình toán ứng dụng 2",
+    "name_en": "Mathematical Modelling 2",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314",
+        "MAT2406"
+      ],
+      [
+        "MAT2311",
+        "MAT2406"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314\nMAT2311/\nMAT2406",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314",
+          "MAT2406"
+        ],
+        [
+          "MAT2311",
+          "MAT2406"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2406"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      67
+    ]
+  },
+  {
+    "code": "MAT3335",
+    "name": "Đại số máy tính",
+    "name_en": "Computer Algebra",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ],
+      [
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2301"
+      ]
+    ],
+    "prerequisites_raw": "MAT2316/\nMAT2505/\nMAT2318/\nMAT2319\nMAT2301",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2316",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ],
+        [
+          "MAT2316",
+          "MAT2505",
+          "MAT2318",
+          "MAT2301"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      68
+    ]
+  },
+  {
+    "code": "MAT3539",
+    "name": "Mật mã và an toàn dữ liệu",
+    "name_en": "Cryptography and Data Security",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301",
+        "MAT2400",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ],
+      [
+        "MAT2301",
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301/\nMAT2400\nMAT2316/\nMAT2505/\nMAT2318/\nMAT2319",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301",
+          "MAT2400",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ],
+        [
+          "MAT2301",
+          "MAT2316",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2400"
+    ],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      69
+    ]
+  },
+  {
+    "code": "MAT3337",
+    "name": "Xêmina Toán ứng dụng",
+    "name_en": "Seminar on Applied Mathematics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 40,
+      "practice": 10,
+      "self_study": 100
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2301"
+      ],
+      [
+        "MAT2304"
+      ]
+    ],
+    "prerequisites_raw": "MAT2301\nMAT2304",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2301"
+        ],
+        [
+          "MAT2304"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "applied_mathematics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      73
+    ]
+  },
+  {
+    "code": "MAT3401",
+    "name": "Phép tính biến phân",
+    "name_en": "Calculus of Variations",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2304"
+      ],
+      [
+        "MAT2314"
+      ]
+    ],
+    "prerequisites_raw": "MAT2304\nMAT2314",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2304"
+        ],
+        [
+          "MAT2314"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      74
+    ]
+  },
+  {
+    "code": "MAT3361",
+    "name": "Cơ học lý thuyết nâng cao",
+    "name_en": "Advanced Theoretical Mechanics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2304"
+      ],
+      [
+        "MAT1076"
+      ]
+    ],
+    "prerequisites_raw": "MAT2304\nMAT1076",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2304"
+        ],
+        [
+          "MAT1076"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      75
+    ]
+  },
+  {
+    "code": "MAT3423",
+    "name": "Cơ học môi trường liên tục",
+    "name_en": "Continuum Mechanics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314"
+      ],
+      [
+        "MAT3402"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314\nMAT3402",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314"
+        ],
+        [
+          "MAT3402"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT3402"
+    ],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      76
+    ]
+  },
+  {
+    "code": "MAT3396",
+    "name": "Sức bền vật liệu",
+    "name_en": "Strength of Material",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2314"
+      ],
+      [
+        "MAT1076"
+      ]
+    ],
+    "prerequisites_raw": "MAT2314\nMAT1076",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2314"
+        ],
+        [
+          "MAT1076"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      77
+    ]
+  },
+  {
+    "code": "MAT3406",
+    "name": "Lý thuyết dao động",
+    "name_en": "Theory of Vibration",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2306"
+      ],
+      [
+        "MAT3361"
+      ]
+    ],
+    "prerequisites_raw": "MAT2306\nMAT3361",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2306"
+        ],
+        [
+          "MAT3361"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      78
+    ]
+  },
+  {
+    "code": "MAT3407",
+    "name": "Lý thuyết đàn hồi",
+    "name_en": "Theory of Elasticity",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2306"
+      ],
+      [
+        "MAT3423"
+      ]
+    ],
+    "prerequisites_raw": "MAT2306\nMAT3423",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2306"
+        ],
+        [
+          "MAT3423"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      79
+    ]
+  },
+  {
+    "code": "MAT3408",
+    "name": "Cơ học chất lỏng",
+    "name_en": "Mechanics of Fluid",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2306"
+      ],
+      [
+        "MAT3423"
+      ]
+    ],
+    "prerequisites_raw": "MAT2306\nMAT3423",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2306"
+        ],
+        [
+          "MAT3423"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 13,
+    "source_rows": [
+      80
+    ]
+  },
+  {
+    "code": "MAT3411",
+    "name": "Phương pháp phần tử hữu hạn",
+    "name_en": "Finite Element Method",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3396"
+      ]
+    ],
+    "prerequisites_raw": "MAT3396",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3396"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 14,
+    "source_rows": [
+      81
+    ]
+  },
+  {
+    "code": "MAT3412",
+    "name": "Lý thuyết dẻo",
+    "name_en": "Theory of Plasticity",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3407"
+      ]
+    ],
+    "prerequisites_raw": "MAT3407",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3407"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 14,
+    "source_rows": [
+      82
+    ]
+  },
+  {
+    "code": "MAT3413",
+    "name": "Cơ học giải tích",
+    "name_en": "Analytical Mechanics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3361"
+      ]
+    ],
+    "prerequisites_raw": "MAT3361",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3361"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 14,
+    "source_rows": [
+      83
+    ]
+  },
+  {
+    "code": "MAT3415",
+    "name": "Cơ học vật liệu composite",
+    "name_en": "Mechanics of Composite Materials",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3423"
+      ]
+    ],
+    "prerequisites_raw": "MAT3423",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3423"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 14,
+    "source_rows": [
+      84
+    ]
+  },
+  {
+    "code": "MAT3418",
+    "name": "Phương pháp số trong cơ học",
+    "name_en": "Numerical methods in mechanics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 30,
+      "practice": 30,
+      "self_study": 90
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2307",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ],
+      [
+        "MAT2316",
+        "MAT2505",
+        "MAT2318",
+        "MAT2319"
+      ]
+    ],
+    "prerequisites_raw": "MAT2307\nMAT2316/\nMAT2505/\nMAT2318/\nMAT2319",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2307",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ],
+        [
+          "MAT2316",
+          "MAT2505",
+          "MAT2318",
+          "MAT2319"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "mechanics"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 14,
+    "source_rows": [
+      85
+    ]
+  },
+  {
+    "code": "MAT4070",
+    "name": "Khóa luận tốt nghiệp",
+    "name_en": "Graduation Thesis",
+    "credits": 7,
+    "block": "major",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 75,
+      "practice": 60,
+      "self_study": 215
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "thesis"
+    ],
+    "source_page": 14,
+    "source_rows": []
+  },
+  {
+    "code": "MAT4071",
+    "name": "Một số vấn đề chọn lọc trong Toán học",
+    "name_en": "Selected Topics in Mathematics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": "",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      []
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "replacement_math"
+    ],
+    "source_page": 14,
+    "source_rows": [
+      86
+    ]
+  },
+  {
+    "code": "MAT4072",
+    "name": "Một số vấn đề chọn lọc trong tính toán khoa học",
+    "name_en": "Selected Topics in Scientific Computing",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2307",
+        "MAT2404"
+      ],
+      [
+        "MAT2307",
+        "MAT2407"
+      ]
+    ],
+    "prerequisites_raw": "MAT2307/\nMAT2404\nMAT2407",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT2307",
+          "MAT2404"
+        ],
+        [
+          "MAT2307",
+          "MAT2407"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [
+      "MAT2404"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "replacement_math"
+    ],
+    "source_page": 14,
+    "source_rows": [
+      87
+    ]
+  },
+  {
+    "code": "MAT3362",
+    "name": "Một số vấn đề chọn lọc trong Cơ học",
+    "name_en": "Selected Topics in Mechanics",
+    "credits": 3,
+    "block": "major",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 0,
+      "self_study": 105
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3407"
+      ]
+    ],
+    "prerequisites_raw": "MAT3407",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3407"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "replacement_mechanics"
+    ],
+    "source_page": 14,
+    "source_rows": [
+      88
+    ]
+  },
+  {
+    "code": "MAT3422",
+    "name": "Lý thuyết bản và vỏ mỏng",
+    "name_en": "Theory of Plates and Shells",
+    "credits": 4,
+    "block": "major",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 45,
+      "practice": 30,
+      "self_study": 125
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT3407"
+      ]
+    ],
+    "prerequisites_raw": "MAT3407",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [
+      [
+        [
+          "MAT3407"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "replacement_mechanics"
+    ],
+    "source_page": 14,
+    "source_rows": [
+      89
+    ]
+  }
+]

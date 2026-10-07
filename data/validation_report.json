@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.1",
+  "generated_date": "2026-10-07",
+  "validation_scope": "JSON structure, source-table coverage and internal consistency; peer review of PDF transcription is pending",
+  "programs": [
+    {
+      "program_id": "khdl_7460108_2022",
+      "numbered_source_rows": 59,
+      "unnumbered_course_rows": 0,
+      "source_course_entries": 65,
+      "unique_course_codes": 65,
+      "total_credits": 127,
+      "status": "passed",
+      "digitization_status": "complete",
+      "review_status": "pending_peer_review",
+      "external_prerequisite_codes": [
+        "MAT2301",
+        "MAT2303",
+        "MAT2321",
+        "MAT2406"
+      ],
+      "conflicting_prerequisite_courses": [],
+      "source_issue_count": 4
+    },
+    {
+      "program_id": "khmtt_7480113qtd_2022",
+      "numbered_source_rows": 61,
+      "unnumbered_course_rows": 0,
+      "source_course_entries": 67,
+      "unique_course_codes": 67,
+      "total_credits": 129,
+      "status": "passed",
+      "digitization_status": "complete",
+      "review_status": "pending_peer_review",
+      "external_prerequisite_codes": [
+        "MAT2301",
+        "MAT2303",
+        "MAT2311",
+        "MAT2316",
+        "MAT2318",
+        "MAT2319",
+        "MAT2321",
+        "MAT2406"
+      ],
+      "conflicting_prerequisite_courses": [],
+      "source_issue_count": 3
+    },
+    {
+      "program_id": "toan_hoc_7460101_2022",
+      "numbered_source_rows": 89,
+      "unnumbered_course_rows": 1,
+      "source_course_entries": 96,
+      "unique_course_codes": 90,
+      "total_credits": 135,
+      "status": "passed",
+      "digitization_status": "complete",
+      "review_status": "pending_peer_review",
+      "external_prerequisite_codes": [
+        "MAT1202",
+        "MAT2313",
+        "MAT2320",
+        "MAT2321",
+        "MAT2322",
+        "MAT2323",
+        "MAT2400",
+        "MAT2404",
+        "MAT2405",
+        "MAT2406",
+        "MAT2502",
+        "MAT3340",
+        "MAT3365",
+        "MAT3402",
+        "MAT3500",
+        "MAT3507"
+      ],
+      "conflicting_prerequisite_courses": [
+        "MAT3325"
+      ],
+      "source_issue_count": 2
+    },
+    {
+      "program_id": "toan_tin_7460117_2022",
+      "numbered_source_rows": 63,
+      "unnumbered_course_rows": 0,
+      "source_course_entries": 69,
+      "unique_course_codes": 68,
+      "total_credits": 132,
+      "status": "passed",
+      "digitization_status": "complete",
+      "review_status": "pending_peer_review",
+      "external_prerequisite_codes": [
+        "MAT2306",
+        "MAT2307",
+        "MAT2308",
+        "MAT2311",
+        "MAT2313",
+        "MAT2316",
+        "MAT2318",
+        "MAT2319",
+        "MAT2321",
+        "MAT2323",
+        "MAT2400",
+        "MAT2502",
+        "MAT3302",
+        "MAT3304"
+      ],
+      "conflicting_prerequisite_courses": [],
+      "source_issue_count": 2
+    }
+  ],
+  "totals": {
+    "programs": 4,
+    "numbered_source_rows": 272,
+    "unnumbered_course_rows": 1,
+    "source_course_entries": 297,
+    "course_records_by_program": 290
+  }
+}

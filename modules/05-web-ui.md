@@ -31,6 +31,6 @@ Làm luồng demo dễ hiểu cho sinh viên: chọn **một** ngành, khai báo
 
 ## Ranh giới
 
-Người nhận module còn nhập và review lô dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể phát triển UI bằng mock response trong lúc chờ các module backend; mock chỉ dùng thử, không trở thành catalog của người dùng.
+Người nhận module review phần dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Có thể phát triển UI bằng mock response trong lúc chờ các module backend; mock chỉ dùng thử, không trở thành catalog của người dùng.
 
 UI chỉ trình bày kết quả backend. Không tính tiên quyết hay quota ở client làm nguồn sự thật; không tự tạo môn hoặc lý do học vụ.

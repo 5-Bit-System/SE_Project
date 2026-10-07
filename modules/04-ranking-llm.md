@@ -31,6 +31,6 @@ Cho LLM **chỉ xếp thứ tự** các môn đã qua Module 03 kiểm tra, dự
 
 ## Ranh giới
 
-Người nhận module còn nhập và review lô dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Chốt interface ranker/lý do với Module 02; dùng mock để phát triển song song khi catalog còn nhập dở.
+Người nhận module review phần dữ liệu theo [bản phân công](../docs/PHAN_CHIA_CONG_VIEC.md). Chốt interface ranker/lý do với Module 02; dùng mock để test LLM lỗi và phát triển độc lập trên catalog đã số hóa.
 
 Module này không sửa catalog, không quyết định điều kiện học vụ và không tự merge PR. LLM là bước ưu tiên mềm sau bộ lọc luật; nếu chưa có key, baseline vẫn là hành vi mặc định.

@@ -5,9 +5,366 @@
   "catalog_status": "draft_unverified",
   "source_file": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
   "source_pages": "9-13",
-  "notes": ["Chưa số hóa toàn bộ bảng học phần.", "Số quyết định giữa trang đầu và phụ lục không nhất quán; cần xác minh."],
+  "notes": [
+    "Đã chuyển toàn bộ bảng Khung chương trình đào tạo sang JSON; cần review chéo các điểm nguồn trước khi dùng tư vấn học vụ.",
+    "Môn có cùng mã giữa các ngành được lưu độc lập; không tự sửa mã hoặc số liệu trong PDF."
+  ],
   "choice_groups": [
-    {"id": "software_skills", "name": "Kỹ năng phần mềm", "required_credits": 4},
-    {"id": "ai_software", "name": "AI / phát triển phần mềm", "required_credits": 12}
+    {
+      "id": "foreign_language_b1",
+      "name": "Ngoại ngữ B1",
+      "required_credits": 5,
+      "listed_credits": 35,
+      "selection_mode": "exactly_one_course",
+      "source_credit_expression": "5/35",
+      "source_page": 9,
+      "source_rows": [
+        8
+      ],
+      "course_codes": [
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707"
+      ]
+    },
+    {
+      "id": "field_electives",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "listed_credits": 13,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "5/13",
+      "source_page": 10,
+      "source_rows": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HUS1056"
+      ]
+    },
+    {
+      "id": "software_skills",
+      "name": "Kỹ năng phần mềm",
+      "required_credits": 4,
+      "listed_credits": 8,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "4/8",
+      "source_page": 11,
+      "source_rows": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "course_codes": [
+        "MAT3519",
+        "MAT3558",
+        "MAT1208",
+        "MAT3560"
+      ]
+    },
+    {
+      "id": "ai_software",
+      "name": "Trí tuệ nhân tạo và phát triển phần mềm",
+      "required_credits": 12,
+      "listed_credits": 39,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "12/39",
+      "source_page": 12,
+      "source_rows": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "course_codes": [
+        "MAT3148",
+        "MAT3554E",
+        "MAT3562E",
+        "MAT3561E",
+        "MAT3563",
+        "MAT3534",
+        "MAT3542",
+        "MAT3539",
+        "MAT3452",
+        "MAT3453",
+        "MAT2034",
+        "MAT3538",
+        "MAT3535"
+      ]
+    }
+  ],
+  "schema_version": "1.1",
+  "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+  "source_summary_page": 8,
+  "digitization": {
+    "status": "complete",
+    "date": "2026-10-07",
+    "method": "manual_visual_transcription",
+    "numbered_source_rows": 61,
+    "unnumbered_course_rows": 0,
+    "source_course_entries": 67,
+    "unique_course_codes": 67,
+    "review_status": "pending_peer_review"
+  },
+  "blocks": [
+    {
+      "id": "general",
+      "name": "Khối kiến thức chung",
+      "required_credits": 21,
+      "course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011",
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707",
+        "CME1000",
+        "PES1000",
+        "HUS1012"
+      ],
+      "required_course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011"
+      ]
+    },
+    {
+      "id": "field",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HUS1056"
+      ],
+      "required_course_codes": []
+    },
+    {
+      "id": "discipline",
+      "name": "Khối kiến thức theo khối ngành",
+      "required_credits": 3,
+      "course_codes": [
+        "MAT2505"
+      ],
+      "required_course_codes": [
+        "MAT2505"
+      ]
+    },
+    {
+      "id": "group",
+      "name": "Khối kiến thức theo nhóm ngành",
+      "required_credits": 28,
+      "course_codes": [
+        "MAT2400",
+        "MAT2501",
+        "MAT2502",
+        "MAT2503",
+        "MAT2403",
+        "MAT2323",
+        "MAT2407",
+        "MAT1204"
+      ],
+      "required_course_codes": [
+        "MAT2400",
+        "MAT2501",
+        "MAT2502",
+        "MAT2503",
+        "MAT2403",
+        "MAT2323",
+        "MAT2407",
+        "MAT1204"
+      ]
+    },
+    {
+      "id": "major",
+      "name": "Khối kiến thức ngành",
+      "required_credits": 72,
+      "course_codes": [
+        "MAT1205E",
+        "MAT3500",
+        "MAT3557",
+        "MAT3550E",
+        "MAT3507",
+        "MAT1202",
+        "MAT3514",
+        "MAT3552E",
+        "MAT3505",
+        "MAT3373E",
+        "MAT3506",
+        "MAT1206E",
+        "MAT3374",
+        "MAT1207",
+        "MAT3541E",
+        "MAT3533",
+        "MAT3519",
+        "MAT3558",
+        "MAT1208",
+        "MAT3560",
+        "MAT3148",
+        "MAT3554E",
+        "MAT3562E",
+        "MAT3561E",
+        "MAT3563",
+        "MAT3534",
+        "MAT3542",
+        "MAT3539",
+        "MAT3452",
+        "MAT3453",
+        "MAT2034",
+        "MAT3538",
+        "MAT3535",
+        "MAT4080",
+        "MAT1203",
+        "MAT3377"
+      ],
+      "required_course_codes": [
+        "MAT1205E",
+        "MAT3500",
+        "MAT3557",
+        "MAT3550E",
+        "MAT3507",
+        "MAT1202",
+        "MAT3514",
+        "MAT3552E",
+        "MAT3505",
+        "MAT3373E",
+        "MAT3506",
+        "MAT1206E",
+        "MAT3374",
+        "MAT1207",
+        "MAT3541E",
+        "MAT3533"
+      ]
+    }
+  ],
+  "major_credit_structure": {
+    "required": 49,
+    "elective": 16,
+    "graduation": 7,
+    "source_elective_credit_expression": "16"
+  },
+  "track_selection": {
+    "mode": "not_applicable",
+    "tracks": []
+  },
+  "graduation_selection": {
+    "mode": "exactly_one_path",
+    "required_credits": 7,
+    "paths": [
+      {
+        "id": "thesis",
+        "name": "Khóa luận tốt nghiệp",
+        "course_codes": [
+          "MAT4080"
+        ],
+        "allowed_track_ids": []
+      },
+      {
+        "id": "replacement",
+        "name": "Các học phần thay thế khóa luận",
+        "course_codes": [
+          "MAT1203",
+          "MAT3377"
+        ],
+        "allowed_track_ids": []
+      }
+    ]
+  },
+  "excluded_from_total": [
+    "CME1000",
+    "PES1000",
+    "HUS1012"
+  ],
+  "count_once": true,
+  "prerequisite_notation": {
+    "slash": "OR",
+    "separate_lines_without_slash": "AND",
+    "parentheses": "Preserved; converted to AND-of-OR clauses without changing logical meaning",
+    "external_references": "Kept as printed; not automatically matched to another program"
+  },
+  "source_issues": [
+    {
+      "id": "decision_number",
+      "kind": "source_metadata",
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "message": "Tên file/trang đầu ghi 3568, phụ lục có số 3569; dữ liệu chỉ trích bảng khung, không tự kết luận số quyết định."
+    },
+    {
+      "id": "hours_MAT4080_59",
+      "kind": "study_hours",
+      "source_pages": [
+        13
+      ],
+      "course_codes": [
+        "MAT4080"
+      ],
+      "message": "Nguồn ghi 70+60+215=345 giờ, khác 7×50=350; giữ nguyên số liệu scan."
+    },
+    {
+      "id": "external_prerequisites",
+      "kind": "external_reference",
+      "source_pages": [
+        10,
+        11,
+        12
+      ],
+      "course_codes": [
+        "MAT2407",
+        "MAT3533",
+        "MAT3539",
+        "MAT3452"
+      ],
+      "referenced_codes": [
+        "MAT2301",
+        "MAT2303",
+        "MAT2311",
+        "MAT2316",
+        "MAT2318",
+        "MAT2319",
+        "MAT2321",
+        "MAT2406"
+      ],
+      "message": "Các mã này có trong cột tiên quyết nhưng không nằm trong bảng môn của chính ngành; giữ nguyên, cần xác minh tương đương với đơn vị đào tạo."
+    }
   ]
 }

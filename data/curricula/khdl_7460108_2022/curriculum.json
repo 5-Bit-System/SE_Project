@@ -5,11 +5,395 @@
   "catalog_status": "draft_unverified",
   "source_file": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
   "source_pages": "9-13",
-  "notes": ["Chưa số hóa toàn bộ bảng học phần.", "PDF ghi 28/63 tín chỉ tự chọn nhưng bốn nhóm liệt kê cộng thành 28/57; cần xác minh, không tự sửa nguồn."],
+  "notes": [
+    "Đã chuyển toàn bộ bảng Khung chương trình đào tạo sang JSON; cần review chéo các điểm nguồn trước khi dùng tư vấn học vụ.",
+    "Môn có cùng mã giữa các ngành được lưu độc lập; không tự sửa mã hoặc số liệu trong PDF."
+  ],
   "choice_groups": [
-    {"id": "software_skills", "name": "Kỹ năng phần mềm", "required_credits": 4},
-    {"id": "computer_science", "name": "Khoa học máy tính", "required_credits": 6},
-    {"id": "statistics_data_mining", "name": "Thống kê / khai phá dữ liệu", "required_credits": 9},
-    {"id": "data_science_applications", "name": "Ứng dụng khoa học dữ liệu", "required_credits": 9}
+    {
+      "id": "foreign_language_b1",
+      "name": "Ngoại ngữ B1",
+      "required_credits": 5,
+      "listed_credits": 35,
+      "selection_mode": "exactly_one_course",
+      "source_credit_expression": "5/15",
+      "source_page": 9,
+      "source_rows": [
+        8
+      ],
+      "course_codes": [
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707"
+      ]
+    },
+    {
+      "id": "field_electives",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "listed_credits": 13,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "5",
+      "source_page": 10,
+      "source_rows": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HIS1056"
+      ]
+    },
+    {
+      "id": "software_skills",
+      "name": "Kỹ năng phần mềm",
+      "required_credits": 4,
+      "listed_credits": 6,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "4/6",
+      "source_page": 11,
+      "source_rows": [
+        37,
+        38,
+        39
+      ],
+      "course_codes": [
+        "MAT3382",
+        "MAT3383",
+        "MAT1209"
+      ]
+    },
+    {
+      "id": "computer_science",
+      "name": "Khoa học máy tính",
+      "required_credits": 6,
+      "listed_credits": 9,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "6/9",
+      "source_page": 11,
+      "source_rows": [
+        40,
+        41,
+        42
+      ],
+      "course_codes": [
+        "MAT3385",
+        "MAT3504",
+        "MAT3508"
+      ]
+    },
+    {
+      "id": "statistics_data_mining",
+      "name": "Thống kê và Khai phá dữ liệu",
+      "required_credits": 9,
+      "listed_credits": 15,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "9/15",
+      "source_page": 12,
+      "source_rows": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "course_codes": [
+        "MAT3534",
+        "MAT3386",
+        "MAT3387",
+        "MAT3388",
+        "MAT3389"
+      ]
+    },
+    {
+      "id": "data_science_applications",
+      "name": "Ứng dụng Khoa học dữ liệu",
+      "required_credits": 9,
+      "listed_credits": 27,
+      "selection_mode": "minimum_credits",
+      "source_credit_expression": "9/27",
+      "source_page": 12,
+      "source_rows": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "course_codes": [
+        "MAT3390",
+        "MAT3391",
+        "MAT3392",
+        "MAT3393",
+        "MAT3394",
+        "MAT3562",
+        "MAT3395",
+        "MAT3535",
+        "MAT3399"
+      ]
+    }
+  ],
+  "schema_version": "1.1",
+  "source_sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+  "source_summary_page": 8,
+  "digitization": {
+    "status": "complete",
+    "date": "2026-10-07",
+    "method": "manual_visual_transcription",
+    "numbered_source_rows": 59,
+    "unnumbered_course_rows": 0,
+    "source_course_entries": 65,
+    "unique_course_codes": 65,
+    "review_status": "pending_peer_review"
+  },
+  "blocks": [
+    {
+      "id": "general",
+      "name": "Khối kiến thức chung",
+      "required_credits": 21,
+      "course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011",
+        "FLF1107",
+        "FLF1207",
+        "FLF1307",
+        "FLF1407",
+        "FLF1507",
+        "FLF1607",
+        "FLF1707",
+        "CME1000",
+        "PES1000",
+        "HUS1012"
+      ],
+      "required_course_codes": [
+        "PHI1006",
+        "PEC1008",
+        "PHI1002",
+        "HIS1001",
+        "POL1001",
+        "THL1057",
+        "HUS1011"
+      ]
+    },
+    {
+      "id": "field",
+      "name": "Khối kiến thức theo lĩnh vực",
+      "required_credits": 5,
+      "course_codes": [
+        "HUS1021",
+        "HUS1022",
+        "HUS1023",
+        "HUS1024",
+        "HIS1056"
+      ],
+      "required_course_codes": []
+    },
+    {
+      "id": "discipline",
+      "name": "Khối kiến thức theo khối ngành",
+      "required_credits": 3,
+      "course_codes": [
+        "MAT2505"
+      ],
+      "required_course_codes": [
+        "MAT2505"
+      ]
+    },
+    {
+      "id": "group",
+      "name": "Khối kiến thức theo nhóm ngành",
+      "required_credits": 28,
+      "course_codes": [
+        "MAT2400",
+        "MAT2501",
+        "MAT2502",
+        "MAT2503",
+        "MAT2403",
+        "MAT2323",
+        "MAT2407",
+        "MAT1204"
+      ],
+      "required_course_codes": [
+        "MAT2400",
+        "MAT2501",
+        "MAT2502",
+        "MAT2503",
+        "MAT2403",
+        "MAT2323",
+        "MAT2407",
+        "MAT1204"
+      ]
+    },
+    {
+      "id": "major",
+      "name": "Khối kiến thức ngành",
+      "required_credits": 70,
+      "course_codes": [
+        "MAT2034",
+        "MAT3500",
+        "MAT3557",
+        "MAT1202",
+        "MAT3514",
+        "MAT3507",
+        "MAT3378",
+        "MAT3148",
+        "MAT3379",
+        "MAT3533",
+        "MAT3381",
+        "MAT3382",
+        "MAT3383",
+        "MAT1209",
+        "MAT3385",
+        "MAT3504",
+        "MAT3508",
+        "MAT3534",
+        "MAT3386",
+        "MAT3387",
+        "MAT3388",
+        "MAT3389",
+        "MAT3390",
+        "MAT3391",
+        "MAT3392",
+        "MAT3393",
+        "MAT3394",
+        "MAT3562",
+        "MAT3395",
+        "MAT3535",
+        "MAT3399",
+        "MAT4083",
+        "MAT3397",
+        "MAT3398"
+      ],
+      "required_course_codes": [
+        "MAT2034",
+        "MAT3500",
+        "MAT3557",
+        "MAT1202",
+        "MAT3514",
+        "MAT3507",
+        "MAT3378",
+        "MAT3148",
+        "MAT3379",
+        "MAT3533",
+        "MAT3381"
+      ]
+    }
+  ],
+  "major_credit_structure": {
+    "required": 35,
+    "elective": 28,
+    "graduation": 7,
+    "source_elective_credit_expression": "28/63"
+  },
+  "track_selection": {
+    "mode": "not_applicable",
+    "tracks": []
+  },
+  "graduation_selection": {
+    "mode": "exactly_one_path",
+    "required_credits": 7,
+    "paths": [
+      {
+        "id": "thesis",
+        "name": "Khóa luận tốt nghiệp",
+        "course_codes": [
+          "MAT4083"
+        ],
+        "allowed_track_ids": []
+      },
+      {
+        "id": "replacement",
+        "name": "Các học phần thay thế khóa luận",
+        "course_codes": [
+          "MAT3397",
+          "MAT3398"
+        ],
+        "allowed_track_ids": []
+      }
+    ]
+  },
+  "excluded_from_total": [
+    "CME1000",
+    "PES1000",
+    "HUS1012"
+  ],
+  "count_once": true,
+  "prerequisite_notation": {
+    "slash": "OR",
+    "separate_lines_without_slash": "AND",
+    "parentheses": "Preserved; converted to AND-of-OR clauses without changing logical meaning",
+    "external_references": "Kept as printed; not automatically matched to another program"
+  },
+  "source_issues": [
+    {
+      "id": "elective_total",
+      "kind": "credit_summary",
+      "source_pages": [
+        8,
+        11,
+        12
+      ],
+      "message": "Tóm tắt ghi 28/63; bốn nhóm trong bảng là 4/6 + 6/9 + 9/15 + 9/27 = 28/57.",
+      "source_listed_credits": 63,
+      "computed_listed_credits": 57
+    },
+    {
+      "id": "foreign_language_total",
+      "kind": "credit_summary",
+      "source_pages": [
+        9
+      ],
+      "message": "Dòng Ngoại ngữ B1 ghi 5/15 nhưng liệt kê bảy phương án 5 TC (35 TC). Giữ nguyên cả biểu thức nguồn và danh sách.",
+      "source_listed_credits": 15,
+      "computed_listed_credits": 35
+    },
+    {
+      "id": "duplicate_section_label",
+      "kind": "source_label",
+      "source_pages": [
+        12
+      ],
+      "message": "Nguồn lặp nhãn V.2.3 cho hai nhóm; JSON dùng statistics_data_mining và data_science_applications."
+    },
+    {
+      "id": "external_prerequisites",
+      "kind": "external_reference",
+      "source_pages": [
+        10,
+        11,
+        12
+      ],
+      "course_codes": [
+        "MAT2407",
+        "MAT3533",
+        "MAT3562"
+      ],
+      "referenced_codes": [
+        "MAT2301",
+        "MAT2303",
+        "MAT2321",
+        "MAT2406"
+      ],
+      "message": "Các mã này có trong cột tiên quyết nhưng không nằm trong bảng môn của chính ngành; giữ nguyên, cần xác minh tương đương với đơn vị đào tạo."
+    }
   ]
 }

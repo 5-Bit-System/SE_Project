@@ -24,7 +24,7 @@ Tiếp nhận thông tin người học, gọi các module theo thứ tự và t
 
 ## Việc dữ liệu của người nhận module
 
-Nhập lô được giao trong bảng phân công, review lô của người kế tiếp. Sửa lô của mình trong `data/import_batches/`; Module 01 ghép thành catalog cuối.
+Review phần được giao trong bảng phân công và kiểm tra ghi chú của người kế tiếp. Khi sửa bản chép nguồn/metadata, phối hợp Module 01 và sinh lại catalog bằng công cụ đã có.
 
 ## Đầu ra và nghiệm thu
 

@@ -44,7 +44,7 @@ def recommend(
         if len(selected) >= request.limit:
             break
     if catalog.program.catalog_status != "verified":
-        warnings.append("Catalog chưa được nhập và đối chiếu đầy đủ; kết quả chỉ dùng thử, không phải tư vấn học vụ.")
+        warnings.append("Catalog chưa được xác minh đầy đủ; kết quả chỉ dùng thử, không phải tư vấn học vụ.")
     return RecommendationResponse(
         program_id=catalog.program.program_id,
         catalog_status=catalog.program.catalog_status,

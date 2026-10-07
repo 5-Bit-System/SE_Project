@@ -15,6 +15,8 @@ def eligible_courses(catalog: Catalog, passed: set[str], max_credits: int) -> li
     }
     eligible = []
     for course in catalog.courses:
+        if course.prerequisite_status == "source_conflict":
+            continue
         if course.code in passed or course.credits > max_credits:
             continue
         if not all(any(code in passed for code in alternatives) for alternatives in course.prerequisites):
