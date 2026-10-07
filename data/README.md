@@ -33,7 +33,7 @@ Các nhóm dùng `selection_mode = exactly_one_course` (ngoại ngữ, lựa ch�
 - Mã Cơ sở văn hóa Việt Nam được chép đúng từng bảng: `HUS1056` ở KHMTTT, `HIS1056` ở ba ngành còn lại.
 - Các môn tiên quyết ngoài bảng và số quyết định KHMTTT cần xác minh; chi tiết nằm trong `source_issues` của từng ngành.
 
-App hiện mới có rule engine cơ bản; dữ liệu đã biểu diễn hướng và phương án tốt nghiệp nhưng các chức năng này vẫn cần Module 03 và Module 02 tích hợp. Không dùng việc JSON đầy đủ để khẳng định rule engine đã xử lý đủ mọi quy tắc.
+App hiện mới có rule engine cơ bản; dữ liệu đã biểu diễn hướng và phương án tốt nghiệp nhưng các chức năng này vẫn cần Eligibility xử lý, Profile nhận lựa chọn của sinh viên và Recommendation tích hợp vào luồng gợi ý. Không dùng việc JSON đầy đủ để khẳng định rule engine đã xử lý đủ mọi quy tắc.
 
 ## Kiểm tra và cập nhật
 

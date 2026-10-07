@@ -15,6 +15,8 @@
 
 ## Thành phần triển khai
 
+Code mục tiêu: `app/modules/catalog/` gồm `router.py`, `service.py`, `repository.py`, `schemas.py`. Cấu trúc này chưa được tạo; các file bên dưới là triển khai hiện tại.
+
 - `app/catalog.py`, test loader/validator; bộ test dữ liệu hiện có trong `tests/test_curriculum_data.py`.
 - `tools/build_catalogs.py` đã có; các `source_rows.json`, `curriculum.json` và `courses.json` trong `data/curricula/`.
 - Kiểu dữ liệu dùng chung nằm trong `app/models.py`; API và bộ luật sử dụng cùng cấu trúc catalog.
@@ -36,4 +38,4 @@
 
 ## Quan hệ với các module khác
 
-Module 02 sử dụng catalog để kiểm tra hồ sơ và điều phối luồng; Module 03 sử dụng dữ liệu môn/quy định để kiểm tra điều kiện. Catalog không gọi LLM hoặc quyết định thứ tự đề xuất. Hiện có 90/68/67/65 mã môn theo ngành; dữ liệu đang chờ review nguồn.
+Profile sử dụng catalog để kiểm tra hồ sơ; Eligibility sử dụng dữ liệu môn/quy định để kiểm tra điều kiện; Recommendation gọi Catalog để nạp dữ liệu cho lần gợi ý. Catalog không xếp hạng hoặc gọi LLM. Hiện có 90/68/67/65 mã môn theo ngành; dữ liệu đang chờ review nguồn.

@@ -16,7 +16,7 @@ Mở `http://127.0.0.1:8000`; tài liệu API ở `/docs`. Nếu PowerShell ch�
 
 Đây là **starter codebase**, chưa phải sản phẩm tư vấn học vụ hoàn chỉnh. Đã chuyển đầy đủ bốn bảng khung chương trình thành 290 bản ghi môn theo ngành; dữ liệu Việt–Anh, TC, giờ học, tiên quyết và nhóm được lưu trong `data/`. Catalog vẫn gắn `draft_unverified` để chờ review chéo các ghi chú nguồn. Hiện app có lọc tiên quyết AND/OR, giới hạn tín chỉ, quota nhóm đơn giản, xếp hạng từ khóa và kiểm tra mã từ ranker. Chưa có LLM thật hoặc xử lý đầy đủ hướng chuyên sâu/nhánh tốt nghiệp/tiến độ toàn khóa. Xem [cấu trúc và kết quả số hóa dữ liệu](data/README.md).
 
-[Kiến trúc hệ thống](docs/KIEN_TRUC_HE_THONG.md) mô tả các thành phần và luồng xử lý. [`modules/`](modules/README.md) chứa đặc tả kỹ thuật của Catalog, Hồ sơ/API, Bộ luật, Xếp hạng và Giao diện; module không tương ứng cố định với một người.
+[Kiến trúc hệ thống](docs/KIEN_TRUC_HE_THONG.md) mô tả các thành phần và luồng xử lý. [`modules/`](modules/README.md) chứa đặc tả của Catalog, Hồ sơ sinh viên, Điều kiện học, Đề xuất môn học và Giao diện, cùng cây thư mục code mục tiêu (chưa refactor). API là router của từng module; ranker/adapter LLM nằm trong module Đề xuất môn học. Module không tương ứng cố định với một người.
 
 [Kế hoạch triển khai và use case](docs/TEAM_IMPLEMENTATION_PLAN.md) cùng [bản chia việc 5 người](docs/PHAN_CHIA_CONG_VIEC.md) nằm trong `docs/`. Nhóm chia theo đầu việc, có thể cùng phát triển một module hoặc tham gia nhiều module. Nhân sự, nhánh Git và review chỉ được ghi trong tài liệu phân công.
 

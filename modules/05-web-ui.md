@@ -17,7 +17,7 @@ Làm luồng demo dễ hiểu cho sinh viên: chọn **một** ngành, khai báo
 ## Thành phần triển khai
 
 - `app/static/index.html`, `app/static/app.js`, `app/static/styles.css`.
-- Test UI/checklist demo. Endpoint/schema nằm trong Module 02 (`app/main.py`, `app/models.py`, `app/service.py`); UI sử dụng hợp đồng API, không truy cập JSON trên server trực tiếp.
+- Test UI/checklist demo. API dữ liệu thuộc Catalog; API gợi ý và request/response thuộc Recommendation; Profile kiểm tra thông tin sinh viên. UI sử dụng hợp đồng API, không truy cập JSON trên server trực tiếp.
 
 ## Chức năng cần đáp ứng
 
@@ -35,6 +35,6 @@ Làm luồng demo dễ hiểu cho sinh viên: chọn **một** ngành, khai báo
 
 ## Ranh giới
 
-Module này gọi API của Module 02; có thể dùng mock response để kiểm thử độc lập với backend. Mock chỉ dùng thử, không trở thành catalog của người dùng.
+Module này gọi API của Catalog và Recommendation; có thể dùng mock response để kiểm thử độc lập với backend. Mock chỉ dùng thử, không trở thành catalog của người dùng.
 
 UI chỉ trình bày kết quả backend. Không tính tiên quyết hay quota ở client làm nguồn sự thật; không tự tạo môn hoặc lý do học vụ.

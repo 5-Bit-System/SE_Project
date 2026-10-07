@@ -21,9 +21,9 @@ Bản nền chạy được API, giao diện và bộ lọc/ranker tối thiểu
 
 Bảng phân công để điền tên, task, nhánh và checklist nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả các thành phần hệ thống nằm trong [`modules/`](../modules/README.md); sơ đồ nằm trong [KIEN_TRUC_HE_THONG.md](KIEN_TRUC_HE_THONG.md).
 
-Module được xác định theo chức năng, không theo số thành viên. Một người có thể làm nhiều module và nhiều người có thể cùng làm một module qua các task riêng. Công việc nhập bảng đã xong; mỗi người còn có khoảng 54–56 dòng nguồn để review. Nhân sự, phạm vi thay đổi từng task và người review chỉ quản lý tại bản phân công.
+Module được xác định theo chức năng, không theo số thành viên: Catalog, Profile, Eligibility, Recommendation và Giao diện. API là router của module tương ứng; ranker/adapter LLM nằm trong Recommendation. Cấu trúc `app/modules/` là mục tiêu, chưa refactor bản nền. Một người có thể làm nhiều module và nhiều người có thể cùng làm một module qua các task riêng. Công việc nhập bảng đã xong; mỗi người còn có khoảng 54–56 dòng nguồn để review. Nhân sự, phạm vi thay đổi từng task và người review chỉ quản lý tại bản phân công.
 
-Catalog cuối được sinh từ `source_rows.json` và `curriculum.json`. API điều phối Catalog → Bộ luật → Xếp hạng → Kiểm tra đầu ra và trả kết quả cho UI. Các thay đổi hợp đồng/schema được tích hợp trước các tính năng phụ thuộc; trưởng nhóm review/merge Git, không đồng nhất vai trò này với một module hệ thống.
+Catalog cuối được sinh từ `source_rows.json` và `curriculum.json`. Recommendation dùng Catalog → Profile → Eligibility → ranker → kiểm tra đầu ra và trả kết quả cho UI. Các thay đổi hợp đồng/schema được tích hợp trước các tính năng phụ thuộc; trưởng nhóm review/merge Git, không đồng nhất vai trò này với một module hệ thống.
 
 ## Hợp đồng dữ liệu và API đang dùng
 

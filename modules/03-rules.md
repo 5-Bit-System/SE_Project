@@ -1,4 +1,4 @@
-# Module 03 — Kiểm tra điều kiện và tiến độ
+# Module 03 — Điều kiện học (Eligibility)
 
 **Use case:** UC02, UC04, UC06
 
@@ -17,8 +17,10 @@ Tạo một lớp luật **xác định được và có thể test** để ch�
 
 ## Thành phần triển khai
 
+Mục tiêu: `app/modules/eligibility/service.py` và `schemas.py`; chưa refactor code. Bộ luật hiện nằm trong `app/rules.py`.
+
 - `app/rules.py` và test mới, ví dụ `tests/test_rules.py`.
-- Các hướng học/phương án tốt nghiệp lấy từ catalog của Module 01; lựa chọn của sinh viên và response lỗi dùng hợp đồng dữ liệu của Module 02.
+- Các hướng học/phương án tốt nghiệp lấy từ Catalog; lựa chọn của sinh viên lấy từ Profile; kết quả luật được module Đề xuất môn học đưa vào response.
 
 ## Chức năng cần đáp ứng
 
@@ -36,6 +38,6 @@ Tạo một lớp luật **xác định được và có thể test** để ch�
 
 ## Ranh giới
 
-Module 02 gọi bộ luật và đưa lý do vào response; Module 04 chỉ nhận ứng viên hợp lệ; Module 05 hiển thị lý do từ backend. Logic kiểm tra luật nằm trong `app/rules.py`, không đặt trong UI hoặc prompt LLM.
+Module Đề xuất môn học gọi bộ luật, sử dụng tập ứng viên hợp lệ và đưa lý do vào response; Giao diện hiển thị lý do từ backend. Logic kiểm tra luật hiện nằm trong `app/rules.py`, không đặt trong UI hoặc prompt LLM.
 
 Không dùng LLM để quyết định tiên quyết hoặc tính tín chỉ. Không suy ra lịch mở môn, điểm số hay quy định công nhận tương đương vì nguồn MVP chưa có các dữ liệu đó.
