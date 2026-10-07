@@ -1,4 +1,4 @@
-# Kế hoạch chia module và ghép nhánh (nhóm 5 người)
+# Kế hoạch triển khai, use case và tích hợp (nhóm 5 người)
 
 ## Trạng thái bản nền
 
@@ -19,11 +19,11 @@ Bản nền chạy được API, giao diện và bộ lọc/ranker tối thiểu
 
 ## Giao việc để làm song song
 
-Bảng phân công để điền tên, nhánh và checklist làm việc nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả chi tiết của **5 module** nằm trong thư mục [`modules/`](../modules/); mỗi module có một file Markdown riêng.
+Bảng phân công để điền tên, task, nhánh và checklist nằm ở [PHAN_CHIA_CONG_VIEC.md](PHAN_CHIA_CONG_VIEC.md). Đặc tả các thành phần hệ thống nằm trong [`modules/`](../modules/README.md); sơ đồ nằm trong [KIEN_TRUC_HE_THONG.md](KIEN_TRUC_HE_THONG.md).
 
-Mỗi người có một module lập trình và một phần dữ liệu khoảng 54–56 dòng nguồn để review; công việc nhập bảng đã xong. Module chia theo chức năng: [Catalog](../modules/01-catalog.md), [Hồ sơ/API](../modules/02-profile-api.md), [Luật](../modules/03-rules.md), [Xếp hạng/LLM](../modules/04-ranking-llm.md), [Giao diện](../modules/05-web-ui.md). Chi tiết phạm vi file và người review chỉ quản lý tại bản phân công để tránh hai bảng lệch nhau.
+Module được xác định theo chức năng, không theo số thành viên. Một người có thể làm nhiều module và nhiều người có thể cùng làm một module qua các task riêng. Công việc nhập bảng đã xong; mỗi người còn có khoảng 54–56 dòng nguồn để review. Nhân sự, phạm vi thay đổi từng task và người review chỉ quản lý tại bản phân công.
 
-Catalog cuối được sinh từ bản chép `source_rows.json` và metadata `curriculum.json`; Module 01 phụ trách công cụ/kiểm tra dữ liệu. Module 02 giữ schema, endpoint và service để giảm xung đột; Module 03–05 phối hợp thay đổi hợp đồng qua PR nhỏ. Trưởng nhóm nhận một trong năm module và review/merge sau khi người khác đã kiểm tra PR.
+Catalog cuối được sinh từ `source_rows.json` và `curriculum.json`. API điều phối Catalog → Bộ luật → Xếp hạng → Kiểm tra đầu ra và trả kết quả cho UI. Các thay đổi hợp đồng/schema được tích hợp trước các tính năng phụ thuộc; trưởng nhóm review/merge Git, không đồng nhất vai trò này với một module hệ thống.
 
 ## Hợp đồng dữ liệu và API đang dùng
 
@@ -51,10 +51,10 @@ Một chương trình là một thư mục `data/curricula/<program_id>/` gồm 
 
 ## Quy trình Git cho cả nhóm
 
-1. Trưởng nhóm đưa bản nền đã test lên `main`. Mỗi người `git clone https://github.com/5-Bit-System/SE_Project.git`, sau đó tạo nhánh riêng từ `main`: `git switch -c feat/<module>`.
+1. Trưởng nhóm đưa bản nền đã test lên `main`. Mỗi người `git clone https://github.com/5-Bit-System/SE_Project.git`, sau đó tạo nhánh theo task từ `main`: `git switch -c feat/<task>`; tên nhánh cụ thể quản lý tại bản phân công.
 2. Làm đúng phạm vi file ở bảng; nếu cần sửa file chung, báo trong issue hoặc PR trước. Commit nhỏ, mô tả rõ; không commit PDF bản quyền, `.env`, API key, dữ liệu cá nhân sinh viên.
 3. Trước khi gửi PR: `python -m pytest -q`, chạy thử `python -m uvicorn app.main:app --reload`, kiểm tra một ngành khác không xuất hiện trong kết quả. PR nêu use case, file dữ liệu nguồn, test, ảnh màn hình nếu có UI.
-4. Trưởng nhóm review và merge từng PR vào `main`; sau mỗi merge chạy toàn bộ test và thử luồng từ chọn ngành tới kết quả. Nếu có xung đột, người làm module cập nhật nhánh từ `main` rồi giải quyết trong file mình, không force-push `main`.
+4. Trưởng nhóm review và merge từng PR vào `main`; sau mỗi merge chạy toàn bộ test và thử luồng từ chọn ngành tới kết quả. Nếu có xung đột, người làm task cập nhật nhánh từ `main` rồi giải quyết trong phạm vi task, không force-push `main`.
 5. Trước demo: chỉ đổi catalog sang `verified` khi đã có checklist đối chiếu toàn bộ bảng của **từng** ngành; phần chưa xong phải hiện cảnh báo nháp.
 
 ## Thứ tự tích hợp

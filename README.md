@@ -16,11 +16,9 @@ Mở `http://127.0.0.1:8000`; tài liệu API ở `/docs`. Nếu PowerShell ch�
 
 Đây là **starter codebase**, chưa phải sản phẩm tư vấn học vụ hoàn chỉnh. Đã chuyển đầy đủ bốn bảng khung chương trình thành 290 bản ghi môn theo ngành; dữ liệu Việt–Anh, TC, giờ học, tiên quyết và nhóm được lưu trong `data/`. Catalog vẫn gắn `draft_unverified` để chờ review chéo các ghi chú nguồn. Hiện app có lọc tiên quyết AND/OR, giới hạn tín chỉ, quota nhóm đơn giản, xếp hạng từ khóa và kiểm tra mã từ ranker. Chưa có LLM thật hoặc xử lý đầy đủ hướng chuyên sâu/nhánh tốt nghiệp/tiến độ toàn khóa. Xem [cấu trúc và kết quả số hóa dữ liệu](data/README.md).
 
-[Kế hoạch use case, module và nhánh](docs/TEAM_IMPLEMENTATION_PLAN.md) là điểm bắt đầu để 5 người chia việc.
+[Kiến trúc hệ thống](docs/KIEN_TRUC_HE_THONG.md) mô tả các thành phần và luồng xử lý. [`modules/`](modules/README.md) chứa đặc tả kỹ thuật của Catalog, Hồ sơ/API, Bộ luật, Xếp hạng và Giao diện; module không tương ứng cố định với một người.
 
-[Bản chia việc 5 người](docs/PHAN_CHIA_CONG_VIEC.md) liên kết tới 5 file đặc tả trong [`modules/`](modules/).
-
-Module chia theo chức năng: Catalog, Hồ sơ/API, Luật, Xếp hạng/LLM và Giao diện. Mỗi người có phần code riêng và một phần dữ liệu để review; việc nhập bảng đã hoàn thành, nhóm đối chiếu các phần được giao với PDF.
+[Kế hoạch triển khai và use case](docs/TEAM_IMPLEMENTATION_PLAN.md) cùng [bản chia việc 5 người](docs/PHAN_CHIA_CONG_VIEC.md) nằm trong `docs/`. Nhóm chia theo đầu việc, có thể cùng phát triển một module hoặc tham gia nhiều module. Nhân sự, nhánh Git và review chỉ được ghi trong tài liệu phân công.
 
 Dự án lập kế hoạch hệ gợi ý học phần cho bốn chương trình chuẩn khóa 2022 của Trường Đại học Khoa học Tự nhiên — ĐHQGHN: Toán học, Toán tin, Khoa học máy tính và thông tin, Khoa học dữ liệu.
 
