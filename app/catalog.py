@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 
 from app.models import Catalog, Course, Program
+from app.planner import allocate_course_years
+from app.transcript import resolve_program_id
 
 
 DATA_ROOT = Path(__file__).resolve().parent.parent / "data" / "curricula"
@@ -17,13 +19,14 @@ def list_catalogs(root: Path = DATA_ROOT) -> list[Catalog]:
 
 def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
     # The ID is checked against actual directories, never used as a free-form path.
+    resolved_id = resolve_program_id(program_id)
     allowed = {path.name for path in root.iterdir() if path.is_dir()}
-    if program_id not in allowed:
+    if resolved_id not in allowed:
         raise CatalogError(f"Không tìm thấy chương trình: {program_id}")
-    directory = root / program_id
+    directory = root / resolved_id
     program = Program.model_validate(json.loads((directory / "curriculum.json").read_text(encoding="utf-8")))
     courses = [Course.model_validate(item) for item in json.loads((directory / "courses.json").read_text(encoding="utf-8"))]
-    if program.program_id != program_id:
+    if program.program_id != resolved_id:
         raise CatalogError(f"program_id không khớp trong {directory}")
     codes = [course.code for course in courses]
     if len(codes) != len(set(codes)):
@@ -32,4 +35,12 @@ def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
     for course in courses:
         if not set(course.choice_group_ids) <= group_ids:
             raise CatalogError(f"Nhóm tự chọn không tồn tại: {course.code}")
-    return Catalog(program=program, courses=courses)
+
+    catalog = Catalog(program=program, courses=courses)
+    allocation = allocate_course_years(catalog)
+    for course in catalog.courses:
+        yr, term = allocation.get(course.code, (1, 1))
+        course.year = yr
+        course.suggested_term = term
+
+    return catalog

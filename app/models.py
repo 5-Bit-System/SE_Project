@@ -38,6 +38,8 @@ class Course(BaseModel):
     prerequisite_status: Literal["transcribed", "source_conflict"] = "transcribed"
     choice_group_ids: list[str] = Field(default_factory=list)
     source_page: int | None = None
+    year: int | None = Field(default=None, ge=1, le=4, description="Năm học (1..4)")
+    suggested_term: int | None = Field(default=None, ge=1, le=8, description="Học kỳ đề xuất (1..8)")
 
 
 class Catalog(BaseModel):
@@ -66,3 +68,38 @@ class RecommendationResponse(BaseModel):
     recommendations: list[RecommendedCourse]
     eligible_count: int
     warnings: list[str] = Field(default_factory=list)
+
+
+class BlockedReason(BaseModel):
+    kind: Literal[
+        "missing_prerequisites",
+        "choice_group_full",
+        "credits_exceeded",
+        "source_conflict",
+    ]
+    message: str
+    missing_prerequisites: list[list[str]] = Field(default_factory=list)
+
+
+class BlockedCourse(BaseModel):
+    code: str
+    name: str
+    credits: int
+    block: str
+    reasons: list[BlockedReason] = Field(default_factory=list)
+
+
+class EligibilityResult(BaseModel):
+    program_id: str
+    eligible_courses: list[Course]
+    blocked_courses: list[BlockedCourse]
+    completed_course_codes: list[str]
+    total_eligible: int
+    total_blocked: int
+    total_completed: int
+
+
+class EligibilityRequest(BaseModel):
+    program_id: str
+    passed_course_codes: list[str] = Field(default_factory=list)
+    max_credits: int = Field(default=30, ge=1, le=50)
