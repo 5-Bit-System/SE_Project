@@ -38,6 +38,9 @@ class ProgramModel(Base):
     students: Mapped[list["StudentModel"]] = relationship(
         "StudentModel", back_populates="program"
     )
+    recommendation_runs: Mapped[list["RecommendationRunModel"]] = relationship(
+        "RecommendationRunModel", back_populates="program", cascade="all, delete-orphan"
+    )
 
 
 class ChoiceGroupModel(Base):
@@ -45,7 +48,7 @@ class ChoiceGroupModel(Base):
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
     program_id: Mapped[str] = mapped_column(
-        String(64), ForeignKey("programs.id", ondelete="CASCADE"), primary_key=True
+        String(64), ForeignKey("programs.id", ondelete="CASCADE"), primary_key=True, index=True
     )
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     required_credits: Mapped[int] = mapped_column(Integer, default=0)
@@ -102,7 +105,9 @@ class StudentModel(Base):
     __tablename__ = "students"
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)  # ví dụ: "ds_01", "SV2022001"
-    program_id: Mapped[str] = mapped_column(String(64), ForeignKey("programs.id"), nullable=False)
+    program_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("programs.id", ondelete="RESTRICT"), nullable=False, index=True
+    )
     current_term: Mapped[int] = mapped_column(Integer, default=1)
     gpa_10: Mapped[float] = mapped_column(Float, default=0.0)
     accumulated_credits: Mapped[int] = mapped_column(Integer, default=0)
@@ -115,6 +120,9 @@ class StudentModel(Base):
     )
     preference: Mapped[Optional["StudentPreferenceModel"]] = relationship(
         "StudentPreferenceModel", back_populates="student", uselist=False, cascade="all, delete-orphan"
+    )
+    recommendation_runs: Mapped[list["RecommendationRunModel"]] = relationship(
+        "RecommendationRunModel", back_populates="student"
     )
 
 
@@ -131,6 +139,10 @@ class EnrollmentModel(Base):
     term: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
 
     student: Mapped["StudentModel"] = relationship("StudentModel", back_populates="enrollments")
+
+    __table_args__ = (
+        UniqueConstraint("student_id", "course_code", "term", name="uq_student_course_term"),
+    )
 
 
 class StudentPreferenceModel(Base):
@@ -152,12 +164,22 @@ class RecommendationRunModel(Base):
     __tablename__ = "recommendation_runs"
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
-    student_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True, index=True)
-    program_id: Mapped[str] = mapped_column(String(64), nullable=False)
+    student_id: Mapped[Optional[str]] = mapped_column(
+        String(64), ForeignKey("students.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    program_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("programs.id", ondelete="CASCADE"), nullable=False, index=True
+    )
     passed_course_codes: Mapped[list[Any]] = mapped_column(JSON, default=list)
     whatif_weights: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
+    student: Mapped[Optional["StudentModel"]] = relationship(
+        "StudentModel", back_populates="recommendation_runs"
+    )
+    program: Mapped["ProgramModel"] = relationship(
+        "ProgramModel", back_populates="recommendation_runs"
+    )
     items: Mapped[list["RecommendationItemModel"]] = relationship(
         "RecommendationItemModel", back_populates="run", cascade="all, delete-orphan"
     )
