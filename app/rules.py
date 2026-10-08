@@ -116,3 +116,10 @@ def eligible_courses(catalog: Catalog, passed: set[str], max_credits: int) -> li
         for verdict in _evaluate_all(catalog, passed, max_credits)
         if verdict.eligible
     ]
+
+
+def explain_catalog(
+    catalog: Catalog, passed: set[str], max_credits: int
+) -> list[CourseVerdict]:
+    """Mọi môn kèm lý do đạt/không đạt; cùng một đường tính với eligible_courses."""
+    return _evaluate_all(catalog, passed, max_credits)
