@@ -4,13 +4,20 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.catalog import CatalogError, list_catalogs, load_catalog
-from app.models import RecommendationRequest, RecommendationResponse
+from app.catalog import CatalogError, CatalogNotFoundError, list_catalogs, load_catalog
+from app.models import (
+    CatalogErrorResponse,
+    CourseResponse,
+    ProgramResponse,
+    RecommendationRequest,
+    RecommendationResponse,
+)
 from app.service import recommend
 
 
 app = FastAPI(title="Explainable Course Recommender", version="0.1.0")
 STATIC_ROOT = Path(__file__).resolve().parent / "static"
+CATALOG_UNAVAILABLE = "Không thể tải dữ liệu catalog. Vui lòng thử lại sau."
 app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
 
 
@@ -24,20 +31,38 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/programs")
+@app.get(
+    "/programs",
+    tags=["Catalog"],
+    response_model=list[ProgramResponse],
+    responses={503: {"model": CatalogErrorResponse, "description": "Dữ liệu catalog không tải được"}},
+)
 def programs() -> list[dict]:
-    return [
-        {**catalog.program.model_dump(), "course_count": len(catalog.courses)}
-        for catalog in list_catalogs()
-    ]
+    try:
+        return [
+            {**catalog.program.model_dump(), "course_count": len(catalog.courses)}
+            for catalog in list_catalogs()
+        ]
+    except CatalogError as exc:
+        raise HTTPException(status_code=503, detail=CATALOG_UNAVAILABLE) from exc
 
 
-@app.get("/courses")
-def courses(program_id: str = Query(...)) -> list[dict]:
+@app.get(
+    "/courses",
+    tags=["Catalog"],
+    response_model=list[CourseResponse],
+    responses={
+        404: {"model": CatalogErrorResponse, "description": "Ngành không tồn tại"},
+        503: {"model": CatalogErrorResponse, "description": "Dữ liệu catalog không tải được"},
+    },
+)
+def courses(program_id: str = Query(..., min_length=1, description="ID ngành từ GET /programs")) -> list[dict]:
     try:
         return [course.model_dump() for course in load_catalog(program_id).courses]
-    except CatalogError as exc:
+    except CatalogNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except CatalogError as exc:
+        raise HTTPException(status_code=503, detail=CATALOG_UNAVAILABLE) from exc
 
 
 @app.post("/recommendations", response_model=RecommendationResponse)

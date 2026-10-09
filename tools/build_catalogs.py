@@ -70,11 +70,55 @@ def clause_signature(clauses: list[list[str]]) -> tuple:
     return tuple(sorted(tuple(sorted(set(clause))) for clause in clauses))
 
 
-def build_courses(program: dict, rows: list[dict]) -> list[dict]:
-    known = {row["code"] for row in rows}
+def unique_index(items: list[dict], key: str, context: str) -> dict[str, dict]:
+    indexed = {}
+    for item in items:
+        value = item[key]
+        if value in indexed:
+            raise ValueError(f"Duplicate {key} in {context}: {value}")
+        indexed[value] = item
+    return indexed
+
+
+def source_occurrences(program: dict, rows: list[dict]) -> dict[str, list[dict]]:
     by_code: dict[str, list[dict]] = {}
+    seen = set()
     for row in rows:
+        number = row["source_row"]
+        if number is not None and (type(number) is not int or number <= 0):
+            raise ValueError(f"Invalid source row: {program['program_id']}/{row['code']}, source_row={number!r}")
+        identity = (row["source_row"], row["code"])
+        if identity in seen:
+            raise ValueError(
+                f"Duplicate source entry: {program['program_id']}/{row['code']}, "
+                f"source_row={row['source_row']}, page={row['source_page']}"
+            )
+        seen.add(identity)
         by_code.setdefault(row["code"], []).append(row)
+    return by_code
+
+
+def source_prerequisite_variants(program_id: str, code: str, occurrences: list[dict]) -> list[list[list[str]]]:
+    variants = []
+    signatures = set()
+    for row in occurrences:
+        try:
+            clauses = prerequisite_clauses(row["prerequisites_raw"])
+        except ValueError as exc:
+            raise ValueError(
+                f"{program_id}/{code}, source_row={row['source_row']}, "
+                f"page={row['source_page']}: {exc}"
+            ) from exc
+        signature = clause_signature(clauses)
+        if signature not in signatures:
+            variants.append(clauses)
+            signatures.add(signature)
+    return variants
+
+
+def build_courses(program: dict, rows: list[dict]) -> list[dict]:
+    by_code = source_occurrences(program, rows)
+    known = set(by_code)
     required = {code for block in program["blocks"] for code in block["required_course_codes"]}
     graduation = {
         code for path in program["graduation_selection"]["paths"] for code in path["course_codes"]
@@ -83,16 +127,12 @@ def build_courses(program: dict, rows: list[dict]) -> list[dict]:
     for code, occurrences in by_code.items():
         first = occurrences[0]
         for row in occurrences[1:]:
-            if (row["name"], row["credits"], row["hours"]) != (first["name"], first["credits"], first["hours"]):
-                raise ValueError(f"Conflicting course metadata: {program['program_id']}/{code}")
-        variants = []
-        signatures = set()
-        for row in occurrences:
-            clauses = prerequisite_clauses(row["prerequisites_raw"])
-            signature = clause_signature(clauses)
-            if signature not in signatures:
-                variants.append(clauses)
-                signatures.add(signature)
+            if any(row[field] != first[field] for field in ("name", "credits", "hours")):
+                raise ValueError(
+                    f"Conflicting course metadata: {program['program_id']}/{code}, "
+                    f"source_rows={[item['source_row'] for item in occurrences]}"
+                )
+        variants = source_prerequisite_variants(program["program_id"], code, occurrences)
         course_blocks = [block["id"] for block in program["blocks"] if code in block["course_codes"]]
         if len(course_blocks) != 1:
             raise ValueError(f"Expected one block for {code}: {course_blocks}")
@@ -122,6 +162,10 @@ def build_courses(program: dict, rows: list[dict]) -> list[dict]:
 
 
 def check_curriculum(program: dict, rows: list[dict], courses: list[dict]) -> dict:
+    context = program["program_id"]
+    known = unique_index(courses, "code", f"catalog {context}")
+    groups = unique_index(program["choice_groups"], "id", f"choice groups {context}")
+    by_code = source_occurrences(program, rows)
     numbered = {row["source_row"] for row in rows if row["source_row"] is not None}
     expected = set(range(1, program["digitization"]["numbered_source_rows"] + 1))
     if numbered != expected:
@@ -130,40 +174,86 @@ def check_curriculum(program: dict, rows: list[dict], courses: list[dict]) -> di
         raise ValueError("Source entry count mismatch")
     if sum(row["source_row"] is None for row in rows) != program["digitization"]["unnumbered_course_rows"]:
         raise ValueError("Unnumbered source entry count mismatch")
+    if set(known) != set(by_code):
+        raise ValueError(
+            f"Catalog/source course coverage mismatch in {context}: "
+            f"missing={sorted(set(by_code) - set(known))}, "
+            f"unexpected={sorted(set(known) - set(by_code))}"
+        )
     if len(courses) != program["digitization"]["unique_course_codes"]:
         raise ValueError("Unique course count mismatch")
     if sum(block["required_credits"] for block in program["blocks"]) != program["total_credits"]:
         raise ValueError("Block credits do not match program total")
-    known = {course["code"]: course for course in courses}
     page_first, page_last = map(int, program["source_pages"].split("-"))
     for row in rows:
-        if not page_first <= row["source_page"] <= page_last:
-            raise ValueError("Source page outside curriculum table")
+        page = row.get("source_page")
+        if type(page) is not int or not page_first <= page <= page_last:
+            raise ValueError(f"Missing/invalid source page outside curriculum table: {context}/{row['code']}, source_row={row['source_row']}, page={page!r}")
         if row["credits"] <= 0 or (row["hours"] and any(value < 0 for value in row["hours"].values())):
-            raise ValueError("Invalid credit/hour values")
+            raise ValueError(f"Invalid credit/hour values: {context}/{row['code']}, source_row={row['source_row']}")
+
+    def check_members(codes: list[str], label: str) -> None:
+        if len(codes) != len(set(codes)):
+            raise ValueError(f"Duplicate group member: {label}")
+        unknown = set(codes) - set(known)
+        if unknown:
+            raise ValueError(f"Unknown course in {label}: {sorted(unknown)}")
+
     for group in program["choice_groups"]:
-        if len(group["course_codes"]) != len(set(group["course_codes"])):
-            raise ValueError(f"Duplicate group member: {group['id']}")
+        check_members(group["course_codes"], f"choice group {group['id']}")
+        unknown_rows = set(group["source_rows"]) - numbered
+        if unknown_rows:
+            raise ValueError(f"Unknown source rows in group {group['id']}: {sorted(unknown_rows)}")
         if sum(known[code]["credits"] for code in group["course_codes"]) != group["listed_credits"]:
             raise ValueError(f"Listed group credits mismatch: {group['id']}")
         source_members = {row["code"] for row in rows if row["source_row"] in group["source_rows"]}
         if source_members != set(group["course_codes"]):
             raise ValueError(f"Group members differ from source rows: {group['id']}")
-    groups = {group["id"]: group for group in program["choice_groups"]}
+    # Rebuild from every source occurrence so neither a missing variant nor a
+    # guessed correction can pass merely by retaining the right record counts.
+    expected_courses = build_courses(program, rows)
+    for expected_course in expected_courses:
+        course = known[expected_course["code"]]
+        group_ids = course["choice_group_ids"]
+        if len(group_ids) != len(set(group_ids)):
+            raise ValueError(f"Duplicate choice group reference: {context}/{course['code']}")
+        if not set(group_ids) <= set(groups):
+            raise ValueError(f"Unknown choice group: {context}/{course['code']}, {sorted(set(group_ids) - set(groups))}")
+        for field in (
+            "name", "name_en", "credits", "hours", "block", "choice_group_ids",
+            "source_rows", "source_page", "prerequisites_raw", "prerequisites",
+            "prerequisite_variants", "prerequisite_status", "external_prerequisite_codes",
+        ):
+            if course.get(field) != expected_course[field]:
+                raise ValueError(
+                    f"Catalog {field} differs from source: {context}/{course['code']}, "
+                    f"source_rows={expected_course['source_rows']}"
+                )
     tracks = program["track_selection"]["tracks"]
+    track_ids = set(unique_index(tracks, "id", f"tracks {context}"))
     if tracks:
         for track in tracks:
+            unknown_groups = set(track["choice_group_ids"]) - set(groups)
+            if unknown_groups:
+                raise ValueError(f"Unknown choice group in track {track['id']}: {sorted(unknown_groups)}")
+            if len(track["choice_group_ids"]) != len(set(track["choice_group_ids"])):
+                raise ValueError(f"Duplicate choice group in track: {track['id']}")
             if sum(groups[group_id]["required_credits"] for group_id in track["choice_group_ids"]) != program["major_credit_structure"]["elective"]:
                 raise ValueError(f"Track elective credits mismatch: {track['id']}")
     else:
         if sum(group["required_credits"] for group in groups.values() if group["id"] not in {"foreign_language_b1", "field_electives", "programming"}) != program["major_credit_structure"]["elective"]:
             raise ValueError("Major elective group quotas mismatch")
     for path in program["graduation_selection"]["paths"]:
+        check_members(path["course_codes"], f"graduation path {path['id']}")
         if sum(known[code]["credits"] for code in path["course_codes"]) != program["graduation_selection"]["required_credits"]:
             raise ValueError(f"Graduation path credits mismatch: {path['id']}")
-        if not set(path["allowed_track_ids"]) <= {track["id"] for track in tracks}:
+        if not set(path["allowed_track_ids"]) <= track_ids:
             raise ValueError(f"Unknown graduation track: {path['id']}")
     for block in program["blocks"]:
+        check_members(block["course_codes"], f"block {block['id']}")
+        check_members(block["required_course_codes"], f"required block {block['id']}")
+        if not set(block["required_course_codes"]) <= set(block["course_codes"]):
+            raise ValueError(f"Required courses outside block: {block['id']}")
         compulsory = sum(known[code]["credits"] for code in block["required_course_codes"])
         if block["id"] == "general" and compulsory + 5 != block["required_credits"]:
             raise ValueError("General required credits + one B1 course mismatch")
@@ -185,10 +275,11 @@ def check_curriculum(program: dict, rows: list[dict], courses: list[dict]) -> di
         if code in visited:
             return
         visiting.add(code)
-        for clause in known[code]["prerequisites"]:
-            for reference in clause:
-                if reference in known:
-                    visit(reference)
+        for variant in known[code]["prerequisite_variants"]:
+            for clause in variant:
+                for reference in clause:
+                    if reference in known:
+                        visit(reference)
         visiting.remove(code)
         visited.add(code)
 
@@ -206,6 +297,18 @@ def check_curriculum(program: dict, rows: list[dict], courses: list[dict]) -> di
         "review_status": program["digitization"]["review_status"],
         "external_prerequisite_codes": sorted({code for course in courses for code in course["external_prerequisite_codes"]}),
         "conflicting_prerequisite_courses": [course["code"] for course in courses if course["prerequisite_status"] == "source_conflict"],
+        "prerequisite_conflicts": [
+            {
+                "code": course["code"],
+                "source_rows": course["source_rows"],
+                "source_entries": [
+                    {key: row[key] for key in ("source_row", "source_page", "prerequisites_raw")}
+                    for row in by_code[course["code"]]
+                ],
+                "prerequisite_variants": course["prerequisite_variants"],
+            }
+            for course in courses if course["prerequisite_status"] == "source_conflict"
+        ],
         "source_issue_count": len(program["source_issues"]),
     }
 
@@ -221,15 +324,18 @@ def main() -> None:
     for directory in sorted(ROOT.iterdir()):
         if not directory.is_dir():
             continue
-        program = json.loads((directory / "curriculum.json").read_text(encoding="utf-8"))
-        rows = json.loads((directory / "source_rows.json").read_text(encoding="utf-8"))
-        courses = build_courses(program, rows)
-        reports.append(check_curriculum(program, rows, courses))
         target = directory / "courses.json"
+        try:
+            program = json.loads((directory / "curriculum.json").read_text(encoding="utf-8"))
+            rows = json.loads((directory / "source_rows.json").read_text(encoding="utf-8"))
+            courses = build_courses(program, rows) if args.write else json.loads(target.read_text(encoding="utf-8"))
+            reports.append(check_curriculum(program, rows, courses))
+            if not args.write and courses != build_courses(program, rows):
+                raise ValueError(f"Catalog differs from source transcription: {target}")
+        except ValueError as exc:
+            parser.exit(1, f"{directory}: {exc}\n")
         if args.write:
             target.write_text(json.dumps(courses, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        elif json.loads(target.read_text(encoding="utf-8")) != courses:
-            raise ValueError(f"Catalog differs from source transcription: {target}")
     if args.report:
         print(json.dumps({"programs": reports}, ensure_ascii=False, indent=2))
     else:

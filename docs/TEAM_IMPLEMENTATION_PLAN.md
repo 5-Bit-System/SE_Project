@@ -45,6 +45,7 @@ Một chương trình là một thư mục `data/curricula/<program_id>/` gồm 
 
 - `GET /programs`: thông tin 4 ngành, số môn đã nhập, trạng thái catalog.
 - `GET /courses?program_id=...`: môn **chỉ của ngành đang chọn**.
+- [Hợp đồng API Catalog](CATALOG_API_CONTRACT.md) quy định response/schema, lỗi `404`/`422`/`503` của hai endpoint đọc và các test phối hợp API/UI.
 - `POST /recommendations`: body `{ "program_id": "...", "passed_course_codes": ["..."], "goal": "...", "max_credits": 18, "limit": 5 }`.
 - Response gồm `program_id`, `catalog_status`, `recommendations` (`code`, `name`, `credits`, `reason`), `eligible_count`, `warnings`.
 - Mã môn ngoài ngành được trả `422`; ngành không tồn tại được trả `404`. Không gộp catalog hay gửi môn ngoài ngành cho LLM.

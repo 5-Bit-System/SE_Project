@@ -20,6 +20,7 @@ Code mục tiêu: `app/modules/catalog/` gồm `router.py`, `service.py`, `repos
 - `app/catalog.py`, test loader/validator; bộ test dữ liệu hiện có trong `tests/test_curriculum_data.py`.
 - `tools/build_catalogs.py` đã có; các `source_rows.json`, `curriculum.json` và `courses.json` trong `data/curricula/`.
 - Kiểu dữ liệu dùng chung nằm trong `app/models.py`; API và bộ luật sử dụng cùng cấu trúc catalog.
+- [Hợp đồng API Catalog](../docs/CATALOG_API_CONTRACT.md) mô tả hai endpoint đọc, schema OpenAPI, status và test bàn giao API/UI. Khi refactor, router hai endpoint thuộc `app/modules/catalog/router.py`; `app/main.py` đăng ký router.
 
 ## Chức năng cần đáp ứng
 

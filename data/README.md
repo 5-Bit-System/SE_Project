@@ -19,6 +19,8 @@ Tổng cộng 290 bản ghi **theo ngành**. Đây không phải 290 môn khác 
 
 `validation_report.json` ở cấp `data/` ghi kết quả kiểm tra cấu trúc/độ phủ, không thay thế review chéo với PDF. `digitization.status = complete` xác nhận đã chép đủ bảng; `catalog_status = draft_unverified` và `review_status = pending_peer_review` giữ trạng thái cần người thứ hai kiểm tra.
 
+[Biên bản review P1-04](../docs/REVIEW_P1_04_TOAN_HOC.md) ghi đối chiếu trực quan Toán học STT 1–55 và MAT4070 với PDF đúng SHA-256; kèm mốc dữ liệu để test và điểm cần xác minh về nhóm AND/OR. Review chéo của thành viên vẫn đang chờ.
+
 ## Cách hiểu dữ liệu
 
 `prerequisites` là AND giữa các danh sách và OR giữa các mã trong cùng danh sách. Ví dụ `[["MAT2301", "MAT2321"], ["MAT2303"]]` nghĩa là `(MAT2301 hoặc MAT2321) và MAT2303`. Biểu thức có ngoặc được chuyển tương đương sang cấu trúc này; `prerequisites_raw` vẫn giữ cách viết trong bảng. Các mã tham chiếu không có trong ngành được giữ ở `external_prerequisite_codes`, chưa tự công nhận môn ngành khác.
@@ -44,3 +46,5 @@ python -m pytest -q
 ```
 
 Khi sửa dữ liệu sau review, sửa bản chép nguồn/metadata rồi chạy `python -X utf8 tools/build_catalogs.py --write` để sinh lại catalog. Chạy `--check` kiểm tra catalog đúng với nguồn, đủ STT, mã duy nhất, quota/nhóm/khối, nhánh tốt nghiệp và đồ thị tiên quyết. Khi cập nhật, đồng thời kiểm tra lại các ghi chú và báo cáo nguồn; báo cáo được tạo khi số hóa không tự thay đổi theo file JSON.
+
+`--check` kiểm tra trực tiếp `courses.json` và báo lỗi nếu mã bị trùng, thiếu/thừa mã so với nguồn, tham chiếu nhóm sai hoặc mất STT/biến thể tiên quyết. Nhiều mã B1 cùng STT 8 vẫn hợp lệ; lặp cùng cặp STT–mã môn là lỗi. `--report` có `prerequisite_conflicts`, gồm các STT, trang và tiên quyết nguyên văn để review. Trạng thái `passed` chỉ xác nhận catalog giữ đúng dữ liệu đã chép, kể cả xung đột được đánh `source_conflict`; không xác nhận mâu thuẫn PDF đã được giải quyết hay chuyển catalog sang `verified`.

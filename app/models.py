@@ -45,6 +45,22 @@ class Catalog(BaseModel):
     courses: list[Course]
 
 
+class ProgramResponse(Program):
+    course_count: int = Field(ge=0)
+
+
+class CourseResponse(Course):
+    name_en: str | None = None
+    prerequisites_raw: str = ""
+    prerequisite_variants: list[list[list[str]]] = Field(default_factory=list)
+    external_prerequisite_codes: list[str] = Field(default_factory=list)
+    source_rows: list[int] = Field(default_factory=list)
+
+
+class CatalogErrorResponse(BaseModel):
+    detail: str
+
+
 class RecommendationRequest(BaseModel):
     program_id: str
     passed_course_codes: list[str] = Field(default_factory=list)
