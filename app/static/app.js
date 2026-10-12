@@ -33,10 +33,6 @@ const dom = {
   btnSampleFreshman: document.querySelector("#btn-sample-freshman"),
   btnSampleSophomore: document.querySelector("#btn-sample-sophomore"),
   btnSampleJunior: document.querySelector("#btn-sample-junior"),
-  detectCodesInput: document.querySelector("#detect-codes-input"),
-  btnDetectProgram: document.querySelector("#btn-detect-program"),
-  detectResults: document.querySelector("#detect-results"),
-  
   // Tab 2 Elements
   rulesEligibleList: document.querySelector("#rules-eligible-list"),
   rulesBlockedList: document.querySelector("#rules-blocked-list"),
@@ -44,10 +40,7 @@ const dom = {
   rulesStatBlocked: document.querySelector("#rules-stat-blocked"),
   rulesStatCompleted: document.querySelector("#rules-stat-completed"),
   
-  // Tab 3 Elements
-  roadmapYearsGrid: document.querySelector("#roadmap-years-grid"),
-  
-  // Tab 4 Elements
+  // Recommendation tab
   recommendForm: document.querySelector("#recommend-form"),
   recGoal: document.querySelector("#rec-goal"),
   recCredits: document.querySelector("#rec-credits"),
@@ -294,18 +287,6 @@ async function updateStudentState() {
 
     renderRuleEngineTab(eligRes);
 
-    // 3. Roadmap Update
-    const roadmap = await api("/roadmap", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        program_id: state.currentProgramId,
-        passed_course_codes: passedCodes,
-      }),
-    });
-
-    renderRoadmapTab(roadmap);
-
   } catch (error) {
     console.error("Lỗi cập nhật trạng thái học vụ:", error);
   }
@@ -370,58 +351,7 @@ function renderRuleEngineTab(eligRes) {
   }
 }
 
-// --- Render Roadmap Tab ---
-function renderRoadmapTab(roadmap) {
-  dom.roadmapYearsGrid.replaceChildren();
-
-  roadmap.years.forEach(yp => {
-    const col = document.createElement("div");
-    col.className = "year-column";
-
-    const percent = yp.total_credits > 0 ? Math.round((yp.completed_credits / yp.total_credits) * 100) : 0;
-
-    col.innerHTML = `
-      <div class="year-header">
-        <div class="year-title">
-          <span>${yp.year_name}</span>
-          <span class="badge badge-gray">${yp.completed_credits} / ${yp.total_credits} TC</span>
-        </div>
-        <div class="year-credits-bar">
-          <div class="year-progress-fill" style="width: ${percent}%;"></div>
-        </div>
-      </div>
-      <div class="year-courses-list" id="year-courses-${yp.year}"></div>
-    `;
-
-    dom.roadmapYearsGrid.appendChild(col);
-    const listEl = col.querySelector(`#year-courses-${yp.year}`);
-
-    yp.courses.forEach(c => {
-      const pill = document.createElement("div");
-      pill.className = `roadmap-course-pill status-${c.status}`;
-      
-      let statusBadge = "";
-      if (c.status === "completed") statusBadge = `<span class="badge badge-success">Đã đạt</span>`;
-      else if (c.status === "eligible") statusBadge = `<span class="badge badge-info">Đủ Đ/K</span>`;
-      else if (c.status === "blocked") statusBadge = `<span class="badge badge-warning">Bị chặn</span>`;
-
-      pill.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-          <strong>${c.code}</strong>
-          ${statusBadge}
-        </div>
-        <div style="font-size:0.8rem; margin:2px 0;">${c.name}</div>
-        <div class="course-meta-tags">
-          <span>${c.credits} TC</span>
-          <span>Kỳ ${c.suggested_term}</span>
-        </div>
-      `;
-      listEl.appendChild(pill);
-    });
-  });
-}
-
-// --- Tab 4: Recommendations Form ---
+// --- Recommendations Form ---
 dom.recCredits.addEventListener("input", (e) => {
   dom.creditsValDisplay.textContent = `${e.target.value} TC`;
 });
@@ -644,52 +574,6 @@ dom.btnClearTranscript.addEventListener("click", async () => {
 dom.courseSearchInput.addEventListener("input", renderCourseChecklist);
 dom.courseBlockFilter.addEventListener("change", renderCourseChecklist);
 dom.programSelect.addEventListener("change", onProgramChanged);
-
-// --- Detect Program Helper ---
-dom.btnDetectProgram.addEventListener("click", async () => {
-  const val = (dom.detectCodesInput.value || "").trim();
-  if (!val) return;
-  const codes = val.split(/[,\s]+/).map(c => c.trim().toUpperCase()).filter(Boolean);
-
-  dom.detectResults.innerHTML = `<div class="loading-spinner">Đang đối soát CTĐT...</div>`;
-
-  try {
-    const rankings = await api("/transcript/detect-program", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ course_codes: codes }),
-    });
-
-    dom.detectResults.replaceChildren();
-    rankings.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "rule-item-card mt-2";
-      const pct = Math.round(item.confidence * 100);
-      card.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <strong>${item.program_name}</strong>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Khớp ${item.matched_count}/${item.input_total} môn (${pct}%)</div>
-          </div>
-          <button class="btn-primary btn-sm" data-select-id="${item.program_id}">Chọn ngành này</button>
-        </div>
-      `;
-      card.querySelector("button").addEventListener("click", async () => {
-        dom.programSelect.value = item.program_id;
-        await onProgramChanged();
-        // Tự động tích chọn các môn khớp
-        item.matched_courses.forEach(c => {
-          state.transcript.set(c, { passed: true, grade: null });
-        });
-        renderCourseChecklist();
-        await updateStudentState();
-      });
-      dom.detectResults.appendChild(card);
-    });
-  } catch (error) {
-    dom.detectResults.innerHTML = `<div class="text-rose">${error.message}</div>`;
-  }
-});
 
 // --- Initialize App ---
 document.addEventListener("DOMContentLoaded", () => {

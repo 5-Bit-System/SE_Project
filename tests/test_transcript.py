@@ -1,10 +1,9 @@
 import pytest
-from app.catalog import load_catalog, list_catalogs
+from app.catalog import load_catalog
 from app.transcript import (
     TranscriptRecord,
     StudentTranscript,
     resolve_program_id,
-    detect_program_from_courses,
 )
 
 
@@ -103,18 +102,6 @@ def test_load_catalog_supports_all_short_aliases():
         assert cat.program.program_id == expected
 
 
-def test_detect_program_from_courses():
-    catalogs = list_catalogs()
-    # Danh sách môn đặc thù của KHDL
-    khdl_courses = ["MAT3390", "MAT3391", "MAT3392", "MAT3386"]
-    rankings = detect_program_from_courses(khdl_courses, catalogs)
-    assert len(rankings) == 4
-    # Ngành KHDL phải đứng đầu bảng xếp hạng
-    assert rankings[0]["program_id"] == "khdl_7460108_2022"
-    assert rankings[0]["matched_count"] == 4
-    assert rankings[0]["confidence"] == 1.0
-
-
 def test_transcript_endpoints():
     from fastapi.testclient import TestClient
     from app.main import app
@@ -140,13 +127,3 @@ def test_transcript_endpoints():
     assert data["gpa"] == 7.5
     assert "PHI1006" in data["passed_courses"]
     assert "PEC1008" in data["failed_courses"]
-
-    # Test POST /transcript/detect-program
-    detect_resp = client.post(
-        "/transcript/detect-program",
-        json={"course_codes": ["MAT3390", "MAT3391", "MAT3392"]},
-    )
-    assert detect_resp.status_code == 200
-    rankings = detect_resp.json()
-    assert len(rankings) == 4
-    assert rankings[0]["program_id"] == "khdl_7460108_2022"

@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 from app.models import Catalog, Course, Program
-from app.planner import allocate_course_years
 from app.transcript import resolve_program_id
 
 
@@ -36,11 +35,4 @@ def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
         if not set(course.choice_group_ids) <= group_ids:
             raise CatalogError(f"Nhóm tự chọn không tồn tại: {course.code}")
 
-    catalog = Catalog(program=program, courses=courses)
-    allocation = allocate_course_years(catalog)
-    for course in catalog.courses:
-        yr, term = allocation.get(course.code, (1, 1))
-        course.year = yr
-        course.suggested_term = term
-
-    return catalog
+    return Catalog(program=program, courses=courses)

@@ -154,37 +154,3 @@ class StudentTranscript(BaseModel):
         if total_credits == 0:
             return None
         return round(total_weighted_points / total_credits, 2)
-
-
-def detect_program_from_courses(
-    course_codes: list[str],
-    catalogs: list[Catalog],
-) -> list[dict[str, Any]]:
-    """Tự động phân tích và xếp hạng ngành học phù hợp nhất từ danh sách môn học đã học.
-
-    Interface mở rộng cho tương lai khi sinh viên chỉ tải bảng điểm mà chưa chọn ngành.
-    """
-    clean_codes = {c.strip().upper() for c in course_codes if c.strip()}
-    if not clean_codes:
-        return []
-
-    rankings = []
-    for cat in catalogs:
-        prog_id = cat.program.program_id
-        cat_codes = {c.code for c in cat.courses}
-        matched = clean_codes.intersection(cat_codes)
-        match_count = len(matched)
-        confidence = round(match_count / len(clean_codes), 4)
-
-        rankings.append({
-            "program_id": prog_id,
-            "program_name": cat.program.name,
-            "matched_count": match_count,
-            "input_total": len(clean_codes),
-            "confidence": confidence,
-            "matched_courses": sorted(matched),
-        })
-
-    # Sắp xếp giảm dần theo số môn trùng và độ tin cậy
-    rankings.sort(key=lambda x: (x["matched_count"], x["confidence"]), reverse=True)
-    return rankings

@@ -14,7 +14,6 @@ import httpx
 from pydantic import BaseModel, ConfigDict, Field
 
 from app.models import BlockedCourse, Catalog, Course
-from app.planner import generate_roadmap
 from app.rules import evaluate_eligibility
 
 # Load .env nếu có

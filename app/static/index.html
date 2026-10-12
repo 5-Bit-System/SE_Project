@@ -66,13 +66,9 @@
         <span class="tab-icon">⚖️</span>
         <span class="tab-label">2. Kiểm Tra Điều Kiện</span>
       </button>
-      <button id="tab-btn-roadmap" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-roadmap">
-        <span class="tab-icon">🗺️</span>
-        <span class="tab-label">3. Lộ Trình 4 Năm</span>
-      </button>
       <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-recommend">
         <span class="tab-icon">⭐</span>
-        <span class="tab-label">4. Gợi Ý Kỳ Tới</span>
+        <span class="tab-label">3. Gợi Ý Kỳ Tới</span>
       </button>
     </nav>
 
@@ -131,18 +127,6 @@
           <div class="loading-spinner">Đang nạp danh sách học phần...</div>
         </div>
 
-        <!-- Auto detect program helper modal/box -->
-        <details class="detect-program-box mt-3">
-          <summary class="detect-summary">💡 Tự động nhận diện ngành từ danh sách môn học đã học</summary>
-          <div class="detect-content">
-            <p>Dán danh sách mã môn cách nhau bằng dấu phẩy hoặc khoảng trắng (ví dụ: PHI1006 MAT2400 MAT2501):</p>
-            <div class="detect-input-row">
-              <input id="detect-codes-input" type="text" class="modern-input" placeholder="Nhập các mã môn..." />
-              <button id="btn-detect-program" type="button" class="btn-primary">Nhận diện</button>
-            </div>
-            <div id="detect-results" class="detect-results-area"></div>
-          </div>
-        </details>
       </div>
     </section>
 
@@ -181,29 +165,7 @@
       </div>
     </section>
 
-    <!-- Tab 3: 4-Year Roadmap Allocator -->
-    <section id="tab-roadmap" class="tab-panel" role="tabpanel">
-      <div class="panel-card">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">Lộ Trình Đào Tạo 4 Năm (Năm 1 $\rightarrow$ Năm 4)</h2>
-            <p class="card-subtitle">Phân bổ môn học dựa trên độ sâu đồ thị tiên quyết (DAG Depth) và khối kiến thức, bảo đảm tính Topo.</p>
-          </div>
-          <div class="roadmap-legend">
-            <span class="legend-item"><span class="legend-dot dot-completed"></span> Đã đạt</span>
-            <span class="legend-item"><span class="legend-dot dot-eligible"></span> Đủ điều kiện kỳ tới</span>
-            <span class="legend-item"><span class="legend-dot dot-blocked"></span> Bị chặn</span>
-            <span class="legend-item"><span class="legend-dot dot-future"></span> Kỳ sau</span>
-          </div>
-        </div>
-
-        <div id="roadmap-years-grid" class="roadmap-years-container mt-3">
-          <!-- 4 Year Columns Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Tab 4: Course Recommendations & What-if -->
+    <!-- Tab 3: Course Recommendations & What-if -->
     <section id="tab-recommend" class="tab-panel" role="tabpanel">
       <div class="grid-2-col">
         <!-- Controls Column -->
