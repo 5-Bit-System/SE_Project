@@ -5,9 +5,10 @@ bảo đảm tính cô lập ngành (Major Isolation) và cung cấp interface n
 """
 
 from typing import Any
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.models import Catalog
+from app.progress import counts_toward_total
 
 PROGRAM_ALIASES: dict[str, str] = {
     # Short aliases
@@ -93,6 +94,8 @@ class StudentTranscript(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     program_id: str = Field(..., description="Mã CTĐT của sinh viên")
+    selected_track_id: str | None = None
+    selected_graduation_path_id: str | None = None
     records: list[TranscriptRecord] = Field(
         default_factory=list,
         description="Danh sách môn học đã học/đã nhập điểm",
@@ -102,6 +105,17 @@ class StudentTranscript(BaseModel):
     @classmethod
     def normalize_program(cls, v: str) -> str:
         return resolve_program_id(v)
+
+    @model_validator(mode="after")
+    def reject_duplicate_courses(self) -> "StudentTranscript":
+        seen: set[str] = set()
+        for record in self.records:
+            if record.course_code in seen:
+                raise ValueError(
+                    f"duplicate_course_code: {record.course_code}; retakes are unsupported"
+                )
+            seen.add(record.course_code)
+        return self
 
     @property
     def passed_course_codes(self) -> set[str]:
@@ -147,16 +161,11 @@ class StudentTranscript(BaseModel):
 
     def calculate_earned_credits(self, catalog: Catalog) -> int:
         """Tính tổng số tín chỉ tích lũy hợp lệ theo CTĐT."""
-        excluded = getattr(catalog.program, "excluded_from_total", [])
-        if not isinstance(excluded, list):
-            excluded = []
-        excluded_set = set(excluded)
-
         course_map = {c.code: c for c in catalog.courses}
         earned = 0
         for code in self.passed_course_codes:
             course = course_map.get(code)
-            if course and code not in excluded_set:
+            if course and counts_toward_total(catalog, course):
                 earned += course.credits
         return earned
 
@@ -165,21 +174,14 @@ class StudentTranscript(BaseModel):
 
         Không tính các học phần điều kiện (nằm trong excluded_from_total hoặc counted_in_total = False).
         """
-        excluded = getattr(catalog.program, "excluded_from_total", [])
-        if not isinstance(excluded, list):
-            excluded = []
-        excluded_set = set(excluded)
-
         course_map = {c.code: c for c in catalog.courses}
         total_weighted_points = 0.0
         total_credits = 0
 
         for rec in self.records:
             if rec.grade is not None and rec.course_code in course_map:
-                if rec.course_code in excluded_set:
-                    continue
                 c = course_map[rec.course_code]
-                if getattr(c, "counted_in_total", True) is False:
+                if not counts_toward_total(catalog, c):
                     continue
                 total_weighted_points += rec.grade * c.credits
                 total_credits += c.credits
@@ -190,21 +192,14 @@ class StudentTranscript(BaseModel):
 
     def calculate_gpa(self, catalog: Catalog) -> float | None:
         """Tính GPA hệ 4 bằng cách quy đổi từng điểm môn rồi tính theo tín chỉ."""
-        excluded = getattr(catalog.program, "excluded_from_total", [])
-        if not isinstance(excluded, list):
-            excluded = []
-        excluded_set = set(excluded)
-
         course_map = {c.code: c for c in catalog.courses}
         total_weighted_points = 0.0
         total_credits = 0
 
         for rec in self.records:
             if rec.grade is not None and rec.course_code in course_map:
-                if rec.course_code in excluded_set:
-                    continue
                 course = course_map[rec.course_code]
-                if getattr(course, "counted_in_total", True) is False:
+                if not counts_toward_total(catalog, course):
                     continue
                 total_weighted_points += grade_to_gpa4(rec.grade) * course.credits
                 total_credits += course.credits

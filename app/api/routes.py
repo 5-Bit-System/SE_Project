@@ -5,6 +5,7 @@ from app.schemas.catalog import Course, ProgramCatalogMetadata
 from app.schemas.eligibility import EligibilityRequest, EligibilityResult
 from app.schemas.recommendation import RecommendationRequest, RecommendationResponse, WhatIfRequest
 from app.recommendation.llm import configured_adapters
+from app.progress import calculate_progress
 from app.schemas.profile import ProfileDetail, ProfileSummary, TranscriptSummary
 from app.services.advisor_service import chat_advisor
 from app.services.catalog_service import CatalogError, list_catalogs, load_catalog
@@ -76,9 +77,7 @@ def profiles(program_id: str | None = Query(default=None)) -> list[ProfileSummar
                     "career_goal": profile.career_goal,
                     "preferences": profile.preferences,
                     "record_count": len(profile.records),
-                    "catalog": _catalog_metadata(
-                        catalog or load_catalog(profile.program_id)
-                    ),
+                    "catalog": _catalog_metadata(catalog or load_catalog(profile.program_id)),
                 }
             )
             for profile in list_profiles(program_id)
@@ -126,6 +125,7 @@ def profile_transcript_summary(profile_id: str) -> TranscriptSummary:
             "career_goal": profile.career_goal,
             "preferences": profile.preferences,
             "earned_credits": transcript.calculate_earned_credits(catalog),
+            "progress": calculate_progress(catalog, transcript.passed_course_codes),
             "gpa": transcript.calculate_gpa(catalog),
             "gpa_10": transcript.calculate_gpa_10(catalog),
             "gpa_scale": 4.0,
@@ -201,6 +201,12 @@ def transcript_summary(transcript: StudentTranscript) -> TranscriptSummary:
             "program_id": catalog.program.program_id,
             "program_name": catalog.program.name,
             "earned_credits": transcript.calculate_earned_credits(catalog),
+            "progress": calculate_progress(
+                catalog,
+                transcript.passed_course_codes,
+                transcript.selected_track_id,
+                transcript.selected_graduation_path_id,
+            ),
             "gpa": transcript.calculate_gpa(catalog),
             "gpa_10": transcript.calculate_gpa_10(catalog),
             "gpa_scale": 4.0,

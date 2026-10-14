@@ -505,3 +505,11 @@ Prerequisite groups là AND, options trong mỗi group là OR. Foreign key compo
 Chỉ fixture demo được lưu; bảng điểm nhập tay, history chat và What-if của người dùng vẫn ở phiên. Chưa lưu recommendation audit hoặc HUS documents trong database của đợt này. Thiết kế chi tiết và giới hạn nằm trong `docs/DATABASE_DESIGN.md`.
 
 `/health` là liveness; `/ready` kiểm tra storage/seed. Lỗi kết nối trả 503; lỗi dữ liệu server trả 500; không fallback storage âm thầm. Test mặc định cô lập .env, chặn outbound HTTP. Test PostgreSQL chỉ chạy khi đặt `TEST_DATABASE_URL` và dùng schema ngẫu nhiên riêng.
+
+### Cập nhật phần A — 2026-10-15
+
+JSON và PostgreSQL đi qua cùng normalizer/validator cho envelope metadata 1.0. Contract mới kiểm tra kiểu dữ liệu, identity, vocabulary, field evidence/review và quan hệ hai chiều của nhóm/nhánh/khối. Nhánh legacy được nhận diện riêng, không tự tạo evidence. Unknown/conflict không mở khóa môn; external không được coi là completed. Thông tin tư vấn thiếu vẫn là null.
+
+Builder kiểm tra source rows và quota theo định nghĩa chương trình; `--check` không ghi file. Thay đổi mã môn/tiên quyết hoặc trường đã review cần review dữ liệu riêng, không âm thầm giữ bằng chứng cũ. API transcript summary bổ sung progress tổng/khối/nhóm và track/path nếu đã chọn; counted_in_total và loại trừ cấp chương trình dùng chung cho TC/GPA/progress. Transcript trùng mã bị từ chối đến khi có chính sách retake.
+
+Nguồn sản phẩm hiện vẫn chỉ có mẫu KHDL 65 môn, chưa thẩm định PDF. Readiness/seed sản phẩm tiếp tục yêu cầu đủ bốn catalog và 12 profile. Test nghiệp vụ dùng nguồn giả lập nhỏ riêng, kiểm kê nguồn đầy đủ nằm sau marker full_catalog_acceptance; kết quả test không chứng nhận nguồn bốn ngành hoàn chỉnh.

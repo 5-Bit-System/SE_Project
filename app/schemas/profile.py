@@ -3,6 +3,7 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from app.profiles import DemoProfile
+from app.progress import CurriculumProgress
 from app.schemas.catalog import ProgramCatalogMetadata
 
 
@@ -37,6 +38,7 @@ class TranscriptSummary(BaseModel):
     career_goal: str | None = None
     preferences: dict[str, Any] = Field(default_factory=dict)
     earned_credits: int
+    progress: CurriculumProgress | None = None
     gpa: float | None = None
     gpa_10: float | None = None
     gpa_scale: float = 4.0

@@ -14,6 +14,7 @@ from sqlalchemy import Connection, Engine, Table, select, text
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.exc import SQLAlchemyError
 
+from app.catalog_validation import validate_catalog
 from app.db import schema as db
 from app.db.session import get_engine
 from app.infrastructure.json_catalog_repository import DATA_ROOT, load_catalog
@@ -31,13 +32,22 @@ def _seed_revision(conn: Connection, revision_id: str, bundle: dict[str, Any]) -
     program, courses, sources, profiles = (
         bundle[key] for key in ("program", "courses", "sources", "profiles")
     )
+    envelope = bundle.get("envelope")
+    program_payload = dict(program)
+    if envelope is not None:
+        # Keep the exact source header and vocabulary outside the domain Program.
+        # The relational revision_id remains the independent bundle SHA-256.
+        program_payload["_metadata_contract"] = {
+            "envelope": {key: value for key, value in envelope.items() if key != "courses"},
+            "vocabulary": bundle["vocabulary"],
+        }
     rev = {"revision_id": revision_id}
     conn.execute(
         db.catalog_revisions.insert().values(
             **rev,
             program_id=program["program_id"],
             active=False,
-            payload=program,
+            payload=program_payload,
         )
     )
     _insert(
@@ -214,24 +224,47 @@ def _seed_revision(conn: Connection, revision_id: str, bundle: dict[str, Any]) -
 
 def seed_database(
     engine: Engine | None = None,
-    source_root: Path = DATA_ROOT,
+    source_root: Path | None = None,
+    data_root: Path | None = None,
     profiles_path: Path = PROFILES_PATH,
 ) -> dict[str, int]:
-    profiles = [
-        DemoProfile.model_validate(item)
-        for item in json.loads(profiles_path.read_text(encoding="utf-8"))
-    ]
+    if source_root is not None and data_root is not None and source_root != data_root:
+        raise ValueError("source_root and data_root must identify the same directory")
+    effective_root = (
+        data_root
+        if data_root is not None
+        else (source_root if source_root is not None else DATA_ROOT)
+    )
+    if not profiles_path.exists():
+        raise ValueError(f"Profiles file not found: {profiles_path}")
+
+    profile_source = json.loads(profiles_path.read_text(encoding="utf-8"))
+    if not isinstance(profile_source, list):
+        raise ValueError("Profiles file must contain a list")
+    profiles = [DemoProfile.model_validate(item) for item in profile_source]
     if len(profiles) != 12 or len({profile.profile_id for profile in profiles}) != 12:
         raise ValueError("Seed requires 12 unique synthetic profiles")
+
     bundles = []
-    for directory in sorted(source_root.iterdir()):
+    for directory in sorted(effective_root.iterdir()):
         if not directory.is_dir():
             continue
-        catalog = load_catalog(directory.name, source_root)
+        catalog = load_catalog(directory.name, effective_root)
         program = json.loads((directory / "curriculum.json").read_text(encoding="utf-8"))
-        courses = json.loads((directory / "courses.json").read_text(encoding="utf-8"))
+        courses_doc = json.loads((directory / "courses.json").read_text(encoding="utf-8"))
         sources = json.loads((directory / "source_rows.json").read_text(encoding="utf-8"))
-        check_curriculum(program, sources, courses)
+        vocab_path = directory / "vocabulary.json"
+        vocabulary = (
+            json.loads(vocab_path.read_text(encoding="utf-8")) if vocab_path.exists() else None
+        )
+        validate_catalog(catalog, vocabulary)
+
+        if isinstance(courses_doc, dict):
+            course_items = courses_doc["courses"]
+        else:
+            course_items = courses_doc
+
+        check_curriculum(program, sources, course_items)
         selected = [profile for profile in profiles if profile.program_id == program["program_id"]]
         if len(selected) != 3:
             raise ValueError("Seed requires three profiles per program")
@@ -240,9 +273,16 @@ def seed_database(
         bundles.append(
             {
                 "program": program,
-                "courses": courses,
+                "courses": course_items,
                 "sources": sources,
+                "vocabulary": vocabulary,
+                "envelope": courses_doc if isinstance(courses_doc, dict) else None,
                 "profiles": [profile.model_dump(mode="json") for profile in selected],
+                "profile_source": [
+                    raw
+                    for raw, profile in zip(profile_source, profiles)
+                    if profile.program_id == program["program_id"]
+                ],
             }
         )
     if len(bundles) != 4 or {bundle["program"]["program_id"] for bundle in bundles} != set(

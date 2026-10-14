@@ -4,7 +4,7 @@ from app.models import Course, RankingWeights, StructuredPreference
 
 
 def _metadata(course: Course) -> dict:
-    return course.model_extra or {}
+    return course.model_dump()
 
 
 def _as_text(value: object) -> str:
@@ -41,18 +41,26 @@ def score_course(
             _as_text(metadata.get("orientation")),
         ]
     ).casefold()
-    hits = sum(1 for topic in preference.interest_topics if topic.casefold().replace("_", " ") in searchable)
-    topic_score = min(hits / max(len(preference.interest_topics), 1), 1.0) if preference.interest_topics else 0.0
+    hits = sum(
+        1
+        for topic in preference.interest_topics
+        if topic.casefold().replace("_", " ") in searchable
+    )
+    topic_score = (
+        min(hits / max(len(preference.interest_topics), 1), 1.0)
+        if preference.interest_topics
+        else 0.0
+    )
 
-    type_score = 1.0 if preference.course_type and metadata.get("requirement_type") == preference.course_type else 0.0
+    type_score = (
+        1.0
+        if preference.course_type and metadata.get("requirement_type") == preference.course_type
+        else 0.0
+    )
     orientation_score = _metadata_match(course, "orientation", preference.orientation)
     difficulty_score = _metadata_match(course, "difficulty", preference.difficulty)
     workload_score = _metadata_match(course, "workload", preference.workload)
-    goal_words = {
-        word.casefold()
-        for word in (preference.raw_goal or "").split()
-        if len(word) > 2
-    }
+    goal_words = {word.casefold() for word in (preference.raw_goal or "").split() if len(word) > 2}
     name_score = min(sum(word in searchable for word in goal_words) / max(len(goal_words), 1), 1.0)
     weights = weights or RankingWeights()
     weighted_total = (
@@ -71,7 +79,12 @@ def fit_reason(course: Course, preference: StructuredPreference, score: float) -
     metadata = _metadata(course)
     matches: list[str] = []
     searchable = " ".join(
-        [course.name, str(metadata.get("name_en", "")), course.block, _as_text(metadata.get("topics"))]
+        [
+            course.name,
+            str(metadata.get("name_en", "")),
+            course.block,
+            _as_text(metadata.get("topics")),
+        ]
     ).casefold()
     for topic in preference.interest_topics:
         if topic.casefold().replace("_", " ") in searchable:

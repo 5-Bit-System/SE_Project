@@ -1,5 +1,16 @@
 # Project Memory and Contributor Guidelines
 
+## Current Handoff — 2026-10-15
+
+- Repository: `https://github.com/5-Bit-System/SE_Project.git`; working branch: `codebase`. Before this handoff, remote `codebase` was at `19c081c` after two documentation commits. Check Git history for the latest published commit; do not infer it from this memory file.
+- Phase A (metadata, runtime, testing) is complete in code and local verification. Strict metadata 1.0 normalization/validation, safe builder, JSON/PostgreSQL round-trip, isolated synthetic test fixtures, progress, excluded-credit/GPA behavior, and CI job separation are implemented. See `docs/superpowers/plans/2026-10-14-metadata-runtime-progress.md` for acceptance evidence and decisions.
+- Latest local verification: **108 passed, 26 skipped** with no test database URL; Ruff passed. An earlier isolated PostgreSQL run completed **124 passed, 10 skipped**. The ten remaining skips require the four reviewed source catalogs. CI on the remote branch and live browser/model-provider behavior have not been verified.
+- `data/` still contains only the 65-course Data Science 2022 handoff sample; the other three catalogs and twelve product demo profiles were removed by user request. The original PDFs are not present. Do not recreate these product datasets without a new request. Test fixtures under `tests/fixtures/` are invented and must never be treated as academic source data.
+- PostgreSQL product database/container/volume were not modified during Phase A. The earlier database may still contain four catalogs and twelve demo profiles, but its current availability was not verified because Docker API access was denied in this environment. A fresh clone cannot seed the four-program demo from the checked-in product data. Do not seed the existing product database merely to test the sample.
+- The user wants to finish and publish the codebase foundation now. Recommendation/chatbot, frontend/What-if, and HUS Q&A module work (plans B/C/D) belongs to teammates later; do not implement those modules unless explicitly requested. Remaining foundation work includes reviewing backend ownership, source-data handoff when authorized, and remote CI/demo verification. Track these separately from Phase A acceptance in `docs/CODEBASE_CHECKLIST.md`.
+- Local demo with the pre-existing database: from the repo, run `docker compose up -d db`, set `RECOMMENDATION_LLM_ENABLED=false` for offline recommendations, then run `.venv/Scripts/python.exe -m uvicorn app.main:app --reload` and visit `http://127.0.0.1:8000/ready` and `/`. Requires valid local `.env` and the retained database volume. Do not run `docker compose down -v`.
+- Collaboration preferences: preserve requested scope, report task-scoped progress percentages, prefer one agent/minimal skill reads unless parallel agents are explicitly requested and useful. `project-toolkit/`, skill collections, secrets, environments, caches and backups stay local and outside Git. Do not automatically commit/push on future memory-only requests; this session's user explicitly requested publication.
+
 ## Project Context
 
 This repository is the codebase for an Explainable Course Recommender (AI-07). The product helps students inspect a synthetic academic profile, transcript, curriculum progress, eligible courses, and ranked course recommendations. Use `docs/SYSTEM_SPECIFICATION.md` and `docs/DATABASE_DESIGN.md` for current implementation decisions; `KE_HOACH_DU_AN.md` and `SE_Project.pdf` remain product/historical references. The latest explicit user instructions take precedence over older plans.
@@ -46,7 +57,7 @@ Chat history is session-scoped. It is cleared when the user changes major. Do no
 
 ## Active Repository Structure
 
-Current data handoff state (2026-10-14): the user requested retaining only the Data Science 2022 metadata sample in `data/`. Other catalogs, synthetic profile fixtures and the old validation report were removed after a verified local ZIP backup. The sample uses the new metadata envelope and is not compatible with the existing JSON loader/builder/seed. Do not restore removed catalogs or silently treat it as runtime seed. Existing PostgreSQL data was retained. On publication, the default suite reports 22 passed, 21 failed and 11 PostgreSQL tests skipped because catalog-dependent tests still expect the previous dataset. The earlier 54/54 result below is historical, before this data change.
+Current data handoff state (2026-10-15): `data/` retains only the Data Science 2022 metadata sample after the user's removal of other product catalogs and profiles. The JSON loader, builder, validator and seed tool now support the metadata envelope, but seed preflight still requires four real catalogs and twelve product demo profiles. The existing PostgreSQL data was retained. Offline tests use independent synthetic fixtures; the ten full-source acceptance tests remain unverified until reviewed source data is supplied.
 
 Publishing policy: exclude the entire local `project-toolkit/` and all local skill collections, secrets, environments, caches and backups from Git. Toolkit instructions apply only if it exists locally. The legacy one-time schema replacement script was removed after its authorized use; keep Alembic migrations and the current seed tool.
 
@@ -54,10 +65,10 @@ Publishing policy: exclude the entire local `project-toolkit/` and all local ski
 - `app/config.py` — centralized server settings; PostgreSQL is the default storage backend and JSON must be explicitly selected for offline work.
 - `app/db/`, `app/infrastructure/` — relational schema, pooled connections and JSON/PostgreSQL storage adapters.
 - `alembic/`, `docker-compose.yml` — schema migrations and the PostgreSQL 16 development service.
-- `data/curricula/` — four independent JSON catalogs and source transcription/validation metadata.
+- `data/curricula/` — currently one Data Science metadata handoff sample; the four-catalog runtime dataset is no longer present in the repository.
 - `data/README.md` — catalog data contract and provenance notes.
 - `tools/build_catalogs.py` — validates and regenerates catalog files from source rows.
-- `tools/seed_database.py` — validates and transactionally seeds four versioned catalogs and 12 synthetic profiles; repeated imports are idempotent.
+- `tools/seed_database.py` — validates and transactionally seeds four versioned catalogs and twelve product profiles; cannot seed from the intentionally incomplete product data currently checked in.
 - `tests/` — catalog, transcript, eligibility, recommendation, and advisor tests.
 - `docs/SYSTEM_SPECIFICATION.md` — detailed end-to-end product and architecture description.
 - `.env.example` — non-secret database and LLM configuration template.
@@ -77,6 +88,8 @@ When the user says "hãy dùng project-toolkit để làm yêu cầu sau", "dùn
 
 ## Development Commands
 
+The commands below describe existing tooling. The metadata sample passes builder validation, while product seed and four-catalog acceptance remain blocked by the intentionally incomplete product data. Default tests use independent synthetic fixtures.
+
 - `python -m pytest -q` — run the active backend and catalog tests.
 - Install into the project `.venv` using `python -m pip install -r requirements-dev.txt -c requirements-lock.txt`. Do not start unrelated dependency upgrades while completing an infrastructure task. If package downloads delay work, distinguish the download delay from database/code failures in progress updates.
 - `docker compose up -d db` — start the project PostgreSQL service; reuse the existing `se_recommender_pgdata` volume.
@@ -84,7 +97,7 @@ When the user says "hãy dùng project-toolkit để làm yêu cầu sau", "dùn
 - `python -m tools.seed_database` — validate and seed PostgreSQL from the checked-in JSON sources.
 - `python -m alembic check` — check for drift between database and application schema.
 - Set `TEST_DATABASE_URL` explicitly to run PostgreSQL integration tests. They create/drop only random `se_test_*` schemas, never the user's public tables; default tests use JSON and mock outbound HTTP.
-- `python -X utf8 tools/build_catalogs.py --check` — validate all four catalogs without rewriting them.
+- `python -X utf8 tools/build_catalogs.py --check` — validate the retained product sample without rewriting it; run with `--root tests/fixtures/catalogs` for all four synthetic test catalogs.
 - `python -X utf8 tools/build_catalogs.py --check --report` — print catalog validation details.
 - `python -m uvicorn app.main:app --reload` — run the FastAPI app and static frontend.
 

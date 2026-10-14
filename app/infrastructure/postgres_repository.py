@@ -8,11 +8,12 @@ from pydantic import ValidationError
 from sqlalchemy import Connection, Engine, select, text
 from sqlalchemy.exc import SQLAlchemyError
 
-from app.catalog_validation import validate_curriculum_selections
+from app.catalog_normalization import normalize_catalog
+from app.catalog_validation import validate_catalog
 from app.db import schema as db
 from app.db.session import get_engine
 from app.errors import CatalogError, StorageDataError, StorageUnavailable
-from app.models import Catalog, Course, Program
+from app.models import Catalog
 from app.transcript import resolve_program_id
 
 logger = logging.getLogger(__name__)
@@ -100,26 +101,33 @@ class PostgresRepository:
         ).mappings()
         for link in links:
             memberships.setdefault(link["course_code"], []).append(link["group_id"])
-        catalog = Catalog(
-            program=Program.model_validate(revision["payload"]),
-            courses=[
-                Course.model_validate(
-                    {
-                        **row["payload"],
-                        "code": row["code"],
-                        "name": row["name"],
-                        "credits": row["credits"],
-                        "block": row["block"],
-                        "prerequisites": prerequisites.get(row["code"], []),
-                        "choice_group_ids": memberships.get(row["code"], []),
-                    }
-                )
-                for row in rows
-            ],
-        )
+        program_data = dict(revision["payload"])
+        contract = program_data.pop("_metadata_contract", None)
+        courses = [
+            {
+                **row["payload"],
+                "code": row["code"],
+                "name": row["name"],
+                "credits": row["credits"],
+                "block": row["block"],
+                "prerequisites": prerequisites.get(row["code"], []),
+                "choice_group_ids": memberships.get(row["code"], []),
+            }
+            for row in rows
+        ]
+        if contract is not None:
+            if not isinstance(contract, dict) or not isinstance(contract.get("envelope"), dict):
+                raise StorageDataError("Invalid PostgreSQL metadata contract")
+            catalog = normalize_catalog(
+                program_data,
+                {**contract["envelope"], "courses": courses},
+                contract.get("vocabulary"),
+            )
+        else:
+            catalog = normalize_catalog(program_data, courses)
         if catalog.program.program_id != revision["program_id"]:
             raise StorageDataError("Ngành trong catalog không khớp revision PostgreSQL")
-        validate_curriculum_selections(catalog.program, {course.code for course in catalog.courses})
+        validate_catalog(catalog, contract.get("vocabulary") if contract else None)
         return catalog
 
     def load_catalog(self, program_id: str) -> Catalog:

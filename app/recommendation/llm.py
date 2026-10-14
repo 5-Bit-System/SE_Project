@@ -46,7 +46,7 @@ class LLMRanker:
                 "name": course.name,
                 "credits": course.credits,
                 "block": course.block,
-                "metadata": course.model_extra or {},
+                "metadata": course.model_dump(),
             }
             for course in candidates
         ]
@@ -78,7 +78,9 @@ def _parse_json_response(text: str) -> Any:
         if not starts:
             raise ValueError("LLM khong tra ve JSON")
         start = min(starts)
-        ends = [position for position in (cleaned.rfind("]"), cleaned.rfind("}")) if position >= start]
+        ends = [
+            position for position in (cleaned.rfind("]"), cleaned.rfind("}")) if position >= start
+        ]
         if not ends:
             raise ValueError("LLM tra ve JSON khong day du")
         return json.loads(cleaned[start : max(ends) + 1])
@@ -111,11 +113,16 @@ def _llm_text(prompt: str) -> str:
         data = response.json()
         content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
     else:
-        endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        endpoint = (
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        )
         response = httpx.post(
             endpoint,
             params={"key": api_key},
-            json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.1, "maxOutputTokens": 1200}},
+            json={
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0.1, "maxOutputTokens": 1200},
+            },
             timeout=20.0,
         )
         response.raise_for_status()

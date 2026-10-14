@@ -6,9 +6,11 @@ Codebase của Explainable Course Recommender (AI-07): FastAPI, giao diện stat
 
 `data/` chỉ giữ **mẫu Khoa học dữ liệu 2022 gồm 65 học phần**, theo hợp đồng metadata mới, để bàn giao cho người xây dựng dữ liệu. Xem [hướng dẫn mẫu](data/curricula/khdl_7460108_2022/README.md) và [đặc tả metadata](docs/COURSE_METADATA_SPECIFICATION.md).
 
-Mẫu có envelope mới và chưa được tích hợp với JSON loader, builder hoặc seed hiện tại. Các catalog khác và profile tổng hợp đã được gỡ theo yêu cầu. Không chạy seed hoặc `build_catalogs.py --write` trên bộ mẫu này. Một bản clone mới chưa đủ dữ liệu để chạy demo hoặc seed database từ đầu.
+Loader, validator, builder và seed đã hỗ trợ envelope metadata 1.0. Các catalog khác và profile sản phẩm đã được gỡ theo yêu cầu; mẫu vẫn chưa đối soát PDF. Một bản clone mới chưa đủ dữ liệu để chạy demo bốn ngành hoặc seed database sản phẩm từ đầu. Không dùng fixtures kiểm thử làm dữ liệu học vụ.
 
-Database local đã seed trước đây được giữ nguyên; dữ liệu trong database không được đưa lên Git. Runtime PostgreSQL có thể dùng database đã seed, nhưng JSON offline hiện chưa tương thích mẫu bàn giao.
+Database local đã seed trước đây được giữ nguyên; adapter vẫn đọc được định dạng legacy. JSON loader đọc được mẫu một ngành, nhưng readiness sản phẩm vẫn yêu cầu đủ bốn catalog. Seed kiểm tra đủ bốn catalog và 12 profile hợp lệ trước khi ghi database.
+
+Builder `--check` kiểm tra mẫu mà không ghi file. `--write` giữ metadata tư vấn và evidence, từ chối thay đổi mã môn, tiên quyết hoặc trường đã review cần thẩm định lại. Việc cập nhật nguồn thực tế cần review dữ liệu và revision riêng; không chạy seed lên database đang dùng chỉ để thử mẫu.
 
 ## Cài môi trường
 
@@ -37,11 +39,12 @@ Mở `http://127.0.0.1:8000`, API docs ở `/docs`. `/health` kiểm tra tiến 
 ```powershell
 python -m ruff check app tests tools alembic
 python -m pytest -q
+python -X utf8 tools/build_catalogs.py --check
 ```
 
-Kiểm tra tại thời điểm cập nhật nhánh: Ruff đạt; pytest **22 passed, 21 failed, 11 skipped**. Các test phụ thuộc catalog cũ thất bại do dữ liệu đã được thay bằng mẫu bàn giao; test PostgreSQL cần `TEST_DATABASE_URL`. CI hiện vẫn giữ các kiểm tra đầy đủ và sẽ phản ánh tình trạng chưa tích hợp này, không phải chứng nhận bản build hoàn chỉnh.
+Test nghiệp vụ dùng fixtures giả lập nhỏ tại `tests/fixtures/`: bốn ngành, 14 môn/ngành và 12 profile, không phải bản khôi phục các catalog đã xóa. Mẫu thật 65 môn được kiểm tra riêng. Test PostgreSQL chỉ chạy khi đặt `TEST_DATABASE_URL`, tạo/drop schema `se_test_*` riêng; không dùng database sản phẩm để chạy thử.
 
-Việc tích hợp metadata mới, hoàn thiện dữ liệu và khôi phục test là các công việc tiếp theo, xem [checklist](docs/CODEBASE_CHECKLIST.md). Kết quả 54/54 trước đây thuộc trạng thái dữ liệu trước thay đổi.
+Các kiểm thử kiểm kê đầy đủ nguồn bốn ngành có marker `full_catalog_acceptance`. Mặc định chúng được bỏ qua vì chưa có nguồn đầy đủ; chạy rõ ràng bằng `python -m pytest -m full_catalog_acceptance --full-catalog-root <thu-muc-nguon>`. Nguồn được yêu cầu nhưng thiếu/sai sẽ làm kiểm tra thất bại. CI tách offline và PostgreSQL trên fixtures; chưa xác minh CI remote. Xem [checklist và kết quả kiểm tra](docs/CODEBASE_CHECKLIST.md).
 
 ## Tài liệu
 

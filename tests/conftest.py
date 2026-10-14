@@ -15,7 +15,9 @@ from app.config import get_settings
 
 
 @pytest.fixture(autouse=True)
-def isolated_runtime(monkeypatch):
+def isolated_runtime(monkeypatch, catalog_root, profiles_path):
+    monkeypatch.setattr("app.catalog.DATA_ROOT", catalog_root)
+    monkeypatch.setattr("app.profiles.PROFILES_PATH", profiles_path)
     monkeypatch.setenv("STORAGE_BACKEND", "json")
     monkeypatch.setenv("DATABASE_URL", "")
     monkeypatch.setenv("GEMINI_API_KEY", "")
@@ -38,3 +40,53 @@ def isolated_runtime(monkeypatch):
     assert not network_attempts, (
         "A test attempted outbound HTTP, even if fallback swallowed the error"
     )
+
+
+@pytest.fixture(scope="session")
+def catalog_root(tmp_path_factory):
+    from tests.catalog_fixtures import create_catalog_fixture
+
+    root, _ = create_catalog_fixture(tmp_path_factory.mktemp("offline_catalogs"))
+    return root
+
+
+@pytest.fixture(scope="session")
+def profiles_path(catalog_root):
+    return catalog_root.parent / "demo_profiles.json"
+
+
+@pytest.fixture
+def toy_catalog():
+    from tests.catalog_fixtures import get_toy_catalog
+
+    return get_toy_catalog()
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--full-catalog-root",
+        type=str,
+        default=None,
+        help="Explicit external root for four-catalog source acceptance",
+    )
+
+
+def pytest_collection_modifyitems(config, items):
+    if config.getoption("--full-catalog-root") is None:
+        skip = pytest.mark.skip(reason="Full source acceptance requires --full-catalog-root")
+        for item in items:
+            if "full_catalog_acceptance" in item.keywords:
+                item.add_marker(skip)
+
+
+@pytest.fixture
+def full_catalog_root(request):
+    from pathlib import Path
+
+    value = request.config.getoption("--full-catalog-root")
+    if value is None:
+        pytest.skip("Full source acceptance requires --full-catalog-root")
+    root = Path(value).resolve()
+    if not root.is_dir():
+        pytest.fail(f"Explicit full catalog root does not exist: {root}")
+    return root

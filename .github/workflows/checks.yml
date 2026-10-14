@@ -11,8 +11,12 @@ jobs:
           python-version: "3.11"
       - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
       - run: python -m ruff check .
-      - run: python -X utf8 tools/build_catalogs.py --check
-      - run: python -m pytest -q
+      - name: Validate independent synthetic fixtures
+        run: python -X utf8 tools/build_catalogs.py --check --root tests/fixtures/catalogs
+      - name: Validate the retained metadata sample
+        run: python -X utf8 tools/build_catalogs.py --check
+      - name: Offline unit and metadata tests
+        run: python -m pytest -q -m "not postgres and not full_catalog_acceptance"
   postgres:
     runs-on: ubuntu-latest
     services:
@@ -35,4 +39,5 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
-      - run: python -m pytest -q
+      - name: PostgreSQL round trips in isolated schemas using synthetic fixtures
+        run: python -m pytest -q -m postgres

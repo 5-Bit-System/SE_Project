@@ -1,0 +1,242 @@
+[
+  {
+    "profile_id": "khdl_01",
+    "program_id": "khdl_7460108_2022",
+    "label": "Synthetic khdl profile 1",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "khdl_02",
+    "program_id": "khdl_7460108_2022",
+    "label": "Synthetic khdl profile 2",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "khdl_03",
+    "program_id": "khdl_7460108_2022",
+    "label": "Synthetic khdl profile 3",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT3399",
+        "grade": 7.0,
+        "term": 2
+      }
+    ]
+  },
+  {
+    "profile_id": "khmtt_01",
+    "program_id": "khmtt_7480113qtd_2022",
+    "label": "Synthetic khmtt profile 1",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "khmtt_02",
+    "program_id": "khmtt_7480113qtd_2022",
+    "label": "Synthetic khmtt profile 2",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "khmtt_03",
+    "program_id": "khmtt_7480113qtd_2022",
+    "label": "Synthetic khmtt profile 3",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      },
+      {
+        "course_code": "KHMTT101",
+        "grade": 7.0,
+        "term": 2
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_hoc_01",
+    "program_id": "toan_hoc_7460101_2022",
+    "label": "Synthetic toan_hoc profile 1",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_hoc_02",
+    "program_id": "toan_hoc_7460101_2022",
+    "label": "Synthetic toan_hoc profile 2",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_hoc_03",
+    "program_id": "toan_hoc_7460101_2022",
+    "label": "Synthetic toan_hoc profile 3",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      },
+      {
+        "course_code": "TOAN_HOC101",
+        "grade": 7.0,
+        "term": 2
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_tin_01",
+    "program_id": "toan_tin_7460117_2022",
+    "label": "Synthetic toan_tin profile 1",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_tin_02",
+    "program_id": "toan_tin_7460117_2022",
+    "label": "Synthetic toan_tin profile 2",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      }
+    ]
+  },
+  {
+    "profile_id": "toan_tin_03",
+    "program_id": "toan_tin_7460117_2022",
+    "label": "Synthetic toan_tin profile 3",
+    "current_term": 3,
+    "target_track": "synthetic_track",
+    "preferences": {},
+    "records": [
+      {
+        "course_code": "PHI1006",
+        "grade": 8.0,
+        "term": 1
+      },
+      {
+        "course_code": "MAT2505",
+        "grade": 9.0,
+        "term": 1
+      },
+      {
+        "course_code": "TOAN_TIN101",
+        "grade": 7.0,
+        "term": 2
+      }
+    ]
+  }
+]

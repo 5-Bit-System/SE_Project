@@ -42,7 +42,8 @@ class Program(BaseModel):
     program_id: str
     name: str
     total_credits: int = Field(gt=0)
-    catalog_status: Literal["draft_unverified", "verified"]
+    catalog_status: Literal["draft_unverified", "verified"] = "draft_unverified"
+    catalog_revision: str | None = None
     source_file: str
     source_pages: str
     notes: list[str] = Field(default_factory=list)
@@ -57,20 +58,54 @@ class Course(BaseModel):
 
     code: str
     name: str
+    name_en: str | None = None
     credits: int = Field(gt=0)
     block: str
+    requirement_type: Literal["required", "elective", "required_excluded", "graduation"] = (
+        "required"
+    )
+    counted_in_total: bool = True
+    hours: dict[str, int | None] | None = None
+    instruction_language: str | None = None
     # Outer list = AND; each inner list = OR. [] means no prerequisite.
     prerequisites: list[list[str]] = Field(default_factory=list)
-    prerequisite_status: Literal["transcribed", "source_conflict"] = "transcribed"
+    prerequisites_raw: str | None = None
+    prerequisite_status: Literal[
+        "verified",
+        "draft_unverified",
+        "unresolved_external",
+        "conflict",
+        "unknown",
+        "transcribed",
+        "source_conflict",
+    ] = "draft_unverified"
+    prerequisite_variants: list[list[list[str]]] = Field(default_factory=list)
+    external_prerequisite_codes: list[str] = Field(default_factory=list)
     choice_group_ids: list[str] = Field(default_factory=list)
+    graduation_path_ids: list[str] = Field(default_factory=list)
     source_page: int | None = None
-    year: int | None = Field(default=None, ge=1, le=4, description="Năm học (1..4)")
-    suggested_term: int | None = Field(default=None, ge=1, le=8, description="Học kỳ đề xuất (1..8)")
+    source_rows: list[int] = Field(default_factory=list)
+    year: int | None = Field(default=None, ge=1, description="Năm học có nguồn")
+    suggested_term: int | None = Field(default=None, ge=1, description="Học kỳ đề xuất có nguồn")
+    topics: list[str] | None = None
+    orientation: Literal["theory", "practice", "research"] | None = None
+    difficulty: Literal["easy", "moderate", "advanced"] | None = None
+    workload: Literal["light", "moderate", "heavy"] | None = None
+    description: str | None = None
+    career_paths: list[str] | None = None
+    source_status: Literal["verified", "draft_unverified"] = "draft_unverified"
+    offering_status: Literal["unknown"] = "unknown"
+    field_evidence: dict[str, list[dict]] = Field(default_factory=dict)
 
 
 class Catalog(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
     program: Program
     courses: list[Course]
+    metadata_schema_version: str | None = None
+    vocabulary_version: str | None = None
+    vocabulary: dict | None = None
 
 
 class StructuredPreference(BaseModel):
@@ -162,6 +197,7 @@ class BlockedReason(BaseModel):
         "source_conflict",
         "track_mismatch",
         "graduation_path_mismatch",
+        "prerequisite_unknown",
     ]
     message: str
     missing_prerequisites: list[list[str]] = Field(default_factory=list)

@@ -194,7 +194,7 @@ def evaluate_eligibility(
 
         # Reason order is deliberate and stable for UI/fallback consumers:
         # source -> prerequisites -> track/path -> group -> credit budget.
-        if course.prerequisite_status == "source_conflict":
+        if course.prerequisite_status in ("source_conflict", "conflict"):
             reasons.append(
                 BlockedReason(
                     kind="source_conflict",
@@ -202,6 +202,13 @@ def evaluate_eligibility(
                         "Môn học có xung đột điều kiện tiên quyết trong tài liệu "
                         "nguồn PDF."
                     ),
+                )
+            )
+        elif course.prerequisite_status == "unknown":
+            reasons.append(
+                BlockedReason(
+                    kind="prerequisite_unknown",
+                    message="Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.",
                 )
             )
 

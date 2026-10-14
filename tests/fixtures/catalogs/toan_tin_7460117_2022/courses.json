@@ -1,0 +1,420 @@
+[
+  {
+    "code": "PHI1006",
+    "name": "Synthetic PHI1006",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      1
+    ]
+  },
+  {
+    "code": "MAT2505",
+    "name": "Synthetic MAT2505",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      2
+    ]
+  },
+  {
+    "code": "PEC1008",
+    "name": "Synthetic PEC1008",
+    "name_en": null,
+    "credits": 2,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      3
+    ]
+  },
+  {
+    "code": "MAT2400",
+    "name": "Synthetic MAT2400",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      4
+    ]
+  },
+  {
+    "code": "CME1000",
+    "name": "Synthetic CME1000",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required_excluded",
+    "counted_in_total": false,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      5
+    ]
+  },
+  {
+    "code": "AND101",
+    "name": "Synthetic AND101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "PHI1006"
+      ],
+      [
+        "MAT2400"
+      ]
+    ],
+    "prerequisites_raw": "PHI1006 MAT2400",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      6
+    ]
+  },
+  {
+    "code": "OR101",
+    "name": "Synthetic OR101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "PHI1006",
+        "MAT2400"
+      ]
+    ],
+    "prerequisites_raw": "PHI1006/MAT2400",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      7
+    ]
+  },
+  {
+    "code": "EXT101",
+    "name": "Synthetic EXT101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "EXT9999"
+      ]
+    ],
+    "prerequisites_raw": "EXT9999",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [
+      "EXT9999"
+    ],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      8
+    ]
+  },
+  {
+    "code": "CONFLICT101",
+    "name": "Synthetic CONFLICT101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "PHI1006"
+      ]
+    ],
+    "prerequisites_raw": "PHI1006",
+    "prerequisite_status": "source_conflict",
+    "prerequisite_variants": [
+      [
+        [
+          "PHI1006"
+        ]
+      ],
+      [
+        [
+          "MAT2400"
+        ]
+      ]
+    ],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      9,
+      15
+    ]
+  },
+  {
+    "code": "ELECT101",
+    "name": "Synthetic ELECT101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "elective_a"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      10
+    ]
+  },
+  {
+    "code": "ELECT102",
+    "name": "Synthetic ELECT102",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "elective",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [],
+    "prerequisites_raw": null,
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [
+      "elective_a"
+    ],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      11
+    ]
+  },
+  {
+    "code": "THESIS101",
+    "name": "Synthetic THESIS101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2505"
+      ]
+    ],
+    "prerequisites_raw": "MAT2505",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "thesis"
+    ],
+    "source_page": 1,
+    "source_rows": [
+      12
+    ]
+  },
+  {
+    "code": "THESIS102",
+    "name": "Synthetic THESIS102",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "graduation",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2400"
+      ]
+    ],
+    "prerequisites_raw": "MAT2400",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [
+      "project"
+    ],
+    "source_page": 1,
+    "source_rows": [
+      13
+    ]
+  },
+  {
+    "code": "TOAN_TIN101",
+    "name": "Synthetic TOAN_TIN101",
+    "name_en": null,
+    "credits": 3,
+    "block": "field",
+    "requirement_type": "required",
+    "counted_in_total": true,
+    "hours": {
+      "lecture": 15,
+      "practice": null,
+      "self_study": 30
+    },
+    "instruction_language": null,
+    "prerequisites": [
+      [
+        "MAT2505"
+      ]
+    ],
+    "prerequisites_raw": "MAT2505",
+    "prerequisite_status": "transcribed",
+    "prerequisite_variants": [],
+    "external_prerequisite_codes": [],
+    "choice_group_ids": [],
+    "graduation_path_ids": [],
+    "source_page": 1,
+    "source_rows": [
+      14
+    ]
+  }
+]

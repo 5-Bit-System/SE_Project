@@ -328,3 +328,11 @@ Adapter dùng connection pool và transaction snapshot khi đọc catalog/profil
 - Integration tests chỉ tạo/drop schema ngẫu nhiên `se_test_*` khi đặt `TEST_DATABASE_URL`.
 - Chưa lưu recommendation audit, chat, transcript nhập tay, HUS RAG, account hoặc dữ liệu sinh viên thật.
 - Backup trước khi thay schema: SHA-256 `72A7B7E2F0BAA1EFE451AF0B0B1F2345DA89100B29D1A67E54402CDC21735A39`.
+
+## 10. Tích hợp metadata 1.0 — 2026-10-15
+
+Không thay schema/migration hiện hành: JSONB payload catalog revision giữ `_metadata_contract` gồm envelope header và vocabulary. Đây là phần storage, được tách khỏi Program khi đọc. Mã môn/tiên quyết/membership vẫn dựng từ bảng relational rồi đi qua normalizer/validator chung; payload không có quyền ghi đè các quan hệ này. Source catalog_revision và SHA-256 bundle database là hai giá trị khác nhau.
+
+Hash bundle bao gồm envelope/evidence, vocabulary, curriculum, source rows và nguồn profiles thô. Seed kiểm tra toàn bộ nguồn trước transaction, giữ bốn ngành/12 profiles, dùng advisory lock và publish atomically như trước. Lỗi dữ liệu không dẫn tới fallback JSON. Legacy payload không có contract mới vẫn đọc được nhưng không được nâng trạng thái xác minh.
+
+Test phần A chạy trên container PostgreSQL tạm riêng ở port 55432 và schema ngẫu nhiên `se_test_*`, không seed/migrate database sản phẩm. Round-trip so sánh toàn bộ catalog/profile, kiểm tra eligibility không đổi, idempotence/history/rollback/constraints và migration upgrade/downgrade/upgrade. Fixtures là dữ liệu tổng hợp nhỏ độc lập; nguồn sản phẩm đầy đủ chưa có trong repository.

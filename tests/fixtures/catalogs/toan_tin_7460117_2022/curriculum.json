@@ -1,0 +1,117 @@
+{
+  "program_id": "toan_tin_7460117_2022",
+  "name": "Synthetic toan_tin",
+  "total_credits": 32,
+  "catalog_revision": "synthetic-v1",
+  "catalog_status": "draft_unverified",
+  "source_file": "synthetic-test-data (not a university curriculum)",
+  "source_pages": "1-1",
+  "choice_groups": [
+    {
+      "id": "elective_a",
+      "name": "Synthetic elective A",
+      "required_credits": 3,
+      "selection_mode": "choose_credits",
+      "course_codes": [
+        "ELECT101",
+        "ELECT102"
+      ],
+      "listed_credits": 6,
+      "source_rows": [
+        10,
+        11
+      ]
+    }
+  ],
+  "excluded_from_total": [
+    "CME1000"
+  ],
+  "blocks": [
+    {
+      "id": "field",
+      "required_credits": 32,
+      "course_codes": [
+        "PHI1006",
+        "MAT2505",
+        "PEC1008",
+        "MAT2400",
+        "CME1000",
+        "AND101",
+        "OR101",
+        "EXT101",
+        "CONFLICT101",
+        "ELECT101",
+        "ELECT102",
+        "THESIS101",
+        "THESIS102",
+        "TOAN_TIN101"
+      ],
+      "required_course_codes": [
+        "PHI1006",
+        "MAT2505",
+        "PEC1008",
+        "MAT2400",
+        "AND101",
+        "OR101",
+        "EXT101",
+        "CONFLICT101",
+        "TOAN_TIN101"
+      ]
+    }
+  ],
+  "major_credit_structure": {
+    "required": 26,
+    "elective": 3,
+    "graduation": 3
+  },
+  "track_selection": {
+    "mode": "exactly_one_track",
+    "tracks": [
+      {
+        "id": "synthetic_track",
+        "name": "Synthetic track",
+        "choice_group_ids": [
+          "elective_a"
+        ]
+      }
+    ]
+  },
+  "graduation_selection": {
+    "mode": "exactly_one_path",
+    "required_credits": 3,
+    "paths": [
+      {
+        "id": "thesis",
+        "name": "Synthetic thesis",
+        "course_codes": [
+          "THESIS101"
+        ],
+        "allowed_track_ids": [
+          "synthetic_track"
+        ]
+      },
+      {
+        "id": "project",
+        "name": "Synthetic project",
+        "course_codes": [
+          "THESIS102"
+        ],
+        "allowed_track_ids": [
+          "synthetic_track"
+        ]
+      }
+    ]
+  },
+  "digitization": {
+    "numbered_source_rows": 15,
+    "source_course_entries": 15,
+    "unnumbered_course_rows": 0,
+    "unique_course_codes": 14,
+    "status": "complete",
+    "review_status": "synthetic"
+  },
+  "source_issues": [],
+  "notes": [
+    "Invented fixture. No claim of curriculum completeness or source verification."
+  ]
+}

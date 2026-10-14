@@ -1,16 +1,15 @@
-"""JSON catalog adapter for source validation, seeding and offline tests."""
-
 import json
 from pathlib import Path
 
 from pydantic import ValidationError
 
+DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "curricula"
+
+from app.catalog_normalization import normalize_catalog
 from app.catalog_validation import validate_curriculum_selections
 from app.errors import CatalogError, StorageDataError
-from app.models import Catalog, Course, Program
+from app.models import Catalog
 from app.transcript import resolve_program_id
-
-DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "curricula"
 
 
 def list_catalogs(root: Path = DATA_ROOT) -> list[Catalog]:
@@ -28,15 +27,21 @@ def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
         if resolved_id not in allowed:
             raise CatalogError(f"Không tìm thấy chương trình: {program_id}")
         directory = root / resolved_id
-        program = Program.model_validate(
-            json.loads((directory / "curriculum.json").read_text(encoding="utf-8"))
+        program_doc = json.loads((directory / "curriculum.json").read_text(encoding="utf-8"))
+        course_doc = json.loads((directory / "courses.json").read_text(encoding="utf-8"))
+        vocab_path = directory / "vocabulary.json"
+        vocab_doc = (
+            json.loads(vocab_path.read_text(encoding="utf-8")) if vocab_path.exists() else None
         )
-        courses = [
-            Course.model_validate(item)
-            for item in json.loads((directory / "courses.json").read_text(encoding="utf-8"))
-        ]
+    except CatalogError:
+        raise
     except (OSError, json.JSONDecodeError, ValidationError):
         raise StorageDataError("Dữ liệu catalog nguồn không hợp lệ") from None
+
+    catalog = normalize_catalog(program_doc, course_doc, vocab_doc)
+    program = catalog.program
+    courses = catalog.courses
+
     validate_curriculum_selections(program, {course.code for course in courses})
     if program.program_id != resolved_id:
         raise StorageDataError("program_id không khớp thư mục catalog")
@@ -46,4 +51,4 @@ def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
     group_ids = {group.id for group in program.choice_groups}
     if any(not set(course.choice_group_ids) <= group_ids for course in courses):
         raise StorageDataError("Nhóm tự chọn không tồn tại trong catalog")
-    return Catalog(program=program, courses=courses)
+    return catalog
