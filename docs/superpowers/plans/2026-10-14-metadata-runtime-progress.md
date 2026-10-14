@@ -1,4 +1,6 @@
-# Execution ledger — plan: 2026-10-14-metadata-runtime-plan.md
+# Nghiệm thu phần A — Metadata/runtime và nền kiểm thử
+
+Phần A đã hoàn thành. Kế hoạch triển khai chi tiết đã được gỡ khi dọn tài liệu; bản này giữ kết quả nghiệm thu, quyết định kỹ thuật và giới hạn kiểm chứng.
 
 ## Pre-flight
 

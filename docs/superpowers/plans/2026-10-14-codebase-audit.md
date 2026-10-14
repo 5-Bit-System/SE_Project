@@ -2,6 +2,8 @@
 
 Ngày: 2026-10-14. Phạm vi: đọc mã nguồn, đối chiếu memory/đặc tả, kiểm tra offline và lập kế hoạch bằng project-toolkit/writing-plans. Không sửa implementation, seed, migration, database hay dữ liệu bàn giao.
 
+**Cập nhật 2026-10-15:** Đây là kết quả rà soát lịch sử trước phần A. Các vấn đề metadata/runtime, fixtures và tín chỉ/progress thuộc phần A đã được xử lý; xem [bản nghiệm thu](2026-10-14-metadata-runtime-progress.md). Các kết quả test và vị trí code bên dưới phản ánh thời điểm rà soát, không phải trạng thái hiện tại. Giữ tài liệu để tra cứu các vấn đề và kế hoạch B/C/D chưa hoàn thành.
+
 ## Kết luận
 
 Codebase có nền tảng FastAPI, storage adapters, PostgreSQL/Alembic, transcript, eligibility AND/OR, ranking/fallback và chatbot nổi. Vấn đề lớn nhất là hợp đồng metadata mới chưa đi vào runtime và test còn phụ thuộc bộ dữ liệu đã được chủ động xóa. Ngoài điểm này, có lỗi logic tái hiện được ở scoring, tổng tín chỉ, giới hạn recommendation và kiểm tra lời khuyên chatbot; có rủi ro phản hồi cũ trên frontend. HUS RAG và một số hành vi trong đặc tả chưa triển khai.
@@ -50,7 +52,7 @@ P0: chặn khả năng tái lập từ clone. P1: sai kết quả hoặc làm y�
 
 ## Thứ tự triển khai đề xuất
 
-1. [A — Metadata/runtime và nền kiểm thử](2026-10-14-metadata-runtime-plan.md): A1/A2/A4 trước để test không phụ thuộc dataset đã xóa; A3 kiểm chứng PostgreSQL trên fixtures riêng; A5 sửa progress/tín chỉ.
+1. [A — Metadata/runtime và nền kiểm thử: đã nghiệm thu](2026-10-14-metadata-runtime-progress.md). Kế hoạch triển khai đã hoàn thành và được gỡ; bản nghiệm thu giữ bằng chứng và các quyết định cuối cùng.
 2. [B — Recommendation và chat](2026-10-14-recommendation-chat-plan.md): B1/B2 có thể kiểm tra trên catalog giả lập nhỏ; B3 đóng lỗ hổng văn bản tự do trước thêm explanation LLM.
 3. [C — Frontend và What-if](2026-10-14-frontend-plan.md): C1/C2 có thể bắt đầu sớm với API mock; C3 dùng contract ổn định của A/B.
 4. [D — HUS RAG](2026-10-14-hus-rag-plan.md): triển khai độc lập sau khi pipeline tư vấn an toàn; cần tập URL/nội dung đúng phạm vi đã xác minh để nghiệm thu nội dung thật.
@@ -67,4 +69,4 @@ P0: chặn khả năng tái lập từ clone. P1: sai kết quả hoặc làm y�
 - Các bảng audit recommendation, tài khoản, chat persistence, embedding/vector DB không phải điều kiện bắt buộc của đợt sửa này.
 - Từng task được nghiệm thu bằng test đã ghi trong kế hoạch; toàn bộ sản phẩm vẫn cần kiểm tra dataset đầy đủ, browser và nội dung HUS thật riêng.
 
-Các kế hoạch đã được tự rà soát về phạm vi, đường dẫn, interface, invariant eligibility và các tình huống đầu vào. Chưa thực hiện các task implementation.
+Các kế hoạch đã được tự rà soát về phạm vi, đường dẫn, interface, invariant eligibility và các tình huống đầu vào. Phần A đã hoàn thành theo bản nghiệm thu; các task B/C/D chưa được nghiệm thu.

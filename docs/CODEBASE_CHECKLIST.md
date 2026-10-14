@@ -5,6 +5,7 @@ Trạng thái ngày 2026-10-15, sau khi hoàn thiện phần A — metadata/runt
 - [x] Có cấu hình PostgreSQL/Docker, SQLAlchemy, Alembic và seed theo định dạng runtime cũ.
 - [x] Có mẫu metadata Khoa học dữ liệu, 65 học phần, bằng chứng theo trường và hướng dẫn bàn giao.
 - [x] Loại skill, secrets, môi trường, cache và backup khỏi nội dung publish.
+- [x] Dọn file ngày 2026-10-15: bỏ schema transcript chỉ re-export và không được sử dụng, bỏ kế hoạch phần A đã hoàn thành, giữ bản nghiệm thu/audit và kế hoạch B/C/D; sửa tham chiếu liên quan, dọn cache local.
 - [ ] Hoàn thiện và thẩm định dữ liệu các ngành theo đặc tả metadata.
 - [x] Tích hợp envelope metadata 1.0 với loader, builder, validator và seed; giữ compatibility legacy, identity/revision, null/evidence/vocabulary và AND/OR.
 - [x] Thay fixture khôi phục từ backup bằng bộ giả lập nhỏ độc lập; test nghiệp vụ không phụ thuộc catalog sản phẩm đã xóa.
@@ -17,3 +18,5 @@ Trạng thái ngày 2026-10-15, sau khi hoàn thiện phần A — metadata/runt
 Kết quả cuối cùng được ghi trong [execution ledger](superpowers/plans/2026-10-14-metadata-runtime-progress.md). Ruff và builder kiểm tra mẫu/fixtures đạt. Database sản phẩm, container và volume hiện hành không bị thay đổi; container test riêng được dọn sau kiểm thử. Các task B/C/D và dữ liệu bốn ngành còn thiếu chưa được nghiệm thu. Checklist này không chứng nhận toàn bộ sản phẩm đã hoàn tất.
 
 Kiểm tra mặc định: **108 passed, 26 skipped** (16 PostgreSQL thiếu URL + 10 full-source acceptance). Với PostgreSQL test riêng được chỉ định: **124 passed, 10 skipped**; tất cả integration PostgreSQL đã chạy. Còn một deprecation warning Starlette/httpx; không nâng dependency trong phần A.
+
+Sau đợt dọn file, đã chạy lại kiểm thử offline: **108 passed, 26 skipped**; Ruff, builder trên mẫu 65 môn và bốn fixture tổng hợp, cùng `git diff --check` đều đạt. Kết quả PostgreSQL ở trên thuộc lần nghiệm thu phần A; không chạy lại PostgreSQL, browser, model provider hay CI remote trong đợt dọn file.
