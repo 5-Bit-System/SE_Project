@@ -1,38 +1,38 @@
-import json
+"""Compatible catalog entry points; runtime storage is explicitly configured."""
+
 from pathlib import Path
 
-from app.models import Catalog, Course, Program
-from app.transcript import resolve_program_id
+from app.catalog_validation import validate_curriculum_selections
+from app.config import get_settings
+from app.errors import CatalogError
+from app.infrastructure import json_catalog_repository as json_repository
+from app.models import Catalog
 
 
-DATA_ROOT = Path(__file__).resolve().parent.parent / "data" / "curricula"
+DATA_ROOT = json_repository.DATA_ROOT
 
 
-class CatalogError(ValueError):
-    pass
+def load_catalog(program_id: str, root: Path | None = None) -> Catalog:
+    if root is not None or get_settings().storage_backend == "json":
+        return json_repository.load_catalog(program_id, root or DATA_ROOT)
+    from app.infrastructure.postgres_repository import PostgresRepository
+
+    return PostgresRepository().load_catalog(program_id)
 
 
-def list_catalogs(root: Path = DATA_ROOT) -> list[Catalog]:
-    return [load_catalog(path.name, root) for path in sorted(root.iterdir()) if path.is_dir()]
+def list_catalogs(root: Path | None = None) -> list[Catalog]:
+    if root is not None or get_settings().storage_backend == "json":
+        return json_repository.list_catalogs(root or DATA_ROOT)
+    from app.infrastructure.postgres_repository import PostgresRepository
+
+    return PostgresRepository().list_catalogs()
 
 
-def load_catalog(program_id: str, root: Path = DATA_ROOT) -> Catalog:
-    # The ID is checked against actual directories, never used as a free-form path.
-    resolved_id = resolve_program_id(program_id)
-    allowed = {path.name for path in root.iterdir() if path.is_dir()}
-    if resolved_id not in allowed:
-        raise CatalogError(f"Không tìm thấy chương trình: {program_id}")
-    directory = root / resolved_id
-    program = Program.model_validate(json.loads((directory / "curriculum.json").read_text(encoding="utf-8")))
-    courses = [Course.model_validate(item) for item in json.loads((directory / "courses.json").read_text(encoding="utf-8"))]
-    if program.program_id != resolved_id:
-        raise CatalogError(f"program_id không khớp trong {directory}")
-    codes = [course.code for course in courses]
-    if len(codes) != len(set(codes)):
-        raise CatalogError(f"Mã môn trùng trong {program_id}")
-    group_ids = {group.id for group in program.choice_groups}
-    for course in courses:
-        if not set(course.choice_group_ids) <= group_ids:
-            raise CatalogError(f"Nhóm tự chọn không tồn tại: {course.code}")
-
-    return Catalog(program=program, courses=courses)
+__all__ = [
+    "Catalog",
+    "CatalogError",
+    "DATA_ROOT",
+    "list_catalogs",
+    "load_catalog",
+    "validate_curriculum_selections",
+]

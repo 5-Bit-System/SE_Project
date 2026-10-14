@@ -1,5 +1,6 @@
 __pycache__/
 .pytest_cache/
+.ruff_cache/
 .venv/
 *.py[cod]
 .env
@@ -17,5 +18,8 @@ my_project/
 *.sqlite3
 *.sql
 backups/
+project-toolkit/
+.agents/
+.codex/
 postgres_data/
 pgdata/

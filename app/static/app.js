@@ -4,18 +4,26 @@
 
 const state = {
   programs: [],
+  profiles: [],
   currentProgramId: null,
+  currentProfileId: null,
+  selectedTrackId: null,
+  selectedGraduationPathId: null,
   currentCatalog: null,
   courses: [],
   transcript: new Map(), // code -> { passed: bool, grade: float|null }
   eligibleCourses: [],
   blockedCourses: [],
   chatHistory: [],
+  recommendationRequestId: 0,
 };
 
 // --- DOM References ---
 const dom = {
   programSelect: document.querySelector("#program-select"),
+  profileSelect: document.querySelector("#profile-select"),
+  trackSelect: document.querySelector("#track-select"),
+  graduationPathSelect: document.querySelector("#graduation-path-select"),
   catalogNameText: document.querySelector("#catalog-name-text"),
   
   // KPI Elements
@@ -47,8 +55,16 @@ const dom = {
   creditsValDisplay: document.querySelector("#credits-val-display"),
   recLimit: document.querySelector("#rec-limit"),
   limitValDisplay: document.querySelector("#limit-val-display"),
+  whatIfTopicWeight: document.querySelector("#whatif-topic-weight"),
+  whatIfKeywordWeight: document.querySelector("#whatif-keyword-weight"),
+  whatIfTypeWeight: document.querySelector("#whatif-type-weight"),
+  whatIfTopicValue: document.querySelector("#whatif-topic-value"),
+  whatIfKeywordValue: document.querySelector("#whatif-keyword-value"),
+  whatIfTypeValue: document.querySelector("#whatif-type-value"),
+  btnRunWhatIf: document.querySelector("#btn-run-what-if"),
   recommendationsResultContainer: document.querySelector("#recommendations-result-container"),
   recBadgeCount: document.querySelector("#rec-badge-count"),
+  recommendationSummary: document.querySelector("#recommendation-summary"),
   
   // Floating AI Advisor Widget Elements
   floatingAdvisorWidget: document.querySelector("#floating-advisor-widget"),
@@ -56,19 +72,40 @@ const dom = {
   advisorChatWindow: document.querySelector("#advisor-chat-window"),
   btnMaximizeChat: document.querySelector("#btn-maximize-chat"),
   btnCloseChat: document.querySelector("#btn-close-chat"),
-  btnOpenAdvisorNav: document.querySelector("#btn-open-advisor-nav"),
   chatMessagesContainer: document.querySelector("#chat-messages-container"),
   advisorChatForm: document.querySelector("#advisor-chat-form"),
   advisorInputText: document.querySelector("#advisor-input-text"),
   btnSendChat: document.querySelector("#btn-send-chat"),
+
 };
 
 // --- API Helper ---
 async function api(path, options = {}) {
-  const response = await fetch(path, options);
-  const data = await response.json();
+  let response;
+  try {
+    response = await fetch(path, options);
+  } catch (error) {
+    throw new Error("Không thể kết nối tới máy chủ. Hãy kiểm tra backend rồi thử lại.");
+  }
+
+  const responseText = await response.text();
+  let data = null;
+  if (responseText) {
+    try {
+      data = JSON.parse(responseText);
+    } catch (error) {
+      data = null;
+    }
+  }
   if (!response.ok) {
-    throw new Error(data.detail || "Yêu cầu thất bại");
+    const detail = data?.detail;
+    const message = Array.isArray(detail)
+      ? detail.map(item => item?.msg || item?.message || String(item)).join("; ")
+      : data?.message || detail || `API trả về lỗi HTTP ${response.status}.`;
+    throw new Error(message);
+  }
+  if (data === null) {
+    throw new Error("API trả về dữ liệu không hợp lệ.");
   }
   return data;
 }
@@ -125,21 +162,158 @@ async function onProgramChanged() {
   // RÀNG BUỘC MAJOR ISOLATION: Xóa sạch dữ liệu môn đã chọn khi đổi ngành
   state.transcript.clear();
   state.chatHistory = [];
+  state.currentProfileId = null;
+  state.selectedTrackId = null;
+  state.selectedGraduationPathId = null;
+  clearRecommendationResults("Đã đổi ngành. Hãy chạy lại đề xuất theo catalog mới.");
 
   const currentProgram = state.programs.find(p => p.program_id === progId);
   if (currentProgram) {
     dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} Tín chỉ chuẩn · Trạng thái: ${currentProgram.catalog_status}`;
     dom.kpiTotalCreditsSub.textContent = `/ ${currentProgram.total_credits} Tín chỉ`;
+    renderProgramChoices(currentProgram);
   }
 
   try {
     state.courses = await api(`/courses?program_id=${encodeURIComponent(progId)}`);
     renderCourseChecklist();
-    await updateStudentState();
+    await loadProfilesForProgram(progId);
   } catch (error) {
     console.error("Lỗi nạp môn học:", error);
-    dom.courseChecklistContainer.innerHTML = `<div class="empty-state">${error.message}</div>`;
+    const errorState = document.createElement("div");
+    errorState.className = "empty-state text-rose";
+    errorState.textContent = `Không thể nạp dữ liệu môn học: ${error.message}`;
+    dom.courseChecklistContainer.replaceChildren(errorState);
   }
+}
+
+function renderProgramChoices(program) {
+  const tracks = program?.track_selection?.tracks || [];
+  const paths = program?.graduation_selection?.paths || [];
+
+  if (dom.trackSelect) {
+    dom.trackSelect.replaceChildren();
+    const empty = document.createElement("option");
+    empty.value = "";
+    empty.textContent = tracks.length ? "Chưa chọn nhánh" : "Ngành này không chia nhánh";
+    dom.trackSelect.appendChild(empty);
+    tracks.forEach(track => {
+      const option = document.createElement("option");
+      option.value = track.id;
+      option.textContent = track.name;
+      dom.trackSelect.appendChild(option);
+    });
+    dom.trackSelect.disabled = tracks.length === 0;
+  }
+
+  if (dom.graduationPathSelect) {
+    dom.graduationPathSelect.replaceChildren();
+    const empty = document.createElement("option");
+    empty.value = "";
+    empty.textContent = paths.length ? "Chưa chọn hướng" : "Chưa có dữ liệu hướng tốt nghiệp";
+    dom.graduationPathSelect.appendChild(empty);
+    paths.forEach(path => {
+      const option = document.createElement("option");
+      option.value = path.id;
+      option.textContent = path.name;
+      dom.graduationPathSelect.appendChild(option);
+    });
+    dom.graduationPathSelect.disabled = paths.length === 0;
+  }
+}
+
+async function loadProfilesForProgram(programId) {
+  if (!dom.profileSelect) {
+    await updateStudentState();
+    return;
+  }
+
+  try {
+    state.profiles = await api(`/profiles?program_id=${encodeURIComponent(programId)}`);
+    dom.profileSelect.replaceChildren();
+
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "Không dùng profile demo";
+    dom.profileSelect.appendChild(emptyOption);
+
+    state.profiles.forEach(profile => {
+      const option = document.createElement("option");
+      option.value = profile.profile_id;
+      option.textContent = `${profile.label} · ${profile.record_count} môn`;
+      dom.profileSelect.appendChild(option);
+    });
+
+    if (state.profiles.length > 0) {
+      dom.profileSelect.value = state.profiles[0].profile_id;
+      await loadSelectedProfile();
+    } else {
+      await updateStudentState();
+    }
+  } catch (error) {
+    console.error("Lỗi nạp profile demo:", error);
+    dom.profileSelect.replaceChildren();
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "Không nạp được profile demo";
+    dom.profileSelect.appendChild(option);
+    await updateStudentState();
+  }
+}
+
+async function loadSelectedProfile() {
+  const profileId = dom.profileSelect?.value;
+  state.transcript.clear();
+  state.chatHistory = [];
+  state.currentProfileId = profileId || null;
+  state.selectedTrackId = null;
+  if (dom.trackSelect) dom.trackSelect.value = "";
+  clearRecommendationResults("Hồ sơ học tập đã thay đổi. Hãy chạy lại đề xuất.");
+
+  if (!profileId) {
+    renderCourseChecklist();
+    await updateStudentState();
+    return;
+  }
+
+  try {
+    const profile = await api(`/profiles/${encodeURIComponent(profileId)}`);
+    if (profile.program_id !== state.currentProgramId) {
+      throw new Error("Profile không thuộc ngành đang chọn.");
+    }
+
+    // Nếu profile có định hướng trùng tên một nhánh, dùng làm giá trị mặc định.
+    if (dom.trackSelect && profile.target_track) {
+      const matchingTrack = [...dom.trackSelect.options].find(
+        option => option.textContent === profile.target_track,
+      );
+      if (matchingTrack) {
+        dom.trackSelect.value = matchingTrack.value;
+        state.selectedTrackId = matchingTrack.value;
+      }
+    }
+
+    profile.records.forEach(record => {
+      state.transcript.set(record.course_code, {
+        passed: record.passed,
+        grade: record.grade,
+      });
+    });
+
+    renderCourseChecklist();
+    await updateStudentState();
+  } catch (error) {
+    console.error("Lỗi nạp profile:", error);
+    state.currentProfileId = null;
+    dom.profileSelect.value = "";
+    renderCourseChecklist();
+    await updateStudentState();
+  }
+}
+
+function clearProfileSelection() {
+  state.currentProfileId = null;
+  if (dom.profileSelect) dom.profileSelect.value = "";
 }
 
 // --- Render Course Checklist ---
@@ -165,7 +339,8 @@ function renderCourseChecklist() {
     row.className = "course-item-row";
     row.id = `course-row-${course.code}`;
 
-    const isPassed = state.transcript.has(course.code);
+    const record = state.transcript.get(course.code);
+    const isPassed = Boolean(record?.passed);
     if (isPassed) row.classList.add("is-passed");
 
     // Left check
@@ -177,7 +352,9 @@ function renderCourseChecklist() {
     checkbox.className = "course-checkbox";
     checkbox.checked = isPassed;
     checkbox.addEventListener("change", async (e) => {
+      clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
       if (e.target.checked) {
+        clearProfileSelection();
         state.transcript.set(course.code, { passed: true, grade: null });
         row.classList.add("is-passed");
       } else {
@@ -222,8 +399,10 @@ function renderCourseChecklist() {
     }
 
     gradeInput.addEventListener("change", async (e) => {
+      clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
       const val = parseFloat(e.target.value);
       if (!isNaN(val)) {
+        clearProfileSelection();
         checkbox.checked = val >= 5.0;
         state.transcript.set(course.code, { passed: val >= 5.0, grade: val });
         if (val >= 5.0) row.classList.add("is-passed");
@@ -278,6 +457,8 @@ async function updateStudentState() {
         program_id: state.currentProgramId,
         passed_course_codes: passedCodes,
         max_credits: 30,
+        selected_track_id: state.selectedTrackId,
+        selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
 
@@ -289,6 +470,12 @@ async function updateStudentState() {
 
   } catch (error) {
     console.error("Lỗi cập nhật trạng thái học vụ:", error);
+    dom.kpiEligibleCount.textContent = "—";
+    const errorState = document.createElement("div");
+    errorState.className = "empty-state text-rose";
+    errorState.textContent = `Không thể cập nhật điều kiện học vụ: ${error.message}`;
+    dom.rulesEligibleList.replaceChildren(errorState.cloneNode(true));
+    dom.rulesBlockedList.replaceChildren(errorState);
   }
 }
 
@@ -360,64 +547,293 @@ dom.recLimit.addEventListener("input", (e) => {
   dom.limitValDisplay.textContent = `${e.target.value} môn`;
 });
 
-dom.recommendForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  dom.recommendationsResultContainer.innerHTML = `<div class="empty-state"><div class="loading-spinner">Đang phân tích và xếp hạng...</div></div>`;
+function updateWhatIfWeightLabels() {
+  if (dom.whatIfTopicValue) dom.whatIfTopicValue.textContent = `${dom.whatIfTopicWeight.value}%`;
+  if (dom.whatIfKeywordValue) dom.whatIfKeywordValue.textContent = `${dom.whatIfKeywordWeight.value}%`;
+  if (dom.whatIfTypeValue) dom.whatIfTypeValue.textContent = `${dom.whatIfTypeWeight.value}%`;
+}
 
+[dom.whatIfTopicWeight, dom.whatIfKeywordWeight, dom.whatIfTypeWeight]
+  .filter(Boolean)
+  .forEach(input => input.addEventListener("input", updateWhatIfWeightLabels));
+updateWhatIfWeightLabels();
+
+// --- Recommendation metadata renderer (new response contract) ---
+const recommendationReasonLabels = {
+  missing_prerequisites: "Thiếu môn tiên quyết",
+  choice_group_full: "Đã đủ số môn trong nhóm lựa chọn",
+  credits_exceeded: "Vượt ngân sách tín chỉ",
+  source_conflict: "Xung đột nguồn dữ liệu",
+  track_mismatch: "Không thuộc nhánh đã chọn",
+  graduation_path_mismatch: "Không thuộc hướng tốt nghiệp đã chọn",
+};
+
+function createElement(tag, className = "", text = null) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== null && text !== undefined) element.textContent = text;
+  return element;
+}
+
+function asTextList(value) {
+  if (Array.isArray(value)) return value.filter(item => item !== null && item !== undefined).map(String);
+  if (value === null || value === undefined || value === "") return [];
+  return [String(value)];
+}
+
+function formatRecommendationStatus(value) {
+  const labels = {
+    verified: "Đã xác minh",
+    draft_unverified: "Chưa xác minh đầy đủ",
+    unknown: "Chưa xác định",
+    available: "Có thể mở",
+    unavailable: "Chưa mở",
+    offering_unknown: "Chưa xác minh mở lớp",
+  };
+  return labels[value] || value || "Chưa xác định";
+}
+
+function formatReasonCode(value) {
+  return recommendationReasonLabels[value] || String(value).replaceAll("_", " ");
+}
+
+function appendBadgeRow(parent, values, badgeClass = "badge-gray") {
+  const row = createElement("div", "rec-badge-row");
+  values.forEach(value => row.appendChild(createElement("span", `badge ${badgeClass}`, value)));
+  parent.appendChild(row);
+}
+
+function appendRecommendationDetail(parent, label, value, options = {}) {
+  const detail = createElement("div", `rec-detail ${options.className || ""}`.trim());
+  detail.appendChild(createElement("div", "rec-detail-label", label));
+  const values = asTextList(value);
+
+  if (options.badges && values.length > 0) {
+    appendBadgeRow(detail, values, options.badgeClass || "badge-gray");
+  } else if (values.length > 0) {
+    const content = createElement("div", "rec-detail-value");
+    values.forEach((item, index) => {
+      if (index > 0) content.appendChild(document.createElement("br"));
+      content.appendChild(document.createTextNode(item));
+    });
+    detail.appendChild(content);
+  } else {
+    detail.appendChild(createElement("div", "rec-detail-value rec-detail-muted", options.emptyText || "Chưa có dữ liệu."));
+  }
+  parent.appendChild(detail);
+}
+
+function renderRecommendationSummary(data) {
+  if (!dom.recommendationSummary) return;
+  dom.recommendationSummary.replaceChildren();
+  dom.recommendationSummary.hidden = false;
+
+  const summaryGrid = createElement("div", "rec-summary-grid");
+  appendRecommendationDetail(summaryGrid, "Tập môn đủ điều kiện", `${data.eligible_count ?? 0} môn`);
+  appendRecommendationDetail(summaryGrid, "Catalog", formatRecommendationStatus(data.catalog_status), {
+    badges: true,
+    badgeClass: data.catalog_status === "verified" ? "badge-success" : "badge-warning",
+  });
+  appendRecommendationDetail(summaryGrid, "Bộ xếp hạng", `${data.ranking_backend || "Chưa xác định"} · ${data.ranking_version || "n/a"}`);
+  if (data.what_if) {
+    appendRecommendationDetail(summaryGrid, "Cháº¿ Ä‘á»™", "What-if trên cùng tập đủ điều kiện", {
+      badges: true,
+      badgeClass: "badge-info",
+    });
+  }
+  dom.recommendationSummary.appendChild(summaryGrid);
+
+  const blockedSummary = data.blocked_summary && typeof data.blocked_summary === "object"
+    ? Object.entries(data.blocked_summary)
+    : [];
+  const blocked = createElement("div", "rec-blocked-summary");
+  blocked.appendChild(createElement("div", "rec-detail-label", "Tóm tắt môn bị chặn"));
+  if (blockedSummary.length > 0) {
+    appendBadgeRow(blocked, blockedSummary.map(([reason, count]) => `${formatReasonCode(reason)}: ${count}`), "badge-warning");
+  } else {
+    blocked.appendChild(createElement("div", "rec-detail-value rec-detail-muted", "Không có môn bị chặn."));
+  }
+  dom.recommendationSummary.appendChild(blocked);
+}
+
+function renderRecommendationWarnings(warnings) {
+  const items = asTextList(warnings);
+  if (items.length === 0) return;
+  const panel = createElement("div", "rec-warning-panel");
+  panel.appendChild(createElement("strong", "rec-warning-title", "Cảnh báo của hệ thống"));
+  const list = createElement("ul", "rec-warning-list");
+  items.forEach(item => list.appendChild(createElement("li", "", item)));
+  panel.appendChild(list);
+  dom.recommendationsResultContainer.appendChild(panel);
+}
+
+function createRecommendationCard(rec, index) {
+  const card = createElement("article", "recommendation-card");
+  const header = createElement("div", "rec-header");
+  const titleGroup = createElement("div");
+  const rank = Number.isFinite(Number(rec.rank)) ? Number(rec.rank) : index + 1;
+  titleGroup.appendChild(createElement("span", "badge badge-info rec-rank", `Hạng #${rank}`));
+  titleGroup.appendChild(createElement("div", "rec-title", `${rec.code || "Mã môn"} — ${rec.name || "Chưa có tên môn"}`));
+  header.appendChild(titleGroup);
+  header.appendChild(createElement("span", "badge badge-success", `${rec.credits ?? 0} Tín chỉ`));
+  card.appendChild(header);
+
+  const score = Number(rec.score);
+  appendBadgeRow(card, [
+    `Điểm phù hợp: ${Number.isFinite(score) ? score.toFixed(2) : "n/a"}`,
+    `Nguồn: ${formatRecommendationStatus(rec.source_status)}`,
+    `Mở lớp: ${formatRecommendationStatus(rec.offering_status)}`,
+  ], "badge-gray");
+
+  const details = createElement("div", "rec-details-grid");
+  appendRecommendationDetail(details, "Lý do đủ điều kiện", asTextList(rec.eligibility_reason).map(formatReasonCode), {
+    emptyText: "Đã vượt qua kiểm tra eligibility của hệ thống.",
+  });
+  appendRecommendationDetail(details, "Mức độ phù hợp", rec.fit_reason, {
+    emptyText: "Chưa có dữ liệu phù hợp chi tiết.",
+  });
+  card.appendChild(details);
+  card.appendChild(createElement("p", "rec-reason", rec.reason || "Chưa có giải thích tổng hợp."));
+  return card;
+}
+
+function clearRecommendationResults(message = null) {
+  state.recommendationRequestId += 1;
+  if (dom.recBadgeCount) dom.recBadgeCount.textContent = "0 Đề xuất";
+  if (dom.recommendationSummary) {
+    dom.recommendationSummary.replaceChildren();
+    dom.recommendationSummary.hidden = true;
+  }
+  if (!dom.recommendationsResultContainer) return;
+  dom.recommendationsResultContainer.replaceChildren(
+    createElement("div", "empty-state", message || "Chưa có kết quả đề xuất.")
+  );
+}
+
+function recommendationPayload(extra = {}) {
   const passedCodes = [...state.transcript.entries()]
     .filter(([_, item]) => item.passed)
     .map(([code]) => code);
+  return {
+    program_id: state.currentProgramId,
+    passed_course_codes: passedCodes,
+    goal: dom.recGoal.value.trim(),
+    max_credits: parseInt(dom.recCredits.value, 10),
+    limit: parseInt(dom.recLimit.value, 10),
+    selected_track_id: state.selectedTrackId,
+    selected_graduation_path_id: state.selectedGraduationPathId,
+    ...extra,
+  };
+}
+
+function renderRecommendationData(data) {
+  const recommendations = Array.isArray(data.recommendations) ? data.recommendations : [];
+  dom.recBadgeCount.textContent = `${recommendations.length} Đề xuất`;
+  dom.recommendationsResultContainer.replaceChildren();
+  renderRecommendationSummary(data);
+  renderRecommendationWarnings(data.warnings);
+  if (recommendations.length === 0) {
+    dom.recommendationsResultContainer.appendChild(
+      createElement("div", "empty-state", "Không có môn phù hợp trong giới hạn tín chỉ đã chọn.")
+    );
+    return;
+  }
+  recommendations.forEach((rec, index) => {
+    dom.recommendationsResultContainer.appendChild(createRecommendationCard(rec, index));
+  });
+}
+
+async function handleRecommendationSubmit(e) {
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  const requestId = ++state.recommendationRequestId;
+  const submitButton = document.querySelector("#btn-run-recommend");
+  if (submitButton) submitButton.disabled = true;
+  dom.recommendationsResultContainer.replaceChildren(
+    createElement("div", "empty-state", "Đang phân tích và xếp hạng...")
+  );
+  if (dom.recommendationSummary) dom.recommendationSummary.hidden = true;
 
   try {
     const data = await api("/recommendations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        program_id: state.currentProgramId,
-        passed_course_codes: passedCodes,
-        goal: dom.recGoal.value.trim(),
-        max_credits: parseInt(dom.recCredits.value, 10),
-        limit: parseInt(dom.recLimit.value, 10),
-      }),
+      body: JSON.stringify(recommendationPayload()),
     });
 
-    dom.recBadgeCount.textContent = `${data.recommendations.length} Đề xuất`;
+    if (requestId !== state.recommendationRequestId) return;
+    const recommendations = Array.isArray(data.recommendations) ? data.recommendations : [];
+    dom.recBadgeCount.textContent = `${recommendations.length} Đề xuất`;
     dom.recommendationsResultContainer.replaceChildren();
+    renderRecommendationSummary(data);
+    renderRecommendationWarnings(data.warnings);
 
-    if (data.warnings && data.warnings.length > 0) {
-      data.warnings.forEach(w => {
-        const notice = document.createElement("div");
-        notice.className = "rule-reason-box text-amber mb-2";
-        notice.textContent = `ℹ️ ${w}`;
-        dom.recommendationsResultContainer.appendChild(notice);
-      });
-    }
-
-    if (data.recommendations.length === 0) {
-      dom.recommendationsResultContainer.innerHTML = `<div class="empty-state">Không có môn phù hợp trong giới hạn tín chỉ đã chọn.</div>`;
+    if (recommendations.length === 0) {
+      dom.recommendationsResultContainer.appendChild(
+        createElement("div", "empty-state", "Không có môn phù hợp trong giới hạn tín chỉ đã chọn.")
+      );
       return;
     }
-
-    data.recommendations.forEach((rec, idx) => {
-      const card = document.createElement("div");
-      card.className = "recommendation-card";
-      card.innerHTML = `
-        <div class="rec-header">
-          <div>
-            <span class="badge badge-info" style="margin-bottom:4px;">Top #${idx + 1}</span>
-            <div class="rec-title">${rec.code} — ${rec.name}</div>
-          </div>
-          <span class="badge badge-success">${rec.credits} Tín chỉ</span>
-        </div>
-        <p class="rec-reason">${rec.reason}</p>
-      `;
-      dom.recommendationsResultContainer.appendChild(card);
+    recommendations.forEach((rec, index) => {
+      dom.recommendationsResultContainer.appendChild(createRecommendationCard(rec, index));
     });
-
   } catch (error) {
-    dom.recommendationsResultContainer.innerHTML = `<div class="empty-state text-rose">${error.message}</div>`;
+    if (requestId !== state.recommendationRequestId) return;
+    if (dom.recommendationSummary) dom.recommendationSummary.hidden = true;
+    dom.recommendationsResultContainer.replaceChildren(
+      createElement("div", "empty-state text-rose", `Lỗi khi lấy đề xuất: ${error.message}`)
+    );
+    dom.recBadgeCount.textContent = "Lỗi";
+  } finally {
+    if (requestId === state.recommendationRequestId && submitButton) {
+      submitButton.disabled = false;
+    }
   }
-});
+}
+
+// Dùng capture để xử lý một luồng submit duy nhất trước các listener khác.
+dom.recommendForm.addEventListener("submit", handleRecommendationSubmit, true);
+
+async function handleWhatIf() {
+  if (!dom.btnRunWhatIf) return;
+  const requestId = ++state.recommendationRequestId;
+  dom.btnRunWhatIf.disabled = true;
+  dom.recommendationsResultContainer.replaceChildren(
+    createElement("div", "empty-state", "Đang chạy what-if trên cùng tập môn đủ điều kiện...")
+  );
+  if (dom.recommendationSummary) dom.recommendationSummary.hidden = true;
+  const ranking_weights = {
+    topic: Number(dom.whatIfTopicWeight.value) / 100,
+    keyword: Number(dom.whatIfKeywordWeight.value) / 100,
+    course_type: Number(dom.whatIfTypeWeight.value) / 100,
+  };
+  if (Object.values(ranking_weights).every(weight => weight <= 0)) {
+    dom.recommendationsResultContainer.replaceChildren(
+      createElement("div", "empty-state text-rose", "Hãy giữ ít nhất một trọng số lớn hơn 0.")
+    );
+    dom.btnRunWhatIf.disabled = false;
+    return;
+  }
+  try {
+    const data = await api("/recommendations/what-if", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(recommendationPayload({ ranking_weights })),
+    });
+    if (requestId !== state.recommendationRequestId) return;
+    renderRecommendationData(data);
+  } catch (error) {
+    if (requestId !== state.recommendationRequestId) return;
+    dom.recommendationsResultContainer.replaceChildren(
+      createElement("div", "empty-state text-rose", `Lỗi what-if: ${error.message}`)
+    );
+    dom.recBadgeCount.textContent = "Lỗi";
+  } finally {
+    if (requestId === state.recommendationRequestId) dom.btnRunWhatIf.disabled = false;
+  }
+}
+
+dom.btnRunWhatIf?.addEventListener("click", handleWhatIf);
 
 // --- Floating AI Advisor Controls & Chat Logic ---
 function toggleAdvisorChat(forceOpen = null) {
@@ -440,9 +856,6 @@ function toggleAdvisorChat(forceOpen = null) {
 function initFloatingAdvisor() {
   if (dom.advisorBubbleBtn) {
     dom.advisorBubbleBtn.addEventListener("click", () => toggleAdvisorChat());
-  }
-  if (dom.btnOpenAdvisorNav) {
-    dom.btnOpenAdvisorNav.addEventListener("click", () => toggleAdvisorChat(true));
   }
   if (dom.btnCloseChat) {
     dom.btnCloseChat.addEventListener("click", () => toggleAdvisorChat(false));
@@ -480,6 +893,8 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
   const passedCodes = [...state.transcript.entries()]
     .filter(([_, item]) => item.passed)
     .map(([code]) => code);
+  const advisorHistory = state.chatHistory.slice(-8);
+  state.chatHistory.push({ role: "user", content: text });
 
   try {
     const data = await api("/advisor/chat", {
@@ -489,6 +904,9 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
         program_id: state.currentProgramId,
         message: text,
         passed_course_codes: passedCodes,
+        history: advisorHistory,
+        selected_track_id: state.selectedTrackId,
+        selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
 
@@ -502,6 +920,7 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
     }
 
     appendChatMessage("advisor", prefix + data.reply, data.is_guardrail_triggered);
+    state.chatHistory.push({ role: "assistant", content: data.reply });
 
   } catch (error) {
     typingEl.remove();
@@ -540,6 +959,8 @@ document.querySelectorAll(".chip-btn").forEach(chip => {
 dom.btnSampleFreshman.addEventListener("click", async () => {
   // Chọn các môn đầu khóa (Year 1)
   const y1 = state.courses.filter(c => c.year === 1).slice(0, 5);
+  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
+  clearProfileSelection();
   state.transcript.clear();
   y1.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.0 }));
   renderCourseChecklist();
@@ -549,6 +970,8 @@ dom.btnSampleFreshman.addEventListener("click", async () => {
 dom.btnSampleSophomore.addEventListener("click", async () => {
   // Chọn Year 1 và một phần Year 2
   const y12 = state.courses.filter(c => c.year <= 2).slice(0, 10);
+  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
+  clearProfileSelection();
   state.transcript.clear();
   y12.forEach(c => state.transcript.set(c.code, { passed: true, grade: 7.5 }));
   renderCourseChecklist();
@@ -558,6 +981,8 @@ dom.btnSampleSophomore.addEventListener("click", async () => {
 dom.btnSampleJunior.addEventListener("click", async () => {
   // Chọn Year 1, 2 và một phần Year 3
   const y123 = state.courses.filter(c => c.year <= 3).slice(0, 18);
+  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
+  clearProfileSelection();
   state.transcript.clear();
   y123.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.5 }));
   renderCourseChecklist();
@@ -565,6 +990,8 @@ dom.btnSampleJunior.addEventListener("click", async () => {
 });
 
 dom.btnClearTranscript.addEventListener("click", async () => {
+  clearRecommendationResults("Bảng điểm đã xóa. Hãy chạy lại đề xuất.");
+  clearProfileSelection();
   state.transcript.clear();
   renderCourseChecklist();
   await updateStudentState();
@@ -574,6 +1001,17 @@ dom.btnClearTranscript.addEventListener("click", async () => {
 dom.courseSearchInput.addEventListener("input", renderCourseChecklist);
 dom.courseBlockFilter.addEventListener("change", renderCourseChecklist);
 dom.programSelect.addEventListener("change", onProgramChanged);
+dom.profileSelect?.addEventListener("change", loadSelectedProfile);
+dom.trackSelect?.addEventListener("change", async () => {
+  state.selectedTrackId = dom.trackSelect.value || null;
+  clearRecommendationResults("Nhánh chuyên sâu đã thay đổi. Hãy chạy lại đề xuất.");
+  await updateStudentState();
+});
+dom.graduationPathSelect?.addEventListener("change", async () => {
+  state.selectedGraduationPathId = dom.graduationPathSelect.value || null;
+  clearRecommendationResults("Hướng tốt nghiệp đã thay đổi. Hãy chạy lại đề xuất.");
+  await updateStudentState();
+});
 
 // --- Initialize App ---
 document.addEventListener("DOMContentLoaded", () => {

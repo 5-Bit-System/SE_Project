@@ -7,25 +7,23 @@ Tư vấn định hướng học tập cá nhân hóa:
 4. Cơ chế Heuristic Fallback an toàn 100% khi không có API key hoặc lỗi mạng.
 """
 
-import os
+import json
+import logging
 import re
 from typing import Any, Literal
 import httpx
 from pydantic import BaseModel, ConfigDict, Field
+from app.config import get_settings
 
-from app.models import BlockedCourse, Catalog, Course
+from app.models import BlockedCourse, Catalog, Course, EligibilityResult, StructuredPreference
+from app.recommendation.explanation import build_grounded_explanation
+from app.recommendation.preference import extract_structured_preference
+from app.recommendation.scoring import score_course
+from app.recommendation.validation import validate_ranking_output
 from app.rules import evaluate_eligibility
+from app.transcript import resolve_program_id
 
-# Load .env nếu có
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
-
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GEMINI_BASE_URL = os.environ.get("GEMINI_BASE_URL", "").strip()
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash").strip() or "gemini-3.8-flash"
+logger = logging.getLogger(__name__)
 
 
 class AdvisorMessage(BaseModel):
@@ -39,6 +37,8 @@ class AdvisorRequest(BaseModel):
     message: str = Field(..., max_length=1000, description="Nội dung câu hỏi của sinh viên")
     passed_course_codes: list[str] = Field(default_factory=list)
     history: list[AdvisorMessage] = Field(default_factory=list)
+    selected_track_id: str | None = None
+    selected_graduation_path_id: str | None = None
 
 
 class AdvisorResponse(BaseModel):
@@ -47,6 +47,156 @@ class AdvisorResponse(BaseModel):
     is_guardrail_triggered: bool = False
     guardrail_reason: str | None = None
     suggested_courses: list[str] = Field(default_factory=list)
+
+
+MAX_HISTORY_MESSAGES = 8
+MAX_HISTORY_MESSAGE_CHARS = 500
+MAX_FACTS_IN_PROMPT = 30
+MAX_BLOCKED_IN_PROMPT = 15
+COURSE_CODE_PATTERN = re.compile(r"\b[A-Z]{3,4}\d{4}\b")
+
+
+def _extract_session_preference(request: AdvisorRequest) -> StructuredPreference:
+    """Trích xuất preference với câu hiện tại là nguồn ưu tiên.
+
+    Extractor dùng chung chỉ nhận một chuỗi tối đa 500 ký tự. Tách hai lượt
+    extraction giúp history bổ sung ngữ cảnh mà không che mất yêu cầu mới nhất.
+    """
+    current = extract_structured_preference(request.message)
+    previous_user_messages = "\n".join(
+        message.content[:MAX_HISTORY_MESSAGE_CHARS]
+        for message in request.history[-MAX_HISTORY_MESSAGES:]
+        if message.role == "user" and message.content.strip()
+    )
+    if not previous_user_messages:
+        return current
+
+    previous = extract_structured_preference(previous_user_messages[-2000:])
+    updates: dict[str, Any] = {}
+    for field_name in (
+        "workload",
+        "difficulty",
+        "orientation",
+        "career_goal",
+        "target_credits",
+        "target_course_count",
+        "course_type",
+        "prerequisite_tolerance",
+    ):
+        if getattr(current, field_name) is None:
+            previous_value = getattr(previous, field_name)
+            if previous_value is not None:
+                updates[field_name] = previous_value
+
+    topics = list(dict.fromkeys(current.interest_topics + previous.interest_topics))
+    if topics != current.interest_topics:
+        updates["interest_topics"] = topics[:20]
+    return current.model_copy(update=updates)
+
+
+def _build_recommendation_facts(
+    catalog: Catalog,
+    eligibility: EligibilityResult,
+    preference: StructuredPreference,
+) -> list[dict[str, Any]]:
+    """Tạo facts cùng vocabulary với recommendation pipeline.
+
+    Advisor chỉ nhận facts từ ``eligibility.eligible_courses``. Score, fit reason
+    và grounded explanation dùng lại implementation của recommendation; advisor
+    không tự quyết định eligibility.
+    """
+    facts: list[dict[str, Any]] = []
+    for course in eligibility.eligible_courses:
+        score = score_course(course, preference)
+        grounded_reason, fit_reason = build_grounded_explanation(
+            course,
+            preference,
+            eligibility.eligible_reasons.get(course.code, []),
+            score,
+        )
+        facts.append(
+            {
+                "code": course.code,
+                "name": course.name,
+                "credits": course.credits,
+                "year": course.year,
+                "score": score,
+                "eligibility_reason": eligibility.eligible_reasons.get(course.code, []),
+                "fit_reason": fit_reason,
+                "grounded_reason": grounded_reason,
+                "source_status": catalog.program.catalog_status,
+                "offering_status": "unknown",
+            }
+        )
+    return sorted(facts, key=lambda fact: (-fact["score"], fact["code"]))
+
+
+def _history_for_prompt(history: list[AdvisorMessage]) -> str:
+    """Định dạng history ngắn gọn và đánh dấu rõ đây là dữ liệu tham khảo."""
+    recent = history[-MAX_HISTORY_MESSAGES:]
+    if not recent:
+        return "(Không có history trong session.)"
+    return "\n".join(
+        f"- {message.role}: {message.content[:MAX_HISTORY_MESSAGE_CHARS]}"
+        for message in recent
+        if message.content.strip()
+    ) or "(Không có history trong session.)"
+
+
+def _extract_codes(text: str) -> list[str]:
+    """Lấy mã môn theo thứ tự xuất hiện, loại duplicate."""
+    seen: set[str] = set()
+    codes: list[str] = []
+    for code in COURSE_CODE_PATTERN.findall(text):
+        if code not in seen:
+            seen.add(code)
+            codes.append(code)
+    return codes
+
+
+def _validate_llm_suggestions(reply: str, eligible_codes: set[str]) -> tuple[list[str], list[str]]:
+    """Validate mã môn LLM nhắc đến mà không cho mã ngoài eligible lọt vào output."""
+    mentioned_codes = _extract_codes(reply)
+    valid, warnings = validate_ranking_output(mentioned_codes, eligible_codes)
+    return valid, warnings
+
+
+def _has_unsafe_catalog_recommendation(
+    reply: str,
+    catalog_codes: set[str],
+    eligible_codes: set[str],
+) -> bool:
+    """Phát hiện câu trả lời đang khuyên môn đã học hoặc bị chặn.
+
+    Advisor vẫn được phép giải thích một môn bị chặn khi sinh viên hỏi. Chỉ
+    chuyển sang fallback khi mã không eligible xuất hiện cùng động từ khuyến
+    nghị trong chính dòng đó.
+    """
+    recommendation_words = (
+        "nên",
+        "khuyên",
+        "đề xuất",
+        "gợi ý",
+        "đăng ký",
+        "ưu tiên học",
+        "học môn",
+    )
+    non_eligible = catalog_codes - eligible_codes
+    for line in reply.splitlines():
+        line_lower = line.casefold()
+        line_codes = set(_extract_codes(line))
+        if line_codes & non_eligible and any(word in line_lower for word in recommendation_words):
+            return True
+    return False
+
+
+def _redact_unknown_course_codes(reply: str, catalog_codes: set[str]) -> str:
+    """Không để mã môn bịa/ngoài catalog xuất hiện như một suggestion trong reply."""
+    unknown_codes = set(_extract_codes(reply)) - catalog_codes
+    redacted = reply
+    for code in unknown_codes:
+        redacted = redacted.replace(code, "[mã ngoài catalog đã được loại bỏ]")
+    return redacted
 
 
 # --- SCOPE GUARDRAILS ---
@@ -118,63 +268,47 @@ def check_scope_guardrails(message: str) -> tuple[bool, str | None, str | None]:
 
 # --- HEURISTIC FALLBACK ADVISOR ---
 
-TRACK_KEYWORDS = {
-    "ai": ["máy học", "học máy", "trí tuệ nhân tạo", "ai", "machine learning", "deep learning"],
-    "data": ["dữ liệu", "data", "khai phá", "thống kê", "phân tích dữ liệu", "big data"],
-    "software": ["phần mềm", "lập trình", "web", "hệ thống", "công nghệ phần mềm", "thuật toán"],
-    "math": ["toán", "giải tích", "đại số", "xác suất", "tối ưu", "mô hình"],
-}
-
-
 def heuristic_advisor(
     user_message: str,
     catalog: Catalog,
     passed_codes: set[str],
     eligible_courses: list[Course],
     blocked_courses: list[BlockedCourse],
+    preference: StructuredPreference | None = None,
+    eligibility_reasons: dict[str, list[str]] | None = None,
 ) -> tuple[str, list[str]]:
-    """Bộ tư vấn dự phòng bằng thuật toán Heuristic bám sát dữ liệu Rule Engine."""
-    msg_lower = user_message.lower()
-
-    # Tìm môn eligible phù hợp nhất với từ khóa trong câu hỏi
-    scored_candidates: list[tuple[Course, int]] = []
-    for c in eligible_courses:
-        score = 0
-        c_text = f"{c.code} {c.name} {getattr(c, 'name_en', '')} {c.block}".lower()
-
-        # So khớp từ khóa trực tiếp
-        for word in re.findall(r"\w+", msg_lower):
-            if len(word) >= 2 and word in c_text:
-                score += 2
-
-        # Ưu tiên theo định hướng chủ đề
-        for track_name, kws in TRACK_KEYWORDS.items():
-            if any(k in msg_lower for k in kws) and any(k in c_text for k in kws):
-                score += 3
-
-        # Ưu tiên các môn thuộc năm sớm hơn nếu chưa có điểm
-        if c.year:
-            score += (5 - c.year)
-
-        scored_candidates.append((c, score))
-
-    scored_candidates.sort(key=lambda x: x[1], reverse=True)
-    top_picks = [c for c, _ in scored_candidates[:4]]
-    if not top_picks and eligible_courses:
-        top_picks = eligible_courses[:4]
-
-    suggested_codes = [c.code for c in top_picks]
+    """Fallback deterministic dùng cùng preference và facts với recommendation."""
+    preference = preference or extract_structured_preference(user_message)
+    eligible_reasons = eligibility_reasons or {
+        course.code: ["Đã qua kiểm tra eligibility của backend."]
+        for course in eligible_courses
+    }
+    synthetic_eligibility = EligibilityResult(
+        program_id=catalog.program.program_id,
+        eligible_courses=eligible_courses,
+        blocked_courses=blocked_courses,
+        completed_course_codes=sorted(passed_codes),
+        total_eligible=len(eligible_courses),
+        total_blocked=len(blocked_courses),
+        total_completed=len(passed_codes),
+        eligible_reasons=eligible_reasons,
+    )
+    facts = _build_recommendation_facts(catalog, synthetic_eligibility, preference)
+    top_facts = facts[:4]
+    suggested_codes = [fact["code"] for fact in top_facts]
 
     # Xây dựng câu trả lời có cấu trúc
     lines = [
         f"Chào bạn, dựa trên chương trình đào tạo **{catalog.program.name}** và bảng điểm hiện tại của bạn:",
         "",
-        f"✅ **Các môn ĐỦ ĐIỀU KIỆN khuyên học cho kỳ tới ({len(top_picks)} môn đề xuất):**",
+        f"✅ **Các môn ĐỦ ĐIỀU KIỆN khuyên học cho kỳ tới ({len(top_facts)} môn đề xuất):**",
     ]
 
-    for c in top_picks:
-        prereq_note = " (Không yêu cầu tiên quyết)" if not c.prerequisites else " (Đã thỏa mãn tiên quyết)"
-        lines.append(f"- **{c.code} — {c.name}** ({c.credits} TC, Năm {c.year or 'N/A'}):{prereq_note}")
+    for fact in top_facts:
+        lines.append(
+            f"- **{fact['code']} — {fact['name']}** ({fact['credits']} TC, "
+            f"Năm {fact['year'] or 'N/A'}): {fact['fit_reason']}"
+        )
 
     if blocked_courses:
         sample_blocked = blocked_courses[:2]
@@ -200,26 +334,56 @@ def build_advisor_prompt(
     passed_codes: set[str],
     eligible_courses: list[Course],
     blocked_courses: list[BlockedCourse],
+    history: list[AdvisorMessage] | None = None,
+    preference: StructuredPreference | None = None,
+    recommendation_facts: list[dict[str, Any]] | None = None,
 ) -> str:
-    """Xây dựng prompt chi tiết bảo đảm LLM chỉ tư vấn trong tập eligible và grounded theo CTĐT."""
+    """Xây dựng prompt từ facts đã được eligibility và recommendation kiểm tra."""
+    preference = preference or extract_structured_preference(user_message)
+    if recommendation_facts is None:
+        fallback_eligibility = EligibilityResult(
+            program_id=catalog.program.program_id,
+            eligible_courses=eligible_courses,
+            blocked_courses=blocked_courses,
+            completed_course_codes=sorted(passed_codes),
+            total_eligible=len(eligible_courses),
+            total_blocked=len(blocked_courses),
+            total_completed=len(passed_codes),
+        )
+        recommendation_facts = _build_recommendation_facts(
+            catalog,
+            fallback_eligibility,
+            preference,
+        )
+
     eligible_summary = "\n".join(
-        f"- {c.code}: {c.name} ({c.credits} TC, Năm {c.year or 'N/A'})"
-        for c in eligible_courses[:30]
+        f"- {fact['code']}: {fact['name']} ({fact['credits']} TC, "
+        f"Năm {fact['year'] or 'N/A'}, score={fact['score']}, "
+        f"fit={fact['fit_reason']}, eligibility={'; '.join(fact['eligibility_reason'])})"
+        for fact in recommendation_facts[:MAX_FACTS_IN_PROMPT]
     )
 
     blocked_summary = "\n".join(
         f"- {b.code}: {b.name} (Lý do: {b.reasons[0].message if b.reasons else 'Thiếu điều kiện'})"
-        for b in blocked_courses[:15]
+        for b in blocked_courses[:MAX_BLOCKED_IN_PROMPT]
     )
+
+    preference_json = json.dumps(
+        preference.model_dump(),
+        ensure_ascii=False,
+        sort_keys=True,
+    )
+    history_summary = _history_for_prompt(history or [])
 
     prompt = f"""Bạn là Cố vấn học vụ & Định hướng học tập (Academic Advisor) cho sinh viên ngành {catalog.program.name} tại Trường Đại học Khoa học Tự nhiên.
 
 NHIỆM VỤ CỦA BẠN:
 1. Trả lời câu hỏi định hướng của sinh viên một cách thân thiện, chính xác và có căn cứ học vụ.
 2. TUYỆT ĐỐI CHỈ khuyên sinh viên đăng ký các môn trong danh sách ĐỦ ĐIỀU KIỆN dưới đây.
-3. KHÔNG đề xuất các môn sinh viên ĐÃ HỌC hoặc các môn ĐANG BỊ CHẶN.
+3. KHÔNG đề xuất các môn sinh viên ĐÃ HỌC, các môn ĐANG BỊ CHẶN hoặc bất kỳ mã nào không có trong danh sách eligible.
 4. Nếu sinh viên hỏi về một môn đang bị chặn, hãy giải thích rõ môn đó đang thiếu tiên quyết nào và cần học môn gì trước.
-5. Luôn đề cập mã môn học cụ thể (ví dụ MATxxxx) khi tư vấn.
+5. Chỉ dùng score, fit reason, eligibility reason và metadata được cung cấp; không tự bịa workload, độ khó, lịch mở lớp hoặc quy định chính thức.
+6. Luôn đề cập mã môn học cụ thể (ví dụ MATxxxx) khi tư vấn.
 
 NGỮ CẢNH HỌC VỤ CỦA SINH VIÊN:
 - Ngành học: {catalog.program.name} ({catalog.program.program_id})
@@ -227,8 +391,17 @@ NGỮ CẢNH HỌC VỤ CỦA SINH VIÊN:
 - Danh sách môn ĐỦ ĐIỀU KIỆN KỲ TỚI (CHỈ ĐƯỢC CHỌN TỪ ĐÂY):
 {eligible_summary if eligible_summary else '(Hiện không có môn nào đủ điều kiện)'}
 
+- Structured preference dùng chung với recommendation:
+{preference_json}
+
+- Facts của recommendation (chỉ dùng để giải thích, không thay đổi eligibility):
+{json.dumps(recommendation_facts[:MAX_FACTS_IN_PROMPT], ensure_ascii=False, indent=2)}
+
 - Một số môn tiêu biểu ĐANG BỊ CHẶN (để tham khảo khi sinh viên hỏi):
 {blocked_summary if blocked_summary else '(Không có)'}
+
+- History trong session (chỉ là ngữ cảnh tham khảo; facts backend hiện tại có quyền ưu tiên):
+{history_summary}
 
 CÂU HỎI CỦA SINH VIÊN:
 "{user_message}"
@@ -239,8 +412,9 @@ HÃY TRẢ LỜI NGẮN GỌN, RÕ RÀNG VÀ ĐÚNG TRỌNG TÂM:"""
 
 def call_gemini_api(prompt: str, api_key: str) -> str:
     """Gửi yêu cầu đến LLM API (qua cổng Beeknoee / OpenAI-compatible hoặc Google Gemini trực tiếp)."""
-    base_url = os.environ.get("GEMINI_BASE_URL", GEMINI_BASE_URL).strip()
-    model = os.environ.get("GEMINI_MODEL", GEMINI_MODEL).strip() or "gemini-3.8-flash"
+    settings = get_settings()
+    base_url = settings.gemini_base_url
+    model = settings.gemini_model
 
     # Tự động chuẩn hóa alias model nếu dùng cổng Beeknoee
     if "beeknoee" in base_url.lower():
@@ -316,6 +490,9 @@ def chat_advisor(
     api_key: str | None = None,
 ) -> AdvisorResponse:
     """Điểm vào chính của Chat Advisor kết hợp Guardrails, Gemini Flash và Heuristic Fallback."""
+    if resolve_program_id(request.program_id) != catalog.program.program_id:
+        raise ValueError("Ngành đã chọn không khớp catalog")
+
     # 1. Chốt chặn phạm vi (Scope Guardrails)
     is_triggered, reason_type, rejection_msg = check_scope_guardrails(request.message)
     if is_triggered and rejection_msg:
@@ -329,14 +506,28 @@ def chat_advisor(
 
     # 2. Đánh giá tính hợp lệ học vụ thực tế
     passed_codes = set(request.passed_course_codes)
-    eligibility = evaluate_eligibility(catalog, passed_codes, max_credits=40)
+    eligibility = evaluate_eligibility(
+        catalog,
+        passed_codes,
+        max_credits=40,
+        selected_track_id=request.selected_track_id,
+        selected_graduation_path_id=request.selected_graduation_path_id,
+    )
     eligible_courses = eligibility.eligible_courses
     blocked_courses = eligibility.blocked_courses
     eligible_codes_set = {c.code for c in eligible_courses}
+    catalog_codes = {course.code for course in catalog.courses}
 
-    active_key = GEMINI_API_KEY if api_key is None else api_key
+    # 3. Dùng chung structured preference và facts với recommendation pipeline.
+    preference = _extract_session_preference(request)
+    recommendation_facts = _build_recommendation_facts(catalog, eligibility, preference)
 
-    # 3. Thử gọi Gemini Flash API nếu có API key
+    settings = get_settings()
+    active_key = (
+        settings.gemini_api_key if settings.recommendation_llm_enabled else ""
+    ) if api_key is None else api_key
+
+    # 4. Thử gọi Gemini Flash API nếu có API key
     if active_key:
         try:
             prompt = build_advisor_prompt(
@@ -345,30 +536,45 @@ def chat_advisor(
                 passed_codes,
                 eligible_courses,
                 blocked_courses,
+                history=request.history,
+                preference=preference,
+                recommendation_facts=recommendation_facts,
             )
             gemini_reply = call_gemini_api(prompt, active_key)
 
-            # Rà soát mã môn trong phản hồi của Gemini: chỉ giữ các môn hợp lệ
-            mentioned_codes = set(re.findall(r"\b[A-Z]{3,4}\d{4}\b", gemini_reply))
-            valid_suggested = [c for c in mentioned_codes if c in eligible_codes_set]
+            if _has_unsafe_catalog_recommendation(
+                gemini_reply,
+                catalog_codes,
+                eligible_codes_set,
+            ):
+                raise ValueError("LLM đề xuất môn ngoài tập eligible")
+
+            # Rà soát mã môn trong phản hồi của Gemini: chỉ giữ các môn hợp lệ.
+            valid_suggested, _validation_warnings = _validate_llm_suggestions(
+                gemini_reply,
+                eligible_codes_set,
+            )
+            safe_reply = _redact_unknown_course_codes(gemini_reply, catalog_codes)
 
             return AdvisorResponse(
-                reply=gemini_reply,
+                reply=safe_reply,
                 mode="gemini_llm",
                 is_guardrail_triggered=False,
-                suggested_courses=sorted(valid_suggested),
+                suggested_courses=valid_suggested,
             )
-        except Exception:
+        except Exception as exc:
             # Nếu API key lỗi hoặc không có mạng, tự động chuyển sang Fallback
-            pass
+            logger.warning("Advisor fallback: %s", type(exc).__name__)
 
-    # 4. Fallback Heuristic bằng code an toàn
+    # 5. Fallback deterministic bằng recommendation facts an toàn
     fallback_text, suggested_codes = heuristic_advisor(
         request.message,
         catalog,
         passed_codes,
         eligible_courses,
         blocked_courses,
+        preference=preference,
+        eligibility_reasons=eligibility.eligible_reasons,
     )
 
     return AdvisorResponse(

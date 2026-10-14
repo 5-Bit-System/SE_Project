@@ -23,6 +23,27 @@ PROGRAM_ALIASES: dict[str, str] = {
 }
 
 
+def grade_to_gpa4(grade: float) -> float:
+    """Quy đổi điểm hệ 10 sang GPA hệ 4 theo bảng quy đổi của dự án."""
+    if grade >= 9.0:
+        return 4.0
+    if grade >= 8.5:
+        return 3.7
+    if grade >= 8.0:
+        return 3.5
+    if grade >= 7.0:
+        return 3.0
+    if grade >= 6.5:
+        return 2.5
+    if grade >= 5.5:
+        return 2.0
+    if grade >= 5.0:
+        return 1.5
+    if grade >= 4.0:
+        return 1.0
+    return 0.0
+
+
 def resolve_program_id(identifier: str) -> str:
     """Chuẩn hóa mã ngành học từ alias hoặc trả về ID gốc nếu hợp lệ."""
     cleaned = identifier.strip().lower()
@@ -103,7 +124,19 @@ class StudentTranscript(BaseModel):
         return {rec.course_code: rec.grade for rec in self.records if rec.grade is not None}
 
     def validate_major_isolation(self, catalog: Catalog) -> dict[str, list[str]]:
-        """Kiểm tra tính cô lập ngành: phát hiện các môn không thuộc CTĐT đã chọn."""
+        """Kiểm tra tính cô lập ngành và phạm vi của transcript.
+
+        ``StudentTranscript`` luôn gắn với đúng một ``program_id``. Vì vậy
+        transcript của ngành A không được coi là hợp lệ chỉ vì một vài mã môn
+        tình cờ cũng xuất hiện trong catalog của ngành B.
+        """
+        catalog_program_id = resolve_program_id(catalog.program.program_id)
+        if self.program_id != catalog_program_id:
+            return {
+                "valid_courses": [],
+                "foreign_courses": sorted(self.all_course_codes),
+            }
+
         catalog_codes = {c.code for c in catalog.courses}
         valid_courses = [code for code in self.all_course_codes if code in catalog_codes]
         foreign_courses = [code for code in self.all_course_codes if code not in catalog_codes]
@@ -127,7 +160,7 @@ class StudentTranscript(BaseModel):
                 earned += course.credits
         return earned
 
-    def calculate_gpa(self, catalog: Catalog) -> float | None:
+    def calculate_gpa_10(self, catalog: Catalog) -> float | None:
         """Tính điểm trung bình tích lũy (GPA thang 10) có trọng số theo số tín chỉ.
 
         Không tính các học phần điều kiện (nằm trong excluded_from_total hoặc counted_in_total = False).
@@ -150,6 +183,31 @@ class StudentTranscript(BaseModel):
                     continue
                 total_weighted_points += rec.grade * c.credits
                 total_credits += c.credits
+
+        if total_credits == 0:
+            return None
+        return round(total_weighted_points / total_credits, 2)
+
+    def calculate_gpa(self, catalog: Catalog) -> float | None:
+        """Tính GPA hệ 4 bằng cách quy đổi từng điểm môn rồi tính theo tín chỉ."""
+        excluded = getattr(catalog.program, "excluded_from_total", [])
+        if not isinstance(excluded, list):
+            excluded = []
+        excluded_set = set(excluded)
+
+        course_map = {c.code: c for c in catalog.courses}
+        total_weighted_points = 0.0
+        total_credits = 0
+
+        for rec in self.records:
+            if rec.grade is not None and rec.course_code in course_map:
+                if rec.course_code in excluded_set:
+                    continue
+                course = course_map[rec.course_code]
+                if getattr(course, "counted_in_total", True) is False:
+                    continue
+                total_weighted_points += grade_to_gpa4(rec.grade) * course.credits
+                total_credits += course.credits
 
         if total_credits == 0:
             return None

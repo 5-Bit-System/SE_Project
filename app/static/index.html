@@ -34,10 +34,15 @@
             <span class="select-arrow">▾</span>
           </div>
         </div>
-        <button id="btn-open-advisor-nav" class="btn-advisor-trigger" type="button" title="Mở trợ lý AI Advisor">
-          <span class="trigger-sparkle">✨</span>
-          <span>AI Advisor</span>
-        </button>
+        <div class="program-selector-wrapper">
+          <label for="profile-select" class="selector-label">Hồ sơ demo:</label>
+          <div class="select-container">
+            <select id="profile-select" class="modern-select">
+              <option value="">Không dùng profile demo</option>
+            </select>
+            <span class="select-arrow">▾</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -86,9 +91,9 @@
           <span id="kpi-total-credits-sub" class="kpi-sub">/ 127 Tín chỉ</span>
         </div>
         <div class="kpi-card">
-          <span class="kpi-title">Điểm Trung Bình (GPA)</span>
+          <span class="kpi-title">Điểm Trung Bình (GPA hệ 4)</span>
           <span id="kpi-gpa" class="kpi-value text-purple">--</span>
-          <span class="kpi-sub">Thang điểm 10</span>
+          <span class="kpi-sub">Quy đổi từ điểm hệ 10</span>
         </div>
         <div class="kpi-card">
           <span class="kpi-title">Môn Đủ Đ/K Kỳ Tới</span>
@@ -193,6 +198,24 @@
               <input id="rec-limit" type="range" min="1" max="10" step="1" value="5" class="modern-slider" />
             </div>
 
+            <details class="what-if-controls mt-3">
+              <summary>What-if: điều chỉnh trọng số xếp hạng</summary>
+              <p class="form-help">Giữ nguyên eligibility, chỉ xếp hạng lại các môn đủ điều kiện.</p>
+              <div class="weight-control">
+                <div class="slider-header"><label for="whatif-topic-weight">Chủ đề</label><span id="whatif-topic-value" class="slider-val">60%</span></div>
+                <input id="whatif-topic-weight" type="range" min="0" max="100" step="5" value="60" class="modern-slider" />
+              </div>
+              <div class="weight-control">
+                <div class="slider-header"><label for="whatif-keyword-weight">Từ khóa mục tiêu</label><span id="whatif-keyword-value" class="slider-val">25%</span></div>
+                <input id="whatif-keyword-weight" type="range" min="0" max="100" step="5" value="25" class="modern-slider" />
+              </div>
+              <div class="weight-control">
+                <div class="slider-header"><label for="whatif-type-weight">Loại môn</label><span id="whatif-type-value" class="slider-val">15%</span></div>
+                <input id="whatif-type-weight" type="range" min="0" max="100" step="5" value="15" class="modern-slider" />
+              </div>
+              <button type="button" id="btn-run-what-if" class="btn-ghost w-full mt-2">Chạy what-if</button>
+            </details>
+
             <button type="submit" id="btn-run-recommend" class="btn-primary w-full mt-4">
               <span>🚀 Phân Tích & Gợi Ý Môn Học</span>
             </button>
@@ -208,6 +231,7 @@
             </div>
             <span id="rec-badge-count" class="badge badge-info">0 Đề xuất</span>
           </div>
+          <div id="recommendation-summary" class="recommendation-summary" hidden></div>
           <div id="recommendations-result-container" class="recommendations-container mt-3">
             <div class="empty-state">
               <span class="empty-icon">🎯</span>
@@ -252,6 +276,25 @@
       <!-- Scope Guardrail Notice Bar -->
       <div class="chat-guardrail-banner">
         <span>🛡️ <strong>Chính sách tư vấn:</strong> Định hướng môn học & CTĐT. Không xếp lịch học hoặc chấm điểm giảng viên.</span>
+      </div>
+
+      <div class="chat-study-direction">
+        <div class="chat-direction-heading">Chọn hướng học cùng AI Advisor</div>
+        <div class="chat-direction-grid">
+          <label class="chat-direction-field">
+            <span>Nhánh chuyên sâu</span>
+            <select id="track-select" class="modern-select">
+              <option value="">Không chọn nhánh</option>
+            </select>
+          </label>
+          <label class="chat-direction-field">
+            <span>Hướng tốt nghiệp</span>
+            <select id="graduation-path-select" class="modern-select">
+              <option value="">Không chọn hướng</option>
+            </select>
+          </label>
+        </div>
+        <small>AI Advisor sẽ dùng lựa chọn này để giải thích điều kiện và gợi ý môn học.</small>
       </div>
 
       <!-- Chat Messages Scroll Area -->

@@ -1,5 +1,7 @@
 # Kế hoạch dự án — AI-07: Explainable Course Recommender
 
+> Tài liệu kế hoạch gốc, giữ làm tham khảo lịch sử. Quyết định và implementation hiện hành nằm trong `docs/SYSTEM_SPECIFICATION.md`, `docs/DATABASE_DESIGN.md`, `.agent/AGENTS.md`; tiến độ nền tảng được theo dõi trong `docs/CODEBASE_CHECKLIST.md`. Không dùng các yêu cầu cũ ở đây để tự khôi phục tính năng ngoài phạm vi hiện hành.
+
 | Thuộc tính | Nội dung |
 |---|---|
 | Phiên bản | 1.0 |

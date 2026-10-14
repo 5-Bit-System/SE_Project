@@ -461,7 +461,7 @@ Khi LLM lỗi, backend dùng ranking từ khóa hoặc rule-based baseline. Khi 
 - Không kết nối SIS/LMS.
 - Không dùng dữ liệu sinh viên thật.
 - Không tự động nhận diện ngành từ danh sách môn.
-- Không dùng PostgreSQL hoặc Docker trong bản codebase hiện tại.
+- Runtime dùng PostgreSQL cho catalog và hồ sơ demo tổng hợp; Docker Compose chỉ chạy database local, backend vẫn chạy trực tiếp bằng Python.
 
 ## 13. Thứ tự xây dựng codebase
 
@@ -493,3 +493,15 @@ Hệ thống được coi là chạy đúng khi:
 - mọi recommendation đều có cảnh báo về trạng thái mở lớp chưa được xác nhận;
 - 12 hồ sơ demo cho kết quả có thể tái lập;
 - tỷ lệ vi phạm eligibility bằng không.
+
+## 15. Persistence và nền tảng chạy
+
+Quyết định ngày 2026-10-14: PostgreSQL được đưa vào phạm vi theo yêu cầu người dùng. JSON trong `data/curricula/` và `data/synthetic/` là nguồn versioned để validation/seed; runtime mặc định đọc PostgreSQL qua storage adapter. API và các hàm domain dùng catalog/profile entry points chung, vì vậy đổi storage không thay eligibility/ranking.
+
+`app/config.py` đọc `.env` tại một điểm, không nạp key khi import schema advisor. `app/db/schema.py` quy định relational keys; `alembic/` quản lý migration; `tools/seed_database.py` kiểm tra source và import toàn bộ bốn ngành trong một transaction. Content hash của curriculum, courses, source rows và profiles xác định revision. Seed giống nhau không tạo bản ghi mới; nguồn thay đổi tạo revision mới và đổi active revision trong transaction.
+
+Prerequisite groups là AND, options trong mỗi group là OR. Foreign key composite ngăn prerequisite, membership và transcript tham chiếu course của revision/ngành khác. External prerequisites được lưu nullable reference với trạng thái unverified. Provenance và metadata chưa chuẩn hóa được giữ bằng JSONB, không suy diễn lại dữ liệu nguồn.
+
+Chỉ fixture demo được lưu; bảng điểm nhập tay, history chat và What-if của người dùng vẫn ở phiên. Chưa lưu recommendation audit hoặc HUS documents trong database của đợt này. Thiết kế chi tiết và giới hạn nằm trong `docs/DATABASE_DESIGN.md`.
+
+`/health` là liveness; `/ready` kiểm tra storage/seed. Lỗi kết nối trả 503; lỗi dữ liệu server trả 500; không fallback storage âm thầm. Test mặc định cô lập .env, chặn outbound HTTP. Test PostgreSQL chỉ chạy khi đặt `TEST_DATABASE_URL` và dùng schema ngẫu nhiên riêng.

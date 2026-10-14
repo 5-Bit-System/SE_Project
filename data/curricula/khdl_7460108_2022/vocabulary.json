@@ -1,0 +1,86 @@
+{
+  "vocabulary_version": "1.0",
+  "topics": [
+    "artificial_intelligence",
+    "machine_learning",
+    "deep_learning",
+    "computer_vision",
+    "image_processing",
+    "natural_language_processing",
+    "data_science",
+    "big_data",
+    "databases",
+    "mathematics",
+    "calculus",
+    "algebra",
+    "discrete_mathematics",
+    "probability",
+    "statistics",
+    "optimization",
+    "numerical_analysis",
+    "programming",
+    "data_structures_and_algorithms",
+    "software_engineering",
+    "web_development",
+    "operating_systems",
+    "computer_networks",
+    "cybersecurity"
+  ],
+  "career_paths": [
+    "ai_engineer",
+    "computer_vision_engineer",
+    "data_scientist",
+    "data_analyst",
+    "software_engineer",
+    "quant_researcher"
+  ],
+  "enums": {
+    "block": [
+      "general",
+      "field",
+      "discipline",
+      "group",
+      "major"
+    ],
+    "requirement_type": [
+      "required",
+      "elective",
+      "required_excluded",
+      "graduation"
+    ],
+    "orientation": [
+      "theory",
+      "practice",
+      "research"
+    ],
+    "difficulty": [
+      "easy",
+      "moderate",
+      "advanced"
+    ],
+    "workload": [
+      "light",
+      "moderate",
+      "heavy"
+    ],
+    "prerequisite_status": [
+      "verified",
+      "draft_unverified",
+      "unresolved_external",
+      "conflict",
+      "unknown"
+    ],
+    "source_status": [
+      "verified",
+      "draft_unverified"
+    ],
+    "offering_status": [
+      "unknown"
+    ]
+  },
+  "aliases": {
+    "computer vision": "computer_vision"
+  },
+  "rubrics": {},
+  "note": "No reviewed rubric available. Keep difficulty/workload null. Aliases are illustrative, not exhaustive."
+}

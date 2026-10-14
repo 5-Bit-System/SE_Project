@@ -68,11 +68,11 @@ def test_student_transcript_credit_and_gpa_calculation():
     # PHI1006 (3) + MAT2505 (3) = 6 (PEC1008 trượt, CME1000 bị loại trừ khỏi tổng tích lũy)
     assert earned == 6
 
-    # GPA = (8.0 * 3 + 10.0 * 3 + 3.0 * 2) / (3 + 3 + 2) = (24 + 30 + 6) / 8 = 60 / 8 = 7.5
-    # (Lưu ý: CME1000 không có trong catalog.courses của KHDL hoặc bị loại trừ)
+    # API GPA is the weighted 4-point conversion; the 10-point average is separate.
     gpa = transcript.calculate_gpa(catalog)
     assert gpa is not None
-    assert gpa == 7.5
+    assert gpa == round((3.5 * 3 + 4.0 * 3 + 0.0 * 2) / 8, 2)
+    assert transcript.calculate_gpa_10(catalog) == 7.5
 
 
 def test_major_isolation_validation():
@@ -124,6 +124,8 @@ def test_transcript_endpoints():
     data = summary_resp.json()
     assert data["program_id"] == "khdl_7460108_2022"
     assert data["earned_credits"] == 6
-    assert data["gpa"] == 7.5
+    assert data["gpa"] == 2.81
+    assert data["gpa_scale"] == 4.0
+    assert data["gpa_10"] == 7.5
     assert "PHI1006" in data["passed_courses"]
     assert "PEC1008" in data["failed_courses"]

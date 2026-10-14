@@ -1,25 +1,41 @@
+import logging
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Query, Response
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Request, Response
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.advisor import AdvisorRequest, AdvisorResponse, chat_advisor
-from app.catalog import CatalogError, list_catalogs, load_catalog
-from app.models import (
-    EligibilityRequest,
-    EligibilityResult,
-    RecommendationRequest,
-    RecommendationResponse,
-)
-from app.rules import evaluate_eligibility
-from app.service import recommend
-from app.transcript import StudentTranscript
+from app.api.routes import router as api_router
+from app.config import get_settings
+from app.errors import StorageDataError, StorageUnavailable
+
+logger = logging.getLogger(__name__)
 
 
-app = FastAPI(title="Explainable Course Recommender", version="0.1.0")
+def check_storage_ready() -> None:
+    if get_settings().storage_backend == "postgres":
+        from app.infrastructure.postgres_repository import PostgresRepository
+
+        PostgresRepository().ready()
+    else:
+        from app.catalog import list_catalogs
+
+        if len(list_catalogs()) != 4:
+            raise StorageDataError("Chưa có đủ bốn catalog")
+
+
+@asynccontextmanager
+async def lifespan(application: FastAPI) -> AsyncIterator[None]:
+    check_storage_ready()
+    yield
+
+
+app = FastAPI(title="Explainable Course Recommender", version="0.2.0", lifespan=lifespan)
 STATIC_ROOT = Path(__file__).resolve().parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
+app.include_router(api_router)
 
 
 @app.get("/")
@@ -37,68 +53,21 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/programs")
-def programs() -> list[dict]:
-    return [
-        {**catalog.program.model_dump(), "course_count": len(catalog.courses)}
-        for catalog in list_catalogs()
-    ]
+@app.get("/ready")
+def ready() -> dict[str, str]:
+    check_storage_ready()
+    return {"status": "ok", "storage": get_settings().storage_backend}
 
 
-@app.get("/courses")
-def courses(program_id: str = Query(...)) -> list[dict]:
-    try:
-        return [course.model_dump() for course in load_catalog(program_id).courses]
-    except CatalogError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
+@app.exception_handler(StorageUnavailable)
+async def storage_unavailable_handler(request: Request, exc: StorageUnavailable) -> JSONResponse:
+    logger.error("Storage unavailable for %s", request.url.path)
+    return JSONResponse(status_code=503, content={"detail": str(exc)})
 
 
-@app.post("/recommendations", response_model=RecommendationResponse)
-def recommendations(request: RecommendationRequest) -> RecommendationResponse:
-    try:
-        catalog = load_catalog(request.program_id)
-        return recommend(catalog, request)
-    except CatalogError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
-
-
-@app.post("/transcript/summary")
-def transcript_summary(transcript: StudentTranscript) -> dict:
-    try:
-        catalog = load_catalog(transcript.program_id)
-        isolation = transcript.validate_major_isolation(catalog)
-        return {
-            "program_id": catalog.program.program_id,
-            "program_name": catalog.program.name,
-            "earned_credits": transcript.calculate_earned_credits(catalog),
-            "gpa": transcript.calculate_gpa(catalog),
-            "passed_courses": sorted(transcript.passed_course_codes),
-            "failed_courses": sorted(transcript.failed_course_codes),
-            "isolation": isolation,
-        }
-    except CatalogError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-
-
-@app.post("/eligibility", response_model=EligibilityResult)
-def check_eligibility(request: EligibilityRequest) -> EligibilityResult:
-    try:
-        catalog = load_catalog(request.program_id)
-        return evaluate_eligibility(
-            catalog,
-            set(request.passed_course_codes),
-            max_credits=request.max_credits,
-        )
-    except CatalogError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
-
-
-@app.post("/advisor/chat", response_model=AdvisorResponse)
-def advisor_chat_endpoint(request: AdvisorRequest) -> AdvisorResponse:
-    try:
-        catalog = load_catalog(request.program_id)
-        return chat_advisor(catalog, request)
-    except CatalogError as exc:
-        raise HTTPException(status_code=404, detail=str(exc)) from exc
+@app.exception_handler(StorageDataError)
+async def storage_data_error_handler(request: Request, exc: StorageDataError) -> JSONResponse:
+    logger.error("Stored data invalid for %s", request.url.path)
+    return JSONResponse(
+        status_code=500, content={"detail": "Dữ liệu máy chủ chưa hợp lệ; kiểm tra migration/seed"}
+    )

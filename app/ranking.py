@@ -1,6 +1,8 @@
 from typing import Protocol
 
-from app.models import Course
+from app.models import Course, RankingWeights, StructuredPreference
+from app.recommendation.preference import extract_structured_preference
+from app.recommendation.scoring import score_course
 
 
 class Ranker(Protocol):
@@ -9,14 +11,20 @@ class Ranker(Protocol):
 
 
 class KeywordRanker:
-    """Deterministic baseline until an optional LLM ranker is configured."""
+    """Bộ xếp hạng deterministic dùng được khi không có LLM."""
 
-    def rank(self, candidates: list[Course], goal: str) -> list[str]:
-        words = {word.casefold() for word in goal.split() if len(word) > 2}
+    def rank(
+        self,
+        candidates: list[Course],
+        goal: str,
+        preference: StructuredPreference | None = None,
+        weights: RankingWeights | None = None,
+    ) -> list[str]:
+        preference = preference or extract_structured_preference(goal)
         ordered = sorted(
             candidates,
             key=lambda course: (
-                -sum(word in course.name.casefold() for word in words),
+                -score_course(course, preference, weights),
                 course.code,
             ),
         )

@@ -395,5 +395,23 @@
       ],
       "message": "Các mã này có trong cột tiên quyết nhưng không nằm trong bảng môn của chính ngành; giữ nguyên, cần xác minh tương đương với đơn vị đào tạo."
     }
+  ],
+  "metadata_schema_version": "1.0",
+  "vocabulary_version": "1.0",
+  "catalog_revision": "khdl_2022_metadata_sample_v1",
+  "sample_status": "handoff_draft_not_runtime_seed",
+  "source_registry": [
+    {
+      "id": "original_curriculum_pdf",
+      "file_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "availability": "not_in_repository",
+      "note": "Provide the original PDF and cross-check before marking any data verified."
+    },
+    {
+      "id": "local_transcription",
+      "path": "source_rows.json",
+      "status": "draft_unverified"
+    }
   ]
 }
