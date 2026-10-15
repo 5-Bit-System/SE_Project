@@ -1,381 +1,193 @@
-
-# KẾ HOẠCH THU THẬP VÀ XỬ LÝ DỮ LIỆU HUS
+# KẾ HOẠCH THU THẬP VÀ XỬ LÝ DỮ LIỆU HUS (THIẾT KẾ ĐÃ HOÀN THIỆN)
 
 ## 1. Tổng quan
 
 ### 1.1. Mục tiêu
 
-Xây dựng hệ thống tự động thu thập và xử lý dữ liệu từ các website chính thức của Trường Đại học Khoa học Tự nhiên – ĐHQGHN (HUS).
+Xây dựng hệ thống tự động thu thập và xử lý dữ liệu từ các website chính thức của Trường Đại học Khoa học Tự nhiên – ĐHQGHN (HUS), phục vụ xây dựng kho tri thức cho module Chatbot tư vấn học vụ và tra cứu thông tin HUS.
 
 Dữ liệu sau thu thập phải:
-- Có nguồn gốc rõ ràng, truy xuất được URL gốc.
-- Được làm sạch, loại bỏ nội dung không liên quan.
-- Giữ nguyên thông tin quan trọng, bảng biểu và tài liệu đính kèm.
-- Được chuẩn hóa về cấu trúc và metadata.
-- Có cơ chế chống trùng lặp và cập nhật định kỳ.
-- Được lưu trữ để phục vụ các hệ thống sử dụng dữ liệu sau này.
+- Có nguồn gốc rõ ràng, truy xuất được URL gốc và liên kết cha-con (bài viết - file đính kèm).
+- Được làm sạch, loại bỏ menu điều hướng, sidebar, header, footer, tin tức phong trào không liên quan.
+- Giữ nguyên cấu trúc văn bản, bảng biểu, danh mục và tài liệu đính kèm dạng text.
+- Được chuẩn hóa cấu trúc metadata và quản lý trạng thái hiệu lực.
+- Có cơ chế chống trùng lặp dựa trên Content Hash và cập nhật gia tăng (Incremental Crawling).
+- Lưu trữ tách biệt giữa dữ liệu gốc (Raw) và dữ liệu đã làm sạch (Processed).
 
-### 1.2. Phạm vi
+### 1.2. Phạm vi thu thập & Quy tắc loại trừ
 
-**Nguồn dữ liệu ưu tiên:**
+Hệ thống mở rộng thu thập thông tin cấp toàn trường và tuyển sinh ngay từ đầu, nhưng **kiểm soát chặt chẽ để không thu thập thông tin của các khoa khác**.
 
-| Nguồn | URL | Nội dung |
+| Nguồn | URL Host | Quy tắc Path / Nội dung cho phép | Nội dung loại trừ (Exclude) |
+|---|---|---|---|
+| **Khoa Toán – Cơ – Tin học** | `mim.hus.vnu.edu.vn` | Toàn bộ các mục đào tạo, thông báo học vụ, chuẩn đầu ra, chương trình học, học phần, học bổng chuyên ngành | Các bài viết hội cựu sinh viên, hoạt động ngoại khóa cá nhân |
+| **ĐHKHTN (Toàn trường)** | `hus.vnu.edu.vn` | **Chỉ lấy thông tin chung cấp trường:** Quy chế đào tạo đại học, quy định học vụ chung, biểu mẫu học vụ, khung thời gian năm học, quy định học bổng/học phí toàn trường | **Loại trừ tuyệt đối:** Thông báo riêng của các khoa khác (Khoa Hóa, Vật lý, Sinh học, Địa chất, Môi trường...), tin tức hội thảo chuyên ngành khác, phong trào đoàn thể |
+| **Tuyển sinh HUS** | `tuyensinh.hus.vnu.edu.vn` | Đề án tuyển sinh, thông tin các ngành đào tạo (đặc biệt khối Toán - Tin), quy định xét tuyển, học phí, chỉ tiêu | Tin bài sự kiện ngoài lề không mang tính quy định/thông tin tuyển sinh |
+
+**Định dạng tài liệu xử lý:**
+- **HTML:** Trang bài viết, thông báo, quy chế, danh mục.
+- **PDF dạng văn bản (Text-based PDF):** Quy chế, quyết định, danh sách học phần, biểu mẫu.
+- **DOCX:** Văn bản hướng dẫn, mẫu đơn từ.
+- **XLSX:** Danh mục mã môn, thời khóa biểu, khung chương trình.
+- **Tài liệu dạng ảnh scan / OCR:** Tạm thời lưu bản gốc (Raw) và gắn cờ `needs_ocr = True` để xử lý ở giai đoạn sau, không chặn pipeline chính.
+
+---
+
+## 2. Ngăn xếp công nghệ đã thống nhất (Approved Tech Stack)
+
+Tuân thủ kiến trúc tinh gọn, hiệu năng cao, tối ưu cho môi trường cục bộ và CI:
+
+| Công cụ | Vai trò | Lý do lựa chọn & Tối ưu |
 |---|---|---|
-| HUS | https://hus.vnu.edu.vn | Quy chế, đào tạo, thông báo, học bổng, thủ tục |
-| Khoa Toán – Cơ – Tin học | https://mim.hus.vnu.edu.vn | Chương trình đào tạo, học phần, thông báo khoa |
-| Tuyển sinh HUS | https://tuyensinh.hus.vnu.edu.vn | Ngành đào tạo, tuyển sinh, thông tin đầu vào |
-
-**Định dạng thu thập:**
-- HTML: Bài viết, tin tức, thông báo, trang thông tin.
-- PDF: Quy chế, chương trình đào tạo, biểu mẫu.
-- DOC/DOCX: Văn bản, hướng dẫn, quyết định.
-- XLS/XLSX: Danh sách và bảng dữ liệu.
-- Hình ảnh chứa văn bản: Xử lý OCR khi cần.
-
-**Không thu thập:** Dữ liệu cá nhân, nội dung sau đăng nhập, trang ngoài phạm vi hoặc nội dung bị hạn chế truy cập.
+| **HTTPX** | HTTP Client & Downloader | Bất đồng bộ/đồng bộ, xử lý streaming, timeout, connection pooling, backoff retry khi gặp lỗi tạm thời (429, 5xx). |
+| **BeautifulSoup4 + lxml** | HTML Parser & Cleaning | Bóc tách DOM nhanh, loại bỏ các thẻ rác, làm sạch bảng biểu và chuyển đổi cấu trúc HTML sang Markdown chuẩn. |
+| **pdfplumber / pypdf** | PDF Extraction | Trích xuất văn bản và bảng biểu từ PDF có text gốc. Tránh phụ thuộc vào các model học sâu (như Docling) trong giai đoạn MVP. |
+| **python-docx** | DOCX Extraction | Đọc và trích xuất cấu trúc văn bản từ các file Word hướng dẫn và biểu mẫu. |
+| **openpyxl** | Excel Parser | Đọc các bảng dữ liệu học phần, khung kế hoạch dạng bảng tính. |
+| **Local File System** | Raw & Processed Storage | Lưu trữ phân cấp theo hash URL và content hash, không cần dựng MinIO. |
+| **JSON / PostgreSQL** | Metadata & Crawl State | Quản lý danh sách URL, lịch sử crawl, hash tài liệu và trạng thái hiệu lực. |
+| **CLI / Cron runner** | Job Scheduler | Chạy theo kịch bản CLI một lần (one-shot) hoặc tích hợp scheduler đơn giản, không cần service ngầm phức tạp. |
 
 ---
 
-## 2. Công nghệ sử dụng
-
-| Công cụ | Vai trò |
-|---|---|
-| Crawl4AI | Crawl website, khám phá URL, trích xuất HTML/Markdown |
-| HTTPX | Gửi HTTP request, tải tài liệu |
-| BeautifulSoup | Phân tích và xử lý HTML khi cần |
-| Docling | Trích xuất PDF, DOCX, bảng biểu và OCR |
-| openpyxl | Đọc và xử lý dữ liệu Excel |
-| PostgreSQL | Lưu metadata, URL, lịch sử crawl |
-| Local Storage / MinIO | Lưu tài liệu gốc và dữ liệu đã xử lý |
-| APScheduler / Cron | Lập lịch crawl định kỳ |
-
-**Lựa chọn chính:** Crawl4AI + Docling + PostgreSQL.
-
-Giai đoạn MVP có thể sử dụng local storage và JSON trước khi triển khai đầy đủ database hoặc object storage.
-
----
-
-## 3. Quy trình xử lý dữ liệu
-
-### 3.1. Kiến trúc tổng quan
+## 3. Kiến trúc Pipeline thu thập & Xử lý dữ liệu
 
 ```text
-Website HUS / MIM / Tuyển sinh
-               |
-               v
-        URL Discovery
-    (Sitemap, Links, Pages)
-               |
-               v
-          URL Filtering
-   (Domain, Path, Duplicates)
-               |
-               v
-        Crawl4AI / HTTPX
-               |
-       +-------+-------+
-       |               |
-       v               v
-   HTML Pages      Attachments
-       |          (PDF/DOCX/XLSX)
-       |               |
-       v               v
- HTML Extraction   Document Parsing
-       |               |
-       +-------+-------+
-               |
-               v
-        Data Cleaning
-               |
-               v
-     Metadata Normalization
-               |
-               v
-    Validation & Deduplication
-               |
-               v
-        Data Storage
-     (Raw + Processed)
+[ Seed URLs / Allowlist Rules ]
+              │
+              ▼
+    1. URL Discovery & Filtering
+    - Kiểm tra Allowlist (Host + Path Prefixes)
+    - Loại trừ domain của các khoa khác
+    - Loại trừ URL query rác / calendar / page duplicate
+    - Tuân thủ robots.txt per host
+              │
+              ▼
+    2. Fetching Engine (HTTPX)
+    - Xử lý Redirect an toàn, chặn Private IP/SSRF
+    - Giới hạn kích thước file (MAX_BYTES: 20MB)
+    - Lưu RAW Data (HTML / PDF / DOCX) vào data/hus/raw/
+              │
+       ┌──────┴──────────────────────┐
+       ▼                             ▼
+[ HTML Content ]             [ Attachment Files ]
+       │                             │
+       ▼                             ▼
+3. HTML Cleaning &           4. Document Parser
+   Markdown Conversion       - PDF Text (pdfplumber)
+- Bóc tách Main Content       - DOCX (python-docx)
+- Giữ cấu trúc bảng          - XLSX (openpyxl)
+- Trích xuất link đính kèm    - Scan/Image -> Mark pending_ocr
+       │                             │
+       └──────────────┬──────────────┘
+                      ▼
+5. Metadata Normalization & Attachment Linking
+   - Gắn ID tài liệu, URL gốc, Parent URL (nếu là file đính kèm)
+   - Trích xuất ngày ban hành, tiêu đề chuẩn NFC
+   - Tính toán sha256 Content Hash
+                      │
+                      ▼
+6. Quality Validation & Deduplication
+   - Kiểm tra rỗng, kiểm tra lỗi tiếng Việt
+   - Đối chiếu Content Hash (phát hiện trùng lặp/cập nhật)
+                      │
+                      ▼
+7. Processed Storage & Indexing
+   - Ghi Processed Markdown / JSON
+   - Cập nhật Crawl State Index
 ```
-
-### 3.2. Bước 1 — Khám phá URL
-
-Mục tiêu: Xác định các trang và tài liệu cần thu thập.
-
-**Thực hiện:**
-1. Khởi tạo danh sách URL gốc (Seed URLs).
-2. Kiểm tra robots.txt và sitemap.xml.
-3. Thu thập các liên kết nội bộ.
-4. Duyệt các trang danh mục và phân trang.
-5. Phát hiện liên kết tải tài liệu.
-6. Đưa URL hợp lệ vào hàng đợi crawl.
-
-**Quy tắc lọc:**
-- Chỉ thu thập trong danh sách domain được phép.
-- Giới hạn độ sâu và số lượng trang.
-- Loại bỏ URL trùng lặp, tracking parameters.
-- Bỏ qua trang đăng nhập, tìm kiếm và nội dung không liên quan.
-- Kiểm tra URL đích sau redirect.
-- Phân biệt trang danh mục và trang chứa nội dung.
-
-**Cấu hình khởi đầu:**
-
-```yaml
-crawler:
-  max_depth: 3
-  max_pages: 200
-  concurrency_per_host: 2
-  request_delay_seconds: 2
-  respect_robots_txt: true
-  retry_attempts: 3
-```
-
-Các thông số cần điều chỉnh theo khả năng đáp ứng của website.
-
-### 3.3. Bước 2 — Crawl dữ liệu
-
-**Đối với HTML:**
-- Tải trang bằng Crawl4AI.
-- Render JavaScript nếu nội dung yêu cầu.
-- Trích xuất tiêu đề, nội dung chính, ngày đăng.
-- Thu thập URL tài liệu đính kèm.
-- Lưu URL cuối cùng và thời điểm crawl.
-
-**Đối với tài liệu:**
-- Tải file bằng HTTPX.
-- Xác định loại file qua Content-Type.
-- Tránh tải lại tài liệu trùng.
-- Giới hạn dung lượng và định dạng được phép.
-- Lưu bản gốc trước khi xử lý.
-
-**Kiểm soát lỗi:**
-- Retry có giới hạn khi timeout hoặc lỗi tạm thời.
-- Backoff khi gặp HTTP 429.
-- Ghi log các URL lỗi.
-- Không cố vượt qua cơ chế hạn chế truy cập.
-
-### 3.4. Bước 3 — Trích xuất nội dung
-
-| Định dạng | Phương pháp |
-|---|---|
-| HTML | Crawl4AI / BeautifulSoup |
-| PDF có text | Docling |
-| PDF scan | OCR qua pipeline xử lý tài liệu |
-| DOCX | Docling |
-| DOC | Chuyển đổi định dạng bằng công cụ tương thích trước khi xử lý |
-| XLS/XLSX | openpyxl |
-| Ảnh chứa chữ | OCR hỗ trợ tiếng Việt |
-
-**Yêu cầu:**
-- Giữ cấu trúc heading, đoạn văn, danh sách.
-- Bảo toàn bảng biểu và mối quan hệ hàng/cột.
-- Giữ mã học phần, tín chỉ, điều kiện tiên quyết.
-- Ghi nhận số trang đối với tài liệu PDF.
-- Lưu nội dung dưới dạng Markdown hoặc JSON.
-
-### 3.5. Bước 4 — Làm sạch dữ liệu
-
-**HTML Cleaning:**
-- Loại bỏ header, footer, menu, sidebar.
-- Loại bỏ quảng cáo và nội dung điều hướng.
-- Xóa các phần bài viết liên quan không thuộc nội dung chính.
-- Chuẩn hóa khoảng trắng, ký tự và Unicode.
-- Giữ lại liên kết, bảng và nội dung quan trọng.
-
-**Document Cleaning:**
-- Loại bỏ header/footer lặp lại trên các trang PDF khi phù hợp.
-- Xử lý lỗi xuống dòng, ký tự OCR.
-- Chuẩn hóa tiêu đề, đoạn văn và danh sách.
-- Kiểm tra bảng bị lệch cột hoặc thiếu dòng.
-- Không tự ý sửa đổi nội dung quy định.
-
-**Deduplication:**
-- Chuẩn hóa URL.
-- So sánh content hash.
-- Phát hiện nội dung giống nhau tại nhiều URL.
-- Giữ nguồn gốc của các bản sao.
-- Không xóa tài liệu cũ chỉ vì có văn bản mới.
-
-### 3.6. Bước 5 — Chuẩn hóa metadata
-
-Mỗi tài liệu cần lưu các trường:
-
-| Trường | Ý nghĩa |
-|---|---|
-| document_id | Mã định danh tài liệu |
-| source_url | URL bài viết gốc |
-| file_url | URL file đính kèm |
-| title | Tiêu đề |
-| publisher | Đơn vị phát hành |
-| document_type | Quy chế, thông báo, chương trình... |
-| published_at | Ngày đăng |
-| effective_from | Ngày bắt đầu hiệu lực |
-| effective_to | Ngày kết thúc hiệu lực |
-| applicable_cohorts | Khóa sinh viên áp dụng |
-| applicable_majors | Ngành áp dụng |
-| academic_year | Năm học |
-| fetched_at | Thời điểm crawl |
-| content_hash | Hash nội dung |
-| version | Phiên bản tài liệu |
-| review_status | Trạng thái kiểm duyệt |
-| content | Nội dung đã làm sạch |
-
-**Nguyên tắc:**
-- Không suy đoán ngày hiệu lực hoặc khóa áp dụng.
-- Thiếu thông tin thì lưu null.
-- Bảo toàn nguồn gốc và phiên bản tài liệu.
-- Metadata quan trọng cần được xác minh.
-
-### 3.7. Bước 6 — Kiểm tra chất lượng
-
-Kiểm tra trước khi đưa dữ liệu vào kho lưu trữ chính thức:
-
-- URL hợp lệ, nội dung không rỗng.
-- Tiêu đề và nội dung chính được trích xuất đầy đủ.
-- Không chứa quá nhiều menu hoặc nội dung rác.
-- File đính kèm được tải và xử lý đúng.
-- Bảng dữ liệu không bị sai hàng/cột.
-- Không bị lỗi tiếng Việt hoặc Unicode nghiêm trọng.
-- Metadata tuân thủ schema.
-- Không có bản ghi trùng lặp không cần thiết.
-
-Tài liệu xử lý lỗi hoặc thiếu thông tin quan trọng được đánh dấu `pending_review` để kiểm tra lại.
 
 ---
 
-## 4. Lưu trữ dữ liệu
+## 4. Chi tiết các thành phần kỹ thuật
 
-### 4.1. Nguyên tắc
+### 4.1. URL Discovery, Allowlist & Lọc thông tin rác
 
-Lưu riêng hai dạng dữ liệu:
+1. **Bộ lọc Allowlist mở rộng nhưng có kiểm soát:**
+   - Cấu hình file `sources.json` quy định rõ ràng từng host và danh sách tiền tố `path_prefixes` được duyệt.
+   - Bất kỳ URL nào trỏ sang trang của khoa khác (ví dụ: `chem.hus.vnu.edu.vn`, `geo.hus.vnu.edu.vn`...) lập tức bị từ chối ở tầng `check_allowed()`.
+2. **Loại trừ URL bẫy (Spider Traps):**
+   - Loại bỏ các tham số tracking: `utm_*`, `fbclid`, `gclid`, `sessionid`.
+   - Bỏ qua các URL widget lịch, bộ lọc tìm kiếm: `*calendar*`, `*filter*`, `*search*`.
+   - Chuẩn hóa URL (Canonicalization): Chuyển hostname về chữ thường, bỏ dấu gạch chéo cuối, chuẩn hóa percent-encoding.
 
-**Raw Data:**
-- HTML gốc.
-- PDF, Word, Excel gốc.
-- URL và thông tin tải xuống.
+### 4.2. Cơ chế xử lý tài liệu đính kèm (Attachment Handling)
 
-**Processed Data:**
-- Markdown đã làm sạch.
-- JSON có metadata.
-- Bảng dữ liệu đã chuẩn hóa.
-- Thông tin phiên bản và trạng thái xử lý.
+1. **Phát hiện liên kết đính kèm trong HTML:**
+   - Trong quá trình phân tích thẻ nội dung chính của bài viết, phát hiện các liên kết có đuôi: `.pdf`, `.docx`, `.doc`, `.xlsx`.
+2. **Tải và lưu trữ tài liệu:**
+   - Tải file bằng HTTPX với giới hạn kích thước an toàn (mặc định tối đa 20MB cho tài liệu đính kèm).
+   - Lưu trữ bản gốc tại `data/hus/raw/documents/{hash}.{ext}`.
+3. **Mối quan hệ Phụ thuộc (Parent-Child Relationship):**
+   - Tài liệu đính kèm được cấp `document_id` riêng, nhưng metadata chứa trường `parent_url` trỏ về bài viết HTML chứa liên kết đó.
+   - Khi chatbot trích dẫn câu trả lời, hệ thống có thể cung cấp cả link tải tài liệu lẫn link bài viết gốc chứa văn bản.
 
-Không ghi đè bản gốc khi làm sạch.
+### 4.3. Làm sạch dữ liệu & Giữ nguyên cấu trúc bảng
 
-### 4.2. Cấu trúc thư mục đề xuất
+1. **Làm sạch HTML:**
+   - Loại bỏ các phần tử: `nav, header, footer, aside, form, script, style, .breadcrumb, .pager, .menu`.
+   - Tìm chính xác container nội dung chính theo đặc thù CMS của trường (NukeViet / WordPress).
+   - Chuẩn hóa toàn bộ văn bản về dạng Unicode NFC.
+2. **Bảo toàn bảng biểu (Table Preservation):**
+   - Xử lý các thẻ `<tr>`, `<th>`, `<td>`.
+   - Với các bảng có ô gộp (`rowspan`, `colspan`), tự động điền dữ liệu lặp lại cho các ô bị gộp để tránh làm lệch cột khi chuyển sang Markdown table.
+
+### 4.4. Chuẩn hóa Metadata & Trạng thái tài liệu
+
+Mỗi tài liệu đã xử lý (Processed Document) tuân thủ schema chuẩn:
+
+| Trường | Kiểu dữ liệu | Ý nghĩa & Quy tắc |
+|---|---|---|
+| `document_id` | `string` | Định danh duy nhất (rút gọn từ SHA-256 của URL hoặc nội dung) |
+| `source_url` | `string` | URL gốc của trang/file |
+| `parent_url` | `string \| null` | URL của bài viết chứa link (nếu đây là tài liệu đính kèm) |
+| `title` | `string` | Tiêu đề văn bản/bài viết |
+| `document_type` | `string` | Phân loại: `regulation`, `announcement`, `curriculum`, `form`, `general_info` |
+| `publisher` | `string` | Đơn vị: `HUS`, `MIM`, `TUYENSINH` |
+| `published_at` | `string \| null` | Ngày đăng định dạng ISO 8601 (chỉ lấy từ thẻ thời gian chính thức, không đoán) |
+| `academic_year` | `string \| null` | Năm học áp dụng (nếu có trong tiêu đề/văn bản) |
+| `fetched_at` | `string` | Thời điểm thu thập ISO 8601 |
+| `content_hash` | `string` | SHA-256 của nội dung text đã làm sạch |
+| `content_markdown` | `string` | Toàn văn nội dung đã làm sạch định dạng Markdown |
+| `status` | `string` | Trạng thái: `active` (hiệu lực), `superseded` (hết hạn), `pending_ocr` (chờ OCR) |
+
+---
+
+## 5. Cấu trúc lưu trữ & Quản lý cập nhật gia tăng (Incremental Crawling)
+
+### 5.1. Cấu trúc thư mục dữ liệu
 
 ```text
-hus-crawler/
-├── configs/
-│   ├── sources.yaml
-│   └── crawler.yaml
-│
-├── src/
-│   ├── discovery/
-│   ├── crawler/
-│   ├── extractors/
-│   ├── processors/
-│   ├── storage/
-│   └── main.py
-│
-├── data/
-│   ├── raw/
-│   │   ├── html/
-│   │   └── documents/
-│   ├── processed/
-│   │   ├── markdown/
-│   │   └── json/
-│   └── failed/
-│
-├── logs/
-├── tests/
-├── scripts/
-├── requirements.txt
-├── docker-compose.yml
-└── README.md
+data/hus/
+├── config/
+│   └── sources.json             # Cấu hình seed URLs, allowlist, path rules per host
+├── raw/
+│   ├── html/                    # Bản gốc HTML lưu theo {url_hash}-{content_hash}.html
+│   └── documents/               # Bản gốc PDF, DOCX, XLSX lưu theo {url_hash}.{ext}
+├── processed/
+│   ├── markdown/                # File văn bản Markdown đã làm sạch
+│   └── documents.json           # Danh mục processed documents kèm metadata chuẩn
+├── state/
+│   └── crawl_state.json         # Trạng thái URL: last_crawled, etag, status_code, content_hash
+└── logs/
+    └── crawl_errors.log         # Nhật ký lỗi chi tiết của từng URL
 ```
 
----
+### 5.2. Quy trình Cập nhật gia tăng (Incremental Update)
 
-## 5. Cập nhật dữ liệu tự động
-
-### 5.1. Incremental Crawling
-
-Không crawl và xử lý lại toàn bộ dữ liệu trong mỗi lần chạy.
-
-Quy trình:
-1. Kiểm tra URL mới trong sitemap và các trang danh mục.
-2. Kiểm tra tài liệu cũ có thay đổi hay không.
-3. Sử dụng ETag / Last-Modified nếu website hỗ trợ.
-4. So sánh hash nội dung khi cần.
-5. Chỉ xử lý lại dữ liệu thay đổi.
-6. Lưu phiên bản trước để đối chiếu.
-7. Ghi log trạng thái thành công hoặc thất bại.
-
-Không coi một lần timeout hoặc HTTP error là bằng chứng tài liệu đã bị xóa.
-
-### 5.2. Lịch crawl đề xuất
-
-| Nhóm dữ liệu | Tần suất |
-|---|---|
-| Thông báo, học bổng, lịch học | Hằng ngày |
-| Quy chế, thủ tục, biểu mẫu | Hằng tuần |
-| Chương trình đào tạo | Hằng tháng |
-| URL lỗi | Retry với backoff |
-
-Tần suất cần điều chỉnh sau khi quan sát thực tế.
+1. Gửi request kèm `If-None-Match` (ETag) hoặc `If-Modified-Since` (Last-Modified) nếu máy chủ trường phản hồi các header này.
+2. Nếu máy chủ trả về `304 Not Modified`, bỏ qua bước download và xử lý.
+3. Khi tải nội dung mới, tính toán `content_hash`. Nếu hash trùng khớp với phiên bản trước trong `crawl_state.json`, cập nhật `last_checked_at` mà không ghi đè lại file.
+4. Nếu phát hiện bài viết bị xóa (404/410), không xóa dữ liệu cũ ngay lập tức mà chuyển trạng thái sang `archived` hoặc `deprecated`.
 
 ---
 
-## 6. Kế hoạch triển khai MVP
+## 6. Tiêu chí nghiệm thu chất lượng (Quality Checklist)
 
-### Giai đoạn 1 — Xây dựng crawler
-- [ ] Khởi tạo project và môi trường Python.
-- [ ] Cấu hình nguồn HUS và MIM.
-- [ ] Xây dựng URL discovery và filtering.
-- [ ] Crawl HTML bằng Crawl4AI.
-- [ ] Tải tài liệu đính kèm.
-- [ ] Lưu dữ liệu gốc.
+Pipeline crawl và xử lý dữ liệu được nghiệm thu khi đạt các tiêu chí:
 
-### Giai đoạn 2 — Xử lý dữ liệu
-- [ ] Tích hợp Docling và Excel parser.
-- [ ] Làm sạch HTML, Markdown.
-- [ ] Trích xuất bảng và nội dung tài liệu.
-- [ ] Chuẩn hóa metadata.
-- [ ] Phát hiện dữ liệu trùng lặp.
-
-### Giai đoạn 3 — Kiểm thử và hoàn thiện
-- [ ] Thu thập thử 50–100 tài liệu.
-- [ ] Kiểm tra mẫu HTML, PDF và bảng học phần.
-- [ ] Xử lý lỗi extraction và OCR.
-- [ ] Xây dựng incremental crawling.
-- [ ] Thêm scheduler và logging.
-- [ ] Hoàn thiện lưu trữ dữ liệu.
-
-### Tiêu chí hoàn thành
-
-MVP được xem là hoàn thành khi:
-
-1. Crawl thành công các trang và tài liệu mẫu đã chọn.
-2. Tải được các file đính kèm hợp lệ.
-3. Nội dung được làm sạch và lưu dưới dạng Markdown/JSON.
-4. Metadata được lưu theo schema thống nhất.
-5. Có cơ chế chống trùng và phát hiện thay đổi.
-6. Có log lỗi và cơ chế xử lý lại.
-7. Kết quả trích xuất được kiểm tra bằng dữ liệu thực tế.
-
----
-
-## 7. Kết quả đầu ra
-
-Hệ thống cần tạo được:
-
-- Bộ dữ liệu HTML và tài liệu gốc.
-- Bộ dữ liệu Markdown/JSON đã làm sạch.
-- Metadata của từng tài liệu.
-- Danh sách URL và trạng thái crawl.
-- Lịch sử phiên bản và thay đổi.
-- Báo cáo lỗi thu thập, xử lý dữ liệu.
-- Pipeline crawl có thể chạy lại hoặc định kỳ.
-
-**Giới hạn:** Kế hoạch chỉ bao gồm thu thập, trích xuất, làm sạch, chuẩn hóa, kiểm tra và lưu trữ dữ liệu. Chưa triển khai Embedding, Vector Database, RAG hoặc Chatbot.
+- [ ] **Chặn tuyệt đối thông tin khoa khác:** 100% URL thu thập chỉ thuộc Khoa Toán - Cơ - Tin học hoặc các quy định/thông báo chung toàn trường; không có trang web của khoa khác lọt vào kho dữ liệu.
+- [ ] **Liên kết tài liệu đính kèm chính xác:** Các văn bản quy chế, danh mục học phần dạng PDF/DOCX được tải về và gắn kết đúng với bài viết cha.
+- [ ] **Bảo toàn bảng biểu:** Bảng danh mục môn học, học phí, chỉ tiêu tuyển sinh giữ đúng số hàng và cột trong định dạng Markdown.
+- [ ] **Kiểm thử ngoại tuyến (Offline Testable):** Có bộ mock fixtures đầy đủ mô phỏng HTML, PDF text, redirect hops và robots.txt; toàn bộ test suite chạy offline thành công không cần kết nối mạng.
+- [ ] **Lưu trữ toàn vẹn:** Thư mục `raw/` lưu trữ đầy đủ bản gốc không bị can thiệp; metadata tuân thủ nghiêm ngặt schema JSON đã định nghĩa.
