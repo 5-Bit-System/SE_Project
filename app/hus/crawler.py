@@ -22,54 +22,7 @@ _TRANSIENT = {429, 500, 502, 503, 504}
 _REDIRECTS = {301, 302, 303, 307, 308}
 
 
-def _prefix(path: str) -> str:
-    return quote(unquote(path), safe="/")
-
-
-class Allowlist:
-    """sources: [{"host", "path_prefixes": [...], "seeds": [...]}]; an empty list allows nothing."""
-
-    def __init__(
-        self,
-        sources: list[dict] | tuple = (),
-        *,
-        user_agent: str = "HUSCrawler/0.1",
-        max_pages: int = 200,
-        max_depth: int = 3,
-        delay_seconds: float = 2.0,
-        retry_attempts: int = 3,
-    ):
-        self.sources = list(sources)
-        self.user_agent = user_agent
-        self.max_pages, self.max_depth = max_pages, max_depth
-        self.delay_seconds, self.retry_attempts = delay_seconds, retry_attempts
-        self.rules: dict[str, tuple[str, ...]] = {}
-        for source in self.sources:
-            host = source["host"].lower()
-            prefixes = tuple(_prefix(p) for p in source["path_prefixes"])
-            self.rules[host] = self.rules.get(host, ()) + prefixes
-        self.seeds = [seed for source in self.sources for seed in source.get("seeds", [])]
-        for seed in self.seeds:  # fail loudly on a seed outside its own rules
-            check_allowed(seed, self)
-
-    @classmethod
-    def load(cls, path: Path) -> Allowlist:
-        data = json.loads(path.read_text(encoding="utf-8"))
-        sources = data.pop("sources", [])
-        return cls(sources, **data)
-
-
-def check_allowed(url: str, allowlist: Allowlist) -> str:
-    """Return the canonical URL, or raise CrawlError if it is outside host/path rules."""
-    canonical = canonicalize_url(url)
-    parts = urlsplit(canonical)
-    host = parts.hostname or ""
-    if is_private_host(host):
-        raise CrawlError(f"private/local address refused: {canonical}")
-    prefixes = allowlist.rules.get(host)
-    if prefixes is None or not parts.path.startswith(prefixes):
-        raise CrawlError(f"outside allowlist: {canonical}")
-    return canonical
+from app.hus.allowlist import Allowlist, check_allowed
 
 
 class Robots:

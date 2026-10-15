@@ -1,0 +1,49 @@
+{
+  "user_agent": "HUSCrawler/0.1",
+  "max_pages": 200,
+  "max_depth": 3,
+  "delay_seconds": 2.0,
+  "retry_attempts": 3,
+  "sources": [
+    {
+      "host": "mim.hus.vnu.edu.vn",
+      "path_prefixes": ["/vi/"],
+      "exclude_prefixes": ["/vi/album", "/vi/gallery"],
+      "seeds": [
+        "https://mim.hus.vnu.edu.vn/vi/dao-tao",
+        "https://mim.hus.vnu.edu.vn/vi/thong-bao"
+      ]
+    },
+    {
+      "host": "hus.vnu.edu.vn",
+      "path_prefixes": ["/dao-tao", "/sinh-vien"],
+      "exclude_prefixes": [
+        "/dao-tao/khoa-hoa-hoc",
+        "/dao-tao/khoa-sinh-hoc",
+        "/dao-tao/khoa-vat-ly",
+        "/dao-tao/khoa-dia-ly",
+        "/dao-tao/khoa-dia-chat",
+        "/dao-tao/khoa-moi-truong"
+      ],
+      "seeds": [
+        "https://hus.vnu.edu.vn/dao-tao/dai-hoc"
+      ]
+    },
+    {
+      "host": "tuyensinh.hus.vnu.edu.vn",
+      "path_prefixes": ["/dai-hoc", "/thong-tin-tuyen-sinh"],
+      "exclude_prefixes": [],
+      "seeds": [
+        "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"
+      ]
+    }
+  ],
+  "excluded_hosts": [
+    "chem.hus.vnu.edu.vn",
+    "phys.hus.vnu.edu.vn",
+    "bio.hus.vnu.edu.vn",
+    "geo.hus.vnu.edu.vn",
+    "fal.hus.vnu.edu.vn",
+    "fes.hus.vnu.edu.vn"
+  ]
+}
