@@ -1,0 +1,8 @@
+{
+  "user_agent": "HUSCrawler/0.1 (SE_Project student research)",
+  "max_pages": 200,
+  "max_depth": 3,
+  "delay_seconds": 2,
+  "retry_attempts": 3,
+  "sources": []
+}
