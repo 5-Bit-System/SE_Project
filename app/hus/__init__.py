@@ -1,0 +1,1 @@
+"""HUS information crawler: allowlisted fetch, clean, chunk, index (no retrieval/answering yet)."""
