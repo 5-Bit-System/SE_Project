@@ -38,6 +38,7 @@ class HUSAttachment(BaseModel):
 
 
 class HUSDocument(BaseModel):
+    document_id: Optional[str] = None
     url: str
     title: str
     content: str
