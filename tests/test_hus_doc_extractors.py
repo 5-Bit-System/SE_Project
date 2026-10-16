@@ -3,7 +3,7 @@ import docx
 import openpyxl
 import pytest
 
-from app.hus.extractors import extract_attachment
+from app.hus.extractors import extract_attachment, extract_content
 from app.hus.extractors.docx import extract_docx
 from app.hus.extractors.excel import extract_excel
 from app.hus.urls import CrawlError
@@ -59,3 +59,32 @@ def test_extractor_factory():
 
     with pytest.raises(CrawlError, match="unsupported file format"):
         extract_attachment(b"123", "exe")
+
+    for unsupported in ("doc", "xls"):
+        with pytest.raises(CrawlError, match="unsupported file format"):
+            extract_attachment(b"123", unsupported)
+
+    content, needs_ocr = extract_content(raw_docx, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+    assert "Quy chế" in content and not needs_ocr
+
+
+def test_docx_keeps_paragraph_table_order():
+    document = docx.Document()
+    document.add_paragraph("Trước bảng")
+    table = document.add_table(rows=1, cols=2)
+    table.cell(0, 0).text = "Mã"
+    table.cell(0, 1).text = "Tên"
+    document.add_paragraph("Sau bảng")
+    data = io.BytesIO()
+    document.save(data)
+    markdown = extract_docx(data.getvalue())
+    assert markdown.index("Trước bảng") < markdown.index("| Mã | Tên |") < markdown.index("Sau bảng")
+
+
+def test_excel_escapes_markdown_pipe():
+    workbook = openpyxl.Workbook()
+    workbook.active.append(["Mã", "Tên"])
+    workbook.active.append(["MAT101", "Toán | Tin"])
+    data = io.BytesIO()
+    workbook.save(data)
+    assert "| MAT101 | Toán / Tin |" in extract_excel(data.getvalue())

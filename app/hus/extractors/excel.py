@@ -29,7 +29,7 @@ def extract_excel(raw: bytes) -> str:
             ws = wb[sheet_name]
             rows: list[list[str]] = []
             for row in ws.iter_rows(values_only=True):
-                cells = [_clean(str(c)) if c is not None else "" for c in row]
+                cells = [_clean(str(c)).replace("|", "/") if c is not None else "" for c in row]
                 # Drop rows where all cells are empty
                 if any(cells):
                     rows.append(cells)

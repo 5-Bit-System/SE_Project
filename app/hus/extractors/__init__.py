@@ -17,8 +17,18 @@ def extract_attachment(raw: bytes, file_type: str) -> tuple[str, bool]:
     ft = file_type.lower().lstrip(".")
     if ft == "pdf":
         return extract_pdf(raw)
-    if ft in ("docx", "doc"):
+    if ft == "docx":
         return extract_docx(raw), False
-    if ft in ("xlsx", "xls"):
+    if ft == "xlsx":
         return extract_excel(raw), False
     raise CrawlError(f"unsupported file format: {file_type}")
+
+
+def extract_content(raw_bytes: bytes, mime_or_ext: str) -> tuple[str, bool]:
+    """Resolve a supported attachment extension or MIME type."""
+    file_type = {
+        "application/pdf": "pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xlsx",
+    }.get(mime_or_ext.lower(), mime_or_ext)
+    return extract_attachment(raw_bytes, file_type)

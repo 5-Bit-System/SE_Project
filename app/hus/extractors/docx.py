@@ -7,6 +7,7 @@ import re
 import unicodedata
 
 import docx
+from docx.table import Table
 
 from app.hus.urls import CrawlError
 
@@ -20,12 +21,8 @@ def _format_table(table) -> list[str]:
     rows_data: list[list[str]] = []
     for row in table.rows:
         cells = [_clean(cell.text).replace("|", "/") for cell in row.cells]
-        # De-duplicate adjacent identical text caused by merged cells in docx
-        deduped = []
-        for c in cells:
-            deduped.append(c)
-        if any(deduped):
-            rows_data.append(deduped)
+        if any(cells):
+            rows_data.append(cells)
 
     if not rows_data:
         return []
@@ -47,8 +44,11 @@ def extract_docx(raw: bytes) -> str:
         doc = docx.Document(io.BytesIO(raw))
         lines: list[str] = []
 
-        # Interleave paragraphs and tables
-        for p in doc.paragraphs:
+        for block in doc.iter_inner_content():
+            if isinstance(block, Table):
+                lines.extend(_format_table(block))
+                continue
+            p = block
             text = _clean(p.text)
             if not text:
                 continue
@@ -60,9 +60,6 @@ def extract_docx(raw: bytes) -> str:
                 lines.append(f"{'#' * min(max(level, 1), 6)} {text}")
             else:
                 lines.append(text)
-
-        for table in doc.tables:
-            lines.extend(_format_table(table))
 
         content = "\n\n".join(lines).strip()
         if not content:
