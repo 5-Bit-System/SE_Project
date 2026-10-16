@@ -66,8 +66,7 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
 
                 pages_text.append("\n".join(page_lines))
 
-            # Density check: if less than 40 chars per page on average, mark as needs_ocr
-            needs_ocr = (total_chars / page_count) < 40
+            needs_ocr = (total_chars / page_count) < 50
             content = "\n\n".join(pages_text).strip()
             return content, needs_ocr
     except Exception as exc:
