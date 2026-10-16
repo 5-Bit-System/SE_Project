@@ -17,6 +17,8 @@ my_project/
 *.sqlite
 *.sqlite3
 *.sql
+# Keep versioned SQL artifacts for the HUS/Neon database module
+!database/sql/*.sql
 backups/
 project-toolkit/
 .agents/
