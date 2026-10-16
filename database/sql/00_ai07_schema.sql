@@ -20,7 +20,7 @@
 CREATE TABLE IF NOT EXISTS faculties (
     faculty_code TEXT PRIMARY KEY,
     faculty_name TEXT NOT NULL,
-    created_at   TIMESTAMP NOT NULL DEFAULT now()
+    created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS majors (
@@ -93,8 +93,8 @@ CREATE TABLE IF NOT EXISTS accounts (
     role                 TEXT NOT NULL DEFAULT 'student' CHECK (role IN ('student', 'teacher', 'admin')),
     must_change_password BOOLEAN NOT NULL DEFAULT true,
     is_active            BOOLEAN NOT NULL DEFAULT true,
-    password_changed_at  TIMESTAMP,
-    created_at           TIMESTAMP NOT NULL DEFAULT now()
+    password_changed_at  TIMESTAMPTZ,
+    created_at           TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS students (
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS students (
     admitted_year  INTEGER NOT NULL CHECK (admitted_year >= 2000 AND admitted_year <= 2100),
     student_status TEXT NOT NULL DEFAULT 'studying'
         CHECK (student_status IN ('studying', 'paused', 'graduated', 'withdrawn')),
-    created_at     TIMESTAMP NOT NULL DEFAULT now()
+    created_at     TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS course_attempts (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS student_preferences (
     weight_goal           NUMERIC(3, 2) NOT NULL DEFAULT 0.50 CHECK (weight_goal >= 0 AND weight_goal <= 1),
     weight_progress       NUMERIC(3, 2) NOT NULL DEFAULT 0.30 CHECK (weight_progress >= 0 AND weight_progress <= 1),
     weight_difficulty     NUMERIC(3, 2) NOT NULL DEFAULT 0.20 CHECK (weight_difficulty >= 0 AND weight_difficulty <= 1),
-    updated_at            TIMESTAMP NOT NULL DEFAULT now(),
+    updated_at            TIMESTAMPTZ NOT NULL DEFAULT now(),
     CHECK ((weight_goal + weight_progress + weight_difficulty) = 1.00)
 );
 
