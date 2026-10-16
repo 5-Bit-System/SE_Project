@@ -169,7 +169,9 @@ def test_extract_document_cleans_and_keeps_structure():
 def test_published_at_is_null_without_dedicated_markup_and_text_is_nfc():
     html = "<div id='content'><h1>Chương trình đào tạo</h1><p>" + "Toán học 2020. " * 10 + "</p></div>"
     decomposed = html.replace("à", "a\u0300")
-    doc = extract_document(decomposed.encode(), f"https://{HOST}/vi/x", "t")
+    doc = extract_document(
+        decomposed.encode(), f"https://{HOST}/vi/x", "2026-10-15T22:00:00Z"
+    )
     assert doc.published_at is None
     assert "Chương trình" in doc.content and "\u0300" not in doc.content
 

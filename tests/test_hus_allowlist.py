@@ -16,6 +16,33 @@ def test_allowlist_loaded_from_sources_json():
     assert "chem.hus.vnu.edu.vn" in al.excluded_hosts
 
 
+def test_allowlist_rejects_invalid_source_config(tmp_path):
+    path = tmp_path / "sources.json"
+    path.write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "host": "https://mim.hus.vnu.edu.vn",
+                        "path_prefixes": ["/vi/"],
+                        "seeds": ["https://mim.hus.vnu.edu.vn/vi/dao-tao"],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError):
+        Allowlist.load(path)
+
+    with pytest.raises(ValueError):
+        Allowlist([], delay_seconds=-1)
+    with pytest.raises(ValueError):
+        Allowlist([], max_pages=0)
+    with pytest.raises(ValueError):
+        Allowlist([], retry_attempts=0)
+
+
 def test_allowed_urls():
     al = Allowlist.load(CONFIG_PATH)
     # Valid MIM
@@ -41,3 +68,8 @@ def test_refused_other_faculties_and_excluded_paths():
     # Completely outside allowlist host
     with pytest.raises(CrawlError, match="outside allowlist"):
         check_allowed("https://uet.vnu.edu.vn/dao-tao", al)
+
+    with pytest.raises(CrawlError, match="outside allowlist"):
+        check_allowed("https://hus.vnu.edu.vn/dao-tao-ngoai-pham-vi", al)
+    with pytest.raises(CrawlError, match="outside allowlist"):
+        check_allowed("https://hus.vnu.edu.vn/dao-tao/../tin-tuc", al)

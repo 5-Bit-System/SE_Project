@@ -6,11 +6,17 @@ import json
 from pathlib import Path
 from urllib.parse import quote, unquote, urlsplit
 
+from app.hus.models import AllowlistSourceConfig
 from app.hus.urls import CrawlError, canonicalize_url, is_private_host, is_spider_trap
 
 
 def _prefix(path: str) -> str:
     return quote(unquote(path), safe="/")
+
+
+def _matches_prefix(path: str, prefix: str) -> bool:
+    prefix = prefix.rstrip("/") or "/"
+    return prefix == "/" or path == prefix or path.startswith(prefix + "/")
 
 
 class Allowlist:
@@ -27,7 +33,11 @@ class Allowlist:
         delay_seconds: float = 2.0,
         retry_attempts: int = 3,
     ):
-        self.sources = list(sources)
+        if max_pages < 1 or max_depth < 0 or delay_seconds < 0 or retry_attempts < 1:
+            raise ValueError("max_pages/retries must be positive; depth/delay must be non-negative")
+        self.sources = [
+            AllowlistSourceConfig.model_validate(source).model_dump() for source in sources
+        ]
         self.excluded_hosts = {h.lower() for h in excluded_hosts}
         self.user_agent = user_agent
         self.max_pages, self.max_depth = max_pages, max_depth
@@ -71,11 +81,11 @@ def check_allowed(url: str, allowlist: Allowlist) -> str:
         raise CrawlError(f"excluded faculty host: {canonical}")
 
     prefixes = allowlist.rules.get(host)
-    if prefixes is None or not parts.path.startswith(prefixes):
+    if prefixes is None or not any(_matches_prefix(parts.path, prefix) for prefix in prefixes):
         raise CrawlError(f"outside allowlist: {canonical}")
 
     exc_prefixes = allowlist.exclusions.get(host, ())
-    if exc_prefixes and parts.path.startswith(exc_prefixes):
+    if exc_prefixes and any(_matches_prefix(parts.path, prefix) for prefix in exc_prefixes):
         raise CrawlError(f"excluded path prefix: {canonical}")
 
     return canonical

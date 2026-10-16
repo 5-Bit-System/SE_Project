@@ -7,6 +7,12 @@ def test_canonicalize_url_basic():
     url = "HTTP://MIM.HUS.VNU.EDU.VN/vi/dao-tao/?utm_source=fb&gclid=123&page=1#"
     clean = canonicalize_url(url)
     assert clean == "https://mim.hus.vnu.edu.vn/vi/dao-tao?page=1"
+    assert canonicalize_url("https://EXAMPLE.com:443/a%20b/?refresh=1&ref=old") == (
+        "https://example.com/a%20b?refresh=1"
+    )
+    assert canonicalize_url("https://example.com/dao-tao/../tin-tuc") == (
+        "https://example.com/tin-tuc"
+    )
 
 
 def test_canonicalize_url_errors():
@@ -31,5 +37,11 @@ def test_is_spider_trap():
     assert is_spider_trap("https://mim.hus.vnu.edu.vn/vi/calendar?month=10&year=2026")
     assert is_spider_trap("https://hus.vnu.edu.vn/index.php?task=search&q=abc")
     assert is_spider_trap("https://mim.hus.vnu.edu.vn/vi/news/page/page/page")
+    assert is_spider_trap("https://mim.hus.vnu.edu.vn/vi/news?date=2026-10-15")
+    assert is_spider_trap("https://mim.hus.vnu.edu.vn/vi/news?filter=training")
+    assert is_spider_trap("https://mim.hus.vnu.edu.vn/vi/filter/training")
+    assert is_spider_trap("https://mim.hus.vnu.edu.vn/a/b/a/b/")
+    assert not is_spider_trap("https://mim.hus.vnu.edu.vn/vi/lich-thi")
+    assert not is_spider_trap("https://mim.hus.vnu.edu.vn/vi/index.php?view=article&id=42")
     assert not is_spider_trap("https://mim.hus.vnu.edu.vn/vi/dao-tao/chuong-trinh-dao-tao")
     assert not is_spider_trap("https://hus.vnu.edu.vn/dao-tao/dai-hoc/quy-che")
