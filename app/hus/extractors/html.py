@@ -174,9 +174,7 @@ def extract_html(raw: bytes, url: str, fetched_at: str) -> tuple[HUSDocument, li
         except CrawlError:
             continue
         pure_path = target_url.split("?")[0].lower()
-        if any(pure_path.endswith(ext) for ext in _ATTACHMENT_EXT):
-            attachment_urls.append(target_url)
-        else:
+        if not any(pure_path.endswith(ext) for ext in _ATTACHMENT_EXT):
             page_links.add(target_url)
 
     published_at = _published(soup)
@@ -202,6 +200,7 @@ def extract_html(raw: bytes, url: str, fetched_at: str) -> tuple[HUSDocument, li
         pure_href = href.split("?")[0].lower()
         matched_ext = next((ext.lstrip(".") for ext in _ATTACHMENT_EXT if pure_href.endswith(ext)), None)
         if matched_ext:
+            attachment_urls.append(href)
             att_id = hashlib.sha256(href.encode()).hexdigest()[:16]
             attachments.append(
                 HUSAttachment(

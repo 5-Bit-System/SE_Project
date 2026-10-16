@@ -1,7 +1,20 @@
 import pytest
+from pathlib import Path
 
 from app.hus.extractors.html import extract_html
 from app.hus.models import Publisher
+
+
+def test_sample_mim_fixture():
+    raw = (Path(__file__).parent / "fixtures/hus/sample_mim.html").read_bytes()
+    doc, attachments = extract_html(
+        raw, "https://mim.hus.vnu.edu.vn/vi/hoc-vu", "2026-10-16T00:00:00Z"
+    )
+    assert doc.title == "Thông báo học vụ"
+    assert doc.published_at == "2026-10-15T08:00:00+07:00"
+    assert attachments == ["https://mim.hus.vnu.edu.vn/files/quy-che.pdf"]
+    assert "[Quy chế đào tạo](https://mim.hus.vnu.edu.vn/files/quy-che.pdf)" in doc.content
+    assert "| Mã | 2026 |" in doc.content
 
 
 def test_extract_html_with_attachments_and_tables():
@@ -42,3 +55,21 @@ def test_extract_html_with_attachments_and_tables():
     assert "https://mim.hus.vnu.edu.vn/files/bieumau.docx" in attachments
     assert "https://mim.hus.vnu.edu.vn/vi/khac" in doc.links
     assert "| MAT1001 | Giải tích 1 |" in doc.content
+
+
+def test_extract_html_only_discovers_main_attachments_and_keeps_links():
+    raw = b"""
+    <html><body><nav><a href='/files/menu.pdf'>Menu</a></nav>
+    <main><h1>Training notice</h1><p>Official details are in
+    <a href='/files/rules.pdf'>Rules PDF</a>.</p>
+    <table><tr><th rowspan='2'>Code</th><th>Year</th></tr>
+    <tr><td>2026</td></tr></table></main></body></html>
+    """
+    doc, attachments = extract_html(
+        raw, "https://mim.hus.vnu.edu.vn/vi/notice", "2026-10-15T08:00:00Z"
+    )
+    assert attachments == ["https://mim.hus.vnu.edu.vn/files/rules.pdf"]
+    assert "[Rules PDF](https://mim.hus.vnu.edu.vn/files/rules.pdf)" in doc.content
+    assert "Menu" not in doc.content
+    assert "| Code | Year |" in doc.content
+    assert "| Code | 2026 |" in doc.content
