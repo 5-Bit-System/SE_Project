@@ -3,17 +3,11 @@
 from __future__ import annotations
 
 import io
-import re
-import unicodedata
 
 import openpyxl
 
+from app.hus.cleaning import clean_text
 from app.hus.urls import CrawlError
-
-
-def _clean(text: str) -> str:
-    text = text.replace("\u200b", "")
-    return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
 
 
 def extract_excel(raw: bytes) -> str:
@@ -29,7 +23,7 @@ def extract_excel(raw: bytes) -> str:
             ws = wb[sheet_name]
             rows: list[list[str]] = []
             for row in ws.iter_rows(values_only=True):
-                cells = [_clean(str(c)).replace("|", "/") if c is not None else "" for c in row]
+                cells = [clean_text(str(c)).replace("|", "/") if c is not None else "" for c in row]
                 # Drop rows where all cells are empty
                 if any(cells):
                     rows.append(cells)

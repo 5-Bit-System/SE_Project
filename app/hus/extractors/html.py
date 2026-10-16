@@ -5,11 +5,11 @@ from __future__ import annotations
 from datetime import date, datetime, timedelta, timezone
 import hashlib
 import re
-import unicodedata
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup, Comment, NavigableString, Tag
 
+from app.hus.cleaning import clean_text
 from app.hus.models import DocumentStatus, DocumentType, HUSAttachment, HUSDocument, Publisher
 from app.hus.urls import CrawlError, canonicalize_url
 
@@ -26,8 +26,7 @@ _VN = timezone(timedelta(hours=7))
 
 
 def _clean(text: str) -> str:
-    text = text.replace("\u200b", "")
-    return unicodedata.normalize("NFC", re.sub(r"\s+", " ", text)).strip()
+    return clean_text(re.sub(r"\s+", " ", text))
 
 
 def _valid_iso(value: str) -> str | None:
@@ -64,7 +63,7 @@ def _published(soup: BeautifulSoup) -> str | None:
 def _main(soup: BeautifulSoup) -> Tag:
     for selector in _MAIN:
         el = soup.select_one(selector)
-        if el and len(_clean(el.get_text(" "))) >= 60:
+        if el and _clean(el.get_text(" ")):
             return el
     return soup.body or soup
 
@@ -73,8 +72,15 @@ def _table(table: Tag) -> list[str]:
     # Expand colspan/rowspan by building a 2D matrix
     rows_data: list[list[str]] = []
     matrix: list[dict[int, str]] = []
+    table_rows = table.find_all("tr")
 
-    for r_idx, tr in enumerate(table.find_all("tr")):
+    def span(value: str | int, limit: int) -> int:
+        try:
+            return max(1, min(int(value), limit))
+        except ValueError:
+            return 1
+
+    for r_idx, tr in enumerate(table_rows):
         if len(matrix) <= r_idx:
             matrix.append({})
         c_idx = 0
@@ -82,8 +88,9 @@ def _table(table: Tag) -> list[str]:
             while c_idx in matrix[r_idx]:
                 c_idx += 1
             text = _clean(cell.get_text(" ")).replace("|", "/")
-            rowspan = int(cell.get("rowspan", 1) or 1)
-            colspan = int(cell.get("colspan", 1) or 1)
+            rowspan = span(cell.get("rowspan", 1) or 1, len(table_rows) - r_idx)
+            # shortcut: cap malformed colspan at 128; raise if HUS publishes wider real tables.
+            colspan = span(cell.get("colspan", 1) or 1, 128)
             for r in range(r_idx, r_idx + rowspan):
                 while len(matrix) <= r:
                     matrix.append({})
@@ -162,7 +169,7 @@ def _infer_publisher(url: str) -> Publisher:
 
 def extract_html(raw: bytes, url: str, fetched_at: str) -> tuple[HUSDocument, list[str]]:
     """Parse HTML, extract main text to markdown, and discover attachment links."""
-    soup = BeautifulSoup(raw, "html.parser")
+    soup = BeautifulSoup(raw, "html.parser", from_encoding="utf-8")
 
     # Discover page navigation links (excluding file attachments)
     page_links = set()

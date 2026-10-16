@@ -10,6 +10,7 @@ def test_clean_text_nfc_and_zero_width():
     cleaned = clean_text(f"\u200b{decomposed}\ufeff   n\u0103m   2026")
     assert unicodedata.is_normalized("NFC", cleaned)
     assert cleaned == "kế hoạch năm 2026"
+    assert clean_text("A\u200c\u200d\u2060B") == "AB"
 
 
 def test_infer_document_type():
@@ -18,6 +19,8 @@ def test_infer_document_type():
     assert infer_document_type("Khung chương trình đào tạo Cử nhân Toán học") == DocumentType.CURRICULUM
     assert infer_document_type("Mẫu đơn xin hoãn thi kết thúc học phần") == DocumentType.FORM
     assert infer_document_type("Giới thiệu về khoa Toán - Cơ - Tin học") == DocumentType.GENERAL_INFO
+    assert infer_document_type("Đơn đề nghị cấp giấy", "Quy định chung") == DocumentType.FORM
+    assert infer_document_type("Quy chế đào tạo", "Mẫu đơn xin học lại") == DocumentType.REGULATION
 
 
 def test_format_markdown_table():

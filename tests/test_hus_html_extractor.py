@@ -1,5 +1,6 @@
 import pytest
 from pathlib import Path
+import hashlib
 
 from app.hus.extractors.html import extract_html
 from app.hus.models import Publisher
@@ -15,6 +16,28 @@ def test_sample_mim_fixture():
     assert attachments == ["https://mim.hus.vnu.edu.vn/files/quy-che.pdf"]
     assert "[Quy chế đào tạo](https://mim.hus.vnu.edu.vn/files/quy-che.pdf)" in doc.content
     assert "| Mã | 2026 |" in doc.content
+
+
+def test_html_hash_uses_cleaned_content():
+    raw = "<main><h1>Thông báo</h1><p>A\u200c\u200d\u2060B</p></main>".encode()
+    doc, _ = extract_html(raw, "https://mim.hus.vnu.edu.vn/vi/test", "2026-10-16T00:00:00Z")
+    assert "AB" in doc.content
+    assert "\u200c" not in doc.content
+    assert doc.content_hash == hashlib.sha256(doc.content.encode()).hexdigest()
+
+
+def test_short_main_does_not_include_unrelated_body_text():
+    raw = b"<body><main><h1>Notice</h1><p>Read the rules.</p></main><div>Unrelated news</div></body>"
+    doc, _ = extract_html(raw, "https://mim.hus.vnu.edu.vn/vi/short", "2026-10-16T00:00:00Z")
+    assert "Read the rules." in doc.content
+    assert "Unrelated news" not in doc.content
+
+
+def test_malformed_or_huge_table_span_does_not_crash():
+    raw = b"<main><table><tr><th rowspan='oops'>A</th><th colspan='1000000000'>B</th></tr><tr><td>C</td></tr></table></main>"
+    doc, _ = extract_html(raw, "https://mim.hus.vnu.edu.vn/vi/table", "2026-10-16T00:00:00Z")
+    assert "| A |" in doc.content
+    assert len(doc.content) < 2000
 
 
 def test_extract_html_with_attachments_and_tables():

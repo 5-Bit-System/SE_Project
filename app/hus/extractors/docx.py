@@ -3,24 +3,18 @@
 from __future__ import annotations
 
 import io
-import re
-import unicodedata
 
 import docx
 from docx.table import Table
 
+from app.hus.cleaning import clean_text
 from app.hus.urls import CrawlError
-
-
-def _clean(text: str) -> str:
-    text = text.replace("\u200b", "")
-    return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
 
 
 def _format_table(table) -> list[str]:
     rows_data: list[list[str]] = []
     for row in table.rows:
-        cells = [_clean(cell.text).replace("|", "/") for cell in row.cells]
+        cells = [clean_text(cell.text).replace("|", "/") for cell in row.cells]
         if any(cells):
             rows_data.append(cells)
 
@@ -49,7 +43,7 @@ def extract_docx(raw: bytes) -> str:
                 lines.extend(_format_table(block))
                 continue
             p = block
-            text = _clean(p.text)
+            text = clean_text(p.text)
             if not text:
                 continue
             if p.style and p.style.name.startswith("Heading"):

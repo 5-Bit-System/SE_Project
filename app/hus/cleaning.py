@@ -12,22 +12,22 @@ def clean_text(text: str) -> str:
     """Normalize Unicode to NFC, strip zero-width characters, and collapse spaces."""
     if not text:
         return ""
-    text = text.replace("\u200b", "").replace("\ufeff", "")
+    for char in ("\u200b", "\u200c", "\u200d", "\u2060", "\ufeff"):
+        text = text.replace(char, "")
     return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
 
 
 def infer_document_type(title: str, content: str = "") -> DocumentType:
     """Infer DocumentType using keyword rules on title and content."""
-    combined = (title + " " + content[:300]).lower()
-
-    if any(k in combined for k in ("đơn xin", "biểu mẫu", "mẫu đơn", "phiếu đăng ký")):
-        return DocumentType.FORM
-    if any(k in combined for k in ("quy chế", "quy định", "hướng dẫn thực hiện", "điều lệ")):
-        return DocumentType.REGULATION
-    if any(k in combined for k in ("thông báo", "kế hoạch", "lịch thi", "lịch học", "thời khóa biểu")):
-        return DocumentType.ANNOUNCEMENT
-    if any(k in combined for k in ("chương trình đào tạo", "khung chương trình", "chuẩn đầu ra", "học phần")):
-        return DocumentType.CURRICULUM
+    for text in (title.lower(), content[:300].lower()):
+        if any(k in text for k in ("đơn", "biểu mẫu", "phiếu đăng ký")):
+            return DocumentType.FORM
+        if any(k in text for k in ("quy chế", "quy định", "hướng dẫn thực hiện", "điều lệ")):
+            return DocumentType.REGULATION
+        if any(k in text for k in ("thông báo", "kế hoạch", "lịch thi", "lịch học", "thời khóa biểu")):
+            return DocumentType.ANNOUNCEMENT
+        if any(k in text for k in ("chương trình đào tạo", "khung chương trình", "chuẩn đầu ra", "học phần")):
+            return DocumentType.CURRICULUM
     return DocumentType.GENERAL_INFO
 
 
@@ -54,11 +54,9 @@ def format_markdown_table(rows: list[list[str]]) -> list[str]:
     return lines
 
 
-# Retain extract_document for backward compatibility with existing tests
-from app.hus.extractors.html import extract_html
-
-
 def extract_document(raw: bytes, url: str, fetched_at: str):
+    from app.hus.extractors.html import extract_html
+
     doc, _ = extract_html(raw, url, fetched_at)
     doc.document_type = infer_document_type(doc.title, doc.content)
     return doc

@@ -1,4 +1,5 @@
 import io
+from pathlib import Path
 import pypdfium2
 import pytest
 
@@ -26,6 +27,15 @@ def test_extract_pdf_scanned_marks_needs_ocr():
     assert needs_ocr is True
 
 
+def test_real_pdf_fixture_preserves_text_table_order_without_duplicates():
+    raw = (Path(__file__).parent / "fixtures/hus/sample_text.pdf").read_bytes()
+    content, needs_ocr = extract_pdf(raw)
+    assert not needs_ocr
+    assert content.index("Official course information") < content.index("| Code | Course |")
+    assert "| MAT101 | Calculus |" in content
+    assert content.count("MAT101") == 1
+
+
 def test_extract_pdf_text_table_and_approved_ocr_threshold(monkeypatch):
     class Page:
         def __init__(self, text):
@@ -35,7 +45,10 @@ def test_extract_pdf_text_table_and_approved_ocr_threshold(monkeypatch):
             return self.text
 
         def extract_tables(self):
-            return [[ ["Mã", "Tên"], ["MAT101", "Giải tích"] ]]
+            return []
+
+        def find_tables(self):
+            return []
 
     class PDF:
         def __init__(self, text):
@@ -50,7 +63,6 @@ def test_extract_pdf_text_table_and_approved_ocr_threshold(monkeypatch):
     monkeypatch.setattr("app.hus.extractors.pdf.pdfplumber.open", lambda _: PDF("A" * 45))
     content, needs_ocr = extract_pdf(b"mock")
     assert "<!-- Page 1 -->" in content
-    assert "| MAT101 | Giải tích |" in content
     assert needs_ocr is True
 
     monkeypatch.setattr("app.hus.extractors.pdf.pdfplumber.open", lambda _: PDF("A" * 50))

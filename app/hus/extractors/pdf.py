@@ -3,23 +3,17 @@
 from __future__ import annotations
 
 import io
-import re
-import unicodedata
 
 import pdfplumber
 
+from app.hus.cleaning import clean_text
 from app.hus.urls import CrawlError
-
-
-def _clean(text: str) -> str:
-    text = text.replace("\u200b", "")
-    return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
 
 
 def _format_table(table: list[list[str | None]]) -> list[str]:
     cleaned_rows = []
     for row in table:
-        cells = [_clean(c or "").replace("|", "/") for c in row]
+        cells = [clean_text(c or "").replace("|", "/") for c in row]
         if any(cells):
             cleaned_rows.append(cells)
     if not cleaned_rows:
@@ -52,17 +46,24 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
 
             for idx, page in enumerate(pdf.pages, start=1):
                 page_lines: list[str] = [f"<!-- Page {idx} -->"]
-                # Extract tables first
-                tables = page.extract_tables() or []
+                text = clean_text(page.extract_text() or "")
+                total_chars += len(text)
+                tables = sorted(page.find_tables(), key=lambda table: table.bbox[1])
+                if not tables and text:
+                    page_lines.append(text)
+                cursor = 0
                 for table in tables:
-                    page_lines.extend(_format_table(table))
-
-                # Extract plain text
-                text = page.extract_text() or ""
-                cleaned_text = _clean(text)
-                if cleaned_text:
-                    total_chars += len(cleaned_text)
-                    page_lines.append(cleaned_text)
+                    top, bottom = table.bbox[1], table.bbox[3]
+                    if cursor < top:
+                        before = clean_text(page.crop((0, cursor, page.width, top)).extract_text() or "")
+                        if before:
+                            page_lines.append(before)
+                    page_lines.extend(_format_table(table.extract()))
+                    cursor = max(cursor, bottom)
+                if tables and cursor < page.height:
+                    after = clean_text(page.crop((0, cursor, page.width, page.height)).extract_text() or "")
+                    if after:
+                        page_lines.append(after)
 
                 pages_text.append("\n".join(page_lines))
 

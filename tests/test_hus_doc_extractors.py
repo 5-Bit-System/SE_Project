@@ -1,4 +1,5 @@
 import io
+from pathlib import Path
 import docx
 import openpyxl
 import pytest
@@ -51,6 +52,12 @@ def test_excel_extractor():
     assert "| MAT101 | Giải tích | 3 |" in md
 
 
+def test_real_office_fixtures():
+    root = Path(__file__).parent / "fixtures/hus"
+    assert "| MAT101 | Calculus |" in extract_docx((root / "sample_table.docx").read_bytes())
+    assert "| MAT101 | Calculus | 3 |" in extract_excel((root / "sample_courses.xlsx").read_bytes())
+
+
 def test_extractor_factory():
     raw_docx = _create_mock_docx()
     content, needs_ocr = extract_attachment(raw_docx, "docx")
@@ -88,3 +95,17 @@ def test_excel_escapes_markdown_pipe():
     data = io.BytesIO()
     workbook.save(data)
     assert "| MAT101 | Toán / Tin |" in extract_excel(data.getvalue())
+
+
+def test_office_extractors_remove_zero_width_characters():
+    document = docx.Document()
+    document.add_paragraph("A\u200cB")
+    docx_data = io.BytesIO()
+    document.save(docx_data)
+    assert "AB" in extract_docx(docx_data.getvalue())
+
+    workbook = openpyxl.Workbook()
+    workbook.active.append(["A\u2060B"])
+    xlsx_data = io.BytesIO()
+    workbook.save(xlsx_data)
+    assert "AB" in extract_excel(xlsx_data.getvalue())
