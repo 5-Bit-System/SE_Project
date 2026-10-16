@@ -51,6 +51,7 @@ Các kiểm thử kiểm kê đầy đủ nguồn bốn ngành có marker `full_
 - [Đặc tả hệ thống](docs/SYSTEM_SPECIFICATION.md)
 - [Thiết kế database](docs/DATABASE_DESIGN.md)
 - [Metadata môn học](docs/COURSE_METADATA_SPECIFICATION.md)
+- [Module database HUS/Neon](database/README.md) (thiết kế CSDL thứ hai, tách khỏi `app/db/`)
 - [Phân trách nhiệm module](modules/README.md)
 - `KE_HOACH_DU_AN.md` và `SE_Project.pdf`: tài liệu kế hoạch/bối cảnh lịch sử.
 
