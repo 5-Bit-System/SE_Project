@@ -3,14 +3,18 @@
 Everything here only reads metadata (tables, columns, keys, indexes, view
 definitions, row counts). It never mutates the database, which makes it safe to
 point at the shared Neon instance.
+
+The metadata is fetched with a handful of bulk ``pg_catalog`` /
+``information_schema`` queries rather than SQLAlchemy's per-table reflection.
+That matters on a remote pooled endpoint such as Neon, where dozens of round
+trips make introspection impractically slow.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
 
-from sqlalchemy import Engine, inspect
+from sqlalchemy import Engine, text
 from sqlalchemy.exc import SQLAlchemyError
 
 # The 11 base tables created by ``sql/00_ai07_schema.sql``.
@@ -69,52 +73,83 @@ class SchemaSnapshot:
         return {table.name for table in self.tables}
 
 
-def _fk_repr(foreign_key: dict[str, Any]) -> str:
-    local = ", ".join(foreign_key.get("constrained_columns") or [])
-    referred_table = foreign_key.get("referred_table")
-    referred = ", ".join(foreign_key.get("referred_columns") or [])
-    return f"({local}) -> {referred_table}({referred})"
+_COLUMNS_SQL = """
+SELECT c.relname AS table_name,
+       a.attname AS column_name,
+       format_type(a.atttypid, a.atttypmod) AS column_type,
+       NOT a.attnotnull AS nullable,
+       pg_get_expr(d.adbin, d.adrelid) AS default_expr
+FROM pg_attribute a
+JOIN pg_class c ON c.oid = a.attrelid
+JOIN pg_namespace n ON n.oid = c.relnamespace
+LEFT JOIN pg_attrdef d ON d.adrelid = a.attrelid AND d.adnum = a.attnum
+WHERE n.nspname = :schema
+  AND c.relkind IN ('r', 'p')
+  AND a.attnum > 0
+  AND NOT a.attisdropped
+ORDER BY c.relname, a.attnum
+"""
+
+_KEY_CONSTRAINTS_SQL = """
+SELECT c.relname AS table_name,
+       con.conname AS constraint_name,
+       con.contype AS constraint_type,
+       array_agg(a.attname ORDER BY k.ord) AS columns
+FROM pg_constraint con
+JOIN pg_class c ON c.oid = con.conrelid
+JOIN pg_namespace n ON n.oid = c.relnamespace
+CROSS JOIN LATERAL unnest(con.conkey) WITH ORDINALITY AS k(attnum, ord)
+JOIN pg_attribute a ON a.attrelid = con.conrelid AND a.attnum = k.attnum
+WHERE n.nspname = :schema AND con.contype IN ('p', 'u')
+GROUP BY c.relname, con.conname, con.contype
+ORDER BY c.relname, con.contype, con.conname
+"""
+
+_DEF_CONSTRAINTS_SQL = """
+SELECT c.relname AS table_name,
+       con.conname AS constraint_name,
+       pg_get_constraintdef(con.oid) AS definition
+FROM pg_constraint con
+JOIN pg_class c ON c.oid = con.conrelid
+JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = :schema AND con.contype = :contype
+ORDER BY c.relname, con.conname
+"""
+
+_INDEXES_SQL = """
+SELECT c.relname AS table_name,
+       i.relname AS index_name,
+       array_agg(a.attname ORDER BY k.ord) AS columns
+FROM pg_index ix
+JOIN pg_class c ON c.oid = ix.indrelid
+JOIN pg_class i ON i.oid = ix.indexrelid
+JOIN pg_namespace n ON n.oid = c.relnamespace
+CROSS JOIN LATERAL unnest(ix.indkey) WITH ORDINALITY AS k(attnum, ord)
+JOIN pg_attribute a ON a.attrelid = c.oid AND a.attnum = k.attnum
+WHERE n.nspname = :schema AND c.relkind = 'r'
+GROUP BY c.relname, i.relname
+ORDER BY c.relname, i.relname
+"""
+
+_TABLES_SQL = """
+SELECT c.relname AS table_name
+FROM pg_class c
+JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = :schema AND c.relkind IN ('r', 'p')
+ORDER BY c.relname
+"""
+
+_VIEWS_SQL = """
+SELECT table_name, view_definition
+FROM information_schema.views
+WHERE table_schema = :schema
+ORDER BY table_name
+"""
 
 
-def _column_info(column: dict[str, Any]) -> ColumnInfo:
-    return ColumnInfo(
-        name=column["name"],
-        type=str(column["type"]),
-        nullable=bool(column.get("nullable", True)),
-        default=column.get("default"),
-    )
-
-
-def read_table(engine: Engine, name: str, *, schema: str = "public") -> TableInfo:
-    """Read a single table's structural metadata."""
-    inspector = inspect(engine)
-    columns = tuple(_column_info(c) for c in inspector.get_columns(name, schema=schema))
-    pk = inspector.get_pk_constraint(name, schema=schema)
-    unique = tuple(
-        tuple(u["column_names"])
-        for u in inspector.get_unique_constraints(name, schema=schema)
-        if u.get("column_names")
-    )
-    foreign_keys = tuple(
-        _fk_repr(fk) for fk in inspector.get_foreign_keys(name, schema=schema)
-    )
-    checks = tuple(
-        f"{c.get('name', 'check')}: {c.get('sqltext', '')}"
-        for c in inspector.get_check_constraints(name, schema=schema)
-    )
-    indexes = tuple(
-        f"{i['name']}({', '.join(i.get('column_names') or [])})"
-        for i in inspector.get_indexes(name, schema=schema)
-    )
-    return TableInfo(
-        name=name,
-        columns=columns,
-        primary_key=tuple(pk.get("constrained_columns") or []),
-        unique=unique,
-        foreign_keys=foreign_keys,
-        checks=checks,
-        indexes=indexes,
-    )
+def _fetch(engine: Engine, sql: str, schema: str, **params: object) -> list[tuple]:
+    with engine.connect() as conn:
+        return list(conn.execute(text(sql), {"schema": schema, **params}).fetchall())
 
 
 def read_row_counts(
@@ -123,18 +158,23 @@ def read_row_counts(
     *,
     schema: str = "public",
 ) -> dict[str, int]:
-    """Count rows per relation, skipping any relation that cannot be counted."""
-    counts: dict[str, int] = {}
-    with engine.connect() as conn:
-        for name in names:
-            try:
-                value = conn.exec_driver_sql(
-                    f"SELECT count(*) FROM {schema}.{name}"
-                ).scalar()
-            except SQLAlchemyError:
-                continue
-            counts[name] = int(value or 0)
-    return counts
+    """Count rows per relation in a single round trip.
+
+    Returns an empty mapping when no relation exists; never raises on a missing
+    relation so a partial database can still be inspected.
+    """
+    existing = tuple(name for name in names if name)
+    if not existing:
+        return {}
+    union = " UNION ALL ".join(
+        f"SELECT '{name}' AS relation, count(*) AS n FROM {schema}.{name}" for name in existing
+    )
+    try:
+        with engine.connect() as conn:
+            rows = conn.exec_driver_sql(union).fetchall()
+    except SQLAlchemyError:
+        return {}
+    return {row[0]: int(row[1]) for row in rows}
 
 
 def collect_schema(
@@ -144,27 +184,69 @@ def collect_schema(
     with_row_counts: bool = True,
 ) -> SchemaSnapshot:
     """Collect a full read-only snapshot of the AI-07 schema."""
-    inspector = inspect(engine)
-    available_tables = inspector.get_table_names(schema=schema)
-    ordered = [name for name in (*CORE_TABLES, *OFFICIAL_TABLES) if name in available_tables]
-    # Keep any unexpected table as well, so drift is visible in the report.
-    ordered += [name for name in available_tables if name not in ordered]
+    table_names = [row[0] for row in _fetch(engine, _TABLES_SQL, schema)]
+    ordered = [name for name in (*CORE_TABLES, *OFFICIAL_TABLES) if name in table_names]
+    ordered += [name for name in table_names if name not in ordered]
 
-    tables = [read_table(engine, name, schema=schema) for name in ordered]
+    columns: dict[str, list[ColumnInfo]] = {}
+    for table_name, column_name, column_type, nullable, default in _fetch(
+        engine, _COLUMNS_SQL, schema
+    ):
+        columns.setdefault(table_name, []).append(
+            ColumnInfo(
+                name=column_name,
+                type=column_type,
+                nullable=bool(nullable),
+                default=default,
+            )
+        )
+
+    primary_keys: dict[str, tuple[str, ...]] = {}
+    unique: dict[str, list[tuple[str, ...]]] = {}
+    for table_name, _name, constraint_type, cols in _fetch(engine, _KEY_CONSTRAINTS_SQL, schema):
+        if constraint_type == "p":
+            primary_keys[table_name] = tuple(cols)
+        else:
+            unique.setdefault(table_name, []).append(tuple(cols))
+
+    foreign_keys: dict[str, list[str]] = {}
+    for table_name, name, definition in _fetch(engine, _DEF_CONSTRAINTS_SQL, schema, contype="f"):
+        foreign_keys.setdefault(table_name, []).append(definition)
+
+    checks: dict[str, list[str]] = {}
+    for table_name, name, definition in _fetch(engine, _DEF_CONSTRAINTS_SQL, schema, contype="c"):
+        checks.setdefault(table_name, []).append(f"{name}: {definition}")
+
+    indexes: dict[str, list[str]] = {}
+    for table_name, index_name, cols in _fetch(engine, _INDEXES_SQL, schema):
+        indexes.setdefault(table_name, []).append(f"{index_name}({', '.join(cols)})")
+
+    tables = [
+        TableInfo(
+            name=name,
+            columns=tuple(columns.get(name, [])),
+            primary_key=primary_keys.get(name, ()),
+            unique=tuple(unique.get(name, [])),
+            foreign_keys=tuple(foreign_keys.get(name, [])),
+            checks=tuple(checks.get(name, [])),
+            indexes=tuple(indexes.get(name, [])),
+        )
+        for name in ordered
+    ]
+
     views = {
-        name: inspector.get_view_definition(name, schema=schema) or ""
-        for name in inspector.get_view_names(schema=schema)
+        name: definition or ""
+        for name, definition in _fetch(engine, _VIEWS_SQL, schema)
     }
+
     row_counts: dict[str, int] = {}
     if with_row_counts:
-        row_counts = read_row_counts(engine, tuple(ordered), schema=schema)
-        row_counts.update(read_row_counts(engine, tuple(views), schema=schema))
+        row_counts = read_row_counts(engine, tuple(ordered) + tuple(views), schema=schema)
     return SchemaSnapshot(tables=tables, views=views, row_counts=row_counts)
 
 
 def _column_line(column: ColumnInfo) -> str:
-    flags = []
-    flags.append("NULL" if column.nullable else "NOT NULL")
+    flags = ["NULL" if column.nullable else "NOT NULL"]
     if column.default is not None:
         flags.append(f"default {column.default}")
     return f"{column.name} {column.type} ({', '.join(flags)})"
@@ -181,13 +263,13 @@ def render_schema_text(snapshot: SchemaSnapshot) -> str:
             lines.append(f"  - {_column_line(column)}")
         if table.primary_key:
             lines.append(f"  PK: {', '.join(table.primary_key)}")
-        for unique in table.unique:
-            lines.append(f"  UNIQUE: {', '.join(unique)}")
+        for item in table.unique:
+            lines.append(f"  UNIQUE: {', '.join(item)}")
         for fk in table.foreign_keys:
             lines.append(f"  FK: {fk}")
         if table.indexes:
             lines.append(f"  INDEX: {', '.join(table.indexes)}")
-    for name, definition in snapshot.views.items():
+    for name in snapshot.views:
         count = snapshot.row_counts.get(name)
         suffix = f" [{count} rows]" if count is not None else ""
         lines.append(f"VIEW {name}{suffix}")
@@ -214,14 +296,12 @@ def render_schema_markdown(snapshot: SchemaSnapshot, *, title: str = "AI-07 sche
         for column in table.columns:
             nullable = "yes" if column.nullable else "no"
             default = column.default or ""
-            lines.append(
-                f"| `{column.name}` | {column.type} | {nullable} | {default} |"
-            )
+            lines.append(f"| `{column.name}` | {column.type} | {nullable} | {default} |")
         lines.append("")
         if table.primary_key:
             lines.append(f"- **Primary key:** {', '.join(f'`{c}`' for c in table.primary_key)}")
-        for unique in table.unique:
-            lines.append(f"- **Unique:** {', '.join(f'`{c}`' for c in unique)}")
+        for item in table.unique:
+            lines.append(f"- **Unique:** {', '.join(f'`{c}`' for c in item)}")
         for fk in table.foreign_keys:
             lines.append(f"- **Foreign key:** {fk}")
         if table.indexes:
