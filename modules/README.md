@@ -2,6 +2,22 @@
 
 Bộ module này mô tả phần cần thiết cho pipeline hiện hành. Đây là tài liệu phân việc, chưa phải code implementation.
 
+## Trạng thái hiện tại (2026-10-17)
+
+| Module | Trạng thái runtime |
+| --- | --- |
+| 01 Catalog | Đã có repository HUS và bốn catalog versioned; dữ liệu vẫn `draft_unverified`. |
+| 02 Transcript/profile | Đã nhập bảng điểm thủ công; HUS chưa có hồ sơ sinh viên hay portal sync. |
+| 03 Eligibility | Đã triển khai kiểm tra điều kiện theo ngành. |
+| 04 Ranking/What-if | Đã triển khai xếp hạng, tiến độ và What-if. |
+| 05 Giải thích/LLM | Đã có giải thích và kiểm tra đầu ra LLM; provider tùy cấu hình. |
+| 06 Advisor | Đã có course advisor; HUS document Q&A/RAG mới là đề xuất. |
+| 07 API | Đã triển khai FastAPI cho pipeline hiện hành. |
+| 08 Web | Đã triển khai giao diện web tĩnh. |
+| 09 OCR | Chưa triển khai, chỉ là đề xuất. |
+
+Chi tiết vận hành hiện tại ở [README](../README.md) và [HUS_RUNTIME](../database/HUS_RUNTIME.md). Các mục bên dưới mô tả trách nhiệm dự kiến, không tự xác nhận mức độ hoàn thành.
+
 ## Nguyên tắc chung
 
 - Hệ thống hiện tại dùng FastAPI, Pydantic và PostgreSQL runtime; JSON trong data/ là nguồn validation/seed.

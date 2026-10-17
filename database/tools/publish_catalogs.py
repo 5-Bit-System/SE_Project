@@ -9,11 +9,11 @@ from pathlib import Path
 from sqlalchemy import Engine, MetaData, Table, select, text
 from sqlalchemy.dialects.postgresql import insert
 
+from app.catalog_contracts import EXPECTED_PROGRAM_IDS, catalog_payload, catalog_revision, digest
 from app.catalog_validation import validate_catalog
 from app.models import Catalog
 from database.hus_db.catalog_builder import build_catalogs
 from database.hus_db.connection import connect
-from database.hus_db.runtime import EXPECTED_PROGRAM_IDS, catalog_payload, catalog_revision, digest
 
 SOURCE = Path(__file__).resolve().parents[1] / "data" / "hus_source.json"
 NATURAL_KEYS = {

@@ -8,9 +8,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from alembic import op
 from sqlalchemy import text
 
+from alembic import op
 from database.hus_db.introspect import CORE_TABLES, OFFICIAL_TABLES, VIEW_NAMES
 
 revision = "hus_20261017_01"

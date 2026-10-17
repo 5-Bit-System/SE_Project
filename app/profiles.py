@@ -17,7 +17,6 @@ from app.transcript import (
     resolve_program_id,
 )
 
-
 PROFILES_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "synthetic" / "profiles.json"
 )

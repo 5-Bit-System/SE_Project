@@ -6,19 +6,20 @@ python tools/build_catalogs.py --write  # regenerate after reviewing source edit
 """
 
 import argparse
-from itertools import product
 import json
-from pathlib import Path
 import re
 import sys
+from itertools import product
+from pathlib import Path
 
 if __package__ in {None, ""}:
     # Preserve the documented `python tools/build_catalogs.py` entry point.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import sys
+
 from app.catalog_normalization import normalize_catalog
 from app.schemas.metadata import CourseEnvelope
-import sys
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:

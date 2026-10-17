@@ -46,7 +46,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
 
 @pytest.fixture(scope="session")
 def catalog_root(tmp_path_factory):
-    from tests.catalog_fixtures import create_catalog_fixture
+    from tests.support.catalog_fixtures import create_catalog_fixture
 
     root, _ = create_catalog_fixture(tmp_path_factory.mktemp("offline_catalogs"))
     return root
@@ -59,7 +59,7 @@ def profiles_path(catalog_root):
 
 @pytest.fixture
 def toy_catalog():
-    from tests.catalog_fixtures import get_toy_catalog
+    from tests.support.catalog_fixtures import get_toy_catalog
 
     return get_toy_catalog()
 

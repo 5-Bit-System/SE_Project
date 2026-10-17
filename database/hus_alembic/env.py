@@ -1,7 +1,6 @@
 """Independent Alembic environment for the HUS database."""
 
 from alembic import context
-
 from database.hus_db.connection import connect
 
 

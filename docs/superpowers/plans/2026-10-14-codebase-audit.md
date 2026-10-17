@@ -64,7 +64,7 @@ P0: chặn khả năng tái lập từ clone. P1: sai kết quả hoặc làm y�
 - Giữ FastAPI/static frontend/PostgreSQL; không thêm login, dữ liệu sinh viên thật, roadmap bốn năm hoặc tự đoán ngành.
 - Không dùng tên môn/tín chỉ để bịa workload, difficulty, topics hoặc nghề nghiệp.
 - Không xóa/sửa dữ kiện nguồn để đưa test về xanh; không skip test hồi quy nghiệp vụ chỉ để che lỗi.
-- Test đơn vị và integration dùng fixture tổng hợp nhỏ riêng trong `tests/fixtures/`, không tái tạo catalog đã xóa dưới `data/`.
+- Test đơn vị và integration dùng fixture tổng hợp nhỏ riêng trong `tests/support/fixtures/`, không tái tạo catalog đã xóa dưới `data/`.
 - Smoke/integration PostgreSQL chỉ trên URL test rõ ràng và schema `se_test_*`; chưa cho phép seed database hiện hành bởi tài liệu kế hoạch này.
 - Các bảng audit recommendation, tài khoản, chat persistence, embedding/vector DB không phải điều kiện bắt buộc của đợt sửa này.
 - Từng task được nghiệm thu bằng test đã ghi trong kế hoạch; toàn bộ sản phẩm vẫn cần kiểm tra dataset đầy đủ, browser và nội dung HUS thật riêng.

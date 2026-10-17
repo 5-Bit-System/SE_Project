@@ -5,6 +5,7 @@ bảo đảm tính cô lập ngành (Major Isolation) và cung cấp interface n
 """
 
 from typing import Any
+
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.models import Catalog

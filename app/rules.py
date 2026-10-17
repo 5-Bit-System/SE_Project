@@ -19,7 +19,6 @@ from app.models import (
     Track,
 )
 
-
 # Stable input error codes. The API currently serializes these through the
 # HTTP 422 detail field, so keep the prefixes machine-readable.
 UNKNOWN_PASSED_CODES = "unknown_passed_course_codes"

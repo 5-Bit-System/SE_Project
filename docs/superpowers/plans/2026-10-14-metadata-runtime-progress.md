@@ -32,7 +32,7 @@ Independent adviser (GPT-6 Astra/high) checked design and final implementation w
 - Same command with explicit TEST_DATABASE_URL targeting a separate temporary PostgreSQL container at 127.0.0.1:55432: **124 passed, 10 skipped**, same warning. Only missing full-source acceptance skipped; every PostgreSQL integration test executed.
 - `.venv/Scripts/python.exe -m ruff check .`: pass.
 - `.venv/Scripts/python.exe -X utf8 tools/build_catalogs.py --check`: pass, retained 65-course sample.
-- Same builder command with `--root tests/fixtures/catalogs`: pass, four synthetic 14-course catalogs.
+- Same builder command with `--root tests/support/fixtures/catalogs`: pass, four synthetic 14-course catalogs.
 - `git diff --check`: pass; repository line-ending warnings only. Source JSON under `data/` unchanged.
 - Builder `--write` tested only on temporary copied sample, preserving full advisory/evidence/header extensions.
 
@@ -41,7 +41,7 @@ Independent adviser (GPT-6 Astra/high) checked design and final implementation w
 - Ruling: prerequisite/code-set changes in envelope builder require source review rather than generating new unreviewed records silently. Cost if wrong: intentional source changes need a separate reviewed data update; this protects existing evidence and revision identity.
 - Ruling: metadata vocabulary travels on domain Catalog so standalone validation uses the same version/labels as initial import. It is not injected into Program metadata. Cost if wrong: Catalog serialization includes the vocabulary document; public course/program endpoints keep their existing boundaries.
 - Ruling: reject duplicate course codes across terms until an explicit retake/GPA policy is provided. Cost if wrong: retake transcripts cannot yet be represented; no arbitrary grade is selected.
-- No automatic commits, pushes, source restoration, product seeding or product DB migration were performed. Pre-existing `.agent/AGENTS.md` edit retained.
+- No automatic commits, pushes, source restoration, product seeding or product DB migration were performed. Pre-existing project memory edit retained.
 - Phase B/C/D, full four-program source review and 12 product demo profiles remain outside completed A. Ten full-source acceptance tests remain unverified, not passed. Browser/model-provider and remote CI checks were not performed.
 - Deferred minor: dependency emits Starlette/httpx deprecation warning; no dependency upgrade in this scope.
 

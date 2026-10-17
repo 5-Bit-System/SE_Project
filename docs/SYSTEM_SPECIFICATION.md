@@ -501,6 +501,8 @@ Hệ thống được coi là chạy đúng khi:
 
 ## 15. Persistence và nền tảng chạy
 
+Các đoạn ghi ngày 2026-10-14 và 2026-10-15 bên dưới là lịch sử thiết kế legacy. Runtime hiện tại dùng HUS `ai07` theo [ADR 0001](adr/0001-hus-runtime-and-rollback.md) và [HUS_RUNTIME](../database/HUS_RUNTIME.md). Các lệnh seed và điều kiện 12 profile bên dưới không áp dụng cho HUS.
+
 Quyết định ngày 2026-10-14: PostgreSQL được đưa vào phạm vi theo yêu cầu người dùng. JSON trong `data/curricula/` và `data/synthetic/` là nguồn versioned để validation/seed; runtime mặc định đọc PostgreSQL qua storage adapter. API và các hàm domain dùng catalog/profile entry points chung, vì vậy đổi storage không thay eligibility/ranking.
 
 `app/config.py` đọc `.env` tại một điểm, không nạp key khi import schema advisor. `app/db/schema.py` quy định relational keys; `alembic/` quản lý migration; `tools/seed_database.py` kiểm tra source và import toàn bộ bốn ngành trong một transaction. Content hash của curriculum, courses, source rows và profiles xác định revision. Seed giống nhau không tạo bản ghi mới; nguồn thay đổi tạo revision mới và đổi active revision trong transaction.
@@ -519,16 +521,8 @@ Builder kiểm tra source rows và quota theo định nghĩa chương trình; `-
 
 Nguồn sản phẩm hiện vẫn chỉ có mẫu KHDL 65 môn, chưa thẩm định PDF. Readiness/seed sản phẩm tiếp tục yêu cầu đủ bốn catalog và 12 profile. Test nghiệp vụ dùng nguồn giả lập nhỏ riêng, kiểm kê nguồn đầy đủ nằm sau marker full_catalog_acceptance; kết quả test không chứng nhận nguồn bốn ngành hoàn chỉnh.
 
-## Database HUS trên Docker — 2026-10-17
+## HUS runtime trên Docker — 2026-10-17
 
-Module `database/` có schema HUS độc lập với schema runtime `app/db/`.
-Compose tại `database/docker-compose.yml` dựng PostgreSQL 16 trong container
-`se_hus_db`, database `ai07`, volume `se_hus_pgdata`, chỉ mở `127.0.0.1:5433`.
-Hai SQL `00` và `10` tự nạp trên volume trống; container restart giữ dữ liệu.
-CLI HUS ưu tiên `HUS_DATABASE_URL` trong process, sau đó đọc cấu hình local
-`database/.env.docker` (không commit). Docker dùng SSL off trên loopback, Neon
-tiếp tục dùng TLS. Container và schema runtime hiện có không thay đổi.
+`database/` có schema và migration history độc lập với legacy `app/db/`. Compose tại `database/docker-compose.yml` dựng PostgreSQL trong container `se_hus_db`, database `ai07`, volume `se_hus_pgdata`, mở loopback `127.0.0.1:5433`. Database mới được dựng bằng `database.tools.migrate upgrade`, rồi publish bốn CTĐT từ `database/data/hus_source.json` bằng `database.tools.publish_catalogs`. SQL khởi tạo cũ chỉ là lịch sử.
 
-Database HUS chứa bốn CTĐT, chưa có hồ sơ/bảng điểm sinh viên. FastAPI hiện vẫn
-dùng storage runtime cũ; chưa có adapter HUS, đăng nhập hay đồng bộ cổng đào tạo.
-Kết quả dựng/test thực tế: [database/DOCKER_VERIFICATION.md](../database/DOCKER_VERIFICATION.md).
+FastAPI hiện đọc bốn catalog versioned HUS qua repository adapter khi `DATABASE_MODEL=hus`. HUS chưa có hồ sơ hoặc bảng điểm sinh viên; người dùng nhập bảng điểm thủ công trong phiên. Legacy storage có thể được chọn lại bằng cấu hình. Chưa có đăng nhập, đồng bộ cổng đào tạo hoặc HUS document Q&A/RAG. Cách chạy và rollback: [HUS_RUNTIME](../database/HUS_RUNTIME.md).

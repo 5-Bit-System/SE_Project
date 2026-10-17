@@ -12,7 +12,6 @@ from typing import Any
 from app.catalog_validation import validate_catalog
 from app.models import Catalog, Course, Program
 
-
 PROGRAM_IDS = {
     ("7460101", 2022, "QD3565-2023"): "toan_hoc_7460101_2022",
     ("7460117", 2022, "QD3567-2023"): "toan_tin_7460117_2022",

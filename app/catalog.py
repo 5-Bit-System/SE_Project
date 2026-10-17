@@ -8,7 +8,6 @@ from app.errors import CatalogError
 from app.infrastructure import json_catalog_repository as json_repository
 from app.models import Catalog
 
-
 DATA_ROOT = json_repository.DATA_ROOT
 
 

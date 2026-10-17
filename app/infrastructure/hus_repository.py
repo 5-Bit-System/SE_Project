@@ -10,12 +10,12 @@ from pydantic import ValidationError
 from sqlalchemy import Connection, Engine, text
 from sqlalchemy.exc import SQLAlchemyError
 
+from app.catalog_contracts import EXPECTED_PROGRAM_IDS, PROGRAM_MAJOR_IDS, catalog_revision
 from app.catalog_validation import validate_catalog
 from app.db.session import get_engine
 from app.errors import CatalogError, StorageDataError, StorageUnavailable
 from app.models import Catalog
 from app.transcript import resolve_program_id
-from database.hus_db.runtime import EXPECTED_PROGRAM_IDS, PROGRAM_MAJOR_IDS, catalog_revision
 
 logger = logging.getLogger(__name__)
 HEAD = "hus_20261017_02"

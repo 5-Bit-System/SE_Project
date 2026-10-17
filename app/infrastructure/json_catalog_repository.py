@@ -3,13 +3,13 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "curricula"
-
 from app.catalog_normalization import normalize_catalog
 from app.catalog_validation import validate_curriculum_selections
 from app.errors import CatalogError, StorageDataError
 from app.models import Catalog
 from app.transcript import resolve_program_id
+
+DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "curricula"
 
 
 def list_catalogs(root: Path = DATA_ROOT) -> list[Catalog]:

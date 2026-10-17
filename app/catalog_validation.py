@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from pydantic import ValidationError
+
 from app.errors import StorageDataError
 from app.models import Program
 from app.schemas.metadata import CourseMetadata
-from pydantic import ValidationError
 
 if TYPE_CHECKING:
     from app.models import Catalog

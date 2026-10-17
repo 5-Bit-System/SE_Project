@@ -1,8 +1,8 @@
 from app.models import (
+    RankingWeights,
     RecommendationRequest,
     RecommendationResponse,
     RecommendedCourse,
-    RankingWeights,
     StructuredPreference,
     WhatIfRequest,
 )

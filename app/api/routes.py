@@ -1,19 +1,18 @@
 from fastapi import APIRouter, HTTPException, Query
 
+from app.catalog import CatalogError, list_catalogs, load_catalog
+from app.profiles import ProfileError, list_profiles, load_profile
+from app.progress import calculate_progress
+from app.recommendation.llm import configured_adapters
+from app.rules import evaluate_eligibility
 from app.schemas.advisor import AdvisorRequest, AdvisorResponse
 from app.schemas.catalog import Course, ProgramCatalogMetadata
 from app.schemas.eligibility import EligibilityRequest, EligibilityResult
-from app.schemas.recommendation import RecommendationRequest, RecommendationResponse, WhatIfRequest
-from app.recommendation.llm import configured_adapters
-from app.progress import calculate_progress
 from app.schemas.profile import ProfileDetail, ProfileSummary, TranscriptSummary
+from app.schemas.recommendation import RecommendationRequest, RecommendationResponse, WhatIfRequest
 from app.services.advisor_service import chat_advisor
-from app.services.catalog_service import CatalogError, list_catalogs, load_catalog
-from app.services.eligibility_service import evaluate_eligibility
-from app.services.profile_service import ProfileError, list_profiles, load_profile
 from app.services.recommendation_service import recommend
-from app.services.transcript_service import StudentTranscript
-
+from app.transcript import StudentTranscript
 
 router = APIRouter()
 
