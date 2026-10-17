@@ -16,9 +16,9 @@ logger = logging.getLogger(__name__)
 
 def check_storage_ready() -> None:
     if get_settings().storage_backend == "postgres":
-        from app.infrastructure.postgres_repository import PostgresRepository
+        from app.infrastructure.repositories import postgres_repository
 
-        PostgresRepository().ready()
+        postgres_repository().ready()
     else:
         from app.catalog import list_catalogs
 

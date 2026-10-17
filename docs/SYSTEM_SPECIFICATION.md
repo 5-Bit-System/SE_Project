@@ -1,5 +1,10 @@
 # Đặc tả hệ thống theo pipeline
 
+## Current runtime - 2026-10-17
+
+FastAPI reads four draft versioned catalogs from HUS ai07 (DATABASE_MODEL=hus). Profiles are empty; manual transcript input is supported. Legacy database retained for rollback. Login/portal synchronization and new modules are deferred. See [acceptance evidence](../database/HUS_RUNTIME.md). Future module descriptions below are not evidence of completed implementation.
+
+
 ## 1. Hệ thống này làm gì?
 
 Hệ thống giúp sinh viên:
@@ -513,3 +518,17 @@ JSON và PostgreSQL đi qua cùng normalizer/validator cho envelope metadata 1.0
 Builder kiểm tra source rows và quota theo định nghĩa chương trình; `--check` không ghi file. Thay đổi mã môn/tiên quyết hoặc trường đã review cần review dữ liệu riêng, không âm thầm giữ bằng chứng cũ. API transcript summary bổ sung progress tổng/khối/nhóm và track/path nếu đã chọn; counted_in_total và loại trừ cấp chương trình dùng chung cho TC/GPA/progress. Transcript trùng mã bị từ chối đến khi có chính sách retake.
 
 Nguồn sản phẩm hiện vẫn chỉ có mẫu KHDL 65 môn, chưa thẩm định PDF. Readiness/seed sản phẩm tiếp tục yêu cầu đủ bốn catalog và 12 profile. Test nghiệp vụ dùng nguồn giả lập nhỏ riêng, kiểm kê nguồn đầy đủ nằm sau marker full_catalog_acceptance; kết quả test không chứng nhận nguồn bốn ngành hoàn chỉnh.
+
+## Database HUS trên Docker — 2026-10-17
+
+Module `database/` có schema HUS độc lập với schema runtime `app/db/`.
+Compose tại `database/docker-compose.yml` dựng PostgreSQL 16 trong container
+`se_hus_db`, database `ai07`, volume `se_hus_pgdata`, chỉ mở `127.0.0.1:5433`.
+Hai SQL `00` và `10` tự nạp trên volume trống; container restart giữ dữ liệu.
+CLI HUS ưu tiên `HUS_DATABASE_URL` trong process, sau đó đọc cấu hình local
+`database/.env.docker` (không commit). Docker dùng SSL off trên loopback, Neon
+tiếp tục dùng TLS. Container và schema runtime hiện có không thay đổi.
+
+Database HUS chứa bốn CTĐT, chưa có hồ sơ/bảng điểm sinh viên. FastAPI hiện vẫn
+dùng storage runtime cũ; chưa có adapter HUS, đăng nhập hay đồng bộ cổng đào tạo.
+Kết quả dựng/test thực tế: [database/DOCKER_VERIFICATION.md](../database/DOCKER_VERIFICATION.md).

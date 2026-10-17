@@ -14,8 +14,10 @@ def test_configuration_rejects_invalid_backend(monkeypatch):
 
 
 @pytest.mark.parametrize("url", ["", "sqlite:///demo.db", "not-a-url"])
-def test_postgres_configuration_requires_postgres_url(monkeypatch, url):
+@pytest.mark.parametrize("model", ["hus", "legacy"])
+def test_postgres_configuration_requires_postgres_url(monkeypatch, url, model):
     monkeypatch.setenv("STORAGE_BACKEND", "postgres")
+    monkeypatch.setenv("DATABASE_MODEL", model)
     monkeypatch.setenv("DATABASE_URL", url)
     with pytest.raises(ValueError, match="DATABASE_URL"):
         get_settings()
@@ -37,6 +39,7 @@ def test_json_readiness_and_liveness():
 
 def test_postgres_outage_returns_503_without_json_fallback(monkeypatch):
     monkeypatch.setenv("STORAGE_BACKEND", "postgres")
+    monkeypatch.setenv("DATABASE_MODEL", "legacy")
     monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg2://user:secret@127.0.0.1/demo")
 
     def unavailable(*args, **kwargs):

@@ -18,10 +18,11 @@ statements (``DROP DATABASE``, ``DROP SCHEMA``, ``ALTER DATABASE``) unless
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
-from sqlalchemy import Engine
+from sqlalchemy import Engine, text
 
 from database.hus_db.config import HusDatabaseConfigError
 from database.hus_db.connection import connect
@@ -30,14 +31,65 @@ DANGEROUS_TOKENS: tuple[str, ...] = ("drop database", "drop schema", "alter data
 
 
 def scan_dangerous_statements(sql_text: str) -> list[str]:
-    """Return the destructive tokens present in ``sql_text`` (case-insensitive)."""
-    lowered = sql_text.lower()
-    return [token for token in DANGEROUS_TOKENS if token in lowered]
+    """Find destructive keyword pairs, ignoring SQL comments and quoted content.
+
+    This is a guard against accidental execution, not a sandbox for untrusted SQL.
+    """
+    tokens: list[str] = []
+    position = 0
+    while position < len(sql_text):
+        if sql_text.startswith("--", position):
+            end = sql_text.find("\n", position + 2)
+            position = len(sql_text) if end < 0 else end + 1
+        elif sql_text.startswith("/*", position):
+            depth = 1
+            position += 2
+            while position < len(sql_text) and depth:
+                if sql_text.startswith("/*", position):
+                    depth += 1
+                    position += 2
+                elif sql_text.startswith("*/", position):
+                    depth -= 1
+                    position += 2
+                else:
+                    position += 1
+        elif sql_text[position] in ("'", '"'):
+            quote = sql_text[position]
+            position += 1
+            while position < len(sql_text):
+                if sql_text[position] == quote:
+                    position += 1
+                    if position < len(sql_text) and sql_text[position] == quote:
+                        position += 1
+                    else:
+                        break
+                else:
+                    position += 1
+            tokens.append("quoted")
+        else:
+            dollar = re.match(r"\$(?:[A-Za-z_][A-Za-z_0-9]*)?\$", sql_text[position:])
+            word = re.match(r"[A-Za-z_][A-Za-z_0-9]*", sql_text[position:])
+            if dollar:
+                delimiter = dollar.group()
+                end = sql_text.find(delimiter, position + len(delimiter))
+                position = len(sql_text) if end < 0 else end + len(delimiter)
+                tokens.append("quoted")
+            elif word:
+                tokens.append(word.group().lower())
+                position += len(word.group())
+            else:
+                if not sql_text[position].isspace():
+                    tokens.append(sql_text[position])
+                position += 1
+    pairs = {f"{left} {right}" for left, right in zip(tokens, tokens[1:])}
+    return [token for token in DANGEROUS_TOKENS if token in pairs]
 
 
 def apply_sql(engine: Engine, sql_text: str) -> None:
     """Send ``sql_text`` to PostgreSQL as a single batch."""
     with engine.connect() as conn:
+        if conn.execute(text("SELECT to_regclass('public.hus_catalog_revisions')")).scalar():
+            raise RuntimeError("HUS runtime is managed by migrations; use migrate and publish_catalogs")
         driver = conn.connection.driver_connection
         cursor = driver.cursor()
         try:

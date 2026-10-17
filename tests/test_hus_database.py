@@ -177,3 +177,34 @@ def test_scan_dangerous_statements_is_case_insensitive():
     assert scan_dangerous_statements("DROP DATABASE ai07;") == ["drop database"]
     assert scan_dangerous_statements("drop schema public;") == ["drop schema"]
     assert scan_dangerous_statements("CREATE TABLE t (id int);") == []
+
+
+@pytest.mark.parametrize("sql", [
+    "-- DOES NOT DROP database ai07\nSELECT 1;",
+    "/* DROP SCHEMA public; /* nested */ */ SELECT 1;",
+    "SELECT 'DROP DATABASE ai07', $$ALTER DATABASE ai07$$;",
+    'SELECT "drop database" FROM t;',
+])
+def test_sql_guard_ignores_comments_and_quoted_content(sql):
+    assert scan_dangerous_statements(sql) == []
+
+
+def test_sql_guard_detects_keywords_separated_by_comments_and_newlines():
+    assert scan_dangerous_statements("DROP/* reason */\nDATABASE ai07;") == ["drop database"]
+
+
+def test_local_docker_url_keeps_explicit_ssl_setting():
+    config = load_config({ENV_VAR: "postgresql://ai07:secret@127.0.0.1:5433/ai07?sslmode=disable"})
+    assert config.engine_url().endswith("sslmode=disable")
+
+
+def test_local_env_fallback_and_process_override(tmp_path, monkeypatch):
+    from database.hus_db import config
+
+    local_env = tmp_path / ".env.docker"
+    local_env.write_text(f"{ENV_VAR}=postgresql://local/db?sslmode=disable\n", encoding="utf-8")
+    monkeypatch.setattr(config, "LOCAL_ENV_FILE", local_env)
+    monkeypatch.delenv(ENV_VAR, raising=False)
+    assert config.load_config().url == "postgresql://local/db?sslmode=disable"
+    monkeypatch.setenv(ENV_VAR, SAMPLE_URL)
+    assert config.load_config().url == SAMPLE_URL

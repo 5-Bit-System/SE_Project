@@ -16,6 +16,9 @@ const state = {
   blockedCourses: [],
   chatHistory: [],
   recommendationRequestId: 0,
+  programRequestId: 0,
+  studentRequestId: 0,
+  chatRequestId: 0,
 };
 
 // --- DOM References ---
@@ -157,28 +160,48 @@ async function loadPrograms() {
 
 async function onProgramChanged() {
   const progId = dom.programSelect.value;
+  const requestId = ++state.programRequestId;
+  state.studentRequestId += 1;
   state.currentProgramId = progId;
 
   // RÀNG BUỘC MAJOR ISOLATION: Xóa sạch dữ liệu môn đã chọn khi đổi ngành
   state.transcript.clear();
+  state.courses = [];
+  state.profiles = [];
+  state.eligibleCourses = [];
+  state.blockedCourses = [];
   state.chatHistory = [];
+  state.chatRequestId += 1;
+  dom.chatMessagesContainer.replaceChildren();
+  dom.btnSendChat.disabled = false;
   state.currentProfileId = null;
   state.selectedTrackId = null;
   state.selectedGraduationPathId = null;
+  dom.profileSelect.value = "";
+  dom.kpiPassedCount.textContent = "0";
+  dom.kpiCredits.textContent = "0";
+  dom.kpiGpa.textContent = "--";
+  dom.kpiEligibleCount.textContent = "0";
+  renderCourseChecklist();
   clearRecommendationResults("Đã đổi ngành. Hãy chạy lại đề xuất theo catalog mới.");
 
   const currentProgram = state.programs.find(p => p.program_id === progId);
   if (currentProgram) {
-    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} Tín chỉ chuẩn · Trạng thái: ${currentProgram.catalog_status}`;
+    const status = currentProgram.catalog_status || "unknown";
+    const warning = status === "verified" ? "" : " · Nguồn CTĐT chưa được xác minh đầy đủ";
+    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} Tín chỉ chuẩn · Trạng thái: ${status}${warning}`;
     dom.kpiTotalCreditsSub.textContent = `/ ${currentProgram.total_credits} Tín chỉ`;
     renderProgramChoices(currentProgram);
   }
 
   try {
-    state.courses = await api(`/courses?program_id=${encodeURIComponent(progId)}`);
+    const courses = await api(`/courses?program_id=${encodeURIComponent(progId)}`);
+    if (requestId !== state.programRequestId) return;
+    state.courses = courses;
     renderCourseChecklist();
-    await loadProfilesForProgram(progId);
+    await loadProfilesForProgram(progId, requestId);
   } catch (error) {
+    if (requestId !== state.programRequestId) return;
     console.error("Lỗi nạp môn học:", error);
     const errorState = document.createElement("div");
     errorState.className = "empty-state text-rose";
@@ -222,19 +245,21 @@ function renderProgramChoices(program) {
   }
 }
 
-async function loadProfilesForProgram(programId) {
+async function loadProfilesForProgram(programId, requestId = state.programRequestId) {
   if (!dom.profileSelect) {
     await updateStudentState();
     return;
   }
 
   try {
-    state.profiles = await api(`/profiles?program_id=${encodeURIComponent(programId)}`);
+    const profiles = await api(`/profiles?program_id=${encodeURIComponent(programId)}`);
+    if (requestId !== state.programRequestId) return;
+    state.profiles = profiles;
     dom.profileSelect.replaceChildren();
 
     const emptyOption = document.createElement("option");
     emptyOption.value = "";
-    emptyOption.textContent = "Không dùng profile demo";
+    emptyOption.textContent = state.profiles.length ? "Không dùng profile demo" : "Chưa có profile demo · nhập bảng điểm thủ công";
     dom.profileSelect.appendChild(emptyOption);
 
     state.profiles.forEach(profile => {
@@ -251,6 +276,7 @@ async function loadProfilesForProgram(programId) {
       await updateStudentState();
     }
   } catch (error) {
+    if (requestId !== state.programRequestId) return;
     console.error("Lỗi nạp profile demo:", error);
     dom.profileSelect.replaceChildren();
     const option = document.createElement("option");
@@ -263,6 +289,8 @@ async function loadProfilesForProgram(programId) {
 
 async function loadSelectedProfile() {
   const profileId = dom.profileSelect?.value;
+  const programId = state.currentProgramId;
+  const requestId = state.programRequestId;
   state.transcript.clear();
   state.chatHistory = [];
   state.currentProfileId = profileId || null;
@@ -278,7 +306,8 @@ async function loadSelectedProfile() {
 
   try {
     const profile = await api(`/profiles/${encodeURIComponent(profileId)}`);
-    if (profile.program_id !== state.currentProgramId) {
+    if (requestId !== state.programRequestId || profileId !== dom.profileSelect?.value) return;
+    if (profile.program_id !== programId) {
       throw new Error("Profile không thuộc ngành đang chọn.");
     }
 
@@ -303,6 +332,7 @@ async function loadSelectedProfile() {
     renderCourseChecklist();
     await updateStudentState();
   } catch (error) {
+    if (requestId !== state.programRequestId) return;
     console.error("Lỗi nạp profile:", error);
     state.currentProfileId = null;
     dom.profileSelect.value = "";
@@ -423,6 +453,8 @@ function renderCourseChecklist() {
 
 // --- Update Student State: Transcript Summary + Eligibility + Roadmap ---
 async function updateStudentState() {
+  const requestId = ++state.studentRequestId;
+  const programId = state.currentProgramId;
   const records = [];
   for (const [code, item] of state.transcript.entries()) {
     records.push({
@@ -442,8 +474,11 @@ async function updateStudentState() {
       body: JSON.stringify({
         program_id: state.currentProgramId,
         records: records,
+        selected_track_id: state.selectedTrackId,
+        selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
+    if (requestId !== state.studentRequestId || programId !== state.currentProgramId) return;
 
     dom.kpiPassedCount.textContent = summary.passed_courses.length;
     dom.kpiCredits.textContent = summary.earned_credits;
@@ -461,6 +496,7 @@ async function updateStudentState() {
         selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
+    if (requestId !== state.studentRequestId || programId !== state.currentProgramId) return;
 
     state.eligibleCourses = eligRes.eligible_courses;
     state.blockedCourses = eligRes.blocked_courses;
@@ -469,6 +505,7 @@ async function updateStudentState() {
     renderRuleEngineTab(eligRes);
 
   } catch (error) {
+    if (requestId !== state.studentRequestId || programId !== state.currentProgramId) return;
     console.error("Lỗi cập nhật trạng thái học vụ:", error);
     dom.kpiEligibleCount.textContent = "—";
     const errorState = document.createElement("div");
@@ -881,6 +918,7 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = dom.advisorInputText.value.trim();
   if (!text) return;
+  const requestId = ++state.chatRequestId;
 
   // Render user message
   appendChatMessage("user", text);
@@ -909,6 +947,7 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
         selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
+    if (requestId !== state.chatRequestId) return;
 
     typingEl.remove();
 
@@ -923,10 +962,11 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
     state.chatHistory.push({ role: "assistant", content: data.reply });
 
   } catch (error) {
+    if (requestId !== state.chatRequestId) return;
     typingEl.remove();
     appendChatMessage("advisor", "⚠️ Lỗi kết nối: " + error.message, true);
   } finally {
-    dom.btnSendChat.disabled = false;
+    if (requestId === state.chatRequestId) dom.btnSendChat.disabled = false;
   }
 });
 

@@ -1,5 +1,31 @@
 ﻿# Checklist codebase
 
+## HUS runtime cutover - 2026-10-17
+
+- [x] Backup/restore both databases; preserve original source/legacy rows.
+- [x] Independent migrations: adopt existing HUS and build fresh database.
+- [x] Four validated snapshots, repeat import, invalid-source rejection and revision rollback.
+- [x] Main API/UI uses ai07; profiles empty; four-major Chrome acceptance.
+- [x] Restart persistence and legacy config rollback; 173 tests passed; Ruff/JS/diff passed.
+- [ ] Reviewed PDF/source acceptance: 10 tests skipped for missing reviewed sources.
+- [ ] Login/portal sync/new modules deferred by user; outside this change.
+
+See [evidence and operations](../database/HUS_RUNTIME.md). Earlier checklist entries below are historical.
+
+
+## Database HUS trên Docker — 2026-10-17
+
+- [x] Container/volume riêng `se_hus_db` / `se_hus_pgdata`, PostgreSQL 16,
+  database `ai07`, chỉ mở loopback `5433`; giữ nguyên database ứng dụng cũ.
+- [x] Nạp schema và bốn CTĐT từ SQL của nhánh database; verify trực tiếp 26/26.
+- [x] Test views, học lại, CHECK/FK/UNIQUE trên PostgreSQL thật; dữ liệu test rollback.
+- [x] Nạp lại không tăng số bản ghi, dữ liệu giữ nguyên sau restart.
+- [x] Full suite 157 passed, 10 skipped; Ruff đạt.
+- [x] Hướng dẫn và bằng chứng tại [DOCKER_VERIFICATION.md](../database/DOCKER_VERIFICATION.md).
+- [ ] Tích hợp schema HUS vào ứng dụng và luồng lấy bảng điểm từ cổng đào tạo.
+
+## Nền tảng trước đợt Docker HUS
+
 Trạng thái ngày 2026-10-15, sau khi hoàn thiện phần A — metadata/runtime/kiểm thử.
 
 - [x] Có cấu hình PostgreSQL/Docker, SQLAlchemy, Alembic và seed theo định dạng runtime cũ.

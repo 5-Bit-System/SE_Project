@@ -1,4 +1,4 @@
-"""Configuration helpers for the AI-07 HUS Neon database.
+"""Configuration helpers for the AI-07 HUS PostgreSQL database.
 
 The connection string carries a password and is therefore a secret: it must come
 from the environment (``HUS_DATABASE_URL``) and must never be committed. These
@@ -9,11 +9,15 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Mapping
 from urllib.parse import urlsplit, urlunsplit
 
+from dotenv import dotenv_values
+
 ENV_VAR = "HUS_DATABASE_URL"
 DEFAULT_SSLMODE = "require"
+LOCAL_ENV_FILE = Path(__file__).resolve().parents[1] / ".env.docker"
 
 
 class HusDatabaseConfigError(RuntimeError):
@@ -69,17 +73,20 @@ class HusDatabaseConfig:
         return redact_url(self.url)
 
     def engine_url(self) -> str:
-        """The connection string with TLS enforced, ready for SQLAlchemy."""
+        """Default to TLS; preserve explicit settings such as Docker loopback SSL off."""
         return with_ssl_required(self.url)
 
 
 def load_config(env: Mapping[str, str] | None = None) -> HusDatabaseConfig:
     """Read and validate the connection string from the environment.
 
-    ``env`` defaults to :data:`os.environ`, which keeps the function easy to test
-    without touching real process state.
+    An explicit mapping is read in isolation. Otherwise, process variables
+    override the optional ``database/.env.docker`` file.
     """
-    source = os.environ if env is None else env
+    source = env
+    if source is None:
+        # Explicit process settings override the optional local Docker configuration.
+        source = {**dotenv_values(LOCAL_ENV_FILE), **os.environ}
     raw = (source.get(ENV_VAR) or "").strip()
     if not raw:
         raise HusDatabaseConfigError(

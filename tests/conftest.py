@@ -4,6 +4,7 @@ import os
 
 # Set before collection, including imports of app.main and settings consumers.
 os.environ["STORAGE_BACKEND"] = "json"
+os.environ["DATABASE_MODEL"] = "hus"
 os.environ["DATABASE_URL"] = ""
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
@@ -19,6 +20,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setattr("app.catalog.DATA_ROOT", catalog_root)
     monkeypatch.setattr("app.profiles.PROFILES_PATH", profiles_path)
     monkeypatch.setenv("STORAGE_BACKEND", "json")
+    monkeypatch.setenv("DATABASE_MODEL", "hus")
     monkeypatch.setenv("DATABASE_URL", "")
     monkeypatch.setenv("GEMINI_API_KEY", "")
     monkeypatch.setenv("RECOMMENDATION_LLM_ENABLED", "false")

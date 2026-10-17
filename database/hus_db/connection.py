@@ -1,4 +1,4 @@
-"""SQLAlchemy engine factory for the AI-07 HUS Neon database."""
+"""SQLAlchemy engine factory for the AI-07 HUS PostgreSQL database."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ def create_engine_for(
     pool_pre_ping: bool = True,
     connect_timeout: int | None = DEFAULT_CONNECT_TIMEOUT,
 ) -> Engine:
-    """Build an engine that keeps TLS and re-checks pooled connections."""
+    """Build an engine with the selected SSL mode and check pooled connections."""
     connect_args: dict[str, object] = {}
     if connect_timeout:
         connect_args["connect_timeout"] = connect_timeout

@@ -312,6 +312,7 @@ def test_changing_bundle_creates_new_revision(seeded_engine, tmp_path, source_bu
 
 def test_runtime_api_uses_postgresql(seeded_engine, monkeypatch):
     monkeypatch.setenv("STORAGE_BACKEND", "postgres")
+    monkeypatch.setenv("DATABASE_MODEL", "legacy")
     monkeypatch.setenv("DATABASE_URL", os.environ["TEST_DATABASE_URL"])
     monkeypatch.setattr("app.infrastructure.postgres_repository.get_engine", lambda: seeded_engine)
     with TestClient(app) as client:

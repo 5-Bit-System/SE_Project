@@ -2,15 +2,11 @@
 
 Codebase của Explainable Course Recommender (AI-07): FastAPI, giao diện static, PostgreSQL và Alembic. Đây là dự án đang phát triển.
 
-## Trạng thái dữ liệu hiện tại
+## HUS runtime (2026-10-17)
 
-`data/` chỉ giữ **mẫu Khoa học dữ liệu 2022 gồm 65 học phần**, theo hợp đồng metadata mới, để bàn giao cho người xây dựng dữ liệu. Xem [hướng dẫn mẫu](data/curricula/khdl_7460108_2022/README.md) và [đặc tả metadata](docs/COURSE_METADATA_SPECIFICATION.md).
+FastAPI now reads four versioned draft catalogs from Docker database `ai07` (localhost5433). Student profiles remain empty; use manual transcript entry. Source PDFs remain unverified. The legacy database is retained for rollback.
 
-Loader, validator, builder và seed đã hỗ trợ envelope metadata 1.0. Các catalog khác và profile sản phẩm đã được gỡ theo yêu cầu; mẫu vẫn chưa đối soát PDF. Một bản clone mới chưa đủ dữ liệu để chạy demo bốn ngành hoặc seed database sản phẩm từ đầu. Không dùng fixtures kiểm thử làm dữ liệu học vụ.
-
-Database local đã seed trước đây được giữ nguyên; adapter vẫn đọc được định dạng legacy. JSON loader đọc được mẫu một ngành, nhưng readiness sản phẩm vẫn yêu cầu đủ bốn catalog. Seed kiểm tra đủ bốn catalog và 12 profile hợp lệ trước khi ghi database.
-
-Builder `--check` kiểm tra mẫu mà không ghi file. `--write` giữ metadata tư vấn và evidence, từ chối thay đổi mã môn, tiên quyết hoặc trường đã review cần thẩm định lại. Việc cập nhật nguồn thực tế cần review dữ liệu và revision riêng; không chạy seed lên database đang dùng chỉ để thử mẫu.
+See [HUS setup, schema, acceptance and rollback](database/HUS_RUNTIME.md). The previous JSON sample under `data/` remains available for offline work.
 
 ## Cài môi trường
 
@@ -27,8 +23,9 @@ Copy `.env.example` thành `.env` nếu chưa có, điền cấu hình và giữ
 ## Vận hành với database đã có dữ liệu
 
 ```powershell
-docker compose up -d db
-python -m alembic upgrade head
+docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d db
+python -m database.tools.migrate upgrade
+python -m database.tools.publish_catalogs
 python -m uvicorn app.main:app --reload
 ```
 

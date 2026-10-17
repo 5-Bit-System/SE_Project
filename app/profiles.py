@@ -72,9 +72,9 @@ class ProfileError(ValueError):
 
 def _read_profiles(path: Path | None = None) -> list[DemoProfile]:
     if path is None and get_settings().storage_backend == "postgres":
-        from app.infrastructure.postgres_repository import PostgresRepository
+        from app.infrastructure.repositories import postgres_repository
 
-        return [DemoProfile.model_validate(item) for item in PostgresRepository().read_profiles()]
+        return [DemoProfile.model_validate(item) for item in postgres_repository().read_profiles()]
     path = path or PROFILES_PATH
     if not path.exists():
         raise ProfileError(f"Không tìm thấy dữ liệu profile: {path}")

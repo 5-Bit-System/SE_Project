@@ -1,6 +1,44 @@
 # Project Memory and Contributor Guidelines
 
-## Current Handoff — 2026-10-15
+## HUS application cutover - 2026-10-17
+
+- Latest scope overrides historical notes below: main app uses HUS ai07 on localhost5433, DATABASE_MODEL=hus and DATABASE_URL in ignored root .env. Offline ranking enabled; web port8000.
+- Separate HUS Alembic head hus_20261017_02; source database/data/hus_source.json, four draft catalogs. Accounts/students/attempts remain empty. User deferred all new modules to conserve quota; no portal/login/OCR/chat module was implemented.
+- Original 13 HUS tables retained/extended, plus hus_catalog_revisions and hus_alembic_version. Use database.tools.migrate/publish_catalogs; no root Alembic or SQL10 on HUS. No runtime fallback.
+- Both databases backed up, restored and hash-compared; source and legacy rows preserved. Legacy config rollback verified. Credentials/evidence remain ignored in backups/hus_cutover_20261017.
+- 173 passed, 10 reviewed-source skips. Ruff/JS/diff passed. Real API and Chrome verified all four majors, manual GPA/credits, eligibility, recommendations, major reset. Docker restart passed. See database/HUS_RUNTIME.md.
+- Changes uncommitted; preserve prior Docker work. Do not commit/push unless requested.
+
+## Session close - cleanup and handoff - 2026-10-17
+
+- User asked to use `project-toolkit` for cleanup. Read `project-toolkit/SKILL.md`; source check passed (3 pinned repositories, 12 skills intact).
+- Removed 219 generated Python/pytest/Ruff/hypothesis cache directories across the workspace, including regenerable bytecode under `.venv`. No source files, requirements, local environment settings, backup dumps, database data/volumes, or toolkit sources were deleted. `/ready` remained healthy after cleanup.
+- Keep branch `feat/database-setup-and-tests`: it is the checked-out branch holding the active, uncommitted HUS runtime implementation. It is not a disposable cloned directory. Do not delete or reset it before its work is safely committed/merged or explicitly abandoned.
+- `database/` is active runtime/migration code, not a redundant clone. No other source file was confidently identified as obsolete during this cleanup; do not delete historical docs/modules just because they are not part of the current runtime.
+- Final local entrypoint: `http://127.0.0.1:8000`; HUS runtime and rollback details: `database/HUS_RUNTIME.md`. Changes remain uncommitted; no commit/push was requested.
+
+
+## Docker HUS handoff — 2026-10-17
+
+- User explicitly requested creating and testing the HUS database on Docker instead of Neon.
+  Work is on `feat/database-setup-and-tests`, after `6ffcd62`; changes are uncommitted.
+- Dedicated Compose `database/docker-compose.yml` uses existing `postgres:16-alpine`,
+  container `se_hus_db`, volume `se_hus_pgdata`, database `ai07`, loopback port 5433.
+  Existing `se_recommender_db` / `se_recommender_pgdata` and unrelated containers were untouched.
+- Random local credentials are in ignored `database/.env.docker`. HUS config reads that file
+  as a fallback; explicit process `HUS_DATABASE_URL` takes precedence. Do not print credentials.
+- Both SQL scripts initialized successfully; verify_data passed 26/26. Counts: 174 courses,
+  290 curriculum memberships, 279 prerequisites, 41 source groups, 297 source entries.
+  Reapply preserved row counts; restart preserved data. Synthetic integration records rolled back.
+- Full local test run with both PostgreSQL test URLs: 157 passed, 10 external-source skips,
+  one existing Starlette/httpx warning. Ruff passed. See database/DOCKER_VERIFICATION.md.
+- Fixed SQL guard's false positive on comments; added offline regression tests and 10 opt-in
+  HUS PostgreSQL tests. HUS account/student/attempt tables remain empty. FastAPI runtime still
+  uses its original storage; portal login/transcript synchronization is not implemented.
+- Keep this local Docker task distinct from source-data acceptance, portal integration and
+  whole-product completion. Do not commit/push unless requested.
+
+## Historical Handoff — 2026-10-15
 
 - Cleanup follow-up: removed unused `app/schemas/transcript.py` (re-export only, no repository consumers) and the completed Phase A implementation plan. Retained Phase A acceptance evidence, the historical audit with an explicit status note, and pending B/C/D plans. Removed 13 local cache directories (75 generated files); runtime environment, toolkit, backups and product data were preserved. Post-cleanup offline verification: 108 passed, 26 skipped; Ruff, sample/synthetic catalog validation and diff checks passed. PostgreSQL, browser, model provider and remote CI were not rerun in this cleanup. The user explicitly requested publishing these cleanup changes to `codebase`.
 - Repository: `https://github.com/5-Bit-System/SE_Project.git`; working branch: `codebase`. Before this handoff, remote `codebase` was at `19c081c` after two documentation commits. Check Git history for the latest published commit; do not infer it from this memory file.
