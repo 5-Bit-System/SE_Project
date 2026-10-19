@@ -25,3 +25,6 @@ postgres_data/
 pgdata/
 # Crawled originals (HUS); index.json is public, raw HTML stays local
 data/hus/raw/
+data/hus/processed/
+data/hus/state/
+.codegraph/
