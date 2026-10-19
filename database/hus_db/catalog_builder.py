@@ -11,6 +11,7 @@ from typing import Any
 
 from app.catalog_validation import validate_catalog
 from app.models import Catalog, Course, Program
+from database.hus_db.prerequisites import expression_key, parse_prerequisites
 
 PROGRAM_IDS = {
     ("7460101", 2022, "QD3565-2023"): "toan_hoc_7460101_2022",
@@ -40,7 +41,7 @@ def _evidence(entry: dict, field: str) -> list[dict]:
         "locator": f"page={entry['pdf_page']}; row={entry['source_row_number']}; code={entry['course_code']}",
         "method": "transcription",
         "status": "draft_unverified",
-        "note": f"HUS SQL export: {field}; original PDF not re-reviewed.",
+        "note": f"HUS source export: {field}; field-level review scope is recorded in the source bundle.",
     }]
 
 
@@ -121,6 +122,34 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
         if set(clauses) != set(range(1, max(clauses) + 1)):
             raise ValueError(f"Prerequisite group numbering gap: {key}")
 
+    source_rules = {}
+    for key, occurrences in entries_by_course.items():
+        rules = []
+        for entry in occurrences:
+            status = entry["prerequisite_parse_status"]
+            raw = entry["prerequisite_source_text"]
+            if status == "none" and raw and raw.strip():
+                raise ValueError(f"Prerequisite text marked as absent: {key}")
+            if status not in {"none", "normalized"}:
+                continue
+            parsed = parse_prerequisites(raw)
+            if status == "normalized" and not parsed:
+                raise ValueError(f"Normalized prerequisite text is empty: {key}")
+            if any(ref not in courses for clause in parsed for ref in clause):
+                raise ValueError(f"Normalized prerequisite references missing course: {key}")
+            rules.append({"group_key": entry["group_key"], "source_row": entry["source_row_number"],
+                          "pdf_page": entry["pdf_page"], "pdf_document": entry["pdf_document"],
+                          "prerequisites": parsed})
+        source_rules[key] = rules
+        # A relational rule must match a complete source variant, never a
+        # partial or invented merge. Ambiguous source cells remain blocked.
+        if len(rules) == len(occurrences):
+            actual = [sorted(refs) for _, refs in sorted(prereq_by_course[key].items())]
+            if expression_key(actual) not in {
+                expression_key(rule["prerequisites"]) for rule in rules
+            }:
+                raise ValueError(f"Prerequisite clauses do not match source text: {key}")
+
     result = []
     for curriculum in sorted(curricula.values(), key=lambda c: PROGRAM_IDS[(c["major_code"], c["cohort_year"], c["curriculum_version"])]):
         cid = curriculum["curriculum_id"]
@@ -172,7 +201,10 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             program_id=program_id, name=majors[curriculum["major_code"]]["major_name"],
             total_credits=curriculum["credits_required"], catalog_status="draft_unverified",
             source_file=source_doc, source_pages=", ".join(map(str, sorted({e["pdf_page"] for e in all_entries}))),
-            notes=[curriculum["note"], "Source export has not been re-reviewed against original PDFs."],
+            notes=[curriculum["note"],
+                   "Prerequisite PDF review is recorded in the source bundle; full academic validation remains outstanding."
+                   if bundle.get("prerequisite_pdf_review") else
+                   "Source export has not been re-reviewed against original PDFs."],
             choice_groups=choice_groups,
             track_selection={"mode": "exactly_one_track" if has_tracks else "not_applicable", "tracks": tracks},
             graduation_selection={"mode": "exactly_one_path", "required_credits": 7, "paths": paths},
@@ -188,7 +220,12 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             raw_texts = sorted({e["prerequisite_source_text"] for e in occurrences if e["prerequisite_source_text"]})
             clauses = prereq_by_course.get((cid, code), {})
             expression = [sorted(clauses[n]) for n in sorted(clauses)]
-            if "complex_expression" in statuses or "unlisted_prerequisite" in statuses or len(raw_texts) > 1:
+            rules = source_rules[(cid, code)]
+            variants = {expression_key(rule["prerequisites"]) for rule in rules}
+            conflict = len(variants) > 1
+            if conflict:
+                prereq_status = "conflict"
+            elif statuses - {"none", "normalized"}:
                 prereq_status = "unknown"
             elif raw_texts and not expression:
                 prereq_status = "unknown"
@@ -201,6 +238,11 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             evidence = {field: _evidence(first, field) for field in
                         ("code", "name", "credits", "block", "requirement_type", "counted_in_total",
                          "prerequisites", "source_page", "choice_group_ids", "graduation_path_ids")}
+            if conflict:
+                evidence["prerequisites"] = [
+                    {**item, "status": "conflict"}
+                    for entry in occurrences for item in _evidence(entry, "prerequisites")
+                ]
             if membership["suggested_semester"] is not None:
                 evidence["suggested_term"] = _evidence(first, "suggested_term")
             runtime_courses.append(Course(
@@ -208,7 +250,10 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                 block=BLOCKS[key.split(".")[0]], requirement_type=requirement,
                 counted_in_total=code not in EXCLUDED, prerequisites=expression,
                 prerequisites_raw=" | ".join(raw_texts) or None, prerequisite_status=prereq_status,
-                external_prerequisite_codes=sorted({ref for clause in expression for ref in clause if ref not in member_rows}),
+                prerequisite_variants=[list(map(list, v)) for v in sorted(variants)] if conflict else [],
+                external_prerequisite_codes=sorted({ref for variant in
+                    ([expression] + [list(map(list, v)) for v in variants] if conflict else [expression])
+                    for clause in variant for ref in clause if ref not in member_rows}),
                 choice_group_ids=[group_id for group_id, _, _, codes, _ in choice_specs if code in codes],
                 graduation_path_ids=[key] if key.startswith("V.3.") else [],
                 source_page=first["pdf_page"], source_rows=sorted({e["source_row_number"] for e in occurrences
@@ -217,9 +262,11 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                 field_evidence=evidence, source_occurrences=occurrences,
                 source_membership=membership, source_course=source_course,
                 source_prerequisite_parse_statuses=sorted(statuses),
+                source_prerequisite_rules=rules,
             ))
         catalog = Catalog(program=program, courses=runtime_courses,
-                          metadata_schema_version="1.0", vocabulary_version="1.0", vocabulary=VOCABULARY)
+                          metadata_schema_version="1.0", vocabulary_version="1.0", vocabulary=VOCABULARY,
+                          prerequisite_pdf_review=bundle.get("prerequisite_pdf_review"))
         validate_catalog(catalog)
         result.append(catalog)
     return result

@@ -47,7 +47,7 @@ def test_four_stable_source_preserving_drafts(bundle, catalogs):
 
 def test_unknown_prerequisite_never_unlocks(catalogs):
     math = catalogs["toan_hoc_7460101_2022"]
-    course = next(c for c in math.courses if c.code == "MAT3359")
+    course = next(c for c in math.courses if c.code == "MAT3423")
     assert course.prerequisite_status == "unknown"
     assert course.prerequisites_raw
     all_other = {c.code for c in math.courses if c.code != course.code}
