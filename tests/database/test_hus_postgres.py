@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 from uuid import uuid4
 
@@ -12,6 +13,7 @@ from sqlalchemy.exc import IntegrityError
 from database.hus_db.config import HusDatabaseConfig
 from database.hus_db.connection import create_engine_for
 from database.hus_db.verify import run_checks
+from database.tools.publish_catalogs import SOURCE
 
 pytestmark = pytest.mark.hus_postgres
 
@@ -67,6 +69,41 @@ def test_live_schema_and_import_pass_all_checks(hus_engine):
     results = run_checks(hus_engine)
     assert len(results) == 26
     assert all(r.passed for r in results), [(r.name, r.detail) for r in results if not r.passed]
+
+
+def test_live_prerequisites_exactly_match_source_export(hus_engine):
+    tables = json.loads(SOURCE.read_text(encoding="utf-8"))["tables"]
+    majors = {c["curriculum_id"]: c["major_code"] for c in tables["curricula"]}
+    expected = {
+        (majors[r["curriculum_id"]], r["course_code"], r["group_no"],
+         r["prerequisite_course_code"])
+        for r in tables["course_prerequisites"]
+    }
+    with hus_engine.connect() as conn:
+        actual = set(conn.execute(text(
+            "SELECT c.major_code, p.course_code, p.group_no, p.prerequisite_course_code "
+            "FROM public.course_prerequisites p "
+            "JOIN public.curricula c USING (curriculum_id)"
+        )).all())
+    assert actual == expected, {"missing": expected - actual, "extra": actual - expected}
+
+
+def test_live_raw_prerequisite_cells_and_statuses_are_not_lost(hus_engine):
+    tables = json.loads(SOURCE.read_text(encoding="utf-8"))["tables"]
+    majors = {c["curriculum_id"]: c["major_code"] for c in tables["curricula"]}
+    expected = sorted(
+        (majors[e["curriculum_id"]], e["course_code"], e["group_key"],
+         e["prerequisite_source_text"], e["prerequisite_parse_status"])
+        for e in tables["official_curriculum_entries"]
+    )
+    with hus_engine.connect() as conn:
+        actual = sorted(tuple(row) for row in conn.execute(text(
+            "SELECT c.major_code, e.course_code, e.group_key, "
+            "e.prerequisite_source_text, e.prerequisite_parse_status "
+            "FROM public.official_curriculum_entries e "
+            "JOIN public.curricula c USING (curriculum_id)"
+        )).all())
+    assert actual == expected
 
 
 def test_profile_and_transcript_views_preserve_retakes(hus_student):
