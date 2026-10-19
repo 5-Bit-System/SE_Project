@@ -10,8 +10,8 @@
       "path_prefixes": ["/vi/"],
       "exclude_prefixes": ["/vi/album", "/vi/gallery"],
       "seeds": [
-        "https://mim.hus.vnu.edu.vn/vi/dao-tao",
-        "https://mim.hus.vnu.edu.vn/vi/thong-bao"
+        "https://mim.hus.vnu.edu.vn/vi/cacctrdaotao",
+        "https://mim.hus.vnu.edu.vn/vi/tuyensinh"
       ]
     },
     {

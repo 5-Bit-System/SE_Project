@@ -39,9 +39,15 @@ class Robots:
 
     def _load(self, host: str) -> robotparser.RobotFileParser:
         parser = robotparser.RobotFileParser()
-        try:
-            response = self.client.get(f"https://{host}/robots.txt", follow_redirects=False)
-        except httpx.HTTPError:
+        response = None
+        for proto in ("https", "http"):
+            try:
+                response = self.client.get(f"{proto}://{host}/robots.txt", follow_redirects=False)
+                if response.status_code == 200 or 400 <= response.status_code < 500:
+                    break
+            except httpx.HTTPError:
+                continue
+        if response is None:
             parser.disallow_all = True
             return parser
         if response.status_code == 200:
@@ -64,18 +70,24 @@ def _get(
 ) -> tuple[int, httpx.Headers, bytes]:
     last = "no attempt"
     req_headers = dict(headers or {})
+    current_url = url
     for attempt in range(attempts):
         try:
-            with client.stream("GET", url, headers=req_headers, follow_redirects=False) as response:
+            with client.stream("GET", current_url, headers=req_headers, follow_redirects=False) as response:
                 status, resp_headers, body = response.status_code, response.headers, bytearray()
                 if status == 200:
                     for part in response.iter_bytes():
                         body += part
                         if len(body) > max_bytes:
-                            raise CrawlError(f"response over {max_bytes} bytes: {url}")
+                            raise CrawlError(f"response over {max_bytes} bytes: {current_url}")
             if status not in _TRANSIENT:
                 return status, resp_headers, bytes(body)
             last = f"HTTP {status}"
+        except (httpx.ConnectTimeout, httpx.ConnectError) as exc:
+            last = type(exc).__name__
+            if current_url.startswith("https://"):
+                current_url = "http://" + current_url[8:]
+                continue
         except httpx.TransportError as exc:
             last = type(exc).__name__
         if attempt < attempts - 1:

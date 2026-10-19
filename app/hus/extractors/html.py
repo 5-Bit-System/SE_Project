@@ -14,8 +14,9 @@ from app.hus.models import DocumentStatus, DocumentType, HUSAttachment, HUSDocum
 from app.hus.urls import CrawlError, canonicalize_url
 
 _DROP = (
-    "nav, header, footer, aside, form, script, style, noscript, iframe, svg, "
-    "[role=navigation], .breadcrumb, .pager, .menu, .tabs, .sidebar"
+    "nav, header, footer, aside, script, style, noscript, iframe, svg, "
+    "[role=navigation], .breadcrumb, .pager, .menu, .tabs, .sidebar, "
+    "input, select, textarea, button"
 )
 _MAIN = ("main", "[role=main]", "#content", "#main-content", ".region-content", "article", ".post-content", ".entry-content")
 _HEADINGS = {f"h{n}" for n in range(1, 7)}
@@ -189,6 +190,9 @@ def extract_html(raw: bytes, url: str, fetched_at: str) -> tuple[HUSDocument, li
     page_title = _clean(og["content"]) if og and og.get("content") else ""
     if not page_title and soup.title:
         page_title = _clean(soup.title.get_text()).split(" | ")[0]
+
+    for form in soup.find_all("form"):
+        form.unwrap()
 
     for tag in soup.select(_DROP):
         tag.decompose()
