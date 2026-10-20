@@ -186,8 +186,8 @@ data/hus/
 
 Pipeline crawl và xử lý dữ liệu được nghiệm thu khi đạt các tiêu chí:
 
-- [ ] **Chặn tuyệt đối thông tin khoa khác:** 100% URL thu thập chỉ thuộc Khoa Toán - Cơ - Tin học hoặc các quy định/thông báo chung toàn trường; không có trang web của khoa khác lọt vào kho dữ liệu.
-- [ ] **Liên kết tài liệu đính kèm chính xác:** Các văn bản quy chế, danh mục học phần dạng PDF/DOCX được tải về và gắn kết đúng với bài viết cha.
-- [ ] **Bảo toàn bảng biểu:** Bảng danh mục môn học, học phí, chỉ tiêu tuyển sinh giữ đúng số hàng và cột trong định dạng Markdown.
-- [ ] **Kiểm thử ngoại tuyến (Offline Testable):** Có bộ mock fixtures đầy đủ mô phỏng HTML, PDF text, redirect hops và robots.txt; toàn bộ test suite chạy offline thành công không cần kết nối mạng.
-- [ ] **Lưu trữ toàn vẹn:** Thư mục `raw/` lưu trữ đầy đủ bản gốc không bị can thiệp; metadata tuân thủ nghiêm ngặt schema JSON đã định nghĩa.
+- [x] **Chặn tuyệt đối thông tin khoa khác:** 100% URL thu thập chỉ thuộc Khoa Toán - Cơ - Tin học hoặc các quy định/thông báo chung toàn trường; không có trang web của khoa khác lọt vào kho dữ liệu.
+- [x] **Liên kết tài liệu đính kèm chính xác:** Các văn bản quy chế, danh mục học phần dạng PDF/DOCX được tải về và gắn kết đúng với bài viết cha.
+- [x] **Bảo toàn bảng biểu:** Bảng danh mục môn học, học phí, chỉ tiêu tuyển sinh giữ đúng số hàng và cột trong định dạng Markdown.
+- [x] **Kiểm thử ngoại tuyến (Offline Testable):** Có bộ mock fixtures đầy đủ mô phỏng HTML, PDF text, redirect hops và robots.txt; toàn bộ test suite chạy offline thành công không cần kết nối mạng.
+- [x] **Lưu trữ toàn vẹn:** Thư mục `raw/` lưu trữ đầy đủ bản gốc không bị can thiệp; metadata tuân thủ nghiêm ngặt schema JSON đã định nghĩa.
