@@ -56,11 +56,13 @@ class HUSPipeline:
         client: httpx.Client | None = None,
         sleep=None,
         max_pages: int | None = None,
+        max_depth: int | None = None,
         delay_seconds: float | None = None,
         incremental: bool = True,
     ) -> CrawlSummary:
         """Run breadth-first crawl and extraction pipeline."""
         limit = self.allowlist.max_pages if max_pages is None else max_pages
+        depth_limit = self.allowlist.max_depth if max_depth is None else max_depth
         delay = self.allowlist.delay_seconds if delay_seconds is None else delay_seconds
         sleep_fn = sleep if sleep is not None else time.sleep
 
@@ -163,8 +165,8 @@ class HUSPipeline:
 
                 pages_processed += 1
 
-                # Enqueue child page links if within max_depth
-                if depth < self.allowlist.max_depth:
+                # Enqueue child page links if within depth limit
+                if depth < depth_limit:
                     for link in doc.links:
                         try:
                             clean_link = check_allowed(link, self.allowlist)

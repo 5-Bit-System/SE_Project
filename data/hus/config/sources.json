@@ -7,7 +7,7 @@
   "sources": [
     {
       "host": "mim.hus.vnu.edu.vn",
-      "path_prefixes": ["/vi/"],
+      "path_prefixes": ["/vi/", "/sites/default/files/"],
       "exclude_prefixes": ["/vi/album", "/vi/gallery"],
       "seeds": [
         "https://mim.hus.vnu.edu.vn/vi/cacctrdaotao",
@@ -16,7 +16,7 @@
     },
     {
       "host": "hus.vnu.edu.vn",
-      "path_prefixes": ["/dao-tao", "/sinh-vien"],
+      "path_prefixes": ["/dao-tao", "/sinh-vien", "/DATA/", "/data/"],
       "exclude_prefixes": [
         "/dao-tao/khoa-hoa-hoc",
         "/dao-tao/khoa-sinh-hoc",

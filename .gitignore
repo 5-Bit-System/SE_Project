@@ -28,3 +28,4 @@ data/hus/raw/
 data/hus/processed/
 data/hus/state/
 .codegraph/
+.pytest_temp/

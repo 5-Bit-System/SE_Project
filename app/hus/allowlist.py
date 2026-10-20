@@ -16,7 +16,8 @@ def _prefix(path: str) -> str:
 
 def _matches_prefix(path: str, prefix: str) -> bool:
     prefix = prefix.rstrip("/") or "/"
-    return prefix == "/" or path == prefix or path.startswith(prefix + "/")
+    p_lower, pref_lower = path.lower(), prefix.lower()
+    return pref_lower == "/" or p_lower == pref_lower or p_lower.startswith(pref_lower + "/")
 
 
 class Allowlist:

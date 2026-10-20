@@ -1,5 +1,6 @@
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--basetemp=F:/.pytest_temp"
 markers = [
     "postgres: requires an explicitly configured TEST_DATABASE_URL",
     "full_catalog_acceptance: requires an explicit external --full-catalog-root",

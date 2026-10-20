@@ -52,6 +52,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Maximum number of HTML pages to process (overrides config if set)",
     )
     parser.add_argument(
+        "--max-depth",
+        type=int,
+        default=None,
+        help="Maximum link traversal depth (overrides config if set)",
+    )
+    parser.add_argument(
         "--delay",
         type=float,
         default=None,
@@ -89,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Output directory : {args.out.resolve()}")
         print(f"User Agent       : {allowlist.user_agent}")
         print(f"Max Pages        : {args.max_pages or allowlist.max_pages}")
-        print(f"Max Depth        : {allowlist.max_depth}")
+        print(f"Max Depth        : {args.max_depth or allowlist.max_depth}")
         print(f"Delay (seconds)  : {args.delay if args.delay is not None else allowlist.delay_seconds}")
         print(f"Incremental Mode : {args.incremental}")
         print("\n[Approved Host Rules & Path Prefixes]")
@@ -122,6 +128,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Starting crawl with config: {config_path.name} (out: {out_root})...")
     summary = pipeline.run(
         max_pages=args.max_pages,
+        max_depth=args.max_depth,
         delay_seconds=args.delay,
         incremental=args.incremental,
     )
