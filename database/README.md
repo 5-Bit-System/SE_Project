@@ -17,10 +17,3 @@ docker compose --env-file database/.env.docker -f database/docker-compose.yml up
 Use [HUS_RUNTIME.md](HUS_RUNTIME.md) for environment variables, migration behavior, publication, validation and rollback. `database/data/hus_source.json` is the checked-in source for four `draft_unverified` catalogs. Official source review is still needed for full catalog acceptance. Test fixtures are synthetic.
 
 The legacy root `alembic/`, root `alembic.ini` and root `docker-compose.yml` remain for rollback. Never run those migrations against `ai07`. Historical SQL and Neon instructions are preserved in [archive](archive/2026-10-17-sql-neon-guide.md).
-
-The 2026-10-20 prerequisite PDF review added five reference-only honors courses
-and 69 prerequisite relations to the source export (179 courses, 348 relations).
-The four runtime memberships are unchanged. MAT3325 retains conflicting source
-variants and MAT3423 remains unknown pending a definition for MAT3402. Use the
-current export and publisher; the historical raw SQL import predates this review.
-See [PDF review and verification](../docs/VINH_PDF_SOURCE_REVIEW.md).

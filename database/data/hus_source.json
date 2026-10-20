@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "HUS SQL export with prerequisite PDF review dated 2026-10-20; catalogs remain draft_unverified",
+  "source": "Existing HUS SQL import, PDF sources not re-reviewed",
   "tables": {
     "faculties": [
       {
@@ -1642,51 +1642,6 @@
         "topics": [],
         "description": null,
         "is_active": true
-      },
-      {
-        "course_code": "MAT2320",
-        "course_name": "Đại số tuyến tính 1",
-        "credits": 5,
-        "difficulty_level": 2,
-        "topics": [],
-        "is_active": true,
-        "description": "Reference-only course from 102. Toán học-tài năng final QD 3566 Scan.pdf; PDF page 10, row 20. Difficulty 2 is a schema default, not a reviewed assessment."
-      },
-      {
-        "course_code": "MAT2321",
-        "course_name": "Đại số tuyến tính 2",
-        "credits": 5,
-        "difficulty_level": 2,
-        "topics": [],
-        "is_active": true,
-        "description": "Reference-only course from 102. Toán học-tài năng final QD 3566 Scan.pdf; PDF page 10, row 21. Difficulty 2 is a schema default, not a reviewed assessment."
-      },
-      {
-        "course_code": "MAT2322",
-        "course_name": "Giải tích 3",
-        "credits": 5,
-        "difficulty_level": 2,
-        "topics": [],
-        "is_active": true,
-        "description": "Reference-only course from 102. Toán học-tài năng final QD 3566 Scan.pdf; PDF page 10, row 24. Difficulty 2 is a schema default, not a reviewed assessment."
-      },
-      {
-        "course_code": "MAT2313",
-        "course_name": "Phương trình đạo hàm riêng 1",
-        "credits": 4,
-        "difficulty_level": 2,
-        "topics": [],
-        "is_active": true,
-        "description": "Reference-only course from 102. Toán học-tài năng final QD 3566 Scan.pdf; PDF page 10, row 26. Difficulty 2 is a schema default, not a reviewed assessment."
-      },
-      {
-        "course_code": "MAT3340",
-        "course_name": "Giải tích hàm",
-        "credits": 4,
-        "difficulty_level": 2,
-        "topics": [],
-        "is_active": true,
-        "description": "Reference-only course from 102. Toán học-tài năng final QD 3566 Scan.pdf; PDF page 11, row 38. Difficulty 2 is a schema default, not a reviewed assessment."
       }
     ],
     "curriculum_courses": [
@@ -5395,420 +5350,6 @@
         "course_code": "PHI1002",
         "group_no": 1,
         "prerequisite_course_code": "PHI1006"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2308",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2300"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2308",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2320"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2308",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2302"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2310",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2310",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2314",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2314",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2314",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2314",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2314",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2314",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2400"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2502"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2400"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2502"
-      },
-      {
-        "curriculum_id": 3,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 3,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 3,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2400"
-      },
-      {
-        "curriculum_id": 3,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 3,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2502"
-      },
-      {
-        "curriculum_id": 4,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 4,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 4,
-        "course_code": "MAT2407",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2400"
-      },
-      {
-        "curriculum_id": 4,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2303"
-      },
-      {
-        "curriculum_id": 4,
-        "course_code": "MAT2407",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2502"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3300",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3300",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3306",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2300"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3306",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2320"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3306",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT3305"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3307",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2304"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3307",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2322"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3313",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3313",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3313",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2304"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3313",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2322"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3317",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3317",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3340"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3317",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT3307"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2306"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2313"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3365"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3327",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2311"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3327",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2406"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2306"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2313"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3327",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3365"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3327",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2311"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3327",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2406"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3339",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3339",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3344",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2301"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3344",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT2321"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3344",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2304"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3344",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT2322"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3359",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT1202"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3359",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3304"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3359",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT3304"
-      },
-      {
-        "curriculum_id": 1,
-        "course_code": "MAT3359",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT3507"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3359",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3304"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3359",
-        "group_no": 1,
-        "prerequisite_course_code": "MAT3507"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3359",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT1202"
-      },
-      {
-        "curriculum_id": 2,
-        "course_code": "MAT3359",
-        "group_no": 2,
-        "prerequisite_course_code": "MAT3304"
       }
     ],
     "official_curriculum_groups": [
@@ -7129,7 +6670,7 @@
         "prerequisite_source_text": "MAT2502\nMAT2403",
         "prerequisite_parse_status": "normalized",
         "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
-        "pdf_page": 10
+        "pdf_page": 11
       },
       {
         "entry_id": 370,
@@ -7283,7 +6824,7 @@
         "course_code": "MAT2308",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2300/\nMAT2320\nMAT2302",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 10
       },
@@ -7295,7 +6836,7 @@
         "course_code": "MAT2310",
         "credits_in_source": 2,
         "prerequisite_source_text": "MAT2301/\nMAT2321",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 10
       },
@@ -7319,7 +6860,7 @@
         "course_code": "MAT2314",
         "credits_in_source": 4,
         "prerequisite_source_text": "MAT2301/\nMAT2321\nMAT2303",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 9
       },
@@ -7331,7 +6872,7 @@
         "course_code": "MAT2314",
         "credits_in_source": 4,
         "prerequisite_source_text": "MAT2301/\nMAT2321\nMAT2303",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
         "pdf_page": 9
       },
@@ -7499,7 +7040,7 @@
         "course_code": "MAT2407",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 10
       },
@@ -7511,7 +7052,7 @@
         "course_code": "MAT2407",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
         "pdf_page": 10
       },
@@ -7523,7 +7064,7 @@
         "course_code": "MAT2407",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
         "pdf_page": 10
       },
@@ -7535,7 +7076,7 @@
         "course_code": "MAT2407",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
         "pdf_page": 10
       },
@@ -7703,7 +7244,7 @@
         "course_code": "MAT3300",
         "credits_in_source": 4,
         "prerequisite_source_text": "MAT2301/\nMAT2321",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 10
       },
@@ -7763,7 +7304,7 @@
         "course_code": "MAT3306",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2300/\nMAT2320\nMAT3305",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -7775,7 +7316,7 @@
         "course_code": "MAT3307",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2304/\nMAT2322",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -7811,7 +7352,7 @@
         "course_code": "MAT3313",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321\nMAT2304/\nMAT2322",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -7823,7 +7364,7 @@
         "course_code": "MAT3317",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT3301/\nMAT3340\nMAT3307",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -7967,7 +7508,7 @@
         "course_code": "MAT3325",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2304/\nMAT2322\nMAT2314",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 13
       },
@@ -8003,7 +7544,7 @@
         "course_code": "MAT3327",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2306/\nMAT2313/\nMAT3365\nMAT2311/\nMAT2406",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 12
       },
@@ -8015,9 +7556,9 @@
         "course_code": "MAT3327",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2306/\nMAT2313/\nMAT3365\nMAT2311/\nMAT2406",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
-        "pdf_page": 11
+        "pdf_page": 12
       },
       {
         "entry_id": 328,
@@ -8123,7 +7664,7 @@
         "course_code": "MAT3339",
         "credits_in_source": 3,
         "prerequisite_source_text": "MAT2301/\nMAT2321",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -8135,7 +7676,7 @@
         "course_code": "MAT3344",
         "credits_in_source": 4,
         "prerequisite_source_text": "MAT2301/\nMAT2321\nMAT2304/\nMAT2322",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "unlisted_prerequisite",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -8183,7 +7724,7 @@
         "course_code": "MAT3359",
         "credits_in_source": 3,
         "prerequisite_source_text": "(MAT1202\nMAT3507)/\nMAT3304",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "complex_expression",
         "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
         "pdf_page": 11
       },
@@ -8195,7 +7736,7 @@
         "course_code": "MAT3359",
         "credits_in_source": 3,
         "prerequisite_source_text": "(MAT3507\nMAT1202)/\nMAT3304",
-        "prerequisite_parse_status": "normalized",
+        "prerequisite_parse_status": "complex_expression",
         "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
         "pdf_page": 10
       },
@@ -9746,98 +9287,6 @@
         "prerequisite_parse_status": "none",
         "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
         "pdf_page": 9
-      }
-    ]
-  },
-  "prerequisite_pdf_review": {
-    "date": "2026-10-20",
-    "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
-    "scope": "Prerequisite cells only; not full academic-policy certification",
-    "documents": [
-      {
-        "file": "103.pdf",
-        "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
-        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
-      },
-      {
-        "file": "105.pdf",
-        "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
-        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
-      },
-      {
-        "file": "104.pdf",
-        "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
-        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
-      },
-      {
-        "file": "101.pdf",
-        "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
-        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
-      },
-      {
-        "file": "102.pdf",
-        "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
-      }
-    ],
-    "reference_only_courses": [
-      {
-        "course_code": "MAT2320",
-        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "pdf_page": 10,
-        "printed_page": 8,
-        "source_row_number": 20
-      },
-      {
-        "course_code": "MAT2321",
-        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "pdf_page": 10,
-        "printed_page": 8,
-        "source_row_number": 21
-      },
-      {
-        "course_code": "MAT2322",
-        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "pdf_page": 10,
-        "printed_page": 8,
-        "source_row_number": 24
-      },
-      {
-        "course_code": "MAT2313",
-        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "pdf_page": 10,
-        "printed_page": 8,
-        "source_row_number": 26
-      },
-      {
-        "course_code": "MAT3340",
-        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
-        "pdf_page": 11,
-        "printed_page": 9,
-        "source_row_number": 38
-      }
-    ],
-    "unresolved_codes": [
-      "MAT3402"
-    ],
-    "conflicting_courses": [
-      {
-        "major_code": "7460101",
-        "course_code": "MAT3325"
-      }
-    ],
-    "corrected_locators": [
-      {
-        "major_code": "7460117",
-        "course_code": "MAT3327",
-        "old_pdf_page": 12,
-        "pdf_page": 11
-      },
-      {
-        "major_code": "7460108",
-        "course_code": "MAT2034",
-        "old_pdf_page": 11,
-        "pdf_page": 10
       }
     ]
   }
