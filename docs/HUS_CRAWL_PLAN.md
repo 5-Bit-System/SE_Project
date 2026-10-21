@@ -24,6 +24,17 @@ Hệ thống mở rộng thu thập thông tin cấp toàn trường và tuyển
 | **ĐHKHTN (Toàn trường)** | `hus.vnu.edu.vn` | **Chỉ lấy thông tin chung cấp trường:** Quy chế đào tạo đại học, quy định học vụ chung, biểu mẫu học vụ, khung thời gian năm học, quy định học bổng/học phí toàn trường | **Loại trừ tuyệt đối:** Thông báo riêng của các khoa khác (Khoa Hóa, Vật lý, Sinh học, Địa chất, Môi trường...), tin tức hội thảo chuyên ngành khác, phong trào đoàn thể |
 | **Tuyển sinh HUS** | `tuyensinh.hus.vnu.edu.vn` | Đề án tuyển sinh, thông tin các ngành đào tạo (đặc biệt khối Toán - Tin), quy định xét tuyển, học phí, chỉ tiêu | Tin bài sự kiện ngoài lề không mang tính quy định/thông tin tuyển sinh |
 
+Trên `hus.vnu.edu.vn`, cấu hình không cho phép toàn bộ `/dao-tao`.
+Các đường dẫn chung đã duyệt là `/dao-tao/gioi-thieu-chung` và
+`/dao-tao/dai-hoc`. Trong hai nhánh phân theo khoa, chỉ mở
+`/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc` và
+`/dao-tao/sau-dai-hoc/toan-co-tin-hoc`, cùng các trang con của chúng.
+Các nhánh khoa khác hoặc nhánh mới chưa được duyệt bị từ chối mặc định,
+kể cả khi được phát hiện qua liên kết hoặc chuyển hướng từ một trang hợp lệ.
+Muốn bổ sung đường dẫn đào tạo chung cần duyệt nguồn và cập nhật cấu hình,
+không mở lại tiền tố `/dao-tao`. Quy tắc URL này không thay thế việc kiểm tra
+nội dung và tài liệu đính kèm trước khi nghiệm thu toàn bộ kho tri thức.
+
 **Định dạng tài liệu xử lý:**
 - **HTML:** Trang bài viết, thông báo, quy chế, danh mục.
 - **PDF dạng văn bản (Text-based PDF):** Quy chế, quyết định, danh sách học phần, biểu mẫu.

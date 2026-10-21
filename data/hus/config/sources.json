@@ -16,7 +16,15 @@
     },
     {
       "host": "hus.vnu.edu.vn",
-      "path_prefixes": ["/dao-tao", "/sinh-vien", "/DATA/", "/data/"],
+      "path_prefixes": [
+        "/dao-tao/gioi-thieu-chung",
+        "/dao-tao/dai-hoc",
+        "/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc",
+        "/dao-tao/sau-dai-hoc/toan-co-tin-hoc",
+        "/sinh-vien",
+        "/DATA/",
+        "/data/"
+      ],
       "exclude_prefixes": [
         "/dao-tao/khoa-hoa-hoc",
         "/dao-tao/khoa-sinh-hoc",
