@@ -17,8 +17,8 @@ def test_fetch_attachment_success():
         return httpx.Response(404)
 
     client = httpx.Client(transport=httpx.MockTransport(handler))
-    al = Allowlist(SOURCES)
-    robots = Robots(client, al.user_agent)
+    al = Allowlist(SOURCES, delay_seconds=0)
+    robots = Robots(client, al.user_agent, delay_seconds=al.delay_seconds)
 
     final_url, headers, body = fetch_attachment("https://mim.hus.vnu.edu.vn/files/doc.pdf", al, client, robots)
     assert final_url == "https://mim.hus.vnu.edu.vn/files/doc.pdf"

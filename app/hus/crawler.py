@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import deque
+from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 import time
@@ -24,11 +25,44 @@ _TRANSIENT = {429, 500, 502, 503, 504}
 _REDIRECTS = {301, 302, 303, 307, 308}
 
 
+class RequestPolicy:
+    """Space request starts per host and identify every request consistently."""
+
+    def __init__(
+        self, user_agent: str, delay_seconds: float, *,
+        sleep: Callable[[float], None] = time.sleep,
+        clock: Callable[[], float] | None = None,
+    ):
+        self.user_agent = user_agent
+        self.delay_seconds = delay_seconds
+        self.sleep = sleep
+        self.clock = clock if clock is not None else time.monotonic
+        self._last_started: dict[str, float] = {}
+
+    def prepare(self, url: str, headers: dict[str, str] | None = None) -> httpx.Headers:
+        host = (urlsplit(url).hostname or "").lower()
+        last_started = self._last_started.get(host)
+        if last_started is not None:
+            remaining = self.delay_seconds - (self.clock() - last_started)
+            if remaining > 0:
+                self.sleep(remaining)
+        self._last_started[host] = self.clock()
+        outgoing = httpx.Headers(headers)
+        outgoing["User-Agent"] = self.user_agent
+        return outgoing
+
+
 class Robots:
     """robots.txt per host. 4xx = allow all; 5xx, redirect or network error = disallow all."""
 
-    def __init__(self, client: httpx.Client, user_agent: str):
+    def __init__(
+        self, client: httpx.Client, user_agent: str, *,
+        delay_seconds: float = 2.0,
+        sleep: Callable[[float], None] = time.sleep,
+        clock: Callable[[], float] | None = None,
+    ):
         self.client, self.user_agent = client, user_agent
+        self.request_policy = RequestPolicy(user_agent, delay_seconds, sleep=sleep, clock=clock)
         self._cache: dict[str, robotparser.RobotFileParser] = {}
 
     def allows(self, url: str) -> bool:
@@ -42,7 +76,10 @@ class Robots:
         response = None
         for proto in ("https", "http"):
             try:
-                response = self.client.get(f"{proto}://{host}/robots.txt", follow_redirects=False)
+                url = f"{proto}://{host}/robots.txt"
+                response = self.client.get(
+                    url, headers=self.request_policy.prepare(url), follow_redirects=False,
+                )
                 if response.status_code == 200 or 400 <= response.status_code < 500:
                     break
             except httpx.HTTPError:
@@ -67,13 +104,17 @@ def _get(
     sleep,
     max_bytes: int = MAX_HTML_BYTES,
     headers: dict[str, str] | None = None,
+    request_policy: RequestPolicy | None = None,
 ) -> tuple[int, httpx.Headers, bytes]:
     last = "no attempt"
     req_headers = dict(headers or {})
     current_url = url
     for attempt in range(attempts):
         try:
-            with client.stream("GET", current_url, headers=req_headers, follow_redirects=False) as response:
+            attempt_headers = (
+                request_policy.prepare(current_url, req_headers) if request_policy else req_headers
+            )
+            with client.stream("GET", current_url, headers=attempt_headers, follow_redirects=False) as response:
                 status, resp_headers, body = response.status_code, response.headers, bytearray()
                 if status == 200:
                     for part in response.iter_bytes():
@@ -117,6 +158,7 @@ def fetch_html(
             sleep,
             max_bytes=MAX_HTML_BYTES,
             headers=headers,
+            request_policy=robots.request_policy,
         )
         if status in _REDIRECTS:
             hops += 1
@@ -155,6 +197,7 @@ def fetch_attachment(
             sleep,
             max_bytes=MAX_ATTACHMENT_BYTES,
             headers=headers,
+            request_policy=robots.request_policy,
         )
         if status in _REDIRECTS:
             hops += 1
@@ -181,7 +224,9 @@ def crawl(
     allowlist: Allowlist, client: httpx.Client, *, sleep=time.sleep
 ) -> tuple[list[tuple[HUSDocument, bytes]], dict[str, str]]:
     """Breadth-first from seeds. Preserved for backward compatibility."""
-    robots = Robots(client, allowlist.user_agent)
+    robots = Robots(
+        client, allowlist.user_agent, delay_seconds=allowlist.delay_seconds, sleep=sleep,
+    )
     queue = deque((seed, 0) for seed in allowlist.seeds)
     seen: set[str] = set()
     documents: list[tuple[HUSDocument, bytes]] = []
@@ -207,5 +252,4 @@ def crawl(
                     queue.append((check_allowed(link, allowlist), depth + 1))
                 except CrawlError:
                     pass
-        sleep(allowlist.delay_seconds)
     return documents, failures

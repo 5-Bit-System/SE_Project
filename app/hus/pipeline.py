@@ -77,13 +77,17 @@ class HUSPipeline:
         # Own client if not provided
         client_context = None
         if client is None:
-            client_context = httpx.Client(timeout=30.0)
+            client_context = httpx.Client(
+                timeout=30.0, headers={"User-Agent": self.allowlist.user_agent},
+            )
             http_client = client_context
         else:
             http_client = client
 
         try:
-            robots = Robots(http_client, self.allowlist.user_agent)
+            robots = Robots(
+                http_client, self.allowlist.user_agent, delay_seconds=delay, sleep=sleep_fn,
+            )
 
             while queue and pages_processed < limit:
                 raw_url, depth = queue.popleft()
@@ -271,8 +275,6 @@ class HUSPipeline:
                         document_id=att_doc_id,
                     )
                     summary.attachment_count += 1
-
-                sleep_fn(delay)
 
             # Persist state and catalog atomically at the end of run
             self.processed_storage.commit()

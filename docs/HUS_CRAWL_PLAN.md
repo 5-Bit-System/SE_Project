@@ -121,6 +121,16 @@ Tuân thủ kiến trúc tinh gọn, hiệu năng cao, tối ưu cho môi trư�
    - Loại bỏ các tham số tracking: `utm_*`, `fbclid`, `gclid`, `sessionid`.
    - Bỏ qua các URL widget lịch, bộ lọc tìm kiếm: `*calendar*`, `*filter*`, `*search*`.
    - Chuẩn hóa URL (Canonicalization): Chuyển hostname về chữ thường, bỏ dấu gạch chéo cuối, chuẩn hóa percent-encoding.
+3. **Khoảng nghỉ và định danh HTTP:**
+   - `delay_seconds` (hoặc `--delay`) là khoảng cách tối thiểu giữa thời điểm bắt đầu
+     hai request liên tiếp tới cùng host. HTML, tệp đính kèm, robots.txt, redirect,
+     retry và fallback HTTPS/HTTP dùng chung `RequestPolicy` trong mỗi lượt crawl.
+   - Dùng đồng hồ monotonic; thời gian tải/xử lý và backoff đã trôi qua được tính vào
+     khoảng nghỉ, chỉ chờ phần còn thiếu. Không ngủ thêm ở cuối vòng xử lý trang.
+     Các host có đồng hồ chờ độc lập; `--delay 0` không thêm khoảng nghỉ tối thiểu.
+   - Mỗi request gửi `User-Agent` trong cấu hình, thống nhất với agent được dùng
+     kiểm tra robots. Header điều kiện của crawl gia tăng vẫn được giữ nguyên;
+     client truyền từ bên ngoài không bị thay đổi header mặc định.
 
 ### 4.2. Cơ chế xử lý tài liệu đính kèm (Attachment Handling)
 
