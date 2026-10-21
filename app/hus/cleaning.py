@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from urllib.parse import unquote
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 from app.hus.models import DocumentType, MajorCategory
 
@@ -184,6 +185,20 @@ def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
 
     # 4. Default to GENERAL
     return MajorCategory.GENERAL
+
+
+def infer_attachment_major(
+    url: str, content: str = "", *, parent_major: MajorCategory = MajorCategory.GENERAL,
+) -> MajorCategory:
+    """Prefer an attachment's own major; otherwise inherit its parent's major.
+
+    Shared by live crawling and catalog migration so inherited labels survive
+    backfilling. Use the URL filename, as the crawler does, rather than the
+    catalog's generated display title.
+    """
+    filename = Path(urlsplit(url).path).name or "attachment"
+    major = infer_major(filename, url, content)
+    return parent_major if major == MajorCategory.GENERAL else major
 
 
 def format_markdown_table(rows: list[list[str]]) -> list[str]:

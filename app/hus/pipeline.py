@@ -13,11 +13,11 @@ from urllib.parse import urlsplit
 import httpx
 
 from app.hus.allowlist import Allowlist, check_allowed
-from app.hus.cleaning import infer_document_type, infer_major
+from app.hus.cleaning import infer_attachment_major, infer_document_type, infer_major
 from app.hus.crawler import Robots, fetch_attachment, fetch_html
 from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
-from app.hus.models import DocumentStatus, HUSDocument, MajorCategory
+from app.hus.models import DocumentStatus, HUSDocument
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError, canonicalize_url
@@ -260,9 +260,9 @@ class HUSPipeline:
                     att_hash = hashlib.sha256(cleaned_content.encode("utf-8")).hexdigest()
 
                     att_filename = Path(urlsplit(att_final).path).name or "attachment"
-                    att_major = infer_major(att_filename, att_final, cleaned_content)
-                    if att_major == MajorCategory.GENERAL and doc.major != MajorCategory.GENERAL:
-                        att_major = doc.major
+                    att_major = infer_attachment_major(
+                        att_final, cleaned_content, parent_major=doc.major,
+                    )
 
                     att_doc = HUSDocument(
                         url=att_final,

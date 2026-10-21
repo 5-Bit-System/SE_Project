@@ -19,8 +19,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from app.hus.cleaning import infer_major  # noqa: E402
+from app.hus.cleaning import infer_attachment_major, infer_major  # noqa: E402
 from app.hus.models import MajorCategory  # noqa: E402
+from app.hus.urls import CrawlError, canonicalize_url  # noqa: E402
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -42,20 +43,53 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _url_identity(url: str) -> str:
+    """Match parent references using the same identity as crawler storage."""
+    try:
+        return canonicalize_url(url)
+    except CrawlError:
+        return url
+
+
 def migrate_catalog(catalog_path: Path, dry_run: bool = False) -> tuple[int, dict[str, int]]:
-    """Load catalog, reclassify each document using infer_major, and update catalog."""
+    """Reclassify documents, then apply the crawler's attachment inheritance rule."""
     if not catalog_path.is_file():
         raise FileNotFoundError(f"Catalog file not found: {catalog_path}")
 
     data = json.loads(catalog_path.read_text(encoding="utf-8"))
     documents = data.get("documents", {})
 
-    counts: Counter[str] = Counter()
-    for doc in documents.values():
+    # Infer all parents before resolving attachments, regardless of catalog order.
+    inferred: dict[str, MajorCategory] = {}
+    for doc_id, doc in documents.items():
         title = doc.get("title", "")
         url = doc.get("source_url", "")
         content = doc.get("content_markdown", "")
-        major = infer_major(title, url, content)
+        inferred[doc_id] = (
+            infer_attachment_major(url, content)
+            if doc.get("parent_url") else infer_major(title, url, content)
+        )
+    majors_by_url = {
+        _url_identity(doc["source_url"]): inferred[doc_id]
+        for doc_id, doc in documents.items() if doc.get("source_url")
+    }
+
+    counts: Counter[str] = Counter()
+    for doc_id, doc in documents.items():
+        major = inferred[doc_id]
+        if parent_url := doc.get("parent_url"):
+            parent_major = majors_by_url.get(_url_identity(parent_url))
+            if parent_major is None:
+                # A partial catalog cannot reconstruct the inherited label.
+                # Retain a valid existing label rather than silently losing it.
+                try:
+                    parent_major = MajorCategory(doc.get("major"))
+                except ValueError:
+                    parent_major = MajorCategory.GENERAL
+            major = infer_attachment_major(
+                doc.get("source_url", ""), doc.get("content_markdown", ""),
+                parent_major=parent_major,
+            )
         doc["major"] = major.value
         counts[major.value] += 1
 

@@ -16,6 +16,7 @@ from app.hus.models import DocumentStatus, DocumentType, Publisher
 from app.hus.pipeline import CrawlSummary, HUSPipeline
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
+from tools.migrate_catalog_majors import migrate_catalog
 
 # ---------------------------------------------------------------------------
 # Fixtures: minimal HTML pages and a tiny PDF stub
@@ -533,3 +534,44 @@ class TestHUSPipeline:
 
         att_doc = next(d for d in docs.values() if "104.-KHMTTT-chuan.docx" in d["source_url"])
         assert att_doc["major"] == "computer_science"
+
+    @pytest.mark.parametrize("parent_title, filename, body, expected", [
+        ("Khoa học dữ liệu", "guide.docx", "Hướng dẫn đăng ký học phần.", "data_science"),
+        ("Khoa học dữ liệu", "guide.docx", "Ngành Khoa học máy tính.", "computer_science"),
+        ("Khoa học dữ liệu", "KHMTTT.docx", "Hướng dẫn đăng ký học phần.", "computer_science"),
+        ("Thông tin đào tạo", "guide.docx", "Hướng dẫn đăng ký học phần.", "general"),
+    ])
+    def test_migration_preserves_pipeline_attachment_classification(
+        self, tmp_path: Path, parent_title: str, filename: str, body: str, expected: str,
+    ) -> None:
+        """A real extracted DOCX must keep the same label after catalog migration."""
+        document = Document()
+        document.add_paragraph(body)
+        buffer = io.BytesIO()
+        document.save(buffer)
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if request.url.path == "/vi/dao-tao":
+                return httpx.Response(
+                    200, text=f'<article><h1>{parent_title}</h1>'
+                              f'<a href="/files/{filename}">Download</a></article>',
+                    headers={"content-type": "text/html"},
+                )
+            assert request.url.path == f"/files/{filename}"
+            return httpx.Response(200, content=buffer.getvalue())
+
+        pipeline, _ = self._make_pipeline(tmp_path)
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+        assert summary.error_count == 0
+        assert summary.attachment_count == 1
+        catalog_path = tmp_path / "processed/catalog.json"
+        before = json.loads(catalog_path.read_text(encoding="utf-8"))
+        attachment = next(doc for doc in before["documents"].values() if doc["parent_url"])
+        assert attachment["major"] == expected
+
+        migrate_catalog(catalog_path)
+
+        assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
