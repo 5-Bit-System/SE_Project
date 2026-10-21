@@ -111,6 +111,32 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
         entries_by_course[(cid, code)].append(entry)
     if set(entries_by_course) != set(memberships):
         raise ValueError("Every curriculum membership needs source occurrence")
+    # Enrichment is scoped by stable program identity, never shared course code
+    # alone. Keep it inside the hashed source bundle for reproducible publication.
+    metadata_rows = bundle.get("course_metadata", [])
+    if not isinstance(metadata_rows, list):
+        raise ValueError("course_metadata must be a list")
+    enrichment_by_key = _indexed(metadata_rows, ("program_id", "code"), "course_metadata")
+    expected_metadata_keys = {
+        (PROGRAM_IDS[(curricula[cid]["major_code"], curricula[cid]["cohort_year"],
+                      curricula[cid]["curriculum_version"])], code)
+        for cid, code in memberships
+    }
+    if set(enrichment_by_key) - expected_metadata_keys:
+        raise ValueError("Metadata references a course outside its program")
+    enrichment_fields = {"name", "name_en", "hours", "instruction_language", "year", "suggested_term",
+                         "topics", "orientation", "difficulty", "workload", "description", "career_paths"}
+    for row in enrichment_by_key.values():
+        values = row.get("values")
+        if not isinstance(values, dict) or set(values) - enrichment_fields:
+            raise ValueError("Unsupported course metadata fields")
+        if not isinstance(row.get("field_evidence"), dict):
+            raise ValueError("Metadata requires field_evidence")
+        if set(row["field_evidence"]) - set(values):
+            raise ValueError("Metadata evidence must describe supplied values")
+        for field, value in values.items():
+            if value is not None and not row["field_evidence"].get(field):
+                raise ValueError(f"Non-null metadata {field} requires evidence")
     prereq_by_course: dict[tuple[int, str], dict[int, set[str]]] = defaultdict(lambda: defaultdict(set))
     for cid, code, group_no, ref in prerequisites:
         if (cid, code) not in memberships or ref not in courses or not isinstance(group_no, int) or group_no < 1:
@@ -235,6 +261,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             requirement = "graduation" if key.startswith("V.3.") else ("required_excluded" if code in EXCLUDED else
                           "elective" if code in LANGUAGES or key == "II" or key == "IV.2" or key.startswith("V.2.") else "required")
             first = occurrences[0]
+            enrichment = enrichment_by_key.get((program_id, code), {"values": {}, "field_evidence": {}})
             evidence = {field: _evidence(first, field) for field in
                         ("code", "name", "credits", "block", "requirement_type", "counted_in_total",
                          "prerequisites", "source_page", "choice_group_ids", "graduation_path_ids")}
@@ -245,8 +272,14 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                 ]
             if membership["suggested_semester"] is not None:
                 evidence["suggested_term"] = _evidence(first, "suggested_term")
+            evidence.update(enrichment["field_evidence"])
+            course_values = {"suggested_term": membership["suggested_semester"], **enrichment["values"]}
+            applicable_name = course_values.pop("name", source_course["course_name"])
+            if (membership["suggested_semester"] is not None
+                    and course_values["suggested_term"] != membership["suggested_semester"]):
+                raise ValueError(f"Metadata semester conflicts with source membership: {program_id}/{code}")
             runtime_courses.append(Course(
-                code=code, name=source_course["course_name"], credits=source_course["credits"],
+                code=code, name=applicable_name, credits=source_course["credits"],
                 block=BLOCKS[key.split(".")[0]], requirement_type=requirement,
                 counted_in_total=code not in EXCLUDED, prerequisites=expression,
                 prerequisites_raw=" | ".join(raw_texts) or None, prerequisite_status=prereq_status,
@@ -258,7 +291,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                 graduation_path_ids=[key] if key.startswith("V.3.") else [],
                 source_page=first["pdf_page"], source_rows=sorted({e["source_row_number"] for e in occurrences
                                                                     if e["source_row_number"] is not None}),
-                suggested_term=membership["suggested_semester"],
+                **course_values,
                 field_evidence=evidence, source_occurrences=occurrences,
                 source_membership=membership, source_course=source_course,
                 source_prerequisite_parse_statuses=sorted(statuses),
@@ -266,7 +299,8 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             ))
         catalog = Catalog(program=program, courses=runtime_courses,
                           metadata_schema_version="1.0", vocabulary_version="1.0", vocabulary=VOCABULARY,
-                          prerequisite_pdf_review=bundle.get("prerequisite_pdf_review"))
+                          prerequisite_pdf_review=bundle.get("prerequisite_pdf_review"),
+                          metadata_source_manifest=bundle.get("metadata_source_manifest", []))
         validate_catalog(catalog)
         result.append(catalog)
     return result

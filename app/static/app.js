@@ -3,6 +3,7 @@
 // ==========================================================================
 
 const state = {
+  courseLanguage: "vi",
   programs: [],
   profiles: [],
   currentProgramId: null,
@@ -23,6 +24,7 @@ const state = {
 
 // --- DOM References ---
 const dom = {
+  courseLanguageSelect: document.querySelector("#course-language-select"),
   programSelect: document.querySelector("#program-select"),
   profileSelect: document.querySelector("#profile-select"),
   trackSelect: document.querySelector("#track-select"),
@@ -347,6 +349,25 @@ function clearProfileSelection() {
 }
 
 // --- Render Course Checklist ---
+function localizedCourseName(course) {
+  const source = state.courses.find(item => item.code === course.code) || course;
+  return state.courseLanguage === "en" ? source.name_en || source.name : source.name;
+}
+
+function setCourseTitle(element, course) {
+  element.dataset.courseCode = course.code;
+  element.textContent = `${course.code} — ${localizedCourseName(course)}`;
+}
+
+dom.courseLanguageSelect.addEventListener("change", () => {
+  state.courseLanguage = dom.courseLanguageSelect.value === "en" ? "en" : "vi";
+  renderCourseChecklist();
+  document.querySelectorAll("[data-course-code]").forEach(element => {
+    const course = state.courses.find(item => item.code === element.dataset.courseCode);
+    if (course) setCourseTitle(element, course);
+  });
+});
+
 function renderCourseChecklist() {
   dom.courseChecklistContainer.replaceChildren();
   
@@ -354,7 +375,7 @@ function renderCourseChecklist() {
   const blockFilter = dom.courseBlockFilter.value;
 
   const filtered = state.courses.filter(c => {
-    const matchQuery = !query || c.code.toLowerCase().includes(query) || c.name.toLowerCase().includes(query);
+    const matchQuery = !query || [c.code, c.name, c.name_en || ""].some(value => value.toLowerCase().includes(query));
     const matchBlock = blockFilter === "all" || c.block === blockFilter;
     return matchQuery && matchBlock;
   });
@@ -399,7 +420,7 @@ function renderCourseChecklist() {
     
     const codeName = document.createElement("span");
     codeName.className = "course-code-name";
-    codeName.textContent = `${course.code} — ${course.name}`;
+    setCourseTitle(codeName, course);
 
     const tags = document.createElement("div");
     tags.className = "course-meta-tags";
@@ -408,6 +429,12 @@ function renderCourseChecklist() {
       <span class="badge badge-gray">Năm ${course.year || 'N/A'}</span>
       <span>${course.block}</span>
     `;
+    if (course.hours) {
+      const english = state.courseLanguage === "en";
+      const hours = document.createElement("span");
+      hours.textContent = `${english ? "Hours (lecture/practice/self-study)" : "Giờ (lý thuyết/thực hành/tự học)"}: ${["lecture", "practice", "self_study"].map(key => course.hours[key] ?? "?").join("/")}`;
+      tags.appendChild(hours);
+    }
 
     info.append(codeName, tags);
     checkLabel.append(checkbox, info);
@@ -543,6 +570,7 @@ function renderRuleEngineTab(eligRes) {
           <span class="badge badge-success">✓ Sẵn sàng</span>
         </div>
       `;
+      setCourseTitle(card.querySelector("strong"), c);
       dom.rulesEligibleList.appendChild(card);
     });
   }
@@ -570,6 +598,7 @@ function renderRuleEngineTab(eligRes) {
         </div>
         ${reasonsHtml}
       `;
+      setCourseTitle(card.querySelector("strong"), b);
       dom.rulesBlockedList.appendChild(card);
     });
   }
@@ -710,7 +739,9 @@ function createRecommendationCard(rec, index) {
   const titleGroup = createElement("div");
   const rank = Number.isFinite(Number(rec.rank)) ? Number(rec.rank) : index + 1;
   titleGroup.appendChild(createElement("span", "badge badge-info rec-rank", `Hạng #${rank}`));
-  titleGroup.appendChild(createElement("div", "rec-title", `${rec.code || "Mã môn"} — ${rec.name || "Chưa có tên môn"}`));
+  const courseTitle = createElement("div", "rec-title");
+  setCourseTitle(courseTitle, rec);
+  titleGroup.appendChild(courseTitle);
   header.appendChild(titleGroup);
   header.appendChild(createElement("span", "badge badge-success", `${rec.credits ?? 0} Tín chỉ`));
   card.appendChild(header);

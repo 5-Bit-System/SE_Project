@@ -106,6 +106,7 @@ class CourseMetadata(BaseModel):
             "requirement_type",
             "counted_in_total",
             "hours",
+            "instruction_language",
             "prerequisites",
             "choice_group_ids",
             "graduation_path_ids",
