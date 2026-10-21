@@ -8,6 +8,7 @@ from app.hus.models import (
     DocumentType,
     HUSAttachment,
     HUSDocument,
+    MajorCategory,
     Publisher,
 )
 
@@ -22,11 +23,13 @@ def test_models_serialization():
         published_at="2026-10-14",
         document_type=DocumentType.CURRICULUM,
         publisher=Publisher.MIM,
+        major=MajorCategory.MATHEMATICS,
         status=DocumentStatus.ACTIVE,
     )
     assert doc.url == "https://mim.hus.vnu.edu.vn/vi/dao-tao"
     assert doc.document_type == DocumentType.CURRICULUM
     assert doc.publisher == Publisher.MIM
+    assert doc.major == MajorCategory.MATHEMATICS
     assert doc.attachments == []
 
     att = HUSAttachment(
@@ -41,8 +44,48 @@ def test_models_serialization():
     payload = doc.model_dump(mode="json")
     assert payload["source_url"] == doc.url
     assert payload["content_markdown"] == doc.content
+    assert payload["major"] == "mathematics"
     assert "url" not in payload
     assert "content" not in payload
+
+
+def test_major_category_defaults_and_validation():
+    # Default is GENERAL
+    doc_default = HUSDocument(
+        source_url="https://mim.hus.vnu.edu.vn/vi/thong-tin-chung",
+        title="Quy chế đào tạo",
+        content_markdown="Nội dung quy chế",
+        content_hash="hash123",
+        fetched_at="2026-10-15T22:00:00Z",
+    )
+    assert doc_default.major == MajorCategory.GENERAL
+
+    # Valid string coercion
+    doc_ds = HUSDocument(
+        source_url="https://mim.hus.vnu.edu.vn/category/khoa-hoc-du-lieu/feed",
+        title="Khoa học dữ liệu",
+        content_markdown="Nội dung KHDL",
+        content_hash="hash456",
+        fetched_at="2026-10-15T22:00:00Z",
+        major="data_science",  # type: ignore[arg-type]
+    )
+    assert doc_ds.major == MajorCategory.DATA_SCIENCE
+
+    # Round trip JSON deserialization
+    raw_json = doc_ds.model_dump(mode="json")
+    deserialized = HUSDocument.model_validate(raw_json)
+    assert deserialized.major == MajorCategory.DATA_SCIENCE
+
+    # Invalid major category raises ValidationError
+    with pytest.raises(ValidationError):
+        HUSDocument(
+            source_url="https://mim.hus.vnu.edu.vn/vi/test",
+            title="Invalid major test",
+            content_markdown="Nội dung",
+            content_hash="hash789",
+            fetched_at="2026-10-15T22:00:00Z",
+            major="invalid_major",  # type: ignore[arg-type]
+        )
 
 
 def test_models_validation_error():

@@ -70,6 +70,14 @@ class DocumentStatus(str, Enum):
     ARCHIVED = "archived"
 
 
+class MajorCategory(str, Enum):
+    MATHEMATICS = "mathematics"
+    MATHEMATICS_INFORMATICS = "mathematics_informatics"
+    COMPUTER_SCIENCE = "computer_science"
+    DATA_SCIENCE = "data_science"
+    GENERAL = "general"
+
+
 class HUSAttachment(_StrictModel):
     attachment_id: str
     source_url: str
@@ -94,6 +102,10 @@ class HUSDocument(_StrictModel):
     document_type: DocumentType = DocumentType.GENERAL_INFO
     publisher: Publisher = Publisher.MIM
     academic_year: Optional[str] = None
+    major: MajorCategory = Field(
+        default=MajorCategory.GENERAL,
+        description="Ngành học áp dụng của tài liệu (hoặc 'general' nếu là quy định chung toàn trường)",
+    )
     links: list[str] = Field(default_factory=list)
     attachments: list[HUSAttachment] = Field(default_factory=list)
     status: DocumentStatus = DocumentStatus.ACTIVE
