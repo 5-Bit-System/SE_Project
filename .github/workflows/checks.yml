@@ -16,7 +16,18 @@ jobs:
       - name: Validate the retained metadata sample
         run: python -X utf8 tools/build_catalogs.py --check
       - name: Offline unit and metadata tests
-        run: python -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"
+        run: python -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance" --junitxml=reports/pytest-offline.xml
+      - name: Prerequisite tests use stable hash ordering
+        run: |
+          env PYTHONHASHSEED=1 python -m pytest -q tests/database/source/test_reviewed_prerequisites.py::test_optimization_requires_every_own_major_prerequisite
+          env PYTHONHASHSEED=2 python -m pytest -q tests/database/source/test_reviewed_prerequisites.py::test_optimization_requires_every_own_major_prerequisite
+      - name: Upload offline test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-offline
+          path: reports/pytest-offline.xml
+          if-no-files-found: warn
   postgres:
     runs-on: ubuntu-latest
     services:
@@ -40,7 +51,14 @@ jobs:
           python-version: "3.11"
       - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
       - name: PostgreSQL round trips in isolated schemas using synthetic fixtures
-        run: python -m pytest -q -m postgres
+        run: python -m pytest -q -m postgres --junitxml=reports/pytest-postgres.xml
+      - name: Upload PostgreSQL test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-postgres
+          path: reports/pytest-postgres.xml
+          if-no-files-found: warn
   hus_postgres:
     runs-on: ubuntu-latest
     services:
@@ -71,4 +89,11 @@ jobs:
           python -m database.tools.publish_catalogs --dry-run
           python -m database.tools.publish_catalogs
       - name: HUS migration and repository integration
-        run: python -m pytest -q -m hus_postgres
+        run: python -m pytest -q -m hus_postgres --junitxml=reports/pytest-hus-postgres.xml
+      - name: Upload HUS PostgreSQL test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-hus-postgres
+          path: reports/pytest-hus-postgres.xml
+          if-no-files-found: warn
