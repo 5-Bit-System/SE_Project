@@ -140,7 +140,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Updated documents    : {summary.updated_count}")
     print(f"Unchanged documents  : {summary.unchanged_count}")
     print(f"Attachments processed: {summary.attachment_count}")
+    print(f"Attachments skipped  : {summary.skipped_attachment_count}")
     print(f"Errors encountered   : {summary.error_count}")
+
+    if summary.skipped_attachments:
+        print("\n[Skipped Attachments Detail]")
+        for skipped_url, reason in summary.skipped_attachments.items():
+            print(f"  - {skipped_url} -> {reason}")
 
     if summary.failures:
         print("\n[Failures Detail]")

@@ -33,6 +33,8 @@ class CrawlSummary:
     attachment_count: int = 0
     error_count: int = 0
     failures: dict[str, str] = field(default_factory=dict)
+    skipped_attachment_count: int = 0
+    skipped_attachments: dict[str, str] = field(default_factory=dict)
 
 
 class HUSPipeline:
@@ -205,7 +207,9 @@ class HUSPipeline:
 
                     try:
                         clean_att_url = check_allowed(att_url, self.allowlist)
-                    except CrawlError:
+                    except CrawlError as exc:
+                        summary.skipped_attachment_count += 1
+                        summary.skipped_attachments[att_url] = str(exc)
                         continue
 
                     att_headers = (

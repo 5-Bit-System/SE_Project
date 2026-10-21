@@ -39,7 +39,7 @@
     },
     {
       "host": "tuyensinh.hus.vnu.edu.vn",
-      "path_prefixes": ["/dai-hoc", "/thong-tin-tuyen-sinh"],
+      "path_prefixes": ["/dai-hoc", "/thong-tin-tuyen-sinh", "/DATA/TUYENSINH/"],
       "exclude_prefixes": [],
       "seeds": [
         "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"

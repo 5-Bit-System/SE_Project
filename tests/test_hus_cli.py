@@ -82,3 +82,32 @@ def test_cli_normal_run_with_mocked_network(tmp_path: Path, monkeypatch) -> None
     assert catalog_path.exists()
     data = json.loads(catalog_path.read_text(encoding="utf-8"))
     assert data["document_count"] >= 1
+
+
+def test_cli_reports_skipped_attachments_with_url_and_reason(tmp_path, monkeypatch, capsys):
+    config_file = tmp_path / "sources.json"
+    config_file.write_text(json.dumps(_MINIMAL_CONFIG), encoding="utf-8")
+    blocked_url = "https://chem.hus.vnu.edu.vn/files/rules.pdf"
+
+    def handler(request):
+        if request.url.path == "/robots.txt":
+            return httpx.Response(200, text="User-agent: *\nAllow: /\n")
+        assert str(request.url) == _MINIMAL_CONFIG["sources"][0]["seeds"][0]
+        return httpx.Response(200, text='<main><h1>Notice</h1>'
+                              f'<a href="{blocked_url}">Rules</a></main>',
+                              headers={"content-type": "text/html"})
+
+    original_init = httpx.Client.__init__
+
+    def patched_init(self, *args, **kwargs):
+        kwargs["transport"] = httpx.MockTransport(handler)
+        original_init(self, *args, **kwargs)
+
+    monkeypatch.setattr(httpx.Client, "__init__", patched_init)
+    assert main(["--config", str(config_file), "--out", str(tmp_path / "out")]) == 0
+    output = capsys.readouterr().out
+    assert "Attachments skipped  : 1" in output
+    assert "[Skipped Attachments Detail]" in output
+    assert blocked_url in output
+    assert "excluded faculty host" in output
+    assert "Errors encountered   : 0" in output

@@ -129,6 +129,15 @@ Tuân thủ kiến trúc tinh gọn, hiệu năng cao, tối ưu cho môi trư�
 2. **Tải và lưu trữ tài liệu:**
    - Tải file bằng HTTPX với giới hạn kích thước an toàn (mặc định tối đa 20MB cho tài liệu đính kèm).
    - Lưu trữ bản gốc tại `data/hus/raw/documents/{hash}.{ext}`.
+   - Trên host `tuyensinh.hus.vnu.edu.vn`, cho phép thêm thư mục tệp
+     `/DATA/TUYENSINH/`; không mở toàn bộ `/DATA/` hoặc các host khoa khác.
+   - Tệp bị từ chối ở bước kiểm tra URL được ghi vào `skipped_attachments`
+     với URL và lý do; `skipped_attachment_count` đếm mỗi URL bị chặn một lần
+     trong lượt chạy, kể cả khi nhiều bài viết cùng trỏ đến tệp đó.
+     CLI in số lượng `Attachments skipped` và phần `Skipped Attachments Detail`.
+     Lỗi tải/bóc tách vẫn nằm trong `error_count`/`failures`; tệp trả `304`
+     không được tính là bị chặn. Quy tắc và thống kê này cũng áp dụng khi
+     dùng liên kết trong cache của trang cha trả `304`.
 3. **Mối quan hệ Phụ thuộc (Parent-Child Relationship):**
    - Tài liệu đính kèm được cấp `document_id` riêng, nhưng metadata chứa trường `parent_url` trỏ về bài viết HTML chứa liên kết đó.
    - Khi chatbot trích dẫn câu trả lời, hệ thống có thể cung cấp cả link tải tài liệu lẫn link bài viết gốc chứa văn bản.
