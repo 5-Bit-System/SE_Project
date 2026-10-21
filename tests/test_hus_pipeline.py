@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 from pathlib import Path
 
+from docx import Document
 import httpx
 import pytest
 
@@ -222,3 +224,253 @@ class TestHUSPipeline:
         summary = pipeline.run(client=client, sleep=lambda _: None)
         assert summary.error_count >= 1
         assert summary.new_count == 0
+
+    def test_304_ancestors_still_reach_updated_grandchild(self, tmp_path: Path) -> None:
+        phase = 1
+        seen = []
+        bodies = {
+            "/vi/dao-tao": '<main><h1>Seed</h1><a href="/vi/child">Child</a></main>',
+            "/vi/child": '<main><h1>Child</h1><a href="/vi/leaf">Leaf</a></main>',
+        }
+
+        def handler(request):
+            path = request.url.path
+            seen.append((path, request.headers.get("if-none-match")))
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if phase == 2 and path in bodies:
+                assert request.headers["if-none-match"] == f'"{path}-v1"'
+                return httpx.Response(304)
+            html = bodies.get(path, f"<main><h1>Leaf</h1><p>Version {phase}</p></main>")
+            return httpx.Response(200, text=html, headers={
+                "content-type": "text/html", "etag": f'"{path}-v{phase}"',
+            })
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            first, _ = self._make_pipeline(tmp_path)
+            assert first.run(client=client, sleep=lambda _: None).new_count == 3
+            before = {path: (path.read_bytes(), path.stat().st_mtime_ns)
+                      for path in (tmp_path / "processed/documents").glob("*.md")}
+            phase = 2
+            seen.clear()
+            second, _ = self._make_pipeline(tmp_path)
+            result = second.run(client=client, sleep=lambda _: None)
+
+        assert [path for path, _ in seen] == ["/robots.txt", "/vi/dao-tao", "/vi/child", "/vi/leaf"]
+        assert result.new_count == 0
+        assert result.updated_count == 1
+        assert result.unchanged_count == 2
+        assert result.error_count == 0
+        catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
+        leaf = next(doc for doc in catalog["documents"].values() if doc["source_url"].endswith("/leaf"))
+        assert "Version 2" in leaf["content_markdown"]
+        for doc in catalog["documents"].values():
+            if not doc["source_url"].endswith("/leaf"):
+                path = tmp_path / "processed/documents" / f'{doc["document_id"]}.md'
+                assert (path.read_bytes(), path.stat().st_mtime_ns) == before[path]
+        assert len(list((tmp_path / "raw/html").glob("*.html"))) == 4
+
+    def test_304_parent_still_refreshes_attachment(self, tmp_path: Path) -> None:
+        phase = 1
+        seen = []
+        files = {}
+        for version in (1, 2):
+            document = Document()
+            document.add_paragraph(f"Attachment version {version}")
+            buffer = io.BytesIO()
+            document.save(buffer)
+            files[version] = buffer.getvalue()
+
+        def handler(request):
+            path = request.url.path
+            seen.append((path, request.headers.get("if-none-match")))
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                if phase == 2:
+                    return httpx.Response(304)
+                return httpx.Response(200, text='<main><h1>Seed</h1>'
+                                      '<a href="/files/rules.docx">Rules</a></main>',
+                                      headers={"content-type": "text/html", "etag": '"seed-v1"'})
+            assert path == "/files/rules.docx"
+            return httpx.Response(200, content=files[phase], headers={"etag": f'"file-v{phase}"'})
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            first, _ = self._make_pipeline(tmp_path)
+            initial = first.run(client=client, sleep=lambda _: None)
+            assert initial.attachment_count == 1
+            phase = 2
+            seen.clear()
+            second, _ = self._make_pipeline(tmp_path)
+            result = second.run(client=client, sleep=lambda _: None)
+
+        assert seen == [("/robots.txt", None), ("/vi/dao-tao", '"seed-v1"'),
+                        ("/files/rules.docx", '"file-v1"')]
+        assert result.unchanged_count == 1
+        assert result.attachment_count == 1
+        assert result.error_count == 0
+        catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
+        attachment = next(doc for doc in catalog["documents"].values() if doc["parent_url"])
+        assert "Attachment version 2" in attachment["content_markdown"]
+        assert attachment["parent_url"] == "https://mim.hus.vnu.edu.vn/vi/dao-tao"
+
+    @pytest.mark.parametrize("limits", [{"max_depth": 0}, {"max_pages": 1}])
+    def test_304_discovery_respects_run_limits(self, tmp_path: Path, limits) -> None:
+        phase = 1
+        seen = []
+
+        def handler(request):
+            path = request.url.path
+            seen.append(path)
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                if phase == 2:
+                    return httpx.Response(304)
+                return httpx.Response(200, text='<main><h1>Seed</h1>'
+                                      '<a href="/vi/child">Child</a></main>',
+                                      headers={"content-type": "text/html", "etag": '"seed"'})
+            return httpx.Response(200, text="<main><h1>Child</h1><p>Text.</p></main>",
+                                  headers={"content-type": "text/html"})
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            first, _ = self._make_pipeline(tmp_path)
+            first.run(client=client, sleep=lambda _: None)
+            phase = 2
+            seen.clear()
+            second, _ = self._make_pipeline(tmp_path)
+            result = second.run(client=client, sleep=lambda _: None, **limits)
+
+        assert seen == ["/robots.txt", "/vi/dao-tao"]
+        assert result.unchanged_count == 1
+        assert result.error_count == 0
+
+    def test_304_cached_links_use_current_allowlist(self, tmp_path: Path) -> None:
+        phase = 1
+        seen = []
+
+        def handler(request):
+            path = request.url.path
+            seen.append(path)
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                if phase == 2:
+                    return httpx.Response(304)
+                return httpx.Response(200, text='<main><h1>Seed</h1>'
+                                      '<a href="/vi/blocked">Child</a>'
+                                      '<a href="/files/blocked.docx">File</a></main>',
+                                      headers={"content-type": "text/html", "etag": '"seed"'})
+            raise AssertionError(f"Excluded cached link requested: {path}")
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            first, _ = self._make_pipeline(tmp_path)
+            # Save discovery metadata while refusing these links on the initial run.
+            first.allowlist.exclusions["mim.hus.vnu.edu.vn"] = ("/vi/blocked", "/files/blocked.docx")
+            first.run(client=client, sleep=lambda _: None)
+            phase = 2
+            seen.clear()
+            second, _ = self._make_pipeline(tmp_path)
+            second.allowlist.exclusions["mim.hus.vnu.edu.vn"] = ("/vi/blocked", "/files/blocked.docx")
+            result = second.run(client=client, sleep=lambda _: None)
+
+        assert seen == ["/robots.txt", "/vi/dao-tao"]
+        assert result.unchanged_count == 1
+        assert result.error_count == 0
+
+    @pytest.mark.parametrize("cache_problem", ["missing", "invalid", "wrong_url"])
+    def test_304_without_cached_document_recovers_with_unconditional_fetch(
+        self, tmp_path: Path, cache_problem: str,
+    ) -> None:
+        phase = 1
+        seen = []
+
+        def handler(request):
+            path = request.url.path
+            seen.append((path, request.headers.get("if-none-match")))
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                if request.headers.get("if-none-match"):
+                    return httpx.Response(304)
+                return httpx.Response(200, text='<main><h1>Seed</h1>'
+                                      '<a href="/vi/child">Child</a></main>',
+                                      headers={"content-type": "text/html", "etag": '"seed"'})
+            return httpx.Response(200, text=f"<main><h1>Child</h1><p>Version {phase}</p></main>",
+                                  headers={"content-type": "text/html"})
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            first, _ = self._make_pipeline(tmp_path)
+            first.run(client=client, sleep=lambda _: None)
+            catalog_path = tmp_path / "processed/catalog.json"
+            catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+            seed_id = next(key for key, value in catalog["documents"].items()
+                           if value["source_url"].endswith("/dao-tao"))
+            if cache_problem == "missing":
+                del catalog["documents"][seed_id]
+            elif cache_problem == "invalid":
+                catalog["documents"][seed_id]["content_markdown"] = ""
+            else:
+                catalog["documents"][seed_id]["source_url"] = "https://mim.hus.vnu.edu.vn/vi/wrong"
+            catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
+            phase = 2
+            seen.clear()
+            second, _ = self._make_pipeline(tmp_path)
+            result = second.run(client=client, sleep=lambda _: None)
+
+        assert seen == [("/robots.txt", None), ("/vi/dao-tao", '"seed"'),
+                        ("/vi/dao-tao", None), ("/vi/child", None)]
+        assert result.error_count == 0
+        restored = json.loads(catalog_path.read_text(encoding="utf-8"))["documents"]
+        assert len(restored) == 2
+        assert any("Version 2" in doc["content_markdown"] for doc in restored.values())
+
+    def test_304_without_cache_or_response_body_is_reported_as_error(self, tmp_path: Path) -> None:
+        def handler(request):
+            if request.url.path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            return httpx.Response(304)
+
+        pipeline, _ = self._make_pipeline(tmp_path)
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            result = pipeline.run(client=client, sleep=lambda _: None)
+
+        assert result.unchanged_count == 0
+        assert result.error_count == 1
+        assert "cached document" in result.failures["https://mim.hus.vnu.edu.vn/vi/dao-tao"]
+
+    def test_304_uses_latest_navigation_after_unchanged_content_hash(self, tmp_path: Path) -> None:
+        phase = 1
+        seen = []
+
+        def handler(request):
+            path = request.url.path
+            seen.append(path)
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                if phase == 3:
+                    return httpx.Response(304)
+                child = "old" if phase == 1 else "new"
+                # Navigation affects discovery but is removed from the content hash.
+                return httpx.Response(200, text=f'<nav><a href="/vi/{child}">Child</a></nav>'
+                                      '<main><h1>Seed</h1><p>Unchanged content.</p></main>',
+                                      headers={"content-type": "text/html", "etag": '"seed"'})
+            return httpx.Response(200, text=f"<main><h1>Child</h1><p>{path} v{phase}</p></main>",
+                                  headers={"content-type": "text/html"})
+
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            for phase in (1, 2):
+                current, _ = self._make_pipeline(tmp_path)
+                current.run(client=client, sleep=lambda _: None)
+            phase = 3
+            seen.clear()
+            current, _ = self._make_pipeline(tmp_path)
+            result = current.run(client=client, sleep=lambda _: None)
+
+        assert seen == ["/robots.txt", "/vi/dao-tao", "/vi/new"]
+        assert result.unchanged_count == 1
+        assert result.updated_count == 1
+        catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
+        seed = next(doc for doc in catalog["documents"].values() if doc["source_url"].endswith("/dao-tao"))
+        assert seed["links"] == ["https://mim.hus.vnu.edu.vn/vi/new"]

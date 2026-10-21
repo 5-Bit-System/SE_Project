@@ -115,53 +115,75 @@ class HUSPipeline:
 
                 seen_urls.add(final_url)
 
-                # HTTP 304 Not Modified
-                if not raw_bytes:
-                    should_proc, reason = self.state_manager.should_process(
-                        final_url, "", status_code=304
-                    )
-                    if not should_proc:
-                        summary.unchanged_count += 1
-                        pages_processed += 1
-                        sleep_fn(delay)
-                        continue
+                # A 304 skips re-extraction, but must not skip child discovery.
+                not_modified = not raw_bytes
+                if not_modified:
+                    record = self.state_manager.records.get(final_url)
+                    document_id = record.document_id if record else None
+                    document_id = document_id or hashlib.sha256(final_url.encode("utf-8")).hexdigest()[:16]
+                    doc = self.processed_storage.get_document(document_id)
+                    if doc is None or doc.url != final_url:
+                        # State may outlive its catalog entry. Rebuild it once without validators.
+                        try:
+                            final_url, resp_headers, raw_bytes = fetch_html(
+                                final_url, self.allowlist, http_client, robots,
+                                sleep=sleep_fn, headers={},
+                            )
+                            if not raw_bytes:
+                                raise CrawlError(
+                                    f"not modified response without a usable cached document: {final_url}"
+                                )
+                        except CrawlError as exc:
+                            summary.failures[final_url] = str(exc)
+                            summary.error_count += 1
+                            continue
+                        seen_urls.add(final_url)
+                        not_modified = False
 
-                # Parse HTML document and discovered attachment links
-                try:
-                    doc, attachment_urls = extract_html(raw_bytes, final_url, fetched_at)
-                    doc.document_type = infer_document_type(doc.title, doc.content)
-                except CrawlError as exc:
-                    summary.failures[final_url] = str(exc)
-                    summary.error_count += 1
-                    continue
-
-                # Check incremental state against content hash
-                should_proc = True
-                reason = "new"
-                if incremental:
-                    should_proc, reason = self.state_manager.should_process(
-                        final_url, doc.content_hash, status_code=200
-                    )
-
-                if not should_proc:
+                if not_modified:
+                    attachment_urls = [attachment.source_url for attachment in doc.attachments]
                     summary.unchanged_count += 1
                 else:
-                    # Save raw HTML and processed markdown document
-                    self.raw_storage.save_raw_html(final_url, raw_bytes)
-                    doc_id = self.processed_storage.save_document(doc)
-                    self.state_manager.update_record(
-                        url=final_url,
-                        content_hash=doc.content_hash,
-                        last_crawled=fetched_at,
-                        etag=resp_headers.get("etag"),
-                        last_modified=resp_headers.get("last-modified"),
-                        status_code=200,
-                        document_id=doc_id,
-                    )
-                    if reason == "new":
-                        summary.new_count += 1
+                    # Parse HTML document and discovered attachment links.
+                    try:
+                        doc, attachment_urls = extract_html(raw_bytes, final_url, fetched_at)
+                        doc.document_type = infer_document_type(doc.title, doc.content)
+                    except CrawlError as exc:
+                        summary.failures[final_url] = str(exc)
+                        summary.error_count += 1
+                        continue
+
+                    should_proc, reason = True, "new"
+                    if incremental:
+                        should_proc, reason = self.state_manager.should_process(
+                            final_url, doc.content_hash, status_code=200
+                        )
+                    if not should_proc:
+                        record = self.state_manager.records.get(final_url)
+                        document_id = record.document_id if record else None
+                        document_id = document_id or hashlib.sha256(final_url.encode("utf-8")).hexdigest()[:16]
+                        if not self.processed_storage.refresh_discovery(document_id, doc):
+                            should_proc, reason = True, "updated"
+
+                    if not should_proc:
+                        summary.unchanged_count += 1
                     else:
-                        summary.updated_count += 1
+                        # Save raw HTML and processed markdown document.
+                        self.raw_storage.save_raw_html(final_url, raw_bytes)
+                        doc_id = self.processed_storage.save_document(doc)
+                        self.state_manager.update_record(
+                            url=final_url,
+                            content_hash=doc.content_hash,
+                            last_crawled=fetched_at,
+                            etag=resp_headers.get("etag"),
+                            last_modified=resp_headers.get("last-modified"),
+                            status_code=200,
+                            document_id=doc_id,
+                        )
+                        if reason == "new":
+                            summary.new_count += 1
+                        else:
+                            summary.updated_count += 1
 
                 pages_processed += 1
 

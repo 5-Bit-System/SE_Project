@@ -7,6 +7,8 @@ import json
 import os
 from pathlib import Path
 
+from pydantic import ValidationError
+
 from app.hus.models import HUSDocument
 
 
@@ -56,6 +58,25 @@ class ProcessedStorage:
                 self.documents = data.get("documents", {})
             except Exception:
                 self.documents = {}
+
+    def get_document(self, document_id: str) -> HUSDocument | None:
+        """Load validated metadata for discovery after an HTTP 304 response."""
+        record = self.documents.get(document_id)
+        if record is None:
+            return None
+        try:
+            return HUSDocument.model_validate(record)
+        except ValidationError:
+            return None
+
+    def refresh_discovery(self, document_id: str, doc: HUSDocument) -> bool:
+        """Refresh links without rewriting unchanged Markdown; False requires a rebuild."""
+        cached = self.get_document(document_id)
+        if cached is None or cached.url != doc.url:
+            return False
+        self.documents[document_id]["links"] = list(doc.links)
+        self.documents[document_id]["attachments"] = [item.model_dump() for item in doc.attachments]
+        return True
 
     def save_document(self, doc: HUSDocument) -> str:
         doc_id = doc.document_id or hashlib.sha256(doc.url.encode("utf-8")).hexdigest()[:16]

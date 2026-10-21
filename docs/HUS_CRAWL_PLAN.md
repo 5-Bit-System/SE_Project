@@ -187,7 +187,13 @@ data/hus/
 ### 5.2. Quy trình Cập nhật gia tăng (Incremental Update)
 
 1. Gửi request kèm `If-None-Match` (ETag) hoặc `If-Modified-Since` (Last-Modified) nếu máy chủ trường phản hồi các header này.
-2. Nếu máy chủ trả về `304 Not Modified`, bỏ qua bước download và xử lý.
+2. Nếu máy chủ trả về `304 Not Modified`, dùng bản ghi đã lưu trong catalog để tiếp tục duyệt
+   `links` và `attachments`, không tải lại hay ghi đè Markdown của trang cha. Từng URL vẫn được
+   kiểm tra theo allowlist/robots hiện tại; giới hạn độ sâu, số trang và chống trùng trong lượt
+   chạy vẫn áp dụng. Nếu cache thiếu, sai schema hoặc sai URL, thử tải lại trang cha một lần
+   không kèm header điều kiện; nếu vẫn không có nội dung để khôi phục thì ghi lỗi.
+   Khi nhận HTML `200` có cùng hash nội dung, vẫn làm mới metadata liên kết trong catalog để
+   các lượt `304` sau dùng đúng danh sách mới nhất, kể cả liên kết chỉ thay đổi trong menu.
 3. Khi tải nội dung mới, tính toán `content_hash`. Nếu hash trùng khớp với phiên bản trước trong `crawl_state.json`, cập nhật `last_checked_at` mà không ghi đè lại file.
 4. Nếu phát hiện bài viết bị xóa (404/410), không xóa dữ liệu cũ ngay lập tức mà chuyển trạng thái sang `archived` hoặc `deprecated`.
 
