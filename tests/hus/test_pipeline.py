@@ -623,3 +623,57 @@ class TestHUSPipeline:
 
         migrate_catalog(catalog_path)
         assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
+
+    def test_full_major_slug_classifies_html_and_docx_and_repairs_old_catalog(
+        self, tmp_path: Path,
+    ) -> None:
+        document = Document()
+        document.add_paragraph("Thông tin chương trình.")
+        buffer = io.BytesIO()
+        document.save(buffer)
+        filename = "toan-hoc-va-tin-hoc.docx"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            path = request.url.path
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/toan-hoc":
+                return httpx.Response(
+                    200, text='<article><h1>Thông tin đào tạo</h1>'
+                              '<a href="/vi/toan-hoc-va-tin-hoc">Chương trình</a>'
+                              f'<a href="/files/{filename}">Tài liệu</a></article>',
+                    headers={"content-type": "text/html"},
+                )
+            if path == "/vi/toan-hoc-va-tin-hoc":
+                return httpx.Response(
+                    200, text="<article><h1>Chương trình Toán học và Tin học</h1>"
+                              "<p>Thông tin chương trình.</p></article>",
+                    headers={"content-type": "text/html"},
+                )
+            assert path == f"/files/{filename}"
+            return httpx.Response(200, content=buffer.getvalue())
+
+        pipeline, allowlist = self._make_pipeline(tmp_path)
+        allowlist.seeds = ["https://mim.hus.vnu.edu.vn/vi/toan-hoc"]
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+        assert summary.error_count == 0
+        assert summary.new_count == 2
+        assert summary.attachment_count == 1
+        catalog_path = tmp_path / "processed/catalog.json"
+        before = json.loads(catalog_path.read_text(encoding="utf-8"))
+        for doc in before["documents"].values():
+            expected = "mathematics_informatics" if "va-tin-hoc" in doc["source_url"] else "mathematics"
+            assert doc["major"] == expected
+
+        # Simulate labels produced by the old substring rule, then backfill them.
+        old_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        for doc in old_catalog["documents"].values():
+            doc["major"] = "mathematics"
+        catalog_path.write_text(json.dumps(old_catalog), encoding="utf-8")
+        old_bytes = catalog_path.read_bytes()
+        expected_stats = (3, {"mathematics": 1, "mathematics_informatics": 2})
+        assert migrate_catalog(catalog_path, dry_run=True) == expected_stats
+        assert catalog_path.read_bytes() == old_bytes
+        assert migrate_catalog(catalog_path) == expected_stats
+        assert json.loads(catalog_path.read_text(encoding="utf-8")) == before

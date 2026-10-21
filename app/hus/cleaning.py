@@ -179,9 +179,12 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
     ):
         return MajorCategory.COMPUTER_SCIENCE
 
+    # Match the full compound major before the shorter "toan-hoc" markers below.
     if any(
         k in unquoted_url
         for k in (
+            "toan-hoc-va-tin-hoc",
+            "toan hoc va tin hoc",
             "/category/toantin",
             "/toantin",
             "toantin",

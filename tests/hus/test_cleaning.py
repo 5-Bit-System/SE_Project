@@ -189,6 +189,30 @@ def test_infer_major_from_title_and_content():
     )
 
 
+@pytest.mark.parametrize("path", [
+    "/vi/toan-hoc-va-tin-hoc",
+    "/category/toan-hoc-va-tin-hoc/",
+    "/vi/TOAN-HOC-VA-TIN-HOC",
+    "/files/103.-Toan-hoc-va-Tin-hoc-chuan.docx",
+    "/files/Toán học và Tin học.pdf",
+    "/files/To%C3%A1n%20h%E1%BB%8Dc%20v%C3%A0%20Tin%20h%E1%BB%8Dc.pdf",
+    "/vi/toan-hoc/toan-hoc-va-tin-hoc",
+])
+def test_full_math_informatics_url_takes_precedence_over_mathematics(path: str) -> None:
+    url = f"https://mim.hus.vnu.edu.vn{path}"
+    for title in ("Chương trình Toán học và Tin học", "Thông tin đào tạo"):
+        assert infer_major(title, url) == MajorCategory.MATHEMATICS_INFORMATICS
+    assert infer_attachment_major(
+        url, "Thông tin chương trình.", parent_major=MajorCategory.MATHEMATICS,
+    ) == MajorCategory.MATHEMATICS_INFORMATICS
+
+
+def test_mathematics_url_with_other_suffix_stays_mathematics() -> None:
+    assert infer_major(
+        "Thông tin đào tạo", "https://mim.hus.vnu.edu.vn/vi/toan-hoc-va-ung-dung",
+    ) == MajorCategory.MATHEMATICS
+
+
 def test_infer_major_general_and_defaults():
     # University-wide / General documents
     assert (
