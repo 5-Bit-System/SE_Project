@@ -9,6 +9,7 @@ from pathlib import Path
 import textwrap
 
 from app.hus.models import HUSChunk, HUSDocument
+from app.hus.urls import canonicalize_url
 
 
 def chunk_document(document: HUSDocument, max_chars: int = 1200) -> list[HUSChunk]:
@@ -21,7 +22,8 @@ def chunk_document(document: HUSDocument, max_chars: int = 1200) -> list[HUSChun
         if not buf:
             return
         text = "\n".join(buf)
-        digest = hashlib.sha256(f"{document.url}\n{len(chunks)}\n{text}".encode()).hexdigest()
+        identity = canonicalize_url(document.url)
+        digest = hashlib.sha256(f"{identity}\n{len(chunks)}\n{text}".encode()).hexdigest()
         chunks.append(
             HUSChunk(
                 chunk_id=digest[:16], url=document.url, title=document.title,
@@ -60,11 +62,12 @@ class HUSIndex:
 
         record = document.model_dump(exclude={"links"})
         record["raw_file"] = raw_name
-        existing = self.documents.get(document.url)
+        identity = canonicalize_url(document.url)
+        existing = self.documents.get(identity)
         original = next(
             (
                 url for url, d in self.documents.items()
-                if url != document.url
+                if url != identity
                 and d["content_hash"] == document.content_hash
                 and not d.get("duplicate_of")
             ),
@@ -74,7 +77,10 @@ class HUSIndex:
             record.update(duplicate_of=original, chunks=[], version=1, history=[])
             status = "duplicate"
         elif existing and existing["content_hash"] == document.content_hash:
-            record = {**existing, "fetched_at": document.fetched_at}
+            record = {**existing, "fetched_at": document.fetched_at,
+                      "source_url": document.url, "raw_file": raw_name}
+            if existing.get("source_url") != document.url:
+                record["chunks"] = [c.model_dump() for c in chunk_document(document)]
             status = "unchanged"
         else:
             record["chunks"] = [c.model_dump() for c in chunk_document(document)]
@@ -85,7 +91,7 @@ class HUSIndex:
                 if existing else []
             )
             status = "updated" if existing else "new"
-        self.documents[document.url] = record
+        self.documents[identity] = record
         return status
 
     def save(self) -> None:

@@ -16,8 +16,8 @@ class CrawlError(Exception):
     """A URL was refused or failed; the caller records it and leaves the index untouched."""
 
 
-def canonicalize_url(url: str) -> str:
-    """https, lowercase host, decoded-then-requoted path, no fragment/tracking/trailing slash."""
+def canonicalize_url(url: str, *, preserve_scheme: bool = False) -> str:
+    """Normalize identity to HTTPS, or retain the scheme for actual fetch URLs."""
     parts = urlsplit(url.strip())
     if parts.scheme not in ("http", "https") or not parts.hostname:
         raise CrawlError(f"unsupported URL: {url!r}")
@@ -46,7 +46,8 @@ def canonicalize_url(url: str) -> str:
             if not (k.lower().startswith("utm_") or k.lower() in _TRACKING)
         )
     )
-    return urlunsplit(("https", parts.hostname.lower(), path, query, ""))
+    scheme = parts.scheme if preserve_scheme else "https"
+    return urlunsplit((scheme, parts.hostname.lower(), path, query, ""))
 
 
 def is_spider_trap(url: str) -> bool:

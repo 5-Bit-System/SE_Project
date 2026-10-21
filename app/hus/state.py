@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Optional
 
 from app.hus.models import CrawlRecord
+from app.hus.urls import canonicalize_url
 
 
 class CrawlStateManager:
@@ -20,15 +21,24 @@ class CrawlStateManager:
             try:
                 data = json.loads(self.state_file.read_text(encoding="utf-8"))
                 for url, r_dict in data.get("records", {}).items():
-                    self.records[url] = CrawlRecord(**r_dict)
+                    self.records[canonicalize_url(url)] = CrawlRecord(**r_dict)
             except Exception:
                 self.records = {}
+
+    def get_record(self, url: str) -> CrawlRecord | None:
+        """Find a record by stable identity without changing its effective source URL."""
+        record = self.records.get(canonicalize_url(url))
+        if record and canonicalize_url(record.url) == canonicalize_url(url):
+            return record
+        return None
 
     def get_request_headers(self, url: str) -> dict[str, str]:
         """Return conditional HTTP headers (If-None-Match, If-Modified-Since) if cached."""
         headers = {}
-        record = self.records.get(url)
-        if record:
+        record = self.get_record(url)
+        if record and canonicalize_url(record.url, preserve_scheme=True) == canonicalize_url(
+            url, preserve_scheme=True,
+        ):
             if record.etag:
                 headers["If-None-Match"] = record.etag
             if record.last_modified:
@@ -45,7 +55,7 @@ class CrawlStateManager:
         if status_code == 304:
             return False, "unchanged_not_modified"
 
-        record = self.records.get(url)
+        record = self.get_record(url)
         if not record:
             return True, "new"
 
@@ -65,7 +75,7 @@ class CrawlStateManager:
         document_id: Optional[str] = None,
     ) -> None:
         """Update or insert crawl record for url."""
-        self.records[url] = CrawlRecord(
+        self.records[canonicalize_url(url)] = CrawlRecord(
             url=url,
             content_hash=content_hash,
             etag=etag,

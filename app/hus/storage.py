@@ -10,6 +10,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from app.hus.models import HUSDocument
+from app.hus.urls import canonicalize_url
 
 
 class RawStorage:
@@ -79,7 +80,8 @@ class ProcessedStorage:
         return True
 
     def save_document(self, doc: HUSDocument) -> str:
-        doc_id = doc.document_id or hashlib.sha256(doc.url.encode("utf-8")).hexdigest()[:16]
+        identity = canonicalize_url(doc.url)
+        doc_id = doc.document_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
         doc.document_id = doc_id
 
         # Write markdown content to disk

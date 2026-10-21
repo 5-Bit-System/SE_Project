@@ -15,7 +15,7 @@ import httpx
 from app.hus.allowlist import Allowlist, check_allowed
 from app.hus.cleaning import extract_document
 from app.hus.models import HUSDocument
-from app.hus.urls import CrawlError, is_private_host
+from app.hus.urls import CrawlError, canonicalize_url, is_private_host
 
 MAX_HTML_BYTES = 2 * 1024 * 1024         # 2 MB for HTML
 MAX_ATTACHMENT_BYTES = 20 * 1024 * 1024  # 20 MB for PDF/DOCX/XLSX
@@ -39,7 +39,9 @@ class RequestPolicy:
         self.clock = clock if clock is not None else time.monotonic
         self._last_started: dict[str, float] = {}
 
-    def prepare(self, url: str, headers: dict[str, str] | None = None) -> httpx.Headers:
+    def prepare(
+        self, url: str, headers: dict[str, str] | httpx.Headers | None = None,
+    ) -> httpx.Headers:
         host = (urlsplit(url).hostname or "").lower()
         last_started = self._last_started.get(host)
         if last_started is not None:
@@ -105,9 +107,9 @@ def _get(
     max_bytes: int = MAX_HTML_BYTES,
     headers: dict[str, str] | None = None,
     request_policy: RequestPolicy | None = None,
-) -> tuple[int, httpx.Headers, bytes]:
+) -> tuple[str, int, httpx.Headers, bytes]:
     last = "no attempt"
-    req_headers = dict(headers or {})
+    req_headers = httpx.Headers(headers)
     current_url = url
     for attempt in range(attempts):
         try:
@@ -122,18 +124,21 @@ def _get(
                         if len(body) > max_bytes:
                             raise CrawlError(f"response over {max_bytes} bytes: {current_url}")
             if status not in _TRANSIENT:
-                return status, resp_headers, bytes(body)
+                return str(response.url), status, resp_headers, bytes(body)
             last = f"HTTP {status}"
         except (httpx.ConnectTimeout, httpx.ConnectError) as exc:
             last = type(exc).__name__
             if current_url.startswith("https://"):
                 current_url = "http://" + current_url[8:]
+                # Validators belong to the original origin, not its HTTP fallback.
+                req_headers.pop("If-None-Match", None)
+                req_headers.pop("If-Modified-Since", None)
                 continue
         except httpx.TransportError as exc:
             last = type(exc).__name__
         if attempt < attempts - 1:
             sleep(backoff * 2**attempt)
-    raise CrawlError(f"gave up after {attempts} attempts ({last}): {url}")
+    raise CrawlError(f"gave up after {attempts} attempts ({last}): {current_url}")
 
 
 def fetch_html(
@@ -146,11 +151,11 @@ def fetch_html(
     headers: dict[str, str] | None = None,
 ) -> tuple[str, httpx.Headers, bytes]:
     """Fetch one HTML page, re-checking allowlist and robots on every redirect hop."""
-    current, hops = check_allowed(url, allowlist), 0
+    current, hops = check_allowed(url, allowlist, preserve_scheme=True), 0
     while True:
         if not robots.allows(current):
             raise CrawlError(f"robots.txt disallows {current}")
-        status, resp_headers, body = _get(
+        current, status, resp_headers, body = _get(
             client,
             current,
             allowlist.retry_attempts,
@@ -164,7 +169,10 @@ def fetch_html(
             hops += 1
             if hops > MAX_REDIRECTS or "location" not in resp_headers:
                 raise CrawlError(f"bad redirect from {current}")
-            current = check_allowed(urljoin(current, resp_headers["location"]), allowlist)
+            current = check_allowed(
+                urljoin(current, resp_headers["location"]), allowlist, preserve_scheme=True,
+            )
+            headers = None  # A redirect target must not inherit another URL's validators.
             continue
         if status == 304:
             return current, resp_headers, b""
@@ -185,11 +193,11 @@ def fetch_attachment(
     headers: dict[str, str] | None = None,
 ) -> tuple[str, httpx.Headers, bytes]:
     """Fetch one binary attachment up to MAX_ATTACHMENT_BYTES (20MB) safely."""
-    current, hops = check_allowed(url, allowlist), 0
+    current, hops = check_allowed(url, allowlist, preserve_scheme=True), 0
     while True:
         if not robots.allows(current):
             raise CrawlError(f"robots.txt disallows {current}")
-        status, resp_headers, body = _get(
+        current, status, resp_headers, body = _get(
             client,
             current,
             allowlist.retry_attempts,
@@ -203,7 +211,10 @@ def fetch_attachment(
             hops += 1
             if hops > MAX_REDIRECTS or "location" not in resp_headers:
                 raise CrawlError(f"bad redirect from {current}")
-            current = check_allowed(urljoin(current, resp_headers["location"]), allowlist)
+            current = check_allowed(
+                urljoin(current, resp_headers["location"]), allowlist, preserve_scheme=True,
+            )
+            headers = None
             continue
         if status == 304:
             return current, resp_headers, b""
@@ -242,9 +253,10 @@ def crawl(
         except CrawlError as exc:
             failures[url] = str(exc)
             continue
-        if document.url in seen and document.url != url:
+        final_key = canonicalize_url(document.url)
+        if final_key in seen and final_key != url:
             continue
-        seen.add(document.url)
+        seen.add(final_key)
         documents.append((document, raw))
         if depth < allowlist.max_depth:
             for link in document.links:

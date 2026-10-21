@@ -131,6 +131,17 @@ Tuân thủ kiến trúc tinh gọn, hiệu năng cao, tối ưu cho môi trư�
    - Mỗi request gửi `User-Agent` trong cấu hình, thống nhất với agent được dùng
      kiểm tra robots. Header điều kiện của crawl gia tăng vẫn được giữ nguyên;
      client truyền từ bên ngoài không bị thay đổi header mặc định.
+4. **URL thực tế sau fallback/chuyển hướng:**
+   - Fetcher trả URL của phản hồi HTTP thực tế. `source_url`, `parent_url` và URL
+     trong Markdown giữ đúng giao thức đã dùng, kể cả khi HTTPS phải fallback sang HTTP.
+     Redirect tương đối được giải theo URL thực tế và vẫn kiểm tra allowlist.
+   - Khóa catalog/state và ID tài liệu dùng URL chuẩn hóa để HTTP/HTTPS của cùng
+     đường dẫn không tạo bản ghi trùng. Đây là khóa định danh, không phải URL nguồn.
+   - Khi crawl gia tăng, dùng URL thực tế đã ghi nhận cho request tiếp theo. Chỉ gửi
+     ETag/Last-Modified tới đúng URL đó; xóa header điều kiện khi fallback sang giao thức
+     khác hoặc theo redirect. `--no-incremental` bắt đầu lại từ URL seed đã chuẩn hóa.
+   - Bản ghi cũ được sửa URL nguồn sau một phản hồi mới xác minh được, không đổi ID
+     chỉ vì chuyển giao thức. Không tự suy đoán rồi sửa nguồn của dữ liệu lịch sử.
 
 ### 4.2. Cơ chế xử lý tài liệu đính kèm (Attachment Handling)
 

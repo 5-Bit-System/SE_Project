@@ -66,9 +66,9 @@ class Allowlist:
         return cls(sources, **data)
 
 
-def check_allowed(url: str, allowlist: Allowlist) -> str:
+def check_allowed(url: str, allowlist: Allowlist, *, preserve_scheme: bool = False) -> str:
     """Return the canonical URL, or raise CrawlError if outside scope or in exclusion."""
-    canonical = canonicalize_url(url)
+    canonical = canonicalize_url(url, preserve_scheme=preserve_scheme)
     if is_spider_trap(canonical):
         raise CrawlError(f"spider trap rejected: {canonical}")
 

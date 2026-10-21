@@ -20,7 +20,7 @@ from app.hus.extractors.html import extract_html
 from app.hus.models import DocumentStatus, HUSDocument
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
-from app.hus.urls import CrawlError
+from app.hus.urls import CrawlError, canonicalize_url
 
 
 @dataclass
@@ -103,11 +103,13 @@ class HUSPipeline:
                 seen_urls.add(url)
 
                 fetched_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
-                headers = self.state_manager.get_request_headers(url) if incremental else {}
+                previous = self.state_manager.get_record(url) if incremental else None
+                request_url = previous.url if previous else url
+                headers = self.state_manager.get_request_headers(request_url) if incremental else {}
 
                 try:
                     final_url, resp_headers, raw_bytes = fetch_html(
-                        url,
+                        request_url,
                         self.allowlist,
                         http_client,
                         robots,
@@ -119,14 +121,15 @@ class HUSPipeline:
                     summary.error_count += 1
                     continue
 
-                seen_urls.add(final_url)
+                seen_urls.add(canonicalize_url(final_url))
 
                 # A 304 skips re-extraction, but must not skip child discovery.
                 not_modified = not raw_bytes
                 if not_modified:
-                    record = self.state_manager.records.get(final_url)
+                    record = self.state_manager.get_record(final_url)
                     document_id = record.document_id if record else None
-                    document_id = document_id or hashlib.sha256(final_url.encode("utf-8")).hexdigest()[:16]
+                    identity = canonicalize_url(final_url)
+                    document_id = document_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
                     doc = self.processed_storage.get_document(document_id)
                     if doc is None or doc.url != final_url:
                         # State may outlive its catalog entry. Rebuild it once without validators.
@@ -143,7 +146,7 @@ class HUSPipeline:
                             summary.failures[final_url] = str(exc)
                             summary.error_count += 1
                             continue
-                        seen_urls.add(final_url)
+                        seen_urls.add(canonicalize_url(final_url))
                         not_modified = False
 
                 if not_modified:
@@ -165,9 +168,10 @@ class HUSPipeline:
                             final_url, doc.content_hash, status_code=200
                         )
                     if not should_proc:
-                        record = self.state_manager.records.get(final_url)
+                        record = self.state_manager.get_record(final_url)
                         document_id = record.document_id if record else None
-                        document_id = document_id or hashlib.sha256(final_url.encode("utf-8")).hexdigest()[:16]
+                        identity = canonicalize_url(final_url)
+                        document_id = document_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
                         if not self.processed_storage.refresh_discovery(document_id, doc):
                             should_proc, reason = True, "updated"
 
@@ -216,12 +220,14 @@ class HUSPipeline:
                         summary.skipped_attachments[att_url] = str(exc)
                         continue
 
-                    att_headers = (
-                        self.state_manager.get_request_headers(clean_att_url) if incremental else {}
+                    previous_attachment = (
+                        self.state_manager.get_record(clean_att_url) if incremental else None
                     )
+                    att_request_url = previous_attachment.url if previous_attachment else clean_att_url
+                    att_headers = self.state_manager.get_request_headers(att_request_url) if incremental else {}
                     try:
                         att_final, att_resp_headers, att_raw = fetch_attachment(
-                            clean_att_url,
+                            att_request_url,
                             self.allowlist,
                             http_client,
                             robots,
