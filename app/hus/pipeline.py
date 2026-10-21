@@ -13,11 +13,11 @@ from urllib.parse import urlsplit
 import httpx
 
 from app.hus.allowlist import Allowlist, check_allowed
-from app.hus.cleaning import infer_document_type
+from app.hus.cleaning import infer_document_type, infer_major
 from app.hus.crawler import Robots, fetch_attachment, fetch_html
 from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
-from app.hus.models import DocumentStatus, HUSDocument
+from app.hus.models import DocumentStatus, HUSDocument, MajorCategory
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError, canonicalize_url
@@ -157,6 +157,7 @@ class HUSPipeline:
                     try:
                         doc, attachment_urls = extract_html(raw_bytes, final_url, fetched_at)
                         doc.document_type = infer_document_type(doc.title, doc.content)
+                        doc.major = infer_major(doc.title, final_url, doc.content)
                     except CrawlError as exc:
                         summary.failures[final_url] = str(exc)
                         summary.error_count += 1
@@ -259,6 +260,10 @@ class HUSPipeline:
                     att_hash = hashlib.sha256(cleaned_content.encode("utf-8")).hexdigest()
 
                     att_filename = Path(urlsplit(att_final).path).name or "attachment"
+                    att_major = infer_major(att_filename, att_final, cleaned_content)
+                    if att_major == MajorCategory.GENERAL and doc.major != MajorCategory.GENERAL:
+                        att_major = doc.major
+
                     att_doc = HUSDocument(
                         url=att_final,
                         parent_url=final_url,
@@ -268,6 +273,7 @@ class HUSPipeline:
                         fetched_at=fetched_at,
                         document_type=infer_document_type(att_filename, cleaned_content),
                         publisher=doc.publisher,
+                        major=att_major,
                         status=att_status,
                     )
                     att_doc_id = self.processed_storage.save_document(att_doc)

@@ -130,6 +130,15 @@ class TestHUSPipeline:
         assert catalog.exists()
         data = json.loads(catalog.read_text(encoding="utf-8"))
         assert data["document_count"] >= 2
+        for d in data["documents"].values():
+            assert "major" in d
+            assert d["major"] in {
+                "mathematics",
+                "mathematics_informatics",
+                "computer_science",
+                "data_science",
+                "general",
+            }
 
         # Raw HTML files saved
         html_dir = tmp_path / "raw" / "html"
@@ -474,3 +483,53 @@ class TestHUSPipeline:
         catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
         seed = next(doc for doc in catalog["documents"].values() if doc["source_url"].endswith("/dao-tao"))
         assert seed["links"] == ["https://mim.hus.vnu.edu.vn/vi/new"]
+
+    def test_pipeline_assigns_major_classification(self, tmp_path: Path) -> None:
+        """Pipeline assigns appropriate major category to HTML documents and attachments."""
+        doc_docx = Document()
+        doc_docx.add_paragraph("Noi dung ve Nganh May tinh va Khoa hoc thong tin")
+        buf = io.BytesIO()
+        doc_docx.save(buf)
+        docx_bytes = buf.getvalue()
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            path = request.url.path
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                html = (
+                    "<html><body><article>"
+                    "<h1>Thong bao dao tao</h1>"
+                    '<a href="/vi/khoa-hoc-du-lieu">Nganh KHDL</a>'
+                    '<a href="/files/104.-KHMTTT-chuan.docx">Tai lieu KHMT</a>'
+                    "</article></body></html>"
+                )
+                return httpx.Response(200, text=html, headers={"content-type": "text/html"})
+            if path == "/vi/khoa-hoc-du-lieu":
+                html = (
+                    "<html><body><article>"
+                    "<h1>Chuong trinh Khoa hoc du lieu</h1>"
+                    "<p>Thong tin ve nganh Khoa hoc du lieu 2026.</p>"
+                    "</article></body></html>"
+                )
+                return httpx.Response(200, text=html, headers={"content-type": "text/html"})
+            if path == "/files/104.-KHMTTT-chuan.docx":
+                return httpx.Response(200, content=docx_bytes)
+            return httpx.Response(404)
+
+        pipeline, _ = self._make_pipeline(tmp_path)
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+
+        assert summary.error_count == 0
+        catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
+        docs = catalog["documents"]
+
+        seed = next(d for d in docs.values() if d["source_url"].endswith("/dao-tao"))
+        assert seed["major"] == "general"
+
+        ds_doc = next(d for d in docs.values() if d["source_url"].endswith("/khoa-hoc-du-lieu"))
+        assert ds_doc["major"] == "data_science"
+
+        att_doc = next(d for d in docs.values() if "104.-KHMTTT-chuan.docx" in d["source_url"])
+        assert att_doc["major"] == "computer_science"
