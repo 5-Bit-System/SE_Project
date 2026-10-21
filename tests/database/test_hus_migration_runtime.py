@@ -4,6 +4,8 @@ import copy
 import json
 import os
 import uuid
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier
 
 import pytest
 from alembic.config import Config
@@ -13,9 +15,15 @@ from sqlalchemy.engine import URL, make_url
 from alembic import command
 from app.errors import StorageDataError
 from app.infrastructure.hus_repository import HusRepository
+from database.tools import publish_catalogs as publisher
 from database.tools.apply_sql import apply_sql
 from database.tools.migrate import config
-from database.tools.publish_catalogs import SOURCE, activate_revision, publish_catalogs
+from database.tools.publish_catalogs import (
+    NATURAL_KEYS,
+    SOURCE,
+    activate_revision,
+    publish_catalogs,
+)
 
 
 def _validate_runtime_test_target(url: str) -> URL:
@@ -30,7 +38,7 @@ def _validate_runtime_test_target(url: str) -> URL:
     return target
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def runtime_engine():
     url = os.getenv("HUS_TEST_DATABASE_URL")
     if not url:
@@ -52,6 +60,22 @@ def runtime_engine():
         with admin.connect() as conn:
             conn.execute(text(f'DROP DATABASE "{name}" WITH (FORCE)'))
         admin.dispose()
+
+
+PUBLISHER_TABLES = (*NATURAL_KEYS, "hus_catalog_revisions")
+
+
+def publisher_snapshot(engine) -> dict[str, list[str]]:
+    """Return a deterministic view of every relation the publisher can mutate."""
+    snapshot = {}
+    with engine.connect() as conn:
+        for name in PUBLISHER_TABLES:
+            rows = conn.execute(text(
+                f"SELECT to_jsonb(row_data) FROM public.{name} AS row_data "
+                "ORDER BY to_jsonb(row_data)::text"
+            )).scalars().all()
+            snapshot[name] = [json.dumps(row, sort_keys=True, default=str) for row in rows]
+    return snapshot
 
 
 @pytest.mark.parametrize("query", ["", "?sslmode=disable"])
@@ -129,3 +153,56 @@ def test_fresh_migration_publication_and_rollback(runtime_engine):
         conn.execute(text("UPDATE hus_catalog_revisions SET source_digest=:bad WHERE active"), {"bad": "0" * 64})
     with pytest.raises(StorageDataError, match="hash"):
         repo.ready()
+
+
+@pytest.mark.hus_postgres
+def test_publisher_rolls_back_mid_import_and_releases_lock(runtime_engine, monkeypatch):
+    bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
+    first = publish_catalogs(runtime_engine, bundle)
+    before = publisher_snapshot(runtime_engine)
+    newer = copy.deepcopy(bundle)
+    newer["source"] += " (rollback injection)"
+    original_upsert = publisher._upsert
+
+    def fail_at_curriculum_courses(conn, table, row, keys):
+        if table.name == "curriculum_courses":
+            raise RuntimeError("injected publisher failure")
+        original_upsert(conn, table, row, keys)
+
+    monkeypatch.setattr(publisher, "_upsert", fail_at_curriculum_courses)
+    with pytest.raises(RuntimeError, match="injected publisher failure"):
+        publish_catalogs(runtime_engine, newer)
+    assert publisher_snapshot(runtime_engine) == before
+
+    monkeypatch.setattr(publisher, "_upsert", original_upsert)
+    second = publish_catalogs(runtime_engine, newer)
+    assert all(first[program] != second[program] for program in first)
+    HusRepository(runtime_engine).ready()
+
+
+@pytest.mark.hus_postgres
+def test_concurrent_publications_keep_one_active_revision_per_program(runtime_engine):
+    bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
+    first = publish_catalogs(runtime_engine, bundle)
+    newer = copy.deepcopy(bundle)
+    newer["source"] += " (concurrent acceptance)"
+    barrier = Barrier(2)
+
+    def publish_after_barrier() -> dict[str, str]:
+        barrier.wait(timeout=5)
+        return publish_catalogs(runtime_engine, newer)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = [pool.submit(publish_after_barrier) for _ in range(2)]
+        left, right = (result.result(timeout=15) for result in results)
+
+    assert left == right
+    assert all(first[program] != left[program] for program in first)
+    with runtime_engine.connect() as conn:
+        assert conn.execute(text("SELECT count(*) FROM hus_catalog_revisions")).scalar_one() == 8
+        active_counts = dict(conn.execute(text(
+            "SELECT program_id, count(*) FROM hus_catalog_revisions "
+            "WHERE active GROUP BY program_id"
+        )).all())
+    assert active_counts == {program: 1 for program in left}
+    HusRepository(runtime_engine).ready()

@@ -18,6 +18,8 @@ from database.hus_db.prerequisites import parse_prerequisites
      [["MAT1202", "MAT3304"], ["MAT3304", "MAT3507"]]),
     ("MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502",
      [["MAT2301", "MAT2321", "MAT2400"], ["MAT2303", "MAT2502"]]),
+    ("((MAT1202/MAT3507) MAT3304)/MAT3402",
+     [["MAT1202", "MAT3402", "MAT3507"], ["MAT3304", "MAT3402"]]),
 ])
 def test_pdf_notation_preserves_grouping(raw, expected):
     assert parse_prerequisites(raw) == expected
@@ -30,6 +32,13 @@ def test_pdf_notation_preserves_grouping(raw, expected):
 def test_unrecognized_notation_requires_review(raw):
     with pytest.raises(ValueError):
         parse_prerequisites(raw)
+
+
+def test_expression_with_too_many_alternatives_requires_manual_review():
+    left = " ".join(f"AAA{i:04d}" for i in range(12))
+    right = " ".join(f"BBB{i:04d}" for i in range(12))
+    with pytest.raises(ValueError, match="manual review"):
+        parse_prerequisites(f"({left})/({right})")
 
 
 @pytest.mark.parametrize("a,b,c", list(product([False, True], repeat=3)))
@@ -56,17 +65,18 @@ def test_honors_references_do_not_become_major_memberships(source_bundle, source
     assert len(source_catalogs) == 4
 
 
-@pytest.mark.parametrize("program,passed", [
+@pytest.mark.parametrize("program,required", [
     ("toan_hoc_7460101_2022", {"MAT2301", "MAT2303"}),
     ("toan_tin_7460117_2022", {"MAT2301", "MAT2303"}),
     ("khmtt_7480113qtd_2022", {"MAT2400", "MAT2502"}),
     ("khdl_7460108_2022", {"MAT2400", "MAT2502"}),
 ])
-def test_optimization_unlocks_using_own_major_alternatives(source_catalogs, program, passed):
+def test_optimization_requires_every_own_major_prerequisite(source_catalogs, program, required):
     catalog = source_catalogs[program]
-    assert "MAT2407" in {c.code for c in evaluate_eligibility(catalog, passed).eligible_courses}
-    result = evaluate_eligibility(catalog, {next(iter(passed))})
-    assert "MAT2407" not in {c.code for c in result.eligible_courses}
+    assert "MAT2407" in {c.code for c in evaluate_eligibility(catalog, required).eligible_courses}
+    for missing in required:
+        result = evaluate_eligibility(catalog, required - {missing})
+        assert "MAT2407" not in {c.code for c in result.eligible_courses}
     with pytest.raises(ValueError, match="unknown_passed_course_codes"):
         evaluate_eligibility(catalog, {"MAT2321"})
 

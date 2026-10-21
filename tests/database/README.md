@@ -26,6 +26,12 @@ Chạy toàn bộ test offline:
 .venv\Scripts\python.exe -m ruff check .
 ```
 
+CI tách ba report JUnit: `pytest-offline`, `pytest-postgres` và
+`pytest-hus-postgres`. Artifact được tải lên kể cả khi pytest thất bại để phân biệt
+ca passed, failed, skipped và deselected. Marker `postgres` và `hus_postgres` cần
+PostgreSQL được cấu hình tường minh; mười ca `full_catalog_acceptance` vẫn skip cho
+đến khi cung cấp `--full-catalog-root` trỏ tới bộ dữ liệu nguồn đã nghiệm thu.
+
 Xem kết quả, giới hạn và bước kiểm chứng PostgreSQL tại
 [báo cáo kiểm thử](../../../docs/VINH_DATABASE_TEST_REPORT.md).
 

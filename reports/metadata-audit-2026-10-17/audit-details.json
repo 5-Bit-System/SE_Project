@@ -1,0 +1,1206 @@
+{
+  "scope": "Local HUS source rebuilt in memory and local sample; no live PostgreSQL snapshot queried; no original PDF verification",
+  "summary": [
+    {
+      "dataset": "HUS",
+      "program": "khdl_7460108_2022",
+      "count": 65,
+      "missing": {
+        "topics": 65,
+        "description": 65,
+        "orientation": 65,
+        "difficulty": 65,
+        "workload": 65,
+        "career_paths": 65,
+        "name_en": 65,
+        "hours": 65,
+        "year": 65,
+        "suggested_term": 65
+      },
+      "prerequisite_status": {
+        "draft_unverified": 64,
+        "unknown": 1
+      },
+      "external_rows": 2
+    },
+    {
+      "dataset": "HUS",
+      "program": "khmtt_7480113qtd_2022",
+      "count": 67,
+      "missing": {
+        "topics": 67,
+        "description": 67,
+        "orientation": 67,
+        "difficulty": 67,
+        "workload": 67,
+        "career_paths": 67,
+        "name_en": 67,
+        "hours": 67,
+        "year": 67,
+        "suggested_term": 67
+      },
+      "prerequisite_status": {
+        "draft_unverified": 66,
+        "unknown": 1
+      },
+      "external_rows": 3
+    },
+    {
+      "dataset": "HUS",
+      "program": "toan_hoc_7460101_2022",
+      "count": 90,
+      "missing": {
+        "topics": 90,
+        "description": 90,
+        "orientation": 90,
+        "difficulty": 90,
+        "workload": 90,
+        "career_paths": 90,
+        "name_en": 90,
+        "hours": 90,
+        "year": 90,
+        "suggested_term": 90
+      },
+      "prerequisite_status": {
+        "draft_unverified": 75,
+        "unknown": 15
+      },
+      "external_rows": 7
+    },
+    {
+      "dataset": "HUS",
+      "program": "toan_tin_7460117_2022",
+      "count": 68,
+      "missing": {
+        "topics": 68,
+        "description": 68,
+        "orientation": 68,
+        "difficulty": 68,
+        "workload": 68,
+        "career_paths": 68,
+        "name_en": 68,
+        "hours": 68,
+        "year": 68,
+        "suggested_term": 68
+      },
+      "prerequisite_status": {
+        "draft_unverified": 64,
+        "unknown": 4
+      },
+      "external_rows": 9
+    },
+    {
+      "dataset": "SAMPLE",
+      "program": "khdl_7460108_2022",
+      "count": 65,
+      "missing": {
+        "topics": 65,
+        "description": 65,
+        "orientation": 65,
+        "difficulty": 65,
+        "workload": 65,
+        "career_paths": 65,
+        "name_en": 0,
+        "hours": 2,
+        "year": 65,
+        "suggested_term": 65
+      },
+      "prerequisite_status": {
+        "draft_unverified": 62,
+        "unresolved_external": 3
+      },
+      "external_rows": 3
+    }
+  ],
+  "sample_vs_transcribed_rows": [],
+  "sample_vs_hus": [
+    {
+      "code": "PHI1006",
+      "field": "name_en",
+      "sample": "Marxist - Leninist Philosophy",
+      "hus": null
+    },
+    {
+      "code": "PHI1006",
+      "field": "hours",
+      "sample": {
+        "lecture": 42,
+        "practice": 6,
+        "self_study": 102
+      },
+      "hus": null
+    },
+    {
+      "code": "PEC1008",
+      "field": "name_en",
+      "sample": "Marxist-Leninist Political Economy",
+      "hus": null
+    },
+    {
+      "code": "PEC1008",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 0,
+        "self_study": 70
+      },
+      "hus": null
+    },
+    {
+      "code": "PHI1002",
+      "field": "name_en",
+      "sample": "Scientific socialism",
+      "hus": null
+    },
+    {
+      "code": "PHI1002",
+      "field": "hours",
+      "sample": {
+        "lecture": 28,
+        "practice": 4,
+        "self_study": 68
+      },
+      "hus": null
+    },
+    {
+      "code": "HIS1001",
+      "field": "name_en",
+      "sample": "History of Vietnamese Communist Party",
+      "hus": null
+    },
+    {
+      "code": "HIS1001",
+      "field": "hours",
+      "sample": {
+        "lecture": 28,
+        "practice": 4,
+        "self_study": 68
+      },
+      "hus": null
+    },
+    {
+      "code": "POL1001",
+      "field": "name_en",
+      "sample": "Ho Chi Minh's Ideology",
+      "hus": null
+    },
+    {
+      "code": "POL1001",
+      "field": "hours",
+      "sample": {
+        "lecture": 28,
+        "practice": 4,
+        "self_study": 68
+      },
+      "hus": null
+    },
+    {
+      "code": "THL1057",
+      "field": "name_en",
+      "sample": "General State and Law",
+      "hus": null
+    },
+    {
+      "code": "THL1057",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 0,
+        "self_study": 70
+      },
+      "hus": null
+    },
+    {
+      "code": "HUS1011",
+      "field": "name_en",
+      "sample": "General Informatics",
+      "hus": null
+    },
+    {
+      "code": "HUS1011",
+      "field": "hours",
+      "sample": {
+        "lecture": 10,
+        "practice": 40,
+        "self_study": 100
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1107",
+      "field": "name_en",
+      "sample": "English B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1107",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1207",
+      "field": "name_en",
+      "sample": "Russian B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1207",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1307",
+      "field": "name_en",
+      "sample": "French B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1307",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1407",
+      "field": "name_en",
+      "sample": "Chinese B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1407",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1507",
+      "field": "name_en",
+      "sample": "German B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1507",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1607",
+      "field": "name_en",
+      "sample": "Japanese B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1607",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "FLF1707",
+      "field": "name_en",
+      "sample": "Korean B1",
+      "hus": null
+    },
+    {
+      "code": "FLF1707",
+      "field": "hours",
+      "sample": {
+        "lecture": 25,
+        "practice": 50,
+        "self_study": 175
+      },
+      "hus": null
+    },
+    {
+      "code": "CME1000",
+      "field": "name",
+      "sample": "Giáo dục quốc phòng-an ninh",
+      "hus": "Giáo dục quốc phòng - an ninh"
+    },
+    {
+      "code": "CME1000",
+      "field": "name_en",
+      "sample": "National Defence Education",
+      "hus": null
+    },
+    {
+      "code": "PES1000",
+      "field": "name_en",
+      "sample": "Physical Education",
+      "hus": null
+    },
+    {
+      "code": "HUS1012",
+      "field": "name_en",
+      "sample": "Soft skills",
+      "hus": null
+    },
+    {
+      "code": "HUS1012",
+      "field": "hours",
+      "sample": {
+        "lecture": 31,
+        "practice": 14,
+        "self_study": 105
+      },
+      "hus": null
+    },
+    {
+      "code": "HUS1021",
+      "field": "name_en",
+      "sample": "Earth and Life Sciences",
+      "hus": null
+    },
+    {
+      "code": "HUS1021",
+      "field": "hours",
+      "sample": {
+        "lecture": 33,
+        "practice": 24,
+        "self_study": 93
+      },
+      "hus": null
+    },
+    {
+      "code": "HUS1022",
+      "field": "name_en",
+      "sample": "Introduction to Internet of Things",
+      "hus": null
+    },
+    {
+      "code": "HUS1022",
+      "field": "hours",
+      "sample": {
+        "lecture": 24,
+        "practice": 12,
+        "self_study": 64
+      },
+      "hus": null
+    },
+    {
+      "code": "HUS1023",
+      "field": "name_en",
+      "sample": "Introduction to Data Analysis",
+      "hus": null
+    },
+    {
+      "code": "HUS1023",
+      "field": "hours",
+      "sample": {
+        "lecture": 20,
+        "practice": 20,
+        "self_study": 60
+      },
+      "hus": null
+    },
+    {
+      "code": "HUS1024",
+      "field": "name_en",
+      "sample": "Introduction to Robotics",
+      "hus": null
+    },
+    {
+      "code": "HUS1024",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 20,
+        "self_study": 100
+      },
+      "hus": null
+    },
+    {
+      "code": "HIS1056",
+      "field": "name_en",
+      "sample": "Introduction to Vietnamese Culture",
+      "hus": null
+    },
+    {
+      "code": "HIS1056",
+      "field": "hours",
+      "sample": {
+        "lecture": 42,
+        "practice": 6,
+        "self_study": 102
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2505",
+      "field": "name_en",
+      "sample": "Introduction to Programming",
+      "hus": null
+    },
+    {
+      "code": "MAT2505",
+      "field": "hours",
+      "sample": {
+        "lecture": 22,
+        "practice": 46,
+        "self_study": 82
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2400",
+      "field": "name_en",
+      "sample": "Linear Algebra",
+      "hus": null
+    },
+    {
+      "code": "MAT2400",
+      "field": "hours",
+      "sample": {
+        "lecture": 50,
+        "practice": 50,
+        "self_study": 150
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2501",
+      "field": "name_en",
+      "sample": "Calculus 1",
+      "hus": null
+    },
+    {
+      "code": "MAT2501",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 40,
+        "self_study": 120
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2502",
+      "field": "name_en",
+      "sample": "Calculus 2",
+      "hus": null
+    },
+    {
+      "code": "MAT2502",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 40,
+        "self_study": 120
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2503",
+      "field": "name_en",
+      "sample": "Calculus 3",
+      "hus": null
+    },
+    {
+      "code": "MAT2503",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 30,
+        "self_study": 55
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2403",
+      "field": "name_en",
+      "sample": "Differential Equations",
+      "hus": null
+    },
+    {
+      "code": "MAT2403",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2323",
+      "field": "name_en",
+      "sample": "Probability - Statistics",
+      "hus": null
+    },
+    {
+      "code": "MAT2323",
+      "field": "hours",
+      "sample": {
+        "lecture": 45,
+        "practice": 30,
+        "self_study": 125
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2407",
+      "field": "prerequisites",
+      "sample": [
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2400",
+          "MAT2502"
+        ],
+        [
+          "MAT2301",
+          "MAT2321",
+          "MAT2303",
+          "MAT2502"
+        ]
+      ],
+      "hus": []
+    },
+    {
+      "code": "MAT2407",
+      "field": "prerequisite_status",
+      "sample": "unresolved_external",
+      "hus": "unknown"
+    },
+    {
+      "code": "MAT2407",
+      "field": "name_en",
+      "sample": "Optimization",
+      "hus": null
+    },
+    {
+      "code": "MAT2407",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT1204",
+      "field": "name_en",
+      "sample": "Research Methodology",
+      "hus": null
+    },
+    {
+      "code": "MAT1204",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 60,
+        "self_study": 75
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT2034",
+      "field": "name_en",
+      "sample": "Numerical Analysis",
+      "hus": null
+    },
+    {
+      "code": "MAT2034",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3500",
+      "field": "name_en",
+      "sample": "Discrete Mathematics",
+      "hus": null
+    },
+    {
+      "code": "MAT3500",
+      "field": "hours",
+      "sample": {
+        "lecture": 45,
+        "practice": 30,
+        "self_study": 125
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3557",
+      "field": "name_en",
+      "sample": "Linux Programming Environment",
+      "hus": null
+    },
+    {
+      "code": "MAT3557",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 30,
+        "self_study": 55
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT1202",
+      "field": "name_en",
+      "sample": "Object Oriented Programming",
+      "hus": null
+    },
+    {
+      "code": "MAT1202",
+      "field": "hours",
+      "sample": {
+        "lecture": 22,
+        "practice": 46,
+        "self_study": 82
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3514",
+      "field": "name_en",
+      "sample": "Data Structures and Algorithms",
+      "hus": null
+    },
+    {
+      "code": "MAT3514",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 40,
+        "self_study": 120
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3507",
+      "field": "name_en",
+      "sample": "Databases",
+      "hus": null
+    },
+    {
+      "code": "MAT3507",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 40,
+        "self_study": 120
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3378",
+      "field": "name_en",
+      "sample": "Management of big and complex data",
+      "hus": null
+    },
+    {
+      "code": "MAT3378",
+      "field": "hours",
+      "sample": {
+        "lecture": 24,
+        "practice": 42,
+        "self_study": 84
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3148",
+      "field": "name_en",
+      "sample": "Parallel computing",
+      "hus": null
+    },
+    {
+      "code": "MAT3148",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3379",
+      "field": "name_en",
+      "sample": "Applied Regression Analysis",
+      "hus": null
+    },
+    {
+      "code": "MAT3379",
+      "field": "hours",
+      "sample": {
+        "lecture": 24,
+        "practice": 42,
+        "self_study": 84
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3533",
+      "field": "prerequisite_status",
+      "sample": "unresolved_external",
+      "hus": "draft_unverified"
+    },
+    {
+      "code": "MAT3533",
+      "field": "name_en",
+      "sample": "Machine learning",
+      "hus": null
+    },
+    {
+      "code": "MAT3533",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3381",
+      "field": "name_en",
+      "sample": "Project in Data Science",
+      "hus": null
+    },
+    {
+      "code": "MAT3381",
+      "field": "hours",
+      "sample": {
+        "lecture": 0,
+        "practice": 90,
+        "self_study": 60
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3382",
+      "field": "name_en",
+      "sample": "Programming for Data Science",
+      "hus": null
+    },
+    {
+      "code": "MAT3382",
+      "field": "hours",
+      "sample": {
+        "lecture": 14,
+        "practice": 32,
+        "self_study": 54
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3383",
+      "field": "name_en",
+      "sample": "Information Visualization",
+      "hus": null
+    },
+    {
+      "code": "MAT3383",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 30,
+        "self_study": 55
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT1209",
+      "field": "name_en",
+      "sample": "Autonomous Robotics",
+      "hus": null
+    },
+    {
+      "code": "MAT1209",
+      "field": "hours",
+      "sample": {
+        "lecture": 0,
+        "practice": 30,
+        "self_study": 70
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3385",
+      "field": "name_en",
+      "sample": "Web Database and Information Systems",
+      "hus": null
+    },
+    {
+      "code": "MAT3385",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3504",
+      "field": "name_en",
+      "sample": "Algorithms Design and Analysis",
+      "hus": null
+    },
+    {
+      "code": "MAT3504",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3508",
+      "field": "name_en",
+      "sample": "Introduction to Artificial Intelligence",
+      "hus": null
+    },
+    {
+      "code": "MAT3508",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3534",
+      "field": "name_en",
+      "sample": "Data mining",
+      "hus": null
+    },
+    {
+      "code": "MAT3534",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3386",
+      "field": "name_en",
+      "sample": "Computational Methods in Statistics and Data Science",
+      "hus": null
+    },
+    {
+      "code": "MAT3386",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 60,
+        "self_study": 75
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3387",
+      "field": "name_en",
+      "sample": "Survey Sampling Techniques",
+      "hus": null
+    },
+    {
+      "code": "MAT3387",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3388",
+      "field": "name_en",
+      "sample": "Analysis of Time Series",
+      "hus": null
+    },
+    {
+      "code": "MAT3388",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3389",
+      "field": "name_en",
+      "sample": "Introduction to Design of Experiments",
+      "hus": null
+    },
+    {
+      "code": "MAT3389",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3390",
+      "field": "name_en",
+      "sample": "Introduction to Bioinformatics",
+      "hus": null
+    },
+    {
+      "code": "MAT3390",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3391",
+      "field": "name_en",
+      "sample": "Introduction to GIS",
+      "hus": null
+    },
+    {
+      "code": "MAT3391",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3392",
+      "field": "name_en",
+      "sample": "Big data in risk management of natural disasters",
+      "hus": null
+    },
+    {
+      "code": "MAT3392",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3393",
+      "field": "name_en",
+      "sample": "Data mining in Chemistry",
+      "hus": null
+    },
+    {
+      "code": "MAT3393",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3394",
+      "field": "name_en",
+      "sample": "Mathematical Ecology",
+      "hus": null
+    },
+    {
+      "code": "MAT3394",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 10,
+        "self_study": 100
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3562",
+      "field": "prerequisites",
+      "sample": [
+        [
+          "MAT2301",
+          "MAT2400"
+        ],
+        [
+          "MAT2301",
+          "MAT3533"
+        ]
+      ],
+      "hus": [
+        [
+          "MAT2301",
+          "MAT2400"
+        ],
+        [
+          "MAT3533"
+        ]
+      ]
+    },
+    {
+      "code": "MAT3562",
+      "field": "prerequisite_status",
+      "sample": "unresolved_external",
+      "hus": "draft_unverified"
+    },
+    {
+      "code": "MAT3562",
+      "field": "name_en",
+      "sample": "Computer Vision",
+      "hus": null
+    },
+    {
+      "code": "MAT3562",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3395",
+      "field": "name_en",
+      "sample": "Game Theory",
+      "hus": null
+    },
+    {
+      "code": "MAT3395",
+      "field": "hours",
+      "sample": {
+        "lecture": 40,
+        "practice": 10,
+        "self_study": 100
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3535",
+      "field": "name_en",
+      "sample": "Information Retrieval",
+      "hus": null
+    },
+    {
+      "code": "MAT3535",
+      "field": "hours",
+      "sample": {
+        "lecture": 30,
+        "practice": 30,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3399",
+      "field": "name_en",
+      "sample": "Natural Language Processing with Deep Learning",
+      "hus": null
+    },
+    {
+      "code": "MAT3399",
+      "field": "hours",
+      "sample": {
+        "lecture": 24,
+        "practice": 42,
+        "self_study": 84
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT4083",
+      "field": "name_en",
+      "sample": "Graduation Thesis",
+      "hus": null
+    },
+    {
+      "code": "MAT4083",
+      "field": "hours",
+      "sample": {
+        "lecture": 75,
+        "practice": 60,
+        "self_study": 215
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3397",
+      "field": "name_en",
+      "sample": "Selected topics on data science application",
+      "hus": null
+    },
+    {
+      "code": "MAT3397",
+      "field": "hours",
+      "sample": {
+        "lecture": 10,
+        "practice": 100,
+        "self_study": 90
+      },
+      "hus": null
+    },
+    {
+      "code": "MAT3398",
+      "field": "name_en",
+      "sample": "Topics in Modeling and Data Analysis",
+      "hus": null
+    },
+    {
+      "code": "MAT3398",
+      "field": "hours",
+      "sample": {
+        "lecture": 15,
+        "practice": 60,
+        "self_study": 75
+      },
+      "hus": null
+    }
+  ],
+  "topic_matching_probe_score": 0.0,
+  "source_sha256": "df1fc8baf1b44116c0560478284f98b0b699987fa1abba3574c6f55724297b0a"
+}
