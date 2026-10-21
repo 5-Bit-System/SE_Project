@@ -161,3 +161,36 @@ def test_migration_missing_parent_preserves_valid_attachment_label(
     assert migrate_catalog(catalog_path) == (1, {expected: 1})
     updated = json.loads(catalog_path.read_text(encoding="utf-8"))
     assert updated["documents"]["attachment"]["major"] == expected
+
+
+@pytest.mark.parametrize("parent_exists", [False, True])
+def test_migration_repairs_inherited_label_for_explicit_shared_attachment(
+    tmp_path: Path, parent_exists: bool,
+) -> None:
+    documents = {
+        "attachment": {
+            "source_url": "https://mim.hus.vnu.edu.vn/files/rules.docx",
+            "parent_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+            "title": "Tài liệu đính kèm: rules.docx",
+            "content_markdown": "Quy chế áp dụng cho tất cả sinh viên toàn trường.",
+            "major": "data_science",
+        },
+    }
+    if parent_exists:
+        documents["parent"] = {
+            "source_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+            "title": "Khoa học dữ liệu",
+            "content_markdown": "Thông tin đào tạo.",
+            "major": "data_science",
+        }
+    catalog_path = tmp_path / "catalog.json"
+    catalog_path.write_text(json.dumps({"documents": documents}), encoding="utf-8")
+    before = catalog_path.read_bytes()
+
+    _, dry_stats = migrate_catalog(catalog_path, dry_run=True)
+    assert dry_stats["general"] == 1
+    assert catalog_path.read_bytes() == before
+    _, stats = migrate_catalog(catalog_path)
+    assert stats == dry_stats
+    updated = json.loads(catalog_path.read_text(encoding="utf-8"))
+    assert updated["documents"]["attachment"]["major"] == "general"

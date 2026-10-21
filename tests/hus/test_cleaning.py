@@ -1,8 +1,11 @@
 import unicodedata
 
+import pytest
+
 from app.hus.cleaning import (
     clean_text,
     format_markdown_table,
+    infer_attachment_major,
     infer_document_type,
     infer_major,
 )
@@ -227,3 +230,51 @@ def test_format_markdown_table():
     assert lines[0] == "| Mã HP | Tên học phần | Tín chỉ |"
     assert lines[1] == "| --- | --- | --- |"
     assert lines[2] == "| MAT1001 | Giải tích 1 | 3 |"
+
+
+@pytest.mark.parametrize("scope", [
+    "Quy chế áp dụng cho tất cả sinh viên toàn trường.",
+    "Quy định áp dụng chung cho sinh viên toàn khoa.",
+    "Thông báo dành cho tất cả các ngành học.",
+    "Quy chế áp dụng cho toàn bộ sinh viên trong toàn trường.",
+    "Quy chế áp dụng cho sinh viên các ngành.",
+])
+def test_explicit_shared_scope_prevents_attachment_inheritance(scope: str) -> None:
+    assert infer_attachment_major(
+        "https://mim.hus.vnu.edu.vn/files/rules.docx", scope,
+        parent_major=MajorCategory.DATA_SCIENCE,
+    ) == MajorCategory.GENERAL
+
+
+def test_shared_scope_overrides_incidental_major_and_url() -> None:
+    content = (
+        "Quy chế áp dụng cho tất cả sinh viên toàn trường. "
+        "Ví dụ minh họa cho ngành Khoa học dữ liệu."
+    )
+    url = "https://mim.hus.vnu.edu.vn/files/khoa-hoc-du-lieu/rules.docx"
+    assert infer_major("Quy chế", url, content) == MajorCategory.GENERAL
+    assert infer_attachment_major(
+        url, content, parent_major=MajorCategory.DATA_SCIENCE,
+    ) == MajorCategory.GENERAL
+
+
+def test_shared_scope_in_title() -> None:
+    assert infer_major(
+        "Quy định chung toàn trường", "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+    ) == MajorCategory.GENERAL
+
+
+@pytest.mark.parametrize("content, expected", [
+    ("Hướng dẫn đăng ký học phần.", MajorCategory.DATA_SCIENCE),
+    ("Áp dụng cho tất cả sinh viên ngành Khoa học dữ liệu.", MajorCategory.DATA_SCIENCE),
+    ("Tham khảo quy chế toàn trường.", MajorCategory.DATA_SCIENCE),
+    ("Không áp dụng cho sinh viên toàn trường; dành riêng ngành Khoa học dữ liệu.",
+     MajorCategory.DATA_SCIENCE),
+    ("Chưa áp dụng cho sinh viên toàn trường. Ngành Khoa học máy tính thử nghiệm.",
+     MajorCategory.COMPUTER_SCIENCE),
+])
+def test_only_unknown_attachments_inherit_parent(content: str, expected: MajorCategory) -> None:
+    assert infer_attachment_major(
+        "https://mim.hus.vnu.edu.vn/files/guide.docx", content,
+        parent_major=MajorCategory.DATA_SCIENCE,
+    ) == expected

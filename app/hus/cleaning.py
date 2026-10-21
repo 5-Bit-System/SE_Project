@@ -106,15 +106,48 @@ def _find_all_major_matches(text: str) -> set[MajorCategory]:
     return matches
 
 
-def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
-    """Infer MajorCategory by inspecting URL slug, title, and initial content.
+_SHARED_SCOPE_PATTERN = re.compile(
+    r"\b(?:áp dụng|dành)\s+(?:chung\s+)?cho\s+"
+    r"(?:"
+    r"(?:(?:tất cả|toàn bộ|mọi)\s+)?(?:các\s+)?"
+    r"(?:sinh viên|học viên|người học)\s+(?:trong\s+)?"
+    r"(?:toàn\s+(?:trường|khoa)|(?:tất cả\s+)?các\s+ngành(?:\s+học)?)"
+    r"|(?:tất cả|toàn bộ|mọi)\s+(?:các\s+)?ngành(?:\s+học)?"
+    r")\b",
+)
+_SHARED_TITLE_PATTERN = re.compile(
+    r"\b(?:quy chế|quy định|thông báo|hướng dẫn)\s+(?:chung\s+)?toàn\s+(?:trường|khoa)\b",
+)
+
+
+def _has_shared_scope(title: str, content: str) -> bool:
+    """Recognize explicit shared applicability, rather than mere regulation mentions."""
+    for text, patterns in (
+        (title, (_SHARED_SCOPE_PATTERN, _SHARED_TITLE_PATTERN)),
+        (content, (_SHARED_SCOPE_PATTERN,)),
+    ):
+        normalized = re.sub(r"\s+", " ", clean_text(text).lower())
+        for pattern in patterns:
+            for match in pattern.finditer(normalized):
+                # Negated applicability is not evidence that the document is shared.
+                if not re.search(r"(?:không|chưa)\s+(?:được\s+)?$", normalized[:match.start()]):
+                    return True
+    return False
+
+
+def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | None:
+    """Return a known major/shared scope, or None if the scope is undetermined.
 
     Priority order:
+    0. Explicit applicability to all students/majors overrides incidental keywords.
     1. URL slug of Khoa Toán - Cơ - Tin học (MIM) & attachments.
     2. Keywords in document title.
     3. Keywords in initial content lead.
-    4. Default to GENERAL for faculty/university-wide regulations and announcements.
+    4. None when these signals do not identify a scope.
     """
+    if _has_shared_scope(title, content):
+        return MajorCategory.GENERAL
+
     unquoted_url = _strip_accents(unquote(url).lower())
 
     # 1. Check URL slug patterns
@@ -183,22 +216,26 @@ def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
         if len(content_matches) == 1:
             return next(iter(content_matches))
 
-    # 4. Default to GENERAL
-    return MajorCategory.GENERAL
+    return None
+
+
+def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
+    """Infer a major, keeping the existing GENERAL catalog default for unknown scope."""
+    return _classify_major(title, url, content) or MajorCategory.GENERAL
 
 
 def infer_attachment_major(
     url: str, content: str = "", *, parent_major: MajorCategory = MajorCategory.GENERAL,
 ) -> MajorCategory:
-    """Prefer an attachment's own major; otherwise inherit its parent's major.
+    """Inherit only when an attachment's scope is unknown; preserve shared scope.
 
     Shared by live crawling and catalog migration so inherited labels survive
     backfilling. Use the URL filename, as the crawler does, rather than the
     catalog's generated display title.
     """
     filename = Path(urlsplit(url).path).name or "attachment"
-    major = infer_major(filename, url, content)
-    return parent_major if major == MajorCategory.GENERAL else major
+    major = _classify_major(filename, url, content)
+    return parent_major if major is None else major
 
 
 def format_markdown_table(rows: list[list[str]]) -> list[str]:

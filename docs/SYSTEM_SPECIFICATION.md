@@ -390,6 +390,14 @@ Luồng này chỉ chạy trong khung chatbot, không tạo thêm trang FAQ bên
 5. Lưu nội dung cùng URL, tiêu đề và ngày cập nhật.
 6. Tạo chỉ mục tìm kiếm hoặc embedding.
 
+Crawler và script migration dùng chung quy tắc gắn nhãn ngành cho tệp đính kèm.
+Khi nội dung ghi rõ áp dụng cho sinh viên toàn trường, toàn khoa hoặc tất cả ngành,
+tài liệu giữ nhãn `general`, kể cả khi được liên kết từ một trang ngành cụ thể.
+Chỉ tệp chưa xác định được phạm vi mới kế thừa ngành của trang cha. Trạng thái
+chưa xác định được phân biệt trong logic suy luận; định dạng trường `major` trong
+catalog vẫn giữ nguyên. Script migration có thể sửa nhãn đã kế thừa sai trong
+catalog cũ; chế độ `--dry-run` chỉ tính thống kê và không ghi dữ liệu.
+
 ### Giai đoạn B: Trả lời câu hỏi
 
 1. Người dùng hỏi trong chatbot.

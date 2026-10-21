@@ -575,3 +575,51 @@ class TestHUSPipeline:
         migrate_catalog(catalog_path)
 
         assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
+
+    @pytest.mark.parametrize("reverse_seeds", [False, True])
+    def test_shared_attachment_stays_general_regardless_of_first_parent(
+        self, tmp_path: Path, reverse_seeds: bool,
+    ) -> None:
+        document = Document()
+        document.add_paragraph("Quy chế áp dụng cho tất cả sinh viên toàn trường.")
+        buffer = io.BytesIO()
+        document.save(buffer)
+        file_requests = []
+        parents = ["/vi/khoa-hoc-du-lieu", "/vi/khmt-tt"]
+        if reverse_seeds:
+            parents.reverse()
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            path = request.url.path
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path in parents:
+                return httpx.Response(
+                    200, text='<article><h1>Thông tin đào tạo</h1>'
+                              '<a href="/files/rules.docx">Quy chế</a></article>',
+                    headers={"content-type": "text/html"},
+                )
+            assert path == "/files/rules.docx"
+            file_requests.append(path)
+            return httpx.Response(200, content=buffer.getvalue())
+
+        pipeline, allowlist = self._make_pipeline(tmp_path)
+        allowlist.seeds = [f"https://mim.hus.vnu.edu.vn{path}" for path in parents]
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+
+        assert summary.error_count == 0
+        assert summary.attachment_count == 1
+        assert file_requests == ["/files/rules.docx"]
+        catalog_path = tmp_path / "processed/catalog.json"
+        before = json.loads(catalog_path.read_text(encoding="utf-8"))
+        docs = before["documents"].values()
+        assert {doc["major"] for doc in docs if not doc["parent_url"]} == {
+            "data_science", "computer_science",
+        }
+        attachment = next(doc for doc in docs if doc["parent_url"])
+        assert attachment["parent_url"].endswith(parents[0])
+        assert attachment["major"] == "general"
+
+        migrate_catalog(catalog_path)
+        assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
