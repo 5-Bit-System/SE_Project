@@ -576,6 +576,51 @@ class TestHUSPipeline:
 
         assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
 
+    def test_multiple_major_notice_and_generic_attachment_remain_general(
+        self, tmp_path: Path,
+    ) -> None:
+        document = Document()
+        document.add_paragraph("Hướng dẫn đăng ký học phần.")
+        buffer = io.BytesIO()
+        document.save(buffer)
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            path = request.url.path
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/toan-hoc":
+                return httpx.Response(
+                    200, text="<article><h1>Thông báo dành cho Toán học và Khoa học dữ liệu</h1>"
+                              "<p>Sinh viên ngành Toán học đăng ký học phần theo hướng dẫn sau.</p>"
+                              '<a href="/files/guide.docx">Hướng dẫn</a></article>',
+                    headers={"content-type": "text/html"},
+                )
+            assert path == "/files/guide.docx"
+            return httpx.Response(200, content=buffer.getvalue())
+
+        pipeline, allowlist = self._make_pipeline(tmp_path)
+        allowlist.seeds = ["https://mim.hus.vnu.edu.vn/vi/toan-hoc"]
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+        assert summary.error_count == 0
+        assert summary.new_count == 1
+        assert summary.attachment_count == 1
+        catalog_path = tmp_path / "processed/catalog.json"
+        before = json.loads(catalog_path.read_text(encoding="utf-8"))
+        assert len(before["documents"]) == 2
+        assert all(doc["major"] == "general" for doc in before["documents"].values())
+
+        # Backfill must repair old single-major labels on both the notice and its file.
+        old_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        for doc in old_catalog["documents"].values():
+            doc["major"] = "mathematics"
+        catalog_path.write_text(json.dumps(old_catalog), encoding="utf-8")
+        old_bytes = catalog_path.read_bytes()
+        assert migrate_catalog(catalog_path, dry_run=True) == (2, {"general": 2})
+        assert catalog_path.read_bytes() == old_bytes
+        assert migrate_catalog(catalog_path) == (2, {"general": 2})
+        assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
+
     @pytest.mark.parametrize("reverse_seeds", [False, True])
     def test_shared_attachment_stays_general_regardless_of_first_parent(
         self, tmp_path: Path, reverse_seeds: bool,

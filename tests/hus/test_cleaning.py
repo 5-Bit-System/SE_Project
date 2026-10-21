@@ -213,6 +213,33 @@ def test_mathematics_url_with_other_suffix_stays_mathematics() -> None:
     ) == MajorCategory.MATHEMATICS
 
 
+@pytest.mark.parametrize("title", [
+    "Thông báo dành cho Toán học và Khoa học dữ liệu",
+    "Thông báo dành cho Toán học và Khoa học máy tính",
+    "Thông báo dành cho Toán học và Toán - Tin",
+    "Thông báo dành cho Toán học và Tin học, Khoa học dữ liệu",
+    "Thông báo dành cho Toán - Tin và Khoa học máy tính",
+    "Thông báo dành cho Khoa học máy tính và Khoa học dữ liệu",
+])
+@pytest.mark.parametrize("path", ["/vi/news", "/vi/toan-hoc"])
+def test_multiple_majors_in_title_stay_general(title: str, path: str) -> None:
+    url = f"https://mim.hus.vnu.edu.vn{path}"
+    # Neither a single-major lead nor a missing lead may narrow the title's scope.
+    for content in ("Sinh viên ngành Toán học đăng ký học phần theo hướng dẫn sau.", ""):
+        assert infer_major(title, url, content) == MajorCategory.GENERAL
+        assert infer_major(
+            unicodedata.normalize("NFD", title.upper()), url, content,
+        ) == MajorCategory.GENERAL
+
+
+def test_faculty_name_and_compound_major_do_not_count_as_multiple_majors() -> None:
+    assert infer_major(
+        "Khoa Toán - Cơ - Tin học: Chương trình Toán học và Tin học",
+        "https://mim.hus.vnu.edu.vn/vi/news",
+        "Sinh viên ngành Toán học đăng ký học phần.",
+    ) == MajorCategory.MATHEMATICS_INFORMATICS
+
+
 def test_infer_major_general_and_defaults():
     # University-wide / General documents
     assert (

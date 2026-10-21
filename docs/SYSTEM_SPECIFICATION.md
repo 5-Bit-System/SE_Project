@@ -397,6 +397,9 @@ Chỉ tệp chưa xác định được phạm vi mới kế thừa ngành của
 chưa xác định được phân biệt trong logic suy luận; định dạng trường `major` trong
 catalog vẫn giữ nguyên. Script migration có thể sửa nhãn đã kế thừa sai trong
 catalog cũ; chế độ `--dry-run` chỉ tính thống kê và không ghi dữ liệu.
+Tiêu đề nhắc từ hai ngành khác nhau trở lên cũng được giữ ở `general` trước khi
+xét URL hoặc phần đầu nội dung, tránh thu hẹp thông báo dành cho nhiều ngành.
+Tên ngành ghép “Toán học và Tin học” được tính là một ngành Toán–Tin.
 
 ### Giai đoạn B: Trả lời câu hỏi
 

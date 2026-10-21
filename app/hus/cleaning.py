@@ -139,13 +139,18 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
     """Return a known major/shared scope, or None if the scope is undetermined.
 
     Priority order:
-    0. Explicit applicability to all students/majors overrides incidental keywords.
+    0. Shared scope or multiple majors in the title override narrower signals.
     1. URL slug of Khoa Toán - Cơ - Tin học (MIM) & attachments.
     2. Keywords in document title.
     3. Keywords in initial content lead.
     4. None when these signals do not identify a scope.
     """
     if _has_shared_scope(title, content):
+        return MajorCategory.GENERAL
+
+    title_matches = _find_all_major_matches(clean_text(title))
+    if len(title_matches) > 1:
+        # Known shared scope must not be narrowed by a URL or a single-major lead.
         return MajorCategory.GENERAL
 
     unquoted_url = _strip_accents(unquote(url).lower())
@@ -207,8 +212,6 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
         return MajorCategory.MATHEMATICS
 
     # 2. Check title
-    cleaned_title = clean_text(title)
-    title_matches = _find_all_major_matches(cleaned_title)
     if len(title_matches) == 1:
         return next(iter(title_matches))
 
