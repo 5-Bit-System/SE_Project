@@ -16,7 +16,14 @@ jobs:
       - name: Validate the retained metadata sample
         run: python -X utf8 tools/build_catalogs.py --check
       - name: Offline unit and metadata tests
-        run: python -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"
+        run: python -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance" --junitxml=offline-test-results.xml
+      - name: Upload offline test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-test-results
+          path: offline-test-results.xml
+          if-no-files-found: ignore
   postgres:
     runs-on: ubuntu-latest
     services:
@@ -40,7 +47,14 @@ jobs:
           python-version: "3.11"
       - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
       - name: PostgreSQL round trips in isolated schemas using synthetic fixtures
-        run: python -m pytest -q -m postgres
+        run: python -m pytest -q -m postgres --junitxml=postgres-test-results.xml
+      - name: Upload PostgreSQL test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-test-results
+          path: postgres-test-results.xml
+          if-no-files-found: ignore
   hus_postgres:
     runs-on: ubuntu-latest
     services:
@@ -71,4 +85,11 @@ jobs:
           python -m database.tools.publish_catalogs --dry-run
           python -m database.tools.publish_catalogs
       - name: HUS migration and repository integration
-        run: python -m pytest -q -m hus_postgres
+        run: python -m pytest -q -m hus_postgres --junitxml=hus-postgres-test-results.xml
+      - name: Upload HUS PostgreSQL test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hus-postgres-test-results
+          path: hus-postgres-test-results.xml
+          if-no-files-found: ignore

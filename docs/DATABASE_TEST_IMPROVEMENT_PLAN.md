@@ -22,9 +22,31 @@ Hai lượt chạy đều có cảnh báo deprecation của Starlette về httpx
 Đây là kết quả của commit nguồn trước tích hợp; merge fast-forward giữ nguyên mã
 và dữ liệu đã kiểm thử. Kế hoạch này chưa triển khai các cải tiến dưới đây.
 
+## Tiến độ cập nhật sau khi tích hợp
+
+Đã triển khai trên nhánh `codebase` sau mốc ban đầu:
+
+- **Hoàn thành P1 publisher rollback:** test PostgreSQL tiêm lỗi sau hai upsert
+  thật, so sánh toàn bộ hàng ở các bảng nguồn và revision trước/sau, xác nhận
+  repository vẫn ready và publisher chạy lại được.
+- **Hoàn thành kiểm tra tiên quyết ổn định:** mỗi prerequisite thiếu được kiểm tra
+  bằng ca tham số riêng, không còn chọn phần tử không xác định từ `set`.
+- **Hoàn thành báo cáo CI và assertion verifier:** từng job xuất JUnit XML thành
+  artifact ngay cả khi test thất bại; verifier yêu cầu tên các kiểm tra bắt buộc
+  thay vì khóa cứng tổng số 26.
+- **Chưa làm nghiệm thu PDF:** cần artifact nguồn được người phụ trách duyệt;
+  repository hiện tại không có bộ này.
+- **Chưa làm test đồng thời/hiệu năng.**
+
+Kết quả chạy lại sau thay đổi: **250 passed, 39 deselected** ở nhóm offline;
+**29 passed, 260 deselected** ở nhóm PostgreSQL. Ruff đạt. Có một cảnh báo
+deprecation Starlette/httpx như trước. Bộ acceptance nguồn vẫn chưa chạy.
+Không có thay đổi nào tới dữ liệu production; test rollback dùng PostgreSQL
+container/database tạm trên máy.
+
 ## Thứ tự thực hiện
 
-### 1. P1 — Kiểm tra rollback thật của publisher HUS
+### 1. P1 — Kiểm tra rollback thật của publisher HUS — Hoàn thành
 
 File chính: `tests/database/test_hus_migration_runtime.py`;
 đường ghi: `database/tools/publish_catalogs.py`.
@@ -44,7 +66,7 @@ Nghiệm thu: không có dữ liệu hay revision ghi dở, cả bốn revision 
 repository vẫn ready và lần publish kế tiếp thành công. Các ca chạy trong job
 `hus_postgres` của CI.
 
-### 2. P1 — Nghiệm thu dữ liệu nguồn độc lập
+### 2. P1 — Nghiệm thu dữ liệu nguồn độc lập — Chờ nguồn được duyệt
 
 File chính: `tests/catalogs/test_curriculum_data.py`, `tests/conftest.py`,
 `.github/workflows/checks.yml`.
@@ -67,7 +89,7 @@ không tự nâng từ kết quả unit test.
 
 Phụ thuộc: cần bộ nguồn được duyệt riêng; có thể làm các mục khác trong lúc chờ.
 
-### 3. P2 — Làm các ca tiên quyết ổn định và đủ nhánh
+### 3. P2 — Làm các ca tiên quyết ổn định và đủ nhánh — Đã làm phần thiếu nhánh
 
 File chính: `tests/database/source/test_reviewed_prerequisites.py`.
 
@@ -80,7 +102,7 @@ File chính: `tests/database/source/test_reviewed_prerequisites.py`.
 Nghiệm thu: mỗi nhánh thiếu điều kiện có test ID riêng; chạy tập ca liên quan với
 ít nhất hai `PYTHONHASHSEED` khác nhau cho cùng kết quả và cùng phạm vi trường hợp.
 
-### 4. P2 — Tăng độ rõ của báo cáo và CI
+### 4. P2 — Tăng độ rõ của báo cáo và CI — Đã làm JUnit và verifier
 
 - Thay assertion chỉ khóa số lượng `len(results) == 26` bằng tập tên kiểm tra
   bắt buộc và kết quả tương ứng. Giữ assertion số môn khi đó là hợp đồng dữ liệu.
@@ -93,7 +115,7 @@ Nghiệm thu: mỗi nhánh thiếu điều kiện có test ID riêng; chạy t�
 Nghiệm thu: CI cung cấp báo cáo tải được; thêm một kiểm tra SQL mới không làm
 test thất bại chỉ vì thay đổi tổng số; các kiểm tra bắt buộc bị thiếu vẫn làm fail.
 
-### 5. P3 — Đồng thời và vận hành
+### 5. P3 — Đồng thời và vận hành — Chưa bắt đầu
 
 - Chạy hai publisher đồng thời trên database tạm bằng hai connection riêng;
   dùng synchronization và timeout giới hạn, tránh phụ thuộc thời gian sleep.

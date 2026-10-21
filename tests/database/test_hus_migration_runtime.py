@@ -10,6 +10,7 @@ from alembic.config import Config
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL, make_url
 
+import database.tools.publish_catalogs as publisher
 from alembic import command
 from app.errors import StorageDataError
 from app.infrastructure.hus_repository import HusRepository
@@ -87,7 +88,7 @@ def test_runtime_engine_rejects_unsafe_target_before_connection(monkeypatch, url
 
 
 @pytest.mark.hus_postgres
-def test_fresh_migration_publication_and_rollback(runtime_engine):
+def test_fresh_migration_publication_and_rollback(runtime_engine, monkeypatch):
     engine = runtime_engine
     bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
     first = publish_catalogs(engine, bundle)
@@ -110,6 +111,52 @@ def test_fresh_migration_publication_and_rollback(runtime_engine):
     with pytest.raises(ValueError):
         publish_catalogs(engine, broken)
     repo.ready()
+
+    # Fail after actual upserts, once the publication transaction has changed
+    # existing source facts, and verify the database is byte-for-byte equivalent
+    # at the row level after PostgreSQL rolls the transaction back.
+    tables = (
+        "faculties", "majors", "curricula", "courses", "curriculum_courses",
+        "course_prerequisites", "official_curriculum_groups",
+        "official_curriculum_entries", "hus_catalog_revisions",
+    )
+
+    def snapshot():
+        with engine.connect() as conn:
+            return {
+                name: sorted(
+                    (dict(row) for row in conn.execute(text(f"SELECT * FROM public.{name}")).mappings()),
+                    key=lambda row: json.dumps(row, sort_keys=True, default=str),
+                )
+                for name in tables
+            }
+
+    before_failed_publish = snapshot()
+    changed = copy.deepcopy(bundle)
+    changed["tables"]["faculties"][0]["faculty_name"] += " (injected failure)"
+    original_upsert = publisher._upsert
+    successful_upserts = 0
+
+    def fail_after_upserts(conn, table, row, keys):
+        nonlocal successful_upserts
+        original_upsert(conn, table, row, keys)
+        successful_upserts += 1
+        if successful_upserts == 2:
+            raise RuntimeError("Injected failure after source upserts")
+
+    with monkeypatch.context() as patch:
+        patch.setattr(publisher, "_upsert", fail_after_upserts)
+        with pytest.raises(RuntimeError, match="Injected failure"):
+            publish_catalogs(engine, changed)
+    assert successful_upserts == 2
+    assert snapshot() == before_failed_publish
+    repo.ready()
+
+    # The failed transaction must release the advisory lock and leave the
+    # publisher usable for a subsequent valid publication.
+    assert publish_catalogs(engine, bundle) == first
+    repo.ready()
+
     # A valid newer source revision retains old snapshots and supports rollback.
     newer = copy.deepcopy(bundle)
     newer["source"] += " (repeatability acceptance)"
