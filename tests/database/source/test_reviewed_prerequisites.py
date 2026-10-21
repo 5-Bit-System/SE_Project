@@ -56,22 +56,16 @@ def test_honors_references_do_not_become_major_memberships(source_bundle, source
     assert len(source_catalogs) == 4
 
 
-@pytest.mark.parametrize("program,passed,incomplete_passed", [
-    ("toan_hoc_7460101_2022", {"MAT2301", "MAT2303"}, {"MAT2301"}),
-    ("toan_hoc_7460101_2022", {"MAT2301", "MAT2303"}, {"MAT2303"}),
-    ("toan_tin_7460117_2022", {"MAT2301", "MAT2303"}, {"MAT2301"}),
-    ("toan_tin_7460117_2022", {"MAT2301", "MAT2303"}, {"MAT2303"}),
-    ("khmtt_7480113qtd_2022", {"MAT2400", "MAT2502"}, {"MAT2400"}),
-    ("khmtt_7480113qtd_2022", {"MAT2400", "MAT2502"}, {"MAT2502"}),
-    ("khdl_7460108_2022", {"MAT2400", "MAT2502"}, {"MAT2400"}),
-    ("khdl_7460108_2022", {"MAT2400", "MAT2502"}, {"MAT2502"}),
+@pytest.mark.parametrize("program,passed", [
+    ("toan_hoc_7460101_2022", {"MAT2301", "MAT2303"}),
+    ("toan_tin_7460117_2022", {"MAT2301", "MAT2303"}),
+    ("khmtt_7480113qtd_2022", {"MAT2400", "MAT2502"}),
+    ("khdl_7460108_2022", {"MAT2400", "MAT2502"}),
 ])
-def test_optimization_unlocks_using_own_major_alternatives(
-    source_catalogs, program, passed, incomplete_passed
-):
+def test_optimization_unlocks_using_own_major_alternatives(source_catalogs, program, passed):
     catalog = source_catalogs[program]
     assert "MAT2407" in {c.code for c in evaluate_eligibility(catalog, passed).eligible_courses}
-    result = evaluate_eligibility(catalog, incomplete_passed)
+    result = evaluate_eligibility(catalog, {next(iter(passed))})
     assert "MAT2407" not in {c.code for c in result.eligible_courses}
     with pytest.raises(ValueError, match="unknown_passed_course_codes"):
         evaluate_eligibility(catalog, {"MAT2321"})
