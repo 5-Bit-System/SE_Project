@@ -70,9 +70,24 @@ def test_infer_major_from_url():
         == MajorCategory.COMPUTER_SCIENCE
     )
 
+    assert (
+        infer_major(
+            "Tài liệu",
+            "https://mim.hus.vnu.edu.vn/sites/default/files/105.-Khoa-h%C3%A1%C2%BB%C2%8Dc-d%C3%A1%C2%BB%C2%AF-li%C3%A1%C2%BB%C2%87u-chu%C3%A1%C2%BA%C2%A9n%20final%20Q%C3%84%C2%90%203569%20Scan.pdf",
+        )
+        == MajorCategory.DATA_SCIENCE
+    )
+
     # Mathematics - Informatics
     assert (
         infer_major("Thông tin", "https://mim.hus.vnu.edu.vn/category/toantin/")
+        == MajorCategory.MATHEMATICS_INFORMATICS
+    )
+    assert (
+        infer_major(
+            "CTĐT",
+            "https://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%83%C2%A1n%20tin-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203567%20Scan.pdf",
+        )
         == MajorCategory.MATHEMATICS_INFORMATICS
     )
     assert (
@@ -148,8 +163,15 @@ def test_infer_major_from_title_and_content():
         == MajorCategory.MATHEMATICS_INFORMATICS
     )
     assert (
-        infer_major("Bộ môn Toán ứng dụng", "https://mim.hus.vnu.edu.vn/vi/news")
+        infer_major(
+            "ThS Cơ sở toán học cho tin học CTDT 4934.pdf",
+            "https://mim.hus.vnu.edu.vn/sites/default/files/116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf",
+        )
         == MajorCategory.MATHEMATICS_INFORMATICS
+    )
+    assert (
+        infer_major("Bộ môn Toán ứng dụng", "https://mim.hus.vnu.edu.vn/vi/news")
+        == MajorCategory.MATHEMATICS
     )
 
     # Mathematics

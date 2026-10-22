@@ -73,7 +73,7 @@ def _find_all_major_matches(text: str) -> set[MajorCategory]:
     ):
         matches.add(MajorCategory.COMPUTER_SCIENCE)
 
-    # 3. Mathematics - Informatics
+    # 3. Mathematics - Informatics (includes foundation of math for CS / Cơ sở toán học cho tin học)
     if (
         any(
             k in masked
@@ -81,15 +81,20 @@ def _find_all_major_matches(text: str) -> set[MajorCategory]:
                 "toán - tin",
                 "toán tin",
                 "toán học và tin học",
-                "toán ứng dụng",
+                "cơ sở toán học cho tin học",
+                "cơ sở toán cho tin học",
             )
         )
         or re.search(r"\btoantin\b", masked)
     ):
         matches.add(MajorCategory.MATHEMATICS_INFORMATICS)
 
-    # 4. Mathematics (exclude 'toán học và tin học' which belongs to MATHEMATICS_INFORMATICS)
-    text_for_math = masked.replace("toán học và tin học", " ")
+    # 4. Mathematics (exclude compound math-info phrases, include applied math / Toán ứng dụng)
+    text_for_math = (
+        masked.replace("toán học và tin học", " ")
+        .replace("cơ sở toán học cho tin học", " ")
+        .replace("cơ sở toán cho tin học", " ")
+    )
     if (
         any(
             k in text_for_math
@@ -97,9 +102,10 @@ def _find_all_major_matches(text: str) -> set[MajorCategory]:
                 "cử nhân tài năng toán",
                 "toán cơ",
                 "toán học",
+                "toán ứng dụng",
             )
         )
-        or re.search(r"\bcntn\s+toán\b", text_for_math)
+        or re.search(r"\b(?:cntn\s+toán|toanungdung)\b", text_for_math)
     ):
         matches.add(MajorCategory.MATHEMATICS)
 
@@ -153,7 +159,20 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
         # Known shared scope must not be narrowed by a URL or a single-major lead.
         return MajorCategory.GENERAL
 
-    unquoted_url = _strip_accents(unquote(url).lower())
+    def _decode_url_path(raw: str) -> str:
+        dec = unquote(raw)
+        if "%" in dec:
+            dec = unquote(dec)
+        try:
+            fixed = dec.encode("latin1").decode("utf-8")
+            if fixed:
+                dec = fixed
+        except Exception:
+            pass
+        return dec
+
+    decoded_url = _decode_url_path(url)
+    unquoted_url = _strip_accents(decoded_url.lower())
 
     # 1. Check URL slug patterns
     if any(
@@ -190,6 +209,9 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
         for k in (
             "toan-hoc-va-tin-hoc",
             "toan hoc va tin hoc",
+            "co-so-toan-hoc-cho-tin-hoc",
+            "co-so-toan-cho-tin-hoc",
+            "co so toan hoc cho tin hoc",
             "/category/toantin",
             "/toantin",
             "toantin",
@@ -207,6 +229,10 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
             "toanhoc",
             "toan-hoc",
             "toan hoc",
+            "toan-ung-dung",
+            "toanungdung",
+            "toan ung dung",
+            "kts.tud",
         )
     ):
         return MajorCategory.MATHEMATICS
