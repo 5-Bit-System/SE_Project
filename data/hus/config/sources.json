@@ -7,11 +7,21 @@
   "sources": [
     {
       "host": "mim.hus.vnu.edu.vn",
-      "path_prefixes": ["/vi/", "/sites/default/files/"],
-      "exclude_prefixes": ["/vi/album", "/vi/gallery"],
+      "path_prefixes": [
+        "/vi/",
+        "/sites/default/files/"
+      ],
+      "exclude_prefixes": [
+        "/vi/album",
+        "/vi/gallery"
+      ],
       "seeds": [
         "https://mim.hus.vnu.edu.vn/vi/cacctrdaotao",
-        "https://mim.hus.vnu.edu.vn/vi/tuyensinh"
+        "https://mim.hus.vnu.edu.vn/vi/tuyensinh",
+        "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "https://mim.hus.vnu.edu.vn/vi/toantin",
+        "https://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "https://mim.hus.vnu.edu.vn/vi/toanhoc"
       ]
     },
     {
@@ -39,7 +49,11 @@
     },
     {
       "host": "tuyensinh.hus.vnu.edu.vn",
-      "path_prefixes": ["/dai-hoc", "/thong-tin-tuyen-sinh", "/DATA/TUYENSINH/"],
+      "path_prefixes": [
+        "/dai-hoc",
+        "/thong-tin-tuyen-sinh",
+        "/DATA/TUYENSINH/"
+      ],
       "exclude_prefixes": [],
       "seeds": [
         "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"
