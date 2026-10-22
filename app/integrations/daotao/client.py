@@ -59,3 +59,24 @@ class DaotaoClient:
             .map(row => Array.from(row.cells).map(cell => cell.innerText))""")
         return normalize_rows(rows)
 
+    def read_tables(self, selector: str = "table") -> list[dict]:
+        """Read visible tables from all open pages and their frames, in memory."""
+        tables = []
+        for page_index, page in enumerate(self.context.pages):
+            for frame_index, frame in enumerate(page.frames):
+                for table_index, table in enumerate(frame.locator(selector).all()):
+                    if not table.is_visible():
+                        continue
+                    # Keep nested layout tables from duplicating their children's rows.
+                    rows = table.evaluate("""table => Array.from(table.rows)
+                        .filter(row => row.closest('table') === table)
+                        .map(row => Array.from(row.cells).map(cell => cell.innerText))""")
+                    rows = normalize_rows(rows)
+                    if rows:
+                        tables.append({
+                            "page_index": page_index,
+                            "frame_index": frame_index,
+                            "table_index": table_index,
+                            "rows": rows,
+                        })
+        return tables
