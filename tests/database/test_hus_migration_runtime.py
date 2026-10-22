@@ -13,6 +13,7 @@ from sqlalchemy import create_engine, event, text
 from sqlalchemy.sql.dml import Update
 
 from alembic import command
+from app.catalog_contracts import digest
 from app.errors import StorageDataError
 from app.infrastructure.hus_repository import HusRepository
 from database.tools import publish_catalogs as publisher
@@ -238,4 +239,53 @@ def test_concurrent_publications_keep_one_active_revision_per_program(runtime_en
             "WHERE active GROUP BY program_id"
         )).all())
     assert active_counts == {program: 1 for program in left}
+    HusRepository(runtime_engine).ready()
+
+
+@pytest.mark.hus_postgres
+def test_concurrent_distinct_bundles_activate_one_complete_snapshot(runtime_engine):
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
+    baseline = publish_catalogs(runtime_engine, source)
+    sample = next(row for row in source["course_metadata"]
+                  if row["values"].get("name_en") and row["values"].get("hours") is not None)
+    candidates = {}
+    for label in ("A", "B"):
+        bundle = copy.deepcopy(source)
+        bundle["source"] += f" (synthetic concurrent bundle {label})"
+        row = next(row for row in bundle["course_metadata"]
+                   if (row["program_id"], row["code"]) == (sample["program_id"], sample["code"]))
+        row["values"]["name_en"] = f"Synthetic concurrent name {label}"
+        for evidence in row["field_evidence"]["name_en"]:
+            evidence["note"] = f"Synthetic concurrency test value {label}; not reviewed source data."
+        candidates[label] = bundle
+
+    barrier = Barrier(2)
+
+    def publish_after_barrier(label: str) -> dict[str, str]:
+        barrier.wait(timeout=10)
+        return publish_catalogs(runtime_engine, candidates[label])
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        futures = {label: pool.submit(publish_after_barrier, label) for label in candidates}
+        results = {label: future.result(timeout=60) for label, future in futures.items()}
+
+    assert all(results[label] != baseline for label in candidates)
+    assert results["A"] != results["B"]
+    with runtime_engine.connect() as conn:
+        rows = conn.execute(text(
+            "SELECT program_id, revision_id, source_digest "
+            "FROM hus_catalog_revisions WHERE active"
+        )).all()
+        assert len(rows) == 4
+        active = {row.program_id: row.revision_id for row in rows}
+        assert active in results.values()
+        winner = next(label for label, revisions in results.items() if revisions == active)
+        assert {row.source_digest for row in rows} == {digest(candidates[winner])}
+        assert conn.execute(text("SELECT count(*) FROM hus_catalog_revisions")).scalar_one() == 12
+        stored_name = conn.execute(text(
+            "SELECT m.runtime_metadata->>'name_en' "
+            "FROM curriculum_courses m JOIN curricula c USING (curriculum_id) "
+            "WHERE c.program_id=:program AND m.course_code=:code"
+        ), {"program": sample["program_id"], "code": sample["code"]}).scalar_one()
+        assert stored_name == f"Synthetic concurrent name {winner}"
     HusRepository(runtime_engine).ready()

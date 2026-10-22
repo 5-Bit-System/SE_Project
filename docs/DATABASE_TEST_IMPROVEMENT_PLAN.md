@@ -38,7 +38,9 @@ Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt *
 
 ### P1 — Kiểm tra publish đồng thời với hai bundle khác nhau
 
-**Hiện có:** ca đồng thời dùng hai bản của cùng một bundle và xác nhận một revision active cho mỗi ngành.
+**Trạng thái 22/10/2026: hoàn thành.** Ca mới dùng hai bundle tổng hợp khác nhau về `source`, `name_en` và bằng chứng test; hai publisher bắt đầu qua barrier trên database tạm. Kết quả active của cả bốn ngành phải trọn vẹn thuộc một bundle, cùng source digest; metadata lưu trong `curriculum_courses` phải khớp bundle thắng. Ca tập trung và toàn nhóm HUS PostgreSQL (17 passed) đạt.
+
+**Trước khi thực hiện:** ca đồng thời dùng hai bản của cùng một bundle và xác nhận một revision active cho mỗi ngành.
 
 - Chạy hai publisher với hai bundle hợp lệ **khác nhau** trên database tạm; đồng bộ bằng barrier và dùng timeout hữu hạn.
 - Chấp nhận một trong hai thứ tự commit. Snapshot cuối phải là trọn bộ bốn revision của một bundle, không pha giữa hai bundle; mỗi ngành có đúng một active revision và repository đọc được.

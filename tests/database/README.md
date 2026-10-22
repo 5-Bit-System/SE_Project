@@ -40,6 +40,8 @@ schema riêng trong `se_project_test`. Ca kiểm tra URL chạy offline trong
 `test_database_targets.py` và `test_hus_migration_runtime.py`.
 Test publisher HUS còn gây lỗi ngay sau khi tắt revision active để xác nhận
 transaction rollback toàn bộ bảng và lần publish kế tiếp vẫn thành công.
+Ca đồng thời với hai bundle tổng hợp khác nhau xác nhận bốn revision active,
+source digest và metadata lưu trong PostgreSQL đều thuộc cùng một bundle.
 
 Xem kết quả, giới hạn và bước kiểm chứng PostgreSQL tại
 [báo cáo kiểm thử](../../../docs/VINH_DATABASE_TEST_REPORT.md).
