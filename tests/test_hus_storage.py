@@ -1,8 +1,7 @@
 import json
 from pathlib import Path
-import pytest
 
-from app.hus.models import DocumentType, HUSDocument, Publisher
+from app.hus.models import DocumentType, HUSDocument, MajorCategory, Publisher
 from app.hus.storage import ProcessedStorage, RawStorage
 
 
@@ -14,14 +13,30 @@ def test_raw_storage_idempotent(tmp_path: Path):
     p1 = storage.save_raw_html(url, raw_html)
     assert p1.exists()
     assert p1.read_bytes() == raw_html
+    assert p1.parent.name == "general"
+    assert "--" in p1.name
+    assert p1.suffix == ".html"
 
     # Same content does not create another file
     p2 = storage.save_raw_html(url, raw_html)
     assert p1 == p2
 
+    # Save with specific major and title
+    p3 = storage.save_raw_html(
+        "https://mim.hus.vnu.edu.vn/vi/ds",
+        raw_html,
+        major=MajorCategory.DATA_SCIENCE,
+        title="Khoa học dữ liệu",
+    )
+    assert p3.exists()
+    assert p3.parent.name == "data_science"
+    assert p3.name.startswith("khoa-hoc-du-lieu--")
+
     # Save document (pdf)
     p_pdf = storage.save_raw_document("https://mim.hus.vnu.edu.vn/file.pdf", b"%PDF-1.4", "pdf")
     assert p_pdf.exists()
+    assert p_pdf.parent.name == "general"
+    assert "--" in p_pdf.name
     assert p_pdf.suffix == ".pdf"
 
 
@@ -38,9 +53,16 @@ def test_processed_storage_atomic_commit(tmp_path: Path):
     )
     doc_id = storage.save_document(doc)
     assert doc_id is not None
-    md_file = tmp_path / "processed" / "documents" / f"{doc_id}.md"
+    md_files = list((tmp_path / "processed" / "documents").rglob("*.md"))
+    assert len(md_files) == 1
+    md_file = md_files[0]
+    assert md_file.parent.name == "general"
+    assert md_file.name.startswith("quy-che-dao-tao--")
+    assert md_file.name.endswith(f"{doc_id[:8]}.md")
     assert md_file.exists()
-    assert "# Điều 1: Tín chỉ" in md_file.read_text(encoding="utf-8")
+    content = md_file.read_text(encoding="utf-8")
+    assert "# Điều 1: Tín chỉ" in content
+    assert "major: general" in content
 
     # Before commit, catalog.json might not exist
     storage.commit()
@@ -56,3 +78,65 @@ def test_processed_storage_atomic_commit(tmp_path: Path):
     reloaded = ProcessedStorage(tmp_path)
     assert len(reloaded.documents) == 1
     assert doc_id in reloaded.documents
+
+
+def test_hierarchical_storage_and_metadata_header(tmp_path: Path):
+    raw_storage = RawStorage(tmp_path)
+    processed_storage = ProcessedStorage(tmp_path)
+
+    # 1. Raw HTML with major and title
+    html_path = raw_storage.save_raw_html(
+        "https://mim.hus.vnu.edu.vn/vi/khdl",
+        b"<html>KHDL</html>",
+        major=MajorCategory.DATA_SCIENCE,
+        title="Khoa học dữ liệu 2026",
+    )
+    assert html_path == tmp_path / "raw" / "html" / "data_science" / html_path.name
+    assert html_path.name.startswith("khoa-hoc-du-lieu-2026--")
+    assert html_path.suffix == ".html"
+
+    # 2. Raw document with major and title
+    doc_path = raw_storage.save_raw_document(
+        "https://mim.hus.vnu.edu.vn/files/khmt.pdf",
+        b"%PDF-1.4...",
+        ext="pdf",
+        major=MajorCategory.COMPUTER_SCIENCE,
+        title="khmt.pdf",
+    )
+    assert doc_path == tmp_path / "raw" / "documents" / "computer_science" / doc_path.name
+    assert doc_path.name.startswith("khmt--")
+    assert doc_path.suffix == ".pdf"
+
+    # 3. Processed document with major and metadata header
+    doc = HUSDocument(
+        url="https://mim.hus.vnu.edu.vn/vi/toan-tin",
+        title="Chương trình Toán - Tin",
+        content="Nội dung chương trình đào tạo",
+        content_hash="hash_tt",
+        fetched_at="2026-10-22T00:00:00Z",
+        major=MajorCategory.MATHEMATICS_INFORMATICS,
+        document_type=DocumentType.CURRICULUM,
+        publisher=Publisher.MIM,
+    )
+    doc_id = processed_storage.save_document(doc)
+    md_path = (
+        tmp_path
+        / "processed"
+        / "documents"
+        / "mathematics_informatics"
+        / f"chuong-trinh-toan-tin--{doc_id[:8]}.md"
+    )
+    assert md_path.exists()
+
+    content = md_path.read_text(encoding="utf-8")
+    expected_header = (
+        "---\n"
+        "title: Chương trình Toán - Tin\n"
+        "url: https://mim.hus.vnu.edu.vn/vi/toan-tin\n"
+        "publisher: MIM\n"
+        "type: curriculum\n"
+        "major: mathematics_informatics\n"
+        "---\n\n"
+    )
+    assert content.startswith(expected_header)
+    assert "Nội dung chương trình đào tạo" in content

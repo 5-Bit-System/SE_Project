@@ -180,7 +180,7 @@ class HUSPipeline:
                         summary.unchanged_count += 1
                     else:
                         # Save raw HTML and processed markdown document.
-                        self.raw_storage.save_raw_html(final_url, raw_bytes)
+                        self.raw_storage.save_raw_html(final_url, raw_bytes, major=doc.major, title=doc.title)
                         doc_id = self.processed_storage.save_document(doc)
                         self.state_manager.update_record(
                             url=final_url,
@@ -245,12 +245,16 @@ class HUSPipeline:
                         continue
 
                     ext = urlsplit(att_final).path.split(".")[-1].lower() if "." in att_final else "bin"
-                    self.raw_storage.save_raw_document(att_final, att_raw, ext)
+                    att_filename = Path(urlsplit(att_final).path).name or "attachment"
 
                     # Extract attachment content
                     try:
                         att_content, needs_ocr = extract_attachment(att_raw, ext)
                     except CrawlError as exc:
+                        att_major = infer_attachment_major(att_final, parent_major=doc.major)
+                        self.raw_storage.save_raw_document(
+                            att_final, att_raw, ext, major=att_major, title=att_filename
+                        )
                         summary.failures[att_final] = str(exc)
                         summary.error_count += 1
                         continue
@@ -259,9 +263,11 @@ class HUSPipeline:
                     cleaned_content = att_content.strip() if att_content else f"[Tài liệu đính kèm: {att_final}]"
                     att_hash = hashlib.sha256(cleaned_content.encode("utf-8")).hexdigest()
 
-                    att_filename = Path(urlsplit(att_final).path).name or "attachment"
                     att_major = infer_attachment_major(
                         att_final, cleaned_content, parent_major=doc.major,
+                    )
+                    self.raw_storage.save_raw_document(
+                        att_final, att_raw, ext, major=att_major, title=att_filename
                     )
 
                     att_doc = HUSDocument(

@@ -143,7 +143,7 @@ class TestHUSPipeline:
 
         # Raw HTML files saved
         html_dir = tmp_path / "raw" / "html"
-        assert len(list(html_dir.glob("*.html"))) >= 2
+        assert len(list(html_dir.rglob("*.html"))) >= 2
 
     def test_incremental_skips_unchanged(self, tmp_path: Path) -> None:
         """Second run with same content should report unchanged, not new."""
@@ -260,7 +260,7 @@ class TestHUSPipeline:
             first, _ = self._make_pipeline(tmp_path)
             assert first.run(client=client, sleep=lambda _: None).new_count == 3
             before = {path: (path.read_bytes(), path.stat().st_mtime_ns)
-                      for path in (tmp_path / "processed/documents").glob("*.md")}
+                      for path in (tmp_path / "processed/documents").rglob("*.md")}
             phase = 2
             seen.clear()
             second, _ = self._make_pipeline(tmp_path)
@@ -276,9 +276,11 @@ class TestHUSPipeline:
         assert "Version 2" in leaf["content_markdown"]
         for doc in catalog["documents"].values():
             if not doc["source_url"].endswith("/leaf"):
-                path = tmp_path / "processed/documents" / f'{doc["document_id"]}.md'
+                matches = list((tmp_path / "processed/documents").rglob(f'*{doc["document_id"][:8]}.md'))
+                assert len(matches) == 1
+                path = matches[0]
                 assert (path.read_bytes(), path.stat().st_mtime_ns) == before[path]
-        assert len(list((tmp_path / "raw/html").glob("*.html"))) == 4
+        assert len(list((tmp_path / "raw/html").rglob("*.html"))) == 3
 
     def test_304_parent_still_refreshes_attachment(self, tmp_path: Path) -> None:
         phase = 1
@@ -534,6 +536,14 @@ class TestHUSPipeline:
 
         att_doc = next(d for d in docs.values() if "104.-KHMTTT-chuan.docx" in d["source_url"])
         assert att_doc["major"] == "computer_science"
+
+        # Verify hierarchical storage by major subdirectories
+        assert (tmp_path / "raw" / "html" / "general").is_dir()
+        assert (tmp_path / "raw" / "html" / "data_science").is_dir()
+        assert (tmp_path / "raw" / "documents" / "computer_science").is_dir()
+        assert (tmp_path / "processed" / "documents" / "general").is_dir()
+        assert (tmp_path / "processed" / "documents" / "data_science").is_dir()
+        assert (tmp_path / "processed" / "documents" / "computer_science").is_dir()
 
     @pytest.mark.parametrize("parent_title, filename, body, expected", [
         ("Khoa học dữ liệu", "guide.docx", "Hướng dẫn đăng ký học phần.", "data_science"),

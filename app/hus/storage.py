@@ -4,13 +4,26 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from pydantic import ValidationError
 
-from app.hus.models import HUSDocument
+from app.hus.cleaning import slugify
+from app.hus.models import HUSDocument, MajorCategory
 from app.hus.urls import canonicalize_url
+
+
+def _normalize_major(major: MajorCategory | str | None) -> str:
+    if major is None:
+        return MajorCategory.GENERAL.value
+    if isinstance(major, MajorCategory):
+        return major.value
+    val = str(major).strip()
+    try:
+        return MajorCategory(val).value
+    except ValueError:
+        return val.lower() or MajorCategory.GENERAL.value
 
 
 class RawStorage:
@@ -23,22 +36,54 @@ class RawStorage:
         self.html_dir.mkdir(parents=True, exist_ok=True)
         self.doc_dir.mkdir(parents=True, exist_ok=True)
 
-    def save_raw_html(self, url: str, raw_bytes: bytes) -> Path:
+    def save_raw_html(
+        self,
+        url: str,
+        raw_bytes: bytes,
+        major: MajorCategory | str = "general",
+        title: str = "",
+    ) -> Path:
+        major_str = _normalize_major(major)
         url_hash = hashlib.sha1(url.encode("utf-8")).hexdigest()[:12]
-        content_hash = hashlib.sha256(raw_bytes).hexdigest()[:12]
-        filename = f"{url_hash}-{content_hash}.html"
-        path = self.html_dir / filename
-        if not path.exists():
+        if not title:
+            path_stem = Path(urlsplit(url).path).stem
+            title = path_stem if path_stem and path_stem not in ("/", "\\") else "document"
+
+        slug = slugify(title) or "document"
+        filename = f"{slug}--{url_hash}.html"
+
+        dest_dir = self.html_dir / major_str
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        path = dest_dir / filename
+        if not path.exists() or path.read_bytes() != raw_bytes:
             path.write_bytes(raw_bytes)
         return path
 
-    def save_raw_document(self, url: str, raw_bytes: bytes, ext: str) -> Path:
+    def save_raw_document(
+        self,
+        url: str,
+        raw_bytes: bytes,
+        ext: str,
+        major: MajorCategory | str = "general",
+        title: str = "",
+    ) -> Path:
         clean_ext = ext.lower().lstrip(".") or "bin"
+        major_str = _normalize_major(major)
         url_hash = hashlib.sha1(url.encode("utf-8")).hexdigest()[:12]
-        content_hash = hashlib.sha256(raw_bytes).hexdigest()[:12]
-        filename = f"{url_hash}-{content_hash}.{clean_ext}"
-        path = self.doc_dir / filename
-        if not path.exists():
+
+        if not title:
+            path_stem = Path(urlsplit(url).path).stem
+            title = path_stem if path_stem and path_stem not in ("/", "\\") else "document"
+        elif clean_ext and title.lower().endswith(f".{clean_ext}"):
+            title = title[: -len(clean_ext) - 1]
+
+        slug = slugify(title) or "document"
+        filename = f"{slug}--{url_hash}.{clean_ext}"
+
+        dest_dir = self.doc_dir / major_str
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        path = dest_dir / filename
+        if not path.exists() or path.read_bytes() != raw_bytes:
             path.write_bytes(raw_bytes)
         return path
 
@@ -84,9 +129,26 @@ class ProcessedStorage:
         doc_id = doc.document_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
         doc.document_id = doc_id
 
+        major_str = _normalize_major(doc.major)
+        slug = slugify(doc.title) or "document"
+
         # Write markdown content to disk
-        md_file = self.doc_dir / f"{doc_id}.md"
-        header = f"---\ntitle: {doc.title}\nurl: {doc.url}\npublisher: {doc.publisher.value}\ntype: {doc.document_type.value}\n---\n\n"
+        dest_dir = self.doc_dir / major_str
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        md_file = dest_dir / f"{slug}--{doc_id[:8]}.md"
+
+        publisher_val = doc.publisher.value if hasattr(doc.publisher, "value") else str(doc.publisher)
+        type_val = doc.document_type.value if hasattr(doc.document_type, "value") else str(doc.document_type)
+
+        header = (
+            f"---\n"
+            f"title: {doc.title}\n"
+            f"url: {doc.url}\n"
+            f"publisher: {publisher_val}\n"
+            f"type: {type_val}\n"
+            f"major: {major_str}\n"
+            f"---\n\n"
+        )
         md_file.write_text(header + doc.content, encoding="utf-8")
 
         # Update in-memory catalog

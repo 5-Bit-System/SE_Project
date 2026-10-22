@@ -101,7 +101,7 @@ def test_pipeline_downloads_tuyensinh_pdfs_and_reports_unique_skips(tmp_path, re
         assert seen.count(HOST + path) == 1
     assert not set(BLOCKED_URLS) & set(seen)
 
-    raw_files = list((tmp_path / "raw/documents").glob("*.pdf"))
+    raw_files = list((tmp_path / "raw/documents").rglob("*.pdf"))
     assert len(raw_files) == 2
     assert all(path.read_bytes() == pdf for path in raw_files)
     catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
@@ -110,5 +110,5 @@ def test_pipeline_downloads_tuyensinh_pdfs_and_reports_unique_skips(tmp_path, re
     for doc in attachments:
         assert doc["parent_url"] == seeds[0]
         assert "Official course information" in doc["content_markdown"]
-        markdown = tmp_path / "processed/documents" / f'{doc["document_id"]}.md'
+        markdown = list((tmp_path / "processed/documents").rglob(f'*{doc["document_id"][:8]}.md'))[0]
         assert "Official course information" in markdown.read_text(encoding="utf-8")

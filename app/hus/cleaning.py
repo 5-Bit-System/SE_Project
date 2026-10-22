@@ -25,6 +25,21 @@ def _strip_accents(text: str) -> str:
     return "".join(c for c in decomposed if not unicodedata.combining(c))
 
 
+def slugify(text: str, max_length: int = 60) -> str:
+    """Convert text into an ASCII-only URL/file-safe slug.
+
+    Removes Vietnamese diacritics, replaces non-alphanumeric characters with hyphens,
+    collapses multiple hyphens, trims leading/trailing hyphens, and truncates to max_length.
+    """
+    if not text:
+        return ""
+    stripped = _strip_accents(text)
+    slug = re.sub(r"[^a-zA-Z0-9]+", "-", stripped).strip("-").lower()
+    if max_length > 0 and len(slug) > max_length:
+        slug = slug[:max_length].rstrip("-")
+    return slug
+
+
 def infer_document_type(title: str, content: str = "") -> DocumentType:
     """Infer DocumentType using keyword rules on title and content."""
     for text in (title.lower(), content[:300].lower()):

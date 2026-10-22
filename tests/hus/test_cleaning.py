@@ -8,6 +8,7 @@ from app.hus.cleaning import (
     infer_attachment_major,
     infer_document_type,
     infer_major,
+    slugify,
 )
 from app.hus.models import DocumentType, MajorCategory
 
@@ -351,3 +352,24 @@ def test_only_unknown_attachments_inherit_parent(content: str, expected: MajorCa
         "https://mim.hus.vnu.edu.vn/files/guide.docx", content,
         parent_major=MajorCategory.DATA_SCIENCE,
     ) == expected
+
+
+def test_slugify_basic():
+    assert slugify("Thông báo đào tạo") == "thong-bao-dao-tao"
+    assert slugify("Khoa Toán - Cơ - Tin học (MIM)") == "khoa-toan-co-tin-hoc-mim"
+    assert slugify("Đề án & Quy chế Đào tạo -- HUS (2023)") == "de-an-quy-che-dao-tao-hus-2023"
+
+
+def test_slugify_special_characters_and_whitespace():
+    assert slugify("  --- Hello   World ---  ") == "hello-world"
+    assert slugify("file_name.test_123.pdf") == "file-name-test-123-pdf"
+    assert slugify("!@#$%^&*()") == ""
+    assert slugify("") == ""
+
+
+def test_slugify_max_length():
+    long_title = "Đây là một tiêu đề rất dài để kiểm tra tính năng cắt ngắn ký tự của slugify"
+    slug = slugify(long_title, max_length=30)
+    assert len(slug) <= 30
+    assert not slug.endswith("-")
+    assert not slug.startswith("-")
