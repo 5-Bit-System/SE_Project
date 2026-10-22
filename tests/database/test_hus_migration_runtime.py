@@ -9,8 +9,8 @@ from threading import Barrier
 
 import pytest
 from alembic.config import Config
-from sqlalchemy import create_engine, text
-from sqlalchemy.engine import URL, make_url
+from sqlalchemy import create_engine, event, text
+from sqlalchemy.sql.dml import Update
 
 from alembic import command
 from app.errors import StorageDataError
@@ -24,18 +24,9 @@ from database.tools.publish_catalogs import (
     activate_revision,
     publish_catalogs,
 )
+from tests.support.postgres_targets import validate_hus_test_target
 
-
-def _validate_runtime_test_target(url: str) -> URL:
-    target = make_url(url)
-    if (
-        target.get_backend_name() != "postgresql"
-        or target.host not in {"127.0.0.1", "localhost"}
-        or target.database != "ai07"
-        or set(target.query) - {"sslmode"}
-    ):
-        raise ValueError("HUS migration tests require local ai07")
-    return target
+_validate_runtime_test_target = validate_hus_test_target
 
 
 @pytest.fixture
@@ -177,6 +168,48 @@ def test_publisher_rolls_back_mid_import_and_releases_lock(runtime_engine, monke
     monkeypatch.setattr(publisher, "_upsert", original_upsert)
     second = publish_catalogs(runtime_engine, newer)
     assert all(first[program] != second[program] for program in first)
+    HusRepository(runtime_engine).ready()
+
+
+@pytest.mark.hus_postgres
+def test_publisher_rolls_back_after_deactivating_revisions(runtime_engine):
+    bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
+    first = publish_catalogs(runtime_engine, bundle)
+    before = publisher_snapshot(runtime_engine)
+    newer = copy.deepcopy(bundle)
+    newer["source"] += " (activation rollback injection)"
+    revision_updates = 0
+
+    def fail_before_reactivation(conn, clauseelement, multiparams, params, execution_options):
+        nonlocal revision_updates
+        if isinstance(clauseelement, Update) and clauseelement.table.name == "hus_catalog_revisions":
+            revision_updates += 1
+            if revision_updates == 2:
+                raise RuntimeError("injected activation failure")
+
+    event.listen(runtime_engine, "before_execute", fail_before_reactivation)
+    try:
+        with pytest.raises(RuntimeError, match="injected activation failure"):
+            publish_catalogs(runtime_engine, newer)
+    finally:
+        event.remove(runtime_engine, "before_execute", fail_before_reactivation)
+
+    assert revision_updates == 2
+    assert publisher_snapshot(runtime_engine) == before
+    with runtime_engine.connect() as conn:
+        active = dict(conn.execute(text(
+            "SELECT program_id, revision_id FROM hus_catalog_revisions WHERE active"
+        )).all())
+        assert active == first
+    HusRepository(runtime_engine).ready()
+
+    second = publish_catalogs(runtime_engine, newer)
+    assert all(first[program] != second[program] for program in first)
+    with runtime_engine.connect() as conn:
+        active = dict(conn.execute(text(
+            "SELECT program_id, revision_id FROM hus_catalog_revisions WHERE active"
+        )).all())
+        assert active == second
     HusRepository(runtime_engine).ready()
 
 
