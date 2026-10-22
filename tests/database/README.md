@@ -42,6 +42,8 @@ Test publisher HUS còn gây lỗi ngay sau khi tắt revision active để xác
 transaction rollback toàn bộ bảng và lần publish kế tiếp vẫn thành công.
 Ca đồng thời với hai bundle tổng hợp khác nhau xác nhận bốn revision active,
 source digest và metadata lưu trong PostgreSQL đều thuộc cùng một bundle.
+Hai ca HUS PostgreSQL kiểm tra metadata từ source qua snapshot active, SQL,
+repository và HTTP `/courses`, cùng tính bất biến của revision và quy tắc học vụ.
 
 Xem kết quả, giới hạn và bước kiểm chứng PostgreSQL tại
 [báo cáo kiểm thử](../../../docs/VINH_DATABASE_TEST_REPORT.md).

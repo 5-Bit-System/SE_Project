@@ -50,7 +50,9 @@ Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt *
 
 ### P1 — Xác nhận metadata mới đi qua PostgreSQL và API
 
-**Hiện có:** test metadata kiểm tra source-built catalog và API giả lập; migration test đã publish và đọc catalog từ PostgreSQL nhưng chưa assert cụ thể các trường vừa thêm.
+**Trạng thái 22/10/2026: hoàn thành.** Hai ca HUS PostgreSQL mới đối chiếu toàn bộ 290 học phần từ source-built catalog qua repository, kiểm tra `runtime_metadata` trong SQL và `/courses` trên repository thật của database tạm. Tám giá trị giờ trống vẫn `null`. Thay đổi metadata có bằng chứng tạo revision mới; publish lặp lại không tạo thêm revision, còn tín chỉ và tiên quyết không đổi. Toàn nhóm HUS đạt 19 passed.
+
+**Trước khi thực hiện:** test metadata kiểm tra source-built catalog và API giả lập; migration test đã publish và đọc catalog từ PostgreSQL nhưng chưa assert cụ thể các trường vừa thêm.
 
 - Publish bundle hiện tại vào database tạm, đọc lại catalog qua `HusRepository` và kiểm tra mẫu đại diện có `name_en`, `hours`, `field_evidence` đúng theo chương trình; kiểm tra tám giá trị giờ trống vẫn `null`.
 - Kiểm tra revision/digest đổi khi metadata có bằng chứng đổi, publish lại cùng bundle không tạo revision mới, và metadata không làm thay đổi credits/eligibility/prerequisites.

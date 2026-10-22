@@ -9,13 +9,17 @@ from threading import Barrier
 
 import pytest
 from alembic.config import Config
+from fastapi.testclient import TestClient
 from sqlalchemy import create_engine, event, text
 from sqlalchemy.sql.dml import Update
 
 from alembic import command
 from app.catalog_contracts import digest
+from app.config import get_settings
 from app.errors import StorageDataError
 from app.infrastructure.hus_repository import HusRepository
+from app.main import app
+from database.hus_db.catalog_builder import build_catalogs
 from database.tools import publish_catalogs as publisher
 from database.tools.apply_sql import apply_sql
 from database.tools.migrate import config
@@ -289,3 +293,90 @@ def test_concurrent_distinct_bundles_activate_one_complete_snapshot(runtime_engi
         ), {"program": sample["program_id"], "code": sample["code"]}).scalar_one()
         assert stored_name == f"Synthetic concurrent name {winner}"
     HusRepository(runtime_engine).ready()
+
+
+@pytest.mark.hus_postgres
+def test_metadata_round_trips_through_postgres_repository_and_http(runtime_engine, monkeypatch):
+    bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
+    publish_catalogs(runtime_engine, bundle)
+    repository = HusRepository(runtime_engine)
+    expected = {catalog.program.program_id: catalog for catalog in build_catalogs(bundle)}
+    stored = {catalog.program.program_id: catalog for catalog in repository.list_catalogs()}
+    assert set(stored) == set(expected)
+    for program_id, catalog in expected.items():
+        stored_courses = {course.code: course for course in stored[program_id].courses}
+        for course in catalog.courses:
+            actual = stored_courses[course.code]
+            assert actual.name_en == course.name_en
+            assert actual.hours == course.hours
+            assert actual.field_evidence == course.field_evidence
+            assert (actual.credits, actual.prerequisites, actual.prerequisite_status) == (
+                course.credits, course.prerequisites, course.prerequisite_status
+            )
+    assert sum(course.hours is None for catalog in stored.values()
+               for course in catalog.courses) == 8
+
+    program_id = "toan_tin_7460117_2022"
+    course = next(course for course in stored[program_id].courses if course.code == "MAT3366")
+    with runtime_engine.connect() as conn:
+        row = conn.execute(text(
+            "SELECT m.runtime_metadata FROM curriculum_courses m "
+            "JOIN curricula c USING (curriculum_id) "
+            "WHERE c.program_id=:program AND m.course_code=:code"
+        ), {"program": program_id, "code": course.code}).scalar_one()
+    assert row["name_en"] == course.name_en
+    assert row["hours"] == course.hours
+    assert row["field_evidence"] == course.model_dump(mode="json")["field_evidence"]
+
+    monkeypatch.setenv("STORAGE_BACKEND", "postgres")
+    monkeypatch.setenv("DATABASE_MODEL", "hus")
+    monkeypatch.setenv("DATABASE_URL", runtime_engine.url.render_as_string(hide_password=False))
+    get_settings.cache_clear()
+    monkeypatch.setattr("app.infrastructure.repositories.postgres_repository", lambda: repository)
+    with TestClient(app) as client:
+        assert client.get("/ready").status_code == 200
+        response = client.get("/courses", params={"program_id": program_id})
+    assert response.status_code == 200
+    api_course = next(row for row in response.json() if row["code"] == course.code)
+    assert api_course["name"] == course.name
+    assert api_course["name_en"] == course.name_en
+    assert api_course["hours"] == course.hours
+    assert api_course["field_evidence"] == course.model_dump(mode="json")["field_evidence"]
+
+
+@pytest.mark.hus_postgres
+def test_metadata_change_creates_revision_without_changing_academic_rules(runtime_engine):
+    bundle = json.loads(SOURCE.read_text(encoding="utf-8"))
+    first = publish_catalogs(runtime_engine, bundle)
+    changed = copy.deepcopy(bundle)
+    row = next(row for row in changed["course_metadata"]
+               if row["values"].get("name_en") and row["values"].get("hours") is not None)
+    row["values"]["name_en"] = "Synthetic metadata revision test"
+    for evidence in row["field_evidence"]["name_en"]:
+        evidence["note"] = "Synthetic revision test value; not reviewed source data."
+    second = publish_catalogs(runtime_engine, changed)
+    assert all(first[program] != second[program] for program in first)
+    assert publish_catalogs(runtime_engine, changed) == second
+
+    repository = HusRepository(runtime_engine)
+    actual = {catalog.program.program_id: catalog for catalog in repository.list_catalogs()}
+    original = {catalog.program.program_id: catalog for catalog in build_catalogs(bundle)}
+    for program_id, catalog in actual.items():
+        originals = {course.code: course for course in original[program_id].courses}
+        for course in catalog.courses:
+            before = originals[course.code]
+            assert (course.credits, course.prerequisites, course.prerequisite_status,
+                    course.prerequisite_variants) == (
+                        before.credits, before.prerequisites, before.prerequisite_status,
+                        before.prerequisite_variants
+                    )
+    changed_course = next(course for course in actual[row["program_id"]].courses
+                          if course.code == row["code"])
+    assert changed_course.name_en == "Synthetic metadata revision test"
+    with runtime_engine.connect() as conn:
+        assert conn.execute(text("SELECT count(*) FROM hus_catalog_revisions")).scalar_one() == 8
+        active = dict(conn.execute(text(
+            "SELECT program_id, revision_id FROM hus_catalog_revisions WHERE active"
+        )).all())
+        assert active == second
+    repository.ready()
