@@ -1,5 +1,6 @@
 """Headed, session-only exploration of the VNU student portal."""
 
+from time import monotonic, sleep
 
 
 LOGIN_URL = "https://daotao.vnu.edu.vn/dkmh/login.asp"
@@ -22,6 +23,23 @@ class DaotaoClient:
         self.page.locator('#frmLogin input[type="submit"]').click()
         self.page.wait_for_load_state("domcontentloaded")
 
+    def _wait_for_element(self, selector: str, timeout_ms: int):
+        """Find a visible element even when showApp loads it in a child frame."""
+        from playwright.sync_api import Error, TimeoutError
+
+        deadline = monotonic() + timeout_ms / 1000
+        while monotonic() < deadline:
+            for page in self.context.pages:
+                for frame in page.frames:
+                    try:
+                        for element in frame.locator(selector).all():
+                            if element.is_visible():
+                                return element
+                    except Error:
+                        if not frame.is_detached() and not page.is_closed():
+                            raise
+            sleep(0.2)
+        raise TimeoutError("Không thấy mục xem điểm hoặc bảng điểm trong thời gian chờ.")
 
 
 
