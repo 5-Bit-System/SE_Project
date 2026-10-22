@@ -1,0 +1,20 @@
+---
+title: Lời chào mừng
+url: http://mim.hus.vnu.edu.vn/vi/lcm
+publisher: MIM
+type: general_info
+major: general
+---
+
+Chào mừng các bạn đã đến với Khoa Toán – Cơ – Tin học, Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội.
+Khoa Toán – Cơ – Tin học, Trường Đại học Khoa học Tự nhiên, ĐHQGHN được thành lập từ năm 1956. Từ khi ra đời đến nay Khoa đã có nhiều tên gọi khác nhau như Khoa Tự nhiên (1956), Khoa Toán – Lý (1961), Khoa Toán (1964), Khoa Toán – Cơ (1970), Khoa Toán – Cơ – Tin học (1987).
+Khoa là một trong những đơn vị đào tạo và nghiên cứu khoa học lớn nhất cả nước trong lĩnh vực Toán học, Cơ học và Tin học, có sứ mệnh đào tạo nguồn nhân lực có chất lượng cao, thực hiện các nghiên cứu cơ bản, nghiên cứu ứng dụng, nghiên cứu triển khai và tham gia các hoạt động cộng đồng, phổ biến tri thức trong các lĩnh vực Toán học, Cơ học và Tin học.
+Hiện nay, Khoa có 07 bộ môn chuyên ngành (Toán học tính toán và toán ứng dụng, Đại số - Hình học - Tô pô, Giải tích, Cơ học, Xác suất - Thống kê, Phương trình vi phân và hệ động lực, Tin học) và một phòng thí nghiệm Khoa học dữ liệu.
+Về nhân lực, Khoa hiện có tổng cộng 82 nhân lực, trong đó có 05 Giáo sư, 3 Tiến sĩ Khoa học; 09 Phó giáo sư và gần 50 tiến sĩ. Ban lãnh đạo Khoa có 04 người, bao gồm 01 Trưởng khoa, 03 Phó trưởng Khoa. Có 02 trợ lý cho Ban lãnh đạo Khoa về tổ chức cán bộ và về các chương trình đào tạo đặc biệt. Văn phòng Khoa có 05 cán bộ.
+Khoa Toán - Cơ - Tin học đào tạo ở cả 03 bậc: cử nhân, thạc sĩ và tiến sĩ.
+Ở bậc cử nhân Khoa có các chương trình đào tạo: Toán học (hệ chuẩn và hệ cử nhân khoa học tài năng); Toán Cơ; Toán - Tin ứng dụng; Khoa học máy tính và thông tin; Khoa học dữ liệu. Hàng năm Khoa tuyển sinh khoảng 300 sinh viên cho tất cả 4 ngành đào tạo. Ngoài ra, Khoa phối hợp với Trường ĐH Giáo dục tham gia đào tạo chuyên ngành Sư phạm Toán theo mô hình 3+1.Năm 2013, Khoa Toán – Cơ – Tin học là một trong các đơn vị đầu tiên của Đại học Quốc Gia Hà Nội thực hiện kiểm định theo tiêu chuẩn AUN-QA ngành Toán học, và đạt kết quả tốt.
+Ở bậc thạc sĩ có 10 chuyên ngành đào tạo gồm Đại số và lý thuyết số; Hình học và Tô pô; Lý thuyết xác suất và thống kê toán học; Phương pháp toán sơ cấp; Toán giải tích; Toán ứng dụng; Cơ học vật rắn; Cơ học chất lỏng; Cơ sở toán học cho Tin học và Khoa học dữ liệu.
+Ở bậc tiến sĩ có 9 chuyên ngành đào tạo gồm Đại số và lý thuyết số; Hình học và Tô pô; Lý thuyết xác suất và thống kê toán học; Phương trình vi phân và tích phân; Toán giải tích; Toán ứng dụng; Cơ học vật rắn; Cơ học chất lỏng; Cơ sở toán học cho Tin học.
+Trong Khoa có nhiều nhóm nghiên cứu với kết quả nghiên cứu tốt trong đó có 02 nhóm nghiên cứu được công nhận là Nhóm nghiên cứu mạnh cấp Đại học Quốc gia Hà Nội. Các cán bộ của Khoa đã nhận được nhiều giải thưởng về nghiên cứu khoa học như Giải thưởng Tạ Quang Bửu về khoa học cơ bản; Giải thưởng Viện toán học; Giải thưởng Đại học Quốc gia về Khoa học công nghệ, ... Các cán bộ của Khoa đã và đang chủ trì nhiều đề tài khoa học cấp ĐHQGHN, cấp Bộ GD&ĐT, đề tài NAFOSTED. Hàng năm cán bộ Khoa công bố khoảng 60 bài báo khoa học trên các tạp chí ISI.
+Khoa có quan hệ và đã ký hợp tác với nhiều Trường Đại học trên thế giới như Đại học Washington (Hoa Kỳ), Đại học Paris 13 (Pháp), Đại học Toulon (Pháp), Viện nghiên cứu tiên tiến (Hàn Quốc), ... cũng như nhiều công ty, tập đoàn trong lĩnh vực công nghiệp. Hàng năm rất nhiều sinh viên, học viên của Khoa được cử đi học tập, trao đổi tại các Trường đối tác cũng như đi thực tập, thực tế tại các doanh nghiệp.
+Cuộc cách mạng công nghiệp lần thứ tư mở ra nhiều cơ hội to lớn cùng với những thách thức khó lường nhưng Khoa Toán – Cơ - Tin học luôn xác định rõ sứ mạng cao cả của Khoa là đào tạo nguồn nhân lực cao trong các lĩnh vực Toán học, Cơ học và Tin học. Khoa phấn đấu trở thành một trung tâm hàng đầu của cả nước và khu vực Đông Nam Á về đào tạo và nghiên cứu trong các lĩnh vực Toán học, Cơ học và Tin học.

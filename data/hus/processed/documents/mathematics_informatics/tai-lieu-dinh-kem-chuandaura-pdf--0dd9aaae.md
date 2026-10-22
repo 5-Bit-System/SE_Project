@@ -1,0 +1,61 @@
+---
+title: Tài liệu đính kèm: ChuanDauRa.pdf
+url: http://mim.hus.vnu.edu.vn/sites/default/files/ChuanDauRa.pdf
+publisher: MIM
+type: curriculum
+major: mathematics_informatics
+---
+
+<!-- Page 1 -->
+CHUẨN ĐẦU RA
+CHƯƠNG TRÌNH ĐÀO TẠO ĐẠI HỌC
+NGÀNH TOÁN TIN
+1. Về kiến thức
+ELO 1.1. Kiến thức chung: Vận dụng được các kiến thức cơ bản về khoa học chính trị, pháp luật
+và về tư tưởng, đạo đức trong việc tuân thủ chính sách, pháp luật và có trách nhiệm xã hội; đánh
+giá, phân tích được các vấn đề an ninh, quốc phòng để bảo vệ tổ quốc.
+ELO 1.2. Kiến thức chung theo lĩnh vực:
+a. Hiểu biết về những biểu hiện, giá trị của văn hóa Việt Nam
+b. Hiểu biết về các kiến thức về khoa học trái đất và sự sống
+c. Vận dụng kiến thức về công nghệ thông tin và hiểu biết về cách mạng công nghiệp 4.0 đáp
+ứng yêu cầu công việc.
+ELO 1.3. Kiến thức của khối ngành: Vận dụng được các kiến thức về cơ sở vật lí trong thực tiễn
+cuộc sống và công việc chuyên môn.
+ELO 1.4. Kiến thức của nhóm ngành: Nắm vững các kiến thức toán cao cấp; vận dụng được kiến
+thức về toán ứng dụng, thống kê và lập trình cơ bản trong việc mô hình hoá và giải quyết các vấn
+đề tính toán.
+ELO 1.5. Kiến thức ngành:
+a. Có khả năng thu thập, tổ chức và lưu trữ thông tin trên máy tính.
+b. Có khả năng thiết kế, xây dựng và đánh giá một thành phần phần mềm hay toàn bộ hệ
+thống.
+c. Có khả năng thiết kế và triển khai thực nghiệm, phân tích và diễn giải dữ liệu.
+d. Có khả năng xác định, mô hình hoá, phân tích và giải quyết các vấn đề từ thực tế sử dụng
+các kiến thức toán cao cấp, khoa học máy tính và lập trình.
+e. Có khả năng sử dụng các kĩ thuật, các công cụ hiện đại cho công việc tính toán chuyên
+nghiệp.
+2. Về kĩ năng
+ELO 2.1. Có khả năng tìm kiếm, nghiên cứu, tổng hợp tài liệu, thu thập và phân tích thông tin,
+phát hiện vấn đề; vận dụng kiến thức lý thuyết vào thực tiễn; có khả năng tiếp cận vấn đề một cách
+hệ thống và có phương pháp khoa học.
+
+<!-- Page 2 -->
+ELO 2.2. Có kĩ năng giao tiếp chuyên môn hiệu quả; có khả năng viết báo cáo khoa học và thuyết
+trình về lĩnh vực chuyên môn; sử dụng thành thạo các công cụ phần mềm hỗ trợ giao tiếp
+ELO 2.3. Có khả năng tư duy logic, đa chiều; có kĩ năng nhận biết và đánh giá các xu hướng công
+nghệ mới trong lĩnh vực công nghệ thông tin và ứng dụng toán học trong nước và quốc tế.
+ELO 2.4. Có khả năng tự cập nhật kiến thức; có năng lực học tập suốt đời.
+ELO 2.5. Có khả năng quản lý và tổ chức thực hiện công việc một cách linh hoạt và hiệu quả trong
+những tình huống khác nhau; có khả năng lập luận tư duy và giải quyết vấn đề.
+ELO 2.6. Có khả năng xây dựng mục tiêu cá nhân, tạo động lực làm việc, phát triển cá nhân; có
+khả năng thay đổi mục tiêu phù hợp với yêu cầu công việc.
+ELO 2.7. Có kĩ năng làm việc độc lập và làm việc nhóm; có khả năng quản lý và lãnh đạo nhóm.
+ELO 2.8 Có kĩ năng sử dụng tiếng Anh trong giao tiếp thông thường và trong hoạt động chuyên
+môn ở mức 3/6 khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam.
+3. Về phẩm chất đạo đức
+ELO 3.1. Phẩm chất đạo đức cá nhân: Có phẩm chất đạo đức tốt, khiêm tốn, nhiệt tình, trung
+thực, yêu nghề, tôn trọng và hợp tác.
+ELO 3.2. Phẩm chất đạo đức nghề nghiệp: Có đạo đức nghề nghiệp, trung thực và có trách nhiệm
+trong công việc; có ý thức tự giác trong việc học tập để phát triển và nâng cao trình độ năng lực
+chuyên môn.
+ELO 3.3. Phẩm chất đạo đức xã hội: Có trách nhiệm công dân và ý thức chấp hành pháp luật cao;
+có ý thức bảo vệ tổ quốc; có ý thức bảo vệ môi trường vì sự phát triển chung bền vững của xã hội.

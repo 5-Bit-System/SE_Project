@@ -23,9 +23,8 @@ project-toolkit/
 .codex/
 postgres_data/
 pgdata/
-# Crawled originals (HUS); index.json is public, raw HTML stays local
-data/hus/raw/
-data/hus/processed/
+# Crawled originals (HUS)
+data/hus/raw/documents/
 data/hus/state/
 .codegraph/
 .pytest_temp/
