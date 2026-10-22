@@ -2,11 +2,13 @@
 
 Ngày lập: **21/10/2026**. Cập nhật đối chiếu nhánh Vinh: **22/10/2026**. Kế hoạch đã được triển khai một phần; các điều kiện nghiệm thu học vụ vẫn còn mở.
 
+**Thông tin người dùng xác nhận ngày 22/10/2026:** chỉ xét chương trình áp dụng từ khóa tuyển sinh 2022; hiện chưa biết có văn bản điều chỉnh sau QĐ 3565–3569 hay không; người dùng là người rà soát cuối. Năm PDF trong `docs/` khớp manifest SHA-256. Kết quả đối chiếu mã/trang độc lập và các điểm chờ xác nhận được ghi trong [báo cáo nghiệm thu PDF](HUS_PDF_ACCEPTANCE_REVIEW.md). Đã chạy đủ 10 ca tự động trên HUS: tổng lượt mới 302 offline và 35 PostgreSQL pass. Export bổ sung bằng chứng nhóm cha Khoa học dữ liệu `28/63`, chưa publish runtime. Chưa có xác nhận cuối cho toàn bộ dữ liệu học vụ.
+
 ## Cập nhật để Vinh tiếp tục thực hiện (22/10/2026)
 
 Phạm vi đối chiếu: commit `8c60434` trên `origin/feat/vinh-database-tests`, so với kế hoạch này. Commit đó cũng là đầu nhánh `fix/hus-metadata-vi-en-20261021` tại lúc rà soát. Lượt đối chiếu ban đầu dựa trên mã nguồn và báo cáo đã đưa lên Git; người rà soát **chưa đọc lại độc lập các PDF**. Kết quả kiểm thử sau đó được ghi riêng ngay dưới đây và vẫn không thay thế nghiệm thu nguồn học thuật.
 
-**Cập nhật sau khi kiểm thử và merge local (22/10/2026):** Commit `8c60434` đạt 263 test offline, 31 test PostgreSQL, `verify_data` 26/26, Ruff, kiểm tra fixture tổng hợp và cú pháp JavaScript. `codebase` local đã fast-forward tới commit này; chưa push lên `origin/codebase` và chưa publish metadata mới vào database runtime. Mười ca `full_catalog_acceptance` vẫn chờ bộ nguồn được review độc lập.
+**Mốc sau khi kiểm thử và merge local (22/10/2026):** Commit `8c60434` đạt 263 test offline, 31 test PostgreSQL, `verify_data` 26/26, Ruff, kiểm tra fixture tổng hợp và cú pháp JavaScript. Ở mốc đó `codebase` mới fast-forward local và chưa publish metadata mới vào database runtime. Sau đó `codebase` đã được đẩy lên GitHub qua `66002cd`. Mười ca `full_catalog_acceptance` vẫn chờ bộ nguồn được review độc lập đầy đủ.
 
 **Ước lượng tiến độ toàn kế hoạch: khoảng 40%.** Đây là ước lượng theo sáu giai đoạn và điều kiện hoàn thành, không phải tỷ lệ dòng dữ liệu đã được chuyên môn xác minh. Không dùng con số này để nâng trạng thái catalog.
 

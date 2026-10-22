@@ -2,6 +2,12 @@
 
 Ngày cập nhật: **22/10/2026**. Các kết quả gốc ngày 20/10/2026 trên commit `26aeb39` được giữ ở phần lịch sử bên dưới.
 
+## Lượt mới với bộ kỳ vọng PDF HUS 2022
+
+Trên working tree sau `66002cd`: **302 offline passed** (gồm đủ 10 ca `full_catalog_acceptance`) và **35 PostgreSQL passed**, tổng **337 ca riêng biệt**. Không có skip trong hai lượt này. Cấu hình PostgreSQL và cách cô lập giữ như phần dưới. Bộ kỳ vọng lấy từ ảnh PDF và CSV mã/trang độc lập; test dùng production HUS builder, vẫn hỗ trợ định dạng file catalog cũ. Xem [cách chạy](acceptance/hus_2022/README.md) và [báo cáo nguồn](HUS_PDF_ACCEPTANCE_REVIEW.md).
+
+Test phát hiện phần tóm tắt Khoa học dữ liệu `28/63` chưa được giữ trong HUS export; đã bổ sung nhóm cha `V.2` với locator, giữ nguyên tổng nhóm con 57. Chưa publish thay đổi này vào runtime. Kết quả test không nâng trạng thái catalog lên verified hoặc thay xác nhận học vụ của người dùng. Các mốc có 10 skip bên dưới là lịch sử trước cập nhật này.
+
 ## Kết quả sau cải thiện test database
 
 Nền mã kiểm tra: `codebase` tại commit **`2bf1e5c`** (gồm các commit riêng `9327166` cho publish đồng thời và `2bf1e5c` cho metadata persistence/API). Môi trường: Windows, Python **3.11.9**, PostgreSQL **16.15** trong Docker local; dependency từ `.venv` của dự án. Các nhóm dưới đây chạy riêng, với marker và database thử nghiệm tường minh.

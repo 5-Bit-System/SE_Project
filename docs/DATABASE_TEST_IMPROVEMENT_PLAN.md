@@ -2,7 +2,7 @@
 
 Ngày cập nhật: **22/10/2026**. Nhánh làm việc: `codebase` local, sau khi nhập commit `8c60434`. Kế hoạch test suite calibration ngày 17/10 và các mục đã hoàn thành của bản kế hoạch cũ là hồ sơ lịch sử; tài liệu này chỉ ghi công việc tiếp theo.
 
-**Tiến độ: 5/5 việc cải thiện test database đã hoàn thành.** Cổng nghiệm thu nguồn học thuật ở mục 3 vẫn chờ dữ liệu được review độc lập.
+**Tiến độ: 5/5 việc cải thiện test database đã hoàn thành.** Đã bổ sung bộ kỳ vọng PDF cho HUS và chạy đủ 10 ca nguồn. Lượt mới có **302 offline + 35 PostgreSQL = 337 passed**, không skip khi cung cấp bộ HUS; xác nhận học vụ cuối của người dùng vẫn chờ.
 
 ## 1. Trạng thái hiện tại và mục tiêu
 
@@ -74,13 +74,15 @@ Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt *
 
 ## 3. Cổng nghiệm thu nguồn học thuật riêng
 
-Khi có bộ nguồn đã được review độc lập, chuẩn bị `--full-catalog-root` đúng định dạng dự án rồi chạy đủ mười ca `full_catalog_acceptance`. Expected data cần lấy từ kết luận rà PDF và người review, không sinh từ chính `hus_source.json` hay catalog builder. Ghi ngoại lệ MAT3402, MAT3325, PHI1002 và phạm vi đã xác minh. Việc này phối hợp với [kế hoạch metadata HUS](KE_HOACH_CAI_THIEN_METADATA_HUS.md), không chặn các mục P0/P1 ở trên.
+**Cập nhật 22/10/2026:** Người dùng xác nhận phạm vi từ khóa 2022, nhận vai trò người rà soát cuối và cho biết chưa rõ có văn bản điều chỉnh sau đó hay không. Năm PDF khớp SHA-256 của manifest. Đã đối chiếu độc lập mã/trang của 297 occurrence, rà các ô và điều kiện mà 10 ca kiểm tra, bổ sung [bộ kỳ vọng HUS](acceptance/hus_2022/README.md). Cả 10 ca đã pass trong nhóm offline; đường kiểm tra catalog JSON cũ vẫn được giữ. Xem [báo cáo](HUS_PDF_ACCEPTANCE_REVIEW.md). Pass tự động không thay thế review toàn diện từng trường hoặc xác nhận hiệu lực văn bản.
+
+Chạy bằng `python -m pytest tests/catalogs/test_curriculum_data.py -q --full-catalog-root docs/acceptance/hus_2022`. Expected data lấy từ ảnh PDF, source export là đối tượng đang kiểm tra. Đã bổ sung nhóm cha Khoa học dữ liệu `V.2` để giữ nguyên tóm tắt `28/63` bên cạnh tổng nhóm con 57; chưa publish runtime. MAT3402, MAT3325, PHI1002 và phạm vi đã xác minh ghi trong báo cáo. Bốn catalog tiếp tục `draft_unverified` trong khi chờ kết luận học vụ.
 
 ## 4. Thông tin cần người dùng cung cấp
 
 **Để bắt đầu P0–P2 trên Docker local hiện có: chưa cần cung cấp thêm.** Repo đã có cấu hình Docker local bị Git bỏ qua; không gửi mật khẩu hoặc dump database. Nếu muốn test legacy trên database thử nghiệm khác `se_project_test`, cần cho biết tên database và giới hạn được phép tạo/xóa schema trước khi đổi quy tắc an toàn.
 
-**Để hoàn tất cổng nghiệm thu nguồn:** cần PDF/ZIP quyết định đúng phiên bản và mọi văn bản điều chỉnh, xác nhận khóa áp dụng, bảng review độc lập có locator/kết luận và người hoặc đơn vị chịu trách nhiệm xác nhận. Chỉ ZIP PDF chưa đủ để chạy `--full-catalog-root`; cần bộ expected data đã review theo định dạng test.
+**Để chạy kiểm tra nguồn:** đã đủ tài liệu và bộ kỳ vọng cho 10 ca. **Để xác nhận học vụ đầy đủ:** người dùng rà kết luận trong báo cáo và văn bản điều chỉnh khi tìm được; các điểm chưa rõ giữ nguyên trạng thái an toàn.
 
 ## 5. Quy tắc thực hiện
 
