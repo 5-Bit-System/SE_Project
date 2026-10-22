@@ -2,6 +2,8 @@
 
 Kiểm tra schema, migration, truy vấn và lưu trữ PostgreSQL; bao gồm runtime, persistence và các đường đi riêng của HUS.
 
+Mốc local 22/10/2026 trên `codebase` commit `2bf1e5c`: **291 passed / 45 deselected** offline, **16 passed / 320 deselected** với `postgres`, **19 passed / 317 deselected** với `hus_postgres`. Mười ca `full_catalog_acceptance` vẫn skip do thiếu bộ nguồn đã review. Chi tiết môi trường, JUnit và giới hạn có trong [báo cáo kiểm thử](../../../docs/VINH_DATABASE_TEST_REPORT.md). Các số liệu cũ bên dưới là mốc lịch sử.
+
 ## Phần kiểm thử dữ liệu của Vinh
 
 - `source/test_four_majors.py`: 16 ca cho 4 ngành; kiểm tra số môn, tín chỉ yêu cầu,

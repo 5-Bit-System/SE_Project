@@ -2,6 +2,8 @@
 
 Ngày cập nhật: **22/10/2026**. Nhánh làm việc: `codebase` local, sau khi nhập commit `8c60434`. Kế hoạch test suite calibration ngày 17/10 và các mục đã hoàn thành của bản kế hoạch cũ là hồ sơ lịch sử; tài liệu này chỉ ghi công việc tiếp theo.
 
+**Tiến độ: 5/5 việc cải thiện test database đã hoàn thành.** Cổng nghiệm thu nguồn học thuật ở mục 3 vẫn chờ dữ liệu được review độc lập.
+
 ## 1. Trạng thái hiện tại và mục tiêu
 
 Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt **263 passed / 41 deselected** offline và **31 passed / 273 deselected** với PostgreSQL. `database.tools.verify_data` đạt **26/26**; Ruff, bốn fixture tổng hợp, cú pháp JavaScript và `git diff --check` đạt. Test dùng database migration tạm đã dọn sau khi chạy; các bảng `accounts`, `students`, `course_attempts` vẫn rỗng. CI hiện có ba job và ba artifact JUnit riêng. Đây là mốc kiểm thử mã và database, không phải nghiệm thu PDF.
@@ -61,6 +63,8 @@ Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt *
 **Hoàn thành khi:** source, hàng lưu PostgreSQL, snapshot active và API trả cùng metadata; dữ liệu chưa biết vẫn chưa biết.
 
 ### P2 — Cập nhật bằng chứng kiểm thử và hướng dẫn chạy
+
+**Trạng thái 22/10/2026: hoàn thành.** Trên commit `2bf1e5c`, ba nhóm local đạt 291 offline, 16 legacy PostgreSQL và 19 HUS PostgreSQL; Ruff, bốn fixture builder và `verify_data` 26/26 đạt. Mười ca acceptance được chạy riêng và đều skip vì thiếu nguồn review. JUnit XML local và kiểm tra dọn database/schema tạm đã ghi ở `docs/VINH_DATABASE_TEST_REPORT.md`; GitHub Actions cho commit mới chưa được xác nhận.
 
 - Chạy đúng ba nhóm CI trên commit hoàn thiện: offline, `postgres`, `hus_postgres`; lưu số passed/failed/skipped/deselected riêng, cùng kết quả Ruff và `verify_data`.
 - Cập nhật `tests/database/README.md` và `docs/VINH_DATABASE_TEST_REPORT.md` bằng commit, môi trường, lệnh chạy và mốc mới. Các số liệu từ commit cũ phải được ghi là lịch sử.
