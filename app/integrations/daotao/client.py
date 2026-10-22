@@ -41,5 +41,12 @@ class DaotaoClient:
             sleep(0.2)
         raise TimeoutError("Không thấy mục xem điểm hoặc bảng điểm trong thời gian chờ.")
 
+    def open_transcript(self, timeout_ms: int = 30000) -> None:
+        """Wait for the authenticated menu and invoke its existing showApp handler."""
+        menu = self._wait_for_element(
+            '#PortalModule_374[title="Xem điểm sinh viên"]', timeout_ms
+        )
+        menu.click(timeout=timeout_ms)
+        self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
 
 
