@@ -4,7 +4,7 @@ Ngày thực hiện: 22/10/2026. Người rà soát cuối: người dùng dự 
 
 ## Nguồn đã nhận
 
-Năm PDF trong `docs/` đọc được và SHA-256 đều khớp `metadata_source_archive.documents` trong `database/data/hus_source.json`:
+Năm PDF hiện nằm trong `docs/pdf/` (đã chuyển từ `docs/` ngày 23/10/2026), đọc được và SHA-256 đều khớp `metadata_source_archive.documents` trong `database/data/hus_source.json`:
 
 | Quyết định | PDF | SHA-256 | Vai trò |
 | --- | --- | --- | --- |

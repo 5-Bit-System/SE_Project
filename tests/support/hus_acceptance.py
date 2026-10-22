@@ -36,7 +36,7 @@ def catalog(program_id):
 def assert_inventory(root, program_id, bundle=None):
     expected = expectations(root)
     spec = expected["programs"][program_id]
-    pdfs = list((root.parents[1]).glob(spec["pdf_number"] + "*.pdf"))
+    pdfs = list((root.parents[1] / "pdf").glob(spec["pdf_number"] + "*.pdf"))
     assert len(pdfs) == 1, "Provide exactly one matching original PDF"
     assert hashlib.sha256(pdfs[0].read_bytes()).hexdigest() == spec["sha256"]
     with (root / expected["inventory"]).open(encoding="utf8", newline="") as file:

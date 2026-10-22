@@ -2,6 +2,8 @@
 
 Ngày: **23/10/2026**. Phạm vi: 9 đặc tả trong `modules/`, code FastAPI/domain/repository/frontend, kiểm thử offline và kế hoạch RAG hiện có. Đây là kết quả audit và kế hoạch; chưa sửa nghiệp vụ hoặc triển khai kết nối cổng đào tạo.
 
+**Cập nhật sau audit, chốt phiên 23/10/2026:** đã viết lại đặc tả Markdown cho 11 module (không triển khai các chức năng mới), nhánh chính đã đổi thành `main`. Đã sửa local F01: helper acceptance tìm PDF ở `docs/pdf/`, giữ kiểm tra đúng một file và SHA-256. Lượt offline kèm đủ 10 acceptance đạt **302 passed, 35 deselected, không skip**; Ruff helper đạt. Các failure và trạng thái Git trong phần audit bên dưới là mốc lịch sử, không còn là kết quả mới nhất. Chưa sửa các vấn đề F02–F10; chưa commit/push bản sửa PDF hoặc cập nhật chốt phiên.
+
 **Phân công người dùng xác nhận ngày 23/10/2026:** module kết nối cổng đào tạo do bạn của người dùng phụ trách. Phần đăng nhập, SSO/CAPTCHA/OTP và lấy dữ liệu thuộc module đó. Phần hệ thống chính cần chuẩn bị hợp đồng nhận bảng điểm, chuẩn hóa/validation, xem trước/xác nhận và nối vào pipeline hiện có. Không cần người dùng cung cấp URL hoặc credentials để tiếp tục các phần độc lập; việc tích hợp thực tế phụ thuộc đầu ra module của người phụ trách.
 
 ## 1. Kết luận và yêu cầu sản phẩm mới

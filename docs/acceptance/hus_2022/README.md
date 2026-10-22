@@ -2,7 +2,7 @@
 
 `hus_pdf_expectations.json` ghi các giá trị được đọc trực tiếp từ PDF: tổng tín chỉ, số dòng đánh số, số môn và vị trí các ô đặc biệt. `../../HUS_PDF_CODE_PAGE_AUDIT.csv` lưu danh sách mã/trang được trích độc lập từ cột mã PDF, giữ cả lượt lặp. Dữ liệu kỳ vọng không được sinh bằng HUS builder. File source export là **đầu vào đang được kiểm thử**.
 
-Chạy từ gốc repository, dùng năm PDF đã đặt trong `docs/`:
+Chạy từ gốc repository, dùng năm PDF đã đặt trong `docs/pdf/`. Helper HUS tìm file tại thư mục này và vẫn xác minh đúng một file khớp cùng SHA-256:
 
 ```powershell
 .venv\Scripts\python.exe -m pytest tests/catalogs/test_curriculum_data.py -q --full-catalog-root docs/acceptance/hus_2022
