@@ -2,6 +2,7 @@
 
 from time import monotonic, sleep
 
+from app.integrations.daotao.parser import normalize_rows
 
 LOGIN_URL = "https://daotao.vnu.edu.vn/dkmh/login.asp"
 # The header repeats the same title; only divList3 contains actual course rows.
@@ -49,4 +50,12 @@ class DaotaoClient:
         menu.click(timeout=timeout_ms)
         self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
 
+    def read_transcript(self, timeout_ms: int = 30000) -> list[list[str]]:
+        """Read only the grade table, including semester headings and totals."""
+        cell = self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
+        table = cell.locator("xpath=ancestor::table[1]")
+        rows = table.evaluate("""table => Array.from(table.rows)
+            .filter(row => row.closest('table') === table)
+            .map(row => Array.from(row.cells).map(cell => cell.innerText))""")
+        return normalize_rows(rows)
 
