@@ -127,12 +127,27 @@ function initTabs() {
       tabButtons.forEach(b => {
         b.classList.remove("active");
         b.setAttribute("aria-selected", "false");
+        b.tabIndex = -1;
       });
       tabPanels.forEach(p => p.classList.remove("active"));
 
       btn.classList.add("active");
       btn.setAttribute("aria-selected", "true");
+      btn.tabIndex = 0;
       document.querySelector(`#${targetId}`).classList.add("active");
+    });
+    btn.addEventListener("keydown", (event) => {
+      const buttons = Array.from(tabButtons);
+      const index = buttons.indexOf(btn);
+      let next;
+      if (["ArrowDown", "ArrowRight"].includes(event.key)) next = (index + 1) % buttons.length;
+      if (["ArrowUp", "ArrowLeft"].includes(event.key)) next = (index - 1 + buttons.length) % buttons.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = buttons.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      buttons[next].focus();
+      buttons[next].click();
     });
   });
 }
@@ -191,7 +206,8 @@ async function onProgramChanged() {
   if (currentProgram) {
     const status = currentProgram.catalog_status || "unknown";
     const warning = status === "verified" ? "" : " · Nguồn CTĐT chưa được xác minh đầy đủ";
-    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} Tín chỉ chuẩn · Trạng thái: ${status}${warning}`;
+    const statusLabel = {verified: "Đã xác minh", draft_unverified: "Đang rà soát", unknown: "Chưa rõ trạng thái"}[status] || "Chưa rõ trạng thái";
+    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} tín chỉ · ${statusLabel}${warning}`;
     dom.kpiTotalCreditsSub.textContent = `/ ${currentProgram.total_credits} Tín chỉ`;
     renderProgramChoices(currentProgram);
   }
@@ -400,6 +416,7 @@ function renderCourseChecklist() {
     
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.setAttribute("aria-label", `Đã hoàn thành ${course.code}`);
     checkbox.className = "course-checkbox";
     checkbox.checked = isPassed;
     checkbox.addEventListener("change", async (e) => {
@@ -426,8 +443,8 @@ function renderCourseChecklist() {
     tags.className = "course-meta-tags";
     tags.innerHTML = `
       <span class="badge badge-gray">${course.credits} TC</span>
-      <span class="badge badge-gray">Năm ${course.year || 'N/A'}</span>
-      <span>${course.block}</span>
+      <span class="badge badge-gray">${course.year ? `Năm ${course.year}` : 'Chưa rõ năm học'}</span>
+      <span>${{general: 'Kiến thức chung', field: 'Theo lĩnh vực', discipline: 'Theo khối ngành', group: 'Theo nhóm ngành', major: 'Kiến thức ngành'}[course.block] || 'Chưa rõ khối kiến thức'}</span>
     `;
     if (course.hours) {
       const english = state.courseLanguage === "en";
@@ -444,6 +461,7 @@ function renderCourseChecklist() {
     gradeBox.className = "grade-input-box";
     const gradeInput = document.createElement("input");
     gradeInput.type = "number";
+    gradeInput.setAttribute("aria-label", `Điểm hệ 10 của ${course.code}`);
     gradeInput.min = "0";
     gradeInput.max = "10";
     gradeInput.step = "0.5";
@@ -563,7 +581,7 @@ function renderRuleEngineTab(eligRes) {
             <strong>${c.code} — ${c.name}</strong>
             <div class="course-meta-tags mt-2">
               <span class="badge badge-success">${c.credits} TC</span>
-              <span class="badge badge-gray">Năm ${c.year || 'N/A'}</span>
+              <span class="badge badge-gray">${c.year ? `Năm ${c.year}` : 'Chưa rõ năm học'}</span>
               <span>${c.block}</span>
             </div>
           </div>
@@ -590,7 +608,7 @@ function renderRuleEngineTab(eligRes) {
             <strong>${b.code} — ${b.name}</strong>
             <div class="course-meta-tags mt-2">
               <span class="badge badge-warning">${b.credits} TC</span>
-              <span class="badge badge-gray">Năm ${b.year || 'N/A'}</span>
+              <span class="badge badge-gray">${b.year ? `Năm ${b.year}` : 'Chưa rõ năm học'}</span>
               <span>${b.block}</span>
             </div>
           </div>
@@ -908,6 +926,7 @@ function toggleAdvisorChat(forceOpen = null) {
   if (!dom.advisorChatWindow) return;
   const isHidden = dom.advisorChatWindow.classList.contains("hidden");
   const shouldOpen = forceOpen !== null ? forceOpen : isHidden;
+  dom.advisorBubbleBtn?.setAttribute("aria-expanded", String(shouldOpen));
 
   if (shouldOpen) {
     dom.advisorChatWindow.classList.remove("hidden");
@@ -918,6 +937,7 @@ function toggleAdvisorChat(forceOpen = null) {
   } else {
     dom.advisorChatWindow.classList.add("hidden");
     dom.advisorChatWindow.setAttribute("aria-hidden", "true");
+    dom.advisorBubbleBtn?.focus();
   }
 }
 

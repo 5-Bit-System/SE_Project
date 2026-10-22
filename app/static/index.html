@@ -3,32 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-07 · Explainable Course Recommender</title>
+  <title>AI-07 | Không gian học tập</title>
   <meta name="description" content="Hệ thống gợi ý môn học cá nhân hóa và giải thích minh bạch theo chuẩn CTĐT ĐHKHTN - ĐHQGHN với Rule Engine và AI Advisor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/styles.css">
   <script src="/static/app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#workspace-heading">Đi tới nội dung chính</a>
   <!-- Top Navigation & Header -->
   <header class="app-header">
     <div class="header-container">
       <div class="brand">
         <div class="brand-logo">
-          <span class="logo-icon">🎓</span>
+          <span class="logo-icon" aria-hidden="true">a<span>07</span></span>
         </div>
         <div class="brand-text">
-          <span class="badge-eyebrow">AI-07 · VNU-HUS Academic Recommender</span>
-          <h1 class="app-title">Hệ Thống Gợi Ý Học Phần Cá Nhân Hóa</h1>
+          <span class="badge-eyebrow">ĐHKHTN · ĐHQG Hà Nội</span>
+          <h1 class="app-title">Không gian học tập</h1>
         </div>
       </div>
 
       <div class="header-right-actions">
         <div class="program-selector-wrapper">
-          <label for="course-language-select" class="selector-label">Tên học phần / Course names:</label>
+          <label for="course-language-select" class="selector-label">Ngôn ngữ tên môn</label>
           <div class="select-container">
             <select id="course-language-select" class="modern-select">
               <option value="vi">Tiếng Việt (vi)</option>
@@ -38,14 +39,14 @@
           </div>
         </div>
         <div class="program-selector-wrapper">
-          <label for="program-select" class="selector-label">Ngành học đang chọn:</label>
+          <label for="program-select" class="selector-label">Chương trình của bạn</label>
           <div class="select-container">
             <select id="program-select" class="modern-select" required></select>
             <span class="select-arrow">▾</span>
           </div>
         </div>
         <div class="program-selector-wrapper">
-          <label for="profile-select" class="selector-label">Hồ sơ demo:</label>
+          <label for="profile-select" class="selector-label">Dữ liệu minh họa</label>
           <div class="select-container">
             <select id="profile-select" class="modern-select">
               <option value="">Không dùng profile demo</option>
@@ -64,71 +65,71 @@
         <span id="catalog-name-text">Đang tải dữ liệu CTĐT...</span>
       </div>
       <div class="isolation-notice">
-        <span>🔒 <strong>Major Isolation:</strong> Dữ liệu môn học và bảng điểm luôn được cô lập 100% trong ngành đã chọn.</span>
+        <span>Bảng điểm chỉ giữ trong phiên. Đổi ngành sẽ xóa dữ liệu đã nhập.</span>
       </div>
     </div>
   </div>
 
   <!-- Main Workspace Tabs -->
   <main class="container main-content">
-    <!-- Navigation Tabs (4 Core Steps) -->
-    <nav class="nav-tabs" role="tablist">
-      <button id="tab-btn-transcript" class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-transcript">
-        <span class="tab-icon">📝</span>
-        <span class="tab-label">1. Bảng Điểm & Ngành</span>
-      </button>
-      <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-rules">
-        <span class="tab-icon">⚖️</span>
-        <span class="tab-label">2. Kiểm Tra Điều Kiện</span>
-      </button>
-      <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-recommend">
-        <span class="tab-icon">⭐</span>
-        <span class="tab-label">3. Gợi Ý Kỳ Tới</span>
-      </button>
-    </nav>
-
+    <aside class="workspace-sidebar">
+      <p class="sidebar-caption">Lộ trình của bạn</p>
+      <nav class="nav-tabs" role="tablist" aria-label="Các bước lập kế hoạch học tập" aria-orientation="vertical">
+        <button id="tab-btn-transcript" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-transcript" data-tab="tab-transcript"><span class="tab-icon" aria-hidden="true">1</span><span class="tab-label">Bảng điểm<small>Ghi lại những gì đã học</small></span></button>
+        <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rules" tabindex="-1" data-tab="tab-rules"><span class="tab-icon" aria-hidden="true">2</span><span class="tab-label">Điều kiện học<small>Xem môn có thể học tiếp</small></span></button>
+        <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true">3</span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
+      </nav>
+      <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Nhập môn đã đạt, kiểm tra điều kiện rồi khám phá những lựa chọn tiếp theo.</small></div>
+      <div class="sidebar-bottom">AI-07 <span>Course companion</span></div>
+    </aside>
+    <div class="workspace-body">
+      <div class="workspace-intro">
+        <div><p class="intro-context">Kế hoạch học tập cá nhân</p><h2 id="workspace-heading" tabindex="-1">Hiểu tiến độ. Chọn bước tiếp theo.</h2><p>Bắt đầu với những môn bạn đã học, để mỗi lựa chọn đều có cơ sở.</p></div>
+        <div class="intro-symbol" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M15 76V24h22v52M39 76V41h22v35M63 76V14h22v62" stroke="currentColor" stroke-width="2"/><path d="m20 60 28-9 26-27" stroke="currentColor" stroke-width="3"/><circle cx="74" cy="24" r="5" fill="currentColor"/></svg></div>
+      </div>
+      <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu chương trình đang được rà soát. Kết quả là thông tin tham khảo; hãy xác nhận quy định và lịch mở lớp với nhà trường.</p></div>
     <!-- Tab 1: Transcript & Major Ingestion -->
-    <section id="tab-transcript" class="tab-panel active" role="tabpanel">
+    <section aria-labelledby="tab-btn-transcript" id="tab-transcript" class="tab-panel active" role="tabpanel">
       <div class="kpi-grid">
         <div class="kpi-card">
-          <span class="kpi-title">Môn Đã Hoàn Thành</span>
+          <span class="kpi-title">Môn đã hoàn thành</span>
           <span id="kpi-passed-count" class="kpi-value text-emerald">0</span>
           <span class="kpi-sub">Điểm ≥ 5.0</span>
         </div>
         <div class="kpi-card">
-          <span class="kpi-title">Tín Chỉ Tích Lũy</span>
+          <span class="kpi-title">Tín chỉ tích lũy</span>
           <span id="kpi-credits" class="kpi-value text-blue">0</span>
-          <span id="kpi-total-credits-sub" class="kpi-sub">/ 127 Tín chỉ</span>
+          <span id="kpi-total-credits-sub" class="kpi-sub">/ — tín chỉ</span>
         </div>
         <div class="kpi-card">
-          <span class="kpi-title">Điểm Trung Bình (GPA hệ 4)</span>
+          <span class="kpi-title">GPA hệ 4</span>
           <span id="kpi-gpa" class="kpi-value text-purple">--</span>
           <span class="kpi-sub">Quy đổi từ điểm hệ 10</span>
         </div>
         <div class="kpi-card">
-          <span class="kpi-title">Môn Đủ Đ/K Kỳ Tới</span>
+          <span class="kpi-title">Môn đủ điều kiện</span>
           <span id="kpi-eligible-count" class="kpi-value text-amber">0</span>
-          <span class="kpi-sub">Rule Engine xác nhận</span>
+          <span class="kpi-sub">Theo dữ liệu chương trình</span>
         </div>
       </div>
 
       <div class="panel-card mt-4">
         <div class="card-header">
           <div>
-            <h2 class="card-title">Nhập dữ liệu bảng điểm sinh viên</h2>
+            <h2 class="card-title">Bảng điểm của bạn</h2>
             <p class="card-subtitle">Tích chọn các môn đã đạt hoặc nhập điểm số thang 10. Điểm ≥ 5.0 được tính là hoàn thành.</p>
           </div>
           <div class="quick-actions">
-            <button id="btn-sample-freshman" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 1</button>
-            <button id="btn-sample-sophomore" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 2</button>
-            <button id="btn-sample-junior" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 3</button>
-            <button id="btn-clear-transcript" class="btn-danger-ghost btn-sm" type="button">Xóa trắng</button>
+            <button id="btn-sample-freshman" class="btn-ghost btn-sm" type="button">Mẫu năm 1</button>
+            <button id="btn-sample-sophomore" class="btn-ghost btn-sm" type="button">Mẫu năm 2</button>
+            <button id="btn-sample-junior" class="btn-ghost btn-sm" type="button">Mẫu năm 3</button>
+            <button id="btn-clear-transcript" class="btn-danger-ghost btn-sm" type="button">Xóa bảng điểm</button>
           </div>
         </div>
 
         <div class="search-filter-bar">
-          <input id="course-search-input" type="search" class="modern-input" placeholder="🔍 Tìm kiếm môn học theo mã hoặc tên (ví dụ: MAT1093, Giải tích...)" />
-          <select id="course-block-filter" class="modern-select filter-select">
+          <input aria-label="Tìm môn theo mã hoặc tên" id="course-search-input" type="search" class="modern-input" placeholder="Tìm theo mã hoặc tên môn học…" />
+          <select aria-label="Lọc khối kiến thức" id="course-block-filter" class="modern-select filter-select">
             <option value="all">Tất cả khối kiến thức</option>
             <option value="general">Khối kiến thức chung</option>
             <option value="field">Khối theo lĩnh vực</option>
@@ -146,11 +147,11 @@
     </section>
 
     <!-- Tab 2: Rule Engine (Eligibility vs Blocked) -->
-    <section id="tab-rules" class="tab-panel" role="tabpanel">
+    <section aria-labelledby="tab-btn-rules" id="tab-rules" class="tab-panel" role="tabpanel">
       <div class="rule-engine-header">
         <div>
-          <h2 class="card-title">Kết quả Đánh giá Điều kiện Học vụ Kỳ Tới</h2>
-          <p class="card-subtitle">Rule Engine kiểm tra tiên quyết AND/OR, giới hạn tín chỉ và hạn mức tự chọn. <strong>Zero Violation Rate</strong>.</p>
+          <h2 class="card-title">Những môn bạn có thể học tiếp</h2>
+          <p class="card-subtitle">Xem các môn đủ điều kiện và lý do những môn khác chưa thể học theo dữ liệu chương trình.</p>
         </div>
         <div class="rule-stats-summary">
           <span class="badge badge-success"><span id="rules-stat-eligible">0</span> Môn Đủ điều kiện</span>
@@ -163,8 +164,8 @@
         <!-- Column 1: Eligible Courses -->
         <div class="rules-col panel-card">
           <div class="col-title-bar eligible-bar">
-            <h3>🟢 Môn ĐỦ ĐIỀU KIỆN ĐĂNG KÝ</h3>
-            <span class="col-sub">Thỏa mãn 100% điều kiện tiên quyết</span>
+            <h3>Đủ điều kiện học</h3>
+            <span class="col-sub">Theo điều kiện đã ghi trong chương trình</span>
           </div>
           <div id="rules-eligible-list" class="rules-cards-list"></div>
         </div>
@@ -172,7 +173,7 @@
         <!-- Column 2: Blocked Courses -->
         <div class="rules-col panel-card">
           <div class="col-title-bar blocked-bar">
-            <h3>🔴 Môn BỊ CHẶN (Kèm Lý Do Cụ Thể)</h3>
+            <h3>Chưa đủ điều kiện</h3>
             <span class="col-sub">Chưa đủ điều kiện tiên quyết hoặc hạn mức</span>
           </div>
           <div id="rules-blocked-list" class="rules-cards-list"></div>
@@ -181,11 +182,11 @@
     </section>
 
     <!-- Tab 3: Course Recommendations & What-if -->
-    <section id="tab-recommend" class="tab-panel" role="tabpanel">
+    <section aria-labelledby="tab-btn-recommend" id="tab-recommend" class="tab-panel" role="tabpanel">
       <div class="grid-2-col">
         <!-- Controls Column -->
         <div class="panel-card">
-          <h2 class="card-title">Thiết lập mục tiêu đề xuất</h2>
+          <h2 class="card-title">Bạn muốn học gì kỳ tới?</h2>
           <form id="recommend-form" class="mt-3">
             <div class="form-group">
               <label for="rec-goal" class="form-label">Mục tiêu học tập & định hướng chuyên môn:</label>
@@ -227,7 +228,7 @@
             </details>
 
             <button type="submit" id="btn-run-recommend" class="btn-primary w-full mt-4">
-              <span>🚀 Phân Tích & Gợi Ý Môn Học</span>
+              <span>Tìm môn phù hợp</span>
             </button>
           </form>
         </div>
@@ -236,7 +237,7 @@
         <div class="panel-card">
           <div class="card-header">
             <div>
-              <h2 class="card-title">Kết quả Đề Xuất Kỳ Tới</h2>
+              <h2 class="card-title">Các lựa chọn dành cho bạn</h2>
               <p class="card-subtitle">Xếp hạng bám sát mục tiêu cá nhân và giải thích minh bạch.</p>
             </div>
             <span id="rec-badge-count" class="badge badge-info">0 Đề xuất</span>
@@ -244,13 +245,14 @@
           <div id="recommendation-summary" class="recommendation-summary" hidden></div>
           <div id="recommendations-result-container" class="recommendations-container mt-3">
             <div class="empty-state">
-              <span class="empty-icon">🎯</span>
-              <p>Chọn các môn đã học ở Tab 1, nhập mục tiêu và nhấn "Phân Tích & Gợi Ý Môn Học".</p>
+              <span class="empty-icon" aria-hidden="true">◎</span>
+              <p>Nhập bảng điểm, mô tả mục tiêu rồi chọn “Tìm môn phù hợp” để nhận gợi ý có giải thích.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+    </div>
   </main>
 
   <!-- =====================================================================
@@ -260,9 +262,9 @@
        ===================================================================== -->
   <div id="floating-advisor-widget" class="floating-advisor-widget">
     <!-- Chat Bubble Trigger Button -->
-    <button id="advisor-bubble-btn" class="advisor-bubble-btn" type="button" aria-label="Mở khung tư vấn AI Advisor" title="Mở khung tư vấn AI Advisor">
+    <button id="advisor-bubble-btn" class="advisor-bubble-btn" type="button" aria-controls="advisor-chat-window" aria-expanded="false" aria-label="Mở khung tư vấn môn học" title="Mở khung tư vấn môn học">
       <span class="bubble-pulse-ring"></span>
-      <span class="bubble-icon">💬</span>
+      <span class="bubble-icon" aria-hidden="true">✦</span><span class="bubble-label">Tư vấn môn học</span>
       <span class="bubble-badge">AI</span>
     </button>
 
@@ -271,10 +273,10 @@
       <!-- Window Header -->
       <div class="chat-window-header">
         <div class="advisor-title-group">
-          <div class="advisor-avatar-small">🤖</div>
+          <div class="advisor-avatar-small" aria-hidden="true">✦</div>
           <div>
             <h3 class="advisor-window-title">AI Advisor</h3>
-            <span class="advisor-status-text"><span class="status-dot"></span> Sẵn sàng tư vấn học vụ</span>
+            <span class="advisor-status-text"><span class="status-dot"></span> Cùng bạn chọn môn học</span>
           </div>
         </div>
         <div class="chat-window-controls">
@@ -285,7 +287,7 @@
 
       <!-- Scope Guardrail Notice Bar -->
       <div class="chat-guardrail-banner">
-        <span>🛡️ <strong>Chính sách tư vấn:</strong> Định hướng môn học & CTĐT. Không xếp lịch học hoặc chấm điểm giảng viên.</span>
+        <span><strong>Phạm vi tư vấn:</strong> Định hướng môn học & CTĐT. Không xếp lịch học hoặc chấm điểm giảng viên.</span>
       </div>
 
       <div class="chat-study-direction">
@@ -328,7 +330,7 @@
 
       <!-- Chat Input Form -->
       <form id="advisor-chat-form" class="chat-input-row">
-        <input id="advisor-input-text" type="text" class="modern-input" placeholder="Hỏi AI Advisor về môn học, định hướng..." autocomplete="off" required />
+        <input aria-label="Câu hỏi tư vấn môn học" id="advisor-input-text" type="text" class="modern-input" placeholder="Hỏi AI Advisor về môn học, định hướng..." autocomplete="off" required />
         <button type="submit" id="btn-send-chat" class="btn-primary btn-send">
           <span>Gửi</span>
         </button>
@@ -339,7 +341,7 @@
   <footer class="app-footer">
     <div class="container footer-content">
       <p>Hệ thống Explainable Course Recommender (AI-07) · Dữ liệu trích xuất từ 4 khung CTĐT ĐHKHTN - ĐHQG Hà Nội (Khóa 2022).</p>
-      <p class="footer-sub">Catalog nguồn ở trạng thái tham khảo học vụ · Đảm bảo tỷ lệ vi phạm quy tắc tiên quyết = 0%.</p>
+      <p class="footer-sub">Bảng điểm và hội thoại chỉ dùng trong phiên hiện tại. Gợi ý không xác nhận môn sẽ mở lớp.</p>
     </div>
   </footer>
 </body>
