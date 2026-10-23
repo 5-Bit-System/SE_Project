@@ -51,3 +51,12 @@ và lưu bảng điểm thành công, trong cùng transaction. Điểm không đ
 là đồng bộ thành công. Đồng bộ lỗi giữ nguyên thời điểm cũ. Backend sẽ tính
 số ngày đã qua và so sánh với ngưỡng cấu hình; không lưu số ngày vào database.
 
+### Nạp cấu hình khi chạy migration
+
+`python -m database.tools.migrate upgrade` tự nạp `.env` ở thư mục gốc dự án.
+Trong file đó, đặt `HUS_DATABASE_URL` trỏ đến database HUS cần cập nhật.
+Thứ tự ưu tiên: biến môi trường của shell → `.env` gốc → `database/.env.docker`.
+Không tự dùng `DATABASE_URL` thay cho `HUS_DATABASE_URL` để tránh chọn nhầm DB.
+`.venv` là thư mục môi trường Python, không phải file cấu hình. Với máy hiện tại,
+chạy bằng Conda `SE_Project`. Không cần lệnh `python -c` để nạp `.env` nữa.
+
