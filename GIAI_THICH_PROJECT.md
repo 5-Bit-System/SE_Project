@@ -2462,3 +2462,254 @@ Chúng tồn tại để Python coi thư mục là "package" (gói) và cho phé
 
 ---
 
+## 7. Từ điển nhanh (chỉ những từ hay gặp)
+
+| Từ | Nghĩa dễ hiểu |
+|---|---|
+| **API** | Cửa để phần mềm khác gọi vào. Ví dụ `/recommendations`. |
+| **Backend** | Phần chạy trên server, xử lý logic. |
+| **Frontend** | Phần nhìn thấy trong trình duyệt. |
+| **Endpoint** | Một đường dẫn API cụ thể, ví dụ `/eligibility`. |
+| **Request / Response** | Yêu cầu gửi đi / kết quả trả về. |
+| **Catalog** | Danh mục môn học của một ngành. |
+| **Curriculum** | Chương trình đào tạo (có thể hiểu gần giống catalog). |
+| **Eligibility** | Điều kiện được học một môn. |
+| **Prerequisite** | Môn tiên quyết (phải học trước). |
+| **Track** | Hướng chuyên ngành (ví dụ hướng Công nghệ phần mềm). |
+| **Graduation path** | Nhánh tốt nghiệp (ví dụ làm khóa luận hay học thêm môn). |
+| **Choice group** | Nhóm môn tự chọn, phải đủ số tín chỉ. |
+| **Credits** | Tín chỉ. |
+| **GPA** | Điểm trung bình tích lũy. |
+| **Transcript** | Bảng điểm. |
+| **Ranking** | Xếp hạng. |
+| **Score** | Điểm phù hợp (0 đến 1), không phải điểm học tập. |
+| **Weight** | Trọng số, mức quan trọng của từng tiêu chí. |
+| **What-if** | "Nếu thử đổi trọng số thì kết quả ra sao". |
+| **Guardrail** | Hàng rào chặn câu hỏi ngoài phạm vi. |
+| **Fallback** | Phương án dự phòng khi cách chính lỗi. |
+| **Deterministic** | Chạy cùng đầu vào thì luôn ra cùng kết quả, không ngẫu nhiên. |
+| **LLM** | Mô hình ngôn ngữ lớn (như Gemini). |
+| **Grounded** | Có căn cứ trong dữ liệu, không bịa. |
+| **Schema** | Khuôn dữ liệu hoặc thiết kế bảng. |
+| **Migration** | Kịch bản thay đổi cấu trúc database. |
+| **Seed** | Nạp dữ liệu ban đầu. |
+| **Publish** | Công bố catalog mới vào database. |
+| **Revision** | Một phiên bản catalog. |
+| **Snapshot** | Ảnh chụp dữ liệu tại một thời điểm. |
+| **Repository** | Lớp code chuyên đọc/ghi dữ liệu. |
+| **Adapter** | Lớp bọc để nối hai thứ khác giao diện. |
+| **Runtime** | Phần đang chạy thật. |
+| **Legacy** | Phần cũ, giữ để rollback. |
+| **Rollback** | Quay về phiên bản trước. |
+| **Transaction** | Một nhóm thay đổi database: hoặc thành công hết, hoặc hủy hết. |
+| **Hash** | Chuỗi "dấu vân tay" của nội dung, dùng để phát hiện thay đổi. |
+| **Fixture** | Dữ liệu mẫu cố định dùng cho test. |
+| **Mock / Fake** | Đối tượng giả để test, không gọi mạng thật. |
+| **Marker** | Nhãn đánh dấu test (ví dụ test cần PostgreSQL). |
+
+---
+
+## 8. Chạy dự án
+
+### 8.1. Chuẩn bị
+
+```bash
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+```
+
+Tạo file cấu hình:
+
+```bash
+cp .env.example .env
+cp database/.env.example database/.env.docker
+```
+
+Sau đó sửa mật khẩu trong `database/.env.docker`, và đặt `DATABASE_URL` trong `.env` trỏ tới database `ai07`.
+
+### 8.2. Dựng database HUS
+
+```bash
+docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d --wait
+python -m database.tools.migrate upgrade
+python -m database.tools.publish_catalogs --dry-run
+python -m database.tools.publish_catalogs
+python -m database.tools.verify_data
+```
+
+### 8.3. Chạy web
+
+```bash
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+Mở:
+
+- `http://127.0.0.1:8000/` — giao diện
+- `http://127.0.0.1:8000/docs` — danh sách API
+- `http://127.0.0.1:8000/health` — kiểm tra tiến trình
+- `http://127.0.0.1:8000/ready` — kiểm tra database + catalog
+
+### 8.4. Chạy hoàn toàn offline (không gọi AI)
+
+Trong `.env`:
+
+```text
+RECOMMENDATION_LLM_ENABLED=false
+```
+
+Hệ thống vẫn chạy đầy đủ, chỉ dùng xếp hạng từ khóa và câu trả lời mẫu.
+
+### 8.5. Chạy test
+
+```bash
+python -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"
+python -m ruff check .
+python -X utf8 tools/build_catalogs.py --check
+```
+
+---
+
+## 9. Sự thật hiện tại (để không bị bất ngờ)
+
+- Có **4 ngành**: Toán học, Toán tin, Khoa học máy tính và thông tin, Khoa học dữ liệu.
+- Nguồn HUS có **179 môn**, **290 quan hệ ngành–môn**, **348 quan hệ tiên quyết**.
+- Cả 4 catalog đang ở trạng thái `draft_unverified` (chưa xác minh đầy đủ). Vì vậy kết quả chỉ để tham khảo.
+- Môn có tiên quyết chưa rõ sẽ **bị chặn**, không được đoán.
+- `MAT3325` có xung đột nguồn. `MAT3423` chưa xác định vì thiếu định nghĩa `MAT3402`.
+- Bảng `accounts`, `students`, `course_attempts` đang trống. Không có dữ liệu sinh viên thật.
+- API profile trả rỗng khi chạy HUS.
+- `data/synthetic/profiles.json` đang thiếu.
+- `data/curricula/` chỉ có 1 mẫu, nên JSON backend không chạy đủ 4 ngành.
+- Trạng thái mở lớp luôn là `unknown`.
+- LLM là tùy chọn. Không có key vẫn chạy bình thường.
+
+---
+
+## 10. Muốn sửa gì thì sửa ở đâu
+
+| Bạn muốn đổi... | Sửa file |
+|---|---|
+| Quy tắc môn nào đủ điều kiện | `app/rules.py` |
+| Cách tính điểm phù hợp | `app/recommendation/scoring.py` |
+| Trọng số mặc định | `app/models.py` (class `RankingWeights`) |
+| Cách hiểu câu mục tiêu | `app/recommendation/preference.py` |
+| Câu trả lời mẫu của chat | `app/services/advisor_service.py` (`heuristic_advisor`) |
+| Từ khóa bị chặn trong chat | `app/services/advisor_service.py` (`SCHEDULE_KEYWORDS`, `INSTRUCTOR_KEYWORDS`) |
+| Danh sách API | `app/api/routes.py` |
+| Khuôn request/response | `app/models.py` và `app/schemas/` |
+| Giao diện | `app/static/index.html`, `app.js`, `styles.css` |
+| Cấu hình chung | `app/config.py` và `.env` |
+| Nguồn catalog HUS | `database/data/hus_source.json` rồi publish lại |
+| Cấu trúc database HUS | thêm revision mới trong `database/hus_alembic/versions/` |
+| Cấu trúc database legacy | thêm revision trong `alembic/versions/` |
+| Cách đọc catalog | `app/infrastructure/` |
+| Cách publish catalog | `database/tools/publish_catalogs.py` |
+| Cách kiểm tra database | `database/hus_db/verify.py` |
+| Dữ liệu test | `tests/support/` |
+
+---
+
+## 11. Nếu bạn chỉ có 30 phút để hiểu code
+
+Đọc theo đúng thứ tự này:
+
+```text
+1. app/models.py
+   → biết dữ liệu trông như thế nào
+
+2. app/rules.py
+   → biết "đủ điều kiện" nghĩa là gì (phần quan trọng nhất)
+
+3. app/services/recommendation_service.py
+   → biết các bước được ghép ra sao
+
+4. app/api/routes.py
+   → biết trình duyệt gọi vào đâu
+
+5. app/main.py
+   → biết app khởi động thế nào
+
+6. app/services/advisor_service.py
+   → biết chat hoạt động ra sao
+
+7. app/catalog.py + app/infrastructure/
+   → biết dữ liệu được đọc từ đâu
+
+8. database/hus_db/catalog_builder.py
+   → biết catalog được tạo từ nguồn thế nào
+```
+
+Nếu chỉ nhớ một điều, hãy nhớ:
+
+> **Eligibility do code quyết định. LLM chỉ xếp hạng và viết lời giải thích.**
+
+---
+
+## 12. Những hiểu nhầm rất dễ gặp
+
+### "Có hai thư mục alembic, chắc là một cái thừa"
+
+Không. Chúng phục vụ hai database khác nhau:
+
+```text
+alembic/               → database legacy (course_recommender)
+database/hus_alembic/  → database HUS (ai07)
+```
+
+Không chạy lẫn migration của cái này lên database của cái kia.
+
+### "Seed database là nạp catalog HUS"
+
+Không. `tools/seed_database.py` dành cho database **legacy**. Catalog HUS dùng `database/tools/publish_catalogs.py`.
+
+### "Đổi what-if sẽ đổi danh sách môn đủ điều kiện"
+
+Không. What-if chỉ đổi **cách xếp hạng**. Tập môn đủ điều kiện được tính một lần và giữ nguyên. Đây là chủ ý để so sánh công bằng.
+
+### "Không có API key thì web không chạy"
+
+Không. Hệ thống tự dùng fallback. Chỉ là câu trả lời chat sẽ theo mẫu, không tự nhiên bằng LLM.
+
+### "API profile trả rỗng là do lỗi"
+
+Không hẳn. HUS runtime cố ý không đọc hồ sơ sinh viên thật. Repo cũng chưa có `data/synthetic/profiles.json`. Đây là giới hạn dữ liệu, không phải lỗi code.
+
+### "Catalog đã import thành công nghĩa là đã chính xác"
+
+Không. Import thành công chỉ nghĩa là dữ liệu đúng **cấu trúc**. Nội dung vẫn là `draft_unverified`, cần con người đối chiếu PDF và quy định chính thức.
+
+---
+
+## 13. Tóm tắt cuối cùng
+
+```text
+Người dùng
+   │
+   ▼
+Giao diện (app/static)
+   │  gọi API
+   ▼
+FastAPI (app/main.py + app/api/routes.py)
+   │
+   ├─► Catalog (app/catalog.py → infrastructure/)
+   ├─► Bảng điểm (app/transcript.py, app/profiles.py)
+   ├─► Tiến độ (app/progress.py)
+   ├─► Điều kiện (app/rules.py)          ← luôn chạy trước
+   ├─► Gợi ý (app/services/recommendation_service.py)
+   │      └─ preference → ranking → scoring → explanation
+   └─► Chat (app/services/advisor_service.py)
+          └─ guardrail → eligibility → LLM (tùy chọn) → fallback
+
+Dữ liệu đến từ:
+   database/data/hus_source.json
+        │ publish
+        ▼
+   PostgreSQL ai07 (hus_catalog_revisions)
+        │ đọc
+        ▼
+   app/infrastructure/hus_repository.py
+```
+
+Nếu bạn đọc đến đây, bạn đã nắm được toàn bộ dự án ở mức đủ để tìm file và hiểu luồng chạy. Muốn đi sâu phần nào, mở đúng file trong bảng ở mục 10.
