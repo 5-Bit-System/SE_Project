@@ -1,5 +1,19 @@
 # Project Memory and Contributor Guidelines
 
+## Team history reconciliation — 2026-10-23
+
+User explicitly authorizes PRs, merges and publication to main to preserve
+teammates' original database, test, crawler and login commit histories. This
+supersedes the previous close-out stop for this history task only. Starting
+main is 0b4b2fc. Database setup/tests and Vinh branch tips are already ancestors.
+Login fetched tip b3964ce has 33 missing commits; crawler tip 3a45aae has 53.
+Use explicit history-only ours merges and GitHub merge commits, preserving the
+current application tree and original author/hash metadata. PRs must state this
+scope; do not claim new source-branch features are functionally integrated.
+No new database migration, crawler activation, corpus publication, portal access
+or real data inspection. See docs/TEAM_CONTRIBUTIONS_2026_10_23.md. Functional
+changes skipped by the history merge need explicit review/reapplication later.
+
 ## Session close and main publication — 2026-10-23
 
 User requests memory update, session close, commit and push all current project
