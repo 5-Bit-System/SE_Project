@@ -14,7 +14,12 @@
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/themes.css">
   <script src="/static/i18n.js" defer></script>
-  <script src="/static/app.js" defer></script>
+  <script src="/static/workspace.js" defer></script>
+  <link rel="stylesheet" href="/static/portal.css">
+  <script src="/static/portal.js" defer></script>
+  <link rel="stylesheet" href="/static/workspace.css">
+  <link rel="stylesheet" href="/static/analytics.css">
+  <script src="/static/analytics.js" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#workspace-heading">Đi tới nội dung chính</a>
@@ -32,30 +37,11 @@
       </div>
 
       <div class="header-right-actions">
-        <div class="program-selector-wrapper">
-          <label for="course-language-select" class="selector-label">Ngôn ngữ</label>
-          <div class="select-container">
-            <select id="course-language-select" class="modern-select">
-              <option value="vi">Tiếng Việt (vi)</option>
-              <option value="en">English (en)</option>
-            </select>
-            <span class="select-arrow">▾</span>
-          </div>
-        </div>
-        <div class="program-selector-wrapper">
-          <label for="program-select" class="selector-label">Chương trình của bạn</label>
-          <div class="select-container">
-            <select id="program-select" class="modern-select" required></select>
-            <span class="select-arrow">▾</span>
-          </div>
-        </div>
-        <div class="program-selector-wrapper">
-          <label for="profile-select" class="selector-label">Dữ liệu minh họa</label>
-          <div class="select-container">
-            <select id="profile-select" class="modern-select">
-              <option value="">Không dùng profile demo</option>
-            </select>
-            <span class="select-arrow">▾</span>
+        <div class="appearance-control language-control">
+          <span id="language-label" class="selector-label">Ngôn ngữ</span>
+          <div class="theme-switcher" role="group" aria-labelledby="language-label">
+            <button type="button" data-language-choice="vi" aria-label="Tiếng Việt" aria-pressed="true">VIE</button>
+            <button type="button" data-language-choice="en" aria-label="English" aria-pressed="false">EN</button>
           </div>
         </div>
         <div class="appearance-control">
@@ -69,14 +55,15 @@
     </div>
   </header>
 
+
   <div class="sub-header-bar">
     <div class="container sub-header-content">
       <div id="catalog-info" class="catalog-info-chip">
         <span class="pulse-dot"></span>
-        <span id="catalog-name-text">Đang tải dữ liệu CTĐT...</span>
+        <span id="catalog-name-text">Hồ sơ học tập VNU</span>
       </div>
       <div class="isolation-notice">
-        <span>Bảng điểm chỉ giữ trong phiên. Đổi ngành sẽ xóa dữ liệu đã nhập.</span>
+        <span>Bảng điểm được lấy từ VNU và lưu theo tài khoản của bạn.</span>
       </div>
     </div>
   </div>
@@ -84,296 +71,100 @@
   <!-- Main Workspace Tabs -->
   <main class="container main-content">
     <aside class="workspace-sidebar">
-      <p class="sidebar-caption">Lộ trình của bạn</p>
+      <p class="sidebar-caption">Hồ sơ VNU</p>
+      <div class="sidebar-profile">
+        <div><span id="workspace-program-label">Ngành học</span><strong id="workspace-program" class="source-profile-value"></strong></div>
+        <div><span id="workspace-cohort-label">Khóa học</span><strong id="workspace-cohort" class="source-profile-value"></strong></div>
+      </div>
       <nav class="nav-tabs" role="tablist" aria-label="Các bước lập kế hoạch học tập" aria-orientation="vertical">
-        <button id="tab-btn-transcript" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-transcript" data-tab="tab-transcript"><span class="tab-icon" aria-hidden="true">1</span><span class="tab-label">Bảng điểm<small>Ghi lại những gì đã học</small></span></button>
-        <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rules" tabindex="-1" data-tab="tab-rules"><span class="tab-icon" aria-hidden="true">2</span><span class="tab-label">Điều kiện học<small>Xem môn có thể học tiếp</small></span></button>
-        <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true">3</span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
+        <button id="tab-btn-dashboard" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="tab-dashboard"><span class="tab-icon" aria-hidden="true">▦</span><span class="tab-label">Dashboard<small>Tổng quan học tập</small></span></button>
+        <button id="tab-btn-profile" class="tab-btn" role="tab" aria-selected="false" aria-controls="portal-dialog" tabindex="-1" data-tab="portal-dialog"><span class="tab-icon" aria-hidden="true">◎</span><span class="tab-label">Hồ sơ của tôi<small>Tài khoản và bảng điểm VNU</small></span></button>
+        <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rules" tabindex="-1" data-tab="tab-rules"><span class="tab-icon" aria-hidden="true">✓</span><span class="tab-label">Điều kiện học<small>Xem môn có thể học tiếp</small></span></button>
+        <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true">✦</span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
       </nav>
-      <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Nhập môn đã đạt, kiểm tra điều kiện rồi khám phá những lựa chọn tiếp theo.</small></div>
+      <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Đăng nhập VNU để xem hồ sơ và bảng điểm qua từng học kỳ.</small></div>
       <div class="sidebar-bottom">Sổ học tập <span>Đồng hành qua từng học kỳ</span></div>
     </aside>
     <div class="workspace-body">
-      <div class="workspace-intro">
-        <div><p class="intro-context">Kế hoạch học tập cá nhân</p><h2 id="workspace-heading" tabindex="-1">Từng học kỳ, một bước tiến.</h2><p>Theo dõi kết quả đã học và chuẩn bị những lựa chọn cho kỳ tiếp theo.</p></div>
-        <div class="intro-symbol" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M15 76V24h22v52M39 76V41h22v35M63 76V14h22v62" stroke="currentColor" stroke-width="2"/><path d="m20 60 28-9 26-27" stroke="currentColor" stroke-width="3"/><circle cx="74" cy="24" r="5" fill="currentColor"/></svg></div>
-      </div>
+      <h2 id="workspace-heading" tabindex="-1" class="sr-only">Dashboard</h2>
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu chương trình đang được rà soát. Kết quả là thông tin tham khảo; hãy xác nhận quy định và lịch mở lớp với nhà trường.</p></div>
-    <!-- Tab 1: Transcript & Major Ingestion -->
-    <section aria-labelledby="tab-btn-transcript" id="tab-transcript" class="tab-panel active" role="tabpanel">
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <span class="kpi-title">Môn đã hoàn thành</span>
-          <span id="kpi-passed-count" class="kpi-value text-emerald">0</span>
-          <span class="kpi-sub">Điểm ≥ 5.0</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Tín chỉ tích lũy</span>
-          <span id="kpi-credits" class="kpi-value text-blue">0</span>
-          <span id="kpi-total-credits-sub" class="kpi-sub">/ — tín chỉ</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">GPA hệ 4</span>
-          <span id="kpi-gpa" class="kpi-value text-purple">--</span>
-          <span class="kpi-sub">Quy đổi từ điểm hệ 10</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Môn đủ điều kiện</span>
-          <span id="kpi-eligible-count" class="kpi-value text-amber">0</span>
-          <span class="kpi-sub">Theo dữ liệu chương trình</span>
-        </div>
+    <section id="tab-dashboard" class="tab-panel active" role="tabpanel" aria-labelledby="tab-btn-dashboard">
+      <div id="dashboard-content" class="dashboard-heading">
+        <div><p class="page-context">Không gian học tập</p><h2>Dashboard học tập</h2><p>Kết quả đã ghi nhận, những lựa chọn phía trước.</p></div>
+        <button type="button" class="portal-button primary-action" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
       </div>
-
-      <div class="panel-card mt-4">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">Bảng điểm của bạn</h2>
-            <p class="card-subtitle">Kết quả theo học kỳ và năm học, sắp xếp từ mới nhất về trước.</p>
-          </div>
-          <div class="quick-actions">
-            <label class="btn-ghost btn-sm" for="transcript-preview-file">Mở bảng điểm mẫu</label>
-            <input id="transcript-preview-file" class="sr-only" type="file" accept=".json,application/json" />
-            <button id="btn-manual-transcript" class="btn-ghost btn-sm" type="button" hidden>Về bảng điểm nhập tay</button>
-            <button id="btn-sample-freshman" class="btn-ghost btn-sm" type="button">Mẫu năm 1</button>
-            <button id="btn-sample-sophomore" class="btn-ghost btn-sm" type="button">Mẫu năm 2</button>
-            <button id="btn-sample-junior" class="btn-ghost btn-sm" type="button">Mẫu năm 3</button>
-            <button id="btn-clear-transcript" class="btn-danger-ghost btn-sm" type="button">Xóa bảng điểm</button>
-          </div>
+      <div class="dashboard-basis"><span class="basis-dot" aria-hidden="true"></span><p>Thống kê từ bảng điểm VNU đã lưu. Mỗi lần học được giữ thành một lượt riêng.</p><button type="button" class="text-action" data-navigate="portal-dialog">Xem hồ sơ VNU</button></div>
+      <section id="dashboard-analytics" aria-label="Thống kê bảng điểm VNU">
+        <div id="analytics-status" class="analytics-status" role="status"></div>
+        <div id="analytics-source-totals" class="analytics-source-totals portal-source"></div>
+        <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label><span id="analytics-count"></span></div>
+        <div class="analytics-grid">
+          <section class="workspace-surface analytics-trend"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 10</span></div><p class="muted-copy">Trung bình cộng các lượt có điểm hệ 10 hợp lệ; không phải GPA chính thức.</p><div id="analytics-trend" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-distribution"><div class="section-title"><h3>Phân bố điểm chữ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.</p><div id="analytics-distribution" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-credits"><div class="section-title"><h3>Tín chỉ theo học kỳ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.</p><div id="analytics-credits" class="chart-region"></div></section>
         </div>
-
-        <p id="transcript-preview-notice" class="transcript-source-note" hidden></p>
-        <p id="course-language-note" class="card-subtitle" hidden>Tên môn chưa có bản tiếng Anh được giữ nguyên theo nguồn.</p>
-        <div id="manual-transcript-controls">
-          <div class="semester-toolbar">
-            <label for="transcript-term">Học kỳ đang nhập <select id="transcript-term" class="modern-select"><option value="">Chưa xếp học kỳ</option></select></label>
-            <details class="add-term-controls"><summary>Thêm học kỳ / năm học</summary>
-              <div class="add-term-fields">
-                <label for="term-year">Năm bắt đầu<input id="term-year" class="modern-input" type="number" min="1900" max="2200" placeholder="2025" /></label>
-                <label for="term-number">Học kỳ<select id="term-number" class="modern-select"><option value="1">1</option><option value="2">2</option><option value="3">Hè</option></select></label>
-                <button id="btn-add-term" class="btn-ghost" type="button">Thêm học kỳ</button>
-              </div>
-            </details>
-          </div>
-        </div>
-        <div id="semester-tables" aria-live="polite"></div>
-        <details class="catalog-picker" open>
-        <summary>Thêm học phần vào bảng điểm <span>Chọn từ chương trình của bạn</span></summary>
-        <div class="search-filter-bar">
-          <input aria-label="Tìm môn theo mã hoặc tên" id="course-search-input" type="search" class="modern-input" placeholder="Tìm theo mã hoặc tên môn học…" />
-          <select aria-label="Lọc khối kiến thức" id="course-block-filter" class="modern-select filter-select">
-            <option value="all">Tất cả khối kiến thức</option>
-            <option value="general">Khối kiến thức chung</option>
-            <option value="field">Khối theo lĩnh vực</option>
-            <option value="discipline">Khối theo khối ngành</option>
-            <option value="group">Khối theo nhóm ngành</option>
-            <option value="major">Khối kiến thức ngành</option>
-          </select>
-        </div>
-
-        <div id="course-checklist-container" class="course-checklist-wrapper">
-          <div class="loading-spinner">Đang nạp danh sách học phần...</div>
-        </div>
-        </details>
-
+        <details class="analytics-data-table"><summary>Xem số liệu và cách tính</summary><p id="analytics-method" class="muted-copy"></p><div class="table-scroll"><table id="analytics-table" class="transcript-table"></table></div></details>
+      </section>
+    </section>
+  <section id="portal-dialog" class="tab-panel profile-page" role="tabpanel" aria-labelledby="tab-btn-profile">
+    <div class="portal-top">
+      <h2 id="portal-heading">Hồ sơ học tập</h2>
+      <button type="button" id="portal-close" class="text-action">Về Dashboard</button>
+    </div>
+    <p id="portal-status" role="status" aria-live="polite"></p>
+    <div class="profile-login-layout">
+    <aside id="portal-welcome" class="profile-welcome"><span class="profile-emblem" aria-hidden="true">◎</span><h3 data-portal-copy="welcomeTitle"></h3><p data-portal-copy="welcomeDescription"></p><ul><li data-portal-copy="welcomeSource"></li><li data-portal-copy="welcomeSync"></li><li data-portal-copy="welcomeOwner"></li></ul></aside>
+    <form id="portal-login" class="workspace-surface">
+      <p data-portal-copy="intro"></p>
+      <label for="portal-username" data-portal-copy="username"></label>
+      <input id="portal-username" name="username" autocomplete="username" maxlength="128" required>
+      <label for="portal-password" data-portal-copy="password"></label>
+      <div class="portal-password-row">
+        <input id="portal-password" name="password" type="password" autocomplete="current-password" maxlength="512" required>
+        <button type="button" id="portal-show" class="portal-button" aria-pressed="false" data-portal-copy="show"></button>
+      </div>
+      <button type="submit" id="portal-submit" class="portal-button" data-portal-copy="login"></button>
+    </form>
+    </div>
+    <section id="portal-profile" hidden>
+      <div class="profile-identity-strip"><div class="profile-emblem" aria-hidden="true">◎</div><div><p class="page-context" data-portal-copy="account"></p><h3 id="portal-identity"></h3><p id="portal-updated"></p></div><span class="subtle-tag" data-portal-copy="source"></span></div>
+      <div class="profile-source-notice"><p data-portal-copy="unknown"></p><p data-portal-copy="separate"></p></div>
+      <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div></div>
+      <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag"></span></div>
+      <div id="portal-summary" class="portal-source"></div>
+      <div class="profile-table-tools"><label for="portal-search"><span data-portal-copy="search"></span><input id="portal-search" type="search" autocomplete="off"></label><label for="portal-term"><span data-portal-copy="term"></span><select id="portal-term"></select></label></div>
+      <div class="portal-table-scroll" tabindex="0" role="region" aria-label="Bảng điểm nguồn">
+        <table class="portal-transcript-table" id="portal-table"></table>
+      </div>
+      <details id="portal-unparsed" hidden><summary data-portal-copy="unparsed"></summary><pre class="portal-source"></pre></details>
+      <div class="portal-actions">
+        <button type="button" id="portal-sync" class="portal-button" data-portal-copy="sync"></button>
+        <button type="button" id="portal-cancel" class="portal-button" hidden data-portal-copy="cancel"></button>
+        <button type="button" id="portal-logout" class="portal-button" data-portal-copy="logout"></button>
+        <button type="button" id="portal-delete" class="portal-button portal-delete" data-portal-copy="delete"></button>
       </div>
     </section>
-
-    <!-- Tab 2: Rule Engine (Eligibility vs Blocked) -->
-    <section aria-labelledby="tab-btn-rules" id="tab-rules" class="tab-panel" role="tabpanel">
-      <div class="rule-engine-header">
-        <div>
-          <h2 class="card-title">Những môn bạn có thể học tiếp</h2>
-          <p class="card-subtitle">Xem các môn đủ điều kiện và lý do những môn khác chưa thể học theo dữ liệu chương trình.</p>
-        </div>
-        <div class="rule-stats-summary">
-          <span class="badge badge-success"><span id="rules-stat-eligible">0</span> Môn Đủ điều kiện</span>
-          <span class="badge badge-warning"><span id="rules-stat-blocked">0</span> Môn Bị chặn</span>
-          <span class="badge badge-info"><span id="rules-stat-completed">0</span> Môn Đã học</span>
-        </div>
-      </div>
-
-      <div class="rules-two-columns mt-3">
-        <!-- Column 1: Eligible Courses -->
-        <div class="rules-col panel-card">
-          <div class="col-title-bar eligible-bar">
-            <h3>Đủ điều kiện học</h3>
-            <span class="col-sub">Theo điều kiện đã ghi trong chương trình</span>
-          </div>
-          <div id="rules-eligible-list" class="rules-cards-list"></div>
-        </div>
-
-        <!-- Column 2: Blocked Courses -->
-        <div class="rules-col panel-card">
-          <div class="col-title-bar blocked-bar">
-            <h3>Chưa đủ điều kiện</h3>
-            <span class="col-sub">Chưa đủ điều kiện tiên quyết hoặc hạn mức</span>
-          </div>
-          <div id="rules-blocked-list" class="rules-cards-list"></div>
-        </div>
-      </div>
+    <form id="portal-confirm" hidden>
+      <p data-portal-copy="confirm"></p>
+      <button type="submit" class="portal-button portal-delete" data-portal-copy="delete"></button>
+      <button type="button" id="portal-keep" class="portal-button" data-portal-copy="keep"></button>
+    </form>
+  </section>
+    <section id="tab-rules" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-rules">
+      <h2>Điều kiện học</h2><div class="workspace-surface academic-readiness" data-academic-status role="status"></div>
+      <button type="button" class="portal-button" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
     </section>
-
-    <!-- Tab 3: Course Recommendations & What-if -->
-    <section aria-labelledby="tab-btn-recommend" id="tab-recommend" class="tab-panel" role="tabpanel">
-      <div class="grid-2-col">
-        <!-- Controls Column -->
-        <div class="panel-card">
-          <h2 class="card-title">Bạn muốn học gì kỳ tới?</h2>
-          <form id="recommend-form" class="mt-3">
-            <div class="form-group">
-              <label for="rec-goal" class="form-label">Mục tiêu học tập & định hướng chuyên môn:</label>
-              <textarea id="rec-goal" class="modern-textarea" rows="3" placeholder="Ví dụ: Em muốn theo hướng AI Engineer, tập trung vào học máy và xử lý dữ liệu lớn..."></textarea>
-            </div>
-
-            <div class="form-group mt-3">
-              <div class="slider-header">
-                <label for="rec-credits" class="form-label">Tín chỉ tối đa kỳ này:</label>
-                <span id="credits-val-display" class="slider-val">18 TC</span>
-              </div>
-              <input id="rec-credits" type="range" min="3" max="30" step="1" value="18" class="modern-slider" />
-            </div>
-
-            <div class="form-group mt-3">
-              <div class="slider-header">
-                <label for="rec-limit" class="form-label">Số môn đề xuất tối đa:</label>
-                <span id="limit-val-display" class="slider-val">5 môn</span>
-              </div>
-              <input id="rec-limit" type="range" min="1" max="10" step="1" value="5" class="modern-slider" />
-            </div>
-
-            <details class="what-if-controls mt-3">
-              <summary>What-if: điều chỉnh trọng số xếp hạng</summary>
-              <p class="form-help">Giữ nguyên eligibility, chỉ xếp hạng lại các môn đủ điều kiện.</p>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-topic-weight">Chủ đề</label><span id="whatif-topic-value" class="slider-val">60%</span></div>
-                <input id="whatif-topic-weight" type="range" min="0" max="100" step="5" value="60" class="modern-slider" />
-              </div>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-keyword-weight">Từ khóa mục tiêu</label><span id="whatif-keyword-value" class="slider-val">25%</span></div>
-                <input id="whatif-keyword-weight" type="range" min="0" max="100" step="5" value="25" class="modern-slider" />
-              </div>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-type-weight">Loại môn</label><span id="whatif-type-value" class="slider-val">15%</span></div>
-                <input id="whatif-type-weight" type="range" min="0" max="100" step="5" value="15" class="modern-slider" />
-              </div>
-              <button type="button" id="btn-run-what-if" class="btn-ghost w-full mt-2">Chạy what-if</button>
-            </details>
-
-            <button type="submit" id="btn-run-recommend" class="btn-primary w-full mt-4">
-              <span>Tìm môn phù hợp</span>
-            </button>
-          </form>
-        </div>
-
-        <!-- Results Column -->
-        <div class="panel-card">
-          <div class="card-header">
-            <div>
-              <h2 class="card-title">Các lựa chọn dành cho bạn</h2>
-              <p class="card-subtitle">Xếp hạng bám sát mục tiêu cá nhân và giải thích minh bạch.</p>
-            </div>
-            <span id="rec-badge-count" class="badge badge-info">0 Đề xuất</span>
-          </div>
-          <div id="recommendation-summary" class="recommendation-summary" hidden></div>
-          <div id="recommendations-result-container" class="recommendations-container mt-3">
-            <div class="empty-state">
-              <span class="empty-icon" aria-hidden="true">◎</span>
-              <p>Nhập bảng điểm, mô tả mục tiêu rồi chọn “Tìm môn phù hợp” để nhận gợi ý có giải thích.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section id="tab-recommend" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-recommend">
+      <h2>Gợi ý kỳ tới</h2><div class="workspace-surface academic-readiness" data-academic-status role="status"></div>
+      <button type="button" class="portal-button" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
     </section>
     </div>
   </main>
 
-  <!-- =====================================================================
-       FLOATING AI ADVISOR CHAT BUBBLE & POPUP WINDOW
-       Hiển thị cố định trên TẤT CẢ các tab, mở ra khoảng 1/4 màn hình,
-       có nút phóng to / thu nhỏ linh hoạt.
-       ===================================================================== -->
-  <div id="floating-advisor-widget" class="floating-advisor-widget">
-    <!-- Chat Bubble Trigger Button -->
-    <button id="advisor-bubble-btn" class="advisor-bubble-btn" type="button" aria-controls="advisor-chat-window" aria-expanded="false" aria-label="Mở khung tư vấn môn học" title="Mở khung tư vấn môn học">
-      <span class="bubble-pulse-ring"></span>
-      <span class="bubble-icon" aria-hidden="true">✦</span><span class="bubble-label">Tư vấn môn học</span>
-      <span class="bubble-badge">AI</span>
-    </button>
-
-    <!-- Floating Chat Window (1/4 screen popup with Maximize/Minimize) -->
-    <div id="advisor-chat-window" class="advisor-chat-window hidden" aria-hidden="true">
-      <!-- Window Header -->
-      <div class="chat-window-header">
-        <div class="advisor-title-group">
-          <div class="advisor-avatar-small" aria-hidden="true">✦</div>
-          <div>
-            <h3 class="advisor-window-title">AI Advisor</h3>
-            <span class="advisor-status-text"><span class="status-dot"></span> Cùng bạn chọn môn học</span>
-          </div>
-        </div>
-        <div class="chat-window-controls">
-          <button id="btn-maximize-chat" class="control-btn" type="button" title="Phóng to / Thu nhỏ" aria-label="Phóng to">⛶</button>
-          <button id="btn-close-chat" class="control-btn" type="button" title="Thu gọn" aria-label="Đóng">✕</button>
-        </div>
-      </div>
-
-      <!-- Scope Guardrail Notice Bar -->
-      <div class="chat-guardrail-banner">
-        <span><strong>Phạm vi tư vấn:</strong> Định hướng môn học & CTĐT. Không xếp lịch học hoặc chấm điểm giảng viên.</span>
-      </div>
-
-      <div class="chat-study-direction">
-        <div class="chat-direction-heading">Chọn hướng học cùng AI Advisor</div>
-        <div class="chat-direction-grid">
-          <label class="chat-direction-field">
-            <span>Nhánh chuyên sâu</span>
-            <select id="track-select" class="modern-select">
-              <option value="">Không chọn nhánh</option>
-            </select>
-          </label>
-          <label class="chat-direction-field">
-            <span>Hướng tốt nghiệp</span>
-            <select id="graduation-path-select" class="modern-select">
-              <option value="">Không chọn hướng</option>
-            </select>
-          </label>
-        </div>
-        <small>AI Advisor sẽ dùng lựa chọn này để giải thích điều kiện và gợi ý môn học.</small>
-      </div>
-
-      <!-- Chat Messages Scroll Area -->
-      <div id="chat-messages-container" class="chat-messages">
-        <div class="chat-message message-advisor" data-ui-copy>
-          <div class="message-content">
-            <p>Xin chào! Tôi là <strong>AI Advisor</strong> hỗ trợ học vụ cho bạn.</p>
-            <p>Tôi có thể giúp bạn giải đáp định hướng nghề nghiệp, gợi ý môn học phù hợp theo từng track và giải thích lộ trình học tập dựa trên bảng điểm thực tế của bạn.</p>
-            <p class="note-text"><small>(Tôi chỉ tư vấn môn học & CTĐT; không xếp lịch học hay đánh giá giảng viên).</small></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Suggested Prompt Chips -->
-      <div class="quick-prompt-chips">
-        <button class="chip-btn" type="button" data-prompt="Em muốn theo hướng Trí tuệ nhân tạo (AI), kỳ tới nên học những môn gì?">🤖 Hướng AI</button>
-        <button class="chip-btn" type="button" data-prompt="Em muốn làm Data Analyst, lộ trình học môn nào quan trọng nhất?">📊 Data Analyst</button>
-        <button class="chip-btn" type="button" data-prompt="Kỳ tới em có đủ điều kiện học các môn chuyên ngành bắt buộc nào?">📚 Môn kỳ tới</button>
-        <button class="chip-btn" type="button" data-prompt="Tại sao có môn của em đang bị chặn?">🔒 Môn bị chặn</button>
-      </div>
-
-      <!-- Chat Input Form -->
-      <form id="advisor-chat-form" class="chat-input-row">
-        <input aria-label="Câu hỏi tư vấn môn học" id="advisor-input-text" type="text" class="modern-input" placeholder="Hỏi AI Advisor về môn học, định hướng..." autocomplete="off" required />
-        <button type="submit" id="btn-send-chat" class="btn-primary btn-send">
-          <span>Gửi</span>
-        </button>
-      </form>
-    </div>
-  </div>
-
   <footer class="app-footer">
     <div class="container footer-content">
       <p>Sổ học tập · Gợi ý học phần có giải thích · Chương trình ĐHKHTN - ĐHQG Hà Nội, khóa 2022.</p>
-      <p class="footer-sub">Bảng điểm và hội thoại chỉ dùng trong phiên hiện tại. Gợi ý không xác nhận môn sẽ mở lớp.</p>
+      <p class="footer-sub">Hồ sơ và bảng điểm VNU được lưu theo tài khoản. Bạn có thể cập nhật hoặc xóa trong Hồ sơ của tôi.</p>
     </div>
   </footer>
 </body>

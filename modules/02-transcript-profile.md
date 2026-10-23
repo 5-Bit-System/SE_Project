@@ -2,6 +2,15 @@
 
 Cập nhật: 23/10/2026. **Hiện trạng:** có nhập tay, GPA hệ 4/10, tín chỉ và progress; chuẩn hóa dữ liệu portal/review/apply chưa có.
 
+**Hướng mới đã đồng ý:** bỏ hoàn toàn nhập điểm sau khi nối nguồn VNU vào
+học vụ; không giữ nhập tay làm phương án dự phòng của sản phẩm cuối.
+[Kế hoạch chuyển đổi](../docs/KE_HOACH_CHUYEN_SANG_BANG_DIEM_VNU_2026_10_23.md)
+thay thế các mô tả mục tiêu nhập tay/session-only cũ ở dưới. Hiện mới lập
+kế hoạch cho phần chuyển giao diện; nền tảng context/API mới đã triển khai offline,
+xem [tiến độ backend](../docs/VNU_ACADEMIC_CONTEXT_STATUS_2026_10_23.md).
+Chưa nối frontend hoặc xóa nhập tay. Profile/snapshot VNU đã được phép lưu
+theo tài khoản; chat vẫn trong phiên, credentials không lưu.
+
 ## Trách nhiệm và code hiện có
 
 app/transcript.py và app/progress.py quản lý bảng điểm theo catalog. app/profiles.py phục vụ profile adapter; HUS runtime hiện trả profile rỗng. Fixture tổng hợp dùng kiểm thử, không yêu cầu đủ 12 demo profiles trong runtime.

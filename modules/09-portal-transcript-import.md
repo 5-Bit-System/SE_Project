@@ -1,6 +1,16 @@
 # Module 09 — Kết nối cổng đào tạo và lấy bảng điểm
 
-Cập nhật: 23/10/2026. **Hiện trạng:** chưa có implementation local. **Người phụ trách:** bạn của người dùng. Tài liệu này định nghĩa ranh giới bàn giao, không yêu cầu triển khai lại connector.
+Cập nhật chốt phiên: 23/10/2026. **Hiện trạng:** connector chọn lọc từ
+`origin/feat/login` tại `b790d6a` đã tích hợp local với UI/API và PostgreSQL;
+người dùng xác nhận đăng nhập và thấy bảng điểm. **Họ tên/ngành/khóa vẫn trống
+dù đã đăng nhập lại; lỗi CHƯA GIẢI QUYẾT.** Các sửa parser/lưu/hiển thị và đọc
+sớm `default.asp` mới qua kiểm thử tổng hợp, chưa khớp nguồn thật được xác minh.
+Xem [bàn giao lỗi và bước tiếp theo](../docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md).
+Không coi module hoàn tất hoặc quy lỗi cho việc chỉ F5. Không commit/push.
+**Người phụ trách connector ban đầu:** bạn của người dùng; tiếp tục tái sử dụng
+connector, không triển khai lại đăng nhập mặc định.
+
+[Kế hoạch tích hợp chi tiết](../docs/KE_HOACH_TICH_HOP_PORTAL_BANG_DIEM_2026_10_23.md): người dùng đã chốt localhost trước, đợt đầu có profile và lưu bảng điểm nguồn theo tài khoản vào PostgreSQL; chưa review/apply vào gợi ý. Đăng nhập bằng VNU, không tạo mật khẩu riêng; chỉ cấp phiên web sau xác thực thành công và không lưu mật khẩu VNU. Yêu cầu lưu profile này thay thế giới hạn chỉ dùng dữ liệu portal trong phiên; cookie VNU vẫn không lưu lâu dài. Phiên thử thành công không thay thế nghiệm thu độ đầy đủ, nhiều tài khoản hoặc CAPTCHA/OTP.
 
 ## Trách nhiệm
 
@@ -10,7 +20,7 @@ Không trực tiếp cập nhật transcript đang dùng, tính GPA, quyết đ�
 
 ## Hợp đồng bàn giao dự kiến
 
-Đầu vào: yêu cầu kết nối/ngắt kết nối, phiên người dùng và thông tin xác thực qua giao diện được thiết kế phù hợp. Không mặc định tạo thêm tài khoản AI-07.
+Đầu vào: yêu cầu kết nối/ngắt kết nối, phiên người dùng và thông tin xác thực qua giao diện được thiết kế phù hợp. Tạo định danh profile đã xác minh để sở hữu dữ liệu lưu; dùng đăng nhập VNU, không tạo mật khẩu Sổ học tập riêng.
 
 Đầu ra cho module 02:
 

@@ -5,9 +5,7 @@
 const state = {
   courseLanguage: window.workspaceI18n.language,
   programs: [],
-  profiles: [],
   currentProgramId: null,
-  currentProfileId: null,
   selectedTrackId: null,
   selectedGraduationPathId: null,
   currentCatalog: null,
@@ -28,7 +26,6 @@ const state = {
 const dom = {
   courseLanguageSelect: document.querySelector("#course-language-select"),
   programSelect: document.querySelector("#program-select"),
-  profileSelect: document.querySelector("#profile-select"),
   trackSelect: document.querySelector("#track-select"),
   graduationPathSelect: document.querySelector("#graduation-path-select"),
   catalogNameText: document.querySelector("#catalog-name-text"),
@@ -45,9 +42,6 @@ const dom = {
   courseSearchInput: document.querySelector("#course-search-input"),
   courseBlockFilter: document.querySelector("#course-block-filter"),
   btnClearTranscript: document.querySelector("#btn-clear-transcript"),
-  btnSampleFreshman: document.querySelector("#btn-sample-freshman"),
-  btnSampleSophomore: document.querySelector("#btn-sample-sophomore"),
-  btnSampleJunior: document.querySelector("#btn-sample-junior"),
   // Tab 2 Elements
   rulesEligibleList: document.querySelector("#rules-eligible-list"),
   rulesBlockedList: document.querySelector("#rules-blocked-list"),
@@ -137,6 +131,11 @@ function initTabs() {
       btn.setAttribute("aria-selected", "true");
       btn.tabIndex = 0;
       document.querySelector(`#${targetId}`).classList.add("active");
+      document.documentElement.dataset.view = targetId;
+      const route = targetId === 'portal-dialog' ? 'profile' : targetId.replace('tab-', '');
+      if (location.hash !== `#${route}`) history.pushState(null, '', `#${route}`);
+      document.querySelector('#workspace-heading').textContent = btn.querySelector('.tab-label').firstChild.textContent;
+      document.dispatchEvent(new CustomEvent('workspace:navigate', {detail: targetId}));
     });
     btn.addEventListener("keydown", (event) => {
       const buttons = Array.from(tabButtons);
@@ -152,6 +151,16 @@ function initTabs() {
       buttons[next].click();
     });
   });
+  window.workspaceNavigate = targetId => {
+    const target = [...tabButtons].find(button => button.dataset.tab === targetId);
+    target?.click();
+  };
+  const restoreRoute = () => {
+    const route = location.hash.slice(1);
+    window.workspaceNavigate(route === 'profile' ? 'portal-dialog' : `tab-${route || 'dashboard'}`);
+  };
+  window.addEventListener('popstate', restoreRoute);
+  restoreRoute();
 }
 
 // --- Major / Program Loading & Isolation ---
@@ -191,17 +200,14 @@ async function onProgramChanged() {
   termSelect.replaceChildren(new Option("Chưa xếp học kỳ", ""));
   dom.courseSearchInput.value = "";
   dom.courseBlockFilter.value = "all";
-  state.profiles = [];
   state.eligibleCourses = [];
   state.blockedCourses = [];
   state.chatHistory = [];
   state.chatRequestId += 1;
   dom.chatMessagesContainer.replaceChildren();
   dom.btnSendChat.disabled = false;
-  state.currentProfileId = null;
   state.selectedTrackId = null;
   state.selectedGraduationPathId = null;
-  dom.profileSelect.value = "";
   dom.kpiPassedCount.textContent = "0";
   dom.kpiCredits.textContent = "0";
   dom.kpiGpa.textContent = "--";
@@ -224,7 +230,7 @@ async function onProgramChanged() {
     if (requestId !== state.programRequestId) return;
     state.courses = courses;
     renderCourseChecklist();
-    await loadProfilesForProgram(progId, requestId);
+    await updateStudentState();
   } catch (error) {
     if (requestId !== state.programRequestId) return;
     console.error("Lỗi nạp môn học:", error);
@@ -268,108 +274,6 @@ function renderProgramChoices(program) {
     });
     dom.graduationPathSelect.disabled = paths.length === 0;
   }
-}
-
-async function loadProfilesForProgram(programId, requestId = state.programRequestId) {
-  if (!dom.profileSelect) {
-    await updateStudentState();
-    return;
-  }
-
-  try {
-    const profiles = await api(`/profiles?program_id=${encodeURIComponent(programId)}`);
-    if (requestId !== state.programRequestId) return;
-    state.profiles = profiles;
-    dom.profileSelect.replaceChildren();
-
-    const emptyOption = document.createElement("option");
-    emptyOption.value = "";
-    emptyOption.textContent = state.profiles.length ? "Không dùng profile demo" : "Chưa có profile demo · nhập bảng điểm thủ công";
-    dom.profileSelect.appendChild(emptyOption);
-
-    state.profiles.forEach(profile => {
-      const option = document.createElement("option");
-      option.value = profile.profile_id;
-      option.textContent = `${profile.label} · ${profile.record_count} môn`;
-      dom.profileSelect.appendChild(option);
-    });
-
-    if (state.profiles.length > 0) {
-      dom.profileSelect.value = state.profiles[0].profile_id;
-      await loadSelectedProfile();
-    } else {
-      await updateStudentState();
-    }
-  } catch (error) {
-    if (requestId !== state.programRequestId) return;
-    console.error("Lỗi nạp profile demo:", error);
-    dom.profileSelect.replaceChildren();
-    const option = document.createElement("option");
-    option.value = "";
-    option.textContent = "Không nạp được profile demo";
-    dom.profileSelect.appendChild(option);
-    await updateStudentState();
-  }
-}
-
-async function loadSelectedProfile() {
-  state.portalPreview = null;
-  const profileId = dom.profileSelect?.value;
-  const programId = state.currentProgramId;
-  const requestId = state.programRequestId;
-  state.transcript.clear();
-  state.chatHistory = [];
-  state.currentProfileId = profileId || null;
-  state.selectedTrackId = null;
-  if (dom.trackSelect) dom.trackSelect.value = "";
-  clearRecommendationResults("Hồ sơ học tập đã thay đổi. Hãy chạy lại đề xuất.");
-
-  if (!profileId) {
-    renderCourseChecklist();
-    await updateStudentState();
-    return;
-  }
-
-  try {
-    const profile = await api(`/profiles/${encodeURIComponent(profileId)}`);
-    if (requestId !== state.programRequestId || profileId !== dom.profileSelect?.value) return;
-    if (profile.program_id !== programId) {
-      throw new Error("Profile không thuộc ngành đang chọn.");
-    }
-
-    // Nếu profile có định hướng trùng tên một nhánh, dùng làm giá trị mặc định.
-    if (dom.trackSelect && profile.target_track) {
-      const matchingTrack = [...dom.trackSelect.options].find(
-        option => option.textContent === profile.target_track,
-      );
-      if (matchingTrack) {
-        dom.trackSelect.value = matchingTrack.value;
-        state.selectedTrackId = matchingTrack.value;
-      }
-    }
-
-    profile.records.forEach(record => {
-      state.transcript.set(record.course_code, {
-        passed: record.passed,
-        grade: record.grade,
-      });
-    });
-
-    renderCourseChecklist();
-    await updateStudentState();
-  } catch (error) {
-    if (requestId !== state.programRequestId) return;
-    console.error("Lỗi nạp profile:", error);
-    state.currentProfileId = null;
-    dom.profileSelect.value = "";
-    renderCourseChecklist();
-    await updateStudentState();
-  }
-}
-
-function clearProfileSelection() {
-  state.currentProfileId = null;
-  if (dom.profileSelect) dom.profileSelect.value = "";
 }
 
 // --- Render Course Checklist ---
@@ -513,17 +417,13 @@ function renderPortalTranscript(container) {
 function renderCourseChecklist() {
   document.querySelector("#course-language-note").hidden = state.courseLanguage !== "en"
     || (!state.portalPreview && !state.courses.some(course => !course.name_en));
-  // Year-based samples need sourced year metadata; null must not mean year zero.
-  [dom.btnSampleFreshman, dom.btnSampleSophomore, dom.btnSampleJunior].forEach(button => {
-    button.hidden = !state.courses.some(course => Number.isInteger(course.year));
-  });
   const tables = document.querySelector("#semester-tables");
   tables.replaceChildren();
   dom.courseChecklistContainer.replaceChildren();
   const query = dom.courseSearchInput.value.trim().toLowerCase();
   const block = dom.courseBlockFilter.value;
   const preview = Boolean(state.portalPreview);
-  document.querySelector("#tab-transcript .kpi-grid").hidden = preview;
+  // Dashboard metrics always describe the manual plan, including during source preview.
   document.querySelector("#manual-transcript-controls").hidden = preview;
   document.querySelector(".catalog-picker").hidden = preview;
   document.querySelector("#btn-manual-transcript").hidden = !preview;
@@ -531,7 +431,7 @@ function renderCourseChecklist() {
   const notice = document.querySelector("#transcript-preview-notice");
   notice.hidden = !preview;
   if (preview) {
-    notice.textContent = "Bản xem trước từ tệp mẫu. Điểm được giữ nguyên theo nguồn; chưa áp dụng vào tiến độ hoặc gợi ý môn. Dữ liệu chỉ ở trong phiên này.";
+    notice.textContent = "Bản xem trước từ tệp. Điểm được giữ nguyên theo nguồn; chưa áp dụng vào tiến độ hoặc gợi ý môn. Dữ liệu chỉ ở trong phiên này.";
     renderPortalTranscript(tables);
     return;
   }
@@ -598,8 +498,7 @@ function renderCourseChecklist() {
       }
       const action = cell();
       const save = async (next) => {
-        clearProfileSelection();
-        clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
+              clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
         state.transcript.set(course.code, next);
         renderCourseChecklist();
         await updateStudentState();
@@ -631,8 +530,7 @@ function renderCourseChecklist() {
         remove.textContent = "×";
         remove.setAttribute("aria-label", `Xóa ${course.code} khỏi bảng điểm`);
         remove.addEventListener("click", async () => {
-          clearProfileSelection();
-          clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
+                  clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
           state.transcript.delete(course.code);
           renderCourseChecklist();
           await updateStudentState();
@@ -646,7 +544,7 @@ function renderCourseChecklist() {
 
   if (!groups.size) {
     const empty = document.createElement("p"); empty.className = "semester-empty";
-    empty.textContent = "Chưa có bảng điểm. Tạo học kỳ theo năm học thực tế rồi thêm môn, hoặc mở tệp bảng điểm mẫu.";
+    empty.textContent = "Chưa có bảng điểm nhập tay. Tạo học kỳ rồi thêm môn, hoặc mở tệp bảng điểm của bạn.";
     tables.append(empty);
   }
   const termOrder = key => { const t = state.transcriptTerms.get(key); return t ? t.year * 10 + t.semester : -1; };
@@ -1230,43 +1128,8 @@ document.querySelectorAll(".chip-btn").forEach(chip => {
   });
 });
 
-// --- Sample Profile Helpers ---
-dom.btnSampleFreshman.addEventListener("click", async () => {
-  // Chọn các môn đầu khóa (Year 1)
-  const y1 = state.courses.filter(c => c.year === 1).slice(0, 5);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y1.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.0 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
-dom.btnSampleSophomore.addEventListener("click", async () => {
-  // Chọn Year 1 và một phần Year 2
-  const y12 = state.courses.filter(c => Number.isInteger(c.year) && c.year <= 2).slice(0, 10);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y12.forEach(c => state.transcript.set(c.code, { passed: true, grade: 7.5 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
-dom.btnSampleJunior.addEventListener("click", async () => {
-  // Chọn Year 1, 2 và một phần Year 3
-  const y123 = state.courses.filter(c => Number.isInteger(c.year) && c.year <= 3).slice(0, 18);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y123.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.5 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
 dom.btnClearTranscript.addEventListener("click", async () => {
   clearRecommendationResults("Bảng điểm đã xóa. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
   state.transcript.clear();
   renderCourseChecklist();
   await updateStudentState();
@@ -1276,7 +1139,6 @@ dom.btnClearTranscript.addEventListener("click", async () => {
 dom.courseSearchInput.addEventListener("input", renderCourseChecklist);
 dom.courseBlockFilter.addEventListener("change", renderCourseChecklist);
 dom.programSelect.addEventListener("change", onProgramChanged);
-dom.profileSelect?.addEventListener("change", loadSelectedProfile);
 dom.trackSelect?.addEventListener("change", async () => {
   state.selectedTrackId = dom.trackSelect.value || null;
   clearRecommendationResults("Nhánh chuyên sâu đã thay đổi. Hãy chạy lại đề xuất.");

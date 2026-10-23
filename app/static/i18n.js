@@ -1,6 +1,55 @@
 /* UI copy only. Source course names, personal input and chat replies are preserved. */
 (() => {
   const en = {
+    "Hồ sơ VNU": "VNU profile",
+    "Chương trình tham khảo": "Reference program",
+    "Bảng điểm được lấy từ VNU và lưu theo tài khoản của bạn.": "Your transcript is retrieved from VNU and saved under your account.",
+    "Đăng nhập VNU để xem hồ sơ và bảng điểm qua từng học kỳ.": "Sign in with VNU to view your profile and transcript by semester.",
+    "Hồ sơ và bảng điểm VNU được lưu theo tài khoản. Bạn có thể cập nhật hoặc xóa trong Hồ sơ của tôi.": "Your VNU profile and transcript are saved under your account. Update or delete them in My profile.",
+    "Xem bảng điểm VNU": "View VNU transcript",
+    "Mở tệp bảng điểm": "Open transcript file",
+    "Bản xem trước từ tệp. Điểm được giữ nguyên theo nguồn; chưa áp dụng vào tiến độ hoặc gợi ý môn. Dữ liệu chỉ ở trong phiên này.": "File preview. Source grades are preserved and have not been applied to progress or recommendations. Data stays in this session.",
+    "Chưa có bảng điểm nhập tay. Tạo học kỳ rồi thêm môn, hoặc mở tệp bảng điểm của bạn.": "No manual transcript. Create a semester and add courses, or open your transcript file.",
+    "Không gian học tập": "Study workspace",
+    "Thống kê từ bảng điểm VNU đã lưu. Mỗi lần học được giữ thành một lượt riêng.": "Statistics from your saved VNU transcript. Each course attempt is retained separately.",
+    "Thống kê bảng điểm VNU": "VNU transcript statistics",
+    "Năm học": "Academic year",
+    "Điểm qua từng học kỳ": "Grades across semesters",
+    "Hệ 10": "10-point scale",
+    "Trung bình cộng các lượt có điểm hệ 10 hợp lệ; không phải GPA chính thức.": "Arithmetic mean of attempts with valid 10-point grades; not the official GPA.",
+    "Phân bố điểm chữ": "Letter grade distribution",
+    "Theo lượt học": "By attempt",
+    "Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.": "Original grade labels are preserved, including missing grades.",
+    "Tín chỉ theo học kỳ": "Credits by semester",
+    "Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.": "Credits on source attempts, including possible retakes; not earned credits.",
+    "Xem số liệu và cách tính": "View data and calculation method",
+    "Kế hoạch học tập từ dữ liệu nhập tay": "Study plan from manual data",
+    "Chỉ số và điều kiện học dưới đây dùng dữ liệu nhập tay của chương trình đang chọn.": "The following metrics and eligibility results use manually entered data for the selected program.",
+    "Dashboard học tập": "Study dashboard",
+    "Tổng quan học tập": "Your study overview",
+    "Hồ sơ của tôi": "My profile",
+    "Tài khoản và bảng điểm VNU": "Account and VNU transcript",
+    "Nhập điểm": "Enter grades",
+    "Dữ liệu cho kế hoạch": "Data for your study plan",
+    "Dữ liệu nhập tay và hội thoại chỉ dùng trong phiên. Hồ sơ VNU được lưu riêng theo tài khoản.": "Manual data and chat stay in this session. Your VNU profile is saved separately under your account.",
+    "Dữ liệu nhập tay chỉ giữ trong phiên. Hồ sơ VNU được quản lý riêng.": "Manual data stays in this session. Your VNU profile is managed separately.",
+    "Kết quả đã ghi nhận, những lựa chọn phía trước.": "Your recorded results. Your next choices.",
+    "Ghi nhận học phần": "Record courses",
+    "Các chỉ số kế hoạch sử dụng dữ liệu nhập tay của chương trình đang chọn.": "Planning metrics use manually entered data for your selected program.",
+    "Xem hồ sơ VNU": "View VNU profile",
+    "Hành trình tích lũy": "Your credit journey",
+    "Dữ liệu nhập tay": "Manual data",
+    "Đang tải chương trình…": "Loading program…",
+    "Tín chỉ đã ghi nhận": "Recorded credits",
+    "Đối chiếu với tổng tín chỉ chương trình; chưa phải kết luận đủ điều kiện tốt nghiệp.": "Compared with the program credit total; this does not establish graduation eligibility.",
+    "Xem và cập nhật bảng điểm nhập tay": "View and edit manual transcript",
+    "Có thể học tiếp": "Courses you can take next",
+    "Xem tất cả": "View all",
+    "Theo điều kiện tiên quyết của chương trình đang chọn.": "Based on prerequisites in your selected program.",
+    "Lên kế hoạch kỳ tới": "Plan next semester",
+    "Hồ sơ của bạn, có một nơi riêng.": "A dedicated place for your profile.",
+    "Xem bảng điểm gốc từ VNU, kiểm tra lần cập nhật và quản lý dữ liệu đã lưu.": "View your original VNU transcript, check its update time and manage saved data.",
+    "Mở hồ sơ của tôi": "Open my profile",
     "Sổ học tập": "Study workspace",
     "Sổ học tập | Kế hoạch học tập cá nhân": "Study workspace | Personal study plan",
     "Đi tới nội dung chính": "Skip to main content",
@@ -215,7 +264,7 @@
   try { if (localStorage.getItem(storageKey) === "en") language = "en"; } catch { /* Optional preference. */ }
   const originals = new WeakMap();
   const attributes = new WeakMap();
-  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,.portal-transcript-table td,.chat-message:not([data-ui-copy])';
+  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy])';
 
   function translate(source) {
     if (language !== "en") return source;
@@ -298,7 +347,30 @@
     observer?.observe(document.body, {subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'aria-label', 'title', 'data-prompt']});
   }
 
+  const sourceSummaryLabels = {
+    'Tổng tín chỉ': 'Total credits',
+    'Tổng tín chỉ tích lũy': 'Accumulated credits',
+    'Điểm trung bình tích lũy hệ 4': 'Cumulative GPA (4-point scale)',
+    'Điểm trung bình tích lũy hệ 10': 'Cumulative average (10-point scale)',
+    'Điểm trung bình học kỳ hệ 4': 'Semester GPA (4-point scale)',
+    'Điểm trung bình học kỳ hệ 10': 'Semester average (10-point scale)'
+  };
+  function formatSourceSummary(row) {
+    // Translate known labels at the start of a cell. Preserve every source
+    // value, separator and unknown label; never recalculate or mutate rows.
+    return row.map(cell => {
+      const text = String(cell ?? '');
+      if (language !== 'en') return text;
+      const label = Object.keys(sourceSummaryLabels).find(label => {
+        const trimmed = text.trimStart();
+        return trimmed.startsWith(label) && /^\s*(?:[:：]|$)/.test(trimmed.slice(label.length));
+      });
+      return label ? text.replace(label, sourceSummaryLabels[label]) : text;
+    }).join(' | ');
+  }
+
   window.workspaceI18n = {
+    formatSourceSummary,
     get language() { return language; },
     setLanguage(value) {
       language = value === 'en' ? 'en' : 'vi';

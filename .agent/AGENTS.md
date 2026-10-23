@@ -1,5 +1,697 @@
 # Project Memory and Contributor Guidelines
 
+## Session close and main publication — 2026-10-23
+
+User requests memory update, session close, commit and push all current project
+work to main. This supersedes older no-commit/push notes for this change set.
+Publication starts at main/origin/main 3129f7c (fetch verified 0/0 ahead/behind);
+use Git to verify resulting commit/push. Do not begin new implementation, restart,
+access VNU or inspect real DB data in this close-out. Credentials/.env/backups/
+screenshots/toolkit stay ignored. Prospective changed/new files are text code,
+tests/docs; token/contact-pattern scan found only commit-hash digit substrings.
+
+User-provided local screenshots now show all name/program/cohort fields after
+the source fixes. This confirms display, not independent completeness/policy
+acceptance. Connector reads Hồ sơ sinh viên for name and Cập nhật hồ sơ sinh viên
+for selected Lớp quản lý text, split as user-confirmed [numeric cohort] [program].
+Never submit that VNU form or retain screenshot personal values in artifacts.
+
+Active frontend has no manual grades/upload/demo/term entry or manual Dashboard
+KPIs. No program picker/default catalog: sidebar program/cohort and top-strip
+program come from saved VNU display fields. Duplicate header profile button is
+removed. Language now uses VIE/EN buttons matching appearance control, with
+pressed state, keyboard activation and preference restoration. Old language
+select removed; active modules use workspace:language-change. Known credit/GPA
+summary labels localize; source numeric values, names and snapshots stay intact.
+Personal source UI clears on logout/expiry/delete; stale responses are ignored.
+
+Staged authenticated AcademicContext backend exists, but cutover is partial:
+unknown completeness, no reviewed program/policy binding, empty production policy
+registry, incomplete what-if baseline/results UI. Rules/recommend screens wait;
+old manual advisor/results flow is not loaded. Legacy public input APIs and
+dormant app.js/dashboard.js remain for future retirement/reference. Do not claim
+full academic integration or unblock it from display strings. Preserve changed-
+unknown snapshot protection. RAG remains inactive; preserve retained source.
+
+Final checks: 398 offline passed / 39 deselected with explicit HUS acceptance
+root, whole-repo Ruff passed, one existing Starlette/httpx warning. Latest Chrome
+VNU-only/profile/workspace/charts checks pass after VIE/EN changes, including
+keyboard/reload persistence, VI/EN summary, source labels, themes/mobile/logout
+races. JS syntax/diff checks pass; synthetic mobile screenshots inspected. No
+new PostgreSQL run in close-out; earlier migration/store evidence is historical.
+Migration hus_20261023_03 was already applied locally with backup; publishing
+code does not apply it elsewhere or publish catalog changes. No real-data or
+source-catalog changes in this close-out. Stop after publication handoff.
+
+## Source-summary UI labels — 2026-10-23
+
+User reports English UI still displays Vietnamese total-credit/GPA labels.
+Added shared workspaceI18n.formatSourceSummary, used by Dashboard and profile.
+Translates only allowlisted summary labels at the start of each cell (credits,
+accumulated credits, cumulative/semester averages on source 4/10-point scales).
+Numeric text/decimal separators, unknown labels, row arrays and persisted
+snapshots remain unchanged; switching back to VI renders original labels.
+Program/course names and personal source values remain untranslated. This is
+the requested label localization exception to historical raw-summary UI text.
+Chrome charts/profile regressions cover English labels, comma decimals,
+multi-cell labels/values, unknown-text preservation and VI restoration; passed.
+Ruff/JS syntax/diff checks passed; frontend only, no DB/portal/restart/commit/push.
+Also removed duplicate header profile button per user's preceding request;
+sidebar profile navigation remains, Chrome login/profile checks passed.
+
+## Source-owned sidebar — 2026-10-23: program selector removed
+
+User supplied local profile screenshot showing name/program/cohort now populated;
+this is user-provided display acceptance, not independent source completeness or
+policy acceptance. Do not retain the personal values in artifacts. User requested
+removal of the four-program selector in favor of the VNU profile's program.
+
+Removed sidebar selector and /programs fetch/default-first-program behavior.
+Sidebar now shows read-only program/cohort from the authenticated saved profile;
+top strip shows source program. Missing values show unavailable; signed-out
+values show not signed in. Portal event carries only program/cohort display
+fields in addition to existing snapshot/time, no new name/identifier/credentials.
+Source strings are textContent and excluded from UI translation. Logout/expiry/
+delete clears both sidebar/top strip; delayed profile responses cannot restore.
+
+No source-name-to-catalog guess or academic binding was added. Without a reviewed
+server binding, active UI no longer requests academic-context with an arbitrary
+selected program: academic panels state pending conversion/binding and source
+completeness from the saved snapshot. This supersedes the preceding UI checkpoint
+about a reference dropdown and fetching context with its selected program.
+Backend academic APIs are unchanged and remain gated.
+
+Chrome check_vnu_only/check_workspace/check_charts/check_portal passed, including
+source labels, missing-value cleanup, VI/EN, logout/delayed response, themes/mobile,
+no /programs or guessed-context requests. Synthetic mobile screenshot inspected.
+Ruff/JS syntax/diff checks passed. Frontend only: no new Python backend/DB tests,
+portal access, real-data edits, restart, commit or push. Reload browser to load UI.
+
+## VNU-only active UI — 2026-10-23: manual entry removed, academic tools gated
+
+User explicitly challenged the remaining Nhập điểm screen, referring to the
+agreed VNU-only direction. Removed manual tab, file preview, term/course/grade
+controls, manual Dashboard KPIs/plan and all entry links from active index.html.
+Old #transcript redirects to #profile. New workspace.js replaces loaded app.js
+and dashboard.js; these legacy sources remain dormant for reference/rollback.
+No hidden manual form or empty completed set is used by the active frontend.
+Dashboard source charts and profile/login/sync/delete remain active. Sidebar
+program selection is labelled reference only, not a verified account binding.
+
+Rules/recommendation screens now fetch /me/academic-context using session and
+program selection, display sign-in/readiness blockers, and do not run the old
+manual eligibility/recommendation/what-if/advisor flow. Legacy advisor UI was
+removed with that flow. Personal academic tools await completion of VNU
+context readiness and frontend results implementation; do not claim full
+cutover. Legacy public input APIs/backend/domain tests are retained, not removed
+or secured by this UI-only change; backend retirement remains in the plan.
+The earlier requirement to retain manual UI until replacement is superseded
+for this UI removal request; safety gates remain and academic output is paused.
+
+Chrome check_vnu_only.py passes old URL redirect, no manual DOM/legacy scripts
+or personal-input requests, session-backed readiness, logout vs delayed-context
+race, VI/EN/themes/mobile. Updated check_workspace.py/check_charts.py for removed
+manual state and intercepted academic context; both pass, as does check_portal.py.
+Initial chart run failed because its newly required context fixture was absent;
+mocking that personal endpoint resolved it. Screenshots synthetic; mobile
+inspected. Ruff, JS syntax and diff checks pass. No backend/DB/schema/.env edits,
+runtime restart, live portal access, real data manipulation, commit or push.
+Previous 398 offline tests are prior backend evidence, not a new UI-task rerun.
+
+## Management-class source — 2026-10-23: name accepted, cohort/program retry pending
+
+User confirms the prior fix now displays the student's name. New ORIGINAL VNU
+screenshot locates enrollment details in Cập nhật hồ sơ sinh viên. User explicitly
+defines the selected Lớp quản lý text as [numeric cohort] [program name]; use
+that split for display, not the separate Khóa selector. Do not retain screenshot
+personal values in code/tests/docs. This is display semantics, not academic
+policy/program applicability approval.
+
+Client now clicks that existing exact-label menu after preserving name/identity
+texts, waits for Lớp quản lý, reads only its adjacent cell/selected option TEXT
+(including disabled selects), and never fills/submits the update form. No guessed
+module IDs/URLs. Parser splits a single unambiguous numeric prefix and program;
+empty/malformed/conflicting class values remain unknown. Selected management
+class is authoritative for these two display fields. Store/schema/digest and
+changed-unknown rollback protection unchanged. Frontend renders the resulting
+fields normally; VI/EN update button now includes both profile and transcript.
+
+Validation: 398 offline passed / 39 deselected with explicit HUS acceptance root,
+existing Starlette/httpx warning; Chrome source and profile UI fixtures passed
+delayed module/frame navigation, disabled select with other unselected options,
+name retention, source transcript, fields/VI-EN/mobile/logout. Ruff/JS syntax
+passed. Synthetic mobile screenshot inspected. No live login/real-data read,
+PostgreSQL rerun, schema/.env edits, restart, commit or push. Fresh worker on
+next login/sync loads the fix; need user confirmation for actual cohort/program.
+
+## Profile module/cell collection fix — 2026-10-23: live confirmation pending
+
+User resumed the missing name/program/cohort bug and supplied a screenshot of
+the ORIGINAL authenticated VNU profile page. It shows the exact navigation
+label Hồ sơ sinh viên and a multi-column label/value table (including Họ và tên).
+Program/cohort labels are not visible in the supplied region; do not guess them.
+Do not copy any personal values from either screenshot into code/docs/tests.
+
+Found two concrete code gaps: read_profile_texts only captured the default.asp
+shell without invoking the student-profile menu; the text parser rejects rows
+with multiple label/value pairs. Client now invokes the existing exact-label
+profile menu handler, waits for a labelled name in the loaded page/frame, and
+extracts allowlisted adjacent table cells into separate labelled lines. Visible
+text inputs/selected option text are supported; hidden/nested/ambiguous cells
+and family-name labels are excluded. No guessed module ID/URL or academic binding.
+Existing landing-page support and source identity checks remain. Store and
+snapshot/completeness/rollback behavior unchanged; no DB/schema changes.
+
+Chrome intercepted synthetic regression passed module navigation, delayed
+iframe, multi-column rows, controls, missing labels, hidden/family fields,
+identity evidence and retained transcript. Auth Chrome regression and Ruff
+passed. Full offline suite: 390 passed / 39 deselected, explicit HUS acceptance
+root, existing Starlette/httpx warning. Health/ready both 200; no restart needed
+because each sync/login spawns a fresh worker. No live portal login, personal
+data inspection, PostgreSQL rerun, commit or push. User must try Update transcript
+with the changed worker before calling the real-account issue resolved. If only
+name appears, need source evidence for the actual program/cohort labels/layout.
+This supersedes the older statement that no original-source screenshot exists;
+it does not establish live field acceptance or snapshot completeness.
+
+## Session close — 2026-10-23: VNU profile details STILL UNRESOLVED
+
+User explicitly requests memory/status update and session close. Stop implementation
+after this documentation handoff; no further restart, portal login or retry in
+this close-out. Keep all local changes; no commit/push requested.
+
+Latest user acceptance: login succeeds and saved source transcript displays,
+but Họ và tên / Ngành học / Khóa học STILL show unavailable. User explicitly
+confirmed they already logged in again after the fixes, not merely pressed F5.
+Their screenshot is the local /#profile UI, not the authenticated VNU source.
+Do not copy identifier, grades or source totals from that screenshot into docs,
+tests or memory. Do not tell them the cause is just refresh/cache or an old
+login, or keep asking for the same retry without new diagnostic evidence.
+
+A minimal read-only aggregate database check confirmed no non-null name,
+program or cohort values are stored. It printed no identifiers or individual
+grades. Thus the gap is in source collection/parsing/persistence, not solely
+frontend rendering; exact cause is NOT yet proven. No F12 errors is consistent
+with a successful profile response containing missing fields, not proof of a
+successful source extraction. Inspect possible save rejection/rollback as well
+as parser/source layout before attributing the gap to one stage.
+
+Previous code changes (dynamic UI fields, source_profile parser, transactional
+metadata save, early default.asp capture) are implemented and synthetic tests
+pass, but DID NOT resolve this real-account issue. The authenticated layout,
+labels, frame/form controls and loading behavior at default.asp have not been
+observed independently. Public access redirects to login. Last request to user
+was a screenshot of the VNU source region with values redacted but labels/layout
+visible; none supplied yet. Do not mistake their local app screenshot for it.
+
+Resume with source-layout evidence or authorized minimal in-session diagnostics;
+trace collection -> parser -> save/rollback -> API -> UI without logging personal
+values, raw DOM, cookies or credentials. Do not add more speculative label rules,
+infer name/program/cohort, or mark metadata/binding/completeness verified. Keep
+existing transcript and changed-unknown snapshot protection intact. Display
+metadata must not become a reviewed academic program/policy binding.
+
+Historical checks: 390 offline passed / 39 deselected, 4 disposable PostgreSQL
+portal tests, Chrome fixture checks; later landing-page change had its own Chrome
+check and 17 focused tests. These are synthetic/code evidence, NOT real profile
+field acceptance. Overall ~90% was an implementation estimate only; portal
+delivery and this bug remain incomplete. Latest known server localhost:8000,
+PID 28848 after verified restart; not rechecked at session close. Earlier auth/
+completeness/alias/update/delete acceptance gates remain. Close-out changes are
+documentation-only; no new app/DB regression claimed.
+
+Handoff: docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md (latest unresolved section),
+docs/KE_HOACH_TICH_HOP_PORTAL_BANG_DIEM_2026_10_23.md and module 09 updated.
+
+## VNU landing-page profile capture — 2026-10-23
+
+User identifies https://daotao.vnu.edu.vn/dkmh/default.asp as location of profile
+details. Public read redirects to login; authenticated structure is still not
+independently observed. Found worker only captured body text AFTER open_transcript,
+which can replace landing-page content. Added DaotaoClient.read_profile_texts:
+read fixed authenticated default.asp after fresh login, before transcript click;
+avoid reloading if already at exact URL. Combined early/later texts participate
+in existing identity-conflict checks and source_profile parsing. No extra
+URLs from client, no guesses about profile labels/academic binding, no raw text
+logging or artifacts. Missing fields still unknown.
+
+Chrome synthetic test tests/frontend/check_portal_profile_source.py passed both
+login redirect and explicit default.asp navigation, profile removed by transcript
+click, early source retention and preserved transcript reads. 17 focused worker/
+snapshot tests and Ruff passed. No DB/schema/store change in this follow-up.
+Worker launches fresh per login/sync, so new worker/client code applies on next
+connection without restarting web server or revoking current session. Need user
+retry Update transcript and, if still missing, redacted layout evidence; do not
+claim real profile fields fixed based solely on fixtures. No commit/push.
+
+## Profile display fields checkpoint — 2026-10-23
+
+User reports successful login and visible real transcript, but name/program/
+cohort all unavailable. This is user-reported live login/display evidence,
+not independent completeness/update/delete acceptance. Found UI hardcoded all
+three values as unavailable; worker did not collect them and store never wrote
+portal_users.profile. Fixed rendering of source profile fields, cleared on
+logout/expiry, preserved source text across VI/EN. Added source_profile parser
+for exact labels with colon/tab and value on same line in existing authenticated
+page/frame body inner_text; missing/ambiguous/conflicting values stay null.
+No additional portal navigation or guessing from student ID, years or major.
+This limited parser is not proof real portal supplies those labels there.
+Asked user where these fields appear in VNU; answer pending at checkpoint.
+
+Worker sends profile separately from immutable transcript; store.save writes
+allowlisted name/program/cohort under owner lock in the same transaction,
+including identical digest refresh. An incomplete changed transcript rolls back
+metadata as well. Transcript digest/rows/completeness and academic bindings
+unchanged. Existing JSONB column used; no migration/.env/catalog changes.
+Source program/cohort strings are display-only, never reviewed policy bindings.
+
+Validation: 390 offline passed / 39 deselected with explicit HUS PDF root;
+4 portal PostgreSQL tests passed on disposable per-test databases, cleaned by
+fixture, including metadata ownership/update/idempotency/rollback. Chrome
+profile fixture regression passed rendering, VI/EN fallback and logout cleanup.
+Ruff/JS syntax/diff checks passed; existing Starlette/httpx warning remains.
+
+Correction to previous startup note: the attempted server launch had failed
+with port already occupied; previous health checks reached existing Uvicorn.
+Verified port PID 31036 command line is project Uvicorn and restarted this
+specific process to load current backend. New server PID in log 28848, hidden,
+access log disabled. Health/ready 200 and current HTML verified. Session needs
+fresh login; persisted snapshots retained. Logs ignored under
+backups/portal_resume_20261023/profile-server.*. No real portal request by agent,
+real-data inspection, commit or push. Need user retry and source layout evidence
+before claiming real profile fields resolved. Portal plan remains ~90%.
+
+## Login continuation checkpoint — 2026-10-23
+
+User explicitly resumed the portal/login plan, requested frequent progress,
+and agreed to test credentials directly in localhost UI (never in chat).
+This supersedes deferral of login work; academic policy/program/DB cutover
+remains separate. No schema, .env, catalog, real data, commit or push changes.
+
+Added session recheck after profile storage read and before sync save; expired
+or revoked session does not return profile/start a save. Existing committing
+transaction still finishes with its actual result. Logout revokes first and
+clears even an expired/missing cookie, with origin checks unchanged. UI clears
+personal state immediately on logout; epoch/sequence guards reject stale reads.
+Explicit visible captcha/OTP controls return interaction_required (409), with
+VI/EN text and no attempted bypass; hidden controls ignored. Recognition is
+limited to tested selectors, not universal challenge detection or interaction.
+Playwright timeouts map to timeout; malformed credential JSON/encoding is 400.
+
+New verification: 386 offline passed / 38 deselected with HUS PDF acceptance
+root; existing Starlette/httpx warning. Chrome synthetic portal auth, profile,
+workspace and charts checks passed, including delayed response after logout,
+expiry/relogin and challenge text. Ruff, JS syntax/diff checks passed. Dark
+mobile fixture screenshot inspected. No new PostgreSQL tests (no store/schema
+changes), real portal requests or real records in test artifacts.
+
+No listener was present at 8000; started project Uvicorn hidden with access log
+disabled. Health/ready returned 200. Ignored logs backups/portal_resume_20261023/.
+User was invited to Ctrl+F5 and test /#profile; result still pending at this
+checkpoint. Portal plan remains ~90%, completeness unknown, changed unknown
+snapshots remain blocked, alias mapping unverified. Do not claim full live
+acceptance. See docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md for exact scope.
+
+## Implementation checkpoint - 2026-10-23: staged VNU academic context (~30%)
+
+User authorized the existing cutover plan with project-toolkit, superseding
+the previous planning-only restriction. Then clarified program/cohort unknown
+and login/database work should be done later. Keep those deferred: no auth flow,
+schema, real data or .env changes in this implementation. Do not ask again for
+program/cohort now or infer them from an identifier. No server restart/portal
+access/commit/push. Existing dirty portal/frontend changes preserved.
+
+Added app/academic_context.py: pure source-owned context, explicit reviewed
+binding/policy, fail-closed readiness, exact code matching, raw row references,
+retakes/unknown outcomes unresolved, no GPA conversion or legacy transcript
+defaults. Source/schema/empty/unknown/duplicate rows and conflicting grades are
+gated. No real policy registered; synthetic policies exist only in tests.
+
+Added app/api/academic.py and router registration: /me/academic-context,
+/me/eligibility, /me/academic-progress, /me/recommendations, /me/advisor/chat.
+Owner comes only from existing session, snapshots from existing store.profile.
+Reject browser owner/records/passed sets. Revision includes owner, session,
+source, catalog content, binding, policy and selections. Slow recommendation/
+advisor responses recheck source/revision/session before returning. Existing
+origin/no-store middleware applies. /me/recommendations/what-if is only a staged
+readiness/baseline guard; a ready context returns academic_baseline_not_available.
+Server-owned baseline comparison NOT implemented yet.
+
+Live readiness remains blocked: connector completeness=unknown, actual program/
+policy binding unavailable, policy registry empty. Staged catalog revision is a
+content fingerprint, NOT the future canonical DB revision FK. Do not manually
+set completeness/review metadata for a real account to enable this feature.
+Frontend and legacy input/public APIs remain unchanged until replacement gates
+pass per the plan. This is not the full manual-removal completion.
+
+42 new synthetic context/API tests, TDD red/green observed. Full offline suite:
+377 passed, 38 deselected with explicit docs/acceptance/hus_2022 catalog root;
+one preexisting Starlette/httpx warning. Ruff changed files/diff checks passed.
+No PostgreSQL/browser/live acceptance for this staged backend-only change.
+Inline review used toolkit entrypoint override; no subagents/worktrees/commits.
+See docs/VNU_ACADEMIC_CONTEXT_STATUS_2026_10_23.md for verified scope and pending
+work. Ignored execution ledger: backups/vnu_academic_cutover_20261023/progress.md.
+
+## Planning checkpoint - 2026-10-23: retire manual grades after VNU academic-context cutover
+
+User asked what Enter grades was for, agreed with the proposal to fully remove
+it once VNU feeds eligibility/recommendations, then explicitly requested a PLAN.
+Created docs/KE_HOACH_CHUYEN_SANG_BANG_DIEM_VNU_2026_10_23.md. This is planning
+only, not authorization to start this implementation in the current request.
+Added scope notes to modules/02-transcript-profile.md and modules/README.md.
+
+Target: one source of academic results, owner-authenticated VNU snapshot;
+retire manual entry/upload/demo/public APIs accepting client records/passed sets.
+Keep pure domain tests/synthetic fixtures, immutable source snapshots and legacy
+DB rollback resources. Do not delete those as part of UI removal. Need fresh
+policy/program applicability evidence; do not infer cohort from screenshot ID.
+Current legacy model rejects retakes, defaults missing grades to passed and
+applies project grade thresholds/GPA conversion; raw portal data cannot be
+fed straight into it. No matching by name/stripping E or best/latest retake
+selection without source-backed policy.
+
+Seven phases: evidence/policy, complete/safe sync, versioned AcademicContext,
+server-owned authenticated academic endpoints, frontend cutover, remove manual
+flow/old public personal-input APIs, end-to-end acceptance. Do not delete the
+existing input path before replacement gates pass or serve recommendations from
+an empty completed set when the real context is unavailable. Unresolved results
+must neither satisfy prerequisites nor lead to unsafe repeat recommendations.
+Snapshot/catalog/policy changes invalidate contexts, baseline what-if and chat.
+Stored old data may be used only with valid session and sufficient readiness;
+a VNU outage is not permission to bypass authentication. Sources stay unchanged.
+
+No runtime/API/DB/.env changes, portal access, tests, restart, commit or push in
+this planning request. Existing login/UI work remains local and unchanged.
+
+## Dashboard charts checkpoint - 2026-10-23: VNU statistics and demo UI removed
+
+User requested actual dashboard charts and removal of the obsolete Demo data
+selector now that VNU login works. Continued GitHub frontend-design guidance.
+Removed the demo profile selector, auto-loading /profiles and all associated
+frontend profile-selection helpers/state. Removed year-based buttons that
+generated invented sample grades. Test fixtures and backend compatibility APIs
+remain; no real records were changed/deleted. Local-file preview still exists
+as Open transcript file; it never injects sample grades automatically.
+
+Dashboard now prioritizes DESCRIPTIVE charts from the authenticated saved VNU
+snapshot: arithmetic mean of valid source 10-point grades by semester, source
+letter-grade distribution, and sum of credits written on attempts by semester.
+Every retake stays separate; missing/invalid values stay unknown (zero is valid).
+Mean is explicitly NOT official GPA, attempt credit sum is NOT earned credits.
+No catalog matching, grade conversion, pass inference, best-attempt selection
+or source apply into eligibility/recommendations/manual transcript was added.
+Unknown completeness and source fetched time remain visible. Official summary
+text is displayed as supplied by the snapshot, without recalculation.
+
+Charts have a shared academic-year filter, labelled points/legend, an accessible
+data/calculation table, both themes/VI-EN/mobile and empty states. Source data
+stays in JS memory only and is cleared from ALL chart DOM on logout/delete/
+expiry. Existing manual KPI/progress/eligibility panel is under a collapsed
+Study plan from manual data section. Source charts are independent of the
+selected draft catalog; changing major still resets only the manual plan.
+
+This supersedes the earlier no-profile-fetch-on-dashboard rule: initial page
+now requests /me/profile ONCE to visualize the saved authenticated snapshot.
+It never logs in/crawls VNU automatically. No session means charts show sign-in
+empty states; the existing 401 auth semantics remain (login module still deferred).
+Portal publishes snapshot/source_summary/fetched_at to chart subscribers via
+in-memory events; identifiers and credentials are not passed into chart events.
+No backend/API/worker/database/.env changes or server restart during this task.
+
+Added app/static/analytics.js (pure aggregation + SVG/CSS charts), analytics.css,
+tests/frontend/check_analytics.mjs and check_charts.py. Node aggregation tests
+passed retakes/comma/zero/missing/invalid values/year filtering/no input mutation.
+Three actual Chrome fixture regressions passed: check_charts.py, check_workspace.py,
+check_portal.py. Checks include correct means/counts/credits, no bridging across
+missing-grade semesters, filter changes, no demo API/UI, no source apply, source
+preservation, logout chart cleanup, VI/EN, theme buttons and 390px containment.
+Reviewed light/dark/mobile synthetic screenshots in ignored
+backups/dashboard_charts_20261023/. Ruff frontend tests, JS syntax, diff checks
+passed. Health/readiness 200. No Python/PostgreSQL rerun for frontend-only work.
+All changes local; no commit/push. Existing portal identity/completeness gates
+and preservation of original HUS/RAG sources remain in force.
+
+## UI redesign checkpoint - 2026-10-23: Dashboard and dedicated profile page
+
+User requested a polished frontend redesign using the GitHub frontend-design
+skill: profile as its own navigation destination and Dashboard replacing the
+initial transcript view. User explicitly deferred login-module/401 work until
+later. Read/applied .github/skills/frontend-design/SKILL.md. Changes are frontend
+only; no API/auth/worker/database changes, portal calls or backend restart.
+Existing real user session should remain valid until its original expiry.
+
+Dashboard is default /#dashboard; profile is /#profile, a full tab panel rather
+than a dialog. Navigation has Dashboard, My profile, Enter grades, Eligibility,
+Next semester, with hash/Back/Forward and existing keyboard tab controls.
+Header is compact; program/demo selectors moved to sidebar. Dashboard uses
+manual transcript metrics, credit progress, actual manually recorded terms,
+up to four API-eligible courses and navigation actions. It never applies VNU
+grades into academic calculations. Enter grades retains manual entry/preview.
+Profile has identity/source/update information, unknown fields, full transcript,
+source totals, code/name search, term filter and attempt counts. Source grades
+and retakes are unchanged; logout/expiry still clears personal DOM/state.
+Theme/VI-EN and 390px containment preserved. Dashboard does not probe profile
+on initial load; unauthenticated profile access still returns 401 as designed.
+
+The user's latest screenshot showed the real profile/transcript loaded after
+the UTF-8 fix. This is user-supplied evidence of successful display, not proof
+of identity aliases, completeness, pagination or changed-source sync policy.
+Do not copy the identifier/individual grades from screenshots into artifacts.
+Earlier zero-real-record observations are historical; do not assume runtime
+portal tables are empty now. This redesign's screenshots/tests used synthetic
+data only, with personal endpoints intercepted.
+
+New app/static/dashboard.js and workspace.css; HTML/app.js/portal.js/i18n.js
+updated. tests/frontend/check_workspace.py passed actual Chrome UI navigation,
+manual edits and metric reflection, source/manual isolation, search/term filters,
+VI/EN, both theme buttons, 1440/390px, all five tabs, ID/panel structure, major
+reset isolation and no JS exceptions. Existing check_portal.py also passed,
+including login/show password/logout clearing. Screenshots reviewed (desktop
+light/dark and mobile). Evidence ignored under backups/workspace_redesign_20261023/.
+Ruff frontend tests, JS syntax and diff checks passed. No Python/PostgreSQL
+rerun for this UI-only change; do not claim historical backend counts as new.
+
+Report: docs/WORKSPACE_DASHBOARD_PROFILE_2026_10_23.md. No commit/push requested
+or performed; all earlier local portal changes remain. Resume login module only
+when user asks, preserving identity/completeness/privacy rules below.
+
+## Worker encoding fix - 2026-10-23: reproduced Windows cp1252 pipe failure
+
+User retried and showed POST /auth/portal 502 (no credentials supplied in chat).
+Investigated the real Windows Python child stdout: encoding is cp1252. A child
+writing Vietnamese JSON with ensure_ascii=False failed with exit 1 and empty
+stdout; parent json.loads(empty bytes) raised, causing the observed 502 path.
+Worker now writes explicitly UTF-8 to sys.stdout.buffer; parent decodes UTF-8
+and supplies PYTHONIOENCODING=utf-8. Nonzero exit/empty/malformed output becomes
+a safe worker_failed/worker_output_invalid code with stage-only logging; raw
+stdout/stderr, credentials and real grades are never logged. API distinguishes
+technical 502/504 errors from identity 401. UI has technical error wording.
+
+27 focused integration tests passed including a REAL subprocess roundtrip with
+forced cp1252 stdio and synthetic Vietnamese course/term/password strings. It
+verifies the production binary writer and parent collector, not only mocks.
+Five malformed/failed worker cases also verify safe diagnostics. Ruff passed.
+This fixes a reproduced transport defect; live account acceptance still needs
+the user retry after restart. No database/catalog/.env change or commit/push.
+
+Final encoding-fix checks: 335 offline passed / 38 deselected (explicit HUS PDF
+acceptance root), profile browser fixture regression passed, Ruff/JS syntax/
+diff checks passed. Restarted the identified local Uvicorn processes with this
+fix; /health and /ready both returned 200. User still needs a live UI retry.
+
+## Login fix checkpoint - 2026-10-23: fresh authentication evidence replaces mandatory label
+
+User tried the UI and received identity_unverified. Cause: the new worker
+required an unverified exact student-ID label in portal body text, even after
+the existing connector reached the transcript. Do not record the user ID from
+their screenshot. No credentials were supplied to the agent during this fix.
+
+DaotaoClient.login now proves a fresh portal authentication transaction:
+context has no portal cookies before login; initial page lacks authenticated
+menu; form action is HTTPS on the reviewed host with POST; matching form POST
+response is 2xx/3xx and its submitted username matches the field; authenticated
+menu appears and login form disappears. It returns the account verified by
+that transaction. Worker uses this evidence when no labelled ID is present;
+an explicit conflicting portal ID still fails closed. This is not acceptance
+based solely on a client username or a nonempty transcript. Common label
+variants/separate cells are accepted. Alias-to-student-ID mapping remains open.
+The button now says Sign in with VNU when logged out and My profile when loaded
+(localized VI/EN), addressing the user's earlier discoverability problem.
+
+Validation: 17 focused offline integration tests passed, Ruff passed, and
+tests/frontend/check_portal_auth.py used Chrome with intercepted synthetic
+portal HTML to prove successful POST login without an ID label and rejection
+of invalid login/status, existing cookies/menu and foreign-host forms. No real
+portal login performed by the agent for this correction; user must retry UI.
+Completeness=unknown/update preservation gates are unchanged. All changes stay
+local; no commit/push. See the integration status document for current gates.
+
+Final fix verification: 325 offline passed / 38 deselected with explicit HUS
+PDF acceptance root; existing synthetic profile UI browser regression passed,
+Ruff/JS syntax/diff checks passed. Restarted only the local project Uvicorn;
+health and readiness returned 200. User should refresh with Ctrl+F5 and retry
+Sign in with VNU. No new PostgreSQL regression was needed for this auth/parser
+and button fix; earlier 22-pass DB evidence remains historical.
+
+## Implementation checkpoint - 2026-10-23: portal integration local; live acceptance pending
+
+This section supersedes earlier statements that portal implementation has not
+started. User explicitly requested implementation of the agreed portal plan,
+use of the GitHub frontend-design skill, and one update per completed step.
+Skill `.github/skills/frontend-design/SKILL.md` was read and applied. No commit,
+push or branch merge was requested or performed. Existing local documentation
+changes were preserved. Work remains in the existing workspace branch.
+
+Implemented selective connector import from `b790d6af`, source snapshot parser,
+separate HUS migration `hus_20261023_03`, transactional owner/snapshot/attempt
+store, auth/profile/sync/cancel/delete APIs, isolated Playwright workers and
+profile dialog with source tables, VI/EN and light/dark. Source grades remain
+separate from manual transcript, GPA/progress/eligibility/recommendations/chat.
+Optional Playwright 1.64.1 is now installed in the project venv; dependency is
+in `requirements-portal.txt`. Worker uses installed Chrome, not a downloaded
+Chromium. Credentials are stdin-only to a short-lived process, never persisted.
+CLI now requires explicit `--show-transcript` to print personal table content.
+
+Migration was applied to local runtime ai07 after a custom-format pg_dump to
+ignored `backups/portal_integration_20261023/before-portal.dump`. Backup exists;
+do not overwrite. Four active catalog revision IDs matched before/after; no
+source/catalog publication or .env changes. Runtime portal_users count was zero
+at verification; no real portal records were created. The HUS repository head
+and catalog publisher compatibility checks were adjusted for the new revision.
+Do not revert just the migration head while leaving runtime tables mismatched.
+
+Uvicorn was restarted hidden on http://127.0.0.1:8000. Health/readiness returned
+200, unauthenticated auth/profile returned 401 with no-store. Logs and synthetic
+browser screenshots/JUnit are ignored under that backup directory. Check live
+readiness again on resume. Web sessions expire after 30 minutes in RAM and are
+lost on app restart; persisted snapshots require fresh VNU authentication.
+UI removes personal DOM/state on logout/expiry; it does not use localStorage
+for profile data. Saved data deletion removes portal owner and dependent data,
+revokes its sessions and prevents pending sync from restoring deleted records.
+Cancellation while reading never saves; once a DB commit begins, cancellation
+waits for its real result instead of falsely reporting rollback.
+
+Final automated evidence: 323 offline passed / 38 deselected with explicit HUS
+PDF acceptance root; 22 HUS PostgreSQL passed / 337 deselected on the preceding
+DB regression (including 3 portal tests; later changes covered by offline/job
+checks). Ruff app/tests/new migration/CLI, JS syntax and whitespace checks
+passed. Chrome fixture check passed source preservation/retakes/escaping,
+newest-term ordering, VI/EN, both themes, 1440/390px, delete-confirm keep and
+logout DOM cleanup, no JS exceptions. Dark mobile screenshot inspected. One
+existing Starlette/httpx deprecation warning remains. No legacy PostgreSQL
+rerun or live portal login through the new API was performed.
+
+IMPORTANT remaining gates: the mandatory identity-label rule described in the
+original implementation was replaced by the fresh-login checks in the newer
+checkpoint above. Real identity/alias acceptance still needs a user retry.
+Pagination/loading/filter completeness remains UNKNOWN.
+Parser always marks completeness=unknown; first snapshot may save with warning,
+same digest is idempotent, changed unknown data NEVER replaces a saved snapshot.
+Consequently real changed-grade update is not accepted yet. CAPTCHA/OTP has no
+dedicated interaction_required flow; generic safe error is returned. Do not
+claim the first-delivery plan is fully achieved. Approximate implementation
+progress reported to user: 90%, live acceptance pending.
+
+Resume at `docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md` and the original plan.
+Have the user enter credentials directly into the local profile dialog, not into
+chat/logs. Need an authorized live acceptance to verify actual identity source,
+completeness, course/term/summary correspondence and persistent read/update/
+delete/relogin. Never store credentials, cookies, raw DOM, traces/screenshots of
+real grades in shared artifacts, or real records in tests/Git. Do not regenerate
+retired RAG trials. Earlier RAG source-preservation instructions remain in force.
+
+## Session close — 2026-10-23: VNU connector verified; persistent profile plan agreed
+
+User requested review and a live trial of the teammate's `feat/login` branch.
+Fetched `origin/feat/login` at `b790d6af5e3a2fa183e28dd9b08286489572c71a`.
+The branch's `DaotaoClient` successfully logged into the real VNU portal,
+opened student results and read 45 table rows, including 36 course rows with
+grade text, using an account explicitly authorized by the user. Both synthetic
+branch tests passed. A second permitted read displayed the transcript in chat.
+Do not copy the credentials, student identifier or individual grades from the
+conversation into memory, code, Git, fixtures or reports. Browser contexts were
+closed. These trials do not establish completeness for all accounts, pagination,
+CAPTCHA/OTP, or reliable authenticated identity binding for a persistent profile.
+
+Trial runner and optional Playwright dependencies remain ignored under
+`backups/login_trial_runtime/`. The runner loads the branch code using Git,
+receives credentials via stdin and currently prints transcript rows if run;
+do not run it into shared logs or persist its output. No credentials or real
+transcript files were created. Keep future verification output minimal unless
+the user explicitly asks to see their transcript. Dependencies were isolated
+from the project venv requirements. No branch checkout/merge, runtime app code,
+database schema/data, source catalog or .env change occurred.
+
+The user requested an integration plan and explicitly selected:
+- Localhost first, at http://127.0.0.1:8000; server deployment later.
+- First delivery: VNU login, persistent account-owned profile and source
+  transcript in PostgreSQL, plus a profile UI to view/update/delete that data.
+- Authenticate through VNU each login; NO separate local password and NO
+  storage of VNU passwords, including hashes used for reconnecting.
+- No portal transcript apply into GPA/progress/eligibility/recommendations
+  in this first delivery. Keep manual transcript and chat behavior separate.
+- Use the user's `.github/skills/frontend-design/SKILL.md`, which was read;
+  preserve existing Sổ học tập branding, light/dark and Vietnamese/English UI.
+- Ask meaningful questions when needed and provide regular progress updates.
+
+This explicit persistence request supersedes older blanket session-only rules
+for portal profile/source transcripts. It does NOT authorize storing portal
+credentials/cookies, chat history, or inserting real records during planning.
+The existing accounts/students/course_attempts constraints require local password
+hashes/catalog facts/academic outcomes that raw portal data does not provide;
+the plan proposes separate owner/snapshot/attempt/session tables through a NEW
+HUS migration, avoiding invented cohort mappings or password hashes.
+
+Plan: `docs/KE_HOACH_TICH_HOP_PORTAL_BANG_DIEM_2026_10_23.md`.
+Updated `modules/09-portal-transcript-import.md` and `modules/README.md` to link
+the plan and reflect verified connector/new scope. All scope questions are now
+answered. Implementation has NOT started; no auth/profile API, UI, migration or
+persistence service has been delivered. Resume from the agreed plan when user
+requests implementation; no need to ask the same scope/auth questions again.
+
+At close, corrected Vietnamese encoding damage in the new plan and stale
+pending-auth wording in module 09. Documentation link/encoding/whitespace checks
+are the close-out verification, not a new app/database regression. Changes are
+local/uncommitted: this memory, both module docs and the new plan. No commit/push
+was requested for this session. Earlier RAG retirement/source-preservation
+instructions below remain in force. User requested memory update and close.
+
+## Session close — 2026-10-23: HUS RAG trial data removed; group plan pending
+
+The user decided the trial chunking was not suitable and will discuss a new
+approach with the team. At their request, all generated preparation data under
+`backups/rag_preparation/` was deleted, including build01–07, reproduce builds,
+normalized Markdown, document reviews, documents/chunks, evaluation cases and
+the temporary retriage script. The generated annotation files under
+`docs/acceptance/hus_preparation/` were also deleted. IDE tabs still pointing
+to build06 are stale. Do not treat the former 6-document/10-chunk candidate as
+an available corpus or regenerate it without a new request.
+
+The original `crawldata` snapshot remains at
+`data/hus/releases/2026-10-22-3a45aae-candidate/`: 210 files, with the
+catalog SHA-256 matching its manifest. It is the retained source for the next
+team discussion. The old build07 counts (6 include, 88 needs_review,
+6 pending_ocr, 6 exclude) are historical observations only. In particular,
+postgraduate sources may be useful, but their content and applicability have
+not been verified. There is no active HUS RAG corpus, index or answering
+service. No source snapshot, runtime catalog, database or `.env` was changed.
+
+The project retains discussion material in
+`docs/THONG_KE_VA_DANH_GIA_KHA_THI_RAG_HUS_2026_10_23.md` and the historical
+`docs/KE_HOACH_TIEN_XU_LY_DATA_HUS.md`. The experimental
+`tools/prepare_hus_corpus.py` and `tests/catalogs/test_hus_preparation.py`
+remain in Git as reference code; their old review/case inputs and output
+artifacts no longer exist, and their chunking configuration is not a selected
+design. Do not present historical statistics as current generated data.
+
+The user then requested a commit and push. Commit `3129f7c204da81eff74051a9d5d8fece4583b18f`
+(`Document HUS RAG preparation and retired trial data`) was pushed to GitHub
+`main`; remote `refs/heads/main` was independently verified at that hash.
+The worktree was clean before this memory-only update. Six focused synthetic
+tests, Ruff, staged diff checks and document-link checks passed for that
+commit. This new memory update is local; do not claim it is already pushed.
+The next substantive RAG step waits for the team's agreed data/chunking plan.
+
 ## Session close — 2026-10-23: UI published and port 8000 agreed
 
 This section supersedes earlier notes below saying the UI changes are local,

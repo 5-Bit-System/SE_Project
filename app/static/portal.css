@@ -1,0 +1,29 @@
+/* Profile uses the existing Sổ học tập palette; the source table anchors the page. */
+#portal-dialog { width: min(1080px, calc(100% - 24px)); max-height: 90dvh; box-sizing: border-box; padding: clamp(16px, 3vw, 32px); border: 1px solid var(--border-medium); border-radius: 18px; background: var(--bg-surface); color: var(--text-main); font-family: inherit; }
+#portal-dialog::backdrop { background: #101a32a6; }
+#portal-dialog [hidden] { display: none !important; }
+.portal-top, .portal-actions, .portal-password-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.portal-top { justify-content: space-between; border-bottom: 2px solid var(--border-focus); padding-bottom: 12px; }
+.portal-top h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 0; }
+.portal-button { font: inherit; color: var(--text-main); background: var(--bg-input); border: 1px solid var(--border-medium); border-radius: 8px; padding: 10px 16px; cursor: pointer; }
+.portal-button:disabled { opacity: .6; cursor: wait; }
+.portal-button:focus-visible, #portal-dialog input:focus-visible, .portal-table-scroll:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+#portal-login { max-width: 480px; margin: 24px auto; }
+#portal-login label { display: block; margin: 16px 0 8px; font-weight: 600; }
+#portal-login input { font: inherit; box-sizing: border-box; width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--border-medium); border-radius: 8px; background: var(--bg-input); color: var(--text-main); }
+.portal-password-row input { flex: 1 1 200px; }
+#portal-submit { margin-top: 20px; }
+#portal-status { min-height: 1.5em; overflow-wrap: anywhere; }
+#portal-profile > p { color: var(--text-muted); }
+#portal-identity { font-size: 1.2rem; font-weight: 600; color: var(--text-main) !important; }
+.portal-source { white-space: pre-wrap; overflow-wrap: anywhere; }
+#portal-summary { padding: 16px 0; border-block: 1px solid var(--border-subtle); margin-bottom: 20px; }
+.portal-table-scroll { max-height: 52dvh; overflow: auto; border: 1px solid var(--border-subtle); border-radius: 8px; }
+#portal-table { border-collapse: collapse; width: 100%; min-width: 660px; font-size: .9rem; }
+#portal-table th, #portal-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-subtle); text-align: left; }
+#portal-table thead th { position: sticky; top: 0; background: var(--soft-surface); z-index: 1; }
+#portal-table td:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
+#portal-table .portal-term td { background: var(--soft-surface); text-align: left; font-weight: 600; }
+.portal-actions { margin-top: 24px; }
+.portal-delete { color: var(--text-main); border-color: var(--border-focus); margin-left: auto; }
+#portal-confirm { margin-top: 16px; padding: 16px; background: var(--warning-bg); }

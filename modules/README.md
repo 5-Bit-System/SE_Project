@@ -1,10 +1,19 @@
 # Đặc tả và kế hoạch các module AI-07
 
+**Hướng chuyển đổi mới nhất (23/10/2026):** người dùng đồng ý dùng bảng điểm
+VNU làm nguồn duy nhất cho học vụ và bỏ hoàn toàn nhập tay sau khi thay thế
+được backend/UI. Xem [kế hoạch chuyển đổi](../docs/KE_HOACH_CHUYEN_SANG_BANG_DIEM_VNU_2026_10_23.md).
+Kế hoạch mới này thay mô tả “giữ nhập tay dự phòng” bên dưới; chưa triển khai
+việc loại bỏ. Các trạng thái “chưa tích hợp portal” trong lịch sử tài liệu
+cần đọc cùng [bàn giao portal local](../docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md).
+
 Cập nhật: **23/10/2026**. Phạm vi người dùng xác nhận: chỉ viết tài liệu Markdown cho từng module, chưa triển khai chức năng.
 
 ## Kiến trúc mục tiêu
 
 Sinh viên chủ động kết nối cổng đào tạo để lấy bảng điểm; module kết nối do bạn của người dùng phụ trách. Hệ thống chính chuẩn hóa dữ liệu, cho xem trước/xác nhận, tính tiến độ, kiểm tra điều kiện rồi xếp hạng môn. Nhập tay được giữ làm phương án dự phòng.
+
+Phạm vi mới được chốt 23/10/2026: tích hợp localhost với tài khoản/profile và lưu bảng điểm nguồn theo chủ tài khoản vào database. Chưa áp dụng dữ liệu portal vào progress/gợi ý trong đợt đầu. [Kế hoạch chi tiết](../docs/KE_HOACH_TICH_HOP_PORTAL_BANG_DIEM_2026_10_23.md) ghi migration, phiên, UI và các mốc nghiệm thu; tính năng này chưa triển khai trên main.
 
 OCR bảng điểm được bỏ khỏi kế hoạch. OCR PDF tài liệu HUS khi cần vẫn thuộc chuẩn bị corpus tra cứu. Không đưa bảng điểm, credentials hoặc hội thoại vào corpus.
 
@@ -20,7 +29,7 @@ OCR bảng điểm được bỏ khỏi kế hoạch. OCR PDF tài liệu HUS kh
 | [06 Advisor](06-advisor-chat.md) | Tư vấn môn và phân luồng câu hỏi | Có course advisor; chưa nối RAG |
 | [07 API](07-recommendation-api.md) | Điều phối và hợp đồng tích hợp | Có API hiện hành; import/RAG chưa có |
 | [08 Web](08-web-ui.md) | Workspace, review import, kết quả và chat | Có giao diện mới; import/citations chưa có |
-| [09 Portal](09-portal-transcript-import.md) | Kết nối cổng và lấy bảng điểm | Bạn của người dùng phụ trách; chưa có code local |
+| [09 Portal](09-portal-transcript-import.md) | Kết nối cổng và lấy bảng điểm | Connector trên feat/login đã đọc thật; chưa tích hợp main |
 | [10 Corpus](10-hus-corpus-release.md) | Chuẩn bị/index/phát hành dữ liệu HUS | Có candidate 106 tài liệu; chưa active |
 | [11 RAG](11-hus-rag-qa.md) | Tra cứu và trả lời có nguồn | Chưa có service runtime |
 
@@ -48,7 +57,7 @@ Sơ đồ biểu diễn phụ thuộc nghiệp vụ; API điều phối, không 
 - Mọi context gắn đúng một ngành/khóa/catalog revision. Đổi ngành xóa transcript, draft import, recommendation/chat context; loại phản hồi cũ.
 - Eligibility chạy trước ranking. LLM, importer và RAG không được tự mở khóa môn hoặc gán tương đương mã môn.
 - Dữ liệu chưa biết giữ nguyên; không xác nhận offering, thời khóa biểu hoặc quyết định học vụ.
-- Bảng điểm/hội thoại dùng trong phiên; không tự thêm lưu hồ sơ lâu dài. Credentials không vào database/log/prompt/index.
+- Bảng điểm nhập tay/hội thoại dùng trong phiên. Profile và bảng điểm nguồn portal được phép lưu database theo tài khoản theo yêu cầu mới; chưa tự áp dụng vào gợi ý. Credentials portal không vào database/log/prompt/index.
 - Catalog và corpus có phiên bản riêng. Runtime không crawl theo request/startup/lịch tuần.
 - HUS dùng công cụ migration/publication riêng; giữ legacy database để rollback.
 

@@ -7,6 +7,8 @@ from fastapi import FastAPI, Request, Response
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
+from app.api.academic import router as academic_router
+from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
 from app.config import get_settings
 from app.errors import StorageDataError, StorageUnavailable
@@ -29,13 +31,37 @@ def check_storage_ready() -> None:
 @asynccontextmanager
 async def lifespan(application: FastAPI) -> AsyncIterator[None]:
     check_storage_ready()
-    yield
+    try:
+        yield
+    finally:
+        from app.integrations.daotao.runtime import shutdown
+
+        await shutdown()
 
 
 app = FastAPI(title="Explainable Course Recommender", version="0.2.0", lifespan=lifespan)
 STATIC_ROOT = Path(__file__).resolve().parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
 app.include_router(api_router)
+app.include_router(portal_router)
+app.include_router(academic_router)
+
+
+@app.middleware("http")
+async def portal_boundary(request: Request, call_next):
+    protected = request.url.path.startswith(("/auth/", "/me/"))
+    if protected:
+        allowed = {"http://127.0.0.1:8000", "http://localhost:8000"}
+        origin = request.headers.get("origin")
+        if (str(request.base_url).rstrip("/") not in allowed
+                or (request.method not in {"GET", "HEAD"} and origin not in allowed)):
+            return JSONResponse({"detail": "origin_rejected"}, status_code=403,
+                                headers={"Cache-Control": "no-store"})
+    response = await call_next(request)
+    if protected:
+        response.headers["Cache-Control"] = "no-store"
+        response.headers["Pragma"] = "no-cache"
+    return response
 
 
 @app.get("/")
