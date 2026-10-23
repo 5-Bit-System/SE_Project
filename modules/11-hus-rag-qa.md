@@ -6,13 +6,13 @@ Cập nhật: 23/10/2026. **Hiện trạng:** chưa có retrieval/answering serv
 
 Trả lời từ corpus release đã duyệt của 10, có nguồn hỗ trợ hoặc nêu chưa đủ căn cứ. Được gọi qua 06/07; không thay eligibility/recommendation.
 
-Đầu vào: câu hỏi, phạm vi ngành, năm/khóa nếu cần và context tối thiểu. Đầu ra mục tiêu: answer, trạng thái answered/needs_clarification/insufficient_evidence/unavailable, citations, warnings và release_id. Citation gồm document/chunk ID, URL, tiêu đề, locator/trang-mục và bằng chứng. Schema cụ thể chưa triển khai.
+Đầu vào: câu hỏi, bậc học, phạm vi ngành/chương trình, năm/khóa nếu cần và context tối thiểu. Đầu ra mục tiêu: answer, trạng thái answered/needs_clarification/insufficient_evidence/unavailable, citations, warnings và release_id. Citation gồm document/chunk ID, URL, tiêu đề, locator/trang-mục và bằng chứng. Schema cụ thể chưa triển khai.
 
 ## Luồng dự kiến
 
 1. Pin release active cho toàn request để không trộn corpus/index giữa phiên bản.
-2. Làm rõ phạm vi nếu thiếu ngành/khóa/năm làm đổi đáp án. Unknown không tự thành general.
-3. Truy xuất theo cấu hình đã đánh giá, xét tài liệu ngành phù hợp và tài liệu chung đã review.
+2. Làm rõ phạm vi nếu thiếu bậc học/ngành/chương trình/khóa/năm làm đổi đáp án. Unknown không tự thành general.
+3. Truy xuất theo cấu hình đã đánh giá, xét tài liệu đúng bậc học và ngành/chương trình, cùng tài liệu chung đã review. Câu hỏi về học tiếp cần nguồn điều kiện tuyển sinh, không chỉ khung chương trình.
 4. Lấy đủ ngữ cảnh bảng/điều kiện trong token budget.
 5. Xử lý mâu thuẫn bằng bằng chứng phạm vi/hiệu lực; chưa rõ thì trình bày khác biệt, không chọn theo fetched_at.
 6. Sinh câu trả lời trong bằng chứng; backend ánh xạ citations, không cho model tự tạo URL.

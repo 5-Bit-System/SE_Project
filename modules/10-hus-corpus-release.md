@@ -1,6 +1,6 @@
 # Module 10 — Chuẩn bị và phát hành corpus HUS
 
-Cập nhật: 23/10/2026. **Hiện trạng:** có candidate 106 tài liệu, chưa có corpus/index active hoặc pipeline hoàn chỉnh.
+Cập nhật: 23/10/2026. **Hiện trạng:** đầu ra tiền xử lý thử đã được xóa theo yêu cầu người dùng; [tài liệu tiến độ](../docs/KE_HOACH_TIEN_XU_LY_DATA_HUS.md) chỉ còn giá trị lịch sử. Chưa có corpus/index active.
 
 ## Trách nhiệm và đầu vào
 
@@ -12,7 +12,7 @@ Chuẩn bị nguồn tra cứu được tuyển chọn, giữ provenance và đ�
 2. Ghi include/exclude/needs_review/pending_ocr và lý do; chỉ include vào index phục vụ trả lời.
 3. Làm sạch menu/footer, chuẩn hóa Unicode, giữ bảng/đơn vị/chú thích/điều kiện; gộp bản trùng theo hash/nội dung.
 4. Trích xuất PDF text; OCR PDF scan theo trang và review nội dung dùng trả lời. Đây không phải OCR bảng điểm sinh viên.
-5. Chuẩn hóa publisher/type, ngành/general/unknown, ngày ban hành, khóa/năm/hiệu lực. Không suy năm áp dụng từ ngày crawl.
+5. Chuẩn hóa publisher/type, bậc đại học/thạc sĩ/tiến sĩ, ngành/chương trình/general/unknown, ngày ban hành, khóa/năm/hiệu lực. Không suy năm áp dụng từ ngày crawl hoặc bậc học đã xác minh từ riêng tiêu đề.
 6. Chia theo mục/điều/bảng; chunk giữ document_id/release_id/locator/hash và ánh xạ nguồn, không tách mất ngoại lệ.
 7. Đo baseline từ khóa rồi vector/kết hợp trên bộ câu hỏi; chốt model/storage bằng bằng chứng. Cache embedding theo nội dung thực đưa vào model và cấu hình/version.
 8. Đóng gói manifest, review log, corpus/chunks/index config và báo cáo đánh giá; duyệt trước atomic active switch.

@@ -1,5 +1,48 @@
 # Project Memory and Contributor Guidelines
 
+## Session close — 2026-10-23: UI published and port 8000 agreed
+
+This section supersedes earlier notes below saying the UI changes are local,
+uncommitted or not authorized for push. User requested commit, then explicitly
+requested push to GitHub `main`. Both commits were successfully published:
+`0a2f76c` (semester transcript and gradient themes) and `e170950`
+(appearance label and Vietnamese/English interface switching). Verified remote
+`refs/heads/main` and local HEAD both equal
+`e170950fdd13931d3041910809be5ccb3d571ab8`; local `main` tracks `origin/main`
+with no ahead/behind. Working tree was clean before this memory-only update.
+
+User explicitly agreed to **port 8000** for running, viewing and testing the
+system in subsequent sessions: **http://127.0.0.1:8000/**. Use this as the
+standard frontend/API address; ports 18080 and Chrome DevTools ports in older
+evidence are historical test helpers, not the user-facing runtime address.
+Docker PostgreSQL remains at `127.0.0.1:5433`, database `ai07`. Keep the existing
+credential files and HUS runtime configuration. Start the app when needed with:
+
+```powershell
+.venv/Scripts/python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+The app was last verified ready with PostgreSQL during this session. Check
+`/health` and `/ready` when resuming; a previous background process is not proof
+the app is still running. Existing startup logs are ignored under
+`backups/semester_ui_20261023/`. The visible browser was refreshed with English
+UI while preserving its transcript/term/source-preview/chat session in memory.
+
+Delivered UI: Sổ học tập branding without visible AI-07, actual academic
+year/semester transcript groups newest first, gradient light/dark selector
+labelled “Giao diện”, and Vietnamese/English UI selection. Appearance and
+language preferences alone persist in localStorage. Source course names without
+name_en, source grades and conversation content retain their original language;
+the English UI explains the course-name fallback. Portal connector and source
+review/apply remain unimplemented. Personal transcript sample stays ignored
+under backups and must not be committed or automatically applied to ranking.
+
+Latest language/browser regression passed; theme and semester browser evidence
+is recorded below. No new Python/PostgreSQL test run, metadata publication,
+live portal connection or live LLM conversation occurred at session close.
+User requested memory update and close; leave this memory-only change local
+until a later commit/push request. No further implementation is requested now.
+
 ## Latest UI fix — 2026-10-23: language selection and appearance label
 
 User explicitly requested commit of the existing UI followed by fixes.
