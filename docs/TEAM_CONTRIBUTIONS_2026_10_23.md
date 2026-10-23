@@ -48,7 +48,10 @@ the desired crawler changes because Git will now consider this tip merged.
 ## Pull requests and validation
 
 - Login: [PR #2](https://github.com/5-Bit-System/SE_Project/pull/2).
-- Crawler: a separate PR from `integration/crawler-history-20261023` to `main`.
+- Crawler: [PR #3](https://github.com/5-Bit-System/SE_Project/pull/3), from
+  `integration/crawler-history-20261023` to `main`.
+- PR #2 was merged as `c73d08f` after all six GitHub checks succeeded. GitHub
+  PR records provide the authoritative merge and CI status for both PRs.
 - Local offline regression: 398 passed, 39 deselected; one pre-existing
   Starlette/httpx warning. Whole-repository Ruff and `git diff --check` passed.
 - Application, database, tests, tools, dependencies and CI files remain exactly
