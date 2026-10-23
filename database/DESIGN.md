@@ -335,6 +335,13 @@ Ví dụ: `students.student_code='99000005'` liên kết tài khoản cùng user
 
 **Lưu ý khi nâng cấp:** mô hình một `curriculum_id` tại mỗi thời điểm chưa lưu **lịch sử chuyển ngành/chuyển chương trình**. Nếu cần, thêm bảng lịch sử phân bổ CTĐT cho sinh viên.
 
+**Thời điểm đồng bộ:** `students.last_transcript_synced_at` lưu timestamp, không
+lưu số ngày đã trôi qua. Backend tính tuổi dữ liệu khi cần; ngưỡng nhắc cập nhật
+(ví dụ 7 ngày) thuộc cấu hình ứng dụng, chưa được triển khai trong runtime.
+Chỉ cập nhật timestamp trong cùng transaction hoàn tất lưu bảng điểm, kể cả
+khi bảng điểm không đổi. Kết nối, đọc hoặc lưu lỗi thì giữ nguyên timestamp.
+Migration `hus_20261023_01` bổ sung cột; luồng portal lưu snapshot riêng, chưa cập nhật cột này.
+
 ### 5.10. `course_attempts` — Bảng điểm và từng lượt học
 
 Đây là bảng quan trọng nhất của phần **lịch sử học tập giả lập**. Một sinh viên có thể học cùng một môn nhiều lần; mỗi lần được lưu một dòng.
