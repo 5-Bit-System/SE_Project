@@ -64,7 +64,7 @@ natural keys, and activates all four in one transaction under an advisory lock.
 Repeated imports reuse content hashes. Invalid bundles preserve active versions.
 Removing existing source relationships requires explicit review and is rejected.
 Historical snapshots are retained; the publisher never overwrites their payloads.
-Readiness checks migration head `hus_20261017_02`, exactly four active catalogs,
+Readiness checks migration head `hus_20261023_04`, exactly four active catalogs,
 identity, hashes and domain rules. There is no automatic legacy/JSON fallback.
 
 The catalogs remain **draft_unverified**. Missing/complex/conflicting prerequisite
