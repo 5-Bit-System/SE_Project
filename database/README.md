@@ -24,3 +24,30 @@ The four runtime memberships are unchanged. MAT3325 retains conflicting source
 variants and MAT3423 remains unknown pending a definition for MAT3402. Use the
 current export and publisher; the historical raw SQL import predates this review.
 See [PDF review and verification](../docs/VINH_PDF_SOURCE_REVIEW.md).
+
+## Thời điểm đồng bộ bảng điểm
+
+Schema head mới: `hus_20261023_04`. Bảng `public.students` có thêm
+`last_transcript_synced_at TIMESTAMPTZ NULL`, không có giá trị mặc định.
+`NULL` nghĩa là chưa có lần đồng bộ thành công; các sinh viên hiện có không
+được tự đánh dấu vừa đồng bộ. Thời điểm này dành cho luồng đồng bộ tương lai,
+chưa được công cụ `tools.try_daotao` cập nhật.
+
+Áp dụng migration từ thư mục gốc bằng môi trường Conda của dự án:
+
+```bash
+conda activate SE_Project
+python -m database.tools.migrate upgrade
+python -m database.tools.migrate current
+```
+
+Dùng cấu hình HUS database hiện có theo `HUS_RUNTIME.md`. Migration có thể
+nhận cột đã thêm thủ công nếu đúng kiểu TIMESTAMPTZ, nullable và không có default;
+không cần chạy lại SQL thủ công. Nếu định nghĩa khác, migration báo lỗi.
+Không sửa SQL baseline hoặc chạy root Alembic để cập nhật database HUS.
+
+Quy tắc cho service tương lai: chỉ cập nhật thời điểm sau khi đã đọc, kiểm tra
+và lưu bảng điểm thành công, trong cùng transaction. Điểm không đổi vẫn tính
+là đồng bộ thành công. Đồng bộ lỗi giữ nguyên thời điểm cũ. Backend sẽ tính
+số ngày đã qua và so sánh với ngưỡng cấu hình; không lưu số ngày vào database.
+
