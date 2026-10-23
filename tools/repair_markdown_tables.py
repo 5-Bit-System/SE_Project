@@ -21,6 +21,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from app.hus.cleaning import normalize_vertical_text
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -43,14 +45,22 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Exit with code 1 if any broken markdown tables are detected, 0 otherwise",
     )
+    parser.add_argument(
+        "--normalize-vertical",
+        action="store_true",
+        help="Also normalize vertically-rotated table headers (e.g. ỉhc nít ốS -> Số tín chỉ)",
+    )
     return parser
 
 
-def repair_markdown_text(content: str) -> tuple[str, int]:
+def repair_markdown_text(
+    content: str, normalize_vertical: bool = False
+) -> tuple[str, int]:
     """Repair broken table rows in markdown content where cells contained newlines.
 
     Detects rows starting with '|' but not ending with '|', collecting subsequent lines
     until the line ending with '|', and joins them with '<br>', cleaning pipe boundaries.
+    If normalize_vertical is True, also normalizes reversed vertical table header terms.
 
     Returns:
         tuple (repaired_text, broken_rows_count)
@@ -82,8 +92,15 @@ def repair_markdown_text(content: str) -> tuple[str, int]:
             line = re.sub(r"\s*\|\s*<br\s*/?>\s*", " | ", line)
             # Collapse multiple consecutive <br>
             line = re.sub(r"(?:<br>)+", "<br>", line)
+            if normalize_vertical:
+                normalized_line = normalize_vertical_text(line)
+                if normalized_line != line:
+                    broken_rows += 1
+                    line = normalized_line
             repaired_lines.append(line.strip())
         else:
+            if normalize_vertical:
+                line = normalize_vertical_text(line)
             repaired_lines.append(line)
         i += 1
 
@@ -93,7 +110,9 @@ def repair_markdown_text(content: str) -> tuple[str, int]:
     return result, broken_rows
 
 
-def repair_all(root: Path, dry_run: bool = False) -> tuple[int, int, list[str]]:
+def repair_all(
+    root: Path, dry_run: bool = False, normalize_vertical: bool = False
+) -> tuple[int, int, list[str]]:
     """Scan and repair all markdown documents under root/processed/documents.
 
     Returns:
@@ -109,7 +128,9 @@ def repair_all(root: Path, dry_run: bool = False) -> tuple[int, int, list[str]]:
     for file_path_str in md_files:
         path = Path(file_path_str)
         content = path.read_text(encoding="utf-8")
-        repaired_content, broken_count = repair_markdown_text(content)
+        repaired_content, broken_count = repair_markdown_text(
+            content, normalize_vertical=normalize_vertical
+        )
 
         if broken_count > 0:
             repaired_files.append(file_path_str)
@@ -126,7 +147,9 @@ def repair_all(root: Path, dry_run: bool = False) -> tuple[int, int, list[str]]:
             for doc_id, doc in catalog_data.get("documents", {}).items():
                 content_md = doc.get("content_markdown", "")
                 if content_md:
-                    repaired_md, broken_count = repair_markdown_text(content_md)
+                    repaired_md, broken_count = repair_markdown_text(
+                        content_md, normalize_vertical=normalize_vertical
+                    )
                     if broken_count > 0:
                         catalog_updated = True
                         if not dry_run:
@@ -183,7 +206,9 @@ def main() -> int:
         return 0
 
     repaired_count, broken_rows, repaired_files = repair_all(
-        args.root, dry_run=args.dry_run
+        args.root,
+        dry_run=args.dry_run,
+        normalize_vertical=args.normalize_vertical,
     )
 
     action = "Detected (dry-run)" if args.dry_run else "Repaired"

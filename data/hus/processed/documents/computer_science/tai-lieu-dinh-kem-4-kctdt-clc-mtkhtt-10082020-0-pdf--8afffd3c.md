@@ -278,9 +278,9 @@ thế khoá luận tốt nghiệp:
 
 <!-- Page 10 -->
 2. Khung chương trình đào tạo
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 | I |  | Khối kiến thức chung<br>(chưa tính Giáo dục thể chất,<br>Giáo dục quốc phòng - an ninh) | 21 |  |  |  |  |
 | 1 | PHI1006 | Triết học Mác – Lênin<br>Marxist-Leninist Philosophy | 3 | 30 | 15 | 0 |  |
 | 2 | PEC1008 | Kinh tế chính trị Mác – Lênin<br>Marx-Lenin Political Economy | 2 | 20 | 10 | 0 | PHI1006 |
@@ -300,9 +300,9 @@ thế khoá luận tốt nghiệp:
 13
 
 <!-- Page 11 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 | 13 | THL1057 | Nhà nước và pháp luật đại<br>cương<br>General State and Law | 2 | 20 | 5 | 5 | PHI1006 |
 | 14 | MAT1060 | Nhập môn phân tích dữ liệu<br>Introduction to Data Analysis | 2 | 20 | 10 | 0 |  |
 | 15 | PHY1070 | Nhập môn Internet kết nối vạn<br>vật<br>Introduction Internet of things | 2 | 24 | 6 | 0 |  |
@@ -322,9 +322,9 @@ thế khoá luận tốt nghiệp:
 14
 
 <!-- Page 12 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 | 26 | MAT2411E | Tối ưu hóa (**)<br>Optimization | 3 | 30 | 15 | 0 | MAT2400<br>MAT2502 |
 | 27 | MAT2315E | Phương pháp nghiên cứu khoa<br>học (**)<br>Research Methodology | 3 | 15 | 30 | 0 |  |
 | 28 | MAT2506 | Kĩ năng mềm<br>Soft skill | 2 | 20 | 10 | 0 |  |
@@ -343,9 +343,9 @@ thế khoá luận tốt nghiệp:
 15
 
 <!-- Page 13 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 |  |  |  |  |  |  |  | MAT2319 |
 | 37 | MAT3551E | Cấu trúc dữ liệu và thuật toán<br>(**)<br>Data Structures and Algorithms | 4 | 40 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 | 38 | MAT3372 | Các thành phần phần mềm<br>Software Components | 3 | 22 | 23 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
@@ -360,9 +360,9 @@ thế khoá luận tốt nghiệp:
 16
 
 <!-- Page 14 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 |  |  | Security |  |  |  |  | MAT2318/<br>MAT2319 |
 | 47 | MAT3555 | Tiếng Anh chuyên ngành khoa<br>học máy tính (*)<br>English for Special Purpose | 2 | 25 | 5 | 0 | FLF1107 |
 | 48 | MAT3374 | Thực tập thực tế phát triển phần<br>mềm<br>Internship on software<br>development | 3 | 15 | 30 | 0 | INM1000<br>MAT3057 |
@@ -378,9 +378,9 @@ thế khoá luận tốt nghiệp:
 17
 
 <!-- Page 15 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 | 54 | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319<br>MAT3500 |
 | 55 | MAT3562E | Thị giác máy tính (**)<br>Computer Vision | 3 | 30 | 15 | 0 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 | V.2.3 |  | Chọn 3 trong 7 học phần trí tuệ<br>nhân tạo và phát triển phần mềm<br>sau | 9/21 |  |  |  |  |
@@ -394,9 +394,9 @@ thế khoá luận tốt nghiệp:
 18
 
 <!-- Page 16 -->
-| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |
+|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |
 |  |  |  |  |  |  |  | MAT2318/<br>MAT2319 |
 | V.3 |  | Khối kiến thức thực tập và tốt<br>nghiệp | 9 |  |  |  |  |
 | 63 | MAT4081 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 9 |  |  |  |  |

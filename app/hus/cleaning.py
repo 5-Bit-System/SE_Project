@@ -10,6 +10,34 @@ from urllib.parse import unquote, urlsplit
 
 from app.hus.models import DocumentType, MajorCategory
 
+_VERTICAL_SEP = r"(?:<br\s*/?>|\s)+"
+
+_VERTICAL_REVERSED_TERMS: list[tuple[re.Pattern[str], str]] = [
+    # ỉhc<br>nít<br>ốS or ỉhc nít ốS -> Số tín chỉ
+    (re.compile(rf"(?<!\w)ỉhc{_VERTICAL_SEP}nít{_VERTICAL_SEP}ốs(?!\w)", re.IGNORECASE), "Số tín chỉ"),
+    # tếyuht<br>íL or tếyuht íL -> Lý thuyết
+    (re.compile(rf"(?<!\w)tếyuht{_VERTICAL_SEP}íl(?!\w)", re.IGNORECASE), "Lý thuyết"),
+    # hnàh<br>cựhT or hnàh cựhT -> Thực hành
+    (re.compile(rf"(?<!\w)hnàh{_VERTICAL_SEP}cựht(?!\w)", re.IGNORECASE), "Thực hành"),
+    # cọh<br>ựT or cọh ựT -> Tự học
+    (re.compile(rf"(?<!\w)cọh{_VERTICAL_SEP}ựt(?!\w)", re.IGNORECASE), "Tự học"),
+]
+
+
+def normalize_vertical_text(text: str) -> str:
+    """Normalize vertically-rotated text extracted from PDF table cells.
+
+    Replaces reversed Vietnamese table header terms (e.g. 'ỉhc<br>nít<br>ốS' -> 'Số tín chỉ',
+    'tếyuht<br>íL' -> 'Lý thuyết', 'hnàh<br>cựhT' -> 'Thực hành', 'cọh<br>ựT' -> 'Tự học')
+    with standard Vietnamese terms.
+    """
+    if not text:
+        return ""
+    normalized = unicodedata.normalize("NFC", text)
+    for pattern, replacement in _VERTICAL_REVERSED_TERMS:
+        normalized = pattern.sub(replacement, normalized)
+    return normalized
+
 
 def clean_text(text: str) -> str:
     """Normalize Unicode to NFC, strip zero-width characters, and collapse spaces."""
@@ -17,6 +45,7 @@ def clean_text(text: str) -> str:
         return ""
     for char in ("\u200b", "\u200c", "\u200d", "\u2060", "\ufeff"):
         text = text.replace(char, "")
+    text = normalize_vertical_text(text)
     return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
 
 
@@ -294,6 +323,7 @@ def clean_table_cell(cell: Any) -> str:
     text = re.sub(r"[\r\n]+", "<br>", text)
     text = re.sub(r"\s*<br\s*/?>\s*", "<br>", text)
     text = re.sub(r"^(?:<br>)+|(?:<br>)+$", "", text)
+    text = normalize_vertical_text(text)
     return text.strip()
 
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import io
+import json
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -10,10 +11,11 @@ import docx
 import openpyxl
 import pytest
 
-from app.hus.cleaning import clean_table_cell, format_markdown_table
+from app.hus.cleaning import clean_table_cell, format_markdown_table, normalize_vertical_text
 from app.hus.extractors.docx import extract_docx
 from app.hus.extractors.excel import extract_excel
 from app.hus.extractors.pdf import _format_table as format_pdf_table
+from tools.normalize_vertical_tables import normalize_all as normalize_vertical_all
 from tools.repair_markdown_tables import (
     repair_all,
     repair_markdown_text,
@@ -191,3 +193,99 @@ def test_repair_all_and_verify(tmp_path: Path):
 
     # Post-repair verify passes
     assert verify_no_broken_tables(tmp_path) == 0
+
+
+def test_pdf_format_table_with_vertical_cells():
+    table_data = [
+        ["STT", "Mã\nhọc phần", "Học phần", "ỉhc\nnít\nốS", "Số giờ tín chỉ", None, None],
+        [None, None, None, None, "tếyuht\níL", "hnàh\ncựhT", "cọh\nựT"],
+        ["1", "MAT1001", "Giải tích 1", "3", "30", "15", "0"],
+    ]
+    lines = format_pdf_table(table_data)
+    assert len(lines) == 4
+    assert lines[0] == "| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  |"
+    assert lines[2] == "|  |  |  |  | Lý thuyết | Thực hành | Tự học |"
+    for term in ("ỉhc", "tếyuht", "hnàh", "cọh"):
+        for line in lines:
+            assert term not in line
+
+
+def test_normalize_vertical_tables_tool(tmp_path: Path):
+    doc_dir = tmp_path / "processed" / "documents" / "cs"
+    doc_dir.mkdir(parents=True, exist_ok=True)
+    file_path = doc_dir / "sample_doc--abcdef12.md"
+
+    sample_md = (
+        "# Khung chương trình đào tạo\n\n"
+        "| STT | Học phần | ỉhc<br>nít<br>ốS | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |\n"
+        "| --- | --- | --- | --- | --- | --- |\n"
+        "| 1 | Toán 1 | 3 | 30 | 15 | 0 |\n"
+    )
+    file_path.write_text(sample_md, encoding="utf-8")
+
+    catalog_path = tmp_path / "processed" / "catalog.json"
+    catalog_data = {
+        "version": "1.0",
+        "documents": {
+            "abcdef12": {
+                "document_id": "abcdef12",
+                "title": "Sample Doc",
+                "content_markdown": sample_md,
+                "content_hash": "oldhash",
+            }
+        },
+    }
+    catalog_path.write_text(json.dumps(catalog_data, ensure_ascii=False), encoding="utf-8")
+
+    # Dry run does not modify
+    file_cnt, rep_cnt, paths, cat_cnt = normalize_vertical_all(tmp_path, dry_run=True)
+    assert file_cnt == 1
+    assert cat_cnt == 1
+    assert rep_cnt == 8  # 4 terms in md + 4 terms in catalog
+    assert file_path.read_text(encoding="utf-8") == sample_md
+
+    # Live run modifies both md and catalog.json
+    file_cnt, rep_cnt, paths, cat_cnt = normalize_vertical_all(tmp_path, dry_run=False)
+    assert file_cnt == 1
+    assert cat_cnt == 1
+    assert rep_cnt == 8
+
+    updated_md = file_path.read_text(encoding="utf-8")
+    assert "Số tín chỉ" in updated_md
+    assert "Lý thuyết" in updated_md
+    assert "Thực hành" in updated_md
+    assert "Tự học" in updated_md
+    for term in ("ỉhc", "tếyuht", "hnàh", "cọh"):
+        assert term not in updated_md
+
+    updated_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    doc_entry = updated_catalog["documents"]["abcdef12"]
+    assert "Số tín chỉ" in doc_entry["content_markdown"]
+    assert doc_entry["content_hash"] != "oldhash"
+
+    # Subsequent run finds 0 unnormalized terms
+    file_cnt2, rep_cnt2, paths2, cat_cnt2 = normalize_vertical_all(tmp_path, dry_run=True)
+    assert file_cnt2 == 0
+    assert cat_cnt2 == 0
+    assert rep_cnt2 == 0
+
+
+def test_repair_markdown_tables_with_normalize_vertical(tmp_path: Path):
+    doc_dir = tmp_path / "processed" / "documents" / "math"
+    doc_dir.mkdir(parents=True, exist_ok=True)
+    file_path = doc_dir / "broken_and_vertical--99999999.md"
+
+    broken_vertical_content = (
+        "| STT | Học phần\n"
+        "chi tiết | ỉhc<br>nít<br>ốS |\n"
+        "| --- | --- | --- |\n"
+        "| 1 | Đại số | 3 |\n"
+    )
+    file_path.write_text(broken_vertical_content, encoding="utf-8")
+
+    count, rows, paths = repair_all(tmp_path, dry_run=False, normalize_vertical=True)
+    assert count == 1
+
+    repaired_content = file_path.read_text(encoding="utf-8")
+    assert "| STT | Học phần<br>chi tiết | Số tín chỉ |" in repaired_content
+    assert "ỉhc" not in repaired_content

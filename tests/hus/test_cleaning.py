@@ -9,6 +9,7 @@ from app.hus.cleaning import (
     infer_attachment_major,
     infer_document_type,
     infer_major,
+    normalize_vertical_text,
     slugify,
 )
 from app.hus.models import DocumentType, MajorCategory
@@ -341,6 +342,90 @@ def test_format_markdown_table_with_newlines_and_breaks():
     assert lines[2] == "| 1 | Toán cao cấp 1<br>(Giải tích) | 3<br>2/1 |"
     assert lines[3] == "| 2 | Đại số / Tuyến tính<br>Kỳ 1 | 3 |"
     assert len(lines) == 4
+
+
+@pytest.mark.parametrize(
+    "raw_input, expected",
+    [
+        # Spaces
+        ("ỉhc nít ốS", "Số tín chỉ"),
+        ("tếyuht íL", "Lý thuyết"),
+        ("hnàh cựhT", "Thực hành"),
+        ("cọh ựT", "Tự học"),
+        # <br> tags
+        ("ỉhc<br>nít<br>ốS", "Số tín chỉ"),
+        ("tếyuht<br>íL", "Lý thuyết"),
+        ("hnàh<br>cựhT", "Thực hành"),
+        ("cọh<br>ựT", "Tự học"),
+        # <br/> and <br /> with whitespace
+        ("ỉhc<br/>nít<br />ốS", "Số tín chỉ"),
+        ("ỉhc  <br>  nít  <br/>  ốS", "Số tín chỉ"),
+        ("tếyuht <br /> íL", "Lý thuyết"),
+        ("hnàh  <br>  cựhT", "Thực hành"),
+        ("cọh  <br/>  ựT", "Tự học"),
+        # Multiple <br> tags
+        ("ỉhc<br><br>nít<br><br>ốS", "Số tín chỉ"),
+        # Newlines
+        ("ỉhc\nnít\nốS", "Số tín chỉ"),
+        ("tếyuht\r\níL", "Lý thuyết"),
+        ("hnàh\n\ncựhT", "Thực hành"),
+        ("cọh\r\nựT", "Tự học"),
+        # Case insensitivity
+        ("ỈHC NÍT ỐS", "Số tín chỉ"),
+        ("TẾYUHT ÍL", "Lý thuyết"),
+        ("HNÀH CỰHT", "Thực hành"),
+        ("CỌH ỰT", "Tự học"),
+        ("ỉhc Nít ốs", "Số tín chỉ"),
+        ("Tếyuht Íl", "Lý thuyết"),
+        ("Hnàh Cựht", "Thực hành"),
+        ("Cọh Ựt", "Tự học"),
+        # Embedded in markdown table rows
+        (
+            "| STT | Mã<br>học phần | Học phần | ỉhc<br>nít<br>ốS | Số giờ tín chỉ |",
+            "| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |",
+        ),
+        (
+            "|  |  |  |  | tếyuht<br>íL | hnàh<br>cựhT | cọh<br>ựT |  |",
+            "|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |",
+        ),
+        # Normal text remains unchanged
+        ("Toán giải tích", "Toán giải tích"),
+        ("", ""),
+    ],
+)
+def test_normalize_vertical_text_variations(raw_input: str, expected: str):
+    assert normalize_vertical_text(raw_input) == expected
+
+
+def test_clean_table_cell_vertical_text():
+    assert clean_table_cell("ỉhc<br>nít<br>ốS") == "Số tín chỉ"
+    assert clean_table_cell("ỉhc\nnít\nốS") == "Số tín chỉ"
+    assert clean_table_cell("tếyuht<br>íL") == "Lý thuyết"
+    assert clean_table_cell("hnàh\ncựhT") == "Thực hành"
+    assert clean_table_cell("cọh<br>ựT") == "Tự học"
+    assert clean_table_cell("  \n ỉhc <br> nít <br> ốS \n ") == "Số tín chỉ"
+
+
+def test_clean_text_vertical_text():
+    assert clean_text("Khung chương trình: ỉhc nít ốS") == "Khung chương trình: Số tín chỉ"
+    assert clean_text("tếyuht íL và hnàh cựhT") == "Lý thuyết và Thực hành"
+
+
+def test_format_markdown_table_vertical_text():
+    grid = [
+        ["STT", "Mã\nhọc phần", "Học phần", "ỉhc\nnít\nốS", "Số giờ tín chỉ", None, None, "Mã số\ntiên quyết"],
+        [None, None, None, None, "tếyuht\níL", "hnàh\ncựhT", "cọh\nựT", None],
+        [1, "MAT1001", "Giải tích 1", 3, 30, 15, 0, None],
+    ]
+    lines = format_markdown_table(grid)
+    assert len(lines) == 4
+    assert lines[0] == "| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>tiên quyết |"
+    assert lines[1] == "| --- | --- | --- | --- | --- | --- | --- | --- |"
+    assert lines[2] == "|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |"
+    assert lines[3] == "| 1 | MAT1001 | Giải tích 1 | 3 | 30 | 15 | 0 |  |"
+    for token in ("ỉhc", "tếyuht", "hnàh", "cọh"):
+        for line in lines:
+            assert token not in line
 
 
 @pytest.mark.parametrize("scope", [
