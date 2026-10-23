@@ -269,222 +269,89 @@ nghiệp:
 
 <!-- Page 11 -->
 2. Khung chƣơng trình đào tạo
-| STT | Mã học
-phần | Học phần | Số tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã học<br>phần | Học phần | Số tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| I |  | Khối kiến thức chung
-(Không tính các học phần từ số 10
-đến số 12) | 29 |  |  |  |  |
-| 1 | PHI1004 | Những nguyên lý cơ bản của chủ
-nghĩa Mác-Lênin 1
-Fundamental Principles of Marxism -
-Leninism 1 | 2 | 24 | 6 |  |  |
-| 2 | PHI1005 | Những nguyên lý cơ bản của chủ
-nghĩa Mác-Lênin 2
-Fundamental Principles of Marxism -
-Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
-| 3 | POL1001 | Tư tưởng Hồ Chí Minh
-Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
-| 4 | HIS1002 | Đường lối cách mạng của Đảng Cộng
-sản Việt Nam
-The Revolutionary line of the
-Communist Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
-| 5 | INT1003 | Tin học cơ sở 1
-Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
-| 6 | INT1006 | Tin học cơ sở 4
-Introduction to Informatics 4 | 3 | 20 | 23 | 2 | INT1006 |
-| 7 | FLF2101 | Tiếng Anh cơ sở 1
-General English 1 | 4 | 16 | 40 | 4 |  |
-| 8 | FLF2102 | Tiếng Anh cơ sở 2
-General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
-| 9 | FLF2103 | Tiếng Anh cơ sở 3
-General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
-| 10 |  | Giáo dục thể chất
-Physical Education | 4 |  |  |  |  |
-| 11 |  | Giáo dục quốc phòng-an ninh
-National Defence Education | 8 |  |  |  |  |
-| 12 |  | Kỹ năng bổ trợ
-Soft Skills | 3 |  |  |  |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| I |  | Khối kiến thức chung<br>(Không tính các học phần từ số 10<br>đến số 12) | 29 |  |  |  |  |
+| 1 | PHI1004 | Những nguyên lý cơ bản của chủ<br>nghĩa Mác-Lênin 1<br>Fundamental Principles of Marxism -<br>Leninism 1 | 2 | 24 | 6 |  |  |
+| 2 | PHI1005 | Những nguyên lý cơ bản của chủ<br>nghĩa Mác-Lênin 2<br>Fundamental Principles of Marxism -<br>Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
+| 3 | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
+| 4 | HIS1002 | Đường lối cách mạng của Đảng Cộng<br>sản Việt Nam<br>The Revolutionary line of the<br>Communist Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
+| 5 | INT1003 | Tin học cơ sở 1<br>Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
+| 6 | INT1006 | Tin học cơ sở 4<br>Introduction to Informatics 4 | 3 | 20 | 23 | 2 | INT1006 |
+| 7 | FLF2101 | Tiếng Anh cơ sở 1<br>General English 1 | 4 | 16 | 40 | 4 |  |
+| 8 | FLF2102 | Tiếng Anh cơ sở 2<br>General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
+| 9 | FLF2103 | Tiếng Anh cơ sở 3<br>General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
+| 10 |  | Giáo dục thể chất<br>Physical Education | 4 |  |  |  |  |
+| 11 |  | Giáo dục quốc phòng-an ninh<br>National Defence Education | 8 |  |  |  |  |
+| 12 |  | Kỹ năng bổ trợ<br>Soft Skills | 3 |  |  |  |  |
 | II |  | Khối kiến thứctheo lĩnh vực | 6 |  |  |  |  |
-| 13 | HIS1056 | Cơ sở văn hóa Việt Nam
-Fundamentals of Vietnamese Culture | 3 | 42 | 3 |  |  |
-| 14 | GEO1050 | Khoa học trái đất và sự sống
-Earth and Life Sciences | 3 | 30 | 10 | 5 |  |
+| 13 | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamentals of Vietnamese Culture | 3 | 42 | 3 |  |  |
+| 14 | GEO1050 | Khoa học trái đất và sự sống<br>Earth and Life Sciences | 3 | 30 | 10 | 5 |  |
 | III |  | Khối kiến thức theo khối ngành | 6 |  |  |  |  |
-| 15 | PHY1100 | Cơ- Nhiệt
-Mechanics - Thermodynamics | 3 | 30 | 15 |  | MAT2302 |
+| 15 | PHY1100 | Cơ- Nhiệt<br>Mechanics - Thermodynamics | 3 | 30 | 15 |  | MAT2302 |
 13
 
 <!-- Page 12 -->
-| 16 | PHY1103 | Điện- Quang
-Electromagnetism - Optics | 3 | 30 | 15 |  | MAT2302 |
+| 16 | PHY1103 | Điện- Quang<br>Electromagnetism - Optics | 3 | 30 | 15 |  | MAT2302 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | IV |  | Khối kiến thức theo nhóm ngành | 43 |  |  |  |  |
-| 17 | MAT2300 | Đại số tuyến tính 1
-Linear Algebra 1 | 4 | 45 | 15 |  |  |
-| 18 | MAT2301 | Đại số tuyến tính 2
-Linear Algebra 2 | 4 | 45 | 15 |  | MAT2300 |
-| 19 | MAT2302 | Giải tích 1
-Analysis 1 | 5 | 45 | 30 |  |  |
-| 20 | MAT2303 | Giải tích 2
-Analysis 2 | 5 | 45 | 30 |  | MAT2302 |
-| 21 | MAT2304 | Giải tích 3
-Analysis 3 | 4 | 40 | 20 |  | MAT2303 |
-| 22 | MAT2314 | Phương trình vi phân
-Differential Equations | 4 | 45 | 15 |  | MAT2304 |
-| 23 | MAT3301 | Giải tích hàm
-Functional Analysis | 3 | 45 |  |  | MAT2301
-MAT2304 |
-| 24 | MAT2404 | Giải tích số
-Numerical Analysis | 4 | 45 | 15 |  | MAT2314
-INT1006 |
-| 25 | MAT2405 | Xác suất
-Probability | 3 | 30 | 15 |  | MAT2303
-MAT2301 |
-| 26 | MAT2406 | Thống kê ứng dụng
-Applied Statistics | 4 | 45 | 15 |  | MAT2405 |
-| 27 | MAT2407 | Tối ưu hóa
-Optimization | 3 | 30 | 15 |  | MAT2301
-MAT2302 |
+| 17 | MAT2300 | Đại số tuyến tính 1<br>Linear Algebra 1 | 4 | 45 | 15 |  |  |
+| 18 | MAT2301 | Đại số tuyến tính 2<br>Linear Algebra 2 | 4 | 45 | 15 |  | MAT2300 |
+| 19 | MAT2302 | Giải tích 1<br>Analysis 1 | 5 | 45 | 30 |  |  |
+| 20 | MAT2303 | Giải tích 2<br>Analysis 2 | 5 | 45 | 30 |  | MAT2302 |
+| 21 | MAT2304 | Giải tích 3<br>Analysis 3 | 4 | 40 | 20 |  | MAT2303 |
+| 22 | MAT2314 | Phương trình vi phân<br>Differential Equations | 4 | 45 | 15 |  | MAT2304 |
+| 23 | MAT3301 | Giải tích hàm<br>Functional Analysis | 3 | 45 |  |  | MAT2301<br>MAT2304 |
+| 24 | MAT2404 | Giải tích số<br>Numerical Analysis | 4 | 45 | 15 |  | MAT2314<br>INT1006 |
+| 25 | MAT2405 | Xác suất<br>Probability | 3 | 30 | 15 |  | MAT2303<br>MAT2301 |
+| 26 | MAT2406 | Thống kê ứng dụng<br>Applied Statistics | 4 | 45 | 15 |  | MAT2405 |
+| 27 | MAT2407 | Tối ưu hóa<br>Optimization | 3 | 30 | 15 |  | MAT2301<br>MAT2302 |
 | V |  | Khối kiến thức ngành | 54 |  |  |  |  |
 | V.1 |  | Các học phần bắt buộc | 35 |  |  |  |  |
-| 28 | MAT3500 | Toán rời rạc
-Discrete Mathematics | 4 | 45 | 15 |  | MAT2302
-MAT2300 |
-| 29 | MAT2306 | Phương trình đạo hàm riêng 1
-Partial Differential Equations 1 | 3 | 30 | 15 |  | MAT2314 |
-| 30 | MAT3503 | Lập trình hướng đối tượng
-Object–Oriented Programming | 3 | 20 | 25 |  | INT1006 |
-| 31 | MAT3501 | Nguyên lý hệ điều hành
-Principles of Operating Systems | 3 | 40 | 5 |  | INT1006 |
-| 32 | MAT3502 | Cấu trúc dữ liệu và thuật toán
-Data Structures and Algorithms | 4 | 40 | 20 |  | INT1006 |
-| 33 | MAT3510 | Đồ án phần mềm
-Software Development Project | 3 | 10 | 35 |  | MAT3502 |
-| 34 | MAT3504 | Thiết kế và đánh giá thuật toán
-Algorithm Design and Analysis | 3 | 30 | 15 |  | MAT2301
-MAT2303
-MAT3500
-MAT3502 |
-| 35 | MAT3507 | Cơ sở dữ liệu
-Databases | 4 | 40 | 20 |  | INT1006
-MAT3500 |
-| 36 | MAT3509 | Ngôn ngữ hình thức và ôtômat
-Formal Languages and Automata | 3 | 40 | 5 |  | INT1006
-MAT3500 |
-| 37 | MAT3506 | Mạng máy tính
-Computer Networks | 3 | 40 | 5 |  | INT1006 |
+| 28 | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 15 |  | MAT2302<br>MAT2300 |
+| 29 | MAT2306 | Phương trình đạo hàm riêng 1<br>Partial Differential Equations 1 | 3 | 30 | 15 |  | MAT2314 |
+| 30 | MAT3503 | Lập trình hướng đối tượng<br>Object–Oriented Programming | 3 | 20 | 25 |  | INT1006 |
+| 31 | MAT3501 | Nguyên lý hệ điều hành<br>Principles of Operating Systems | 3 | 40 | 5 |  | INT1006 |
+| 32 | MAT3502 | Cấu trúc dữ liệu và thuật toán<br>Data Structures and Algorithms | 4 | 40 | 20 |  | INT1006 |
+| 33 | MAT3510 | Đồ án phần mềm<br>Software Development Project | 3 | 10 | 35 |  | MAT3502 |
+| 34 | MAT3504 | Thiết kế và đánh giá thuật toán<br>Algorithm Design and Analysis | 3 | 30 | 15 |  | MAT2301<br>MAT2303<br>MAT3500<br>MAT3502 |
+| 35 | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | 40 | 20 |  | INT1006<br>MAT3500 |
+| 36 | MAT3509 | Ngôn ngữ hình thức và ôtômat<br>Formal Languages and Automata | 3 | 40 | 5 |  | INT1006<br>MAT3500 |
+| 37 | MAT3506 | Mạng máy tính<br>Computer Networks | 3 | 40 | 5 |  | INT1006 |
 14
 
 <!-- Page 13 -->
-| 38 | MAT3349 | Tiểu luận khoa học
-Mini project | 2 |  | 30 |  |  |
+| 38 | MAT3349 | Tiểu luận khoa học<br>Mini project | 2 |  | 30 |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| V.2 |  | Các học phần tự chọn
-(Sinh viên lựa chọn các học phần
-thuộc cùng một định hướng trong 2
-định hướng dưới đây) | 12 |  |  |  |  |
-| V.2.1 |  | Các học phần chuyên sâu và bổ trợ
-định hướng Cơ sở toán học cho tin
-học | 12/24 |  |  |  |  |
-| 39 | MAT3450 | Đại số đại cương
-Abstract Algebra | 3 | 45 |  |  | MAT2301 |
-| 40 | MAT3545 | Lý thuyết tính toán
-Theory of Computing | 3 | 30 | 15 |  | MAT3500
-MAT3504 |
-| 41 | MAT3539 | Mật mã và an toàn dữ liệu
-Cryptography and Data Security | 3 | 45 |  |  | INT1006 |
-| 42 | MAT3323 | Tối ưu rời rạc
-Discrete Optimizaton | 3 | 30 | 15 |  | MAT3507
-MAT3500 |
-| 43 | MAT3348 | Thuật toán tổ hợp
-Combinatorial Algorithms | 3 | 35 | 10 |  | MAT2304
-MAT3504
-INT1006 |
-| 44 | MAT3456 | Logic ứng dụng
-Applied Logic | 3 | 45 |  |  | INT1006
-MAT3500 |
-| 45 | MAT3533 | Học máy
-Machine Learning | 3 | 24 | 16 | 5 | INT1006
-MAT2406
-MAT2404
-MAT3502 |
-| 46 | MAT3508 | Nhập môn trí tuệ nhân tạo
-Introduction to Artificial Intelligence | 3 | 30 | 15 |  | MAT3507
-MAT3500 |
-| V.2.2 |  | Các học phần chuyên sâu và bổ trợ
-định hướng Tính toán khoa học | 12/24 |  |  |  |  |
-| 47 | MAT3327 | Điều khiển tối ưu
-Optimal control | 3 | 45 |  |  | MAT2304
-MAT2314
-MAT2307
-MAT2404 |
-| 48 | MAT3531 | Tính toán phân tán
-Distributed Computing | 3 | 35 | 10 |  | MAT3501
-MAT3510 |
-| 49 | MAT3533 | Học máy
-Machine Learning | 3 | 24 | 16 | 5 | INT1006
-MAT2406
-MAT2404
-MAT3502 |
-| 50 | MAT3536 | Ngôn ngữ học tính toán
-Computational Linguistics | 3 | 30 | 10 | 5 | MAT3507
-MAT3509 |
-| 51 | MAT3537 | Xử lí ảnh
-Image Processing | 3 | 35 | 10 |  | MAT2301
-MAT2303
-INT1006 |
-| 52 | MAT3458 | Mô hình toán kinh tế
-Economic mathematical models | 3 | 45 |  |  | INT1006
-MAT2301 |
-| 53 | MAT3459 | Mô hình toán sinh thái
-Biomathematical models | 3 | 45 |  |  | INT1006
-MAT2301
-MAT2306 |
-| 54 | MAT3452 | Phân tích thống kê nhiều chiều
-Multivariate StatisticalAnalysis | 3 | 30 | 15 |  | MAT2406 |
+| V.2 |  | Các học phần tự chọn<br>(Sinh viên lựa chọn các học phần<br>thuộc cùng một định hướng trong 2<br>định hướng dưới đây) | 12 |  |  |  |  |
+| V.2.1 |  | Các học phần chuyên sâu và bổ trợ<br>định hướng Cơ sở toán học cho tin<br>học | 12/24 |  |  |  |  |
+| 39 | MAT3450 | Đại số đại cương<br>Abstract Algebra | 3 | 45 |  |  | MAT2301 |
+| 40 | MAT3545 | Lý thuyết tính toán<br>Theory of Computing | 3 | 30 | 15 |  | MAT3500<br>MAT3504 |
+| 41 | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | 45 |  |  | INT1006 |
+| 42 | MAT3323 | Tối ưu rời rạc<br>Discrete Optimizaton | 3 | 30 | 15 |  | MAT3507<br>MAT3500 |
+| 43 | MAT3348 | Thuật toán tổ hợp<br>Combinatorial Algorithms | 3 | 35 | 10 |  | MAT2304<br>MAT3504<br>INT1006 |
+| 44 | MAT3456 | Logic ứng dụng<br>Applied Logic | 3 | 45 |  |  | INT1006<br>MAT3500 |
+| 45 | MAT3533 | Học máy<br>Machine Learning | 3 | 24 | 16 | 5 | INT1006<br>MAT2406<br>MAT2404<br>MAT3502 |
+| 46 | MAT3508 | Nhập môn trí tuệ nhân tạo<br>Introduction to Artificial Intelligence | 3 | 30 | 15 |  | MAT3507<br>MAT3500 |
+| V.2.2 |  | Các học phần chuyên sâu và bổ trợ<br>định hướng Tính toán khoa học | 12/24 |  |  |  |  |
+| 47 | MAT3327 | Điều khiển tối ưu<br>Optimal control | 3 | 45 |  |  | MAT2304<br>MAT2314<br>MAT2307<br>MAT2404 |
+| 48 | MAT3531 | Tính toán phân tán<br>Distributed Computing | 3 | 35 | 10 |  | MAT3501<br>MAT3510 |
+| 49 | MAT3533 | Học máy<br>Machine Learning | 3 | 24 | 16 | 5 | INT1006<br>MAT2406<br>MAT2404<br>MAT3502 |
+| 50 | MAT3536 | Ngôn ngữ học tính toán<br>Computational Linguistics | 3 | 30 | 10 | 5 | MAT3507<br>MAT3509 |
+| 51 | MAT3537 | Xử lí ảnh<br>Image Processing | 3 | 35 | 10 |  | MAT2301<br>MAT2303<br>INT1006 |
+| 52 | MAT3458 | Mô hình toán kinh tế<br>Economic mathematical models | 3 | 45 |  |  | INT1006<br>MAT2301 |
+| 53 | MAT3459 | Mô hình toán sinh thái<br>Biomathematical models | 3 | 45 |  |  | INT1006<br>MAT2301<br>MAT2306 |
+| 54 | MAT3452 | Phân tích thống kê nhiều chiều<br>Multivariate StatisticalAnalysis | 3 | 30 | 15 |  | MAT2406 |
 15
 
 <!-- Page 14 -->
-| V.3 |  | Khoá luận tốt nghiệp/các học phần
-thay thế khoá luận tốt nghiệp | 7 |  |  |  |  |
+| V.3 |  | Khoá luận tốt nghiệp/các học phần<br>thay thế khoá luận tốt nghiệp | 7 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 55 | MAT4082 | Khóa luận tốt nghiệp | 7 |  |  |  |  |
-|  |  | Các học phần thay thế (Chọn các
-môn chưa học trong các môn theo
-định hướng đã chọn) | 7 |  |  |  |  |
-| 56 | MAT3544 | Phân tích và thiết kế hệ thống thông
-tin
-Analysis and Design of Information
-Systems | 4 | 20 | 40 |  | MAT3504
-MAT3507
-MAT3560 |
-| 57 | MAT4073 | Một số vấn đề chọn lọc trong tính
-toán khoa học
-Selected Topics in Scientific
-Computing | 3 | 45 |  |  |  |
+|  |  | Các học phần thay thế (Chọn các<br>môn chưa học trong các môn theo<br>định hướng đã chọn) | 7 |  |  |  |  |
+| 56 | MAT3544 | Phân tích và thiết kế hệ thống thông<br>tin<br>Analysis and Design of Information<br>Systems | 4 | 20 | 40 |  | MAT3504<br>MAT3507<br>MAT3560 |
+| 57 | MAT4073 | Một số vấn đề chọn lọc trong tính<br>toán khoa học<br>Selected Topics in Scientific<br>Computing | 3 | 45 |  |  |  |
 |  |  | Tổng cộng | 138 |  |  |  |  |
 Ghi chú: Học phần ngoại ngữ thuộc khối kiến thức chung được tính vào tổng số
 tín chỉ của chương trình đào tạo, nhưng kết quả đánh giá các học phần này không tính

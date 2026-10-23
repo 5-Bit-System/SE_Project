@@ -64,70 +64,46 @@ tạo (CTĐT). Cụ thể như sau:
 - Phương thức 6. Sử dụng phương thức khác:
 Trường ĐHKHTN xét tuyển các thí sinh diện hiệp định, diện dự bị đại học, xét tuyển
 theo Quy chế tuyển sinh, Hướng dẫn tuyển sinh của ĐHQGHN.
-| TT | Mã
-ngành xét
-tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức
-Xét kết quả thi tốt nghiệp THPT năm 2026 |
+| TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 1 | QHT01 | Toán học | A00; A01; C01; D07; D08; X26 |
 | 2 | QHT02 | Toán tin | A00; A01; C01; D07; D08; X26 |
-| 3 | QHT98 | Khoa học máy tính và
-thông tin | A00; A01; C01; D07; D08; X26 |
+| 3 | QHT98 | Khoa học máy tính và<br>thông tin | A00; A01; C01; D07; D08; X26 |
 | 4 | QHT93 | Khoa học dữ liệu | A00; A01; C01; D07; D08; X26 |
 | 5 | QHT03 | Vật lý học | A00; A01; A02; B00; C01; C02; D07; X06 |
 | 6 | QHT04 | Khoa học vật liệu | A00; A01; A02; B00; C01; C02; D07; X06 |
-| 7 | QHT99 | Công nghệ Bán dẫn (thuộc
-ngành Khoa học vật liệu) | A00; A01; A02; B00; C01; C02; D07; X06 |
-| 8 | QHT05 | Công nghệ kỹ thuật hạt
-nhân | A00; A01; A02; B00; C01; C02; D07; X06 |
+| 7 | QHT99 | Công nghệ Bán dẫn (thuộc<br>ngành Khoa học vật liệu) | A00; A01; A02; B00; C01; C02; D07; X06 |
+| 8 | QHT05 | Công nghệ kỹ thuật hạt<br>nhân | A00; A01; A02; B00; C01; C02; D07; X06 |
 2
 
 <!-- Page 3 -->
-| TT | Mã
-ngành xét
-tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức
-Xét kết quả thi tốt nghiệp THPT năm 2026 |
+| TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 9 | QHT94 | Kỹ thuật điện tử và tin học | A00; A01; A02; B00; C01; C02; D07; X06 |
 | 10 | QHT06 | Hóa học | A00; A05; A06; B00; C02; D07 |
-| 11 | QHT07 | Công nghệ kỹ thuật hóa
-học | A00; A05; A06; B00; C02; D07 |
+| 11 | QHT07 | Công nghệ kỹ thuật hóa<br>học | A00; A05; A06; B00; C02; D07 |
 | 12 | QHT43 | Hóa dược | A00; A05; A06; B00; C02; D07 |
 | 13 | QHT08 | Sinh học | A00; A02; B00; B03; B08; D07 |
 | 14 | QHT09 | Công nghệ sinh học | A00; A02; B00; B03; B08; D07 |
 | 15 | QHT81 | Sinh dược học | A00; A02; B00; B03; B08; D07 |
-| 16 | QHT10 | Địa lý tự nhiên | A00; A01; A04; A06; A07; B00; B02; C04;
-D01; D10; D20; X01; X21; X25 |
-| 17 | QHT91 | Khoa học thông tin địa
-không gian | A00; A01; A04; A06; A07; B00; B02; C04;
-D01; D10; D20; X01; X21; X25 |
-| 18 | QHT12 | Quản lý đất đai | A00; A01; A04; A06; A07; B00; B02; C04;
-D01; D10; D20; X01; X21; X25 |
-| 19 | QHT95 | Quản lý phát triển đô thị
-và bất động sản | A00; A01; A04; A06; A07; B00; B02; C04;
-D01; D10; D20; X01; X21; X25 |
+| 16 | QHT10 | Địa lý tự nhiên | A00; A01; A04; A06; A07; B00; B02; C04;<br>D01; D10; D20; X01; X21; X25 |
+| 17 | QHT91 | Khoa học thông tin địa<br>không gian | A00; A01; A04; A06; A07; B00; B02; C04;<br>D01; D10; D20; X01; X21; X25 |
+| 18 | QHT12 | Quản lý đất đai | A00; A01; A04; A06; A07; B00; B02; C04;<br>D01; D10; D20; X01; X21; X25 |
+| 19 | QHT95 | Quản lý phát triển đô thị<br>và bất động sản | A00; A01; A04; A06; A07; B00; B02; C04;<br>D01; D10; D20; X01; X21; X25 |
 | 20 | QHT13 | Khoa học môi trường | B03; C01; C02; C04; D01; X01; X02 |
-| 21 | QHT15 | Công nghệ kỹ thuật môi
-trường | B03; C01; C02; C04; D01; X01; X02 |
-| 22 | QHT96 | Khoa học và công nghệ
-thực phẩm | B03; C01; C02; C04; D01; X01; X02 |
-| 23 | QHT82 | Môi trường, sức khỏe và
-an toàn | B03; C01; C02; C04; D01; X01; X02 |
+| 21 | QHT15 | Công nghệ kỹ thuật môi<br>trường | B03; C01; C02; C04; D01; X01; X02 |
+| 22 | QHT96 | Khoa học và công nghệ<br>thực phẩm | B03; C01; C02; C04; D01; X01; X02 |
+| 23 | QHT82 | Môi trường, sức khỏe và<br>an toàn | B03; C01; C02; C04; D01; X01; X02 |
 | 24 | QHT16 | Khí tượng và khí hậu học | B03; C01; C02; C04; D01; X02 |
 3
 
 <!-- Page 4 -->
-| TT | Mã
-ngành xét
-tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức
-Xét kết quả thi tốt nghiệp THPT năm 2026 |
+| TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 25 | QHT17 | Hải dương học | B03; C01; C02; C04; D01; X02 |
-| 26 | QHT92 | Tài nguyên và môi trường
-nước | B03; C01; C02; C04; D01; X02 |
+| 26 | QHT92 | Tài nguyên và môi trường<br>nước | B03; C01; C02; C04; D01; X02 |
 | 27 | QHT18 | Địa chất học | B03; C01; C02; C03; C04; D01; X01 |
-| 28 | QHT20 | Quản lý tài nguyên và môi
-trường | B03; C01; C02; C03; C04; D01; X01 |
+| 28 | QHT20 | Quản lý tài nguyên và môi<br>trường | B03; C01; C02; C03; C04; D01; X01 |
 | Mã tổ hợp môn xét kết quả thi tốt nghiệp THPT (mã 100) |  |  |
 | --- | --- | --- |
 | A00: Toán, Vật lí, Hóa học | B03: Toán, Sinh học, Ngữ văn | D10: Toán, Địa lý, Tiếng Anh |
@@ -174,195 +150,58 @@ tướng Chính phủ quy định về cơ chế thu, quản lý học phí đ�
 giáo dục quốc dân và chính sách miễn, giảm học phí, hỗ trợ chi phí học tập; giá dịch vụ trong
 nhóm ngành giáo dục, đào tạo. Dự kiến mức học phí năm học 2026-2027 và lộ trình tăng học
 phí các năm học tiếp theo như sau:
-| TT | Mã
-ngành
-xét tuyển | Tên ngành xét tuyển | Mức học phí
-dự kiến
-năm học
-2026 - 2027
-(nghìn đồng/
-tháng) | Lộ trình tăng học phí
-các năm học tiếp theo |
+| TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
-| 1 | QHT01 | Toán học | 2.090 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 2 | QHT02 | Toán tin | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
+| 1 | QHT01 | Toán học | 2.090 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 2 | QHT02 | Toán tin | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
 5
 
 <!-- Page 6 -->
-| TT | Mã
-ngành
-xét tuyển | Tên ngành xét tuyển | Mức học phí
-dự kiến
-năm học
-2026 - 2027
-(nghìn đồng/
-tháng) | Lộ trình tăng học phí
-các năm học tiếp theo |
+| TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
-| 3 | QHT98 | Khoa học máy tính và
-thông tin | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 4 | QHT93 | Khoa học dữ liệu | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 5 | QHT03 | Vật lý học | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 6 | QHT04 | Khoa học vật liệu | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 7 | QHT99 | Công nghệ bán dẫn
-(thuộc ngành Khoa học
-vật liệu) | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 8 | QHT05 | Công nghệ kỹ thuật hạt
-nhân | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 9 | QHT94 | Kỹ thuật điện tử và tin
-học | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
+| 3 | QHT98 | Khoa học máy tính và<br>thông tin | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 4 | QHT93 | Khoa học dữ liệu | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 5 | QHT03 | Vật lý học | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 6 | QHT04 | Khoa học vật liệu | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 7 | QHT99 | Công nghệ bán dẫn<br>(thuộc ngành Khoa học<br>vật liệu) | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 8 | QHT05 | Công nghệ kỹ thuật hạt<br>nhân | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 9 | QHT94 | Kỹ thuật điện tử và tin<br>học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
 6
 
 <!-- Page 7 -->
-| TT | Mã
-ngành
-xét tuyển | Tên ngành xét tuyển | Mức học phí
-dự kiến
-năm học
-2026 - 2027
-(nghìn đồng/
-tháng) | Lộ trình tăng học phí
-các năm học tiếp theo |
+| TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
-| 10 | QHT06 | Hóa học | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 11 | QHT07 | Công nghệ kỹ thuật hóa
-học | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 12 | QHT43 | Hóa dược | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 13 | QHT08 | Sinh học | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 14 | QHT09 | Công nghệ sinh học | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 15 | QHT81 | Sinh dược học | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 16 | QHT10 | Địa lý tự nhiên | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 17 | QHT91 | Khoa học thông tin địa
-không gian | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 18 | QHT12 | Quản lý đất đai | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật. |
+| 10 | QHT06 | Hóa học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 11 | QHT07 | Công nghệ kỹ thuật hóa<br>học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 12 | QHT43 | Hóa dược | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 13 | QHT08 | Sinh học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 14 | QHT09 | Công nghệ sinh học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 15 | QHT81 | Sinh dược học | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 16 | QHT10 | Địa lý tự nhiên | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 17 | QHT91 | Khoa học thông tin địa<br>không gian | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 18 | QHT12 | Quản lý đất đai | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật. |
 7
 
 <!-- Page 8 -->
-| TT | Mã
-ngành
-xét tuyển | Tên ngành xét tuyển |  |  | Mức học phí
-dự kiến
-năm học
-2026 - 2027
-(nghìn đồng/
-tháng) | Lộ trình tăng học phí
-các năm học tiếp theo |
+| TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển |  |  | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  | Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 19 | QHT95 | Quản lý phát triển đô thị
-và bất động sản |  |  | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 20 | QHT13 | Khoa học môi trường |  |  | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 21 | QHT15 | Công nghệ kỹ thuật môi
-trường |  |  | 3.500 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 22 | QHT96 | Khoa học và công nghệ
-thực phẩm |  |  | 4.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
-| 23 | QHT82 |  | Môi trường, sức khỏe |  | 1.910 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
+|  |  |  |  |  |  | Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 19 | QHT95 | Quản lý phát triển đô thị<br>và bất động sản |  |  | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 20 | QHT13 | Khoa học môi trường |  |  | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 21 | QHT15 | Công nghệ kỹ thuật môi<br>trường |  |  | 3.500 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 22 | QHT96 | Khoa học và công nghệ<br>thực phẩm |  |  | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
+| 23 | QHT82 |  | Môi trường, sức khỏe |  | 1.910 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
 |  |  |  | và an toàn |  |  |  |
-| 24 | QHT16 | Khí tượng và khí hậu
-học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 25 | QHT17 | Hải dương học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 26 | QHT92 | Tài nguyên và môi
-trường nước |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
-| 27 | QHT18 | Địa chất học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP
-của Thủ tướng Chính phủ |
+| 24 | QHT16 | Khí tượng và khí hậu<br>học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 25 | QHT17 | Hải dương học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 26 | QHT92 | Tài nguyên và môi<br>trường nước |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
+| 27 | QHT18 | Địa chất học |  |  | 1.930 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
 8
 
 <!-- Page 9 -->
-| TT | Mã
-ngành
-xét tuyển | Tên ngành xét tuyển | Mức học phí
-dự kiến
-năm học
-2026 - 2027
-(nghìn đồng/
-tháng) | Lộ trình tăng học phí
-các năm học tiếp theo |
+| TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
-| 28 | QHT20 | Quản lý tài nguyên và
-môi trường | 3.000 | Chương trình đào tạo đã kiểm định
-chất lượng. Thu học phí theo đề án
-định mức kinh tế kỹ thuật.
-Lộ trình tăng không quá 10% so
-với năm học trước. |
+| 28 | QHT20 | Quản lý tài nguyên và<br>môi trường | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
 3.3. Học bổng:
 Ngoài học bổng khuyến khích học tập theo quy định của nhà nước, sinh viên có kết quả
 rèn luyện và học tập tốt sẽ được xét nhận học bổng từ các nguồn tài trợ do các tổ chức, cá nhân,

@@ -246,138 +246,50 @@ Tổng số tín chỉ của chương trình đào tạo: 641 tín chỉ, trong 
 + Tự chọn: 21/42 tín chỉ
 - Luận văn thạc sĩ: 18 tín chỉ
 2. Khung chương trình
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và
-tiếng Anh) | Số
-tín chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 7 |  |  |  |  |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | 45 |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general
-purposes | 4 | 60 |  |  |  |
-| II | Khối kiến thức cơ sở và chuyên
-ngành |  | 39 |  |  |  |  |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | 45 |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general<br>purposes | 4 | 60 |  |  |  |
+| II | Khối kiến thức cơ sở và chuyên<br>ngành |  | 39 |  |  |  |  |
 | II.1. | Các học phần bắt buộc |  | 18 |  |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic
-purposes | 3 | 45 |  |  |  |
-| 4. | MAT6036 | Cơ học môi trường
-liên tục nâng cao
-Advanced Mechanics
-of Continuous Media | 3 | 45 | 0 | 0 |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic<br>purposes | 3 | 45 |  |  |  |
+| 4. | MAT6036 | Cơ học môi trường<br>liên tục nâng cao<br>Advanced Mechanics<br>of Continuous Media | 3 | 45 | 0 | 0 |  |
 1 Số tín chỉ của học phần ngoại ngữ cơ bản được tính vào tổng số tín chỉ của chương trình đào tạo nhưng không
 tính vào điểm trung bình chung tích lũy
 7
 
 <!-- Page 10 -->
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và
-tiếng Anh) | Số
-tín chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
-| 5. | MAT6037 | Phương trình đạo hàm
-riêng nâng cao
-Advanced Partial
-Differential Equations | 3 | 45 | 0 | 0 |  |
-| 6. | MAT6045 | Các phương pháp số
-trong cơ học nâng cao
-Advanced Numerical
-Methods in Mechanics | 3 | 33 | 6 | 6 |  |
-| 7. | MAT6038 | Phân tích tấm
-Analysis of plates | 3 | 45 | 0 | 0 |  |
-| 8. | MAT6049 | Các phương pháp
-trong dao động phi
-tuyến
-Methods in Nonlinear
-Oscillations | 3 | 21 | 9 | 15 |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 5. | MAT6037 | Phương trình đạo hàm<br>riêng nâng cao<br>Advanced Partial<br>Differential Equations | 3 | 45 | 0 | 0 |  |
+| 6. | MAT6045 | Các phương pháp số<br>trong cơ học nâng cao<br>Advanced Numerical<br>Methods in Mechanics | 3 | 33 | 6 | 6 |  |
+| 7. | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | 45 | 0 | 0 |  |
+| 8. | MAT6049 | Các phương pháp<br>trong dao động phi<br>tuyến<br>Methods in Nonlinear<br>Oscillations | 3 | 21 | 9 | 15 |  |
 | II.2. | Các học phần tự chọn |  | 21/42 |  |  |  |  |
-| 9. | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 21 | 9 | 15 |  |
-| 10. | MAT6042 | Phép tính tenxơ trong
-cơ học
-Tensor Calculus in
-Mechanics | 3 | 32 | 13 | 0 |  |
-| 11. | MAT6041 | Phương trình vi phân
-nâng cao
-Advanced Differential
-Equations | 3 | 25 | 17 | 3 |  |
-| 12. | MAT6108 | Cơ học hệ nhiều vật
-Mechanics of
-Multibody Systems | 3 | 37 | 8 | 0 |  |
-| 13. | MAT6109 | Giải tích hàm ứng
-dụng
-Applied Funtional
-Analysis | 3 | 35 | 10 | 0 |  |
-| 14. | MAT6110 | Động lực học sông
-biển
-River and Sea
-Dynamics | 3 | 30 | 9 | 6 |  |
-| 15. | MAT6111 | Lý thuyết điều khiển
-chuyển động
-Theory of Motion
-Control | 3 | 33 | 8 | 4 |  |
+| 9. | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 21 | 9 | 15 |  |
+| 10. | MAT6042 | Phép tính tenxơ trong<br>cơ học<br>Tensor Calculus in<br>Mechanics | 3 | 32 | 13 | 0 |  |
+| 11. | MAT6041 | Phương trình vi phân<br>nâng cao<br>Advanced Differential<br>Equations | 3 | 25 | 17 | 3 |  |
+| 12. | MAT6108 | Cơ học hệ nhiều vật<br>Mechanics of<br>Multibody Systems | 3 | 37 | 8 | 0 |  |
+| 13. | MAT6109 | Giải tích hàm ứng<br>dụng<br>Applied Funtional<br>Analysis | 3 | 35 | 10 | 0 |  |
+| 14. | MAT6110 | Động lực học sông<br>biển<br>River and Sea<br>Dynamics | 3 | 30 | 9 | 6 |  |
+| 15. | MAT6111 | Lý thuyết điều khiển<br>chuyển động<br>Theory of Motion<br>Control | 3 | 33 | 8 | 4 |  |
 | 16. | MAT6046 | Nhiệt đàn hồi | 3 | 32 | 13 | 0 |  |
 8
 
 <!-- Page 11 -->
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và
-tiếng Anh) | Số
-tín chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
 |  |  | Thermo - Elasticity |  |  |  |  |  |
-| 17. | MAT6048 | Dao động của hệ đàn
-hồi
-Vibration of Elastic
-Systems | 3 | 37 | 8 | 0 |  |
-| 18. | MAT6050 | Ổn định của hệ biến
-dạng
-Stability of
-Deformable Systems | 3 | 36 | 9 | 0 |  |
-| 19. | MAT6051 | Cơ học vật liệu
-composite nâng cao
-Advanced Mechanics
-of Composite
-Materials | 3 | 26 | 12 | 7 |  |
-| 20. | MAT6112 | Lý thuyết bản vỏ
-mỏng
-Theory of Thin Plates
-and Shells | 3 | 38 | 7 | 0 |  |
-| 21. | MAT6039 | Truyền sóng trong
-môi trường đàn dẻo
-Wave Propagation in
-Elasto-Plastic Media | 3 | 45 | 0 | 0 |  |
-| 22. | MAT6138 | Ổn định chuyển động
-Stability of Motion | 3 | 22 | 8 | 15 |  |
+| 17. | MAT6048 | Dao động của hệ đàn<br>hồi<br>Vibration of Elastic<br>Systems | 3 | 37 | 8 | 0 |  |
+| 18. | MAT6050 | Ổn định của hệ biến<br>dạng<br>Stability of<br>Deformable Systems | 3 | 36 | 9 | 0 |  |
+| 19. | MAT6051 | Cơ học vật liệu<br>composite nâng cao<br>Advanced Mechanics<br>of Composite<br>Materials | 3 | 26 | 12 | 7 |  |
+| 20. | MAT6112 | Lý thuyết bản vỏ<br>mỏng<br>Theory of Thin Plates<br>and Shells | 3 | 38 | 7 | 0 |  |
+| 21. | MAT6039 | Truyền sóng trong<br>môi trường đàn dẻo<br>Wave Propagation in<br>Elasto-Plastic Media | 3 | 45 | 0 | 0 |  |
+| 22. | MAT6138 | Ổn định chuyển động<br>Stability of Motion | 3 | 22 | 8 | 15 |  |
 | III | Luận văn thạc sĩ |  | 18 |  |  |  |  |
 | 23. | MAT6148 | Luận văn thạc sĩ | 18 |  |  |  |  |
 | Tổng cộng: |  |  | 64 |  |  |  |  |
@@ -385,544 +297,114 @@ Stability of Motion | 3 | 22 | 8 | 15 |  |
 
 <!-- Page 12 -->
 3. Danh mục tài liệu tham khảo
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | Theo chương trình chung |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general purposes | 4 | Theo chương trình chung |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic
-purposes | 3 | Theo chương trình chung |
-| 4. | MAT6036 | Cơ học môi trường liên tục
-nâng cao
-Advanced Mechanics of
-Continuous Media | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2003), Cơ học môi trường liên tục, NXB ĐHQG Hà
-Nội.
-- Sedov L. I. (1997), Cơ học môi trường liên tục (dịch ra tiếng Việt),
-NXB Đại học và Trung học chuyên nghiệp.
-2. Tài liệu tham khảo
-- Dowell E. H. (1995) , A modern course in aeroeplasticity, Kluwer
-Acad.
-- Francois D., Pineau A., Zaoui A. (1991), Comportement mecanique
-des materiauxx, I. Hermes, Paris.
-- Lourie I. G. (1993), Fundamental Mechanics of Fluids, Mc. Graw-
-Hill.
-- Lubliner J. (1991), Plasticity theory, Mcmillan Publ.
-- Watchman J. B. (1993), Characterization of materials, Butterworth,
-Hein. |
-| 5. | MAT6037 | Phương trình đạo hàm riêng
-nâng cao
-Advanced Partial Differential
-Equations | 3 | 1. Tài liệu bắt buộc
-- Nguyễn Thừa Hợp (2001), Giáo trình phương trình đạo hàm riêng,
-Nhà xuất bản Đại học Quốc gia Hà Nội.
-- Trần Đức Vân (2005), Lý thuyết phương trình đạo hàm riêng, Nhà
-xuất bản Đại học Quốc gia Hà Nội. |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general purposes | 4 | Theo chương trình chung |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic<br>purposes | 3 | Theo chương trình chung |
+| 4. | MAT6036 | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2003), Cơ học môi trường liên tục, NXB ĐHQG Hà<br>Nội.<br>- Sedov L. I. (1997), Cơ học môi trường liên tục (dịch ra tiếng Việt),<br>NXB Đại học và Trung học chuyên nghiệp.<br>2. Tài liệu tham khảo<br>- Dowell E. H. (1995) , A modern course in aeroeplasticity, Kluwer<br>Acad.<br>- Francois D., Pineau A., Zaoui A. (1991), Comportement mecanique<br>des materiauxx, I. Hermes, Paris.<br>- Lourie I. G. (1993), Fundamental Mechanics of Fluids, Mc. Graw-<br>Hill.<br>- Lubliner J. (1991), Plasticity theory, Mcmillan Publ.<br>- Watchman J. B. (1993), Characterization of materials, Butterworth,<br>Hein. |
+| 5. | MAT6037 | Phương trình đạo hàm riêng<br>nâng cao<br>Advanced Partial Differential<br>Equations | 3 | 1. Tài liệu bắt buộc<br>- Nguyễn Thừa Hợp (2001), Giáo trình phương trình đạo hàm riêng,<br>Nhà xuất bản Đại học Quốc gia Hà Nội.<br>- Trần Đức Vân (2005), Lý thuyết phương trình đạo hàm riêng, Nhà<br>xuất bản Đại học Quốc gia Hà Nội. |
 10
 
 <!-- Page 13 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  |  |  | 2. Tài liệu tham khảo
-- Nguyễn Minh Chương và các tác giả (1995), Lý thuyết phương trình
-đạo hàm riêng, Nhà xuất bản Giáo dục, Hà Nội.
-- Nguyễn Mạnh Hùng (2006), Giáo trình phương trình đạo hàm riêng,
-Nhà xuất bản Đại học Sư phạm Hà Nội. |
-| 6. | MAT6045 | Các phương pháp số trong cơ
-học nâng cao
-Advanced Numerical
-Methods in Mechanics | 3 | 1. Tài liệu bắt buộc
-- Fung Y.C., Pin Tong (2001), Classical and Computational Solid
-Mechanics, World Scientific.
-- Zienkievicz O.C., Taylor R.L. (2000), The Finite Element Method,
-Fifth edition, Butterworth Heinemann, Vol. I & II.
-2. Tài liệu tham khảo
-- Blazek J. ( 2001), Computational Fluid Dynamics: Principles and
-Applications, Elsevier.
-- Zienkievicz O.C., Taylor R.L., Nithiarasu P. (2005), The Finite
-Element Method for Fluid Mechanics, 6th Edition, Elsevier. |
-| 7. | MAT6038 | Phân tích tấm
-Analysis of plates | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2000), Lý thuyết đàn hồi, NXB ĐH & THCN.
-- J. N. Reddy (2004), Mechanics of laminated composite plates and
-shells, Theory and Analysis, CRC Press.
-2. Tài liệu tham khảo thêm
-- Trần Lưu Chương, Phạm Sĩ Liêm, Lý thuyết bản và vỏ mỏng đàn hồi,
-Uỷ ban KHKT, 1967.
-- Farland D. Mc., Smith B., Bernhart W. (1972), Analysis of plates,
-Spartan books.
-- Timoshenko S., Woinowsky-Krieger S. (1959), Theory plates and
-shells, McGraw - Hill Book Company New York. |
-| 8. | MAT6049 | Các phương pháp trong dao
-động phi tuyến
-Methods in Nonlinear | 3 | 1. Tài liệu bắt buộc
-- Blaquiere A. (1995), Nonlinear System Analysis, Academic Press,
-New York and London. |
+|  |  |  |  | 2. Tài liệu tham khảo<br>- Nguyễn Minh Chương và các tác giả (1995), Lý thuyết phương trình<br>đạo hàm riêng, Nhà xuất bản Giáo dục, Hà Nội.<br>- Nguyễn Mạnh Hùng (2006), Giáo trình phương trình đạo hàm riêng,<br>Nhà xuất bản Đại học Sư phạm Hà Nội. |
+| 6. | MAT6045 | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced Numerical<br>Methods in Mechanics | 3 | 1. Tài liệu bắt buộc<br>- Fung Y.C., Pin Tong (2001), Classical and Computational Solid<br>Mechanics, World Scientific.<br>- Zienkievicz O.C., Taylor R.L. (2000), The Finite Element Method,<br>Fifth edition, Butterworth Heinemann, Vol. I & II.<br>2. Tài liệu tham khảo<br>- Blazek J. ( 2001), Computational Fluid Dynamics: Principles and<br>Applications, Elsevier.<br>- Zienkievicz O.C., Taylor R.L., Nithiarasu P. (2005), The Finite<br>Element Method for Fluid Mechanics, 6th Edition, Elsevier. |
+| 7. | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2000), Lý thuyết đàn hồi, NXB ĐH & THCN.<br>- J. N. Reddy (2004), Mechanics of laminated composite plates and<br>shells, Theory and Analysis, CRC Press.<br>2. Tài liệu tham khảo thêm<br>- Trần Lưu Chương, Phạm Sĩ Liêm, Lý thuyết bản và vỏ mỏng đàn hồi,<br>Uỷ ban KHKT, 1967.<br>- Farland D. Mc., Smith B., Bernhart W. (1972), Analysis of plates,<br>Spartan books.<br>- Timoshenko S., Woinowsky-Krieger S. (1959), Theory plates and<br>shells, McGraw - Hill Book Company New York. |
+| 8. | MAT6049 | Các phương pháp trong dao<br>động phi tuyến<br>Methods in Nonlinear | 3 | 1. Tài liệu bắt buộc<br>- Blaquiere A. (1995), Nonlinear System Analysis, Academic Press,<br>New York and London. |
 11
 
 <!-- Page 14 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  | Oscillations |  | - Nayfesh A. H. (1997), Pertubation methods, John Wiley & Sons,
-New York, London, Sydney and Toronto.
-2. Tài liệu tham khảo
-- Bagaliubốp N. N., Mitrôpôlxki Y. A. (1988), Các phương pháp tiệm
-cận trong lý thuyết dao động phi tuyến, Nauka, M. (tiếng Nga).
-- M. (1994), Một số bài toán của lý thuyết dao động phi tuyến, NXB
-toán lý (tiếng Nga). |
-| 9. | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 1. Tài liệu bắt buộc
-- Blaquiere A. (1996), Nonlinear system analysis, Academic Press,
-New York and London.
-- Migulin V. V., Medvedev V. I. (1989), Fundamentals of Oscillations,
-John Wiley and Sons, New York - London.
-2. Tài liệu tham khảo
-- Hayashi T. (1968), Nonlinear oscillations in physical systems, John
-Wiley and Sons, New York - London - Toronto.
-- Stoker J. J. (1972), Nonlinear oscillations in mechanical and
-electrical systems, Mc Graw - Hill, New York. |
-| 10. | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in
-Mechanics | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2007), Phép tính tenxơ và một số ứng dụng trong Cơ
-học, Vật lý, NXB Đại học quốc gia HN.
-- Mikhail Itskov (2009), Tensor Algebra and Tensor Analysis for
-Engineers With Applications to Continuum Mechanics, Springer
-Verlag.
-2. Tài liệu tham khảo
-- Charlier et al A. (1992), Tensors and the Clifford algebra, Marcel
-Dekker Inc, New York.
-- Denis Papin M., Kaufmann A. (1966), Cours de calcul tensoriel
-applique’e, Editions Albin Michel, Paris.
-- Ralph Abraham et al. (1996), Manifolds, tensor analysis and |
+|  |  | Oscillations |  | - Nayfesh A. H. (1997), Pertubation methods, John Wiley & Sons,<br>New York, London, Sydney and Toronto.<br>2. Tài liệu tham khảo<br>- Bagaliubốp N. N., Mitrôpôlxki Y. A. (1988), Các phương pháp tiệm<br>cận trong lý thuyết dao động phi tuyến, Nauka, M. (tiếng Nga).<br>- M. (1994), Một số bài toán của lý thuyết dao động phi tuyến, NXB<br>toán lý (tiếng Nga). |
+| 9. | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 1. Tài liệu bắt buộc<br>- Blaquiere A. (1996), Nonlinear system analysis, Academic Press,<br>New York and London.<br>- Migulin V. V., Medvedev V. I. (1989), Fundamentals of Oscillations,<br>John Wiley and Sons, New York - London.<br>2. Tài liệu tham khảo<br>- Hayashi T. (1968), Nonlinear oscillations in physical systems, John<br>Wiley and Sons, New York - London - Toronto.<br>- Stoker J. J. (1972), Nonlinear oscillations in mechanical and<br>electrical systems, Mc Graw - Hill, New York. |
+| 10. | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in<br>Mechanics | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2007), Phép tính tenxơ và một số ứng dụng trong Cơ<br>học, Vật lý, NXB Đại học quốc gia HN.<br>- Mikhail Itskov (2009), Tensor Algebra and Tensor Analysis for<br>Engineers With Applications to Continuum Mechanics, Springer<br>Verlag.<br>2. Tài liệu tham khảo<br>- Charlier et al A. (1992), Tensors and the Clifford algebra, Marcel<br>Dekker Inc, New York.<br>- Denis Papin M., Kaufmann A. (1966), Cours de calcul tensoriel<br>applique’e, Editions Albin Michel, Paris.<br>- Ralph Abraham et al. (1996), Manifolds, tensor analysis and |
 12
 
 <!-- Page 15 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  |  |  | applications, Springer Verlag.
-- Shouten J. A. ( 1975), Tensor analysis for physicists, Oxford.
-- Srinvastava et al. A. N. (1993), Tensor calculus: Theory and
-problems, New York. |
-| 11. | MAT6041 | Phương trình vi phân nâng
-cao
-Advanced Differential
-Equations | 3 | 1. Tài liệu bắt buộc
-- Nguyễn Thế Hoàn, Trần Văn Nhung (2005), Bài tập phương trình vi
-phân, Nhà xuất bản Giáo dục.
-- Nguyễn Thế Hoàn, Phạm Phu (2000), Cơ sở phương trình vi phân và
-lý thuyết ổn định, Nhà xuất bản Giáo dục.
-2. Tài liệu tham khảo
-- Hoàng Hữu Đường, Võ Đức Tôn, Nguyễn Thế Hoàn (1970), Phương
-trình vi phân T1,2, Nhà xuất bản Đại học và Trung học chuyên
-nghiệp.
-- Awrejcewicz J. (2014), Ordinary Differential Equations and
-Mechanical Systems, Springer International Publishing.
-- Tenenbaum M., Pollard H. (1985), Ordinary differential equations an
-elementary textbook for students of mathematics, engineering, and the
-sciences, Dover Publications. |
-| 12. | MAT6108 | Cơ học hệ nhiều vật
-Mechanics of Multibody
-Systems | 3 | 1. Tài liệu bắt buộc
-- Đào Văn Dũng (2005), Cơ học lý thuyết, Nhà xuất bản ĐHQGHN, ,
-In lần thứ 2.
-- Nguyễn Văn Khang (2007), Động lực học hệ nhiều vật, Nhà xuất bản
-KHKT.
-2. Tài liệu tham khảo
-- Ahmed A. Shabana (2005), Dynamics of multibody systems,
-Cambrige University Press.
-- Lamirouche F.M. (2006), Fundamentals of multibody dynamics-
-Theory and Applications, Birkhauser, Boston. |
+|  |  |  |  | applications, Springer Verlag.<br>- Shouten J. A. ( 1975), Tensor analysis for physicists, Oxford.<br>- Srinvastava et al. A. N. (1993), Tensor calculus: Theory and<br>problems, New York. |
+| 11. | MAT6041 | Phương trình vi phân nâng<br>cao<br>Advanced Differential<br>Equations | 3 | 1. Tài liệu bắt buộc<br>- Nguyễn Thế Hoàn, Trần Văn Nhung (2005), Bài tập phương trình vi<br>phân, Nhà xuất bản Giáo dục.<br>- Nguyễn Thế Hoàn, Phạm Phu (2000), Cơ sở phương trình vi phân và<br>lý thuyết ổn định, Nhà xuất bản Giáo dục.<br>2. Tài liệu tham khảo<br>- Hoàng Hữu Đường, Võ Đức Tôn, Nguyễn Thế Hoàn (1970), Phương<br>trình vi phân T1,2, Nhà xuất bản Đại học và Trung học chuyên<br>nghiệp.<br>- Awrejcewicz J. (2014), Ordinary Differential Equations and<br>Mechanical Systems, Springer International Publishing.<br>- Tenenbaum M., Pollard H. (1985), Ordinary differential equations an<br>elementary textbook for students of mathematics, engineering, and the<br>sciences, Dover Publications. |
+| 12. | MAT6108 | Cơ học hệ nhiều vật<br>Mechanics of Multibody<br>Systems | 3 | 1. Tài liệu bắt buộc<br>- Đào Văn Dũng (2005), Cơ học lý thuyết, Nhà xuất bản ĐHQGHN, ,<br>In lần thứ 2.<br>- Nguyễn Văn Khang (2007), Động lực học hệ nhiều vật, Nhà xuất bản<br>KHKT.<br>2. Tài liệu tham khảo<br>- Ahmed A. Shabana (2005), Dynamics of multibody systems,<br>Cambrige University Press.<br>- Lamirouche F.M. (2006), Fundamentals of multibody dynamics-<br>Theory and Applications, Birkhauser, Boston. |
 13
 
 <!-- Page 16 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 13. | MAT6109 | Giải tích hàm ứng dụng
-Applied functional analysis | 3 | 1. Tài liệu bắt buộc
-- Phạm Kỳ Anh, Trần Đức Long..(2002), Giáo trình hàm thực và
-giải tích hàm, NXB ĐHQGHN.
-- Lebedev L. P., Vorovich I. , Cloud M. J. (2012), Functional Analysis
-in Mechanics (Springer Monographs in Mathematics), Springer.
-2. Tài liệu tham khảo
-- Nguyễn Xuân Liêm (2000), Bài tập Giải tích hàm, NXB GD.
-- Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.
-- Lebedev L. P., Vorovich I. I., Gladwell G. M. (2002), Functional
-analysis Applications in mechanics and inverse problems, Springer. |
-| 14. | MAT6110 | Động lực học sông biển
-River and Sea Dynamics | 3 | 1. Tài liệu bắt buộc
-- Nguyễn Thị Nga, Trần Thực (2003), Động lực học sông, NXB
-ĐHQGHN.
-- Horace Lamb (1975), Hydrodynamics, 6th edition, Cambridge
-University Press.
-- Kochin và các tác giả khác (1977), Cơ học chất lỏng lý thuyết, NXB
-KHKT.
-2. Tài liệu tham khảo
-- Doronhin I. U. (1980), Động lực học biển (tiếng Nga)..
-- Druet T. R. và các tác giả khác (1970), Động lực học biển (tiếng
-Balan).
-- Egorov N. I. (1981), Hải dương học vật lý, 2 tập NXB ĐH và THCN.
-- Stocker J. J., Water waves. The mathematical theory with
-applications, Inter Science pubishers. |
-| 15. | MAT6111 | Lý thuyết điều khiển chuyển
-động
-Theory of Motion Control | 3 | 1. Tài liệu bắt buộc
-- Jacobs O. L. R. (1996), Introduction to Control Theory, 2nd ed,
-Oxford University Press, New York.
-- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems, 3rd
-ed, Prentice Hall, Englewood Cliffs. |
+| 13. | MAT6109 | Giải tích hàm ứng dụng<br>Applied functional analysis | 3 | 1. Tài liệu bắt buộc<br>- Phạm Kỳ Anh, Trần Đức Long..(2002), Giáo trình hàm thực và<br>giải tích hàm, NXB ĐHQGHN.<br>- Lebedev L. P., Vorovich I. , Cloud M. J. (2012), Functional Analysis<br>in Mechanics (Springer Monographs in Mathematics), Springer.<br>2. Tài liệu tham khảo<br>- Nguyễn Xuân Liêm (2000), Bài tập Giải tích hàm, NXB GD.<br>- Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.<br>- Lebedev L. P., Vorovich I. I., Gladwell G. M. (2002), Functional<br>analysis Applications in mechanics and inverse problems, Springer. |
+| 14. | MAT6110 | Động lực học sông biển<br>River and Sea Dynamics | 3 | 1. Tài liệu bắt buộc<br>- Nguyễn Thị Nga, Trần Thực (2003), Động lực học sông, NXB<br>ĐHQGHN.<br>- Horace Lamb (1975), Hydrodynamics, 6th edition, Cambridge<br>University Press.<br>- Kochin và các tác giả khác (1977), Cơ học chất lỏng lý thuyết, NXB<br>KHKT.<br>2. Tài liệu tham khảo<br>- Doronhin I. U. (1980), Động lực học biển (tiếng Nga)..<br>- Druet T. R. và các tác giả khác (1970), Động lực học biển (tiếng<br>Balan).<br>- Egorov N. I. (1981), Hải dương học vật lý, 2 tập NXB ĐH và THCN.<br>- Stocker J. J., Water waves. The mathematical theory with<br>applications, Inter Science pubishers. |
+| 15. | MAT6111 | Lý thuyết điều khiển chuyển<br>động<br>Theory of Motion Control | 3 | 1. Tài liệu bắt buộc<br>- Jacobs O. L. R. (1996), Introduction to Control Theory, 2nd ed,<br>Oxford University Press, New York.<br>- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems, 3rd<br>ed, Prentice Hall, Englewood Cliffs. |
 14
 
 <!-- Page 17 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  |  |  | 2. Tài liệu tham khảo
-- Chen Chi-Tsong (1999), Linear System Theory and Design, 3rd. ed.,
-Oxford University Press.
-- Nise Norman S. (2004), Control Systems Engineering, 4th ed., John
-Wiley & Sons, Inc.
-- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems, 3rd
-Ed, Prentice Hall, Englewood Cliffs.
-- Sontag Eduardo D. (1999), Mathematical Control Theory:
-Deterministic Finite Dimensional Systems, Second Edition, Springer.
-- Zhou K., Doyle J. C. (1997), Essentials of Robust Control, 1st ed,
-Prentice-Hall, Inc., New Jersey. |
-| 16. | MAT6046 | Nhiệt đàn hồi
-Thermo-Elasticity | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích, Nguyễn Đăng Bích (2003), Cơ học môi trường liên
-tục, NXB Đại học Quốc gia Hà Nội.
-- Nowacki W. (1975), Lý thuyết đàn hồi, NXB Moscow (tiếng Nga).
-2. Tài liệu tham khảo thêm
-- Boley B.A., Weiner H. J. (1960), Theory of Thermal Stresses, John
-Wiley, N.Y.
-- Kovalenko A.D. (1965), Nhập môn đàn hồi nhiệt, Kiev (tiếng Nga) |
-| 17. | MAT6048 | Dao động của hệ đàn hồi
-Vibration of Elastic Systems | 3 | 1. Tài liệu bắt buộc
-- Bachman H. (1995), Vibration problems in structures, Birkhauser
-Verlag.
-- Burton T. D. (1994), Introduction to dynamic system analysis, Mc.
-Graw-Hill.
-- Panovko Ja. (1971), Elements of the applied theory of elastic
-vibrations, Mir Publ.
-2. Tài liệu tham khảo
-- Filippov A. P. (1996), Dao động của hệ cơ học, Kiev.
-- Panovko Ja. G., Gubanova I. I. (1964), Ổn định và dao động của hệ |
+|  |  |  |  | 2. Tài liệu tham khảo<br>- Chen Chi-Tsong (1999), Linear System Theory and Design, 3rd. ed.,<br>Oxford University Press.<br>- Nise Norman S. (2004), Control Systems Engineering, 4th ed., John<br>Wiley & Sons, Inc.<br>- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems, 3rd<br>Ed, Prentice Hall, Englewood Cliffs.<br>- Sontag Eduardo D. (1999), Mathematical Control Theory:<br>Deterministic Finite Dimensional Systems, Second Edition, Springer.<br>- Zhou K., Doyle J. C. (1997), Essentials of Robust Control, 1st ed,<br>Prentice-Hall, Inc., New Jersey. |
+| 16. | MAT6046 | Nhiệt đàn hồi<br>Thermo-Elasticity | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích, Nguyễn Đăng Bích (2003), Cơ học môi trường liên<br>tục, NXB Đại học Quốc gia Hà Nội.<br>- Nowacki W. (1975), Lý thuyết đàn hồi, NXB Moscow (tiếng Nga).<br>2. Tài liệu tham khảo thêm<br>- Boley B.A., Weiner H. J. (1960), Theory of Thermal Stresses, John<br>Wiley, N.Y.<br>- Kovalenko A.D. (1965), Nhập môn đàn hồi nhiệt, Kiev (tiếng Nga) |
+| 17. | MAT6048 | Dao động của hệ đàn hồi<br>Vibration of Elastic Systems | 3 | 1. Tài liệu bắt buộc<br>- Bachman H. (1995), Vibration problems in structures, Birkhauser<br>Verlag.<br>- Burton T. D. (1994), Introduction to dynamic system analysis, Mc.<br>Graw-Hill.<br>- Panovko Ja. (1971), Elements of the applied theory of elastic<br>vibrations, Mir Publ.<br>2. Tài liệu tham khảo<br>- Filippov A. P. (1996), Dao động của hệ cơ học, Kiev.<br>- Panovko Ja. G., Gubanova I. I. (1964), Ổn định và dao động của hệ |
 15
 
 <!-- Page 18 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  |  |  | đàn hồi, MGU (Tiếng Nga).
-- Timoshenko S. P. (1978), Dao động trong kỹ thuật, MGU. |
-| 18. | MAT6050 | Ổn định của hệ biến dạng
-Stability of Deformable
-Systems | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2000), Lý thuyết đàn hồi, Nhà xuất bản ĐHQGHN.
-- Volmir A. S. (1967), Stability of deformable systems, NXB Moscow.
-2. Tài liệu tham khảo
-- Lều Thọ Trình, Đỗ Văn Bình (2002), Ổn định công trình, NXB KH
-và KT.
-- Alfutov N. A. (2000), Stability of Elastic Structures, Springer-Verlag,
-Berlin-Heidenberg. |
-| 19. | MAT6051 | Cơ học vật liệu composite
-nâng cao
-Advanced mechanics of
-Composite Materials | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2000), Lý thuyết đàn hồi, NXB ĐHQGHN.
-- Nguyễn Hoa Thịnh (2002), Nguyễn Đình Đức, Vật liệu composite: Cơ
-học và Công nghệ, NXB KHKT, Hà Nội.
-- Christensen R. M. (1979), Mechanic of Composite Material, New
-York.
-2. Tài liệu tham khảo
-- Trần Ích Thịnh (1994), Vật liệu composite, Cơ học và tính toán kết
-cấu, NXB Giáo dục.
-- Pobedria B. E. (1984), Cơ học vật liệu composite, NXB MGU (Tiếng
-Nga).
-- Vanin G. A. (1985), Cơ học vật liệu composite, NXN “Nauka
-dumka”, Kiev (Tiếng Nga). |
-| 20. | MAT6112 | Lý thuyết bản vỏ mỏng
-Theory of Thin Plates and
-Shells | 3 | 1. Tài liệu bắt buộc
-- Đào Huy Bích (2000), Lý thuyết đàn hồi, Nhà xuất bản ĐHQG HN.
-- Trần Lưu Chương, Phạm Sĩ Liêm (1967), Lý thuyết tấm và vỏ mỏng
-đàn hồi, Uỷ ban KHKT Nhà Nước, Hà Nội.
-2. Tài liệu tham khảo
-- Oghibalov P. M., Koltunov M. A. (1969), Vỏ và bản mỏng, MGU |
+|  |  |  |  | đàn hồi, MGU (Tiếng Nga).<br>- Timoshenko S. P. (1978), Dao động trong kỹ thuật, MGU. |
+| 18. | MAT6050 | Ổn định của hệ biến dạng<br>Stability of Deformable<br>Systems | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2000), Lý thuyết đàn hồi, Nhà xuất bản ĐHQGHN.<br>- Volmir A. S. (1967), Stability of deformable systems, NXB Moscow.<br>2. Tài liệu tham khảo<br>- Lều Thọ Trình, Đỗ Văn Bình (2002), Ổn định công trình, NXB KH<br>và KT.<br>- Alfutov N. A. (2000), Stability of Elastic Structures, Springer-Verlag,<br>Berlin-Heidenberg. |
+| 19. | MAT6051 | Cơ học vật liệu composite<br>nâng cao<br>Advanced mechanics of<br>Composite Materials | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2000), Lý thuyết đàn hồi, NXB ĐHQGHN.<br>- Nguyễn Hoa Thịnh (2002), Nguyễn Đình Đức, Vật liệu composite: Cơ<br>học và Công nghệ, NXB KHKT, Hà Nội.<br>- Christensen R. M. (1979), Mechanic of Composite Material, New<br>York.<br>2. Tài liệu tham khảo<br>- Trần Ích Thịnh (1994), Vật liệu composite, Cơ học và tính toán kết<br>cấu, NXB Giáo dục.<br>- Pobedria B. E. (1984), Cơ học vật liệu composite, NXB MGU (Tiếng<br>Nga).<br>- Vanin G. A. (1985), Cơ học vật liệu composite, NXN “Nauka<br>dumka”, Kiev (Tiếng Nga). |
+| 20. | MAT6112 | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | 3 | 1. Tài liệu bắt buộc<br>- Đào Huy Bích (2000), Lý thuyết đàn hồi, Nhà xuất bản ĐHQG HN.<br>- Trần Lưu Chương, Phạm Sĩ Liêm (1967), Lý thuyết tấm và vỏ mỏng<br>đàn hồi, Uỷ ban KHKT Nhà Nước, Hà Nội.<br>2. Tài liệu tham khảo<br>- Oghibalov P. M., Koltunov M. A. (1969), Vỏ và bản mỏng, MGU |
 16
 
 <!-- Page 19 -->
-| TT | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-|  |  |  |  | (tiếng nga).
-- Timoshenko S., Woinowsky-Krieger S. (1970), Theory of plates and
-shells, Mc Graw-Hill Book Company N.Y.
-- Voyiadjis G. Z., Karamanlidis D. (1999), Advances in the Theory of
-Plales and Shells, North-Holland. |
-| 21. | MAT6039 | Truyền sóng trong môi
-trường đàn dẻo
-Wave Propagation in Elasto-
-Plastic Media | 3 | 1. Tài liệu bắt buộc
-- Cristescu N. (1967), Dynamic Plasticity, North Holland Publ.
-- Nowacki V. K. (1978), Các bài toán sóng của lý thuyết dẻo, Mir,
-M.(Tiếng Nga).
-2. Tài liệu tham khảo
-- Phạm Chí Vĩnh (2015), Truyền sóng trong môi trường đàn dẻo, NXB
-ĐHQG.
-- Freideltal A. (1962), Lý thuyết toán học môi trường liên tục, Mir, M.
-- Ottosen N. S. (1991), “Acceleration waves in elasto-plasticity”, Int. J.
-Solids Structures, Vol. 28, No (2), p. 135-159.
-- Srivastava R. S. (1994), Interaction of shock waves, Kluwer Acad. |
-| 22. | MAT6138 | Ổn định chuyển động
-Stability of Motion | 3 | 1. Tài liệu bắt buộc
-- Babacốp I. M. (1977), Lý thuyết dao động, NXB ĐH và THCN, Hà
-Nội.
-- Malkin I. G. (1980), Lý thuyết ổn định chuyển động, NXB ĐH và
-THCN, Hà Nội.
-2. Tài liệu tham khảo
-- Routh E. J. (1975), Stability of Motion, Taylor and Francis, London.
-- Trêtaép N. G. (1990), Ổn định chuyển động, NXB Khoa học, Moscow
-(tiếng Nga, in lần thứ 4). |
+|  |  |  |  | (tiếng nga).<br>- Timoshenko S., Woinowsky-Krieger S. (1970), Theory of plates and<br>shells, Mc Graw-Hill Book Company N.Y.<br>- Voyiadjis G. Z., Karamanlidis D. (1999), Advances in the Theory of<br>Plales and Shells, North-Holland. |
+| 21. | MAT6039 | Truyền sóng trong môi<br>trường đàn dẻo<br>Wave Propagation in Elasto-<br>Plastic Media | 3 | 1. Tài liệu bắt buộc<br>- Cristescu N. (1967), Dynamic Plasticity, North Holland Publ.<br>- Nowacki V. K. (1978), Các bài toán sóng của lý thuyết dẻo, Mir,<br>M.(Tiếng Nga).<br>2. Tài liệu tham khảo<br>- Phạm Chí Vĩnh (2015), Truyền sóng trong môi trường đàn dẻo, NXB<br>ĐHQG.<br>- Freideltal A. (1962), Lý thuyết toán học môi trường liên tục, Mir, M.<br>- Ottosen N. S. (1991), “Acceleration waves in elasto-plasticity”, Int. J.<br>Solids Structures, Vol. 28, No (2), p. 135-159.<br>- Srivastava R. S. (1994), Interaction of shock waves, Kluwer Acad. |
+| 22. | MAT6138 | Ổn định chuyển động<br>Stability of Motion | 3 | 1. Tài liệu bắt buộc<br>- Babacốp I. M. (1977), Lý thuyết dao động, NXB ĐH và THCN, Hà<br>Nội.<br>- Malkin I. G. (1980), Lý thuyết ổn định chuyển động, NXB ĐH và<br>THCN, Hà Nội.<br>2. Tài liệu tham khảo<br>- Routh E. J. (1975), Stability of Motion, Taylor and Francis, London.<br>- Trêtaép N. G. (1990), Ổn định chuyển động, NXB Khoa học, Moscow<br>(tiếng Nga, in lần thứ 4). |
 17
 
 <!-- Page 20 -->
 4. Đội ngũ cán bộ giảng dạy
-| Stt | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Cán bộ giảng dạy |  |  |  |
+| Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức danh
-khoa học, học vị | Chuyên
-ngành
-đào tạo | Đơn vị công tác |
-| 1. | PHI5001 | Triết học
-Philosophy | 2 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general
-purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for Academic
-Purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 4. | MAT6036 | Cơ học môi trường liên tục
-nâng cao
-Advanced Mechanics of
-Continuous Media | 3 | Phạm Chí Vĩnh
-Bùi Thanh Tú | PGS.TS
-TS | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 5. | MAT6037 | Phương trình đạo hàm
-riêng nâng cao
-Advanced Partial
-Differential Equations | 3 | Trần Huy Hổ
-Hà Tiến Ngoạn
-Hoàng Quốc Toàn | PGS.TS
-PGS.TS
-PGS.TS | Toán học
-Toán học
-Toán học | ĐHKHTN
-ĐHKHTN
-ĐHKHTN |
-| 6. | MAT6045 | Các phương pháp số trong
-cơ học nâng cao
-Advanced Numerical
-Methods in Mechanics | 3 | Nguyễn Trung Hiếu
-Bùi Thanh Tú
-Trần Văn Trản | TS
-TS
-PGS.TS | Toán học
-Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN
-ĐHKHTN |
-| 7. | MAT6038 | Phân tích tấm
-Analysis of plates | 3 | Đào Văn Dũng
-Vũ Đỗ Long | PGS.TS.
-PGS.TS. | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 8. | MAT6049 | Các phương pháp trong dao
-động phi tuyến | 3 | Nguyễn Đông Anh
-Lã Đức Việt | GS.TSKH
-TS | Cơ học
-Cơ học | Viện Cơ học
-Viện Cơ học |
+|  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
+| 1. | PHI5001 | Triết học<br>Philosophy | 2 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general<br>purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for Academic<br>Purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 4. | MAT6036 | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | 3 | Phạm Chí Vĩnh<br>Bùi Thanh Tú | PGS.TS<br>TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 5. | MAT6037 | Phương trình đạo hàm<br>riêng nâng cao<br>Advanced Partial<br>Differential Equations | 3 | Trần Huy Hổ<br>Hà Tiến Ngoạn<br>Hoàng Quốc Toàn | PGS.TS<br>PGS.TS<br>PGS.TS | Toán học<br>Toán học<br>Toán học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
+| 6. | MAT6045 | Các phương pháp số trong<br>cơ học nâng cao<br>Advanced Numerical<br>Methods in Mechanics | 3 | Nguyễn Trung Hiếu<br>Bùi Thanh Tú<br>Trần Văn Trản | TS<br>TS<br>PGS.TS | Toán học<br>Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
+| 7. | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | Đào Văn Dũng<br>Vũ Đỗ Long | PGS.TS.<br>PGS.TS. | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 8. | MAT6049 | Các phương pháp trong dao<br>động phi tuyến | 3 | Nguyễn Đông Anh<br>Lã Đức Việt | GS.TSKH<br>TS | Cơ học<br>Cơ học | Viện Cơ học<br>Viện Cơ học |
 18
 
 <!-- Page 21 -->
-| Stt | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Cán bộ giảng dạy |  |  |  |
+| Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức danh
-khoa học, học vị | Chuyên
-ngành
-đào tạo | Đơn vị công tác |
-|  |  | Methods in Nonlinear
-Oscillations |  | Phạm Chí Vĩnh | PGS.TS | Cơ học | ĐHKHTN |
-| 9. | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | Nguyễn Đông Anh
-Lã Đức Việt
-Phạm Chí Vĩnh | GS.TSKH
-TS
-PGS.TS | Cơ học
-Cơ học
-Cơ học | Viện Cơ học
-Viện Cơ học
-ĐHKHTN |
-| 10. | MAT6042 | Phép tính tenxơ trong cơ
-học
-Tensor Calculus in
-Mechanics | 3 | Trần Thanh Tuấn
-Phạm Chí Vĩnh | TS
-PGS.TS | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 11. | MAT6041 | Phương trình vi phân nâng
-cao
-Advanced Differential
-Equations | 3 | Lê Huy Tiễn
-Nguyễn Thạc Dũng | TS
-TS | Toán học
-Toán học | ĐHKHTN
-ĐHKHTN |
-| 12. | MAT6108 | Cơ học hệ nhiều vật
-Mechanics of Multibody
-Systems | 3 | Đào Văn Dũng
-Vũ Công Hàm | PGS.TS
-PGS.TS | Cơ học
-Cơ học | ĐHKHTN
-Học viện kỹ thuật
-quân sự |
-| 13. | MAT6109 | Giải tích hàm ứng dụng
-Applied functional analysis | 3 | Phạm Kỳ Anh
-Lê Huy Chuẩn | GS.TSKH
-TS | Toán học
-Toán học | ĐHKHTN
-ĐHKHTN |
-| 14. | MAT6110 | Động lực học sông biển
-River and Sea Dynamics | 3 | Trần Văn Cúc
-Đinh Văn Mạnh
-Đinh Văn Ưu | PGS.TS
-PGS.TS
-PGS.TS | Cơ học
-Cơ học
-Hải Dương | ĐHKHTN
-Viện Cơ học Viện
-Hàn lâm KH và CB
-VN
-ĐHQGHN |
-| 15. | MAT6111 | Lý thuyết điều khiển
-chuyển động
-Theory of motion control | 3 | Nguyễn Đông Anh
-Lã Đức Việt
-Phạm Chí Vĩnh | GS.TSKH
-TS
-PGS.TS | Cơ học
-Cơ học
-Cơ học | Viện Cơ học
-Viện Cơ học
-ĐHKHTN |
+|  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
+|  |  | Methods in Nonlinear<br>Oscillations |  | Phạm Chí Vĩnh | PGS.TS | Cơ học | ĐHKHTN |
+| 9. | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | Nguyễn Đông Anh<br>Lã Đức Việt<br>Phạm Chí Vĩnh | GS.TSKH<br>TS<br>PGS.TS | Cơ học<br>Cơ học<br>Cơ học | Viện Cơ học<br>Viện Cơ học<br>ĐHKHTN |
+| 10. | MAT6042 | Phép tính tenxơ trong cơ<br>học<br>Tensor Calculus in<br>Mechanics | 3 | Trần Thanh Tuấn<br>Phạm Chí Vĩnh | TS<br>PGS.TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 11. | MAT6041 | Phương trình vi phân nâng<br>cao<br>Advanced Differential<br>Equations | 3 | Lê Huy Tiễn<br>Nguyễn Thạc Dũng | TS<br>TS | Toán học<br>Toán học | ĐHKHTN<br>ĐHKHTN |
+| 12. | MAT6108 | Cơ học hệ nhiều vật<br>Mechanics of Multibody<br>Systems | 3 | Đào Văn Dũng<br>Vũ Công Hàm | PGS.TS<br>PGS.TS | Cơ học<br>Cơ học | ĐHKHTN<br>Học viện kỹ thuật<br>quân sự |
+| 13. | MAT6109 | Giải tích hàm ứng dụng<br>Applied functional analysis | 3 | Phạm Kỳ Anh<br>Lê Huy Chuẩn | GS.TSKH<br>TS | Toán học<br>Toán học | ĐHKHTN<br>ĐHKHTN |
+| 14. | MAT6110 | Động lực học sông biển<br>River and Sea Dynamics | 3 | Trần Văn Cúc<br>Đinh Văn Mạnh<br>Đinh Văn Ưu | PGS.TS<br>PGS.TS<br>PGS.TS | Cơ học<br>Cơ học<br>Hải Dương | ĐHKHTN<br>Viện Cơ học Viện<br>Hàn lâm KH và CB<br>VN<br>ĐHQGHN |
+| 15. | MAT6111 | Lý thuyết điều khiển<br>chuyển động<br>Theory of motion control | 3 | Nguyễn Đông Anh<br>Lã Đức Việt<br>Phạm Chí Vĩnh | GS.TSKH<br>TS<br>PGS.TS | Cơ học<br>Cơ học<br>Cơ học | Viện Cơ học<br>Viện Cơ học<br>ĐHKHTN |
 | 16. | MAT6046 | Nhiệt đàn hồi | 3 | Đào Văn Dũng | PGS.TS. | Cơ học | ĐHKHTN |
 19
 
 <!-- Page 22 -->
-| Stt | Mã
-học phần | Tên học phần | Số
-tín
-chỉ | Cán bộ giảng dạy |  |  |  |
+| Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức danh
-khoa học, học vị | Chuyên
-ngành
-đào tạo | Đơn vị công tác |
+|  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
 |  |  | Thermo - Elasticity |  | Vũ Đỗ Long | PGS.TS. | Cơ học | ĐHKHTN |
-| 17. | MAT6048 | Dao động của hệ đàn hồi
-Vibration of Elastic
-Systems | 3 | Nguyễn Tiến Khiêm
-Đào Như Mai
-Phạm Chí Vĩnh | GS.TSKH.
-PGS.TS
-PGS.TS | Cơ học
-Cơ học
-Cơ học | Viện Cơ học
-Viện Cơ học
-ĐHKHTN |
-| 18. | MAT6050 | Ổn định của hệ biến dạng
-Stability of Deformable
-Systems | 3 | Đào Văn Dũng
-Vũ Đỗ Long | PGS.TS.
-PGS.TS. | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 19. | MAT6051 | Cơ học vật liệu composite
-nâng cao
-Advanced mechanics of
-Composite Materials | 3 | Nguyễn Đình Đức
-Trần Ích Thịnh | GS.TSKH
-GS.TS | Cơ học
-Cơ học | ĐHQGHN
-ĐH Bách Khoa HN |
-| 20. | MAT6112 | Lý thuyết bản vỏ mỏng
-Theory of Thin Plates and
-Shells | 3 | Đào Văn Dũng
-Phạm Chí Vĩnh | PGS.TS
-PGS.TS | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 21. | MAT6039 | Truyền sóng trong môi
-trường đàn dẻo
-Wave Propagation in
-Elasto-Plastic Media | 3 | Phạm Chí Vĩnh
-Trần Thanh Tuấn | PGS.TS
-TS | Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN |
-| 22. | MAT6138 | Ổn định chuyển động
-Stability of Motion | 3 | Đào Văn Dũng
-Phạm Chí Vĩnh
-Trần Thanh Tuấn | PGS.TS
-PGS.TS
-TS | Cơ học
-Cơ học
-Cơ học | ĐHKHTN
-ĐHKHTN
-ĐHKHTN |
+| 17. | MAT6048 | Dao động của hệ đàn hồi<br>Vibration of Elastic<br>Systems | 3 | Nguyễn Tiến Khiêm<br>Đào Như Mai<br>Phạm Chí Vĩnh | GS.TSKH.<br>PGS.TS<br>PGS.TS | Cơ học<br>Cơ học<br>Cơ học | Viện Cơ học<br>Viện Cơ học<br>ĐHKHTN |
+| 18. | MAT6050 | Ổn định của hệ biến dạng<br>Stability of Deformable<br>Systems | 3 | Đào Văn Dũng<br>Vũ Đỗ Long | PGS.TS.<br>PGS.TS. | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 19. | MAT6051 | Cơ học vật liệu composite<br>nâng cao<br>Advanced mechanics of<br>Composite Materials | 3 | Nguyễn Đình Đức<br>Trần Ích Thịnh | GS.TSKH<br>GS.TS | Cơ học<br>Cơ học | ĐHQGHN<br>ĐH Bách Khoa HN |
+| 20. | MAT6112 | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | 3 | Đào Văn Dũng<br>Phạm Chí Vĩnh | PGS.TS<br>PGS.TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 21. | MAT6039 | Truyền sóng trong môi<br>trường đàn dẻo<br>Wave Propagation in<br>Elasto-Plastic Media | 3 | Phạm Chí Vĩnh<br>Trần Thanh Tuấn | PGS.TS<br>TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
+| 22. | MAT6138 | Ổn định chuyển động<br>Stability of Motion | 3 | Đào Văn Dũng<br>Phạm Chí Vĩnh<br>Trần Thanh Tuấn | PGS.TS<br>PGS.TS<br>TS | Cơ học<br>Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
 20
 
 <!-- Page 23 -->
@@ -966,66 +448,13 @@ University of Washington.
 (2013) thì thứ hạng của chương trình đào tạo sau đại học ngành Mechanical
 Engineering của University of Washington là ở vị trí thứ 24.
 b) Bảng so sánh chương trình đào tạo
-| STT | Tên học phần trong chương
-trình đào tạo của đơn vị
-(Tiếng Anh, tiếng Việt) | Tên học phần trong
-chương trình đào tạo
-tiên tiến của nước ngoài
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
-| 1. | Cơ học môi trường liên tục
-nâng cao
-Advanced Mechanics of
-Continuous Media | ME503: Continuum
-Mechanics
-Cơ học môi trường liên
-tục | Về cơ bản là giống
-nhau |
-| 2. | Phương trình đạo hàm riêng
-nâng cao
-Advanced Partial Differential
-Equations | AMATH569: Advanced
-Methods for
-Partial Differential
-Equations
-Phương trình đạo hàm
-riêng nâng cao | Về cơ bản là giống
-nhau |
-| 3. | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | [RWTH Aachen
-University] Tensor
-Algebra
-and Tensor Analysis
-for Engineers
-Đại số và giải tích
-tensor cho kỹ sư | Các vấn đề cơ bản là
-giống nhau
-Chương trình đào tạo
-của RWTH thiên về
-ứng dụng hơn |
-| 4. | Các phương pháp số trong cơ
-học nâng cao
-Advanced Numerical Methods
-in Mechanics | ME535 Computational
-Techniques in
-Mechanical Engineering
-Các phương pháp số
-trong Cơ học kỹ thuật | Về cơ bản các phương
-pháp trình bày trong
-hai giáo trình khá
-tương đồng |
-| 5. | Dao động phi tuyến
-Nonlinear Oscillations | ME589: Vibrations
-(nonlinear and random
-dynamics)
-Dao động (phi tuyến và
-hệ động lực ngẫu nhiên) | Chương trình ME589
-nghiên cứu nhiều vấn
-đề hơn |
+| 1. | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | ME503: Continuum<br>Mechanics<br>Cơ học môi trường liên<br>tục | Về cơ bản là giống<br>nhau |
+| 2. | Phương trình đạo hàm riêng<br>nâng cao<br>Advanced Partial Differential<br>Equations | AMATH569: Advanced<br>Methods for<br>Partial Differential<br>Equations<br>Phương trình đạo hàm<br>riêng nâng cao | Về cơ bản là giống<br>nhau |
+| 3. | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | [RWTH Aachen<br>University] Tensor<br>Algebra<br>and Tensor Analysis<br>for Engineers<br>Đại số và giải tích<br>tensor cho kỹ sư | Các vấn đề cơ bản là<br>giống nhau<br>Chương trình đào tạo<br>của RWTH thiên về<br>ứng dụng hơn |
+| 4. | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced Numerical Methods<br>in Mechanics | ME535 Computational<br>Techniques in<br>Mechanical Engineering<br>Các phương pháp số<br>trong Cơ học kỹ thuật | Về cơ bản các phương<br>pháp trình bày trong<br>hai giáo trình khá<br>tương đồng |
+| 5. | Dao động phi tuyến<br>Nonlinear Oscillations | ME589: Vibrations<br>(nonlinear and random<br>dynamics)<br>Dao động (phi tuyến và<br>hệ động lực ngẫu nhiên) | Chương trình ME589<br>nghiên cứu nhiều vấn<br>đề hơn |
 | 6. | Phương trình vi phân nâng cao | AMATH568:Advanced | Về cơ bản là giống |
 | Các phương pháp số |
 | --- |
@@ -1033,129 +462,31 @@ nghiên cứu nhiều vấn
 22
 
 <!-- Page 25 -->
-| STT | Tên học phần trong chương
-trình đào tạo của đơn vị
-(Tiếng Anh, tiếng Việt) | Tên học phần trong
-chương trình đào tạo
-tiên tiến của nước ngoài
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
-|  | Advanced Differential
-Equations | Methods for Ordinary
-Differential Equations
-Phương trình vi phân
-thường nâng cao | nhau |
-| 7. | Cơ học hệ nhiều vật
-Mechanics of Multibody
-Systems | PHYS505: Mechanics
-Cơ học | Chương trình đào tạo
-trong nước tập trung
-sâu hơn về hệ nhiều
-vật. |
-| 8. | Giải tích hàm ứng dụng
-Applied functional analysis | MATH527: Functional
-Analysis
-Giải tích hàm | MATH527 vừa nghiên
-cứu lý thuyết và ứng
-dụng. |
-| 9. | Động lực học sông biển
-River and Sea Dynamics | OCEAN511:
-Introduction to Fluid
-Dynamics
-Đại cương về động lực
-học chất lỏng | Chương trình đào tạo
-trong nước tập trung
-sâu hơn về hệ nhiều
-vật. |
-| 10. | Lý thuyết điều khiển chuyển
-động
-Theory of Motion Control | ME550 Nonlinear
-Optimal Control
-Điều khiển tối ưu phi
-tuyến | ME550 thiên về ứng
-dụng hơn |
-| 11. | Phân tích tấm
-Analysis of plates | AA431: Plates and
-Shells
-Tấm và vỏ | - Chương trình của đơn
-vị tập trung nghiên cứu
-sâu về phân tích tấm
-với phần lý thuyết bậc
-nhất và bậc ba.
-- Chương trình AA431
-thiên về ứng dụng. |
-| 12. | Các phương pháp trong dao
-động phi tuyến
-Methods in Nonlinear
-Oscillations | ME589: Vibrations
-(nonlinear and random
-dynamics)
-Dao động (phi tuyến và
-hệ động lực ngẫu nhiên) | Chương trình ME589
-nghiên cứu nhiều vấn
-đề hơn |
-| 13. | Nhiệt đàn hồi
-Thermo - Elasticity | ME521:
-Thermodynamic
-Nhiệt động lực học | ME521 nghiên cứu
-nhiều vấn đề hơn |
-| 14. | Dao động của hệ đàn hồi
-Vibration of Elastic Systems | ME470 Mechanical
-Vibrations
-Dao động hệ cơ học | Về cơ bản là giống
-nhau |
-| 15. | Ổn định của hệ biến dạng
-Stability of Deformable
-Systems | ME520: Seminar
-Seminar |  |
-| 16. | Cơ học vật liệu composite
-nâng cao | MSE 563 Advanced
-Composites: Design and | Những vấn đề lý thuyết
-được đề cập sâu hơn |
+|  | Advanced Differential<br>Equations | Methods for Ordinary<br>Differential Equations<br>Phương trình vi phân<br>thường nâng cao | nhau |
+| 7. | Cơ học hệ nhiều vật<br>Mechanics of Multibody<br>Systems | PHYS505: Mechanics<br>Cơ học | Chương trình đào tạo<br>trong nước tập trung<br>sâu hơn về hệ nhiều<br>vật. |
+| 8. | Giải tích hàm ứng dụng<br>Applied functional analysis | MATH527: Functional<br>Analysis<br>Giải tích hàm | MATH527 vừa nghiên<br>cứu lý thuyết và ứng<br>dụng. |
+| 9. | Động lực học sông biển<br>River and Sea Dynamics | OCEAN511:<br>Introduction to Fluid<br>Dynamics<br>Đại cương về động lực<br>học chất lỏng | Chương trình đào tạo<br>trong nước tập trung<br>sâu hơn về hệ nhiều<br>vật. |
+| 10. | Lý thuyết điều khiển chuyển<br>động<br>Theory of Motion Control | ME550 Nonlinear<br>Optimal Control<br>Điều khiển tối ưu phi<br>tuyến | ME550 thiên về ứng<br>dụng hơn |
+| 11. | Phân tích tấm<br>Analysis of plates | AA431: Plates and<br>Shells<br>Tấm và vỏ | - Chương trình của đơn<br>vị tập trung nghiên cứu<br>sâu về phân tích tấm<br>với phần lý thuyết bậc<br>nhất và bậc ba.<br>- Chương trình AA431<br>thiên về ứng dụng. |
+| 12. | Các phương pháp trong dao<br>động phi tuyến<br>Methods in Nonlinear<br>Oscillations | ME589: Vibrations<br>(nonlinear and random<br>dynamics)<br>Dao động (phi tuyến và<br>hệ động lực ngẫu nhiên) | Chương trình ME589<br>nghiên cứu nhiều vấn<br>đề hơn |
+| 13. | Nhiệt đàn hồi<br>Thermo - Elasticity | ME521:<br>Thermodynamic<br>Nhiệt động lực học | ME521 nghiên cứu<br>nhiều vấn đề hơn |
+| 14. | Dao động của hệ đàn hồi<br>Vibration of Elastic Systems | ME470 Mechanical<br>Vibrations<br>Dao động hệ cơ học | Về cơ bản là giống<br>nhau |
+| 15. | Ổn định của hệ biến dạng<br>Stability of Deformable<br>Systems | ME520: Seminar<br>Seminar |  |
+| 16. | Cơ học vật liệu composite<br>nâng cao | MSE 563 Advanced<br>Composites: Design and | Những vấn đề lý thuyết<br>được đề cập sâu hơn |
 | Giải tích hàm |
 | --- |
 | OCEAN511: |
 23
 
 <!-- Page 26 -->
-| STT | Tên học phần trong chương
-trình đào tạo của đơn vị
-(Tiếng Anh, tiếng Việt) | Tên học phần trong
-chương trình đào tạo
-tiên tiến của nước ngoài
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
-|  | Advanced mechanics of
-Composite Materials | Manufacturing (3)
-Cơ học vật liệu
-composite nâng cao:
-Thiết kế và sản xuất | nhưng có rất ít những
-vấn đề ứng dụng khi so
-sánh với CT của UW. |
-| 17. | Lý thuyết bản vỏ mỏng
-Theory of Thin Plates and
-Shells | AA431: Plates and
-Shells
-Tấm và vỏ | Hai chương trình khá
-tương đồng |
-| 18. | Truyền sóng trong môi trường
-đàn dẻo
-Wave Propagation in Elasto-
-Plastic Media | ME520: Seminar
-Seminar |  |
-| 19. | Ổn định chuyển động
-Stability of Motion | ME624: Vibration
-Analysis
-Phân tích dao động | Có một số phần tương
-đồng |
+|  | Advanced mechanics of<br>Composite Materials | Manufacturing (3)<br>Cơ học vật liệu<br>composite nâng cao:<br>Thiết kế và sản xuất | nhưng có rất ít những<br>vấn đề ứng dụng khi so<br>sánh với CT của UW. |
+| 17. | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | AA431: Plates and<br>Shells<br>Tấm và vỏ | Hai chương trình khá<br>tương đồng |
+| 18. | Truyền sóng trong môi trường<br>đàn dẻo<br>Wave Propagation in Elasto-<br>Plastic Media | ME520: Seminar<br>Seminar |  |
+| 19. | Ổn định chuyển động<br>Stability of Motion | ME624: Vibration<br>Analysis<br>Phân tích dao động | Có một số phần tương<br>đồng |
 | composite nâng cao: |
 | --- |
 | Thiết kế và sản xuất |

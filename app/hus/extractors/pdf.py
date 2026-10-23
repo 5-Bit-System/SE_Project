@@ -6,24 +6,12 @@ import io
 
 import pdfplumber
 
-from app.hus.cleaning import clean_text
+from app.hus.cleaning import clean_text, format_markdown_table
 from app.hus.urls import CrawlError
 
 
 def _format_table(table: list[list[str | None]]) -> list[str]:
-    cleaned_rows = []
-    for row in table:
-        cells = [clean_text(c or "").replace("|", "/") for c in row]
-        if any(cells):
-            cleaned_rows.append(cells)
-    if not cleaned_rows:
-        return []
-    col_count = max(len(r) for r in cleaned_rows)
-    padded_rows = [r + [""] * (col_count - len(r)) for r in cleaned_rows]
-    lines = ["| " + " | ".join(padded_rows[0]) + " |", "|" + " --- |" * col_count]
-    for r in padded_rows[1:]:
-        lines.append("| " + " | ".join(r) + " |")
-    return lines
+    return format_markdown_table(table)
 
 
 def extract_pdf(raw: bytes) -> tuple[str, bool]:

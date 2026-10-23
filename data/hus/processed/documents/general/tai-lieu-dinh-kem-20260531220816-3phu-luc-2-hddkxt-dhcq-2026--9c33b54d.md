@@ -8,8 +8,7 @@ major: "general"
 
 <!-- Page 1 -->
 Phụ lục 1: Ví dụ về quy đổi điểm SAT ra thang điểm 10 và thang điểm 30
-| Thang điểm
-chứng chỉ SAT | Điểm quy đổi ra thang điểm 10 | Điểm quy đổi ra thang điểm 30 |
+| Thang điểm<br>chứng chỉ SAT | Điểm quy đổi ra thang điểm 10 | Điểm quy đổi ra thang điểm 30 |
 | --- | --- | --- |
 | 1600 | 10,00 | 30,00 |
 | 1520 | 9,50 | 28,50 |

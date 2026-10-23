@@ -261,48 +261,21 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 11 -->
 2. Khung chương trình (Hình học – Tôpô)
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và tiếng
-Anh) |  | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) |  | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  | Lý
-thuyế
-t | Thự
-c
-hàn
-h | Tự
-học |  |
+|  |  |  |  |  | Lý<br>thuyế<br>t | Thự<br>c<br>hàn<br>h | Tự<br>học |  |
 | I | Khối kiến thức chung |  |  | 7 |  |  |  |  |
-| 1. | PHI5001 | Triết học
-Philosophy |  | 3 | 45 |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general purposes |  | 4 | 60 |  |  |  |
+| 1. | PHI5001 | Triết học<br>Philosophy |  | 3 | 45 |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general purposes |  | 4 | 60 |  |  |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  |  | 39 |  |  |  |  |
 | II.1. | Các học phần bắt buộc |  |  | 18 |  |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for Academic Purposes |  | 3 | 45 |  |  |  |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced functional analysis |  | 3 | 45 |  |  |  |
-| 5. | MAT6100 | Phương trình đạo hàm riêng
-Partial differential equations |  | 3 | 45 |  |  |  |
-| 6. | MAT6007 | Những chương lựa chọn về đại
-số tuyến tính
-Seclected topics in Linear
-algebra |  | 3 | 45 |  |  |  |
-| 7. | MAT6003 | Tôpô đại số
-Algebraic Topology |  | 3 | 45 |  |  |  |
-| 8. | MAT6005 | Hình học vi phân
-Defferential Geometry |  | 3 | 45 |  |  |  |
-| II.2. | Các học phần tự chọn |  |  | 21/4
-8 |  |  |  |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for Academic Purposes |  | 3 | 45 |  |  |  |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis |  | 3 | 45 |  |  |  |
+| 5. | MAT6100 | Phương trình đạo hàm riêng<br>Partial differential equations |  | 3 | 45 |  |  |  |
+| 6. | MAT6007 | Những chương lựa chọn về đại<br>số tuyến tính<br>Seclected topics in Linear<br>algebra |  | 3 | 45 |  |  |  |
+| 7. | MAT6003 | Tôpô đại số<br>Algebraic Topology |  | 3 | 45 |  |  |  |
+| 8. | MAT6005 | Hình học vi phân<br>Defferential Geometry |  | 3 | 45 |  |  |  |
+| II.2. | Các học phần tự chọn |  |  | 21/4<br>8 |  |  |  |  |
 | 9. | MAT6004 |  | Lý thuyết trường và lý thuyết | 3 | 45 |  |  |  |
 |  |  |  | Galois |  |  |  |  |  |
 |  |  |  | Field and Galois theory |  |  |  |  |  |
@@ -310,653 +283,200 @@ Defferential Geometry |  | 3 | 45 |  |  |  |
 |  |  |  | nhóm |  |  |  |  |  |
 |  |  |  | Theory of Groups and Group |  |  |  |  |  |
 |  |  |  | Representations |  |  |  |  |  |
-| 11 | . MAT6118 | Toán tử đối đồng điều và ứng
-dụng
-Cohomology Operations and
-Applications |  | 3 | 45 |  |  | MAT
-6007,
-MAT
-6003 |
-| 12 | . MAT6006 | Hình học đại số
-Algebraic Geometry |  | 3 | 45 |  |  |  |
-| 13 | . MAT6012 | Đại số đồng điều
-Homological Algebra |  | 3 | 45 |  |  |  |
+| 11 | . MAT6118 | Toán tử đối đồng điều và ứng<br>dụng<br>Cohomology Operations and<br>Applications |  | 3 | 45 |  |  | MAT<br>6007,<br>MAT<br>6003 |
+| 12 | . MAT6006 | Hình học đại số<br>Algebraic Geometry |  | 3 | 45 |  |  |  |
+| 13 | . MAT6012 | Đại số đồng điều<br>Homological Algebra |  | 3 | 45 |  |  |  |
 8
 
 <!-- Page 12 -->
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và tiếng
-Anh) |  | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) |  | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  | Lý
-thuyế
-t | Thự
-c
-hàn
-h | Tự
-học |  |
-| 14 | . MAT6119 | Đối đồng điều của nhóm
-Cohomology of Groups |  | 3 | 45 |  |  | MAT
-6007,
-MAT
-6003 |
-| 15 | . MAT6013 | Lý thuyết số đại số
-Algebraic Number Theory |  | 3 | 45 |  |  | MAT
-6004 |
-| 16 | . MAT6014 | Lý thuyết biểu diễn nhóm nâng
-cao
-Advanced group
-representations theory |  | 3 | 45 |  |  | MAT
-6007,
-MAT
-6001 |
-| 17 | . MAT6015 | Phân thớ, Lớp đặc trưng, K-Lý
-thuyết
-Fibre bundles, Charcteristic
-classes, and K-theory |  | 3 | 45 |  |  | MAT
-6003 |
-| 18 | . MAT6120 | Lý thuyết kì dị và tai biến
-Singularity theory and
-Castatrophe theory |  | 3 | 45 |  |  |  |
-| 19 | . MAT6121 | Đại số giao hoán
-Commutative algebra |  | 3 | 45 |  |  |  |
+|  |  |  |  |  | Lý<br>thuyế<br>t | Thự<br>c<br>hàn<br>h | Tự<br>học |  |
+| 14 | . MAT6119 | Đối đồng điều của nhóm<br>Cohomology of Groups |  | 3 | 45 |  |  | MAT<br>6007,<br>MAT<br>6003 |
+| 15 | . MAT6013 | Lý thuyết số đại số<br>Algebraic Number Theory |  | 3 | 45 |  |  | MAT<br>6004 |
+| 16 | . MAT6014 | Lý thuyết biểu diễn nhóm nâng<br>cao<br>Advanced group<br>representations theory |  | 3 | 45 |  |  | MAT<br>6007,<br>MAT<br>6001 |
+| 17 | . MAT6015 | Phân thớ, Lớp đặc trưng, K-Lý<br>thuyết<br>Fibre bundles, Charcteristic<br>classes, and K-theory |  | 3 | 45 |  |  | MAT<br>6003 |
+| 18 | . MAT6120 | Lý thuyết kì dị và tai biến<br>Singularity theory and<br>Castatrophe theory |  | 3 | 45 |  |  |  |
+| 19 | . MAT6121 | Đại số giao hoán<br>Commutative algebra |  | 3 | 45 |  |  |  |
 | 20 | . MAT6009 |  | Giải tích trên đa tạp | 3 | 45 |  |  |  |
 |  |  |  | Analysis on Manifolds |  |  |  |  |  |
 | 21 | . MAT6010 |  | Giải tích phức | 3 | 45 |  |  |  |
 |  |  |  | Complex Analysis |  |  |  |  |  |
-| 22 | . MAT6136 | Nhóm Lie và Đại số Lie
-Lie groups and Lie algebras |  | 3 | 45 |  |  | MAT
-6001,
-MAT
-6005 |
-| 23 | . MAT6137 | Tôpô vi phân
-Differential Topology |  | 3 | 45 |  |  | MAT
-6009 |
-| 24 | . MAT6141 | Xêmina về các vấn đề chọn lọc
-trong Hình học – Tôpô
-Advanced Topics in Geometry
-and Topology |  | 3 | 45 |  |  |  |
+| 22 | . MAT6136 | Nhóm Lie và Đại số Lie<br>Lie groups and Lie algebras |  | 3 | 45 |  |  | MAT<br>6001,<br>MAT<br>6005 |
+| 23 | . MAT6137 | Tôpô vi phân<br>Differential Topology |  | 3 | 45 |  |  | MAT<br>6009 |
+| 24 | . MAT6141 | Xêmina về các vấn đề chọn lọc<br>trong Hình học – Tôpô<br>Advanced Topics in Geometry<br>and Topology |  | 3 | 45 |  |  |  |
 | III | Luận văn thạc sĩ |  |  | 18 |  |  |  |  |
-| 25 | . MAT6144 | Luận văn thạc sĩ
-Thesis |  | 18 |  |  |  |  |
+| 25 | . MAT6144 | Luận văn thạc sĩ<br>Thesis |  | 18 |  |  |  |  |
 | Tổng cộng: |  |  |  | 64 |  |  |  |  |
 9
 
 <!-- Page 13 -->
 3. Danh mục tài liệu tham khảo (ghi theo số thứ tự trong khung chương trình)
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 1. | PHI5001 | Triết học
-Phylosophy | 3 | Theo chương trình chung |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general purposes | 4 | Theo chương trình chung |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic
-purposes | 3 | Theo chương trình chung |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced functional analysis | 3 | 1. Tài liệu bắt buộc
-1. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Đại học Quốc
-Gia Hà Nội.
-2. Engel K. J. , Nagel R. (2000) , One parameter semigroups for
-linear evolution, Springer Verlag.
-3. Agarval R. P. , Mechan M. , O’Regan D. (2004), Fixed point
-theory and application, Cambridge Univeristy Press.
-2. Tài liệu tham khảo thêm
-1. Đỗ Hồng Tân, Nguyễn Thị Thanh Hà (2006), Các định lý điểm bất
-đông, NXB Đại học Sư phạm.
-2. Rudin W. (1973), Functional Analysis, Mc.Graw Hill Book
-Company.
-3. Kreyszig E. (1989), Introductory Functional Analysis with
-Applications, Wiley.
-4. Pazy A. (1992), Semigroups of linear operators and applications
-to partial differential equations, Springer Verlag.
-5. Jerome A.Goldstein (1985), Semigroups of linear operators and
-applications. Oxford University Press.
-6. Dunford N. , Schwartz J.T. (1988), Linear opeartors Wiley classics
-library. |
+| 1. | PHI5001 | Triết học<br>Phylosophy | 3 | Theo chương trình chung |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general purposes | 4 | Theo chương trình chung |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic<br>purposes | 3 | Theo chương trình chung |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis | 3 | 1. Tài liệu bắt buộc<br>1. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Đại học Quốc<br>Gia Hà Nội.<br>2. Engel K. J. , Nagel R. (2000) , One parameter semigroups for<br>linear evolution, Springer Verlag.<br>3. Agarval R. P. , Mechan M. , O’Regan D. (2004), Fixed point<br>theory and application, Cambridge Univeristy Press.<br>2. Tài liệu tham khảo thêm<br>1. Đỗ Hồng Tân, Nguyễn Thị Thanh Hà (2006), Các định lý điểm bất<br>đông, NXB Đại học Sư phạm.<br>2. Rudin W. (1973), Functional Analysis, Mc.Graw Hill Book<br>Company.<br>3. Kreyszig E. (1989), Introductory Functional Analysis with<br>Applications, Wiley.<br>4. Pazy A. (1992), Semigroups of linear operators and applications<br>to partial differential equations, Springer Verlag.<br>5. Jerome A.Goldstein (1985), Semigroups of linear operators and<br>applications. Oxford University Press.<br>6. Dunford N. , Schwartz J.T. (1988), Linear opeartors Wiley classics<br>library. |
 10
 
 <!-- Page 14 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 5. | MAT6100 | Phương trình đạo hàm riêng
-Partial differential equations | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Thừa Hợp (2006), Giáo trình phương trình đạo hàm riêng,
-Đại học Quốc gia Hà Nội.
-2. Qing Han (2010), A basic course in partial differential equations,
-American Mathematical Society.
-3. Walter A. Strauss (2008), Partial Differential Equations: An
-Introduction, 2nd., John Wiley & Sons, Ltd.
-2. Tài liệu tham khảo thêm
-1. Lawrence Evans C. (2010), Partial differential equations, 2nd,
-American Mathemtical Society.
-2. Gerald Folland B. (1995), An introduction to partial differential
-equations, 2nd, Princeton University Press.
-3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
+| 5. | MAT6100 | Phương trình đạo hàm riêng<br>Partial differential equations | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Thừa Hợp (2006), Giáo trình phương trình đạo hàm riêng,<br>Đại học Quốc gia Hà Nội.<br>2. Qing Han (2010), A basic course in partial differential equations,<br>American Mathematical Society.<br>3. Walter A. Strauss (2008), Partial Differential Equations: An<br>Introduction, 2nd., John Wiley & Sons, Ltd.<br>2. Tài liệu tham khảo thêm<br>1. Lawrence Evans C. (2010), Partial differential equations, 2nd,<br>American Mathemtical Society.<br>2. Gerald Folland B. (1995), An introduction to partial differential<br>equations, 2nd, Princeton University Press.<br>3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
 11
 
 <!-- Page 15 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 6. | MAT6007 | Những chương lựa chọn về
-đại số tuyến tính
-Selected topics in linear
-Algebra | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB ĐHQG Hà
-Nội.
-2. Golan J. S. (2007), The linear algebra a beginning graduate
-student ought to know, Springer.
-2. Tài liệu tham khảo thêm
-1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện đại,
-NXB ĐH và THCN, Hà Nội.
-2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka, Moskva
-(Tiếng Nga).
-3. Gourdon X. (1994), Algèbre, Ellipses, Paris.
-4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.
-5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học tuyến
-tính, NXB Đại học Moskva, Moskva (Tiếng Nga).
-6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva (Tiếng
-Nga).
-7. Lang S. (1965), Algebra, Addison-Wesley publishing company,
-Massachusetts.
-8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir
-publishers, Moscow.
-9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
+| 6. | MAT6007 | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected topics in linear<br>Algebra | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB ĐHQG Hà<br>Nội.<br>2. Golan J. S. (2007), The linear algebra a beginning graduate<br>student ought to know, Springer.<br>2. Tài liệu tham khảo thêm<br>1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện đại,<br>NXB ĐH và THCN, Hà Nội.<br>2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka, Moskva<br>(Tiếng Nga).<br>3. Gourdon X. (1994), Algèbre, Ellipses, Paris.<br>4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.<br>5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học tuyến<br>tính, NXB Đại học Moskva, Moskva (Tiếng Nga).<br>6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva (Tiếng<br>Nga).<br>7. Lang S. (1965), Algebra, Addison-Wesley publishing company,<br>Massachusetts.<br>8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir<br>publishers, Moscow.<br>9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
 12
 
 <!-- Page 16 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 7. | MAT6003 | Tôpô đại số
-Algebraic Topology | 3 | 1. Tài liệu bắt buộc:
-1. Dold A. (1972), Lectures on algebraic topology, Springer-Verlag,
-Berlin-Heidelberg-New York.
-2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New
-York.
-2. Tài liệu tham khảo thêm:
-1. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-2. Cartan H. and Eilenberg S. (1956), Homological Algebra,
-Princeton Univ. Press, Princeton.
-3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-
-Heidelberg-New York.
-4. Switzer R. W. (1975), Algebraic Topology- Homotopy and
-Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
-| 8. | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | 1. Tài liệu bắt buộc
-1. Kühnel W. (2005), Differential Geometry: Curves - Surfaces -
-Manifolds, AMS.
-2. Tài liệu tham khảo thêm
-1. Đoàn Quỳnh (2003), Hình học vi phân, NXB ĐHSP.
-2. Boothby W.M. (1986), An introduction to differentiable manifolds
-and Riemannian geometry, Academic Press.
-3. Carmo M. P. do (1976), Differential Geometry of Curves and
-Surfaces, Prentice Hall.
-4. Pressley A. (2001), Elementary differential geometry, Springer-
-Verlag. |
+| 7. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | 1. Tài liệu bắt buộc:<br>1. Dold A. (1972), Lectures on algebraic topology, Springer-Verlag,<br>Berlin-Heidelberg-New York.<br>2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>4. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
+| 8. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | 1. Tài liệu bắt buộc<br>1. Kühnel W. (2005), Differential Geometry: Curves - Surfaces -<br>Manifolds, AMS.<br>2. Tài liệu tham khảo thêm<br>1. Đoàn Quỳnh (2003), Hình học vi phân, NXB ĐHSP.<br>2. Boothby W.M. (1986), An introduction to differentiable manifolds<br>and Riemannian geometry, Academic Press.<br>3. Carmo M. P. do (1976), Differential Geometry of Curves and<br>Surfaces, Prentice Hall.<br>4. Pressley A. (2001), Elementary differential geometry, Springer-<br>Verlag. |
 13
 
 <!-- Page 17 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 9. | MAT6004 | Lý thuyết trường và lý thuyết
-Galois
-Field theory and Galois
-theory | 3 | 1. Tài liệu bắt buộc:
-1. Lang S., Algebra, 3rd revised edition, Springer (có bản dịch tiếng
-Việt).
-2. Milne J. S., Field theory and Galois theory, sách miễn phí,
-http://www.jmilne.org/math/CourseNotes/ft.html /
-2. Tài liệu tham khảo thêm:
-1. Ngô Việt Trung, Lý thuyết Galois, NXB ĐHQG HN.
-2. Nguyễn H. V. Hưng, Đại số Đại cương, NXB ĐHQG HN.
-3. Cox D., Galois theory, 2nd edition, John Wiley and Sons.
-4. Stewart I., Galois theory, 3rd edition, Chapman and Hall.
-5. Morandi P., Field and Galois theory, Springer.
-6. Edwards H., Galois Theory, Springer.
-7. Dummit, Foote, Abstract Algebra, 3rd edition, John Wiley and
-Sons.
-8. Trang web về tiểu sử của Galois: http://www-gap.dcs.st-
-and.ac.uk/~history/Mathematicians/Galois.html |
+| 9. | MAT6004 | Lý thuyết trường và lý thuyết<br>Galois<br>Field theory and Galois<br>theory | 3 | 1. Tài liệu bắt buộc:<br>1. Lang S., Algebra, 3rd revised edition, Springer (có bản dịch tiếng<br>Việt).<br>2. Milne J. S., Field theory and Galois theory, sách miễn phí,<br>http://www.jmilne.org/math/CourseNotes/ft.html /<br>2. Tài liệu tham khảo thêm:<br>1. Ngô Việt Trung, Lý thuyết Galois, NXB ĐHQG HN.<br>2. Nguyễn H. V. Hưng, Đại số Đại cương, NXB ĐHQG HN.<br>3. Cox D., Galois theory, 2nd edition, John Wiley and Sons.<br>4. Stewart I., Galois theory, 3rd edition, Chapman and Hall.<br>5. Morandi P., Field and Galois theory, Springer.<br>6. Edwards H., Galois Theory, Springer.<br>7. Dummit, Foote, Abstract Algebra, 3rd edition, John Wiley and<br>Sons.<br>8. Trang web về tiểu sử của Galois: http://www-gap.dcs.st-<br>and.ac.uk/~history/Mathematicians/Galois.html |
 14
 
 <!-- Page 18 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Group theory and group
-representations | 3 | 1. Tài liệu bắt buộc
-1. James G. and Liebeck M. (1993), Representations and characters
-of groups, Cambridge Univ. Press, Cambridge.
-2. Tài liệu tham khảo thêm
-1. Nguyễn Hữu Việt Hưng (1998), Đại số đại cương, NXB Giáo dục,
-Hà Nội.
-2. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-3. Collins M. J. (1990), Representations and characters of finite
-groups, Cambridge University Press.
-4. Curtis C. W. and Reiner I. (1966), Representation Theory of finite
-groups and associate algebras, Interscience Publishers, New York-
-London-Sedney.
-5. Feit W. (1967), Characters of finite groups, Benjamin.
-6. Serre J. P. (1977), Linear Representations of finite groups,
-Springer-Verlag, New York -Heidelberg- Berlin. |
-| 11. | MAT6118 | Toán tử đối đồng điều và ứng
-dụng
-Cohomology Operations and
-Applications | 3 | 1. Tài liệu bắt buộc:
-1. Steenrod N. E. and Epstein D. B. A. (1962), Cohomology
-Operations, Ann. Math. Studies 50, Princeton Univ. Press,
-Princeton.
-2. Tài liệu tham khảo thêm:
-1. Mosher R. E. and Tangora M. C. (1968), Cohomology Operations
-and Applications in Homotopy Theory, Harper and Row, New
-York.
-2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New
-York.
-3. Switzer R. W. (1975), Algebraic Topology- Homotopy and
-Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
+| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Group theory and group<br>representations | 3 | 1. Tài liệu bắt buộc<br>1. James G. and Liebeck M. (1993), Representations and characters<br>of groups, Cambridge Univ. Press, Cambridge.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Hữu Việt Hưng (1998), Đại số đại cương, NXB Giáo dục,<br>Hà Nội.<br>2. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>3. Collins M. J. (1990), Representations and characters of finite<br>groups, Cambridge University Press.<br>4. Curtis C. W. and Reiner I. (1966), Representation Theory of finite<br>groups and associate algebras, Interscience Publishers, New York-<br>London-Sedney.<br>5. Feit W. (1967), Characters of finite groups, Benjamin.<br>6. Serre J. P. (1977), Linear Representations of finite groups,<br>Springer-Verlag, New York -Heidelberg- Berlin. |
+| 11. | MAT6118 | Toán tử đối đồng điều và ứng<br>dụng<br>Cohomology Operations and<br>Applications | 3 | 1. Tài liệu bắt buộc:<br>1. Steenrod N. E. and Epstein D. B. A. (1962), Cohomology<br>Operations, Ann. Math. Studies 50, Princeton Univ. Press,<br>Princeton.<br>2. Tài liệu tham khảo thêm:<br>1. Mosher R. E. and Tangora M. C. (1968), Cohomology Operations<br>and Applications in Homotopy Theory, Harper and Row, New<br>York.<br>2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>3. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
 15
 
 <!-- Page 19 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 12. | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | 1. Tài liệu bắt buộc
-1. Mumford D. (1976), Algebraic Geometry I - Complex Projective
-Varieties, Springer-Verlag.
-2. Tài liệu tham khảo thêm
-1. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-
-Verlag, 2nd ed.
-2. Hartshorne R. (1977), Algebraic Geometry, Springer-Verlag.
-3. Shafarevich I.R. (1997), Basic Algebraic Geometry I&II, Springer-
-Verlag, 2nd ed.
-4. Smith. K.E. (2000), An invitation to Algebraic Geometry, Springer-
-Verlag. |
-| 13. | MAT6012 | Đại số đồng điều
-Homological Algebra | 3 | 1. Tài liệu bắt buộc:
-1. Cartan H. and Eilenberg S. (1956), Homological Algebra,
-Princeton Univ. Press, Princeton.
-2. MacLane S. (1967), Homology, Springer-Verlag, Berlin-
-Heidelberg-New York.
-2. Tài liệu tham khảo thêm:
-1. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-2. Dold A.(1972), Lectures on algebraic topology, Springer-Verlag,
-Berlin-Heidelberg-New York.
-3. Evens L.(1991), The cohomology of groups, Clarendon Press,
-Oxford - New York - Tokyo.
-4. Spanier E. H.(1966), Algebraic Topology, McGraw-Hill, New
-York.
-5. Switzer R. W. (1975), Algebraic Topology- Homotopy and
-Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
+| 12. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 1. Tài liệu bắt buộc<br>1. Mumford D. (1976), Algebraic Geometry I - Complex Projective<br>Varieties, Springer-Verlag.<br>2. Tài liệu tham khảo thêm<br>1. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-<br>Verlag, 2nd ed.<br>2. Hartshorne R. (1977), Algebraic Geometry, Springer-Verlag.<br>3. Shafarevich I.R. (1997), Basic Algebraic Geometry I&II, Springer-<br>Verlag, 2nd ed.<br>4. Smith. K.E. (2000), An invitation to Algebraic Geometry, Springer-<br>Verlag. |
+| 13. | MAT6012 | Đại số đồng điều<br>Homological Algebra | 3 | 1. Tài liệu bắt buộc:<br>1. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>2. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Dold A.(1972), Lectures on algebraic topology, Springer-Verlag,<br>Berlin-Heidelberg-New York.<br>3. Evens L.(1991), The cohomology of groups, Clarendon Press,<br>Oxford - New York - Tokyo.<br>4. Spanier E. H.(1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>5. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
 16
 
 <!-- Page 20 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 14. | MAT6119 | Đối đồng điều của nhóm
-Cohomology of Groups | 3 | 1. Tài liệu bắt buộc:
-1. Evens L. (1991), The cohomology of groups, Clarendon Press,
-Oxford - New York - Tokyo.
-2. Tài liệu tham khảo thêm:
-1. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-2. Cartan H. and Eilenberg S. (1956), Homological Algebra,
-Princeton Univ. Press, Princeton.
-3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-
-Heidelberg-New York.
-4. Steenrod N. E. and Epstein D. B. A. (1962), Cohomology
-Operations, Ann. Math. Studies 50, Princeton Univ. Press,
-Princeton. |
-| 15. | MAT6013 | Lý thuyết số đại số
-Algebraic number theory | 3 | 1. Tài liệu bắt buộc:
-1. Lang S. (1965), Algebraic Numbers, Addison-Wesley.
-2. Tài liệu tham khảo thêm:
-2. Lang S. (1972), Algebra, Addison-Wesley.
-3. Borevich Z., Shafarevich I. R. (1975) Teoria chisel(Tiếng Nga),
-Nauka. (Có bản dịch Tiếng Anh)
-4. Weil A. (1972), Basic Number Theory, Springer-Verlag. |
+| 14. | MAT6119 | Đối đồng điều của nhóm<br>Cohomology of Groups | 3 | 1. Tài liệu bắt buộc:<br>1. Evens L. (1991), The cohomology of groups, Clarendon Press,<br>Oxford - New York - Tokyo.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>4. Steenrod N. E. and Epstein D. B. A. (1962), Cohomology<br>Operations, Ann. Math. Studies 50, Princeton Univ. Press,<br>Princeton. |
+| 15. | MAT6013 | Lý thuyết số đại số<br>Algebraic number theory | 3 | 1. Tài liệu bắt buộc:<br>1. Lang S. (1965), Algebraic Numbers, Addison-Wesley.<br>2. Tài liệu tham khảo thêm:<br>2. Lang S. (1972), Algebra, Addison-Wesley.<br>3. Borevich Z., Shafarevich I. R. (1975) Teoria chisel(Tiếng Nga),<br>Nauka. (Có bản dịch Tiếng Anh)<br>4. Weil A. (1972), Basic Number Theory, Springer-Verlag. |
 17
 
 <!-- Page 21 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 16. | MAT6014 | Lý thuyết biểu diễn nhóm
-nâng cao
-Advanced group
-representation theory | 3 | 1. Tài liệu bắt buộc:
-1. Schneider P., Modular Representation Theory, Springer.
-2. Serre: Linear Representation of Finite Groups, Springer.
-3. Alperin: Local Representation Theory, Cambridge.
-2. Tài liệu tham khảo thêm:
-1. Nguyễn H. V. Hưng: Đại số Đại cương, NXB ĐHQG HN.
-2. Dornhoff L. Group Representation Theory, Part B.
-3. Nagao H., Tsushima Y., Representations of Finite Groups.
-4. Feit W., The Representation Theory of Finite Groups.
-5. Benson D., Representations and Cohomology I, II.
-6. Webb P., A Course in Finite Group Representation Theory, bản
-thảo sách http://www.math.umn.edu/~webb/RepBook/ |
-| 17. | MAT6015 | Phân thớ, Lớp đặc trưng, K-lý
-thuyết
-Fibre bundles, Characteristic
-classes, and K-theory | 3 | 1. Tài liệu bắt buộc:
-1. Milnor J., Stasheff J. (1974), Characteristic Classes, Ann. of Math.
-Studies 76, Princeton Univ. Press.
-2. Hatcher A., Vector Bundle and K-theory,
-http://www.math.cornell.edu/~hatcher/VBKT/VBpage.html
-2. Tài liệu tham khảo thêm:
-1. Bott R., Tu L. W. (1982), Differential Forms in Algebraic
-Topology, Springer-Verlag.
-2. Atiyah M. F. (1967), K-theory, W.A. Benjamin.
-3. Bott R. (1994), Lectures on K(X), Collected Papers, Vol. 2,
-Birkhäuser.
-4. Bott R. (1994), The Periodicity Theorem for the Classical Groups
-and Some of its Applications, Collected Papers, Vol. 1, Birkhäuser.
-5. Husemoller, Fibre Bundles, Springer Graduate Texts in
-Mathematics. |
+| 16. | MAT6014 | Lý thuyết biểu diễn nhóm<br>nâng cao<br>Advanced group<br>representation theory | 3 | 1. Tài liệu bắt buộc:<br>1. Schneider P., Modular Representation Theory, Springer.<br>2. Serre: Linear Representation of Finite Groups, Springer.<br>3. Alperin: Local Representation Theory, Cambridge.<br>2. Tài liệu tham khảo thêm:<br>1. Nguyễn H. V. Hưng: Đại số Đại cương, NXB ĐHQG HN.<br>2. Dornhoff L. Group Representation Theory, Part B.<br>3. Nagao H., Tsushima Y., Representations of Finite Groups.<br>4. Feit W., The Representation Theory of Finite Groups.<br>5. Benson D., Representations and Cohomology I, II.<br>6. Webb P., A Course in Finite Group Representation Theory, bản<br>thảo sách http://www.math.umn.edu/~webb/RepBook/ |
+| 17. | MAT6015 | Phân thớ, Lớp đặc trưng, K-lý<br>thuyết<br>Fibre bundles, Characteristic<br>classes, and K-theory | 3 | 1. Tài liệu bắt buộc:<br>1. Milnor J., Stasheff J. (1974), Characteristic Classes, Ann. of Math.<br>Studies 76, Princeton Univ. Press.<br>2. Hatcher A., Vector Bundle and K-theory,<br>http://www.math.cornell.edu/~hatcher/VBKT/VBpage.html<br>2. Tài liệu tham khảo thêm:<br>1. Bott R., Tu L. W. (1982), Differential Forms in Algebraic<br>Topology, Springer-Verlag.<br>2. Atiyah M. F. (1967), K-theory, W.A. Benjamin.<br>3. Bott R. (1994), Lectures on K(X), Collected Papers, Vol. 2,<br>Birkhäuser.<br>4. Bott R. (1994), The Periodicity Theorem for the Classical Groups<br>and Some of its Applications, Collected Papers, Vol. 1, Birkhäuser.<br>5. Husemoller, Fibre Bundles, Springer Graduate Texts in<br>Mathematics. |
 | Husemoller, Fibre Bundles, Springer Graduate Texts in |
 | --- |
 | Mathematics. |
 18
 
 <!-- Page 22 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 18. | MAT6120 | Lý thuyết kỳ dị và tai biến
-Singularity theory and
-Castatrophe theory | 3 | 1. Tài liệu bắt buộc:
-1. Dimca A. (1987), Topics on Real and Complex Singularities,
-Advanced Lectures in Mathematics, Vieweg-Verlag.
-2. Tài liệu tham khảo thêm:
-1. Arnol’d V. I., Guisein-Zade S.M. and Varchenko A.N. (1988),
-Singularities of Differentiable Maps, vols. I & II, Birkhäuser.
-2. Arnol’d V. I. (1992), Catastrophe Theory, 3rd ed. Berlin:
-Springer-Verlag.
-3. Bättig D. and Knörrer H. (1991), Singularitäten, Lectures in
-Mathematics ETH Zürich, Vieweg-Verlag.
-4. Dimca A. (1992), Singularities and Topology of Hypersurfaces,
-Springer-Verlag.
-5. Milnor J. (1968), Singular Points of Complex Hypersurfaces, Ann.
-of Math. Studies 61. |
-| 19. | MAT6121 | Đại số giao hoán
-Commutative algebra | 3 | 1. Tài liệu bắt buộc:
-1. Reid M. (1995), Undergraduate Commutative Algebra, Cambridge
-Univ. Press.
-2. Eisendbud D. (1995), Commutatice Algebra (with a view toward
-algebraic geometry), Springer-Verlag.
-2. Tài liệu tham khảo thêm:
-1. Atiyah M.F. and Macdonald I.G. (1969), Introduction to
-Commutative Algebra, Addison-Wesley.
-2. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-
-Verlag, 2nd ed.
-3. Sharp R.Y. (1990), Steps in Commutative Algebra, Cambridge.
-4. Ngô Việt Trung (2012), Nhập môn Đại số giao hoán và Hình học
-đại số, NXB KHTN & CN. |
+| 18. | MAT6120 | Lý thuyết kỳ dị và tai biến<br>Singularity theory and<br>Castatrophe theory | 3 | 1. Tài liệu bắt buộc:<br>1. Dimca A. (1987), Topics on Real and Complex Singularities,<br>Advanced Lectures in Mathematics, Vieweg-Verlag.<br>2. Tài liệu tham khảo thêm:<br>1. Arnol’d V. I., Guisein-Zade S.M. and Varchenko A.N. (1988),<br>Singularities of Differentiable Maps, vols. I & II, Birkhäuser.<br>2. Arnol’d V. I. (1992), Catastrophe Theory, 3rd ed. Berlin:<br>Springer-Verlag.<br>3. Bättig D. and Knörrer H. (1991), Singularitäten, Lectures in<br>Mathematics ETH Zürich, Vieweg-Verlag.<br>4. Dimca A. (1992), Singularities and Topology of Hypersurfaces,<br>Springer-Verlag.<br>5. Milnor J. (1968), Singular Points of Complex Hypersurfaces, Ann.<br>of Math. Studies 61. |
+| 19. | MAT6121 | Đại số giao hoán<br>Commutative algebra | 3 | 1. Tài liệu bắt buộc:<br>1. Reid M. (1995), Undergraduate Commutative Algebra, Cambridge<br>Univ. Press.<br>2. Eisendbud D. (1995), Commutatice Algebra (with a view toward<br>algebraic geometry), Springer-Verlag.<br>2. Tài liệu tham khảo thêm:<br>1. Atiyah M.F. and Macdonald I.G. (1969), Introduction to<br>Commutative Algebra, Addison-Wesley.<br>2. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-<br>Verlag, 2nd ed.<br>3. Sharp R.Y. (1990), Steps in Commutative Algebra, Cambridge.<br>4. Ngô Việt Trung (2012), Nhập môn Đại số giao hoán và Hình học<br>đại số, NXB KHTN & CN. |
 19
 
 <!-- Page 23 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 20. | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc
-1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt, NXB
-ĐHTHCN.
-2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –
-Verlag.
-3. Lee J. M. (2009), Manifolds and Differential Geometry, American
-Mathematical Society.
-2. Tài liệu tham khảo thêm
-1. Carmo M. P. do (1994), Differential forms and Applications,
-Springer-Verlag.
-2. Guillemin V. , Pollack A. (1974), Differential Topology, Prentice-
-Hall.
-3. Boothby W. M. (1986), An introduction to differentiable manifolds
-and Riemannian geometry, Academic Press. |
-| 21. | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 1.Tài liệu bắt buộc
-1. Nguyễn Thuỷ Thanh (2006), Cơ sở lý thuyết hàm biến phức, NXB
-ĐHQG Hà Nội.
-2. Narasimhan R. (2001), Complex Analysis in one Variable,
-Birkhauser, Boston.
-2. Tài liệu tham khảo thêm
-1. Sabat, Giải tích phức tập 1, (Bản dịch tiếng Việt), NXB Đại học và
-Trung học chuyên nghiệp.
-2. Stein E. , Shakarchi (2013), Princeton Lectures in Analysis -
-Complex analysis, Princeton University Press.
-3. Rudin W. (1987), Real and complex analysis, McGraw – Hill.
-4. S. G. Krantz (1992), Function Theory of Several Complex
-Variables, AMS, providence, RI. |
+| 20. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc<br>1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt, NXB<br>ĐHTHCN.<br>2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –<br>Verlag.<br>3. Lee J. M. (2009), Manifolds and Differential Geometry, American<br>Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Carmo M. P. do (1994), Differential forms and Applications,<br>Springer-Verlag.<br>2. Guillemin V. , Pollack A. (1974), Differential Topology, Prentice-<br>Hall.<br>3. Boothby W. M. (1986), An introduction to differentiable manifolds<br>and Riemannian geometry, Academic Press. |
+| 21. | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 1.Tài liệu bắt buộc<br>1. Nguyễn Thuỷ Thanh (2006), Cơ sở lý thuyết hàm biến phức, NXB<br>ĐHQG Hà Nội.<br>2. Narasimhan R. (2001), Complex Analysis in one Variable,<br>Birkhauser, Boston.<br>2. Tài liệu tham khảo thêm<br>1. Sabat, Giải tích phức tập 1, (Bản dịch tiếng Việt), NXB Đại học và<br>Trung học chuyên nghiệp.<br>2. Stein E. , Shakarchi (2013), Princeton Lectures in Analysis -<br>Complex analysis, Princeton University Press.<br>3. Rudin W. (1987), Real and complex analysis, McGraw – Hill.<br>4. S. G. Krantz (1992), Function Theory of Several Complex<br>Variables, AMS, providence, RI. |
 20
 
 <!-- Page 24 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 22. | MAT6136 | Nhóm Lie và Đại số Lie
-Lie groups and Lie algebras | 3 | 1. Tài liệu bắt buộc:
-1. P.Serre J. (1992), Lie groups and Lie algebras, LNM vol. 1500,
-Springer.
-2. Kirillov A. (2011), Elements of the theory of representations,
-Springer.
-2. Tài liệu tham khảo thêm:
-3. Đỗ Ngọc Diệp, Nhóm Lie và đại số Lie (Bản thảo). |
-| 23. | MAT6137 | Tôpô vi phân
-Differential Topology | 3 | 1. Tài liệu bắt buộc:
-1. Guillemin V., Pollack A. (1974), Differential Topology, Prentice-
-Hall.
-2. Milnor J. (1965), Topology from the differentiable viewpoint,
-Univ. of Virginia.
-2. Tài liệu tham khảo thêm:
-1. Dubrovin B.A.,Fomenko A.T.,Novikov S.P. (1985), Modern
-Geometry - Methods and Applications, Part II, Springer-Verlag.
-2. Hirsch M.W.(1976), Differential topology, Springer-Verlag.
-3. Milnor J. (1963), Morse theory, Princeton University Press. |
+| 22. | MAT6136 | Nhóm Lie và Đại số Lie<br>Lie groups and Lie algebras | 3 | 1. Tài liệu bắt buộc:<br>1. P.Serre J. (1992), Lie groups and Lie algebras, LNM vol. 1500,<br>Springer.<br>2. Kirillov A. (2011), Elements of the theory of representations,<br>Springer.<br>2. Tài liệu tham khảo thêm:<br>3. Đỗ Ngọc Diệp, Nhóm Lie và đại số Lie (Bản thảo). |
+| 23. | MAT6137 | Tôpô vi phân<br>Differential Topology | 3 | 1. Tài liệu bắt buộc:<br>1. Guillemin V., Pollack A. (1974), Differential Topology, Prentice-<br>Hall.<br>2. Milnor J. (1965), Topology from the differentiable viewpoint,<br>Univ. of Virginia.<br>2. Tài liệu tham khảo thêm:<br>1. Dubrovin B.A.,Fomenko A.T.,Novikov S.P. (1985), Modern<br>Geometry - Methods and Applications, Part II, Springer-Verlag.<br>2. Hirsch M.W.(1976), Differential topology, Springer-Verlag.<br>3. Milnor J. (1963), Morse theory, Princeton University Press. |
 21
 
 <!-- Page 25 -->
 4. Đội ngũ cán bộ giảng dạy (ghi theo số thứ tự trong khung chương trình)
-| T
-T | Mã
-học phần | Tên học phần | Số tín chỉ | Cán bộ giảng dạy |  |  |  |
+| T<br>T | Mã<br>học phần | Tên học phần | Số tín chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức danh
-khoa học, học vị | Chuyên ngành
-đào tạo | Đơn vị công tác |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general
-purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic
-purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced functional
-analysis | 3 | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên ngành<br>đào tạo | Đơn vị công tác |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general<br>purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic<br>purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional<br>analysis | 3 | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Trần Đức Long | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Phạm Trọng
-Tiến | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Phạm Trọng<br>Tiến | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Vũ Nhật Huy | TS | Toán học | ĐH KHTN |
-| 5. | MAT6100 | Phương trình đạo hàm
-riêng
-Partial differential
-equations | 3 | Hoàng Quốc
-Toàn | PGS.TS | Toán học | Trường ĐHKHTN |
-|  |  |  |  | Đặng Anh
-Tuấn | TS | Toán học | Trường ĐHKHTN |
+| 5. | MAT6100 | Phương trình đạo hàm<br>riêng<br>Partial differential<br>equations | 3 | Hoàng Quốc<br>Toàn | PGS.TS | Toán học | Trường ĐHKHTN |
+|  |  |  |  | Đặng Anh<br>Tuấn | TS | Toán học | Trường ĐHKHTN |
 |  |  |  |  | Dư Đức Thắng | TS | Toán học | Khoa Sau đại học |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | Trường ĐHKHTN |
-| 6. | MAT6007 | Những chương lựa
-chọn về đại số tuyến
-tính | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 6. | MAT6007 | Những chương lựa<br>chọn về đại số tuyến<br>tính | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 22
 
 <!-- Page 26 -->
-|  |  | Selected topics in
-Linear Algebra |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  | Selected topics in<br>Linear Algebra |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Đào Phương
-Bắc | TS | Toán học | ĐHKHTN |
-| 7. | MAT6003 | Tôpô đại số
-Algebraic Topology | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
+| 7. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Việt
-Dũng | PGS.TS | Toán học | Viện Toán học |
-| 8. | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Thị
-Hồng Vân | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Việt<br>Dũng | PGS.TS | Toán học | Viện Toán học |
+| 8. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Thị<br>Hồng Vân | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Vũ Thế Khôi | PGS.TS | Toán học | Viện Toán hoc |
 |  |  |  |  | Hà Huy Vui | PGS.TSKH | Toán học | Viện Toán học |
-| 9. | MAT6004 | Lý thuyết trường và lý
-thuyết Galois
-Field theory and
-Galois theory | 3 | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Đào Phương
-Bắc | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Quốc
-Thắng | GS.TS | Toán học | Viện Toán học |
-| 10. | MAT6001 | Lý thuyết nhóm và
-biểu diễn nhóm
-Group theory and
-group representations | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 9. | MAT6004 | Lý thuyết trường và lý<br>thuyết Galois<br>Field theory and<br>Galois theory | 3 | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Quốc<br>Thắng | GS.TS | Toán học | Viện Toán học |
+| 10. | MAT6001 | Lý thuyết nhóm và<br>biểu diễn nhóm<br>Group theory and<br>group representations | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐHKHTN |
 23
 
 <!-- Page 27 -->
-|  |  |  |  | Đào Phương
-Bắc | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-| 11. | MAT6118 | Toán tử đối đồng điều
-và ứng dụng
-Cohomology
-Operations and
-Applications | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+| 11. | MAT6118 | Toán tử đối đồng điều<br>và ứng dụng<br>Cohomology<br>Operations and<br>Applications | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Việt
-Dũng | PGS.TS | Toán học | Viện Toán học |
-| 12. | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Việt<br>Dũng | PGS.TS | Toán học | Viện Toán học |
+| 12. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Quý Thường | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Phùng Hồ Hải | GS.TSKH | Toán học | Viện Toán học |
-|  |  |  |  | Ngô Việt
-Trung | GS.TSKH | Toán học | Viện Toán học |
-| 13. | MAT6012 | Đại số đồng điều
-Homological Algebra | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Ngô Việt<br>Trung | GS.TSKH | Toán học | Viện Toán học |
+| 13. | MAT6012 | Đại số đồng điều<br>Homological Algebra | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Việt
-Dũng | PGS.TS | Toán học | Viện Toán học |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Việt<br>Dũng | PGS.TS | Toán học | Viện Toán học |
 24
 
 <!-- Page 28 -->
-| 14. | MAT6119 | Đối đồng điều của
-nhóm
-Cohomology of Groups | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 14. | MAT6119 | Đối đồng điều của<br>nhóm<br>Cohomology of Groups | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Việt
-Dũng | PGS.TS | Toán học | Viện Toán học |
-| 15. | MAT6013 | Lý thuyết số đại số
-Algebraic number
-theory | 3 | Lê Minh Hà | PGS.TS. | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Đào Phương
-Bắc | TS. | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Quốc
-Thắng | GS.TS | Toán học | Viện Toán học |
-| 16. | MAT6014 | Lý thuyết biểu diễn
-nhóm nâng cao
-Advanced group
-representation theory | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH. | Toán học | ĐH KHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Việt<br>Dũng | PGS.TS | Toán học | Viện Toán học |
+| 15. | MAT6013 | Lý thuyết số đại số<br>Algebraic number<br>theory | 3 | Lê Minh Hà | PGS.TS. | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS. | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Quốc<br>Thắng | GS.TS | Toán học | Viện Toán học |
+| 16. | MAT6014 | Lý thuyết biểu diễn<br>nhóm nâng cao<br>Advanced group<br>representation theory | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH. | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS. | Toán học | ĐH KHTN |
-| 17. | MAT6015 | Phân thớ, Lớp đặc
-trưng, và K-lý thuyết
-Fibre bundles,
-Characteristics classes,
-and K-theory | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH. | Toán học | ĐH KHTN |
+| 17. | MAT6015 | Phân thớ, Lớp đặc<br>trưng, và K-lý thuyết<br>Fibre bundles,<br>Characteristics classes,<br>and K-theory | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH. | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS. | Toán học | ĐH KHTN |
-| 18. | MAT6120 | Lý thuyết kỳ dị và tai
-biến
-Singularity theory and
-Castatrophe theory | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐH KHTN |
+| 18. | MAT6120 | Lý thuyết kỳ dị và tai<br>biến<br>Singularity theory and<br>Castatrophe theory | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Quý Thường | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Hà Huy Vui | PGS.TSKH | Toán học | Viện Toán học |
 25
@@ -964,47 +484,31 @@ Hoàng Lân | TS | Toán học | ĐH KHTN |
 <!-- Page 29 -->
 |  |  |  |  | Đinh Sỹ Tiệp | TS | Toán học | Viện Toán học |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 19. | MAT6121 | Đại số giao hoán
-Commutative algebra | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐH KHTN |
+| 19. | MAT6121 | Đại số giao hoán<br>Commutative algebra | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Quý Thường | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Tự
-Cường | GS.TSKH | Toán học | Viện Toán học |
-| 20. | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Tự<br>Cường | GS.TSKH | Toán học | Viện Toán học |
+| 20. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Thạc
-Dũng | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Thạc<br>Dũng | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | ĐHKHTN |
 |  |  |  |  | Vũ Thế Khôi | TS | Toán học | Viện Toán hoc |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐHKHTN |
-| 21. | MAT6010 | Giải tích phức
-Complex analysis | 3 | Nguyễn Văn
-Mậu | GS.TSKH | Toán học | Trường ĐHKHTN |
-|  |  |  |  | Nguyễn Thủy
-Thanh | PGS.TS | Toán học | Trường ĐHKHTN |
-|  |  |  |  | Nguyễn Thạc
-Dũng | TS | Toán học | Trường ĐHKHTN |
+| 21. | MAT6010 | Giải tích phức<br>Complex analysis | 3 | Nguyễn Văn<br>Mậu | GS.TSKH | Toán học | Trường ĐHKHTN |
+|  |  |  |  | Nguyễn Thủy<br>Thanh | PGS.TS | Toán học | Trường ĐHKHTN |
+|  |  |  |  | Nguyễn Thạc<br>Dũng | TS | Toán học | Trường ĐHKHTN |
 |  |  |  |  | Ninh Văn Thu | TS | Toán học | Trường ĐHKHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | Trường ĐHKHTN |
-| 22. | MAT6136 | Nhóm Lie và Đại số
-Lie
-Lie groups and Lie | 3 | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Đào Phương
-Bắc | TS | Toán học | ĐHKHTN |
+| 22. | MAT6136 | Nhóm Lie và Đại số<br>Lie<br>Lie groups and Lie | 3 | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
 26
 
 <!-- Page 30 -->
 |  |  | algebras |  | Đỗ Ngọc Diệp | GS.TSKH | Toán học | Viện Toán học |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Nguyễn Duy
-Tân | TS | Toán học | Viện Toán học |
-| 23. | MAT6137 | Tôpô vi phân
-Differential Topology | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Duy<br>Tân | TS | Toán học | Viện Toán học |
+| 23. | MAT6137 | Tôpô vi phân<br>Differential Topology | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐHKHTN |
 |  |  |  |  | Vũ Thế Khôi | PGS.TS | Toán học | Viện Toán học |
@@ -1023,11 +527,7 @@ Lịch trình tổ chức thực hiện chương trình đào tạo cụ thể n
 Thời gian đào tạo bắt đầu từ giữa tháng 11 hàng năm, kết thúc vào tháng 11 hai
 năm sau. Thời gian thực hiện được khái quát trong sơ đồ sau:
 Tháng 11 Tháng 1 Tháng 7 Tháng 1 Tháng 7 Tháng 11
-| A | T
-1 | B | H
-1 | C D |  | T
-2 | D E |  | H
-2 | E |
+| A | T<br>1 | B | H<br>1 | C D |  | T<br>2 | D E |  | H<br>2 | E |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 Trong đó:
 - A, B, C, D, E: các kì học. Mỗi kì B, C, D gồm 4 tháng, kì A
@@ -1038,55 +538,19 @@ cụ thể tùy lịch từng năm.
 - H , H : Các đợt nghỉ hè, mỗi đợt 1 tháng, từ 30/6 đến 31/7 hàng
 1 2
 năm.
-| Giai
-đoạ
-n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
+| Giai<br>đoạ<br>n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
 | --- | --- | --- | --- | --- |
 |  |  | Bắt đầu | Kết thúc |  |
-| A | 2 tháng
-( từ tháng 11 đến tháng
-1) | - Tiếng
-Anh cơ bản
-- Triết học | - Tiếng
-Anh cơ bản
-- Triết học | Khai giảng: Tháng
-11, tuần đầu tiên của
-khoá học |
-| B | 4 tháng
-( từ tháng 3 đến tháng
-6) | - Tiếng
-Anh chuyên
-ngành
-- 3 học
-phần bắt
-buộc | - Tiếng
-Anh chuyên
-ngành
-- 3 học
-phần bắt
-buộc |  |
-| C | 4 tháng
-( từ tháng 8 đến tháng | -2 học phần
-bắt buộc | -2 học phần
-bắt buộc | Giới thiệu hướng đề
-tài |
+| A | 2 tháng<br>( từ tháng 11 đến tháng<br>1) | - Tiếng<br>Anh cơ bản<br>- Triết học | - Tiếng<br>Anh cơ bản<br>- Triết học | Khai giảng: Tháng<br>11, tuần đầu tiên của<br>khoá học |
+| B | 4 tháng<br>( từ tháng 3 đến tháng<br>6) | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt<br>buộc | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt<br>buộc |  |
+| C | 4 tháng<br>( từ tháng 8 đến tháng | -2 học phần<br>bắt buộc | -2 học phần<br>bắt buộc | Giới thiệu hướng đề<br>tài |
 28
 
 <!-- Page 32 -->
-|  | 11) | -2 học phần
-lựa chọn | -2 học phần
-lựa chọn | Phân công đề tài luận
-văn |
+|  | 11) | -2 học phần<br>lựa chọn | -2 học phần<br>lựa chọn | Phân công đề tài luận<br>văn |
 | --- | --- | --- | --- | --- |
-| D | 4 tháng
-( từ tháng 12 đến tháng
-4) | -5 học phần
-lựa chọn | -5 học phần
-lựa chọn | Làm luận văn |
-| E | 6 tháng
-( từ tháng 5 đến tháng
-11) | Các học phần đã
-kết thúc |  | Bảo vệ luận văn |
+| D | 4 tháng<br>( từ tháng 12 đến tháng<br>4) | -5 học phần<br>lựa chọn | -5 học phần<br>lựa chọn | Làm luận văn |
+| E | 6 tháng<br>( từ tháng 5 đến tháng<br>11) | Các học phần đã<br>kết thúc |  | Bảo vệ luận văn |
 6. So sánh chương trình đào tạo đã xây dựng với chương trình đào tạo tiên
 tiến của nước ngoài (đã sử dụng để xây dựng chương trình)
 a) Giới thiệu về chương trình được sử dụng để xây dựng chương trình
@@ -1097,122 +561,44 @@ University of Washington, Seattle, Hoa Kỳ
 - Xếp hạng của cơ sở đào tạo, ngành/chu
 yên ngành đào tạo: trong danh sách 20 khoa Toán tốt nhất Hoa Kỳ
 b) Bảng so sánh chương trình đào tạo
-| STT | Tên học phần trong chương
-trình đào tạo tiên tiến của
-nước ngoài
-(Tiếng Anh, tiếng Việt) | Tên học phần trong
-chương trình đào tạo
-của đơn vị
-(Tiếng Anh, tiếng
-Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
-| II | Khối kiến thức cơ sở và
-chuyên ngành |  |  |
+| II | Khối kiến thức cơ sở và<br>chuyên ngành |  |  |
 | II.1 | Các học phần bắt buộc |  |  |
-| 1. | Functional Analysis
-(MATH527/8/9)
-Giải tích hàm | Giải tích hàm nâng
-cao
-Advanced analysis
-fuction | Nội dung giống nhau |
-| 2. | Introduction to partial
-differential equations
-(MATH557/8/9)
-Giới thiệu về phương trình đạo
-hàm riêng | Phương trình đạo
-hàm riêng
-Partial differential
-equations | Nội dung giống nhau |
-| 3. | Abstract Linear Algebra
-(MATH340)
-Đại số tuyến tính nâng cao | Những chương lựa
-chọn về đại số tuyến
-tính | Nội dung giống nhau |
+| 1. | Functional Analysis<br>(MATH527/8/9)<br>Giải tích hàm | Giải tích hàm nâng<br>cao<br>Advanced analysis<br>fuction | Nội dung giống nhau |
+| 2. | Introduction to partial<br>differential equations<br>(MATH557/8/9)<br>Giới thiệu về phương trình đạo<br>hàm riêng | Phương trình đạo<br>hàm riêng<br>Partial differential<br>equations | Nội dung giống nhau |
+| 3. | Abstract Linear Algebra<br>(MATH340)<br>Đại số tuyến tính nâng cao | Những chương lựa<br>chọn về đại số tuyến<br>tính | Nội dung giống nhau |
 29
 
 <!-- Page 33 -->
-| STT | Tên học phần trong chương
-trình đào tạo tiên tiến của
-nước ngoài
-(Tiếng Anh, tiếng Việt) |  | Tên học phần trong
-chương trình đào tạo
-của đơn vị
-(Tiếng Anh, tiếng
-Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) |  | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- | --- |
-|  |  |  | Selected topics in
-Linear algebra |  |
-| 4. |  | Algebraic Topology I
-(MATH564/565)
-Tôpô đại số | Tôpô đại số
-Algebraic Topology | Nội dung giống nhau |
+|  |  |  | Selected topics in<br>Linear algebra |  |
+| 4. |  | Algebraic Topology I<br>(MATH564/565)<br>Tôpô đại số | Tôpô đại số<br>Algebraic Topology | Nội dung giống nhau |
 |  |  | (MATH564/565) |  |  |
 |  |  | Tôpô đại số |  |  |
-| 5. | Differential Geometry
-(MATH442/3)
-Hình học vi phân |  | Hình học vi phân
-Defferential
-Geometry | Nội dung giống nhau |
+| 5. | Differential Geometry<br>(MATH442/3)<br>Hình học vi phân |  | Hình học vi phân<br>Defferential<br>Geometry | Nội dung giống nhau |
 | II.2 | Các học phần tự chọn |  |  |  |
-| 6. | Modern Algebra I
-(MATH504/5/6)
-Đại số hiện đại |  | Lý thuyết trường và
-lý thuyết Galois
-Field and Galois
-theory | Nội dung giống nhau |
-| 7. | Modern Algebra II
-(MATH504/5/6)
-Đại số hiện đại |  | Lý thuyết nhóm và
-biểu diễn nhóm
-Theory of Groups and
-Group
-Representations | Nội dung giống nhau |
-| 8. | MATH564-MATH566
-(MATH 564 Algebraic
-Topology, MATH 565
-Algebraic Topology, MATH
-566 Algebraic Topology) |  | Toán tử đối đồng
-điều và ứng dụng
-Cohomology
-Operations and
-Applications | Nội dung giống nhau |
+| 6. | Modern Algebra I<br>(MATH504/5/6)<br>Đại số hiện đại |  | Lý thuyết trường và<br>lý thuyết Galois<br>Field and Galois<br>theory | Nội dung giống nhau |
+| 7. | Modern Algebra II<br>(MATH504/5/6)<br>Đại số hiện đại |  | Lý thuyết nhóm và<br>biểu diễn nhóm<br>Theory of Groups and<br>Group<br>Representations | Nội dung giống nhau |
+| 8. | MATH564-MATH566<br>(MATH 564 Algebraic<br>Topology, MATH 565<br>Algebraic Topology, MATH<br>566 Algebraic Topology) |  | Toán tử đối đồng<br>điều và ứng dụng<br>Cohomology<br>Operations and<br>Applications | Nội dung giống nhau |
 |  |  | (MATH 564 Algebrai |  |  |
 |  |  | Topology, MATH 565 |  |  |
 |  |  | Algebraic Topology, MATH |  |  |
 |  |  | 566 Algebraic Topology) |  |  |
-| 9. |  | Algebraic Geometry | Hình học đại số
-Algebraic Geometry | Nội dung giống nhau |
+| 9. |  | Algebraic Geometry | Hình học đại số<br>Algebraic Geometry | Nội dung giống nhau |
 |  |  | (MATH507/8) |  |  |
 |  |  | Hình học đại số |  |  |
-| 10. |  | Algebraic Topology II | Đại số đồng điều
-Homological Algebra | Nội dung giống nhau |
+| 10. |  | Algebraic Topology II | Đại số đồng điều<br>Homological Algebra | Nội dung giống nhau |
 |  |  | (MATH564/565) |  |  |
 |  |  | Tôpô đại số |  |  |
-| 11. | Special Topics in Mathematics
-(MATH583, Graduate courses
-for 2013-2014, Group
-cohomolgy)
-Một số vấn đề chọn lọc trong
-Toán học | Special Topics in Mathematics | Đối đồng điều của
-nhóm
-Cohomology of
-Groups |  |
+| 11. | Special Topics in Mathematics<br>(MATH583, Graduate courses<br>for 2013-2014, Group<br>cohomolgy)<br>Một số vấn đề chọn lọc trong<br>Toán học | Special Topics in Mathematics | Đối đồng điều của<br>nhóm<br>Cohomology of<br>Groups |  |
 |  |  | (MATH583, Graduate courses |  |  |
 |  |  | for 2013-2014, Group |  |  |
 |  |  | cohomolgy) |  |  |
 |  |  | Một số vấn đề chọn lọc trong |  |  |
 |  |  | Toán học |  |  |
-| 12. |  | Special Topics in Mathematics | Lý thuyết số đại số
-Algebraic Number
-Theory |  |
+| 12. |  | Special Topics in Mathematics | Lý thuyết số đại số<br>Algebraic Number<br>Theory |  |
 |  |  | (MATH581, Graduate courses |  |  |
 |  |  | for 2010-2011, Algebraic |  |  |
 |  |  | Number Theory) |  |  |
@@ -1221,66 +607,18 @@ Theory |  |
 30
 
 <!-- Page 34 -->
-| STT | Tên học phần trong chương
-trình đào tạo tiên tiến của
-nước ngoài
-(Tiếng Anh, tiếng Việt) |  | Tên học phần trong
-chương trình đào tạo
-của đơn vị
-(Tiếng Anh, tiếng
-Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) |  | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- | --- |
-| 13. | Special Topics in Mathematics
-(MATH582, Graduate courses
-for 2010-2011, Algebraic
-Number Theory)
-Một số vấn đề chọn lọc trong
-Toán học |  | Lý thuyết biểu diễn
-nhóm nâng cao
-Advanced group
-representations
-theory |  |
-| 14. | MATH 570 Seminar in
-Topology |  | Phân thớ, Lớp đặc
-trưng, K-Lý thuyết
-Fibre bundles,
-Charcteristic classes,
-and K-theory | Nội dung giống nhau |
-| 15. | Special Topics in Mathematics
-(MATH583, Graduate courses
-for 2010-2011, Algebraic
-Number Theory)
-Một số vấn đề chọn lọc trong
-Toán học |  | Lý thuyết kì dị và tai
-biến
-Singularity theory
-and Castatrophe
-theory |  |
-| 16. | Modern Algebra III
-(MATH504/5/6)
-Đại số hiện đại |  | Đại số giao hoán
-Commutative algebra | Nội dung giống nhau |
-| 17. | Geometric structures
-(MATH547/548)
-Các cấu trúc hình học |  | Giải tích trên đa tạp
-Analysis on
-Manifolds | Nội dung giống nhau |
-| 18. |  | Complex Analysis | Giải tích phức
-Complex Analysis | Nội dung giống nhau |
+| 13. | Special Topics in Mathematics<br>(MATH582, Graduate courses<br>for 2010-2011, Algebraic<br>Number Theory)<br>Một số vấn đề chọn lọc trong<br>Toán học |  | Lý thuyết biểu diễn<br>nhóm nâng cao<br>Advanced group<br>representations<br>theory |  |
+| 14. | MATH 570 Seminar in<br>Topology |  | Phân thớ, Lớp đặc<br>trưng, K-Lý thuyết<br>Fibre bundles,<br>Charcteristic classes,<br>and K-theory | Nội dung giống nhau |
+| 15. | Special Topics in Mathematics<br>(MATH583, Graduate courses<br>for 2010-2011, Algebraic<br>Number Theory)<br>Một số vấn đề chọn lọc trong<br>Toán học |  | Lý thuyết kì dị và tai<br>biến<br>Singularity theory<br>and Castatrophe<br>theory |  |
+| 16. | Modern Algebra III<br>(MATH504/5/6)<br>Đại số hiện đại |  | Đại số giao hoán<br>Commutative algebra | Nội dung giống nhau |
+| 17. | Geometric structures<br>(MATH547/548)<br>Các cấu trúc hình học |  | Giải tích trên đa tạp<br>Analysis on<br>Manifolds | Nội dung giống nhau |
+| 18. |  | Complex Analysis | Giải tích phức<br>Complex Analysis | Nội dung giống nhau |
 |  |  | (MATH534/5/6) |  |  |
 |  |  | Giải tích phức |  |  |
-| 19. | Lie Groups and Lie Algebras
-(MATH577/8/9)
-Nhóm Lie và Đại số Lie |  | Nhóm Lie và đại số
-Lie
-Lie groups and Lie
-algebras | Nội dung giống nhau |
-| 20. |  | Topology and Geometry of | Tôpô vi phân
-Differential Topology | Nội dung giống nhau |
+| 19. | Lie Groups and Lie Algebras<br>(MATH577/8/9)<br>Nhóm Lie và Đại số Lie |  | Nhóm Lie và đại số<br>Lie<br>Lie groups and Lie<br>algebras | Nội dung giống nhau |
+| 20. |  | Topology and Geometry of | Tôpô vi phân<br>Differential Topology | Nội dung giống nhau |
 |  |  | Manifolds |  |  |
 |  |  | (MATH544/5/6) |  |  |
 |  |  | Tôpô và hình học của đa tạp |  |  |

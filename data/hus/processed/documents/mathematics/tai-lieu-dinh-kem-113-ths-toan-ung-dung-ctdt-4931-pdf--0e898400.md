@@ -191,138 +191,62 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 8 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | ENG5001 | Tiếng Anh B2 (SĐH)
-English B2 | 5 | 40 | 60 | 150 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | ENG5001 | Tiếng Anh B2 (SĐH)<br>English B2 | 5 | 40 | 60 | 150 |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  | 27 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 9 |  |  |  |  |
-| 3 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6101 | Phương pháp số trong đại số
-tuyến tính
-Numerical Linear Algebra | 3 | 34 | 22 | 94 |  |
-| 5 | MAT6354 | Phân tích thống kê nhiều chiều
-Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/
-MAT6101 |
+| 3 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6101 | Phương pháp số trong đại số<br>tuyến tính<br>Numerical Linear Algebra | 3 | 34 | 22 | 94 |  |
+| 5 | MAT6354 | Phân tích thống kê nhiều chiều<br>Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/<br>MAT6101 |
 | II.2 | Các học phần tự chọn |  |  |  |  |  |  |
 | A | Định hướng Tính toán khoa học |  | 18/36 |  |  |  |  |
-| 6 | MAT6029 | Phương pháp số giải phương
-trình vi phân
-Numerical Methods for
-Ordinary Differential Equations | 3 | 45 | 0 | 105 |  |
-| 7 | MAT6030 | Bài toán đặt không chỉnh
-Ill-Posed Problems | 3 | 45 | 0 | 105 |  |
-| 8 | MAT6027 | Toán tài chính
-Mathematical Finance | 3 | 45 | 0 | 105 |  |
-| 9 | MAT6031 | Giải phương trình toán tử
-Solving Operator Equations | 3 | 45 | 0 | 105 |  |
-| 10 | MAT6102 | Một số vấn đề chọn lọc trong
-Giải tích số
-Selected Topics in Numerical
-Analysis | 3 | 36 | 18 | 96 |  |
-| 11 | MAT6103 | Phương pháp số trong điều khiển
-tối ưu
-Numerical Methods in Optimal
-Control Theory | 3 | 36 | 18 | 96 |  |
+| 6 | MAT6029 | Phương pháp số giải phương<br>trình vi phân<br>Numerical Methods for<br>Ordinary Differential Equations | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6030 | Bài toán đặt không chỉnh<br>Ill-Posed Problems | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6027 | Toán tài chính<br>Mathematical Finance | 3 | 45 | 0 | 105 |  |
+| 9 | MAT6031 | Giải phương trình toán tử<br>Solving Operator Equations | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6102 | Một số vấn đề chọn lọc trong<br>Giải tích số<br>Selected Topics in Numerical<br>Analysis | 3 | 36 | 18 | 96 |  |
+| 11 | MAT6103 | Phương pháp số trong điều khiển<br>tối ưu<br>Numerical Methods in Optimal<br>Control Theory | 3 | 36 | 18 | 96 |  |
 7
 
 <!-- Page 8 -->
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 12 | MAT6104 | Phương pháp số giải phương
-trình đạo hàm riêng
-Numerical Methods for Partial
-Differential Equations | 3 | 35 | 20 | 95 |  |
-| 13 | MAT6106 | Lý thuyết Wavelets và ứng dụng
-Wavelets and Applications | 3 | 36 | 18 | 96 |  |
-| 14 | MAT6202 | Tối ưu hoá nâng cao
-Advanced Optimization | 3 | 45 | 0 | 105 |  |
-| 15 | MAT6209 | Học máy và khai phá dữ liệu
-Machine Learning and Data Mining | 3 | 30 | 30 | 90 | MAT6101 |
-| 16 | MAT6218 | Phân tích dữ liệu khoa học
-chuyên ngành
-Specialized Scientific Data Analysis | 3 | 21 | 24 | 105 | MAT6209/
-MAT6203 |
-| 17 | MAT6325 | Tính toán khoa học
-Scientific Computing | 3 | 30 | 30 | 90 |  |
-| B | Định hướng Lý thuyết xác suất và thống kê
-toán học |  | 18/36 |  |  |  |  |
-| 18 | MAT6002 | Giải tích hàm nâng cao
-Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
-| 19 | MAT6100 | Phương trình đạo hàm riêng
-Partial Differential Equations | 3 | 45 | 0 | 105 |  |
-| 20 | MAT6021 | Giải tích ngẫu nhiên
-Stochastic analysis | 3 | 45 | 0 | 105 |  |
-| 21 | MAT6022 | Lý thuyết ước lượng và kiểm
-định giả thiết
-Estimation Theory and
-Statistical hypothesis testing | 3 | 45 | 0 | 105 |  |
-| 22 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 | 0 | 105 |  |
-| 23 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
-| 24 | MAT6023 | Lý thuyết Martingale
-Theory of Martingales | 3 | 45 | 0 | 105 |  |
-| 25 | MAT6025 | Quá trình dừng
-Stationary processes | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 12 | MAT6104 | Phương pháp số giải phương<br>trình đạo hàm riêng<br>Numerical Methods for Partial<br>Differential Equations | 3 | 35 | 20 | 95 |  |
+| 13 | MAT6106 | Lý thuyết Wavelets và ứng dụng<br>Wavelets and Applications | 3 | 36 | 18 | 96 |  |
+| 14 | MAT6202 | Tối ưu hoá nâng cao<br>Advanced Optimization | 3 | 45 | 0 | 105 |  |
+| 15 | MAT6209 | Học máy và khai phá dữ liệu<br>Machine Learning and Data Mining | 3 | 30 | 30 | 90 | MAT6101 |
+| 16 | MAT6218 | Phân tích dữ liệu khoa học<br>chuyên ngành<br>Specialized Scientific Data Analysis | 3 | 21 | 24 | 105 | MAT6209/<br>MAT6203 |
+| 17 | MAT6325 | Tính toán khoa học<br>Scientific Computing | 3 | 30 | 30 | 90 |  |
+| B | Định hướng Lý thuyết xác suất và thống kê<br>toán học |  | 18/36 |  |  |  |  |
+| 18 | MAT6002 | Giải tích hàm nâng cao<br>Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
+| 19 | MAT6100 | Phương trình đạo hàm riêng<br>Partial Differential Equations | 3 | 45 | 0 | 105 |  |
+| 20 | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic analysis | 3 | 45 | 0 | 105 |  |
+| 21 | MAT6022 | Lý thuyết ước lượng và kiểm<br>định giả thiết<br>Estimation Theory and<br>Statistical hypothesis testing | 3 | 45 | 0 | 105 |  |
+| 22 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 | 0 | 105 |  |
+| 23 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
+| 24 | MAT6023 | Lý thuyết Martingale<br>Theory of Martingales | 3 | 45 | 0 | 105 |  |
+| 25 | MAT6025 | Quá trình dừng<br>Stationary processes | 3 | 45 | 0 | 105 |  |
 8
 
 <!-- Page 9 -->
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 26 | MAT6027 | Toán tài chính
-Mathematical Finance | 3 | 45 | 0 | 105 |  |
-| 27 | MAT6206 | Các phương pháp ngẫu nhiên và
-ứng dụng
-Stochastic Methods in Engineering | 3 | 25 | 32 | 93 | MAT6205/
-MAT6101 |
-| 28 | MAT6207 | Các thuật toán ngẫu nhiên và
-phân tích xác suất
-Randomized Algorithms and
-Probabilistic Analysis | 3 | 25 | 20 | 105 |  |
-| 29 | MAT6208 | Nhập môn mô hình hóa thống kê
-Introduction to Statistical Modeling | 3 | 25 | 40 | 85 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 26 | MAT6027 | Toán tài chính<br>Mathematical Finance | 3 | 45 | 0 | 105 |  |
+| 27 | MAT6206 | Các phương pháp ngẫu nhiên và<br>ứng dụng<br>Stochastic Methods in Engineering | 3 | 25 | 32 | 93 | MAT6205/<br>MAT6101 |
+| 28 | MAT6207 | Các thuật toán ngẫu nhiên và<br>phân tích xác suất<br>Randomized Algorithms and<br>Probabilistic Analysis | 3 | 25 | 20 | 105 |  |
+| 29 | MAT6208 | Nhập môn mô hình hóa thống kê<br>Introduction to Statistical Modeling | 3 | 25 | 40 | 85 |  |
 | III. | Nghiên cứu khoa học |  | 27 |  |  |  |  |
 | III.1 Chuyên đề nghiên cứu |  |  | 12 |  |  |  |  |
-| 30 | MAT6333 | Chuyên đề 1
-Special Topics 1 | 4 | 30 | 0 | 170 |  |
-| 31 | MAT6334 | Chuyên đề 2
-Special Topics 2 | 4 | 30 | 0 | 170 |  |
-| 32 | MAT6335 | Chuyên đề 3
-Special Topics 3 | 4 | 30 | 0 | 170 |  |
+| 30 | MAT6333 | Chuyên đề 1<br>Special Topics 1 | 4 | 30 | 0 | 170 |  |
+| 31 | MAT6334 | Chuyên đề 2<br>Special Topics 2 | 4 | 30 | 0 | 170 |  |
+| 32 | MAT6335 | Chuyên đề 3<br>Special Topics 3 | 4 | 30 | 0 | 170 |  |
 | III.2 | Luận văn thạc sĩ |  | 15 |  |  |  |  |
-| 33 | MAT6903 | Luận văn thạc sĩ
-Master thesis | 15 | 0 | 0 | 750 |  |
+| 33 | MAT6903 | Luận văn thạc sĩ<br>Master thesis | 15 | 0 | 0 | 750 |  |
 | Tổng cộng |  |  | 62 |  |  |  |  |
 9

@@ -7,26 +7,13 @@ import io
 import docx
 from docx.table import Table
 
-from app.hus.cleaning import clean_text
+from app.hus.cleaning import clean_text, format_markdown_table
 from app.hus.urls import CrawlError
 
 
-def _format_table(table) -> list[str]:
-    rows_data: list[list[str]] = []
-    for row in table.rows:
-        cells = [clean_text(cell.text).replace("|", "/") for cell in row.cells]
-        if any(cells):
-            rows_data.append(cells)
-
-    if not rows_data:
-        return []
-
-    col_count = max(len(r) for r in rows_data)
-    padded = [r + [""] * (col_count - len(r)) for r in rows_data]
-    lines = ["| " + " | ".join(padded[0]) + " |", "|" + " --- |" * col_count]
-    for r in padded[1:]:
-        lines.append("| " + " | ".join(r) + " |")
-    return lines
+def _format_table(table: Table) -> list[str]:
+    rows_data: list[list[str]] = [[cell.text for cell in row.cells] for row in table.rows]
+    return format_markdown_table(rows_data)
 
 
 def extract_docx(raw: bytes) -> str:

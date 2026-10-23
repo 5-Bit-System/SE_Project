@@ -273,236 +273,97 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 <!-- Page 8 -->
 2. Khung chương trình đào tạo
 2.1. Đối với NCS có bằng thạc sĩ
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên
-quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
-| 1 | MAT8110 | Hệ động lực vi phân
-Differential Dynamical Systems | 3 | 30 | 0 | 120 |  |
-| 2 | MAT8111 | Phương trình Đạo hàm riêng nâng cao
-Advanced partial differential equations | 3 | 30 | 0 | 120 |  |
+| 1 | MAT8110 | Hệ động lực vi phân<br>Differential Dynamical Systems | 3 | 30 | 0 | 120 |  |
+| 2 | MAT8111 | Phương trình Đạo hàm riêng nâng cao<br>Advanced partial differential equations | 3 | 30 | 0 | 120 |  |
 | I.2 | Các học phần tự chọn |  | 3/12 |  |  |  |  |
-| 3 | MAT8112 | Phương trình vi phân ngẫu nhiên
-nâng cao
-Advanced Stochastic Differential
-Equations | 3 | 30 | 0 | 120 |  |
-| 4 | MAT8113 | Lý thuyết điều khiển toán học
-Mathematical Control Theory | 3 | 30 | 0 | 120 |  |
-| 5 | MAT8203 | Phương trình đạo hàm riêng Elliptic
-Elliptic partial differential equations | 3 | 30 | 0 | 120 |  |
-| 6 | MAT8023 | Phương pháp biến phân nâng cao
-Advanced Variational Methods | 3 | 30 | 0 | 120 |  |
-| II | Chuyên đề NCS, tiểu luận tổng quan, và
-NCKH |  | 8 |  |  |  |  |
+| 3 | MAT8112 | Phương trình vi phân ngẫu nhiên<br>nâng cao<br>Advanced Stochastic Differential<br>Equations | 3 | 30 | 0 | 120 |  |
+| 4 | MAT8113 | Lý thuyết điều khiển toán học<br>Mathematical Control Theory | 3 | 30 | 0 | 120 |  |
+| 5 | MAT8203 | Phương trình đạo hàm riêng Elliptic<br>Elliptic partial differential equations | 3 | 30 | 0 | 120 |  |
+| 6 | MAT8023 | Phương pháp biến phân nâng cao<br>Advanced Variational Methods | 3 | 30 | 0 | 120 |  |
+| II | Chuyên đề NCS, tiểu luận tổng quan, và<br>NCKH |  | 8 |  |  |  |  |
 | II.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 7 | MAT8114 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 8 | MAT8115 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 9 | MAT8116 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 7 | MAT8114 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 8 | MAT8115 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 9 | MAT8116 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | II.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 10 | MAT8212 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 10 | MAT8212 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | II.3 | Nghiên cứu khoa học |  |  |  |  |  |  |
-| 11 |  | NCS xây dựng kế hoạch nghiên cứu,
-tổ chức triển khai và công bố các
-công trình nghiên cứu liên quan đến
-luận án trên các tạp chí chuyên ngành
-dưới sự hướng dẫn của giáo viên
-hướng dẫn. |  |  |  |  |  |
+| 11 |  | NCS xây dựng kế hoạch nghiên cứu,<br>tổ chức triển khai và công bố các<br>công trình nghiên cứu liên quan đến<br>luận án trên các tạp chí chuyên ngành<br>dưới sự hướng dẫn của giáo viên<br>hướng dẫn. |  |  |  |  |  |
 8
 
 <!-- Page 9 -->
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên
-quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ đào
-tạo |  |  |  |  |  |  |
-| 12 |  | Đơn vị chuyên môn lên lịch sinh hoạt
-chuyên môn và lịch cho từng NCS
-báo cáo, trình bày kết quả hoạt động
-chuyên môn của mình tại seminar do
-đơn vị chuyên môn tổ chức trong
-từng năm học.
-NCS phải tham gia đầy đủ các
-seminar khoa học hoặc các hội nghị,
-hội thảo do đơn vị chuyên môn tổ
-chức, quy định.
-NCS phải tham gia trợ giảng bậc đại
-học, thạc sĩ hoặc hướng dẫn SV/HV
-cao học thực hành, thực tập, hoặc
-hướng dẫn khóa luận tốt nghiệp đại
-học, tham gia giảng dạy/trợ giảng
-các khóa đào tạo, bồi dưỡng ngắn
-hạn do đơn vị tổ chức |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ đào<br>tạo |  |  |  |  |  |  |
+| 12 |  | Đơn vị chuyên môn lên lịch sinh hoạt<br>chuyên môn và lịch cho từng NCS<br>báo cáo, trình bày kết quả hoạt động<br>chuyên môn của mình tại seminar do<br>đơn vị chuyên môn tổ chức trong<br>từng năm học.<br>NCS phải tham gia đầy đủ các<br>seminar khoa học hoặc các hội nghị,<br>hội thảo do đơn vị chuyên môn tổ<br>chức, quy định.<br>NCS phải tham gia trợ giảng bậc đại<br>học, thạc sĩ hoặc hướng dẫn SV/HV<br>cao học thực hành, thực tập, hoặc<br>hướng dẫn khóa luận tốt nghiệp đại<br>học, tham gia giảng dạy/trợ giảng<br>các khóa đào tạo, bồi dưỡng ngắn<br>hạn do đơn vị tổ chức |  |  |  |  |  |
 | IV | Luận án |  | 80 |  |  |  |  |
-| 13 | MAT9102 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 13 | MAT9102 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 97 |  |  |  |  |
 9
 
 <!-- Page 10 -->
 2.2. Đối với NCS chưa có bằng thạc sĩ
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Học phần bổ sung |  | 30 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 18 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 3 | MAT6002 | Giải tích hàm nâng cao
-Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6152 | Những chương lựa chọn về đại số
-tuyến tính
-Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
-| 5 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 | 0 | 105 |  |
-| 6 | MAT6004 | Lý thuyết trường và lý thuyết
-Galois
-Field and Galois theory | 3 | 45 | 0 | 105 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6002 | Giải tích hàm nâng cao<br>Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6152 | Những chương lựa chọn về đại số<br>tuyến tính<br>Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
+| 5 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 | 0 | 105 |  |
+| 6 | MAT6004 | Lý thuyết trường và lý thuyết<br>Galois<br>Field and Galois theory | 3 | 45 | 0 | 105 |  |
 | I.2 | Các học phần tự chọn |  | 12/30 |  |  |  |  |
-| 7 | MAT6017 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 45 | 0 | 105 | MAT6008 |
-| 8 | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 45 | 0 | 105 |  |
-| 9 | MAT6100 | Phương trình đạo hàm riêng
-Partial Differential Equations | 3 | 45 | 0 | 105 |  |
-| 10 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
-| 11 | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 45 | 0 | 105 |  |
-| 12 | MAT6019 | Lý thuyết phổ của toán tử
-Spectral theory of linear operators | 3 | 45 | 0 | 105 |  |
-| 13 | MAT6122 | Phương trình vi phân trong không
-gian Banach
-Differential Equations in Banach
-spaces | 3 | 45 | 0 | 105 |  |
-| 14 | MAT6124 | Hàm nhiều biến phức
-Several complex variables | 3 | 45 | 0 | 105 | MAT6010 |
+| 7 | MAT6017 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 45 | 0 | 105 | MAT6008 |
+| 8 | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 | 0 | 105 |  |
+| 9 | MAT6100 | Phương trình đạo hàm riêng<br>Partial Differential Equations | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
+| 11 | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 45 | 0 | 105 |  |
+| 12 | MAT6019 | Lý thuyết phổ của toán tử<br>Spectral theory of linear operators | 3 | 45 | 0 | 105 |  |
+| 13 | MAT6122 | Phương trình vi phân trong không<br>gian Banach<br>Differential Equations in Banach<br>spaces | 3 | 45 | 0 | 105 |  |
+| 14 | MAT6124 | Hàm nhiều biến phức<br>Several complex variables | 3 | 45 | 0 | 105 | MAT6010 |
 10
 
 <!-- Page 11 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 15 | MAT6126 | Bài toán biên của phương trình
-Elliptic
-Elliptic boundary value problems | 3 | 45 | 0 | 105 | MAT6017 |
-| 16 | MAT6127 | Phương pháp biến phân
-Variational Methods | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 15 | MAT6126 | Bài toán biên của phương trình<br>Elliptic<br>Elliptic boundary value problems | 3 | 45 | 0 | 105 | MAT6017 |
+| 16 | MAT6127 | Phương pháp biến phân<br>Variational Methods | 3 | 45 | 0 | 105 |  |
 | II | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
-| 17 | MAT8110 | Hệ động lực vi phân
-Differential Dynamical Systems | 3 | 30 | 0 | 120 |  |
-| 18 | MAT8111 | Phương trình Đạo hàm riêng nâng
-cao
-Advanced partial differential
-equations | 3 | 30 | 0 | 120 |  |
+| 17 | MAT8110 | Hệ động lực vi phân<br>Differential Dynamical Systems | 3 | 30 | 0 | 120 |  |
+| 18 | MAT8111 | Phương trình Đạo hàm riêng nâng<br>cao<br>Advanced partial differential<br>equations | 3 | 30 | 0 | 120 |  |
 | II.2 | Các học phần tự chọn |  | 3/12 |  |  |  |  |
-| 19 | MAT8112 | Phương trình vi phân ngẫu nhiên
-nâng cao
-Advanced Stochastic Differential
-Equations | 3 | 30 | 0 | 120 |  |
-| 20 | MAT8113 | Lý thuyết điều khiển toán học
-Mathematical Control Theory | 3 | 30 | 0 | 120 |  |
-| 21 | MAT8203 | Phương trình đạo hàm riêng Elliptic
-Elliptic partial differential equations | 3 | 30 | 0 | 120 |  |
-| 22 | MAT8023 | Phương pháp biến phân nâng cao
-Advanced Variational Methods | 3 | 30 | 0 | 120 |  |
-| III | Chuyên đề NCS, tiểu luận tổng quan, và
-NCKH |  | 8 |  |  |  |  |
+| 19 | MAT8112 | Phương trình vi phân ngẫu nhiên<br>nâng cao<br>Advanced Stochastic Differential<br>Equations | 3 | 30 | 0 | 120 |  |
+| 20 | MAT8113 | Lý thuyết điều khiển toán học<br>Mathematical Control Theory | 3 | 30 | 0 | 120 |  |
+| 21 | MAT8203 | Phương trình đạo hàm riêng Elliptic<br>Elliptic partial differential equations | 3 | 30 | 0 | 120 |  |
+| 22 | MAT8023 | Phương pháp biến phân nâng cao<br>Advanced Variational Methods | 3 | 30 | 0 | 120 |  |
+| III | Chuyên đề NCS, tiểu luận tổng quan, và<br>NCKH |  | 8 |  |  |  |  |
 | III.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 23 | MAT8114 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 24 | MAT8115 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 25 | MAT8116 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 23 | MAT8114 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 24 | MAT8115 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 25 | MAT8116 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | III.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 26 | MAT8212 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 26 | MAT8212 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | III.3 |  |  |  |  |  |  |  |
 11
 
 <!-- Page 12 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 27 |  | NCS xây dựng kế hoạch nghiên cứu,
-tổ chức triển khai và công bố các
-công trình nghiên cứu liên quan đến
-luận án trên các tạp chí chuyên
-ngành dưới sự hướng dẫn của giáo
-viên hướng dẫn. |  |  |  |  |  |
-| IV | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ
-đào tạo |  |  |  |  |  |  |
-| 28 |  | Đơn vị chuyên môn lên lịch sinh
-hoạt chuyên môn và lịch cho từng
-NCS báo cáo, trình bày kết quả hoạt
-động chuyên môn của mình tại
-seminar do đơn vị chuyên môn tổ
-chức trong từng năm học.
-NCS phải tham gia đầy đủ các
-seminar khoa học hoặc các hội nghị,
-hội thảo do đơn vị chuyên môn tổ
-chức, quy định.
-NCS phải tham gia trợ giảng bậc đại
-học, thạc sĩ hoặc hướng dẫn SV/HV
-cao học thực hành, thực tập, hoặc
-hướng dẫn khóa luận tốt nghiệp đại
-học, tham gia giảng dạy/trợ giảng
-các khóa đào tạo, bồi dưỡng ngắn
-hạn do đơn vị tổ chức |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 27 |  | NCS xây dựng kế hoạch nghiên cứu,<br>tổ chức triển khai và công bố các<br>công trình nghiên cứu liên quan đến<br>luận án trên các tạp chí chuyên<br>ngành dưới sự hướng dẫn của giáo<br>viên hướng dẫn. |  |  |  |  |  |
+| IV | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ<br>đào tạo |  |  |  |  |  |  |
+| 28 |  | Đơn vị chuyên môn lên lịch sinh<br>hoạt chuyên môn và lịch cho từng<br>NCS báo cáo, trình bày kết quả hoạt<br>động chuyên môn của mình tại<br>seminar do đơn vị chuyên môn tổ<br>chức trong từng năm học.<br>NCS phải tham gia đầy đủ các<br>seminar khoa học hoặc các hội nghị,<br>hội thảo do đơn vị chuyên môn tổ<br>chức, quy định.<br>NCS phải tham gia trợ giảng bậc đại<br>học, thạc sĩ hoặc hướng dẫn SV/HV<br>cao học thực hành, thực tập, hoặc<br>hướng dẫn khóa luận tốt nghiệp đại<br>học, tham gia giảng dạy/trợ giảng<br>các khóa đào tạo, bồi dưỡng ngắn<br>hạn do đơn vị tổ chức |  |  |  |  |  |
 | V | Luận án |  | 80 |  |  |  |  |
-| 29 | MAT9102 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 29 | MAT9102 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 127 |  |  |  |  |
 12

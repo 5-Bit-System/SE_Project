@@ -8,13 +8,11 @@ major: "computer_science"
 
 6. Ma trận chuẩn đầu ra
 
-| STT | Mã HP | CĐR 
-Học phần | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ |
+| STT | Mã HP | CĐR<br>Học phần | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ |
 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-| STT | Mã HP | CĐR 
-Học phần | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PS1 | PS2 | PS3 | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
+| STT | Mã HP | CĐR<br>Học phần | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PS1 | PS2 | PS3 | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 
 | 17 | MAT2505 | Lập trình cơ bản |  | 3 | 3 | 3 |  | 2 |  | 2 | 3 | 3 | 2 |  | 2 |  | 2 |  | 3 | 2 |
 

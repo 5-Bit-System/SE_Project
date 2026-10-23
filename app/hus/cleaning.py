@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from typing import Any
 import unicodedata
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -285,14 +286,25 @@ def infer_attachment_major(
     return parent_major if major is None else major
 
 
-def format_markdown_table(rows: list[list[str]]) -> list[str]:
+def clean_table_cell(cell: Any) -> str:
+    """Clean a table cell: convert to string, clean text, escape pipe, and replace newlines with <br>."""
+    if cell is None:
+        return ""
+    text = clean_text(str(cell)).replace("|", "/")
+    text = re.sub(r"[\r\n]+", "<br>", text)
+    text = re.sub(r"\s*<br\s*/?>\s*", "<br>", text)
+    text = re.sub(r"^(?:<br>)+|(?:<br>)+$", "", text)
+    return text.strip()
+
+
+def format_markdown_table(rows: list[list[Any]]) -> list[str]:
     """Format 2D table grid to standard Markdown table with column alignment."""
     if not rows:
         return []
 
     cleaned_rows = []
     for row in rows:
-        cells = [clean_text(str(c)).replace("|", "/") for c in row]
+        cells = [clean_table_cell(c) for c in row]
         if any(cells):
             cleaned_rows.append(cells)
 

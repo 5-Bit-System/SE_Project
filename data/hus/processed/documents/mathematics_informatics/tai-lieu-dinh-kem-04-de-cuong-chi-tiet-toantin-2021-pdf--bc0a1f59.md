@@ -102,8 +102,7 @@ MỤC LỤC
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác)
-| STT | Họ và tên | Chức danh,
-học vị | Đơn vị công tác | Ghi chú |
+| STT | Họ và tên | Chức danh,<br>học vị | Đơn vị công tác | Ghi chú |
 | --- | --- | --- | --- | --- |
 | 1. | Đặng Thị Lan | PGS.TS | KHXHN&NV |  |
 | 2. | Trần Thị Điểu | TS | KHXHN&NV |  |
@@ -312,18 +311,12 @@ sáng của đất nước.
 gia xây dựng và bảo vệ Đất nước.
 8. Phương pháp, hình thức kiểm tra, đánh giá kết quả học tập của học phần
 8.1.Mục đích và trọng số kiểm tra - đánh giá
-| Hình thức | Tính chất của nội dung
-kiểm tra | Mục đích kiểm tra | Trọng số |
+| Hình thức | Tính chất của nội dung<br>kiểm tra | Mục đích kiểm tra | Trọng số |
 | --- | --- | --- | --- |
-| Chuyên cần | Mức độ tham gia học tập
-của sinh viên | Thái độ với học phần | 10% |
-| Bài tập nhóm | Cách thức giải quyết một
-vấn đề cụ thể. | Kiến thức và kỹ năng làm
-việc nhóm | 15% |
-| Kiểm tra giữa kỳ | Chuẩn bị cho sinh viên thi
-kết thúc học phần. | Kiến thức | 15% |
-| Thi hết học phần | Kiểm tra toàn diện | Kiến thức và các kỹ năng
-liên quan đến học phần. | 60% |
+| Chuyên cần | Mức độ tham gia học tập<br>của sinh viên | Thái độ với học phần | 10% |
+| Bài tập nhóm | Cách thức giải quyết một<br>vấn đề cụ thể. | Kiến thức và kỹ năng làm<br>việc nhóm | 15% |
+| Kiểm tra giữa kỳ | Chuẩn bị cho sinh viên thi<br>kết thúc học phần. | Kiến thức | 15% |
+| Thi hết học phần | Kiểm tra toàn diện | Kiến thức và các kỹ năng<br>liên quan đến học phần. | 60% |
 |  |  |  | 100% |
 8.2. Tiêu chí đánh giá các loại bài tập và kiểm tra đánh giá
 8.2.1. Chuyên cần: 10%
@@ -1387,9 +1380,7 @@ Mục tiêu chi tiết
 Phần 1. Các kiến thức cơ bản về công nghệ thông tin
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
-| Nội dung 1.
-Thông tin và xử lý thông tin | Nắm được khái niệm cơ bản về thông
-tin và xử lý thông tin . |
+| Nội dung 1.<br>Thông tin và xử lý thông tin | Nắm được khái niệm cơ bản về thông<br>tin và xử lý thông tin . |
 | Nội dung 2. | Hiểu biết việc xử lý thông tin bằng máy tính |
 42
 
@@ -1397,92 +1388,32 @@ tin và xử lý thông tin . |
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
 | Xử lý thông tin bằng máy tính điện tử | điện tử |
-| Nội dung 3.
-Máy tính điện tử | Nắm được cấu trúc cơ bản của MTĐT, quá
-trình thi hành lệnh của máy tính điện tử,
-Nguyên lý Von Neumann |
-| Nội dung 4.
-Các hệ đếm thường dùng trong tin
-học | Nắm vững khái niệm, ý nghĩa của các hệ
-đếm cơ số. Thành thạo trong việc chuyển đổi
-biểu diễn giữa các hệ cơ số. |
-| Nội dung 5.
-Một số kiến thức về đại số logic | Nắm vững một số kiến thức ban đầu về đại
-số logic, các mạch logic |
-| Nội dung 6.
-Biểu diễn thông tin trong máy tính | Hiểu rõ cách biểu diễn thông tin trong máy
-tính đối với một số loại dữ liệu |
-| Nội dung 7.
-Thuật toán xử lý thông tin | Nắm vững khái niệm thuật toán và các
-phương pháp biểu diễn thuật toán, các đặc
-trưng của thuật toán, độ phức tạp của thuật
-toán |
-| Nội dung 8.
-Hệ điều hành | Nắm được khái niệm hệ điều hành, các chức
-năng của hệ điều hành, sự tiến triển của các
-hệ điều hành |
-| Nội dung 9.
-Phần mềm | Hiểu khái niệm về phần mềm, phân loại phần
-mềm hệ thống và ứng dụng. Một số loại phần
-mềm. |
-| Nội dung 10.
-Ngôn ngữ lập trình và chương trình
-dịch | Nắm được khái niệm ngôn ngữ lập trình và
-các mức khác nhau của ngôn ngữ lập trình,
-khái niệm về chương trình dịch và các loại
-chương trình dịch. |
-| Nội dung 11.
-Mạng máy tính | Hiểu rõ mạng máy tính, giao thức, topology,
-phân loại mạng theo tiêu chí địa lý. |
-| Nội dung 12.
-Cơ sở dữ liệu | Nắm được các khái niệm cỏ bản về dữ
-liệu và cách tổ chức dữ liệu theo mô hình
-dữ liệu quan hệ. |
-| Nội dung 13.
-Ứng dụng của công nghệ thông tin | Hiểu biết về ứng dụng công nghệ thông tin
-trong các lĩnh vực của đời sống. |
+| Nội dung 3.<br>Máy tính điện tử | Nắm được cấu trúc cơ bản của MTĐT, quá<br>trình thi hành lệnh của máy tính điện tử,<br>Nguyên lý Von Neumann |
+| Nội dung 4.<br>Các hệ đếm thường dùng trong tin<br>học | Nắm vững khái niệm, ý nghĩa của các hệ<br>đếm cơ số. Thành thạo trong việc chuyển đổi<br>biểu diễn giữa các hệ cơ số. |
+| Nội dung 5.<br>Một số kiến thức về đại số logic | Nắm vững một số kiến thức ban đầu về đại<br>số logic, các mạch logic |
+| Nội dung 6.<br>Biểu diễn thông tin trong máy tính | Hiểu rõ cách biểu diễn thông tin trong máy<br>tính đối với một số loại dữ liệu |
+| Nội dung 7.<br>Thuật toán xử lý thông tin | Nắm vững khái niệm thuật toán và các<br>phương pháp biểu diễn thuật toán, các đặc<br>trưng của thuật toán, độ phức tạp của thuật<br>toán |
+| Nội dung 8.<br>Hệ điều hành | Nắm được khái niệm hệ điều hành, các chức<br>năng của hệ điều hành, sự tiến triển của các<br>hệ điều hành |
+| Nội dung 9.<br>Phần mềm | Hiểu khái niệm về phần mềm, phân loại phần<br>mềm hệ thống và ứng dụng. Một số loại phần<br>mềm. |
+| Nội dung 10.<br>Ngôn ngữ lập trình và chương trình<br>dịch | Nắm được khái niệm ngôn ngữ lập trình và<br>các mức khác nhau của ngôn ngữ lập trình,<br>khái niệm về chương trình dịch và các loại<br>chương trình dịch. |
+| Nội dung 11.<br>Mạng máy tính | Hiểu rõ mạng máy tính, giao thức, topology,<br>phân loại mạng theo tiêu chí địa lý. |
+| Nội dung 12.<br>Cơ sở dữ liệu | Nắm được các khái niệm cỏ bản về dữ<br>liệu và cách tổ chức dữ liệu theo mô hình<br>dữ liệu quan hệ. |
+| Nội dung 13.<br>Ứng dụng của công nghệ thông tin | Hiểu biết về ứng dụng công nghệ thông tin<br>trong các lĩnh vực của đời sống. |
 43
 
 <!-- Page 44 -->
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
-| Nội dung 14.
-Công nghệ thông tin và xã hội | Có hiểu biết đúng về an toàn thông tin và
-mạng, các phần mềm có hại (virus, worm,
-spyware, ...), tội phạm tin học, sở hữu trí tuệ
-và luật pháp về CNTT |
+| Nội dung 14.<br>Công nghệ thông tin và xã hội | Có hiểu biết đúng về an toàn thông tin và<br>mạng, các phần mềm có hại (virus, worm,<br>spyware, ...), tội phạm tin học, sở hữu trí tuệ<br>và luật pháp về CNTT |
 Phần 2. Sử dụng máy tính
 | Nội dung | Các kỹ năng cần đạt được |
 | --- | --- |
-| Nội dung 1.
-Sử dụng hệ điều hành | - Khởi động và tắt máy an toàn; biết cách tra
-cứu cấu hình hệ thống
-- Tạo hệ thống thư mục, tổ chức lưu trữ, quản
-lý các tệp, kể cả chia sẻ qua mạng
-- Thực hiện được các ứng dụng từ hệ điều hành |
-| Nội dung 2.
-Phần mềm soạn thảo văn bản | - Soạn thảo, định dạng, đánh chỉ mục tự động
-và lưu trữ thành thạo văn bản
-- Điền được tên tự động từ một bảng danh sách
-người nhận (mail merge) |
-| Nội dung 3.
-Bảng tính | - Tạo lập các trang của bảng tính; soạn thảo
-thành thạo nội dung các ô và định dạng các
-kiểu dữ liệu cơ bản.
-- Lập được công thức và sử dụng được các
-hàm, chèn được đối tượng,
-- Nắm được các thao tác với cơ sở dữ liệu.
-- Làm được biểu đồ |
-| Nội dung 4.
-Phần mềm trình chiếu | - Làm việc thành thạo với công cụ trình chiếu
-- Thực hiện tốt các thao tác với văn bản, đồ
-hoạ và các hiệu ứng trên bài trình chiếu |
-| Nội dung 5.
-Mạng máy tính | - Sử dụng trình duyệt web để truy cập web; sử
-dụng thành thạo và hiệu quả các công cụ tìm
-kiếm trên web. |
-| Nội dung 6.
-Cơ sở dữ liệu | - Biết một hệ quản trị cơ sở dữ liệu đơn giản |
+| Nội dung 1.<br>Sử dụng hệ điều hành | - Khởi động và tắt máy an toàn; biết cách tra<br>cứu cấu hình hệ thống<br>- Tạo hệ thống thư mục, tổ chức lưu trữ, quản<br>lý các tệp, kể cả chia sẻ qua mạng<br>- Thực hiện được các ứng dụng từ hệ điều hành |
+| Nội dung 2.<br>Phần mềm soạn thảo văn bản | - Soạn thảo, định dạng, đánh chỉ mục tự động<br>và lưu trữ thành thạo văn bản<br>- Điền được tên tự động từ một bảng danh sách<br>người nhận (mail merge) |
+| Nội dung 3.<br>Bảng tính | - Tạo lập các trang của bảng tính; soạn thảo<br>thành thạo nội dung các ô và định dạng các<br>kiểu dữ liệu cơ bản.<br>- Lập được công thức và sử dụng được các<br>hàm, chèn được đối tượng,<br>- Nắm được các thao tác với cơ sở dữ liệu.<br>- Làm được biểu đồ |
+| Nội dung 4.<br>Phần mềm trình chiếu | - Làm việc thành thạo với công cụ trình chiếu<br>- Thực hiện tốt các thao tác với văn bản, đồ<br>hoạ và các hiệu ứng trên bài trình chiếu |
+| Nội dung 5.<br>Mạng máy tính | - Sử dụng trình duyệt web để truy cập web; sử<br>dụng thành thạo và hiệu quả các công cụ tìm<br>kiếm trên web. |
+| Nội dung 6.<br>Cơ sở dữ liệu | - Biết một hệ quản trị cơ sở dữ liệu đơn giản |
 7. Chuẩn đầu ra của học phần (kiến thức, kĩ năng, thái độ):
 Chuẩn đầu ra về kiến thức:
 - Áp dụng thành thạo công nghệ thông tin trong cuộc sống hàng ngày
@@ -1738,40 +1669,15 @@ nắm được thông tin phản hồi để điều chỉnh cách dạy và h�
 - Chuẩn bị bài đầy đủ.
 - Tích cực tham gia ý kiến.
 8.2. Kiểm tra – đánh giá định kỳ
-| Hình thức | Nội dung
-kiểm tra | Mục đích kiểm tra | Tỷ lệ
-điểm |
+| Hình thức | Nội dung<br>kiểm tra | Mục đích kiểm tra | Tỷ lệ<br>điểm |
 | --- | --- | --- | --- |
-| Đánh giá thường
-xuyên trên lớp
-(phát biểu, trả
-lời câu hỏi, tham
-gia thảo luận) | Điểm danh
-Tính tích cực học
-tập của sinh
-viên | - Ý thức học tập của sinh viên
-- Trách nhiệm đối với học
-phần của sinh viên
-- chuẩn bị bài, đọc sách
-- có được thông tin phản hồi
-từ sinh viên để điều chỉnh
-cách dạy và học phù hợp | 10% |
+| Đánh giá thường<br>xuyên trên lớp<br>(phát biểu, trả<br>lời câu hỏi, tham<br>gia thảo luận) | Điểm danh<br>Tính tích cực học<br>tập của sinh<br>viên | - Ý thức học tập của sinh viên<br>- Trách nhiệm đối với học<br>phần của sinh viên<br>- chuẩn bị bài, đọc sách<br>- có được thông tin phản hồi<br>từ sinh viên để điều chỉnh<br>cách dạy và học phù hợp | 10% |
 51
 
 <!-- Page 52 -->
-| Bài kiểm tra giữa kỳ | Năng lực khái
-quát kiến thức
-của sinh viên | Đánh giá tổng hợp kiến thức
-và kỹ năng thu được sau
-nửa học kỳ | 30% |
+| Bài kiểm tra giữa kỳ | Năng lực khái<br>quát kiến thức<br>của sinh viên | Đánh giá tổng hợp kiến thức<br>và kỹ năng thu được sau<br>nửa học kỳ | 30% |
 | --- | --- | --- | --- |
-| Bài kiểm tra cuối kỳ | Năng lực phân
-tích, so sánh,
-đưa ra nhận
-định cá nhân
-của sinh viên | Đánh giá trên 3 mức: trình
-bày, chứng minh, phân
-tích, so sánh của sinh viên | 60% |
+| Bài kiểm tra cuối kỳ | Năng lực phân<br>tích, so sánh,<br>đưa ra nhận<br>định cá nhân<br>của sinh viên | Đánh giá trên 3 mức: trình<br>bày, chứng minh, phân<br>tích, so sánh của sinh viên | 60% |
 9. Giáo trình bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
 | - Trần Quốc Vượng (Cb), Cơ sở văn hoá Việt Nam, NXB Giáo dục, Hà Nội, |
 | --- |
@@ -2250,51 +2156,11 @@ lắng nghe.
 được giao và có tinh thần làm việc hợp tác, phối hợp với người khác và
 trong tập thể.
 8. Phương pháp kiểm tra đánh giá:
-| Hình thức | Tính chất của
-nội dung kiểm tra | Mục đích kiểm tra | Trọng
-số tính điểm |
+| Hình thức | Tính chất của<br>nội dung kiểm tra | Mục đích kiểm tra | Trọng<br>số tính điểm |
 | --- | --- | --- | --- |
-| Bài tập cá
-nhân
-(các bài tập
-được giao có kiểm tra,
-đánh giá, các bài tóm
-tắt những tài liệu đã
-đọc, các thu hoạch đã
-làm ở nhà và các nội
-dung sưu tầm, ứng
-dụng của học phần) | Kiểm soát
-việc chuẩn bị bài và
-năng lực tổng hợp
-vấn đề từ các kênh
-thông tin liên quan
-đến học phần. | Đánh giá ý thức
-học tập thường xuyên và
-kỹ năng làm việc độc lập.
-Đánh giá khả năng tổng
-hợp và trình bầy các kiến
-thức thu nhận được từ các
-nguồn tài liệu và từ bài
-giảng. | 20% |
-| Bài tập lớn/
-Tiểu luận học phần
-(Tiểu luận do
-sinh viên lựa chọn trên
-cơ sở danh mục gợi ý
-GV đưa ra từ đầu học
-phần) | Đánh giá kĩ
-năng nghiên cứu trọn
-vẹn một vấn đề thuộc
-nội dung học phần. | Đánh giá kỹ năng
-triển khai các vấn đề
-nghiên cứu và học tập
-chung. | 20% |
-| Thi hết môn | Hình thức thi
-là : Thi Viết | Đánh giá kiến
-thức, năng lực tư duy và
-khả năng triển khai và ứng
-dụng vấn đề trong thực
-tiễn. | 60% |
+| Bài tập cá<br>nhân<br>(các bài tập<br>được giao có kiểm tra,<br>đánh giá, các bài tóm<br>tắt những tài liệu đã<br>đọc, các thu hoạch đã<br>làm ở nhà và các nội<br>dung sưu tầm, ứng<br>dụng của học phần) | Kiểm soát<br>việc chuẩn bị bài và<br>năng lực tổng hợp<br>vấn đề từ các kênh<br>thông tin liên quan<br>đến học phần. | Đánh giá ý thức<br>học tập thường xuyên và<br>kỹ năng làm việc độc lập.<br>Đánh giá khả năng tổng<br>hợp và trình bầy các kiến<br>thức thu nhận được từ các<br>nguồn tài liệu và từ bài<br>giảng. | 20% |
+| Bài tập lớn/<br>Tiểu luận học phần<br>(Tiểu luận do<br>sinh viên lựa chọn trên<br>cơ sở danh mục gợi ý<br>GV đưa ra từ đầu học<br>phần) | Đánh giá kĩ<br>năng nghiên cứu trọn<br>vẹn một vấn đề thuộc<br>nội dung học phần. | Đánh giá kỹ năng<br>triển khai các vấn đề<br>nghiên cứu và học tập<br>chung. | 20% |
+| Thi hết môn | Hình thức thi<br>là : Thi Viết | Đánh giá kiến<br>thức, năng lực tư duy và<br>khả năng triển khai và ứng<br>dụng vấn đề trong thực<br>tiễn. | 60% |
 9. Học liệu:
 9.1. Học liệu bắt buộc :
 66
@@ -2441,305 +2307,52 @@ Tuần 14: Tự học có kiểm tra, đánh gia nội dung 8 (1 giờ tín ch�
 dung 8 trên lớp (1 giờ tín chỉ);
 Tuần 15: Giảng nội dung 8 trên lớp (1 giờ tín chỉ); Thảo luận nội dung 8 (1 giờ tín
 chỉ).
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-| Tuần 1 | Đối tượng nghiên cứu, phạm vi nghiên cứu và
-phương pháp nghiên cứu học phần nhà nước | - Giáo trình đại
-cương về nhà nước |  |
+| Tuần 1 | Đối tượng nghiên cứu, phạm vi nghiên cứu và<br>phương pháp nghiên cứu học phần nhà nước | - Giáo trình đại<br>cương về nhà nước |  |
 70
 
 <!-- Page 71 -->
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-|  | và pháp luật đại cương
-1. Giới thiệu đề cương và tổng quan học phần.
-2. Trình bày bài Khái luận về nhà nước và pháp
-luật đại cương gồm:
-6.2. - Đối tượng nghiên cứu của khoa
-học NNPLĐC
-6.3. - Phạm vi nghiên cứu
-6.4. - Phương pháp nghiên cứu
-- ý nghĩa của khoa học, học phần NNPLĐC | và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 2 | Nguồn gốc, bản chất, các đặc trưng nhà nước
-1. Nguồn gốc nhà nước
-2. Bản chất và các đặc trưng cơ bản của nhà
-nước | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 3 | Bản chất và những đặc điểm cơ bản của nhà
-nước Cộng hòa xã hội chủ nghĩa Việt Nam
-1. Bản chất
-2. Các đặc trưng cơ bản của nhà nước Cộng hòa
-xã hội chủ nghĩa Việt Nam | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 4 | Bộ máy, chức năng, hình thức nhà nước và
-chế độ chính trị
-1. Khái niệm chức năng của nhà nước, hình
-thức và phương pháp thực hiện chức năng
-của nhà nước.
-2. Chức năng kinh tế và chức năng xã hội
-của nhà nước Cộng hòa xã hội chủ nghĩa | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài |  |
+|  | và pháp luật đại cương<br>1. Giới thiệu đề cương và tổng quan học phần.<br>2. Trình bày bài Khái luận về nhà nước và pháp<br>luật đại cương gồm:<br>6.2. - Đối tượng nghiên cứu của khoa<br>học NNPLĐC<br>6.3. - Phạm vi nghiên cứu<br>6.4. - Phương pháp nghiên cứu<br>- ý nghĩa của khoa học, học phần NNPLĐC | và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 2 | Nguồn gốc, bản chất, các đặc trưng nhà nước<br>1. Nguồn gốc nhà nước<br>2. Bản chất và các đặc trưng cơ bản của nhà<br>nước | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 3 | Bản chất và những đặc điểm cơ bản của nhà<br>nước Cộng hòa xã hội chủ nghĩa Việt Nam<br>1. Bản chất<br>2. Các đặc trưng cơ bản của nhà nước Cộng hòa<br>xã hội chủ nghĩa Việt Nam | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 4 | Bộ máy, chức năng, hình thức nhà nước và<br>chế độ chính trị<br>1. Khái niệm chức năng của nhà nước, hình<br>thức và phương pháp thực hiện chức năng<br>của nhà nước.<br>2. Chức năng kinh tế và chức năng xã hội<br>của nhà nước Cộng hòa xã hội chủ nghĩa | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài |  |
 71
 
 <!-- Page 72 -->
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-|  | Việt Nam hiện nay. | liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 5 | Tự học, có kiểm tra, đánh giá
-Đọc tài liệu và chuẩn bị các vấn đề sau :
-1. Sự vận động và phát triển chức năng kinh tế và
-chức năng xã hội của nhà nước ta trong giai
-đoạn hiện nay? Liên hệ thực tiễn?
-2. Vẽ sơ đồ bộ máy nhà nước Cộng hoà xã hội
-chủ nghĩa Việt Nam, thể hiện rõ được trật tự
-thành lập và quan hệ lãnh đạo?
-3. Vẽ sơ đồ và trình bày về hình thức nhà nước?
-4. Phân biệt các hình thức chính thể: quân chủ
-chuyên chế, quân chủ hạn chế? Cộng hoà tổng
-thống, cộng hoà đại nghị, cộng hoà lưỡng
-tính?…
-5. Chính thể của nhà nước ta hiện nay? Dựa
-trên cơ sở những tiêu chí nào để khẳng định
-rằng nhà nước Cộng hoà xã hội chủ nghĩa
-Việt nam là nhà nước đơn nhất?
-6. Sự khác nhau căn bản giữa nhà nước liên
-bang và nhà nước liên minh? Liên hệ thực tế
-về sự xuất hiện ngày càng đa dạng sự liên
-kết giữa các quốc gia: WTO, EU, ASEAN,
-AFTA… Theo anh (chị) sự xuất hiện những
-sự liên kết này có dẫn đến việc cần phải bổ
-sung hay thay đổi khái niệm "nhà nước liên
-minh" hay không? Giải thích?
-7. Bình luận Điều 1 Hiến pháp 2013: “Nhà
-nước Cộng hòa xã hội chủ nghĩa Việt nam
-là một nước độc lập, có chủ quyền, thống
-nhất và toàn vẹn lãnh thổ, bao gồm đất liền,
-hải đảo, vùng biển và vùng trời.” | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài liệu liên
-quan theo hướng dẫn
-của giảng viên |  |
+|  | Việt Nam hiện nay. | liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 5 | Tự học, có kiểm tra, đánh giá<br>Đọc tài liệu và chuẩn bị các vấn đề sau :<br>1. Sự vận động và phát triển chức năng kinh tế và<br>chức năng xã hội của nhà nước ta trong giai<br>đoạn hiện nay? Liên hệ thực tiễn?<br>2. Vẽ sơ đồ bộ máy nhà nước Cộng hoà xã hội<br>chủ nghĩa Việt Nam, thể hiện rõ được trật tự<br>thành lập và quan hệ lãnh đạo?<br>3. Vẽ sơ đồ và trình bày về hình thức nhà nước?<br>4. Phân biệt các hình thức chính thể: quân chủ<br>chuyên chế, quân chủ hạn chế? Cộng hoà tổng<br>thống, cộng hoà đại nghị, cộng hoà lưỡng<br>tính?…<br>5. Chính thể của nhà nước ta hiện nay? Dựa<br>trên cơ sở những tiêu chí nào để khẳng định<br>rằng nhà nước Cộng hoà xã hội chủ nghĩa<br>Việt nam là nhà nước đơn nhất?<br>6. Sự khác nhau căn bản giữa nhà nước liên<br>bang và nhà nước liên minh? Liên hệ thực tế<br>về sự xuất hiện ngày càng đa dạng sự liên<br>kết giữa các quốc gia: WTO, EU, ASEAN,<br>AFTA… Theo anh (chị) sự xuất hiện những<br>sự liên kết này có dẫn đến việc cần phải bổ<br>sung hay thay đổi khái niệm "nhà nước liên<br>minh" hay không? Giải thích?<br>7. Bình luận Điều 1 Hiến pháp 2013: “Nhà<br>nước Cộng hòa xã hội chủ nghĩa Việt nam<br>là một nước độc lập, có chủ quyền, thống<br>nhất và toàn vẹn lãnh thổ, bao gồm đất liền,<br>hải đảo, vùng biển và vùng trời.” | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài liệu liên<br>quan theo hướng dẫn<br>của giảng viên |  |
 72
 
 <!-- Page 73 -->
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-| Tuần 6 | Bộ máy, chức năng, hình thức nhà nước và
-chế độ chính trị
-1. Bộ máy nhà nước và Bộ máy nhà nước Cộng
-hòa xã hội chủ nghĩa Việt Nam; | - Giáo trình đại
-cương về nhà nước và
-pháp luật, Nhà xuất
-bản Đại học Quốc gia
-Hà nội, 2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 7 | Bộ máy, chức năng, hình thức nhà nước và
-chế độ chính trị
-1. Hình thức nhà nước: hình thức chính thể;
-hình thức cấu trúc nhà nước, liên hệ nhà nước
-Việt Nam hiện nay
-2. Chế độ chính trị | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 8 | Nguồn gốc, thuộc tính, bản chất, chúc năng,
-vai trò, hình thức, Qui phạm pháp luật, Văn
-bản Qui phạm pháp luật
-1. Nguồn gốc của pháp luật;
-2. Bản chất của pháp luật; Các thuộc tính của
-pháp luật; Định nghĩa pháp luật;
-3. Chức năng của pháp luật;
-4. Vai trò của pháp luật. | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 9 | Nguồn gốc, thuộc tính, bản chất, chúc năng,
-vai trò, hình thức, các mối liên hệ, Qui phạm
-pháp luật, văn bản Qui phạm pháp luật
-1. Hình thức của pháp luật;
-2. Các mối liên hệ của pháp luật | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài |  |
+| Tuần 6 | Bộ máy, chức năng, hình thức nhà nước và<br>chế độ chính trị<br>1. Bộ máy nhà nước và Bộ máy nhà nước Cộng<br>hòa xã hội chủ nghĩa Việt Nam; | - Giáo trình đại<br>cương về nhà nước và<br>pháp luật, Nhà xuất<br>bản Đại học Quốc gia<br>Hà nội, 2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 7 | Bộ máy, chức năng, hình thức nhà nước và<br>chế độ chính trị<br>1. Hình thức nhà nước: hình thức chính thể;<br>hình thức cấu trúc nhà nước, liên hệ nhà nước<br>Việt Nam hiện nay<br>2. Chế độ chính trị | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 8 | Nguồn gốc, thuộc tính, bản chất, chúc năng,<br>vai trò, hình thức, Qui phạm pháp luật, Văn<br>bản Qui phạm pháp luật<br>1. Nguồn gốc của pháp luật;<br>2. Bản chất của pháp luật; Các thuộc tính của<br>pháp luật; Định nghĩa pháp luật;<br>3. Chức năng của pháp luật;<br>4. Vai trò của pháp luật. | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 9 | Nguồn gốc, thuộc tính, bản chất, chúc năng,<br>vai trò, hình thức, các mối liên hệ, Qui phạm<br>pháp luật, văn bản Qui phạm pháp luật<br>1. Hình thức của pháp luật;<br>2. Các mối liên hệ của pháp luật | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài |  |
 73
 
 <!-- Page 74 -->
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-|  |  | liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 10 | Thực hiện pháp luật, quan hệ pháp luật, ý
-thức pháp luật, văn hóa pháp luật, giáo dục
-pháp luật; hành vi pháp luật, vi phạm pháp
-luật, trách nhiệm pháp lý
-1. Qui phạm pháp luật
-2. Văn bản qui phạm pháp luật | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 11 | Thực hiện pháp luật, quan hệ pháp luật, ý
-thức pháp luật, văn hóa pháp luật, giáo dục
-pháp luật; hành vi pháp luật, vi phạm pháp
-luật, trách nhiệm pháp lý (Tiếp theo)
-1. Thực hiện pháp luật và áp dụng pháp luật
-2. Quan hệ pháp luật
-3. Ý thức pháp luật, văn hóa pháp luật, giáo dục
-pháp luật | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 12 | Tự học, có kiểm tra đánh giá:
-Thực hiện pháp luật, quan hệ pháp luật, ý
-thức pháp luật, văn hóa pháp luật, giáo dục
-pháp luật; hành vi pháp luật, vi phạm pháp
-luật, trách nhiệm pháp lý (Tiếp theo)
-(Nội dung tự học do giảng viên đưa ra là các
-vấn đề liên quan đến nội dung bài học trong
-đó có các vấn đề: 1. Thực hiện pháp luật và áp
-dụng pháp luật; 2. Quan hệ pháp luật; 3. Ý thức
-pháp luật, văn hóa pháp luật, giáo dục pháp
-luật). | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 13 | Thực hiện pháp luật, quan hệ pháp luật, ý
-thức pháp luật, văn hóa pháp luật, giáo dục | - Giáo trình đại
-cương về nhà nước |  |
+|  |  | liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 10 | Thực hiện pháp luật, quan hệ pháp luật, ý<br>thức pháp luật, văn hóa pháp luật, giáo dục<br>pháp luật; hành vi pháp luật, vi phạm pháp<br>luật, trách nhiệm pháp lý<br>1. Qui phạm pháp luật<br>2. Văn bản qui phạm pháp luật | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 11 | Thực hiện pháp luật, quan hệ pháp luật, ý<br>thức pháp luật, văn hóa pháp luật, giáo dục<br>pháp luật; hành vi pháp luật, vi phạm pháp<br>luật, trách nhiệm pháp lý (Tiếp theo)<br>1. Thực hiện pháp luật và áp dụng pháp luật<br>2. Quan hệ pháp luật<br>3. Ý thức pháp luật, văn hóa pháp luật, giáo dục<br>pháp luật | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 12 | Tự học, có kiểm tra đánh giá:<br>Thực hiện pháp luật, quan hệ pháp luật, ý<br>thức pháp luật, văn hóa pháp luật, giáo dục<br>pháp luật; hành vi pháp luật, vi phạm pháp<br>luật, trách nhiệm pháp lý (Tiếp theo)<br>(Nội dung tự học do giảng viên đưa ra là các<br>vấn đề liên quan đến nội dung bài học trong<br>đó có các vấn đề: 1. Thực hiện pháp luật và áp<br>dụng pháp luật; 2. Quan hệ pháp luật; 3. Ý thức<br>pháp luật, văn hóa pháp luật, giáo dục pháp<br>luật). | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 13 | Thực hiện pháp luật, quan hệ pháp luật, ý<br>thức pháp luật, văn hóa pháp luật, giáo dục | - Giáo trình đại<br>cương về nhà nước |  |
 74
 
 <!-- Page 75 -->
-| Tuần | Nội dung chính | Tài liệu chính cần
-đọc | Ghi chú |
+| Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
-|  | pháp luật; hành vi pháp luật, vi phạm pháp
-luật, trách nhiệm pháp lý (Tiếp theo)
-1. Hành vi pháp luật và vi phạm pháp luật;
-2. Trách nhiệm pháp lý; | và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 14 | Giảng lý thuyết nội dung 8: Hệ thống pháp luật
-Việt Nam (01 giờ tín chỉ)
-Tự học có kiểm tra đánh giá (1 tín chỉ) các nội
-dung có liên quan đến Hệ thống pháp luật Việt
-Nam bao gồm:
-- Khái niệm và đặc điểm của hệ thống pháp luật
-Việt Nam;
-- Các nguyên tắc của hệ thống pháp luật Việt
-Nam;
-- Những căn cứ phân định hệ thống pháp luật
-thành những ngành luật;
-- Một số ngành luật trong hệ thống pháp luật
-Việt Nam. | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
-| Tuần 15 | Hệ thống pháp luật Việt Nam (01 giờ tín chỉ).
-Giảng viên hệ thống hóa các kiến thức về các
-ngành luật trong hệ thống pháp luật Việt Nam:
-- Luật Hiến pháp;
-- Luật hành chính;
-- Luật hình sự và Luật tố tụng hình sự;
-- Luật dân sự, Luật tố tụng dân sự và Luật hôn
-nhân và gia đình;
-- Pháp luật về kinh tế, lao động, tài chính, đất
-đai, môi trường.
-Ôn tập (01 giờ tín chỉ) | - Giáo trình đại
-cương về nhà nước
-và pháp luật, Nhà
-xuất bản Đại học
-Quốc gia Hà nội,
-2018
-- Đọc các tài
-liệu liên quan theo
-hướng dẫn của giảng
-viên |  |
+|  | pháp luật; hành vi pháp luật, vi phạm pháp<br>luật, trách nhiệm pháp lý (Tiếp theo)<br>1. Hành vi pháp luật và vi phạm pháp luật;<br>2. Trách nhiệm pháp lý; | và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 14 | Giảng lý thuyết nội dung 8: Hệ thống pháp luật<br>Việt Nam (01 giờ tín chỉ)<br>Tự học có kiểm tra đánh giá (1 tín chỉ) các nội<br>dung có liên quan đến Hệ thống pháp luật Việt<br>Nam bao gồm:<br>- Khái niệm và đặc điểm của hệ thống pháp luật<br>Việt Nam;<br>- Các nguyên tắc của hệ thống pháp luật Việt<br>Nam;<br>- Những căn cứ phân định hệ thống pháp luật<br>thành những ngành luật;<br>- Một số ngành luật trong hệ thống pháp luật<br>Việt Nam. | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
+| Tuần 15 | Hệ thống pháp luật Việt Nam (01 giờ tín chỉ).<br>Giảng viên hệ thống hóa các kiến thức về các<br>ngành luật trong hệ thống pháp luật Việt Nam:<br>- Luật Hiến pháp;<br>- Luật hành chính;<br>- Luật hình sự và Luật tố tụng hình sự;<br>- Luật dân sự, Luật tố tụng dân sự và Luật hôn<br>nhân và gia đình;<br>- Pháp luật về kinh tế, lao động, tài chính, đất<br>đai, môi trường.<br>Ôn tập (01 giờ tín chỉ) | - Giáo trình đại<br>cương về nhà nước<br>và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
 13. Chính sách đối với học phần và các yêu cầu khác của giảng viên
 • Tiêu chí đánh giá các loại bài tập và kiểm tra đánh giá
 - Bài tập cá nhân:
@@ -2774,15 +2387,8 @@ Biểu điểm trên cơ sở mức độ đạt các tiêu chí:
 | Điểm | Tiêu chí |
 | --- | --- |
 | 9-10 | - Đạt cả 3 tiêu chí về nội dung và hình thức; |
-| 7-8 | - Đạt 2 tiêu chí đầu.
-- Tiêu chí 3: Có phân tích nhưng đôi chỗ còn
-dàn trải, sự phân tích chưa thật sự sâu sắc. |
-| 5-6 | - Đạt tiêu chí 1.
-- Tiêu chí 2: Có đọc tài liệu nhưng thể hiện
-còn lộn xộn, thiếu nhất quán, nhiều nội dung
-trích dẫn chưa làm sáng tỏ được nội dung
-nghiên cứu;
-- Tiêu chí 3: Chưa thể hiện rõ tư duy lô gích, |
+| 7-8 | - Đạt 2 tiêu chí đầu.<br>- Tiêu chí 3: Có phân tích nhưng đôi chỗ còn<br>dàn trải, sự phân tích chưa thật sự sâu sắc. |
+| 5-6 | - Đạt tiêu chí 1.<br>- Tiêu chí 2: Có đọc tài liệu nhưng thể hiện<br>còn lộn xộn, thiếu nhất quán, nhiều nội dung<br>trích dẫn chưa làm sáng tỏ được nội dung<br>nghiên cứu;<br>- Tiêu chí 3: Chưa thể hiện rõ tư duy lô gích, |
 76
 
 <!-- Page 77 -->
@@ -3155,8 +2761,7 @@ Thí nghiệm/ Mô phỏng/ Thực hành: 10 bài thực hành
 3. Học phần tiên quyết: MAT2302
 4. Ngôn ngữ giảng dạy: tiếng Việt
 5. Giảng viên:
-| TT | Họ và tên | Chức danh,
-học vị | Địa chỉ liên hệ | Điện thoại |
+| TT | Họ và tên | Chức danh,<br>học vị | Địa chỉ liên hệ | Điện thoại |
 | --- | --- | --- | --- | --- |
 | 1 | Đỗ Thị Kim Anh | TS. | ĐH KHTN | 0904543849 |
 | 2 | Lê Thị Thanh Bình | PGS.TS. | ĐH KHTN |  |
@@ -3341,8 +2946,7 @@ lực học theo Thomson và theo Clausius
 3. Học phần tiên quyết: MAT2302
 4. Ngôn ngữ giảng dạy: tiếng Việt
 5. Giảng viên
-| TT | Họ và tên | Chức danh, học
-vị | Địa chỉ liên hệ | Điện thoại |
+| TT | Họ và tên | Chức danh, học<br>vị | Địa chỉ liên hệ | Điện thoại |
 | --- | --- | --- | --- | --- |
 | 1 | Đỗ Thị Kim Anh | TS.GV | ĐH KHTN | 0904543849 |
 | 2 | Ngạc An Bang | TS.GV | ĐH KHTN | 0912445352 |
@@ -3403,24 +3007,15 @@ hoạt động chuyên môn sau này.
 - Thấy được ý nghĩa, vị trí, giá trị khoa học của học phần.
 8. Phương pháp kiểm tra, đánh giá:
 8.1. Mục đích và trọng số kiểm tra - đánh giá
-| Hình thức | Mục đích kiểm tra | Trọng
-số |
+| Hình thức | Mục đích kiểm tra | Trọng<br>số |
 | --- | --- | --- |
 95
 
 <!-- Page 96 -->
-| Kiểm tra
-thường xuyên | Đánh giá khả năng nhớ và tái hiện các nội
-dung cơ bản của học phần.
-Đánh giá kỹ năng làm việc nhóm, khả năng
-trình bày, thuyết trình một vấn đề lý luận cơ
-bản. | 15% |
+| Kiểm tra<br>thường xuyên | Đánh giá khả năng nhớ và tái hiện các nội<br>dung cơ bản của học phần.<br>Đánh giá kỹ năng làm việc nhóm, khả năng<br>trình bày, thuyết trình một vấn đề lý luận cơ<br>bản. | 15% |
 | --- | --- | --- |
-| Kiểm tra giữa kỳ
-(Phần 1) | Đánh giá kỹ năng nghiên cứu độc lập và kĩ
-năng trình bày. | 25% |
-| Thi kết thúc | Đánh giá trình độ nhận thức và kỹ năng liên hệ
-lý luận với thực tiễn. | 60% |
+| Kiểm tra giữa kỳ<br>(Phần 1) | Đánh giá kỹ năng nghiên cứu độc lập và kĩ<br>năng trình bày. | 25% |
+| Thi kết thúc | Đánh giá trình độ nhận thức và kỹ năng liên hệ<br>lý luận với thực tiễn. | 60% |
 8.2. Tiêu chí đánh giá các loại bài tập và kiểm tra đánh giá
 Các tiêu chí đánh giá các loại bài tập này bao gồm:
 - Nắm được nội dung cơ bản của từng chương.
@@ -3432,13 +3027,8 @@ Biểu điểm trên cơ sở mức độ đạt 3 tiêu chí:
 | Điểm | Tiêu chí |
 | --- | --- |
 | 9 – 10 | Đạt cả 3 tiêu chí.(mục tiêu A,B,C) |
-| 7 – 8 | Đạt 2 tiêu chí đầu.
-Tiêu chí 3: có sử dụng các tài liệu, song chưa đầy đủ, sâu sắc, chưa có bình
-luận. |
-| 5 – 6 | Đạt tiêu chí 1.
-Tiêu chí 2: sức thuyết phục của các luận cứ, luận chứng chưa thật cao, vấn
-đề chưa được giải quyết trọn vẹn.
-Tiêu chí 3: còn mắc một vài lỗi nhỏ. |
+| 7 – 8 | Đạt 2 tiêu chí đầu.<br>Tiêu chí 3: có sử dụng các tài liệu, song chưa đầy đủ, sâu sắc, chưa có bình<br>luận. |
+| 5 – 6 | Đạt tiêu chí 1.<br>Tiêu chí 2: sức thuyết phục của các luận cứ, luận chứng chưa thật cao, vấn<br>đề chưa được giải quyết trọn vẹn.<br>Tiêu chí 3: còn mắc một vài lỗi nhỏ. |
 | Dưới 5 | Không đạt cả 3 tiêu chí. |
 8.3. Lịch kiểm tra, lịch thi lần 1, lịch thi lại:
 Theo quy đinh chung của phòng Đào tạo
@@ -6768,55 +6358,31 @@ có thể điều chỉnh chiến lược học trong năm cuối một cách hi
 Chuẩn đầu ra của học phần này là tổng hòa của toàn bộ kiến thức và kỹ năng của các
 khối kiến thức M3, M4 và M5. Trong đó, học phần chú trọng nhiều vào các kiến thức
 và kỹ năng sau:
-| Chuẩn đầu ra | Bậc
-1 | Bậc
-2 | Bậc
-3 | Bậc
-4 | Bậc
-5 | Bậc
-6 |
+| Chuẩn đầu ra | Bậc<br>1 | Bậc<br>2 | Bậc<br>3 | Bậc<br>4 | Bậc<br>5 | Bậc<br>6 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Kiến thức |  |  |  |  |  |  |
-| Có khả năng phân tích, thiết kế và triển khai một
-sản phẩm phần mềm, phân tích và diễn giải dữ
-liệu. |  |  |  |  | X |  |
-| Có khả năng vận dụng tổng hợp và áp dụng các
-kiến thức thu được để tìm hiểu, phân tích, và đưa
-ra giải pháp cho một vấn đề cụ thể được đặt ra
-trong thực tế. |  |  |  |  | X |  |
-| Có khả năng ứng dụng cơ sở toán học, nguyên lí
-thuật toán và các lí thuyết tin học trong việc mô
-hình hoá và thiết kế các hệ thống phần mềm trên |  |  |  |  | X |  |
+| Có khả năng phân tích, thiết kế và triển khai một<br>sản phẩm phần mềm, phân tích và diễn giải dữ<br>liệu. |  |  |  |  | X |  |
+| Có khả năng vận dụng tổng hợp và áp dụng các<br>kiến thức thu được để tìm hiểu, phân tích, và đưa<br>ra giải pháp cho một vấn đề cụ thể được đặt ra<br>trong thực tế. |  |  |  |  | X |  |
+| Có khả năng ứng dụng cơ sở toán học, nguyên lí<br>thuật toán và các lí thuyết tin học trong việc mô<br>hình hoá và thiết kế các hệ thống phần mềm trên |  |  |  |  | X |  |
 197
 
 <!-- Page 198 -->
 | máy tính, có tính tới việc cân bằng các ràng buộc. |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Kỹ năng |  |  |  |  |  |  |
-| Có kĩ năng tổ chức và sắp xếp công việc một
-cách khoa học và linh hoạt. |  |  |  |  | X |  |
-| Có kỹ năng tìm kiếm, cập nhật, tổng hợp, phân
-tích và khai thác thông tin hiệu quả. |  |  |  |  | X |  |
-| Có kỹ năng lập luận tư duy, vận dụng sáng tạo
-các kiến thức Toán ứng dụng, Khoa học Máy tính
-để phát triển và xây dựng các sản phẩm phần
-mềm trong thực tế. |  |  |  |  | X |  |
-| Có kỹ năng viết và trình bày báo cáo cho một dự
-án phần mềm. |  |  |  |  | X |  |
+| Có kĩ năng tổ chức và sắp xếp công việc một<br>cách khoa học và linh hoạt. |  |  |  |  | X |  |
+| Có kỹ năng tìm kiếm, cập nhật, tổng hợp, phân<br>tích và khai thác thông tin hiệu quả. |  |  |  |  | X |  |
+| Có kỹ năng lập luận tư duy, vận dụng sáng tạo<br>các kiến thức Toán ứng dụng, Khoa học Máy tính<br>để phát triển và xây dựng các sản phẩm phần<br>mềm trong thực tế. |  |  |  |  | X |  |
+| Có kỹ năng viết và trình bày báo cáo cho một dự<br>án phần mềm. |  |  |  |  | X |  |
 | Phẩm chất đạo đức |  |  |  |  |  |  |
 | Kiên trì, chăm chỉ, nhiệt tình, say mê, sáng tạo |  |  | X |  |  |  |
 | Trung thực, có trách nhiệm trong công việc |  |  | X |  |  |  |
 8. Phương pháp kiểm tra, đánh giá:
-| Hình thức | Phương pháp | Trọng
-số |
+| Hình thức | Phương pháp | Trọng<br>số |
 | --- | --- | --- |
-| Điểm thường
-xuyên | Sinh viên báo cáo tiến độ thực hiện công việc hàng tuần
-cho giảng viên phụ trách | 20% |
-| Điểm giữa kỳ | Được đánh giá và cho điểm bởi đơn vị thực tập về quá
-trình thực tập của sinh viên | 20% |
-| Điểm cuối kỳ | Báo cáo kết quả đạt được trong quá trình thực tập của
-sinh viên | 60% |
+| Điểm thường<br>xuyên | Sinh viên báo cáo tiến độ thực hiện công việc hàng tuần<br>cho giảng viên phụ trách | 20% |
+| Điểm giữa kỳ | Được đánh giá và cho điểm bởi đơn vị thực tập về quá<br>trình thực tập của sinh viên | 20% |
+| Điểm cuối kỳ | Báo cáo kết quả đạt được trong quá trình thực tập của<br>sinh viên | 60% |
 9. Giáo trình, nhà xuất bản, năm xuất bản:
 Tài liệu bắt buộc: Do người hướng dẫn cung cấp.
 Tài liệu tham khảo: Do người hướng dẫn cung cấp.
@@ -6843,37 +6409,16 @@ trực tiếp tại nơi thực tập.
 | Lý thuyết |  | 1-2 | Giảng đường |
 | Thực hành |  | 3-15 | Đơn vị thực tập |
 11.2 Lịch trình giảng dạy chi tiết
-| STT | Công việc | Thời
-gian |
+| STT | Công việc | Thời<br>gian |
 | --- | --- | --- |
-| 1 | Khoa gửi thư liên hệ với các Đơn vị thực tập để biết nhu cầu. Các
-Đơn vị tiếp nhận thực tập phản hồi cho Khoa về khả năng và nhu
-cầu nhận sinh viên thực tập. | Đầu
-tháng 5 |
-| 2 | Khoa thông báo cho sinh viên danh sách các Đơn vị có nhu cầu
-nhận sinh viên thực tập, công việc, yêu cầu, v.v. sau khi có phản hồi
-từ các Đơn vị.
-Sinh viên đăng ký nguyện vọng tham gia thực tập tại các Đơn vị
-Thực tập – Khoa gửi danh sách sinh viên đăng ký thực tập tới các
-Đơn vị. | Giữa
-tháng 5 |
-| 3 | Sinh viên liên hệ với Đơn vị Thực tập để nhận được hướng dẫn cụ
-thể về các yêu cầu cần hoàn thiện hồ sơ trước khi đi phỏng vấn. | Cuối
-tháng 5 |
-| 4 | Khoa nhận phản hồi từ Đơn vị Thực tập về danh sách sinh viên
-được nhận thực tập. | Cuối
-tháng 5 |
-| 5 | Khoa phân giảng viên hướng dẫn/đánh giá theo dõi và hỗ trợ sinh
-viên trong quá trình thực tập. Sau khi phân công Khoa thông báo lại
-cho giảng viên, sinh viên các mốc thời gian quan trọng. | Cuối
-tháng 5 |
-| 6 | Sinh viên đi thực tập tại các Đơn vị Thực tập. | Tháng
-6, 7, 8 |
-| 7 | Sinh viên nộp báo cáo thực tập và giảng viên hướng dẫn sẽ đánh giá
-cho điểm | Cuối
-tháng 8 |
-| 8 | Giảng viên nộp điểm cho Khoa | Cuối
-tháng 8 |
+| 1 | Khoa gửi thư liên hệ với các Đơn vị thực tập để biết nhu cầu. Các<br>Đơn vị tiếp nhận thực tập phản hồi cho Khoa về khả năng và nhu<br>cầu nhận sinh viên thực tập. | Đầu<br>tháng 5 |
+| 2 | Khoa thông báo cho sinh viên danh sách các Đơn vị có nhu cầu<br>nhận sinh viên thực tập, công việc, yêu cầu, v.v. sau khi có phản hồi<br>từ các Đơn vị.<br>Sinh viên đăng ký nguyện vọng tham gia thực tập tại các Đơn vị<br>Thực tập – Khoa gửi danh sách sinh viên đăng ký thực tập tới các<br>Đơn vị. | Giữa<br>tháng 5 |
+| 3 | Sinh viên liên hệ với Đơn vị Thực tập để nhận được hướng dẫn cụ<br>thể về các yêu cầu cần hoàn thiện hồ sơ trước khi đi phỏng vấn. | Cuối<br>tháng 5 |
+| 4 | Khoa nhận phản hồi từ Đơn vị Thực tập về danh sách sinh viên<br>được nhận thực tập. | Cuối<br>tháng 5 |
+| 5 | Khoa phân giảng viên hướng dẫn/đánh giá theo dõi và hỗ trợ sinh<br>viên trong quá trình thực tập. Sau khi phân công Khoa thông báo lại<br>cho giảng viên, sinh viên các mốc thời gian quan trọng. | Cuối<br>tháng 5 |
+| 6 | Sinh viên đi thực tập tại các Đơn vị Thực tập. | Tháng<br>6, 7, 8 |
+| 7 | Sinh viên nộp báo cáo thực tập và giảng viên hướng dẫn sẽ đánh giá<br>cho điểm | Cuối<br>tháng 8 |
+| 8 | Giảng viên nộp điểm cho Khoa | Cuối<br>tháng 8 |
 12. Chính sách đối với học phần và các yêu cầu khác của giảng viên
 199
 
@@ -7515,11 +7060,7 @@ MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, MAT3500 (Toán rời
 rạc).
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
-| 1.
-2. | Nguyễn Hải Vinh
-Phan Thị Hà Dương | TS
-PGS.TS | Trường ĐHKHTN
-Viện Toán |
+| 1.<br>2. | Nguyễn Hải Vinh<br>Phan Thị Hà Dương | TS<br>PGS.TS | Trường ĐHKHTN<br>Viện Toán |
 | --- | --- | --- | --- |
 6. Mục tiêu của học phần (kiến thức, kĩ năng, thái độ):
 • Mục tiêu về kiến thức: Nhằm trang bị cho sinh viên các khái niệm, tính chất và
@@ -7545,26 +7086,10 @@ quyết các vấn đề công nghệ thông tin
 <!-- Page 221 -->
 | Hình thức | Nội dung kiểm tra | Mục đích kiểm tra | Trọng số |
 | --- | --- | --- | --- |
-| Đánh giá
-thường
-xuyên | Phát vấn lý thuyết | Đánh giá khả năng tiếp thu về lý
-thuyết và việc chuẩn bị bài của sinh
-viên. | 20% |
-|  | Lên bảng làm bài
-tập | Đánh giá khả năng thực hành và
-tiếp thu bài tập của sinh viên. |  |
-| Bài kiểm
-tra giữa kỳ | Một số bài tập tổng
-hợp kiến thức đã học | Đánh giá sự tiếp thu, nhận thức và
-kết quả học tập thông qua hệ thống
-bài tập. | 20% |
-| Bài thi
-cuối kỳ | Câu hỏi và bài tập
-có tính chất tổng
-hợp kiến thức đã học
-trong toàn kỳ. | Đánh giá cả quá trình học tập, kết
-quả tiếp thu về lý thuyết và thực
-hành trong toàn kỳ. | 60% |
+| Đánh giá<br>thường<br>xuyên | Phát vấn lý thuyết | Đánh giá khả năng tiếp thu về lý<br>thuyết và việc chuẩn bị bài của sinh<br>viên. | 20% |
+|  | Lên bảng làm bài<br>tập | Đánh giá khả năng thực hành và<br>tiếp thu bài tập của sinh viên. |  |
+| Bài kiểm<br>tra giữa kỳ | Một số bài tập tổng<br>hợp kiến thức đã học | Đánh giá sự tiếp thu, nhận thức và<br>kết quả học tập thông qua hệ thống<br>bài tập. | 20% |
+| Bài thi<br>cuối kỳ | Câu hỏi và bài tập<br>có tính chất tổng<br>hợp kiến thức đã học<br>trong toàn kỳ. | Đánh giá cả quá trình học tập, kết<br>quả tiếp thu về lý thuyết và thực<br>hành trong toàn kỳ. | 60% |
 9. Giáo trình bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
 1. Tài liệu bắt buộc
 • Nguyễn Hữu Ngự (1989), Giáo trình Lôgic Toán, Nhà xuất bản Đại học Tổng
@@ -7713,11 +7238,7 @@ Chương 7. Thời gian và các trạng thái toàn cục
 3. Học phần tiên quyết: MAT3507 (Cơ sở dữ liệu), MAT3500 (Toán rời rạc)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
-| 1.
-2. | Đỗ Trung Tuấn
-Vũ Tiến Dũng | PGS. TS
-TS | Trường ĐHKHTN
-Trường ĐHKHTN |
+| 1.<br>2. | Đỗ Trung Tuấn<br>Vũ Tiến Dũng | PGS. TS<br>TS | Trường ĐHKHTN<br>Trường ĐHKHTN |
 | --- | --- | --- | --- |
 6. Mục tiêu của học phần (kiến thức, kĩ năng, thái độ):
 • Kiến thức:
@@ -9302,67 +8823,18 @@ thống kê.
 10. Nội dung chi tiết học phần (trình bày các chương, mục, tiểu mục…):
 |  | Nội dung | Hình thức tổ chức dạy học học |  |  | Tổng |
 | --- | --- | --- | --- | --- | --- |
-|  |  | Lên lớp ph |  | ần Tự học,
-tự nghiên cứu,
-kiểm tra |  |
-|  |  | Lý
-thuyết | Bài
-tập |  |  |
-| Chương 1 | Các khái niệm cơ bản
-1.1 Suy diễn Bayes
-1.2 Phân phối tiên nghiệm
-1.3 Định lý de Finetti
-1.4 Hàm hợp lý
-1.5 Phân phối hậu nghiệm
-1.6 Các phân phối liên hợp
-1.7 Các phân phối tiên nghiệm
-thường dùng
-1.8 Mô hình siêu tham số
-1.9 Giới thiệu phần mềm R
-1.10 Bài tập chương 1 | 6 | 2 |  | 8 |
-| Chương 2 | Quyết định Bayes
-2.1 Hàm thiệt hai trung bình hậu
-nghiệm
-2.2 Hàm rủi ro tích hợp; Hàm
-quyết định Bayes
-2.3 Nhân tố Bayes,Nhân tố giả
-Bayes
-2.4 Tiên nghiệm không chỉnh
-2.5 Vùng tin tưởng Bayes,Tiêu
-chuẩn Schwartz
-Bài tập chương 2 | 4 | 2 | 1 | 7 |
+|  |  | Lên lớp ph |  | ần Tự học,<br>tự nghiên cứu,<br>kiểm tra |  |
+|  |  | Lý<br>thuyết | Bài<br>tập |  |  |
+| Chương 1 | Các khái niệm cơ bản<br>1.1 Suy diễn Bayes<br>1.2 Phân phối tiên nghiệm<br>1.3 Định lý de Finetti<br>1.4 Hàm hợp lý<br>1.5 Phân phối hậu nghiệm<br>1.6 Các phân phối liên hợp<br>1.7 Các phân phối tiên nghiệm<br>thường dùng<br>1.8 Mô hình siêu tham số<br>1.9 Giới thiệu phần mềm R<br>1.10 Bài tập chương 1 | 6 | 2 |  | 8 |
+| Chương 2 | Quyết định Bayes<br>2.1 Hàm thiệt hai trung bình hậu<br>nghiệm<br>2.2 Hàm rủi ro tích hợp; Hàm<br>quyết định Bayes<br>2.3 Nhân tố Bayes,Nhân tố giả<br>Bayes<br>2.4 Tiên nghiệm không chỉnh<br>2.5 Vùng tin tưởng Bayes,Tiêu<br>chuẩn Schwartz<br>Bài tập chương 2 | 4 | 2 | 1 | 7 |
 273
 
 <!-- Page 274 -->
-| Chương 3 | Ước lượng Bayes
-3.1 Không gian các tham số
-3.2 Ước lượng MAP
-3.3 Độ chính xác của ước lượng
-Bayes
-3.4 Ước lượng hàm thiệt hại
-3.5 Trung bình hóa mô hình
-Bài tập chương 3 | 6 | 2 |  | 8 |
+| Chương 3 | Ước lượng Bayes<br>3.1 Không gian các tham số<br>3.2 Ước lượng MAP<br>3.3 Độ chính xác của ước lượng<br>Bayes<br>3.4 Ước lượng hàm thiệt hại<br>3.5 Trung bình hóa mô hình<br>Bài tập chương 3 | 6 | 2 |  | 8 |
 | --- | --- | --- | --- | --- | --- |
-| Chương 4 | Hồi quy tuyến tính
-4.1 Phân phối tiên nghiệm nửa
-liên hợp
-4.2 Các phân phối tiên nghiệm
-thiếu thông tin
-4.3 Hồi quy siêu tham số
-4.4 Hồi quy tuyến tính với ảnh
-hưởng trộn
-Bài tập chương 4 | 4 | 2 | 1 | 7 |
-| Chương 5 | Phương pháp số
-5.1 Xấp xỉ Monte Carlo và Gibbs
-5.2 Phương pháp Metropolis-
-Hasting
-Bài tập chương 5 | 6 | 2 |  | 8 |
-| Chương 6 | Thống kê Bayes phi tham số
-6.1 Phân phối Dirichlet
-6.2 Mô hình siêu tham số ẩn
-6.3 Hàm hợp lý hạng
-6.4 Mô hình copula chuẩn
-Bài tập chương 6 | 4 | 2 | 1 | 7 |
+| Chương 4 | Hồi quy tuyến tính<br>4.1 Phân phối tiên nghiệm nửa<br>liên hợp<br>4.2 Các phân phối tiên nghiệm<br>thiếu thông tin<br>4.3 Hồi quy siêu tham số<br>4.4 Hồi quy tuyến tính với ảnh<br>hưởng trộn<br>Bài tập chương 4 | 4 | 2 | 1 | 7 |
+| Chương 5 | Phương pháp số<br>5.1 Xấp xỉ Monte Carlo và Gibbs<br>5.2 Phương pháp Metropolis-<br>Hasting<br>Bài tập chương 5 | 6 | 2 |  | 8 |
+| Chương 6 | Thống kê Bayes phi tham số<br>6.1 Phân phối Dirichlet<br>6.2 Mô hình siêu tham số ẩn<br>6.3 Hàm hợp lý hạng<br>6.4 Mô hình copula chuẩn<br>Bài tập chương 6 | 4 | 2 | 1 | 7 |
 | Tổng số |  | 30 | 12 | 3 | 45 |
 274
 
@@ -9479,22 +8951,13 @@ phát triển phần mềm bao gồm cách viết phần mềm an toàn, dễ hi
 | Chuẩn đầu ra | Bậc 1 | Bậc 2 | Bậc 3 | Bậc 4 |
 | --- | --- | --- | --- | --- |
 | Kiến thức |  |  |  |  |
-| Có khả năng thiết kế và triển khai thực nghiệm,
-phân tích và diễn giải dữ liệu. |  |  |  | X |
-| Có khả năng vận dụng tổng hợp và áp dụng các
-kiến thức thu được để tìm hiểu, phân tích, và đưa
-ra giải pháp cho một vấn đề cụ thể được đặt ra
-trong thực tế. |  |  | X |  |
-| Có khả năng ứng dụng cơ sở toán học, nguyên lí
-thuật toán và các lí thuyết tin học trong việc mô
-hình hoá và thiết kế các hệ thống trên máy tính,
-có tính tới việc cân bằng các ràng buộc. |  |  | X |  |
+| Có khả năng thiết kế và triển khai thực nghiệm,<br>phân tích và diễn giải dữ liệu. |  |  |  | X |
+| Có khả năng vận dụng tổng hợp và áp dụng các<br>kiến thức thu được để tìm hiểu, phân tích, và đưa<br>ra giải pháp cho một vấn đề cụ thể được đặt ra<br>trong thực tế. |  |  | X |  |
+| Có khả năng ứng dụng cơ sở toán học, nguyên lí<br>thuật toán và các lí thuyết tin học trong việc mô<br>hình hoá và thiết kế các hệ thống trên máy tính,<br>có tính tới việc cân bằng các ràng buộc. |  |  | X |  |
 | Kỹ năng |  |  |  |  |
-| Có đạo đức nghề nghiệp: trung thực, trách
-nhiệm, đáng tin cậy. |  |  | X |  |
+| Có đạo đức nghề nghiệp: trung thực, trách<br>nhiệm, đáng tin cậy. |  |  | X |  |
 | Có kĩ năng tổ chức và sắp xếp công việc |  |  |  | X |
-| Biết tìm kiếm, cập nhật, tổng hợp, khai thác
-thông tin; |  |  | X |  |
+| Biết tìm kiếm, cập nhật, tổng hợp, khai thác<br>thông tin; |  |  | X |  |
 | Có kỹ năng áp dụng kiến thức vào thực tế |  |  |  | X |
 | Có kỹ năng viết và trình bày báo cáo cho một dự |  |  | X |  |
 278

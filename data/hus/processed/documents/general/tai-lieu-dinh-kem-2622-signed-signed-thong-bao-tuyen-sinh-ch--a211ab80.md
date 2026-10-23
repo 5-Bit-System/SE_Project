@@ -106,51 +106,23 @@ báo cáo ĐHQGHN để bổ sung thêm chỉ tiêu.
 2.2. Các học phần được giảng dạy
 | TT | Các ngành đào tạo | Tên học phần (Số tín chỉ) |
 | --- | --- | --- |
-| 1. | Toán học | Đại số tuyến tính (3TC),
-Giải tích 1 (3TC),
-Giải tích 2 (3TC),
-Xác suất thống kê (3TC),
-Tin học cơ sở (3TC). |
+| 1. | Toán học | Đại số tuyến tính (3TC),<br>Giải tích 1 (3TC),<br>Giải tích 2 (3TC),<br>Xác suất thống kê (3TC),<br>Tin học cơ sở (3TC). |
 |  | Toán tin |  |
 |  | Khoa học máy tính và thông tin |  |
 |  | Khoa học dữ liệu |  |
-| 2. | Vật lý học | Nhập môn IoT (2TC),
-Cơ lượng tử 1 (3TC),
-Mở đầu Thiên Văn học (3TC), |
+| 2. | Vật lý học | Nhập môn IoT (2TC),<br>Cơ lượng tử 1 (3TC),<br>Mở đầu Thiên Văn học (3TC), |
 3
 
 <!-- Page 4 -->
 | TT | Các ngành đào tạo | Tên học phần (Số tín chỉ) |
 | --- | --- | --- |
-|  | Khoa học vật liệu | Cơ học (4 TC),
-Nhiệt học (3TC),
-Điện từ (4TC),
-Quang học (3 TC),
-Cơ lý thuyết (4TC),
-Thực tập Vật lý đại cương 1 (2TC). |
+|  | Khoa học vật liệu | Cơ học (4 TC),<br>Nhiệt học (3TC),<br>Điện từ (4TC),<br>Quang học (3 TC),<br>Cơ lý thuyết (4TC),<br>Thực tập Vật lý đại cương 1 (2TC). |
 |  | Công nghệ kĩ thuật hạt nhân |  |
 |  | Kĩ thuật điện tử và tin học |  |
-| 3. | Hóa học | Hoá học đại cương (3TC),
-Hóa học đại cương 1 (3TC),
-Hóa học đại cương 2 (3TC),
-Hóa học đại cương 2 (4TC),
-Thực tập Hoá Đại cương (2TC),
-Thực tập Hóa học đại cương 2 (2TC),
-Hóa học hữu cơ (3TC),
-Hóa học hữu cơ 1 (3TC),
-Hóa học hữu cơ 1 (4TC),
-Cơ sở Hóa học phân tích (3TC),
-Hóa học phân tích (3TC). |
+| 3. | Hóa học | Hoá học đại cương (3TC),<br>Hóa học đại cương 1 (3TC),<br>Hóa học đại cương 2 (3TC),<br>Hóa học đại cương 2 (4TC),<br>Thực tập Hoá Đại cương (2TC),<br>Thực tập Hóa học đại cương 2 (2TC),<br>Hóa học hữu cơ (3TC),<br>Hóa học hữu cơ 1 (3TC),<br>Hóa học hữu cơ 1 (4TC),<br>Cơ sở Hóa học phân tích (3TC),<br>Hóa học phân tích (3TC). |
 |  | Công nghệ kĩ thuật hóa học |  |
 |  | Hóa dược |  |
-| 4. | Sinh học | Di truyền học (3TC) ,
-Động vật học động vật có xương sống (3TC),
-Hóa sinh học (2TC),
-Sinh học tế bào (2TC),
-Sinh lý học người và động vật (3TC),
-Thực vật học (4TC),
-Vi sinh vật học (3TC),
-Bào chế và sinh dược học đại cương (3TC). |
+| 4. | Sinh học | Di truyền học (3TC) ,<br>Động vật học động vật có xương sống (3TC),<br>Hóa sinh học (2TC),<br>Sinh học tế bào (2TC),<br>Sinh lý học người và động vật (3TC),<br>Thực vật học (4TC),<br>Vi sinh vật học (3TC),<br>Bào chế và sinh dược học đại cương (3TC). |
 |  | Công nghệ sinh học |  |
 |  | Sinh dược học |  |
 2.3. Chính sách đối với học sinh tham gia trong năm học 2024-2025

@@ -278,348 +278,113 @@ thế khoá luận tốt nghiệp:
 
 <!-- Page 12 -->
 2. Khung chƣơng trình đào tạo
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| I |  | Khối kiến thức chung
-(Không tính các học phần từ số 10
-đến số 12) | 29 |  |  |  |  |
-| 1 | PHI1004 | Những nguyên lý cơ bản của chủ
-nghĩa Mác – Lênin 1
-Fundamental Principles of
-Marxism - Leninism 1 | 2 | 24 | 6 |  |  |
-| 2 | PHI1005 | Những nguyên lý cơ bản của chủ
-nghĩa Mác – Lênin 2
-Fundamental Principles of
-Marxism - Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
-| 3 | POL1001 | Tư tưởng Hồ Chí Minh
-Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
-| 4 | HIS1002 | Đường lối cách mạng của Đảng
-Cộng sản Việt Nam
-The Revolutionary line of the
-Communist Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
-| 5 | INT1003 | Tin học cơ sở 1
-Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
-| 6 | INT1006 | Tin học cơ sở 4
-Introduction to Informatics 4 | 3 | 20 | 23 | 2 | INT1003 |
-| 7 | FLF2101 | Tiếng Anh cơ sở 1
-General English 1 | 4 | 16 | 40 | 4 |  |
-| 8 | FLF2102 | Tiếng Anh cơ sở 2
-General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
-| 9 | FLF2103 | Tiếng Anh cơ sở 3
-General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| I |  | Khối kiến thức chung<br>(Không tính các học phần từ số 10<br>đến số 12) | 29 |  |  |  |  |
+| 1 | PHI1004 | Những nguyên lý cơ bản của chủ<br>nghĩa Mác – Lênin 1<br>Fundamental Principles of<br>Marxism - Leninism 1 | 2 | 24 | 6 |  |  |
+| 2 | PHI1005 | Những nguyên lý cơ bản của chủ<br>nghĩa Mác – Lênin 2<br>Fundamental Principles of<br>Marxism - Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
+| 3 | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
+| 4 | HIS1002 | Đường lối cách mạng của Đảng<br>Cộng sản Việt Nam<br>The Revolutionary line of the<br>Communist Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
+| 5 | INT1003 | Tin học cơ sở 1<br>Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
+| 6 | INT1006 | Tin học cơ sở 4<br>Introduction to Informatics 4 | 3 | 20 | 23 | 2 | INT1003 |
+| 7 | FLF2101 | Tiếng Anh cơ sở 1<br>General English 1 | 4 | 16 | 40 | 4 |  |
+| 8 | FLF2102 | Tiếng Anh cơ sở 2<br>General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
+| 9 | FLF2103 | Tiếng Anh cơ sở 3<br>General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
 | 10 |  | Giáo dục Thể chất | 4 |  |  |  |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Physical Education |  |  |  |  |  |
-| 11 |  | Giáo dục Quốc phòng - An ninh
-National Defence Education | 8 |  |  |  |  |
-| 12 |  | Kỹ năng bổ trợ
-Soft Skills | 3 |  |  |  |  |
-| II |  | Khối kiến thức chung theo lĩnh
-vực | 6 |  |  |  |  |
-| 13 | HIS1056 | Cơ sở văn hóa Việt Nam
-Fundamentals of Vietnamese
-Culture | 3 | 42 | 3 |  |  |
-| 14 | GEO1050 | Khoa học trái đất và sự sống
-Earth and Life Sciences | 3 | 30 | 10 | 5 |  |
-| III |  | Khối kiến thức chung theo khối
-ngành | 6 |  |  |  |  |
-| 15 | PHY1100 | Cơ - Nhiệt
-Mechanics - Thermodynamics | 3 | 30 | 15 |  | MAT2401 |
-| 16 | PHY1103 | Điện - Quang
-Electromagnetism - Optics | 3 | 30 | 15 |  | MAT2401 |
-| IV |  | Khối kiến thức chung theo nhóm
-ngành | 32 |  |  |  |  |
-| 17 | MAT2400 | Đại số tuyến tính
-Linear Algebra | 5 | 50 | 25 |  |  |
-| 18 | MAT2401 | Giải tích 1
-Analysis 1 | 5 | 60 | 15 |  |  |
-| 19 | MAT2402 | Giải tích 2
-Analysis 2 | 5 | 60 | 15 |  | MAT2401
-MAT2400 |
-| 20 | MAT2403 | Phương trình vi phân
-Differential Equations | 3 | 30 | 15 |  | MAT2401
-MAT2400 |
+| 11 |  | Giáo dục Quốc phòng - An ninh<br>National Defence Education | 8 |  |  |  |  |
+| 12 |  | Kỹ năng bổ trợ<br>Soft Skills | 3 |  |  |  |  |
+| II |  | Khối kiến thức chung theo lĩnh<br>vực | 6 |  |  |  |  |
+| 13 | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamentals of Vietnamese<br>Culture | 3 | 42 | 3 |  |  |
+| 14 | GEO1050 | Khoa học trái đất và sự sống<br>Earth and Life Sciences | 3 | 30 | 10 | 5 |  |
+| III |  | Khối kiến thức chung theo khối<br>ngành | 6 |  |  |  |  |
+| 15 | PHY1100 | Cơ - Nhiệt<br>Mechanics - Thermodynamics | 3 | 30 | 15 |  | MAT2401 |
+| 16 | PHY1103 | Điện - Quang<br>Electromagnetism - Optics | 3 | 30 | 15 |  | MAT2401 |
+| IV |  | Khối kiến thức chung theo nhóm<br>ngành | 32 |  |  |  |  |
+| 17 | MAT2400 | Đại số tuyến tính<br>Linear Algebra | 5 | 50 | 25 |  |  |
+| 18 | MAT2401 | Giải tích 1<br>Analysis 1 | 5 | 60 | 15 |  |  |
+| 19 | MAT2402 | Giải tích 2<br>Analysis 2 | 5 | 60 | 15 |  | MAT2401<br>MAT2400 |
+| 20 | MAT2403 | Phương trình vi phân<br>Differential Equations | 3 | 30 | 15 |  | MAT2401<br>MAT2400 |
 | 21 | MAT2404 | Giải tích số | 4 | 45 | 15 |  | MAT2402 |
 13
 
 <!-- Page 14 -->
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-|  |  | Numerical Analysis |  |  |  |  | MAT2403
-INT1006 |
-| 22 | MAT2405 | Xác suất
-Probability | 3 | 30 | 15 |  | MAT2402 |
-| 23 | MAT2406 | Thống kê ứng dụng
-Applied Statistics | 4 | 45 | 15 |  | MAT2405 |
-| 24 | MAT2407 | Tối ưu hóa
-Optimization | 3 | 30 | 15 |  | MAT2402 |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  | Numerical Analysis |  |  |  |  | MAT2403<br>INT1006 |
+| 22 | MAT2405 | Xác suất<br>Probability | 3 | 30 | 15 |  | MAT2402 |
+| 23 | MAT2406 | Thống kê ứng dụng<br>Applied Statistics | 4 | 45 | 15 |  | MAT2405 |
+| 24 | MAT2407 | Tối ưu hóa<br>Optimization | 3 | 30 | 15 |  | MAT2402 |
 | V |  | Khối kiến thức ngành | 66 |  |  |  |  |
 | V.1 |  | Các học phần bắt buộc | 41 |  |  |  |  |
-| 25 | MAT3500 | Toán rời rạc
-Discrete Mathematics | 4 | 45 | 15 |  | MAT2400
-MAT2401 |
-| 26 | MAT3501 | Nguyên lý hệ điều hành
-Principles of Operating Systems | 3 | 30 | 15 |  | INT1006 |
-| 27 | MAT3502 | Cấu trúc dữ liệu và thuật toán
-Data Structures and Algorithms | 4 | 40 | 20 |  | INT1006 |
-| 28 | MAT3503 | Lập trình hướng đối tượng
-Object–Oriented Programming | 3 | 20 | 25 |  | INT1006 |
-| 29 | MAT3504 | Thiết kế đánh giá thuật toán
-Algorithm Design and Analysis | 3 | 30 | 15 |  | MAT2402
-INT1006 |
-| 30 | MAT3505 | Kiến trúc máy tính
-Computer Architecture | 3 | 30 | 15 |  | INT1006 |
-| 31 | MAT3506 | Mạng máy tính
-Computer Networks | 3 | 40 | 5 |  | INT1006 |
-| 32 | MAT3507 | Cơ sở dữ liệu
-Databases | 4 | 50 | 10 |  | INT1006 |
-| 33 | MAT3508 | Nhập môn Trí tuệ nhân tạo
-Introduction to Artificial | 3 | 30 | 15 |  | INT1006 |
+| 25 | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 15 |  | MAT2400<br>MAT2401 |
+| 26 | MAT3501 | Nguyên lý hệ điều hành<br>Principles of Operating Systems | 3 | 30 | 15 |  | INT1006 |
+| 27 | MAT3502 | Cấu trúc dữ liệu và thuật toán<br>Data Structures and Algorithms | 4 | 40 | 20 |  | INT1006 |
+| 28 | MAT3503 | Lập trình hướng đối tượng<br>Object–Oriented Programming | 3 | 20 | 25 |  | INT1006 |
+| 29 | MAT3504 | Thiết kế đánh giá thuật toán<br>Algorithm Design and Analysis | 3 | 30 | 15 |  | MAT2402<br>INT1006 |
+| 30 | MAT3505 | Kiến trúc máy tính<br>Computer Architecture | 3 | 30 | 15 |  | INT1006 |
+| 31 | MAT3506 | Mạng máy tính<br>Computer Networks | 3 | 40 | 5 |  | INT1006 |
+| 32 | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | 50 | 10 |  | INT1006 |
+| 33 | MAT3508 | Nhập môn Trí tuệ nhân tạo<br>Introduction to Artificial | 3 | 30 | 15 |  | INT1006 |
 14
 
 <!-- Page 15 -->
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Intelligence |  |  |  |  |  |
-| 34 | MAT3509 | Ngôn ngữ hình thức và ôtômat
-Formal Languages and Automata | 3 | 40 | 5 |  | INT1006
-MAT3500 |
-| 35 | MAT3510 | Đồ án phần mềm
-Software Development Project | 3 | 10 | 35 |  | MAT3503
-MAT3507 |
-| 36 | MAT3515 | Tiểu luận khoa học
-Mini project | 2 | 15 | 15 |  |  |
-| 37 | MAT3543 | Công nghệ phần mềm
-Software Engineering | 3 | 30 | 15 |  | MAT3510
-MAT3504 |
+| 34 | MAT3509 | Ngôn ngữ hình thức và ôtômat<br>Formal Languages and Automata | 3 | 40 | 5 |  | INT1006<br>MAT3500 |
+| 35 | MAT3510 | Đồ án phần mềm<br>Software Development Project | 3 | 10 | 35 |  | MAT3503<br>MAT3507 |
+| 36 | MAT3515 | Tiểu luận khoa học<br>Mini project | 2 | 15 | 15 |  |  |
+| 37 | MAT3543 | Công nghệ phần mềm<br>Software Engineering | 3 | 30 | 15 |  | MAT3510<br>MAT3504 |
 | V.2 |  | Các học phần tự chọn | 18 |  |  |  |  |
-| V.2.1 |  | Tự chọn về kỹ năng phần mềm
-(Sinh viên chỉ được chọn tối đa 1
-học phần ngôn ngữ lập trình
-MAT3520, 3521, 3522, 3523) | 6/14 |  |  |  |  |
-| 38 | MAT3520 | Lập trình C/C++
-Progamming in C/C++ | 2 | 10 | 20 |  | MAT3503 |
-| 39 | MAT3521 | Lập trình C#
-Programming in C# | 2 | 10 | 20 |  | MAT3503 |
-| 40 | MAT3522 | Lập trình Python
-Programming in Python | 2 | 12 | 15 | 3 | MAT3503 |
-| 41 | MAT3523 | Lập trình Perl
-Programming in Perl | 2 | 10 | 20 |  | INT1006 |
-| 42 | MAT3524 | Linux
-Linux | 2 | 15 | 15 |  | INT1006 |
-| 43 | MAT3525 | Thực hành tính toán
-Practicum in Computing | 2 | 20 | 10 |  | MAT2402 |
-| 44 | MAT3516 | Thực hành hệ thống trợ giúp quyết
-định
-Decision Support Systems | 2 | 15 | 15 |  | MAT3507 |
+| V.2.1 |  | Tự chọn về kỹ năng phần mềm<br>(Sinh viên chỉ được chọn tối đa 1<br>học phần ngôn ngữ lập trình<br>MAT3520, 3521, 3522, 3523) | 6/14 |  |  |  |  |
+| 38 | MAT3520 | Lập trình C/C++<br>Progamming in C/C++ | 2 | 10 | 20 |  | MAT3503 |
+| 39 | MAT3521 | Lập trình C#<br>Programming in C# | 2 | 10 | 20 |  | MAT3503 |
+| 40 | MAT3522 | Lập trình Python<br>Programming in Python | 2 | 12 | 15 | 3 | MAT3503 |
+| 41 | MAT3523 | Lập trình Perl<br>Programming in Perl | 2 | 10 | 20 |  | INT1006 |
+| 42 | MAT3524 | Linux<br>Linux | 2 | 15 | 15 |  | INT1006 |
+| 43 | MAT3525 | Thực hành tính toán<br>Practicum in Computing | 2 | 20 | 10 |  | MAT2402 |
+| 44 | MAT3516 | Thực hành hệ thống trợ giúp quyết<br>định<br>Decision Support Systems | 2 | 15 | 15 |  | MAT3507 |
 15
 
 <!-- Page 16 -->
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| V.2.2 |  | Tự chọn về khoa học máy tính và
-thông tin | 12/43 |  |  |  |  |
-| 45 | MAT3531 | Tính toán phân tán
-Distributed Computing | 3 | 35 | 10 |  | MAT3501
-MAT3503 |
-| 46 | MAT3533 | Học máy
-Machine Learning | 3 | 24 | 16 | 5 | MAT3508
-MAT2406 |
-| 47 | MAT3534 | Khai phá dữ liệu
-Data Mining | 3 | 30 | 15 |  | MAT3507
-MAT2406 |
-| 48 | MAT3535 | Tìm kiếm thông tin
-Information retrieval | 3 | 24 | 16 | 5 | MAT3514
-MAT2406 |
-| 49 | MAT3536 | Ngôn ngữ học tính toán
-Computational Linguistics | 3 | 35 | 10 |  | MAT3509
-MAT3508 |
-| 50 | MAT3537 | Xử lí ảnh
-Image Processing | 3 | 35 | 10 |  | MAT2402
-INT1006 |
-| 51 | MAT3538 | Các hệ thống tri thức
-Knowledge-Based Systems | 3 | 30 | 15 |  | MAT3508
-MAT3514
-MAT3503 |
-| 52 | MAT3539 | Mật mã và an toàn dữ liệu
-Cryptography and Data Security | 3 | 30 | 15 |  | INT1006 |
-| 53 | MAT3540 | Cơ sở dữ liệu đa phương tiện
-Multimedia Database | 3 | 30 | 15 |  | MAT3507 |
-| 54 | MAT3541 | Nguyên lý các ngôn ngữ lập trình
-Principles of Programming
-Languages | 3 | 45 |  |  | INT1006 |
-| 55 | MAT3542 | Phát triển ứng dụng web
-Web Applications Development | 3 | 20 | 20 | 5 | INT1006
-MAT3510 |
-| 56 | MAT3544 | Phân tích và thiết kế hệ thống thông
-tin
-Analysis and Design of Information | 4 | 20 | 40 |  | MAT3510
-MAT3504 |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| V.2.2 |  | Tự chọn về khoa học máy tính và<br>thông tin | 12/43 |  |  |  |  |
+| 45 | MAT3531 | Tính toán phân tán<br>Distributed Computing | 3 | 35 | 10 |  | MAT3501<br>MAT3503 |
+| 46 | MAT3533 | Học máy<br>Machine Learning | 3 | 24 | 16 | 5 | MAT3508<br>MAT2406 |
+| 47 | MAT3534 | Khai phá dữ liệu<br>Data Mining | 3 | 30 | 15 |  | MAT3507<br>MAT2406 |
+| 48 | MAT3535 | Tìm kiếm thông tin<br>Information retrieval | 3 | 24 | 16 | 5 | MAT3514<br>MAT2406 |
+| 49 | MAT3536 | Ngôn ngữ học tính toán<br>Computational Linguistics | 3 | 35 | 10 |  | MAT3509<br>MAT3508 |
+| 50 | MAT3537 | Xử lí ảnh<br>Image Processing | 3 | 35 | 10 |  | MAT2402<br>INT1006 |
+| 51 | MAT3538 | Các hệ thống tri thức<br>Knowledge-Based Systems | 3 | 30 | 15 |  | MAT3508<br>MAT3514<br>MAT3503 |
+| 52 | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | 30 | 15 |  | INT1006 |
+| 53 | MAT3540 | Cơ sở dữ liệu đa phương tiện<br>Multimedia Database | 3 | 30 | 15 |  | MAT3507 |
+| 54 | MAT3541 | Nguyên lý các ngôn ngữ lập trình<br>Principles of Programming<br>Languages | 3 | 45 |  |  | INT1006 |
+| 55 | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | 20 | 20 | 5 | INT1006<br>MAT3510 |
+| 56 | MAT3544 | Phân tích và thiết kế hệ thống thông<br>tin<br>Analysis and Design of Information | 4 | 20 | 40 |  | MAT3510<br>MAT3504 |
 16
 
 <!-- Page 17 -->
-| STT | Mã
-học phần | Học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số học
-phần tiên
-quyết |
+| STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Systems |  |  |  |  |  |
-| 57 | MAT3452 | Phân tích thống kê nhiều chiều
-Multivariate Statistical Analysis | 3 | 30 | 15 |  | MAT2406 |
-| 58 | MAT3453 | Phương pháp chọn mẫu dữ liệu
-Sampling Methods | 3 | 30 | 12 | 3 | MAT2406 |
-| V.3 |  | Khối kiến thức thực tập và tốt
-nghiệp | 7 |  |  |  |  |
-| 59 | MAT4080 | Khóa luận tốt nghiệp
-Undergraduate Thesis | 7 |  |  |  |  |
-|  |  | Các học phần thay thế Khóa luận
-tốt nghiệp: chọn các môn chưa học
-trong khối V.2.2 | 7 |  |  |  |  |
+| 57 | MAT3452 | Phân tích thống kê nhiều chiều<br>Multivariate Statistical Analysis | 3 | 30 | 15 |  | MAT2406 |
+| 58 | MAT3453 | Phương pháp chọn mẫu dữ liệu<br>Sampling Methods | 3 | 30 | 12 | 3 | MAT2406 |
+| V.3 |  | Khối kiến thức thực tập và tốt<br>nghiệp | 7 |  |  |  |  |
+| 59 | MAT4080 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 7 |  |  |  |  |
+|  |  | Các học phần thay thế Khóa luận<br>tốt nghiệp: chọn các môn chưa học<br>trong khối V.2.2 | 7 |  |  |  |  |
 |  |  | Tổng cộng | 139 |  |  |  |  |
 Ghi chú: Học phần ngoại ngữ thuộc khối kiến thức chung được tính vào tổng số tín
 chỉ của chương trình đào tạo, nhưng kết quả đánh giá các học phần này không tính

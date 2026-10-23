@@ -328,430 +328,179 @@ chương trình đào tạo)
 2. Khung chƣơng trình đào tạo
 2.1. Khung chương trình dành cho NCS có bằng thạc sĩ ngành đúng hoặc phù
 hợp
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG
-QUAN |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG<br>QUAN |  |  |  |  |  |  |
 | I.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | MAT8051 | Phương trình vi phân trong
-không gian Banach
-Differential Equations in Banach
-spaces | 3 | 15 |  | 30 |  |
-| 2 | MAT8045 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 15 |  | 30 |  |
+| 1 | MAT8051 | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in Banach<br>spaces | 3 | 15 |  | 30 |  |
+| 2 | MAT8045 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 15 |  | 30 |  |
 | I.1.2 | Tự chọn |  | 3/9 |  |  |  |  |
-| 3 | MAT8016 | Lý thuyết phổ của toán tử vi phân
-Theory of Spectrum of
-Differential Operators | 3 | 15 |  | 30 |  |
-| 4 | MAT8046 | Bài toán biên Elliptic
-Elliptic Boundary Value
-Problems | 3 | 15 |  | 30 |  |
+| 3 | MAT8016 | Lý thuyết phổ của toán tử vi phân<br>Theory of Spectrum of<br>Differential Operators | 3 | 15 |  | 30 |  |
+| 4 | MAT8046 | Bài toán biên Elliptic<br>Elliptic Boundary Value<br>Problems | 3 | 15 |  | 30 |  |
 11
 
 <!-- Page 12 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 5 | MAT8047 | Phương pháp Lyapunov nghiên
-cứu ổn định nghiệm
-Lyapunov Methods in Stability
-Theory | 3 | 15 |  | 30 |  |
-| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 5 | MAT8047 | Phương pháp Lyapunov nghiên<br>cứu ổn định nghiệm<br>Lyapunov Methods in Stability<br>Theory | 3 | 15 |  | 30 |  |
+| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | I.3 | Các chuyên đề tiến sĩ |  | 6/18 |  |  |  |  |
-| 7 | MAT8046 | Bài toán biên Elliptic
-Elliptic Boundary Value
-Problems | 3 | 15 |  | 30 |  |
-| 8 | MAT8047 | Phương pháp Lyapunov nghiên
-cứu ổn định nghiệm
-Lyapunov Methods in Stability
-Theory | 3 | 15 |  | 30 |  |
-| 9 | MAT8048 | Phương trình vi phân hàm
-Functional differential equation | 3 | 15 |  | 30 |  |
-| 10 | MAT8049 | Phương trình tích phân
-Integral Equations | 3 | 15 |  | 30 |  |
-| 11 | MAT8050 | Phương trình toán tử
-Operator Equations | 3 | 15 |  | 30 |  |
-| 12 | MAT8023 | Phương pháp biến phân
-Variational Methods | 3 | 15 |  | 30 |  |
+| 7 | MAT8046 | Bài toán biên Elliptic<br>Elliptic Boundary Value<br>Problems | 3 | 15 |  | 30 |  |
+| 8 | MAT8047 | Phương pháp Lyapunov nghiên<br>cứu ổn định nghiệm<br>Lyapunov Methods in Stability<br>Theory | 3 | 15 |  | 30 |  |
+| 9 | MAT8048 | Phương trình vi phân hàm<br>Functional differential equation | 3 | 15 |  | 30 |  |
+| 10 | MAT8049 | Phương trình tích phân<br>Integral Equations | 3 | 15 |  | 30 |  |
+| 11 | MAT8050 | Phương trình toán tử<br>Operator Equations | 3 | 15 |  | 30 |  |
+| 12 | MAT8023 | Phương pháp biến phân<br>Variational Methods | 3 | 15 |  | 30 |  |
 | I.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 13 | MAT8191 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 13 | MAT8191 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | III | PHẦN 3. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 14 | MAT9006 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 14 | MAT9006 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 91 |  |  |  |  |
 2.2. Khung chương trình dành cho NCS có bằng thạc sĩ ngành gần
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG
-(các học phần của chương trình đào tạo thạc sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG<br>(các học phần của chương trình đào tạo thạc sĩ) |  |  |  |  |  |  |
 | I.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 45 |  |  |  |
-| 2 | MAT6017 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 45 |  |  |  |
+| 1 | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 45 |  |  |  |
+| 2 | MAT6017 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 45 |  |  |  |
 | I.2 | Tự chọn |  | 9/18 |  |  |  |  |
-| 3 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |
-| 4 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |
-| 5 | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 45 |  |  |  |
-| 6 | MAT6018 | Lý thuyết ổn định của phương
-trình vi phân
-Stability Theory of Differential
-Equations | 3 | 45 |  |  |  |
-| 7 | MAT6019 | Lý thuyết phổ của toán tử
-Theory of Spectrum of Operators | 3 | 45 |  |  |  |
-| 8 | MAT6020 | Lý thuyết tiến hoá các quần thể
-Theory of Evolutions of
-Populations | 3 | 45 |  |  |  |
-| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG
-QUAN |  |  |  |  |  |  |
+| 3 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |
+| 4 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |
+| 5 | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 |  |  |  |
+| 6 | MAT6018 | Lý thuyết ổn định của phương<br>trình vi phân<br>Stability Theory of Differential<br>Equations | 3 | 45 |  |  |  |
+| 7 | MAT6019 | Lý thuyết phổ của toán tử<br>Theory of Spectrum of Operators | 3 | 45 |  |  |  |
+| 8 | MAT6020 | Lý thuyết tiến hoá các quần thể<br>Theory of Evolutions of<br>Populations | 3 | 45 |  |  |  |
+| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG<br>QUAN |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |
 13
 
 <!-- Page 14 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 9 | MAT8051 | Phương trình vi phân trong
-không gian Banach
-Differential Equations in Banach
-spaces | 3 | 15 |  | 30 |  |
-| 10 | MAT8045 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 15 |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 9 | MAT8051 | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in Banach<br>spaces | 3 | 15 |  | 30 |  |
+| 10 | MAT8045 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 15 |  | 30 |  |
 | II.1.2 | Tự chọn |  | 3/6 |  |  |  |  |
-| 11 | MAT8016 | Lý thuyết phổ của toán tử vi phân
-Theory of Spectrum of
-Differential Operators | 3 | 15 |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 12 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 | 0 |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 | 0 |  | 60 |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 | 0 |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+| 11 | MAT8016 | Lý thuyết phổ của toán tử vi phân<br>Theory of Spectrum of<br>Differential Operators | 3 | 15 |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 12 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 | 0 |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 | 0 |  | 60 |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 | 0 |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/18 |  |  |  |  |
-| 13 | MAT8046 | Bài toán biên Elliptic
-Elliptic Boundary Value
-Problems | 3 | 15 |  | 30 |  |
-| 14 | MAT8047 | Phương pháp Lyapunov nghiên
-cứu ổn định nghiệm
-Lyapunov Methods in Stability
-Theory | 3 | 15 |  | 30 |  |
-| 15 | MAT8048 | Phương trình vi phân hàm
-Functional differential equation | 3 | 15 |  | 30 |  |
-| 16 | MAT8049 | Phương trình tích phân
-Integral Equations | 3 | 15 |  | 30 |  |
-| 17 | MAT8050 | Phương trình toán tử
-Operator Equations | 3 | 15 |  | 30 |  |
+| 13 | MAT8046 | Bài toán biên Elliptic<br>Elliptic Boundary Value<br>Problems | 3 | 15 |  | 30 |  |
+| 14 | MAT8047 | Phương pháp Lyapunov nghiên<br>cứu ổn định nghiệm<br>Lyapunov Methods in Stability<br>Theory | 3 | 15 |  | 30 |  |
+| 15 | MAT8048 | Phương trình vi phân hàm<br>Functional differential equation | 3 | 15 |  | 30 |  |
+| 16 | MAT8049 | Phương trình tích phân<br>Integral Equations | 3 | 15 |  | 30 |  |
+| 17 | MAT8050 | Phương trình toán tử<br>Operator Equations | 3 | 15 |  | 30 |  |
 | 18 | MAT8023 | Phương pháp biến phân | 3 | 15 |  | 30 |  |
 14
 
 <!-- Page 15 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 |  |  | Variational Methods |  |  |  |  |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 19 | MAT8191 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 19 | MAT8191 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 20 | MAT9006 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 20 | MAT9006 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 106 |  |  |  |  |
 2.3. Khung chương trình dành cho NCS chưa có bằng thạc sĩ
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo
-thạc sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo<br>thạc sĩ) |  |  |  |  |  |  |
 | I.1 | Khối kiến thức chung |  | 6 |  |  |  |  |
-| 1 | CTP5001 | Triết học
-Philosophy | 2 |  |  |  |  |
-| 2 | ENG5001 | Tiếng Anh cơ bản
-General English | 4 |  |  |  |  |
+| 1 | CTP5001 | Triết học<br>Philosophy | 2 |  |  |  |  |
+| 2 | ENG5001 | Tiếng Anh cơ bản<br>General English | 4 |  |  |  |  |
 | I.2 | Khối kiến thức nhóm chuyên ngành |  |  |  |  |  |  |
 | I.2.1 | Bắt buộc |  | 9 |  |  |  |  |
-| 3 | ENG6001 | Tiếng Anh học thuật
-English for Academic Purposes | 3 |  |  |  |  |
-| 4 | MAT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Group theory and group
-representations | 3 | 45 |  |  |  |
-| 5 | MAT6002 | Giải tích hàm nâng cao
-Advanced functional analysis | 3 | 45 |  |  |  |
+| 3 | ENG6001 | Tiếng Anh học thuật<br>English for Academic Purposes | 3 |  |  |  |  |
+| 4 | MAT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Group theory and group<br>representations | 3 | 45 |  |  |  |
+| 5 | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis | 3 | 45 |  |  |  |
 | I.2.2 | Tự chọn |  | 6/15 |  |  |  |  |
 | 6 | MAT6005 | Hình học vi phân | 3 | 45 |  |  |  |
 15
 
 <!-- Page 16 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 |  |  | Differential Geometry |  |  |  |  |  |
-| 7 | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | 45 |  |  |  |
-| 8 | MAT6007 | Bổ túc về đại số tuyến tính
-Advanced Linear Algebra | 3 | 45 |  |  |  |
-| 9 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |
-| 10 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |
+| 7 | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 |  |  |  |
+| 8 | MAT6007 | Bổ túc về đại số tuyến tính<br>Advanced Linear Algebra | 3 | 45 |  |  |  |
+| 9 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |
+| 10 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |
 | I.3 | Khối kiến thức chuyên ngành |  |  |  |  |  |  |
 | I.3.1 | Bắt buộc |  | 9 |  |  |  |  |
-| 11 | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 45 |  |  |  |
-| 12 | MAT6017 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 45 |  |  |  |
-| 13 | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 45 |  |  |  |
+| 11 | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 45 |  |  |  |
+| 12 | MAT6017 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 45 |  |  |  |
+| 13 | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 |  |  |  |
 | I.3.2 | Tự chọn |  | 6/15 |  |  |  |  |
-| 14 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |
-| 15 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |
-| 16 | MAT6019 | Lý thuyết phổ của toán tử
-Theory of Spectrum of Operators | 3 | 45 |  |  |  |
-| 17 | MAT6018 | Lý thuyết ổn định của phương
-trình vi phân
-Stability Theory of Differential
-Equations | 3 | 45 |  |  |  |
-| 18 | MAT6020 | Lý thuyết tiến hoá các quần thể
-Theory of Evolutions of
-Populations | 3 | 45 |  |  |  |
-| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG
-QUAN |  |  |  |  |  |  |
+| 14 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |
+| 15 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |
+| 16 | MAT6019 | Lý thuyết phổ của toán tử<br>Theory of Spectrum of Operators | 3 | 45 |  |  |  |
+| 17 | MAT6018 | Lý thuyết ổn định của phương<br>trình vi phân<br>Stability Theory of Differential<br>Equations | 3 | 45 |  |  |  |
+| 18 | MAT6020 | Lý thuyết tiến hoá các quần thể<br>Theory of Evolutions of<br>Populations | 3 | 45 |  |  |  |
+| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG<br>QUAN |  |  |  |  |  |  |
 16
 
 <!-- Page 17 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 19 | MAT8051 | Phương trình vi phân trong
-không gian Banach
-Differential Equations in Banach
-spaces | 3 | 15 |  | 30 |  |
-| 20 | MAT8045 | Lý thuyết hàm suy rộng và không
-gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 15 |  | 30 |  |
+| 19 | MAT8051 | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in Banach<br>spaces | 3 | 15 |  | 30 |  |
+| 20 | MAT8045 | Lý thuyết hàm suy rộng và không<br>gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 15 |  | 30 |  |
 | II.1.2 | Tự chọn |  | 3/9 |  |  |  |  |
-| 21 | MAT8017 | Lý thuyết phổ của toán tử vi phân
-Theory of Spectrum of
-Differential Operators | 3 | 15 |  | 30 |  |
-| 22 | MAT8046 | Bài toán biên Elliptic
-Elliptic Boundary Value
-Problems | 3 | 15 |  | 30 |  |
-| 23 | MAT8047 | Phương pháp Lyapunov nghiên
-cứu ổn định nghiệm
-Lyapunov Methods in Stability
-Theory | 3 | 15 |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 24 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+| 21 | MAT8017 | Lý thuyết phổ của toán tử vi phân<br>Theory of Spectrum of<br>Differential Operators | 3 | 15 |  | 30 |  |
+| 22 | MAT8046 | Bài toán biên Elliptic<br>Elliptic Boundary Value<br>Problems | 3 | 15 |  | 30 |  |
+| 23 | MAT8047 | Phương pháp Lyapunov nghiên<br>cứu ổn định nghiệm<br>Lyapunov Methods in Stability<br>Theory | 3 | 15 |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 24 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/18 |  |  |  |  |
-| 25 | MAT8046 | Bài toán biên Elliptic
-Elliptic Boundary Value
-Problems | 3 | 15 |  | 30 |  |
+| 25 | MAT8046 | Bài toán biên Elliptic<br>Elliptic Boundary Value<br>Problems | 3 | 15 |  | 30 |  |
 17
 
 <!-- Page 18 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 26 | MAT8047 | Phương pháp Lyapunov nghiên
-cứu ổn định nghiệm
-Lyapunov Methods in Stability
-Theory | 3 | 15 |  | 30 |  |
-| 27 | MAT8048 | Phương trình vi phân hàm
-Functional differential equation | 3 | 15 |  | 30 |  |
-| 28 | MAT8049 | Phương trình tích phân
-Integral Equations | 3 | 15 |  | 30 |  |
-| 29 | MAT8050 | Phương trình toán tử
-Operator Equations | 3 | 15 |  | 30 |  |
-| 30 | MAT8023 | Phương pháp biến phân
-Variational Methods | 3 | 15 |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 26 | MAT8047 | Phương pháp Lyapunov nghiên<br>cứu ổn định nghiệm<br>Lyapunov Methods in Stability<br>Theory | 3 | 15 |  | 30 |  |
+| 27 | MAT8048 | Phương trình vi phân hàm<br>Functional differential equation | 3 | 15 |  | 30 |  |
+| 28 | MAT8049 | Phương trình tích phân<br>Integral Equations | 3 | 15 |  | 30 |  |
+| 29 | MAT8050 | Phương trình toán tử<br>Operator Equations | 3 | 15 |  | 30 |  |
+| 30 | MAT8023 | Phương pháp biến phân<br>Variational Methods | 3 | 15 |  | 30 |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 31 | MAT8191 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 45 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 31 | MAT8191 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 45 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 32 | MAT9006 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 32 | MAT9006 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 127 |  |  |  |  |
 CHỦ NHIỆM KT. HIỆU TRƢỞNG
 KHOA TOÁN – CƠ – TIN HỌC PHÓ HIỆU TRƢỞNG

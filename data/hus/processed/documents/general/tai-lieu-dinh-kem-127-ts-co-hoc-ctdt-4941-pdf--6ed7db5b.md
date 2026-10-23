@@ -285,301 +285,127 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 <!-- Page 9 -->
 2. Khung chương trình đào tạo
 2.1. Đối với NCS có bằng thạc sĩ
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
 | I.1.1 | Định hướng Cơ học vật rắn |  | 6 |  |  |  |  |
-| 1 | MAT8049 | Bài toán ổn định tĩnh của kết cấu
-có cơ tính biến thiên
-Static stability of functionally
-graded material structures | 3 | 30 | 0 | 120 |  |
-| 2 | MAT8206 | Các phương pháp tìm phương
-trình tán sắc dạng hiện của sóng
-mặt Rayleigh
-Methods for finding the explicit
-secular equations of Rayleigh
-surface waves | 3 | 30 | 0 | 120 |  |
+| 1 | MAT8049 | Bài toán ổn định tĩnh của kết cấu<br>có cơ tính biến thiên<br>Static stability of functionally<br>graded material structures | 3 | 30 | 0 | 120 |  |
+| 2 | MAT8206 | Các phương pháp tìm phương<br>trình tán sắc dạng hiện của sóng<br>mặt Rayleigh<br>Methods for finding the explicit<br>secular equations of Rayleigh<br>surface waves | 3 | 30 | 0 | 120 |  |
 | I.1.2 | Định hướng Cơ học chất lỏng và chất khí |  | 6 |  |  |  |  |
-| 3 | MAT8145 | Động lực học chất lỏng tính toán
-nâng cao
-Advanced Computational fluid
-dynamics | 3 | 30 | 0 | 120 |  |
-| 4 | MAT8146 | Động lực học vật bay
-Aerodynamics | 3 | 30 | 0 | 120 |  |
+| 3 | MAT8145 | Động lực học chất lỏng tính toán<br>nâng cao<br>Advanced Computational fluid<br>dynamics | 3 | 30 | 0 | 120 |  |
+| 4 | MAT8146 | Động lực học vật bay<br>Aerodynamics | 3 | 30 | 0 | 120 |  |
 | I.2 | Các học phần tự chọn |  | 3/9 |  |  |  |  |
 | I.2.1 | Định hướng Cơ học chất rắn |  | 3/9 |  |  |  |  |
-| 5 | MAT8205 | Lý thuyết bản vỏ mỏng nâng cao
-Advanced Theory of Thin Plates
-and Shells | 3 | 30 | 0 | 120 |  |
-| 6 | MAT8204 | Cơ học hệ nhiều vật nâng cao
-Advanced Mechanics of
-Multibody System | 3 | 30 | 0 | 120 |  |
-| 7 | MAT8120 | Bài toán truyền sóng trong môi
-trường đàn hồi
-Wave Propagation in Elastic Media | 3 | 30 | 0 | 120 |  |
+| 5 | MAT8205 | Lý thuyết bản vỏ mỏng nâng cao<br>Advanced Theory of Thin Plates<br>and Shells | 3 | 30 | 0 | 120 |  |
+| 6 | MAT8204 | Cơ học hệ nhiều vật nâng cao<br>Advanced Mechanics of<br>Multibody System | 3 | 30 | 0 | 120 |  |
+| 7 | MAT8120 | Bài toán truyền sóng trong môi<br>trường đàn hồi<br>Wave Propagation in Elastic Media | 3 | 30 | 0 | 120 |  |
 | I.2.2 | Định hướng Cơ học chất lỏng và chất khí |  | 3/9 |  |  |  |  |
-| 8 | MAT8147 | Phương pháp số trong thủy khí
-động lực học vật bay
-Computational aerodynamics | 3 | 30 | 0 | 120 |  |
-| 9 | MAT8148 | Lý thuyết xấp xỉ và phương
-pháp phổ
-Theory and Spectral Methods | 3 | 30 | 0 | 120 |  |
-| 10 | MAT8149 | Động lực học chất lỏng nén được
-Compressible Fluid Dynamics | 3 | 30 | 0 | 120 |  |
+| 8 | MAT8147 | Phương pháp số trong thủy khí<br>động lực học vật bay<br>Computational aerodynamics | 3 | 30 | 0 | 120 |  |
+| 9 | MAT8148 | Lý thuyết xấp xỉ và phương<br>pháp phổ<br>Theory and Spectral Methods | 3 | 30 | 0 | 120 |  |
+| 10 | MAT8149 | Động lực học chất lỏng nén được<br>Compressible Fluid Dynamics | 3 | 30 | 0 | 120 |  |
 9
 
 <!-- Page 10 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| II | Chuyên đề NCS, tiểu luận tổng quan, và
-NCKH |  | 8 |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| II | Chuyên đề NCS, tiểu luận tổng quan, và<br>NCKH |  | 8 |  |  |  |  |
 | II.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 11 | MAT8121 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 12 | MAT8122 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 13 | MAT8123 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 11 | MAT8121 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 12 | MAT8122 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 13 | MAT8123 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | II.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 14 | MAT8217 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 14 | MAT8217 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | II.3 | Nghiên cứu khoa học |  |  |  |  |  |  |
-| 15 |  | NCS xây dựng kế hoạch nghiên
-cứu, tổ chức triển khai và công bố
-các công trình nghiên cứu liên
-quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn
-của giáo viên hướng dẫn. |  |  |  |  |  |
-| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ
-đào tạo |  |  |  |  |  |  |
-| 16 |  | Đơn vị chuyên môn lên lịch sinh
-hoạt chuyên môn và lịch cho từng
-NCS báo cáo, trình bày kết quả
-hoạt động chuyên môn của mình
-tại seminar do đơn vị chuyên môn
-tổ chức trong từng năm học.
-NCS phải tham gia đầy đủ các
-seminar khoa học hoặc các hội
-nghị, hội thảo do đơn vị chuyên
-môn tổ chức, quy định.
-NCS phải tham gia trợ giảng bậc
-đại học, thạc sĩ hoặc hướng dẫn
-SV/HV cao học thực hành, thực
-tập, hoặc hướng dẫn khóa luận tốt
-nghiệp đại học, tham gia giảng
-dạy/trợ giảng các khóa đào tạo,
-bồi dưỡng ngắn hạn do đơn vị tổ
-chức |  |  |  |  |  |
+| 15 |  | NCS xây dựng kế hoạch nghiên<br>cứu, tổ chức triển khai và công bố<br>các công trình nghiên cứu liên<br>quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn<br>của giáo viên hướng dẫn. |  |  |  |  |  |
+| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ<br>đào tạo |  |  |  |  |  |  |
+| 16 |  | Đơn vị chuyên môn lên lịch sinh<br>hoạt chuyên môn và lịch cho từng<br>NCS báo cáo, trình bày kết quả<br>hoạt động chuyên môn của mình<br>tại seminar do đơn vị chuyên môn<br>tổ chức trong từng năm học.<br>NCS phải tham gia đầy đủ các<br>seminar khoa học hoặc các hội<br>nghị, hội thảo do đơn vị chuyên<br>môn tổ chức, quy định.<br>NCS phải tham gia trợ giảng bậc<br>đại học, thạc sĩ hoặc hướng dẫn<br>SV/HV cao học thực hành, thực<br>tập, hoặc hướng dẫn khóa luận tốt<br>nghiệp đại học, tham gia giảng<br>dạy/trợ giảng các khóa đào tạo,<br>bồi dưỡng ngắn hạn do đơn vị tổ<br>chức |  |  |  |  |  |
 | IV | Luận án |  | 80 |  |  |  |  |
-| 17 | MAT9106 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 17 | MAT9106 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 97 |  |  |  |  |
 10
 
 <!-- Page 11 -->
 2.2. Đối với NCS chưa có bằng thạc sĩ
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 30 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 15 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 3 | MAT6036 | Cơ học môi trường liên tục nâng cao
-Advanced Mechanics of Continuous
-Media | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6037 | Phương trình đạo hàm riêng nâng cao
-Advanced Partial Differential
-Equations | 3 | 45 | 0 | 105 |  |
-| 5 | MAT6045 | Các phương pháp số trong cơ học
-nâng cao
-Advanced Numerical Methods in Mechanics | 3 | 45 | 0 | 105 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6036 | Cơ học môi trường liên tục nâng cao<br>Advanced Mechanics of Continuous<br>Media | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6037 | Phương trình đạo hàm riêng nâng cao<br>Advanced Partial Differential<br>Equations | 3 | 45 | 0 | 105 |  |
+| 5 | MAT6045 | Các phương pháp số trong cơ học<br>nâng cao<br>Advanced Numerical Methods in Mechanics | 3 | 45 | 0 | 105 |  |
 | I.2 | Các học phần tự chọn |  | 15 |  |  |  |  |
 | I.2.1 | Định hướng cơ học vật rắn |  | 15/27 |  |  |  |  |
-| 6 | MAT6038 | Phân tích tấm
-Analysis of plates | 3 | 45 | 0 | 105 |  |
-| 7 | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
-| 8 | MAT6041 | Phương trình vi phân nâng cao
-Advanced Differential Equations | 3 | 45 | 0 | 105 |  |
-| 9 | MAT6109 | Giải tích hàm ứng dụng
-Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
-| 10 | MAT6046 | Nhiệt đàn hồi
-Thermo - Elasticity | 3 | 45 | 0 | 105 |  |
-| 11 | MAT6051 | Cơ học vật liệu composite nâng cao
-Advanced Mechanics of Composite
-Materials | 3 | 45 | 0 | 105 |  |
-| 12 | MAT6112 | Lý thuyết bản vỏ mỏng
-Theory of Thin Plates and Shells | 3 | 38 | 14 | 98 |  |
-| 13 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
-| 14 | MAT6039 | Truyền sóng trong môi trường đàn dẻo
-Wave Propagation in Elasto-Plastic Media | 3 | 45 | 0 | 105 |  |
+| 6 | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6041 | Phương trình vi phân nâng cao<br>Advanced Differential Equations | 3 | 45 | 0 | 105 |  |
+| 9 | MAT6109 | Giải tích hàm ứng dụng<br>Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
+| 10 | MAT6046 | Nhiệt đàn hồi<br>Thermo - Elasticity | 3 | 45 | 0 | 105 |  |
+| 11 | MAT6051 | Cơ học vật liệu composite nâng cao<br>Advanced Mechanics of Composite<br>Materials | 3 | 45 | 0 | 105 |  |
+| 12 | MAT6112 | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and Shells | 3 | 38 | 14 | 98 |  |
+| 13 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
+| 14 | MAT6039 | Truyền sóng trong môi trường đàn dẻo<br>Wave Propagation in Elasto-Plastic Media | 3 | 45 | 0 | 105 |  |
 | I.2.2 | Định hướng cơ học chất lỏng |  | 15/24 |  |  |  |  |
-| 15 | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
-| 16 | MAT6041 | Phương trình vi phân nâng cao
-Advanced Differential Equations | 3 | 45 | 0 | 105 |  |
+| 15 | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
+| 16 | MAT6041 | Phương trình vi phân nâng cao<br>Advanced Differential Equations | 3 | 45 | 0 | 105 |  |
 11
 
 <!-- Page 12 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 17 | MAT6109 | Giải tích hàm ứng dụng
-Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
-| 18 | MAT6052 | Cơ học chất lỏng nâng cao
-Advanced Fluid Mechanics | 3 | 30 | 30 | 90 |  |
-| 19 | MAT6113 | Lý thuyết truyền tải và khuếch tán
-hợp chất
-Theory of Mass Transfer and
-Diffusion | 3 | 30 | 30 | 90 |  |
-| 20 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
-| 21 | MAT6107 | Khí động lực học
-Gas dynamics | 3 | 39 | 12 | 99 |  |
-| 22 | MAT6115 | Lý thuyết ổn định thuỷ khí
-Theory of Hydrodynamic Stability | 3 | 30 | 18 | 102 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 17 | MAT6109 | Giải tích hàm ứng dụng<br>Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
+| 18 | MAT6052 | Cơ học chất lỏng nâng cao<br>Advanced Fluid Mechanics | 3 | 30 | 30 | 90 |  |
+| 19 | MAT6113 | Lý thuyết truyền tải và khuếch tán<br>hợp chất<br>Theory of Mass Transfer and<br>Diffusion | 3 | 30 | 30 | 90 |  |
+| 20 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
+| 21 | MAT6107 | Khí động lực học<br>Gas dynamics | 3 | 39 | 12 | 99 |  |
+| 22 | MAT6115 | Lý thuyết ổn định thuỷ khí<br>Theory of Hydrodynamic Stability | 3 | 30 | 18 | 102 |  |
 | II | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
 | II.1.1 | Định hướng Cơ học vật rắn |  | 6 |  |  |  |  |
-| 23 | MAT8049 | Bài toán ổn định tĩnh của kết cấu có
-cơ tính biến thiên
-Static stability of functionally graded
-material structures | 3 | 30 | 0 | 120 |  |
-| 24 | MAT8206 | Các phương pháp tìm phương trình
-tán sắc dạng hiện của sóng mặt
-Rayleigh
-Methods for finding the explicit
-secular equations of Rayleigh surface
-waves | 3 | 30 | 0 | 120 |  |
+| 23 | MAT8049 | Bài toán ổn định tĩnh của kết cấu có<br>cơ tính biến thiên<br>Static stability of functionally graded<br>material structures | 3 | 30 | 0 | 120 |  |
+| 24 | MAT8206 | Các phương pháp tìm phương trình<br>tán sắc dạng hiện của sóng mặt<br>Rayleigh<br>Methods for finding the explicit<br>secular equations of Rayleigh surface<br>waves | 3 | 30 | 0 | 120 |  |
 | II.1.2 | Định hướng Cơ học chất lỏng và chất khí |  | 6 |  |  |  |  |
-| 25 | MAT8145 | Động lực học chất lỏng tính toán
-nâng cao
-Advanced Computational fluid
-dynamics | 3 | 30 | 0 | 120 |  |
-| 26 | MAT8146 | Động lực học vật bay
-Aerodynamics | 3 | 30 | 0 | 120 |  |
+| 25 | MAT8145 | Động lực học chất lỏng tính toán<br>nâng cao<br>Advanced Computational fluid<br>dynamics | 3 | 30 | 0 | 120 |  |
+| 26 | MAT8146 | Động lực học vật bay<br>Aerodynamics | 3 | 30 | 0 | 120 |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | II.2 | Các học phần tự chọn |  | 3/9 |  |  |  |  |
 | II.2.1 | Định hướng Cơ học chất rắn |  | 3/9 |  |  |  |  |
-| 27 | MAT8205 | Lý thuyết bản vỏ mỏng nâng cao
-Advanced Theory of Thin Plates and Shells | 3 | 30 | 0 | 120 |  |
-| 28 | MAT8204 | Cơ học hệ nhiều vật nâng cao
-Advanced Mechanics of Multibody System | 3 | 30 | 0 | 120 |  |
-| 29 | MAT8120 | Bài toán truyền sóng trong môi
-trường đàn hồi
-Wave Propagation in Elastic Media | 3 | 30 | 0 | 120 |  |
+| 27 | MAT8205 | Lý thuyết bản vỏ mỏng nâng cao<br>Advanced Theory of Thin Plates and Shells | 3 | 30 | 0 | 120 |  |
+| 28 | MAT8204 | Cơ học hệ nhiều vật nâng cao<br>Advanced Mechanics of Multibody System | 3 | 30 | 0 | 120 |  |
+| 29 | MAT8120 | Bài toán truyền sóng trong môi<br>trường đàn hồi<br>Wave Propagation in Elastic Media | 3 | 30 | 0 | 120 |  |
 | II.2.2 | Định hướng Cơ học chất lỏng và chất khí |  | 3/9 |  |  |  |  |
-| 30 | MAT8147 | Phương pháp số trong thủy khí động
-lực học vật bay
-Computational aerodynamics | 3 | 30 | 0 | 120 |  |
-| 31 | MAT8148 | Lý thuyết xấp xỉ và phương pháp phổ
-Theory and Spectral Methods | 3 | 30 | 0 | 120 |  |
-| 32 | MAT8149 | Động lực học chất lỏng nén được
-Compressible Fluid Dynamics | 3 | 30 | 0 | 120 |  |
+| 30 | MAT8147 | Phương pháp số trong thủy khí động<br>lực học vật bay<br>Computational aerodynamics | 3 | 30 | 0 | 120 |  |
+| 31 | MAT8148 | Lý thuyết xấp xỉ và phương pháp phổ<br>Theory and Spectral Methods | 3 | 30 | 0 | 120 |  |
+| 32 | MAT8149 | Động lực học chất lỏng nén được<br>Compressible Fluid Dynamics | 3 | 30 | 0 | 120 |  |
 | III | Chuyên đề NCS, tiểu luận tổng quan, và NCKH |  | 8 |  |  |  |  |
 | III.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 33 | MAT8121 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 34 | MAT8122 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 35 | MAT8123 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 33 | MAT8121 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 34 | MAT8122 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 35 | MAT8123 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | III.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 36 | MAT8217 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 36 | MAT8217 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | III.3 | Nghiên cứu khoa học |  |  |  |  |  |  |
-| 37 |  | NCS xây dựng kế hoạch nghiên cứu, tổ
-chức triển khai và công bố các công
-trình nghiên cứu liên quan đến luận án
-trên các tạp chí chuyên ngành dưới sự
-hướng dẫn của giáo viên hướng dẫn. |  |  |  |  |  |
+| 37 |  | NCS xây dựng kế hoạch nghiên cứu, tổ<br>chức triển khai và công bố các công<br>trình nghiên cứu liên quan đến luận án<br>trên các tạp chí chuyên ngành dưới sự<br>hướng dẫn của giáo viên hướng dẫn. |  |  |  |  |  |
 13
 
 <!-- Page 14 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| IV | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ
-đào tạo |  |  |  |  |  |  |
-| 38 |  | Đơn vị chuyên môn lên lịch sinh hoạt
-chuyên môn và lịch cho từng NCS báo
-cáo, trình bày kết quả hoạt động
-chuyên môn của mình tại seminar do
-đơn vị chuyên môn tổ chức trong từng
-năm học.
-NCS phải tham gia đầy đủ các seminar
-khoa học hoặc các hội nghị, hội thảo
-do đơn vị chuyên môn tổ chức, quy
-định.
-NCS phải tham gia trợ giảng bậc đại
-học, thạc sĩ hoặc hướng dẫn SV/HV
-cao học thực hành, thực tập, hoặc
-hướng dẫn khóa luận tốt nghiệp đại
-học, tham gia giảng dạy/trợ giảng các
-khóa đào tạo, bồi dưỡng ngắn hạn do
-đơn vị tổ chức |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| IV | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ<br>đào tạo |  |  |  |  |  |  |
+| 38 |  | Đơn vị chuyên môn lên lịch sinh hoạt<br>chuyên môn và lịch cho từng NCS báo<br>cáo, trình bày kết quả hoạt động<br>chuyên môn của mình tại seminar do<br>đơn vị chuyên môn tổ chức trong từng<br>năm học.<br>NCS phải tham gia đầy đủ các seminar<br>khoa học hoặc các hội nghị, hội thảo<br>do đơn vị chuyên môn tổ chức, quy<br>định.<br>NCS phải tham gia trợ giảng bậc đại<br>học, thạc sĩ hoặc hướng dẫn SV/HV<br>cao học thực hành, thực tập, hoặc<br>hướng dẫn khóa luận tốt nghiệp đại<br>học, tham gia giảng dạy/trợ giảng các<br>khóa đào tạo, bồi dưỡng ngắn hạn do<br>đơn vị tổ chức |  |  |  |  |  |
 | V | Luận án |  | 80 |  |  |  |  |
-| 39 | MAT9106 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 39 | MAT9106 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 127 |  |  |  |  |
 14

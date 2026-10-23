@@ -318,153 +318,66 @@ chương trình đào tạo).
 <!-- Page 11 -->
 2. Khung chƣơng trình
 2.1. Khung chương trình dành cho NCS chưa có bằng thạc sĩ
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần
-tiên quyết |  |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần<br>tiên quyết |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |  |
+|  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |  |
 |  | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG |  |  |  |  |  |  |  |  |
 | I.1 | Khối kiến thức chung |  | 6 |  |  |  |  |  |  |
-| 1 | CTP5001 | Triết học
-Philosophy | 2 |  |  |  |  |  |  |
-| 2 | ENG5001 | Tiếng Anh cơ bản
-General English | 4 |  |  |  |  |  |  |
+| 1 | CTP5001 | Triết học<br>Philosophy | 2 |  |  |  |  |  |  |
+| 2 | ENG5001 | Tiếng Anh cơ bản<br>General English | 4 |  |  |  |  |  |  |
 | I.2 | Khối kiến thức nhóm chuyên ngành |  | 15 |  |  |  |  |  |  |
 | I.2.1 | Bắt buộc |  | 9 |  |  |  |  |  |  |
-| 3 | ENG6001 | Tiếng Anh học thuật
-English for Academic purposes | 3 |  |  |  |  |  |  |
-| 4 | MAT6036 | Cơ học môi trường liên tục nâng
-cao
-Advanced Mechanics
-of Continuous Media | 3 | 45 |  |  |  |  |  |
-| 5 | MAT6037 | Phương trình đạo hàm riêng
-nâng cao
-Advanced Partial Differential
-Equations | 3 | 45 |  |  |  |  |  |
+| 3 | ENG6001 | Tiếng Anh học thuật<br>English for Academic purposes | 3 |  |  |  |  |  |  |
+| 4 | MAT6036 | Cơ học môi trường liên tục nâng<br>cao<br>Advanced Mechanics<br>of Continuous Media | 3 | 45 |  |  |  |  |  |
+| 5 | MAT6037 | Phương trình đạo hàm riêng<br>nâng cao<br>Advanced Partial Differential<br>Equations | 3 | 45 |  |  |  |  |  |
 | I.2.2 | Tự chọn |  | 6/12 |  |  |  |  |  |  |
-| 6 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillation | 3 | 45 |  |  |  |  |  |
-| 7 | MAT6041 | Phương trình vi phân nâng cao
-Advanced Differential Equations | 3 | 45 |  |  |  |  |  |
-| 8 | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | 3 | 45 |  |  |  |  |  |
-| 9 | MAT6045 | Các phương pháp số trong cơ
-học nâng cao
-Advanced numerical Methods in
-Mechanics | 3 | 45 |  |  |  |  |  |
+| 6 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillation | 3 | 45 |  |  |  |  |  |
+| 7 | MAT6041 | Phương trình vi phân nâng cao<br>Advanced Differential Equations | 3 | 45 |  |  |  |  |  |
+| 8 | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | 3 | 45 |  |  |  |  |  |
+| 9 | MAT6045 | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced numerical Methods in<br>Mechanics | 3 | 45 |  |  |  |  |  |
 | I.3 | Khối kiến thức chuyên ngành |  | 15 |  |  |  |  |  |  |
 | I.3.1 | Bắt buộc |  | 9 |  |  |  |  |  |  |
 10
 
 <!-- Page 12 -->
-| STT |  | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần
-tiên quyết |  |
+| STT |  | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần<br>tiên quyết |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |  |
-| 10 |  | MAT6044 | Cơ học chất lỏng tính toán
-Computational Fluid Mechanics | 3 | 45 |  |  |  |  |  |
-| 11 |  | MAT6043 | Cơ học chất lỏng nâng cao
-Advanced Fluid Mechanics | 3 | 45 |  |  |  |  |  |
-| 12 |  | MAT6059 | Lý thuyết thứ nguyên, tương tự
-và phân tích chiều
-Dimensional Analysis and
-Similarities | 3 | 45 |  |  |  |  |  |
+|  |  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |  |
+| 10 |  | MAT6044 | Cơ học chất lỏng tính toán<br>Computational Fluid Mechanics | 3 | 45 |  |  |  |  |  |
+| 11 |  | MAT6043 | Cơ học chất lỏng nâng cao<br>Advanced Fluid Mechanics | 3 | 45 |  |  |  |  |  |
+| 12 |  | MAT6059 | Lý thuyết thứ nguyên, tương tự<br>và phân tích chiều<br>Dimensional Analysis and<br>Similarities | 3 | 45 |  |  |  |  |  |
 | I.3.2 |  | Tự chọn |  | 6/15 |  |  |  |  |  |  |
-| 13 |  | MAT6055 | Động lực học sóng
-Wave Dynamics | 3 | 45 |  |  |  |  |  |
-| 14 |  | MAT6054 | Ngôn ngữ lập trình Fortran
-nâng cao
-Advanced Fortran
-Programming Language | 3 | 45 |  |  |  |  |  |
-| 15 |  | MAT6056 | Từ thủy khí động
-Magneto-Hydrodynamics | 3 | 45 |  |  |  |  |  |
-| 16 |  | MAT6057 | Cơ học thủy khí môi trường
-Environmental Fluid Mechanics | 3 | 45 |  |  |  |  |  |
-| 17 |  | MAT6058 | Khuyếch tán hợp chất
-Theory of Diffusion | 3 | 45 |  |  |  |  |  |
+| 13 |  | MAT6055 | Động lực học sóng<br>Wave Dynamics | 3 | 45 |  |  |  |  |  |
+| 14 |  | MAT6054 | Ngôn ngữ lập trình Fortran<br>nâng cao<br>Advanced Fortran<br>Programming Language | 3 | 45 |  |  |  |  |  |
+| 15 |  | MAT6056 | Từ thủy khí động<br>Magneto-Hydrodynamics | 3 | 45 |  |  |  |  |  |
+| 16 |  | MAT6057 | Cơ học thủy khí môi trường<br>Environmental Fluid Mechanics | 3 | 45 |  |  |  |  |  |
+| 17 |  | MAT6058 | Khuyếch tán hợp chất<br>Theory of Diffusion | 3 | 45 |  |  |  |  |  |
 | II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |  |  |  |
 | II.1 |  | Các học phần tiến sĩ |  | 9 |  |  |  |  |  |  |
 | II.1.1 |  | Bắt buộc |  | 6 |  |  |  |  |  |  |
-| 18 |  | MAT8054 | Động lực học chất lỏng nhiều
-pha
-Dynamics of Multiphase Fluids | 3 | 45 |  |  |  |  |  |
-| 19 |  | MAT8055 | Phương pháp biến phân trong
-động lực học chất lỏng không
-nén được
-Variational Methods in
-Mechanics of Incompressible | 3 | 45 |  |  |  |  |  |
+| 18 |  | MAT8054 | Động lực học chất lỏng nhiều<br>pha<br>Dynamics of Multiphase Fluids | 3 | 45 |  |  |  |  |  |
+| 19 |  | MAT8055 | Phương pháp biến phân trong<br>động lực học chất lỏng không<br>nén được<br>Variational Methods in<br>Mechanics of Incompressible | 3 | 45 |  |  |  |  |  |
 | I.1.2 |  | Tự chọn |  | 3/6 |  |  |  |  |  |  |
-| 20 |  | MAT8056 | Nhiệt động lực học các quá trình
-không thuận nghịch | 3 | 45 |  |  |  |  |  |
+| 20 |  | MAT8056 | Nhiệt động lực học các quá trình<br>không thuận nghịch | 3 | 45 |  |  |  |  |  |
 11
 
 <!-- Page 13 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | Thermodynamics of Irreversible
-Processes |  |  |  |  |  |
-| 21 | MAT8058 | Thủy triều
-Tides | 3 | 45 |  |  |  |
-| II | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 22 | ENG8001 | Tiếng Anh học thuật nâng cao
-Advanced English for
-Academic Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For
-Academic Purposes | 4 |  |  |  |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For
-Academic Purposes | 4 |  |  |  |  |
-|  | WES8001 | Tiếng Đức học thuật nâng cao
-Advanced General For
-Academic Purposes | 4 |  |  |  |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng
-cao Advanced Chinese For
-Academic Purposes | 4 |  |  |  |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | Thermodynamics of Irreversible<br>Processes |  |  |  |  |  |
+| 21 | MAT8058 | Thủy triều<br>Tides | 3 | 45 |  |  |  |
+| II | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 22 | ENG8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for<br>Academic Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For<br>Academic Purposes | 4 |  |  |  |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For<br>Academic Purposes | 4 |  |  |  |  |
+|  | WES8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For<br>Academic Purposes | 4 |  |  |  |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng<br>cao Advanced Chinese For<br>Academic Purposes | 4 |  |  |  |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/15 |  |  |  |  |
-| 23 | MAT8057 | Phương pháp số giải các bài
-toán khí động lực học
-Numerical Methods in
-Aerodynamics | 3 | 45 |  |  |  |
-| 24 | MAT8059 | Giải số các bài toán chuyển
-động của chất lỏng bằng phương
-pháp hạt trơn (SPH)
-Smoot Particle Hydrodynamics
-Method (SPH) for Fluid Flows | 3 | 45 |  |  |  |
-| 25 | MAT8060 | Phương pháp không lưới (MFM)
-áp dụng cho tính toán động lực
-học chất lỏng
-Mesh Free Method (MFM)
-Applied for Hydrodynamic
-Problems | 3 | 45 |  |  |  |
-| 26 | MAT8061 | Lý thuyết ổn định thủy khí và
-dòng chảy rối | 3 | 45 |  |  |  |
+| 23 | MAT8057 | Phương pháp số giải các bài<br>toán khí động lực học<br>Numerical Methods in<br>Aerodynamics | 3 | 45 |  |  |  |
+| 24 | MAT8059 | Giải số các bài toán chuyển<br>động của chất lỏng bằng phương<br>pháp hạt trơn (SPH)<br>Smoot Particle Hydrodynamics<br>Method (SPH) for Fluid Flows | 3 | 45 |  |  |  |
+| 25 | MAT8060 | Phương pháp không lưới (MFM)<br>áp dụng cho tính toán động lực<br>học chất lỏng<br>Mesh Free Method (MFM)<br>Applied for Hydrodynamic<br>Problems | 3 | 45 |  |  |  |
+| 26 | MAT8061 | Lý thuyết ổn định thủy khí và<br>dòng chảy rối | 3 | 45 |  |  |  |
 | Phương pháp số giải các bài |
 | --- |
 | toán khí động lực học |
@@ -474,1043 +387,272 @@ dòng chảy rối | 3 | 45 |  |  |  |
 12
 
 <!-- Page 14 -->
-| STT | Mã số
-học phần | Tên học phần |  | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần |  | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | Theoryof Hydrodynamic
-Stability and Turbulence Fluid
-Flow |  |  |  |  |  |  |
-| 27 | MAT8062 | Lý thuyết chảy thấm
-Fluid Flow in Porous Medium |  | 3 | 45 |  |  |  |
+|  |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | Theoryof Hydrodynamic<br>Stability and Turbulence Fluid<br>Flow |  |  |  |  |  |  |
+| 27 | MAT8062 | Lý thuyết chảy thấm<br>Fluid Flow in Porous Medium |  | 3 | 45 |  |  |  |
 | II.4 | Tiểu luận tổng quan |  |  | 2 |  |  |  |  |
-| 28 | MAT8064 | Tiểu luận tổng quan
-Research Perspective Report |  | 2 |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ
-chức triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các
-tạp chí chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |
+| 28 | MAT8064 | Tiểu luận tổng quan<br>Research Perspective Report |  | 2 |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ<br>chức triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các<br>tạp chí chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |  |
-| 29 | MAT9008 | Luận án
-Ph.D thesis | 70 |  |  |  |  |  |
+| 29 | MAT9008 | Luận án<br>Ph.D thesis | 70 |  |  |  |  |  |
 |  | Tổng cộng |  | 127 |  |  |  |  |  |
 2.2. Khung chương trình dành cho NCS có bằng thạc sĩ ngành gần
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các môn
-học tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG |  |  |  |  |  |  |
 | I.1 | Bắt buộc |  | 9 |  |  |  |  |
-| 1 | MAT6044 | Cơ học chất lỏng tính toán
-Computational Fluid
-Mechanics | 3 | 45 |  |  |  |
-| 2 | MAT6043 | Cơ học chất lỏng nâng cao
-Advanced Fluid Mechanics | 3 | 45 |  |  |  |
-| 3 | MAT6059 | Lý thuyết thứ nguyên, tương tự
-và phân tích chiều
-Dimensional Analysis and
-Similarities | 3 | 45 |  |  |  |
+| 1 | MAT6044 | Cơ học chất lỏng tính toán<br>Computational Fluid<br>Mechanics | 3 | 45 |  |  |  |
+| 2 | MAT6043 | Cơ học chất lỏng nâng cao<br>Advanced Fluid Mechanics | 3 | 45 |  |  |  |
+| 3 | MAT6059 | Lý thuyết thứ nguyên, tương tự<br>và phân tích chiều<br>Dimensional Analysis and<br>Similarities | 3 | 45 |  |  |  |
 | I.2 | Tự chọn |  | 6/15 |  |  |  |  |
-| 4 | MAT6054 | Ngôn ngữ lập trình Fortran
-nâng cao | 3 | 45 |  |  |  |
+| 4 | MAT6054 | Ngôn ngữ lập trình Fortran<br>nâng cao | 3 | 45 |  |  |  |
 13
 
 <!-- Page 15 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  |  | Mã số
-các môn
-học tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  |  | Thực
-hành | Tự
-học |  |
-|  |  | Advanced Fortran
-Programming Language |  |  |  |  |  |  |  |
-| 5 | MAT6055 | Động lực học sóng
-Wave Dynamics | 3 | 45 |  |  |  |  |  |
-| 6 | MAT6056 | Từ thủy khí động
-Magneto-Hydrodynamics | 3 | 45 |  |  |  |  |  |
-| 7 | MAT6057 | Cơ học thủy khí môi trường
-Environmental Fluid
-Mechanics | 3 | 45 |  |  |  |  |  |
-| 8 | MAT6058 | Khuyếch tán hợp chất
-Theory of Diffusion | 3 | 45 |  |  |  |  |  |
+|  |  |  |  | Lý<br>thuyết |  |  | Thực<br>hành | Tự<br>học |  |
+|  |  | Advanced Fortran<br>Programming Language |  |  |  |  |  |  |  |
+| 5 | MAT6055 | Động lực học sóng<br>Wave Dynamics | 3 | 45 |  |  |  |  |  |
+| 6 | MAT6056 | Từ thủy khí động<br>Magneto-Hydrodynamics | 3 | 45 |  |  |  |  |  |
+| 7 | MAT6057 | Cơ học thủy khí môi trường<br>Environmental Fluid<br>Mechanics | 3 | 45 |  |  |  |  |  |
+| 8 | MAT6058 | Khuyếch tán hợp chất<br>Theory of Diffusion | 3 | 45 |  |  |  |  |  |
 | II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |  |  |
-| 9 | MAT8054 | Động lực học chất lỏng nhiều
-pha
-Dynamics of Multiphase Fluids | 3 |  | 45 |  |  |  |  |
-| 10 | MAT8055 | Phương pháp biến phân trong
-động lực học chất lỏng không
-nén được
-Variational Methods in
-Mechanics of Incompressible
-Fluids | 3 |  | 45 |  |  |  |  |
+| 9 | MAT8054 | Động lực học chất lỏng nhiều<br>pha<br>Dynamics of Multiphase Fluids | 3 |  | 45 |  |  |  |  |
+| 10 | MAT8055 | Phương pháp biến phân trong<br>động lực học chất lỏng không<br>nén được<br>Variational Methods in<br>Mechanics of Incompressible<br>Fluids | 3 |  | 45 |  |  |  |  |
 | II.1.2 | Tự chọn |  | 3/6 |  |  |  |  |  |  |
-| 11 | MAT8056 | Nhiệt động lực học các quá
-trình không thuận nghịch
-Thermodynamics of
-Irreversible Processes | 3 |  | 45 |  |  |  |  |
-| 12 | MAT8058 | Thủy triều
-Tides | 3 |  | 45 |  |  |  |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1
-trong các thứ tiếng sau): |  | 4 |  |  |  |  |  |  |
-| 13 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for
-Academic Purposes | 4 |  |  |  |  |  |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For | 4 |  |  |  |  |  |  |
+| 11 | MAT8056 | Nhiệt động lực học các quá<br>trình không thuận nghịch<br>Thermodynamics of<br>Irreversible Processes | 3 |  | 45 |  |  |  |  |
+| 12 | MAT8058 | Thủy triều<br>Tides | 3 |  | 45 |  |  |  |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1<br>trong các thứ tiếng sau): |  | 4 |  |  |  |  |  |  |
+| 13 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for<br>Academic Purposes | 4 |  |  |  |  |  |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For | 4 |  |  |  |  |  |  |
 14
 
 <!-- Page 16 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  |  | Mã số
-các môn
-học tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  |  | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết |  |  | Thực<br>hành | Tự<br>học |  |
 |  |  | Academic Purposes |  |  |  |  |  |  |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For
-Academic Purposes | 4 |  |  |  |  |  |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For
-Academic Purposes | 4 |  |  |  |  |  |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng
-cao Advanced Chinese For
-Academic Purposes | 4 |  |  |  |  |  |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For<br>Academic Purposes | 4 |  |  |  |  |  |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For<br>Academic Purposes | 4 |  |  |  |  |  |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng<br>cao Advanced Chinese For<br>Academic Purposes | 4 |  |  |  |  |  |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/15 |  |  |  |  |  |  |
-| 14 | MAT8057 | Phương pháp số giải các bài
-toán khí động lực học
-Numerical Methods in
-Aerodynamics | 3 |  | 45 |  |  |  |  |
-| 15 | MAT8059 | Giải số các bài toán chuyển
-động của chất lỏng bằng
-phương pháp hạt trơn (SPH)
-Smoot Particle
-Hydrodynamics Method (SPH)
-for Fluid Flows | 3 |  | 45 |  |  |  |  |
-| 16 | MAT8060 | Phương pháp không lưới
-(MFM) áp dụng cho tính toán
-động lực học chất lỏng
-Mesh Free Method (MFM)
-Applied for Hydrodynamic
-Problems | 3 |  | 45 |  |  |  |  |
-| 17 | MAT8061 | Lý thuyết ổn định thủy khí và
-dòng chảy rối
-Theory of Hydrodynamic
-Stability and Turbulence Fluid
-Flow |  |  | 45 |  |  |  |  |
-| 18 | MAT8062 | Lý thuyết chảy thấm
-Fluid Flow in Porous Medium | 3 |  | 45 |  |  |  |  |
+| 14 | MAT8057 | Phương pháp số giải các bài<br>toán khí động lực học<br>Numerical Methods in<br>Aerodynamics | 3 |  | 45 |  |  |  |  |
+| 15 | MAT8059 | Giải số các bài toán chuyển<br>động của chất lỏng bằng<br>phương pháp hạt trơn (SPH)<br>Smoot Particle<br>Hydrodynamics Method (SPH)<br>for Fluid Flows | 3 |  | 45 |  |  |  |  |
+| 16 | MAT8060 | Phương pháp không lưới<br>(MFM) áp dụng cho tính toán<br>động lực học chất lỏng<br>Mesh Free Method (MFM)<br>Applied for Hydrodynamic<br>Problems | 3 |  | 45 |  |  |  |  |
+| 17 | MAT8061 | Lý thuyết ổn định thủy khí và<br>dòng chảy rối<br>Theory of Hydrodynamic<br>Stability and Turbulence Fluid<br>Flow |  |  | 45 |  |  |  |  |
+| 18 | MAT8062 | Lý thuyết chảy thấm<br>Fluid Flow in Porous Medium | 3 |  | 45 |  |  |  |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |  |  |
-| 19 | MAT8064 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức triển
-khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí chuyên |  |  |  |  |  |  |  |  |
+| 19 | MAT8064 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức triển<br>khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí chuyên |  |  |  |  |  |  |  |  |
 15
 
 <!-- Page 17 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các môn
-học tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |
 |  | ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |  |
-| 20 | MAT9008 | Luận án
-Ph.D thesis | 70 |  |  |  |  |  |
+| 20 | MAT9008 | Luận án<br>Ph.D thesis | 70 |  |  |  |  |  |
 |  | Tổng cộng |  | 106 |  |  |  |  |  |
 2.3. Đối với NCS có bằng thạc sĩ ngành đúng hoặc phù hợp
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |
 | I | PHẦN 1. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |  |
 | I.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |  |
 | I.1.1 | Bắt buộc |  | 6 |  |  |  |  |  |
-| 1 | MAT8054 | Động lực học chất lỏng nhiều
-pha
-Dynamics of Multiphase Fluids | 3 |  | 45 |  |  |  |
-| 2 | MAT8055 | Phương pháp biến phân trong
-động lực học chất lỏng không
-nén được
-Variational Methods in
-Mechanics of Incompressible
-Fluids | 3 |  | 45 |  |  |  |
+| 1 | MAT8054 | Động lực học chất lỏng nhiều<br>pha<br>Dynamics of Multiphase Fluids | 3 |  | 45 |  |  |  |
+| 2 | MAT8055 | Phương pháp biến phân trong<br>động lực học chất lỏng không<br>nén được<br>Variational Methods in<br>Mechanics of Incompressible<br>Fluids | 3 |  | 45 |  |  |  |
 | I.2 | Các học phần tự chọn |  | 3/6 |  |  |  |  |  |
-| 3 | MAT8056 | Nhiệt động lực học các quá trình
-không thuận nghịch
-Thermodynamics of Irreversible
-Processes | 3 |  | 45 |  |  |  |
-| 4 | MAT8058 | Thủy triều
-Tides | 3 |  | 45 |  |  |  |
-| II | Ngoại ngữ học thuật nâng cao (chọn 1
-trong các thứ tiếng sau): |  | 4 |  |  |  |  |  |
-| 5 | ENG
-8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  |  | 60 |  |
+| 3 | MAT8056 | Nhiệt động lực học các quá trình<br>không thuận nghịch<br>Thermodynamics of Irreversible<br>Processes | 3 |  | 45 |  |  |  |
+| 4 | MAT8058 | Thủy triều<br>Tides | 3 |  | 45 |  |  |  |
+| II | Ngoại ngữ học thuật nâng cao (chọn 1<br>trong các thứ tiếng sau): |  | 4 |  |  |  |  |  |
+| 5 | ENG<br>8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  |  | 60 |  |
 |  | RUS | Tiếng Nga học thuật nâng cao | 4 |  |  |  | 60 |  |
 16
 
 <!-- Page 18 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |
-|  | 8001 | Advanced Russian For
-Academic Purposes |  |  |  |  |  |  |
-|  | FRE
-8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For
-Academic Purposes | 4 |  |  |  | 60 |  |
-|  | WES
-8001 | Tiếng Đức học thuật nâng cao
-Advanced General For
-Academic Purposes | 4 |  |  |  | 60 |  |
-|  | CHI
-8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For
-Academic Purposes | 4 |  |  |  | 60 |  |
+|  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |
+|  | 8001 | Advanced Russian For<br>Academic Purposes |  |  |  |  |  |  |
+|  | FRE<br>8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For<br>Academic Purposes | 4 |  |  |  | 60 |  |
+|  | WES<br>8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For<br>Academic Purposes | 4 |  |  |  | 60 |  |
+|  | CHI<br>8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For<br>Academic Purposes | 4 |  |  |  | 60 |  |
 | III | Các chuyên đề tiến sĩ (sửa lại) |  | 6/15 |  |  |  |  |  |
-| 6 | MAT8057 | Phương pháp số giải các bài
-toán khí động lực học
-Numerical Methods in
-Aerodynamics | 3 |  | 45 |  |  |  |
-| 7 | MAT8059 | Giải số các bài toán chuyển
-động của chất lỏng bằng
-phương pháp hạt trơn (SPH)
-Smoot Particle Hydrodynamics
-Method (SPH) for Fluid Flows | 3 |  | 45 |  |  |  |
-| 8 | MAT8060 | Phương pháp không lưới
-(MFM) áp dụng cho tính toán
-động lực học chất lỏng
-Mesh Free Method (MFM)
-Applied for Hydrodynamic
-Problems | 3 |  | 45 |  |  |  |
-| 9 | MAT8061 | Lý thuyết ổn định thủy khí và
-dòng chảy rối
-Theory of Hydrodynamic
-Stability and Turbulence Fluid
-Flow | 3 |  | 45 |  |  |  |
-| 10 | MAT8062 | Lý thuyết chảy thấm
-Fluid Flow in Porous Medium | 3 |  | 45 |  |  |  |
+| 6 | MAT8057 | Phương pháp số giải các bài<br>toán khí động lực học<br>Numerical Methods in<br>Aerodynamics | 3 |  | 45 |  |  |  |
+| 7 | MAT8059 | Giải số các bài toán chuyển<br>động của chất lỏng bằng<br>phương pháp hạt trơn (SPH)<br>Smoot Particle Hydrodynamics<br>Method (SPH) for Fluid Flows | 3 |  | 45 |  |  |  |
+| 8 | MAT8060 | Phương pháp không lưới<br>(MFM) áp dụng cho tính toán<br>động lực học chất lỏng<br>Mesh Free Method (MFM)<br>Applied for Hydrodynamic<br>Problems | 3 |  | 45 |  |  |  |
+| 9 | MAT8061 | Lý thuyết ổn định thủy khí và<br>dòng chảy rối<br>Theory of Hydrodynamic<br>Stability and Turbulence Fluid<br>Flow | 3 |  | 45 |  |  |  |
+| 10 | MAT8062 | Lý thuyết chảy thấm<br>Fluid Flow in Porous Medium | 3 |  | 45 |  |  |  |
 | IV | Tiểu luận tổng quan |  | 2 |  |  |  |  |  |
-| 11 | MAT8064 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  |  | 30 |  |
+| 11 | MAT8064 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  |  | 30 |  |
 | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức triển |  |  |  |  |  |  |  |  |
 17
 
 <!-- Page 19 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết |  | Thực
-hành | Tự
-học |  |
-| khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí chuyên
-ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |  |
+|  |  |  |  | Lý<br>thuyết |  | Thực<br>hành | Tự<br>học |  |
+| khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí chuyên<br>ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |  |
 | PHẦN 3. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |  |  |
-| 12 | MAT9008 | Luận án
-Ph.D thesis | 70 |  |  |  |  |  |
+| 12 | MAT9008 | Luận án<br>Ph.D thesis | 70 |  |  |  |  |  |
 |  | Tổng cộng |  | 91 |  |  |  |  |  |
 3. Danh mục tài liệu tham khảo
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 1 | CTP5001 | Triết học |  | Theo chương trình chung |
 | 2 | ENG5001 | Ngoại ngữ cơ bản |  | Theo chương trình chung |
 | 3 | ENG6001 | Ngoại ngữ học thuật |  | Theo chương trình chung |
-| 4 | MAT6036 | Cơ học môi trường
-liên tục nâng cao
-Ađvance Mechanics
-of Continuous Media | 3 | 1. Đào Huy Bích. Cơ học môi trường liên
-tục NXB ĐHQG Hà Nội 2003.
-2. German P.Mecanique des milieux
-continus Paris 1962.
-3. Ilyushin A.A. Cơ học môi trường liên
-tục, M.1978.
-4. Mase G.R. Theory and problems of
-continuum mechanics, New York 1970.
-5. Sedov L.I. Cơ học môi trường liên tục
-(dịch ra tiếng Việt). NXB Đại học và
-Trung học chuyên nghiệp 1997.
-6. Lourie I.G. Fundamental Mechanics of
-Fluids, Mc. Graw-Hill 1993.
-7. Dowell.E.H.A modem course in
-aeroeplasticity, Kluwer Acad. 1995.
-8. Francois D., Pineau A., Zaoui A.
-Comportement mecanique des
-materiauxx, I. Hermes, Paris 1991. |
+| 4 | MAT6036 | Cơ học môi trường<br>liên tục nâng cao<br>Ađvance Mechanics<br>of Continuous Media | 3 | 1. Đào Huy Bích. Cơ học môi trường liên<br>tục NXB ĐHQG Hà Nội 2003.<br>2. German P.Mecanique des milieux<br>continus Paris 1962.<br>3. Ilyushin A.A. Cơ học môi trường liên<br>tục, M.1978.<br>4. Mase G.R. Theory and problems of<br>continuum mechanics, New York 1970.<br>5. Sedov L.I. Cơ học môi trường liên tục<br>(dịch ra tiếng Việt). NXB Đại học và<br>Trung học chuyên nghiệp 1997.<br>6. Lourie I.G. Fundamental Mechanics of<br>Fluids, Mc. Graw-Hill 1993.<br>7. Dowell.E.H.A modem course in<br>aeroeplasticity, Kluwer Acad. 1995.<br>8. Francois D., Pineau A., Zaoui A.<br>Comportement mecanique des<br>materiauxx, I. Hermes, Paris 1991. |
 18
 
 <!-- Page 20 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 5 | MAT6037 | Phương trình đạo
-hàm riêng nâng cao
-Advanced Partial
-Differential
-Equations | 3 | 1. Petrovski I.G. Bài giảng về PTĐHR,
-M.1961 (tiếng Nga)
-2. Nguyễn Thừa Hợp - Giáo trình PTĐHR
-NXB ĐHQGHN 2001
-3. Mikhailov V.P.Phương trình đạo hàm
-riêng, Nauka 1986 (tiếng Nga)
-4. Mikhlin S.R. Giáo trình phương trình
-Toán, Lý, M.1968 (tiếng Nga)
-5. Nguyễn Minh Chương và các tác giả
-khác: Lý thuyết PTĐHR, Hà Nội 1995 |
-| 6 | MAT6053 | Động lực học chất
-lỏng nhiều pha
-Dynamics of
-Multiphase Fluids | 3 | 1. M.Ishii, T.Hibiki, Thermo-fluid
-dynamics of two-phase flow, Springer,
-2006
-2. Monhin A.C., Iagơlom A.M. Cơ học
-chất lỏng thống kê, Nauka, M 1965.
-3. Mikhailov H.A. Sự chuyển động của hạt
-rắn trong dòng chảy rối, Nauka, M 1966
-(tiếng Nga).
-4. Velicanov M.A. Động lực học của dòng
-mang hạt, M 1969 (tiếng Nga).
-5. Martchuc G.I. Mô hình toán học của
-dòng chảy trong biển. 1980 (tiếng Nga). |
-| 7 | MAT6041 | Phương trình vi phân
-nâng cao
-Advanced Differential
-Equations | 3 | 1. Hoàng Hữu Đường, Võ Đức Tôn,
-Nguyễn Thế Hoàn. Phương trình vi
-phân, 2 tập. NXBĐH và THCN 1970
-2. Demiovitch. Những bài giảng về lý
-thuyết ổn định. Nauka 1967 (Tiếng Nga)
-3. Barbashin E.A. Nhập môn lý thuyết ổn
-định Nauka 1967 (Tiếng Nga)
-4. Cesari L.Asympfotic Behaviour and
-Stability problem in ordinary differential
-euations springer 1959 |
+| 5 | MAT6037 | Phương trình đạo<br>hàm riêng nâng cao<br>Advanced Partial<br>Differential<br>Equations | 3 | 1. Petrovski I.G. Bài giảng về PTĐHR,<br>M.1961 (tiếng Nga)<br>2. Nguyễn Thừa Hợp - Giáo trình PTĐHR<br>NXB ĐHQGHN 2001<br>3. Mikhailov V.P.Phương trình đạo hàm<br>riêng, Nauka 1986 (tiếng Nga)<br>4. Mikhlin S.R. Giáo trình phương trình<br>Toán, Lý, M.1968 (tiếng Nga)<br>5. Nguyễn Minh Chương và các tác giả<br>khác: Lý thuyết PTĐHR, Hà Nội 1995 |
+| 6 | MAT6053 | Động lực học chất<br>lỏng nhiều pha<br>Dynamics of<br>Multiphase Fluids | 3 | 1. M.Ishii, T.Hibiki, Thermo-fluid<br>dynamics of two-phase flow, Springer,<br>2006<br>2. Monhin A.C., Iagơlom A.M. Cơ học<br>chất lỏng thống kê, Nauka, M 1965.<br>3. Mikhailov H.A. Sự chuyển động của hạt<br>rắn trong dòng chảy rối, Nauka, M 1966<br>(tiếng Nga).<br>4. Velicanov M.A. Động lực học của dòng<br>mang hạt, M 1969 (tiếng Nga).<br>5. Martchuc G.I. Mô hình toán học của<br>dòng chảy trong biển. 1980 (tiếng Nga). |
+| 7 | MAT6041 | Phương trình vi phân<br>nâng cao<br>Advanced Differential<br>Equations | 3 | 1. Hoàng Hữu Đường, Võ Đức Tôn,<br>Nguyễn Thế Hoàn. Phương trình vi<br>phân, 2 tập. NXBĐH và THCN 1970<br>2. Demiovitch. Những bài giảng về lý<br>thuyết ổn định. Nauka 1967 (Tiếng Nga)<br>3. Barbashin E.A. Nhập môn lý thuyết ổn<br>định Nauka 1967 (Tiếng Nga)<br>4. Cesari L.Asympfotic Behaviour and<br>Stability problem in ordinary differential<br>euations springer 1959 |
 19
 
 <!-- Page 21 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 8 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillation | 3 | 1. Blaquiere A. Nonlinear Systems
-analysis. Academic Press, New York
-1966
-2. Bogoliubop N.N., Mitropolski Y.A.
-Phương pháp tiệm cận trong lý thuyết
-dao động phi tuyến. Nauka 1974 (Tiếng
-Nga).
-3. Mitropolski Y.A, Nguyen Van Dao.
-Asymptotic Methods in Non – linear
-Oscillation. Kluwer Acad. Publ. 1997
-4. Moiseev N.N. Các phương pháp tiệm
-cận của cơ học phi tuyến – Nauka 1969
-(Tiếng Nga).
-5. Hayashi C. Nonlinear oscillation in
-physical system, New York and Tokyo
-1968
-6. Nayfeh A.H Pertubation methods. John
-Wiley and Sons, New York 1973.
-7. Stoker J.I. Nonlinear oscillations in
-Mechanics and Electrical system, New
-York 1952. |
-| 9 | MAT60
-41 | Phương trình vi phân
-nâng cao
-Advanced Differential
-Equations | 3 | 1. Hoàng Hữu Đường, Võ Đức Tôn,
-Nguyễn Thế Hoàn. Phương trình vi
-phân, 2 tập. NXBĐH và THCN 1970
-2. Demiovitch. Những bài giảng về lý
-thuyết ổn định. Nauka 1967 (Tiếng Nga)
-3. Barbashin E.A. Nhập môn lý thuyết ổn
-định Nauka 1967 (Tiếng Nga)
-4. Cesari L.Asympfotic Behaviour and
-Stability problem in ordinary differential
-euations springer 1959 |
-| 10 | MAT6042 | Phép tính tenxơ trong
-cơ học
-Tensor Calculus in
-Mechanics | 3 | 1. Đào Huy Bích. Phép tính tenxơ. ĐHTH
-1995.
-2. Đào Huy Bích. Phép tính tenxơ và một
-số ứng dụng trong cơ học, vật lý. Nxb
-ĐH & THCN, 1977.
-3. Schouten J.A Tensor analysis for
-physicists, Oxford 1954 |
+| 8 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillation | 3 | 1. Blaquiere A. Nonlinear Systems<br>analysis. Academic Press, New York<br>1966<br>2. Bogoliubop N.N., Mitropolski Y.A.<br>Phương pháp tiệm cận trong lý thuyết<br>dao động phi tuyến. Nauka 1974 (Tiếng<br>Nga).<br>3. Mitropolski Y.A, Nguyen Van Dao.<br>Asymptotic Methods in Non – linear<br>Oscillation. Kluwer Acad. Publ. 1997<br>4. Moiseev N.N. Các phương pháp tiệm<br>cận của cơ học phi tuyến – Nauka 1969<br>(Tiếng Nga).<br>5. Hayashi C. Nonlinear oscillation in<br>physical system, New York and Tokyo<br>1968<br>6. Nayfeh A.H Pertubation methods. John<br>Wiley and Sons, New York 1973.<br>7. Stoker J.I. Nonlinear oscillations in<br>Mechanics and Electrical system, New<br>York 1952. |
+| 9 | MAT60<br>41 | Phương trình vi phân<br>nâng cao<br>Advanced Differential<br>Equations | 3 | 1. Hoàng Hữu Đường, Võ Đức Tôn,<br>Nguyễn Thế Hoàn. Phương trình vi<br>phân, 2 tập. NXBĐH và THCN 1970<br>2. Demiovitch. Những bài giảng về lý<br>thuyết ổn định. Nauka 1967 (Tiếng Nga)<br>3. Barbashin E.A. Nhập môn lý thuyết ổn<br>định Nauka 1967 (Tiếng Nga)<br>4. Cesari L.Asympfotic Behaviour and<br>Stability problem in ordinary differential<br>euations springer 1959 |
+| 10 | MAT6042 | Phép tính tenxơ trong<br>cơ học<br>Tensor Calculus in<br>Mechanics | 3 | 1. Đào Huy Bích. Phép tính tenxơ. ĐHTH<br>1995.<br>2. Đào Huy Bích. Phép tính tenxơ và một<br>số ứng dụng trong cơ học, vật lý. Nxb<br>ĐH & THCN, 1977.<br>3. Schouten J.A Tensor analysis for<br>physicists, Oxford 1954 |
 20
 
 <!-- Page 22 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 11 | MAT6045 | Các phương pháp số
-trong cơ học nâng cao
-Advanced numerical
-Methods in
-Mechanics | 3 | 1. Đemidovitch., Maron I.A. Các phương
-pháp giải tích số .M.1962 (Tiếng Nga).
-2. Bakhvalov N.S. Các phương pháp số,
-M.1973 (Tiếng Nga)
-3. Colats L. Các phương pháp số để giải
-phương trình vi phân, M.1953
-4. Koirmian Th., Biot A.M. Mathematical
-method in engineering, Mc. Graw-Hill
-Book company.
-5. Tabarok I., Rimott P.J.Variational
-Methods and Complementary
-formulation in Dynamics, Kluver
-Acad.1994
-6. Brebbia C.A.Recent advances in
-boundary element methods.London 1978
-7. Crouch S.L.Strarfield A.M.Boundary
-element methods in soilid mechanics -
-London 1983
-8. Lions J.L.Quelques methods de
-resolution de problems aux limites
-nonlineaires-Paris 1969.
-9. Zienkiewciz O.C.The finite element
-methods in engineering sciences 1971
-10. Klaus-Jurgen Bathe, Eduard L,
-Wilson.Numerical in finite element
-analysis. E.L. Wilson
-11. Vilenkin N.J. Phương pháp gần đúng
-liên tiếp M.1968 (tiếng Nga).
-12. Frinell.M.Finite element model updating
-in structural dynamics 1995 |
+| 11 | MAT6045 | Các phương pháp số<br>trong cơ học nâng cao<br>Advanced numerical<br>Methods in<br>Mechanics | 3 | 1. Đemidovitch., Maron I.A. Các phương<br>pháp giải tích số .M.1962 (Tiếng Nga).<br>2. Bakhvalov N.S. Các phương pháp số,<br>M.1973 (Tiếng Nga)<br>3. Colats L. Các phương pháp số để giải<br>phương trình vi phân, M.1953<br>4. Koirmian Th., Biot A.M. Mathematical<br>method in engineering, Mc. Graw-Hill<br>Book company.<br>5. Tabarok I., Rimott P.J.Variational<br>Methods and Complementary<br>formulation in Dynamics, Kluver<br>Acad.1994<br>6. Brebbia C.A.Recent advances in<br>boundary element methods.London 1978<br>7. Crouch S.L.Strarfield A.M.Boundary<br>element methods in soilid mechanics -<br>London 1983<br>8. Lions J.L.Quelques methods de<br>resolution de problems aux limites<br>nonlineaires-Paris 1969.<br>9. Zienkiewciz O.C.The finite element<br>methods in engineering sciences 1971<br>10. Klaus-Jurgen Bathe, Eduard L,<br>Wilson.Numerical in finite element<br>analysis. E.L. Wilson<br>11. Vilenkin N.J. Phương pháp gần đúng<br>liên tiếp M.1968 (tiếng Nga).<br>12. Frinell.M.Finite element model updating<br>in structural dynamics 1995 |
 21
 
 <!-- Page 23 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 12 | MAT6053 | Cơ học chất lỏng tính
-toán
-Computational Fluid
-Mechanics | 3 | 1. Trần Văn Trản, Phương pháp số thực
-hành, Tập 2, NXB ĐHQGHN, 2007
-2. T.J.Chung, Computational fluid
-dynamics, Cambridge University Press,
-2002.
-3. P.Wesseling, Principles of computational
-fluid dynamics, Springer, 2001.
-4. J.H.Ferziger, M.Peric, Computational
-methods for fluid dynamics 3rd edition,
-Springer, 2002
-5. Flefcher C.A. Computational techniques
-for fluid 1, Springer-Verlag 1987.
-6. John D.Anderson, Computational fluid
-dynamics: the basics with applications,
-Mc Graw-Hill, 1995.
-7. H.K. Versteeg, W.Malalasekera, An
-introduction to computational fluid
-mechanics, Longman 1995.
-8. C.Pozrikidis, Fluid dynamics: theory,
-computation, and numerical simulation,
-Kluwer Academic Press, 2001. |
+| 12 | MAT6053 | Cơ học chất lỏng tính<br>toán<br>Computational Fluid<br>Mechanics | 3 | 1. Trần Văn Trản, Phương pháp số thực<br>hành, Tập 2, NXB ĐHQGHN, 2007<br>2. T.J.Chung, Computational fluid<br>dynamics, Cambridge University Press,<br>2002.<br>3. P.Wesseling, Principles of computational<br>fluid dynamics, Springer, 2001.<br>4. J.H.Ferziger, M.Peric, Computational<br>methods for fluid dynamics 3rd edition,<br>Springer, 2002<br>5. Flefcher C.A. Computational techniques<br>for fluid 1, Springer-Verlag 1987.<br>6. John D.Anderson, Computational fluid<br>dynamics: the basics with applications,<br>Mc Graw-Hill, 1995.<br>7. H.K. Versteeg, W.Malalasekera, An<br>introduction to computational fluid<br>mechanics, Longman 1995.<br>8. C.Pozrikidis, Fluid dynamics: theory,<br>computation, and numerical simulation,<br>Kluwer Academic Press, 2001. |
 22
 
 <!-- Page 24 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 13 | MAT6052 | Cơ học chất lỏng
-nâng cao
-Advanced Fluid
-Mechanics | 3 | 1. Trần Văn Cúc Cơ học chất lỏng, NXB
-ĐHQGHN 2003
-2. G.K.Batchelor, An introduction to fluid
-dynamics, Cambridge University Press,
-2000.
-3. R.K.Kundu, I.M.Cohen, Fluid
-mechanics, 2nd edition, Academic Press,
-2002.
-4. L.D.Landau, E.M.Lifshitz, Fluid
-mechanics, 2nd edition, Pergamon Press,
-1987.
-5. F.M.White, Fluid mechanics, 4th,
-McGraw-Hill, 1997.
-6. E.Krause, Fluid Mechanics, Springer,
-2005.
-7. Kochin N.E, Kibel I.A, Roze N, V.Cơ
-học chất lỏng lý thuyết. NXB KHKT
-1997.
-8. W.Merzkirch, Fluid mechanics of flow
-metering, Springer, 2005.
-9. Toeph Pedloky Geophysical fluid
-dynamics, Springer Verlag 1984.
-10. Gersynky G.Z., Gikhoviski E.M. Ổn
-định nhiệt trong chất lỏng không nén
-được (tiếng Nga) 1972.
-11. Kunge J.A., Holly F.M., Verwey A.
-Practical aspects of computational river
-hydraulics. Pitman Advanced Publ.
-Program-London 1980.
-12. A.Chorin, A mathematical introduction
-to fluid mechanics, 3rd edition,
-Springer, 1992. |
+| 13 | MAT6052 | Cơ học chất lỏng<br>nâng cao<br>Advanced Fluid<br>Mechanics | 3 | 1. Trần Văn Cúc Cơ học chất lỏng, NXB<br>ĐHQGHN 2003<br>2. G.K.Batchelor, An introduction to fluid<br>dynamics, Cambridge University Press,<br>2000.<br>3. R.K.Kundu, I.M.Cohen, Fluid<br>mechanics, 2nd edition, Academic Press,<br>2002.<br>4. L.D.Landau, E.M.Lifshitz, Fluid<br>mechanics, 2nd edition, Pergamon Press,<br>1987.<br>5. F.M.White, Fluid mechanics, 4th,<br>McGraw-Hill, 1997.<br>6. E.Krause, Fluid Mechanics, Springer,<br>2005.<br>7. Kochin N.E, Kibel I.A, Roze N, V.Cơ<br>học chất lỏng lý thuyết. NXB KHKT<br>1997.<br>8. W.Merzkirch, Fluid mechanics of flow<br>metering, Springer, 2005.<br>9. Toeph Pedloky Geophysical fluid<br>dynamics, Springer Verlag 1984.<br>10. Gersynky G.Z., Gikhoviski E.M. Ổn<br>định nhiệt trong chất lỏng không nén<br>được (tiếng Nga) 1972.<br>11. Kunge J.A., Holly F.M., Verwey A.<br>Practical aspects of computational river<br>hydraulics. Pitman Advanced Publ.<br>Program-London 1980.<br>12. A.Chorin, A mathematical introduction<br>to fluid mechanics, 3rd edition,<br>Springer, 1992. |
 23
 
 <!-- Page 25 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 14 | MAT6059 | Lý thuyết thứ
-nguyên, tương tự và
-phân tích chiều
-Dimensional Analysis
-and Similarities | 3 | 1. L.I. Sedov, Similarity and
-dimensional methods in mechanics, 10th
-edition, CRC Press, 2000.
-2. J.H.Bramble, A.Cohen,
-W.Dahmen, Multiscale problems and
-methods in numerical simulations,
-Springer, 2000.
-3. Birkhoff G.
-Hydrodynamics.A study in logic, fact
-and similitude 1950.
-4. Srivastava R.S.Interaction of
-shock waves. Kluwer Acad 1994.
-5. Lourie I.G.Fundamental Fluid
-Mechanics.Mc Graw-Hill 1993. |
-| 15 | MAT6055 | Động lực học sóng
-Wave Dynamics | 3 | 1. N.Kuznetsov, V.Mazya,
-B.Vainberg, Linear Water Waves,
-Cambridge University Press, 2002.
-2. L. Debnath, Nonlinear Water Waves,
-Academic Press, 1994.
-3. J.Pedlosky, Waves in the Ocean and
-Atmosphere: Introduction to Wave
-Dynamics, Springer, 2003
-4. I Brekhovsski. Sóng trong các môi
-trường phức tạp (tiếng Nga), Naulka,
-M., 1975.
-5. V.Novaski. Lý thuyết đàn hồi (tiếng
-Nga), Mir, M., 1975.
-6. Nhecrasov A.V. Sóng triều trong
-biển khơi. L. 1975 (tiếng Nga).
-7. Shretenski L.N. Lý thuyết chuyển
-động sóng của chất lỏng .M.1977 (tiếng
-Nga).
-8. Kraus V. Sóng nội. L. 1968 (tiếng
-Nga). |
+| 14 | MAT6059 | Lý thuyết thứ<br>nguyên, tương tự và<br>phân tích chiều<br>Dimensional Analysis<br>and Similarities | 3 | 1. L.I. Sedov, Similarity and<br>dimensional methods in mechanics, 10th<br>edition, CRC Press, 2000.<br>2. J.H.Bramble, A.Cohen,<br>W.Dahmen, Multiscale problems and<br>methods in numerical simulations,<br>Springer, 2000.<br>3. Birkhoff G.<br>Hydrodynamics.A study in logic, fact<br>and similitude 1950.<br>4. Srivastava R.S.Interaction of<br>shock waves. Kluwer Acad 1994.<br>5. Lourie I.G.Fundamental Fluid<br>Mechanics.Mc Graw-Hill 1993. |
+| 15 | MAT6055 | Động lực học sóng<br>Wave Dynamics | 3 | 1. N.Kuznetsov, V.Mazya,<br>B.Vainberg, Linear Water Waves,<br>Cambridge University Press, 2002.<br>2. L. Debnath, Nonlinear Water Waves,<br>Academic Press, 1994.<br>3. J.Pedlosky, Waves in the Ocean and<br>Atmosphere: Introduction to Wave<br>Dynamics, Springer, 2003<br>4. I Brekhovsski. Sóng trong các môi<br>trường phức tạp (tiếng Nga), Naulka,<br>M., 1975.<br>5. V.Novaski. Lý thuyết đàn hồi (tiếng<br>Nga), Mir, M., 1975.<br>6. Nhecrasov A.V. Sóng triều trong<br>biển khơi. L. 1975 (tiếng Nga).<br>7. Shretenski L.N. Lý thuyết chuyển<br>động sóng của chất lỏng .M.1977 (tiếng<br>Nga).<br>8. Kraus V. Sóng nội. L. 1968 (tiếng<br>Nga). |
 24
 
 <!-- Page 26 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 16 | MAT6054 | Ngôn ngữ lập trình
-Fortran nâng cao
-Advanced Fortran
-Programming
-Language | 3 | 1. T.M.R.Ellis, I.R. Phillips, T.M.
-Lahey. Fortran-90 programming
-Addison-Wesley (2000).
-2. Nyhoff, Larry R., and Sanford C.
-Leestma Fortran 90 for Engineers
-Prentice-Hall (1997). |
-| 17 | MAT6056 | Từ thủy khí động
-Magneto-
-Hydrodynamics | 3 | 1. D.Biskamp,
-Magnetohodrodynamic turbulence,
-Cambridge University Press, 2001
-2. L.I.Sedov. Bài toán phẳng cơ học
-chất lỏng, Mockva, Nauka, 1996.
-3. J.A.Shercliff.A texbook of magneto-
-hydrodynamic, London-New York.
-Paris 1965.
-4. I.G.Lourie.Fundamental Fluid
-Mechanics. Mc Graw-Hill 1993.
-5. E.H.Dowell, A modern course in
-aeroelasticity. Kluwer Acad. 1995. |
+| 16 | MAT6054 | Ngôn ngữ lập trình<br>Fortran nâng cao<br>Advanced Fortran<br>Programming<br>Language | 3 | 1. T.M.R.Ellis, I.R. Phillips, T.M.<br>Lahey. Fortran-90 programming<br>Addison-Wesley (2000).<br>2. Nyhoff, Larry R., and Sanford C.<br>Leestma Fortran 90 for Engineers<br>Prentice-Hall (1997). |
+| 17 | MAT6056 | Từ thủy khí động<br>Magneto-<br>Hydrodynamics | 3 | 1. D.Biskamp,<br>Magnetohodrodynamic turbulence,<br>Cambridge University Press, 2001<br>2. L.I.Sedov. Bài toán phẳng cơ học<br>chất lỏng, Mockva, Nauka, 1996.<br>3. J.A.Shercliff.A texbook of magneto-<br>hydrodynamic, London-New York.<br>Paris 1965.<br>4. I.G.Lourie.Fundamental Fluid<br>Mechanics. Mc Graw-Hill 1993.<br>5. E.H.Dowell, A modern course in<br>aeroelasticity. Kluwer Acad. 1995. |
 25
 
 <!-- Page 27 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 18 | MAT6057 | Cơ học thủy khí môi
-trường
-Environmental Fluid
-Mechanics | 3 | 1. J.L.Lumley, Fluid Mechanics
-and the Environment: Dynamical
-Approaches, Springer, 2001
-2. Benoit Cushman-Roisin,
-Environmental Fluid Mechanics, John
-Wiley & Sons Inc., 2007
-3. Sedov L.I. Cơ học môi trường
-liên tục NXB ĐH và THCN 1977.
-4. Lyons T.J, Scott U.D.
-Principles of air pollution meteorology.
-Belhacen press, London 1990.
-6. Gratt J.R. The atmospheric boundary
-layer. Cambridge Univ, Press 1992.
-7. Dương Ngọc Hải, Cơ sở tính toán
-lan truyền ô nhiễm không khí và nước,
-NXB ĐHQGHN 2003
-8. Phạm Ngọc Hồ, Vũ Duy Quang,
-Giáo trình lớp biên, ĐHKHTN
-ĐHQGHN, 2004 |
-| 19 | MAT6058 | Khuyếch tán hợp chất
-Theory of Diffusion | 3 | 2. J. Crank, The mathematics of
-diffusion, Claredon Press, 1975
-3. K.D.Elworthy, Y.LeJan, Xue-Mei
-Li, On the geometry of diffusion
-operators and stochastic flows, Springer,
-1999
-4. R.B. Bird, W.E. Steward, E.N.
-Lightfood, Transport Phenomena 2nd
-edition, John Wiley & Sons Inc., 2002
-5. James A, Mathematical models in
-water pollution control.
-6. Ozmidov R.V. Khuyếch tán hợp chất
-trong biển.L.1968 (tiếng Nga). |
+| 18 | MAT6057 | Cơ học thủy khí môi<br>trường<br>Environmental Fluid<br>Mechanics | 3 | 1. J.L.Lumley, Fluid Mechanics<br>and the Environment: Dynamical<br>Approaches, Springer, 2001<br>2. Benoit Cushman-Roisin,<br>Environmental Fluid Mechanics, John<br>Wiley & Sons Inc., 2007<br>3. Sedov L.I. Cơ học môi trường<br>liên tục NXB ĐH và THCN 1977.<br>4. Lyons T.J, Scott U.D.<br>Principles of air pollution meteorology.<br>Belhacen press, London 1990.<br>6. Gratt J.R. The atmospheric boundary<br>layer. Cambridge Univ, Press 1992.<br>7. Dương Ngọc Hải, Cơ sở tính toán<br>lan truyền ô nhiễm không khí và nước,<br>NXB ĐHQGHN 2003<br>8. Phạm Ngọc Hồ, Vũ Duy Quang,<br>Giáo trình lớp biên, ĐHKHTN<br>ĐHQGHN, 2004 |
+| 19 | MAT6058 | Khuyếch tán hợp chất<br>Theory of Diffusion | 3 | 2. J. Crank, The mathematics of<br>diffusion, Claredon Press, 1975<br>3. K.D.Elworthy, Y.LeJan, Xue-Mei<br>Li, On the geometry of diffusion<br>operators and stochastic flows, Springer,<br>1999<br>4. R.B. Bird, W.E. Steward, E.N.<br>Lightfood, Transport Phenomena 2nd<br>edition, John Wiley & Sons Inc., 2002<br>5. James A, Mathematical models in<br>water pollution control.<br>6. Ozmidov R.V. Khuyếch tán hợp chất<br>trong biển.L.1968 (tiếng Nga). |
 26
 
 <!-- Page 28 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 20 | MAT8054 | Động lực học chất
-lỏng nhiều pha
-Dynamics of
-Multiphase Fluids | 3 | 1. M.Ishii, T.Hibiki, Thermo-
-fluid dynamics of two-phase flow,
-Springer, 2006
-2. Monhin A.C., Iagơlom A.M. Cơ học
-chất lỏng thống kê, Nauka, M 1965.
-3. Mikhailov H.A. Sự chuyển động của
-hạt rắn trong dòng chảy rối, Nauka, M
-1966 (tiếng Nga).
-4. Velicanov M.A. Động lực học của
-dòng mang hạt, M 1969 (tiếng Nga).
-5. Martchuc G.I. Mô hình toán học của
-dòng chảy trong biển. 1980 (tiếng Nga). |
-| 21 | MAT8055 | Phương pháp biến
-phân trong động lực
-học chất lỏng không
-nén được
-Variational Methods
-in Mechanics of
-Incompressible
-Fluids | 3 | 1. L.I.Sedov. Cơ học môi trường liên
-tục. Nauka, M 1980 (tiếng Nga).
-2. 2. Berditchevski. Nguyên lý biến
-phân của cơ học môi trường liên tục.
-Nauka, M 1983 (tiếng Nga) |
-| 22 | MAT8056 | Nhiệt động lực học
-các quá trình không
-thuận nghịch
-Thermodynamics of
-Irreversible
-Processes | 3 | 1. J.C.Tannehill, D.A.Anderson,
-R.H.Pletcher, Computational Fluid
-Mechanics and Heat Transfer 2nd,
-Taylor & Francis, 1997
-2. D.E.Winterbone, Advanced
-thermodynamics for engineers, Arnold -
-John Wiley & Sons, 1997.
-3. J.H.Lienhard IV, J.H.Lienhard V, A
-Heat Transfer Textbook, 3rd, Phlogiston
-Press, 2001 |
+| 20 | MAT8054 | Động lực học chất<br>lỏng nhiều pha<br>Dynamics of<br>Multiphase Fluids | 3 | 1. M.Ishii, T.Hibiki, Thermo-<br>fluid dynamics of two-phase flow,<br>Springer, 2006<br>2. Monhin A.C., Iagơlom A.M. Cơ học<br>chất lỏng thống kê, Nauka, M 1965.<br>3. Mikhailov H.A. Sự chuyển động của<br>hạt rắn trong dòng chảy rối, Nauka, M<br>1966 (tiếng Nga).<br>4. Velicanov M.A. Động lực học của<br>dòng mang hạt, M 1969 (tiếng Nga).<br>5. Martchuc G.I. Mô hình toán học của<br>dòng chảy trong biển. 1980 (tiếng Nga). |
+| 21 | MAT8055 | Phương pháp biến<br>phân trong động lực<br>học chất lỏng không<br>nén được<br>Variational Methods<br>in Mechanics of<br>Incompressible<br>Fluids | 3 | 1. L.I.Sedov. Cơ học môi trường liên<br>tục. Nauka, M 1980 (tiếng Nga).<br>2. 2. Berditchevski. Nguyên lý biến<br>phân của cơ học môi trường liên tục.<br>Nauka, M 1983 (tiếng Nga) |
+| 22 | MAT8056 | Nhiệt động lực học<br>các quá trình không<br>thuận nghịch<br>Thermodynamics of<br>Irreversible<br>Processes | 3 | 1. J.C.Tannehill, D.A.Anderson,<br>R.H.Pletcher, Computational Fluid<br>Mechanics and Heat Transfer 2nd,<br>Taylor & Francis, 1997<br>2. D.E.Winterbone, Advanced<br>thermodynamics for engineers, Arnold -<br>John Wiley & Sons, 1997.<br>3. J.H.Lienhard IV, J.H.Lienhard V, A<br>Heat Transfer Textbook, 3rd, Phlogiston<br>Press, 2001 |
 27
 
 <!-- Page 29 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 23 | MAT8058 | Thủy triều
-Tides | 3 | 1. H.A. Dikkstra, Nonlinear
-Physical Oceanography, Kluwer
-Academic Publishers, 2000
-2. Daronhin U.P. Động lực học
-biển.L.1980 (tiếng Nga).
-3. Kagan B.A. Mô hình thủy
-động chuyển động triều trong
-biển.L.1968 (tiếng Nga).
-4. Martruc G.I., Kagan B.A.
-Thủy truyền đại dương. L.1977 (tiếng
-Nga).
-2. Bogdanov K.T. Thủy triều đại dương
-thế giới. M. 1975 (tiếng Nga) |
-| 24 | MAT8057 | Phương pháp số giải
-các bài toán khí động
-lực học
-Numerical Methods
-in Aerodynamics | 3 | 1. Trần Văn Trản, Phương pháp số thực
-hành, Tập 2, NXB ĐHQGHN, 2007
-2. L.I.Xeđôp. Bài toán phẳng của Cơ học
-chất lỏng (tiếng Nga), Moskva, Nauka
-1966.
-3. M.A. Lavrenchep, B.V.Sabat. Các bài
-toán Cơ học chất lỏng và các mô hình
-toán học của chúng (tiếng Nga), Moskva,
-Nauka 1973.
-4. A.N. Kraiko và các tác giả khác. Nghiệm
-số của các bài toán khí động học nhiều
-chiều (tiếng Nga), Nukva 1976. |
-| 25 | MAT8059 | Giải số các bài toán
-chuyển động của chất
-lỏng bằng phương
-pháp hạt trơn (SPH)
-Smoot Particle
-Hydrodynamics
-Method (SPH) for
-Fluid Flows | 3 | 1. R Liu, M B Liu. Smoothed Particle
-Hydrodynamics: a meshfree particle
-method. World Scientific 2003
-2. W G Hoover. Smooth Particle
-Applied Mechanics. World Scientific
-2006 |
+| 23 | MAT8058 | Thủy triều<br>Tides | 3 | 1. H.A. Dikkstra, Nonlinear<br>Physical Oceanography, Kluwer<br>Academic Publishers, 2000<br>2. Daronhin U.P. Động lực học<br>biển.L.1980 (tiếng Nga).<br>3. Kagan B.A. Mô hình thủy<br>động chuyển động triều trong<br>biển.L.1968 (tiếng Nga).<br>4. Martruc G.I., Kagan B.A.<br>Thủy truyền đại dương. L.1977 (tiếng<br>Nga).<br>2. Bogdanov K.T. Thủy triều đại dương<br>thế giới. M. 1975 (tiếng Nga) |
+| 24 | MAT8057 | Phương pháp số giải<br>các bài toán khí động<br>lực học<br>Numerical Methods<br>in Aerodynamics | 3 | 1. Trần Văn Trản, Phương pháp số thực<br>hành, Tập 2, NXB ĐHQGHN, 2007<br>2. L.I.Xeđôp. Bài toán phẳng của Cơ học<br>chất lỏng (tiếng Nga), Moskva, Nauka<br>1966.<br>3. M.A. Lavrenchep, B.V.Sabat. Các bài<br>toán Cơ học chất lỏng và các mô hình<br>toán học của chúng (tiếng Nga), Moskva,<br>Nauka 1973.<br>4. A.N. Kraiko và các tác giả khác. Nghiệm<br>số của các bài toán khí động học nhiều<br>chiều (tiếng Nga), Nukva 1976. |
+| 25 | MAT8059 | Giải số các bài toán<br>chuyển động của chất<br>lỏng bằng phương<br>pháp hạt trơn (SPH)<br>Smoot Particle<br>Hydrodynamics<br>Method (SPH) for<br>Fluid Flows | 3 | 1. R Liu, M B Liu. Smoothed Particle<br>Hydrodynamics: a meshfree particle<br>method. World Scientific 2003<br>2. W G Hoover. Smooth Particle<br>Applied Mechanics. World Scientific<br>2006 |
 28
 
 <!-- Page 30 -->
-| TT | Mã
-môn học | Tên môn học | Số
-tín
-chỉ | Danh mục tài liệu tham khảo
-(Tài liệu bắt buộc, Tài liệu tham khảo
-thêm) |
+| TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
-| 26 | MAT8060 | Phương pháp không
-lưới (MFM) áp dụng
-cho tính toán động
-lực học chất lỏng
-Mesh Free Method
-(MFM) Applied for
-Hydrodynamic
-Problems | 3 | 1. Atluri S N,Zhu T. A new
-meshless local Petrov-Galerkin
-approach in computational mechanics
-2. W G Hoover. Smooth
-Particle Applied Mechanics. World
-Scientific 2006 |
-| 27 | MAT8061 | Lý thuyết ổn định
-thủy khí và dòng
-chảy rối
-Theory of
-Hydrodynamic
-Stability and
-Turbulence Fluid
-Flow | 3 | 1. P G Drazin, W H
-Reid. Hydrodynmic Stability.
-Cambridge University Press, 2004
-3. D D Joseph. Stability of fluid
-motions. Springer-Verlag, 1976
-4. D C Wilcox. Turbulence
-Modeling for CFD. DCW Industries,
-Inc, 1994 |
-| 28 | MAT8062 | Lý thuyết chảy thấm
-Fluid Flow in Porous
-Medium | 3 | 1. Collins R E. Flow of
-fluids through porous materials. Tulsa,
-1961
-2. Bear J. Dynamics of
-fluids in porous media. NY: Elsevier,
-1972
-3. Franchi J R. Principles
-of Applied Reservoir Simulation. Gulf
-Professional Publishing, 2001 |
+| 26 | MAT8060 | Phương pháp không<br>lưới (MFM) áp dụng<br>cho tính toán động<br>lực học chất lỏng<br>Mesh Free Method<br>(MFM) Applied for<br>Hydrodynamic<br>Problems | 3 | 1. Atluri S N,Zhu T. A new<br>meshless local Petrov-Galerkin<br>approach in computational mechanics<br>2. W G Hoover. Smooth<br>Particle Applied Mechanics. World<br>Scientific 2006 |
+| 27 | MAT8061 | Lý thuyết ổn định<br>thủy khí và dòng<br>chảy rối<br>Theory of<br>Hydrodynamic<br>Stability and<br>Turbulence Fluid<br>Flow | 3 | 1. P G Drazin, W H<br>Reid. Hydrodynmic Stability.<br>Cambridge University Press, 2004<br>3. D D Joseph. Stability of fluid<br>motions. Springer-Verlag, 1976<br>4. D C Wilcox. Turbulence<br>Modeling for CFD. DCW Industries,<br>Inc, 1994 |
+| 28 | MAT8062 | Lý thuyết chảy thấm<br>Fluid Flow in Porous<br>Medium | 3 | 1. Collins R E. Flow of<br>fluids through porous materials. Tulsa,<br>1961<br>2. Bear J. Dynamics of<br>fluids in porous media. NY: Elsevier,<br>1972<br>3. Franchi J R. Principles<br>of Applied Reservoir Simulation. Gulf<br>Professional Publishing, 2001 |
 29
 
 <!-- Page 31 -->
 4. Đội ngũ cán bộ giảng dạy
-| STT | Mã môn
-học | Tên môn học | Số
-tín
-chỉ | Cán bộ giảng dạy |  |  |  |  |
+| STT | Mã môn<br>học | Tên môn học | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức
-danh,
-học vị | Chuyên
-ngành
-đào tạo |  | Đơn vị
-công tác |
-| 1. | CTP5001 | Triết học
-Philosophy | 2 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
-| 2. | ENG5001 | Ngoại ngữ chung
-Foreign languague for
-general purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
-| 3. | ENG6001 | Ngoại ngữ chuyên
-ngành
-Foreign languague for
-specific purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
-| 4. | MAT6036 | Cơ học môi trường
-liên tục nâng cao
-Ađvance Mechanics
-of Continuous Media | 3 | Đào Huy Bích | GS.TSKH |  | Cơ học | ĐHKHTN |
+|  |  |  |  | Họ và tên | Chức<br>danh,<br>học vị | Chuyên<br>ngành<br>đào tạo |  | Đơn vị<br>công tác |
+| 1. | CTP5001 | Triết học<br>Philosophy | 2 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
+| 2. | ENG5001 | Ngoại ngữ chung<br>Foreign languague for<br>general purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
+| 3. | ENG6001 | Ngoại ngữ chuyên<br>ngành<br>Foreign languague for<br>specific purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |  |
+| 4. | MAT6036 | Cơ học môi trường<br>liên tục nâng cao<br>Ađvance Mechanics<br>of Continuous Media | 3 | Đào Huy Bích | GS.TSKH |  | Cơ học | ĐHKHTN |
 |  |  |  |  | Đào Văn Dũng | PGS.TS |  | Cơ học | ĐHKHTN |
-|  |  |  |  | Nguyễn Đình
-Đức | PGS.
-TSKH |  | Cơ học | ĐHKHTN |
-| 5. | MAT6037 | Phương trình đạo
-hàm riêng nâng cao
-Advanced Partial
-Differential
-Equations | 3 | Trần Huy Hổ | PGS.TS |  | Toán học | ĐHKHTN |
-|  |  |  |  | Hoàng Quốc
-Toàn | PGS.TS |  | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Đình<br>Đức | PGS.<br>TSKH |  | Cơ học | ĐHKHTN |
+| 5. | MAT6037 | Phương trình đạo<br>hàm riêng nâng cao<br>Advanced Partial<br>Differential<br>Equations | 3 | Trần Huy Hổ | PGS.TS |  | Toán học | ĐHKHTN |
+|  |  |  |  | Hoàng Quốc<br>Toàn | PGS.TS |  | Toán học | ĐHKHTN |
 |  |  |  |  | Trần Văn Triển | PGS.TS |  | Toán học | ĐHKHTN |
-| 6. | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillation | 3 | Lê Xuân Cận | GS.TS |  | Cơ học | ĐHKHTN |
-|  |  |  |  | Nguyễn Đông
-Anh | GS.TSKH |  | Cơ học | Viện Cơ
-học |
-| 7 | MAT6041 | Phương trình vi phân
-nâng cao
-Advanced Differential
-Equations | 3 | PGS.TS. Đặng
-Đình Châu | PGS.TS |  | Toán học | ĐHQGHN |
-| 8 | MAT6042 | Phép tính tenxơ trong
-cơ học
-Tensor Calculus in
-Mechanics | 3 | Đào Huy Bích | GS.TSKH |  | Cơ học | ĐHKHTN |
-|  |  |  |  | Nguyễn Đình
-Đức | PGS.
-TSKH |  | Cơ học | ĐHQGHN |
-| 9 | MAT6045 | Các phương pháp số
-trong cơ học nâng cao | 3 | Nguyễn Hữu
-Công | GS.TSKH |  | Toán học | ĐHKHTN |
+| 6. | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillation | 3 | Lê Xuân Cận | GS.TS |  | Cơ học | ĐHKHTN |
+|  |  |  |  | Nguyễn Đông<br>Anh | GS.TSKH |  | Cơ học | Viện Cơ<br>học |
+| 7 | MAT6041 | Phương trình vi phân<br>nâng cao<br>Advanced Differential<br>Equations | 3 | PGS.TS. Đặng<br>Đình Châu | PGS.TS |  | Toán học | ĐHQGHN |
+| 8 | MAT6042 | Phép tính tenxơ trong<br>cơ học<br>Tensor Calculus in<br>Mechanics | 3 | Đào Huy Bích | GS.TSKH |  | Cơ học | ĐHKHTN |
+|  |  |  |  | Nguyễn Đình<br>Đức | PGS.<br>TSKH |  | Cơ học | ĐHQGHN |
+| 9 | MAT6045 | Các phương pháp số<br>trong cơ học nâng cao | 3 | Nguyễn Hữu<br>Công | GS.TSKH |  | Toán học | ĐHKHTN |
 30
 
 <!-- Page 32 -->
-|  |  | Advanced numerical
-Methods in
-Mechanics |  | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+|  |  | Advanced numerical<br>Methods in<br>Mechanics |  | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 10 | MAT6053 | Cơ học chất lỏng tính
-toán
-Computational Fluid
-Mechanics | 3 | Nguyễn Hữu
-Chung | TS | Cơ học | Viện Cơ
-học |
+| 10 | MAT6053 | Cơ học chất lỏng tính<br>toán<br>Computational Fluid<br>Mechanics | 3 | Nguyễn Hữu<br>Chung | TS | Cơ học | Viện Cơ<br>học |
 |  |  |  |  | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
-|  |  |  |  | Hoàng Văn Lai | PGS.TS | Cơ học | Viện Cơ
-học |
-| 11 | MAT6052 | Cơ học chất lỏng
-nâng cao
-Advanced Fluid
-Mechanics | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
-| 12 | MAT6059 | Lý thuyết thứ nguyên
-tương tự và phân tích
-chiều
-Dimensional Analysis
-and Similarities | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+|  |  |  |  | Hoàng Văn Lai | PGS.TS | Cơ học | Viện Cơ<br>học |
+| 11 | MAT6052 | Cơ học chất lỏng<br>nâng cao<br>Advanced Fluid<br>Mechanics | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
+| 12 | MAT6059 | Lý thuyết thứ nguyên<br>tương tự và phân tích<br>chiều<br>Dimensional Analysis<br>and Similarities | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
 |  |  |  |  | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
-| 13 | MAT6055 | Động lực học sóng
-Wave Dynamics | 3 | Đinh Văn Ưu | PGS.TS | Hải
-dương
-học | ĐHKHTN |
+| 13 | MAT6055 | Động lực học sóng<br>Wave Dynamics | 3 | Đinh Văn Ưu | PGS.TS | Hải<br>dương<br>học | ĐHKHTN |
 |  |  |  |  | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
-|  |  |  |  | Trần Chí Hiếu | TS | Hải
-dương
-học | ĐHKHTN |
-| 14 | MAT6054 | Ngôn ngữ lập trình
-Fortran nâng cao
-Advanced Fortran
-Programming
-Language | 3 | Đặng Hữu
-Chung | TS | Cơ học | Viện Cơ
-học |
-| 15 | MAT6056 | Từ thủy khí động
-Magneto-
-Hydrodynamics | 3 | Dương Ngọc
-Hải | GS.TSKH | Cơ học | Viện Cơ
-học |
-| 16 | MAT6057 | Cơ học thủy khí môi
-trường
-Environmental Fluid
-Mechanics | 3 | Dương Ngọc
-Hải | GS.TSKH | Cơ học | Viện Cơ
-học |
-|  |  |  |  | Phạm Ngọc Hồ | GS.TS | Môi
-trường | ĐHKHTN |
+|  |  |  |  | Trần Chí Hiếu | TS | Hải<br>dương<br>học | ĐHKHTN |
+| 14 | MAT6054 | Ngôn ngữ lập trình<br>Fortran nâng cao<br>Advanced Fortran<br>Programming<br>Language | 3 | Đặng Hữu<br>Chung | TS | Cơ học | Viện Cơ<br>học |
+| 15 | MAT6056 | Từ thủy khí động<br>Magneto-<br>Hydrodynamics | 3 | Dương Ngọc<br>Hải | GS.TSKH | Cơ học | Viện Cơ<br>học |
+| 16 | MAT6057 | Cơ học thủy khí môi<br>trường<br>Environmental Fluid<br>Mechanics | 3 | Dương Ngọc<br>Hải | GS.TSKH | Cơ học | Viện Cơ<br>học |
+|  |  |  |  | Phạm Ngọc Hồ | GS.TS | Môi<br>trường | ĐHKHTN |
 31
 
 <!-- Page 33 -->
-|  |  |  |  | Đinh Văn Ưu | GS.TS | Hải
-dương
-học | ĐHKHTN |
+|  |  |  |  | Đinh Văn Ưu | GS.TS | Hải<br>dương<br>học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 17 | MAT6058 | Khuyếch tán hợp chất
-Theory of Diffusion | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
-|  |  |  |  | Đoàn Bộ | PGS.TS | Hải
-dương
-học | ĐHQGHN |
-| 18 | MAT8054 | Động lực học chất
-lỏng nhiều pha
-Dynamics of
-Multiphase Fluids | 3 | Nguyễn Văn
-Điệp | GS.TSKH | Cơ học | Viện Cơ
-học |
-| 19 | MAT8055 | Phương pháp biến
-phân trong động lực
-học chất lỏng không
-nén được
-Variational Methods
-in Mechanics of
-Incompressible
-Fluids | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
-| 20 | MAT8056 | Nhiệt động lực học
-các quá trình không
-thuận nghịch
-Thermodynamics of
-Irreversible
-Processes | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
-| 21 | MAT8058 | Thủy triều
-Tides | 3 | Phạm Văn
-Huấn | PGS.TS | Hải
-dương
-học | ĐHKHTN |
-|  |  |  |  | Nguyễn Văn
-Huấn | TS. | Hải
-dương
-học | ĐHKHTN |
-|  |  |  |  | Đỗ Ngọc
-Quỳnh | PGS.TS | Hải
-dương
-học | ĐHKHTN |
-| 22 | MAT8057 | Phương pháp số giải
-các bài toán khí động
-lực học
-Numerical Methods
-in Aerodynamics | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
-| 23 | MAT8059 | Giải số các bài toán
-chuyển động của chất | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 17 | MAT6058 | Khuyếch tán hợp chất<br>Theory of Diffusion | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
+|  |  |  |  | Đoàn Bộ | PGS.TS | Hải<br>dương<br>học | ĐHQGHN |
+| 18 | MAT8054 | Động lực học chất<br>lỏng nhiều pha<br>Dynamics of<br>Multiphase Fluids | 3 | Nguyễn Văn<br>Điệp | GS.TSKH | Cơ học | Viện Cơ<br>học |
+| 19 | MAT8055 | Phương pháp biến<br>phân trong động lực<br>học chất lỏng không<br>nén được<br>Variational Methods<br>in Mechanics of<br>Incompressible<br>Fluids | 3 | Trần Văn Cúc | PGS.TS | Cơ học | ĐHKHTN |
+| 20 | MAT8056 | Nhiệt động lực học<br>các quá trình không<br>thuận nghịch<br>Thermodynamics of<br>Irreversible<br>Processes | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 21 | MAT8058 | Thủy triều<br>Tides | 3 | Phạm Văn<br>Huấn | PGS.TS | Hải<br>dương<br>học | ĐHKHTN |
+|  |  |  |  | Nguyễn Văn<br>Huấn | TS. | Hải<br>dương<br>học | ĐHKHTN |
+|  |  |  |  | Đỗ Ngọc<br>Quỳnh | PGS.TS | Hải<br>dương<br>học | ĐHKHTN |
+| 22 | MAT8057 | Phương pháp số giải<br>các bài toán khí động<br>lực học<br>Numerical Methods<br>in Aerodynamics | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 23 | MAT8059 | Giải số các bài toán<br>chuyển động của chất | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
 32
 
 <!-- Page 34 -->
-|  |  | lỏng bằng phương
-pháp hạt trơn (SPH)
-Smoot Particle
-Hydrodynamics
-Method (SPH) for
-Fluid Flows |  |  |  |  |  |
+|  |  | lỏng bằng phương<br>pháp hạt trơn (SPH)<br>Smoot Particle<br>Hydrodynamics<br>Method (SPH) for<br>Fluid Flows |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 24 | MAT8060 | Phương pháp không
-lưới (MFM) áp dụng
-cho tính toán động
-lực học chất lỏng
-Mesh Free Method
-(MFM) Applied for
-Hydrodynamic
-Problems | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
-| 25 | MAT8061 | Lý thuyết ổn định
-thủy khí và dòng
-chảy rối
-Theory of
-Hydrodynamic
-Stability and
-Turbulence Fluid
-Flow | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
-| 26 | MAT8062 | Lý thuyết chảy thấm
-Fluid Flow in Porous
-Medium | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 24 | MAT8060 | Phương pháp không<br>lưới (MFM) áp dụng<br>cho tính toán động<br>lực học chất lỏng<br>Mesh Free Method<br>(MFM) Applied for<br>Hydrodynamic<br>Problems | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 25 | MAT8061 | Lý thuyết ổn định<br>thủy khí và dòng<br>chảy rối<br>Theory of<br>Hydrodynamic<br>Stability and<br>Turbulence Fluid<br>Flow | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
+| 26 | MAT8062 | Lý thuyết chảy thấm<br>Fluid Flow in Porous<br>Medium | 3 | Trần Văn Trản | PGS.TS | Cơ học | ĐHKHTN |
 33
 
 <!-- Page 35 -->
@@ -1722,72 +864,21 @@ University of Washington.
 (2013) thì thứ hạng của chương trình đào tạo sau đại học ngành Mechanical
 Engineering của University of Washington là ở vị trí thứ 24.
 b) Bảng so sánh chương trình đào tạo
-| STT | Tên môn học trong chƣơng
-trình đào tạo tiên tiến của
-nƣớc ngoài
-(Tiếng Anh, tiếng Việt) | Tên môn học trong
-chƣơng trình đào tạo
-của đơn vị
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-môn học của 2
-chƣơng trình đào tạo |
+| STT | Tên môn học trong chƣơng<br>trình đào tạo tiên tiến của<br>nƣớc ngoài<br>(Tiếng Anh, tiếng Việt) | Tên môn học trong<br>chƣơng trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>môn học của 2<br>chƣơng trình đào tạo |
 | --- | --- | --- | --- |
-| 1. | Phương pháp số giải các bài
-toán khí động lực học
-Numerical Methods in
-Aerodynamics | AA590: Compuational
-Fluid Dynamics
-Tính toán khí động lực |  |
-| 2. | Động lực học chất lỏng
-nhiều pha
-Dynamics of Multiphase
-Fluids | OCEAN511:
-Introduction to Fluid
-Dynamics
-Giới thiệu động lực học
-chất lỏng |  |
-| 3. | Ngôn ngữ lập trình Fortran
-nâng cao
-Advanced Fortran
-Programming Language | AA509: Computational
-Fluid Dynamics
-Tính toán thủy động lực
-học |  |
-| 4. | Động lực học sóng
-Wave Dynamics | OCEAN514: Waves
-Sóng |  |
+| 1. | Phương pháp số giải các bài<br>toán khí động lực học<br>Numerical Methods in<br>Aerodynamics | AA590: Compuational<br>Fluid Dynamics<br>Tính toán khí động lực |  |
+| 2. | Động lực học chất lỏng<br>nhiều pha<br>Dynamics of Multiphase<br>Fluids | OCEAN511:<br>Introduction to Fluid<br>Dynamics<br>Giới thiệu động lực học<br>chất lỏng |  |
+| 3. | Ngôn ngữ lập trình Fortran<br>nâng cao<br>Advanced Fortran<br>Programming Language | AA509: Computational<br>Fluid Dynamics<br>Tính toán thủy động lực<br>học |  |
+| 4. | Động lực học sóng<br>Wave Dynamics | OCEAN514: Waves<br>Sóng |  |
 39
 
 <!-- Page 41 -->
-| STT | Tên môn học trong chƣơng
-trình đào tạo tiên tiến của
-nƣớc ngoài
-(Tiếng Anh, tiếng Việt) | Tên môn học trong
-chƣơng trình đào tạo
-của đơn vị
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-môn học của 2
-chƣơng trình đào tạo |
+| STT | Tên môn học trong chƣơng<br>trình đào tạo tiên tiến của<br>nƣớc ngoài<br>(Tiếng Anh, tiếng Việt) | Tên môn học trong<br>chƣơng trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>môn học của 2<br>chƣơng trình đào tạo |
 | --- | --- | --- | --- |
-| 5. | Từ thủy khí động
-Magneto-Hydrodynamics | AA501: Physical
-Gasdynamics
-Động lực học khí vật lý |  |
-| 6. | Cơ học thủy khí môi trường
-Environmental Fluid
-Mechanics | OCEAN587: Climate
-Dynamics
-Động lực học khí hậu |  |
-| 7. | Khuyến tán hợp chất
-Theory of Diffusion |  |  |
-| 8. | Lý thuyết thứ nguyên, tương
-tự và phân tích chiều
-Dimensional Analysis and
-Similarities |  |  |
+| 5. | Từ thủy khí động<br>Magneto-Hydrodynamics | AA501: Physical<br>Gasdynamics<br>Động lực học khí vật lý |  |
+| 6. | Cơ học thủy khí môi trường<br>Environmental Fluid<br>Mechanics | OCEAN587: Climate<br>Dynamics<br>Động lực học khí hậu |  |
+| 7. | Khuyến tán hợp chất<br>Theory of Diffusion |  |  |
+| 8. | Lý thuyết thứ nguyên, tương<br>tự và phân tích chiều<br>Dimensional Analysis and<br>Similarities |  |  |
 7. Hƣớng dẫn thực hiện chƣơng trình đào tạo
 Chương trình đào tạo chuẩn kéo dài 3 năm.
 Năm thứ nhất:

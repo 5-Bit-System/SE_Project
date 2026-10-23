@@ -292,242 +292,97 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 <!-- Page 9 -->
 2. Khung chương trình đào tạo
 2.1. Đối với NCS có bằng thạc sĩ
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
-| 1 | MAT8550 | Giải tích ngẫu nhiên Malliavin và
-ứng dụng
-Malliavin stochastic analysis and
-applications | 3 | 30 | 0 | 120 |  |
-| 2 | MAT8025 | Các định lý giới hạn trong lý thuyết
-xác suất
-Limit Theorems in Probability | 3 | 30 | 0 | 120 |  |
+| 1 | MAT8550 | Giải tích ngẫu nhiên Malliavin và<br>ứng dụng<br>Malliavin stochastic analysis and<br>applications | 3 | 30 | 0 | 120 |  |
+| 2 | MAT8025 | Các định lý giới hạn trong lý thuyết<br>xác suất<br>Limit Theorems in Probability | 3 | 30 | 0 | 120 |  |
 | I.2 | Các học phần tự chọn |  | 3/12 |  |  |  |  |
-| 3 | MAT8101 | Tính toán ngẫu nhiên ứng dụng
-trong tài chính
-Stochastic Calculus Applied to Finance | 3 | 30 | 0 | 120 |  |
-| 4 | MAT8102 | Các phương pháp thống kê Bayes
-Bayesian Statistical Methods | 3 | 30 | 0 | 120 |  |
-| 5 | MAT8103 | Thiết kế thí nghiệm
-Design of Experiments | 3 | 30 | 0 | 120 |  |
-| 6 | MAT8551 | Tính toán thống kê và khai phá dữ liệu
-Statistical computing and data mining | 3 | 30 | 0 | 120 |  |
-| II | Chuyên đề NCS, tiểu luận tổng quan, và
-NCKH |  | 8 |  |  |  |  |
+| 3 | MAT8101 | Tính toán ngẫu nhiên ứng dụng<br>trong tài chính<br>Stochastic Calculus Applied to Finance | 3 | 30 | 0 | 120 |  |
+| 4 | MAT8102 | Các phương pháp thống kê Bayes<br>Bayesian Statistical Methods | 3 | 30 | 0 | 120 |  |
+| 5 | MAT8103 | Thiết kế thí nghiệm<br>Design of Experiments | 3 | 30 | 0 | 120 |  |
+| 6 | MAT8551 | Tính toán thống kê và khai phá dữ liệu<br>Statistical computing and data mining | 3 | 30 | 0 | 120 |  |
+| II | Chuyên đề NCS, tiểu luận tổng quan, và<br>NCKH |  | 8 |  |  |  |  |
 | II.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 7 | MAT8104 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 8 | MAT8105 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 9 | MAT8106 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 7 | MAT8104 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 8 | MAT8105 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 9 | MAT8106 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | II.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 10 | MAT8215 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 10 | MAT8215 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | II.3 | Nghiên cứu khoa học |  |  |  |  |  |  |
-| 11 |  | NCS xây dựng kế hoạch nghiên cứu,
-tổ chức triển khai và công bố các
-công trình nghiên cứu liên quan đến
-luận án trên các tạp chí chuyên ngành
-dưới sự hướng dẫn của giáo viên
-hướng dẫn. |  |  |  |  |  |
+| 11 |  | NCS xây dựng kế hoạch nghiên cứu,<br>tổ chức triển khai và công bố các<br>công trình nghiên cứu liên quan đến<br>luận án trên các tạp chí chuyên ngành<br>dưới sự hướng dẫn của giáo viên<br>hướng dẫn. |  |  |  |  |  |
 9
 
 <!-- Page 10 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ
-đào tạo |  |  |  |  |  |  |
-| 12 |  | Đơn vị chuyên môn lên lịch sinh hoạt
-chuyên môn và lịch cho từng NCS
-báo cáo, trình bày kết quả hoạt động
-chuyên môn của mình tại seminar do
-đơn vị chuyên môn tổ chức trong
-từng năm học.
-NCS phải tham gia đầy đủ các
-seminar khoa học hoặc các hội nghị,
-hội thảo do đơn vị chuyên môn tổ
-chức, quy định.
-NCS phải tham gia trợ giảng bậc đại
-học, thạc sĩ hoặc hướng dẫn SV/HV
-cao học thực hành, thực tập, hoặc
-hướng dẫn khóa luận tốt nghiệp đại
-học, tham gia giảng dạy/trợ giảng
-các khóa đào tạo, bồi dưỡng ngắn
-hạn do đơn vị tổ chức |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ<br>đào tạo |  |  |  |  |  |  |
+| 12 |  | Đơn vị chuyên môn lên lịch sinh hoạt<br>chuyên môn và lịch cho từng NCS<br>báo cáo, trình bày kết quả hoạt động<br>chuyên môn của mình tại seminar do<br>đơn vị chuyên môn tổ chức trong<br>từng năm học.<br>NCS phải tham gia đầy đủ các<br>seminar khoa học hoặc các hội nghị,<br>hội thảo do đơn vị chuyên môn tổ<br>chức, quy định.<br>NCS phải tham gia trợ giảng bậc đại<br>học, thạc sĩ hoặc hướng dẫn SV/HV<br>cao học thực hành, thực tập, hoặc<br>hướng dẫn khóa luận tốt nghiệp đại<br>học, tham gia giảng dạy/trợ giảng<br>các khóa đào tạo, bồi dưỡng ngắn<br>hạn do đơn vị tổ chức |  |  |  |  |  |
 | IV | Luận án |  | 80 |  |  |  |  |
-| 13 | MAT9105 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 13 | MAT9105 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 97 |  |  |  |  |
 10
 
 <!-- Page 11 -->
 2.2. Đối với NCS chưa có bằng thạc sĩ
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 30 |  |  |  |  |
 | I.1 | Các học phần bắt buộc |  | 12 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 3 | MAT6101 | Phương pháp số trong đại số
-tuyến tính
-Numerical Linear Algebra | 3 | 34 | 22 | 94 |  |
-| 4 | MAT6354 | Phân tích thống kê nhiều chiều
-Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/
-MAT6101 |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6101 | Phương pháp số trong đại số<br>tuyến tính<br>Numerical Linear Algebra | 3 | 34 | 22 | 94 |  |
+| 4 | MAT6354 | Phân tích thống kê nhiều chiều<br>Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/<br>MAT6101 |
 | I.2 | Các học phần tự chọn |  | 18/36 |  |  |  |  |
-| 18 | MAT6002 | Giải tích hàm nâng cao
-Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
-| 19 | MAT6100 | Phương trình đạo hàm riêng
-Partial Differential Equations | 3 | 45 | 0 | 105 |  |
-| 20 | MAT6021 | Giải tích ngẫu nhiên
-Stochastic analysis | 3 | 45 | 0 | 105 |  |
-| 21 | MAT6022 | Lý thuyết ước lượng và kiểm
-định giả thiết
-Estimation Theory andStatistical
-hypothesis testing | 3 | 45 | 0 | 105 |  |
-| 22 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 | 0 | 105 |  |
-| 23 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
-| 24 | MAT6023 | Lý thuyết Martingale
-Theory of Martingales | 3 | 45 | 0 | 105 |  |
-| 25 | MAT6025 | Quá trình dừng
-Stationary processes | 3 | 45 | 0 | 105 |  |
-| 26 | MAT6027 | Toán tài chính
-Mathematical Finance | 3 | 45 | 0 | 105 |  |
-| 27 | MAT6206 | Các phương pháp ngẫu nhiên và
-ứng dụng
-Stochastic Methods in
-Engineering | 3 | 25 | 32 | 93 | MAT6205/
-MAT6101 |
-| 28 | MAT6207 | Các thuật toán ngẫu nhiên và
-phân tích xác suất
-Randomized Algorithms and
-Probabilistic Analysis | 3 | 25 | 20 | 105 |  |
+| 18 | MAT6002 | Giải tích hàm nâng cao<br>Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
+| 19 | MAT6100 | Phương trình đạo hàm riêng<br>Partial Differential Equations | 3 | 45 | 0 | 105 |  |
+| 20 | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic analysis | 3 | 45 | 0 | 105 |  |
+| 21 | MAT6022 | Lý thuyết ước lượng và kiểm<br>định giả thiết<br>Estimation Theory andStatistical<br>hypothesis testing | 3 | 45 | 0 | 105 |  |
+| 22 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 | 0 | 105 |  |
+| 23 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
+| 24 | MAT6023 | Lý thuyết Martingale<br>Theory of Martingales | 3 | 45 | 0 | 105 |  |
+| 25 | MAT6025 | Quá trình dừng<br>Stationary processes | 3 | 45 | 0 | 105 |  |
+| 26 | MAT6027 | Toán tài chính<br>Mathematical Finance | 3 | 45 | 0 | 105 |  |
+| 27 | MAT6206 | Các phương pháp ngẫu nhiên và<br>ứng dụng<br>Stochastic Methods in<br>Engineering | 3 | 25 | 32 | 93 | MAT6205/<br>MAT6101 |
+| 28 | MAT6207 | Các thuật toán ngẫu nhiên và<br>phân tích xác suất<br>Randomized Algorithms and<br>Probabilistic Analysis | 3 | 25 | 20 | 105 |  |
 11
 
 <!-- Page 12 -->
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 29 | MAT6208 | Nhập môn mô hình hóa thống kê
-Introduction to Statistical Modeling | 3 | 25 | 40 | 85 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 29 | MAT6208 | Nhập môn mô hình hóa thống kê<br>Introduction to Statistical Modeling | 3 | 25 | 40 | 85 |  |
 | II | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 6 |  |  |  |  |
-| 30 | MAT8550 | Giải tích ngẫu nhiên Malliavin và
-ứng dụng
-Malliavin stochastic analysis and
-applications | 3 | 30 | 0 | 120 |  |
-| 31 | MAT8025 | Các định lý giới hạn trong lý
-thuyết xác suất
-Limit Theorems in Probability | 3 | 30 | 0 | 120 |  |
+| 30 | MAT8550 | Giải tích ngẫu nhiên Malliavin và<br>ứng dụng<br>Malliavin stochastic analysis and<br>applications | 3 | 30 | 0 | 120 |  |
+| 31 | MAT8025 | Các định lý giới hạn trong lý<br>thuyết xác suất<br>Limit Theorems in Probability | 3 | 30 | 0 | 120 |  |
 | II.2 | Các học phần tự chọn |  | 3/12 |  |  |  |  |
-| 32 | MAT8101 | Tính toán ngẫu nhiên ứng dụng
-trong tài chính
-Stochastic Calculus Applied to
-Finance | 3 | 30 | 0 | 120 |  |
-| 33 | MAT8102 | Các phương pháp thống kê Bayes
-Bayesian Statistical Methods | 3 | 30 | 0 | 120 |  |
-| 34 | MAT8103 | Thiết kế thí nghiệm
-Design of Experiments | 3 | 30 | 0 | 120 |  |
-| 35 | MAT8551 | Tính toán thống kê và khai phá
-dữ liệu
-Statistical computing and data
-mining | 3 | 30 | 0 | 120 |  |
-| III | Chuyên đề NCS, tiểu luận tổng quan, và
-NCKH |  | 8 |  |  |  |  |
+| 32 | MAT8101 | Tính toán ngẫu nhiên ứng dụng<br>trong tài chính<br>Stochastic Calculus Applied to<br>Finance | 3 | 30 | 0 | 120 |  |
+| 33 | MAT8102 | Các phương pháp thống kê Bayes<br>Bayesian Statistical Methods | 3 | 30 | 0 | 120 |  |
+| 34 | MAT8103 | Thiết kế thí nghiệm<br>Design of Experiments | 3 | 30 | 0 | 120 |  |
+| 35 | MAT8551 | Tính toán thống kê và khai phá<br>dữ liệu<br>Statistical computing and data<br>mining | 3 | 30 | 0 | 120 |  |
+| III | Chuyên đề NCS, tiểu luận tổng quan, và<br>NCKH |  | 8 |  |  |  |  |
 | III.1 | Chuyên đề NCS |  | 6 |  |  |  |  |
-| 36 | MAT8104 | Chuyên đề 1
-Special Topics 1 | 2 | 10 | 0 | 90 |  |
-| 37 | MAT8105 | Chuyên đề 2
-Special Topics 2 | 2 | 10 | 0 | 90 |  |
-| 38 | MAT8106 | Chuyên đề 3
-Special Topics 3 | 2 | 10 | 0 | 90 |  |
+| 36 | MAT8104 | Chuyên đề 1<br>Special Topics 1 | 2 | 10 | 0 | 90 |  |
+| 37 | MAT8105 | Chuyên đề 2<br>Special Topics 2 | 2 | 10 | 0 | 90 |  |
+| 38 | MAT8106 | Chuyên đề 3<br>Special Topics 3 | 2 | 10 | 0 | 90 |  |
 | II.2 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 39 | MAT8215 | Tiểu luận tổng quan
-Overview Essay | 2 | 10 | 0 | 90 |  |
+| 39 | MAT8215 | Tiểu luận tổng quan<br>Overview Essay | 2 | 10 | 0 | 90 |  |
 | II.3 | Nghiên cứu khoa học |  |  |  |  |  |  |
-| 40 |  | NCS xây dựng kế hoạch nghiên
-cứu, tổ chức triển khai và công bố
-các công trình nghiên cứu liên
-quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn
-của giáo viên hướng dẫn. |  |  |  |  |  |
+| 40 |  | NCS xây dựng kế hoạch nghiên<br>cứu, tổ chức triển khai và công bố<br>các công trình nghiên cứu liên<br>quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn<br>của giáo viên hướng dẫn. |  |  |  |  |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã học
-phần | Tên học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ
-đào tạo |  |  |  |  |  |  |
-| 41 |  | Đơn vị chuyên môn lên lịch sinh
-hoạt chuyên môn và lịch cho từng
-NCS báo cáo, trình bày kết quả
-hoạt động chuyên môn của mình
-tại seminar do đơn vị chuyên môn
-tổ chức trong từng năm học.
-NCS phải tham gia đầy đủ các
-seminar khoa học hoặc các hội
-nghị, hội thảo do đơn vị chuyên
-môn tổ chức, quy định.
-NCS phải tham gia trợ giảng bậc
-đại học, thạc sĩ hoặc hướng dẫn
-SV/HV cao học thực hành, thực
-tập, hoặc hướng dẫn khóa luận tốt
-nghiệp đại học, tham gia giảng
-dạy/trợ giảng các khóa đào tạo,
-bồi dưỡng ngắn hạn do đơn vị tổ
-chức. |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| III | Sinh hoạt chuyên môn, trợ giảng và hỗ trợ<br>đào tạo |  |  |  |  |  |  |
+| 41 |  | Đơn vị chuyên môn lên lịch sinh<br>hoạt chuyên môn và lịch cho từng<br>NCS báo cáo, trình bày kết quả<br>hoạt động chuyên môn của mình<br>tại seminar do đơn vị chuyên môn<br>tổ chức trong từng năm học.<br>NCS phải tham gia đầy đủ các<br>seminar khoa học hoặc các hội<br>nghị, hội thảo do đơn vị chuyên<br>môn tổ chức, quy định.<br>NCS phải tham gia trợ giảng bậc<br>đại học, thạc sĩ hoặc hướng dẫn<br>SV/HV cao học thực hành, thực<br>tập, hoặc hướng dẫn khóa luận tốt<br>nghiệp đại học, tham gia giảng<br>dạy/trợ giảng các khóa đào tạo,<br>bồi dưỡng ngắn hạn do đơn vị tổ<br>chức. |  |  |  |  |  |
 | IV | Luận án |  | 80 |  |  |  |  |
-| 42 | MAT9105 | Luận án tiến sĩ
-Doctor thesis | 80 | 0 | 0 | 4000 |  |
+| 42 | MAT9105 | Luận án tiến sĩ<br>Doctor thesis | 80 | 0 | 0 | 4000 |  |
 | Tổng cộng |  |  | 127 |  |  |  |  |
 13

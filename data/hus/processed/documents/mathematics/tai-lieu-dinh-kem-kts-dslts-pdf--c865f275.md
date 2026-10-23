@@ -328,415 +328,185 @@ chương trình đào tạo)
 2. Khung chƣơng trình đào tạo
 2.1. Khung chương trình dành cho NCS có bằng thạc sĩ ngành đúng hoặc phù
 hợp
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | PHẦN 1. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |
 | I.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | MA T8001 | Lý thuyết đồng luân (anh Hà)
-Homotopy theory | 3 | 15 |  | 30 |  |
-| 2 | MA T8002 | Đại số đồng điều II (Thầy Hưng)
-Homological Algebra II | 3 | 15 |  | 30 |  |
+| 1 | MA T8001 | Lý thuyết đồng luân (anh Hà)<br>Homotopy theory | 3 | 15 |  | 30 |  |
+| 2 | MA T8002 | Đại số đồng điều II (Thầy Hưng)<br>Homological Algebra II | 3 | 15 |  | 30 |  |
 | I.1.2 | Tự chọn |  | 3/9 |  |  |  |  |
-| 3 | MA T8003 | Toán tử đối đồng điều
-Cohomology Operations | 3 | 15 |  | 30 |  |
-| 4 | MA T8004 | Đường cong đại số - Đường cong
-elliptic (Có thể Kết hợp Hình học
-đại số)
-Algebraic curves – Elliptic
-curves | 3 | 15 |  | 30 |  |
-| 5 | MA T8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
-| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau) |  | 4 |  |  |  |  |
-| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  | 60 |  |
+| 3 | MA T8003 | Toán tử đối đồng điều<br>Cohomology Operations | 3 | 15 |  | 30 |  |
+| 4 | MA T8004 | Đường cong đại số - Đường cong<br>elliptic (Có thể Kết hợp Hình học<br>đại số)<br>Algebraic curves – Elliptic<br>curves | 3 | 15 |  | 30 |  |
+| 5 | MA T8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
+| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau) |  | 4 |  |  |  |  |
+| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  | 60 |  |
 |  | FRE 8001 | Tiếng Pháp học thuật nâng cao | 4 |  |  | 60 |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | Advanced French For Academic
-Purposes |  |  |  |  |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | Advanced French For Academic<br>Purposes |  |  |  |  |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | I.3 | Các chuyên đề tiến sĩ |  | 6/24 |  |  |  |  |
-| 7 | MA T8004 | Đường cong đại số - Đường cong
-elliptic
-Algebraic curves – Elliptic
-curves | 3 | 15 |  | 30 |  |
-| 8 | MA T8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
-| 9 | MA T8006 | Môđun trên đại số Steenrod/Đối
-đồng điều của đại số Steenrod
-Modules over the Steenrod
-algebra | 3 | 15 |  | 30 |  |
-| 10 | MA T8007 | Bài toán hit và ứng dụng
-The hit problem and its
-applications | 3 | 15 |  | 30 |  |
-| 11 | MA T8008 | Đối đồng điều của nhóm
-Group Cohomology | 3 | 15 |  | 30 |  |
-| 12 | MA T8009 | Serminar đại số - Lý thuyết số
-Algebra and Number Theory
-seminer | 3 | 15 |  | 30 |  |
-| 13 | MA T8010 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 15 |  | 30 |  |
-| 14 | MA T8011 | Dãy phổ và ứng dụng
-Spectral sequences and
-applications | 3 | 15 |  | 30 |  |
+| 7 | MA T8004 | Đường cong đại số - Đường cong<br>elliptic<br>Algebraic curves – Elliptic<br>curves | 3 | 15 |  | 30 |  |
+| 8 | MA T8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
+| 9 | MA T8006 | Môđun trên đại số Steenrod/Đối<br>đồng điều của đại số Steenrod<br>Modules over the Steenrod<br>algebra | 3 | 15 |  | 30 |  |
+| 10 | MA T8007 | Bài toán hit và ứng dụng<br>The hit problem and its<br>applications | 3 | 15 |  | 30 |  |
+| 11 | MA T8008 | Đối đồng điều của nhóm<br>Group Cohomology | 3 | 15 |  | 30 |  |
+| 12 | MA T8009 | Serminar đại số - Lý thuyết số<br>Algebra and Number Theory<br>seminer | 3 | 15 |  | 30 |  |
+| 13 | MA T8010 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 15 |  | 30 |  |
+| 14 | MA T8011 | Dãy phổ và ứng dụng<br>Spectral sequences and<br>applications | 3 | 15 |  | 30 |  |
 | I.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 15 | MA T8188 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 15 | MA T8188 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | III | PHẦN 3. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 16 | MA T9001 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 16 | MA T9001 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 91 |  |  |  |  |
 13
 
 <!-- Page 14 -->
 2.2. Khung chương trình dành cho NCS có bằng thạc sĩ ngành gần
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo thạc
-sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo thạc<br>sĩ) |  |  |  |  |  |  |
 | I.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | MA T6003 | Tôpô đại số
-Algebraic Topology | 3 | 15 |  | 30 |  |
-| 2 | MA T6004 | Lý thuyết trường và lý thuyết
-Galois
-Field and Galois’ theory | 3 | 15 |  | 30 |  |
+| 1 | MA T6003 | Tôpô đại số<br>Algebraic Topology | 3 | 15 |  | 30 |  |
+| 2 | MA T6004 | Lý thuyết trường và lý thuyết<br>Galois<br>Field and Galois’ theory | 3 | 15 |  | 30 |  |
 | I.2 | Tự chọn |  | 9/18 |  |  |  |  |
-| 3 | MA T6005 | Hình học vi phân
-Differential Geometry | 3 | 15 |  | 30 |  |
-| 4 | MA T6006 | Hình học đại số
-Algebraic Geometry | 3 | 15 |  | 30 |  |
-| 5 | MA T6011 | Lý thuyết bất biến Modular
-Modular Invariant Theory | 3 | 15 |  | 30 |  |
-| 6 | MA T6012 | Đại số đồng điều I
-Homological Algebra I | 3 | 15 |  | 30 |  |
-| 7 | MA T6013 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 15 |  | 30 |  |
-| 8 | MA T6014 | Lý thuyết biểu diễn nhóm nâng
-cao
-Advanced group representaions
-theory | 3 | 15 |  | 30 |  |
+| 3 | MA T6005 | Hình học vi phân<br>Differential Geometry | 3 | 15 |  | 30 |  |
+| 4 | MA T6006 | Hình học đại số<br>Algebraic Geometry | 3 | 15 |  | 30 |  |
+| 5 | MA T6011 | Lý thuyết bất biến Modular<br>Modular Invariant Theory | 3 | 15 |  | 30 |  |
+| 6 | MA T6012 | Đại số đồng điều I<br>Homological Algebra I | 3 | 15 |  | 30 |  |
+| 7 | MA T6013 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 15 |  | 30 |  |
+| 8 | MA T6014 | Lý thuyết biểu diễn nhóm nâng<br>cao<br>Advanced group representaions<br>theory | 3 | 15 |  | 30 |  |
 | II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 9 | MA T8001 | Lý thuyết đồng luân
-Homotopy theory | 3 | 15 |  | 30 |  |
-| 10 | MA T8002 | Đại số đồng điều II
-Homological Algebra II | 3 | 15 |  | 30 |  |
+| 9 | MA T8001 | Lý thuyết đồng luân<br>Homotopy theory | 3 | 15 |  | 30 |  |
+| 10 | MA T8002 | Đại số đồng điều II<br>Homological Algebra II | 3 | 15 |  | 30 |  |
 | II.1.1 | Bắt buộc |  | 3/9 |  |  |  |  |
-| 11 | MA T8003 | Toán tử đối đồng điều
-Cohomology Operations | 3 | 15 |  | 30 |  |
-| 12 | MA T8004 | Đường cong đại số - Đường cong
-elliptic | 3 | 15 |  | 30 |  |
+| 11 | MA T8003 | Toán tử đối đồng điều<br>Cohomology Operations | 3 | 15 |  | 30 |  |
+| 12 | MA T8004 | Đường cong đại số - Đường cong<br>elliptic | 3 | 15 |  | 30 |  |
 14
 
 <!-- Page 15 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | Algebraic curves – Elliptic
-curves |  |  |  |  |  |
-| 13 | MA T8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 14 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | FR E 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | Algebraic curves – Elliptic<br>curves |  |  |  |  |  |
+| 13 | MA T8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 14 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | FR E 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/24 |  |  |  |  |
-| 15 | MA T8004 | Đường cong đại số - Đường cong
-elliptic
-Algebraic curves – Elliptic
-curves | 3 | 15 |  | 30 |  |
-| 16 | MA T8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
-| 17 | MA T8006 | Môđun trên đại số Steenrod/Đối
-đồng điều của đại số Steenrod
-Modules over the Steenrod
-algebra | 3 | 15 |  | 30 |  |
-| 18 | MA T8007 | Bài toán hit và ứng dụng
-The hit problem and its
-applications | 3 | 15 |  | 30 |  |
-| 19 | MA T8008 | Đối đồng điều của nhóm
-Group Cohomology | 3 | 15 |  | 30 |  |
-| 20 | MA T8009 | Serminar đại số - Lý thuyết số
-Algebra and Number Theory
-seminer | 3 | 15 |  | 30 |  |
-| 21 | MA T8010 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 15 |  | 30 |  |
+| 15 | MA T8004 | Đường cong đại số - Đường cong<br>elliptic<br>Algebraic curves – Elliptic<br>curves | 3 | 15 |  | 30 |  |
+| 16 | MA T8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  | 30 |  |
+| 17 | MA T8006 | Môđun trên đại số Steenrod/Đối<br>đồng điều của đại số Steenrod<br>Modules over the Steenrod<br>algebra | 3 | 15 |  | 30 |  |
+| 18 | MA T8007 | Bài toán hit và ứng dụng<br>The hit problem and its<br>applications | 3 | 15 |  | 30 |  |
+| 19 | MA T8008 | Đối đồng điều của nhóm<br>Group Cohomology | 3 | 15 |  | 30 |  |
+| 20 | MA T8009 | Serminar đại số - Lý thuyết số<br>Algebra and Number Theory<br>seminer | 3 | 15 |  | 30 |  |
+| 21 | MA T8010 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 15 |  | 30 |  |
 15
 
 <!-- Page 16 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 22 | MA T8011 | Dãy phổ và ứng dụng
-Spectral sequences and
-applications | 3 | 15 |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 22 | MA T8011 | Dãy phổ và ứng dụng<br>Spectral sequences and<br>applications | 3 | 15 |  | 30 |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 23 | MA T8188 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 23 | MA T8188 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 24 | MA T9001 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 24 | MA T9001 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 106 |  |  |  |  |
 2.3. Khung chương trình dành cho NCS chưa có bằng thạc sĩ
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo thạc
-sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo thạc<br>sĩ) |  |  |  |  |  |  |
 | I.1 | Khối kiến thức chung |  | 6 |  |  |  |  |
-| 1 | C TP5001 | Triết học
-Philosophy | 2 |  |  |  |  |
-| 2 | E NG5001 | Tiếng Anh cơ bản
-General English | 4 |  |  |  |  |
+| 1 | C TP5001 | Triết học<br>Philosophy | 2 |  |  |  |  |
+| 2 | E NG5001 | Tiếng Anh cơ bản<br>General English | 4 |  |  |  |  |
 | I.2 | Khối kiến thức nhóm chuyên ngành |  |  |  |  |  |  |
 | I.2.1 | Bắt buộc |  | 9 |  |  |  |  |
-| 3 | E NG6001 | Tiếng Anh học thuật
-English for Academic Purposes | 3 |  |  |  |  |
-| 4 | M AT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Group theory and group
-representations | 3 | 45 |  |  |  |
-| 5 | M AT6002 | Giải tích hàm nâng cao
-Advanced functional analysis | 3 | 45 |  |  |  |
+| 3 | E NG6001 | Tiếng Anh học thuật<br>English for Academic Purposes | 3 |  |  |  |  |
+| 4 | M AT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Group theory and group<br>representations | 3 | 45 |  |  |  |
+| 5 | M AT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis | 3 | 45 |  |  |  |
 | I.2.2 | Tự chọn |  | 6/15 |  |  |  |  |
 | 6 | M AT6006 | Hình học đại số | 3 | 45 |  |  |  |
 16
 
 <!-- Page 17 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành |  | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành |  | Tự<br>học |  |
 |  |  | Algebraic Geometry |  |  |  |  |  |  |
-| 7 | M AT6007 | Bổ túc về đại số tuyến tính
-Advanced Linear Algebra | 3 | 45 |  |  |  |  |
-| 8 | M AT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |  |
-| 9 | M AT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |  |
-| 10 | M AT6010 | Giải tích phức
-Complex Analysis | 3 | 45 |  |  |  |  |
+| 7 | M AT6007 | Bổ túc về đại số tuyến tính<br>Advanced Linear Algebra | 3 | 45 |  |  |  |  |
+| 8 | M AT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |  |
+| 9 | M AT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |  |
+| 10 | M AT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 |  |  |  |  |
 | I.3 | Khối kiến thức chuyên ngành |  | 15 |  |  |  |  |  |
 | I.3.1 | Bắt buộc |  | 9 |  |  |  |  |  |
-| 11 | M AT6003 | Tôpô đại số
-Algebraic Topology | 3 | 45 |  |  |  |  |
-| 12 | M AT6004 | Lý thuyết trường và lý thuyết
-Galois
-Field and Galois’ theory | 3 | 45 |  |  |  |  |
-| 13 | M AT6005 | Hình học vi phân
-Differential Geometry | 3 | 45 |  |  |  |  |
+| 11 | M AT6003 | Tôpô đại số<br>Algebraic Topology | 3 | 45 |  |  |  |  |
+| 12 | M AT6004 | Lý thuyết trường và lý thuyết<br>Galois<br>Field and Galois’ theory | 3 | 45 |  |  |  |  |
+| 13 | M AT6005 | Hình học vi phân<br>Differential Geometry | 3 | 45 |  |  |  |  |
 | I.3.2 | Tự chọn |  | 6/15 |  |  |  |  |  |
-| 14 | M AT6006 | Hình học đại số
-Algebraic Geometry | 3 | 45 |  |  |  |  |
-| 15 | M AT6011 | Lý thuyết bất biến Modular
-Modular Invariant Theory | 3 | 45 |  |  |  |  |
-| 16 | M AT6012 | Đại số đồng điều I
-Homological Algebra I | 3 | 45 |  |  |  |  |
-| 17 | M AT6013 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 45 |  |  |  |  |
-| 18 | M AT6014 | Lý thuyết biểu diễn nhóm nâng
-cao
-Advanced group representations
-theory | 3 | 45 |  |  |  |  |
+| 14 | M AT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 |  |  |  |  |
+| 15 | M AT6011 | Lý thuyết bất biến Modular<br>Modular Invariant Theory | 3 | 45 |  |  |  |  |
+| 16 | M AT6012 | Đại số đồng điều I<br>Homological Algebra I | 3 | 45 |  |  |  |  |
+| 17 | M AT6013 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 45 |  |  |  |  |
+| 18 | M AT6014 | Lý thuyết biểu diễn nhóm nâng<br>cao<br>Advanced group representations<br>theory | 3 | 45 |  |  |  |  |
 | II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |  |
-| 19 | M AT8001 | Lý thuyết đồng luân
-Homotopy theory | 3 | 15 |  |  | 30 |  |
+| 19 | M AT8001 | Lý thuyết đồng luân<br>Homotopy theory | 3 | 15 |  |  | 30 |  |
 17
 
 <!-- Page 18 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành |  | Tự
-học |  |
-| 20 | M AT8002 | Đại số đồng điều II
-Homological Algebra II | 3 | 15 |  |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành |  | Tự<br>học |  |
+| 20 | M AT8002 | Đại số đồng điều II<br>Homological Algebra II | 3 | 15 |  |  | 30 |  |
 | II.1.2 | Tự chọn |  | 3/9 |  |  |  |  |  |
-| 21 | M AT8003 | Toán tử đối đồng điều
-Cohomology Operations | 3 | 15 |  |  | 30 |  |
-| 22 | M AT8004 | Đường cong đại số - Đường cong
-elliptic
-Algebraic curves – Elliptic
-curves | 3 | 15 |  |  | 30 |  |
-| 23 | M AT8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |  |
-| 24 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  |  | 60 |  |
-|  | FR E 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 |  |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  |  | 60 |  |
+| 21 | M AT8003 | Toán tử đối đồng điều<br>Cohomology Operations | 3 | 15 |  |  | 30 |  |
+| 22 | M AT8004 | Đường cong đại số - Đường cong<br>elliptic<br>Algebraic curves – Elliptic<br>curves | 3 | 15 |  |  | 30 |  |
+| 23 | M AT8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |  |
+| 24 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  |  | 60 |  |
+|  | FR E 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 |  |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/24 |  |  |  |  |  |
-| 25 | M AT8004 | Đường cong đại số - Đường cong
-elliptic
-Algebraic curves – Elliptic
-curves | 3 | 15 |  |  | 30 |  |
-| 26 | M AT8005 | Nhóm Lie và đại số Lie
-Lie Groups and Lie Algebras | 3 | 15 |  |  | 30 |  |
-| 27 | M AT8006 | Môđun trên đại số Steenrod/Đối
-đồng điều của đại số Steenrod
-Modules over the Steenrod
-algebra | 3 | 15 |  |  | 30 |  |
+| 25 | M AT8004 | Đường cong đại số - Đường cong<br>elliptic<br>Algebraic curves – Elliptic<br>curves | 3 | 15 |  |  | 30 |  |
+| 26 | M AT8005 | Nhóm Lie và đại số Lie<br>Lie Groups and Lie Algebras | 3 | 15 |  |  | 30 |  |
+| 27 | M AT8006 | Môđun trên đại số Steenrod/Đối<br>đồng điều của đại số Steenrod<br>Modules over the Steenrod<br>algebra | 3 | 15 |  |  | 30 |  |
 18
 
 <!-- Page 19 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành |  | Tự
-học |  |
-| 28 | M AT8007 | Bài toán hit và ứng dụng
-The hit problem and its
-applications | 3 | 15 |  |  | 30 |  |
-| 29 | M AT8008 | Đối đồng điều của nhóm
-Group Cohomology | 3 | 15 |  |  | 30 |  |
-| 30 | M AT8009 | Serminar đại số - Lý thuyết số
-Algebra and Number Theory
-seminer | 3 | 15 |  |  | 30 |  |
-| 31 | M AT8010 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 15 |  |  | 30 |  |
-| 32 | M AT8011 | Dãy phổ và ứng dụng
-Spectral sequences and
-applications | 3 | 15 |  |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành |  | Tự<br>học |  |
+| 28 | M AT8007 | Bài toán hit và ứng dụng<br>The hit problem and its<br>applications | 3 | 15 |  |  | 30 |  |
+| 29 | M AT8008 | Đối đồng điều của nhóm<br>Group Cohomology | 3 | 15 |  |  | 30 |  |
+| 30 | M AT8009 | Serminar đại số - Lý thuyết số<br>Algebra and Number Theory<br>seminer | 3 | 15 |  |  | 30 |  |
+| 31 | M AT8010 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 15 |  |  | 30 |  |
+| 32 | M AT8011 | Dãy phổ và ứng dụng<br>Spectral sequences and<br>applications | 3 | 15 |  |  | 30 |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |  |
-| 33 | MA T8188 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |
+| 33 | MA T8188 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |  |
-| 34 | MA T9001 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |  |
+| 34 | MA T9001 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |  |
 |  |  | Tổng cộng | 127 |  |  |  |  |  |
 CHỦ NHIỆM KT. HIỆU TRƢỞNG
 KHOA TOÁN – CƠ – TIN HỌC PHÓ HIỆU TRƢỞNG

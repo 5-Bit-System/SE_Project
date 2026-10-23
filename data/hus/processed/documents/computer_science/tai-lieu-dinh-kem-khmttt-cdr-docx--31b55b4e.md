@@ -6,9 +6,7 @@ type: "curriculum"
 major: "computer_science"
 ---
 
-| ĐẠI HỌC QUỐC GIA HÀ NỘI
-TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN | CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM
-Độc lập - Tự do - Hạnh phúc |
+| ĐẠI HỌC QUỐC GIA HÀ NỘI<br>TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN | CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc |
 
 | --- | --- |
 

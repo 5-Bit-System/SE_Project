@@ -184,96 +184,45 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 8 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | ENG5001 | Tiếng Anh B2 (SĐH)
-English B2 | 5 | 40 | 60 | 150 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | ENG5001 | Tiếng Anh B2 (SĐH)<br>English B2 | 5 | 40 | 60 | 150 |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  | 39 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 24 |  |  |  |  |
-| 3 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6301 | Giải tích thực
-Real analysis | 4 | 45 | 30 | 125 |  |
-| 5 | MAT6302 | Phần mềm toán học
-Software for mathematics | 3 | 30 | 30 | 90 |  |
-| 6 | MAT6130 | Lý thuyết số
-Number theory | 3 | 45 | 0 | 105 |  |
-| 7 | MAT6305 | Cơ sở hình học
-Elementary geometry | 3 | 45 | 0 | 105 |  |
-| 8 | MAT6306 | Một số chủ đề lựa chọn trong
-xác suất thống kê
-Selected topics in probability
-and statistics | 4 | 45 | 30 | 125 |  |
-| 9 | MAT6307 | Thuật toán và lập trình
-Algorithms and programming | 4 | 45 | 30 | 125 |  |
+| 3 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6301 | Giải tích thực<br>Real analysis | 4 | 45 | 30 | 125 |  |
+| 5 | MAT6302 | Phần mềm toán học<br>Software for mathematics | 3 | 30 | 30 | 90 |  |
+| 6 | MAT6130 | Lý thuyết số<br>Number theory | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6305 | Cơ sở hình học<br>Elementary geometry | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6306 | Một số chủ đề lựa chọn trong<br>xác suất thống kê<br>Selected topics in probability<br>and statistics | 4 | 45 | 30 | 125 |  |
+| 9 | MAT6307 | Thuật toán và lập trình<br>Algorithms and programming | 4 | 45 | 30 | 125 |  |
 | II.2 | Các học phần tự chọn |  | 15/39 |  |  |  |  |
-| 10 | MAT6065 | Bất đẳng thức và ứng dụng
-Inequalities and applications | 3 | 45 | 0 | 105 |  |
-| 11 | MAT6309 | Các mô hình toán học
-Mathematical modeling | 3 | 30 | 30 | 90 |  |
-| 12 | MAT6310 | Lịch sử toán học
-History of mathematics | 3 | 45 | 0 | 105 |  |
-| 13 | MAT6132 | Lý thuyết đồ thị và ứng dụng
-Graph theory and applications | 3 | 30 | 30 | 90 |  |
-| 14 | MAT6312 | Lí thuyết đa thức
-Theory of polynomials | 3 | 45 | 0 | 105 |  |
-| 15 | MAT6313 | Phương trình sai phân và dãy
-số
-Difference equations and
-sequences | 3 | 30 | 30 | 90 |  |
-| 16 | MAT6133 | Phương trình Diophang
-Diophantine equation | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6065 | Bất đẳng thức và ứng dụng<br>Inequalities and applications | 3 | 45 | 0 | 105 |  |
+| 11 | MAT6309 | Các mô hình toán học<br>Mathematical modeling | 3 | 30 | 30 | 90 |  |
+| 12 | MAT6310 | Lịch sử toán học<br>History of mathematics | 3 | 45 | 0 | 105 |  |
+| 13 | MAT6132 | Lý thuyết đồ thị và ứng dụng<br>Graph theory and applications | 3 | 30 | 30 | 90 |  |
+| 14 | MAT6312 | Lí thuyết đa thức<br>Theory of polynomials | 3 | 45 | 0 | 105 |  |
+| 15 | MAT6313 | Phương trình sai phân và dãy<br>số<br>Difference equations and<br>sequences | 3 | 30 | 30 | 90 |  |
+| 16 | MAT6133 | Phương trình Diophang<br>Diophantine equation | 3 | 45 | 0 | 105 |  |
 7
 
 <!-- Page 8 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 17 | MAT6069 | Tổ hợp
-Combinatorics | 3 | 45 | 0 | 105 |  |
-| 18 | MAT6315 | Các phương pháp xác suất
-trong số học và tổ hợp
-Probabilistic methods in
-arithmetics and combinatorics | 3 | 45 | 0 | 105 |  |
-| 19 | MAT6317 | Số học và mật mã
-Arithmetics and cryptography | 3 | 30 | 30 | 90 |  |
-| 20 | MAT6318 | Một số vấn đề chọn lọc về hình
-học
-Selected topics in geometry | 3 | 45 | 0 | 105 |  |
-| 21 | MAT6319 | Một số vấn đề chọn lọc về tổ hợp
-Selected topics in
-combinatorics | 3 | 45 | 0 | 105 |  |
-| 22 | MAT6320 | Một số vấn đề nâng cao về Xác
-suất – Thống kê
-Advanced topics in probability
-and statistics | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 17 | MAT6069 | Tổ hợp<br>Combinatorics | 3 | 45 | 0 | 105 |  |
+| 18 | MAT6315 | Các phương pháp xác suất<br>trong số học và tổ hợp<br>Probabilistic methods in<br>arithmetics and combinatorics | 3 | 45 | 0 | 105 |  |
+| 19 | MAT6317 | Số học và mật mã<br>Arithmetics and cryptography | 3 | 30 | 30 | 90 |  |
+| 20 | MAT6318 | Một số vấn đề chọn lọc về hình<br>học<br>Selected topics in geometry | 3 | 45 | 0 | 105 |  |
+| 21 | MAT6319 | Một số vấn đề chọn lọc về tổ hợp<br>Selected topics in<br>combinatorics | 3 | 45 | 0 | 105 |  |
+| 22 | MAT6320 | Một số vấn đề nâng cao về Xác<br>suất – Thống kê<br>Advanced topics in probability<br>and statistics | 3 | 45 | 0 | 105 |  |
 | III | Thực tập |  | 6 |  |  |  |  |
-| 23 | MAT6339 | Thực tập 1
-Internship 1 | 3 | 30 | 0 | 120 |  |
-| 24 | MAT6340 | Thực tập 2
-Internship 2 | 3 | 30 | 0 | 120 |  |
+| 23 | MAT6339 | Thực tập 1<br>Internship 1 | 3 | 30 | 0 | 120 |  |
+| 24 | MAT6340 | Thực tập 2<br>Internship 2 | 3 | 30 | 0 | 120 |  |
 | IV | Học phần tốt nghiệp (Đề án/đồ án..) |  | 9 |  |  |  |  |
-| 25 | MAT6902 | Học phần tốt nghiệp
-Graduate Module | 9 | 0 | 0 | 450 |  |
+| 25 | MAT6902 | Học phần tốt nghiệp<br>Graduate Module | 9 | 0 | 0 | 450 |  |
 | Tổng cộng |  |  | 62 |  |  |  |  |
 8

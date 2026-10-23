@@ -348,500 +348,132 @@ thế khoá luận tốt nghiệp:
 
 <!-- Page 13 -->
 2. Khung chương trình đào tạo
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| I |  | Khối kiến thức chung
-(chưa tính Giáo dục thể chất,
-Giáo dục quốc phòng - an ninh) | 21 |  |  |  |  |
-| 1 | PHI1006 | Triết học Mác – Lênin
-Marxist-Leninist Philosophy | 3 | 30 | 15 | 0 |  |
-| 2 | PEC1008 | Kinh tế chính trị Mác – Lênin
-Marx-Lenin Political Economy | 2 | 20 | 10 | 0 | PHI1006 |
-| 3 | PHI1002 | Chủ nghĩa xã hội khoa học
-Scientific socialism | 2 | 30 | 0 | 0 |  |
-| 4 | HIS1001 | Lịch sử Đảng Cộng sản Việt
-Nam
-History of the Communist Party
-of Vietnam | 2 | 20 | 10 | 0 |  |
-| 5 | POL1001 | Tư tưởng Hồ Chí Minh
-Ho Chi Minh Ideology | 2 | 20 | 10 | 0 |  |
-| 6 | FLF1107 | Tiếng Anh B1
-English B1 | 5 | 20 | 35 | 20 |  |
-| 7 | FLF1108 | Tiếng Anh B2
-English B2 | 5 | 20 | 35 | 20 | FLF1107 |
-| 8 |  | Giáo dục thể chất
-Physical Education | 4 |  |  |  |  |
-| 9 |  | Giáo dục quốc phòng-an ninh
-National Defence Education | 8 |  |  |  |  |
-| II |  | Khối kiến thức chung theo lĩnh
-vực | 7 |  |  |  |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| I |  | Khối kiến thức chung<br>(chưa tính Giáo dục thể chất,<br>Giáo dục quốc phòng - an ninh) | 21 |  |  |  |  |
+| 1 | PHI1006 | Triết học Mác – Lênin<br>Marxist-Leninist Philosophy | 3 | 30 | 15 | 0 |  |
+| 2 | PEC1008 | Kinh tế chính trị Mác – Lênin<br>Marx-Lenin Political Economy | 2 | 20 | 10 | 0 | PHI1006 |
+| 3 | PHI1002 | Chủ nghĩa xã hội khoa học<br>Scientific socialism | 2 | 30 | 0 | 0 |  |
+| 4 | HIS1001 | Lịch sử Đảng Cộng sản Việt<br>Nam<br>History of the Communist Party<br>of Vietnam | 2 | 20 | 10 | 0 |  |
+| 5 | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 | 20 | 10 | 0 |  |
+| 6 | FLF1107 | Tiếng Anh B1<br>English B1 | 5 | 20 | 35 | 20 |  |
+| 7 | FLF1108 | Tiếng Anh B2<br>English B2 | 5 | 20 | 35 | 20 | FLF1107 |
+| 8 |  | Giáo dục thể chất<br>Physical Education | 4 |  |  |  |  |
+| 9 |  | Giáo dục quốc phòng-an ninh<br>National Defence Education | 8 |  |  |  |  |
+| II |  | Khối kiến thức chung theo lĩnh<br>vực | 7 |  |  |  |  |
 | II.1 |  | Học phần bắt buộc | 2 |  |  |  |  |
-| 10 | INM1000 | Tin học cơ sở
-Introduction to Informatics | 2 | 15 | 15 | 0 |  |
+| 10 | INM1000 | Tin học cơ sở<br>Introduction to Informatics | 2 | 15 | 15 | 0 |  |
 | II.2 |  | Các học phần tự chọn | 5/15 |  |  |  |  |
-| 11 | HIS1056 | Cơ sở văn hóa Việt Nam
-Fundamentals of Vietnamese
-Culture | 3 | 42 | 3 | 0 |  |
-| 12 | GEO1050 | Khoa học trái đất và sự sống
-Earth and Life Sciences | 3 | 42 | 3 | 0 |  |
+| 11 | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamentals of Vietnamese<br>Culture | 3 | 42 | 3 | 0 |  |
+| 12 | GEO1050 | Khoa học trái đất và sự sống<br>Earth and Life Sciences | 3 | 42 | 3 | 0 |  |
 13
 
 <!-- Page 14 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| 13 | THL1057 | Nhà nước và pháp luật đại
-cương
-General State and Law | 2 | 20 | 5 | 5 | PHI1006 |
-| 14 | MAT1060 | Nhập môn phân tích dữ liệu
-Introduction to Data Analysis | 2 | 20 | 10 | 0 |  |
-| 15 | PHY1070 | Nhập môn Internet kết nối vạn
-vật
-Introduction Internet of things | 2 | 24 | 6 | 0 |  |
-| 16 | PHY1020 | Nhập môn Robotics
-Introduction to Robotics | 3 | 30 | 10 | 5 |  |
-| III |  | Khối kiến thức chung theo
-khối ngành | 6 |  |  |  |  |
-| 17 | PHY1100 | Cơ - Nhiệt
-Mechanics – Thermodymiacs | 3 | 30 | 15 | 0 | MAT2501 |
-| 18 | PHY1103 | Điện - Quang
-Electromagnetism – Optics | 3 | 30 | 15 | 0 | MAT2501 |
-| IV |  | Khối kiến thức chung theo
-nhóm ngành | 36 |  |  |  |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 13 | THL1057 | Nhà nước và pháp luật đại<br>cương<br>General State and Law | 2 | 20 | 5 | 5 | PHI1006 |
+| 14 | MAT1060 | Nhập môn phân tích dữ liệu<br>Introduction to Data Analysis | 2 | 20 | 10 | 0 |  |
+| 15 | PHY1070 | Nhập môn Internet kết nối vạn<br>vật<br>Introduction Internet of things | 2 | 24 | 6 | 0 |  |
+| 16 | PHY1020 | Nhập môn Robotics<br>Introduction to Robotics | 3 | 30 | 10 | 5 |  |
+| III |  | Khối kiến thức chung theo<br>khối ngành | 6 |  |  |  |  |
+| 17 | PHY1100 | Cơ - Nhiệt<br>Mechanics – Thermodymiacs | 3 | 30 | 15 | 0 | MAT2501 |
+| 18 | PHY1103 | Điện - Quang<br>Electromagnetism – Optics | 3 | 30 | 15 | 0 | MAT2501 |
+| IV |  | Khối kiến thức chung theo<br>nhóm ngành | 36 |  |  |  |  |
 | IV.1 |  | Các học phần bắt buộc | 33 |  |  |  |  |
-| 19 | MAT2400 | Đại số tuyến tính
-Linear Algebra | 5 | 50 | 25 | 0 |  |
-| 20 | MAT2501 | Giải tích 1
-Calculus 1 | 4 | 40 | 20 | 0 |  |
-| 21 | MAT2502 | Giải tích 2
-Calculus 2 | 4 | 40 | 20 | 0 | MAT2501
-MAT2400 |
-| 22 | MAT2503 | Giải tích 3
-Calculus 3 | 2 | 15 | 15 | 0 | MAT2502 |
-| 23 | MAT2403 | Phương trình vi phân
-Differential Equations | 3 | 30 | 15 | 0 | MAT2501
-MAT2400 |
-| 24 | MAT2034 | Giải tích số
-Numerical Analysis | 3 | 30 | 15 | 0 | MAT2502
-MAT2403
-MAT3372 |
-| 25 | MAT2323 | Xác suất - Thống kê
-Probability and Statistics | 4 | 45 | 15 | 0 | MAT2502 |
+| 19 | MAT2400 | Đại số tuyến tính<br>Linear Algebra | 5 | 50 | 25 | 0 |  |
+| 20 | MAT2501 | Giải tích 1<br>Calculus 1 | 4 | 40 | 20 | 0 |  |
+| 21 | MAT2502 | Giải tích 2<br>Calculus 2 | 4 | 40 | 20 | 0 | MAT2501<br>MAT2400 |
+| 22 | MAT2503 | Giải tích 3<br>Calculus 3 | 2 | 15 | 15 | 0 | MAT2502 |
+| 23 | MAT2403 | Phương trình vi phân<br>Differential Equations | 3 | 30 | 15 | 0 | MAT2501<br>MAT2400 |
+| 24 | MAT2034 | Giải tích số<br>Numerical Analysis | 3 | 30 | 15 | 0 | MAT2502<br>MAT2403<br>MAT3372 |
+| 25 | MAT2323 | Xác suất - Thống kê<br>Probability and Statistics | 4 | 45 | 15 | 0 | MAT2502 |
 14
 
 <!-- Page 15 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| 26 | MAT2411E | Tối ưu hóa (**)
-Optimization | 3 | 30 | 15 | 0 | MAT2400
-MAT2502 |
-| 27 | MAT2315E | Phương pháp nghiên cứu khoa
-học (**)
-Research Methodology | 3 | 15 | 30 | 0 |  |
-| 28 | MAT2506 | Kĩ năng mềm
-Soft skill | 2 | 20 | 10 | 0 |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 26 | MAT2411E | Tối ưu hóa (**)<br>Optimization | 3 | 30 | 15 | 0 | MAT2400<br>MAT2502 |
+| 27 | MAT2315E | Phương pháp nghiên cứu khoa<br>học (**)<br>Research Methodology | 3 | 15 | 30 | 0 |  |
+| 28 | MAT2506 | Kĩ năng mềm<br>Soft skill | 2 | 20 | 10 | 0 |  |
 | IV.2 |  | Các học phần tự chọn | 3/12 |  |  |  |  |
-| 29 | MAT2316 | Lập trình C++
-C++ Programming | 3 | 22 | 23 | 0 | INM1000 |
-| 30 | MAT2317 | Lập trình Java
-Java Programming | 3 | 22 | 23 | 0 | INM1000 |
-| 31 | MAT2318 | Lập trình Python
-Python Programming | 3 | 22 | 23 | 0 | INM1000 |
-| 32 | MAT2319 | Lập trình Julia
-Julia Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 29 | MAT2316 | Lập trình C++<br>C++ Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 30 | MAT2317 | Lập trình Java<br>Java Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 31 | MAT2318 | Lập trình Python<br>Python Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 32 | MAT2319 | Lập trình Julia<br>Julia Programming | 3 | 22 | 23 | 0 | INM1000 |
 | V |  | Khối kiến thức ngành | 81 |  |  |  |  |
 | V.1 |  | Các học phần bắt buộc | 50 |  |  |  |  |
-| 33 | MAT3500 | Toán rời rạc
-Discrete Mathematics | 4 | 45 | 15 | 0 | MAT2400
-MAT2501 |
-| 34 | MAT3557 | Môi trường lập trình Linux
-Linux Programming
-Environment | 2 | 15 | 15 | 0 |  |
-| 35 | MAT3550E | Nguyên lý hệ điều hành (**)
-Principles of Operating Systems | 3 | 30 | 15 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT23191 |
-| 36 | MAT3507 | Cơ sở dữ liệu
-Databases | 4 | 40 | 20 | 0 | MAT2316/
-MAT2317/
-MAT2318/ |
+| 33 | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 15 | 0 | MAT2400<br>MAT2501 |
+| 34 | MAT3557 | Môi trường lập trình Linux<br>Linux Programming<br>Environment | 2 | 15 | 15 | 0 |  |
+| 35 | MAT3550E | Nguyên lý hệ điều hành (**)<br>Principles of Operating Systems | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT23191 |
+| 36 | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | 40 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/ |
 1 Dấu “/” mang nghĩa “hoặc”: Một trong 4 học phần MAT2316, MAT2317, MAT2318, MAT2319.
 15
 
 <!-- Page 16 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  |  |  |  |  |  | MAT2319 |
-| 37 | MAT3551E | Cấu trúc dữ liệu và thuật toán
-(**)
-Data Structures and Algorithms | 4 | 40 | 20 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 38 | MAT3372 | Các thành phần phần mềm
-Software Components | 3 | 22 | 23 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 39 | MAT3552E | Thiết kế và đánh giá thuật toán
-(**)
-Algorithm Design and Analysis | 3 | 30 | 15 | 0 | MAT2502
-MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 40 | MAT3505 | Kiến trúc máy tính
-Computer Architecture | 3 | 30 | 15 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 41 | MAT3517E | Mạng máy tính (**)
-Computer Networks | 3 | 40 | 5 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 42 | MAT3532 | Tính toán song song
-Parallel Computing | 3 | 30 | 15 | 0 | MAT3514
-MAT3557 |
-| 43 | MAT3543 | Công nghệ phần mềm
-Software Engineering | 3 | 30 | 15 | 0 | MAT3374
-MAT3552E |
-| 44 | MAT3541E | Nguyên lý các ngôn ngữ lập
-trình (**)
-Principles of Programming
-Languages | 3 | 30 | 15 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 45 | MAT3553E | Nhập môn Trí tuệ nhân tạo (**)
-Introduction to Artificial
-Intelligence | 4 | 40 | 20 | 0 | MAT3507
-MAT3372 |
-| 46 | MAT3373E | Nhập môn an toàn máy tính (**)
-Introduction to Computer | 3 | 40 | 5 | 0 | MAT2316/
-MAT2317/ |
+| 37 | MAT3551E | Cấu trúc dữ liệu và thuật toán<br>(**)<br>Data Structures and Algorithms | 4 | 40 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 38 | MAT3372 | Các thành phần phần mềm<br>Software Components | 3 | 22 | 23 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 39 | MAT3552E | Thiết kế và đánh giá thuật toán<br>(**)<br>Algorithm Design and Analysis | 3 | 30 | 15 | 0 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 40 | MAT3505 | Kiến trúc máy tính<br>Computer Architecture | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 41 | MAT3517E | Mạng máy tính (**)<br>Computer Networks | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 42 | MAT3532 | Tính toán song song<br>Parallel Computing | 3 | 30 | 15 | 0 | MAT3514<br>MAT3557 |
+| 43 | MAT3543 | Công nghệ phần mềm<br>Software Engineering | 3 | 30 | 15 | 0 | MAT3374<br>MAT3552E |
+| 44 | MAT3541E | Nguyên lý các ngôn ngữ lập<br>trình (**)<br>Principles of Programming<br>Languages | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 45 | MAT3553E | Nhập môn Trí tuệ nhân tạo (**)<br>Introduction to Artificial<br>Intelligence | 4 | 40 | 20 | 0 | MAT3507<br>MAT3372 |
+| 46 | MAT3373E | Nhập môn an toàn máy tính (**)<br>Introduction to Computer | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/ |
 16
 
 <!-- Page 17 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-|  |  | Security |  |  |  |  | MAT2318/
-MAT2319 |
-| 47 | MAT3555 | Tiếng Anh chuyên ngành khoa
-học máy tính (*)
-English for Special Purpose | 2 | 25 | 5 | 0 | FLF1107 |
-| 48 | MAT3374 | Thực tập thực tế phát triển phần
-mềm
-Internship on software
-development | 3 | 15 | 30 | 0 | INM1000
-MAT3057 |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  | Security |  |  |  |  | MAT2318/<br>MAT2319 |
+| 47 | MAT3555 | Tiếng Anh chuyên ngành khoa<br>học máy tính (*)<br>English for Special Purpose | 2 | 25 | 5 | 0 | FLF1107 |
+| 48 | MAT3374 | Thực tập thực tế phát triển phần<br>mềm<br>Internship on software<br>development | 3 | 15 | 30 | 0 | INM1000<br>MAT3057 |
 | V.2 |  | Các học phần tự chọn | 19 |  |  |  |  |
 | V.2.1 |  | Tự chọn về kỹ năng phần mềm | 4/8 |  |  |  |  |
-| 49 | MAT3376 | Lập trình nâng cao
-Advanced Programming | 2 | 10 | 20 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 50 | MAT3558 | Lập trình mobile (*)
-Programming for mobile
-platforms | 2 | 10 | 20 | 0 | MAT3551E
-MAT3507
-MAT3372 |
-| 51 | MAT3559 | Xây dựng hệ thống nhúng (*)
-Embedded System Workshop | 2 | 10 | 20 | 0 | MAT3372
-MAT3505 |
-| 52 | MAT3560 | Phát triển phần mềm trò chơi (*)
-Introduction to game design and
-development | 2 | 10 | 20 | 0 | MAT3376 |
-| V.2.2 |  | Tự chọn về khoa học máy tính và
-thông tin: Trí tuệ nhân tạo và
-phát triển phần mềm | 15/30 |  |  |  |  |
-|  |  | Chọn 3 trong 4 học phần về trí
-tuệ nhân tạo sau | 6/9 |  |  |  |  |
-| 53 | MAT3533 | Học máy
-Machine Learning | 3 | 30 | 15 | 0 | MAT3551E
-MAT2323
-MAT2034 |
+| 49 | MAT3376 | Lập trình nâng cao<br>Advanced Programming | 2 | 10 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 50 | MAT3558 | Lập trình mobile (*)<br>Programming for mobile<br>platforms | 2 | 10 | 20 | 0 | MAT3551E<br>MAT3507<br>MAT3372 |
+| 51 | MAT3559 | Xây dựng hệ thống nhúng (*)<br>Embedded System Workshop | 2 | 10 | 20 | 0 | MAT3372<br>MAT3505 |
+| 52 | MAT3560 | Phát triển phần mềm trò chơi (*)<br>Introduction to game design and<br>development | 2 | 10 | 20 | 0 | MAT3376 |
+| V.2.2 |  | Tự chọn về khoa học máy tính và<br>thông tin: Trí tuệ nhân tạo và<br>phát triển phần mềm | 15/30 |  |  |  |  |
+|  |  | Chọn 3 trong 4 học phần về trí<br>tuệ nhân tạo sau | 6/9 |  |  |  |  |
+| 53 | MAT3533 | Học máy<br>Machine Learning | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323<br>MAT2034 |
 17
 
 <!-- Page 18 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| 54 | MAT3554E | Ngôn ngữ hình thức và ôtômat
-(**)
-Formal Language and Automata | 3 | 40 | 5 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319
-MAT3500 |
-| 55 | MAT3562E | Thị giác máy tính (**)
-Computer Vision | 3 | 30 | 15 | 0 | MAT2502
-MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| V.2.3 |  | Chọn 3 trong 7 học phần trí tuệ
-nhân tạo và phát triển phần mềm
-sau | 9/21 |  |  |  |  |
-| 56 | MAT3542 | Phát triển ứng dụng web
-Web Applications Development | 3 | 15 | 30 | 0 | MAT3374 |
-| 57 | MAT3563 | Một số vấn đề chọn lọc về thị
-giác máy tính (*)
-Advanced Reading in Computer
-Vision | 3 | 30 | 15 | 0 | MAT3562E |
-| 58 | MAT3566 | Xử lý ảnh 3D (*)
-Computer Vision: From 3D
-Reconstruction to Recognition | 3 | 30 | 15 | 0 | MAT3533
-MAT3562E
-MAT3376 |
-| 59 | MAT3564 | Nhập môn tương tác người máy
-(*)
-Introduction to Human-
-Computer Interaction Design | 3 | 30 | 15 | 0 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 60 | MAT3565 | Nhập môn khai phá các tập dữ
-liệu lớn (*)
-Mining Massive Data Sets | 3 | 30 | 15 | 0 | MAT3551E
-MAT2323
-MAT3507 |
-| 61 | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng
-dụng (**)
-Natural Language Processing
-and applications | 3 | 35 | 10 | 0 | MAT3374
-MAT2323 |
-| 62 | MAT3539 | Mật mã và an toàn dữ liệu
-Cryptography and Data Security | 3 | 30 | 15 | 0 | MAT2316/
-MAT2317/ |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 54 | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319<br>MAT3500 |
+| 55 | MAT3562E | Thị giác máy tính (**)<br>Computer Vision | 3 | 30 | 15 | 0 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| V.2.3 |  | Chọn 3 trong 7 học phần trí tuệ<br>nhân tạo và phát triển phần mềm<br>sau | 9/21 |  |  |  |  |
+| 56 | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | 15 | 30 | 0 | MAT3374 |
+| 57 | MAT3563 | Một số vấn đề chọn lọc về thị<br>giác máy tính (*)<br>Advanced Reading in Computer<br>Vision | 3 | 30 | 15 | 0 | MAT3562E |
+| 58 | MAT3566 | Xử lý ảnh 3D (*)<br>Computer Vision: From 3D<br>Reconstruction to Recognition | 3 | 30 | 15 | 0 | MAT3533<br>MAT3562E<br>MAT3376 |
+| 59 | MAT3564 | Nhập môn tương tác người máy<br>(*)<br>Introduction to Human-<br>Computer Interaction Design | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 60 | MAT3565 | Nhập môn khai phá các tập dữ<br>liệu lớn (*)<br>Mining Massive Data Sets | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323<br>MAT3507 |
+| 61 | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng<br>dụng (**)<br>Natural Language Processing<br>and applications | 3 | 35 | 10 | 0 | MAT3374<br>MAT2323 |
+| 62 | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/ |
 18
 
 <!-- Page 19 -->
-| STT | Mã
-học phần | Học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chỉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-|  |  |  |  |  |  |  | MAT2318/
-MAT2319 |
-| V.3 |  | Khối kiến thức thực tập và tốt
-nghiệp | 9 |  |  |  |  |
-| 63 | MAT4081 | Khóa luận tốt nghiệp
-Undergraduate Thesis | 9 |  |  |  |  |
-|  |  | Các học phần thay thế Khóa
-luận tốt nghiệp | 9 |  |  |  |  |
-| 64 | MAT3567 | Phân tích và thiết kế hệ thống
-thông tin
-Analysis and Design of
-Information Systems | 3 | 10 | 35 | 0 | MAT3374
-MAT3552E |
-| 65 | MAT3535 | Tìm kiếm thông tin
-Information Retrieval | 3 | 30 | 15 | 0 | MAT3551E
-MAT2323 |
-| 66 | MAT3377 | Một số vấn đề chọn lọc về Trí
-tuệ nhận tạo
-Selected topics on Artificial
-Intelligence | 3 | 30 | 15 | 0 | MAT3553E |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  |  |  |  |  |  | MAT2318/<br>MAT2319 |
+| V.3 |  | Khối kiến thức thực tập và tốt<br>nghiệp | 9 |  |  |  |  |
+| 63 | MAT4081 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 9 |  |  |  |  |
+|  |  | Các học phần thay thế Khóa<br>luận tốt nghiệp | 9 |  |  |  |  |
+| 64 | MAT3567 | Phân tích và thiết kế hệ thống<br>thông tin<br>Analysis and Design of<br>Information Systems | 3 | 10 | 35 | 0 | MAT3374<br>MAT3552E |
+| 65 | MAT3535 | Tìm kiếm thông tin<br>Information Retrieval | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323 |
+| 66 | MAT3377 | Một số vấn đề chọn lọc về Trí<br>tuệ nhận tạo<br>Selected topics on Artificial<br>Intelligence | 3 | 30 | 15 | 0 | MAT3553E |
 |  |  | Tổng cộng | 148 |  |  |  |  |
 Ghi chú:
 Học phần Ngoại ngữ thuộc khối kiến thức chung được tính vào tổng số tín chỉ
@@ -904,10 +536,7 @@ các công ty, doanh nghiệp, tổ chức là đối tác của Trường, củ
 <!-- Page 22 -->
 5.2. Kế hoạch giảng dạy (dự kiến)
 Học kì I
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | PHI1006 | Triết học Mác – Lênin | 3 |  |
@@ -919,18 +548,13 @@ quyết |
 | 7. | MAT2506 | Kĩ năng mềm | 2 |  |
 |  |  | Tổng | 23 |  |
 Học kì II
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | PEC1008 | Kinh tế chính trị Mác - Lênin | 2 | PHI1006 |
 | 2. | FLF1108 | Tiếng Anh B2 | 5 | FLF2101 |
-| 3. | MAT2502 | Giải tích 2 | 4 | MAT2501
-MAT2400 |
-| 4. | MAT3500 | Toán rời rạc | 4 | MAT2501
-MAT2400 |
+| 3. | MAT2502 | Giải tích 2 | 4 | MAT2501<br>MAT2400 |
+| 4. | MAT3500 | Toán rời rạc | 4 | MAT2501<br>MAT2400 |
 |  |  | Các học phần tự chọn | 5 |  |
 | 5. | Chọn 2 trong 7 học phần sau |  | 5/18 |  |
 | 6. | MAT1060 | Nhập môn phân tích dữ liệu | 2 |  |
@@ -945,24 +569,15 @@ MAT2400 |
 
 <!-- Page 23 -->
 Học kì III
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | PHI1002 | Chủ nghĩa xã hội khoa học | 2 | PEC1008 |
 | 2. | PHY1100 | Cơ-Nhiệt | 3 | MAT2501 |
 | 3. | MAT2503 | Giải tích 3 | 2 | MAT2502 |
 | 4. | MAT2323 | Xác suất – Thống kê | 4 | MAT2502 |
-| 5. | MAT3372 | Các thành phần phần mềm | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 6. | MAT3507 | Cơ sở dữ liệu | 4 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
+| 5. | MAT3372 | Các thành phần phần mềm | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 6. | MAT3507 | Cơ sở dữ liệu | 4 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Các học phần tự chọn | 3 |  |
 |  | Chọn 1 trong 3 học phần sau |  | 3/9 |  |
 | 7. | HIS1056 | Cơ sở văn hóa Việt Nam | 3 | PHI1006 |
@@ -970,232 +585,101 @@ MAT2319 |
 | 9. | PHY1020 | Nhập môn Robotics | 3 |  |
 |  |  | Tổng | 21 |  |
 Học kì IV
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | PEC1008 | Lịch sử Đảng Cộng sản Việt Nam | 2 |  |
 | 2. | PHY1103 | Điện - Quang | 3 | MAT2501 |
-| 3. | MAT2403 | Phương trình vi phân | 3 | MAT2501
-MAT2400 |
-| 4. | MAT3551E | Cấu trúc dữ liệu và thuật toán (**) | 4 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 5. | MAT3517E | Mạng máy tính (**) | 3 | MAT2316/
-MAT2317/
-MAT2318/ |
+| 3. | MAT2403 | Phương trình vi phân | 3 | MAT2501<br>MAT2400 |
+| 4. | MAT3551E | Cấu trúc dữ liệu và thuật toán (**) | 4 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 5. | MAT3517E | Mạng máy tính (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/ |
 23
 
 <!-- Page 24 -->
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | MAT2319 |
-| 6. | MAT3555 | Tiếng Anh chuyên ngành khoa
-học máy tính (*) | 2 | FlF1107 |
-| 7. | MAT3374 | Thực tập thực tế phát triển phần
-mềm | 3 | INM1000
-MAT3507 |
+| 6. | MAT3555 | Tiếng Anh chuyên ngành khoa<br>học máy tính (*) | 2 | FlF1107 |
+| 7. | MAT3374 | Thực tập thực tế phát triển phần<br>mềm | 3 | INM1000<br>MAT3507 |
 |  |  | Tổng | 20 |  |
 Học kì V
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
-| 1. | MAT2034 | Giải tích số | 3 | MAT2502
-MAT2403
-MAT3372 |
-| 2. | MAT3550E | Nguyên lý hệ điều hành (**) | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 3. | MAT3553E | Nhập môn Trí tuệ nhân tạo (**) | 4 | MAT3507
-MAT3372 |
-| 4. | MAT3543 | Công nghệ phần mềm | 3 | MAT3374
-MAT3504 |
-| 5. | MAT3541E | Nguyên lý của các ngôn ngữ lập
-trình (**) | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
+| 1. | MAT2034 | Giải tích số | 3 | MAT2502<br>MAT2403<br>MAT3372 |
+| 2. | MAT3550E | Nguyên lý hệ điều hành (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 3. | MAT3553E | Nhập môn Trí tuệ nhân tạo (**) | 4 | MAT3507<br>MAT3372 |
+| 4. | MAT3543 | Công nghệ phần mềm | 3 | MAT3374<br>MAT3504 |
+| 5. | MAT3541E | Nguyên lý của các ngôn ngữ lập<br>trình (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Các học phần tự chọn |  |  |
-|  |  | Tự chọn 02 trong 04 học phần về
-kĩ năng phần mềm | 4/8 |  |
-| 6. | MAT3376 | Lập trình nâng cao
-Advanced Programming | 2 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 7. | MAT3558 | Lập trình mobile (*)
-Programming for mobile
-platforms | 2 | MAT3551E
-MAT3507
-MAT3372 |
+|  |  | Tự chọn 02 trong 04 học phần về<br>kĩ năng phần mềm | 4/8 |  |
+| 6. | MAT3376 | Lập trình nâng cao<br>Advanced Programming | 2 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 7. | MAT3558 | Lập trình mobile (*)<br>Programming for mobile<br>platforms | 2 | MAT3551E<br>MAT3507<br>MAT3372 |
 | 8. | MAT3559 | Xây dựng hệ thống nhúng (*) | 2 | MAT3372 |
 24
 
 <!-- Page 25 -->
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Embedded System Workshop |  | MAT3505 |
-| 9. | MAT3560 | Phát triển phần mềm trò chơi (*)
-Introduction to game design and
-development | 2 | MAT3376 |
+| 9. | MAT3560 | Phát triển phần mềm trò chơi (*)<br>Introduction to game design and<br>development | 2 | MAT3376 |
 |  |  | Tổng | 20 |  |
 Học kì VI
-| Số TT | Mã học phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | MAT2411E | Tối ưu hoá (**) | 3 | MAT2502 |
-| 2. | MAT3552E | Thiết kế và đánh giá thuật toán
-(**) | 3 | MAT2502
-MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 3. | MAT3505 | Kiến trúc máy tính | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 4. | MAT3140 | Tính toán song song | 3 | MAT3514
-MAT3557 |
-| 5. | MAT3373E | Nhập môn an toàn máy tính(**) | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 6. | MAT2315E | Phương pháp nghiên cứu khoa
-học (**) | 3 |  |
+| 2. | MAT3552E | Thiết kế và đánh giá thuật toán<br>(**) | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 3. | MAT3505 | Kiến trúc máy tính | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 4. | MAT3140 | Tính toán song song | 3 | MAT3514<br>MAT3557 |
+| 5. | MAT3373E | Nhập môn an toàn máy tính(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 6. | MAT2315E | Phương pháp nghiên cứu khoa<br>học (**) | 3 |  |
 |  |  | Các học phần tự chọn |  |  |
 |  | Tự chọn 01 trong 04 học phần về trí tuệ nhân tạo |  | 3/9 |  |
-| 7. | MAT3533 | Học máy
-Machine Learning | 3 | MAT3551E
-MAT2323
-MAT2404 |
-| 8. | MAT3554E | Ngôn ngữ hình thức và ôtômat
-(**)
-Formal Language and Automata
-(**) | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
+| 7. | MAT3533 | Học máy<br>Machine Learning | 3 | MAT3551E<br>MAT2323<br>MAT2404 |
+| 8. | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata<br>(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 25
 
 <!-- Page 26 -->
-| Số TT | Mã học phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | MAT3500 |
-| 9. | MAT3562E | Thị giác máy tính (**)
-Computer Vision: Foundations
-and Applications | 3 | MAT2502
-MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
+| 9. | MAT3562E | Thị giác máy tính (**)<br>Computer Vision: Foundations<br>and Applications | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Tổng | 21 |  |
 Học kì VII
-| Số TT | Mã học phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
 | 1. | POL1001 | Tư tưởng Hồ Chí Minh | 2 | POL1001 |
 |  |  | Các học phần tự chọn |  |  |
 |  | Tự chọn 02 trong 04 học phần về trí tuệ nhân tạo |  | 3/9 |  |
-| 2. | MAT3533 | Học máy
-Machine Learning | 3 | MAT3551E
-MAT2323
-MAT2404 |
-| 3. | MAT3554E | Ngôn ngữ hình thức và ôtômat
-(**)
-Formal Language and Automata
-(**) | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319
-MAT3500 |
-| 4. | MAT3562E | Thị giác máy tính (**)
-Computer Vision: Foundations
-and Applications | 3 | MAT2502
-MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-|  |  | Tự chọn 3 trong 7 học phần về
-trí tuệ nhân tạo và phát triển
-phần mềm | 9/21 |  |
-| 5. | MAT3542 | Phát triển ứng dụng web
-Web Applications Development | 3 | MAT3374 |
-| 6. | MAT3563 | Một số vấn đề chọn lọc về thị
-giác máy tính (*)
-Advanced Reading in Computer
-Vision | 3 | MAT3562E |
+| 2. | MAT3533 | Học máy<br>Machine Learning | 3 | MAT3551E<br>MAT2323<br>MAT2404 |
+| 3. | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata<br>(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319<br>MAT3500 |
+| 4. | MAT3562E | Thị giác máy tính (**)<br>Computer Vision: Foundations<br>and Applications | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Tự chọn 3 trong 7 học phần về<br>trí tuệ nhân tạo và phát triển<br>phần mềm | 9/21 |  |
+| 5. | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | MAT3374 |
+| 6. | MAT3563 | Một số vấn đề chọn lọc về thị<br>giác máy tính (*)<br>Advanced Reading in Computer<br>Vision | 3 | MAT3562E |
 26
 
 <!-- Page 27 -->
-| Số TT | Mã học phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
-| 7. | MAT3566 | Xử lý ảnh 3D (*)
-Computer Vision: From 3D
-Reconstruction to Recognition | 3 | MAT3533
-MAT3562E
-MAT3376 |
-| 8. | MAT3564 | Nhập môn tương tác người máy
-(*)
-Introduction to Human-
-Computer Interaction Design | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
-| 9. | MAT3565 | Nhập môn khai phá các tập dữ
-liệu lớn (*)
-Mining Massive Data Sets | 3 | MAT3551E
-MAT2323
-MAT3507 |
-| 10. | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng
-dụng (**)
-Natural Language Processing
-and applications | 3 | MAT3374
-MAT2323 |
-| 11. | MAT3539 | Mật mã và an toàn dữ liệu
-Cryptography and Data Security | 3 | MAT2316/
-MAT2317/
-MAT2318/
-MAT2319 |
+| 7. | MAT3566 | Xử lý ảnh 3D (*)<br>Computer Vision: From 3D<br>Reconstruction to Recognition | 3 | MAT3533<br>MAT3562E<br>MAT3376 |
+| 8. | MAT3564 | Nhập môn tương tác người máy<br>(*)<br>Introduction to Human-<br>Computer Interaction Design | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 9. | MAT3565 | Nhập môn khai phá các tập dữ<br>liệu lớn (*)<br>Mining Massive Data Sets | 3 | MAT3551E<br>MAT2323<br>MAT3507 |
+| 10. | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng<br>dụng (**)<br>Natural Language Processing<br>and applications | 3 | MAT3374<br>MAT2323 |
+| 11. | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Tổng | 17 |  |
 Học kì VIII
-| Số TT | Mã học
-phần | Học phần | Số
-TC | Học phần tiên
-quyết |
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
-|  |  | Khóa luận tốt nghiệp hoặc môn
-thay thế | 9 |  |
+|  |  | Khóa luận tốt nghiệp hoặc môn<br>thay thế | 9 |  |
 | 1 | MAT4081 | Khóa luận tốt nghiệp | 9 |  |
 |  |  | Các học phần thay thế tốt nghiệp | 9 |  |
-| 2 | MAT3567 | Phân tích và thiết kế hệ thống
-thông tin | 3 | MAT3374
-MAT3552E |
-| 3 | MAT3535 | Tìm kiếm thông tin | 3 | MAT3551E
-MAT2323 |
-| 4 | MAT3377 | Một số vấn đề chọn lọc về Trí
-tuệ nhân tạo | 3 | MAT3553E |
+| 2 | MAT3567 | Phân tích và thiết kế hệ thống<br>thông tin | 3 | MAT3374<br>MAT3552E |
+| 3 | MAT3535 | Tìm kiếm thông tin | 3 | MAT3551E<br>MAT2323 |
+| 4 | MAT3377 | Một số vấn đề chọn lọc về Trí<br>tuệ nhân tạo | 3 | MAT3553E |
 |  |  | Tổng | 9 |  |
 27
 

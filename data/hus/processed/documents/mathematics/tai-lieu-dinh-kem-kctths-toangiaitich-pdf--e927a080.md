@@ -253,674 +253,178 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 10 -->
 2. Khung chương trình
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và tiếng
-Anh) | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 7 |  |  |  |  |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | 45 |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general purposes | 4 | 60 |  |  |  |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | 45 |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general purposes | 4 | 60 |  |  |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  | 39 |  |  |  |  |
 | II.1. | Các học phần bắt buộc |  | 18 |  |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic
-purposes | 3 | 45 |  |  |  |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced Functional
-Analysis | 3 | 45 |  |  |  |
-| 5. | MAT6007 | Những chương lựa chọn về
-đại số tuyến tính
-Selected Topics in Linear
-Algebra | 3 | 45 |  |  |  |
-| 6. | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |
-| 7. | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 45 |  |  |  |
-| 8. | MAT6100 | Phương trình đạo hàm riêng
-Partial Differential
-Equations | 3 | 45 |  |  |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic<br>purposes | 3 | 45 |  |  |  |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced Functional<br>Analysis | 3 | 45 |  |  |  |
+| 5. | MAT6007 | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected Topics in Linear<br>Algebra | 3 | 45 |  |  |  |
+| 6. | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |
+| 7. | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 |  |  |  |
+| 8. | MAT6100 | Phương trình đạo hàm riêng<br>Partial Differential<br>Equations | 3 | 45 |  |  |  |
 | II.2. | Các học phần tự chọn |  | 21/57 |  |  |  |  |
-| 9. | MAT6017 | Lý thuyết hàm suy rộng và
-không gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 45 |  |  | MAT
-6008 |
-| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Theory of Groups and Group
-Representations | 3 | 45 |  |  |  |
-| 11. | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | 45 |  |  |  |
-| 12. | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | 45 |  |  |  |
+| 9. | MAT6017 | Lý thuyết hàm suy rộng và<br>không gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 45 |  |  | MAT<br>6008 |
+| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Theory of Groups and Group<br>Representations | 3 | 45 |  |  |  |
+| 11. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | 45 |  |  |  |
+| 12. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 |  |  |  |
 8
 
 <!-- Page 11 -->
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và tiếng
-Anh) | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
-| 13. | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |
-| 14. | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 45 |  |  |  |
-| 15. | MAT6019 | Lý thuyết phổ của toán tử
-Spectral theory of linear
-operators | 3 | 45 |  |  |  |
-| 16. | MAT6028 | Giải tích lồi
-Convex analysis | 3 | 35 | 10 | 0 |  |
-| 17. | MAT6122 | Phương trình vi phân trong
-không gian Banach
-Differential Equations in
-Banach spaces | 3 | 45 |  |  |  |
-| 18. | MAT6123 | Giải tích và phương trình
-động lực trên thang thời gian
-Analysis and Dynamic
-Equations on Time Scales | 3 | 45 |  |  |  |
-| 19. | MAT6124 | Hàm nhiều biến phức
-Several complex variables | 3 | 45 |  |  | MAT
-6010 |
-| 20. | MAT6125 | Phương trình tích phân
-Integral Equations | 3 | 45 |  |  |  |
-| 21. | MAT6126 | Bài toán biên của phương
-trình Elliptic
-Elliptic boundary value
-problems | 3 | 45 |  |  | MAT
-6017 |
-| 22. | MAT6127 | Phương pháp biến phân
-Variational Methods | 3 | 45 |  |  |  |
-| 23. | MAT6128 | Phương trình toán tử
-Operator Equations | 3 | 45 |  |  |  |
-| 24. | MAT6129 | Bài toán biên của hàm giải
-tích
-Boundary Value Problems of
-Analytical Functions | 3 | 45 |  |  |  |
-| 25. | MAT6030 | Bài toán đặt không chỉnh
-Ill-Posed Problems | 3 | 35 | 10 | 0 |  |
-| 26. | MAT6021 | Giải tích ngẫu nhiên
-Stochastic analysis | 3 | 30 | 0 | 15 | MAT
-6002,
-MAT
-6008 |
-| 27. | MAT6003 | Tôpô đại số
-Algebraic Topology | 3 | 45 |  |  |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 13. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |
+| 14. | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 45 |  |  |  |
+| 15. | MAT6019 | Lý thuyết phổ của toán tử<br>Spectral theory of linear<br>operators | 3 | 45 |  |  |  |
+| 16. | MAT6028 | Giải tích lồi<br>Convex analysis | 3 | 35 | 10 | 0 |  |
+| 17. | MAT6122 | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in<br>Banach spaces | 3 | 45 |  |  |  |
+| 18. | MAT6123 | Giải tích và phương trình<br>động lực trên thang thời gian<br>Analysis and Dynamic<br>Equations on Time Scales | 3 | 45 |  |  |  |
+| 19. | MAT6124 | Hàm nhiều biến phức<br>Several complex variables | 3 | 45 |  |  | MAT<br>6010 |
+| 20. | MAT6125 | Phương trình tích phân<br>Integral Equations | 3 | 45 |  |  |  |
+| 21. | MAT6126 | Bài toán biên của phương<br>trình Elliptic<br>Elliptic boundary value<br>problems | 3 | 45 |  |  | MAT<br>6017 |
+| 22. | MAT6127 | Phương pháp biến phân<br>Variational Methods | 3 | 45 |  |  |  |
+| 23. | MAT6128 | Phương trình toán tử<br>Operator Equations | 3 | 45 |  |  |  |
+| 24. | MAT6129 | Bài toán biên của hàm giải<br>tích<br>Boundary Value Problems of<br>Analytical Functions | 3 | 45 |  |  |  |
+| 25. | MAT6030 | Bài toán đặt không chỉnh<br>Ill-Posed Problems | 3 | 35 | 10 | 0 |  |
+| 26. | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic analysis | 3 | 30 | 0 | 15 | MAT<br>6002,<br>MAT<br>6008 |
+| 27. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | 45 |  |  |  |
 9
 
 <!-- Page 12 -->
-| STT | Mã
-học phần | Tên học phần
-(ghi bằng tiếng Việt và tiếng
-Anh) | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lý
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | III | Luận văn thạc sĩ |  | 18 |  |  |  |  |
-| 28. | MAT6143 | Luận văn thạc sĩ
-Thesis | 18 |  |  |  |  |
+| 28. | MAT6143 | Luận văn thạc sĩ<br>Thesis | 18 |  |  |  |  |
 | Tổng cộng: |  |  | 64 |  |  |  |  |
 10
 
 <!-- Page 13 -->
 3. Danh mục tài liệu tham khảo (ghi theo số thứ tự trong khung chương trình)
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | Theo chương trình chung |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general purposes | 4 | Theo chương trình chung |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for academic purposes | 3 | Theo chương trình chung |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced functional analysis | 3 | 1. Tài liệu bắt buộc
-1. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Đại học Quốc
-Gia Hà Nội.
-2. Engel K. J. , Nagel R. (2000) , One parameter semigroups for linear
-evolution, Springer Verlag.
-3. Agarval R. P. , Mechan M. , O’Regan D. (2004), Fixed point theory
-and application, Cambridge Univeristy Press.
-2. Tài liệu tham khảo thêm
-1. Đỗ Hồng Tân, Nguyễn Thị Thanh Hà (2006), Các định lý điểm bất
-đông, NXB Đại học Sư phạm.
-2. Rudin W. (1973), Functional Analysis, Mc.Graw Hill Book
-Company.
-3. Kreyszig E. (1989), Introductory Functional Analysis with
-Applications, Wiley.
-4. Pazy A. (1992), Semigroups of linear operators and applications to
-partial differential equations, Springer Verlag.
-5. Jerome A.Goldstein (1985), Semigroups of linear operators and
-applications. Oxford University Press.
-6. Dunford N. , Schwartz J.T (1988), Linear operator Wiley classics
-library |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general purposes | 4 | Theo chương trình chung |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for academic purposes | 3 | Theo chương trình chung |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis | 3 | 1. Tài liệu bắt buộc<br>1. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Đại học Quốc<br>Gia Hà Nội.<br>2. Engel K. J. , Nagel R. (2000) , One parameter semigroups for linear<br>evolution, Springer Verlag.<br>3. Agarval R. P. , Mechan M. , O’Regan D. (2004), Fixed point theory<br>and application, Cambridge Univeristy Press.<br>2. Tài liệu tham khảo thêm<br>1. Đỗ Hồng Tân, Nguyễn Thị Thanh Hà (2006), Các định lý điểm bất<br>đông, NXB Đại học Sư phạm.<br>2. Rudin W. (1973), Functional Analysis, Mc.Graw Hill Book<br>Company.<br>3. Kreyszig E. (1989), Introductory Functional Analysis with<br>Applications, Wiley.<br>4. Pazy A. (1992), Semigroups of linear operators and applications to<br>partial differential equations, Springer Verlag.<br>5. Jerome A.Goldstein (1985), Semigroups of linear operators and<br>applications. Oxford University Press.<br>6. Dunford N. , Schwartz J.T (1988), Linear operator Wiley classics<br>library |
 11
 
 <!-- Page 14 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 5. | MAT6007 | Những chương lựa chọn về đại
-số tuyến tính
-Selected Topics in Linear
-Algebra | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB ĐHQG Hà
-Nội.
-2. Golan J. S. (2007), The linear algebra a beginning graduate student
-ought to know, Springer.
-2. Tài liệu tham khảo thêm
-1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện đại,
-NXB ĐH và THCN, Hà Nội.
-2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka, Moskva
-(Tiếng Nga).
-3. Gourdon X. (1994), Algèbre, Ellipses, Paris.
-4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.
-5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học tuyến
-tính, NXB Đại học Moskva, Moskva (Tiếng Nga).
-6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva (Tiếng
-Nga).
-7. Lang S. (1965), Algebra, Addison-Wesley publishing company,
-Massachusetts.
-8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir
-publishers, Moscow.
-9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
+| 5. | MAT6007 | Những chương lựa chọn về đại<br>số tuyến tính<br>Selected Topics in Linear<br>Algebra | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB ĐHQG Hà<br>Nội.<br>2. Golan J. S. (2007), The linear algebra a beginning graduate student<br>ought to know, Springer.<br>2. Tài liệu tham khảo thêm<br>1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện đại,<br>NXB ĐH và THCN, Hà Nội.<br>2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka, Moskva<br>(Tiếng Nga).<br>3. Gourdon X. (1994), Algèbre, Ellipses, Paris.<br>4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.<br>5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học tuyến<br>tính, NXB Đại học Moskva, Moskva (Tiếng Nga).<br>6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva (Tiếng<br>Nga).<br>7. Lang S. (1965), Algebra, Addison-Wesley publishing company,<br>Massachusetts.<br>8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir<br>publishers, Moscow.<br>9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
 12
 
 <!-- Page 15 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 6. | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Hữu Dư, Giáo trình lý thuyết độ đo, đang in ở NXB ĐHQG
-Hà Nội.
-2. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Bộ giáo dục
-Đào tạo.
-3. Loeve, Lecture on theory of measure and integration, MRI-
-Netherland.
-2. Tài liệu tham khảo thêm
-1. Trần Đức Long, Nguyễn Duy Tiến, Bài giảng giải tích, NXB ĐHQG
-HN.
-2. Nguyễn Viết Phú, Nguyễn Duy Tiến, Cơ sở lý thuyết xác suất. Nhà
-xuất bản ĐHQG HN
-3. Patrick Billingsley, Probability and measure, John Wiley and Sons.
-4. Paul.R.Halmos (1974), Measures theory. Springer – Verlag.
-5. Loeve M. (1963), Probability theory, Van Nostrand, Princeton. |
+| 6. | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Dư, Giáo trình lý thuyết độ đo, đang in ở NXB ĐHQG<br>Hà Nội.<br>2. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Bộ giáo dục<br>Đào tạo.<br>3. Loeve, Lecture on theory of measure and integration, MRI-<br>Netherland.<br>2. Tài liệu tham khảo thêm<br>1. Trần Đức Long, Nguyễn Duy Tiến, Bài giảng giải tích, NXB ĐHQG<br>HN.<br>2. Nguyễn Viết Phú, Nguyễn Duy Tiến, Cơ sở lý thuyết xác suất. Nhà<br>xuất bản ĐHQG HN<br>3. Patrick Billingsley, Probability and measure, John Wiley and Sons.<br>4. Paul.R.Halmos (1974), Measures theory. Springer – Verlag.<br>5. Loeve M. (1963), Probability theory, Van Nostrand, Princeton. |
 13
 
 <!-- Page 16 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 7. | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 1.Tài liệu bắt buộc
-1. Nguyễn Thuỷ Thanh (2006), Cơ sở lý thuyết hàm biến phức, NXB
-ĐHQG Hà Nội.
-2. Narasimhan R. (2001), Complex Analysis in one Variable,
-Birkhauser, Boston.
-2. Tài liệu tham khảo thêm
-1. Sabat, Giải tích phức tập 1, (Bản dịch tiếng Việt), NXB Đại học và
-Trung học chuyên nghiệp.
-2. Stein E. , Shakarchi (2013), Princeton Lectures in Analysis - Complex
-analysis, Princeton University Press.
-3. Rudin W. (1987), Real and complex analysis, McGraw – Hill.
-4. S. G. Krantz (1992), Function Theory of Several Complex Variables,
-AMS, providence, RI. |
-| 8. | MAT6100 | Phương trình đạo hàm riêng
-Partial differential equations | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Thừa Hợp (2006), Giáo trình phương trình đạo hàm riêng,
-Đại học Quốc gia Hà Nội.
-2. Qing Han (2010), A basic course in partial differential equations,
-American Mathematical Society.
-3. Walter A. Strauss (2008), Partial Differential Equations: An
-Introduction, 2nd., John Wiley & Sons, Ltd.
-2. Tài liệu tham khảo thêm
-1. Lawrence Evans C. (2010), Partial differential equations, 2nd,
-American Mathemtical Society.
-2. Gerald Folland B. (1995), An introduction to partial differential
-equations, 2nd, Princeton University Press.
-3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
+| 7. | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 1.Tài liệu bắt buộc<br>1. Nguyễn Thuỷ Thanh (2006), Cơ sở lý thuyết hàm biến phức, NXB<br>ĐHQG Hà Nội.<br>2. Narasimhan R. (2001), Complex Analysis in one Variable,<br>Birkhauser, Boston.<br>2. Tài liệu tham khảo thêm<br>1. Sabat, Giải tích phức tập 1, (Bản dịch tiếng Việt), NXB Đại học và<br>Trung học chuyên nghiệp.<br>2. Stein E. , Shakarchi (2013), Princeton Lectures in Analysis - Complex<br>analysis, Princeton University Press.<br>3. Rudin W. (1987), Real and complex analysis, McGraw – Hill.<br>4. S. G. Krantz (1992), Function Theory of Several Complex Variables,<br>AMS, providence, RI. |
+| 8. | MAT6100 | Phương trình đạo hàm riêng<br>Partial differential equations | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Thừa Hợp (2006), Giáo trình phương trình đạo hàm riêng,<br>Đại học Quốc gia Hà Nội.<br>2. Qing Han (2010), A basic course in partial differential equations,<br>American Mathematical Society.<br>3. Walter A. Strauss (2008), Partial Differential Equations: An<br>Introduction, 2nd., John Wiley & Sons, Ltd.<br>2. Tài liệu tham khảo thêm<br>1. Lawrence Evans C. (2010), Partial differential equations, 2nd,<br>American Mathemtical Society.<br>2. Gerald Folland B. (1995), An introduction to partial differential<br>equations, 2nd, Princeton University Press.<br>3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
 14
 
 <!-- Page 17 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 9. | MAT6017 | Lý thuyết hàm suy rộng và
-không gian Sobolev
-Theory of Distributions and
-Sobolev spaces | 3 | 1. Tài liệu bắt buộc
-1. Vladimirov S.V. (1984), Equations of Mathematical Physics, Mir
-Publishers, Moscow.
-2. Adams R. (1975), Sobolev spaces, Academic Press.
-3. Hormander L. (1983), The analysis of linear partial differential
-equations, Vol 1-2, Springer Verlag, New York.
-2. Tài liệu tham khảo thêm
-1. Schwartz L. (1978), Théoies des Distributions, Hermann, Paris.
-2. Taylor M. E. (1996), Partial Differential Equations, Vol 1, Springer
-Verlag, New York.
-3. Lions J., Magenes E. (1972), Non-homogeneous Boundary value
-problems and Applications, Vol 1, Springer Verlag, New York.
-4. Rudin W. (1991), Functional Analysis, McGraw-Hill, Inc. |
+| 9. | MAT6017 | Lý thuyết hàm suy rộng và<br>không gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | 3 | 1. Tài liệu bắt buộc<br>1. Vladimirov S.V. (1984), Equations of Mathematical Physics, Mir<br>Publishers, Moscow.<br>2. Adams R. (1975), Sobolev spaces, Academic Press.<br>3. Hormander L. (1983), The analysis of linear partial differential<br>equations, Vol 1-2, Springer Verlag, New York.<br>2. Tài liệu tham khảo thêm<br>1. Schwartz L. (1978), Théoies des Distributions, Hermann, Paris.<br>2. Taylor M. E. (1996), Partial Differential Equations, Vol 1, Springer<br>Verlag, New York.<br>3. Lions J., Magenes E. (1972), Non-homogeneous Boundary value<br>problems and Applications, Vol 1, Springer Verlag, New York.<br>4. Rudin W. (1991), Functional Analysis, McGraw-Hill, Inc. |
 15
 
 <!-- Page 18 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Theory of Groups and Group
-Representations | 3 | 1. Tài liệu bắt buộc
-1. James G. and Liebeck M. (1993), Representations and characters of
-groups, Cambridge Univ. Press, Cambridge.
-2. Tài liệu tham khảo thêm
-1. Nguyễn Hữu Việt Hưng (1998), Đại số đại cương, NXB Giáo dục,
-Hà Nội.
-2. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-3. Collins M. J. (1990), Representations and characters of finite groups,
-Cambridge University Press.
-4. Curtis C. W. and Reiner I. (1966), Representation Theory of finite
-groups and associate algebras, Interscience Publishers, New York-
-London-Sedney.
-5. Feit W. (1967), Characters of finite groups, Benjamin.
-6. Serre J. P. (1977), Linear Representations of finite groups, Springer-
-Verlag, New York -Heidelberg- Berlin. |
-| 11. | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | 1. Tài liệu bắt buộc
-1. Kühnel W. (2005), Differential Geometry: Curves - Surfaces -
-Manifolds, AMS.
-2. Tài liệu tham khảo thêm
-1. Đoàn Quỳnh (2003), Hình học vi phân, NXB ĐHSP.
-2. Boothby W.M. (1986), An introduction to differentiable manifolds
-and Riemannian geometry, Academic Press.
-3. Carmo M. P. do (1976), Differential Geometry of Curves and
-Surfaces, Prentice Hall.
-4. Pressley A. (2001), Elementary differential geometry, Springer-
-Verlag. |
+| 10. | MAT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Theory of Groups and Group<br>Representations | 3 | 1. Tài liệu bắt buộc<br>1. James G. and Liebeck M. (1993), Representations and characters of<br>groups, Cambridge Univ. Press, Cambridge.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Hữu Việt Hưng (1998), Đại số đại cương, NXB Giáo dục,<br>Hà Nội.<br>2. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>3. Collins M. J. (1990), Representations and characters of finite groups,<br>Cambridge University Press.<br>4. Curtis C. W. and Reiner I. (1966), Representation Theory of finite<br>groups and associate algebras, Interscience Publishers, New York-<br>London-Sedney.<br>5. Feit W. (1967), Characters of finite groups, Benjamin.<br>6. Serre J. P. (1977), Linear Representations of finite groups, Springer-<br>Verlag, New York -Heidelberg- Berlin. |
+| 11. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | 1. Tài liệu bắt buộc<br>1. Kühnel W. (2005), Differential Geometry: Curves - Surfaces -<br>Manifolds, AMS.<br>2. Tài liệu tham khảo thêm<br>1. Đoàn Quỳnh (2003), Hình học vi phân, NXB ĐHSP.<br>2. Boothby W.M. (1986), An introduction to differentiable manifolds<br>and Riemannian geometry, Academic Press.<br>3. Carmo M. P. do (1976), Differential Geometry of Curves and<br>Surfaces, Prentice Hall.<br>4. Pressley A. (2001), Elementary differential geometry, Springer-<br>Verlag. |
 16
 
 <!-- Page 19 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 12. | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | 1. Tài liệu bắt buộc
-1. Mumford D. (1976), Algebraic Geometry I - Complex Projective
-Varieties, Springer-Verlag.
-2. Tài liệu tham khảo thêm
-1. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-
-Verlag, 2nd ed.
-2. Hartshorne R. (1977), Algebraic Geometry, Springer-Verlag.
-3. Shafarevich I.R. (1997), Basic Algebraic Geometry I&II, Springer-
-Verlag, 2nd ed.
-4. Smith. K.E. (2000), An invitation to Algebraic Geometry, Springer-
-Verlag. |
-| 13. | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc
-1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt, NXB
-ĐHTHCN.
-2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –
-Verlag.
-3. Lee J. M. (2009), Manifolds and Differential Geometry, American
-Mathematical Society.
-2. Tài liệu tham khảo thêm
-1. Carmo M. P. do (1994), Differential forms and Applications,
-Springer-Verlag.
-2. Guillemin V. , Pollack A. (1974), Differential Topology, Prentice-
-Hall.
-3. Boothby W. M. (1986), An introduction to differentiable manifolds
-and Riemannian geometry, Academic Press. |
+| 12. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 1. Tài liệu bắt buộc<br>1. Mumford D. (1976), Algebraic Geometry I - Complex Projective<br>Varieties, Springer-Verlag.<br>2. Tài liệu tham khảo thêm<br>1. Cox D. et al (1996), Ideals, Varieties, and Algorithms, Springer-<br>Verlag, 2nd ed.<br>2. Hartshorne R. (1977), Algebraic Geometry, Springer-Verlag.<br>3. Shafarevich I.R. (1997), Basic Algebraic Geometry I&II, Springer-<br>Verlag, 2nd ed.<br>4. Smith. K.E. (2000), An invitation to Algebraic Geometry, Springer-<br>Verlag. |
+| 13. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc<br>1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt, NXB<br>ĐHTHCN.<br>2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –<br>Verlag.<br>3. Lee J. M. (2009), Manifolds and Differential Geometry, American<br>Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Carmo M. P. do (1994), Differential forms and Applications,<br>Springer-Verlag.<br>2. Guillemin V. , Pollack A. (1974), Differential Topology, Prentice-<br>Hall.<br>3. Boothby W. M. (1986), An introduction to differentiable manifolds<br>and Riemannian geometry, Academic Press. |
 17
 
 <!-- Page 20 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 14. | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 1. Tài liệu bắt buộc
-1. Barreira L., Valls C. (2012), Ordinary Differential Equations:
-qualitative theory, Graduate Study in Mathematics vol.137, American
-Mathematical Society.
-2. Tài liệu tham khảo thêm
-1. Nguyễn Thế Hoàn, Phạm Phu (2000), Cơ sở phương trình vi phân và
-lý thuyết ổn định, NXB Giáo Dục.
-2. Ya L., Adrianova (1995), Introduction to Linear Systems of
-Differential Equations, Translations of Mathematical Monographs,
-American Mathematical Society.
-3. Bareira L., Pesin Y. (2013), Introduction to Smooth Ergodic Theory,
-Graduate Studies in Mathematics, Vol. 148, American Mathematical
-Society.
-4. Farkas M. (1994), Periodic Motions, Springer-Verlag, New York.
-5. Meiss J. D. (2007), Differential Dynamical Systems, SIAM.
-6. Perko L. (1996), Differential Equations and Dynamical Systems,
-Springer-Verlag.
-7. Sideris T. C. (2013), Ordinary Differential Equations and Dynamical
-Systems, Atlantis Press. |
+| 14. | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 1. Tài liệu bắt buộc<br>1. Barreira L., Valls C. (2012), Ordinary Differential Equations:<br>qualitative theory, Graduate Study in Mathematics vol.137, American<br>Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Thế Hoàn, Phạm Phu (2000), Cơ sở phương trình vi phân và<br>lý thuyết ổn định, NXB Giáo Dục.<br>2. Ya L., Adrianova (1995), Introduction to Linear Systems of<br>Differential Equations, Translations of Mathematical Monographs,<br>American Mathematical Society.<br>3. Bareira L., Pesin Y. (2013), Introduction to Smooth Ergodic Theory,<br>Graduate Studies in Mathematics, Vol. 148, American Mathematical<br>Society.<br>4. Farkas M. (1994), Periodic Motions, Springer-Verlag, New York.<br>5. Meiss J. D. (2007), Differential Dynamical Systems, SIAM.<br>6. Perko L. (1996), Differential Equations and Dynamical Systems,<br>Springer-Verlag.<br>7. Sideris T. C. (2013), Ordinary Differential Equations and Dynamical<br>Systems, Atlantis Press. |
 18
 
 <!-- Page 21 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 15. | MAT6019 | Lý thuyết phổ của toán tử
-Spectral theory of linear
-operators | 3 | 1. Tài liệu bắt buộc
-1. EidelmanY., Milman V., Tsolomitis A. (2004), Functional analysis,
-American Mathematical Society.
-2. Tài liệu tham khảo thêm
-1. Birman M. S., Solomjak M. Z. (1987), Spectral theory of self –
-adjoint opeators in Hilbert space, D. Reidel Publishing Company.
-2. Rudin W. (1991), Functional Analysis, Mc. Graw Hill.
-3. Kreyszig E. (1989), Introductory Functional Analysis with
-Applications, Wiley.
-4. Akhiezer N. I., Glazman I. M.(1993), Theory of linear operators in
-Hilbert space, Translation, Merlynd Nestell, Dover.
-5. Dunford M., Schwartz J.T. (1988), Linear operators, Wiley classic
-library ed. |
-| 16. | MAT6028 | Giải tích lồi
-Convex analysis | 3 | 1. Tài liệu bắt buộc
-1. Lê Dũng Mưu, Nguyễn Văn Hiền và Nguyễn Hữu Điển (2015), Giáo
-trình Giải tích lồi ứng dụng, Nhà xuất bản ĐHQGHN.
-2. Tài liệu tham khảo thêm
-1. Đỗ Văn Lưu và Phan Huy Khải (2000), Giải tích lồi, Nhà xuât bản
-KHKT.
-2. Tuy H. (2003), Convex Analysis and Global Optimization, Kluwer
-Academic Publishers.
-3. Rochafellar R. (1970), Convex analysis, Princeton Univ- Press.
-1. Bertsekas D.P. (2003) et al., Convex Analysis and Optimization,
-Athena Scientific. |
+| 15. | MAT6019 | Lý thuyết phổ của toán tử<br>Spectral theory of linear<br>operators | 3 | 1. Tài liệu bắt buộc<br>1. EidelmanY., Milman V., Tsolomitis A. (2004), Functional analysis,<br>American Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Birman M. S., Solomjak M. Z. (1987), Spectral theory of self –<br>adjoint opeators in Hilbert space, D. Reidel Publishing Company.<br>2. Rudin W. (1991), Functional Analysis, Mc. Graw Hill.<br>3. Kreyszig E. (1989), Introductory Functional Analysis with<br>Applications, Wiley.<br>4. Akhiezer N. I., Glazman I. M.(1993), Theory of linear operators in<br>Hilbert space, Translation, Merlynd Nestell, Dover.<br>5. Dunford M., Schwartz J.T. (1988), Linear operators, Wiley classic<br>library ed. |
+| 16. | MAT6028 | Giải tích lồi<br>Convex analysis | 3 | 1. Tài liệu bắt buộc<br>1. Lê Dũng Mưu, Nguyễn Văn Hiền và Nguyễn Hữu Điển (2015), Giáo<br>trình Giải tích lồi ứng dụng, Nhà xuất bản ĐHQGHN.<br>2. Tài liệu tham khảo thêm<br>1. Đỗ Văn Lưu và Phan Huy Khải (2000), Giải tích lồi, Nhà xuât bản<br>KHKT.<br>2. Tuy H. (2003), Convex Analysis and Global Optimization, Kluwer<br>Academic Publishers.<br>3. Rochafellar R. (1970), Convex analysis, Princeton Univ- Press.<br>1. Bertsekas D.P. (2003) et al., Convex Analysis and Optimization,<br>Athena Scientific. |
 19
 
 <!-- Page 22 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 17. | MAT6122 | Phương trình vi phân trong
-không gian Banach
-Differential Equations in
-Banach spaces | 3 | 1. Tài liệu bắt buộc
-1. Daleckii Ju. L., Krein M. G. (1974), Stability of solutions of
-differential equations in Banach space, Translations of Mathematical
-Monographs Vol. 43, American Mathematical Society.
-2. Tài liệu tham khảo thêm
-1. Barbashin E. A. (1985), Mở đầu về lý thuyết ổn định các phương
-trình vi phân, Nxb Giáo dục(bản dịch tiếng Việt).
-2. Demidovich B. P. (1965), Bài giảng về lý thuyết ổn định, Mosscow
-(bản dịch tiếng Việt của khoa Toán, ĐHSPHN).
-3. Krein S. G. (1971), Linear Differential Equations in Banach Space,
-Translations of Mathematical Monographs Vol. 29, American
-Mathematical Society.
-4. Martin R. H. (1976), Nonlinear Operators and Differential Equations
-in Banach Spaces, Pure & Applied Mathematics Monograph, Spaces-
-John Wiley & Sons Inc. |
-| 18. | MAT6123 | Giải tích và phương trình động
-lực trên thang thời gian
-Analysis and Dynamic
-Equations on Time Scales | 3 | 1. Tài liệu bắt buộc
-1. Bohner M., Peterson A. (2001), Dynamic Equations on Time Scales:
-An Introduction with Applications, Birkhäuser, Boston.
-2. Bohner M., Peterson A. (2003), Advances in Dynamic Equations on
-Time Scales, Birkhäuser, Boston.
-2. Tài liệu tham khảo thêm
-1. Agarwal R., O'Regan D, Saker S. (2014), Dynamic Inequalities On
-Time Scales, Springer International Publishing.
-2. Hilger S. (1990), Analysis on measure chains—a unified approach to
-continuous and discrete calculus, Results Math. 18–56.
-3. Lakshmikantham V., Sivasundaram S., B. Kaymakcalan (1996),
-Dynamic systems on measure chains, Kluwer. |
+| 17. | MAT6122 | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in<br>Banach spaces | 3 | 1. Tài liệu bắt buộc<br>1. Daleckii Ju. L., Krein M. G. (1974), Stability of solutions of<br>differential equations in Banach space, Translations of Mathematical<br>Monographs Vol. 43, American Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Barbashin E. A. (1985), Mở đầu về lý thuyết ổn định các phương<br>trình vi phân, Nxb Giáo dục(bản dịch tiếng Việt).<br>2. Demidovich B. P. (1965), Bài giảng về lý thuyết ổn định, Mosscow<br>(bản dịch tiếng Việt của khoa Toán, ĐHSPHN).<br>3. Krein S. G. (1971), Linear Differential Equations in Banach Space,<br>Translations of Mathematical Monographs Vol. 29, American<br>Mathematical Society.<br>4. Martin R. H. (1976), Nonlinear Operators and Differential Equations<br>in Banach Spaces, Pure & Applied Mathematics Monograph, Spaces-<br>John Wiley & Sons Inc. |
+| 18. | MAT6123 | Giải tích và phương trình động<br>lực trên thang thời gian<br>Analysis and Dynamic<br>Equations on Time Scales | 3 | 1. Tài liệu bắt buộc<br>1. Bohner M., Peterson A. (2001), Dynamic Equations on Time Scales:<br>An Introduction with Applications, Birkhäuser, Boston.<br>2. Bohner M., Peterson A. (2003), Advances in Dynamic Equations on<br>Time Scales, Birkhäuser, Boston.<br>2. Tài liệu tham khảo thêm<br>1. Agarwal R., O'Regan D, Saker S. (2014), Dynamic Inequalities On<br>Time Scales, Springer International Publishing.<br>2. Hilger S. (1990), Analysis on measure chains—a unified approach to<br>continuous and discrete calculus, Results Math. 18–56.<br>3. Lakshmikantham V., Sivasundaram S., B. Kaymakcalan (1996),<br>Dynamic systems on measure chains, Kluwer. |
 20
 
 <!-- Page 23 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 19. | MAT6124 | Hàm nhiều biến phức
-Several complex variables | 3 | 1. Tài liệu bắt buộc
-1. Adachi K. (2007), Several Complex Variables and integral Formulas,
-World Scientific.
-2. Hormander L. (1990), An introduction to complex analysis in several
-variables, Third edition, North Holland.
-2. Tài liệu tham khảo thêm
-1. Sabat, Giải tích phức tập 2, Hàm nhiều biến phức (Bản dịch tiếng
-Việt), NXB Đại học và Trung học chuyên nghiệp.
-2. Krantz S. G. (1982), Function Theory of Several Complex Variables,
-John Wiley & Sons, New York.
-3. Klimek M. (1991), Pluripotential theory, Clarendon Press.
-4. Range R. M. (1986), Holomorphic functions and integral
-representations in several complex variables, Springer.
-5. Blocki Z. , The complex Monge-Ampere operator in pluripotential
-theory, Unfinished lecture notes, Online:
-http://gamma.im.uj.edu.pl/~blocki/publ/ln/index.html |
-| 20. | MAT6125 | Phương trình tích phân
-Integral Equations | 3 | 1. Tài liệu bắt buộc
-1. Petrovskii I. G. (1996), Lectures on the Theory of Integral Equations,
-Dover Publications.
-2. Tài liệu tham khảo thêm
-1. Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.
-2. Kolmogorov A. N., Fomin S. V. (1999), Elements of the Theory of
-Functions and Functional Analysis, Dover Publications. |
+| 19. | MAT6124 | Hàm nhiều biến phức<br>Several complex variables | 3 | 1. Tài liệu bắt buộc<br>1. Adachi K. (2007), Several Complex Variables and integral Formulas,<br>World Scientific.<br>2. Hormander L. (1990), An introduction to complex analysis in several<br>variables, Third edition, North Holland.<br>2. Tài liệu tham khảo thêm<br>1. Sabat, Giải tích phức tập 2, Hàm nhiều biến phức (Bản dịch tiếng<br>Việt), NXB Đại học và Trung học chuyên nghiệp.<br>2. Krantz S. G. (1982), Function Theory of Several Complex Variables,<br>John Wiley & Sons, New York.<br>3. Klimek M. (1991), Pluripotential theory, Clarendon Press.<br>4. Range R. M. (1986), Holomorphic functions and integral<br>representations in several complex variables, Springer.<br>5. Blocki Z. , The complex Monge-Ampere operator in pluripotential<br>theory, Unfinished lecture notes, Online:<br>http://gamma.im.uj.edu.pl/~blocki/publ/ln/index.html |
+| 20. | MAT6125 | Phương trình tích phân<br>Integral Equations | 3 | 1. Tài liệu bắt buộc<br>1. Petrovskii I. G. (1996), Lectures on the Theory of Integral Equations,<br>Dover Publications.<br>2. Tài liệu tham khảo thêm<br>1. Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.<br>2. Kolmogorov A. N., Fomin S. V. (1999), Elements of the Theory of<br>Functions and Functional Analysis, Dover Publications. |
 21
 
 <!-- Page 24 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 21. | MAT6126 | Bài toán biên của phương trình
-Elliptic
-Elliptic boundary value
-problems | 3 | 1. Tài liệu bắt buộc
-1. Trần Đức Vân (2005), Giáo trình Phương trình vi phân đạo hàm
-riêng, (in lần thứ II), NXB ĐHQG HN.
-2. Lions J. L. and Maganes E. (1972), Nonhomogenous boundary value
-problems and applications, Springer.
-2. Tài liệu tham khảo thêm
-1. Taylor M. (1996), Partial Differential Equations, Tập I, Springer -
-Verlag.
-2. Hormander L. (1983), The analysis of linear partial differential
-equations 1 & 2, Springer.
-3. Qing Han, Fanghua Lin (2011), Elliptic Partial Equations, Courant
-Institute. |
-| 22. | MAT6127 | Phương pháp biến phân
-Variational Methods | 3 | 1. Tài liệu bắt buộc
-1. Struwe M. (2000), Variational methods, Springer.
-2. Dacorogna B. (2008), Introduction to the Calculus of Variations,
-World Scientific.
-3. Drabek P., Milota J. (2007), Methods of nonlinear analysis,
-Birkhauser.
-2. Tài liệu tham khảo thêm
-1. Trần Đức Vân (2005), Lý thuyết phương trình đạo hàm riêng, NXB
-ĐHQGHN.
-2. Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQGHN. |
+| 21. | MAT6126 | Bài toán biên của phương trình<br>Elliptic<br>Elliptic boundary value<br>problems | 3 | 1. Tài liệu bắt buộc<br>1. Trần Đức Vân (2005), Giáo trình Phương trình vi phân đạo hàm<br>riêng, (in lần thứ II), NXB ĐHQG HN.<br>2. Lions J. L. and Maganes E. (1972), Nonhomogenous boundary value<br>problems and applications, Springer.<br>2. Tài liệu tham khảo thêm<br>1. Taylor M. (1996), Partial Differential Equations, Tập I, Springer -<br>Verlag.<br>2. Hormander L. (1983), The analysis of linear partial differential<br>equations 1 & 2, Springer.<br>3. Qing Han, Fanghua Lin (2011), Elliptic Partial Equations, Courant<br>Institute. |
+| 22. | MAT6127 | Phương pháp biến phân<br>Variational Methods | 3 | 1. Tài liệu bắt buộc<br>1. Struwe M. (2000), Variational methods, Springer.<br>2. Dacorogna B. (2008), Introduction to the Calculus of Variations,<br>World Scientific.<br>3. Drabek P., Milota J. (2007), Methods of nonlinear analysis,<br>Birkhauser.<br>2. Tài liệu tham khảo thêm<br>1. Trần Đức Vân (2005), Lý thuyết phương trình đạo hàm riêng, NXB<br>ĐHQGHN.<br>2. Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQGHN. |
 22
 
 <!-- Page 25 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 23. | MAT6128 | Phương trình toán tử
-Operator Equations | 3 | 1. Tài liệu bắt buộc
-1. Rolewicz S. (1987), Functional Analysis and control theory, PWN-
-Warsawa, D.Reidel-Dordrech/Boston/Landcaster/Tokyo.
-2. Przeworska-Rolewicz, Rolewicz S. (1968), Equations in Linear
-Spaces, PWN-Warsawa.
-2. Tài liệu tham khảo thêm
-1. Krein S. G. (1972), Linear Differential Equations in Banach Spaces,
-American Mathematical Society (Translations of Mathematical
-Monographs Reprint).
-2. Dunford N., Schwartz J. (1988), Linear Operators I-II, Wiley-
-Interscience. |
-| 24. | MAT6129 | Bài toán biên của hàm giải tích
-Boundary Value Problems of
-Analytical Functions | 3 | 1. Tài liệu bắt buộc
-1. Nguyễn Văn Mậu (2006), Lý thuyết toán tử và phương trình tích
-phân kỳ dị, NXB DHQGHN.
-2. Gakhov F. D. (1990), Boundary value problems, Dover Publications.
-2. Tài liệu tham khảo thêm
-1. Przeworska-Rolewicz D., Rolewicz S. (1968), Equations in Linear
-Spaces, PWN-Warsawa.
-2. Mutskhelistvili N. I. (2011), Singular Integral Equations: Boundary
-problems of functions theory and their applications to mathematical
-physics, Springer. |
+| 23. | MAT6128 | Phương trình toán tử<br>Operator Equations | 3 | 1. Tài liệu bắt buộc<br>1. Rolewicz S. (1987), Functional Analysis and control theory, PWN-<br>Warsawa, D.Reidel-Dordrech/Boston/Landcaster/Tokyo.<br>2. Przeworska-Rolewicz, Rolewicz S. (1968), Equations in Linear<br>Spaces, PWN-Warsawa.<br>2. Tài liệu tham khảo thêm<br>1. Krein S. G. (1972), Linear Differential Equations in Banach Spaces,<br>American Mathematical Society (Translations of Mathematical<br>Monographs Reprint).<br>2. Dunford N., Schwartz J. (1988), Linear Operators I-II, Wiley-<br>Interscience. |
+| 24. | MAT6129 | Bài toán biên của hàm giải tích<br>Boundary Value Problems of<br>Analytical Functions | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Văn Mậu (2006), Lý thuyết toán tử và phương trình tích<br>phân kỳ dị, NXB DHQGHN.<br>2. Gakhov F. D. (1990), Boundary value problems, Dover Publications.<br>2. Tài liệu tham khảo thêm<br>1. Przeworska-Rolewicz D., Rolewicz S. (1968), Equations in Linear<br>Spaces, PWN-Warsawa.<br>2. Mutskhelistvili N. I. (2011), Singular Integral Equations: Boundary<br>problems of functions theory and their applications to mathematical<br>physics, Springer. |
 23
 
 <!-- Page 26 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 25. | MAT6030 | Bài toán đặt không chỉnh
-Ill-posed problems | 3 | 1. Tài liệu bắt buộc
-1. Phạm Kỳ Anh, Nguyễn Bường (2005), Bài toán đặt không chỉnh,
-NXB ĐHQG Hà Nội.
-2. Baumeister J. (1987), Stable solutions of inverse problems, Vieweg-
-Verlag, Braunschweig.
-3. Nair M. T. (2009), Linear operator equations: Approximation and
-regularization, World Sci., Singapore.
-2. Tài liệu tham khảo thêm
-1. Bakushinsky A. B., Goncharsky A. V. (1994), Ill-posed problems:
-Theory and Applications, Kluwer Academic Publishers.
-2. Kirsch A. (1999), An introduction to the mathematical theory of
-inverse problems, Beijing World Publ. Corp.
-3. Bakushinsky A. B., Goncharsky A. V. (1989), Ill-posed problems:
-Numerical methods and applications, Moscow State Univ. Press.
-4. Ramm A. G. (2000), Inverse problems: Mathematical and analytical
-techniques with applications to engineering, Springer. |
-| 26. | MAT6021 | Giải tích ngẫu nhiên
-Stochastic Analysis | 3 | 1. Tài liệu bắt buộc
-1. Đặng Hùng Thắng (2001), Các mô hình xác suất và ứng dụng, Phần
-II, NXB ĐHQG.
-2. Đặng Hùng Thắng (2013), Xác suất nâng cao, NXB ĐHQG.
-2. Tài liệu tham khảo thêm
-1. Nguyễn Duy Tiến (2001), Các mô hình xác suất và ứng dụng. Phần
-III: Giải tích ngẫu nhiên, NXB ĐHQG.
-2. Bernt Oksendal (1992), Stochastic Differential Equation:, An
-introduction with applications, Springer-Verlarg, Berlin.
-3. K.L. Chung (1986), A course in probability theory, INC. |
+| 25. | MAT6030 | Bài toán đặt không chỉnh<br>Ill-posed problems | 3 | 1. Tài liệu bắt buộc<br>1. Phạm Kỳ Anh, Nguyễn Bường (2005), Bài toán đặt không chỉnh,<br>NXB ĐHQG Hà Nội.<br>2. Baumeister J. (1987), Stable solutions of inverse problems, Vieweg-<br>Verlag, Braunschweig.<br>3. Nair M. T. (2009), Linear operator equations: Approximation and<br>regularization, World Sci., Singapore.<br>2. Tài liệu tham khảo thêm<br>1. Bakushinsky A. B., Goncharsky A. V. (1994), Ill-posed problems:<br>Theory and Applications, Kluwer Academic Publishers.<br>2. Kirsch A. (1999), An introduction to the mathematical theory of<br>inverse problems, Beijing World Publ. Corp.<br>3. Bakushinsky A. B., Goncharsky A. V. (1989), Ill-posed problems:<br>Numerical methods and applications, Moscow State Univ. Press.<br>4. Ramm A. G. (2000), Inverse problems: Mathematical and analytical<br>techniques with applications to engineering, Springer. |
+| 26. | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic Analysis | 3 | 1. Tài liệu bắt buộc<br>1. Đặng Hùng Thắng (2001), Các mô hình xác suất và ứng dụng, Phần<br>II, NXB ĐHQG.<br>2. Đặng Hùng Thắng (2013), Xác suất nâng cao, NXB ĐHQG.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Duy Tiến (2001), Các mô hình xác suất và ứng dụng. Phần<br>III: Giải tích ngẫu nhiên, NXB ĐHQG.<br>2. Bernt Oksendal (1992), Stochastic Differential Equation:, An<br>introduction with applications, Springer-Verlarg, Berlin.<br>3. K.L. Chung (1986), A course in probability theory, INC. |
 24
 
 <!-- Page 27 -->
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Danh mục tài liệu tham khảo
-(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
-| 27. | MAT6003 | Tôpô đại số
-Algebraic Topology | 3 | 1. Tài liệu bắt buộc:
-1. Dold A. (1972), Lectures on algebraic topology, Springer-Verlag,
-Berlin-Heidelberg-New York.
-2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New York.
-2. Tài liệu tham khảo thêm:
-1. Benson D. J. (1991), Representations and Cohomology (I)-(II),
-Cambridge University Press.
-2. Cartan H. and Eilenberg S. (1956), Homological Algebra, Princeton
-Univ. Press, Princeton.
-3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-Heidelberg-
-New York.
-4. Switzer R. W. (1975), Algebraic Topology- Homotopy and
-Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
+| 27. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | 1. Tài liệu bắt buộc:<br>1. Dold A. (1972), Lectures on algebraic topology, Springer-Verlag,<br>Berlin-Heidelberg-New York.<br>2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New York.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Cartan H. and Eilenberg S. (1956), Homological Algebra, Princeton<br>Univ. Press, Princeton.<br>3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-Heidelberg-<br>New York.<br>4. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
 25
 
 <!-- Page 28 -->
 4. Đội ngũ cán bộ giảng dạy:
-| TT | Mã
-học phần | Tên học phần | Số tín
-chỉ | Cán bộ giảng dạy |  |  |  |
+| TT | Mã<br>học phần | Tên học phần | Số tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Họ và tên | Chức danh
-khoa học, học vị | Chuyên ngành
-đào tạo | Đơn vị công tác |
-| 1. | PHI5001 | Triết học
-Philosophy | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 2. | ENG5001 | Tiếng Anh cơ bản
-English for general
-purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 3. | ENG6001 | Tiếng Anh học thuật
-English for Academic
-Purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
-| 4. | MAT6002 | Giải tích hàm nâng cao
-Advanced functional
-analysis | 3 | Trần Đức Long | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên ngành<br>đào tạo | Đơn vị công tác |
+| 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 2. | ENG5001 | Tiếng Anh cơ bản<br>English for general<br>purposes | 4 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 3. | ENG6001 | Tiếng Anh học thuật<br>English for Academic<br>Purposes | 3 | Theo sự phân công của trường ĐHKHTN |  |  |  |
+| 4. | MAT6002 | Giải tích hàm nâng cao<br>Advanced functional<br>analysis | 3 | Trần Đức Long | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Vũ Nhật Huy | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Phạm Trọng
-Tiến | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Phạm Trọng<br>Tiến | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐH KHTN |
-| 5. | MAT6007 | Những chương lựa
-chọn về đại số tuyến
-tính
-Selected Topics in
-Linear Algebra | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 5. | MAT6007 | Những chương lựa<br>chọn về đại số tuyến<br>tính<br>Selected Topics in<br>Linear Algebra | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-| 6. | MAT6008 | Độ đo và tích phân
-Measure and
-Integration | 3 | Nguyễn Hữu
-Dư | GS.TS | Toán học | ĐH KHTN |
-|  |  |  |  | Đặng Hùng
-Thắng | GS. TSKH | Toán học | ĐH KHTN |
+| 6. | MAT6008 | Độ đo và tích phân<br>Measure and<br>Integration | 3 | Nguyễn Hữu<br>Dư | GS.TS | Toán học | ĐH KHTN |
+|  |  |  |  | Đặng Hùng<br>Thắng | GS. TSKH | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
 | Selected Topics in |
 | --- |
@@ -930,177 +434,97 @@ Thắng | GS. TSKH | Toán học | ĐH KHTN |
 <!-- Page 29 -->
 |  |  |  |  | Vũ Nhật Huy | TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Phạm Trọng
-Tiến | TS | Toán học | ĐH KHTN |
-| 7. | MAT6010 | Giải tích phức
-Complex Analysis | 3 | Nguyễn Văn
-Mậu | GS.TSKH | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Thủy
-Thanh | PGS.TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Thạc
-Dũng | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Phạm Trọng<br>Tiến | TS | Toán học | ĐH KHTN |
+| 7. | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | Nguyễn Văn<br>Mậu | GS.TSKH | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Thủy<br>Thanh | PGS.TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Thạc<br>Dũng | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Ninh Văn Thu | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
-| 8. | MAT6100 | Phương trình đạo hàm
-riêng
-Partial differential
-equations | 3 | Hoàng Quốc
-Toàn | PGS.TS | Toán học | ĐH KHTN |
+| 8. | MAT6100 | Phương trình đạo hàm<br>riêng<br>Partial differential<br>equations | 3 | Hoàng Quốc<br>Toàn | PGS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Đặng Anh Tuấn | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Dư Đức Thắng | TS | Toán học | Khoa Sau đại học,
-ĐHQG HN |
+|  |  |  |  | Dư Đức Thắng | TS | Toán học | Khoa Sau đại học,<br>ĐHQG HN |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | ĐH KHTN |
-| 9. | MAT6017 | Lý thuyết hàm suy
-rộng và không gian
-Sobolev
-Theory of Distributions
-and Sobolev spaces | 3 | Hoàng Quốc
-Toàn | PGS.TS | Toán học | ĐH KHTN |
+| 9. | MAT6017 | Lý thuyết hàm suy<br>rộng và không gian<br>Sobolev<br>Theory of Distributions<br>and Sobolev spaces | 3 | Hoàng Quốc<br>Toàn | PGS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Đặng Anh Tuấn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Dư Đức Thắng | TS | Toán học | ĐH KHTN |
-| 10. | MAT6001 | Lý thuyết nhóm và biểu
-diễn nhóm
-Group theory and
-group representations | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 10. | MAT6001 | Lý thuyết nhóm và biểu<br>diễn nhóm<br>Group theory and<br>group representations | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
 27
 
 <!-- Page 30 -->
-|  |  |  |  | Đào Phương
-Bắc | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 11. | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Thị
-Hồng Vân | TS | Toán học | ĐH KHTN |
+| 11. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Thị<br>Hồng Vân | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Vũ Thế Khôi | PGS.TS | Toán học | Viện Toán hoc |
 |  |  |  |  | Hà Huy Vui | PGS. TSKH | Toán học | Viện Toán học |
-| 12. | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Phụ
-Hoàng Lân | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Lê Quý
-Thường | TS | Toán học | ĐH KHTN |
+| 12. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Phụ<br>Hoàng Lân | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Lê Quý<br>Thường | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Phùng Hồ Hải | GS.TSKH | Toán học | Viện Toán học |
-|  |  |  |  | Ngô Việt
-Trung | GS. TSKH | Toán học | Viện Toán học |
-| 13. | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | Nguyễn Thạc
-Dũng | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Ngô Việt<br>Trung | GS. TSKH | Toán học | Viện Toán học |
+| 13. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | Nguyễn Thạc<br>Dũng | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Hữu
-Việt Hưng | GS. TSKH | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Hữu<br>Việt Hưng | GS. TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
-| 14. | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | Lê Huy Tiễn | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Đặng Đình
-Châu | PGS. TS | Toán học | ĐH KHTN |
-|  |  |  |  | Trịnh Viết
-Dược | TS | Toán học | ĐH KHTN |
+| 14. | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | Lê Huy Tiễn | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Đặng Đình<br>Châu | PGS. TS | Toán học | ĐH KHTN |
+|  |  |  |  | Trịnh Viết<br>Dược | TS | Toán học | ĐH KHTN |
 28
 
 <!-- Page 31 -->
-|  |  |  |  | Nguyễn Hữu
-Dư | GS. TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Hữu<br>Dư | GS. TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Vũ Hoàng
-Linh | PGS. TSKH | Toán học | ĐH KHTN |
-| 15. | MAT6019 | Lý thuyết phổ của toán
-tử
-Spectral theory of
-linear operators | 3 | Trần Đức Long | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Vũ Hoàng<br>Linh | PGS. TSKH | Toán học | ĐH KHTN |
+| 15. | MAT6019 | Lý thuyết phổ của toán<br>tử<br>Spectral theory of<br>linear operators | 3 | Trần Đức Long | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Vũ Nhật Huy | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Phạm Trọng
-Tiến | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Phạm Trọng<br>Tiến | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐH KHTN |
-| 16. | MAT6028 | Giải tích lồi
-Convex analysis | 3 | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐHKHTN |
+| 16. | MAT6028 | Giải tích lồi<br>Convex analysis | 3 | Phạm Kỳ Anh | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Dũng Mưu | GS.TSKH | Toán học | Viện Toán học |
-|  |  |  |  | Nguyễn Hữu
-Điển | PGS.TS | Toán học | ĐHKHTN |
-| 17. | MAT6122 | Phương trình vi phân
-trong không gian
-Banach
-Differential Equations
-in Banach spaces | 3 | Lê Huy Tiễn | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Đặng Đình
-Châu | PGS. TS | Toán học | ĐH KHTN |
-|  |  |  |  | Trịnh Viết
-Dược | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Hữu
-Dư | GS. TS | Toán học | ĐH KHTN |
-|  |  |  |  | Vũ Hoàng
-Linh | PGS. TSKH | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Hữu<br>Điển | PGS.TS | Toán học | ĐHKHTN |
+| 17. | MAT6122 | Phương trình vi phân<br>trong không gian<br>Banach<br>Differential Equations<br>in Banach spaces | 3 | Lê Huy Tiễn | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Đặng Đình<br>Châu | PGS. TS | Toán học | ĐH KHTN |
+|  |  |  |  | Trịnh Viết<br>Dược | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Hữu<br>Dư | GS. TS | Toán học | ĐH KHTN |
+|  |  |  |  | Vũ Hoàng<br>Linh | PGS. TSKH | Toán học | ĐH KHTN |
 | 18. | MAT6123 | Giải tích và phương | 3 | Lê Huy Tiễn | TS | Toán học | ĐH KHTN |
 29
 
 <!-- Page 32 -->
-|  |  | trình động lực trên
-thang thời gian
-Analysis and Dynamic
-Equations on Time
-Scales |  | Nguyễn Hữu
-Dư | GS. TS | Toán học | ĐH KHTN |
+|  |  | trình động lực trên<br>thang thời gian<br>Analysis and Dynamic<br>Equations on Time<br>Scales |  | Nguyễn Hữu<br>Dư | GS. TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 19. | MAT6124 | Hàm nhiều biến phức
-Several complex
-variables | 3 | Ninh Văn Thu | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Thạc
-Dũng | TS | Toán học | ĐH KHTN |
-|  |  |  |  | Nguyễn Đình
-Sang | PGS. TS | Toán học | ĐH KHTN |
-| 20. | MAT6125 | Phương trình tích phân
-Integral Equations | 3 | Nguyễn Văn
-Mậu | GS. TSKH | Toán học | ĐH KHTN |
+| 19. | MAT6124 | Hàm nhiều biến phức<br>Several complex<br>variables | 3 | Ninh Văn Thu | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Thạc<br>Dũng | TS | Toán học | ĐH KHTN |
+|  |  |  |  | Nguyễn Đình<br>Sang | PGS. TS | Toán học | ĐH KHTN |
+| 20. | MAT6125 | Phương trình tích phân<br>Integral Equations | 3 | Nguyễn Văn<br>Mậu | GS. TSKH | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
-| 21. | MAT6126 | Bài toán biên của
-phương trình Elliptic
-Elliptic boundary value
-problems | 3 | Hoàng Quốc
-Toàn | PGS.TS | Toán học | ĐH KHTN |
+| 21. | MAT6126 | Bài toán biên của<br>phương trình Elliptic<br>Elliptic boundary value<br>problems | 3 | Hoàng Quốc<br>Toàn | PGS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Đặng Anh Tuấn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | ĐH KHTN |
-| 22. | MAT6127 | Phương pháp biến phân
-Variational Methods | 3 | Hoàng Quốc
-Toàn | PGS.TS | Toán học | ĐH KHTN |
+| 22. | MAT6127 | Phương pháp biến phân<br>Variational Methods | 3 | Hoàng Quốc<br>Toàn | PGS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Đặng Anh Tuấn | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Dư Đức Thắng | TS | Toán học | ĐH KHTN |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | ĐH KHTN |
-| 23. | MAT6128 | Phương trình toán tử
-Operator Equations | 3 | Nguyễn Văn
-Mậu | GS. TSKH | Toán học | ĐH KHTN |
+| 23. | MAT6128 | Phương trình toán tử<br>Operator Equations | 3 | Nguyễn Văn<br>Mậu | GS. TSKH | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
-| 24. | MAT6129 | Bài toán biên của hàm
-giải tích | 3 | Nguyễn Văn
-Mậu | GS. TSKH | Toán học | ĐH KHTN |
+| 24. | MAT6129 | Bài toán biên của hàm<br>giải tích | 3 | Nguyễn Văn<br>Mậu | GS. TSKH | Toán học | ĐH KHTN |
 30
 
 <!-- Page 33 -->
-|  |  | Boundary Value
-Problems of Analytical
-Functions |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
+|  |  | Boundary Value<br>Problems of Analytical<br>Functions |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 25. | MAT6030 | Bài toán đặt không
-chỉnh
-Ill-posed problems | 3 | Phạm Kỳ Anh | GS. TSKH | Toán học | ĐHKHTN |
-| 26. | MAT6021 | Giải tích ngẫu nhiên
-Stochastic Analysis | 3 | Đặng Hùng
-Thắng | GS.TSKH | Toán học | Trường ĐHKHTN |
+| 25. | MAT6030 | Bài toán đặt không<br>chỉnh<br>Ill-posed problems | 3 | Phạm Kỳ Anh | GS. TSKH | Toán học | ĐHKHTN |
+| 26. | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic Analysis | 3 | Đặng Hùng<br>Thắng | GS.TSKH | Toán học | Trường ĐHKHTN |
 |  |  |  |  | Nguyễn Thịnh | TS | Toán học | Trường ĐHKHTN |
-| 27. | MAT6003 | Tôpô đại số
-Algebraic Topology | 3 | Nguyễn Hữu
-Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
+| 27. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
 |  |  |  |  | Lê Minh Hà | PGS.TS | Toán học | ĐHKHTN |
 |  |  |  |  | Phó Đức Tài | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Võ Thị Như
-Quỳnh | TS | Toán học | ĐHKHTN |
-|  |  |  |  | Nguyễn Việt
-Dũng | PGS. TS | Toán học | Viện Toán học |
+|  |  |  |  | Võ Thị Như<br>Quỳnh | TS | Toán học | ĐHKHTN |
+|  |  |  |  | Nguyễn Việt<br>Dũng | PGS. TS | Toán học | Viện Toán học |
 31
 
 <!-- Page 34 -->
@@ -1116,11 +540,7 @@ Lịch trình tổ chức thực hiện chương trình đào tạo cụ thể n
 Thời gian đào tạo bắt đầu từ giữa tháng 11 hàng năm, kết thúc vào tháng 11 hai
 năm sau. Thời gian thực hiện được khái quát trong sơ đồ sau:
 Tháng 11 Tháng 1 Tháng 7 Tháng 1 Tháng 7 Tháng 11
-| A | T
-1 | B | H
-1 | C D |  | T
-2 | D E |  | H
-2 | E |
+| A | T<br>1 | B | H<br>1 | C D |  | T<br>2 | D E |  | H<br>2 | E |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 Trong đó:
 - A, B, C, D, E: các kì học. Mỗi kì B, C, D gồm 4 tháng, kì A gồm 2
@@ -1130,58 +550,18 @@ tháng và kì E gồm 6 tháng.
 tùy lịch từng năm.
 - H , H : Các đợt nghỉ hè, mỗi đợt 1 tháng, từ 30/6 đến 31/7 hàng năm.
 1 2
-| Giai
-đoạ
-n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
+| Giai<br>đoạ<br>n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
 | --- | --- | --- | --- | --- |
 |  |  | Bắt đầu | Kết thúc |  |
-| A | 2 tháng
-( từ tháng 11 đến tháng
-1) | - Tiếng
-Anh cơ bản
-- Triết học | - Tiếng
-Anh cơ bản
-- Triết học | Khai giảng: Tháng
-11, tuần đầu tiên của
-khoá học |
-| B | 4 tháng
-( từ tháng 3 đến tháng
-6) | - Tiếng
-Anh chuyên
-ngành
-- 3 học
-phần bắt
-buộc | - Tiếng
-Anh chuyên
-ngành
-- 3 học
-phần bắt
-buộc |  |
+| A | 2 tháng<br>( từ tháng 11 đến tháng<br>1) | - Tiếng<br>Anh cơ bản<br>- Triết học | - Tiếng<br>Anh cơ bản<br>- Triết học | Khai giảng: Tháng<br>11, tuần đầu tiên của<br>khoá học |
+| B | 4 tháng<br>( từ tháng 3 đến tháng<br>6) | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt<br>buộc | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt<br>buộc |  |
 32
 
 <!-- Page 35 -->
-| C | 4 tháng
-( từ tháng 8 đến tháng
-11) | -2 học phần
-bắt buộc
--2 học phần
-lựa chọn | -2 học phần
-bắt buộc
--2 học phần
-lựa chọn | Giới thiệu hướng đề
-tài
-Phân công đề tài luận
-văn |
+| C | 4 tháng<br>( từ tháng 8 đến tháng<br>11) | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | Giới thiệu hướng đề<br>tài<br>Phân công đề tài luận<br>văn |
 | --- | --- | --- | --- | --- |
-| D | 4 tháng
-( từ tháng 12 đến tháng
-4) | -5 học phần
-lựa chọn | -5 học phần
-lựa chọn | Làm luận văn |
-| E | 6 tháng
-( từ tháng 5 đến tháng
-11) | Các học phần đã
-kết thúc |  | Bảo vệ luận văn |
+| D | 4 tháng<br>( từ tháng 12 đến tháng<br>4) | -5 học phần<br>lựa chọn | -5 học phần<br>lựa chọn | Làm luận văn |
+| E | 6 tháng<br>( từ tháng 5 đến tháng<br>11) | Các học phần đã<br>kết thúc |  | Bảo vệ luận văn |
 33
 
 <!-- Page 36 -->
@@ -1195,143 +575,41 @@ Master of Science in Mathematics
 khoa Toán tốt nhất Hoa Kỳ
 (Xem http://www.washington.edu/students/crscat/math.html)
 b. Bảng so sánh chương trình đào tạo
-| STT | Tên học phần trong
-chương trình đào tạo tiên
-tiến của nước ngoài
-(Tiếng Anh, tiếng
-Việt) | Tên học phần trong chương
-trình đào tạo của đơn vị
-(Tiếng Anh, tiếng Việt) | Thuyết minh về
-những điểm giống và
-khác nhau giữa các
-học phần của 2
-chương trình đào tạo |
+| STT | Tên học phần trong<br>chương trình đào tạo tiên<br>tiến của nước ngoài<br>(Tiếng Anh, tiếng<br>Việt) | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
-| 1. | Functional Analysis
-Giải tích hàm | Giải tích hàm nâng cao
-Advanced Functional
-Analysis | Nội dung giống nhau |
-| 2. | Advanced Linear Algebra
-Đại số tuyến tính nâng cao | Những chương lựa chọn về
-đại số tuyến tính
-Selected Topics in Linear
-Algebra | Nội dung giống nhau |
-| 3. | Fundamental Concepts of
-Analysis
-Các khái niệm cơ sở của
-giải tích | Độ đo và tích phân
-Measure and Integration | Nội dung gần giống
-nhau |
-| 4. | Complex Analysis
-Giải tích phức | Giải tích phức
-Complex Analysis | Nội dung giống nhau |
-| 5. | Introduction to Partial
-Differential Equations
-Giới thiệu phương trình
-đạo hàm riêng | Phương trình đạo hàm riêng
-Partial Differential
-Equations | Nội dung giống nhau |
-| 6. | Introduction to Partial
-Differential Equations
-Giới thiệu phương trình
-đạo hàm riêng | Lý thuyết hàm suy rộng và
-không gian Sobolev
-Theory of Distributions and
-Sobolev spaces | Nội dung giống nhau |
-| 7. | Modern Algebra
-Đại số hiện đại | Lý thuyết nhóm và biểu diễn
-nhóm
-Theory of Groups and Group
-Representations | Nội dung giống nhau |
+| 1. | Functional Analysis<br>Giải tích hàm | Giải tích hàm nâng cao<br>Advanced Functional<br>Analysis | Nội dung giống nhau |
+| 2. | Advanced Linear Algebra<br>Đại số tuyến tính nâng cao | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected Topics in Linear<br>Algebra | Nội dung giống nhau |
+| 3. | Fundamental Concepts of<br>Analysis<br>Các khái niệm cơ sở của<br>giải tích | Độ đo và tích phân<br>Measure and Integration | Nội dung gần giống<br>nhau |
+| 4. | Complex Analysis<br>Giải tích phức | Giải tích phức<br>Complex Analysis | Nội dung giống nhau |
+| 5. | Introduction to Partial<br>Differential Equations<br>Giới thiệu phương trình<br>đạo hàm riêng | Phương trình đạo hàm riêng<br>Partial Differential<br>Equations | Nội dung giống nhau |
+| 6. | Introduction to Partial<br>Differential Equations<br>Giới thiệu phương trình<br>đạo hàm riêng | Lý thuyết hàm suy rộng và<br>không gian Sobolev<br>Theory of Distributions and<br>Sobolev spaces | Nội dung giống nhau |
+| 7. | Modern Algebra<br>Đại số hiện đại | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Theory of Groups and Group<br>Representations | Nội dung giống nhau |
 | 8. | Differential Geometry | Hình học vi phân | Nội dung giống nhau |
 34
 
 <!-- Page 37 -->
 |  | Hình học vi phân | Differential Geometry |  |
 | --- | --- | --- | --- |
-| 9. | Algebraic Geometry
-Hình học đại số | Hình học đại số
-Algebraic Geometry | Nội dung giống nhau |
-| 10 | .Topology and Geometry of
-Manifolds
-Cấu trúc topo và hình học
-của đa tạp | Giải tích trên đa tạp
-Analysis on Manifolds | Nội dung gần giống
-nhau |
-| 11 | .Dynamical Systems
-Hệ động lực | Hệ động lực
-Dynamical Systems | Nội dung giống nhau |
-| 12 | .Functional Analysis
-Giải tích hàm | Lý thuyết phổ của toán tử
-Spectral theory of linear
-operators | Nội dung giống nhau |
-| 13 | .Functional Analysis
-Giải tích hàm | Giải tích lồi
-Convex analysis | Nội dung gần giống
-nhau |
-| 14 | .Linear Analysis
-Giải tích tuyến tính | Phương trình vi phân trong
-không gian Banach
-Differential Equations in
-Banach spaces | Nội dung gần giống
-nhau |
-| 15 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Giải tích và phương trình
-động lực trên thang thời gian
-Analysis and Dynamic
-Equations on Time Scales |  |
-| 16 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Hàm nhiều biến phức
-Several complex variables |  |
-| 17 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Phương trình tích phân
-Integral Equations |  |
-| 18 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Bài toán biên của phương
-trình Elliptic
-Elliptic boundary value
-problems |  |
-| 19 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Phương pháp biến phân
-Variational Methods |  |
-| 20 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Phương trình toán tử
-Operator Equations |  |
-| 21 | .Special Topics in
-Mathematics
-Một số vấn đề đặc biệt
-trong toán học | Bài toán biên của hàm giải
-tích
-Boundary Value Problems of
-Analytical Functions |  |
+| 9. | Algebraic Geometry<br>Hình học đại số | Hình học đại số<br>Algebraic Geometry | Nội dung giống nhau |
+| 10 | .Topology and Geometry of<br>Manifolds<br>Cấu trúc topo và hình học<br>của đa tạp | Giải tích trên đa tạp<br>Analysis on Manifolds | Nội dung gần giống<br>nhau |
+| 11 | .Dynamical Systems<br>Hệ động lực | Hệ động lực<br>Dynamical Systems | Nội dung giống nhau |
+| 12 | .Functional Analysis<br>Giải tích hàm | Lý thuyết phổ của toán tử<br>Spectral theory of linear<br>operators | Nội dung giống nhau |
+| 13 | .Functional Analysis<br>Giải tích hàm | Giải tích lồi<br>Convex analysis | Nội dung gần giống<br>nhau |
+| 14 | .Linear Analysis<br>Giải tích tuyến tính | Phương trình vi phân trong<br>không gian Banach<br>Differential Equations in<br>Banach spaces | Nội dung gần giống<br>nhau |
+| 15 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Giải tích và phương trình<br>động lực trên thang thời gian<br>Analysis and Dynamic<br>Equations on Time Scales |  |
+| 16 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Hàm nhiều biến phức<br>Several complex variables |  |
+| 17 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Phương trình tích phân<br>Integral Equations |  |
+| 18 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Bài toán biên của phương<br>trình Elliptic<br>Elliptic boundary value<br>problems |  |
+| 19 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Phương pháp biến phân<br>Variational Methods |  |
+| 20 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Phương trình toán tử<br>Operator Equations |  |
+| 21 | .Special Topics in<br>Mathematics<br>Một số vấn đề đặc biệt<br>trong toán học | Bài toán biên của hàm giải<br>tích<br>Boundary Value Problems of<br>Analytical Functions |  |
 35
 
 <!-- Page 38 -->
-| 22 | .Special topics in numerical
-analysis
-Một số vấn đề đặc biệt
-trong giải tích số |  | Bài toán đặt không chỉnh
-Ill-posed problems |  |
+| 22 | .Special topics in numerical<br>analysis<br>Một số vấn đề đặc biệt<br>trong giải tích số |  | Bài toán đặt không chỉnh<br>Ill-posed problems |  |
 | --- | --- | --- | --- | --- |
-| 23 | .Introduction to Stochastic
-Processes
-Nhập môn quá trình ngẫu
-nhiên |  | Giải tích ngẫu nhiên
-Stochastic analysis | Nội dung giống nhau |
-| 24 | . | Algebraic Topology I | Tôpô đại số
-Algebraic Topology | Nội dung giống nhau |
+| 23 | .Introduction to Stochastic<br>Processes<br>Nhập môn quá trình ngẫu<br>nhiên |  | Giải tích ngẫu nhiên<br>Stochastic analysis | Nội dung giống nhau |
+| 24 | . | Algebraic Topology I | Tôpô đại số<br>Algebraic Topology | Nội dung giống nhau |
 |  |  | (MATH564/565) |  |  |
 |  |  | Tôpô đại số |  |  |
 7. Tóm tắt nội dung học phần (Ghi theo số thứ tự trong khung chương trình)

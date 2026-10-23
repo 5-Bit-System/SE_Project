@@ -87,21 +87,11 @@ LẬP TRÌNH CƠ BẢN
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
-| 1. | Nguyễn Thị Minh Huyền | ThS |  |  | Trường
-ĐHKHTN |  |  | huyenntm@vnu.edu.
-vn |
-| 2. | Lê Hồng Phương | PGS. TS |  |  | Trường
-ĐHKHTN |  |  | phuonglh@vnu.edu.v
-n |
-| 3. | Đỗ Thanh Hà | TS |  |  | Trường
-ĐHKHTN |  |  | dothanhha@hus.edu.
-vn |
-| 4. | Cao Văn Chung | TS |  |  | Trường
-ĐHKHTN |  |  | caovanchung@hus.ed
-u.vn |
-| 5. | Nguyễn Thị Tâm | TS |  |  | Trường
-ĐHKHTN |  |  | nguyenthitam@hus.e
-du.vn |
+| 1. | Nguyễn Thị Minh Huyền | ThS |  |  | Trường<br>ĐHKHTN |  |  | huyenntm@vnu.edu.<br>vn |
+| 2. | Lê Hồng Phương | PGS. TS |  |  | Trường<br>ĐHKHTN |  |  | phuonglh@vnu.edu.v<br>n |
+| 3. | Đỗ Thanh Hà | TS |  |  | Trường<br>ĐHKHTN |  |  | dothanhha@hus.edu.<br>vn |
+| 4. | Cao Văn Chung | TS |  |  | Trường<br>ĐHKHTN |  |  | caovanchung@hus.ed<br>u.vn |
+| 5. | Nguyễn Thị Tâm | TS |  |  | Trường<br>ĐHKHTN |  |  | nguyenthitam@hus.e<br>du.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên nắm được những kiến thức cơ bản nhất về lập trình
 và có thể sử dụng được một ngôn ngữ lập trình để có thể viết chương trình cho
@@ -173,49 +163,37 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 2 |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 2 |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 2 |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 2 |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  |
 3 6
 
 <!-- Page 7 -->
 Chương trình đào tạo ngành Toán học:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |
-| Mức đóng góp
-của học phần |  | 3 |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần |  | 3 |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  | 2 |  |  |
 Chương trình đào tạo ngành CNKHTN Toán học:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |
+| Mức đóng góp<br>của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  | 2 |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  | 2 |  |  |  |
 Chương trình đào tạo ngành Toán Tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  | PR6 |  |  |
-| Mức đóng
-góp của học
-phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
 | 3 |
 | --- |
 | 2 |
@@ -227,21 +205,11 @@ phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 
 <!-- Page 8 -->
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | Bài kiểm tra trên giấy hoặc là bài
-tập lập trình trên máy tính | CK1, CK4
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20 % | Bài lập trình trên máy tính | CK1-CK3
-CS1, CS2 |
-| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp
-với vấn đáp trực tiếp | CK1-CK4
-CS1-CS2,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20 % | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK4<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20 % | Bài lập trình trên máy tính | CK1-CK3<br>CS1, CS2 |
+| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp<br>với vấn đáp trực tiếp | CK1-CK4<br>CS1-CS2,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -256,18 +224,13 @@ Structures, 12th edition (Dec. 4, 2019)
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Giới thiệu về chương trình máy tính và ngôn ngữ lập
-trình |  | CK1, CK4 |
+| Chương 1. Giới thiệu về chương trình máy tính và ngôn ngữ lập<br>trình |  | CK1, CK4 |
 | 1.1 | Giới thiệu. |  |
-| 1.2 | Lịch sử phát triển của ngôn ngữ lập trình và các phương
-pháp lập trình |  |
+| 1.2 | Lịch sử phát triển của ngôn ngữ lập trình và các phương<br>pháp lập trình |  |
 | 1.3 | Các nguyên tắc lập trình cơ bản |  |
-| 1.4 | Ngôn ngữ lập trình Java - Một số khái niệm trong ngôn
-ngữ lập trình Java |  |
+| 1.4 | Ngôn ngữ lập trình Java - Một số khái niệm trong ngôn<br>ngữ lập trình Java |  |
 5 8
 
 <!-- Page 9 -->
@@ -279,8 +242,7 @@ ngữ lập trình Java |  |
 | Chương 3. Thiết kế và cấu trúc chương trình |  | CK1, CK3, CS1 |
 | 3.1 | Cấu trúc chương trình |  |
 | 3.2 | Khai báo biến, hằng và cách sử dụng |  |
-| Chương 4. Xây dựng và biên dịch chương trình |  | CK1-CK4, CS2,
-CS3 |
+| Chương 4. Xây dựng và biên dịch chương trình |  | CK1-CK4, CS2,<br>CS3 |
 | 4.1 | Xây dựng mã nguồn |  |
 | 4.2 | Biên dịch và thực thi chương trình |  |
 | 4.3 | Xuất/ nhập dữ liệu đơn giản từ đối dòng lệnh |  |
@@ -335,14 +297,10 @@ Trưởng Khoa Trưởng Bộ môn Giảng viên
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
-| 1. | Đào Phương Bắc | PGS. TS |  |  | Trường
-ĐHKHTN |  |  | dpbac.vnu@gmail.com |
-| 2. | Lê Quý Thường | PGS. TS |  |  | Trường
-ĐHKHTN |  |  | leqthuong@gmail.com |
-| 3. | Phạm Văn Tuấn | TS |  |  | Trường
-ĐHKHTN |  |  | phamvantuan1987@gmail.com |
-| 4. | Đỗ Việt Cường | TS |  |  | Trường
-ĐHKHTN |  |  | vcuong.do@gmail.com |
+| 1. | Đào Phương Bắc | PGS. TS |  |  | Trường<br>ĐHKHTN |  |  | dpbac.vnu@gmail.com |
+| 2. | Lê Quý Thường | PGS. TS |  |  | Trường<br>ĐHKHTN |  |  | leqthuong@gmail.com |
+| 3. | Phạm Văn Tuấn | TS |  |  | Trường<br>ĐHKHTN |  |  | phamvantuan1987@gmail.com |
+| 4. | Đỗ Việt Cường | TS |  |  | Trường<br>ĐHKHTN |  |  | vcuong.do@gmail.com |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên nắm được những kiến thức cơ bản về đại số tuyến
 tính như các phương pháp giải hệ phương trình tuyến tính, khái niệm không gian
@@ -416,41 +374,24 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK4 | PK5 | PK6 | PS1 | PS2 | PS3 | PR1 | PR3 | PR4 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK4 | PK5 | PS1 | PS2 | PS3 | PR1 | PR3 | PR4 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
-| STT | Tiêu chí
-đánh giá | Trọng
-số | Mô tả | Chuẩn đầu ra cần
-đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra cần<br>đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Hình thức đánh giá: bài tập về nhà, bài
-tập trên lớp và tham gia xây dựng bài trên | CK1, CK2, CK3,
-CK4, CS1, CS2, |
+| 1 | Thường<br>xuyên | 20 % | - Hình thức đánh giá: bài tập về nhà, bài<br>tập trên lớp và tham gia xây dựng bài trên | CK1, CK2, CK3,<br>CK4, CS1, CS2, |
 3 13
 
 <!-- Page 14 -->
-| STT | Tiêu chí
-đánh giá | Trọng
-số | Mô tả | Chuẩn đầu ra cần
-đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra cần<br>đo được |
 | --- | --- | --- | --- | --- |
-|  |  |  | lớp.
-- Thang điểm đánh giá: 10. | CS3, CR1, CR2,
-CR3. |
-| 2 | Giữa kỳ | 20 % | - Hình thức đánh giá: thi tự luận.
-- Thang điểm đánh giá: 10. | CK1, CK2, CS3,
-CR2, CR3. |
-| 3 | Cuối kỳ | 60 % | - Hình thức đánh giá: thi tự luận.
-- Thang điểm đánh giá: 10. | CK3, CK4, CS3,
-CR2, CR3. |
+|  |  |  | lớp.<br>- Thang điểm đánh giá: 10. | CS3, CR1, CR2,<br>CR3. |
+| 2 | Giữa kỳ | 20 % | - Hình thức đánh giá: thi tự luận.<br>- Thang điểm đánh giá: 10. | CK1, CK2, CS3,<br>CR2, CR3. |
+| 3 | Cuối kỳ | 60 % | - Hình thức đánh giá: thi tự luận.<br>- Thang điểm đánh giá: 10. | CK3, CK4, CS3,<br>CR2, CR3. |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1 Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -468,70 +409,50 @@ cácbài tập), 2012.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học
-phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
-| Chương 0. Kiến thức chuẩn bị |  | CK1, CS1, CS2, CR1,
-CR3 |
+| Chương 0. Kiến thức chuẩn bị |  | CK1, CS1, CS2, CR1,<br>CR3 |
 | 0.1 | Các cấu trúc đại số cơ bản: Nhóm, vành và trường |  |
 | 0.2 | Trường số phức |  |
 | 0.3 | Đa thức |  |
 4 14
 
 <!-- Page 15 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học
-phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
-| Chương 1. Ma trận và hệ phương trình tuyến tính |  | CK1, CK2, CS1, CS2,
-CR1, CR3 |
+| Chương 1. Ma trận và hệ phương trình tuyến tính |  | CK1, CK2, CS1, CS2,<br>CR1, CR3 |
 | 1.1 | Ma trận |  |
 | 1.2 | Các phép toán trên ma trận |  |
-| 1.3 | Hệ phương trình tuyến tính: Phương pháp khử
-Gauss |  |
-| Chương 2. Không gian véctơ |  | CK2, CK3, CS1, CS2,
-CR1, CR2, CR3 |
-| 2.1 | Không gian véctơ, không gian véctơ con và các ví
-dụ |  |
-| 2.2 | Hệ véctơ độc lập tuyến tính và hệ véctơ phụ thuộc
-tuyến tính |  |
+| 1.3 | Hệ phương trình tuyến tính: Phương pháp khử<br>Gauss |  |
+| Chương 2. Không gian véctơ |  | CK2, CK3, CS1, CS2,<br>CR1, CR2, CR3 |
+| 2.1 | Không gian véctơ, không gian véctơ con và các ví<br>dụ |  |
+| 2.2 | Hệ véctơ độc lập tuyến tính và hệ véctơ phụ thuộc<br>tuyến tính |  |
 | 2.3 | Cơ sở và số chiều của một không gian véctơ |  |
 | 2.4 | Tổng, tích và thương của các không gian véctơ |  |
-| Chương 3. Ánh xạ tuyến tính |  | CK2, CK3, CS1, CS2,
-CR1, CR3 |
+| Chương 3. Ánh xạ tuyến tính |  | CK2, CK3, CS1, CS2,<br>CR1, CR3 |
 | 3.1 | Ánh xạ tuyến tính |  |
 | 3.2 | Ma trận của ánh xạ tuyến tính |  |
-| Chương 4. Định thức |  | CK2, CK3, CS1, CS2,
-CS3, CR1, CR2, CR3 |
+| Chương 4. Định thức |  | CK2, CK3, CS1, CS2,<br>CS3, CR1, CR2, CR3 |
 | 4.1 | Định thức và các tính chất |  |
 | 4.2 | Các phương pháp tính định thức |  |
 | 4.3 | Một số ứng dụng của định thức |  |
-| Chương 5. Phép biến đổi tuyến tính |  | CK2, CK3, CS1, CS2,
-CR1, CR2, CR3 |
+| Chương 5. Phép biến đổi tuyến tính |  | CK2, CK3, CS1, CS2,<br>CR1, CR2, CR3 |
 | 5.1 | Phép biến đổi tuyến tính; Chuyển cơ sở |  |
 | 5.2 | Véctơ riêng và Giá trị riêng |  |
 | 5.3 | Chéo hóa ma trận |  |
-| Chương 6. Không gian véctơ Euclid |  | CK2, CK3, CS1, CS2,
-CR1, CR3 |
+| Chương 6. Không gian véctơ Euclid |  | CK2, CK3, CS1, CS2,<br>CR1, CR3 |
 | 6.1 | Không gian véctơ Euclid; Một số ứng dụng |  |
 | 6.2 | Phép biến đổi trực giao và ma trận trực giao |  |
 5 15
 
 <!-- Page 16 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học
-phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
-| 6.3 | Phép biến đổi đối xứng và chéo hóa ma trận đối
-xứng |  |
-| Chương 7. Dạng song tuyến tính và dạng toàn phương |  | CK2, CK3, CK4, CS1,
-CS2, CS3, CR1, CR2,
-CR3 |
+| 6.3 | Phép biến đổi đối xứng và chéo hóa ma trận đối<br>xứng |  |
+| Chương 7. Dạng song tuyến tính và dạng toàn phương |  | CK2, CK3, CK4, CS1,<br>CS2, CS3, CR1, CR2,<br>CR3 |
 | 7.1 | Dạng song tuyến tính và dạng toàn phương |  |
 | 7.2 | Dạng chính tắc của một dạng toàn phương |  |
-| 7.3 | Ứng dụng vào Hình học giải tích: Đường và mặt bậc
-hai |  |
+| 7.3 | Ứng dụng vào Hình học giải tích: Đường và mặt bậc<br>hai |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 16
 
@@ -544,35 +465,20 @@ GIẢI TÍCH 1
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
-| STT | Họ và tên | Học hàm,
-học vị | Đơn vị công
-tác | Email |
+| STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- |
-| 1. | Nguyễn Hữu Dư | GS.TS. | Trường
-ĐHKHTN | nguyenhuudu@hus.edu.vn |
-| 2. | Phạm Chí Vĩnh | GS.TS. | Trường
-ĐHKHTN | phamchivinh@hus.edu.vn |
-| 3. | Ngô Quốc Anh | PGS.TS. | Trường
-ĐHKHTN | ngoquocanh@hus.edu.vn |
-| 4. | Nguyễn Thạc Dũng | PGS.TS. | Trường
-ĐHKHTN | nguyenthacdung_tct@hus.edu.
-vn |
-| 5. | Trịnh Viết Dược | PGS.TS. | Trường
-ĐHKHTN | duoctt@hus.edu.vn |
-| 6. | Vũ Nhật Huy | PGS.TS. | Trường
-ĐHKHTN | vunhathuy@hus.edu.vn |
-| 7. | Phạm Trọng Tiến | PGS.TS. | Trường
-ĐHKHTN | phamtien@hus.edu.vn |
-| 8. | Trần Thanh Tuấn | PGS.TS. | Trường
-ĐHKHTN | tranthanhtuan@hus.edu.vn |
-| 9. | Lê Huy Chuẩn | TS. | Trường
-ĐHKHTN | lehuychuan@hus.edu.vn |
-| 10. | Nguyễn Thị Hoài | TS. | Trường
-ĐHKHTN | nguyenthihoai@hus.edu.vn |
-| 11. | Lê Huy Tiễn | TS. | Trường
-ĐHKHTN | lehuytien@hus.edu.vn |
-| 12. | Đặng Anh Tuấn | TS. | Trường
-ĐHKHTN | danganhtuan@hus.edu.vn |
+| 1. | Nguyễn Hữu Dư | GS.TS. | Trường<br>ĐHKHTN | nguyenhuudu@hus.edu.vn |
+| 2. | Phạm Chí Vĩnh | GS.TS. | Trường<br>ĐHKHTN | phamchivinh@hus.edu.vn |
+| 3. | Ngô Quốc Anh | PGS.TS. | Trường<br>ĐHKHTN | ngoquocanh@hus.edu.vn |
+| 4. | Nguyễn Thạc Dũng | PGS.TS. | Trường<br>ĐHKHTN | nguyenthacdung_tct@hus.edu.<br>vn |
+| 5. | Trịnh Viết Dược | PGS.TS. | Trường<br>ĐHKHTN | duoctt@hus.edu.vn |
+| 6. | Vũ Nhật Huy | PGS.TS. | Trường<br>ĐHKHTN | vunhathuy@hus.edu.vn |
+| 7. | Phạm Trọng Tiến | PGS.TS. | Trường<br>ĐHKHTN | phamtien@hus.edu.vn |
+| 8. | Trần Thanh Tuấn | PGS.TS. | Trường<br>ĐHKHTN | tranthanhtuan@hus.edu.vn |
+| 9. | Lê Huy Chuẩn | TS. | Trường<br>ĐHKHTN | lehuychuan@hus.edu.vn |
+| 10. | Nguyễn Thị Hoài | TS. | Trường<br>ĐHKHTN | nguyenthihoai@hus.edu.vn |
+| 11. | Lê Huy Tiễn | TS. | Trường<br>ĐHKHTN | lehuytien@hus.edu.vn |
+| 12. | Đặng Anh Tuấn | TS. | Trường<br>ĐHKHTN | danganhtuan@hus.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: cung cấp cho người học các kiến thức cơ bản nhất của toán học
 nói chung và giải tích toán học nói riêng.
@@ -633,43 +539,23 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp của
-học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng góp của<br>học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp của
-học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng góp của<br>học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm
-bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CR1, CR2,
-CR3 |
+| 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm<br>bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
 3 19
 
 <!-- Page 20 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2,
-CS1, CS2, CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK1, CK2,
-CK3, CS1,
-CS2, CS3, |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CS1, CS2, CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3, |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1 Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -687,94 +573,33 @@ NXB ĐHQGHN, 1998.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới hạn và tính liên tục của hàm số một biến |  |  |
-| 1.1 | Tập hợp, ánh xạ, quan hệ. Tập số thực, khái niệm sup, inf,
-max, min | CK1 |
-| 1.2 | Giới hạn dãy số thực
-1.2.1. Định nghĩa dãy số, dãy con, giới hạn dãy số. Các tính
-chất của dãy số hội tụ | CK1 |
+| 1.1 | Tập hợp, ánh xạ, quan hệ. Tập số thực, khái niệm sup, inf,<br>max, min | CK1 |
+| 1.2 | Giới hạn dãy số thực<br>1.2.1. Định nghĩa dãy số, dãy con, giới hạn dãy số. Các tính<br>chất của dãy số hội tụ | CK1 |
 4 20
 
 <!-- Page 21 -->
-|  | 1.2.2. Ba nguyên lý Cantor, Bolzano-Weierstrass, Cauchy
-1.2.3. Sự hội tụ của dãy đơn điệu. Khái niệm giới hạn trên,
-giới hạn dưới
-1.2.4. Giới hạn vô hạn
-1.2.5. Số e. Logarit tự nhiên |  |
+|  | 1.2.2. Ba nguyên lý Cantor, Bolzano-Weierstrass, Cauchy<br>1.2.3. Sự hội tụ của dãy đơn điệu. Khái niệm giới hạn trên,<br>giới hạn dưới<br>1.2.4. Giới hạn vô hạn<br>1.2.5. Số e. Logarit tự nhiên |  |
 | --- | --- | --- |
-| 1.3 | Giới hạn hàm số
-1.3.1. Định nghĩa giới hạn hàm số, các mệnh đề tương đương
-1.3.2. Các tính chất của giới hạn hàm số
-1.3.3. Giới hạn phải, giới hạn trái. Mở rộng khái niệm giới hạn
-1.3.4. Các vô cùng bé (VCB), vô cùng lớn (VCL): Định nghĩa,
-so sánh, các VCB tương đương, áp dụng để tìm giới hạn | CK1 |
-| 1.4 | Hàm liên tục
-1.4.1. Định nghĩa hàm liên tục và các mệnh đề tương đương
-1.4.2. Liên tục một phía, phân loại các điểm gián đoạn
-1.4.3. Khái niệm hàm số liên tục đều. Các tính chất của hàm
-số liên tục trên một đoạn
-1.4.4. Các hàm sơ cấp cơ bản, hàm ngược, hàm lượng
-giác.Tính liên tục của hàm sơ cấp. Các giới hạn đáng nhớ | CK1 |
+| 1.3 | Giới hạn hàm số<br>1.3.1. Định nghĩa giới hạn hàm số, các mệnh đề tương đương<br>1.3.2. Các tính chất của giới hạn hàm số<br>1.3.3. Giới hạn phải, giới hạn trái. Mở rộng khái niệm giới hạn<br>1.3.4. Các vô cùng bé (VCB), vô cùng lớn (VCL): Định nghĩa,<br>so sánh, các VCB tương đương, áp dụng để tìm giới hạn | CK1 |
+| 1.4 | Hàm liên tục<br>1.4.1. Định nghĩa hàm liên tục và các mệnh đề tương đương<br>1.4.2. Liên tục một phía, phân loại các điểm gián đoạn<br>1.4.3. Khái niệm hàm số liên tục đều. Các tính chất của hàm<br>số liên tục trên một đoạn<br>1.4.4. Các hàm sơ cấp cơ bản, hàm ngược, hàm lượng<br>giác.Tính liên tục của hàm sơ cấp. Các giới hạn đáng nhớ | CK1 |
 | Chương 2. Phép tính vi phân hàm số một biến số |  |  |
-| 2.1 | Đạo hàm
-2.1.1. Mở đầu về khái niệm đạo hàm
-2.1.2. Định nghĩa đạo hàm, đạo hàm một phía
-2.1.3. Các quy tắc tính đạo hàm, đạo hàm của hàm ngược và
-hàm ẩn. Bảng đạo hàm các hàm sơ cấp
-2.1.4. Các định lý giá trị trung bình (Fermat, Rolle, Lagrange,
-Cauchy)
-2.1.5. Xấp xỉ tuyến tính. Khái niệm vi phân | CK2, CS1,
-CS2, CS3 |
-| 2.2 | Đạo hàm cấp cao
-2.2.1. Định nghĩa đạo hàm cấp cao. Công thức Leibniz
-2.2.2. Khai triển Taylor. Quy tắc L’Hospital | CK2, CS1,
-CS2, CS3 |
-| 2.3 | Ứng dụng đạo hàm
-2.3.1. Cực trị của hàm số
-2.3.2. Phương pháp xấp xỉ Newton (Newton’s method) | CK2, CS1,
-CS2, CS3,
-CR1, CR2 |
+| 2.1 | Đạo hàm<br>2.1.1. Mở đầu về khái niệm đạo hàm<br>2.1.2. Định nghĩa đạo hàm, đạo hàm một phía<br>2.1.3. Các quy tắc tính đạo hàm, đạo hàm của hàm ngược và<br>hàm ẩn. Bảng đạo hàm các hàm sơ cấp<br>2.1.4. Các định lý giá trị trung bình (Fermat, Rolle, Lagrange,<br>Cauchy)<br>2.1.5. Xấp xỉ tuyến tính. Khái niệm vi phân | CK2, CS1,<br>CS2, CS3 |
+| 2.2 | Đạo hàm cấp cao<br>2.2.1. Định nghĩa đạo hàm cấp cao. Công thức Leibniz<br>2.2.2. Khai triển Taylor. Quy tắc L’Hospital | CK2, CS1,<br>CS2, CS3 |
+| 2.3 | Ứng dụng đạo hàm<br>2.3.1. Cực trị của hàm số<br>2.3.2. Phương pháp xấp xỉ Newton (Newton’s method) | CK2, CS1,<br>CS2, CS3,<br>CR1, CR2 |
 | Chương 3. Tích phân một lớp |  |  |
-| 3.1 | Nguyên hàm và tích phân không xác định
-3.1.1. Định nghĩa, bảng các nguyên hàm cơ bản. Phép đổi | CK3, CS1, |
+| 3.1 | Nguyên hàm và tích phân không xác định<br>3.1.1. Định nghĩa, bảng các nguyên hàm cơ bản. Phép đổi | CK3, CS1, |
 5 21
 
 <!-- Page 22 -->
-|  | biến, công thức tích phân từng phần
-3.1.2. Tích phân các hàm hữu tỉ. Tích phân các hàm vô tỉ. Tích
-phân các hàm lượng giác | CS2, CS3 |
+|  | biến, công thức tích phân từng phần<br>3.1.2. Tích phân các hàm hữu tỉ. Tích phân các hàm vô tỉ. Tích<br>phân các hàm lượng giác | CS2, CS3 |
 | --- | --- | --- |
-| 3.2 | Tích phân xác định
-3.2.1. Định nghĩa tích phân xác định, điều kiện cần để khả tích
-3.2.2. Tổng Darboux. Điều kiện cần và đủ để khả tích. Các lớp
-hàm khả tích
-3.2.3. Các tính chất của tích phân xác định. Các định lý trung
-bình
-3.2.4. Công thức Newton – Leibniz. Công thức đổi biến, công
-thức tích phân từng phần | CK3, CS1,
-CS2, CS3 |
-| 3.3 | Một số ứng dụng hình học của tích phân xác định
-3.3.1. Tính độ dài cung
-3.3.2. Tính diện tích hình phẳng, thể tích khối tròn xoay, diện
-tích mặt tròn xoay | CK3, CS1,
-CS2, CS3,
-CR1, CR2 |
-| 3.4 | Tích phân suy rộng
-3.4.1. Tích phân suy rộng với cận vô hạn: Định nghĩa, tính
-chất, các dấu hiệu hội tụ đối. Khái niệm hội tụ tuyệt đối và hội
-tụ không tuyệt đối
-3.4.2. Tích phân suy rộng của hàm không bị chặn | CK3, CS1,
-CS2, CS3 |
-| 3.5 | Tích phân phụ thuộc tham số
-3.5.1. Tích phân phụ thuộc tham số với cận hữu hạn không
-đổi, với cận thay đổi
-3.5.2. Tích phân suy rộng phụ thuộc tham số với cận vô hạn
-3.5.3. Các hàm đặc biệt | CK3, CS1,
-CS2, CS3 |
+| 3.2 | Tích phân xác định<br>3.2.1. Định nghĩa tích phân xác định, điều kiện cần để khả tích<br>3.2.2. Tổng Darboux. Điều kiện cần và đủ để khả tích. Các lớp<br>hàm khả tích<br>3.2.3. Các tính chất của tích phân xác định. Các định lý trung<br>bình<br>3.2.4. Công thức Newton – Leibniz. Công thức đổi biến, công<br>thức tích phân từng phần | CK3, CS1,<br>CS2, CS3 |
+| 3.3 | Một số ứng dụng hình học của tích phân xác định<br>3.3.1. Tính độ dài cung<br>3.3.2. Tính diện tích hình phẳng, thể tích khối tròn xoay, diện<br>tích mặt tròn xoay | CK3, CS1,<br>CS2, CS3,<br>CR1, CR2 |
+| 3.4 | Tích phân suy rộng<br>3.4.1. Tích phân suy rộng với cận vô hạn: Định nghĩa, tính<br>chất, các dấu hiệu hội tụ đối. Khái niệm hội tụ tuyệt đối và hội<br>tụ không tuyệt đối<br>3.4.2. Tích phân suy rộng của hàm không bị chặn | CK3, CS1,<br>CS2, CS3 |
+| 3.5 | Tích phân phụ thuộc tham số<br>3.5.1. Tích phân phụ thuộc tham số với cận hữu hạn không<br>đổi, với cận thay đổi<br>3.5.2. Tích phân suy rộng phụ thuộc tham số với cận vô hạn<br>3.5.3. Các hàm đặc biệt | CK3, CS1,<br>CS2, CS3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 22
 
@@ -863,49 +688,24 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng<br>góp của học<br>phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng<br>góp của học<br>phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
-| ST
-T | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu
-ra cần đo
-được |
+| ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CR1, CR2,
-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường | CK1, CK2,
-CS1, CS2, |
+| 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường | CK1, CK2,<br>CS1, CS2, |
 3 25
 
 <!-- Page 26 -->
-| ST
-T | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu
-ra cần đo
-được |
+| ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
 |  |  |  | cong phân bố chuẩn. | CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK1, CK2,
-CK3, CS1,
-CS2, CS3, |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3, |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1 Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -924,88 +724,31 @@ III, NXB ĐHQGHN.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Chuỗi số, dãy hàm, chuỗi hàm, chuỗi lũy thừa, chuỗi
-Fourier |  |  |
-| 1.1 | Chuỗi số
-1.1.1. Định nghĩa chuỗi số, các tính chất của chuỗi hội tụ.
-Điều kiện cần và đủ để chuỗi hội tụ | CK1, CS1,
-CS2, CS3 |
+| Chương 1. Chuỗi số, dãy hàm, chuỗi hàm, chuỗi lũy thừa, chuỗi<br>Fourier |  |  |
+| 1.1 | Chuỗi số<br>1.1.1. Định nghĩa chuỗi số, các tính chất của chuỗi hội tụ.<br>Điều kiện cần và đủ để chuỗi hội tụ | CK1, CS1,<br>CS2, CS3 |
 4 26
 
 <!-- Page 27 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 1.1.2. Chuỗi dương: các dấu hiệu hội tụ của chuỗi dương
-1.1.3. Chuỗi có dấu bất kỳ: dấu hiệu Leibniz, dấu hiệu
-Dirichlet và dấu hiệu Abel |  |
-| 1.2 | Dãy hàm, chuỗi hàm
-1.2.1. Dãy hàm: Miền hội tụ, khái niệm về hội tụ đều.
-Tiêu chuẩn Cauchy. Các tính chất của hàm giới hạn.
-1.2.2. Chuỗi hàm: Miền hội tụ, khái niệm hội tụ đều. Tiêu
-chuẩn Cauchy, dấu hiệu Weierstrass. Các tính chất của
-tổng chuỗi hàm. | CK1, CS1,
-CS2, CS3 |
-| 1.3 | Chuỗi lũy thừa
-1.3.1. Định nghĩa chuỗi lũy thừa, bán kính hội tụ của
-chuỗi lũy thừa. Các tính chất của tổng chuỗi lũy thừa
-1.3.2. Khai triển hàm thành chuỗi Taylor, điều kiện đủ để
-một hàm khai triển thành chuỗi Taylor. Một số khai triển
-cơ bản | CK1, CS1,
-CS2, CS3 |
-| 1.4 | Chuỗi Fourier
-1.4.1. Định nghĩa chuỗi Fourier của một hàm. Sự hội tụ
-của chuỗi Fourier, điều kiện khai triển
-1.4.2. Khai triển hàm thành chuỗi Fourier: khai triển trên
-đoạn [,], khai triển chẵn, khai triển lẻ | CK1, CS1,
-CS2, CS3 |
+|  | 1.1.2. Chuỗi dương: các dấu hiệu hội tụ của chuỗi dương<br>1.1.3. Chuỗi có dấu bất kỳ: dấu hiệu Leibniz, dấu hiệu<br>Dirichlet và dấu hiệu Abel |  |
+| 1.2 | Dãy hàm, chuỗi hàm<br>1.2.1. Dãy hàm: Miền hội tụ, khái niệm về hội tụ đều.<br>Tiêu chuẩn Cauchy. Các tính chất của hàm giới hạn.<br>1.2.2. Chuỗi hàm: Miền hội tụ, khái niệm hội tụ đều. Tiêu<br>chuẩn Cauchy, dấu hiệu Weierstrass. Các tính chất của<br>tổng chuỗi hàm. | CK1, CS1,<br>CS2, CS3 |
+| 1.3 | Chuỗi lũy thừa<br>1.3.1. Định nghĩa chuỗi lũy thừa, bán kính hội tụ của<br>chuỗi lũy thừa. Các tính chất của tổng chuỗi lũy thừa<br>1.3.2. Khai triển hàm thành chuỗi Taylor, điều kiện đủ để<br>một hàm khai triển thành chuỗi Taylor. Một số khai triển<br>cơ bản | CK1, CS1,<br>CS2, CS3 |
+| 1.4 | Chuỗi Fourier<br>1.4.1. Định nghĩa chuỗi Fourier của một hàm. Sự hội tụ<br>của chuỗi Fourier, điều kiện khai triển<br>1.4.2. Khai triển hàm thành chuỗi Fourier: khai triển trên<br>đoạn [,], khai triển chẵn, khai triển lẻ | CK1, CS1,<br>CS2, CS3 |
 | Chương 2. Giới hạn và tính liên tục của hàm số nhiều biến số |  |  |
-| 2.1 | Không gian Rn
-2.1.1. Khoảng cách trong Rn
-2.1.2. Khái niệm lân cận, tập mở, tập đóng, tập liên
-thông, tập compact
-2.1.3. Giới hạn dãy điểm trong Rn. Nguyên lý Cauchy | CK2, CS1,
-CS2, CS3 |
-| 2.2 | Hàm số nhiều biến liên tục
-2.2.1. Giới hạn và giới hạn lặp
-2.2.2. Định nghĩa hàm liên tục và các điều kiện tương
-đương. Hàm liên tục theo từng biến | CK2, CS1,
-CS2, CS3 |
+| 2.1 | Không gian Rn<br>2.1.1. Khoảng cách trong Rn<br>2.1.2. Khái niệm lân cận, tập mở, tập đóng, tập liên<br>thông, tập compact<br>2.1.3. Giới hạn dãy điểm trong Rn. Nguyên lý Cauchy | CK2, CS1,<br>CS2, CS3 |
+| 2.2 | Hàm số nhiều biến liên tục<br>2.2.1. Giới hạn và giới hạn lặp<br>2.2.2. Định nghĩa hàm liên tục và các điều kiện tương<br>đương. Hàm liên tục theo từng biến | CK2, CS1,<br>CS2, CS3 |
 5 27
 
 <!-- Page 28 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 2.2.3. Tính chất của hàm liên tục trên tập compact và tập
-liên thông
-2.2.4. Mở rộng các khái niệm liên tục cho hàm véc tơ |  |
+|  | 2.2.3. Tính chất của hàm liên tục trên tập compact và tập<br>liên thông<br>2.2.4. Mở rộng các khái niệm liên tục cho hàm véc tơ |  |
 | Chương 3. Phép tích vi phân của hàm số nhiều biến số |  |  |
-| 3.1 | Đạo hàm và vi phân
-3.1.1. Đạo hàm riêng. Định nghĩa hàm khả vi. Vi phân
-toàn phần
-3.1.2. Đạo hàm theo hướng. Vector gradient
-3.1.3. Mặt phẳng tiếp xúc với mặt cong. Xấp xỉ tuyến tính
-3.1.4. Đạo hàm riêng cấp cao. Tính đối xứng của đạo
-hàm riêng cấp cao. Ma trận Hessian và ý nghĩa
-3.1.5. Khai triển Taylor
-3.1.6. Mở rộng các khái niệm khả vi cho hàm vector. Đạo
-ánh. Ma trận Jacobi, công thức đạo hàm hàm hợp, định
-thức Jacobi và ý nghĩa | CK3, CS1,
-CS2, CS3,
-CR1, CR2 |
-| 3.2 | Cực trị
-3.2.1. Cực trị tự do
-3.2.2. Cực trị có điều kiện. Phương pháp nhân tử
-Lagrange | CK3, CS1,
-CS2, CS3,
-CR1, CR2 |
+| 3.1 | Đạo hàm và vi phân<br>3.1.1. Đạo hàm riêng. Định nghĩa hàm khả vi. Vi phân<br>toàn phần<br>3.1.2. Đạo hàm theo hướng. Vector gradient<br>3.1.3. Mặt phẳng tiếp xúc với mặt cong. Xấp xỉ tuyến tính<br>3.1.4. Đạo hàm riêng cấp cao. Tính đối xứng của đạo<br>hàm riêng cấp cao. Ma trận Hessian và ý nghĩa<br>3.1.5. Khai triển Taylor<br>3.1.6. Mở rộng các khái niệm khả vi cho hàm vector. Đạo<br>ánh. Ma trận Jacobi, công thức đạo hàm hàm hợp, định<br>thức Jacobi và ý nghĩa | CK3, CS1,<br>CS2, CS3,<br>CR1, CR2 |
+| 3.2 | Cực trị<br>3.2.1. Cực trị tự do<br>3.2.2. Cực trị có điều kiện. Phương pháp nhân tử<br>Lagrange | CK3, CS1,<br>CS2, CS3,<br>CR1, CR2 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 28
 
@@ -1019,34 +762,20 @@ GIẢI TÍCH 3
 - Giải tích 2 (MAT2502)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
-| STT | Họ và tên | Học hàm,
-học vị | Đơn vị công
-tác | Email |
+| STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- |
-| 1. | Nguyễn Hữu Dư | GS.TS. | Trường
-ĐHKHTN | nguyenhuudu@hus.edu.vn |
-| 2. | Phạm Chí Vĩnh | GS.TS. | Trường
-ĐHKHTN | phamchivinh@hus.edu.vn |
-| 3. | Ngô Quốc Anh | PGS.TS. | Trường
-ĐHKHTN | ngoquocanh@hus.edu.vn |
-| 4. | Nguyễn Thạc Dũng | PGS.TS. | Trường
-ĐHKHTN | nguyenthacdung_tct@hus.edu.vn |
-| 5. | Trịnh Viết Dược | PGS.TS. | Trường
-ĐHKHTN | duoctt@hus.edu.vn |
-| 6. | Vũ Nhật Huy | PGS.TS. | Trường
-ĐHKHTN | vunhathuy@hus.edu.vn |
-| 7. | Phạm Trọng Tiến | PGS.TS. | Trường
-ĐHKHTN | phamtien@hus.edu.vn |
-| 8. | Trần Thanh Tuấn | PGS.TS. | Trường
-ĐHKHTN | tranthanhtuan@hus.edu.vn |
-| 9. | Lê Huy Chuẩn | TS. | Trường
-ĐHKHTN | lehuychuan@hus.edu.vn |
-| 10. | Nguyễn Thị Hoài | TS. | Trường
-ĐHKHTN | nguyenthihoai@hus.edu.vn |
-| 11. | Lê Huy Tiễn | TS. | Trường
-ĐHKHTN | lehuytien@hus.edu.vn |
-| 12. | Đặng Anh Tuấn | TS. | Trường
-ĐHKHTN | danganhtuan@hus.edu.vn |
+| 1. | Nguyễn Hữu Dư | GS.TS. | Trường<br>ĐHKHTN | nguyenhuudu@hus.edu.vn |
+| 2. | Phạm Chí Vĩnh | GS.TS. | Trường<br>ĐHKHTN | phamchivinh@hus.edu.vn |
+| 3. | Ngô Quốc Anh | PGS.TS. | Trường<br>ĐHKHTN | ngoquocanh@hus.edu.vn |
+| 4. | Nguyễn Thạc Dũng | PGS.TS. | Trường<br>ĐHKHTN | nguyenthacdung_tct@hus.edu.vn |
+| 5. | Trịnh Viết Dược | PGS.TS. | Trường<br>ĐHKHTN | duoctt@hus.edu.vn |
+| 6. | Vũ Nhật Huy | PGS.TS. | Trường<br>ĐHKHTN | vunhathuy@hus.edu.vn |
+| 7. | Phạm Trọng Tiến | PGS.TS. | Trường<br>ĐHKHTN | phamtien@hus.edu.vn |
+| 8. | Trần Thanh Tuấn | PGS.TS. | Trường<br>ĐHKHTN | tranthanhtuan@hus.edu.vn |
+| 9. | Lê Huy Chuẩn | TS. | Trường<br>ĐHKHTN | lehuychuan@hus.edu.vn |
+| 10. | Nguyễn Thị Hoài | TS. | Trường<br>ĐHKHTN | nguyenthihoai@hus.edu.vn |
+| 11. | Lê Huy Tiễn | TS. | Trường<br>ĐHKHTN | lehuytien@hus.edu.vn |
+| 12. | Đặng Anh Tuấn | TS. | Trường<br>ĐHKHTN | danganhtuan@hus.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: cung cấp cho người học các kiến thức cơ bản nhất của toán học
 1 29
@@ -1100,37 +829,18 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng góp<br>của học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
-| STT | Tiêu chí
-đánh giá | Trọng
-số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm
-bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CR1, CR2,
-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2,
-CS1, CS2, CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK1, CK2,
-CK3, CS1,
-CS2, CS3, |
+| 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm<br>bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CS1, CS2, CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3, |
 |  | Tổng | 100% |  |  |
 3 31
 
@@ -1151,66 +861,24 @@ NXB ĐHQGHN, 1998.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tích phân bội |  |  |
-| 1.1 | Tích phân trên hình hộp
-1.1.1. Định nghĩa, điều kiện để khả tích. Tính chất của tích
-phân trên hình hộp
-1.1.2. Chuyển tích phân bội về tích phân lặp, Định lý Fubini | CK2, CS2, CS3 |
-| 1.2 | Tích phân trên miền tổng quát
-1.2.1. Định nghĩa tích phân trên miền tổng quát
-1.2.2. Đổi biến trong tích phân bội. Toạ độ cực, toạ độ trụ, toạ
-độ cầu
-1.2.3. Ứng dụng của tích phân bội | CK2, CS1,
-CS2, CS3,
-CR1, CR2 |
+| 1.1 | Tích phân trên hình hộp<br>1.1.1. Định nghĩa, điều kiện để khả tích. Tính chất của tích<br>phân trên hình hộp<br>1.1.2. Chuyển tích phân bội về tích phân lặp, Định lý Fubini | CK2, CS2, CS3 |
+| 1.2 | Tích phân trên miền tổng quát<br>1.2.1. Định nghĩa tích phân trên miền tổng quát<br>1.2.2. Đổi biến trong tích phân bội. Toạ độ cực, toạ độ trụ, toạ<br>độ cầu<br>1.2.3. Ứng dụng của tích phân bội | CK2, CS1,<br>CS2, CS3,<br>CR1, CR2 |
 | Chương 2. Tích phân đường và tích phân mặt |  |  |
-| 2.1 | Giới thiệu về trường vô hướng, trường vector. Định nghĩa
-Divergent, Curl (Rot) và ý nghĩa | CK1 |
-| 2.2 | Tích phân đường loại I
-2.2.1. Khái niệm đường cong, bài toán dẫn đến tích phân | CK1, CK3,
-CS1, CS2, CS3 |
+| 2.1 | Giới thiệu về trường vô hướng, trường vector. Định nghĩa<br>Divergent, Curl (Rot) và ý nghĩa | CK1 |
+| 2.2 | Tích phân đường loại I<br>2.2.1. Khái niệm đường cong, bài toán dẫn đến tích phân | CK1, CK3,<br>CS1, CS2, CS3 |
 4 32
 
 <!-- Page 33 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | đường loại I
-2.2.2. Định nghĩa, sự tồn tại, công thức tính |  |
-| 2.3 | Tích phân đường loại II
-2.3.1. Định hướng của đường cong, bài toán dẫn đến tích phân
-đường loại II
-2.3.2. Định nghĩa, sự tồn tại, công thức tính
-2.3.3. Công thức liên hệ giữa tích phân đường loại I và loại II
-2.3.4. Ứng dụng của tích phân đường | CK1, CK3,
-CS1, CS2, CS3,
-CR1, CR2 |
-| 2.4 | Tích phân mặt loại I
-2.4.1. Khái niệm mặt cong, diện tích mặt cong, bài toán dẫn
-đến tích phân mặt loại I
-2.4.2. Định nghĩa, sự tồn tại, công thức tính | CK1, CK3,
-CS1, CS2, CS3 |
-| 2.5 | Tích phân mặt loại II
-2.5.1. Định hướng mặt cong, bài toán dẫn đến tích phân mặt
-loại II
-2.5.2. Định nghĩa, sự tồn tại, công thức tính
-2.5.3. Công thức liên hệ giữa tích phân mặt loại I và loại II
-2.5.3. Ứng dụng của tích phân mặt | CK1, CK3,
-CS1, CS2, CS3,
-CR1, CR2 |
-| 2.6 | Công thức liên hệ giữa tích phân bội, tích phân đường, tích
-phân mặt
-2.6.1. Công thức Green. Điều kiện để tích phân đường không
-phụ thuộc vào đường lấy tích phân. Ứng dụng để tính diện tích
-hình phẳng
-2.6.2. Công thức Stokes
-2.6.3. Công thức Ostrogradski | CK2, CK3,
-CS2, CS3 |
+|  | đường loại I<br>2.2.2. Định nghĩa, sự tồn tại, công thức tính |  |
+| 2.3 | Tích phân đường loại II<br>2.3.1. Định hướng của đường cong, bài toán dẫn đến tích phân<br>đường loại II<br>2.3.2. Định nghĩa, sự tồn tại, công thức tính<br>2.3.3. Công thức liên hệ giữa tích phân đường loại I và loại II<br>2.3.4. Ứng dụng của tích phân đường | CK1, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2 |
+| 2.4 | Tích phân mặt loại I<br>2.4.1. Khái niệm mặt cong, diện tích mặt cong, bài toán dẫn<br>đến tích phân mặt loại I<br>2.4.2. Định nghĩa, sự tồn tại, công thức tính | CK1, CK3,<br>CS1, CS2, CS3 |
+| 2.5 | Tích phân mặt loại II<br>2.5.1. Định hướng mặt cong, bài toán dẫn đến tích phân mặt<br>loại II<br>2.5.2. Định nghĩa, sự tồn tại, công thức tính<br>2.5.3. Công thức liên hệ giữa tích phân mặt loại I và loại II<br>2.5.3. Ứng dụng của tích phân mặt | CK1, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2 |
+| 2.6 | Công thức liên hệ giữa tích phân bội, tích phân đường, tích<br>phân mặt<br>2.6.1. Công thức Green. Điều kiện để tích phân đường không<br>phụ thuộc vào đường lấy tích phân. Ứng dụng để tính diện tích<br>hình phẳng<br>2.6.2. Công thức Stokes<br>2.6.3. Công thức Ostrogradski | CK2, CK3,<br>CS2, CS3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 33
 
@@ -1291,28 +959,18 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK3 | PK4 | PS1 | PS2 | PS4 | PS6 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PK4 | PS2 | PS4 | PS5 | PS6 | PR3 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày. | CK1, CK2
-CS1, CS2
-CR1,CR2 |
-| 2 | Giữa kỳ | 20% | - Thi tự luận | CK1, CK4
-CS2,CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận | CK1-CK4
-CS1-CS3 |
+| 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày. | CK1, CK2<br>CS1, CS2<br>CR1,CR2 |
+| 2 | Giữa kỳ | 20% | - Thi tự luận | CK1, CK4<br>CS2,CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận | CK1-CK4<br>CS1-CS3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1 Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -1334,9 +992,7 @@ Methods and Applications, 2nd edition, John Wiley & Sons, 2011.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về Phương trình vi phân |  |  |
 | 1.1 | Các ví dụ và khái niệm cơ bản |  |
@@ -1347,20 +1003,16 @@ của học phần |
 | 2.2 | Phương trình tách biến |  |
 | 2.3 | Phương trình đẳng cấp |  |
 | 2.4 | Phương trình vi phân toàn phần. Thừa số tích phân |  |
-| 2.5 | Phương trình tuyến tính và phương pháp biến thiên hằng số
-Lagrange |  |
+| 2.5 | Phương trình tuyến tính và phương pháp biến thiên hằng số<br>Lagrange |  |
 | 2.6 | Phương trình Bernouilli |  |
 | 2.7 | Phương trình ẩn và phương pháp tham số hóa đạo hàm |  |
 37
 
 <!-- Page 38 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.8 | Phương trình Lagrange và phương trình Clairaut |  |
-| Chương 3. Phương trình vi phân cấp hai |  | CK1,CK2,
-CK3,CS2, CS3 |
+| Chương 3. Phương trình vi phân cấp hai |  | CK1,CK2,<br>CK3,CS2, CS3 |
 | 3.1 | Phép hạ thấp cấp |  |
 | 3.2 | Phương trình tuyến tính thuần nhất và không thuần nhất |  |
 | 3.2.1 | Độc lập tuyến tính và phụ thuộc tuyến tính |  |
@@ -1374,8 +1026,7 @@ CK3,CS2, CS3 |
 | 3.9 | Phương pháp hệ số bất định |  |
 | 3.9.1 | Phương trình vi phân Euler |  |
 | 3.9.2 | Một số ứng dụng vào các bài toán cơ học, sinh học, hóa học,… |  |
-| Chương 4. Phương trình vi phân cấp cao |  | CK1,CK2,
-CS2,CS3 |
+| Chương 4. Phương trình vi phân cấp cao |  | CK1,CK2,<br>CS2,CS3 |
 | 4.1 | Phép hạ thấp cấp |  |
 | 4.2 | Phương trình tuyến tính thuần nhất và không thuần nhất |  |
 | 4.3 | Độc lập tuyến tính và phụ thuộc tuyến tính |  |
@@ -1388,27 +1039,18 @@ CS2,CS3 |
 38
 
 <!-- Page 39 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.10 | Đa thức đặc trưng |  |
 | 4.11 | Phương pháp hệ số bất định |  |
 | 4.12 | Phương trình vi phân Euler |  |
-| Chương 5. Hệ phương trình vi phân cấp một |  | CK1-CK4,
-CS1, CS3 |
-| 5.1 | Các khái niệm cơ bản. Quan hệ với phương trình vi phân cấp
-cao |  |
+| Chương 5. Hệ phương trình vi phân cấp một |  | CK1-CK4,<br>CS1, CS3 |
+| 5.1 | Các khái niệm cơ bản. Quan hệ với phương trình vi phân cấp<br>cao |  |
 | 5.2 | Phương pháp thế |  |
-| 5.3 | Phương pháp tổ hợp khả tích. Dạng đối xứng của hệ phương
-trình vi phân |  |
+| 5.3 | Phương pháp tổ hợp khả tích. Dạng đối xứng của hệ phương<br>trình vi phân |  |
 | 5.4 | Nhắc lại về ma trận, giá trị riêng, vector riêng |  |
-| 5.5 | Hệ phương trình tuyến tính thuần nhất và không thuần nhất:
-Độc lập tuyến tính và phụ thuộc tuyến tính; Định thức
-Wronski; Hệ nghiệm cơ bản; Cấu trúc nghiệm; Phương pháp
-Lagrange |  |
-| 5.6 | Hệ phương trình tuyến tính với hệ số hằng: Đa thức đặc trưng;
-Phương pháp hệ số bất định; mũ ma trận |  |
+| 5.5 | Hệ phương trình tuyến tính thuần nhất và không thuần nhất:<br>Độc lập tuyến tính và phụ thuộc tuyến tính; Định thức<br>Wronski; Hệ nghiệm cơ bản; Cấu trúc nghiệm; Phương pháp<br>Lagrange |  |
+| 5.6 | Hệ phương trình tuyến tính với hệ số hằng: Đa thức đặc trưng;<br>Phương pháp hệ số bất định; mũ ma trận |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 39
 
@@ -1422,16 +1064,14 @@ XÁC SUẤT - THỐNG KÊ
 - MAT2502: Giải tích 2
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
-| STT | Họ và tên |  | Học |  | Đơn vị công
-tác | Email |
+| STT | Họ và tên |  | Học |  | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | hàm, |  |  |  |
 |  |  |  | học vị |  |  |  |
 | 1. | Trịnh Quốc Anh | TS |  |  | ĐHKHTN | trinhquocanh@hus.edu.vn |
 | 2. | Nguyễn Tiến Dũng | PGS.TS |  |  | ĐHKHTN | dung@hus.edu.vn |
 | 3. | Tạ Công Sơn | PGS.TS |  |  | ĐHKHTN | congson82@gmail.com |
-| 4. | Hoàng Thị Phương
-Thảo | TS |  |  | ĐHKHTN | thaohtp@hus.edu.vn |
+| 4. | Hoàng Thị Phương<br>Thảo | TS |  |  | ĐHKHTN | thaohtp@hus.edu.vn |
 | 5. | Phạm Đình Tùng | TS |  |  | ĐHKHTN | tungpd@vnu.edu.vn |
 | 6. | Lê Vĩ | TS |  |  | ĐHKHTN | levi121286@gmail.com |
 | 7. | Trần Mạnh Cường | TS |  |  | ĐHKHTN | cuongtm@vnu.edu.vn |
@@ -1490,45 +1130,20 @@ và các phương pháp phân tích khoa học (PR3:3).
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK2 | PK3 | PK4 | PS2 | PS3 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 |
+| Mức đóng<br>góp của học<br>phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 2 41
 
 <!-- Page 42 -->
 | CĐR CTĐT | PK2 | PK3 | PK4 | PS1 | PS2 | PS7 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 |
+| Mức đóng<br>góp của học<br>phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập
-| STT | Tiêu chí
-đánh giá | Trọng
-số | Mô tả
-(nội dung, thang điểm) | Chuẩn đầu
-ra
-cần đo
-được |
+| STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả<br>(nội dung, thang điểm) | Chuẩn đầu<br>ra<br>cần đo<br>được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 20% | - Đánh giá thông qua
-điểm danh, bài tập, kiểm
-tra.
-- Thang điểm 10. | CK1, CK2,
-CS1, CS2 |
-| 2. | Giữa kỳ | 20% | - Đánh giá thông qua bài
-kiểm tra, bài tập lớn.
-- Thang điểm 10 | CK2, CK3,
-CS1, CS2,
-CS3, CR1,
-CR2 |
-| 3. | Cuối kỳ | 60% | - Đánh giá thông qua bài
-kiểm tra, bài tập lớn.
-- Thang điểm 10 | CK1, CK2,
-CK3, CS1,
-CS2, CR1,
-CR2 |
+| 1. | Thường<br>xuyên | 20% | - Đánh giá thông qua<br>điểm danh, bài tập, kiểm<br>tra.<br>- Thang điểm 10. | CK1, CK2,<br>CS1, CS2 |
+| 2. | Giữa kỳ | 20% | - Đánh giá thông qua bài<br>kiểm tra, bài tập lớn.<br>- Thang điểm 10 | CK2, CK3,<br>CS1, CS2,<br>CS3, CR1,<br>CR2 |
+| 3. | Cuối kỳ | 60% | - Đánh giá thông qua bài<br>kiểm tra, bài tập lớn.<br>- Thang điểm 10 | CK1, CK2,<br>CK3, CS1,<br>CS2, CR1,<br>CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc:
@@ -1542,51 +1157,34 @@ học sự sống (với phần mềm R), NXB ĐHQGHN, 2019.
  Jay L. Devore, Probability and Statistics for Engineering and the Sciences, 9th
 Edition, Cengage Learning, 2019.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
-| Chương,
-mục | Tiêu đề/Nội dung | Chuẩn đầu
-ra của học
-phần |
+| Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 | Chương 1. Xác suất thống kê trong việc xử lý thông tin |  | CK3, CS1, |
 3 42
 
 <!-- Page 43 -->
-| Chương,
-mục | Tiêu đề/Nội dung | Chuẩn đầu
-ra của học
-phần |
+| Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 | (03LT, 02TH) |  | CS2, CR2 |
 | 1.1 | Khái niệm Số liệu, Quần thể, và Mẫu |  |
 | 1.2 | Các cách biểu diễn số liệu mẫu |  |
 | 1.3 | Các đặc trưng cơ bản của mẫu |  |
 | 1.4 | Giới thiệu về phần mềm R và một số đồ thị cơ bản |  |
-| Chương 2. Mở đầu về Xác suất (06LT, 02TH) |  | CK1, CK2,
-CS1, CS2,
-CR1 |
+| Chương 2. Mở đầu về Xác suất (06LT, 02TH) |  | CK1, CK2,<br>CS1, CS2,<br>CR1 |
 | 2.1 | Khái niệm không gian mẫu và sự kiện |  |
-| 2.2 | Xác suất của sự kiện và các quy tắc tính xác suất
-cơ bản |  |
+| 2.2 | Xác suất của sự kiện và các quy tắc tính xác suất<br>cơ bản |  |
 | 2.3 | Công thức xác suất đầy đủ và công thức Bayes |  |
 | 2.4 | Thực hành |  |
-| Chương 3. Đại lượng nhiên rời rạc và hàm phân phối xác
-suất (03LT, 01TH) |  | CK1, CK2,
-CS1, CS2,
-CR1 |
+| Chương 3. Đại lượng nhiên rời rạc và hàm phân phối xác<br>suất (03LT, 01TH) |  | CK1, CK2,<br>CS1, CS2,<br>CR1 |
 | 3.1 | Hàm phân phối xác suất |  |
 | 3.2 | Các đặc trưng của đại lượng ngẫu nhiên rời rạc |  |
 | 3.3 | Các phân phối rời rạc hay dùng |  |
 | 3.4 | Thực hành |  |
-| Chương 4. Đại lượng ngẫu nhiên liên tục và hàm phân phối
-xác suất (03LT, 01TH) |  | CK1, CK2,
-CS1, CS2,
-CR1 |
+| Chương 4. Đại lượng ngẫu nhiên liên tục và hàm phân phối<br>xác suất (03LT, 01TH) |  | CK1, CK2,<br>CS1, CS2,<br>CR1 |
 | 4.1 | Hàm mật độ và hàm phân phối xác suất |  |
 | 4.2 | Các đặc trưng của đại lượng ngẫu nhiên liên tục |  |
 | 4.3 | Các phân phối liên tục hay dùng |  |
-| Chương 5. Mẫu ngẫu nhiên (03LT, 01BT/TH) |  | CK2, CK3,
-CS1, CS2,
-CR1 |
+| Chương 5. Mẫu ngẫu nhiên (03LT, 01BT/TH) |  | CK2, CK3,<br>CS1, CS2,<br>CR1 |
 | 5.1 | Các đặc trưng mẫu (thống kê) |  |
 | 5.2 | Các phân bố mẫu |  |
 | 5.3 | Mô phỏng trong R |  |
@@ -1594,57 +1192,31 @@ CR1 |
 4 43
 
 <!-- Page 44 -->
-| Chương,
-mục | Tiêu đề/Nội dung | Chuẩn đầu
-ra của học
-phần |
+| Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
-|  |  | CS2, CR1,
-CR2 |
+|  |  | CS2, CR1,<br>CR2 |
 | 6.1 | Ước lượng điểm |  |
 | 6.2 | Ước lượng khoảng tin cậy |  |
 | 6.3 | Thực hành |  |
-| Chương 7: Kiểm định giả thuyết thống kê (09LT, 03TH) |  | CK3, CS1,
-CS2, CR1,
-CR2 |
+| Chương 7: Kiểm định giả thuyết thống kê (09LT, 03TH) |  | CK3, CS1,<br>CS2, CR1,<br>CR2 |
 | 7.1 | Giới thiệu bài toán |  |
-| 7.2 | Kiểm định giả thuyết trên một mẫu
-7.2.1. Kiểm định giá trị trung bình
-7.2.3. Kiểm định tỷ lệ
-7.2.4. Kiểm định phương sai |  |
-| 7.3 | Kiểm định giả thuyết trên hai mẫu
-7.3.1. So sánh hai giá trị trung bình
-7.3.2. So sánh hai tỷ lệ
-7.3.3. So sánh hai phương sai |  |
-| 7.4 | Kiểm định theo tiêu chuẩn khi-bình phương (χ2)
-7.4.1. Kiểm định tính độc lập
-7.4.2. So sánh nhiều tỷ lệ
-7.4.3. Kiểm định sự phù hợp (Goodness-of-Fit) |  |
-| 7.5 | So sánh nhiều giá trị trung bình
-7.5.1. Phân tích phương sai theo một nhân tố
-7.5.2. Phân tích phương sai theo hai nhân tố |  |
+| 7.2 | Kiểm định giả thuyết trên một mẫu<br>7.2.1. Kiểm định giá trị trung bình<br>7.2.3. Kiểm định tỷ lệ<br>7.2.4. Kiểm định phương sai |  |
+| 7.3 | Kiểm định giả thuyết trên hai mẫu<br>7.3.1. So sánh hai giá trị trung bình<br>7.3.2. So sánh hai tỷ lệ<br>7.3.3. So sánh hai phương sai |  |
+| 7.4 | Kiểm định theo tiêu chuẩn khi-bình phương (χ2)<br>7.4.1. Kiểm định tính độc lập<br>7.4.2. So sánh nhiều tỷ lệ<br>7.4.3. Kiểm định sự phù hợp (Goodness-of-Fit) |  |
+| 7.5 | So sánh nhiều giá trị trung bình<br>7.5.1. Phân tích phương sai theo một nhân tố<br>7.5.2. Phân tích phương sai theo hai nhân tố |  |
 | 7.6 | Thực hành |  |
-| Chương 8: Hồi quy (09LT, 03TH) |  | CK3, CS1,
-CS2, CR1,
-CR2 |
+| Chương 8: Hồi quy (09LT, 03TH) |  | CK3, CS1,<br>CS2, CR1,<br>CR2 |
 | 8.1 | Tương quan và hệ số tương quan |  |
-| 8.2 | Mô hình hồi quy tuyến tính đơn
-8.2.1. Phát biểu mô hình
-8.2.2. Ước lượng hệ số
-8.2.3. Kiểm định hệ số |  |
+| 8.2 | Mô hình hồi quy tuyến tính đơn<br>8.2.1. Phát biểu mô hình<br>8.2.2. Ước lượng hệ số<br>8.2.3. Kiểm định hệ số |  |
 5 44
 
 <!-- Page 45 -->
-| Chương,
-mục | Tiêu đề/Nội dung | Chuẩn đầu
-ra của học
-phần |
+| Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 |  | 8.2.4. Dự báo và sai số |  |
 | 8.3 | Khảo sát phần dư (residuals) |  |
 | 8.4 | Một số dạng phi tuyến có thể tuyến tính hoá |  |
-| 8.5 | Giới thiệu mô hình hồi quy tuyến tính bội với phần
-mềm R |  |
+| 8.5 | Giới thiệu mô hình hồi quy tuyến tính bội với phần<br>mềm R |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 PGS.TS. Nguyễn Tiến Dũng TS. Hoàng Thị Phương Thảo
 6 45
@@ -1661,8 +1233,7 @@ tính;
 - MAT2303 hoặc MAT2502: Giải tích 2.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
-| STT | Họ và tên | Học hàm,
-học vị | Đơn vị công tác | Email |
+| STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- |
 | 1. | Hoàng Nam Dũng | TS | Trường ĐHKHTN |  |
 | 2. | Nguyễn Ngọc Phan | TS | Trường ĐHKHTN |  |
@@ -1730,62 +1301,35 @@ thảo luận nhóm, thuyết trình và các bài thi
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Toán học
-| CĐR
-CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PK3 | PK5 | PK6 |
+| CĐR<br>CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PK3 | PK5 | PK6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của
-học phần | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 4 | 2 | 3 | 3 |
+| Mức đóng<br>góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 4 | 2 | 3 | 3 |
 b. Chương trình đào tạo CNKHTN ngành Toán học
-| CĐR
-CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PR3 | PR5 | PR6 |
+| CĐR<br>CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PR3 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của
-học phần | 3 | 3 | 4 | 4 | 3 | 4 | 3 | 4 | 2 | 3 | 4 |
+| Mức đóng<br>góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 4 | 3 | 4 | 2 | 3 | 4 |
 c. Chương trình đào tạo ngành Toán Tin
-| CĐR
-CTĐT | PK3 | PK4 | PK8 | PK9 | PS1 | PS2 | PS4 | PS6 | PS7 | PR3 | PR4 | PR5 |
+| CĐR<br>CTĐT | PK3 | PK4 | PK8 | PK9 | PS1 | PS2 | PS4 | PS6 | PS7 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của
-học phần | 3 | 3 | 5 | 3 | 3 | 4 | 4 | 4 | 4 | 3 | 4 | 4 |
+| Mức đóng<br>góp của<br>học phần | 3 | 3 | 5 | 3 | 3 | 4 | 4 | 4 | 4 | 3 | 4 | 4 |
 d. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PS4 |  | PS5 | PR3 |  |  | PR5 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 3 | 3 |  | 3 |  | 4 |  |  |
+| Mức đóng<br>góp của học<br>phần | 3 | 3 | 3 |  | 3 |  | 4 |  |  |
 e. Chương trình đào tạo ngành Khoa học dữ liệu
 3 48
 
 <!-- Page 49 -->
 | CĐR CTĐT | PK3 | PS4 | PS5 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần | 3 | 3 | 3 | 3 | 3 | 4 |
+| Mức đóng<br>góp của học<br>phần | 3 | 3 | 3 | 3 | 3 | 4 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
-| ST
-T | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu
-ra cần đo
-được |
+| ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Bài tập về nhà
-- Thang điểm 10 | CK1-CK6,
-CS1-CS3,
-CS5,
-CR1-CR3 |
-| 2 | Giữa kỳ | 20% | - Thi tự luận và thuyết trình
-- Thang điểm 10 | CK1-CK7,
-CS1-CS5,
-CR1-CR3 |
-| 3 | Cuối kỳ | 60% | - Thi tự luận
-- Thang điểm 10 | CK1-CK7,
-CS1, CR2 |
+| 1 | Thường<br>xuyên | 20% | - Bài tập về nhà<br>- Thang điểm 10 | CK1-CK6,<br>CS1-CS3,<br>CS5,<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20% | - Thi tự luận và thuyết trình<br>- Thang điểm 10 | CK1-CK7,<br>CS1-CS5,<br>CR1-CR3 |
+| 3 | Cuối kỳ | 60% | - Thi tự luận<br>- Thang điểm 10 | CK1-CK7,<br>CS1, CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1 Học liệu bắt buộc:
@@ -1805,18 +1349,14 @@ toán, NXB ĐHBKHN, 2008.
 4 49
 
 <!-- Page 50 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
-| Chương 1. Mở đầu và một số khái niệm |  | CK1, CS5, CR1-
-CR3 |
+| Chương 1. Mở đầu và một số khái niệm |  | CK1, CS5, CR1-<br>CR3 |
 | 1.1 | Khái niệm và tính chất của tập lồi |  |
 | 1.2 | Khái niệm và tính chất của hàm lồi |  |
 | 1.3 | Một số lớp bài toán tối ưu hóa và một số định nghĩa |  |
 | 1.4 | Bài toán tối ưu hóa lồi |  |
-| Chương 2. Hình học của bài toán quy hoạch tuyến tính |  | CK1, CS5, CR1-
-CR3 |
+| Chương 2. Hình học của bài toán quy hoạch tuyến tính |  | CK1, CS5, CR1-<br>CR3 |
 | 2.1 | Siêu phẳng, nửa không gian và đa diện lồi |  |
 | 2.2 | Điểm cực, đỉnh và nghiệm cơ sở chấp nhận được |  |
 | 2.3 | Đa diện ở dạng chính tắc |  |
@@ -1824,26 +1364,20 @@ CR3 |
 | 2.5 | Sự tồn tại của điểm cực |  |
 | 2.6 | Tính tối ưu của điểm cực |  |
 | 2.7 | Biểu diễn của đa diện bị chặn |  |
-| Chương 3. Bài toán quy hoạch tuyến tính |  | CK1-CK7, CS1-
-CS5, CR1-CR3 |
+| Chương 3. Bài toán quy hoạch tuyến tính |  | CK1-CK7, CS1-<br>CS5, CR1-CR3 |
 | 3.1 | Định nghĩa, các dạng bài toán và ứng dụng |  |
 | 3.2 | Mô hình hóa dưới dạng bài toán quy hoạch tuyến tính |  |
-| 3.3 | Giải bài toán quy hoạch tuyến tính sử dụng phương
-pháp hình học |  |
+| 3.3 | Giải bài toán quy hoạch tuyến tính sử dụng phương<br>pháp hình học |  |
 | 3.4 | Thuật toán đơn hình (1 pha và 2 pha) |  |
 | 3.5 | Giải bài toán quy hoạch tuyến tính bằng phần mềm |  |
 | 3.6 | Phân tích độ nhạy |  |
-| 3.7 | Bài toán đối ngẫu, các định lý đối ngẫu và định lý về
-độ lệch bù |  |
+| 3.7 | Bài toán đối ngẫu, các định lý đối ngẫu và định lý về<br>độ lệch bù |  |
 | 3.8 | Thuật toán đơn hình đối ngẫu |  |
-| Chương 4. Bài toán quy hoạch phi tuyến không ràng buộc |  | CK1-CK7, CS1-
-CS5, CR1-CR3 |
+| Chương 4. Bài toán quy hoạch phi tuyến không ràng buộc |  | CK1-CK7, CS1-<br>CS5, CR1-CR3 |
 5 50
 
 <!-- Page 51 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 4.1 | Định nghĩa và một số ứng dụng |  |
 | 4.2 | Điều kiện cần và đủ của tối ưu |  |
@@ -1867,15 +1401,9 @@ PHƯƠNG PHÁP NGHIÊN CỨU KHOA HỌC
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị công |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | tác |  |  |
-| 1. | TS. Hoàng Anh Đức | TS |  |  | Trường
-ĐHKHTN |  |  | hoanganhduc@hus.
-edu.vn |
-| 2. | TS. Nguyễn Thị Tâm | TS |  |  | Trường
-ĐHKHTN |  |  | nguyenthitam@hus.
-edu.vn |
-| 3. | TS. Phạm Văn Thắng | TS |  |  | Trường
-ĐHKHTN |  |  | phamvanthang@hu
-s.edu.vn |
+| 1. | TS. Hoàng Anh Đức | TS |  |  | Trường<br>ĐHKHTN |  |  | hoanganhduc@hus.<br>edu.vn |
+| 2. | TS. Nguyễn Thị Tâm | TS |  |  | Trường<br>ĐHKHTN |  |  | nguyenthitam@hus.<br>edu.vn |
+| 3. | TS. Phạm Văn Thắng | TS |  |  | Trường<br>ĐHKHTN |  |  | phamvanthang@hu<br>s.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp cho người học những kiến thức và kỹ năng cơ bản
 về các phương pháp nghiên cứu khoa học, công bố khoa học, và đạo đức khoa
@@ -1938,28 +1466,20 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 2 | 2 | 3 |  |  |  |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 2 | 2 | 3 |  |  |  |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 2 | 2 | 3 |  |  | 3 |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 2 | 2 | 3 |  |  | 3 |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp. | CK1,CR1-CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp. | CK1,CR1-CR3 |
 | 2 | Giữa kỳ | 20 % | - Báo cáo tiểu luận giữa kì | CK1, CK2 |
 | 3 | Cuối kỳ | 60 % | - Báo cáo tiểu luận | CK1-CK4 |
 |  | Tổng | 100% |  |  |
@@ -1982,53 +1502,25 @@ Chí Minh, 2018
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1: Thế nào là nghiên cứu khoa học |  | CK1, CS1-CS3,
-CR1 |
+| Chương 1: Thế nào là nghiên cứu khoa học |  | CK1, CS1-CS3,<br>CR1 |
 | 1.1 | Hoạt động nghiên cứu khoa học và phân loại |  |
 | 1.2 | Đạo đức trong nghiên cứu khoa học |  |
-| Chương 2: Các bước chính trong động nghiên cứu khoa học |  | CK1-CK4, CS1-
-CS5, CR1-CR3 |
-| 2.1 | Đối tượng nghiên cứu và việc thu thập tài liệu
-a. Cách xác định đối tượng nghiên cứu
-b. Cách sử dụng các cơ sở dữ liệu, các công cụ
-tìm kiếm để thu thập tài liệu có liên quan |  |
-| 2.2 | Xử lý dữ liệu và phương pháp kết luận
-a. Tổng quan của hoạt động nghiên cứu và cách
-viết tổng quan
-b. Các cách xử lý dữ liệu đã thu thập
-c. Các hình thức kết luận dựa trên kết quả nghiên
-cứu |  |
+| Chương 2: Các bước chính trong động nghiên cứu khoa học |  | CK1-CK4, CS1-<br>CS5, CR1-CR3 |
+| 2.1 | Đối tượng nghiên cứu và việc thu thập tài liệu<br>a. Cách xác định đối tượng nghiên cứu<br>b. Cách sử dụng các cơ sở dữ liệu, các công cụ<br>tìm kiếm để thu thập tài liệu có liên quan |  |
+| 2.2 | Xử lý dữ liệu và phương pháp kết luận<br>a. Tổng quan của hoạt động nghiên cứu và cách<br>viết tổng quan<br>b. Các cách xử lý dữ liệu đã thu thập<br>c. Các hình thức kết luận dựa trên kết quả nghiên<br>cứu |  |
 4 55
 
 <!-- Page 56 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 2.3 | Một số quy ước chung trong hoạt động nghiên cứu
-khoa học
-a. Trích dẫn và phương pháp trích dẫn hiệu quả
-b. Vai trò của tác giả và cách xác định
-c. Chất lượng nghiên cứu khoa học và các cách
-đánh giá |  |
-| Chương 3: Các phương pháp thể hiện kết quả nghiên cứu khoa
-học |  | CK1-CK4, CS1-
-CS5, CR1-CR3 |
-| 3.1 | Tóm tắt, nhận xét, báo cáo khoa học
-a. Tóm tắt và cách viết một tóm tắt
-b. Nhận xét và cách viết một nhận xét
-c. Báo cáo khoa học và cách viết một báo cáo
-khoa học |  |
-| 3.2 | Trình chiếu kết quả nghiên cứu khoa học
-a. LaTeX và gói lệnh beamer
-b. PowerPoint và Prezi |  |
+| 2.3 | Một số quy ước chung trong hoạt động nghiên cứu<br>khoa học<br>a. Trích dẫn và phương pháp trích dẫn hiệu quả<br>b. Vai trò của tác giả và cách xác định<br>c. Chất lượng nghiên cứu khoa học và các cách<br>đánh giá |  |
+| Chương 3: Các phương pháp thể hiện kết quả nghiên cứu khoa<br>học |  | CK1-CK4, CS1-<br>CS5, CR1-CR3 |
+| 3.1 | Tóm tắt, nhận xét, báo cáo khoa học<br>a. Tóm tắt và cách viết một tóm tắt<br>b. Nhận xét và cách viết một nhận xét<br>c. Báo cáo khoa học và cách viết một báo cáo<br>khoa học |  |
+| 3.2 | Trình chiếu kết quả nghiên cứu khoa học<br>a. LaTeX và gói lệnh beamer<br>b. PowerPoint và Prezi |  |
 | 3.3 | Công bố khoa học |  |
-| 3.4 | Các hệ thống cơ sở dữ liệu khoa học ISI, SCImago,
-Scopus |  |
+| 3.4 | Các hệ thống cơ sở dữ liệu khoa học ISI, SCImago,<br>Scopus |  |
 Phần 2: Thực hành
 Thực hiện một tiểu luận khoa học, viết báo cáo và trình bày (CK1-CK4, CS1-CS3, CR1-
 CR3).
@@ -2048,16 +1540,9 @@ TIẾNG ANH CHUYÊN NGÀNH KHOA HỌC MÁY TÍNH
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị công |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | tác |  |  |
-| 1. | Đỗ Thanh Hà | TS |  |  | Trường
-ĐHKHTN |  |  | dothanhha@hus.ed
-u.vn |
-| 2. | Nguyễn Thị Minh
-Huyền | TS |  |  | Trường
-ĐHKHTN |  |  | nguyenthiminhhuye
-n@hus.edu.vn |
-| 3. | Hoàng Quốc Hùng | ThS |  |  | Trường
-ĐHKHTN |  |  | hoangquochung@h
-us.edu.vn |
+| 1. | Đỗ Thanh Hà | TS |  |  | Trường<br>ĐHKHTN |  |  | dothanhha@hus.ed<br>u.vn |
+| 2. | Nguyễn Thị Minh<br>Huyền | TS |  |  | Trường<br>ĐHKHTN |  |  | nguyenthiminhhuye<br>n@hus.edu.vn |
+| 3. | Hoàng Quốc Hùng | ThS |  |  | Trường<br>ĐHKHTN |  |  | hoangquochung@h<br>us.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sau khi hoàn thành học phần, sinh viên hiểu được tầm quan
 trọng và vai trò của tiếng Anh trong giao tiếp khoa học; có khả năng mô tả và
@@ -2122,36 +1607,16 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần |  |  | 2 | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  |  | 2 | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Các bài kiểm tra trên lớp
-- Thang điểm đánh giá: CK1 5
-điểm, CS1 + CS2 + CS4: 4 điểm,
-CR2: 1 điểm | CK1, CS1, CR2 |
-| 2 | Giữa kỳ | 20 % | - Trình bày theo nhóm với chủ đề
-chọn trước
-- Thang điểm đánh giá.
-CK1: 4 điểm , CK20: 1 điểm, CS2:
-3 điểm, CR1: 1 điểm, CR2: 1 điểm | CK1, CK2, CS2,
-CR1, CR2 |
-| 3 | Cuối kỳ | 60 % | - Vấn đáp và trả lời câu hỏi
-- Thang điểm đánh giá.
-CK1: 3 điểm,
-CS2: 4 điểm
-CS3 + CS4 = 1 điểm ,
-CR1: 1.5 điểm,
-CR2: 0.1 điểm | CK1, CS3, CS4,
-CR1, CR2 |
+| 1 | Thường<br>xuyên | 20 % | - Các bài kiểm tra trên lớp<br>- Thang điểm đánh giá: CK1 5<br>điểm, CS1 + CS2 + CS4: 4 điểm,<br>CR2: 1 điểm | CK1, CS1, CR2 |
+| 2 | Giữa kỳ | 20 % | - Trình bày theo nhóm với chủ đề<br>chọn trước<br>- Thang điểm đánh giá.<br>CK1: 4 điểm , CK20: 1 điểm, CS2:<br>3 điểm, CR1: 1 điểm, CR2: 1 điểm | CK1, CK2, CS2,<br>CR1, CR2 |
+| 3 | Cuối kỳ | 60 % | - Vấn đáp và trả lời câu hỏi<br>- Thang điểm đánh giá.<br>CK1: 3 điểm,<br>CS2: 4 điểm<br>CS3 + CS4 = 1 điểm ,<br>CR1: 1.5 điểm,<br>CR2: 0.1 điểm | CK1, CS3, CS4,<br>CR1, CR2 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -2169,109 +1634,42 @@ Edition, Pearson, 2010.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. MODULE 1 – Mathematics |  |  |
-| 1.1 | Mục 1.1 Introduction | CK1, CS1, CS4,
-CR1 |
-| 1.2 | Mục 1.2 Properties of Matrices | CK1, CS1, CS4,
-CR1 |
-| 1.3 | Mục 1.3 Calculus of Variations | CK1, CS1, CS4,
-CR1 |
-| 1.4 | Mục 1.4 Probability theory
-1.4.1. Notions
-1.4.2. Probability Distributions | CK1, CS1, CS4,
-CR1 |
-| 1.5 | Mục 1.5. Logics | CK1, CS1, CS4,
-CR1 |
-| 1.6 | Mục 1.6. Writing tips:
-+ How to write a paragraph
-+ Relative clauses: WHICH vs. THAT
-+ Shortened relative clauses
-+ Verb-subject agreement
-+ Conditional clauses: types of conditional
-clauses; using IF and UNLESS
-+ using articles: a/an, the, and “zero” articles | CK1, CK2, CS3,
-CS4, CR1 |
+| 1.1 | Mục 1.1 Introduction | CK1, CS1, CS4,<br>CR1 |
+| 1.2 | Mục 1.2 Properties of Matrices | CK1, CS1, CS4,<br>CR1 |
+| 1.3 | Mục 1.3 Calculus of Variations | CK1, CS1, CS4,<br>CR1 |
+| 1.4 | Mục 1.4 Probability theory<br>1.4.1. Notions<br>1.4.2. Probability Distributions | CK1, CS1, CS4,<br>CR1 |
+| 1.5 | Mục 1.5. Logics | CK1, CS1, CS4,<br>CR1 |
+| 1.6 | Mục 1.6. Writing tips:<br>+ How to write a paragraph<br>+ Relative clauses: WHICH vs. THAT<br>+ Shortened relative clauses<br>+ Verb-subject agreement<br>+ Conditional clauses: types of conditional<br>clauses; using IF and UNLESS<br>+ using articles: a/an, the, and “zero” articles | CK1, CK2, CS3,<br>CS4, CR1 |
 | Chương 2. MODULE 2 – Data Structures and Algorithms |  |  |
 4 60
 
 <!-- Page 61 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 2.1 | Mục 2.1 Fundamentals | CK1, CS1, CS4,
-CR1 |
-|  | 2.2. Sorting | CK1, CS1, CS4,
-CR1 |
-|  | 2.3. Searching | CK1, CS1, CS4,
-CR1 |
-|  | 2.4. Graphs | CK1, CS1, CS4,
-CR1 |
-|  | 2.5. Strings | CK1, CS1, CS4,
-CR1 |
-|  | 2.6. Applications
-2.6.1. Commercial applications
-2.6.2. Scientific computing
-2.6.3. Engineering
-2.6.4. Operations research | CK1, CK2, CS1,
-CS4, CR1 |
-|  | 2.7. Writing tips:
-+ How to write a scientific essay (part 1):
-Cohesion: linking words and phrases (first,
-second, third; first, furthermore, finally; to begin,
-to conclude), repetition of keywords
-+ How to write an essay (scientific essay) (part 2):
-Cohesion: linking words and phrases
-(Reinforcement, Similarity, Result/consequence)
-+ Arrangement of adjectives
-+ Adjectives & adverbs, and others
-+ Compare & contrast: comparative & superlative
-forms of adjectives & adverbs, and others.
-+ Review of essay writing, tips, and practices | CK1, CK2, CS3,
-CS4, CR1, CR2 |
+| 2.1 | Mục 2.1 Fundamentals | CK1, CS1, CS4,<br>CR1 |
+|  | 2.2. Sorting | CK1, CS1, CS4,<br>CR1 |
+|  | 2.3. Searching | CK1, CS1, CS4,<br>CR1 |
+|  | 2.4. Graphs | CK1, CS1, CS4,<br>CR1 |
+|  | 2.5. Strings | CK1, CS1, CS4,<br>CR1 |
+|  | 2.6. Applications<br>2.6.1. Commercial applications<br>2.6.2. Scientific computing<br>2.6.3. Engineering<br>2.6.4. Operations research | CK1, CK2, CS1,<br>CS4, CR1 |
+|  | 2.7. Writing tips:<br>+ How to write a scientific essay (part 1):<br>Cohesion: linking words and phrases (first,<br>second, third; first, furthermore, finally; to begin,<br>to conclude), repetition of keywords<br>+ How to write an essay (scientific essay) (part 2):<br>Cohesion: linking words and phrases<br>(Reinforcement, Similarity, Result/consequence)<br>+ Arrangement of adjectives<br>+ Adjectives & adverbs, and others<br>+ Compare & contrast: comparative & superlative<br>forms of adjectives & adverbs, and others.<br>+ Review of essay writing, tips, and practices | CK1, CK2, CS3,<br>CS4, CR1, CR2 |
 | Chương 3. MODULE 3 – Machine Learning and Information Retrieval |  |  |
-|  | 3.1. Information theory | CK1, CS1, CS4,
-CR1 |
-|  | 3.2. Decision theory | CK1, CS1, CS4,
-CR1 |
+|  | 3.1. Information theory | CK1, CS1, CS4,<br>CR1 |
+|  | 3.2. Decision theory | CK1, CS1, CS4,<br>CR1 |
 5 61
 
 <!-- Page 62 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 3.3. Regression | CK1, CS1, CS4,
-CR1 |
-|  | 3.4. Classification | CK1, CS1, CS4,
-CR1 |
-|  | 3.5. Information retrieval | CK1, CS1, CS4,
-CR1 |
-|  | 3.6. Writing: Standard structure of scientific reports:
-Abstract – Introduction (cum. Literature review) –
-Materials & Methods – Results & Discussion –
-Conclusion – Acknowledgement – References | CK1, CK2, CS3,
-CS4, CR1, CR2 |
-|  | 3.7. Writing tips:
-+ Active voice vs. passive voice in scientific
-reports: when and why
-+ Verb forms and tenses in scientific reports (1):
-verb tenses used in literature review;
-demonstrating materials & methods and reporting
-results
-+ Verb forms and tenses in scientific reports (2):
-verb tenses in discussion; future tense leading to
-predictions, hypotheses, and conclusions
-(possibility, probability, proportion); modal
-auxiliaries, necessity, degrees of certainty | CK1, CK2, CS3,
-CS4, CR1, CR2 |
-|  | 3.8. Scientific honesty & Plagiarism (How to avoid
-plagiarism) | CK2, CS2, CS4,
-CR1, CR2 |
+|  | 3.3. Regression | CK1, CS1, CS4,<br>CR1 |
+|  | 3.4. Classification | CK1, CS1, CS4,<br>CR1 |
+|  | 3.5. Information retrieval | CK1, CS1, CS4,<br>CR1 |
+|  | 3.6. Writing: Standard structure of scientific reports:<br>Abstract – Introduction (cum. Literature review) –<br>Materials & Methods – Results & Discussion –<br>Conclusion – Acknowledgement – References | CK1, CK2, CS3,<br>CS4, CR1, CR2 |
+|  | 3.7. Writing tips:<br>+ Active voice vs. passive voice in scientific<br>reports: when and why<br>+ Verb forms and tenses in scientific reports (1):<br>verb tenses used in literature review;<br>demonstrating materials & methods and reporting<br>results<br>+ Verb forms and tenses in scientific reports (2):<br>verb tenses in discussion; future tense leading to<br>predictions, hypotheses, and conclusions<br>(possibility, probability, proportion); modal<br>auxiliaries, necessity, degrees of certainty | CK1, CK2, CS3,<br>CS4, CR1, CR2 |
+|  | 3.8. Scientific honesty & Plagiarism (How to avoid<br>plagiarism) | CK2, CS2, CS4,<br>CR1, CR2 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 62
 
@@ -2287,13 +1685,9 @@ TOÁN RỜI RẠC
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Nguyễn Hải Vinh | TS |  |  | Trường ĐHKHTN | nguyenhaivinh@h
-us.edu.vn |
-| 2. | Phó Đức Tài | PGS.TS |  |  | Trường ĐHKHTN | phoductai@hus.ed
-u.vn |
-| 3. | Phan Thị Hà
-Dương | PGS.TS |  |  | Viện Toán học | duongpth@hus.ed
-u.vn |
+| 1. | Nguyễn Hải Vinh | TS |  |  | Trường ĐHKHTN | nguyenhaivinh@h<br>us.edu.vn |
+| 2. | Phó Đức Tài | PGS.TS |  |  | Trường ĐHKHTN | phoductai@hus.ed<br>u.vn |
+| 3. | Phan Thị Hà<br>Dương | PGS.TS |  |  | Viện Toán học | duongpth@hus.ed<br>u.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Người học nắm được các kiến thức toán học cơ sở cho ngành
 công nghệ thông tin; áp dụng được các phương pháp tư duy và suy luận toán
@@ -2351,54 +1745,31 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán – Tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  |  | 3 | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  | 3 | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng
-góp của học
-phần |  | 3 |  | 3 |  |  | 3 |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |  |  |  |
+| Mức đóng<br>góp của học<br>phần |  | 3 |  | 3 |  |  | 3 |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |  |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  | 3 | 4 |  | 3 |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  | 3 | 4 |  | 3 |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 |  |  | 2 |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  | 2 |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  | 3 | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  | 3 | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 |  |  | 2 |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  | 2 |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |  |
 3 65
 
 <!-- Page 66 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 10 % | - Hình thức đánh giá: Bài tập,
-chuyên cần
-- Thang điểm đánh giá: 10 | CK1, CK2,
-CS1, CS2,
-CR1, CR2 |
-| 2. | Giữa kỳ | 20 % | - Hình thức đánh giá: Thi viết hoặc
-vấn đáp
-- Thang điểm đánh giá: 10 | CK2, CK3,
-CS2, CS3,
-CR2 |
-| 3. | Cuối kỳ | 70 % | - Hình thức đánh giá: Thi viết hoặc
-vấn đáp
-- Thang điểm đánh giá: 10 | CK2, CK3,
-CS2, CS3,
-CR2 |
+| 1. | Thường<br>xuyên | 10 % | - Hình thức đánh giá: Bài tập,<br>chuyên cần<br>- Thang điểm đánh giá: 10 | CK1, CK2,<br>CS1, CS2,<br>CR1, CR2 |
+| 2. | Giữa kỳ | 20 % | - Hình thức đánh giá: Thi viết hoặc<br>vấn đáp<br>- Thang điểm đánh giá: 10 | CK2, CK3,<br>CS2, CS3,<br>CR2 |
+| 3. | Cuối kỳ | 70 % | - Hình thức đánh giá: Thi viết hoặc<br>vấn đáp<br>- Thang điểm đánh giá: 10 | CK2, CK3,<br>CS2, CS3,<br>CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -2421,9 +1792,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 66
 
 <!-- Page 67 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Lôgic và chứng minh |  | CK1-CK3, CS2-CS3 |
 | 1.1 | Phép tính mệnh đề |  |
@@ -2459,9 +1828,7 @@ học phần |
 5 67
 
 <!-- Page 68 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 7.5 | Nhân đồ thị và ứng dụng |  |
 | Chương 8. Cây |  | CK1-CK3, CS1-CS3 |
@@ -2493,10 +1860,8 @@ MÔI TRƯỜNG LẬP TRÌNH LINUX
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Trần Thị Hương |  |  | ThS.NCS |  |  | Trường ĐHKHTN |  |  | tranthihuong@hus
-.edu.vn |  |  |
-| 2. |  |  | Hà Mỹ Linh |  |  | ThS.NCS |  |  | Trường ĐHKHTN |  |  | hamylinh@hus.ed
-u.vn |  |  |
+| 1. |  |  | Trần Thị Hương |  |  | ThS.NCS |  |  | Trường ĐHKHTN |  |  | tranthihuong@hus<br>.edu.vn |  |  |
+| 2. |  |  | Hà Mỹ Linh |  |  | ThS.NCS |  |  | Trường ĐHKHTN |  |  | hamylinh@hus.ed<br>u.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên nắm được những kiến thức cơ bản về môi trường,
 kiến trúc, cách quản trị hệ điều hành Linux. Sinh viên có khả năng tổ chức các
@@ -2560,43 +1925,28 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài
-tập lập trình trên máy tính | CK1, CK2
-CS1, CS2
-CR1, CR3 |
-| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3
-CS1, CS2,CS3
-CR1,CR2, CR3 |
-| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp
-với vấn đáp trực tiếp | CK1-CK4
-CS1-CS4,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK2<br>CS1, CS2<br>CR1, CR3 |
+| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3<br>CS1, CS2,CS3<br>CR1,CR2, CR3 |
+| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp<br>với vấn đáp trực tiếp | CK1-CK4<br>CS1-CS4,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 3 71
 
@@ -2610,9 +1960,7 @@ Free Documentation License, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về Linux |  | CK1 |
 | 1.1 | Quá trình phát triển của Linux |  |
@@ -2624,44 +1972,36 @@ của học phần |
 | 2.1 | Giới thiệu về các hệ vỏ thông dụng |  |
 | 2.2 | Khởi động và đăng nhập |  |
 | 2.3 | Một số lệnh thao tác thông dụng |  |
-| Chương 3. Thao tác với hệ thống tệp |  | CK1,CK2, CK3,
-CS1, CS2 |
+| Chương 3. Thao tác với hệ thống tệp |  | CK1,CK2, CK3,<br>CS1, CS2 |
 | 3.1 | Tổ chức tệp và thư mục của hệ thống |  |
 | 3.2 | Các lệnh cơ bản thao tác với hệ thống tệp |  |
 | 3.3 | Khái niệm liên kết cứng và mềm |  |
 | 3.4 | Quản lý quyền truy cập |  |
-| Chương 4. Hệ thống tệp mạng NFS |  | CK1,CK2, CK3,
-CS2 |
+| Chương 4. Hệ thống tệp mạng NFS |  | CK1,CK2, CK3,<br>CS2 |
 | 4.1 | Kiến trúc NFS với v-node |  |
 | 4.2 | Cài đặt và cấu hình dịch vụ NFS |  |
 | 4.3 | Gắn kết hệ thống tệp với NFS |  |
-| Chương 5. Quản lý các tiến trình |  | CK1- CK3,CS2,
-CS3 |
+| Chương 5. Quản lý các tiến trình |  | CK1- CK3,CS2,<br>CS3 |
 4 72
 
 <!-- Page 73 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.1 | Các trạng thái của tiến trình |  |
 | 5.2 | Các lệnh điều khiển tiến trình cơ bản |  |
 | 5.3 | Các lệnh gọi hệ thống bổ sung |  |
 | 5.4 | Quản lý quá trình thực hiện |  |
-| Chương 6. Quản lý người dùng |  | CK1-CK3, CS2,
-CS3 |
+| Chương 6. Quản lý người dùng |  | CK1-CK3, CS2,<br>CS3 |
 | 6.1 | Tổ chức tài khoản người dùng |  |
 | 6.2 | Tổ chức nhóm người dùng |  |
 | 6.3 | Các thao tác cơ bản |  |
-| Chương 7. Lập trình với hệ vỏ |  | CK1-CK4, CS2-
-CS4 |
+| Chương 7. Lập trình với hệ vỏ |  | CK1-CK4, CS2-<br>CS4 |
 | 7.1 | Sử dụng các lệnh hệ vỏ bash |  |
 | 7.2 | Điều hướng dữ liệu vào/ra |  |
 | 7.3 | Các biến môi trường |  |
 | 7.4 | Các cấu trúc lệnh |  |
 | 7.5 | Công cụ awk |  |
-| Chương 8. Các công cụ biên dịch và phát triển |  | CK2-CK4, CS2-
-CS4 |
+| Chương 8. Các công cụ biên dịch và phát triển |  | CK2-CK4, CS2-<br>CS4 |
 | 8.1 | Công cụ soạn thảo chương trình |  |
 | 8.2 | Trình và công cụ biên dịch GNU |  |
 | 8.3 | Thư viện liên kết |  |
@@ -2682,13 +2022,10 @@ NGUYÊN LÝ HỆ ĐIỀU HÀNH
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Hoàng Quốc Hùng |  |  | GV |  |  | Trường ĐHKHTN |  |  | hoangquochung@
-hus.edu.vn |  |  |
-| 2. |  |  | Lê Hồng Phương |  |  | PGS.TS |  |  | Trường ĐHKHTN |  |  | phuonglh@hus.ed
-u.vn |  |  |
+| 1. |  |  | Hoàng Quốc Hùng |  |  | GV |  |  | Trường ĐHKHTN |  |  | hoangquochung@<br>hus.edu.vn |  |  |
+| 2. |  |  | Lê Hồng Phương |  |  | PGS.TS |  |  | Trường ĐHKHTN |  |  | phuonglh@hus.ed<br>u.vn |  |  |
 | 3. |  |  | Lê Trọng Vĩnh |  |  | PGS.TS |  |  | Trường ĐHKHTN |  |  | vinhlt@hus.edu.vn |  |  |
-| 4. |  |  | Bùi Vũ Anh |  |  | TS |  |  | Viện ĐBCL |  |  | buivuanh@gmail.
-com |  |  |
+| 4. |  |  | Bùi Vũ Anh |  |  | TS |  |  | Viện ĐBCL |  |  | buivuanh@gmail.<br>com |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Giúp người học nắm được các kiến thức nền tảng về các thành
 phần kiến trúc của hệ điều hành, khả năng vận dụng các nguyên lý thiết kế và
@@ -2747,32 +2084,19 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 <!-- Page 76 -->
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 10% | - Điểm bài tập thực hành hàng tuần
-- Thang điểm 10 | CK1,CR1,
-CR2, CR3 |
-| 2 | Giữa kỳ | 30% | - Kiểm tra tự luận, kết hợp bài tập
-lớn
-- Thang điểm 10 | CK1,CK2,CK3
-,CS1,CS2,CS3,
-CR1,CR2, CR3 |
-| 3 | Cuối kỳ | 60 % | - Kiểm tra tự luận
-- Thang điểm đánh giá. | CK1,CK2,
-CS2, CS3 |
+| 1 | Thường<br>xuyên | 10% | - Điểm bài tập thực hành hàng tuần<br>- Thang điểm 10 | CK1,CR1,<br>CR2, CR3 |
+| 2 | Giữa kỳ | 30% | - Kiểm tra tự luận, kết hợp bài tập<br>lớn<br>- Thang điểm 10 | CK1,CK2,CK3<br>,CS1,CS2,CS3,<br>CR1,CR2, CR3 |
+| 3 | Cuối kỳ | 60 % | - Kiểm tra tự luận<br>- Thang điểm đánh giá. | CK1,CK2,<br>CS2, CS3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -2781,67 +2105,50 @@ CS2, CS3 |
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Các khái niệm cơ sở |  | CK1, CK3, CS1, |
 3 76
 
 <!-- Page 77 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  |  | CS2 |
 | 1.1 | Quá trình phát triển của các hệ điều hành |  |
 | 1.2 | Đơn nhiệm, đa nhiệm, đa người dùng |  |
 | 1.3 | Hệ điều hành cục bộ, mạng, phân tán |  |
 | 1.4 | Kiến trúc của một hệ điều hành |  |
-| Chương 2. Tiến trình và xử lý tương tranh |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 2. Tiến trình và xử lý tương tranh |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 2.1 | Khái niệm tiến trình, sơ đồ các trạng thái tiến trình |  |
-| 2.2 | Vấn đề phân bổ thời gian CPU và tài nguyên cho tiến
-trình |  |
+| 2.2 | Vấn đề phân bổ thời gian CPU và tài nguyên cho tiến<br>trình |  |
 | 2.3 | Các thuật toán giải quyết xung đột tài nguyên |  |
-| Chương 3. Quản lý bộ nhớ |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 3. Quản lý bộ nhớ |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 3.1 | Phương pháp đánh địa chỉ bộ nhớ |  |
 | 3.2 | Quản lý bộ nhớ rỗi |  |
 | 3.3 | Quản lý cấp phát cho tiến trình |  |
 | 3.4 | Quản lý bộ nhớ ảo |  |
 | 3.5 | Minh hoạ trong windows và một số hệ thống unix |  |
-| Chương 4. Hệ thống tệp |  | CK1, CK2, CK3,
-CS1, CS2, CS3 |
+| Chương 4. Hệ thống tệp |  | CK1, CK2, CK3,<br>CS1, CS2, CS3 |
 | 4.1 | Khái niệm tệp mở rộng |  |
 | 4.2 | Tổ chức thông tin trên đĩa |  |
 | 4.3 | Quản lý các khối đĩa rỗi |  |
 | 4.4 | Quản lý cấp phát tệp |  |
 | 4.5 | Quản trị quyền thâm nhập tài nguyên tệp |  |
 | 4.6 | Quản lý bộ đệm ẩn và các vấn đề về tính nhất quán |  |
-| Chương 5. Thiết bị ngoại vi |  | CK1, CK3, CS1,
-CS2 |
+| Chương 5. Thiết bị ngoại vi |  | CK1, CK3, CS1,<br>CS2 |
 | 5.1 | Kiến trúc các tầng quản lý thiết bị |  |
 | 5.2 | Thiết bị vào ra theo khối và theo dòng ký tự |  |
 | 5.3 | Quản lý bộ đệm ẩn cho thiết bị khối |  |
-| 5.4 | Thiết bị đĩa cứng: Tổ chức sector xếp xen kẽ, Thuật toán
-dịch chuyển đầu từ |  |
+| 5.4 | Thiết bị đĩa cứng: Tổ chức sector xếp xen kẽ, Thuật toán<br>dịch chuyển đầu từ |  |
 4 77
 
 <!-- Page 78 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.5 | Duy trì thời gian và đặt lịch thực hiện |  |
-| Chương 6. Vấn đề bế tắc |  | CK1, CK3, CS1,
-CS2 |
+| Chương 6. Vấn đề bế tắc |  | CK1, CK3, CS1,<br>CS2 |
 | 6.1 | Khái niệm bế tắc, các điều kiện dẫn tới bế tắc |  |
-| 6.2 | Các chiến lược giải quyết bế tắc
-- Chiến lược đà điểu
-- Chiến lược giám sát cấp phát
-- Chiến lược phát hiện và khôi phục
-- Chiến lược bẻ gẫy điều kiện cần gây ra bế tắc |  |
+| 6.2 | Các chiến lược giải quyết bế tắc<br>- Chiến lược đà điểu<br>- Chiến lược giám sát cấp phát<br>- Chiến lược phát hiện và khôi phục<br>- Chiến lược bẻ gẫy điều kiện cần gây ra bế tắc |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 78
 
@@ -2859,10 +2166,8 @@ CƠ SỞ DỮ LIỆU
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Bích Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nbthuy2001@gma
-il.com |  |  |
-| 2. |  |  | Vũ Tiến Dũng |  |  | TS |  |  | Trường ĐHKHTN |  |  | duzngvt@gmail.c
-om |  |  |
+| 1. |  |  | Nguyễn Bích Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nbthuy2001@gma<br>il.com |  |  |
+| 2. |  |  | Vũ Tiến Dũng |  |  | TS |  |  | Trường ĐHKHTN |  |  | duzngvt@gmail.c<br>om |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp các kiến thức và kỹ năng giúp người học có thể tổ chức
 lưu trữ và xử lý dữ liệu theo mô hình dữ liệu quan hệ trên các hệ thông thông tin.
@@ -2917,80 +2222,39 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 81 -->
 Chương trình đào tạo ngành Toán – Tin:
-| CĐR
-CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
+| CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức
-đóng góp
-của học
-phần |  |  |  |  | 3 | 3 | 3 | 2 |  |  | 3 |
-| CĐR
-CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
-| Mức
-đóng góp
-của học
-phần |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
+| Mức<br>đóng góp<br>của học<br>phần |  |  |  |  | 3 | 3 | 3 | 2 |  |  | 3 |
+| CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
+| Mức<br>đóng góp<br>của học<br>phần |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  | 2 |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |
 3 81
 
 <!-- Page 82 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Hình thức đánh giá:
-Bài kiểm tra ngắn trên lớp (10%) và
-các bài kiểm tra thực hành ngôn ngữ
-hỏi SQL sử dụng hệ quản trị dữ liệu
-MySQL (10%)
-- Thang điểm đánh giá. CK2:3,
-CK4: 3, CS1: 3, CR2:1 | CK1, CK2,
-CK4, CS1,
-CR2 |
-| 2 | Giữa kỳ | 20% | - Hình thức đánh giá:
-Báo cáo nhóm: Các chủ đề tìm hiểu
-về quy trình thiết kế cơ sở dữ liệu
-quan hệ cho một bài toán quản lý
-hoặc các chủ đề liên quan đến dữ
-liệu lớn và hệ quản trị dữ liệu lớn.
-- Thang điểm đánh giá. CK2:2,
-CK3:3, CS2:2, CS3:1, CR1:1,
-CR3:1 | CK2, CK3,
-CS2, CS3,
-CS4, CR1,
-CR3 |
-| 3 | Cuối kỳ | 60 % | - Hình thức đánh giá: Trắc nghiêm,
-bài tập kết hợp vấn đáp về nội dung
-môn học
-- Thang điểm đánh giá: CK2:2,
-CK3:1, CK4:2, CS1:2, CS2:2,
-CR1:1 | CK2, CK3,
-CK4, CS1,
-CS2, CR1 |
+| 1 | Thường<br>xuyên | 20% | - Hình thức đánh giá:<br>Bài kiểm tra ngắn trên lớp (10%) và<br>các bài kiểm tra thực hành ngôn ngữ<br>hỏi SQL sử dụng hệ quản trị dữ liệu<br>MySQL (10%)<br>- Thang điểm đánh giá. CK2:3,<br>CK4: 3, CS1: 3, CR2:1 | CK1, CK2,<br>CK4, CS1,<br>CR2 |
+| 2 | Giữa kỳ | 20% | - Hình thức đánh giá:<br>Báo cáo nhóm: Các chủ đề tìm hiểu<br>về quy trình thiết kế cơ sở dữ liệu<br>quan hệ cho một bài toán quản lý<br>hoặc các chủ đề liên quan đến dữ<br>liệu lớn và hệ quản trị dữ liệu lớn.<br>- Thang điểm đánh giá. CK2:2,<br>CK3:3, CS2:2, CS3:1, CR1:1,<br>CR3:1 | CK2, CK3,<br>CS2, CS3,<br>CS4, CR1,<br>CR3 |
+| 3 | Cuối kỳ | 60 % | - Hình thức đánh giá: Trắc nghiêm,<br>bài tập kết hợp vấn đáp về nội dung<br>môn học<br>- Thang điểm đánh giá: CK2:2,<br>CK3:1, CK4:2, CS1:2, CS2:2,<br>CR1:1 | CK2, CK3,<br>CK4, CS1,<br>CS2, CR1 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -3014,9 +2278,7 @@ Distributed Real-Time Search and Analytics Engine, O'Reilly Media (2015).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Khái niệm cơ bản về cơ sở dữ liệu |  | CK1 |
 | 1.1 | Cơ sở dữ liệu là gì |  |
@@ -3034,22 +2296,18 @@ của học phần |
 | 3.2 | Các khái niệm cơ bản của mô hình dữ liệu quan hệ |  |
 | 3.3 | Các đặc điểm của mô hình quan hệ |  |
 | 3.4 | Thao tác trên cơ sở dữ liệu quan hệ |  |
-| 3.5 | Chuyển đổi từ mô hình thực thể liên kết sang mô hình
-quan hệ |  |
+| 3.5 | Chuyển đổi từ mô hình thực thể liên kết sang mô hình<br>quan hệ |  |
 | Chương 4. Đại số Quan hệ |  | CK4 |
 | 4.1 | Giới thiệu |  |
 | 4.2 | Các phép toán tập hợp |  |
 | 4.3 | Các phép toán quan hệ |  |
 | 4.4 | Các phép toán khác |  |
 | 4.5 | Tối ưu hoá biểu thức của đại số quan hệ |  |
-| Chương 5. Ngôn ngữ SQL |  | CK4, CS1, CR2,
-CR3 |
+| Chương 5. Ngôn ngữ SQL |  | CK4, CS1, CR2,<br>CR3 |
 5 83
 
 <!-- Page 84 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.1 | Giới thiệu |  |
 | 5.2 | Các lệnh định nghĩa dữ liệu |  |
@@ -3059,20 +2317,17 @@ của học phần |
 | 5.6 | Gom nhóm và kết hợp |  |
 | 5.7 | Hàm và thủ tục |  |
 | 5.8 | Thực hành: sử dụng ngôn ngữ SQL |  |
-| Chương 6. Phụ thuộc hàm |  | CK2, CK3, CR1,
-CR2 |
+| Chương 6. Phụ thuộc hàm |  | CK2, CK3, CR1,<br>CR2 |
 | 6.1 | Đặt vấn đề |  |
 | 6.2 | Phụ thuộc hàm |  |
 | 6.3 | Hệ tiên đề Armstrong và các phép suy diễn logic |  |
-| 6.4 | Bao đóng và thuật toán xác định bao đóng các thuộc
-tính |  |
+| 6.4 | Bao đóng và thuật toán xác định bao đóng các thuộc<br>tính |  |
 | 6.5 | Tập các phụ thuộc thuộc tương đương và phủ tối tiểu |  |
 | 6.6 | Khóa của lược đồ quan hệ |  |
 | Chương 7. Chuẩn hoá lược đồ Cơ sở dữ liệu |  | CK2, CK3, CS2 |
 | 7.1 | Các nguyên tắc thiết kế lược đồ quan hệ |  |
 | 7.2 | Các dạng chuẩn lược đồ quan hệ |  |
-| 7.3 | Phép tách và thuật toán kiểm tra phép tách không tổn
-thất thông tin |  |
+| 7.3 | Phép tách và thuật toán kiểm tra phép tách không tổn<br>thất thông tin |  |
 | 7.4 | Các thuật toán chuẩn hoá lược đồ cơ sở dữ liệu quan hệ |  |
 | Chương 8. Các chủ đề nâng cao |  | CK2, CS3, CS4 |
 | 8.1 | An toàn cơ sở dữ liệu |  |
@@ -3106,9 +2361,7 @@ LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
 | 1. | ThS. Quản Thái Hà | ThS. |  |  | Trường ĐHKHTN | haqt@hus.edu.vn |
-| 2. | ThS. Ngô Thế
-Quyền | ThS. |  |  | Trường ĐHKHTN | ngoquyenbg@hus
-.edu.vn |
+| 2. | ThS. Ngô Thế<br>Quyền | ThS. |  |  | Trường ĐHKHTN | ngoquyenbg@hus<br>.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Trang bị những kiến thức, phương pháp, công cụ về lập trình
 hướng đối tượng, phân tích và thiết kế hướng đối tượng.
@@ -3182,54 +2435,32 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán – Tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  |  |  | 3 |  |  | 4 |  | 3 |  | 3 |  |  | 2 |  |  | 3 |  |  |  |  |  | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  | 4 |  | 3 |  | 3 |  |  | 2 |  |  | 3 |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng
-góp của học
-phần |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 | 3 |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 | 3 |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
 3 88
 
 <!-- Page 89 -->
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 | 3 | 2 | 3 |  | 3 | 2 | 4 | 4 |
+| Mức đóng góp<br>của học phần | 3 | 3 | 2 | 3 |  | 3 | 2 | 4 | 4 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Đánh giá bài thực hành trên lab,
-bài tập về nhà, điểm danh trên lớp.
-- Thang điểm đánh giá: CK1: 4 điểm
-, CK2: 3 điểm, CS1: 2 điểm, CR1: 1
-điểm | CK1, CK2,
-CS1, CR1 |
-| 2 | Giữa kỳ | 20 % | - Kiểm tra kỹ năng lập trình.
-- Thang điểm đánh giá: CK1: 8
-điểm, CS1: 2 điểm | CK1, CS1 |
-| 3 | Cuối kỳ | 60 % | - Thi kỹ năng lập trình.
-- Thang điểm đánh giá: CK1: 4
-điểm, CK2: 3 điểm, CK3: 2 điểm,
-CS1: 1 điểm | CK1, CK2
-CK3, CS1 |
+| 1 | Thường<br>xuyên | 20 % | - Đánh giá bài thực hành trên lab,<br>bài tập về nhà, điểm danh trên lớp.<br>- Thang điểm đánh giá: CK1: 4 điểm<br>, CK2: 3 điểm, CS1: 2 điểm, CR1: 1<br>điểm | CK1, CK2,<br>CS1, CR1 |
+| 2 | Giữa kỳ | 20 % | - Kiểm tra kỹ năng lập trình.<br>- Thang điểm đánh giá: CK1: 8<br>điểm, CS1: 2 điểm | CK1, CS1 |
+| 3 | Cuối kỳ | 60 % | - Thi kỹ năng lập trình.<br>- Thang điểm đánh giá: CK1: 4<br>điểm, CK2: 3 điểm, CK3: 2 điểm,<br>CS1: 1 điểm | CK1, CK2<br>CK3, CS1 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -3258,233 +2489,119 @@ Media, (2009).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Phần 1: Giới thiệu về ngôn ngữ lập trình Java và Lập trình hướng đối tượng |  |  |
 | Bài giảng 1: Tóm lược về Java |  |  |
 | 1.1 | Mục 1.1 Giới thiệu về Java, ưu điểm, hạn chế của Java | CK1, CR1, CR2 |
 | 1.2 | Mục 1.2 So sánh Java và C++ | CK1, CR1, CR2 |
 | Bài giảng 2: Cơ bản về lập trình Java |  |  |
-| 2.1 | Mục 2.1 Cấu trúc chương trình Java, biên dịch và thực
-thi chương trình Java | CK1, CS1, CR1,
-CR2 |
-| 2.2 | Mục 2.2 Biến và các loại dữ liệu, loại dữ liệu nguyên
-thủy (primitive type) trong Java | CK1, CS1, CR1,
-CR2 |
-| 2.3 | Mục 2.3 Các toán tử cơ bản | CK1, CS1, CR1,
-CR2 |
-| 2.4 | Mục 2.4 Các cấu trúc điều khiển | CK1, CS1, CR1,
-CR2 |
-| 2.5 | Mục 2.5 Phương thức | CK1, CS1, CR1,
-CR2 |
-| 2.6 | Mục 2.6 Thuật toán | CK1, CS1, CR1,
-CR2 |
-| 2.7 | Mục 2.7 Quy ước và kỹ năng lập trình tốt | CK1, CS1, CR1,
-CR2 |
+| 2.1 | Mục 2.1 Cấu trúc chương trình Java, biên dịch và thực<br>thi chương trình Java | CK1, CS1, CR1,<br>CR2 |
+| 2.2 | Mục 2.2 Biến và các loại dữ liệu, loại dữ liệu nguyên<br>thủy (primitive type) trong Java | CK1, CS1, CR1,<br>CR2 |
+| 2.3 | Mục 2.3 Các toán tử cơ bản | CK1, CS1, CR1,<br>CR2 |
+| 2.4 | Mục 2.4 Các cấu trúc điều khiển | CK1, CS1, CR1,<br>CR2 |
+| 2.5 | Mục 2.5 Phương thức | CK1, CS1, CR1,<br>CR2 |
+| 2.6 | Mục 2.6 Thuật toán | CK1, CS1, CR1,<br>CR2 |
+| 2.7 | Mục 2.7 Quy ước và kỹ năng lập trình tốt | CK1, CS1, CR1,<br>CR2 |
 | Bài giảng 3: Định nghĩa lớp và tạo đối tượng |  |  |
 5 90
 
 <!-- Page 91 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 3.1 | Mục 3.1 Đối tượng và lớp | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.2 | Mục 3.2 Định nghĩa lớp và tạo đối tượng trong Java | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.3 | Mục 3.3 Toán tử chấm (dot (.)) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.4 | Mục 3.4 Biến thành viên (member method) và Phương
-thức thành viên (member method) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.5 | Mục 3.5 Hàm dựng (constructor) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.6 | Mục 3.6 Nạp chồng phương thức (method
-overloading) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.7 | Mục 3.7 Access Control Modifiers | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.8 | Mục 3.8 Che giấu thông tin và tính đóng gói | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.9 | Mục 3.9 Các phương thức getters/setters | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.10 | Mục 3.10 Từ khóa “this” | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 3.11 | Mục 3.11 Các từ khóa static và final trong Java | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 3.1 | Mục 3.1 Đối tượng và lớp | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.2 | Mục 3.2 Định nghĩa lớp và tạo đối tượng trong Java | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.3 | Mục 3.3 Toán tử chấm (dot (.)) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.4 | Mục 3.4 Biến thành viên (member method) và Phương<br>thức thành viên (member method) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.5 | Mục 3.5 Hàm dựng (constructor) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.6 | Mục 3.6 Nạp chồng phương thức (method<br>overloading) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.7 | Mục 3.7 Access Control Modifiers | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.8 | Mục 3.8 Che giấu thông tin và tính đóng gói | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.9 | Mục 3.9 Các phương thức getters/setters | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.10 | Mục 3.10 Từ khóa “this” | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 3.11 | Mục 3.11 Các từ khóa static và final trong Java | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 | Bài giảng 4: Các khái niệm truyền tham số và truyền tham số trong Java |  |  |
-| 4.1 | Mục 4.1 Truyền tham số theo giá trị, tham chiếu và
-sharing | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 4.2 | Mục 4.2 Truyền tham số trong Java | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 4.3 | Mục 4.3 Mảng một chiều, mảng hai chiều, mảng nhiều
-chiều | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 4.1 | Mục 4.1 Truyền tham số theo giá trị, tham chiếu và<br>sharing | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 4.2 | Mục 4.2 Truyền tham số trong Java | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 4.3 | Mục 4.3 Mảng một chiều, mảng hai chiều, mảng nhiều<br>chiều | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 6 91
 
 <!-- Page 92 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 4.4 | Mục 4.4 Các lớp String, StringBuilder, StringBuffer,
-StringTokenizer | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 4.4 | Mục 4.4 Các lớp String, StringBuilder, StringBuffer,<br>StringTokenizer | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 | Phần 2: Lập trình hướng đối tượng |  |  |
 | Bài giảng 5: Tính thừa kế (inheritance) và tính đa hình (polymorphism) |  |  |
-| 5.1 | Mục 5.1 Quan hệ thừa kế | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.2 | Mục 5.2 Thiết kế cây thừa kế | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.3 | Mục 5.3 Ghi đè phương thức (method overriding) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.4 | Mục 5.4 Các quan hệ “is-a” và “has-a” | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.5 | Mục 5.5 Từ khóa “super” | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.6 | Mục 5.6 Thiết kế Common Root Class trong Java | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.7 | Mục 5.7 Substitutability | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.8 | Mục 5.8 Upcasting và Downcasting | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.9 | Mục 5.9 Toán tử “instanceof” | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 5.10 | Mục 5.10 Hàm ảo và ràng buộc động (dynamic
-binding) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 5.1 | Mục 5.1 Quan hệ thừa kế | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.2 | Mục 5.2 Thiết kế cây thừa kế | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.3 | Mục 5.3 Ghi đè phương thức (method overriding) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.4 | Mục 5.4 Các quan hệ “is-a” và “has-a” | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.5 | Mục 5.5 Từ khóa “super” | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.6 | Mục 5.6 Thiết kế Common Root Class trong Java | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.7 | Mục 5.7 Substitutability | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.8 | Mục 5.8 Upcasting và Downcasting | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.9 | Mục 5.9 Toán tử “instanceof” | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 5.10 | Mục 5.10 Hàm ảo và ràng buộc động (dynamic<br>binding) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 | Bài giảng 6: Tính trừu tượng (abstraction) |  |  |
-| 6.1 | Mục 6.1 Phương thức trừu tượng (abstract method) và
-lớp trừu tượng (abstract class) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 6.2 | Mục 6.2 Giao diện (interface) | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 6.1 | Mục 6.1 Phương thức trừu tượng (abstract method) và<br>lớp trừu tượng (abstract class) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 6.2 | Mục 6.2 Giao diện (interface) | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 | Bài giảng 7: Java Collections Framework và loại dữ liệu trừu tượng (ADT) |  |  |
 7 92
 
 <!-- Page 93 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 7.1 | Mục 7.1 Java Collections Interfaces | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 7.2 | Mục 7.2 Sets, Queues, Lists, Maps | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 7.3 | Mục 7.3 Iterators | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 7.4 | Mục 7.4 Algorithms | CK1, CK3, CS1,
-CS2, CR1, CR2 |
-| 7.5 | Mục 7.5 ADT | CK1, CK3, CS1,
-CS2, CR1, CR2 |
+| 7.1 | Mục 7.1 Java Collections Interfaces | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 7.2 | Mục 7.2 Sets, Queues, Lists, Maps | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 7.3 | Mục 7.3 Iterators | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 7.4 | Mục 7.4 Algorithms | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
+| 7.5 | Mục 7.5 ADT | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
 | Phần 3: Phân tích và thiết kế hướng đối tượng |  |  |
 | Bài giảng 8: Giới thiệu một số nguyên lý thiết kế hướng đối tượng |  |  |
-| 8.1 | Mục 8.1 Single Responsibility Principle | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 8.2 | Mục 8.2 Open-Closed Principle | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 8.3 | Mục 8.3 Liskov Substitution Principle | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 8.4 | Mục 8.4 Interface Segregation Principle | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 8.5 | Mục 8.5 Dependency Inversion Principle | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 8.1 | Mục 8.1 Single Responsibility Principle | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 8.2 | Mục 8.2 Open-Closed Principle | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 8.3 | Mục 8.3 Liskov Substitution Principle | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 8.4 | Mục 8.4 Interface Segregation Principle | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 8.5 | Mục 8.5 Dependency Inversion Principle | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Bài giảng 9: Creational Design Patterns |  |  |
-| 9.1 | Mục 9.1 Factory Method, Abstract factory, Builder,
-Singleton, Prototype | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 9.1 | Mục 9.1 Factory Method, Abstract factory, Builder,<br>Singleton, Prototype | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Bài giảng 10: Structural Design Patterns |  |  |
 8 93
 
 <!-- Page 94 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 10.1 | Mục 10.1 Adapter, Bridge, Composite, Decorator,
-Façade, Proxy, Flyweight | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 10.1 | Mục 10.1 Adapter, Bridge, Composite, Decorator,<br>Façade, Proxy, Flyweight | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Bài giảng 11: Behavioral Design Patterns |  |  |
-| 11.1 | Mục 11.1 Chain of Responsibility, Command, Iterator,
-Mediator, Memento, Observer, State, Stratege,
-Template Method, Visitor | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 11.1 | Mục 11.1 Chain of Responsibility, Command, Iterator,<br>Mediator, Memento, Observer, State, Stratege,<br>Template Method, Visitor | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Phần 4: Kỹ năng lập trình tốt, hiệu quả và ngoại lệ (exception) trong Java |  |  |
 | Bài giảng 12: Ngoại lệ trong Java |  |  |
-| 12.1 | Mục 12.1 Giới thiệu về ngoại lệ và các loại ngoại lệ
-trong Java | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 12.2 | Mục 12.2 Catching Exceptions | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 12.3 | Mục 12.3 Tạo ra các ngoại lệ | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 12.1 | Mục 12.1 Giới thiệu về ngoại lệ và các loại ngoại lệ<br>trong Java | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 12.2 | Mục 12.2 Catching Exceptions | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 12.3 | Mục 12.3 Tạo ra các ngoại lệ | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Phần 5: Lập trình khái lược (generic) trong Java |  |  |
 | Bài giảng 13: Lập trình Generic |  |  |
-| 13.1 | Mục 13.1 Auto-Boxing và Auto-Unboxing | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 13.2 | Mục 13.2 Generic Classes và Type Parameters | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 13.3 | Mục 13.3 Generic Methods | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 13.4 | Mục 13.4 Constraining Type Parameters | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 13.1 | Mục 13.1 Auto-Boxing và Auto-Unboxing | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 13.2 | Mục 13.2 Generic Classes và Type Parameters | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 13.3 | Mục 13.3 Generic Methods | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 13.4 | Mục 13.4 Constraining Type Parameters | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 9 94
 
 <!-- Page 95 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 13.5 | Mục 13.5 Type Erasure | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 13.5 | Mục 13.5 Type Erasure | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Phần 6: Lập trình hàm trong Java |  |  |
 | Bài giảng 14: Lập trình hàm trong Java |  |  |
-| 14.1 | Mục 14.1 Giới thiệu về lập trình hàm | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 14.2 | Mục 14.2 Các giao diện hàm (functional interfaces) | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 14.3 | Mục 14.3 Streams | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
-| 14.4 | Mục 14.4 Stream Pipelines | CK1, CK2, CK3,
-CS1, CS2, CR1,
-CR2 |
+| 14.1 | Mục 14.1 Giới thiệu về lập trình hàm | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 14.2 | Mục 14.2 Các giao diện hàm (functional interfaces) | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 14.3 | Mục 14.3 Streams | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
+| 14.4 | Mục 14.4 Stream Pipelines | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
 | Phần 7: Lập trình giao diện người dùng (GUI) trong Java |  |  |
 | Bài giảng 15: Tạo GUI với JavaFX và Scene Builder |  |  |
-| 15.1 | Mục 15.1 Giới thiệu các Framework tạo GUI trong
-Java | CK1, CK2, CK3,
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
-| 15.2 | Mục 15.2 Giới thiệu lập trình concurrency và Event
-Handling trong Java | CK1, CK2, CK3,
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
-| 15.3 | Mục 15.3 Sử dụng Scene Builder để tạo ứng dụng GUI
-với JavaFX | CK1, CK2, CK3,
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
+| 15.1 | Mục 15.1 Giới thiệu các Framework tạo GUI trong<br>Java | CK1, CK2, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
+| 15.2 | Mục 15.2 Giới thiệu lập trình concurrency và Event<br>Handling trong Java | CK1, CK2, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
+| 15.3 | Mục 15.3 Sử dụng Scene Builder để tạo ứng dụng GUI<br>với JavaFX | CK1, CK2, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 10 95
 
@@ -3502,16 +2619,12 @@ CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  | hàm, |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Lê Hồng Phương |  |  | PGS.
-TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
-| 2. |  |  | Nguyễn Thị Hồng Minh |  |  | PGS.
-TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
+| 1. |  |  | Lê Hồng Phương |  |  | PGS.<br>TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
+| 2. |  |  | Nguyễn Thị Hồng Minh |  |  | PGS.<br>TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
 | 3. |  |  | Nguyễn Thị Bích Thuỷ |  |  | TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
-| 4. |  |  | Ngô Thế Quyền |  |  | ThS.
-NCS |  |  | Trường ĐHKHTN |  |  |  |  |  |
+| 4. |  |  | Ngô Thế Quyền |  |  | ThS.<br>NCS |  |  | Trường ĐHKHTN |  |  |  |  |  |
 | 5. |  |  | Phạm Huy Thông |  |  | TS |  |  | Trường ĐHQGHN |  |  |  |  |  |
-| 6. |  |  | Vũ Đức Minh |  |  | TS |  |  | Trường Đại học
-Phenika |  |  |  |  |  |
+| 6. |  |  | Vũ Đức Minh |  |  | TS |  |  | Trường Đại học<br>Phenika |  |  |  |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp kiến thức và kỹ năng cần thiết về cấu trúc dữ liệu và
 thuật toán, để người học có thể thiết kế và triển khai các giải pháp hiệu quả cho
@@ -3566,63 +2679,39 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 98 -->
 Chương trình đào tạo ngành Toán – Tin:
-| CĐR
-CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
+| CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức
-đóng góp
-của học
-phần |  |  |  | 3 | 3 | 3 |  |  |  |  | 4 |
-| CĐR
-CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
-| Mức
-đóng góp
-của học
-phần | 3 |  |  |  | 3 |  |  | 3 |  | 3 |  |
+| Mức<br>đóng góp<br>của học<br>phần |  |  |  | 3 | 3 | 3 |  |  |  |  | 4 |
+| CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
+| Mức<br>đóng góp<br>của học<br>phần | 3 |  |  |  | 3 |  |  | 3 |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 3 98
 
 <!-- Page 99 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 10% | Làm bài tập hàng tuần, nộp bài và
-tham gia chấm chéo bài tập.
-Đi học đầy đủ. | CR1 |
-| 2 | Giữa kỳ | 30% | Kết quả bài làm của bài tập về nhà
-của 3 tuần. 01 bài thi trắc nghiệm. | CR2, CR3 |
-| 3 | Cuối kỳ | 60% | Bài tập lớn (đối với các SV có kết
-quả giữa kì đạt từ 7.0 trở lên) kết
-hợp với bài thi trắc nghiệm.
-Thi vấn đáp (đối với các SV không
-đủ điều kiện làm bài tập lớn) kết hợp
-với bài thi trắc nghiệm | CK3, CS3,
-CR2, CR3 |
+| 1 | Thường<br>xuyên | 10% | Làm bài tập hàng tuần, nộp bài và<br>tham gia chấm chéo bài tập.<br>Đi học đầy đủ. | CR1 |
+| 2 | Giữa kỳ | 30% | Kết quả bài làm của bài tập về nhà<br>của 3 tuần. 01 bài thi trắc nghiệm. | CR2, CR3 |
+| 3 | Cuối kỳ | 60% | Bài tập lớn (đối với các SV có kết<br>quả giữa kì đạt từ 7.0 trở lên) kết<br>hợp với bài thi trắc nghiệm.<br>Thi vấn đáp (đối với các SV không<br>đủ điều kiện làm bài tập lớn) kết hợp<br>với bài thi trắc nghiệm | CK3, CS3,<br>CR2, CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -3639,155 +2728,71 @@ Introduction to Algorithms, 3rd Edition, The MIT Press, (2009).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương
-/mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Mở đầu |  | CS1 |
 | 1.1 | Giới thiệu môn học |  |
-| 1.2 | Hệ thống một số vấn đề về lập trình Java
-- Môi trường lập trình
-- Kiểu dữ liệu, kiểu mảng |  |
+| 1.2 | Hệ thống một số vấn đề về lập trình Java<br>- Môi trường lập trình<br>- Kiểu dữ liệu, kiểu mảng |  |
 4 99
 
 <!-- Page 100 -->
-| Chương
-/mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | - Lớp và đối tượng
-- Làm việc với tệp
-- Kế thừa, đa hình, lập trình generic |  |
+|  | - Lớp và đối tượng<br>- Làm việc với tệp<br>- Kế thừa, đa hình, lập trình generic |  |
 | 1.3 | Luyện tập |  |
 | Chương 2. Thuật toán sắp xếp |  | CS1, CS2 |
 | 2.1 | Giới thiệu |  |
-| 2.2 | Các thuật toán sắp xếp đơn giản
-2.2.1. Sắp xếp chọn
-2.2.2. Sắp xếp nổi bọt
-2.2.3. Sắp xếp chèn |  |
-| 2.3 | Một số thuật toán sắp xếp hiệu quả
-2.3.1. Sắp xếp trộn
-2.3.2. Sắp xếp nhanh |  |
+| 2.2 | Các thuật toán sắp xếp đơn giản<br>2.2.1. Sắp xếp chọn<br>2.2.2. Sắp xếp nổi bọt<br>2.2.3. Sắp xếp chèn |  |
+| 2.3 | Một số thuật toán sắp xếp hiệu quả<br>2.3.1. Sắp xếp trộn<br>2.3.2. Sắp xếp nhanh |  |
 | 2.4 | Đánh giá và so sánh các thuật toán sắp xếp |  |
 | 2.5 | Luyện tập |  |
 | Chương 3. Trừu tượng hóa dữ liệu |  | CK1 |
 | 3.1 | Trừu tượng hóa trong lập trình |  |
-| 3.2 | Trừu tượng hoá dữ liệu
-3.2.1. Khái niệm
-3.2.2. Lợi ích của trừu tượng hoá dữ liệu
-3.2.3. Ví dụ về trừu tượng hoá dữ liệu |  |
+| 3.2 | Trừu tượng hoá dữ liệu<br>3.2.1. Khái niệm<br>3.2.2. Lợi ích của trừu tượng hoá dữ liệu<br>3.2.3. Ví dụ về trừu tượng hoá dữ liệu |  |
 | 3.3 | Bài tập và luyện tập |  |
 | Chương 4. Danh sách, hàng đợi và ngăn xếp |  | CK1, CS1 |
-| 4.1 | Kiểu Danh sách
-4.1.1 Khái niệm và mô tả kiểu danh sách
-4.1.2 Cài đặt Danh sách
-- Bằng mảng
-- Bằng cấu trúc liên kết
-4.1.3 Một số dạng Danh sách liên kết
-- Danh sách móc nối đơn (biểu diễn, các thao
-tác)
-- Danh sách móc nối kép (biểu diễn, các thao
-tác)
-4.1.4 Luyện tập và bài tập |  |
-| 4.2 | Kiểu Hàng đợi
-4.2.1 Khái niệm và mô tả kiểu Hàng đợi
-4.2.2 Cài đặt Hàng đợi
-- Bằng mảng
-- Bằng cấu trúc liên kết
-4.2.3 Ứng dụng
-4.2.4 Luyện tập và bài tập |  |
-| 4.3 | Ngăn xếp
-4.3.1 Khái niệm và mô tả kiểu Ngăn xếp
-4.3.2 Cài đặt Hàng đợi
-- Bằng mảng
-- Bằng cấu trúc liên kết |  |
+| 4.1 | Kiểu Danh sách<br>4.1.1 Khái niệm và mô tả kiểu danh sách<br>4.1.2 Cài đặt Danh sách<br>- Bằng mảng<br>- Bằng cấu trúc liên kết<br>4.1.3 Một số dạng Danh sách liên kết<br>- Danh sách móc nối đơn (biểu diễn, các thao<br>tác)<br>- Danh sách móc nối kép (biểu diễn, các thao<br>tác)<br>4.1.4 Luyện tập và bài tập |  |
+| 4.2 | Kiểu Hàng đợi<br>4.2.1 Khái niệm và mô tả kiểu Hàng đợi<br>4.2.2 Cài đặt Hàng đợi<br>- Bằng mảng<br>- Bằng cấu trúc liên kết<br>4.2.3 Ứng dụng<br>4.2.4 Luyện tập và bài tập |  |
+| 4.3 | Ngăn xếp<br>4.3.1 Khái niệm và mô tả kiểu Ngăn xếp<br>4.3.2 Cài đặt Hàng đợi<br>- Bằng mảng<br>- Bằng cấu trúc liên kết |  |
 5 100
 
 <!-- Page 101 -->
-| Chương
-/mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 4.3.3 Ứng dụng
-4.3.4 Luyện tập và bài tập |  |
-| Chương 5. Cây |  | CK1, CK2, CS1,
-CS2 |
+|  | 4.3.3 Ứng dụng<br>4.3.4 Luyện tập và bài tập |  |
+| Chương 5. Cây |  | CK1, CK2, CS1,<br>CS2 |
 | 5.1 | Giới thiệu |  |
-| 5.2 | Cây nhị phân
-Các khái niệm và định nghĩa
-Cài đặt Cây nhị phân
-- Bằng cấu trúc liên kết
-- Bằng mảng
-Các thuật toán duyệt cây nhị phân bằng đệ quy |  |
+| 5.2 | Cây nhị phân<br>Các khái niệm và định nghĩa<br>Cài đặt Cây nhị phân<br>- Bằng cấu trúc liên kết<br>- Bằng mảng<br>Các thuật toán duyệt cây nhị phân bằng đệ quy |  |
 | 5.3 | Luyện tập và bài tập |  |
-| Chương 6. Hàng đợi ưu tiên và đống |  | CK2, CK3, CS2,
-CS3 |
-| 6.1 | Kiểu Hàng đợi ưu tiên
-6.1.1 Khái niệm và mô tả
-6.2.2 Cài đặt Hàng đợi ưu tiên
-- Bằng mảng
-- Bằng cấu trúc liên kết |  |
-| 6.2 | Kiểu Đống
-6.2.1 Khái niệm và mô tả
-6.2.2 Cài đặt Đống bằng mảng |  |
-| 6.3 | Thuật toán sắp xếp vun đống
-6.3.1 Sử dụng Đống biểu diễn Hàng đợi ưu tiên
-6.3.2 Thuật toán sắp xếp vun đống |  |
+| Chương 6. Hàng đợi ưu tiên và đống |  | CK2, CK3, CS2,<br>CS3 |
+| 6.1 | Kiểu Hàng đợi ưu tiên<br>6.1.1 Khái niệm và mô tả<br>6.2.2 Cài đặt Hàng đợi ưu tiên<br>- Bằng mảng<br>- Bằng cấu trúc liên kết |  |
+| 6.2 | Kiểu Đống<br>6.2.1 Khái niệm và mô tả<br>6.2.2 Cài đặt Đống bằng mảng |  |
+| 6.3 | Thuật toán sắp xếp vun đống<br>6.3.1 Sử dụng Đống biểu diễn Hàng đợi ưu tiên<br>6.3.2 Thuật toán sắp xếp vun đống |  |
 | 6.4 | Luyện tập và bài tập |  |
 | Chương 7. Thuật toán tìm kiếm |  | CS2, CS3 |
-| 7.1 | Giới thiệu thuật toán tìm kiếm
-7.1.1 Tìm kiếm tuần tự
-7.1.2 Tìm kiếm nhị phân |  |
-| 7.2 | Cây nhị phân tìm kiếm
-7.2.1 Các tính chất của cây nhị phân tìm kiếm
-7.2.2 Các thao tác trên cây nhị phân tìm kiếm: thêm,
-bớt, tìm kiếm phần tử |  |
-| 7.3 | Cây cân bằng
-7.3.1 Tại sao cần cây cân bằng
-7.3.2 Các thuật toán xoay để cây cân bằng |  |
-| 7.4 | Một số dạng cây tìm kiếm khác
-- Cây AVL
-- Cây đỏ đen |  |
+| 7.1 | Giới thiệu thuật toán tìm kiếm<br>7.1.1 Tìm kiếm tuần tự<br>7.1.2 Tìm kiếm nhị phân |  |
+| 7.2 | Cây nhị phân tìm kiếm<br>7.2.1 Các tính chất của cây nhị phân tìm kiếm<br>7.2.2 Các thao tác trên cây nhị phân tìm kiếm: thêm,<br>bớt, tìm kiếm phần tử |  |
+| 7.3 | Cây cân bằng<br>7.3.1 Tại sao cần cây cân bằng<br>7.3.2 Các thuật toán xoay để cây cân bằng |  |
+| 7.4 | Một số dạng cây tìm kiếm khác<br>- Cây AVL<br>- Cây đỏ đen |  |
 | 7.5 | Luyện tập và bài tập |  |
-| Chương 8. Đồ thị |  | CK1, CK2, CK3,
-CS2, CS3 |
+| Chương 8. Đồ thị |  | CK1, CK2, CK3,<br>CS2, CS3 |
 | 8.1 | Giới thiệu |  |
-| 8.2 | Biểu diễn đồ thị
-8.2.1 Ma trận kề |  |
+| 8.2 | Biểu diễn đồ thị<br>8.2.1 Ma trận kề |  |
 6 101
 
 <!-- Page 102 -->
-| Chương
-/mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 8.2.2 Danh sách kề
-8.2.3 Danh sách cạnh |  |
-| 8.3 | Duyệt đồ thị
-8.3.1 Duyệt theo chiều rộng
-8.3.2 Duyệt theo chiều sâu |  |
+|  | 8.2.2 Danh sách kề<br>8.2.3 Danh sách cạnh |  |
+| 8.3 | Duyệt đồ thị<br>8.3.1 Duyệt theo chiều rộng<br>8.3.2 Duyệt theo chiều sâu |  |
 | 8.4 | Một số bài toán trên đồ thị |  |
 | 8.5 | Luyện tập và bài tập |  |
-| Chương 9. Một số cấu trúc dữ liệu và thuật toán nâng cao (tuỳ
-chọn) |  | CK3, CS3, CR3 |
-| 9.1 | Tập hợp
-9.1.1 Các phép toán trên tập hợp
-9.1.2 Biểu diễn tập hợp
-9.1.3 Phân hoạch |  |
-| 9.2 | Xâu kí tự
-9.2.1 Sắp xếp xâu kí tự
-9.2.2 Cấu trúc trie
-9.2.3 Tìm xâu con
-9.2.4 Biểu thức chính quy
-9.2.5 Nén dữ liệu |  |
-| 9.3 | Bảng băm
-9.3.1 Khái niệm
-9.3.2 Các hàm băm
-9.3.3 Bảng băm mở
-9.3.4 Bảng băm đóng |  |
+| Chương 9. Một số cấu trúc dữ liệu và thuật toán nâng cao (tuỳ<br>chọn) |  | CK3, CS3, CR3 |
+| 9.1 | Tập hợp<br>9.1.1 Các phép toán trên tập hợp<br>9.1.2 Biểu diễn tập hợp<br>9.1.3 Phân hoạch |  |
+| 9.2 | Xâu kí tự<br>9.2.1 Sắp xếp xâu kí tự<br>9.2.2 Cấu trúc trie<br>9.2.3 Tìm xâu con<br>9.2.4 Biểu thức chính quy<br>9.2.5 Nén dữ liệu |  |
+| 9.3 | Bảng băm<br>9.3.1 Khái niệm<br>9.3.2 Các hàm băm<br>9.3.3 Bảng băm mở<br>9.3.4 Bảng băm đóng |  |
 | Kiểm tra giữa kỳ |  | CR1, CR2, CR3 |
-| Thi cuối kỳ |  | CK2, CK3, CS1,
-CS2, CS3, CR3 |
+| Thi cuối kỳ |  | CK2, CK3, CS1,<br>CS2, CS3, CR3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 7 102
 
@@ -3805,19 +2810,12 @@ THIẾT KẾ VÀ ĐÁNH GIÁ THUẬT TOÁN
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Lê Trọng Vĩnh |  |  | PGS.TS. |  |  | Trường ĐHKHTN |  |  | vinhlt@vnu.edu.v
-n |  |  |
-| 2. |  |  | Lê Hồng Phương |  |  | TS. |  |  | Trường ĐHKHTN |  |  | phuonglh@vnu.ed
-u.vn |  |  |
-| 3. |  |  | Nguyễn Thị Hồng
-Minh |  |  | PGS.TS. |  |  | Trường ĐHKHTN |  |  | minhnth@vnu.edu
-.vn |  |  |
-| 4. |  |  | Nguyễn Thị Tâm |  |  | TS. |  |  | Trường ĐHKHTN |  |  | tamnt@vnu.edu.v
-n |  |  |
-| 5. |  |  | Bùi Vũ Anh |  |  | TS. |  |  | Viện ĐBCL |  |  | buivuanh@gmail.
-com |  |  |
-| 6. |  |  | Phạm Huy Thông |  |  | TS. |  |  | Viện CNTT |  |  | phamhuythong88
-@gmail.com |  |  |
+| 1. |  |  | Lê Trọng Vĩnh |  |  | PGS.TS. |  |  | Trường ĐHKHTN |  |  | vinhlt@vnu.edu.v<br>n |  |  |
+| 2. |  |  | Lê Hồng Phương |  |  | TS. |  |  | Trường ĐHKHTN |  |  | phuonglh@vnu.ed<br>u.vn |  |  |
+| 3. |  |  | Nguyễn Thị Hồng<br>Minh |  |  | PGS.TS. |  |  | Trường ĐHKHTN |  |  | minhnth@vnu.edu<br>.vn |  |  |
+| 4. |  |  | Nguyễn Thị Tâm |  |  | TS. |  |  | Trường ĐHKHTN |  |  | tamnt@vnu.edu.v<br>n |  |  |
+| 5. |  |  | Bùi Vũ Anh |  |  | TS. |  |  | Viện ĐBCL |  |  | buivuanh@gmail.<br>com |  |  |
+| 6. |  |  | Phạm Huy Thông |  |  | TS. |  |  | Viện CNTT |  |  | phamhuythong88<br>@gmail.com |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp những kiến thức cơ bản về thuật toán, các phương
 pháp thiết kế thuật toán cơ bản. Sinh viên có thể áp dụng các thuật toán đã học
@@ -3879,30 +2877,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  | 3 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | Bài tập nộp hàng tuần | CK1,CK2,
-CK3, CR1 |
-| 2 | Giữa kỳ | 20% | Bài kiểm tra trên giấy/Bài tập lập
-trình trên máy | CK1-CK3,
-CS1-CS4, CR1 |
-| 3 | Cuối kỳ | 60 % | Bài kiểm tra trên giấy/ Bài lập trình
-trên máy/ Bài tập theo nhóm | CK1-CK3,
-CS1-CS4,
-CR1, CR2 |
+| 1 | Thường<br>xuyên | 20% | Bài tập nộp hàng tuần | CK1,CK2,<br>CK3, CR1 |
+| 2 | Giữa kỳ | 20% | Bài kiểm tra trên giấy/Bài tập lập<br>trình trên máy | CK1-CK3,<br>CS1-CS4, CR1 |
+| 3 | Cuối kỳ | 60 % | Bài kiểm tra trên giấy/ Bài lập trình<br>trên máy/ Bài tập theo nhóm | CK1-CK3,<br>CS1-CS4,<br>CR1, CR2 |
 |  | Tổng | 100% |  |  |
 3 105
 
@@ -3926,9 +2913,7 @@ and Analysis, 3rd Edition, Addison Wesley, 1999.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1: Mở đầu |  | CK1, CS1 |
 | 1.1 | Giới thiệu |  |
@@ -3947,62 +2932,50 @@ học phần |
 4 106
 
 <!-- Page 107 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 3.3 | Chứng minh tính đúng đắn của thuật toán |  |
 | 3.4 | Phân lớp các bài toán; P, NP, NPC |  |
 | 3.5 | Bài tập |  |
-| Chương 4: Phương pháp đệ quy |  | CK1, CK2, CS1,
-CS2 |
+| Chương 4: Phương pháp đệ quy |  | CK1, CK2, CS1,<br>CS2 |
 | 4.1 | Khái niệm về đệ quy |  |
 | 4.2 | Lược đồ giải thuật đệ quy |  |
 | 4.3 | Đánh giá độ phức tạp giải thuật đệ quy |  |
 | 4.4 | Khử đệ quy |  |
 | 4.5 | Bài tập |  |
-| Chương 5: Phương pháp chia để trị |  | CK1-CK3, CS1-
-CS4 |
+| Chương 5: Phương pháp chia để trị |  | CK1-CK3, CS1-<br>CS4 |
 | 5.1 | Ý tưởng giải thuật chia để trị |  |
 | 5.2 | Mô hình và lược đồ giải thuật |  |
 | 5.3 | Một số chú ý khi thiết kế giải thuật |  |
 | 5.4 | Một số bài toán giải bằng chia để trị |  |
 | 5.5 | Một số dạng khác của giải thuật trị |  |
 | 5.6 | Bài tập |  |
-| Chương 6: Phương pháp thử sai |  | CK1-CK3, CS1-
-CS4 |
+| Chương 6: Phương pháp thử sai |  | CK1-CK3, CS1-<br>CS4 |
 | 6.1 | Giới thiệu về lớp phương pháp thử sai |  |
 | 6.2 | Phương pháp vét cạn |  |
 | 6.3 | Phương pháp quay lui |  |
 | 6.4 | Phương pháp nhánh cận |  |
 | 6.5 | Bài tập |  |
-| Chương 7: Phương pháp tham lam |  | CK1-CK3, CS1-
-CS4 |
+| Chương 7: Phương pháp tham lam |  | CK1-CK3, CS1-<br>CS4 |
 | 7.1 | Ý tưởng phương pháp tham lam |  |
 | 7.2 | Mô hình thuật toán |  |
-| 7.3 | Một số bài toán điển hình giải bằng phương pháp tham
-lam |  |
+| 7.3 | Một số bài toán điển hình giải bằng phương pháp tham<br>lam |  |
 | 7.4 | Thuật toán Prim tìm cây bao trùm tối thiểu |  |
 5 107
 
 <!-- Page 108 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 7.5 | Thuật toán Kruskal tìm cây bao trùm thối thiểu |  |
 | 7.6 | Thuật toán Dijkstra tìm đường đi ngắn nhất |  |
 | 7.7 | Bài tập |  |
-| Chương 8: Phương pháp quy hoạch động |  | CK1-CK3, CS1-
-CS4 |
+| Chương 8: Phương pháp quy hoạch động |  | CK1-CK3, CS1-<br>CS4 |
 | 8.1 | Giới thiệu |  |
 | 8.2 | Các thành phần cơ bản |  |
-| 8.3 | Các bước giải bài toán theo phương pháp quy hoạch
-động |  |
+| 8.3 | Các bước giải bài toán theo phương pháp quy hoạch<br>động |  |
 | 8.4 | Một số bài toán giải theo phương pháp quy hoạch động |  |
 | 8.5 | Bài tập |  |
-| Chương 9: Phương pháp xấp xỉ |  | CK1, CK2, CS1-
-CS3 |
+| Chương 9: Phương pháp xấp xỉ |  | CK1, CK2, CS1-<br>CS3 |
 | 9.1 | Thách thức của các bài toán NPC |  |
 | 9.2 | Giải bài toán cây bao trùm nhỏ nhất với dữ liệu lớn |  |
 | 9.3 | Chiến lược thiết kế và ý nghĩa của phương pháp xấp xỉ |  |
@@ -4071,50 +3044,19 @@ CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), 
 chủ và trách nhiệm (Program Responsibility-PR))
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 | 3 |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần | 3 | 3 |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
 2 110
 
 <!-- Page 111 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 20 % | Đi học đầy đủ, tham gia các bài tập
-theo nhóm chủ đề môn học, tích lũy
-trả lời các tình huống trên lớp học
-CK1: 1 điểm; CK2: 1 điểm, CS1: 1
-điểm, CS2: 5 điểm, CS3: 1 điểm,
-CS4: 1 điểm | CK1, CK2,
-CS1- CS4 |
-| 2. | Giữa kỳ | 20 % | Kết hợp kiểm tra viết và vấn đáp về
-nội dung: xây dựng các thuật toán
-chương trình đơn giản trong máy
-tính, thực hành xây dựng các
-chương trình thực thi trên máy tính.
-CK2: 2 điểm, CK3: 2 điểm; CS1: 2
-điểm; CS2: 2 điểm; CS4: 0.5 điểm;
-CS5: 0.5 điểm; CR1+CR2+CR3: 1
-điểm | CK2, CK3,
-CS1, CS3,
-CS4, CS5,
-CR1-CR3 |
-| 3. | Cuối kỳ | 60 % | Thi vấn đáp kết hợp lập trình trên
-board mạch về các nội dung: biểu
-diễn thông tin trong máy tính, cấu
-trúc phần cứng máy tính, thực hành
-các chương trình điều khiển ngoại
-vi trên máy tính thông dụng.
-CK3: 4 điểm, CS1: 4 điểm, CS2: 1
-điểm, CR1+CR2+CR3: 1 điểm | CK3,
-CS1, CS2
-CR1-CR3 |
+| 1. | Thường<br>xuyên | 20 % | Đi học đầy đủ, tham gia các bài tập<br>theo nhóm chủ đề môn học, tích lũy<br>trả lời các tình huống trên lớp học<br>CK1: 1 điểm; CK2: 1 điểm, CS1: 1<br>điểm, CS2: 5 điểm, CS3: 1 điểm,<br>CS4: 1 điểm | CK1, CK2,<br>CS1- CS4 |
+| 2. | Giữa kỳ | 20 % | Kết hợp kiểm tra viết và vấn đáp về<br>nội dung: xây dựng các thuật toán<br>chương trình đơn giản trong máy<br>tính, thực hành xây dựng các<br>chương trình thực thi trên máy tính.<br>CK2: 2 điểm, CK3: 2 điểm; CS1: 2<br>điểm; CS2: 2 điểm; CS4: 0.5 điểm;<br>CS5: 0.5 điểm; CR1+CR2+CR3: 1<br>điểm | CK2, CK3,<br>CS1, CS3,<br>CS4, CS5,<br>CR1-CR3 |
+| 3. | Cuối kỳ | 60 % | Thi vấn đáp kết hợp lập trình trên<br>board mạch về các nội dung: biểu<br>diễn thông tin trong máy tính, cấu<br>trúc phần cứng máy tính, thực hành<br>các chương trình điều khiển ngoại<br>vi trên máy tính thông dụng.<br>CK3: 4 điểm, CS1: 4 điểm, CS2: 1<br>điểm, CR1+CR2+CR3: 1 điểm | CK3,<br>CS1, CS2<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -4133,122 +3075,46 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 111
 
 <!-- Page 112 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu chung |  |  |
-| 1.1 | Lịch sử phát triển của máy tính
-1.1.1. Thời kỳ tiền sử của máy tính
-1.1.2. Máy tính cơ học và điện tử đầu thế kỷ 20
-1.1.3. Máy tính cá nhân và máy tính xách tay
-1.1.4. Máy tính kỹ thuật số và mạng thông tin
-1.1.5. Siêu máy tính và học máy
-1.1.6. Máy tính lượng tử và tiềm năng | CK1, CS5, CR3 |
-| 1.2 | Kiến trúc máy tính
-1.2.1. Các thành phần cơ bản của máy tính
-1.2.2. Kiến trúc máy tính và tập lệnh
-1.2.3. Kiểu kiến trúc máy tính
-1.2.4. Kiểu dữ liệu và thực hiện mã máy | CK1, CK2, CS5 |
-| 1.3 | Phân loại máy tính
-1.3.1. Phân loại theo kiến trúc
-1.3.2. Phân loại theo số lượng bộ xử lý
-1.3.3. Phân loại theo mục đích sử dụng
-1.3.4. Phân loại theo hệ điều hành | CK1, CS5 |
+| 1.1 | Lịch sử phát triển của máy tính<br>1.1.1. Thời kỳ tiền sử của máy tính<br>1.1.2. Máy tính cơ học và điện tử đầu thế kỷ 20<br>1.1.3. Máy tính cá nhân và máy tính xách tay<br>1.1.4. Máy tính kỹ thuật số và mạng thông tin<br>1.1.5. Siêu máy tính và học máy<br>1.1.6. Máy tính lượng tử và tiềm năng | CK1, CS5, CR3 |
+| 1.2 | Kiến trúc máy tính<br>1.2.1. Các thành phần cơ bản của máy tính<br>1.2.2. Kiến trúc máy tính và tập lệnh<br>1.2.3. Kiểu kiến trúc máy tính<br>1.2.4. Kiểu dữ liệu và thực hiện mã máy | CK1, CK2, CS5 |
+| 1.3 | Phân loại máy tính<br>1.3.1. Phân loại theo kiến trúc<br>1.3.2. Phân loại theo số lượng bộ xử lý<br>1.3.3. Phân loại theo mục đích sử dụng<br>1.3.4. Phân loại theo hệ điều hành | CK1, CS5 |
 | Chương 2. Hệ thống máy tính |  |  |
-| 2.1 | Các thành phần cơ bản của máy tính
-2.1.1. Bộ xử lý trung tâm
-2.1.2. Bộ nhớ
-2.1.3. Ngoại vi
-2.1.4. Liên kết hệ thống | CK2, CS2, CR3 |
-| 2.2 | Hoạt động của máy tính
-2.2.1. Nhận lệnh và dữ liệu
-2.2.2. Thực hiện lệnh
-2.2.3. Lưu trữ kết quả
-2.2.4. Lặp lại quá trình
-2.2.5. Hiển thị kết quả
-2.2.6. Chuẩn bị cho lần thực hiện lệnh tiếp theo | CK2, CS1 |
+| 2.1 | Các thành phần cơ bản của máy tính<br>2.1.1. Bộ xử lý trung tâm<br>2.1.2. Bộ nhớ<br>2.1.3. Ngoại vi<br>2.1.4. Liên kết hệ thống | CK2, CS2, CR3 |
+| 2.2 | Hoạt động của máy tính<br>2.2.1. Nhận lệnh và dữ liệu<br>2.2.2. Thực hiện lệnh<br>2.2.3. Lưu trữ kết quả<br>2.2.4. Lặp lại quá trình<br>2.2.5. Hiển thị kết quả<br>2.2.6. Chuẩn bị cho lần thực hiện lệnh tiếp theo | CK2, CS1 |
 | Chương 3. Số học máy tính |  |  |
 | 3.1 | Khái niệm thông tin, dữ liệu | CK3, CS1 |
-| 3.2 | Hệ đếm cơ bản
-3.2.1. Hệ đếm thập phân (Decimal system)
-3.2.2. Hệ đếm nhị phân (Binary system)
-3.2.3. Hệ đếm bát phân (Octal system) | CK3, CS3, CS4 |
+| 3.2 | Hệ đếm cơ bản<br>3.2.1. Hệ đếm thập phân (Decimal system)<br>3.2.2. Hệ đếm nhị phân (Binary system)<br>3.2.3. Hệ đếm bát phân (Octal system) | CK3, CS3, CS4 |
 4 112
 
 <!-- Page 113 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 3.2.4. Hệ đếm thập lục phân (Hexa system)
-3.2.5. Các phép toán |  |
-| 3.3 | Mã hóa và lưu trữ dữ liệu
-3.3.1. Mã hóa đối xứng
-3.3.2. Mã hóa bất đối xứng
-3.3.3. Định dạng tập tin
-3.3.4. Cơ sở dữ liệu và cơ sở
-3.3.5. Lưu trữ đám mây | CK3, CS1, CS5 |
-| 3.4 | Biểu diễn số nguyên
-3.4.1. Biểu diễn số nguyên có dấu
-3.4.2. Biểu diễn số nguyên không dấu | CK3,CS1, CS4 |
-| 3.5 | Biểu diễn số thực
-3.5.1. Biểu diễn số thực dấu phẩy tĩnh
-3.5.2. Biểu diễn số thực dấu phẩy động | CK3,CS1, CS4 |
+|  | 3.2.4. Hệ đếm thập lục phân (Hexa system)<br>3.2.5. Các phép toán |  |
+| 3.3 | Mã hóa và lưu trữ dữ liệu<br>3.3.1. Mã hóa đối xứng<br>3.3.2. Mã hóa bất đối xứng<br>3.3.3. Định dạng tập tin<br>3.3.4. Cơ sở dữ liệu và cơ sở<br>3.3.5. Lưu trữ đám mây | CK3, CS1, CS5 |
+| 3.4 | Biểu diễn số nguyên<br>3.4.1. Biểu diễn số nguyên có dấu<br>3.4.2. Biểu diễn số nguyên không dấu | CK3,CS1, CS4 |
+| 3.5 | Biểu diễn số thực<br>3.5.1. Biểu diễn số thực dấu phẩy tĩnh<br>3.5.2. Biểu diễn số thực dấu phẩy động | CK3,CS1, CS4 |
 | Chương 4. Tổ chức bộ xử lý |  |  |
-| 4.1 | Cấu trúc cơ bản của CPU
-4.1.1. Bộ điều khiển (Control Unit - CU)
-4.1.2. Bộ xử lý đại số-logic (Arithmetic Logic Unit -
-ALU)
-4.1.3. Các thanh ghi (Registers)
-4.1.4. Bộ nhớ cache (Cache Memory)
-4.1.5. Điều khiển giao tiếp (Interface Unit) | CK2, CS2, CS5 |
-| 4.2 | Tập lệnh
-4.2.1. Lệnh chuyển đổi (Transfer Instructions)
-4.2.2. Lệnh tính toán số học (Arithmetic Instructions)
-4.2.3. Lệnh nhảy (Jump Instructions)
-4.2.4. Lệnh điều kiện (Conditional Instructions)
-4.2.5. Lệnh hệ thống (System Instructions) | CK3, CS1, CS5 |
-| 4.3 | Xử lý ngắt
-4.3.1. Ghi nhận ngắt (Interrupt Recognition)
-4.3.2. Lưu trạng thái hiện tại (Save Current State)
-4.3.3. Chuyển sang xử lý ngắt (Interrupt Handling)
-4.3.4. Phục hồi trạng thái trước đó (Restore Previous
-State) | CK3, CS1, CS5 |
-| 4.4 | Kỹ thuật ống dẫn
-4.4.1. Fetch (Lấy lệnh)
-4.4.2. Decode (Giải mã)
-4.4.3. Execute (Thực thi) | CK3, CS5 |
+| 4.1 | Cấu trúc cơ bản của CPU<br>4.1.1. Bộ điều khiển (Control Unit - CU)<br>4.1.2. Bộ xử lý đại số-logic (Arithmetic Logic Unit -<br>ALU)<br>4.1.3. Các thanh ghi (Registers)<br>4.1.4. Bộ nhớ cache (Cache Memory)<br>4.1.5. Điều khiển giao tiếp (Interface Unit) | CK2, CS2, CS5 |
+| 4.2 | Tập lệnh<br>4.2.1. Lệnh chuyển đổi (Transfer Instructions)<br>4.2.2. Lệnh tính toán số học (Arithmetic Instructions)<br>4.2.3. Lệnh nhảy (Jump Instructions)<br>4.2.4. Lệnh điều kiện (Conditional Instructions)<br>4.2.5. Lệnh hệ thống (System Instructions) | CK3, CS1, CS5 |
+| 4.3 | Xử lý ngắt<br>4.3.1. Ghi nhận ngắt (Interrupt Recognition)<br>4.3.2. Lưu trạng thái hiện tại (Save Current State)<br>4.3.3. Chuyển sang xử lý ngắt (Interrupt Handling)<br>4.3.4. Phục hồi trạng thái trước đó (Restore Previous<br>State) | CK3, CS1, CS5 |
+| 4.4 | Kỹ thuật ống dẫn<br>4.4.1. Fetch (Lấy lệnh)<br>4.4.2. Decode (Giải mã)<br>4.4.3. Execute (Thực thi) | CK3, CS5 |
 5 113
 
 <!-- Page 114 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 4.4.4. Memory Access (Truy cập bộ nhớ)
-4.4.5. Write-back (Ghi kết quả) |  |
+|  | 4.4.4. Memory Access (Truy cập bộ nhớ)<br>4.4.5. Write-back (Ghi kết quả) |  |
 | Chương 5. Bộ nhớ máy tính |  |  |
 | 5.1 | Bộ nhớ chính | CK2, CS2 |
 | 5.2 | Bộ nhớ lưu trữ | CK2, CS2 |
 | 5.3 | Bộ nhớ đệm | CK2, CS2 |
 | Chương 6. Thực hành |  |  |
-| 6.1 | Phần cứng, phần mềm vào-ra
-6.1.1. Thiết bị ngoại vi
-6.1.2. Cổng kết nối
-6.1.3. Trình điều khiển (Driver)
-6.1.4. Hệ điều hành
-6.1.5. Giao thức truyền thông | CK3, CS1- CS3,
-CS5 |
-| 6.2 | Ghép nối máy tính với thiết bị ngoại vi
-6.2.1. Thực hành mainboard máy tính
-6.2.2. Thực hành bộ nhớ máy tính
-6.2.3. Lập trình điều khiển máy tính
-6.2.4. Lập trình giao tiếp ngoại vi với máy tính | CK3, CS1- CS3,
-CS5, CR3 |
-| Thi cuối kỳ |  | CK1-CK3, CS1,
-CS3, CS4, CR1-
-CR3 |
+| 6.1 | Phần cứng, phần mềm vào-ra<br>6.1.1. Thiết bị ngoại vi<br>6.1.2. Cổng kết nối<br>6.1.3. Trình điều khiển (Driver)<br>6.1.4. Hệ điều hành<br>6.1.5. Giao thức truyền thông | CK3, CS1- CS3,<br>CS5 |
+| 6.2 | Ghép nối máy tính với thiết bị ngoại vi<br>6.2.1. Thực hành mainboard máy tính<br>6.2.2. Thực hành bộ nhớ máy tính<br>6.2.3. Lập trình điều khiển máy tính<br>6.2.4. Lập trình giao tiếp ngoại vi với máy tính | CK3, CS1- CS3,<br>CS5, CR3 |
+| Thi cuối kỳ |  | CK1-CK3, CS1,<br>CS3, CS4, CR1-<br>CR3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 114
 
@@ -4265,11 +3131,8 @@ NHẬP MÔN AN TOÀN MÁY TÍNH
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
-| 1. | Hoàng Quốc Hùng | GV |  |  | Trường
-ĐHKHTN |  |  | hoangquochung@hus.edu.
-vn |
-| 2. | Đinh Hữu Nghĩa | ThS |  |  | Trường
-ĐHKHTN |  |  | nghiadh.vnu@gmail.com |
+| 1. | Hoàng Quốc Hùng | GV |  |  | Trường<br>ĐHKHTN |  |  | hoangquochung@hus.edu.<br>vn |
+| 2. | Đinh Hữu Nghĩa | ThS |  |  | Trường<br>ĐHKHTN |  |  | nghiadh.vnu@gmail.com |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Giúp người học nắm được các kiến thức nền tảng về các khía
 cạnh an toàn máy tính, khả năng vận dụng kiến thức để ngăn ngừa/giảm thiểu
@@ -4328,30 +3191,16 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần | 4 |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thực hành hàng tuần
-- Thang điểm 10 | CK1, CR1, CR2,
-CR3 |
-| 2 | Giữa kỳ | 20 % | - Kiểm tra tự luận, kết hợp bài tập
-lớn
-- Thang điểm 10 | CK1, CK2,
-CK3, CS1, CS2,
-CS3, CR1, CR2,
-CR3 |
-| 3 | Cuối kỳ | 60 % | - Kiểm tra tự luận
-- Thang điểm đánh giá. | CK1, CK2,
-CS2, CS3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thực hành hàng tuần<br>- Thang điểm 10 | CK1, CR1, CR2,<br>CR3 |
+| 2 | Giữa kỳ | 20 % | - Kiểm tra tự luận, kết hợp bài tập<br>lớn<br>- Thang điểm 10 | CK1, CK2,<br>CK3, CS1, CS2,<br>CS3, CR1, CR2,<br>CR3 |
+| 3 | Cuối kỳ | 60 % | - Kiểm tra tự luận<br>- Thang điểm đánh giá. | CK1, CK2,<br>CS2, CS3 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -4366,24 +3215,18 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 117
 
 <!-- Page 118 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Giới thiệu về an toàn máy tính |  | CK1, CK3, CS1,
-CS2 |
-| 1.1 | Mục tiêu của an toàn thông tin: tính bảo mật, toàn vẹn,
-sẵn sàng |  |
+| Chương 1. Giới thiệu về an toàn máy tính |  | CK1, CK3, CS1,<br>CS2 |
+| 1.1 | Mục tiêu của an toàn thông tin: tính bảo mật, toàn vẹn,<br>sẵn sàng |  |
 | 1.2 | Các mối đe dọa: phân loại và mô hình hóa |  |
 | 1.3 | Các loại malware, virus, worm |  |
 | 1.4 | Các nguyên tắc an toàn của một hệ thống thông tin |  |
-| Chương 2. An toàn vật lý |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 2. An toàn vật lý |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 2.1 | Tấn công kênh kề: khái niệm, các loại tấn công |  |
 | 2.2 | Tấn công Meltdown |  |
 | 2.3 | Tấn công Spectre |  |
-| Chương 3. An toàn hệ thống phần mềm |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 3. An toàn hệ thống phần mềm |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 3.1 | Xác thực người dùng |  |
 | 3.2 | Kiểm soát quyền truy cập |  |
 | 3.3 | Vấn đề set-UID và leo thang quyền |  |
@@ -4392,23 +3235,19 @@ CS2, CS3 |
 | 3.6 | Lỗ hổng xâu ký tự định dạng |  |
 | 3.7 | Vấn đề về tình trạng ganh đua |  |
 | 3.8 | Công cụ reverse-shell |  |
-| Chương 4. An toàn ứng dụng web |  | CK1, CK2, CK3,
-CS1, CS2, CS3 |
+| Chương 4. An toàn ứng dụng web |  | CK1, CK2, CK3,<br>CS1, CS2, CS3 |
 | 4.1 | Tấn công cross site scripting (XSS) |  |
 | 4.2 | Tấn công cross channel scripting (XCS) |  |
 | 4.3 | Giả mạo yêu cầu Cross site request forgery (CSRF) |  |
 | 4.4 | Tấn công SQL injection qua ứng dụng web |  |
-| Chương 5. Sơ lược về An toàn mạng |  | CK1, CK3, CS1,
-CS2 |
+| Chương 5. Sơ lược về An toàn mạng |  | CK1, CK3, CS1,<br>CS2 |
 | 5.1 | Quét cổng dịch vụ |  |
 | 5.2 | Nghe lén gói tin |  |
 | 5.3 | Tấn công đối với giao thức TCP: SYN flood, TCP reset, |  |
 4 118
 
 <!-- Page 119 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | TCP session hijacking |  |
 | 5.4 | Một số vấn đề về giao thức SSL/TSL |  |
@@ -4431,8 +3270,7 @@ MẠNG MÁY TÍNH
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
 | 1. | Đỗ Trung Tuấn | PGS.TS |  |  | Trường ĐHKHTN | tuandt@vnu.edu.vn |
-| 2. | Hoàng Quốc Hùng | GV |  |  | Trường ĐHKHTN | hoangquochung@h
-us.edu.vn |
+| 2. | Hoàng Quốc Hùng | GV |  |  | Trường ĐHKHTN | hoangquochung@h<br>us.edu.vn |
 | 3. | Lê Trọng Vĩnh | PGS.TS |  |  | Trường ĐHKHTN | vinhlt@hus.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Giúp người học nắm được các kiến thức nền tảng về mạng máy
@@ -4485,36 +3323,19 @@ CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), 
 chủ và trách nhiệm (Program Responsibility-PR))
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 3 |  |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 3 |  |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 3 |  |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
 2 121
 
 <!-- Page 122 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 10 % | - Điểm bài tập thường xuyên
-- Thang điểm 10 | CK1, CK2,
-CS1, CR1
-CK1, CR1,
-CR2, CR3 |
-| 2. | Giữa kỳ | 30 % | - Kiểm tra tự luận, kết hợp bài tập
-lớn
-- Thang điểm 10 | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CR1, CR2,
-CR3 |
-| 3. | Cuối kỳ | 60 % | - Kiểm tra tự luận
-- Thang điểm đánh giá | CK1, CK2,
-CS2, CS3 |
+| 1. | Thường<br>xuyên | 10 % | - Điểm bài tập thường xuyên<br>- Thang điểm 10 | CK1, CK2,<br>CS1, CR1<br>CK1, CR1,<br>CR2, CR3 |
+| 2. | Giữa kỳ | 30 % | - Kiểm tra tự luận, kết hợp bài tập<br>lớn<br>- Thang điểm 10 | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
+| 3. | Cuối kỳ | 60 % | - Kiểm tra tự luận<br>- Thang điểm đánh giá | CK1, CK2,<br>CS2, CS3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -4526,57 +3347,45 @@ approach, thư viện điện tử VNU, 2013.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Các khái niệm cơ sở |  | CK1, CK3, CS1,
-CS2 |
+| Chương 1. Các khái niệm cơ sở |  | CK1, CK3, CS1,<br>CS2 |
 3 122
 
 <!-- Page 123 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.1 | Các mô hình kết nối và phân loại mạng |  |
 | 1.2 | Tìm hiểu mạng cục bộ và mạng liên vùng |  |
 | 1.3 | Tìm hiểu mạng diện rộng, các loại đường truyền |  |
 | 1.4 | Nguyên lý chồng giao thức |  |
-| Chương 2. Các phương pháp mã hoá tín hiệu |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 2. Các phương pháp mã hoá tín hiệu |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 2.1 | Chế độ truyền, vấn đề căn chỉnh thời gian |  |
 | 2.2 | Các phương pháp mã hoá tín hiệu số |  |
 | 2.3 | Các phương pháp mã hoá tín hiệu tương tự |  |
-| Chương 3. Truyền khung dữ liệu và các phương pháp kiểm sai |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 3. Truyền khung dữ liệu và các phương pháp kiểm sai |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 3.1 | Giao thức truyền khung dữ liệu |  |
 | 3.2 | Truyền khung dữ liệu trong mạng cục bộ |  |
 | 3.3 | Các phương pháp mã kiểm sai |  |
 | 3.4 | Các phương pháp mã sửa sai |  |
-| Chương 4. Truyền gói dữ liệu liên mạng |  | CK1, CK2, CK3,
-CS1, CS2, CS3 |
+| Chương 4. Truyền gói dữ liệu liên mạng |  | CK1, CK2, CK3,<br>CS1, CS2, CS3 |
 | 4.1 | Phương pháp đánh địa chỉ có cấu trúc |  |
 | 4.2 | Định tuyến gói dữ liệu |  |
 | 4.3 | Cấu trúc giao thức IP |  |
 | 4.4 | Phân giải địa chỉ |  |
 | 4.5 | Quản trị quyền thâm nhập tài nguyên tệp |  |
-| Chương 5. Truyền dữ liệu giữa các ứng dụng mạng |  | CK1, CK3, CS1,
-CS2 |
+| Chương 5. Truyền dữ liệu giữa các ứng dụng mạng |  | CK1, CK3, CS1,<br>CS2 |
 | 5.1 | Các chế độ dịch vụ truyền dữ liệu giữa ứng dụng |  |
 | 5.2 | Phương pháp đánh địa chỉ ứng dụng |  |
 | 5.3 | Giao thức UDP |  |
 | 5.4 | Giao thức TCP |  |
 | 5.5 | Vấn đề về điều khiển luồng và chống tắc nghẽn |  |
-| Chương 6. Các ứng dụng internet cơ bản |  | CK1, CK3, CS1,
-CS2 |
+| Chương 6. Các ứng dụng internet cơ bản |  | CK1, CK3, CS1,<br>CS2 |
 | 6.1 | Dịch vụ web |  |
 4 123
 
 <!-- Page 124 -->
-| Chương
-/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 6.2 | Dịch vụ thư điện tử |  |
 | 6.3 | Dịch vụ truyền tệp |  |
@@ -4656,32 +3465,20 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 4 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  | 4 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |
 2 126
 
 <!-- Page 127 -->
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 | 4 |  | 3 | 4 | 4 | 4 |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  | 3 | 4 | 4 | 4 |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, trên
-lớp và tham gia thảo luận.
-- Thang điểm đánh giá 10 | CR1-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá 10 | CK1-CK4 CS1,
-CS2 |
-| 3 | Cuối kỳ | 60 % | - Thi viết hoặc Tiểu luận theo
-nhóm
-- Thang điểm đánh giá 10 | CK5, CK6, CS3,
-CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, trên<br>lớp và tham gia thảo luận.<br>- Thang điểm đánh giá 10 | CR1-CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá 10 | CK1-CK4 CS1,<br>CS2 |
+| 3 | Cuối kỳ | 60 % | - Thi viết hoặc Tiểu luận theo<br>nhóm<br>- Thang điểm đánh giá 10 | CK5, CK6, CS3,<br>CR2, CR3 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -4695,9 +3492,7 @@ edition. McGraw, 2009.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Mở đầu |  |  |
 | 1.1 | Trí tuệ nhân tạo là gì |  |
@@ -4706,9 +3501,7 @@ của học phần |
 3 127
 
 <!-- Page 128 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.4 | Tác tử và hệ cơ sở tri thức |  |
 | Chương 2. Logic mệnh đề |  | CK1 |
@@ -4744,9 +3537,7 @@ của học phần |
 4 128
 
 <!-- Page 129 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.1 | Phân tích dữ liệu |  |
 | 7.2 | Perceptron, bộ phân loại tuyến tính |  |
@@ -4842,31 +3633,16 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 6 | 5 | 3 |  |  |  |  |  | 3 |  |  | 3 |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  | 6 | 5 | 3 |  |  |  |  |  | 3 |  |  | 3 |  | 4 |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK2
-CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK1, CK2
-CS3, CS4 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2<br>CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK1, CK2<br>CS3, CS4 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 − Do người hướng dẫn cung cấp.
@@ -4894,8 +3670,7 @@ CÔNG NGHỆ PHẦN MỀM
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
 | 1. | Quản Thái Hà | ThS |  |  | Trường ĐHKHTN | haqt@hus.edu.vn |
-| 2. | Ngô Thế Quyền | ThS |  |  | Trường ĐHKHTN | ngoquyenbg@hus
-.edu.vn |
+| 2. | Ngô Thế Quyền | ThS |  |  | Trường ĐHKHTN | ngoquyenbg@hus<br>.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp kiến thức, phương pháp, mô hình, quy trình và công
 cụ để phát triển một hệ thống phần mềm.
@@ -4958,41 +3733,16 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 3 |  |  |  |  |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 3 |  |  |  |  |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Kiểm tra trắc nghiệm
-- Thang điểm đánh giá: CK1: 3
-điểm, CK2: 2 điểm, CS1: 1 điểm,
-CS2: 2 điểm, CR1: 1 điểm, CR2: 1
-điểm | CK1, CK2, CS1,
-CS2, CR1, CR2 |
-| 2 | Giữa kỳ | 20 % | - Báo cáo nhóm
-- Thang điểm đánh giá: CK1: 2
-điểm, CK2: 3 điểm, CS1: 1 điểm,
-CS2: 2 điểm, CR1: 0.5 điểm, CR2:
-0.5 điểm, CR3: 1 điểm | CK1, CK2
-CS1, CS2, CR1,
-CR2, CR3 |
-| 3 | Cuối kỳ | 60 % | - Báo cáo nhóm kết hợp vấn đáp về
-các nội dung đã học
-- Thang điểm đánh giá: CK1: 2
-điểm, CK2: 3 điểm, CK3: 1 điểm,
-CS1: 1 điểm, CS2: 0.5 điểm, CS3:
-0.5 điểm, CR1: 0.5 điểm, CR2: 0.5
-điểm, CR3: 1 điểm | CK1, CK2,
-CK3, CS1, CS2,
-CS3, CR1, CR2,
-CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Kiểm tra trắc nghiệm<br>- Thang điểm đánh giá: CK1: 3<br>điểm, CK2: 2 điểm, CS1: 1 điểm,<br>CS2: 2 điểm, CR1: 1 điểm, CR2: 1<br>điểm | CK1, CK2, CS1,<br>CS2, CR1, CR2 |
+| 2 | Giữa kỳ | 20 % | - Báo cáo nhóm<br>- Thang điểm đánh giá: CK1: 2<br>điểm, CK2: 3 điểm, CS1: 1 điểm,<br>CS2: 2 điểm, CR1: 0.5 điểm, CR2:<br>0.5 điểm, CR3: 1 điểm | CK1, CK2<br>CS1, CS2, CR1,<br>CR2, CR3 |
+| 3 | Cuối kỳ | 60 % | - Báo cáo nhóm kết hợp vấn đáp về<br>các nội dung đã học<br>- Thang điểm đánh giá: CK1: 2<br>điểm, CK2: 3 điểm, CK3: 1 điểm,<br>CS1: 1 điểm, CS2: 0.5 điểm, CS3:<br>0.5 điểm, CR1: 0.5 điểm, CR2: 0.5<br>điểm, CR3: 1 điểm | CK1, CK2,<br>CK3, CS1, CS2,<br>CS3, CR1, CR2,<br>CR3 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -5008,105 +3758,38 @@ Approach, McGraw-Hill Education, 2019.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1: Tổng quan về phần mềm và công nghệ phần mềm |  |  |
-| 1.1 | Mục 1.1 Ngành CNPM và Nghề CNPM
-1.1.1. Mở đầu
-1.1.2. Giới thiệu khóa học | CR1, CR2 |
-| 1.2 | Mục 1.2 Chương trình và Sản phẩm Phần mềm
-1.2.1 Các khái niệm
-1.2.2 Hệ thống phần mềm | CS1, CR1, CR2 |
+| 1.1 | Mục 1.1 Ngành CNPM và Nghề CNPM<br>1.1.1. Mở đầu<br>1.1.2. Giới thiệu khóa học | CR1, CR2 |
+| 1.2 | Mục 1.2 Chương trình và Sản phẩm Phần mềm<br>1.2.1 Các khái niệm<br>1.2.2 Hệ thống phần mềm | CS1, CR1, CR2 |
 | Chương 2: Các mô hình phát triển phần mềm |  |  |
-| 2.1 | Mục 2.1 Quy trình, Pha và Vòng đời
-2.1.1 Các khái niệm
-2.1.2 Các pha trong quy trình phát triển phần mềm
-2.1.3 Các Quy trình phát triển phần mềm nổi tiếng | CS1, CR1, CR2 |
-| 2.2 | Mục 2.2 Các mô hình phát triển phần mềm
-2.2.1 Mô hình sơ khai
-2.2.2 Mô hình thác nước
-2.2.3 Mô hình Agile | CS1, CR1, CR2 |
-| 2.3 | Mục 2.3 Phát triển phần mềm theo mô hình Agile
-2.3.1 Nhóm Scrum
-2.3.2 Các sự kiện
-2.3.3 Tạo tác (artifacts) và công cụ
-2.3.4 Case study: Một ví dụ về phát triển dự án bằng
-Scrum | CK1, CS1, CR1,
-CR2 |
+| 2.1 | Mục 2.1 Quy trình, Pha và Vòng đời<br>2.1.1 Các khái niệm<br>2.1.2 Các pha trong quy trình phát triển phần mềm<br>2.1.3 Các Quy trình phát triển phần mềm nổi tiếng | CS1, CR1, CR2 |
+| 2.2 | Mục 2.2 Các mô hình phát triển phần mềm<br>2.2.1 Mô hình sơ khai<br>2.2.2 Mô hình thác nước<br>2.2.3 Mô hình Agile | CS1, CR1, CR2 |
+| 2.3 | Mục 2.3 Phát triển phần mềm theo mô hình Agile<br>2.3.1 Nhóm Scrum<br>2.3.2 Các sự kiện<br>2.3.3 Tạo tác (artifacts) và công cụ<br>2.3.4 Case study: Một ví dụ về phát triển dự án bằng<br>Scrum | CK1, CS1, CR1,<br>CR2 |
 | Chương 3: Phân tích và thiết kế hệ thống |  |  |
-| 3.1 | Mục 3.1 Kỹ thuật Phân tích Thiết kế Hướng đối tượng
-3.1.1. Phương pháp phân tích Hướng đối tượng
-3.1.2. Case study: Phân tích thiết kế HĐT một hệ thống
-phần mềm mẫu | CK1, CS1, CS2,
-CS3, CR1, CR2,
-CR3 |
+| 3.1 | Mục 3.1 Kỹ thuật Phân tích Thiết kế Hướng đối tượng<br>3.1.1. Phương pháp phân tích Hướng đối tượng<br>3.1.2. Case study: Phân tích thiết kế HĐT một hệ thống<br>phần mềm mẫu | CK1, CS1, CS2,<br>CS3, CR1, CR2,<br>CR3 |
 4 136
 
 <!-- Page 137 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 3.1.3. Sơ lược về MVC, Design Patterns và khái niệm
-Framework |  |
-| 3.2 | Mục 3.2 Xác định yêu cầu và đặc tả
-3.2.1 Xác định yêu cầu
-3.2.2 Xác định yêu cầu áp dụng cho mô hình Agile
-3.2.3 Case study: Xác định yêu cầu | CK1, CS1, CS2,
-CS3, CR1, CR2,
-CR3 |
-| 3.3 | Mục 3.3 Thiết kế hệ thống
-3.3.1 Tổng quan về thiết kế hệ thống
-3.3.2 Giới thiệu mô hình thiết kế 4+1 views
-3.3.3 Case study: Thiết kế hệ thống | CK1, CK2, CS1,
-CS2, CS3, CR1,
-CR2, CR3 |
-| 3.4 | Mục 3.4 Viết mã và kiểm thử đơn vị
-3.4.1 Tổng quan về pha Coding
-3.4.2 Kiểm thử đơn vị | CK1, CS1, CS2,
-CS3, CR1, CR2,
-CR3 |
-| 3.5 | Tích hợp, triển khai và bảo trì
-3.5.1 Các phương pháp tích hợp
-3.5.2 Tích hợp module và Tích hợp hệ thống
-3.5.3 Triển khai và bảo trì
-3.5.4 Tích hợp liên tục và Triển khai liên tục (CI/CD) | CK1, CK2, CS1,
-CS2, CS3, CR1,
-CR2, CR3 |
+|  | 3.1.3. Sơ lược về MVC, Design Patterns và khái niệm<br>Framework |  |
+| 3.2 | Mục 3.2 Xác định yêu cầu và đặc tả<br>3.2.1 Xác định yêu cầu<br>3.2.2 Xác định yêu cầu áp dụng cho mô hình Agile<br>3.2.3 Case study: Xác định yêu cầu | CK1, CS1, CS2,<br>CS3, CR1, CR2,<br>CR3 |
+| 3.3 | Mục 3.3 Thiết kế hệ thống<br>3.3.1 Tổng quan về thiết kế hệ thống<br>3.3.2 Giới thiệu mô hình thiết kế 4+1 views<br>3.3.3 Case study: Thiết kế hệ thống | CK1, CK2, CS1,<br>CS2, CS3, CR1,<br>CR2, CR3 |
+| 3.4 | Mục 3.4 Viết mã và kiểm thử đơn vị<br>3.4.1 Tổng quan về pha Coding<br>3.4.2 Kiểm thử đơn vị | CK1, CS1, CS2,<br>CS3, CR1, CR2,<br>CR3 |
+| 3.5 | Tích hợp, triển khai và bảo trì<br>3.5.1 Các phương pháp tích hợp<br>3.5.2 Tích hợp module và Tích hợp hệ thống<br>3.5.3 Triển khai và bảo trì<br>3.5.4 Tích hợp liên tục và Triển khai liên tục (CI/CD) | CK1, CK2, CS1,<br>CS2, CS3, CR1,<br>CR2, CR3 |
 | Chương 4: Đảm bảo chất lượng |  |  |
-| 4.1 | Mục 4.1 Đảm bảo chất lượng trong Phát triển phần
-mềm
-4.1.1. Đảm bảo chất lượng trong phân tích yêu cầu
-4.1.2. Đảm bảo chất lượng thiết kế
-4.1.3. Đảm bảo chất lượng trong viết mã, tích hợp và
-triển khai | CK1, CK2, CK3,
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
+| 4.1 | Mục 4.1 Đảm bảo chất lượng trong Phát triển phần<br>mềm<br>4.1.1. Đảm bảo chất lượng trong phân tích yêu cầu<br>4.1.2. Đảm bảo chất lượng thiết kế<br>4.1.3. Đảm bảo chất lượng trong viết mã, tích hợp và<br>triển khai | CK1, CK2, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
 | Chương 5: Dự án Phát triển Phần mềm |  |  |
-| 5.1 | Mục 5.1 Sơ lược về Dự án Phát triển Phần mềm
-5.1.1. Định nghĩa dự án và quản trị dự án
-5.1.2. Các nhóm kiến thức quy trình trong PMBoK
-5.1.3. Sử dụng công cụ trong Quản lý Dự án Phát triển
-phần mềm | CK1, CK2, CK3,
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
-| 5.2 | Mục 5.2 Quản lý dự án Phát triển phần mềm theo mô
-hình Agile
-5.2.1. Hoạt động quản trị dự án theo Agile | CK1, CK2, CK3
-CS1, CS2, CS3,
-CR1, CR2, CR3 |
+| 5.1 | Mục 5.1 Sơ lược về Dự án Phát triển Phần mềm<br>5.1.1. Định nghĩa dự án và quản trị dự án<br>5.1.2. Các nhóm kiến thức quy trình trong PMBoK<br>5.1.3. Sử dụng công cụ trong Quản lý Dự án Phát triển<br>phần mềm | CK1, CK2, CK3,<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
+| 5.2 | Mục 5.2 Quản lý dự án Phát triển phần mềm theo mô<br>hình Agile<br>5.2.1. Hoạt động quản trị dự án theo Agile | CK1, CK2, CK3<br>CS1, CS2, CS3,<br>CR1, CR2, CR3 |
 5 137
 
 <!-- Page 138 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 5.2.2. Kiểm soát tiến độ và tái lập kế hoạch
-5.2.3. Đóng gói và chuyển giao
-5.2.4. Kết thúc dự án |  |
+|  | 5.2.2. Kiểm soát tiến độ và tái lập kế hoạch<br>5.2.3. Đóng gói và chuyển giao<br>5.2.4. Kết thúc dự án |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 138
 
@@ -5123,16 +3806,9 @@ NGUYÊN LÍ CÁC NGÔN NGỮ LẬP TRÌNH
 |  | STT |  |  | Họ và tên |  |  | Học hàm, |  |  | Đơn vị công tác |  |  | Email |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Thị Minh
-Huyền |  |  | TS. |  |  | Trường
-ĐHKHTN |  |  | huyenntm@hus.ed
-u.vn |  |  |
-| 2. |  |  | Lê Hồng Phương |  |  | PGS.TS. |  |  | Trường
-ĐHKHTN |  |  | phuonglh@hus.ed
-u.vn |  |  |
-| 3. |  |  | Nguyễn Thị Tâm |  |  | TS. |  |  | Trường
-ĐHKHTN |  |  | nguyenthitam@hu
-s.edu.vn |  |  |
+| 1. |  |  | Nguyễn Thị Minh<br>Huyền |  |  | TS. |  |  | Trường<br>ĐHKHTN |  |  | huyenntm@hus.ed<br>u.vn |  |  |
+| 2. |  |  | Lê Hồng Phương |  |  | PGS.TS. |  |  | Trường<br>ĐHKHTN |  |  | phuonglh@hus.ed<br>u.vn |  |  |
+| 3. |  |  | Nguyễn Thị Tâm |  |  | TS. |  |  | Trường<br>ĐHKHTN |  |  | nguyenthitam@hu<br>s.edu.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần cung cấp cho sinh viên những khái niệm nền tảng về
 nguyên lí của các ngôn ngữ lập trình, giúp tăng cường khả năng học, đánh giá,
@@ -5191,50 +3867,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 3 | 2 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 | 2 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Bài kiểm tra thường xuyên giờ lí
-thuyết và bài tập
-- CK1: 0.5 điểm, CK2: 1 điểm, CK3:
-1 điểm, CS1: 0.5 điểm, CS2: 3.5
-điểm, CS3: 1 điểm, CS4: 0.5 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm,
-CR3: 1 điểm | CK1-CK3,
-CS1-CS4,
-CR1-CR3 |
-| 2 | Giữa kỳ | 20% | - Báo cáo giữa kì phần lí thuyết, bài
-tập lập trình hàm
-- CK1: 0.5 điểm, CK2: 1 điểm, CK3:
-1 điểm, CS1: 0.5 điểm, CS2: 3.5
-điểm, CS3: 1 điểm, CS4: 0.5 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm,
-CR3: 1 điểm | CK1-CK3,
-CS1-CS4,
-CR1-CR3 |
-| 3 | Cuối kỳ | 60 % | - Tiểu luận phần lí thuyết. Làm bài
-tập trên máy và trả lời trắc nghiệm
-phần lập trình hàm và lập trình
-logic.
-- CK1: 0.5 điểm, CK2: 1 điểm, CK3:
-1 điểm, CS1: 0.5 điểm, CS2: 3.5
-điểm, CS3: 1 điểm, CS4: 0.5 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm,
-CR3: 1 điểm | CK1-CK3,
-CS1-CS4,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20% | - Bài kiểm tra thường xuyên giờ lí<br>thuyết và bài tập<br>- CK1: 0.5 điểm, CK2: 1 điểm, CK3:<br>1 điểm, CS1: 0.5 điểm, CS2: 3.5<br>điểm, CS3: 1 điểm, CS4: 0.5 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm,<br>CR3: 1 điểm | CK1-CK3,<br>CS1-CS4,<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20% | - Báo cáo giữa kì phần lí thuyết, bài<br>tập lập trình hàm<br>- CK1: 0.5 điểm, CK2: 1 điểm, CK3:<br>1 điểm, CS1: 0.5 điểm, CS2: 3.5<br>điểm, CS3: 1 điểm, CS4: 0.5 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm,<br>CR3: 1 điểm | CK1-CK3,<br>CS1-CS4,<br>CR1-CR3 |
+| 3 | Cuối kỳ | 60 % | - Tiểu luận phần lí thuyết. Làm bài<br>tập trên máy và trả lời trắc nghiệm<br>phần lập trình hàm và lập trình<br>logic.<br>- CK1: 0.5 điểm, CK2: 1 điểm, CK3:<br>1 điểm, CS1: 0.5 điểm, CS2: 3.5<br>điểm, CS3: 1 điểm, CS4: 0.5 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm,<br>CR3: 1 điểm | CK1-CK3,<br>CS1-CS4,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 3 141
 
@@ -5253,24 +3898,18 @@ Implementation, 4th Edition, Prentice Hall, 2001.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Tổng quan |  | CK1, CK3, CS3,
-CS4, CR1, CR3 |
+| Chương 1. Tổng quan |  | CK1, CK3, CS3,<br>CS4, CR1, CR3 |
 | 1.1 | Ngôn ngữ lập trình và chương trình dịch |  |
 | 1.2 | Tiêu chí đánh giá ngôn ngữ lập trình |  |
 | 1.3 | Phân loại ngôn ngữ lập trình |  |
 | 1.4 | Tổng quan các ngôn ngữ lập trình thông dụng |  |
-| Chương 2. Đặc tả hình thức ngôn ngữ lập trình |  | CK2, CS1, CS3,
-CS4, CR1-CR3 |
+| Chương 2. Đặc tả hình thức ngôn ngữ lập trình |  | CK2, CS1, CS3,<br>CS4, CR1-CR3 |
 | 2.1 | Đặc tả từ vựng |  |
 | 2.2 | Cú pháp hình thức |  |
 | 2.3 | Ngữ nghĩa hình thức |  |
-| Chương 3. Tên, liên kết và phạm vi của biến |  | CK1, CK2, CS2,
-CS3, CS4, CR1-
-CR3 |
+| Chương 3. Tên, liên kết và phạm vi của biến |  | CK1, CK2, CS2,<br>CS3, CS4, CR1-<br>CR3 |
 | 3.1 | Liên kết giá trị |  |
 | 3.2 | Thời gian tồn tại và quản lí lưu trữ |  |
 | 3.3 | Quy tắc về phạm vi biến |  |
@@ -5280,49 +3919,38 @@ CR3 |
 4 142
 
 <!-- Page 143 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  |  | CS3, CS4, CR1-
-CR3 |
+|  |  | CS3, CS4, CR1-<br>CR3 |
 | 4.1 | Cú pháp, ngữ nghĩa, phân tích ngữ nghĩa |  |
 | 4.2 | Văn phạm thuộc tính |  |
 | 4.3 | Thủ tục hành động |  |
 | 4.4 | Cây cú pháp trừu tượng |  |
-| Chương 5. Dòng điều khiển |  | CK1, CK2, CS3,
-CS4, CR1-CR3 |
+| Chương 5. Dòng điều khiển |  | CK1, CK2, CS3,<br>CS4, CR1-CR3 |
 | 5.1 | Cấu trúc rẽ nhánh |  |
 | 5.2 | Cấu trúc lặp |  |
 | 5.3 | Luồng điều khiển không tuần tự |  |
-| Chương 6. Kiểu dữ liệu |  | CK1, CK2, CS3,
-CS4, CR1-CR3 |
+| Chương 6. Kiểu dữ liệu |  | CK1, CK2, CS3,<br>CS4, CR1-CR3 |
 | 6.1 | Các kiểu dữ liệu cơ bản |  |
 | 6.2 | Kiểu do người dùng định nghĩa |  |
 | 6.3 | Kiểu dữ liệu có cấu trúc |  |
-| Chương 7. Chương trình con |  | CK1, CK2, CS3,
-CS4, CR1-CR3 |
+| Chương 7. Chương trình con |  | CK1, CK2, CS3,<br>CS4, CR1-CR3 |
 | 7.1 | Cấu trúc chương trình và chương trình con |  |
 | 7.2 | Gọi và thực hiện chương trình con |  |
 | 7.3 | Tham số của chương trình con |  |
 | 7.4 | Phạm vi của biến |  |
 | 5.5 | Chương trình con lồng nhau |  |
-| Chương 8. Trừu tượng dữ liệu và hướng đối tượng |  | CK1, CK2, CS2,
-CS3, CS4, CR1-
-CR3 |
+| Chương 8. Trừu tượng dữ liệu và hướng đối tượng |  | CK1, CK2, CS2,<br>CS3, CS4, CR1-<br>CR3 |
 | 8.1 | Trừu tượng hóa dữ liệu |  |
 | 8.2 | Lớp và đối tượng |  |
 | 8.3 | Đóng gói |  |
 | 8.4 | Giao diện và đa hình |  |
 | 8.5 | Tính kế thừa |  |
-| Chương 9. Lập trình hàm |  | CK1, CK3, CS2,
-CS3, CS4, CR1- |
+| Chương 9. Lập trình hàm |  | CK1, CK3, CS2,<br>CS3, CS4, CR1- |
 5 143
 
 <!-- Page 144 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  |  | CR3 |
 | 9.1 | Giới thiệu |  |
@@ -5330,15 +3958,12 @@ của học phần |
 | 9.3 | Dạng hàm |  |
 | 9.4 | Bản chất của lập trình hàm |  |
 | 9.5 | Ngôn ngữ Haskell |  |
-| Chương 10. Lập trình logic |  | CK1, CK3, CS2,
-CS3, CS4, CR1-
-CR3 |
+| Chương 10. Lập trình logic |  | CK1, CK3, CS2,<br>CS3, CS4, CR1-<br>CR3 |
 | 10.1 | Giới thiệu |  |
 | 10.2 | Mệnh đề |  |
 | 10.3 | Tổng quan về lập trình logic |  |
 | 10.4 | Ngôn ngữ Prolog |  |
-| Chương 11. Chủ đề nâng cao (không bắt buộc) |  | CK1, CK2, CS3,
-CS4, CR1-CR3 |
+| Chương 11. Chủ đề nâng cao (không bắt buộc) |  | CK1, CK2, CS3,<br>CS4, CR1-CR3 |
 | 11.1 | Lập trình kịch bản |  |
 | 11.2 | Tương tranh |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
@@ -5359,8 +3984,7 @@ HỌC MÁY
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
 | 1. |  |  | Lê Hồng Phương |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
-| 2. |  |  | Nguyễn Thị Minh
-Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
+| 2. |  |  | Nguyễn Thị Minh<br>Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
 | 3. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  |  |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần cung cấp cho sinh viên những kiến thức cơ bản về
@@ -5439,24 +4063,15 @@ dụng các kiến thức môn học vào xử lý các vấn đề thực tiễ
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán – Tin:
-| CĐR
-CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
+| CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức
-đóng góp
-của học
-phần |  |  |  | 3 |  | 3 | 4 | 5 | 2 | 3 | 4 |
-| CĐR
-CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
-| Mức
-đóng góp
-của học
-phần |  | 3 |  |  |  | 4 | 4 | 4 |  |  | 4 |
+| Mức<br>đóng góp<br>của học<br>phần |  |  |  | 3 |  | 3 | 4 | 5 | 2 | 3 | 4 |
+| CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
+| Mức<br>đóng góp<br>của học<br>phần |  | 3 |  |  |  | 4 | 4 | 4 |  |  | 4 |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 3 147
 
@@ -5464,60 +4079,28 @@ của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  | 5 |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Các bài thực hành, bài kiểm tra
-trắc nghiệm và kiểm tra trên lớp (lý
-thuyết và thực hành)
-- Thang điểm đánh giá.
-CK1 – 2 – 3 : 1 – 1.5 – 2.5 điểm
-CS1 – CS2 : 1.5 – 1.5 điểm
-CR1 – CR3: 1 – 1 điểm | CK1,CK2,CK3
-,CS1, CS2,
-CR1, CR3 |
-| 2 | Giữa kỳ | 20 % | - Trắc nghiệm và báo cáo giữa kỳ về
-bài toán thực tế sẽ hoàn thành trong
-khóa học
-- Thang điểm đánh giá.
-CK2 – CK3 : 2 – 2 điểm
-CS1 – CS2: 3 – 1 điểm
-CR1 – CR2 – CR3 : 0.5 – 0.5 – 1
-điểm | CK2,CK3 CS1,
-CS2,CR1,CR2,
-CR3 |
-| 3 | Cuối kỳ | 60 % | - Bài tập lớn và vấn đáp trên sản
-phẩm mà sinh viên đã xây dựng
-- Thang điểm đánh giá.
-CK3 – CK4: 3 – 1 điểm
-CS2 – CS3: 2 – 1 điểm
-CR1 – CR2 – CR3 : 1 – 1 – 1 điểm | CK3,CK4,
-CS1,CS2, CS3,
-CR1,CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Các bài thực hành, bài kiểm tra<br>trắc nghiệm và kiểm tra trên lớp (lý<br>thuyết và thực hành)<br>- Thang điểm đánh giá.<br>CK1 – 2 – 3 : 1 – 1.5 – 2.5 điểm<br>CS1 – CS2 : 1.5 – 1.5 điểm<br>CR1 – CR3: 1 – 1 điểm | CK1,CK2,CK3<br>,CS1, CS2,<br>CR1, CR3 |
+| 2 | Giữa kỳ | 20 % | - Trắc nghiệm và báo cáo giữa kỳ về<br>bài toán thực tế sẽ hoàn thành trong<br>khóa học<br>- Thang điểm đánh giá.<br>CK2 – CK3 : 2 – 2 điểm<br>CS1 – CS2: 3 – 1 điểm<br>CR1 – CR2 – CR3 : 0.5 – 0.5 – 1<br>điểm | CK2,CK3 CS1,<br>CS2,CR1,CR2,<br>CR3 |
+| 3 | Cuối kỳ | 60 % | - Bài tập lớn và vấn đáp trên sản<br>phẩm mà sinh viên đã xây dựng<br>- Thang điểm đánh giá.<br>CK3 – CK4: 3 – 1 điểm<br>CS2 – CS3: 2 – 1 điểm<br>CR1 – CR2 – CR3 : 1 – 1 – 1 điểm | CK3,CK4,<br>CS1,CS2, CS3,<br>CR1,CR2, CR3 |
 4 148
 
 <!-- Page 149 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 |  | Tổng | 100% |  |  |
 11. Học liệu
@@ -5537,87 +4120,47 @@ Wiley &Sons, 2001.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu |  |  |
-| 1.1 | Mục 1.1 Học máy thống kê
-1.1.1 Giới thiệu tổng quan
-1.1.2 Ứng dụng của học máy
-1.1.3 Học máy và các lĩnh vực liên quan | CK1, CS1 |
-| 1.2 | Mục 1.2 Phân loại các mô hình học máy
-1.2.1 Học có giám sát
-1.2.2 Học phi giám sát
-1.2.3 Một số cách phân loại các mô hình khác | CK1,CK2, CS1 |
-| 1.3 | Mục 1.3 Giới thiệu về các phương pháp đánh giá mô
-hình nói chung | CK1, CK2, CS1 |
+| 1.1 | Mục 1.1 Học máy thống kê<br>1.1.1 Giới thiệu tổng quan<br>1.1.2 Ứng dụng của học máy<br>1.1.3 Học máy và các lĩnh vực liên quan | CK1, CS1 |
+| 1.2 | Mục 1.2 Phân loại các mô hình học máy<br>1.2.1 Học có giám sát<br>1.2.2 Học phi giám sát<br>1.2.3 Một số cách phân loại các mô hình khác | CK1,CK2, CS1 |
+| 1.3 | Mục 1.3 Giới thiệu về các phương pháp đánh giá mô<br>hình nói chung | CK1, CK2, CS1 |
 5 149
 
 <!-- Page 150 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 2. Các mô hình phân loại đơn giản |  |  |
-| 2.1 | Mục 2.1 Giới thiệu các mô hình phân loại
-2.1.1 Bài toán phân loại
-2.1.2 Phân loại tuyến tính và phân loại phi tuyến
-2.1.3 Các tiêu chuẩn huấn luyện mô hình
-2.1.4. Đánh giá hiệu quả của mô hình | CK1, CK2, CS1 |
-| 2.2 | Mục 2.2 Một số mô hình sinh
-2.2.1. Mô hình Naïve Bayes
-2.2.2. Mô hình phân tích phân biệt Gauss (Gaussian
-Discriminant Analysis) | CK2, CK3, CS1, CS2 |
-| 2.3 | Mục 2.3 Một số mô hình phân biệt
-2.3.1 Mô hình hồi quy tuyến tính
-2.3.2. Mô hình hồi quy logistic
-2.3.3. Các phương pháp hiệu chỉnh
-2.3.4. Mô hình entropy cực đại | CK2, CK3, CK4, CS1,
-CS2, CR1, CR2 |
+| 2.1 | Mục 2.1 Giới thiệu các mô hình phân loại<br>2.1.1 Bài toán phân loại<br>2.1.2 Phân loại tuyến tính và phân loại phi tuyến<br>2.1.3 Các tiêu chuẩn huấn luyện mô hình<br>2.1.4. Đánh giá hiệu quả của mô hình | CK1, CK2, CS1 |
+| 2.2 | Mục 2.2 Một số mô hình sinh<br>2.2.1. Mô hình Naïve Bayes<br>2.2.2. Mô hình phân tích phân biệt Gauss (Gaussian<br>Discriminant Analysis) | CK2, CK3, CS1, CS2 |
+| 2.3 | Mục 2.3 Một số mô hình phân biệt<br>2.3.1 Mô hình hồi quy tuyến tính<br>2.3.2. Mô hình hồi quy logistic<br>2.3.3. Các phương pháp hiệu chỉnh<br>2.3.4. Mô hình entropy cực đại | CK2, CK3, CK4, CS1,<br>CS2, CR1, CR2 |
 | Chương 3: Mạng nơ-ron |  |  |
 | 3.1 | Mục 3.1 Giới thiệu | CK2, CS1 |
-| 3.2 | Mục 3.2 Mô hình Perceptron | CK2, CK3, CS1, CS2,
-CR2 |
-| 3.3 | Mục 3.3 Mạng Nơ-ron nhân tạo | CK2, CK3, CK4, CS2,
-CS3, CR1, CR2 |
-| 3.4 | Mục 3.4 Thuật toán lan truyền ngược | CK2, CK3, CS2, CS3,
-CR1, CR2 |
+| 3.2 | Mục 3.2 Mô hình Perceptron | CK2, CK3, CS1, CS2,<br>CR2 |
+| 3.3 | Mục 3.3 Mạng Nơ-ron nhân tạo | CK2, CK3, CK4, CS2,<br>CS3, CR1, CR2 |
+| 3.4 | Mục 3.4 Thuật toán lan truyền ngược | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
 | Chương 4: Máy véc-tơ hỗ trợ |  |  |
 | 4.1 | Mục 4.1 Giới thiệu | CK2, CS1, CR1 |
-| 4.2 | Mục 4.2 Hàm mục tiêu và bài toán tối ưu có ràng buộc | CK2, CK3, CS2, CS3,
-CR1, CR2 |
-| 4.3 | Mục 4.3 Lề cứng (Hard Margins) và lề mềm (Soft
-Margin) | CK2, CK3, CS2, CS3,
-CR1, CR2 |
-| 4.4 | Mục 4.4 Các hàm nhân (Kernel tricks) | CK2 CK3, CS2, CS3,
-CR1, CR2 |
-| 4.5 | Mục 4.5 Áp dụng cho bài toán phân loại nhiều nhóm
-(Multi classes Support Vector Machine) | CK2, CK3, CS2, CS3,
-CR1, CR2 |
+| 4.2 | Mục 4.2 Hàm mục tiêu và bài toán tối ưu có ràng buộc | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
+| 4.3 | Mục 4.3 Lề cứng (Hard Margins) và lề mềm (Soft<br>Margin) | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
+| 4.4 | Mục 4.4 Các hàm nhân (Kernel tricks) | CK2 CK3, CS2, CS3,<br>CR1, CR2 |
+| 4.5 | Mục 4.5 Áp dụng cho bài toán phân loại nhiều nhóm<br>(Multi classes Support Vector Machine) | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
 | Chương 5. Các mô hình biến ẩn |  |  |
 | 5.1 | Mục 5.1. Giới thiệu các mô hình biến ẩn | CK1, CK2, CR2 |
 | 5.2 | Mục 5.2. Mô hình trộn | CK2, CK3, CS2, CS3, |
 6 150
 
 <!-- Page 151 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  |  | CR1, CR2 |
-| 5.3 | Mục 5.3. Mô hình trộn Gauss
-5.3.1. Mô hình
-5.3.2. Thuật toán cực đại hóa kỳ vọng | CK2, CK3, CK4, CS2,
-CS3, CR1, CR2 |
-| 5.4 | 5.4. Thuật toán K – trung bình | CK2, CK3, CK4, CS2,
-CS3, CR1, CR2 |
+| 5.3 | Mục 5.3. Mô hình trộn Gauss<br>5.3.1. Mô hình<br>5.3.2. Thuật toán cực đại hóa kỳ vọng | CK2, CK3, CK4, CS2,<br>CS3, CR1, CR2 |
+| 5.4 | 5.4. Thuật toán K – trung bình | CK2, CK3, CK4, CS2,<br>CS3, CR1, CR2 |
 | Chương 6: Giảm số chiều dữ liệu |  |  |
 | 6.1 | Mục 6.1 Giới thiệu | CK1, CK2, CR2 |
-| 6.2 | Mục 6.2 Phân tích thành phần chính | CK2, CK3, CS2, CS3,
-CR1, CR2 |
-| 6.3 | Mục 6.3 Xếp hạng đặc trưng | CK2, CK3, CS2, CS3,
-CR1, CR2 |
+| 6.2 | Mục 6.2 Phân tích thành phần chính | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
+| 6.3 | Mục 6.3 Xếp hạng đặc trưng | CK2, CK3, CS2, CS3,<br>CR1, CR2 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 7 151
 
@@ -5635,24 +4178,15 @@ NGÔN NGỮ LẬP TRÌNH THỨ HAI
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Thị Minh
-Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  | huyenntm@vnu.e
-du.vn |  |  |
-| 2. |  |  | Lê Hồng Phương |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |  | phuonglh@hus.ed
-u.vn |  |  |
-| 3. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.e
-du.vn |  |  |
-| 4. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus
-.edu.vn |  |  |
-| 5. |  |  | Nguyễn Thị Tâm |  |  | TS |  |  | Trường ĐHKHTN |  |  | nguyenthitam@hu
-s.edu.vn |  |  |
-| 6. |  |  | Hoàng Quốc Hùng |  |  | CN |  |  | Trường ĐHKHTN |  |  | hoangquochung@
-hus.edu.vn |  |  |
-| 7. |  |  | Ngô Thế Quyền |  |  | Ths |  |  | Trường ĐHKHTN |  |  | ngoquyenbg@hus.
-edu.vn |  |  |
+| 1. |  |  | Nguyễn Thị Minh<br>Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  | huyenntm@vnu.e<br>du.vn |  |  |
+| 2. |  |  | Lê Hồng Phương |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |  | phuonglh@hus.ed<br>u.vn |  |  |
+| 3. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.e<br>du.vn |  |  |
+| 4. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus<br>.edu.vn |  |  |
+| 5. |  |  | Nguyễn Thị Tâm |  |  | TS |  |  | Trường ĐHKHTN |  |  | nguyenthitam@hu<br>s.edu.vn |  |  |
+| 6. |  |  | Hoàng Quốc Hùng |  |  | CN |  |  | Trường ĐHKHTN |  |  | hoangquochung@<br>hus.edu.vn |  |  |
+| 7. |  |  | Ngô Thế Quyền |  |  | Ths |  |  | Trường ĐHKHTN |  |  | ngoquyenbg@hus.<br>edu.vn |  |  |
 | 8. |  |  | Quản Thái Hà |  |  | Ths |  |  | Trường ĐHKHTN |  |  | haqt@hus.edu.vn |  |  |
-| 9. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus
-.edu.vn |  |  |
+| 9. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus<br>.edu.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên sẽ được biết thêm một ngôn ngữ lập trình, khác với
 ngôn ngữ lập trình đã học trong môn lập trình cơ bản. Việc tiếp cận thêm một
@@ -5716,38 +4250,24 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài
-tập lập trình trên máy tính | CK1,
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3
-CS1, CS2 |
+| 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1,<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3<br>CS1, CS2 |
 3 154
 
 <!-- Page 155 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp
-với vấn đáp trực tiếp | CK1-CK3
-CS1-CS2,
-CR1-CR3 |
+| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp<br>với vấn đáp trực tiếp | CK1-CK3<br>CS1-CS2,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -5770,9 +4290,7 @@ Robust and Maintainable Object-Oriented Python Applications and Libraries,
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Cú pháp cơ bản của ngôn ngữ |  | CK1, CK4 |
 | Chương 2. Hàm và lập trình hàm |  | CK1-CK3 |
@@ -5783,9 +4301,7 @@ của học phần |
 4 155
 
 <!-- Page 156 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 7. Lập trình song song, đa luồng |  | CK1-CK3, CS2 |
 | Chương 8. Xây dựng mô-đun và các gói |  | CK1-CK3, CS2 |
@@ -5806,17 +4322,11 @@ LẬP TRÌNH MOBILE
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Bùi Vũ Anh |  |  | TS |  |  | Viện Đảo bảo chất
-lượng, ĐHQGHN |  |  | buivuanh@gmail.
-com |  |  |
-| 2. |  |  | Ngô Thế Quyền |  |  | Ths |  |  | Trường ĐHKHTN |  |  | ngoquyenbg@hus.
-edu.vn |  |  |
-| 3. |  |  | Đỗ Duy Đạo |  |  | CN |  |  | Trường ĐHKHTN |  |  | doduydao@hus.ed
-u.vn |  |  |
-| 4. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus
-.edu.vn |  |  |
-| 5. |  |  | Vũ Hải Đăng |  |  | CN |  |  | Trường ĐHKHTN |  |  | vuhaidang@hus.e
-du.vn |  |  |
+| 1. |  |  | Bùi Vũ Anh |  |  | TS |  |  | Viện Đảo bảo chất<br>lượng, ĐHQGHN |  |  | buivuanh@gmail.<br>com |  |  |
+| 2. |  |  | Ngô Thế Quyền |  |  | Ths |  |  | Trường ĐHKHTN |  |  | ngoquyenbg@hus.<br>edu.vn |  |  |
+| 3. |  |  | Đỗ Duy Đạo |  |  | CN |  |  | Trường ĐHKHTN |  |  | doduydao@hus.ed<br>u.vn |  |  |
+| 4. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus<br>.edu.vn |  |  |
+| 5. |  |  | Vũ Hải Đăng |  |  | CN |  |  | Trường ĐHKHTN |  |  | vuhaidang@hus.e<br>du.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên có hiểu về quy trình xây dựng một ứng dụng trên các
 thiết bị di động sử dụng hệ điều hành Android hoặc iOS. Sinh viên biết cách sử
@@ -5877,31 +4387,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài
-tập lập trình trên máy tính | CK1, CK4
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3
-CS1, CS2 |
-| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp
-với vấn đáp trực tiếp | CK1-CK4
-CS1-CS3,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK4<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20% | Bài lập trình trên máy tính | CK1-CK3<br>CS1, CS2 |
+| 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp<br>với vấn đáp trực tiếp | CK1-CK4<br>CS1-CS3,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -5919,18 +4417,13 @@ NXB Big Nerd Ranch Guides, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về các nền tảng điện thoại di động |  | CK1, CK4 |
-| 1.1 | Lịch sử phát triển các thiết bị di động và các nền tảng cài
-đặt trên nó |  |
-| 1.2 | Cấu trúc tổng quan về các nền tảng nổi tiếng: iOS,
-Windows Mobile và Android |  |
+| 1.1 | Lịch sử phát triển các thiết bị di động và các nền tảng cài<br>đặt trên nó |  |
+| 1.2 | Cấu trúc tổng quan về các nền tảng nổi tiếng: iOS,<br>Windows Mobile và Android |  |
 | 1.3 | So sánh ưu và nhược điểm giữa các nền tảng. |  |
-| 1.4 | Xu thế, định hướng và cạnh tranh phát triển giữa các nền
-tảng |  |
+| 1.4 | Xu thế, định hướng và cạnh tranh phát triển giữa các nền<br>tảng |  |
 | Chương 2. Giới thiệu về lập trình Android |  | CK1-CK4 |
 | 2.1 | Giới thiệu về hệ điều hành Android. |  |
 | 2.2 | Môi trường lập trình android: tải, cài đặt và sử dụng. |  |
@@ -5942,45 +4435,36 @@ tảng |  |
 | 3.3 | Vòng đời ứng dụng Android |  |
 | 3.4 | Tạo và sử dụng nguồn dữ liệu |  |
 | 3.5 | Tìm hiểu về Activity |  |
-| Chương 4. Xây dựng giao diện người sử dụng |  | CK1-CK4, CS2,
-CS3 |
+| Chương 4. Xây dựng giao diện người sử dụng |  | CK1-CK4, CS2,<br>CS3 |
 | 4.1 | Xây dựng giao diện với View |  |
 | 4.2 | Xây dựng giao diện với XML |  |
 | 4.3 | Layout trong ứng dụng Android |  |
 | 4.4 | Các thành phần giao diện |  |
 | 4.5 | Menu trong ứng dụng Android |  |
-| Chương 5. Xử lý chức năng và tương tác trong các giao diện ứng
-dụng |  | CK1, CK3, CS3 |
+| Chương 5. Xử lý chức năng và tương tác trong các giao diện ứng<br>dụng |  | CK1, CK3, CS3 |
 | 5.1 | Tìm hiểu về Intent và Intent Filter |  |
 | 5.2 | Broadcast Receivers |  |
 4 160
 
 <!-- Page 161 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.3 | Tìm hiểu về LayoutInflater, dialogs |  |
 | 5.4 | Fragments |  |
-| Chương 6. Lưu trữ dữ liệu |  | CK1-CK4, CS2,
-CS3 |
+| Chương 6. Lưu trữ dữ liệu |  | CK1-CK4, CS2,<br>CS3 |
 | 6.1 | Đọc ghi dữ liệu trên tệp |  |
 | 6.2 | Cơ sở dữ liệu trong Android: SQLite |  |
 | 6.3 | ContentProvider classes |  |
-| Chương 7. RESTful web APIs |  | CK1-CK4, CS2,
-CS3 |
+| Chương 7. RESTful web APIs |  | CK1-CK4, CS2,<br>CS3 |
 | 7.1 | Hướng dẫn lấy dữ liệu từ Web APIs |  |
 | 7.2 | JSON và Parser JSON |  |
 | 7.3 | XML và Parser XML |  |
 | 7.4 | Ion, Gson, Retrofit |  |
-| Chương 8. Các dịch vụ và thông báo |  | CK1-CK4, CS2,
-CS3 |
+| Chương 8. Các dịch vụ và thông báo |  | CK1-CK4, CS2,<br>CS3 |
 | 8.1 | Giới thiệu về Service |  |
 | 8.2 | Hướng dẫn sử dụng Background Worker Threads |  |
 | 8.3 | Giới thiệu về Notifications |  |
-| Chương 9. Tìm hiểu một số Android API và thư viện thường
-dùng |  | CK1-CK4, CS2,
-CS3 |
+| Chương 9. Tìm hiểu một số Android API và thư viện thường<br>dùng |  | CK1-CK4, CS2,<br>CS3 |
 | 9.1 | Networking và Webservice |  |
 | 9.2 | Multimedia |  |
 | 9.3 | Location and Maps API |  |
@@ -6062,61 +4546,22 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  | 5 |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Đi học đầy đủ, tham gia các bài
-tập theo nhóm chủ đề môn học,
-tích lũy trả lời các tình huống trên
-lớp học, trình bày và bảo vệ các
-nội dung bài tập lớn được giao.
-- Thang điểm đánh giá: CK1: 4
-điểm, CK2: 1 điểm; CS2: 2 điểm;
-CS3: 1 điểm; CS4: 0.5 điểm; CS5:
-0.5 điểm; CR1+CR2+CR3: 1 điểm | CK1, CS1, CS3,
-CS5 |
-| 2 | Giữa kỳ | 20 % | - Kết hợp kiểm tra viết và vấn đáp
-về nội dung: xây dựng quy trình
-thiết kế hệ thống nhúng, thực hành
-giao tiếp vào ra cơ bản, quét bàn
-phím, hiển thị và bộ biến đổi tín
-hiệu tương tự sang số (ADC)
-- Thang điểm đánh giá: CK1: 2
-điểm, CK2: 3 điểm, CS1: 1 điểm,
-CS2: 2 điểm, CR1: 0.5 điểm, CR2:
-0.5 điểm, CR3: 1 điểm | CK1, CK2, CS2-
-CS5, CR1-CR3 |
-| 3 | Cuối kỳ | 60 % | - Thi vấn đáp kết hợp lập trình trên
-board mạch về các nội dung: xây
-dựng quy trình thiết kế các hệ
-thống nhúng cơ bản cụ thể trong
-các lĩnh vực xử lý chất lượng môi
-trường, các dây chuyền sản xuất tự
-động, thực hành các chương trình
-đọc dữ liệu và điều khiển ngoại vi
-trên các board mạch nhúng.
-- Thang điểm đánh giá: CK1: 2
-điểm, CK2: 2 điểm, CK3: 4 điểm; | CK1-CK3,
-CS5,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Đi học đầy đủ, tham gia các bài<br>tập theo nhóm chủ đề môn học,<br>tích lũy trả lời các tình huống trên<br>lớp học, trình bày và bảo vệ các<br>nội dung bài tập lớn được giao.<br>- Thang điểm đánh giá: CK1: 4<br>điểm, CK2: 1 điểm; CS2: 2 điểm;<br>CS3: 1 điểm; CS4: 0.5 điểm; CS5:<br>0.5 điểm; CR1+CR2+CR3: 1 điểm | CK1, CS1, CS3,<br>CS5 |
+| 2 | Giữa kỳ | 20 % | - Kết hợp kiểm tra viết và vấn đáp<br>về nội dung: xây dựng quy trình<br>thiết kế hệ thống nhúng, thực hành<br>giao tiếp vào ra cơ bản, quét bàn<br>phím, hiển thị và bộ biến đổi tín<br>hiệu tương tự sang số (ADC)<br>- Thang điểm đánh giá: CK1: 2<br>điểm, CK2: 3 điểm, CS1: 1 điểm,<br>CS2: 2 điểm, CR1: 0.5 điểm, CR2:<br>0.5 điểm, CR3: 1 điểm | CK1, CK2, CS2-<br>CS5, CR1-CR3 |
+| 3 | Cuối kỳ | 60 % | - Thi vấn đáp kết hợp lập trình trên<br>board mạch về các nội dung: xây<br>dựng quy trình thiết kế các hệ<br>thống nhúng cơ bản cụ thể trong<br>các lĩnh vực xử lý chất lượng môi<br>trường, các dây chuyền sản xuất tự<br>động, thực hành các chương trình<br>đọc dữ liệu và điều khiển ngoại vi<br>trên các board mạch nhúng.<br>- Thang điểm đánh giá: CK1: 2<br>điểm, CK2: 2 điểm, CK3: 4 điểm; | CK1-CK3,<br>CS5,<br>CR1-CR3 |
 3 164
 
 <!-- Page 165 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-|  |  |  | CS5: 1 điểm, CR1+CR2+CR3: 1
-điểm |  |
+|  |  |  | CS5: 1 điểm, CR1+CR2+CR3: 1<br>điểm |  |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -6133,104 +4578,36 @@ Leicester, 2006.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Thời
-lượng | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
 | Chương 1. Tổng quan về hệ thống nhúng |  |  |  |
-| 1.1 | Giới thiệu về hệ thống nhúng
-1.1.1. Khái niệm cơ bản
-1.1.2. Vai trò và ứng dụng của hệ thống nhúng
-1.1.3. Yếu tố phần cứng và phần mềm trong hệ
-thống nhúng
-1.1.4. Tầm quan trọng của hệ thống nhúng, thách
-thức và cơ hội |  | CK1, CS2,
-CR3 |
-| 1.2 | Các bước thiết kế hệ thống nhúng
-1.2.1. Hiểu rõ yêu cầu
-1.2.2. Thiết kế kiến trúc
-1.2.3. Lựa chọn phần cứng và phần mềm
-1.2.4. Tích hợp và kiểm tra
-1.2.5. Triển khai và duy trì |  | CK1, CS2-
-CS4, CR1,
-CR3 |
+| 1.1 | Giới thiệu về hệ thống nhúng<br>1.1.1. Khái niệm cơ bản<br>1.1.2. Vai trò và ứng dụng của hệ thống nhúng<br>1.1.3. Yếu tố phần cứng và phần mềm trong hệ<br>thống nhúng<br>1.1.4. Tầm quan trọng của hệ thống nhúng, thách<br>thức và cơ hội |  | CK1, CS2,<br>CR3 |
+| 1.2 | Các bước thiết kế hệ thống nhúng<br>1.2.1. Hiểu rõ yêu cầu<br>1.2.2. Thiết kế kiến trúc<br>1.2.3. Lựa chọn phần cứng và phần mềm<br>1.2.4. Tích hợp và kiểm tra<br>1.2.5. Triển khai và duy trì |  | CK1, CS2-<br>CS4, CR1,<br>CR3 |
 | Chương 2. Cấu trúc vi điều khiển họ Atmel AVR |  |  |  |
 4 165
 
 <!-- Page 166 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Thời
-lượng | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
-| 2.1 | Kiến trúc chung của AVR
-2.1.1. Mô tả tổng quan về cấu trúc bên trong của vi
-điều khiển AVR
-2.1.2. Phân tích các thành phần chính như CPU, bộ
-nhớ, bộ định thời, và bộ ngoại vi |  | CK2, CS1,
-CR1 |
-| 2.2 | Ngoại vi cơ bản
-2.2.1. Định nghĩa và tính năng của các ngoại vi cơ
-bản như GPIO, Timer/Counter, và Watchdog timer
-2.2.2. Cách cấu hình và sử dụng chân GPIO để kiểm
-soát tín hiệu đầu vào và đầu ra |  | CK2, CS1,
-CR1 |
-| 2.3 | Các Module trong AVR
-2.3.1. Module Timer/Counter
-2.3.2. Module USART (Universal Synchronous
-Asynchronous Receiver Transmitter)
-2.3.3. Module ADC (Analog-to-Digital Converter)
-2.3.4. Module SPI (Serial Peripheral Interface)
-2.3.5. Module I2C (Inter-Integrated Circuit)
-2.3.6. Module Watchdog Timer |  | CK2, CS1,
-CR1 |
+| 2.1 | Kiến trúc chung của AVR<br>2.1.1. Mô tả tổng quan về cấu trúc bên trong của vi<br>điều khiển AVR<br>2.1.2. Phân tích các thành phần chính như CPU, bộ<br>nhớ, bộ định thời, và bộ ngoại vi |  | CK2, CS1,<br>CR1 |
+| 2.2 | Ngoại vi cơ bản<br>2.2.1. Định nghĩa và tính năng của các ngoại vi cơ<br>bản như GPIO, Timer/Counter, và Watchdog timer<br>2.2.2. Cách cấu hình và sử dụng chân GPIO để kiểm<br>soát tín hiệu đầu vào và đầu ra |  | CK2, CS1,<br>CR1 |
+| 2.3 | Các Module trong AVR<br>2.3.1. Module Timer/Counter<br>2.3.2. Module USART (Universal Synchronous<br>Asynchronous Receiver Transmitter)<br>2.3.3. Module ADC (Analog-to-Digital Converter)<br>2.3.4. Module SPI (Serial Peripheral Interface)<br>2.3.5. Module I2C (Inter-Integrated Circuit)<br>2.3.6. Module Watchdog Timer |  | CK2, CS1,<br>CR1 |
 | Chương 3. Thực hành lập trình vào - ra cơ bản |  |  |  |
-| 3.1 | Giới thiệu vi điều khiển Atmega128, board mạch lập
-trình và bộ biên dịch lập trình ngôn ngữ C |  | CK2, CS1,
-CS2, CR1 |
-| 3.2 | Điều khiển GPIO
-3.2.1. Blinking LED
-3.2.2. Điều khiển LCD, GLCD
-3.2.3. Đọc cảm biến, ADC
-3.2.4. Điều khiển tải công suất, role |  | CK2, CS1,
-CS2, CR1 |
-| 3.3 | Giao tiếp module
-3.3.1. Module thời gian thực
-3.3.2. Module truyền nhận sóng vô tuyến
-3.3.3. Module viễn thông |  | CK2, CS1,
-CS2, CR1 |
-| 3.4 | Xử lý thời gian
-3.4.1. Định thời
-3.4.2. Đếm sự kiện
-3.4.3. Ngắt tràn |  | CK2, CS1,
-CS2, CR1 |
+| 3.1 | Giới thiệu vi điều khiển Atmega128, board mạch lập<br>trình và bộ biên dịch lập trình ngôn ngữ C |  | CK2, CS1,<br>CS2, CR1 |
+| 3.2 | Điều khiển GPIO<br>3.2.1. Blinking LED<br>3.2.2. Điều khiển LCD, GLCD<br>3.2.3. Đọc cảm biến, ADC<br>3.2.4. Điều khiển tải công suất, role |  | CK2, CS1,<br>CS2, CR1 |
+| 3.3 | Giao tiếp module<br>3.3.1. Module thời gian thực<br>3.3.2. Module truyền nhận sóng vô tuyến<br>3.3.3. Module viễn thông |  | CK2, CS1,<br>CS2, CR1 |
+| 3.4 | Xử lý thời gian<br>3.4.1. Định thời<br>3.4.2. Đếm sự kiện<br>3.4.3. Ngắt tràn |  | CK2, CS1,<br>CS2, CR1 |
 | Chương 4. Thực hành xây dựng hệ thống nhúng |  |  |  |
-| 4.1 | Thiết kế trạm quan trắc môi trường (tốc độ gió, nhiệt
-độ, độ ẩm, mưa) |  | CK3, CS2,
-CS2-CS5,
-CR3 |
+| 4.1 | Thiết kế trạm quan trắc môi trường (tốc độ gió, nhiệt<br>độ, độ ẩm, mưa) |  | CK3, CS2,<br>CS2-CS5,<br>CR3 |
 5 166
 
 <!-- Page 167 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Thời
-lượng | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
-| 4.2 | Thiết kế điều khiển thiết bị điện từ xa bằng sóng vô
-tuyến |  | CK3, CS2,
-CS2-CS5,
-CR3 |
-| 4.3 | Thiết kế hệ thống đếm sản phẩm trên băng chuyền |  | CK3, CS2,
-CS2-CS5,
-CR3 |
-| 4.4 | Báo cáo kết quả thực hiện |  | CK3, CS2,
-CS2-CS5,
-CR3 |
-| Thi cuối kỳ |  |  | CK1-CK3,
-CS4, CR1-
-CR3 |
+| 4.2 | Thiết kế điều khiển thiết bị điện từ xa bằng sóng vô<br>tuyến |  | CK3, CS2,<br>CS2-CS5,<br>CR3 |
+| 4.3 | Thiết kế hệ thống đếm sản phẩm trên băng chuyền |  | CK3, CS2,<br>CS2-CS5,<br>CR3 |
+| 4.4 | Báo cáo kết quả thực hiện |  | CK3, CS2,<br>CS2-CS5,<br>CR3 |
+| Thi cuối kỳ |  |  | CK1-CK3,<br>CS4, CR1-<br>CR3 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 167
 
@@ -6248,9 +4625,7 @@ PHÁT TRIỂN PHẦN MỀM TRÒ CHƠI
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Thị Bích
-Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nbthuy2001@vnu.
-edu.vn |  |  |
+| 1. |  |  | Nguyễn Thị Bích<br>Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nbthuy2001@vnu.<br>edu.vn |  |  |
 | 2. |  |  | Lê Hoàng Sơn |  |  | PGS.TS |  |  | ĐHQGHN |  |  | sonlh@vnu.edu.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Giúp người học nắm được các kiến thức nền tảng về thiết kế
@@ -6302,36 +4677,22 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 2 169
 
 <!-- Page 170 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 10% | - Điểm bài tập thường xuyên
-- Thang điểm 10 | CK1,CR1,
-CR2, CR3 |
-| 2 | Giữa kỳ | 30% | - Kiểm tra tự luận
-- Thang điểm 10 | CK1,CK2,
-CS2, CS3 |
-| 3 | Cuối kỳ | 60 % | - Bài tập lớn / tiểu luận
-- Thang điểm 10. | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CR1, CR2,
-CR3 |
+| 1 | Thường<br>xuyên | 10% | - Điểm bài tập thường xuyên<br>- Thang điểm 10 | CK1,CR1,<br>CR2, CR3 |
+| 2 | Giữa kỳ | 30% | - Kiểm tra tự luận<br>- Thang điểm 10 | CK1,CK2,<br>CS2, CS3 |
+| 3 | Cuối kỳ | 60 % | - Bài tập lớn / tiểu luận<br>- Thang điểm 10. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -6343,39 +4704,31 @@ Unity, Addition-Wesley, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Tổng quan |  | CK1, CK3, CS1,
-CS2 |
+| Chương 1. Tổng quan |  | CK1, CK3, CS1,<br>CS2 |
 | 1.1 | Vai trò của người thiết kế |  |
 | 1.2 | Xây dựng kịch bản trò chơi |  |
 | 1.3 | Các thành phần cơ bản trong trò chơi |  |
 3 170
 
 <!-- Page 171 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.4 | Ứng dụng toán học trong trò chơi |  |
-| Chương 2. Các vấn đề trong thiết kế trò chơi |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 2. Các vấn đề trong thiết kế trò chơi |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 2.1 | Về chuyển động |  |
 | 2.2 | Về nhân vật |  |
 | 2.3 | Về các vật dụng |  |
 | 2.4 | Về trò chơi dạng ganh đua |  |
 | 2.5 | Về trò chơi dạng đánh đố |  |
-| Chương 3. Thực thi thiết kế |  | CK1, CK3, CS1,
-CS2, CS3 |
+| Chương 3. Thực thi thiết kế |  | CK1, CK3, CS1,<br>CS2, CS3 |
 | 3.1 | Kịch bản trong trò chơi |  |
 | 3.2 | Thiết kế không gian trò chơi |  |
 | 3.3 | Thiết kế giao diện |  |
 | 3.4 | Mẫu thử nghiệm |  |
 | 3.5 | Kiểm thử trò chơi |  |
-| Chương 4. Phát triển phần mềm trò chơi – bộ công cụ |  | CK1, CK2, CK3,
-CS1, CS2, CS3 |
+| Chương 4. Phát triển phần mềm trò chơi – bộ công cụ |  | CK1, CK2, CK3,<br>CS1, CS2, CS3 |
 | 4.1 | Bộ công cụ trò chơi Unity |  |
 | 4.2 | Tạo lập môi trường phát triển |  |
 | 4.3 | Tạo vật thể |  |
@@ -6408,12 +4761,9 @@ TÍNH TOÁN SONG SONG
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Lê Trọng Vĩnh | PGS.TS. |  |  | Trường
-ĐHKHTN |  |
-| 2. | Nguyễn Hải Vinh | TS. |  |  | Trường
-ĐHKHTN |  |
-| 3. | Vũ Tiến Dũng | TS. |  |  | Trường
-ĐHKHTN |  |
+| 1. | Lê Trọng Vĩnh | PGS.TS. |  |  | Trường<br>ĐHKHTN |  |
+| 2. | Nguyễn Hải Vinh | TS. |  |  | Trường<br>ĐHKHTN |  |
+| 3. | Vũ Tiến Dũng | TS. |  |  | Trường<br>ĐHKHTN |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Sinh viên nắm được những kiến thức và kỹ năng cần thiết về
 tính toán song song, các phương pháp thiết kế thuật toán song song và ứng dụng
@@ -6471,49 +4821,31 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Toán Tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  | 3 | 3 | 3 |  |  | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
+| Mức đóng<br>góp của học<br>phần |  | 3 | 3 | 3 |  |  | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng
-góp của học
-phần |  | 4 |  | 5 |  |  | 4 |  |  |  |  |  |  | 4 |  |  | 5 |  |  | 4 |  |  | 5 |  |  |
+| Mức đóng<br>góp của học<br>phần |  | 4 |  | 5 |  |  | 4 |  |  |  |  |  |  | 4 |  |  | 5 |  |  | 4 |  |  | 5 |  |  |
 3 175
 
 <!-- Page 176 -->
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, trên
-lớp và tham gia thảo luận.
-- Thang điểm đánh giá 10 | CK1, CK2, CS1,
-CS2, CR1, CR2 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá 10 | CK3, CS1, CS2 |
-| 3 | Cuối kỳ | 60 % | - Thi viết hoặc Tiểu luận theo
-nhóm
-- Thang điểm đánh giá 10 | CK3, CK4, CS1,
-CS2, CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, trên<br>lớp và tham gia thảo luận.<br>- Thang điểm đánh giá 10 | CK1, CK2, CS1,<br>CS2, CR1, CR2 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá 10 | CK3, CS1, CS2 |
+| 3 | Cuối kỳ | 60 % | - Thi viết hoặc Tiểu luận theo<br>nhóm<br>- Thang điểm đánh giá 10 | CK3, CK4, CS1,<br>CS2, CR2, CR3 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -6529,9 +4861,7 @@ C++ and CUDA, CRC Press, 2016.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về tính toán song song |  | CK1 |
 | 1.1 | Tại sao phải xử lí song song |  |
@@ -6543,9 +4873,7 @@ của học phần |
 4 176
 
 <!-- Page 177 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.3 | Các thành phần chính của máy tính song song |  |
 | 2.4 | Hệ điều hành cho các hệ thống song song |  |
@@ -6571,8 +4899,7 @@ của học phần |
 | 5.4 | Tìm kiếm theo chiều rộng |  |
 | 5.5 | Bài tập |  |
 | Chương 6. Thuật toán sắp xếp song song |  | CK4, CS1, CS2 |
-| 6.1 | Một số vấn đề cơ bản trong thuật toán sắp xếp song
-song |  |
+| 6.1 | Một số vấn đề cơ bản trong thuật toán sắp xếp song<br>song |  |
 | 6.2 | Sắp xếp nổi bọt và các biến thể |  |
 | 6.3 | Sắp xếp nhanh |  |
 | 6.4 | Sắp xếp khoảng và sắp xếp mẫu |  |
@@ -6582,9 +4909,7 @@ song |  |
 5 177
 
 <!-- Page 178 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.2 | Nhân hai ma trận |  |
 | 7.3 | Giải hệ phương trình tuyến tính |  |
@@ -6607,12 +4932,8 @@ NGÔN NGỮ HÌNH THỨC VÀ ÔTÔMAT
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Thị Minh
-Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  | huyenntm@hus.ed
-u.vn |  |  |
-| 2. |  |  | Nguyễn Thị Hồng
-Minh |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |  | minhnth@hus.edu.
-vn |  |  |
+| 1. |  |  | Nguyễn Thị Minh<br>Huyền |  |  | TS |  |  | Trường ĐHKHTN |  |  | huyenntm@hus.ed<br>u.vn |  |  |
+| 2. |  |  | Nguyễn Thị Hồng<br>Minh |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |  | minhnth@hus.edu.<br>vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp kiến thức cơ bản về ngôn ngữ hình thức và văn phạm
 hình thức, đặc biệt đi sâu vào tính chất và mô hình đoán nhận các lớp ngôn ngữ
@@ -6669,43 +4990,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Bài kiểm tra về xây dựng văn phạm
-hình thức
-- CK1: 2 điểm, CK2: 2 điểm, CS1:4
-điểm, CS5:1 điểm, CR1: 0.5 điểm,
-CR2: 0.5 điểm | CK1, CK2,
-CS1, CS5,
-CR1, CR2 |
-| 2 | Giữa kỳ | 20% | - Bài kiểm tra về văn phạm chính
-quy và otomat, đơn định hoá otomat
-- CK1: 2 điểm, CK2: 2 điểm, CS1:
-2 điểm, CS2: 2 điểm, CS5:1 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm | CK1, CK2,
-CS1, CS2,
-CS5, CR1, CR2 |
-| 3 | Cuối kỳ | 60 % | - Bài thi vấn đáp kết hợp trắc
-nghiệm
-- CK1: 1 điểm, CK2: 1.5 điểm, CS1:
-1.5 điểm, CS2: 1.5 điểm, CS3: 1.5
-điểm, CS4: 1 điểm, CS5:1 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm | CK1, CK2,
-CS1-CS5,
-CR1, CR2 |
+| 1 | Thường<br>xuyên | 20% | - Bài kiểm tra về xây dựng văn phạm<br>hình thức<br>- CK1: 2 điểm, CK2: 2 điểm, CS1:4<br>điểm, CS5:1 điểm, CR1: 0.5 điểm,<br>CR2: 0.5 điểm | CK1, CK2,<br>CS1, CS5,<br>CR1, CR2 |
+| 2 | Giữa kỳ | 20% | - Bài kiểm tra về văn phạm chính<br>quy và otomat, đơn định hoá otomat<br>- CK1: 2 điểm, CK2: 2 điểm, CS1:<br>2 điểm, CS2: 2 điểm, CS5:1 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm | CK1, CK2,<br>CS1, CS2,<br>CS5, CR1, CR2 |
+| 3 | Cuối kỳ | 60 % | - Bài thi vấn đáp kết hợp trắc<br>nghiệm<br>- CK1: 1 điểm, CK2: 1.5 điểm, CS1:<br>1.5 điểm, CS2: 1.5 điểm, CS3: 1.5<br>điểm, CS4: 1 điểm, CS5:1 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm | CK1, CK2,<br>CS1-CS5,<br>CR1, CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -6723,48 +5020,34 @@ Cathleen Sether, 2011.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Văn phạm và ngôn ngữ |  |  |
 | 1.1 | Bảng chữ cái, từ, ngôn ngữ | CK1 |
 | 1.2 | Các phép toán trên từ và trên ngôn ngữ | CK1 |
 | 1.3 | Văn phạm | CK1 |
-| 1.4 | Bài toán tổng hợp và phân tích | CK2, CS1, CS5,
-CR1, CR2 |
+| 1.4 | Bài toán tổng hợp và phân tích | CK2, CS1, CS5,<br>CR1, CR2 |
 | Chương 2. Ngôn ngữ chính quy và ôtômat hữu hạn |  |  |
-| 2.1 | Ôtômat hữu hạn và đoán nhận ngôn ngữ | CK1, CK2, CS1,
-CS2, CS4, CS5,
-CR1, CR2 |
+| 2.1 | Ôtômat hữu hạn và đoán nhận ngôn ngữ | CK1, CK2, CS1,<br>CS2, CS4, CS5,<br>CR1, CR2 |
 | 2.2 | Sự tương đương giữa ôtômat và văn phạm chính quy | CK1, CS1 |
 | 2.3 | Các phép toán ngôn ngữ trên ôtômat | CK1, CS1 |
 | 2.4 | Tính đóng của lớp ngôn ngữ chính quy | CK1 |
-| 2.5 | Biểu thức chính quy | CK1, CK2, CS1,
-CS2, CS4, CS5,
-CR1, CR2 |
+| 2.5 | Biểu thức chính quy | CK1, CK2, CS1,<br>CS2, CS4, CS5,<br>CR1, CR2 |
 | 2.6 | Điều kiện cần của ngôn ngữ chính quy: bổ đề bơm | CK1 |
 | 2.7 | Điều kiện cần và đủ của ngôn ngữ chính quy | CK1 |
-| 2.8 | Ôtômat tối tiểu | CK1, CS2, CS4,
-CS5, CR1, CR2 |
+| 2.8 | Ôtômat tối tiểu | CK1, CS2, CS4,<br>CS5, CR1, CR2 |
 | Chương 3. Ngôn ngữ phi ngữ cảnh và ôtômát đẩy xuống |  |  |
 | 3.1 | Dạng chuẩn Chomsky | CK1, CS3 |
 | 3.2 | Cây dẫn xuất và các tính chất | CK1 |
 | 3.3 | Điều kiện cần của ngôn ngữ phi ngữ cảnh | CK1 |
 | 3.4 | Tính đóng của lớp ngôn ngữ phi ngữ cảnh | CK1 |
-| 3.5 | Ôtômat đẩy xuống không đơn định | CK1, CK2, CS1,
-CS4, CS5, CR1,
-CR2 |
+| 3.5 | Ôtômat đẩy xuống không đơn định | CK1, CK2, CS1,<br>CS4, CS5, CR1,<br>CR2 |
 4 182
 
 <!-- Page 183 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 3.6 | Thuật toán CKY | CK1, CK2, CS1,
-CS4, CS5, CR1,
-CR2 |
+| 3.6 | Thuật toán CKY | CK1, CK2, CS1,<br>CS4, CS5, CR1,<br>CR2 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 183
 
@@ -6784,10 +5067,8 @@ THỊ GIÁC MÁY TÍNH
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.edu.
-vn |  |  |
-| 2. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus.ed
-u.vn |  |  |
+| 1. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.edu.<br>vn |  |  |
+| 2. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hus.ed<br>u.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp cho sinh viên các kiến thức cơ sở về cách biểu diễn
 ảnh số, các thuật toán xử lí ảnh số và một số ứng dụng quan trọng của thị giác
@@ -6839,8 +5120,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 2 185
 
@@ -6848,45 +5128,15 @@ của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Các bài kiểm tra trên lớp (lý thuyết
-và thực hành)
-- Thang điểm đánh giá.
-CK1: 4 điểm
-CS1: 3.5 điểm
-CS4: 2 điểm
-CR1: 0.5 điểm | CK1, CS1,
-CS4, CR1 |
-| 2 | Giữa kỳ | 20 % | - Báo cáo giữa kỳ về bài toán thực
-tế sẽ hoàn thành trong khóa học
-- Thang điểm đánh giá.
-CK1: 3.5 điểm
-CS2: 3.5 điểm
-CS4: 1 điểm
-CS5: 1 điểm
-CR1: 0.5 điểm
-CR2: 0.5 điểm | CK1, CS2,
-CS4, CS5,
-CR1, CR2 |
-| 3 | Cuối kỳ | 60 % | - Thi vấn đáp trên hệ thống xử lý mà
-sinh viên đã xây dựng
-- Thang điểm đánh giá.
-CK2: 4 điểm
-CS3: 3 điểm
-CS4: 0.5 điểm
-CS5: 1.5 điểm
-CR2: 1 điểm | CK2, CS3,
-CS4, CS5,
-CR2 |
+| 1 | Thường<br>xuyên | 20 % | - Các bài kiểm tra trên lớp (lý thuyết<br>và thực hành)<br>- Thang điểm đánh giá.<br>CK1: 4 điểm<br>CS1: 3.5 điểm<br>CS4: 2 điểm<br>CR1: 0.5 điểm | CK1, CS1,<br>CS4, CR1 |
+| 2 | Giữa kỳ | 20 % | - Báo cáo giữa kỳ về bài toán thực<br>tế sẽ hoàn thành trong khóa học<br>- Thang điểm đánh giá.<br>CK1: 3.5 điểm<br>CS2: 3.5 điểm<br>CS4: 1 điểm<br>CS5: 1 điểm<br>CR1: 0.5 điểm<br>CR2: 0.5 điểm | CK1, CS2,<br>CS4, CS5,<br>CR1, CR2 |
+| 3 | Cuối kỳ | 60 % | - Thi vấn đáp trên hệ thống xử lý mà<br>sinh viên đã xây dựng<br>- Thang điểm đánh giá.<br>CK2: 4 điểm<br>CS3: 3 điểm<br>CS4: 0.5 điểm<br>CS5: 1.5 điểm<br>CR2: 1 điểm | CK2, CS3,<br>CS4, CS5,<br>CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -6909,70 +5159,34 @@ Khoa học và Kỹ thuật, 2008.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về xử lí ảnh |  |  |
-| 1.1 | Mục 1.1 Tổng quan về thị giác máy tính
-1.1.1 Giới thiệu tổng quan
-1.1.2 Màu và không gian màu
-1.1.3 Cân bằng độ sáng | CK1, CS1, CS4 |
-| 1.2 | Mục 1.2 Cơ sở toán học trong thị giác máy tính
-1.2.1 Vectors và Ma trận
-1.2.2 Ma trận biến đổi
-1.2.3 Giá trị riêng và vector riêng
-1.2.4 Cách tính toán ma trận | CK1, CS4 |
-| 1.3 | Mục 1.3 Giới thiệu về ngôn ngữ lập trình và các thư
-viện thường sử dụng trong xử lý ảnh (Octave/Python) | CS1, CS4, CR1 |
+| 1.1 | Mục 1.1 Tổng quan về thị giác máy tính<br>1.1.1 Giới thiệu tổng quan<br>1.1.2 Màu và không gian màu<br>1.1.3 Cân bằng độ sáng | CK1, CS1, CS4 |
+| 1.2 | Mục 1.2 Cơ sở toán học trong thị giác máy tính<br>1.2.1 Vectors và Ma trận<br>1.2.2 Ma trận biến đổi<br>1.2.3 Giá trị riêng và vector riêng<br>1.2.4 Cách tính toán ma trận | CK1, CS4 |
+| 1.3 | Mục 1.3 Giới thiệu về ngôn ngữ lập trình và các thư<br>viện thường sử dụng trong xử lý ảnh (Octave/Python) | CS1, CS4, CR1 |
 | Chương 2. Pixels, đặc trưng và cameras |  |  |
-| 2.1 | Mục 2.1 Pixels và các bộ lọc
-2.1.1 Pixels và biểu diễn ảnh
-2.1.2 Các hệ tuyến tính
-2.1.3 Tích chập và tương quan chéo chuẩn hoá | CK1, CS1, CS4 |
+| 2.1 | Mục 2.1 Pixels và các bộ lọc<br>2.1.1 Pixels và biểu diễn ảnh<br>2.1.2 Các hệ tuyến tính<br>2.1.3 Tích chập và tương quan chéo chuẩn hoá | CK1, CS1, CS4 |
 | 2.2 | Mục 2.2 Phát hiện đặc trưng của ảnh, biên ảnh | CK1, CS1, CS4 |
-| 2.3 | Mục 2.3 Các phương pháp xây dựng đặc tả của ảnh/đối
-tượng trên ảnh | CK1, CS1, CS4 |
-| 2.4 | Mục 2.4 Camera | CK1, CS1, CS2,
-CS4 |
-| 2.5 | Mục 2.5 Ghép ảnh Panorama | CK1, CS1, CS2,
-CS4 |
+| 2.3 | Mục 2.3 Các phương pháp xây dựng đặc tả của ảnh/đối<br>tượng trên ảnh | CK1, CS1, CS4 |
+| 2.4 | Mục 2.4 Camera | CK1, CS1, CS2,<br>CS4 |
+| 2.5 | Mục 2.5 Ghép ảnh Panorama | CK1, CS1, CS2,<br>CS4 |
 4 187
 
 <!-- Page 188 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 3: Các vùng ảnh và phân đoạn |  |  |
 | 3.1 | Mục 3.1 Các khái niệm cơ bản về phân đoạn | CK 1, CS4 |
-| 3.2 | Mục 3.2 Một số thuật toán phân cụm | CK1, CK2, CS1,
-CS4 |
-| 3.3 | Mục 3.3 Phân đoạn đối tượng sử dụng các thuật toán
-phân cụm | CK1, CK2, CS2,
-CS3, CS4, CR1 |
-| 3.4 | Mục 3.4 Xây dựng vector đặc trưng của đối tượng và
-bài toán theo vết đối tượng | CK1, CK2, CS2,
-CS3, CS4, CR1 |
+| 3.2 | Mục 3.2 Một số thuật toán phân cụm | CK1, CK2, CS1,<br>CS4 |
+| 3.3 | Mục 3.3 Phân đoạn đối tượng sử dụng các thuật toán<br>phân cụm | CK1, CK2, CS2,<br>CS3, CS4, CR1 |
+| 3.4 | Mục 3.4 Xây dựng vector đặc trưng của đối tượng và<br>bài toán theo vết đối tượng | CK1, CK2, CS2,<br>CS3, CS4, CR1 |
 | Chương 4: Nhận dạng đối tượng và một số bài toán ứng dụng |  |  |
-| 4.1 | Mục 4.1 Các khái niệm cơ bản về nhận dạng đối đối
-tượng trong thị giác máy tính | CK1, CS1, CS4,
-CR1 |
-| 4.2 | Mục 4.2 Nhận dạng đối tượng dựa trên so khớp mẫu;
-dựa trên tập luật | CK1, CK2 CS2,
-CS3 CS4, CS5,
-CR1, CR2 |
-| 4.3 | Mục 4.3 Nhận dạng đối tượng sử dụng phương pháp
-học máy | CK1, CK2 CS2,
-CS3 CS4, CS5,
-CR1, CR2 |
-| 4.4 | Mục 4.4 Nhận dạng đối tượng theo cách tiếp cận học
-sâu | CK1, CK2 CS2,
-CS3 CS4, CS5,
-CR1, CR2 |
-| 4.5 | Mục 4.5 Bài toán theo vết hàng nghìn người | CK1, CK2 CS2,
-CS3 CS4, CS5,
-CR2 |
+| 4.1 | Mục 4.1 Các khái niệm cơ bản về nhận dạng đối đối<br>tượng trong thị giác máy tính | CK1, CS1, CS4,<br>CR1 |
+| 4.2 | Mục 4.2 Nhận dạng đối tượng dựa trên so khớp mẫu;<br>dựa trên tập luật | CK1, CK2 CS2,<br>CS3 CS4, CS5,<br>CR1, CR2 |
+| 4.3 | Mục 4.3 Nhận dạng đối tượng sử dụng phương pháp<br>học máy | CK1, CK2 CS2,<br>CS3 CS4, CS5,<br>CR1, CR2 |
+| 4.4 | Mục 4.4 Nhận dạng đối tượng theo cách tiếp cận học<br>sâu | CK1, CK2 CS2,<br>CS3 CS4, CS5,<br>CR1, CR2 |
+| 4.5 | Mục 4.5 Bài toán theo vết hàng nghìn người | CK1, CK2 CS2,<br>CS3 CS4, CS5,<br>CR2 |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 188
 
@@ -6989,11 +5203,8 @@ XỬ LÍ NGÔN NGỮ TỰ NHIÊN VÀ ỨNG DỤNG
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Nguyễn Thị Minh
-Huyền | TS |  |  | Trường ĐHKHTN | huyenntm@hus.ed
-u.vn |
-| 2. | Ngô Thế Quyền | ThS |  |  | Trường ĐHKHTN | ngoquyenbg@hus.
-edu.vn |
+| 1. | Nguyễn Thị Minh<br>Huyền | TS |  |  | Trường ĐHKHTN | huyenntm@hus.ed<br>u.vn |
+| 2. | Ngô Thế Quyền | ThS |  |  | Trường ĐHKHTN | ngoquyenbg@hus.<br>edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Trang bị cho sinh viên các kiến thức cơ bản về xử lí ngôn ngữ
 tự nhiên, bao gồm các vấn đề về biểu diễn dữ liệu ngôn ngữ, các phương pháp
@@ -7042,44 +5253,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 2 190
 
 <!-- Page 191 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Các bài kiểm tra thường xuyên
-- CK1: 4 điểm, CK2: 1 điểm, CS1:1
-điểm, CS2: 2 điểm, CS4: 0.5 điểm,
-CS5: 0.5 điểm, CR1: 0.5 điểm, CR3:
-0.5 điểm | CK1,CK2,
-CS1,CS2, CS4,
-CS5, CR1, CR3 |
-| 2 | Giữa kỳ | 20% | - Báo cáo tiểu luận giữa kì
-- CK1: 1 điểm, CK2: 2.5 điểm,
-CS1:2 điểm, CS2: 1 điểm, CS3: 1
-điểm, CS4: 0.5 điểm, CS5: 0.5 điểm,
-CR1: 0.5 điểm, CR2: 0.5 điểm,
-CR3: 0.5 điểm | CK1, CK2,
-CS1-CS5,
-CR1-CR3 |
-| 3 | Cuối kỳ | 60 % | - Hoàn thành và báo cáo tiểu luận
-- CK1: 1 điểm, CK2: 2.5 điểm,
-CS1:0.5 điểm, CS2: 2.5 điểm, CS3:
-1 điểm, CS4: 0.5 điểm, CS5: 0.5
-điểm, CR1: 0.5 điểm, CR2: 0.5
-điểm, CR3: 0.5 điểm | CK1,CK2,
-CS1-CS5,
-CR1-CR3 |
+| 1 | Thường<br>xuyên | 20% | - Các bài kiểm tra thường xuyên<br>- CK1: 4 điểm, CK2: 1 điểm, CS1:1<br>điểm, CS2: 2 điểm, CS4: 0.5 điểm,<br>CS5: 0.5 điểm, CR1: 0.5 điểm, CR3:<br>0.5 điểm | CK1,CK2,<br>CS1,CS2, CS4,<br>CS5, CR1, CR3 |
+| 2 | Giữa kỳ | 20% | - Báo cáo tiểu luận giữa kì<br>- CK1: 1 điểm, CK2: 2.5 điểm,<br>CS1:2 điểm, CS2: 1 điểm, CS3: 1<br>điểm, CS4: 0.5 điểm, CS5: 0.5 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm,<br>CR3: 0.5 điểm | CK1, CK2,<br>CS1-CS5,<br>CR1-CR3 |
+| 3 | Cuối kỳ | 60 % | - Hoàn thành và báo cáo tiểu luận<br>- CK1: 1 điểm, CK2: 2.5 điểm,<br>CS1:0.5 điểm, CS2: 2.5 điểm, CS3:<br>1 điểm, CS4: 0.5 điểm, CS5: 0.5<br>điểm, CR1: 0.5 điểm, CR2: 0.5<br>điểm, CR3: 0.5 điểm | CK1,CK2,<br>CS1-CS5,<br>CR1-CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -7101,63 +5287,47 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 191
 
 <!-- Page 192 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan |  | CK1, CS4, CR1 |
 | 1.1 | Lịch sử phát triển |  |
 | 1.2 | Ứng dụng của xử lí ngôn ngữ tự nhiên |  |
 | 1.3 | Công nghệ và tài nguyên ngôn ngữ |  |
-| Chương 2. Xử lí văn bản |  | CK1, CS4, CR1,
-CR3 |
+| Chương 2. Xử lí văn bản |  | CK1, CS4, CR1,<br>CR3 |
 | 2.1 | Biểu thức chính quy |  |
 | 2.2 | Thao tác với từ |  |
 | 2.3 | Khoảng cách soạn thảo |  |
-| Chương 3. Mô hình ngôn ngữ |  | CK1, CS4, CS5,
-CR1, CR3 |
+| Chương 3. Mô hình ngôn ngữ |  | CK1, CS4, CS5,<br>CR1, CR3 |
 | 3.1 | Mô hình ngôn ngữ n-gram |  |
 | 3.2 | Ước lượng xác suất n-gram |  |
 | 3.3 | Đánh giá mô hình |  |
 | 3.4 | Các phương pháp làm trơn mô hình |  |
-| Chương 4. Phân loại văn bản |  | CK2, CS1, CS3,
-CS4, CS5, CR1,
-CR3 |
+| Chương 4. Phân loại văn bản |  | CK2, CS1, CS3,<br>CS4, CS5, CR1,<br>CR3 |
 | 4.1 | Định nghĩa bài toán |  |
 | 4.2 | Thuật toán Naïve Bayes |  |
 | 4.3 | Hồi quy logistic |  |
 | 4.4 | Một số ứng dụng phân loại văn bản |  |
-| Chương 5. Biểu diễn véc-tơ từ |  | CK1, CS2, CS4,
-CS5, CR1, CR3 |
+| Chương 5. Biểu diễn véc-tơ từ |  | CK1, CS2, CS4,<br>CS5, CR1, CR3 |
 | 5.1 | Ngữ nghĩa của từ |  |
 | 5.2 | Ngữ nghĩa véc-tơ |  |
 | 5.3 | Ngữ nghĩa véc-tơ và nhúng từ |  |
 | 5.4 | Mạng nơ-ron và mô hình ngôn ngữ |  |
-| Chương 6. Phân tích ngữ pháp |  | CK2, CS1, CS2,
-CS3, CS4, CS5,
-CR1, CR3 |
+| Chương 6. Phân tích ngữ pháp |  | CK2, CS1, CS2,<br>CS3, CS4, CS5,<br>CR1, CR3 |
 4 192
 
 <!-- Page 193 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 6.1 | Từ loại |  |
 | 6.2 | Cú pháp thành phần và cú pháp phụ thuộc |  |
 | 6.3 | Văn phạm hình thức |  |
 | 6.4 | Phân tích cú pháp |  |
-| Chương 7. Trích rút thông tin |  | CK2, CS1, CS2,
-CS3, CS4, CS5,
-CR1, CR3 |
+| Chương 7. Trích rút thông tin |  | CK2, CS1, CS2,<br>CS3, CS4, CS5,<br>CR1, CR3 |
 | 7.1 | Bài toán trích rút thông tin |  |
 | 7.2 | Các cơ sở dữ liệu thực thể - quan hệ |  |
 | 7.3 | Trích rút quan hệ sử dụng luật |  |
 | 7.4 | Trích rút quan hệ dựa vào học máy |  |
-| Chương 8. Một số chủ đề ứng dụng xử lí ngôn ngữ tự nhiên |  | CK1, CK2, CS1,
-CS2, CS3, CS4,
-CS5, CR1, CR2,
-CR3 |
+| Chương 8. Một số chủ đề ứng dụng xử lí ngôn ngữ tự nhiên |  | CK1, CK2, CS1,<br>CS2, CS3, CS4,<br>CS5, CR1, CR2,<br>CR3 |
 | 8.1 | Sửa lỗi chính tả |  |
 | 8.2 | Dịch máy |  |
 | 8.3 | Hệ thống hỏi đáp |  |
@@ -7182,13 +5352,9 @@ MỘT SỐ VẤN ĐỀ CHỌN LỌC VỀ THỊ GIÁC MÁY TÍNH
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hu
-s.edu.vn |  |  |
-| 2. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.e
-du.vn |  |  |
-| 3. |  |  | Nguyễn Thị Bích
-Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nguyenthibichthu
-y@hus.edu.vn |  |  |
+| 1. |  |  | Cao Văn Chung |  |  | TS |  |  | Trường ĐHKHTN |  |  | caovanchung@hu<br>s.edu.vn |  |  |
+| 2. |  |  | Đỗ Thanh Hà |  |  | TS |  |  | Trường ĐHKHTN |  |  | dothanhha@hus.e<br>du.vn |  |  |
+| 3. |  |  | Nguyễn Thị Bích<br>Thủy |  |  | TS |  |  | Trường ĐHKHTN |  |  | nguyenthibichthu<br>y@hus.edu.vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần củng cố nền tảng lý thuyết trong thị giác máy tính
 cũng như cung cấp cho sinh viên những kiến thức cơ bản về các bài toán lớn
@@ -7267,71 +5433,22 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 3 196
 
 <!-- Page 197 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Bài thực hành và các bài kiểm tra
-trên lớp (lý thuyết và thực hành)
-- Thang điểm đánh giá.
-CK1: 2.5 điểm
-CK2: 2 điểm
-CS1: 2 điểm
-CS2: 1.5 điểm
-CR1: 1 điểm
-CR3: 1 điểm | CK1,CK2,
-CS1, CS2,
-CR1, CR3 |
-| 2 | Giữa kỳ | 20 % | - Báo cáo giữa kỳ về bài toán thực
-tế sẽ hoàn thành trong khóa học
-- Thang điểm đánh giá.
-CK1: 2 điểm
-CK2: 1.5 điểm
-CK3: 1 điểm
-CS1: 1 điểm
-CS2: 1 điểm
-CS4: 1 điểm
-CS5: 1 điểm
-CR1: 0.5 điểm
-CR2: 0.5 điểm
-CR3: 0.5 điểm | CK1, CK2,
-CK3, CS1,
-CS2, CS4,
-CS5, CR1,
-CR2, CR3 |
-| 3 | Cuối kỳ | 60 % | - Báo cáo bài tập lớn và thi vấn đáp
-trên hệ thống xử lý mà sinh viên đã
-xây dựng cho bài toán thực tế đã
-chọn
-- Thang điểm đánh giá.
-CK2: 1.5 điểm
-CK3: 2 điểm
-CK4: 1 điểm
-CS2: 1 điểm
-CS3: 1 điểm
-CS4: 1 điểm
-CS5: 1 điểm
-CR1: 0.5 điểm
-CR2: 0.5 điểm
-CR3: 0.5 điểm | CK2, CK3,
-CK4, CS2,
-CS3, CS4,
-CS5, CR1,
-CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Bài thực hành và các bài kiểm tra<br>trên lớp (lý thuyết và thực hành)<br>- Thang điểm đánh giá.<br>CK1: 2.5 điểm<br>CK2: 2 điểm<br>CS1: 2 điểm<br>CS2: 1.5 điểm<br>CR1: 1 điểm<br>CR3: 1 điểm | CK1,CK2,<br>CS1, CS2,<br>CR1, CR3 |
+| 2 | Giữa kỳ | 20 % | - Báo cáo giữa kỳ về bài toán thực<br>tế sẽ hoàn thành trong khóa học<br>- Thang điểm đánh giá.<br>CK1: 2 điểm<br>CK2: 1.5 điểm<br>CK3: 1 điểm<br>CS1: 1 điểm<br>CS2: 1 điểm<br>CS4: 1 điểm<br>CS5: 1 điểm<br>CR1: 0.5 điểm<br>CR2: 0.5 điểm<br>CR3: 0.5 điểm | CK1, CK2,<br>CK3, CS1,<br>CS2, CS4,<br>CS5, CR1,<br>CR2, CR3 |
+| 3 | Cuối kỳ | 60 % | - Báo cáo bài tập lớn và thi vấn đáp<br>trên hệ thống xử lý mà sinh viên đã<br>xây dựng cho bài toán thực tế đã<br>chọn<br>- Thang điểm đánh giá.<br>CK2: 1.5 điểm<br>CK3: 2 điểm<br>CK4: 1 điểm<br>CS2: 1 điểm<br>CS3: 1 điểm<br>CS4: 1 điểm<br>CS5: 1 điểm<br>CR1: 0.5 điểm<br>CR2: 0.5 điểm<br>CR3: 0.5 điểm | CK2, CK3,<br>CK4, CS2,<br>CS3, CS4,<br>CS5, CR1,<br>CR2, CR3 |
 |  | Tổng | 100% |  |  |
 4 197
 
@@ -7352,140 +5469,52 @@ Academic Press; 5th edition, 2017.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu |  |  |
-| 1.1 | Mục 1.1 Thị giác máy tính và ứng dụng
-1.1.1 Giới thiệu tổng quan
-1.1.2 Các lĩnh vực ứng dụng
-1.1.3 Các hướng phát triển
-1.1.4 Giới thiệu công cụ (ngôn ngữ, thư viện lập trình)
-có thể sử dụng. | CK1, CS5 |
-| 1.2 | Mục 1.2 Một số bài toán lớn trong thị giác máy
-1.2.1 Đặc trưng và trích xuất đặc trưng
-1.2.2 Phân loại và nhận dạng
-1.2.3 Phát hiện và phân đoạn đối tượng
-1.2.4 Mô tả hình ảnh
-1.2.5. Một số vấn đề khác | CK1, CS1, CS5 |
+| 1.1 | Mục 1.1 Thị giác máy tính và ứng dụng<br>1.1.1 Giới thiệu tổng quan<br>1.1.2 Các lĩnh vực ứng dụng<br>1.1.3 Các hướng phát triển<br>1.1.4 Giới thiệu công cụ (ngôn ngữ, thư viện lập trình)<br>có thể sử dụng. | CK1, CS5 |
+| 1.2 | Mục 1.2 Một số bài toán lớn trong thị giác máy<br>1.2.1 Đặc trưng và trích xuất đặc trưng<br>1.2.2 Phân loại và nhận dạng<br>1.2.3 Phát hiện và phân đoạn đối tượng<br>1.2.4 Mô tả hình ảnh<br>1.2.5. Một số vấn đề khác | CK1, CS1, CS5 |
 | Chương 2. Đặc trưng và trích xuất đặc trưng ảnh số |  |  |
-| 2.1 | Mục 2.1 Giới thiệu khái niệm và các đạng đặc trưng
-2.1.1 Đặc trưng toàn cục
-2.1.2 Đặc trưng cục bộ
-2.1.3 Ứng dụng của mỗi loại đặc trưng | CK1, CK2, CS1,
-CS2 |
+| 2.1 | Mục 2.1 Giới thiệu khái niệm và các đạng đặc trưng<br>2.1.1 Đặc trưng toàn cục<br>2.1.2 Đặc trưng cục bộ<br>2.1.3 Ứng dụng của mỗi loại đặc trưng | CK1, CK2, CS1,<br>CS2 |
 | 2.2 | Mục 2.2 Một số phương pháp trích xuất đặc trưng | CK2, CK3, CS1, |
 5 198
 
 <!-- Page 199 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
-|  | 2.2.1. Các phương pháp trích xuất đặc trưng toàn cục
-2.2.2. Các phương pháp trích xuất đặc trưng cục bộ
-2.2.3. Giới thiệu các phương pháp sử dụng học sâu trích
-xuất đặc trưng ảnh | CS2, CS3 |
-| 2.3 | Mục 2.3 Một số ứng dụng dựa trên đặc trưng ảnh
-2.3.1 Các phương pháp đối sánh ảnh (Image
-Registration)
-2.3.2. Phương pháp so khớp mẫu (Template Matching)
-và nhận dạng mẫu trong trường hợp đặc biệt (cho văn bản
-đặc biệt, bản vẽ kỹ thuật…)
-2.3.3. Một số phương pháp phân loại ảnh dựa trên trích
-xuất đặc trưng và học máy
-2.3.4. Ghép ảnh Panorama | CK2, CK3, CS1,
-CS2, CS3 |
+|  | 2.2.1. Các phương pháp trích xuất đặc trưng toàn cục<br>2.2.2. Các phương pháp trích xuất đặc trưng cục bộ<br>2.2.3. Giới thiệu các phương pháp sử dụng học sâu trích<br>xuất đặc trưng ảnh | CS2, CS3 |
+| 2.3 | Mục 2.3 Một số ứng dụng dựa trên đặc trưng ảnh<br>2.3.1 Các phương pháp đối sánh ảnh (Image<br>Registration)<br>2.3.2. Phương pháp so khớp mẫu (Template Matching)<br>và nhận dạng mẫu trong trường hợp đặc biệt (cho văn bản<br>đặc biệt, bản vẽ kỹ thuật…)<br>2.3.3. Một số phương pháp phân loại ảnh dựa trên trích<br>xuất đặc trưng và học máy<br>2.3.4. Ghép ảnh Panorama | CK2, CK3, CS1,<br>CS2, CS3 |
 | Chương 3: Các phương pháp phân loại dữ liệu hình ảnh (Image Classification) |  |  |
 | 3.1 | Mục 3.1 Giới thiệu vấn đề phân loại ảnh | CK2, CS1 |
-| 3.2 | Mục 3.2 Các phương pháp phân loại sử dụng mô hình
-học máy phân loại và tập vec-tơ đặc trưng của ảnh | CK2, CK3, CS1,
-CS2, CR2 |
-| 3.3 | Mục 3.3 Phương pháp dạng EndToEnd: Mạng Nơ-ron
-tích chập | CK2, CK3, CK4,
-CS2, CS3, CR1,
-CR2 |
-| 3.4 | Mục 3.4 Một số ứng dụng cụ thể của bài toán phân loại
-ảnh | CK2, CK3, CS2,
-CS3, CR1, CR2 |
+| 3.2 | Mục 3.2 Các phương pháp phân loại sử dụng mô hình<br>học máy phân loại và tập vec-tơ đặc trưng của ảnh | CK2, CK3, CS1,<br>CS2, CR2 |
+| 3.3 | Mục 3.3 Phương pháp dạng EndToEnd: Mạng Nơ-ron<br>tích chập | CK2, CK3, CK4,<br>CS2, CS3, CR1,<br>CR2 |
+| 3.4 | Mục 3.4 Một số ứng dụng cụ thể của bài toán phân loại<br>ảnh | CK2, CK3, CS2,<br>CS3, CR1, CR2 |
 | Chương 4: Các phương pháp phát hiện đối tượng trong ảnh (Object Detection) |  |  |
 | 4.1 | Mục 4.1 Giới thiệu vấn đề | CK2, CS1, CR1 |
-| 4.2 | Mục 4.2 Một số kỹ thuật bổ trợ
-4.2.1 Selective Search
-4.2.2 Sliding Windows
-4.2.3 Multi Resolution
-4.2.4 Grid & Anchor points | CK3, CK4, CS2,
-CS3, CS5, CR1,
-CR2 |
-| 4.3 | Mục 4.3 Một số phương pháp dạng hai nấc (two stages) | CK3, CK4, CS2,
-CS3, CS5, CR2 |
-| 4.4 | Mục 4.4 Một số phương pháp dạng một nấc (one stage) | CK3, CK4, CS2,
-CS3, CS5, CR2 |
-| 4.5 | Mục 4.5 Một số công cụ mới giải quyết các vấn đề trong
-thị giác máy tính
-4.5.1 Vấn đề khối lượng tính toán, kích thước dữ liệu và
-miền ứng dụng
-4.5.2 Cơ chế học chuyển giao (Transfer Learning) | CK3, CK4, CS2,
-CS3, CS5, CR2 |
+| 4.2 | Mục 4.2 Một số kỹ thuật bổ trợ<br>4.2.1 Selective Search<br>4.2.2 Sliding Windows<br>4.2.3 Multi Resolution<br>4.2.4 Grid & Anchor points | CK3, CK4, CS2,<br>CS3, CS5, CR1,<br>CR2 |
+| 4.3 | Mục 4.3 Một số phương pháp dạng hai nấc (two stages) | CK3, CK4, CS2,<br>CS3, CS5, CR2 |
+| 4.4 | Mục 4.4 Một số phương pháp dạng một nấc (one stage) | CK3, CK4, CS2,<br>CS3, CS5, CR2 |
+| 4.5 | Mục 4.5 Một số công cụ mới giải quyết các vấn đề trong<br>thị giác máy tính<br>4.5.1 Vấn đề khối lượng tính toán, kích thước dữ liệu và<br>miền ứng dụng<br>4.5.2 Cơ chế học chuyển giao (Transfer Learning) | CK3, CK4, CS2,<br>CS3, CS5, CR2 |
 6 199
 
 <!-- Page 200 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
-|  | 4.5.3 Cơ chế chú ý trong thị giác máy tính (Attention
-Mechanisms)
-4.5.3 Giới thiệu mô hình học sâu sử dụng cơ chế chú ý
-trong thị giác máy tính: Vision Transformer (visTrans) |  |
-| 4.6 | Mục 4.6 Một số ứng dụng của bài toán phát hiện đối
-tượng trong ảnh | CK3, CK4, CS2,
-CS3, CS4, CS5,
-CR1, CR2 |
+|  | 4.5.3 Cơ chế chú ý trong thị giác máy tính (Attention<br>Mechanisms)<br>4.5.3 Giới thiệu mô hình học sâu sử dụng cơ chế chú ý<br>trong thị giác máy tính: Vision Transformer (visTrans) |  |
+| 4.6 | Mục 4.6 Một số ứng dụng của bài toán phát hiện đối<br>tượng trong ảnh | CK3, CK4, CS2,<br>CS3, CS4, CS5,<br>CR1, CR2 |
 | Chương 5. Các phương pháp phân đoạn đối tượng (Object Segmentation) |  |  |
-| 5.1 | Mục 5.1. Giới thiệu vấn đề phân đoạn ảnh | CK1, CK2, CS5,
-CR2 |
-| 5.2 | Mục 5.2. Các phương pháp không sử dụng học sâu
-5.2.1 Phương pháp trừ nền
-5.2.2 Phương pháp sử dụng kỹ thuật phân cụm | CK2, CK3, CS2,
-CS3, CR1, CR2 |
-| 5.3 | Mục 5.3. Một số phương pháp sử dụng học sâu
-5.3.1. Một số mô hình học sâu bổ trợ: UNet và
-PyramidNet
-5.3.2. Một số phương pháp phân đoạn phát triển từ phát
-hiện đối tượng. | CK3, CK4, CS2,
-CS3, CS4, CS5,
-CR1, CR2 |
-| 5.4 | 5.4. Giới thiệu một số mô hình phân đoạn đối tượng có
-sử dụng cơ chế chú ý. | CK3, CK4, CS2,
-CS3, CS4, CS5,
-CR1, CR2 |
+| 5.1 | Mục 5.1. Giới thiệu vấn đề phân đoạn ảnh | CK1, CK2, CS5,<br>CR2 |
+| 5.2 | Mục 5.2. Các phương pháp không sử dụng học sâu<br>5.2.1 Phương pháp trừ nền<br>5.2.2 Phương pháp sử dụng kỹ thuật phân cụm | CK2, CK3, CS2,<br>CS3, CR1, CR2 |
+| 5.3 | Mục 5.3. Một số phương pháp sử dụng học sâu<br>5.3.1. Một số mô hình học sâu bổ trợ: UNet và<br>PyramidNet<br>5.3.2. Một số phương pháp phân đoạn phát triển từ phát<br>hiện đối tượng. | CK3, CK4, CS2,<br>CS3, CS4, CS5,<br>CR1, CR2 |
+| 5.4 | 5.4. Giới thiệu một số mô hình phân đoạn đối tượng có<br>sử dụng cơ chế chú ý. | CK3, CK4, CS2,<br>CS3, CS4, CS5,<br>CR1, CR2 |
 | Chương 6: Vấn đề tạo mô tả cho hình ảnh |  |  |
-| 6.1 | Mục 6.1 Giới thiệu
-6.1.1 Vấn đề mô tả hình ảnh: đặc điểm, tính phức tạp và
-khả năng ứng dụng
-6.1.2 Các lĩnh vực chính liên quan đến mô tả hình ảnh:
-Thị giác máy và ngôn ngữ tự nhiên | CK1, CK2, CS5,
-CR2 |
-| 6.2 | Mục 6.2 Một số hướng tiếp cận không sử dụng học sâu | CK1, CK2, CS5,
-CR2 |
-| 6.3 | Mục 6.3 Hướng tiếp cận dựa trên học sâu
-6.3.1 Một số mô hình xử lý ngôn ngữ (LSTM và
-Transformer)
-6.3.2 Mô hình dạng kết hợp mã hóa bằng trích xuất đặc
-trưng (Encoder - CNN) và giải mã hóa xử lý ngôn ngữ
-(Decoder – LSTM)
-6.3.3 Nhóm mô hình tạo mô tả dựa trên đối tượng
-(Object based) | CK3, CK4, CS2,
-CS3, CS4, CS5,
-CR1, CR2 |
+| 6.1 | Mục 6.1 Giới thiệu<br>6.1.1 Vấn đề mô tả hình ảnh: đặc điểm, tính phức tạp và<br>khả năng ứng dụng<br>6.1.2 Các lĩnh vực chính liên quan đến mô tả hình ảnh:<br>Thị giác máy và ngôn ngữ tự nhiên | CK1, CK2, CS5,<br>CR2 |
+| 6.2 | Mục 6.2 Một số hướng tiếp cận không sử dụng học sâu | CK1, CK2, CS5,<br>CR2 |
+| 6.3 | Mục 6.3 Hướng tiếp cận dựa trên học sâu<br>6.3.1 Một số mô hình xử lý ngôn ngữ (LSTM và<br>Transformer)<br>6.3.2 Mô hình dạng kết hợp mã hóa bằng trích xuất đặc<br>trưng (Encoder - CNN) và giải mã hóa xử lý ngôn ngữ<br>(Decoder – LSTM)<br>6.3.3 Nhóm mô hình tạo mô tả dựa trên đối tượng<br>(Object based) | CK3, CK4, CS2,<br>CS3, CS4, CS5,<br>CR1, CR2 |
 7 200
 
 <!-- Page 201 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | 6.3.4 Nhóm mô hình có sử dụng cơ chế chú ý. |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
@@ -7506,16 +5535,9 @@ KHAI PHÁ DỮ LIỆU
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Lê Hồng Phương |  |  | PGS. TS. |  |  | Trường ĐH KHTN
-Hà Nội |  |  | phuonglh@vnu.ed
-u.vn |  |  |
-| 2. |  |  | Nguyễn Thị Minh
-Huyền |  |  | TS. |  |  | Trường ĐH KHTN
-Hà Nội |  |  | huyenntm@vnu.e
-du.vn |  |  |
-| 3. |  |  | Nguyễn Hải Vinh |  |  | TS. |  |  | Trường ĐH KHTN
-Hà Nội |  |  | vinhnh@vnu.edu.
-vn |  |  |
+| 1. |  |  | Lê Hồng Phương |  |  | PGS. TS. |  |  | Trường ĐH KHTN<br>Hà Nội |  |  | phuonglh@vnu.ed<br>u.vn |  |  |
+| 2. |  |  | Nguyễn Thị Minh<br>Huyền |  |  | TS. |  |  | Trường ĐH KHTN<br>Hà Nội |  |  | huyenntm@vnu.e<br>du.vn |  |  |
+| 3. |  |  | Nguyễn Hải Vinh |  |  | TS. |  |  | Trường ĐH KHTN<br>Hà Nội |  |  | vinhnh@vnu.edu.<br>vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần cung cấp cho sinh viên những kiến thức cơ bản quá
 trình phát hiện tri thức, các kỹ thuật khai phá dữ liệu chính, tổ chức dữ liệu cho
@@ -7564,8 +5586,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 2 203
 
@@ -7573,41 +5594,24 @@ của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  | 5 |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp
-hoặc giờ thực hành tại phòng máy
-tính
-- Đếm số buổi vắng mặt | CR1, CR3 |
-| 2 | Giữa kỳ | 20 % | - Điểm bài tập thường xuyên theo
-tuần;
-- Chấm bài điểm thường xuyên, tính
-trung bình các điểm thang 10. | CK1, CK2,
-CS1, CS2 |
-| 3 | Cuối kỳ | 60 % | - Thi vấn đáp, lập trình trực tiếp tại
-phòng máy tính
-- Thang điểm đánh giá: 10 | CK3, CK4
-CS3, CS4,
-CR1,CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp<br>hoặc giờ thực hành tại phòng máy<br>tính<br>- Đếm số buổi vắng mặt | CR1, CR3 |
+| 2 | Giữa kỳ | 20 % | - Điểm bài tập thường xuyên theo<br>tuần;<br>- Chấm bài điểm thường xuyên, tính<br>trung bình các điểm thang 10. | CK1, CK2,<br>CS1, CS2 |
+| 3 | Cuối kỳ | 60 % | - Thi vấn đáp, lập trình trực tiếp tại<br>phòng máy tính<br>- Thang điểm đánh giá: 10 | CK3, CK4<br>CS3, CS4,<br>CR1,CR2, CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -7625,47 +5629,36 @@ Kaufmann, 2012.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Tổng quan về khai phá dữ liệu |  | CK1, CK2, CS1,
-CS2, CR1, CR2,
-CR3 |
+| Chương 1. Tổng quan về khai phá dữ liệu |  | CK1, CK2, CS1,<br>CS2, CR1, CR2,<br>CR3 |
 | 1.1 | Giới thiệu |  |
 | 1.2 | Vấn đề khai phá dữ liệu |  |
 | 1.3 | Các thống kê cơ bản |  |
-| Chương 2. Khai phá luật kết hợp |  | CK2, CS2
-CR1, CR2, CR3 |
+| Chương 2. Khai phá luật kết hợp |  | CK2, CS2<br>CR1, CR2, CR3 |
 | 2.1 | Mô hình siêu thị, giỏ hàng |  |
 | 2.2 | Thuật toán A-Priori |  |
 | 2.3 | Quản trị tập dữ liệu lớn trong bộ nhớ chính |  |
 | 2.4 | Các thuật toán Limited-Pass |  |
 | 2.5 | Đếm mục thường xuyên trong luồng |  |
-| Chương 3. Phân lớp dữ liệu |  | CK3, CK3
-CR1, CR2, CR3 |
+| Chương 3. Phân lớp dữ liệu |  | CK3, CK3<br>CR1, CR2, CR3 |
 | 3.1 | Bài toán phân lớp dữ liệu |  |
 | 3.2 | Cây quyết định |  |
 | 3.3 | Thuật toán Naive Bayes |  |
 | 3.4 | Thuật toán hồi quy logistic |  |
 | 3.5 | Mạng nơ-ron nhân tạo |  |
-| Chương 4. Phân cụm dữ liệu |  | CK4, CS4
-CR1, CR2, CR3 |
+| Chương 4. Phân cụm dữ liệu |  | CK4, CS4<br>CR1, CR2, CR3 |
 | 4.1 | Giới thiệu |  |
 | 4.2 | Thuật toán k-means |  |
 4 205
 
 <!-- Page 206 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.3 | Thuật toán cực đại hóa kỳ vọng |  |
 | 4.4 | Thuật toán CURE |  |
 | 4.5 | Ứng dụng |  |
-| Chương 5. Hiệu năng tính toán |  | CK3, CK4
-CS3, CS4
-CR1, CR2, CR3 |
+| Chương 5. Hiệu năng tính toán |  | CK3, CK4<br>CS3, CS4<br>CR1, CR2, CR3 |
 | 5.1 | Giới thiệu |  |
 | 5.2 | Một số vấn đề về thuật toán |  |
 | 5.3 | Một số vấn đề về tổ chức dữ liệu |  |
@@ -7688,10 +5681,8 @@ PHÁT TRIỂN ỨNG DỤNG WEB
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Nguyễn Hải Vinh |  |  | TS |  |  | Trường ĐHKHTN |  |  | haivinh12@gmail.
-com |  |  |
-| 2. |  |  | Vũ Tiến Dũng |  |  | TS |  |  | Trường ĐHKHTN |  |  | duzngvt@gmail.c
-om |  |  |
+| 1. |  |  | Nguyễn Hải Vinh |  |  | TS |  |  | Trường ĐHKHTN |  |  | haivinh12@gmail.<br>com |  |  |
+| 2. |  |  | Vũ Tiến Dũng |  |  | TS |  |  | Trường ĐHKHTN |  |  | duzngvt@gmail.c<br>om |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Cung cấp các kiến thức và kỹ năng giúp người học có thể phát
 triển các ứng dụng web trên các hệ thông thông tin.
@@ -7753,46 +5744,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Hình thức đánh giá:
-Bài kiểm tra ngắn trên lớp (10%) và
-các bài kiểm tra thực hành (10%)
-- Thang điểm đánh giá: 10 | CK1, CS1,
-CR2 |
-| 2 | Giữa kỳ | 20% | - Hình thức đánh giá:
-Trắc nghiệm kiến thức: 10%
-Thực hành: Sử dụng được CSS để
-trình diễn các đối tượng tài liệu trên
-giao diện: 5%
-Thực hành: Sử dụng được
-JavaScript để thực hiện các thao tác
-quản lý được yêu cầu: 5%
-- Thang điểm đánh giá: 10 | CK1, CK2,
-CS2, CS3,
-CS4, CR1,
-CR2 |
-| 3 | Cuối kỳ | Tối thiểu
-60 % | - Hình thức đánh giá: Báo cáo dự án
-làm theo nhóm
-- Thang điểm đánh giá: 10 | CK1, CK2,
-CK3, CS1,
-CS2, CS3,
-CS4, CR1,
-CR2, CR3 |
+| 1 | Thường<br>xuyên | 20% | - Hình thức đánh giá:<br>Bài kiểm tra ngắn trên lớp (10%) và<br>các bài kiểm tra thực hành (10%)<br>- Thang điểm đánh giá: 10 | CK1, CS1,<br>CR2 |
+| 2 | Giữa kỳ | 20% | - Hình thức đánh giá:<br>Trắc nghiệm kiến thức: 10%<br>Thực hành: Sử dụng được CSS để<br>trình diễn các đối tượng tài liệu trên<br>giao diện: 5%<br>Thực hành: Sử dụng được<br>JavaScript để thực hiện các thao tác<br>quản lý được yêu cầu: 5%<br>- Thang điểm đánh giá: 10 | CK1, CK2,<br>CS2, CS3,<br>CS4, CR1,<br>CR2 |
+| 3 | Cuối kỳ | Tối thiểu<br>60 % | - Hình thức đánh giá: Báo cáo dự án<br>làm theo nhóm<br>- Thang điểm đánh giá: 10 | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CS4, CR1,<br>CR2, CR3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -7817,21 +5781,17 @@ Polyglot Persistence. Addison Wesley, 2013.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Kiến trúc ứng dụng web |  | CK1 |
 | 1.1 | Khái niệm ứng dụng web |  |
 | 1.2 | Mô hình client-server |  |
-| 1.3 | Chức năng của web server và web client (đặc biệt là
-trình duyệt web) |  |
+| 1.3 | Chức năng của web server và web client (đặc biệt là<br>trình duyệt web) |  |
 | 1.4 | HTTP |  |
 | 1.5 | Ứng dụng web, tài nguyên web và URL |  |
 | 1.6 | Phân loại web tĩnh và động |  |
 | 1.7 | Giới thiệu một số công nghệ web được sử dụng rộng rãi |  |
-| Chương 2. HTML |  | CK1, CK2, CR1,
-CR2 |
+| Chương 2. HTML |  | CK1, CK2, CR1,<br>CR2 |
 | 2.1 | Giới thiệu về HTML |  |
 | 2.2 | Giới thiệu về các trình duyệt |  |
 | 2.3 | Các công cụ soạn thảo offline và online |  |
@@ -7841,16 +5801,12 @@ CR2 |
 4 210
 
 <!-- Page 211 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| 2.7 | Headings, Paragraphs, and định dạng văn bản
-(Formatting Text) |  |
+| 2.7 | Headings, Paragraphs, and định dạng văn bản<br>(Formatting Text) |  |
 | 2.8 | Lists và Links |  |
 | 2.9 | Ảnh (Image) và Bảng (Table) |  |
-| Chương 3. CSS |  | CK1, CK2, CR1,
-CR2 |
+| Chương 3. CSS |  | CK1, CK2, CR1,<br>CR2 |
 | 3.1 | Giới thiệu về CSS |  |
 | 3.2 | Áp dụng CSS với HTML |  |
 | 3.3 | Selectors, Properties và Values |  |
@@ -7858,32 +5814,26 @@ CR2 |
 | 3.5 | CSS Box Model |  |
 | 3.6 | CSS Margins, Padding, và Borders |  |
 | 3.7 | CSS Text và Font Properties |  |
-| Chương 4. JavaScript |  | CK1, CK2, CS2,
-CR1, CR2 |
+| Chương 4. JavaScript |  | CK1, CK2, CS2,<br>CR1, CR2 |
 | 4.1 | Giới thiệu về JavaScript |  |
 | 4.2 | Cú pháp JavaScript |  |
 | 4.3 | Giới thiệu Document và Window Object |  |
 | 4.4 | Các biến (Variable) và các toán tử (Operators) |  |
-| 4.5 | Các loại dữ liệu (Data Types) và chuyển kiểu dữ liệu
-(Num Type Conversion) |  |
+| 4.5 | Các loại dữ liệu (Data Types) và chuyển kiểu dữ liệu<br>(Num Type Conversion) |  |
 | 4.6 | Math và String |  |
 | 4.7 | Object và Array |  |
 | 4.8 | Date và Time |  |
 | 4.9 | Cấu trúc điều khiển |  |
 | 4.10 | Hàm (Function) |  |
-| Chương 5. ReactJS |  | CK1, CK2, CK3,
-CS2, CR1, CR2 |
+| Chương 5. ReactJS |  | CK1, CK2, CK3,<br>CS2, CR1, CR2 |
 | 5.1 | Giới thiệu về ReactJS |  |
 | 5.2 | JSX |  |
-| 5.3 | Components, State và Props và vòng đời của
-Component |  |
+| 5.3 | Components, State và Props và vòng đời của<br>Component |  |
 | 5.4 | Rendering List và Portals |  |
 5 211
 
 <!-- Page 212 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.5 | Error Handling |  |
 | 5.6 | Routers, Redux và Redux Saga |  |
@@ -7891,8 +5841,7 @@ của học phần |
 | 5.8 | Service Side Rendering |  |
 | 5.9 | Unit Testing |  |
 | 5.10 | Webpack |  |
-| Chương 6. NodeJS |  | CK1, CK2, CS2,
-CR1, CR2 |
+| Chương 6. NodeJS |  | CK1, CK2, CS2,<br>CR1, CR2 |
 | 6.1 | Tổng quan về NodeJS |  |
 | 6.2 | Cài đặt và kiến thức cơ bản |  |
 | 6.3 | NodeJS Console |  |
@@ -7902,8 +5851,7 @@ CR1, CR2 |
 | 6.7 | NodeJS Events |  |
 | 6.8 | NodeJS với ExpressJS |  |
 | 6.9 | NodeJS Database Access |  |
-| Chương 7. MongoDB |  | CK1, CK2, CS1,
-CR1, CR2 |
+| Chương 7. MongoDB |  | CK1, CK2, CS1,<br>CR1, CR2 |
 | 7.1 | SQL và NoSql |  |
 | 7.2 | Tạo và quản lý MongoDB |  |
 | 7.3 | MongoDB với PHP |  |
@@ -7926,16 +5874,11 @@ hoặc MAT2318: Lập trình Python hoặc MAT2319: Lập trình Julia;
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Phó Đức Tài | PGS.TS. |  |  | Trường ĐHKHTN | phoductai@hus.ed
-u..vn |
-| 2. | Lê Minh Hà | PGS.TS |  |  | Trường ĐHKHTN | leminhha@hus.ed
-u.vn |
-| 3. | Đỗ Việt Cường | TS |  |  | Trường ĐHKHTN | dovietcuong@hus.
-edu.vn |
-| 4. | Hoàng Quốc Hùng | GV |  |  | Trường ĐHKHTN | hoangquochung@
-hus.edu.vn |
-| 5. | Nguyễn Hải Vinh | TS |  |  | Trường ĐHKHTN | nguyenhaivinh@h
-us.edu.vn |
+| 1. | Phó Đức Tài | PGS.TS. |  |  | Trường ĐHKHTN | phoductai@hus.ed<br>u..vn |
+| 2. | Lê Minh Hà | PGS.TS |  |  | Trường ĐHKHTN | leminhha@hus.ed<br>u.vn |
+| 3. | Đỗ Việt Cường | TS |  |  | Trường ĐHKHTN | dovietcuong@hus.<br>edu.vn |
+| 4. | Hoàng Quốc Hùng | GV |  |  | Trường ĐHKHTN | hoangquochung@<br>hus.edu.vn |
+| 5. | Nguyễn Hải Vinh | TS |  |  | Trường ĐHKHTN | nguyenhaivinh@h<br>us.edu.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần cung cấp cho người học các kiến thức cơ bản các
 kiến thức cơ bản về mật mã học, an toàn và bảo mật của hệ thống thông tin trong
@@ -7990,72 +5933,37 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán học hệ Chuẩn
 | CĐR CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PS1 | PS2 | PS3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |  |
-| Mức đóng
-góp của học
-phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
+| Mức đóng<br>góp của học<br>phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
 Chương trình đào tạo ngành Toán học CNKHTN:
 | CĐR CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PS1 | PS2 | PS3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng
-góp của học
-phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
+| Mức đóng<br>góp của học<br>phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |  |
-| Mức đóng
-góp của học
-phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
+| Mức đóng<br>góp của học<br>phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
 Chương trình đào tạo ngành Toán – Tin:
-| CĐR
-CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
+| CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức
-đóng góp
-của học
-phần |  |  | 2 | 3 |  | 4 |  |  | 3 |  | 4 |
-| CĐR
-CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
-| Mức
-đóng góp
-của học
-phần |  |  |  | 5 |  |  |  | 4 | 4 | 4 |  |
+| Mức<br>đóng góp<br>của học<br>phần |  |  | 2 | 3 |  | 4 |  |  | 3 |  | 4 |
+| CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
+| Mức<br>đóng góp<br>của học<br>phần |  |  |  | 5 |  |  |  | 4 | 4 | 4 |  |
 3 215
 
 <!-- Page 216 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 5 |  |  | 4 |  |  | 3 |  |  | 3 |  | 3 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  | 5 |  |  | 4 |  |  | 3 |  |  | 3 |  | 3 |  |  | 2 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  |  |  | 4 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  |  |  | 4 |  |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm danh; Điểm bài tập thường
-xuyên và trình bày.
-- Thang điểm 10: Điểm danh 5
-điểm, Bài tập thường xuyên: 5
-điểm. | CK: 1,2,3
-CS:1,3
-CR: 1,2 |
-| 2 | Giữa kỳ | 20% | - Bải tập nhóm, trình bày.
-- Thang điểm 10: Bài luận 5 điểm;
-trình bày 5 điểm. | CK: 1,2,3
-CS:1,3
-CR: 1,2,3 |
-| 3 | Cuối kỳ | 60% | - Thi tự luận
-- Thang điểm 10: Lý thuyết 4 điểm,
-bài tập 6 điểm. | CK: 1,2,3
-CS:1,3
-CR: 1,2 |
+| 1 | Thường<br>xuyên | 20% | - Điểm danh; Điểm bài tập thường<br>xuyên và trình bày.<br>- Thang điểm 10: Điểm danh 5<br>điểm, Bài tập thường xuyên: 5<br>điểm. | CK: 1,2,3<br>CS:1,3<br>CR: 1,2 |
+| 2 | Giữa kỳ | 20% | - Bải tập nhóm, trình bày.<br>- Thang điểm 10: Bài luận 5 điểm;<br>trình bày 5 điểm. | CK: 1,2,3<br>CS:1,3<br>CR: 1,2,3 |
+| 3 | Cuối kỳ | 60% | - Thi tự luận<br>- Thang điểm 10: Lý thuyết 4 điểm,<br>bài tập 6 điểm. | CK: 1,2,3<br>CS:1,3<br>CR: 1,2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -8076,44 +5984,34 @@ dịch tiếng Việt: Bitcoin thực hành - Những khái niệm cơ bản và
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1: Một số kiến thức chuẩn bị (12 tiết) |  | CK: 1,2,3
-CS: 1,3 |
+| Chương 1: Một số kiến thức chuẩn bị (12 tiết) |  | CK: 1,2,3<br>CS: 1,3 |
 | 1.1 | Một số kiến thức lý thuyết số bổ sung |  |
 | 1.2 | Số học trên trường hữu hạn. |  |
 | 1.3 | Một số hệ mã cổ điển |  |
 | 1.4 | Giới thiệu phần mềm SageMath |  |
-| Chương 2: Hàm băm mật mã (12 tiết) |  | CK: 1,2,3
-CS: 1,3 |
-| 2.1 | Định nghĩa và các yêu cầu an toàn cho hàm băm mật
-mã. |  |
+| Chương 2: Hàm băm mật mã (12 tiết) |  | CK: 1,2,3<br>CS: 1,3 |
+| 2.1 | Định nghĩa và các yêu cầu an toàn cho hàm băm mật<br>mã. |  |
 | 2.2 | Cấu trúc Merkle-Damgard |  |
 | 2.3 | Hàm băm SHA-512 của NIST |  |
 | 2.4 | Một số ứng dụng của hàm băm. |  |
-| Chương 3: Mật mã khóa công khai (12 tiết) |  | CK: 1,2,3,4
-CS: 1,3 |
+| Chương 3: Mật mã khóa công khai (12 tiết) |  | CK: 1,2,3,4<br>CS: 1,3 |
 | 3.1 | Bài toán Diffie-Hellman và Logarit rời rạc |  |
 | 3.2 | Hệ mật mã RSA |  |
 | 3.3 | Hệ mật mã Rabin; Hệ mã ElGamal |  |
 | 3.4 | Vấn đề phân tích mã đối với hệ mã khóa công khai |  |
-| Chương 4: Chữ ký số (12 tiết) |  | CK: 1,2,3,4
-CS: 1,3 |
+| Chương 4: Chữ ký số (12 tiết) |  | CK: 1,2,3,4<br>CS: 1,3 |
 | 4.1 | Tổng quan về chữ ký số. |  |
 5 217
 
 <!-- Page 218 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.2 | Chữ ký số Elgamal và Thuật toán chữ ký số DSA |  |
 | 4.3 | Chữ ký số Schnorr |  |
 | 4.4 | Chữ ký số RSA và Thuật toán chữ ký số RSA-PSS |  |
-| Chương 5: Các giao thức mật mã (12 tiết) |  | CK: 1,2,3
-CS: 1,3 |
+| Chương 5: Các giao thức mật mã (12 tiết) |  | CK: 1,2,3<br>CS: 1,3 |
 | 5.1 | Các giao thức cơ bản |  |
 | 5.2 | Chứng minh không tiết lộ thông tin |  |
 | 5.3 | Cây Merkle, chữ ký số ECDSA |  |
@@ -8134,15 +6032,10 @@ PHÂN TÍCH THỐNG KÊ NHIỀU CHIỀU
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Phạm Đình Tùng | TS |  |  | Trường ĐHKHTN | phamdinhtung@h
-us.edu.vn |
-| 2. | Trịnh Quốc Anh | TS |  |  | Trường ĐHKHTN | trinhquocanh@hus
-.edu.vn |
-| 3. | Hoàng Thị Phương
-Thảo | TS |  |  | Trường ĐHKHTN | thaohtp@hus.edu.
-vn |
-| 4. | Trần Mạnh Cường | TS |  |  | Trường ĐHKHTN | cuongtm@vnu.ed
-u.vn |
+| 1. | Phạm Đình Tùng | TS |  |  | Trường ĐHKHTN | phamdinhtung@h<br>us.edu.vn |
+| 2. | Trịnh Quốc Anh | TS |  |  | Trường ĐHKHTN | trinhquocanh@hus<br>.edu.vn |
+| 3. | Hoàng Thị Phương<br>Thảo | TS |  |  | Trường ĐHKHTN | thaohtp@hus.edu.<br>vn |
+| 4. | Trần Mạnh Cường | TS |  |  | Trường ĐHKHTN | cuongtm@vnu.ed<br>u.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Người học nắm được những kiến thức cơ bản nhất về Phân tích
 thống kê nhiều chiều; hình thành được tư duy mô hình hóa và có thể giải quyết
@@ -8220,23 +6113,19 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán học:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |  |  |
-| Mức đóng góp
-của học phần | 3 |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |
 Chương trình đào tạo ngành Toán học hệ cử nhân tài năng:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
+| Mức đóng góp<br>của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
 3 221
 
 <!-- Page 222 -->
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 3 |  |  |  |  | 2 | 2 |  |  |
+| Mức đóng góp<br>của học phần | 3 |  |  |  |  | 2 | 2 |  |  |
 Chương trình đào tạo ngành Toán - Tin:
 | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -8246,38 +6135,21 @@ Chương trình đào tạo ngành Toán - Tin:
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  | PS2 |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 5 |  |  |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
+| Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 3 |  | 3 |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK2, CK3
-CS1, CS2
-CR1-CR3 |
+| 1. | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK3<br>CS1, CS2<br>CR1-CR3 |
 4 222
 
 <!-- Page 223 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 2. | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK3, CK4
-CS3 |
-| 3. | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK4, CK5
-CS3, CS4 |
+| 2. | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK3, CK4<br>CS3 |
+| 3. | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK4, CK5<br>CS3, CS4 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -8295,9 +6167,7 @@ Routledge, 2021.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Phân phối xác suất nhiều chiều |  | CK1, CK2, CS1 |
 | 1.1 | Phân phối chuẩn nhiều chiều |  |
@@ -8307,9 +6177,7 @@ của học phần |
 5 223
 
 <!-- Page 224 -->
-| Chương/
-mục | Tiêu đề/Nội dung |  |  | Chuẩn đầu ra
-của học phần |  |  |
+| Chương/<br>mục | Tiêu đề/Nội dung |  |  | Chuẩn đầu ra<br>của học phần |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Chương 2. Mô hình hồi qui tuyến tính bội |  |  |  |  |  |  |
 |  |  |  |  |  | CK1, CK3, CK4, |  |
@@ -8319,12 +6187,10 @@ của học phần |  |  |
 | 2.3 | Chuẩn đoán và so sánh mô hình |  |  |  |  |  |
 | 2.4 |  |  |  |  |  |  |
 |  |  | Dự báo |  |  |  |  |
-| Chương 3. Phân tích thành phần chính và phân tích nhân tố |  |  |  | CK1, CK3, CK4,
-CK5, CS3, CS4 |  |  |
+| Chương 3. Phân tích thành phần chính và phân tích nhân tố |  |  |  | CK1, CK3, CK4,<br>CK5, CS3, CS4 |  |  |
 | 3.1 | Phân tích thành phần chính |  |  |  |  |  |
 | 3.2 | Phân tích nhân tố |  |  |  |  |  |
-| Chương 4. Phân tích phân biệt và phân lớp |  |  |  | CK1, CK3, CK4,
-CK5, CS3, CS4 |  |  |
+| Chương 4. Phân tích phân biệt và phân lớp |  |  |  | CK1, CK3, CK4,<br>CK5, CS3, CS4 |  |  |
 | 4.1 | Phân tích phân biệt |  |  |  |  |  |
 | 4.2 | Phân lớp |  |  |  |  |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
@@ -8343,15 +6209,10 @@ PHƯƠNG PHÁP CHỌN MẪU DỮ LIỆU
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
-| 1. | Phạm Đình Tùng | TS |  |  | Trường ĐHKHTN | phamdinhtung@h
-us.edu.vn |
-| 2. | Trịnh Quốc Anh | TS |  |  | Trường ĐHKHTN | trinhquocanh@hus
-.edu.vn |
-| 3. | Hoàng Thị Phương
-Thảo | TS |  |  | Trường ĐHKHTN | thaohtp@hus.edu.
-vn |
-| 4. | Trần Mạnh Cường | TS |  |  | Trường ĐHKHTN | cuongtm@vnu.ed
-u.vn |
+| 1. | Phạm Đình Tùng | TS |  |  | Trường ĐHKHTN | phamdinhtung@h<br>us.edu.vn |
+| 2. | Trịnh Quốc Anh | TS |  |  | Trường ĐHKHTN | trinhquocanh@hus<br>.edu.vn |
+| 3. | Hoàng Thị Phương<br>Thảo | TS |  |  | Trường ĐHKHTN | thaohtp@hus.edu.<br>vn |
+| 4. | Trần Mạnh Cường | TS |  |  | Trường ĐHKHTN | cuongtm@vnu.ed<br>u.vn |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Người học nắm được những kiến thức cơ bản nhất về lấy mẫu
 từ lý thuyết đến thực hành. Khóa học này thiết kế các chiến lược thu thập dữ
@@ -8413,34 +6274,16 @@ CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), 
 chủ và trách nhiệm (Program Responsibility-PR))
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1. | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK2, CK3,
-CK4
-CS1, CS2
-CR1-CR3 |
-| 2. | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK2, CK3,
-CK4
-CS3 |
-| 3. | Cuối kỳ | 60 % | - Thi tự luận hoặc vấn đáp
-- Thang điểm 10. | CK3, CK4,
-CK5
-CS3, CS4 |
+| 1. | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK3,<br>CK4<br>CS1, CS2<br>CR1-CR3 |
+| 2. | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK3,<br>CK4<br>CS3 |
+| 3. | Cuối kỳ | 60 % | - Thi tự luận hoặc vấn đáp<br>- Thang điểm 10. | CK3, CK4,<br>CK5<br>CS3, CS4 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -8457,23 +6300,18 @@ CS3, CS4 |
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học
-phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
 | Chương 1. Các khái niệm cơ bản |  | CK1, CK2, CS1 |
 | 1.1 | Bài toán lấy mẫu đơn giản |  |
 | 1.2 | Một số kiến thức cơ bản về thống kê |  |
-| 1.3 | Giới thiệu các chức năng mô phỏng lấy mẫu trên
-phần mềm thống kê |  |
-| Chương 2. Các phương pháp lấy mẫu cơ bản |  | CK1, CK3, CK4, CK5,
-CS3 |
+| 1.3 | Giới thiệu các chức năng mô phỏng lấy mẫu trên<br>phần mềm thống kê |  |
+| Chương 2. Các phương pháp lấy mẫu cơ bản |  | CK1, CK3, CK4, CK5,<br>CS3 |
 | 2.1 | Lấy mẫu ngẫu nhiên đơn giản |  |
 | 2.2 | Lấy mẫu ngẫu nhiên phân tầng |  |
 | 2.3 | Lấy mẫu ngẫu nhiên hệ thống |  |
 | 2.4 | Mô phỏng trên phần mềm thống kê |  |
-| Chương 3. Lấy mẫu cụm và cụm hai giai đoạn |  | CK1, CK3, CK4, CK5,
-CS3, CS4 |
+| Chương 3. Lấy mẫu cụm và cụm hai giai đoạn |  | CK1, CK3, CK4, CK5,<br>CS3, CS4 |
 | 3.1 | Lấy mẫu cụm |  |
 | 3.2 | Lấy mẫu cụm hai giai đoạn |  |
 | 3.3 | Mô phỏng trên phần mềm thống kê |  |
@@ -8495,8 +6333,7 @@ GIẢI TÍCH SỐ
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
 | 1. | Nguyễn Thị Hoài | TS. |  |  | Trường ĐHKHTN | nguyenthihoai@hus.edu.vn |
-| 2. | Nguyễn Ngọc Phan
-2 | TS. |  |  | Trường ĐHKHTN | phan@hus.edu.vn |
+| 2. | Nguyễn Ngọc Phan<br>2 | TS. |  |  | Trường ĐHKHTN | phan@hus.edu.vn |
 | 3. | Lê Huy Hoàng | TS. |  |  | Trường ĐHKHTN |  |
 |  |  |  |  |  |  | lehuyhoang_mg@hus.edu.vn |
 | 4. | Nguyễn Trung Hiếu | TS. |  |  | Trường ĐHKHTN | nguyentrunghieu@hus.edu.vn |
@@ -8566,39 +6403,23 @@ chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
 | CĐR CTĐT | PK3 | PK4 | PS1 | PS2 | PS4 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp của
-học phần | 3 | 3 | 3 | 3 | 3 | 2 | 2 | 2 |
+| Mức đóng góp của<br>học phần | 3 | 3 | 3 | 3 | 3 | 2 | 2 | 2 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 | CĐR CTĐT | PK3 | PK4 | PK6 | PS1 | PS3 | PS4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp của
-học phần | 3 | 3 | 4 | 4 | 3 | 3 | 2 |
+| Mức đóng góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 3 | 2 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 231
 
 <!-- Page 232 -->
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm 10. | CK1, CK2,
-CK3
-CS1, CS4
-CR1-CR3 |
-| 2 | Giữa kỳ | 20% | - Thi tự luận
-- Thang điểm 10. | CK2, CK3
-CS1, CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK2, CK4
-CS1, CS2, CS3 |
+| 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm 10. | CK1, CK2,<br>CK3<br>CS1, CS4<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20% | - Thi tự luận<br>- Thang điểm 10. | CK2, CK3<br>CS1, CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK2, CK4<br>CS1, CS2, CS3 |
 |  | Tổng | 100% |  |  |
 11. Học liệu:
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -8610,76 +6431,52 @@ implementation of algorithms, University of Washington, 2010.
 - Phạm Kỳ Anh, Phan Văn Hạp và các tác giả (Chủ biên Phan Văn Hạp), Giáo trình
 phương pháp tính, Tập I, II, Trường ĐHTH HN, 1990.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Sai số |  | CK1 |
-| 1.1 | Khái niệm về số gần đúng. Sai số tuyệt đối. Sai số tương
-đối. Sai số thu gọn. Chữ số chắc. Quan hệ giữa sai số
-tương đối và chữ số chắc. |  |
-| 1.2 | Sai số tính toán. Sai số của các phép tính số học. Sai số
-ngẫu nhiên. |  |
+| 1.1 | Khái niệm về số gần đúng. Sai số tuyệt đối. Sai số tương<br>đối. Sai số thu gọn. Chữ số chắc. Quan hệ giữa sai số<br>tương đối và chữ số chắc. |  |
+| 1.2 | Sai số tính toán. Sai số của các phép tính số học. Sai số<br>ngẫu nhiên. |  |
 | 1.3 | Bài toán ngược của lý thuyết sai số. |  |
 | 1.4 | Biểu diễn số thực trên máy. Tính toán với dấu phẩy động |  |
 232
 
 <!-- Page 233 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | và sai số làm tròn. |  |
-| Chương 2. Nội suy |  | CK2, CK3, CS1,
-CS4 |
+| Chương 2. Nội suy |  | CK2, CK3, CS1,<br>CS4 |
 | 2.1 | Nội suy bằng đa thức đại số. Đa thức nội suy Largrange. |  |
 | 2.2 | Sai số của phép nội suy. Chọn mốc nội suy tối ưu. |  |
-| 2.3 | Sai phân và một số tính chất. Các quy tắc nội suy trên lưới
-đều; Newton tiến, Newton lùi |  |
+| 2.3 | Sai phân và một số tính chất. Các quy tắc nội suy trên lưới<br>đều; Newton tiến, Newton lùi |  |
 | 2.4 | Ứng dụng của sai phân và các công thức nội suy. |  |
 | 2.5 | Nội suy hàm số trên lưới không đều. Công thức Newton. |  |
-| Chương 3. Xấp xỉ trung bình phương |  | CK2, CK3, CS1,
-CS4 |
+| Chương 3. Xấp xỉ trung bình phương |  | CK2, CK3, CS1,<br>CS4 |
 | 3.1 | Xấp xỉ bình phương tối thiểu rời rạc. |  |
 | 3.2 | Phương trình chuẩn tắc |  |
 | 3.3 | Sơ lược về phân tích QR. |  |
-| Chương 4. Tính gần đúng đạo hàm và tích phân |  | CK2, CK3, CS1,
-CS4 |
-| 4.1 | Tính gần đúng đạo hàm. Sử dụng đa thức nội suy
-Lagrange. Trường hợp các mốc cách đều. |  |
-| 4.2 | Công thức hình thang, parabol, Newton-Cotes tính gần
-đúng tích phân. |  |
+| Chương 4. Tính gần đúng đạo hàm và tích phân |  | CK2, CK3, CS1,<br>CS4 |
+| 4.1 | Tính gần đúng đạo hàm. Sử dụng đa thức nội suy<br>Lagrange. Trường hợp các mốc cách đều. |  |
+| 4.2 | Công thức hình thang, parabol, Newton-Cotes tính gần<br>đúng tích phân. |  |
 | 4.3 | Công thức cầu phương Gauss. |  |
-| Chương 5. Giải phương trình đại số và siêu việt |  | CK2, CK3, CK4,
-CS1, CS3, CS4 |
-| 5.1 | Các phương pháp giải sơ bộ. Phương pháp chia đôi.
-Phương pháp đồ thị. |  |
+| Chương 5. Giải phương trình đại số và siêu việt |  | CK2, CK3, CK4,<br>CS1, CS3, CS4 |
+| 5.1 | Các phương pháp giải sơ bộ. Phương pháp chia đôi.<br>Phương pháp đồ thị. |  |
 | 5.2 | Phương pháp lặp đơn. |  |
 | 5.3 | Phương pháp dây cung. Phương pháp Newton. |  |
 | Chương 6. Phương pháp số trong đại số tuyến tính |  | CK2, CK3, CK4, |
 233
 
 <!-- Page 234 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra của
-học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  |  | CS1, CS2, CS4 |
-| 6.1 | Ma trận lưu trữ được. Ma trận thưa. Số điều kiện của ma
-trận. |  |
-| 6.2 | Phương pháp khử Gauss. Phương pháp phân tích LU và
-PLU. |  |
+| 6.1 | Ma trận lưu trữ được. Ma trận thưa. Số điều kiện của ma<br>trận. |  |
+| 6.2 | Phương pháp khử Gauss. Phương pháp phân tích LU và<br>PLU. |  |
 | 6.3 | Phương pháp phân tích Cholesky. |  |
-| 6.4 | Phương pháp lặp đơn. Các thuật toán Jacobi và Gauss-
-Seidel. |  |
-| 6.5 | Phương pháp lặp tìm giá trị riêng có mođun lớn nhất, nhỏ
-nhất. |  |
-| Chương 7. Giải gần đúng phương trình vi phân thường |  | CK2, CK3, CK4,
-CS1, CS3, CS4 |
-| 7.1 | Giới thiệu bài toán Cauchy, bài toán biên, phương pháp
-giải tích, phương pháp số. |  |
-| 7.2 | Các phương pháp số một bước (Euler - RK1, Euler cải
-tiến-RK2, Runge-Kutta-RK4). |  |
+| 6.4 | Phương pháp lặp đơn. Các thuật toán Jacobi và Gauss-<br>Seidel. |  |
+| 6.5 | Phương pháp lặp tìm giá trị riêng có mođun lớn nhất, nhỏ<br>nhất. |  |
+| Chương 7. Giải gần đúng phương trình vi phân thường |  | CK2, CK3, CK4,<br>CS1, CS3, CS4 |
+| 7.1 | Giới thiệu bài toán Cauchy, bài toán biên, phương pháp<br>giải tích, phương pháp số. |  |
+| 7.2 | Các phương pháp số một bước (Euler - RK1, Euler cải<br>tiến-RK2, Runge-Kutta-RK4). |  |
 | 7.3 | Phương pháp đa bước Adams-Bashforth, Adam-Moultons. |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 234
@@ -8756,8 +6553,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |
 2 236
 
@@ -8765,27 +6561,15 @@ của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 4 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 4 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  | 4 |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20% | Bài kiểm tra trên giấy/Bài thi trắc
-nghiệm | CK1, CK2 |
-| 2 | Giữa kỳ | 20% | Bài kiểm tra trên giấy/Bài tập lập
-trình trên máy | CK1, CK2,
-CS3, CR1,
-CR2 |
-| 3 | Cuối kỳ | 60 % | Bài kiểm tra trên giấy kết hợp vấn
-đáp/ Bài tập nhóm kết hợp với vấn
-đáp | CK1-CK3,
-CS3, CR1,
-CR2 |
+| 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy/Bài thi trắc<br>nghiệm | CK1, CK2 |
+| 2 | Giữa kỳ | 20% | Bài kiểm tra trên giấy/Bài tập lập<br>trình trên máy | CK1, CK2,<br>CS3, CR1,<br>CR2 |
+| 3 | Cuối kỳ | 60 % | Bài kiểm tra trên giấy kết hợp vấn<br>đáp/ Bài tập nhóm kết hợp với vấn<br>đáp | CK1-CK3,<br>CS3, CR1,<br>CR2 |
 |  | Tổng | 100% |  |  |
 11. Học liệu
 11.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -8800,9 +6584,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 237
 
 <!-- Page 238 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu chung về các hệ thống tri thức |  | CK1, CS2 |
 | 1.1 | Tổng quan về trí tuệ nhân tạo và các ứng dụng |  |
@@ -8812,8 +6594,7 @@ của học phần |
 | 1.5 | Các thành phần của một các hệ thống tri thức |  |
 | 1.6 | Phân loại các các hệ thống tri thức |  |
 | 1.7 | Các khó khăn đối với các hệ thống tri thức |  |
-| Chương 2. Kiến trúc của các hệ thống tri thức |  | CK1,CK2,CS1,
-CS2 |
+| Chương 2. Kiến trúc của các hệ thống tri thức |  | CK1,CK2,CS1,<br>CS2 |
 | 2.1 | Khái niệm tri thức |  |
 | 2.2 | Các nguồn của tri thức |  |
 | 2.3 | Các loại tri thức |  |
@@ -8821,13 +6602,11 @@ CS2 |
 | 2.5 | Các thành phần của tri thức |  |
 | 2.6 | Kiến trúc của các hệ thống tri thức |  |
 | 2.7 | Các ứng dụng |  |
-| Chương 3. Phát triển các hệ thống tri thức |  | CK1,CK2, CK3,
-CS3 |
+| Chương 3. Phát triển các hệ thống tri thức |  | CK1,CK2, CK3,<br>CS3 |
 | 3.1 | Thuận lợi và khó khăn |  |
 | 3.2 | Mô hình phát triển các hệ thống tri thức |  |
 | 3.3 | Công cụ hỗ trợ các hệ thống tri thức |  |
-| Chương 4. Quản lý tri thức |  | CK1,CK2, CK3,
-CS3 |
+| Chương 4. Quản lý tri thức |  | CK1,CK2, CK3,<br>CS3 |
 | 4.1 | Giới thiệu về quản lý tri thức |  |
 | 4.2 | Các thành phần của quản lý tri thức |  |
 | 4.3 | Tiến trình quản lý tri thức |  |
@@ -8839,17 +6618,13 @@ CS3 |
 4 238
 
 <!-- Page 239 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 5. Các phương pháp xử lý tri thức |  | CK1,CK2, CK3,
-CS3 |
+| Chương 5. Các phương pháp xử lý tri thức |  | CK1,CK2, CK3,<br>CS3 |
 | 5.1 | Logic mờ |  |
 | 5.2 | Các hệ thống dựa trên tác nhân |  |
 | 5.3 | Các thuật toán di truyền |  |
-| 5.4 | Lý thuyết lựa chọn trong khoa học xã hội và phương pháp
-đồng thuận |  |
+| 5.4 | Lý thuyết lựa chọn trong khoa học xã hội và phương pháp<br>đồng thuận |  |
 | 5.5 | Giao diện ngôn ngữ tự nhiên |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 239
@@ -8869,11 +6644,8 @@ TÌM KIẾM THÔNG TIN
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
-| 1. |  |  | Lê Hồng Phương |  |  | PGS. TS. |  |  | Trường ĐHKHTN |  |  | phuonglh@vnu.edu.
-vn |  |  |
-| 2. |  |  | Nguyễn Thị
-Minh Huyền |  |  | TS. |  |  | Trường ĐHKHTN |  |  | huyenntm@vnu.edu.
-vn |  |  |
+| 1. |  |  | Lê Hồng Phương |  |  | PGS. TS. |  |  | Trường ĐHKHTN |  |  | phuonglh@vnu.edu.<br>vn |  |  |
+| 2. |  |  | Nguyễn Thị<br>Minh Huyền |  |  | TS. |  |  | Trường ĐHKHTN |  |  | huyenntm@vnu.edu.<br>vn |  |  |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: Học phần cung cấp cho sinh viên những kiến thức cơ bản về
 các phương pháp tự động tổ chức, tìm kiếm, duyệt, phân loại và lọc thông tin
@@ -8929,46 +6701,28 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 5 |  |  | 5 |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp
-hoặc giờ thực hành tại phòng máy
-tính
-- Đếm số buổi vắng mặt | CR1, CR3 |
-| 2 | Giữa kỳ | 20 % | - Điểm bài tập thường xuyên theo
-tuần;
-- Chấm bài điểm thường xuyên, tính
-trung bình các điểm thang 10. | CK1, CK2,
-CS1, CS2 |
-| 3 | Cuối kỳ | 60 % | - Thi vấn đáp, lập trình trực tiếp tại
-phòng máy tính
-- Thang điểm đánh giá: 10 | CK3, CK4
-CS3, CR1,
-CR2, CR3 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp<br>hoặc giờ thực hành tại phòng máy<br>tính<br>- Đếm số buổi vắng mặt | CR1, CR3 |
+| 2 | Giữa kỳ | 20 % | - Điểm bài tập thường xuyên theo<br>tuần;<br>- Chấm bài điểm thường xuyên, tính<br>trung bình các điểm thang 10. | CK1, CK2,<br>CS1, CS2 |
+| 3 | Cuối kỳ | 60 % | - Thi vấn đáp, lập trình trực tiếp tại<br>phòng máy tính<br>- Thang điểm đánh giá: 10 | CK3, CK4<br>CS3, CR1,<br>CR2, CR3 |
 |  | Tổng | 100% |  |  |
 3 242
 
@@ -8990,79 +6744,59 @@ Data, Elsevier, 2003.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chapter 1. Boolean model |  | CK1, CK2
-CS1, CS2
-CR1, CR2, CR3 |
+| Chapter 1. Boolean model |  | CK1, CK2<br>CS1, CS2<br>CR1, CR2, CR3 |
 | 1.1 | Introduction |  |
 | 1.2 | Processing boolean queries |  |
 | 1.3 | The extended Boolean model |  |
-| Chapter 2. The term vocabulary and posting lists |  | CK2, CS2
-CR1, CR2, CR3 |
+| Chapter 2. The term vocabulary and posting lists |  | CK2, CS2<br>CR1, CR2, CR3 |
 | 2.1 | Document representations |  |
 | 2.2 | Building vocabulary |  |
 | 2.3 | Posting lists |  |
 | 2.4 | Positional postings and phrase queries |  |
 | 2.5 | Application |  |
-| Chapter 3. Dictionaries and tolerant retrieval |  | CK2, CK3
-CR1, CR2, CR3 |
+| Chapter 3. Dictionaries and tolerant retrieval |  | CK2, CK3<br>CR1, CR2, CR3 |
 | 3.1 | Search structures for dictionaries |  |
 | 3.2 | Wildcard queries |  |
 4 243
 
 <!-- Page 244 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 3.3 | Spelling correction |  |
 | 3.4 | Phonetic correction |  |
-| Chapter 4. Index construction |  | CK3, CK4
-CS3
-CR1, CR2, CR3 |
+| Chapter 4. Index construction |  | CK3, CK4<br>CS3<br>CR1, CR2, CR3 |
 | 4.1 | Blocked sort-based indexing |  |
 | 4.2 | Single-pass in-memory indexing |  |
 | 4.3 | Distributed indexing |  |
 | 4.4 | Dynamic indexing |  |
 | 4.5 | Other types of indices |  |
 | 4.6 | Index compression |  |
-| Chapter 5. Scoring, term weighting and the vector space model |  | CK3, CK4
-CS3
-CR1, CR2, CR3 |
+| Chapter 5. Scoring, term weighting and the vector space model |  | CK3, CK4<br>CS3<br>CR1, CR2, CR3 |
 | 5.1 | Term frequency and weighting |  |
 | 5.2 | The vector space model for scoring |  |
 | 5.3 | Variant tf.idf functions |  |
 | 5.4 | Efficient scoring and ranking |  |
 | 5.5 | Components of an information retrieval system |  |
-| Chapter 6. Evaluation in information retrieval |  | CK3, CK4
-CS3
-CR1, CR2, CR3 |
+| Chapter 6. Evaluation in information retrieval |  | CK3, CK4<br>CS3<br>CR1, CR2, CR3 |
 | 6.1 | Introduction |  |
 | 6.2 | Standard test collection |  |
 | 6.3 | Evaluation of unranked retrieval sets |  |
 | 6.4 | Evaluation of ranked retrieval sets |  |
 | 6.5 | Assessing relevance |  |
-| Chapter 7. Text classification and clustering |  | CK3, CK4
-CS3
-CR1, CR2, CR3 |
+| Chapter 7. Text classification and clustering |  | CK3, CK4<br>CS3<br>CR1, CR2, CR3 |
 | 7.1 | Introduction |  |
 | 7.2 | Text classfication |  |
 5 244
 
 <!-- Page 245 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.3 | Text clustering |  |
 | 7.4 | Classification evaluation |  |
 | 7.5 | Clustering evaluation |  |
-| Chapter 8. Web crawling and indexing |  | CK3, CK4
-CS3
-CR1, CR2, CR3 |
+| Chapter 8. Web crawling and indexing |  | CK3, CK4<br>CS3<br>CR1, CR2, CR3 |
 | 8.1 | Crawling |  |
 | 8.2 | Deduplication |  |
 | 8.3 | Distributed indexing |  |
@@ -9149,30 +6883,16 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  | 6 | 5 | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  | 6 | 5 | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK2, CK4
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK3,CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK3, CK4
-CS3, CS4 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK4<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK3,CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK3, CK4<br>CS3, CS4 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -9197,107 +6917,32 @@ và Kỹ thuật, Hà Nội, 2002.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-| Chương 1. Các vấn đề chung về phân tích và thiết kế hệ thống
-thông tin |  | CS1, CK1 |
-|  | 1.1. Hệ thống thông tin
-1.1.1. Hệ thống thông tin là gì
-1.1.2. Các thành phần của hệ thống thông tin
-1.2. Phân tích hệ thống thông tin
-1.2.1. Các tiếp cận truyền thống và các khiếm
-khuyết
-1.2.2. Mục đích của các phương pháp hiện đại
-1.2.3. Phân tích thiết kế hướng chức năng
-1.2.4. Phân tích thiết kế hướng đối tượng
-1.3. Các giai đoạn phát triển hệ thống thông tin
-1.3.1. Lập kế hoạch
-1.3.2. Phân tích
-1.3.2.1. Nghiên cứu hiện trạng
-1.3.2.2. Xây dựng mô hình hệ thống
-1.3.2.3. Nghiên cứu khả thi và lập hồ sơ
-nhiệm vụ
-1.3.3. Thiết kế
-1.3.4. Thực hiện
-1.3.5. Chuyển giao
-1.3.6. Bảo trì
-1.4. Các mức bất biến của hệ thống thông tin |  |
+| Chương 1. Các vấn đề chung về phân tích và thiết kế hệ thống<br>thông tin |  | CS1, CK1 |
+|  | 1.1. Hệ thống thông tin<br>1.1.1. Hệ thống thông tin là gì<br>1.1.2. Các thành phần của hệ thống thông tin<br>1.2. Phân tích hệ thống thông tin<br>1.2.1. Các tiếp cận truyền thống và các khiếm<br>khuyết<br>1.2.2. Mục đích của các phương pháp hiện đại<br>1.2.3. Phân tích thiết kế hướng chức năng<br>1.2.4. Phân tích thiết kế hướng đối tượng<br>1.3. Các giai đoạn phát triển hệ thống thông tin<br>1.3.1. Lập kế hoạch<br>1.3.2. Phân tích<br>1.3.2.1. Nghiên cứu hiện trạng<br>1.3.2.2. Xây dựng mô hình hệ thống<br>1.3.2.3. Nghiên cứu khả thi và lập hồ sơ<br>nhiệm vụ<br>1.3.3. Thiết kế<br>1.3.4. Thực hiện<br>1.3.5. Chuyển giao<br>1.3.6. Bảo trì<br>1.4. Các mức bất biến của hệ thống thông tin |  |
 4 249
 
 <!-- Page 250 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 1.4.1. Mức quan niệm
-1.4.2. Mức tổ chức
-1.4.3. Mức tác nghiệp |  |
+|  | 1.4.1. Mức quan niệm<br>1.4.2. Mức tổ chức<br>1.4.3. Mức tác nghiệp |  |
 | Chương 2. UML và Quy trình phát triển hệ thống thông tin |  | CK2 |
-|  | 2.1 Tổng quan về UML
-2.1.1 Mục đích của UML
-2.1.2 UML và các phần tử
-2.1.3 Quy trình phát triển hệ thống thông tin với
-UML
-2.2 Các khái niệm cở bản của phân tích thiết kế
-hướng đối tượng
-2.2.1 Các đối tượng và lớp đối tượng
-2.2.2 Các giá trị và các thuộc tính của đối tượng
-2.2.3 Thao tác và phương thức
-2.3 Các qui tắc rằng buộc và suy diễn
-2.4 Rational Rose và quá trình xây dựng hệ thống
-thông tin |  |
-| Chương 3: Phân tích và đặc tả yêu cầu của hệ thống thông tin -
-Biểu đồ ca sử dụng |  | CK1, CK2, CS1,
-CS2 |
-|  | 3.1 Định nghĩa bài toán
-3.2 Phân tích và đặc tả các yêu cầu hệ thống
-3.2.1 Ca sử dụng
-3.2.2 Tác nhân
-3.2.3 Xác định ca sử dụng và các tác nhân
-3.2.4 Đặc tả các ca sử dụng
-3.3 Biểu đồ ca sử dụng
-3.4 Tạo lập biểu đồ ca sử dụng với Rational Rose |  |
-| Chương 4: Xây dựng mô hình quan niệm của hệ thống thông
-tin - Biểu đồ lớp |  | CK4, CS2, CS3 |
-|  | 4.1 Mô hình đối tượng
-4.2 Xác định các lớp đối tượng
-4.3 Mối qua hệ giữa các lớp đối tượng |  |
+|  | 2.1 Tổng quan về UML<br>2.1.1 Mục đích của UML<br>2.1.2 UML và các phần tử<br>2.1.3 Quy trình phát triển hệ thống thông tin với<br>UML<br>2.2 Các khái niệm cở bản của phân tích thiết kế<br>hướng đối tượng<br>2.2.1 Các đối tượng và lớp đối tượng<br>2.2.2 Các giá trị và các thuộc tính của đối tượng<br>2.2.3 Thao tác và phương thức<br>2.3 Các qui tắc rằng buộc và suy diễn<br>2.4 Rational Rose và quá trình xây dựng hệ thống<br>thông tin |  |
+| Chương 3: Phân tích và đặc tả yêu cầu của hệ thống thông tin -<br>Biểu đồ ca sử dụng |  | CK1, CK2, CS1,<br>CS2 |
+|  | 3.1 Định nghĩa bài toán<br>3.2 Phân tích và đặc tả các yêu cầu hệ thống<br>3.2.1 Ca sử dụng<br>3.2.2 Tác nhân<br>3.2.3 Xác định ca sử dụng và các tác nhân<br>3.2.4 Đặc tả các ca sử dụng<br>3.3 Biểu đồ ca sử dụng<br>3.4 Tạo lập biểu đồ ca sử dụng với Rational Rose |  |
+| Chương 4: Xây dựng mô hình quan niệm của hệ thống thông<br>tin - Biểu đồ lớp |  | CK4, CS2, CS3 |
+|  | 4.1 Mô hình đối tượng<br>4.2 Xác định các lớp đối tượng<br>4.3 Mối qua hệ giữa các lớp đối tượng |  |
 5 250
 
 <!-- Page 251 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 4.4 Biểu đồ lớp
-4.5 Thuộc tính lớp
-4.6 Các phương thức của lớp
-4.7 Thực hiện với Rational Rose |  |
-| Chương 5: Mô hình logic của hệ thống thông tin - Biểu đồ tương
-tác và hoạt động |  | CK1, CK3, CS3 |
-|  | 5.1 Mô hình hóa hệ thống
-Các sự kiện và hành động của hệ thống
-Trao đổi thông điệp của các đối tượng
-5.2 Biểu đồ trình tự
-5.2.1 Các thành phần của biểu đồ trình tự
-5.2.2 Xây dựng biểu đồ trình tự
-5.3 Biểu đồ trạng thái
-5.3.1 Trạng thái sự biến đổi trạng thái
-5.3.2 Xác định các trạng thái và các sự kiện
-5.3.3 Xây dựng biểu đồ trạng thái
-5.4 Biểu đồ hoạt động
-5.5 Thực hành với Rational Rose |  |
-| Chương 6: Mô hình vật lý của hệ thống thông tin - Biểu đồ cộng
-tác và biểu đồ thành phần |  | CK1, CK4, CS3 |
-|  | 6.1 Các biểu đồ cộng tác
-6.2 Thiết kế biểu đồ cộng tác và các lớp đối tượng
-6.2.1 Ca sử dụng thực tế
-6.2.2 Mẫu gán trách nhiệm
-6.3 Thiết kế chi tiết các biểu đồ lớp
-6.4 Thiết kế biểu đồ cộng tác và hòan thiện biểu đồ
-lớp |  |
+|  | 4.4 Biểu đồ lớp<br>4.5 Thuộc tính lớp<br>4.6 Các phương thức của lớp<br>4.7 Thực hiện với Rational Rose |  |
+| Chương 5: Mô hình logic của hệ thống thông tin - Biểu đồ tương<br>tác và hoạt động |  | CK1, CK3, CS3 |
+|  | 5.1 Mô hình hóa hệ thống<br>Các sự kiện và hành động của hệ thống<br>Trao đổi thông điệp của các đối tượng<br>5.2 Biểu đồ trình tự<br>5.2.1 Các thành phần của biểu đồ trình tự<br>5.2.2 Xây dựng biểu đồ trình tự<br>5.3 Biểu đồ trạng thái<br>5.3.1 Trạng thái sự biến đổi trạng thái<br>5.3.2 Xác định các trạng thái và các sự kiện<br>5.3.3 Xây dựng biểu đồ trạng thái<br>5.4 Biểu đồ hoạt động<br>5.5 Thực hành với Rational Rose |  |
+| Chương 6: Mô hình vật lý của hệ thống thông tin - Biểu đồ cộng<br>tác và biểu đồ thành phần |  | CK1, CK4, CS3 |
+|  | 6.1 Các biểu đồ cộng tác<br>6.2 Thiết kế biểu đồ cộng tác và các lớp đối tượng<br>6.2.1 Ca sử dụng thực tế<br>6.2.2 Mẫu gán trách nhiệm<br>6.3 Thiết kế chi tiết các biểu đồ lớp<br>6.4 Thiết kế biểu đồ cộng tác và hòan thiện biểu đồ<br>lớp |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 6 251
 
@@ -9370,35 +7015,20 @@ chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần |  |  |  | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
+| Mức đóng góp<br>của học phần |  |  |  | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 2 253
 
 <!-- Page 254 -->
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Mức đóng góp
-của học phần | 5 | 4 | 3 | 4 |  | 3 | 3 | 4 | 4 |
+| Mức đóng góp<br>của học phần | 5 | 4 | 3 | 4 |  | 3 | 3 | 4 | 4 |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
-| STT | Tiêu chí
-đánh giá | Trọng số | Mô tả | Chuẩn đầu ra
-cần đo được |
+| STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
-| 1 | Thường
-xuyên | 20 % | - Điểm bài tập thường xuyên, điểm
-làm bài tập trên lớp và trình bày.
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK2, CK4
-CS1, CS2
-CR1-CR3 |
-| 2 | Giữa kỳ | 20 % | - Thi tự luận
-- Thang điểm đánh giá theo đường
-cong phân bố chuẩn. | CK1, CK3
-CS3 |
-| 3 | Cuối kỳ | 60 % | - Thi tự luận
-- Thang điểm 10. | CK3, CK4
-CS3, CS4 |
+| 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK4<br>CS1, CS2<br>CR1-CR3 |
+| 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK3<br>CS3 |
+| 3 | Cuối kỳ | 60 % | - Thi tự luận<br>- Thang điểm 10. | CK3, CK4<br>CS3, CS4 |
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
@@ -9412,89 +7042,27 @@ Illustrated edition, 2016.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Hệ chuyên gia |  | CK1, CK2, CS1 |
-|  | 1.1. Kiến trúc của hệ chuyên gia
-1.1.1. Mô tơ suy luận
-1.1.2. Bộ nhớ STM và LTM |  |
+|  | 1.1. Kiến trúc của hệ chuyên gia<br>1.1.1. Mô tơ suy luận<br>1.1.2. Bộ nhớ STM và LTM |  |
 3 254
 
 <!-- Page 255 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 1.2. Các ứng dụng của các hệ thống chuyên gia
-1.2.1. Hệ thống trong y tế
-1.2.2. Hệ thống trong giáo dục và đào tạo
-1.3. Hệ chuyên gia mờ
-1.3.1. Tiếp cận mờ
-1.3.2. Tri thức mờ và lập luận mờ
-1.4. Hệ chuyên gia MYCIN
-1.4.1. Lí thuyết chắc chắn trong hệ chuyên gia
-1.4.2. Lập luận chắc chắn |  |
+|  | 1.2. Các ứng dụng của các hệ thống chuyên gia<br>1.2.1. Hệ thống trong y tế<br>1.2.2. Hệ thống trong giáo dục và đào tạo<br>1.3. Hệ chuyên gia mờ<br>1.3.1. Tiếp cận mờ<br>1.3.2. Tri thức mờ và lập luận mờ<br>1.4. Hệ chuyên gia MYCIN<br>1.4.1. Lí thuyết chắc chắn trong hệ chuyên gia<br>1.4.2. Lập luận chắc chắn |  |
 | Chương 2. Sáng tạo của con người |  | CK2, CK3, CS2 |
-|  | 2.1. Xác định khái niệm sáng tạo, thiết kế
-2.1.1. Thiết kế
-2.1.2. Sáng tạo
-2.2. Hoạt động của hệ thống thân kinh con người
-2.3. Sáng tạo trong nghệ thuật
-2.3.1. Sáng tạo trong hội họa
-2.3.2. Sáng tạo trong điêu khắc
-2.3.3. Sáng tạo trong âm nhạc
-2.4. Mô hình sáng tạo
-2.4.1. Mô hình
-2.4.2. Cơ sở dữ liệu thần kinh |  |
+|  | 2.1. Xác định khái niệm sáng tạo, thiết kế<br>2.1.1. Thiết kế<br>2.1.2. Sáng tạo<br>2.2. Hoạt động của hệ thống thân kinh con người<br>2.3. Sáng tạo trong nghệ thuật<br>2.3.1. Sáng tạo trong hội họa<br>2.3.2. Sáng tạo trong điêu khắc<br>2.3.3. Sáng tạo trong âm nhạc<br>2.4. Mô hình sáng tạo<br>2.4.1. Mô hình<br>2.4.2. Cơ sở dữ liệu thần kinh |  |
 | Chương 3. Hệ thống quản trị tri thức |  | CK1, CK3, CK4 |
-| 3.1 | 3.1. Công nghệ tri thức
-3.1.1. Xác định yếu tố công nghệ
-3.1.2. Các hệ thống công nghệ tri thức
-3.1.3. Vai trò của chính sách
-3.2. Tri thức ngầm và thách thức
-3.2.1. Tri thức ngầm
-3.2.2. Vòng xoáy Tanaka
-3.3. Thu thập tri thức
-3.3.1. Quá trình nắm bắt tri thức
-3.3.2. Thiết kế hệ thống nắm bắt tri thức
-3.4. Sử dụng tri thức
-3.4.1. Các hệ thống sử dụng tri thức
-3.4.2. Một số hạn chế của các hệ thống sử dụng tri
-thức
-3.5. Hệ thống chia sẻ tri thức |  |
+| 3.1 | 3.1. Công nghệ tri thức<br>3.1.1. Xác định yếu tố công nghệ<br>3.1.2. Các hệ thống công nghệ tri thức<br>3.1.3. Vai trò của chính sách<br>3.2. Tri thức ngầm và thách thức<br>3.2.1. Tri thức ngầm<br>3.2.2. Vòng xoáy Tanaka<br>3.3. Thu thập tri thức<br>3.3.1. Quá trình nắm bắt tri thức<br>3.3.2. Thiết kế hệ thống nắm bắt tri thức<br>3.4. Sử dụng tri thức<br>3.4.1. Các hệ thống sử dụng tri thức<br>3.4.2. Một số hạn chế của các hệ thống sử dụng tri<br>thức<br>3.5. Hệ thống chia sẻ tri thức |  |
 4 255
 
 <!-- Page 256 -->
-| Chương/
-mục | Tiêu đề/Nội dung | Chuẩn đầu ra
-của học phần |
+| Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
-|  | 3.5.1. Chia sẻ tri thức hiện
-3.5.2. Chia sẻ tri thức ngầm
-3.5.3. Một số tiếp cận đặc biệt đối với chia sẻ tri thức
-3.6. Hệ thống khám phá tri thức
-3.6.1. Khai phá dữ liệu
-3.6.2. Khám phá tri thức |  |
+|  | 3.5.1. Chia sẻ tri thức hiện<br>3.5.2. Chia sẻ tri thức ngầm<br>3.5.3. Một số tiếp cận đặc biệt đối với chia sẻ tri thức<br>3.6. Hệ thống khám phá tri thức<br>3.6.1. Khai phá dữ liệu<br>3.6.2. Khám phá tri thức |  |
 | Chương 4. Tương tác người-máy |  | CK4, CS2, CS3 |
-|  | 4.1. Khái niệm về tương tác
-4.1.1. Tương tác
-4.1.2. Tương tác trong các hệ thống công nghệ thông
-tin
-4.2. Tiếp cận truy cập trực tiếp
-4.2.1. Truy cập trực tiếp
-4.2.2. Các công cụ truy cập trực tiếp
-4.3. Vai trò của con người, của máy tính
-4.3.1. Con người
-4.3.2. Thiết bị công nghệ thông tin
-4.4. Các tiếp cận trong tương tác người-máy
-4.4.1. Các loại tương tác
-4.4.2. Công cụ kĩ thuật
-4.5. Hiện thực ảo và hiện thức tăng cường
-4.5.1. Vai trò của đa phương tiện
-4.5.2. Kiến trúc đa hình thái
-4.5.3. Hiện thực ảo
-4.5.4. Hiện thực tăng cường |  |
+|  | 4.1. Khái niệm về tương tác<br>4.1.1. Tương tác<br>4.1.2. Tương tác trong các hệ thống công nghệ thông<br>tin<br>4.2. Tiếp cận truy cập trực tiếp<br>4.2.1. Truy cập trực tiếp<br>4.2.2. Các công cụ truy cập trực tiếp<br>4.3. Vai trò của con người, của máy tính<br>4.3.1. Con người<br>4.3.2. Thiết bị công nghệ thông tin<br>4.4. Các tiếp cận trong tương tác người-máy<br>4.4.1. Các loại tương tác<br>4.4.2. Công cụ kĩ thuật<br>4.5. Hiện thực ảo và hiện thức tăng cường<br>4.5.1. Vai trò của đa phương tiện<br>4.5.2. Kiến trúc đa hình thái<br>4.5.3. Hiện thực ảo<br>4.5.4. Hiện thực tăng cường |  |
 Trưởng Khoa Trưởng Bộ môn Giảng viên
 5 256

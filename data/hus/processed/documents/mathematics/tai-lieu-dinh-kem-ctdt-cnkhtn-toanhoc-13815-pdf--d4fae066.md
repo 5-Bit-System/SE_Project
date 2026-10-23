@@ -232,402 +232,124 @@ Tự chọn: 12 tín chỉ
 
 <!-- Page 10 -->
 2. Khung chƣơng trình đào tạo
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| I |  | Khối kiến thƣ́c chung
-(Không tính các học phần từ số 12 đến số
-13) | 34 |  |  |  |  |
-| 1 | PHI1004 | Những nguyên lý cơ bản của chủ nghĩa
-Mác - Lênin 1
-Fundamental Principles of Marxism -
-Leninism 1 | 2 | 24 | 6 |  |  |
-| 2 | PHI1005 | Những nguyên lý cơ bản của chủ nghĩa
-Mác - Lênin 2
-Fundamental Principles of Marxism -
-Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
-| 3 | POL1001 | Tư tưởng Hồ Chí Minh
-Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
-| 4 | HIS1002 | Đường lối cách mạng của Đảng Cộng
-sản Việt Nam
-The Revolutionary line of the Communist
-Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
-| 5 | INT1003 | Tin học cơ sở 1
-Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
-| 6 | INT1006 | Tin học cơ sở 4
-Introduction to Informatics 4 | 3 | 15 | 30 |  | INT1003 |
-| 7 | FLF2101 | Tiếng Anh cơ sở 1
-General English 1 | 4 | 16 | 40 | 4 |  |
-| 8 | FLF2102 | Tiếng Anh cơ sở 2
-General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
-| 9 | FLF2103 | Tiếng Anh cơ sở 3
-General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
-| 10 | FLF2104 | Tiếng Anh cơ sở 4
-General English 4 | 5 | 20 | 50 | 5 | FLF2103 |
-| 11 |  | Giáo dục Thể chất
-Physical Education | 4 |  |  |  |  |
-| 12 |  | Giáo dục Quốc phòng - An ninh
-National Defence Education | 8 |  |  |  |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| I |  | Khối kiến thƣ́c chung<br>(Không tính các học phần từ số 12 đến số<br>13) | 34 |  |  |  |  |
+| 1 | PHI1004 | Những nguyên lý cơ bản của chủ nghĩa<br>Mác - Lênin 1<br>Fundamental Principles of Marxism -<br>Leninism 1 | 2 | 24 | 6 |  |  |
+| 2 | PHI1005 | Những nguyên lý cơ bản của chủ nghĩa<br>Mác - Lênin 2<br>Fundamental Principles of Marxism -<br>Leninism 2 | 3 | 36 | 9 |  | PHI1004 |
+| 3 | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 | 20 | 10 |  | PHI1005 |
+| 4 | HIS1002 | Đường lối cách mạng của Đảng Cộng<br>sản Việt Nam<br>The Revolutionary line of the Communist<br>Party of Vietnam | 3 | 42 | 3 |  | POL1001 |
+| 5 | INT1003 | Tin học cơ sở 1<br>Introduction to Informatics 1 | 2 | 10 | 20 |  |  |
+| 6 | INT1006 | Tin học cơ sở 4<br>Introduction to Informatics 4 | 3 | 15 | 30 |  | INT1003 |
+| 7 | FLF2101 | Tiếng Anh cơ sở 1<br>General English 1 | 4 | 16 | 40 | 4 |  |
+| 8 | FLF2102 | Tiếng Anh cơ sở 2<br>General English 2 | 5 | 20 | 50 | 5 | FLF2101 |
+| 9 | FLF2103 | Tiếng Anh cơ sở 3<br>General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
+| 10 | FLF2104 | Tiếng Anh cơ sở 4<br>General English 4 | 5 | 20 | 50 | 5 | FLF2103 |
+| 11 |  | Giáo dục Thể chất<br>Physical Education | 4 |  |  |  |  |
+| 12 |  | Giáo dục Quốc phòng - An ninh<br>National Defence Education | 8 |  |  |  |  |
 | 13 |  | Kỹ năng bổ trợ | 3 |  |  |  |  |
 10
 
 <!-- Page 11 -->
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Soft Skills |  |  |  |  |  |
 | II |  | Khối kiến thức chung theo lĩnh vực | 3 |  |  |  |  |
-| 14 | HIS1056 | Cơ sở văn hóa Việt Nam
-Fundamentals of Vietnamese Culture | 3 | 42 | 3 |  |  |
+| 14 | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamentals of Vietnamese Culture | 3 | 42 | 3 |  |  |
 | III |  | Khối kiến thức chung theo khối ngành | 40 |  |  |  |  |
-| 15 | MAT2320 | Đại số tuyến tính 1 (**)
-Linear Algebra 1 | 5 | 50 | 25 |  |  |
-| 16 | MAT2321 | Đại số tuyến tính 2 (**)
-Linear Algebra 2 | 5 | 50 | 25 |  | MAT2320 |
-| 17 | MAT2302 | Giải tích 1 (*)
-Analysis 1 | 5 | 45 | 30 |  |  |
-| 18 | MAT2303 | Giải tích 2 (*)
-Analysis 2 | 5 | 45 | 30 |  | MAT2302 |
-| 19 | MAT2322 | Giải tích 3 (**)
-Analysis 3 | 5 | 45 | 30 |  | MAT2303 |
-| 20 | PHY1159 | Vật lý đại cương 1 (*)
-General Physic 1 | 3 | 42 | 3 |  | MAT2302 |
-| 21 | PHY1161 | Vật lý đại cương 2 (*)
-General Physic 2 | 3 | 42 | 3 |  | MAT2302 |
-| 22 | PHY1260 | Vật lý hiện đại (***)
-Modern Physics | 3 | 42 | 3 |  |  |
-| 23 | MAT2314 | Phương trình vi phân (*)
-Differential Equations | 4 | 45 | 15 |  | MAT2321
-MAT2303 |
-| 24 | MAT2310 | Hình học giải tích (*)
-Analytic Geometry | 2 | 20 | 10 |  | MAT2321 |
-| IV |  | Khối kiến thức chung theo nhóm
-ngành | 45 |  |  |  |  |
-| 25 | MAT2313 | Phương trình đạo hàm riêng 1 (*)
-Partial Differential Equations 1 | 4 | 45 | 15 |  | MAT2322
-MAT2314 |
-| 26 | MAT2307 | Giải tích số 1 (*)
-Numerical Analysis 1 | 4 | 45 | 15 |  | INT1006
-MAT2314 |
-| 27 | MAT2308 | Xác suất 1 (*)
-Probability 1 | 3 | 30 | 15 |  | MAT2320
-MAT2302 |
+| 15 | MAT2320 | Đại số tuyến tính 1 (**)<br>Linear Algebra 1 | 5 | 50 | 25 |  |  |
+| 16 | MAT2321 | Đại số tuyến tính 2 (**)<br>Linear Algebra 2 | 5 | 50 | 25 |  | MAT2320 |
+| 17 | MAT2302 | Giải tích 1 (*)<br>Analysis 1 | 5 | 45 | 30 |  |  |
+| 18 | MAT2303 | Giải tích 2 (*)<br>Analysis 2 | 5 | 45 | 30 |  | MAT2302 |
+| 19 | MAT2322 | Giải tích 3 (**)<br>Analysis 3 | 5 | 45 | 30 |  | MAT2303 |
+| 20 | PHY1159 | Vật lý đại cương 1 (*)<br>General Physic 1 | 3 | 42 | 3 |  | MAT2302 |
+| 21 | PHY1161 | Vật lý đại cương 2 (*)<br>General Physic 2 | 3 | 42 | 3 |  | MAT2302 |
+| 22 | PHY1260 | Vật lý hiện đại (***)<br>Modern Physics | 3 | 42 | 3 |  |  |
+| 23 | MAT2314 | Phương trình vi phân (*)<br>Differential Equations | 4 | 45 | 15 |  | MAT2321<br>MAT2303 |
+| 24 | MAT2310 | Hình học giải tích (*)<br>Analytic Geometry | 2 | 20 | 10 |  | MAT2321 |
+| IV |  | Khối kiến thức chung theo nhóm<br>ngành | 45 |  |  |  |  |
+| 25 | MAT2313 | Phương trình đạo hàm riêng 1 (*)<br>Partial Differential Equations 1 | 4 | 45 | 15 |  | MAT2322<br>MAT2314 |
+| 26 | MAT2307 | Giải tích số 1 (*)<br>Numerical Analysis 1 | 4 | 45 | 15 |  | INT1006<br>MAT2314 |
+| 27 | MAT2308 | Xác suất 1 (*)<br>Probability 1 | 3 | 30 | 15 |  | MAT2320<br>MAT2302 |
 11
 
 <!-- Page 12 -->
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
-| 28 | MAT2309 | Tối ưu hóa 1
-Optimization 1 | 3 | 30 | 15 |  | MAT2321
-MAT2303 |
-| 29 | MAT3300 | Đại số đại cương (*)
-Abstract Algebra | 4 | 45 | 15 |  | MAT2321 |
-| 30 | MAT3340 | Giải tích hàm (**)
-Functional Analysis | 4 | 45 | 15 |  | MAT2321
-MAT2322 |
-| 31 | MAT3302 | Toán rời rạc
-Discrete Mathematics | 4 | 45 | 15 |  | MAT2320
-MAT2302 |
-| 32 | MAT3344 | Giải tích phức (*)
-Complex Analysis | 4 | 45 | 15 |  | MAT2321
-MAT2322 |
-| 33 | MAT3305 | Tôpô đại cương (*)
-General Topology | 3 | 45 |  |  | MAT2302 |
-| 34 | MAT3306 | Cơ sở hình học vi phân (*)
-Introduction to Differential Geometry | 3 | 45 |  |  | MAT2320
-MAT3305 |
-| 35 | MAT3307 | Lý thuyết độ đo và tích phân (*)
-Measure and Integration theory | 3 | 45 |  |  | MAT2322 |
-| 36 | MAT2311 | Thống kê ứng dụng
-Applied Statistics | 4 | 45 | 15 |  | MAT2308 |
-| 37 | MAT3304 | Thực hành tính toán
-Practicum in Computing | 2 | 15 | 15 |  | INT1006
-MAT2307 |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 28 | MAT2309 | Tối ưu hóa 1<br>Optimization 1 | 3 | 30 | 15 |  | MAT2321<br>MAT2303 |
+| 29 | MAT3300 | Đại số đại cương (*)<br>Abstract Algebra | 4 | 45 | 15 |  | MAT2321 |
+| 30 | MAT3340 | Giải tích hàm (**)<br>Functional Analysis | 4 | 45 | 15 |  | MAT2321<br>MAT2322 |
+| 31 | MAT3302 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 15 |  | MAT2320<br>MAT2302 |
+| 32 | MAT3344 | Giải tích phức (*)<br>Complex Analysis | 4 | 45 | 15 |  | MAT2321<br>MAT2322 |
+| 33 | MAT3305 | Tôpô đại cương (*)<br>General Topology | 3 | 45 |  |  | MAT2302 |
+| 34 | MAT3306 | Cơ sở hình học vi phân (*)<br>Introduction to Differential Geometry | 3 | 45 |  |  | MAT2320<br>MAT3305 |
+| 35 | MAT3307 | Lý thuyết độ đo và tích phân (*)<br>Measure and Integration theory | 3 | 45 |  |  | MAT2322 |
+| 36 | MAT2311 | Thống kê ứng dụng<br>Applied Statistics | 4 | 45 | 15 |  | MAT2308 |
+| 37 | MAT3304 | Thực hành tính toán<br>Practicum in Computing | 2 | 15 | 15 |  | INT1006<br>MAT2307 |
 | V |  | Khối kiến thức ngành | 46 |  |  |  |  |
 | V.1 |  | Các học phần bắt buộc | 24 |  |  |  |  |
-| 38 | MAT3347 | Lý thuyết Galois
-Galois theory | 4 | 60 |  |  | MAT2320 |
-| 39 | MAT3339 | Đại số tuyến tính 3 (*)
-Linear Algebra 3 | 3 | 45 |  |  | MAT2321 |
-| 40 | MAT3318 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  | MAT3305
-MAT2322 |
-| 41 | MAT3341 | Giải tích điều hòa (***)
-Harmonic Analysis | 3 | 45 |  |  | MAT3307 |
-| 42 | MAT3322 | Xác suất 2
-Probability 2 | 3 | 45 |  |  | MAT2308 |
+| 38 | MAT3347 | Lý thuyết Galois<br>Galois theory | 4 | 60 |  |  | MAT2320 |
+| 39 | MAT3339 | Đại số tuyến tính 3 (*)<br>Linear Algebra 3 | 3 | 45 |  |  | MAT2321 |
+| 40 | MAT3318 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  | MAT3305<br>MAT2322 |
+| 41 | MAT3341 | Giải tích điều hòa (***)<br>Harmonic Analysis | 3 | 45 |  |  | MAT3307 |
+| 42 | MAT3322 | Xác suất 2<br>Probability 2 | 3 | 45 |  |  | MAT2308 |
 | 43 | MAT3342 | Xêmina 1 | 3 | 20 | 10 | 15 |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Seminar 1 |  |  |  |  |  |
-| 44 | MAT3343 | Xêmina 2
-Seminar 2 | 3 | 20 | 10 | 15 |  |
-| 45 | MAT3348 | Tiểu luận khoa học (*)
-Mini Project | 2 |  | 15 | 15 |  |
-| V.2 |  | Các học phần tự chọn
-(Sinh viên sẽ lựa chọn theo 1 trong 2
-hướng chuyên sâu) | 12 |  |  |  |  |
-| V.2.1 |  | Các học phần chuyên sâu về Toán lý
-thuyết | 12/38 |  |  |  |  |
-| 46 | MAT3310 | Cơ sở Tôpô đại số
-Introduction to Algebraic Topology | 3 | 45 |  |  | MAT3300
-MAT3305 |
-| 47 | MAT3311 | Lý thuyết nhóm và biểu diễn nhóm
-Theory of Groups and Group
-Representations | 3 | 45 |  |  | MAT3300 |
-| 48 | MAT3312 | Hình học đại số
-Algebraic geometry | 3 | 45 |  |  | MAT3300
-MAT3305 |
-| 49 | MAT3313 | Lý thuyết số
-Number Theory | 3 | 45 |  |  | MAT2321
-MAT2322 |
-| 50 | MAT3314 | Tôpô vi phân
-Differential Topology | 3 | 45 |  |  | MAT2314 |
-| 51 | MAT3315 | Không gian véctơ Tôpô
-Topological Vector Space | 3 | 45 |  |  | MAT3305 |
-| 52 | MAT3316 | Giải tích phổ toán tử
-Spectral Theory of Operators | 3 | 45 |  |  | MAT3340 |
-| 53 | MAT3317 | Phương trình đạo hàm riêng 2
-Partial Differential Equations 2 | 3 | 45 |  |  | MAT3340
-MAT3307 |
-| 54 | MAT3345 | Lý thuyết ổn định của phương trình vi
-phân
-Stability theory of Differential Equations | 3 | 45 |  |  | MAT2314 |
-| 55 | MAT3320 | Phương trình tích phân
-Integral equations | 3 | 45 |  |  | MAT2314
-MAT3340
-MAT3344 |
+| 44 | MAT3343 | Xêmina 2<br>Seminar 2 | 3 | 20 | 10 | 15 |  |
+| 45 | MAT3348 | Tiểu luận khoa học (*)<br>Mini Project | 2 |  | 15 | 15 |  |
+| V.2 |  | Các học phần tự chọn<br>(Sinh viên sẽ lựa chọn theo 1 trong 2<br>hướng chuyên sâu) | 12 |  |  |  |  |
+| V.2.1 |  | Các học phần chuyên sâu về Toán lý<br>thuyết | 12/38 |  |  |  |  |
+| 46 | MAT3310 | Cơ sở Tôpô đại số<br>Introduction to Algebraic Topology | 3 | 45 |  |  | MAT3300<br>MAT3305 |
+| 47 | MAT3311 | Lý thuyết nhóm và biểu diễn nhóm<br>Theory of Groups and Group<br>Representations | 3 | 45 |  |  | MAT3300 |
+| 48 | MAT3312 | Hình học đại số<br>Algebraic geometry | 3 | 45 |  |  | MAT3300<br>MAT3305 |
+| 49 | MAT3313 | Lý thuyết số<br>Number Theory | 3 | 45 |  |  | MAT2321<br>MAT2322 |
+| 50 | MAT3314 | Tôpô vi phân<br>Differential Topology | 3 | 45 |  |  | MAT2314 |
+| 51 | MAT3315 | Không gian véctơ Tôpô<br>Topological Vector Space | 3 | 45 |  |  | MAT3305 |
+| 52 | MAT3316 | Giải tích phổ toán tử<br>Spectral Theory of Operators | 3 | 45 |  |  | MAT3340 |
+| 53 | MAT3317 | Phương trình đạo hàm riêng 2<br>Partial Differential Equations 2 | 3 | 45 |  |  | MAT3340<br>MAT3307 |
+| 54 | MAT3345 | Lý thuyết ổn định của phương trình vi<br>phân<br>Stability theory of Differential Equations | 3 | 45 |  |  | MAT2314 |
+| 55 | MAT3320 | Phương trình tích phân<br>Integral equations | 3 | 45 |  |  | MAT2314<br>MAT3340<br>MAT3344 |
 | 56 | MAT3101 | Hệ động lực (***) | 3 | 45 |  |  | MAT2314 |
 13
 
 <!-- Page 14 -->
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | Introduction to Dynamical Systems |  |  |  |  |  |
-| 57 | MAT2312 | Tiếng Anh chuyên ngành
-English for Specific Purposes | 2 | 30 |  |  |  |
-| 58 | MAT3325 | Lịch sử Toán học
-History of Mathematics | 3 | 45 |  |  | MAT2314
-MAT2322 |
-| V.2.2 |  | Các học phần chuyên sâu về Toán ứng
-dụng | 12/38 |  |  |  |  |
-| 59 | MAT3327 | Điều khiển tối ưu
-Optimal Control Theory | 3 | 45 |  |  | MAT2313
-MAT2311 |
-| 60 | MAT3329 | Giải tích số 2
-Numerical Analysis 2 | 3 | 45 |  |  | MAT2307 |
-| 61 | MAT3330 | Tối ưu hoá 2
-Optimization 2 | 3 | 45 |  |  | MAT2309 |
-| 62 | MAT3323 | Tối ưu rời rạc
-Discrete Optimization | 3 | 45 |  |  | MAT2309
-MAT3302 |
-| 63 | MAT3321 | Quá trình ngẫu nhiên
-Stochastic Proccesses | 3 | 45 |  |  | MAT2308
-MAT3101
-MAT3307 |
-| 64 | MAT3333 | Các mô hình toán ứng dụng 1
-Mathematical Modelling 1 | 3 | 45 |  |  | MAT2309
-MAT3302 |
-| 65 | MAT3334 | Các mô hình toán ứng dụng 2
-Mathematical Modelling 2 | 3 | 45 |  |  | MAT2314
-MAT2311 |
-| 66 | MAT3346 | Lý thuyết ước lượng và Kiểm định giả
-thiết
-Estimation Theory and Statistical
-Hypothesis testing | 3 | 45 |  |  | MAT2311 |
-| 67 | MAT3335 | Đại số máy tính
-Computer Algebra | 3 | 45 |  |  | INT1006
-MAT3300 |
-| 68 | MAT3336 | Lý thuyết mật mã và an toàn thông tin
-Cryptography and Information Security | 3 | 45 |  |  | INT1006 |
-| 69 | MAT3324 | Tổ hợp
-Combinatorics | 3 | 45 |  |  | MAT3302 |
-| 70 | MAT2312 | Tiếng Anh chuyên ngành
-English for Specific Purposes | 2 |  | 30 |  |  |
+| 57 | MAT2312 | Tiếng Anh chuyên ngành<br>English for Specific Purposes | 2 | 30 |  |  |  |
+| 58 | MAT3325 | Lịch sử Toán học<br>History of Mathematics | 3 | 45 |  |  | MAT2314<br>MAT2322 |
+| V.2.2 |  | Các học phần chuyên sâu về Toán ứng<br>dụng | 12/38 |  |  |  |  |
+| 59 | MAT3327 | Điều khiển tối ưu<br>Optimal Control Theory | 3 | 45 |  |  | MAT2313<br>MAT2311 |
+| 60 | MAT3329 | Giải tích số 2<br>Numerical Analysis 2 | 3 | 45 |  |  | MAT2307 |
+| 61 | MAT3330 | Tối ưu hoá 2<br>Optimization 2 | 3 | 45 |  |  | MAT2309 |
+| 62 | MAT3323 | Tối ưu rời rạc<br>Discrete Optimization | 3 | 45 |  |  | MAT2309<br>MAT3302 |
+| 63 | MAT3321 | Quá trình ngẫu nhiên<br>Stochastic Proccesses | 3 | 45 |  |  | MAT2308<br>MAT3101<br>MAT3307 |
+| 64 | MAT3333 | Các mô hình toán ứng dụng 1<br>Mathematical Modelling 1 | 3 | 45 |  |  | MAT2309<br>MAT3302 |
+| 65 | MAT3334 | Các mô hình toán ứng dụng 2<br>Mathematical Modelling 2 | 3 | 45 |  |  | MAT2314<br>MAT2311 |
+| 66 | MAT3346 | Lý thuyết ước lượng và Kiểm định giả<br>thiết<br>Estimation Theory and Statistical<br>Hypothesis testing | 3 | 45 |  |  | MAT2311 |
+| 67 | MAT3335 | Đại số máy tính<br>Computer Algebra | 3 | 45 |  |  | INT1006<br>MAT3300 |
+| 68 | MAT3336 | Lý thuyết mật mã và an toàn thông tin<br>Cryptography and Information Security | 3 | 45 |  |  | INT1006 |
+| 69 | MAT3324 | Tổ hợp<br>Combinatorics | 3 | 45 |  |  | MAT3302 |
+| 70 | MAT2312 | Tiếng Anh chuyên ngành<br>English for Specific Purposes | 2 |  | 30 |  |  |
 | 71 | MAT3325 | Lịch sử Toán học | 3 | 45 |  |  | MAT2314 |
 14
 
 <!-- Page 15 -->
-| STT | Mã
-học phần | Tên học phần | ỉ
-h
-c
-n
-í
-t
-ố
-S | Số giờ tín chi ̉ |  |  | Mã số
-học phần
-tiên quyết |
+| STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | t
-ế
-y
-u
-h
-t
-í
-L | h
-n
-à
-h
-c
-ự
-h
-T | c
-ọ
-h
-ự
-T |  |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
 |  |  | History of Mathematics |  |  |  |  | MAT2322 |
 | V.3 |  | Khóa luận tốt nghiệp | 10 |  |  |  |  |
-| 72 | MAT4074 | Khóa luận tốt nghiệp
-Undergraduate Thesis | 10 |  |  |  |  |
+| 72 | MAT4074 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 10 |  |  |  |  |
 |  |  | Tổng cộng | 168 |  |  |  |  |
 15

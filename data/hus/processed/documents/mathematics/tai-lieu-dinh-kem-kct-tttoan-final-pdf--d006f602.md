@@ -469,340 +469,131 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 
 <!-- Page 15 -->
 7.3. Danh mục các học phần trong chƣơng trình / List of courses
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
 | Kiến thức chung, Tiếng Anh và kiến thức KHXH-NV – General courses (53 tín chỉ) |  |  |  |  |  |
-| 1 | Tiếng Anh giao tiếp I
-(General English I) | 14 | ENG 101 |  |  |
-| 2 | Tiếng Anh giao tiếp II
-(General English II) | 8 | ENG 102 |  |  |
-| 3 | Tiếng Anh giao tiếp III
-(General English III) | 3 | ENG 103 |  |  |
-| 4 | Tiếng Anh chuyên
-ngành (English for
-specific purposes) | 9 | ENS 104 |  |  |
-| 5 | Những nguyên lý cơ bản
-của chủ nghĩa Mác-
-Lênin (Marxist-Leninist
-Philosophy) | 5 | PHI 1001 |  |  |
-| 6 | Đƣờng lối cách mạng
-của Đảng Cộng Sản
-Việt Nam (Policies of
-the Vietnam Communist
-Party) | 3 | HIS 1002 |  |  |
-| 7 | Tƣ tƣởng Hồ Chí Minh
-(Ho Chi Minh Ideology) | 2 | POL 1001 |  |  |
-| 8 | Giáo dục thể chất I
-(Physical Education I) | 2 | PES 1001 |  |  |
-| 9 | Giáo dục thể chất II
-(Physical Education II) | 2 | PES 1002 |  |  |
-| 10 | Giáo dục Quốc phòng –
-An ninh I (National
-Defense Education I) | 2 | CME
-1001 |  |  |
-| 11 | Giáo dục Quốc phòng –
-An ninh II (National
-Defense Education II) | 2 | CME
-1002 |  |  |
-| 12 | Giáo dục Quốc phòng –
-An ninh III (National
-Defense Education III) | 3 | CME
-1003 |  |  |
-| 13 | Tin học cơ sở
-(Introduction to
-computer science and
-information technology) | 4 | INM
-1001 |  |  |
+| 1 | Tiếng Anh giao tiếp I<br>(General English I) | 14 | ENG 101 |  |  |
+| 2 | Tiếng Anh giao tiếp II<br>(General English II) | 8 | ENG 102 |  |  |
+| 3 | Tiếng Anh giao tiếp III<br>(General English III) | 3 | ENG 103 |  |  |
+| 4 | Tiếng Anh chuyên<br>ngành (English for<br>specific purposes) | 9 | ENS 104 |  |  |
+| 5 | Những nguyên lý cơ bản<br>của chủ nghĩa Mác-<br>Lênin (Marxist-Leninist<br>Philosophy) | 5 | PHI 1001 |  |  |
+| 6 | Đƣờng lối cách mạng<br>của Đảng Cộng Sản<br>Việt Nam (Policies of<br>the Vietnam Communist<br>Party) | 3 | HIS 1002 |  |  |
+| 7 | Tƣ tƣởng Hồ Chí Minh<br>(Ho Chi Minh Ideology) | 2 | POL 1001 |  |  |
+| 8 | Giáo dục thể chất I<br>(Physical Education I) | 2 | PES 1001 |  |  |
+| 9 | Giáo dục thể chất II<br>(Physical Education II) | 2 | PES 1002 |  |  |
+| 10 | Giáo dục Quốc phòng –<br>An ninh I (National<br>Defense Education I) | 2 | CME<br>1001 |  |  |
+| 11 | Giáo dục Quốc phòng –<br>An ninh II (National<br>Defense Education II) | 2 | CME<br>1002 |  |  |
+| 12 | Giáo dục Quốc phòng –<br>An ninh III (National<br>Defense Education III) | 3 | CME<br>1003 |  |  |
+| 13 | Tin học cơ sở<br>(Introduction to<br>computer science and<br>information technology) | 4 | INM<br>1001 |  |  |
 15
 
 <!-- Page 16 -->
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
-| 14 | Cơ sở văn hóa Việt Nam
-(Fundamental of
-Vietnamese Culture ) | 2 | HIS 1052 |  |  |
-| 15 | Logic học đại cƣơng
-(Introduction of Logic) | 2 | PHI 1051 |  |  |
-| 16 | Tâm lý học đại cƣơng
-(General Psychology) | 2 | PSY 1050 |  |  |
-| 17 | Xã hội học đại cƣơng
-(General Sociology) | 2 | SOC 1050 |  |  |
-| 18 | Vật lý đại cƣơng
-(General Physics) | 3 | PHY 1060 |  |  |
-| 19 | Cơ học lý thuyết
-(Theoretical mechanics) | 2 | MAT
-2001 |  |  |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
+| 14 | Cơ sở văn hóa Việt Nam<br>(Fundamental of<br>Vietnamese Culture ) | 2 | HIS 1052 |  |  |
+| 15 | Logic học đại cƣơng<br>(Introduction of Logic) | 2 | PHI 1051 |  |  |
+| 16 | Tâm lý học đại cƣơng<br>(General Psychology) | 2 | PSY 1050 |  |  |
+| 17 | Xã hội học đại cƣơng<br>(General Sociology) | 2 | SOC 1050 |  |  |
+| 18 | Vật lý đại cƣơng<br>(General Physics) | 3 | PHY 1060 |  |  |
+| 19 | Cơ học lý thuyết<br>(Theoretical mechanics) | 2 | MAT<br>2001 |  |  |
 | Kiến thức ngành và chuyên ngành – Mathematical courses (101 TC) |  |  |  |  |  |
 | Các môn học cơ bản – Basic core courses (30) |  |  |  |  |  |
-| 20 | Đại số tuyến tính I | 5 | MATH
-308 | Matrix Algebra with
-Applications | 3 |
-| 21 | Đại số tuyến tính II | 5 | MATH
-318 | Linear Algebra | 3 |
-| 22 | Giải tích I | 5 | MATH
-134-335 | Accelerated Advanced
-Calculus | 5 |
-| 23 | Giải tích II | 5 | MATH
-136-334 | Accelerated Advanced
-Calculus | 5 |
-| 24 | Giải tích II | 5 | MATH
-335-336 | Accelerated Advanced
-Calculus | 5 |
-| 25 | Thực hành tính toán | 2 | MATH
-187 | Mathematics
-Computer Laboratory | 1 – 3 |
+| 20 | Đại số tuyến tính I | 5 | MATH<br>308 | Matrix Algebra with<br>Applications | 3 |
+| 21 | Đại số tuyến tính II | 5 | MATH<br>318 | Linear Algebra | 3 |
+| 22 | Giải tích I | 5 | MATH<br>134-335 | Accelerated Advanced<br>Calculus | 5 |
+| 23 | Giải tích II | 5 | MATH<br>136-334 | Accelerated Advanced<br>Calculus | 5 |
+| 24 | Giải tích II | 5 | MATH<br>335-336 | Accelerated Advanced<br>Calculus | 5 |
+| 25 | Thực hành tính toán | 2 | MATH<br>187 | Mathematics<br>Computer Laboratory | 1 – 3 |
 | Các môn học cơ sở – Intermediate core courses (21) |  |  |  |  |  |
-| 26 | Phƣơng trình vi phân | 3 | MATH
-307 | Introduction to
-Differential Equations | 3 |
-| 27 | Đại số đại cƣơng | 3 | MATH
-402-403 | Introduction to
-Modern Algebra | 3 |
-| 28 | Giải tích phức | 3 | MATH
-427-428 | Complex Analysis | 3 |
-| 29 | Phƣơng trình đạo hàm
-riêng | 3 | MATH
-557 | Introduction to Partial
-Differential Equations | 3 |
-| 30 | Lý thuyết xác suất | 3 | STAT
-394-395 | Probability I | 3 |
-| 31 | Giải tích số | 3 | MATH
-464-465 | Numerical Analysis I,
-II | 3 |
+| 26 | Phƣơng trình vi phân | 3 | MATH<br>307 | Introduction to<br>Differential Equations | 3 |
+| 27 | Đại số đại cƣơng | 3 | MATH<br>402-403 | Introduction to<br>Modern Algebra | 3 |
+| 28 | Giải tích phức | 3 | MATH<br>427-428 | Complex Analysis | 3 |
+| 29 | Phƣơng trình đạo hàm<br>riêng | 3 | MATH<br>557 | Introduction to Partial<br>Differential Equations | 3 |
+| 30 | Lý thuyết xác suất | 3 | STAT<br>394-395 | Probability I | 3 |
+| 31 | Giải tích số | 3 | MATH<br>464-465 | Numerical Analysis I,<br>II | 3 |
 16
 
 <!-- Page 17 -->
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
-| 32 | Giải tích hàm | 3 | MATH
-527-528 | Functional Analysis | 3 |
-| 33 | Tôpô đại cƣơng | 3 | MATH
-441 | Topology | 3 |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
+| 32 | Giải tích hàm | 3 | MATH<br>527-528 | Functional Analysis | 3 |
+| 33 | Tôpô đại cƣơng | 3 | MATH<br>441 | Topology | 3 |
 | Các môn học chuyên ngành hoặc nâng cao – Advanced couses (36 TC) |  |  |  |  |  |
 | Nhóm 1 – Đại số – Algebra |  |  |  |  |  |
-| 34 | Đại số hiện đại | 3 | MATH
-403-404 | Modern Algebra | 3 |
-| 35 | Lý thuyết số | 3 | MATH
-414 | Number Theory | 3 |
-| 36 | Đại số nâng cao | 3 | MATH
-504-505 | Modern Algebra | 5 |
-| 37 | Đại số nâng cao | 3 | MATH
-505-506 | Modern Algebra | 5 |
+| 34 | Đại số hiện đại | 3 | MATH<br>403-404 | Modern Algebra | 3 |
+| 35 | Lý thuyết số | 3 | MATH<br>414 | Number Theory | 3 |
+| 36 | Đại số nâng cao | 3 | MATH<br>504-505 | Modern Algebra | 5 |
+| 37 | Đại số nâng cao | 3 | MATH<br>505-506 | Modern Algebra | 5 |
 | Nhóm 2 – Hình học – Geometry |  |  |  |  |  |
-| 38 | Hình học vi phân | 3 | MATH
-442 | Differential Geometry | 3 |
-| 39 | Tôpô vi phân | 3 | MATH
-544 | Differential Topology | 3 |
-| 40 | Cơ sở tôpô đại số | 3 | MATH
-564 | Algebraic Topology | 3 |
-| 41 | Các vấn đề trong tôpô và
-hình học | 3 | MATH
-443 | Topics in Topology
-and Geometry | 3 |
+| 38 | Hình học vi phân | 3 | MATH<br>442 | Differential Geometry | 3 |
+| 39 | Tôpô vi phân | 3 | MATH<br>544 | Differential Topology | 3 |
+| 40 | Cơ sở tôpô đại số | 3 | MATH<br>564 | Algebraic Topology | 3 |
+| 41 | Các vấn đề trong tôpô và<br>hình học | 3 | MATH<br>443 | Topics in Topology<br>and Geometry | 3 |
 | Nhóm 3 – Giải tích – Analysis |  |  |  |  |  |
-| 42 | Giải tích hàm nâng cao | 3 | MATH
-528-529 | Functional Analysis | 3 |
-| 43 | Giải tích phức nâng cao | 3 | MATH
-428-429 | Complex Analysis | 3 |
-| 44 | Hệ động lực | 3 | MATH
-435-436 | Introduction to
-Dynamical Systems | 3 |
-| 45 | Các phƣơng pháp giải
-phƣơng trình đạo hàm
-riêng | 3 | AMATH
-403 | Methods for Partial
-Differential Equations | 4 |
-| Nhóm 4 – Giải tích số và Tính toán khoa học – Numerical Analysis and Scientific
-computing |  |  |  |  |  |
-| 46 | Giải tích số nâng cao I | 3 | MATH
-465 | Numerical Analysis II | 3 |
-| 47 | Nhập môn tính toán
-khoa học | 3 | AMATH
-301 | Beginning Scientific
-Computing | 4 |
+| 42 | Giải tích hàm nâng cao | 3 | MATH<br>528-529 | Functional Analysis | 3 |
+| 43 | Giải tích phức nâng cao | 3 | MATH<br>428-429 | Complex Analysis | 3 |
+| 44 | Hệ động lực | 3 | MATH<br>435-436 | Introduction to<br>Dynamical Systems | 3 |
+| 45 | Các phƣơng pháp giải<br>phƣơng trình đạo hàm<br>riêng | 3 | AMATH<br>403 | Methods for Partial<br>Differential Equations | 4 |
+| Nhóm 4 – Giải tích số và Tính toán khoa học – Numerical Analysis and Scientific<br>computing |  |  |  |  |  |
+| 46 | Giải tích số nâng cao I | 3 | MATH<br>465 | Numerical Analysis II | 3 |
+| 47 | Nhập môn tính toán<br>khoa học | 3 | AMATH<br>301 | Beginning Scientific<br>Computing | 4 |
 17
 
 <!-- Page 18 -->
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
-| 48 | Phƣơng pháp số trong
-đại số tuyến tính
-(Numerical method for
-Linear Algebra) | 3 | AMATH
-352 | Applied Linear
-Algebra and
-Numerical Analysis | 3 |
-| 49 | Giải tích Fourier và
-phƣơng trình đạo hàm
-riêng | 3 | AMATH
-353 | Fourier Analysis and
-Partial Differential
-Equations | 3 |
-| 50 | Thực hành tính toán
-nâng cao | 3 | MATH
-487 | Advanced
-Mathematics
-Computer Laboratory | 1-2,
-max. 6 |
-| 51 | Giải tích số nâng cao II | 3 | MATH
-466 | Numerical Analysis III | 3 |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
+| 48 | Phƣơng pháp số trong<br>đại số tuyến tính<br>(Numerical method for<br>Linear Algebra) | 3 | AMATH<br>352 | Applied Linear<br>Algebra and<br>Numerical Analysis | 3 |
+| 49 | Giải tích Fourier và<br>phƣơng trình đạo hàm<br>riêng | 3 | AMATH<br>353 | Fourier Analysis and<br>Partial Differential<br>Equations | 3 |
+| 50 | Thực hành tính toán<br>nâng cao | 3 | MATH<br>487 | Advanced<br>Mathematics<br>Computer Laboratory | 1-2,<br>max. 6 |
+| 51 | Giải tích số nâng cao II | 3 | MATH<br>466 | Numerical Analysis III | 3 |
 | Nhóm 5 – Tối ƣu – Optimization |  |  |  |  |  |
-| 52 | Tối ƣu tuyến tính | 3 | MATH
-407 | Linear Optimization | 3 |
-| 53 | Tối ƣu phi tuyến | 3 | MATH
-408 | Nonlinear
-Optimization | 3 |
-| 54 | Tối ƣu nâng cao | 3 | MATH
-515-516-
-517 | Fundamental of
-Optimization | 5 |
-| 55 | Điều khiển tối ƣu | 3 | AMATH
-509 | Theory of Optimal
-Control | 3 |
-| Nhóm 6 – Toán học rời rạc và thuật toán – Discrete mathematics and algorithm
-theory |  |  |  |  |  |
-| 56 | Các mô hình toán rời rạc | 3 | MATH
-381 | Discrete Mathematical
-Modeling | 3 |
-| 57 | Tối ƣu rời rạc | 3 | MATH
-409 | Discrete Optimization | 3 |
-| 58 | Lý thuyết tổ hợp | 3 | MATH
-461-462 | Combinatorial Theory | 3 |
-| 59 | Mở đầu về lý thuyết
-thuật toán | 3 | CSE 421 | Introduction to
-Algorithms | 3 |
+| 52 | Tối ƣu tuyến tính | 3 | MATH<br>407 | Linear Optimization | 3 |
+| 53 | Tối ƣu phi tuyến | 3 | MATH<br>408 | Nonlinear<br>Optimization | 3 |
+| 54 | Tối ƣu nâng cao | 3 | MATH<br>515-516-<br>517 | Fundamental of<br>Optimization | 5 |
+| 55 | Điều khiển tối ƣu | 3 | AMATH<br>509 | Theory of Optimal<br>Control | 3 |
+| Nhóm 6 – Toán học rời rạc và thuật toán – Discrete mathematics and algorithm<br>theory |  |  |  |  |  |
+| 56 | Các mô hình toán rời rạc | 3 | MATH<br>381 | Discrete Mathematical<br>Modeling | 3 |
+| 57 | Tối ƣu rời rạc | 3 | MATH<br>409 | Discrete Optimization | 3 |
+| 58 | Lý thuyết tổ hợp | 3 | MATH<br>461-462 | Combinatorial Theory | 3 |
+| 59 | Mở đầu về lý thuyết<br>thuật toán | 3 | CSE 421 | Introduction to<br>Algorithms | 3 |
 | Nhóm 7 – Xác suất và Thống kê – Probability and statistics |  |  |  |  |  |
-| 60 | Thống kê toán học | 3 | STAT 481 | Introduction to
-Mathematical
-Statistics | 5 |
-| 61 | Lý thuyết các quá trình
-ngẫu nhiên | 3 | MATH
-491 | Introduction to
-Stochastic Proccesses | 3 |
+| 60 | Thống kê toán học | 3 | STAT 481 | Introduction to<br>Mathematical<br>Statistics | 5 |
+| 61 | Lý thuyết các quá trình<br>ngẫu nhiên | 3 | MATH<br>491 | Introduction to<br>Stochastic Proccesses | 3 |
 18
 
 <!-- Page 19 -->
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
-| 62 | Lý thuyết hồi quy và
-phân tích phƣơng sai | 3 | STAT 423 | Applied Regression
-and Analysis of
-Variance | 4 |
-| 63 | Lý thuyết về thống kê
-phi tham số | 3 | STAT 425 | Introduction to
-Nonparametric
-Statistics | 3 |
-| 64 | Lý thuyết về các kết
-luận thống kê | 3 | STAT 512
-(513) | Statistical Inference | 4 |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
+| 62 | Lý thuyết hồi quy và<br>phân tích phƣơng sai | 3 | STAT 423 | Applied Regression<br>and Analysis of<br>Variance | 4 |
+| 63 | Lý thuyết về thống kê<br>phi tham số | 3 | STAT 425 | Introduction to<br>Nonparametric<br>Statistics | 3 |
+| 64 | Lý thuyết về các kết<br>luận thống kê | 3 | STAT 512<br>(513) | Statistical Inference | 4 |
 | Các môn học lựa chọn – Elective courses (6 TC) |  |  |  |  |  |
-| 65 | Kỹ năng giao tiếp trong
-toán học | 2 | MATH/
-AMATH/
-STAT 400 | Mathematical
-Communication for
-Undergraduates | 2 |
-| 66 | Seminar – Một số vấn đề
-đặc biệt trong toán học | 2 | MATH
-498 | Special Topics in
-Mathematics | 1-5,
-max.
-15 |
-| 67 | Nghiên cứu khoa học | 2 | MATH
-499 | Undergraduate
-Research | 8 |
-| 68 | Seminar – Một số vấn đề
-đặc biệt trong toán ứng
-dụng | 2 | AMATH
-499 | Undergraduate
-Reading and Research | 1-6,
-max. 6 |
-| 69 | Các mô hình toán học
-liên tục | 2 | AMATH
-383 | Introduction to
-Continuous
-Mathematical
-Modeling | 3 |
-| 70 | Giải tích véctơ phức và
-ứng dụng | 2 | AMATH
-401 | Vector Calculus and
-Complex Variable | 4 |
-| 71 | Hệ động lực và hỗn độn | 2 | AMTH
-402 | Introduction to
-Dynamical Systems
-and Chaos | 4 |
-| 72 | Các mô hình toán tài
-chính | 2 | MATH
-492 | Stochastic Calculus for
-Option Pricing | 3 |
-| 73 | Phƣơng trình vi phân
-ngẫu nhiên (Stochastic
-differential equations) | 2 | VMATH
-501 |  |  |
-| 74 | Topo đại số nâng cao
-(Advanced algebraic
-topology) | 2 | VMATH
-502 |  |  |
-| 75 | Lý thuyết ổn định của hệ
-động lực (Stability of
-dynamical systems) | 2 | VMATH
-503 |  |  |
+| 65 | Kỹ năng giao tiếp trong<br>toán học | 2 | MATH/<br>AMATH/<br>STAT 400 | Mathematical<br>Communication for<br>Undergraduates | 2 |
+| 66 | Seminar – Một số vấn đề<br>đặc biệt trong toán học | 2 | MATH<br>498 | Special Topics in<br>Mathematics | 1-5,<br>max.<br>15 |
+| 67 | Nghiên cứu khoa học | 2 | MATH<br>499 | Undergraduate<br>Research | 8 |
+| 68 | Seminar – Một số vấn đề<br>đặc biệt trong toán ứng<br>dụng | 2 | AMATH<br>499 | Undergraduate<br>Reading and Research | 1-6,<br>max. 6 |
+| 69 | Các mô hình toán học<br>liên tục | 2 | AMATH<br>383 | Introduction to<br>Continuous<br>Mathematical<br>Modeling | 3 |
+| 70 | Giải tích véctơ phức và<br>ứng dụng | 2 | AMATH<br>401 | Vector Calculus and<br>Complex Variable | 4 |
+| 71 | Hệ động lực và hỗn độn | 2 | AMTH<br>402 | Introduction to<br>Dynamical Systems<br>and Chaos | 4 |
+| 72 | Các mô hình toán tài<br>chính | 2 | MATH<br>492 | Stochastic Calculus for<br>Option Pricing | 3 |
+| 73 | Phƣơng trình vi phân<br>ngẫu nhiên (Stochastic<br>differential equations) | 2 | VMATH<br>501 |  |  |
+| 74 | Topo đại số nâng cao<br>(Advanced algebraic<br>topology) | 2 | VMATH<br>502 |  |  |
+| 75 | Lý thuyết ổn định của hệ<br>động lực (Stability of<br>dynamical systems) | 2 | VMATH<br>503 |  |  |
 19
 
 <!-- Page 20 -->
-| STT | Chƣơng trình của Trƣờng Đại
-học KHTN |  | Mã môn
-học | Chƣơng trình gốc
-(Trƣờng UW ) |  |
+| STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
-|  | Tên môn | Số tín
-chỉ |  | Tên môn học | Số tín
-chỉ |
-| 76 | Đại số máy tính
-(Computer algebra) | 2 | VMATH
-504 |  |  |
-| 77 | Lý thuyết mật mã và an
-toàn thông tin
-(Cryptography and data
-security) | 2 | VMATH
-505 |  |  |
-| 78 | Tính toán song song
-(Parallel Computing) | 2 | VMATH
-506 |  |  |
-| 79 | Khóa luận tốt nghiệp
-(Undergraduate
-Thesis) | 8 | MATH
-496 | Honors Senior Thesis | 1 – 5 |
+|  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
+| 76 | Đại số máy tính<br>(Computer algebra) | 2 | VMATH<br>504 |  |  |
+| 77 | Lý thuyết mật mã và an<br>toàn thông tin<br>(Cryptography and data<br>security) | 2 | VMATH<br>505 |  |  |
+| 78 | Tính toán song song<br>(Parallel Computing) | 2 | VMATH<br>506 |  |  |
+| 79 | Khóa luận tốt nghiệp<br>(Undergraduate<br>Thesis) | 8 | MATH<br>496 | Honors Senior Thesis | 1 – 5 |
 20
 
 <!-- Page 21 -->
@@ -811,126 +602,48 @@ Thesis) | 8 | MATH
 | Năm thứ 1 / Year 1 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 1 / Semester 1 |  | Học kỳ 2 / Semester 2 |  |
-| ENG 101
-Tiếng Anh giao tiếp I
-General English I | 14 hrs | ENG 102
-Tiếng Anh giao tiếp II
-General English II | 8 hrs |
-| ENS 104
-Tiếng Anh chuyên ngành (phần I)
-English for specific purposes (part I | 3 hrs | ENS 104
-Tiếng Anh chuyên ngành (phần II)
-English for specific purposes (part II) | 3 hrs |
-| INM 1001
-Tin học cơ sở
-Introduction to computer science
-and information technology | 4 hrs | MATH 318
-Đại số tuyến tính I
-Linear Algebra I | 5 hrs |
-|  |  | MATH 136 - 334
-Giải tích I
-Calculus I | 5 hrs |
+| ENG 101<br>Tiếng Anh giao tiếp I<br>General English I | 14 hrs | ENG 102<br>Tiếng Anh giao tiếp II<br>General English II | 8 hrs |
+| ENS 104<br>Tiếng Anh chuyên ngành (phần I)<br>English for specific purposes (part I | 3 hrs | ENS 104<br>Tiếng Anh chuyên ngành (phần II)<br>English for specific purposes (part II) | 3 hrs |
+| INM 1001<br>Tin học cơ sở<br>Introduction to computer science<br>and information technology | 4 hrs | MATH 318<br>Đại số tuyến tính I<br>Linear Algebra I | 5 hrs |
+|  |  | MATH 136 - 334<br>Giải tích I<br>Calculus I | 5 hrs |
 | Tổng / Total | 21 hrs | Tổng / Total | 21 hrs |
 | Năm thứ 2 / Year 2 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 3 / Semester 3 |  | Học kỳ 4 / Semester 4 |  |
-| MATH 335 - 336
-Giải tích II
-Calculus II | 5 hrs | MATH 335 - 336
-Giải tích III
-Calculus III | 5 hrs |
-| MATH 318
-Đại số tuyến tính II
-Linear Algebra II | 5 hrs | MATH 187
-Thực hành tính toán
-Mathematics computer laboratory | 2 hrs |
-| PHI 1001
-Những nguyên lý cơ bản của Chủ
-nghĩa Mác Lênin (phần I)
-Marxist-Leninist (part I) | 2 hrs | MATH 307
-Phƣơng trình vi phân
-Introduction to differential equations | 3 hrs |
-| PHY 1060
-Vật lý đại cƣơng
-General physics | 3 hrs | MAT2001
-Cơ học lý thuyết
-Theoretical mechanics | 2 hrs |
-| ENS 104
-Tiếng Anh chuyên ngành (phần III)
-English for specific purposes (part
-III) | 3 hrs | MATH 402 – 403
-Đại số đại cƣơng
-Introduction to Modern Algebra | 3 hrs |
+| MATH 335 - 336<br>Giải tích II<br>Calculus II | 5 hrs | MATH 335 - 336<br>Giải tích III<br>Calculus III | 5 hrs |
+| MATH 318<br>Đại số tuyến tính II<br>Linear Algebra II | 5 hrs | MATH 187<br>Thực hành tính toán<br>Mathematics computer laboratory | 2 hrs |
+| PHI 1001<br>Những nguyên lý cơ bản của Chủ<br>nghĩa Mác Lênin (phần I)<br>Marxist-Leninist (part I) | 2 hrs | MATH 307<br>Phƣơng trình vi phân<br>Introduction to differential equations | 3 hrs |
+| PHY 1060<br>Vật lý đại cƣơng<br>General physics | 3 hrs | MAT2001<br>Cơ học lý thuyết<br>Theoretical mechanics | 2 hrs |
+| ENS 104<br>Tiếng Anh chuyên ngành (phần III)<br>English for specific purposes (part<br>III) | 3 hrs | MATH 402 – 403<br>Đại số đại cƣơng<br>Introduction to Modern Algebra | 3 hrs |
 21
 
 <!-- Page 22 -->
-| KHXH-NV 1 | 2 hrs | PHI 1001
-Những nguyên lý cơ bản của Chủ
-nghĩa Mác Lênin (phần II)
-Marxist-Leninist (part II) | 3 hrs |
+| KHXH-NV 1 | 2 hrs | PHI 1001<br>Những nguyên lý cơ bản của Chủ<br>nghĩa Mác Lênin (phần II)<br>Marxist-Leninist (part II) | 3 hrs |
 | --- | --- | --- | --- |
 | Tổng / Total | 18 hrs | Tổng / Total | 18 hrs |
 | Năm thứ 3 / Year 3 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 5 / Semester 5 |  | Học kỳ 6 / Semester 6 |  |
-| MATH 527 – 528
-Giải tích hàm
-Functional analysis | 3 hrs | MATH 557
-Phƣơng trình đạo hàm riêng
-Introduction to partial differential
-equations | 3 hrs |
-| MATH 427 – 428
-Giải tích phức
-Complex analysis | 3 hrs | Môn chuyên ngành (bắt buộc)* I
-Advanced core course I | 3 hr |
-| MATH 464 – 465
-Giải tích số
-Numerical analysis | 3 hrs | Môn chuyên ngành (bắt buộc)* II
-Advanced core course II | 3 hrs |
-| STAT 394 – 396
-Lý thuyết xác suất
-Probability | 3 hrs | Môn chuyên ngành (bắt buộc)* III
-Advanced core course III | 3 hrs |
-| MATH 403 – 404
-Tôpô đại cƣơng
-Topology | 3 hrs | Môn chuyên ngành (bắt buộc)* IV
-Advanced core course IV | 3 hrs |
-| KHXH-NV 2 | 2 hrs | HIS 1001
-Đƣờng lối cách mạng của Đảng
-CSVN
-Policies of the Vietnam Communist
-Ideology | 3 hrs |
+| MATH 527 – 528<br>Giải tích hàm<br>Functional analysis | 3 hrs | MATH 557<br>Phƣơng trình đạo hàm riêng<br>Introduction to partial differential<br>equations | 3 hrs |
+| MATH 427 – 428<br>Giải tích phức<br>Complex analysis | 3 hrs | Môn chuyên ngành (bắt buộc)* I<br>Advanced core course I | 3 hr |
+| MATH 464 – 465<br>Giải tích số<br>Numerical analysis | 3 hrs | Môn chuyên ngành (bắt buộc)* II<br>Advanced core course II | 3 hrs |
+| STAT 394 – 396<br>Lý thuyết xác suất<br>Probability | 3 hrs | Môn chuyên ngành (bắt buộc)* III<br>Advanced core course III | 3 hrs |
+| MATH 403 – 404<br>Tôpô đại cƣơng<br>Topology | 3 hrs | Môn chuyên ngành (bắt buộc)* IV<br>Advanced core course IV | 3 hrs |
+| KHXH-NV 2 | 2 hrs | HIS 1001<br>Đƣờng lối cách mạng của Đảng<br>CSVN<br>Policies of the Vietnam Communist<br>Ideology | 3 hrs |
 | Tổng / Total | 17 hrs | Tổng / Total | 18 hrs |
 | Năm thứ 4 / Year 4 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 7 / Semester 7 |  | Học kỳ 8 / Semester 8 |  |
-| Môn chuyên ngành (bắt buộc)* V
-Advanced core course V | 3 hrs | Môn chuyên ngành (chọn có đk)**
-V
-Advanced elective course V | 3 hrs |
-| Môn chuyên ngành (chọn có đk)** I
-Advanced elective course I | 3 hrs | Môn chuyên ngành (chọn có đk)***
-VI
-Advanced elective course VI | 3 hrs |
+| Môn chuyên ngành (bắt buộc)* V<br>Advanced core course V | 3 hrs | Môn chuyên ngành (chọn có đk)**<br>V<br>Advanced elective course V | 3 hrs |
+| Môn chuyên ngành (chọn có đk)** I<br>Advanced elective course I | 3 hrs | Môn chuyên ngành (chọn có đk)***<br>VI<br>Advanced elective course VI | 3 hrs |
 22
 
 <!-- Page 23 -->
-| Môn chuyên ngành (chọn có đk)**
-II
-Advanced elective course II | 3 hrs | Môn chuyên ngành (chọn có đk)***
-VII
-Advanced elective course VII | 3 hrs |
+| Môn chuyên ngành (chọn có đk)**<br>II<br>Advanced elective course II | 3 hrs | Môn chuyên ngành (chọn có đk)***<br>VII<br>Advanced elective course VII | 3 hrs |
 | --- | --- | --- | --- |
-| Môn chuyên ngành (chọn có đk)**
-III
-Advanced elective course III | 3 hrs | Môn học nâng cao (chọn tự do ) I
-Additional elective course I | 2 hrs |
-| Môn chuyên ngành (chọn có đk)**
-IV
-Advanced elective course IV | 3 hrs | Môn học nâng cao (chọn tự do ) II
-Additional elective course II | 2 hrs |
-|  |  | Môn học nâng cao (chọn tự do ) III
-Additional elective course III | 2 hrs |
+| Môn chuyên ngành (chọn có đk)**<br>III<br>Advanced elective course III | 3 hrs | Môn học nâng cao (chọn tự do ) I<br>Additional elective course I | 2 hrs |
+| Môn chuyên ngành (chọn có đk)**<br>IV<br>Advanced elective course IV | 3 hrs | Môn học nâng cao (chọn tự do ) II<br>Additional elective course II | 2 hrs |
+|  |  | Môn học nâng cao (chọn tự do ) III<br>Additional elective course III | 2 hrs |
 | Tổng / Total | 17 hrs | Tổng / Total | 15 hrs |
 Ghi chú:
 * Chọn 5 trong số 7 môn chuyên ngành bắt buộc; Choose 5 from 7
@@ -942,12 +655,8 @@ Algebra, Numerical Analysis or Statistics.
 | Năm thứ 5 / Year 5 |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | Học kỳ 9 / Semester 9 |  |  | Học kỳ 10 / Semester 10 |  |
-| POL 1001
-Tƣ tƣởng Hồ Chí Minh
-Ho Chi Minh Ideology | 2 hrs |  |  |  |
-| MATH 496
-Khóa luận tốt nghiệp
-Undergraduate Thesis | 8 hrs |  |  |  |
+| POL 1001<br>Tƣ tƣởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 hrs |  |  |  |
+| MATH 496<br>Khóa luận tốt nghiệp<br>Undergraduate Thesis | 8 hrs |  |  |  |
 | Tổng / Total | 10 hrs |  |  |  |
 Ghi chú: Chưa tính 4 TC Giáo dục thể chất và 7 TC Giáo dục quốc phòng
 Not including physical education and national defense education courses.
@@ -1702,1023 +1411,167 @@ Số tín chỉ - Credits: 8
 Nội dung: Undergraduate thesis
 10. DỰ KIẾN PHÂN CÔNG GIẢNG DẠY – Teaching Assignment
 (tentative)
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | Kiến thức chung, Tiếng Anh và kiến thức KHXH-NV General courses (57 tín chỉ) |  |  |  |  |  |
-| 1 | Tiếng Anh giao tiếp I
-(General English I) | 14 | ENG
-101 | Bộ môn ngoại ngữ, Trƣờng
-ĐHKHTN .
-Department of Foreign
-Languages, HUS. | ĐHKHTN –
-HUS |
+| 1 | Tiếng Anh giao tiếp I<br>(General English I) | 14 | ENG<br>101 | Bộ môn ngoại ngữ, Trƣờng<br>ĐHKHTN .<br>Department of Foreign<br>Languages, HUS. | ĐHKHTN –<br>HUS |
 44
 
 <!-- Page 45 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-| 2 | Tiếng Anh giao tiếp II
-(General English II) | 8 | ENG
-102 | Bộ môn ngoại ngữ, Trƣờng
-ĐHKHTN .
-Department of Foreign
-Languages, HUS. | ĐHKHTN –
-HUS |
-| 3 | Tiếng Anh giao tiếp
-III (General English
-III) | 3 | ENG
-103 | Bộ môn ngoại ngữ, Trƣờng
-ĐHKHTN .
-Department of Foreign
-Languages, HUS. | ĐHKHTN –
-HUS |
-| 4 | Tiếng Anh chuyên
-ngành (English for
-specific purposes) | 9 | ENS
-104 | Bộ môn ngoại ngữ, Trƣờng
-ĐHKHTN .
-Department of Foreign
-Languages, HUS. | ĐHKHTN –
-HUS |
-| 5 | Những nguyên lý cơ
-bản của chủ nghĩa
-Mác-Lênin
-(Marxist-Leninist
-Phylosophy) | 5 | PHI
-1001 | Theo phân công của
-ĐHQGHN
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH
-– NV
-USSH |
-| 6 | Đƣờng lối cách mạng
-của Đảng Cộng Sản
-Việt Nam
-(Policies of the
-Vietnam Communist
-Party) | 3 | HIS
-1002 | Theo phân công của
-ĐHQGHN
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH
-– NV
-USSH |
-| 7 | Tƣ tƣởng Hồ Chí
-Minh (Ho Chi Minh
-Ideology) | 2 | POL
-1001 | Theo phân công của
-ĐHQGHN
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH
-– NV
-USSH |
-| 8 | Giáo dục thể chất I
-(Physical Education I) | 2 | PES
-1001 | Theo phân công của Bộ môn
-Giáo dục thể chất,
-ĐHKHTN
-Instructors provided by the
-Department of Physical
-Education, HUS | ĐHKHTN –
-HUS |
-| 9 | Giáo dục thể chất II
-(Physical Education
-II) | 2 | PES
-1002 | Theo phân công của Bộ môn
-Giáo dục thể chất, ĐHKHTN
-Instructors provided by the
-Department of Physical
-Education, HUS | ĐHKHTN –
-HUS |
+| 2 | Tiếng Anh giao tiếp II<br>(General English II) | 8 | ENG<br>102 | Bộ môn ngoại ngữ, Trƣờng<br>ĐHKHTN .<br>Department of Foreign<br>Languages, HUS. | ĐHKHTN –<br>HUS |
+| 3 | Tiếng Anh giao tiếp<br>III (General English<br>III) | 3 | ENG<br>103 | Bộ môn ngoại ngữ, Trƣờng<br>ĐHKHTN .<br>Department of Foreign<br>Languages, HUS. | ĐHKHTN –<br>HUS |
+| 4 | Tiếng Anh chuyên<br>ngành (English for<br>specific purposes) | 9 | ENS<br>104 | Bộ môn ngoại ngữ, Trƣờng<br>ĐHKHTN .<br>Department of Foreign<br>Languages, HUS. | ĐHKHTN –<br>HUS |
+| 5 | Những nguyên lý cơ<br>bản của chủ nghĩa<br>Mác-Lênin<br>(Marxist-Leninist<br>Phylosophy) | 5 | PHI<br>1001 | Theo phân công của<br>ĐHQGHN<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH<br>– NV<br>USSH |
+| 6 | Đƣờng lối cách mạng<br>của Đảng Cộng Sản<br>Việt Nam<br>(Policies of the<br>Vietnam Communist<br>Party) | 3 | HIS<br>1002 | Theo phân công của<br>ĐHQGHN<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH<br>– NV<br>USSH |
+| 7 | Tƣ tƣởng Hồ Chí<br>Minh (Ho Chi Minh<br>Ideology) | 2 | POL<br>1001 | Theo phân công của<br>ĐHQGHN<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH<br>– NV<br>USSH |
+| 8 | Giáo dục thể chất I<br>(Physical Education I) | 2 | PES<br>1001 | Theo phân công của Bộ môn<br>Giáo dục thể chất,<br>ĐHKHTN<br>Instructors provided by the<br>Department of Physical<br>Education, HUS | ĐHKHTN –<br>HUS |
+| 9 | Giáo dục thể chất II<br>(Physical Education<br>II) | 2 | PES<br>1002 | Theo phân công của Bộ môn<br>Giáo dục thể chất, ĐHKHTN<br>Instructors provided by the<br>Department of Physical<br>Education, HUS | ĐHKHTN –<br>HUS |
 45
 
 <!-- Page 46 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-| 10 | Giáo dục Quốc phòng
-– An ninh I (National
-Defense Education I) | 2 | CME
-1001 | Theo phân công của Trung
-tâm giáo dục Quốc phòng,
-ĐHQGHN
-Instructors provided by
-Center for National Defence
-trainning, VNU | ĐHQGHN –
-VNU |
-| 11 | Giáo dục Quốc phòng
-– An ninh II (National
-Defense Education II) | 2 | CME
-1002 | Theo phân công của Trung
-tâm giáo dục Quốc phòng,
-ĐHQGHN
-Instructors provided by
-Center for National Defence
-trainning, VNU | ĐHQGHN –
-VNU |
-| 12 | Giáo dục Quốc phòng
-– An ninh III
-(National Defense
-Education III) | 3 | CME
-1003 | Theo phân công của Trung
-tâm giáo dục Quốc phòng,
-ĐHQGHN
-Instructors provided by
-Center for National Defence
-trainning, VNU | ĐHQGHN –
-VNU |
-| 13 | Tin học cơ sở
-(Introduction to
-computer science and
-information
-technology) | 4 | INM
-1001 | TS. Nguyễn Thị Minh
-Huyền
-TS. Lê Trọng Vĩnh | ĐHKHTN
-ĐHKHTN |
-| 14 | Cơ sở văn hóa Việt
-Nam (Fundamental of
-Vietnamese Culture ) | 2 | HIS
-1052 | Theo phân công của ĐH
-KHXH – NV
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH
-–NV
-USSH |
-| 15 | Logic học đại cƣơng
-(Introduction of
-Logic) | 2 | PHI
-1051 | Theo phân công của ĐH
-KHXH – NV
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH -
-NV
-USSH |
-| 16 | Tâm lý học đại cƣơng
-(General Psychology) | 2 | PSY
-1050 | Theo phân công của ĐH
-KHXH – NV
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH -
-NV
-USSH |
+| 10 | Giáo dục Quốc phòng<br>– An ninh I (National<br>Defense Education I) | 2 | CME<br>1001 | Theo phân công của Trung<br>tâm giáo dục Quốc phòng,<br>ĐHQGHN<br>Instructors provided by<br>Center for National Defence<br>trainning, VNU | ĐHQGHN –<br>VNU |
+| 11 | Giáo dục Quốc phòng<br>– An ninh II (National<br>Defense Education II) | 2 | CME<br>1002 | Theo phân công của Trung<br>tâm giáo dục Quốc phòng,<br>ĐHQGHN<br>Instructors provided by<br>Center for National Defence<br>trainning, VNU | ĐHQGHN –<br>VNU |
+| 12 | Giáo dục Quốc phòng<br>– An ninh III<br>(National Defense<br>Education III) | 3 | CME<br>1003 | Theo phân công của Trung<br>tâm giáo dục Quốc phòng,<br>ĐHQGHN<br>Instructors provided by<br>Center for National Defence<br>trainning, VNU | ĐHQGHN –<br>VNU |
+| 13 | Tin học cơ sở<br>(Introduction to<br>computer science and<br>information<br>technology) | 4 | INM<br>1001 | TS. Nguyễn Thị Minh<br>Huyền<br>TS. Lê Trọng Vĩnh | ĐHKHTN<br>ĐHKHTN |
+| 14 | Cơ sở văn hóa Việt<br>Nam (Fundamental of<br>Vietnamese Culture ) | 2 | HIS<br>1052 | Theo phân công của ĐH<br>KHXH – NV<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH<br>–NV<br>USSH |
+| 15 | Logic học đại cƣơng<br>(Introduction of<br>Logic) | 2 | PHI<br>1051 | Theo phân công của ĐH<br>KHXH – NV<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH -<br>NV<br>USSH |
+| 16 | Tâm lý học đại cƣơng<br>(General Psychology) | 2 | PSY<br>1050 | Theo phân công của ĐH<br>KHXH – NV<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH -<br>NV<br>USSH |
 46
 
 <!-- Page 47 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-| 17 | Xã hội học đại cƣơng
-(General Sociology) | 2 | SOC
-1050 | Theo phân công của ĐH
-KHXH – NV
-Instructor provided by the
-College of Social Sciences
-and Humanities (USSH) | ĐH KHXH -
-NV
-USSH |
-| 18 | Vật lý đại cƣơng
-(Fundermental of
-physics) | 3 | PHY
-1060 | GS.TS. Bạch Thành Công | ĐHKHTN |
-| 19 | Cơ học lý thuyết
-(Theoretical
-mechanics) | 2 | MAT
-2001 | PGS.TS. Phạm Chí Vĩnh
-TS. Trần Thanh Tuấn | ĐHKHTN
-ĐHKHTN |
+| 17 | Xã hội học đại cƣơng<br>(General Sociology) | 2 | SOC<br>1050 | Theo phân công của ĐH<br>KHXH – NV<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH -<br>NV<br>USSH |
+| 18 | Vật lý đại cƣơng<br>(Fundermental of<br>physics) | 3 | PHY<br>1060 | GS.TS. Bạch Thành Công | ĐHKHTN |
+| 19 | Cơ học lý thuyết<br>(Theoretical<br>mechanics) | 2 | MAT<br>2001 | PGS.TS. Phạm Chí Vĩnh<br>TS. Trần Thanh Tuấn | ĐHKHTN<br>ĐHKHTN |
 | Kiến thức ngành và chuyên ngành Mathematical courses (101 TC) |  |  |  |  |  |
 | Các môn học cơ bản Basic core courses (30) |  |  |  |  |  |
-| 20 | Đại số tuyến tính I
-(Linear Algebra I) | 5 | MATH
-308 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài
-TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-Prof. John Palmieri
-Prof. Steve Mitchell
-Prof. Paul Smith
-Prof. James Zhang | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 21 | Đại số tuyến tính II
-(Linear Algebra II) | 5 | MATH
-318 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài
-TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-Prof. John Palmieri
-Prof. Steve Mitchell
-Prof. Paul Smith
-Prof. James Zhang | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 22 | Giải tích I
-(Caculus I ) | 5 | MATH
-134-335 | GS.TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Văn
-Mậu
-TS. Lê Huy Chuẩn | ĐHKHTN
-ĐHKHTN
-ĐHKHTN |
+| 20 | Đại số tuyến tính I<br>(Linear Algebra I) | 5 | MATH<br>308 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài<br>TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. John Palmieri<br>Prof. Steve Mitchell<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 21 | Đại số tuyến tính II<br>(Linear Algebra II) | 5 | MATH<br>318 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài<br>TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. John Palmieri<br>Prof. Steve Mitchell<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 22 | Giải tích I<br>(Caculus I ) | 5 | MATH<br>134-335 | GS.TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Văn<br>Mậu<br>TS. Lê Huy Chuẩn | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
 47
 
 <!-- Page 48 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | TS. Đặng Anh Tuấn
-GS.TSKH. Đỗ Ngọc Diệp
-Prof. Jim Burke
-Prof. Zhenqing Chen
-Prof. Steffen Rohde
-Prof. Tatiana Toro | ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 23 | Giải tích II
-(Caculus II) | 5 | MATH
-136-334 | GS.TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Văn
-Mậu
-TS. Lê Huy Chuẩn
-TS. Đặng Anh Tuấn
-GS.TSKH. Đỗ Ngọc Diệp
-Prof. Jim Burke
-Prof. Zhenqing Chen
-Prof. Steffen Rohde
-Prof. Tatiana Toro | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 24 | Giải tích III
-(Caculus III) | 5 | MATH
-335-336 | GS.TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Văn
-Mậu
-TS. Lê Huy Chuẩn
-TS. Đặng Anh Tuấn
-GS.TSKH. Đỗ Ngọc Diệp
-Prof. Jim Burke
-Prof. Zhenqing Chen
-Prof. Steffen Rohde
-Prof. Tatiana Toro | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 25 | Thực hành tính toán
-(Mathematics
-Computer Laboratory) | 2 | MATH
-187 | TS. Lê Công Lợi
-TS. Nguyễn Hữu Điển | ĐHKHTN
-ĐHKHTN |
-| 26 | Phƣơng trình vi phân
-(Differential
-equations) | 3 | MATH
-307 | PGS. TS. Vũ Hoàng Linh
-TS. Lê Huy Chuẩn
-TS. Đặng Anh Tuấn
-GS.TSKH. Vũ Ngọc Phát
-Prof. Robert O'Malley | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW |
+|  |  |  |  | TS. Đặng Anh Tuấn<br>GS.TSKH. Đỗ Ngọc Diệp<br>Prof. Jim Burke<br>Prof. Zhenqing Chen<br>Prof. Steffen Rohde<br>Prof. Tatiana Toro | ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 23 | Giải tích II<br>(Caculus II) | 5 | MATH<br>136-334 | GS.TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Văn<br>Mậu<br>TS. Lê Huy Chuẩn<br>TS. Đặng Anh Tuấn<br>GS.TSKH. Đỗ Ngọc Diệp<br>Prof. Jim Burke<br>Prof. Zhenqing Chen<br>Prof. Steffen Rohde<br>Prof. Tatiana Toro | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 24 | Giải tích III<br>(Caculus III) | 5 | MATH<br>335-336 | GS.TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Văn<br>Mậu<br>TS. Lê Huy Chuẩn<br>TS. Đặng Anh Tuấn<br>GS.TSKH. Đỗ Ngọc Diệp<br>Prof. Jim Burke<br>Prof. Zhenqing Chen<br>Prof. Steffen Rohde<br>Prof. Tatiana Toro | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 25 | Thực hành tính toán<br>(Mathematics<br>Computer Laboratory) | 2 | MATH<br>187 | TS. Lê Công Lợi<br>TS. Nguyễn Hữu Điển | ĐHKHTN<br>ĐHKHTN |
+| 26 | Phƣơng trình vi phân<br>(Differential<br>equations) | 3 | MATH<br>307 | PGS. TS. Vũ Hoàng Linh<br>TS. Lê Huy Chuẩn<br>TS. Đặng Anh Tuấn<br>GS.TSKH. Vũ Ngọc Phát<br>Prof. Robert O'Malley | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW |
 | Các môn học cơ sở Intermediate core courses (21) |  |  |  |  |  |
-| 27 | Đại số đại cƣơng
-(Introduction to
-Modern Algebra) | 3 | MATH
-402-403 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài | ĐHKHTN
-ĐHKHTN
-ĐHKHTN |
+| 27 | Đại số đại cƣơng<br>(Introduction to<br>Modern Algebra) | 3 | MATH<br>402-403 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
 48
 
 <!-- Page 49 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-Prof. John Palmieri
-Prof. Steve Mitchell
-Prof. Paul Smith
-Prof. James Zhang | ĐHKHTN
-VTH
-UW
-UW
-UW
-UW |
-| 28 | Giải tích phức
-(Complex analysis) | 3 | MATH
-427-428 | GS.TSKH. Nguyễn Văn
-Mậu
-PGS.TS. Nguyễn Minh Tuấn
-TS. Lê Huy Chuẩn
-ThS. Ninh Văn Thu
-Prof. Steffen Rohde | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-UW |
-| 29 | Phƣơng trình đạo hàm
-riêng
-(Partial Differential
-Equations) | 3 | MATH
-557 | PGS.TSKH. Đinh Nho Hào
-TS. Đặng Anh Tuấn
-Prof. Gunther Uhlmann
-Prof. Yu Yuan | VTH
-ĐHKHTN
-UW
-UW |
-| 30 | Lý thuyết xác suất
-(Probability) | 3 | STAT
-394-395 | GS.TSKH. Đặng Hùng
-Thắng
-GS.TS. Nguyễn Hữu Dƣ
-TS. Nguyễn Thịnh
-Prof. Chris Burdzy
-Prof. Zhenquing Chen
-Prof. Soumik Pal
-Prof. Chris Hoffman | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-UW
-UW
-UW
-UW |
-| 31 | Giải tích số
-(Numerical Analysis) | 3 | MATH
-464-465 | GS.TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Hữu
-Công
-PGS.TS. Vũ Hoàng Linh
-TS. Lê Công Lợi
-Prof. Randy LeVeque
-Prof. Nathan Kutz
-Prof. Robert O'Malley | ĐHKHTN
-ĐHQGHN
-ĐHKHTN
-ĐHKHTN
-UW
-UW
-UW |
-| 32 | Giải tích hàm
-(Functional analysis) | 3 | MATH
-527-528 | GS.TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Văn
-Mậu
-PGS.TS. Nguyễn Minh Tuấn
-TS. Lê Huy Chuẩn
-Prof. Jerry Folland
-Prof. Gunther Uhlmann | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-UW
-UW |
+|  |  |  |  | TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. John Palmieri<br>Prof. Steve Mitchell<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
+| 28 | Giải tích phức<br>(Complex analysis) | 3 | MATH<br>427-428 | GS.TSKH. Nguyễn Văn<br>Mậu<br>PGS.TS. Nguyễn Minh Tuấn<br>TS. Lê Huy Chuẩn<br>ThS. Ninh Văn Thu<br>Prof. Steffen Rohde | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>UW |
+| 29 | Phƣơng trình đạo hàm<br>riêng<br>(Partial Differential<br>Equations) | 3 | MATH<br>557 | PGS.TSKH. Đinh Nho Hào<br>TS. Đặng Anh Tuấn<br>Prof. Gunther Uhlmann<br>Prof. Yu Yuan | VTH<br>ĐHKHTN<br>UW<br>UW |
+| 30 | Lý thuyết xác suất<br>(Probability) | 3 | STAT<br>394-395 | GS.TSKH. Đặng Hùng<br>Thắng<br>GS.TS. Nguyễn Hữu Dƣ<br>TS. Nguyễn Thịnh<br>Prof. Chris Burdzy<br>Prof. Zhenquing Chen<br>Prof. Soumik Pal<br>Prof. Chris Hoffman | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>UW<br>UW<br>UW<br>UW |
+| 31 | Giải tích số<br>(Numerical Analysis) | 3 | MATH<br>464-465 | GS.TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Hữu<br>Công<br>PGS.TS. Vũ Hoàng Linh<br>TS. Lê Công Lợi<br>Prof. Randy LeVeque<br>Prof. Nathan Kutz<br>Prof. Robert O'Malley | ĐHKHTN<br>ĐHQGHN<br>ĐHKHTN<br>ĐHKHTN<br>UW<br>UW<br>UW |
+| 32 | Giải tích hàm<br>(Functional analysis) | 3 | MATH<br>527-528 | GS.TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Văn<br>Mậu<br>PGS.TS. Nguyễn Minh Tuấn<br>TS. Lê Huy Chuẩn<br>Prof. Jerry Folland<br>Prof. Gunther Uhlmann | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>UW<br>UW |
 49
 
 <!-- Page 50 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-| 33 | Tôpô đại cƣơng
-(Topology) | 3 | MATH
-441 | TS. Lê Minh Hà
-TS. Trần Ngọc Nam
-Prof. Steve Mitchell | ĐHKHTN
-ĐHKHTN
-UW |
+| 33 | Tôpô đại cƣơng<br>(Topology) | 3 | MATH<br>441 | TS. Lê Minh Hà<br>TS. Trần Ngọc Nam<br>Prof. Steve Mitchell | ĐHKHTN<br>ĐHKHTN<br>UW |
 | Các môn học chuyên ngành hoặc nâng cao Advanced couses (36 TC) |  |  |  |  |  |
 | Nhóm 1 – Đại số Algebra |  |  |  |  |  |
-| 34 | Đại số hiện đại
-(Modern Algebra) | 3 | MATH
-403-404 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài
-TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-Prof. Julia Pevtsova | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW |
-| 35 | Lý thuyết số
-(Number Theory) | 3 | MATH
-414 | PGS.TS. Nguyễn Quốc
-Thắng
-NCS. Đào Phƣơng Bắc
-Prof. William Stein | VTH
-ĐHKHTN
-UW |
-| 36 | Đại số nâng cao
-(Advanced Algebra) | 3 | MATH
-504-505 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài
-TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-GS.TSKH. Ngô Việt Trung
-GS.TSKH. Lê Tuấn Hoa
-Prof. Paul Smith
-Prof. James Zhang | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-VTH
-VTH
-UW
-UW |
-| 37 | Đại số nâng cao
-(Advanced Algebra) | 3 | MATH
-505-506 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Phó Đức Tài
-TS. Trần Ngọc Nam
-PGS.TSKH. Phùng Hồ Hải
-GS.TSKH. Ngô Việt Trung
-GS.TSKH. Lê Tuấn Hoa
-Prof. Paul Smith
-Prof. James Zhang | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-VTH
-VTH
-UW
-UW |
+| 34 | Đại số hiện đại<br>(Modern Algebra) | 3 | MATH<br>403-404 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài<br>TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. Julia Pevtsova | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW |
+| 35 | Lý thuyết số<br>(Number Theory) | 3 | MATH<br>414 | PGS.TS. Nguyễn Quốc<br>Thắng<br>NCS. Đào Phƣơng Bắc<br>Prof. William Stein | VTH<br>ĐHKHTN<br>UW |
+| 36 | Đại số nâng cao<br>(Advanced Algebra) | 3 | MATH<br>504-505 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài<br>TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>GS.TSKH. Ngô Việt Trung<br>GS.TSKH. Lê Tuấn Hoa<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>VTH<br>VTH<br>UW<br>UW |
+| 37 | Đại số nâng cao<br>(Advanced Algebra) | 3 | MATH<br>505-506 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Phó Đức Tài<br>TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>GS.TSKH. Ngô Việt Trung<br>GS.TSKH. Lê Tuấn Hoa<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>VTH<br>VTH<br>UW<br>UW |
 50
 
 <!-- Page 51 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | Nhóm 2 – Hình học Geometry |  |  |  |  |  |
-| 38 | Hình học vi phân
-(Differential
-Geometry) | 3 | MATH
-442 | TS. Phó Đức Tài
-Prof. Sandor Kovacs | ĐHKHTN
-UW |
-| 39 | Tôpô vi phân
-(Differential
-Topology) | 3 | MATH
-544 | TS. Phó Đức Tài
-Prof. Sandor Kovacs | ĐHKHTN
-UW |
-| 40 | Cơ sở tôpô đại số
-(Algebraic Topology) | 3 | MATH
-564 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS. Lê Minh Hà
-TS. Trần Ngọc Nam
-PGS.TS. Nguyễn Việt Dũng
-Prof. John Palmieri
-Prof. Steve Mitchell | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW |
-| 41 | Các vấn đề trong tôpô
-và hình học
-(Topics in Topology
-and Geometry) | 3 | MATH
-443 | TS. Lê Minh Hà
-PGS.TSKH. Phùng Hồ Hải
-Prof. Steve Mitchell
-Prof. Sandor Kovacs | ĐHKHTN
-VTH
-UW
-UW |
+| 38 | Hình học vi phân<br>(Differential<br>Geometry) | 3 | MATH<br>442 | TS. Phó Đức Tài<br>Prof. Sandor Kovacs | ĐHKHTN<br>UW |
+| 39 | Tôpô vi phân<br>(Differential<br>Topology) | 3 | MATH<br>544 | TS. Phó Đức Tài<br>Prof. Sandor Kovacs | ĐHKHTN<br>UW |
+| 40 | Cơ sở tôpô đại số<br>(Algebraic Topology) | 3 | MATH<br>564 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS. Lê Minh Hà<br>TS. Trần Ngọc Nam<br>PGS.TS. Nguyễn Việt Dũng<br>Prof. John Palmieri<br>Prof. Steve Mitchell | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW |
+| 41 | Các vấn đề trong tôpô<br>và hình học<br>(Topics in Topology<br>and Geometry) | 3 | MATH<br>443 | TS. Lê Minh Hà<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. Steve Mitchell<br>Prof. Sandor Kovacs | ĐHKHTN<br>VTH<br>UW<br>UW |
 | Nhóm 3 – Giải tích Analysis |  |  |  |  |  |
-| 42 | Giải tích hàm nâng
-cao
-(Advanced functional
-analysis) | 3 | MATH
-528-529 | GS. TSKH. Phạm Kỳ Anh
-GS.TSKH. Nguyễn Văn
-Mậu
-Prof. Jerry Folland
-Prof. Gunther Uhlmann | ĐHKHTN
-ĐHKHTN
-UW
-UW |
-| 43 | Giải tích phức nâng
-cao
-(Advanced Complex
-analysis) | 3 | MATH
-428-429 | GS.TSKH. Nguyễn Văn
-Mậu
-PGS.TS. Nguyễn Minh Tuấn
-TS. Lê Huy Chuẩn
-Prof. Steffen Rohde | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-UW |
-| 44 | Hệ động lực
-(Introduction to
-Dynamical Systems) | 3 | MATH
-435-436 | GS.TS. Nguyễn Hữu Dƣ
-GS.TSKH. Nguyễn Đình
-Công
-Prof. Doug Lind
-Prof. Boris Solomyak | ĐHKHTN
-VTH
-UW
-UW |
-| 45 | Các phƣơng pháp giải
-phƣơng trình đạo hàm
-riêng | 3 | AMATH
-403 | PGS.TSKH. Đinh Nho Hào
-TS. Đặng Anh Tuấn
-Prof. Gunther Uhlmann | VTH
-ĐHKHTN
-UW |
+| 42 | Giải tích hàm nâng<br>cao<br>(Advanced functional<br>analysis) | 3 | MATH<br>528-529 | GS. TSKH. Phạm Kỳ Anh<br>GS.TSKH. Nguyễn Văn<br>Mậu<br>Prof. Jerry Folland<br>Prof. Gunther Uhlmann | ĐHKHTN<br>ĐHKHTN<br>UW<br>UW |
+| 43 | Giải tích phức nâng<br>cao<br>(Advanced Complex<br>analysis) | 3 | MATH<br>428-429 | GS.TSKH. Nguyễn Văn<br>Mậu<br>PGS.TS. Nguyễn Minh Tuấn<br>TS. Lê Huy Chuẩn<br>Prof. Steffen Rohde | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>UW |
+| 44 | Hệ động lực<br>(Introduction to<br>Dynamical Systems) | 3 | MATH<br>435-436 | GS.TS. Nguyễn Hữu Dƣ<br>GS.TSKH. Nguyễn Đình<br>Công<br>Prof. Doug Lind<br>Prof. Boris Solomyak | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 45 | Các phƣơng pháp giải<br>phƣơng trình đạo hàm<br>riêng | 3 | AMATH<br>403 | PGS.TSKH. Đinh Nho Hào<br>TS. Đặng Anh Tuấn<br>Prof. Gunther Uhlmann | VTH<br>ĐHKHTN<br>UW |
 51
 
 <!-- Page 52 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  | (Methods for Partial
-Differential
-Equations) |  |  | Prof. Yu Yuan | UW |
-| Nhóm 4 – Giải tích số và Tính toán khoa học Numerical Analysis and Scientific
-computing |  |  |  |  |  |
-| 46 | Giải tích số nâng cao I
-(Numerical Analysis
-II) | 3 | MATH
-465 | GS.TSKH. Phạm Kỳ Anh
-PGS.TS. Vũ Hoàng Linh
-PGS.TSKH. Đinh Nho Hào
-Prof. Randy LeVeque
-Prof. Nathan Kutz | ĐHKHTN
-ĐHKHTN
-VTH
-UW
-UW |
-| 47 | Nhập môn tính toán
-khoa học
-(Beginning Scientific
-Computing) | 3 | AMATH
-301 | PGS.TS. Vũ Hoàng Linh
-TS. Lê Công Lợi
-Prof. Nathan Kutz | ĐHKHTN
-ĐHKHTN
-UW |
-| 48 | Phƣơng pháp số trong
-đại số tuyến tính
-(Numerical for Linear
-Algebra) | 3 | AMATH
-352 | PGS.TSKH. Đinh Nho Hào
-PGS.TS. Vũ Hoàng Linh
-TS. Lê Công Lợi
-Prof. Randy LeVeque | VTH
-ĐHKHTN
-ĐHKHTN
-UW |
-| 49 | Giải tích Fourier và
-phƣơng trình đạo hàm
-riêng
-(Fourier Analysis and
-Partial Differential
-Equations) | 3 | AMATH
-353 | PGS.TSKH. Đinh Nho Hào
-TS. Đặng Anh Tuấn
-Prof. Gunther Uhlmann
-Prof. Yu Yuan
-Prof. Randy LeVeque | VTH
-ĐHKHTN
-UW
-UW
-UW |
-| 50 | Thực hành tính toán
-nâng cao
-(Advanced
-Mathematics
-Computer Laboratory) | 3 | MATH
-487 | TS. Lê Công Lợi
-TS. Nguyễn Hữu Điển | ĐHKHTN
-ĐHKHTN |
-| 51 | Giải tích số nâng cao
-II
-(Numerical Analysis
-III) | 3 | MATH
-466 | GS.TSKH. Phạm Kỳ Anh
-PGS.TS. Vũ Hoàng Linh
-PGS.TSKH. Đinh Nho Hào
-Prof. Randy LeVeque | ĐHKHTN
-ĐHKHTN
-VTH
-UW |
+|  | (Methods for Partial<br>Differential<br>Equations) |  |  | Prof. Yu Yuan | UW |
+| Nhóm 4 – Giải tích số và Tính toán khoa học Numerical Analysis and Scientific<br>computing |  |  |  |  |  |
+| 46 | Giải tích số nâng cao I<br>(Numerical Analysis<br>II) | 3 | MATH<br>465 | GS.TSKH. Phạm Kỳ Anh<br>PGS.TS. Vũ Hoàng Linh<br>PGS.TSKH. Đinh Nho Hào<br>Prof. Randy LeVeque<br>Prof. Nathan Kutz | ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW<br>UW |
+| 47 | Nhập môn tính toán<br>khoa học<br>(Beginning Scientific<br>Computing) | 3 | AMATH<br>301 | PGS.TS. Vũ Hoàng Linh<br>TS. Lê Công Lợi<br>Prof. Nathan Kutz | ĐHKHTN<br>ĐHKHTN<br>UW |
+| 48 | Phƣơng pháp số trong<br>đại số tuyến tính<br>(Numerical for Linear<br>Algebra) | 3 | AMATH<br>352 | PGS.TSKH. Đinh Nho Hào<br>PGS.TS. Vũ Hoàng Linh<br>TS. Lê Công Lợi<br>Prof. Randy LeVeque | VTH<br>ĐHKHTN<br>ĐHKHTN<br>UW |
+| 49 | Giải tích Fourier và<br>phƣơng trình đạo hàm<br>riêng<br>(Fourier Analysis and<br>Partial Differential<br>Equations) | 3 | AMATH<br>353 | PGS.TSKH. Đinh Nho Hào<br>TS. Đặng Anh Tuấn<br>Prof. Gunther Uhlmann<br>Prof. Yu Yuan<br>Prof. Randy LeVeque | VTH<br>ĐHKHTN<br>UW<br>UW<br>UW |
+| 50 | Thực hành tính toán<br>nâng cao<br>(Advanced<br>Mathematics<br>Computer Laboratory) | 3 | MATH<br>487 | TS. Lê Công Lợi<br>TS. Nguyễn Hữu Điển | ĐHKHTN<br>ĐHKHTN |
+| 51 | Giải tích số nâng cao<br>II<br>(Numerical Analysis<br>III) | 3 | MATH<br>466 | GS.TSKH. Phạm Kỳ Anh<br>PGS.TS. Vũ Hoàng Linh<br>PGS.TSKH. Đinh Nho Hào<br>Prof. Randy LeVeque | ĐHKHTN<br>ĐHKHTN<br>VTH<br>UW |
 | Nhóm 5 – Tối ƣu Optimization |  |  |  |  |  |
-| 52 | Tối ƣu tuyến tính
-(Lifnear Optimization) | 3 | MATH
-407 | GS.TSKH. Lê Dũng Mƣu
-TS. Lê Công Lợi
-Prof. Jim Burke | VTH
-ĐHKHTN
-UW |
+| 52 | Tối ƣu tuyến tính<br>(Lifnear Optimization) | 3 | MATH<br>407 | GS.TSKH. Lê Dũng Mƣu<br>TS. Lê Công Lợi<br>Prof. Jim Burke | VTH<br>ĐHKHTN<br>UW |
 52
 
 <!-- Page 53 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Prof. Rekha Thomas
-Prof. Paul Tseng | UW
-UW |
-| 53 | Tối ƣu phi tuyến
-(Nonlinear
-Optimization) | 3 | MATH
-408 | GS.TSKH. Lê Dũng Mƣu
-TS. Lê Công Lợi
-Prof. Jim Burke
-Prof. Rekha Thomas
-Prof. Paul Tseng | VTH
-ĐHKHTN
-UW
-UW
-UW |
-| 54 | Tối ƣu nâng cao
-(Fundamental of
-Optimization) | 3 | MATH
-515-
-516-517 | GS.TSKH. Lê Dũng Mƣu
-GS.TSKH. Nguyễn Đông
-Yên
-Prof. Jim Burke
-Prof. Rekha Thomas
-Prof. Paul Tseng | VTH
-VTH
-UW
-UW
-UW |
-| 55 | Điều khiển tối ƣu
-(Theory of Optimal
-Control) | 3 | AMATH
-509 | GS.TSKH. Phạm Kỳ Anh
-GS.TS. Nguyễn Hữu Dƣ | ĐHKHTN
-ĐHKHTN |
+|  |  |  |  | Prof. Rekha Thomas<br>Prof. Paul Tseng | UW<br>UW |
+| 53 | Tối ƣu phi tuyến<br>(Nonlinear<br>Optimization) | 3 | MATH<br>408 | GS.TSKH. Lê Dũng Mƣu<br>TS. Lê Công Lợi<br>Prof. Jim Burke<br>Prof. Rekha Thomas<br>Prof. Paul Tseng | VTH<br>ĐHKHTN<br>UW<br>UW<br>UW |
+| 54 | Tối ƣu nâng cao<br>(Fundamental of<br>Optimization) | 3 | MATH<br>515-<br>516-517 | GS.TSKH. Lê Dũng Mƣu<br>GS.TSKH. Nguyễn Đông<br>Yên<br>Prof. Jim Burke<br>Prof. Rekha Thomas<br>Prof. Paul Tseng | VTH<br>VTH<br>UW<br>UW<br>UW |
+| 55 | Điều khiển tối ƣu<br>(Theory of Optimal<br>Control) | 3 | AMATH<br>509 | GS.TSKH. Phạm Kỳ Anh<br>GS.TS. Nguyễn Hữu Dƣ | ĐHKHTN<br>ĐHKHTN |
 | Nhóm 6 – Toán học rời rạc và thuật toán Discrete mathematics and algorithm theory |  |  |  |  |  |
-| 56 | Các mô hình toán rời
-rạc
-(Discrete
-Mathematical
-Modeling) | 3 | MATH
-381 | TS. Phan Thị Hà Dƣơng
-Prof. Sara Billey
-Prof. Isabella Novik | VTH
-UW
-UW |
-| 57 | Tối ƣu rời rạc
-(Discrete
-Optimization) | 3 | MATH
-409 | TS. Phan Thị Hà Dƣơng
-Prof. Sara Billey
-Prof. Isabella Novik | VTH
-UW
-UW |
-| 58 | Lý thuyết tổ hợp
-(Combinatorial
-Theory) | 3 | MATH
-461-462 | PGS.TS. Hoàng Chí Thành
-TS. Phan Thị Hà Dƣơng
-Prof. Sara Billey
-Prof. Isabella Novik | ĐHKHTN
-VTH
-UW
-UW |
-| 59 | Mở đầu về lý thuyết
-thuật toán
-(Introduction to
-Algorithms) | 3 | CSE
-421 | TS. Nguyễn Thị Minh
-Huyền
-TS. Lê Trọng Vĩnh | ĐHKHTN
-ĐHKHTN |
+| 56 | Các mô hình toán rời<br>rạc<br>(Discrete<br>Mathematical<br>Modeling) | 3 | MATH<br>381 | TS. Phan Thị Hà Dƣơng<br>Prof. Sara Billey<br>Prof. Isabella Novik | VTH<br>UW<br>UW |
+| 57 | Tối ƣu rời rạc<br>(Discrete<br>Optimization) | 3 | MATH<br>409 | TS. Phan Thị Hà Dƣơng<br>Prof. Sara Billey<br>Prof. Isabella Novik | VTH<br>UW<br>UW |
+| 58 | Lý thuyết tổ hợp<br>(Combinatorial<br>Theory) | 3 | MATH<br>461-462 | PGS.TS. Hoàng Chí Thành<br>TS. Phan Thị Hà Dƣơng<br>Prof. Sara Billey<br>Prof. Isabella Novik | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 59 | Mở đầu về lý thuyết<br>thuật toán<br>(Introduction to<br>Algorithms) | 3 | CSE<br>421 | TS. Nguyễn Thị Minh<br>Huyền<br>TS. Lê Trọng Vĩnh | ĐHKHTN<br>ĐHKHTN |
 | Nhóm 7 – Xác suất và Thống kê Probability and statistics |  |  |  |  |  |
-| 60 | Thống kê toán học
-(Introduction to
-Mathematical | 3 | STAT
-481 | GS.TSKH. Đặng Hùng
-Thắng
-GS.TS. Nguyễn Văn Hữu | ĐHKHTN
-ĐHKHTN |
+| 60 | Thống kê toán học<br>(Introduction to<br>Mathematical | 3 | STAT<br>481 | GS.TSKH. Đặng Hùng<br>Thắng<br>GS.TS. Nguyễn Văn Hữu | ĐHKHTN<br>ĐHKHTN |
 53
 
 <!-- Page 54 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  | Statistics) |  |  | TS. Nguyễn Thịnh
-TS. Hồ Đăng Phúc
-Prof. Mark Handcock
-Prof. Tilmann Gneiting | ĐHKHTN
-VTH
-UW
-UW |
-| 61 | Lý thuyết các quá
-trình ngẫu nhiên
-(Introduction to
-Stochastic Proccesses) | 3 | MATH
-491 | GS.TSKH. Đặng Hùng
-Thắng
-GS.TS. Nguyễn Văn Hữu
-TS. Nguyễn Thịnh
-Prof. Mark Handcock
-Prof. Chris Hoffman | ĐHKHTN
-ĐHKHTN
-ĐHKHTN
-UW
-UW |
-| 62 | Lý thuyết hồi quy và
-phân tích phƣơng sai
-(Applied Regression
-and Analysis of
-Variance) | 3 | STAT
-423 | GS.TS. Nguyễn Văn Hữu
-TS. Hồ Đăng Phúc
-Prof. Mark Handcock
-Prof. Tilmann Gneiting | ĐHKHTN
-VTH
-UW
-UW |
-| 63 | Lý thuyết về thống kê
-phi tham số
-(Introduction to
-Nonparametric
-Statistics) | 3 | STAT
-425 | GS.TS. Nguyễn Văn Hữu
-TS. Hồ Đăng Phúc
-Prof. Mark Handcock
-Prof. Tilmann Gneiting | ĐHKHTN
-VTH
-UW
-UW |
-| 64 | Lý thuyết về các kết
-luận thống kê
-(Statistical Inference) | 3 | STAT
-512
-(513) | GS.TS. Nguyễn Văn Hữu
-TS. Hồ Đăng Phúc
-Prof. Mark Handcock
-Prof. Tilmann Gneiting | ĐHKHTN
-VTH
-UW
-UW |
+|  | Statistics) |  |  | TS. Nguyễn Thịnh<br>TS. Hồ Đăng Phúc<br>Prof. Mark Handcock<br>Prof. Tilmann Gneiting | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 61 | Lý thuyết các quá<br>trình ngẫu nhiên<br>(Introduction to<br>Stochastic Proccesses) | 3 | MATH<br>491 | GS.TSKH. Đặng Hùng<br>Thắng<br>GS.TS. Nguyễn Văn Hữu<br>TS. Nguyễn Thịnh<br>Prof. Mark Handcock<br>Prof. Chris Hoffman | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>UW<br>UW |
+| 62 | Lý thuyết hồi quy và<br>phân tích phƣơng sai<br>(Applied Regression<br>and Analysis of<br>Variance) | 3 | STAT<br>423 | GS.TS. Nguyễn Văn Hữu<br>TS. Hồ Đăng Phúc<br>Prof. Mark Handcock<br>Prof. Tilmann Gneiting | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 63 | Lý thuyết về thống kê<br>phi tham số<br>(Introduction to<br>Nonparametric<br>Statistics) | 3 | STAT<br>425 | GS.TS. Nguyễn Văn Hữu<br>TS. Hồ Đăng Phúc<br>Prof. Mark Handcock<br>Prof. Tilmann Gneiting | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 64 | Lý thuyết về các kết<br>luận thống kê<br>(Statistical Inference) | 3 | STAT<br>512<br>(513) | GS.TS. Nguyễn Văn Hữu<br>TS. Hồ Đăng Phúc<br>Prof. Mark Handcock<br>Prof. Tilmann Gneiting | ĐHKHTN<br>VTH<br>UW<br>UW |
 | Các môn học lựa chọn Elective courses (6 TC) |  |  |  |  |  |
-| 65 | Kỹ năng giao tiếp
-trong toán học
-(Mathematical
-Communication for
-Undergraduates) | 2 | MATH/
-AMATH
-/ STAT
-400 | TS. Lê Minh Hà
-GS.TSKH. Phạm Kỳ Anh | ĐHKHTN
-ĐHKHTN |
-| 66 | Seminar – Một số vấn
-đề đặc biệt trong toán
-học
-(Special Topics in
-Mathematics) | 2 | MATH
-498 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-GS.TSKH. Ngô Việt Trung
-Prof. Paul Smith
-Prof. Steffen Rohde | ĐHKHTN
-VTH
-UW
-UW |
-| 67 | Nghiên cứu khoa học
-(Undergraduate | 2 | MATH
-499 | Các giảng viên khoa Toán –
-Cơ – Tin học | ĐHKHTN –
-HUS |
+| 65 | Kỹ năng giao tiếp<br>trong toán học<br>(Mathematical<br>Communication for<br>Undergraduates) | 2 | MATH/<br>AMATH<br>/ STAT<br>400 | TS. Lê Minh Hà<br>GS.TSKH. Phạm Kỳ Anh | ĐHKHTN<br>ĐHKHTN |
+| 66 | Seminar – Một số vấn<br>đề đặc biệt trong toán<br>học<br>(Special Topics in<br>Mathematics) | 2 | MATH<br>498 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>GS.TSKH. Ngô Việt Trung<br>Prof. Paul Smith<br>Prof. Steffen Rohde | ĐHKHTN<br>VTH<br>UW<br>UW |
+| 67 | Nghiên cứu khoa học<br>(Undergraduate | 2 | MATH<br>499 | Các giảng viên khoa Toán –<br>Cơ – Tin học | ĐHKHTN –<br>HUS |
 54
 
 <!-- Page 55 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
-|  | Research) |  |  | Lecturers from the Faculty
-of Mathematics, Mechanics
-and Informatics |  |
-| 68 | Seminar – Một số vấn
-đề đặc biệt trong toán
-ứng dụng
-(Undergraduate
-Reading and
-Research) | 2 | AMATH
-499 | GS.TSKH. Phạm Kỳ Anh
-PGS.TSKH. Đinh Nho Hào
-Prof. Paul Tseng | ĐHKHTN
-VTH
-UW |
-| 69 | Các mô hình toán học
-liên tục
-(Introduction to
-Continuous
-Mathematical
-Modeling) | 2 | AMATH
-383 | PGS.TSKH. Đinh Nho Hào
-Prof. Gunther Uhlmann | VTH
-UW |
-| 70 | Giải tích véctơ phức
-và ứng dụng
-(Vector Calculus and
-Complex Variable) | 2 | AMATH
-401 | GS.TSKH. Nguyễn Văn
-Mậu
-Prof. Steffen Rohde | ĐHKHTN
-UW |
-| 71 | Hệ động lực và hỗn
-độn
-(Dynamical Systems
-and Chaos) | 2 | AMATH
-402 | GS.TS. Nguyễn Hữu Dƣ
-Prof. Doug Lind | ĐHKHTN
-UW |
-| 72 | Các mô hình toán tài
-chính
-(Stochastic Calculus
-for Option Pricing) | 2 | MATH
-492 | GS.TS. Nguyễn Văn Hữu
-GS.TS. Nguyễn Hữu Dƣ | ĐHKHTN
-ĐHKHTN |
-| 73 | Phƣơng trình vi phân
-ngẫu nhiên
-(Stochastic differential
-equations) | 2 | VMATH
-501 | GS.TS. Nguyễn Hữu Dƣ
-TS. Phạm Văn Quốc | ĐHKHTN
-ĐHKHTN |
-| 74 | Topo đại số nâng cao
-(Advanced Topology) | 2 | VMATH
-502 | GS.TSKH. Nguyễn Hữu
-Việt Hƣng
-TS.Lê Minh Hà
-Prof. John Palmieri
-Prof. Steve Mitchell | ĐHKHTN
-ĐHKHTN
-UW
-UW |
-| 75 | Lý thuyết ổn định của
-hệ động lực
-(Stability of dynamical | 2 | VMATH
-503 | GS.TS. Nguyễn Hữu Dƣ
-PGS.TS. Vũ Hoàng Linh
-GS.TSKH. Vũ Ngọc Phát | ĐHKHTN
-ĐHKHTN
-VTH |
+|  | Research) |  |  | Lecturers from the Faculty<br>of Mathematics, Mechanics<br>and Informatics |  |
+| 68 | Seminar – Một số vấn<br>đề đặc biệt trong toán<br>ứng dụng<br>(Undergraduate<br>Reading and<br>Research) | 2 | AMATH<br>499 | GS.TSKH. Phạm Kỳ Anh<br>PGS.TSKH. Đinh Nho Hào<br>Prof. Paul Tseng | ĐHKHTN<br>VTH<br>UW |
+| 69 | Các mô hình toán học<br>liên tục<br>(Introduction to<br>Continuous<br>Mathematical<br>Modeling) | 2 | AMATH<br>383 | PGS.TSKH. Đinh Nho Hào<br>Prof. Gunther Uhlmann | VTH<br>UW |
+| 70 | Giải tích véctơ phức<br>và ứng dụng<br>(Vector Calculus and<br>Complex Variable) | 2 | AMATH<br>401 | GS.TSKH. Nguyễn Văn<br>Mậu<br>Prof. Steffen Rohde | ĐHKHTN<br>UW |
+| 71 | Hệ động lực và hỗn<br>độn<br>(Dynamical Systems<br>and Chaos) | 2 | AMATH<br>402 | GS.TS. Nguyễn Hữu Dƣ<br>Prof. Doug Lind | ĐHKHTN<br>UW |
+| 72 | Các mô hình toán tài<br>chính<br>(Stochastic Calculus<br>for Option Pricing) | 2 | MATH<br>492 | GS.TS. Nguyễn Văn Hữu<br>GS.TS. Nguyễn Hữu Dƣ | ĐHKHTN<br>ĐHKHTN |
+| 73 | Phƣơng trình vi phân<br>ngẫu nhiên<br>(Stochastic differential<br>equations) | 2 | VMATH<br>501 | GS.TS. Nguyễn Hữu Dƣ<br>TS. Phạm Văn Quốc | ĐHKHTN<br>ĐHKHTN |
+| 74 | Topo đại số nâng cao<br>(Advanced Topology) | 2 | VMATH<br>502 | GS.TSKH. Nguyễn Hữu<br>Việt Hƣng<br>TS.Lê Minh Hà<br>Prof. John Palmieri<br>Prof. Steve Mitchell | ĐHKHTN<br>ĐHKHTN<br>UW<br>UW |
+| 75 | Lý thuyết ổn định của<br>hệ động lực<br>(Stability of dynamical | 2 | VMATH<br>503 | GS.TS. Nguyễn Hữu Dƣ<br>PGS.TS. Vũ Hoàng Linh<br>GS.TSKH. Vũ Ngọc Phát | ĐHKHTN<br>ĐHKHTN<br>VTH |
 55
 
 <!-- Page 56 -->
-| Số
-TT | Tên môn | Số
-tín
-chỉ | Mã
-môn
-học | Họ tên GV | Đơn vị công
-tác |
+| Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  | systems) |  |  | Prof. Doug Lind | UW |
-| 76 | Đại số máy tính
-(Computer algebra) | 2 | VMATH
-504 | TS. Phó Đức Tài | ĐHKHTN |
-| 77 | Lý thuyết mật mã và
-an toàn thông tin
-(Cryptography and
-data security) | 2 | VMATH
-505 | TS. Phan Thị Hà Dƣơng
-Prof. Neal Koblitz | VTH
-UW |
-| 78 | Tính toán song song
-(Parallel Computing) | 2 | VMATH
-506 | GS.TSKH. Nguyễn Hữu
-Công
-TS. Nguyễn Thị Hồng Minh | ĐHQGHN
-ĐHQGHN |
-| 79 | Khóa luận tốt nghiệp
-(Undergraduate
-Thesis) | 8 | MATH
-496 | Theo phân công của Khoa
-Toán – Cơ – Tin học,
-ĐHKHTH
-Instructor provided by the
-Faculty of Mathematics,
-Mechanics and Informatics,
-HUS | ĐHKHTN –
-HUS, VTH,
-UW, ... |
+| 76 | Đại số máy tính<br>(Computer algebra) | 2 | VMATH<br>504 | TS. Phó Đức Tài | ĐHKHTN |
+| 77 | Lý thuyết mật mã và<br>an toàn thông tin<br>(Cryptography and<br>data security) | 2 | VMATH<br>505 | TS. Phan Thị Hà Dƣơng<br>Prof. Neal Koblitz | VTH<br>UW |
+| 78 | Tính toán song song<br>(Parallel Computing) | 2 | VMATH<br>506 | GS.TSKH. Nguyễn Hữu<br>Công<br>TS. Nguyễn Thị Hồng Minh | ĐHQGHN<br>ĐHQGHN |
+| 79 | Khóa luận tốt nghiệp<br>(Undergraduate<br>Thesis) | 8 | MATH<br>496 | Theo phân công của Khoa<br>Toán – Cơ – Tin học,<br>ĐHKHTH<br>Instructor provided by the<br>Faculty of Mathematics,<br>Mechanics and Informatics,<br>HUS | ĐHKHTN –<br>HUS, VTH,<br>UW, ... |
 Viết tắt (Abbreviation):
 ĐHQGHN – Đại học Quốc gia Hà Nội
 VNU - Vietnam National University, Hanoi
@@ -2744,280 +1597,65 @@ tự học với diện tích:
 - Thƣ viện tự học và nghiên cứu liên ngành: 2 x 75m2
 Trang thiết bị cho các phòng học, phòng hội thảo (Current equipments for
 classrooms, conference rooms)
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên
-hãng,
-Nƣớc SX | Số
-lƣợng
-(bộ) |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên<br>hãng,<br>Nƣớc SX | Số<br>lƣợng<br>(bộ) |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Máy chiếu treo tƣờng cho
-giảng đƣờng và phòng máy
-(Projectors)
-Màn chiếu có động cơ,
-Điều khiển từ xa (Screens,
-Remote controls) | 3.000 ANSI XGA
-KC chiếu: 1.2 – 10.4
-m)
-Wireless LAN
-IEEE802.11b/g | VPL –
-CX86 | Sony
-Nhật | 5 |
-| 2 | Máy chiếu xa cho phòng
-Hội thảo (projectors)
-Màn chiếu có động cơ,
-điều khiển từ xa
-(Screens, remote controls) | 3500 ANSI lumens
-UXGA KC chiếu: 1.3-
-16.5m | PT-
-D3500E | Panasonic
-Nhật | 1 |
-| 3 | Máy tính xách tay trình
-diễn trực tiếp và xemine
-(Laptops) | Centrino 1.86Ghz, 2M
-Cache, 512MB DDR2,
-HDD 40GB | 1871-
-4AA | IBM T60
-TQ | 3 |
-| 4 | Thiết bị kết nối không dây
-dùng trong khu vực phòng
-học, phòng máy và thƣ viện
-(Wireless devices) | 54Mbps
-ADSL Modem
-4 LAN ports | Speed
-Booster
-125M
-54GS | LinkSys
-TQ | 7 |
-| 5 | Thiết bị mở rộng mạng
-không dây + ăng ten EP-
-AN02
-(Range Expander) | Chuẩn G/ Wireless - G
-Range Expander/
-Compatible with
-802.11b, 802.11g | WRE54
-G
-EP-
-AN02 | LinkSys
-TQ | 5 |
+| 1 | Máy chiếu treo tƣờng cho<br>giảng đƣờng và phòng máy<br>(Projectors)<br>Màn chiếu có động cơ,<br>Điều khiển từ xa (Screens,<br>Remote controls) | 3.000 ANSI XGA<br>KC chiếu: 1.2 – 10.4<br>m)<br>Wireless LAN<br>IEEE802.11b/g | VPL –<br>CX86 | Sony<br>Nhật | 5 |
+| 2 | Máy chiếu xa cho phòng<br>Hội thảo (projectors)<br>Màn chiếu có động cơ,<br>điều khiển từ xa<br>(Screens, remote controls) | 3500 ANSI lumens<br>UXGA KC chiếu: 1.3-<br>16.5m | PT-<br>D3500E | Panasonic<br>Nhật | 1 |
+| 3 | Máy tính xách tay trình<br>diễn trực tiếp và xemine<br>(Laptops) | Centrino 1.86Ghz, 2M<br>Cache, 512MB DDR2,<br>HDD 40GB | 1871-<br>4AA | IBM T60<br>TQ | 3 |
+| 4 | Thiết bị kết nối không dây<br>dùng trong khu vực phòng<br>học, phòng máy và thƣ viện<br>(Wireless devices) | 54Mbps<br>ADSL Modem<br>4 LAN ports | Speed<br>Booster<br>125M<br>54GS | LinkSys<br>TQ | 7 |
+| 5 | Thiết bị mở rộng mạng<br>không dây + ăng ten EP-<br>AN02<br>(Range Expander) | Chuẩn G/ Wireless - G<br>Range Expander/<br>Compatible with<br>802.11b, 802.11g | WRE54<br>G<br>EP-<br>AN02 | LinkSys<br>TQ | 5 |
 57
 
 <!-- Page 58 -->
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên
-hãng,
-Nƣớc SX | Số
-lƣợng
-(bộ) |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên<br>hãng,<br>Nƣớc SX | Số<br>lƣợng<br>(bộ) |
 | --- | --- | --- | --- | --- | --- |
-| 6 | Máy tính để bàn trang bị
-cho 7 phòng học, phòng
-hội thảo và thƣ viện
-(Computers for 7 rooms,
-reference rooms and
-library) | Pentium IV 3.0GHz/
-1M Cache/ Chipset
-Intel 945/ 512MB
-DDR/ 80GB HDD/
-DVD-Rom/NIC/ 15"
-LCD | 8215-
-6AA | IBM M52
-TQ | 10 |
-| 7 | Máy tính để bàn trang bị
-cho 3 phòng máy
-(Computers) | Pentium IV 3.0GHz/
-1M Cache/ Chipset
-Intel 945/ 512MB
-DDR/ 80GB HDD/
-DVD-Rom/NIC/ 15"
-LCD | 8215-
-6AA | IBM M52
-TQ | 63 |
-| 8 | Máy chiếu vật thể dùng để
-chiếu tài liệu giấy, vật thể
-(Projectors) | F2.8 ~ 2.9, f=6.3 ~
-74.4mm, 12X Powered
-AF Optical Zoom
-VGA Out - Horizontal:
-700TVL/Video out -
-Horizontal: 400TVL | SDP-
-6500P | Samsung | 2 |
+| 6 | Máy tính để bàn trang bị<br>cho 7 phòng học, phòng<br>hội thảo và thƣ viện<br>(Computers for 7 rooms,<br>reference rooms and<br>library) | Pentium IV 3.0GHz/<br>1M Cache/ Chipset<br>Intel 945/ 512MB<br>DDR/ 80GB HDD/<br>DVD-Rom/NIC/ 15"<br>LCD | 8215-<br>6AA | IBM M52<br>TQ | 10 |
+| 7 | Máy tính để bàn trang bị<br>cho 3 phòng máy<br>(Computers) | Pentium IV 3.0GHz/<br>1M Cache/ Chipset<br>Intel 945/ 512MB<br>DDR/ 80GB HDD/<br>DVD-Rom/NIC/ 15"<br>LCD | 8215-<br>6AA | IBM M52<br>TQ | 63 |
+| 8 | Máy chiếu vật thể dùng để<br>chiếu tài liệu giấy, vật thể<br>(Projectors) | F2.8 ~ 2.9, f=6.3 ~<br>74.4mm, 12X Powered<br>AF Optical Zoom<br>VGA Out - Horizontal:<br>700TVL/Video out -<br>Horizontal: 400TVL | SDP-<br>6500P | Samsung | 2 |
 Trang thiết bị phục vụ các Bộ môn nghiên cứu và xemine chuyên đề (Current
 equipments for offices)
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã
-hiệu | Tên hãng,
-Nƣớc SX | Số
-lƣợng |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Máy tính để bàn trang bị
-cho 7 Bộ môn
-(Computers for 7
-departments) | Pentium IV 3.0GHz/
-1M Cache/ Chipset Intel
-945/ 512MB DDR/
-80GB HDD/ DVD-
-Rom/NIC/ 15" LCD | 8215-
-6AA | IBM M52
-TQ | 14 |
-| 2 | Máy quét dùng cho Văn
-phòng và làm bài giảng
-(Scanners) | A4; 4800 dpi; 48bit;
-Scan & Copy; Scan
-Film | HP
-Scanner
-ScanJet
-5590 | HP | 2 |
+| 1 | Máy tính để bàn trang bị<br>cho 7 Bộ môn<br>(Computers for 7<br>departments) | Pentium IV 3.0GHz/<br>1M Cache/ Chipset Intel<br>945/ 512MB DDR/<br>80GB HDD/ DVD-<br>Rom/NIC/ 15" LCD | 8215-<br>6AA | IBM M52<br>TQ | 14 |
+| 2 | Máy quét dùng cho Văn<br>phòng và làm bài giảng<br>(Scanners) | A4; 4800 dpi; 48bit;<br>Scan & Copy; Scan<br>Film | HP<br>Scanner<br>ScanJet<br>5590 | HP | 2 |
 58
 
 <!-- Page 59 -->
-| 3 | Máy ảnh kỹ thuật số dùng
-cho Văn phòng và làm bài
-giảng
-(Digital cameras) | 7.2 Megapixel; Zoom
-12X; LCD 3.0"; Pin
-AAA | Sony
-Camera
-DSC-
-H5 | Sony | 2 |
+| 3 | Máy ảnh kỹ thuật số dùng<br>cho Văn phòng và làm bài<br>giảng<br>(Digital cameras) | 7.2 Megapixel; Zoom<br>12X; LCD 3.0"; Pin<br>AAA | Sony<br>Camera<br>DSC-<br>H5 | Sony | 2 |
 | --- | --- | --- | --- | --- | --- |
 Trang thiết bị phục vụ Văn phòng, quản lý và phần mềm (Office equipments,
 database and softwares)
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã
-hiệu | Tên hãng,
-Nƣớc SX | Số
-lƣợng |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Máy Fax | 600dpi, tốc độ in 18
-trang/phút, tốc độ
-modem 33.6 kp/s, gửi
-fax 40 bản liên tục, khay
-nạp giấy 250 bản | Panaso
-nic
-KX-
-FLB81
-2 | Panasonic | 1 |
-| 2 | Máy Photocopy
-(Photocopier) | Tốc độ 45 bản/ phút,
-khổ giấy A3 - A6.
-Phóng/ Thu: 25-400%.
-Độ phân giải 600 dpi.
-Bộ nhớ tiêu chuẩn:
-384MB + 40GB. Khay
-giấy: 2x500 tờ | RICOH
-AFICI
-O 4590 | RICOH | 2 |
-| 3 | Thiết bị kiểm soát ra vào
-dùng cho thƣ viện, phòng
-máy và phòng học | FLASH 512 KB,
-chứa đƣợc 28.336 bản
-ghi sự kiện, kết nối máy
-tính qua RS232 | AC
-9400 -
-Promag | Đài Loan | 3 |
-| 4 | Thẻ từ HID
-(HID magnetic card) | HID |  |  | 500 |
+| 1 | Máy Fax | 600dpi, tốc độ in 18<br>trang/phút, tốc độ<br>modem 33.6 kp/s, gửi<br>fax 40 bản liên tục, khay<br>nạp giấy 250 bản | Panaso<br>nic<br>KX-<br>FLB81<br>2 | Panasonic | 1 |
+| 2 | Máy Photocopy<br>(Photocopier) | Tốc độ 45 bản/ phút,<br>khổ giấy A3 - A6.<br>Phóng/ Thu: 25-400%.<br>Độ phân giải 600 dpi.<br>Bộ nhớ tiêu chuẩn:<br>384MB + 40GB. Khay<br>giấy: 2x500 tờ | RICOH<br>AFICI<br>O 4590 | RICOH | 2 |
+| 3 | Thiết bị kiểm soát ra vào<br>dùng cho thƣ viện, phòng<br>máy và phòng học | FLASH 512 KB,<br>chứa đƣợc 28.336 bản<br>ghi sự kiện, kết nối máy<br>tính qua RS232 | AC<br>9400 -<br>Promag | Đài Loan | 3 |
+| 4 | Thẻ từ HID<br>(HID magnetic card) | HID |  |  | 500 |
 | 5 | Thiết bị đọc thẻ từ | ZEBEX ZM-100 |  |  | 10 |
 | 6 | Khóa từ |  |  |  | 5 |
-| 7 | Máy chủ dùng triển khai
-thƣ viện và quản lý sinh | XEON 3.2GHz-
-800MHz | IBM
-Xseries | IBM
-TQ | 3,080 |
+| 7 | Máy chủ dùng triển khai<br>thƣ viện và quản lý sinh | XEON 3.2GHz-<br>800MHz | IBM<br>Xseries | IBM<br>TQ | 3,080 |
 59
 
 <!-- Page 60 -->
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã
-hiệu | Tên hãng,
-Nƣớc SX | Số
-lƣợng |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
-|  | viên, lƣu dữ liệu | 1/2CPU 2MB L3 ECC
-Cache
-Dual Ultra 160 SCSI
-1GB RAM
-PC3200ECC/16GB
-16MB Video
-73.4 HS U320
-DVD-Rom (8X-24X)
-1,44MB
-Dual Ethernet Net
-10/100/1000
-E54 15" monitor | 346
-8840-
-25A |  |  |
-| 8 | Thiết bị phụ trợ cho máy
-chủ
-(Auxiliary devices) | 4 Đĩa cứng 73.4 HS
-U320, 1 CPU Xeon
-3.2GHz, 1GB RAM
-PC3200ECC |  |  | 3,170 |
-| 9 | Máy in mạng HP phục vụ
-cán bộ và sinh viên
-(Printers) | 80 MB RAM, 1200 x
-1200 dpi
-Two-sided printing,
-55ppm | 4350T
-N | HP | 2,300 |
-| 10 | Máy quay kỹ thuật số phục
-vụ soạn bài giảng
-(Digital cameras) | 4.0 Megapixel; Zoom
-10X/120X; màn hình
-cảm ứng LCD 2.7" | Sony
-Handy
-Cam
-DCR-
-DVD90
-5E | Sony | 1,120 |
-| 11 | Phần mềm Mathlab 7.5.1
-dùng trong giải số Toán
-ứng dụng
-(Mathlab 7.5.1 software) | Group License |  | The
-MathWork
-s, Inc | 500 |
-| 12 | Phần mềm Maple 11 dùng
-trong mô phỏng Toán ứng | Maple 11, Maple
-Toolbox for MATLAB, |  | Natick,
-Massachus | 3,820 |
+|  | viên, lƣu dữ liệu | 1/2CPU 2MB L3 ECC<br>Cache<br>Dual Ultra 160 SCSI<br>1GB RAM<br>PC3200ECC/16GB<br>16MB Video<br>73.4 HS U320<br>DVD-Rom (8X-24X)<br>1,44MB<br>Dual Ethernet Net<br>10/100/1000<br>E54 15" monitor | 346<br>8840-<br>25A |  |  |
+| 8 | Thiết bị phụ trợ cho máy<br>chủ<br>(Auxiliary devices) | 4 Đĩa cứng 73.4 HS<br>U320, 1 CPU Xeon<br>3.2GHz, 1GB RAM<br>PC3200ECC |  |  | 3,170 |
+| 9 | Máy in mạng HP phục vụ<br>cán bộ và sinh viên<br>(Printers) | 80 MB RAM, 1200 x<br>1200 dpi<br>Two-sided printing,<br>55ppm | 4350T<br>N | HP | 2,300 |
+| 10 | Máy quay kỹ thuật số phục<br>vụ soạn bài giảng<br>(Digital cameras) | 4.0 Megapixel; Zoom<br>10X/120X; màn hình<br>cảm ứng LCD 2.7" | Sony<br>Handy<br>Cam<br>DCR-<br>DVD90<br>5E | Sony | 1,120 |
+| 11 | Phần mềm Mathlab 7.5.1<br>dùng trong giải số Toán<br>ứng dụng<br>(Mathlab 7.5.1 software) | Group License |  | The<br>MathWork<br>s, Inc | 500 |
+| 12 | Phần mềm Maple 11 dùng<br>trong mô phỏng Toán ứng | Maple 11, Maple<br>Toolbox for MATLAB, |  | Natick,<br>Massachus | 3,820 |
 60
 
 <!-- Page 61 -->
-| TT | Tên thiết bị | Tính năng kỹ thuật | Mã
-hiệu | Tên hãng,
-Nƣớc SX | Số
-lƣợng |
+| TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
-|  | dụng
-(Maple 11 software) | BlockBuilder for
-Simulink, Global
-Optimization Toolbox
-for Maple, DynaFlexPro |  | etts |  |
-| 13 | Phần mềm S-PLUS
-Enterprise Server 7 + các
-module dùng trong Thống
-kê
-(S-PLUS enterprise Server
-7 software) | 2 bản cho Windows, 1
-bản cho Linux |  | Insightful
-Corporatio
-n | 550 |
-| 14 | Máy tính cho phòng trao
-đổi nghiên cứu liên ngành
-và tự đào tạo, phục vụ cán
-bộ
-(Computers) | Pentium IV 3.0GHz/ 1M
-Cache/ Chipset Intel
-945/ 512MB DDR/
-80GB HDD/ DVD-
-Rom/NIC/ 15" LCD | 8215-
-6AA | IBM M52
-TQ | 960 |
-| 15 | Mua CSDL trực tuyến
-(Data base) |  |  |  |  |
-| 16 | Switch nối mạng
-(Switches) | Asus Giga Switching
-10/100/1000 - 24 Port
-w/4 SFP Share | GX-
-1124B | TQ | 5 |
-| 17 | Tủ mạng | 32U, Kích thƣớc:160cm
-x 63 c m x 83 cm |  | TQ | 1 |
+|  | dụng<br>(Maple 11 software) | BlockBuilder for<br>Simulink, Global<br>Optimization Toolbox<br>for Maple, DynaFlexPro |  | etts |  |
+| 13 | Phần mềm S-PLUS<br>Enterprise Server 7 + các<br>module dùng trong Thống<br>kê<br>(S-PLUS enterprise Server<br>7 software) | 2 bản cho Windows, 1<br>bản cho Linux |  | Insightful<br>Corporatio<br>n | 550 |
+| 14 | Máy tính cho phòng trao<br>đổi nghiên cứu liên ngành<br>và tự đào tạo, phục vụ cán<br>bộ<br>(Computers) | Pentium IV 3.0GHz/ 1M<br>Cache/ Chipset Intel<br>945/ 512MB DDR/<br>80GB HDD/ DVD-<br>Rom/NIC/ 15" LCD | 8215-<br>6AA | IBM M52<br>TQ | 960 |
+| 15 | Mua CSDL trực tuyến<br>(Data base) |  |  |  |  |
+| 16 | Switch nối mạng<br>(Switches) | Asus Giga Switching<br>10/100/1000 - 24 Port<br>w/4 SFP Share | GX-<br>1124B | TQ | 5 |
+| 17 | Tủ mạng | 32U, Kích thƣớc:160cm<br>x 63 c m x 83 cm |  | TQ | 1 |
 11.2. Giáo trình, tài liệu giảng dạy và học tập (Textbooks and other learning
 materials)
 Chƣơng trình sẽ cung cấp cho sinh viên tài liệu hƣớng dẫn về chƣơng trình, kế

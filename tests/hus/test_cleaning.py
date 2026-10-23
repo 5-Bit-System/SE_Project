@@ -3,6 +3,7 @@ import unicodedata
 import pytest
 
 from app.hus.cleaning import (
+    clean_table_cell,
     clean_text,
     format_markdown_table,
     infer_attachment_major,
@@ -294,6 +295,20 @@ def test_infer_major_general_and_defaults():
     )
 
 
+def test_clean_table_cell():
+    assert clean_table_cell(None) == ""
+    assert clean_table_cell("") == ""
+    assert clean_table_cell("   ") == ""
+    assert clean_table_cell("Normal text") == "Normal text"
+    assert clean_table_cell("Option A | Option B") == "Option A / Option B"
+    assert clean_table_cell("Line 1\nLine 2") == "Line 1<br>Line 2"
+    assert clean_table_cell("Line 1\r\nLine 2\r\nLine 3") == "Line 1<br>Line 2<br>Line 3"
+    assert clean_table_cell("  \n  <br>  Line 1  <br>  \n  ") == "Line 1"
+    assert clean_table_cell("Multiple \n\n\n lines") == "Multiple<br>lines"
+    assert clean_table_cell("Text with <br /> and <br>") == "Text with<br>and"
+    assert clean_table_cell(123) == "123"
+
+
 def test_format_markdown_table():
     grid = [
         ["Mã HP", "Tên học phần", "Tín chỉ"],
@@ -304,6 +319,28 @@ def test_format_markdown_table():
     assert lines[0] == "| Mã HP | Tên học phần | Tín chỉ |"
     assert lines[1] == "| --- | --- | --- |"
     assert lines[2] == "| MAT1001 | Giải tích 1 | 3 |"
+
+
+def test_format_markdown_table_with_newlines_and_breaks():
+    grid = [
+        ["STT", "Học phần\n(Chi tiết)", "Số TC\nLT/TH"],
+        [1, "Toán cao cấp 1\n(Giải tích)", "3\n2/1"],
+        [2, "Đại số | Tuyến tính\r\nKỳ 1", 3],
+        [None, None, None],
+    ]
+    lines = format_markdown_table(grid)
+    # Check that each output line is strictly on 1 physical line (no embedded newlines)
+    for line in lines:
+        assert "\n" not in line
+        assert "\r" not in line
+        assert line.startswith("| ")
+        assert line.endswith(" |")
+
+    assert lines[0] == "| STT | Học phần<br>(Chi tiết) | Số TC<br>LT/TH |"
+    assert lines[1] == "| --- | --- | --- |"
+    assert lines[2] == "| 1 | Toán cao cấp 1<br>(Giải tích) | 3<br>2/1 |"
+    assert lines[3] == "| 2 | Đại số / Tuyến tính<br>Kỳ 1 | 3 |"
+    assert len(lines) == 4
 
 
 @pytest.mark.parametrize("scope", [

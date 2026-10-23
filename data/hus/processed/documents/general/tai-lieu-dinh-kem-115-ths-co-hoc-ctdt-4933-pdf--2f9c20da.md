@@ -200,123 +200,56 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  |  |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | ENG5001 | Tiếng Anh B2 (SĐH)
-English B2 | 5 | 40 | 60 | 150 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | ENG5001 | Tiếng Anh B2 (SĐH)<br>English B2 | 5 | 40 | 60 | 150 |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  | 27 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 12 |  |  |  |  |
-| 3 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6036 | Cơ học môi trường liên tục
-nâng cao
-Advanced Mechanics of
-Continuous Media | 3 | 45 | 0 | 105 |  |
-| 5 | MAT6037 | Phương trình đạo hàm riêng
-nâng cao
-Advanced Partial Differential
-Equations | 3 | 45 | 0 | 105 |  |
-| 6 | MAT6045 | Các phương pháp số trong cơ
-học nâng cao
-Advanced Numerical Methods
-in Mechanics | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6036 | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | 3 | 45 | 0 | 105 |  |
+| 5 | MAT6037 | Phương trình đạo hàm riêng<br>nâng cao<br>Advanced Partial Differential<br>Equations | 3 | 45 | 0 | 105 |  |
+| 6 | MAT6045 | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced Numerical Methods<br>in Mechanics | 3 | 45 | 0 | 105 |  |
 | II.2 | Các học phần tự chọn |  | 15 |  |  |  |  |
 | II.2.1 | Định hướng cơ học vật rắn |  | 15/27 |  |  |  |  |
-| 7 | MAT6038 | Phân tích tấm
-Analysis of plates | 3 | 45 | 0 | 105 |  |
-| 8 | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
-| 9 | MAT6041 | Phương trình vi phân nâng cao
-Advanced Differential
-Equations | 3 | 45 | 0 | 105 |  |
-| 10 | MAT6109 | Giải tích hàm ứng dụng
-Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
-| 11 | MAT6046 | Nhiệt đàn hồi
-Thermo - Elasticity | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
+| 9 | MAT6041 | Phương trình vi phân nâng cao<br>Advanced Differential<br>Equations | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6109 | Giải tích hàm ứng dụng<br>Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
+| 11 | MAT6046 | Nhiệt đàn hồi<br>Thermo - Elasticity | 3 | 45 | 0 | 105 |  |
 7
 
 <!-- Page 8 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 12 | MAT6051 | Cơ học vật liệu composite
-nâng cao
-Advanced Mechanics of
-Composite Materials | 3 | 45 | 0 | 105 |  |
-| 13 | MAT6112 | Lý thuyết bản vỏ mỏng
-Theory of Thin Plates and
-Shells | 3 | 38 | 14 | 98 |  |
-| 14 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
-| 15 | MAT6039 | Truyền sóng trong môi trường
-đàn dẻo
-Wave Propagation in Elasto-
-Plastic Media | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 12 | MAT6051 | Cơ học vật liệu composite<br>nâng cao<br>Advanced Mechanics of<br>Composite Materials | 3 | 45 | 0 | 105 |  |
+| 13 | MAT6112 | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | 3 | 38 | 14 | 98 |  |
+| 14 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
+| 15 | MAT6039 | Truyền sóng trong môi trường<br>đàn dẻo<br>Wave Propagation in Elasto-<br>Plastic Media | 3 | 45 | 0 | 105 |  |
 | II.2.2 | Định hướng cơ học chất lỏng |  | 15/24 |  |  |  |  |
-| 16 | MAT6042 | Phép tính tenxơ trong cơ học
-Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
-| 17 | MAT6041 | Phương trình vi phân nâng cao
-Advanced Differential
-Equations | 3 | 45 | 0 | 105 |  |
-| 18 | MAT6109 | Giải tích hàm ứng dụng
-Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
-| 19 | MAT6052 | Cơ học chất lỏng nâng cao
-Advanced Fluid Mechanics | 3 | 30 | 30 | 90 |  |
-| 20 | MAT6113 | Lý thuyết truyền tải và khuếch
-tán hợp chất
-Theory of Mass Transfer and
-Diffusion | 3 | 30 | 30 | 90 |  |
-| 21 | MAT6040 | Dao động phi tuyến
-Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
-| 22 | MAT6107 | Khí động lực học
-Gas dynamics | 3 | 39 | 12 | 99 |  |
-| 23 | MAT6115 | Lý thuyết ổn định thuỷ khí
-Theory of Hydrodynamic
-Stability | 3 | 30 | 18 | 102 |  |
+| 16 | MAT6042 | Phép tính tenxơ trong cơ học<br>Tensor Calculus in Mechanics | 3 | 45 | 0 | 105 |  |
+| 17 | MAT6041 | Phương trình vi phân nâng cao<br>Advanced Differential<br>Equations | 3 | 45 | 0 | 105 |  |
+| 18 | MAT6109 | Giải tích hàm ứng dụng<br>Applied Funtional Analysis | 3 | 35 | 20 | 95 |  |
+| 19 | MAT6052 | Cơ học chất lỏng nâng cao<br>Advanced Fluid Mechanics | 3 | 30 | 30 | 90 |  |
+| 20 | MAT6113 | Lý thuyết truyền tải và khuếch<br>tán hợp chất<br>Theory of Mass Transfer and<br>Diffusion | 3 | 30 | 30 | 90 |  |
+| 21 | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 38 | 14 | 98 |  |
+| 22 | MAT6107 | Khí động lực học<br>Gas dynamics | 3 | 39 | 12 | 99 |  |
+| 23 | MAT6115 | Lý thuyết ổn định thuỷ khí<br>Theory of Hydrodynamic<br>Stability | 3 | 30 | 18 | 102 |  |
 8
 
 <!-- Page 9 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | III | Nghiên cứu khoa học |  | 27 |  |  |  |  |
 | III.1 | Chuyên đề nghiên cứu |  | 12 |  |  |  |  |
-| 24 | MAT6342 | Chuyên đề 1
-Special Topics 1 | 4 | 30 | 0 | 170 |  |
-| 25 | MAT6343 | Chuyên đề 2
-Special Topics 2 | 4 | 30 | 0 | 170 |  |
-| 26 | MAT6344 | Chuyên đề 3
-Special Topics 3 | 4 | 30 | 0 | 170 |  |
+| 24 | MAT6342 | Chuyên đề 1<br>Special Topics 1 | 4 | 30 | 0 | 170 |  |
+| 25 | MAT6343 | Chuyên đề 2<br>Special Topics 2 | 4 | 30 | 0 | 170 |  |
+| 26 | MAT6344 | Chuyên đề 3<br>Special Topics 3 | 4 | 30 | 0 | 170 |  |
 | III.2 | Luận văn thạc sĩ |  | 15 |  |  |  |  |
-| 27 | MAT6905 | Luận văn thạc sĩ
-Master thesis | 15 | 0 | 0 | 750 |  |
+| 27 | MAT6905 | Luận văn thạc sĩ<br>Master thesis | 15 | 0 | 0 | 750 |  |
 | Tổng cộng |  |  | 62 |  |  |  |  |
 9

@@ -202,126 +202,54 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | Khối kiến thức chung |  | 8 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | ENG5001 | Tiếng Anh B2 (SĐH)
-English B2 | 5 | 40 | 60 | 150 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | ENG5001 | Tiếng Anh B2 (SĐH)<br>English B2 | 5 | 40 | 60 | 150 |  |
 | II | Khối kiến thức cơ sở và chuyên ngành |  | 27 |  |  |  |  |
 | II.1 | Các học phần bắt buộc |  | 18 |  |  |  |  |
-| 3 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6082 | Học máy nâng cao
-Advanced Machine Learning | 3 | 45 | 0 | 105 |  |
-| 5 | MAT6083 | Xêmina về các vấn đề chọn
-lọc trong Tin học
-Advanced Topics in
-Computer Science | 3 | 45 | 0 | 105 |  |
-| 6 | MAT6087 | Xử lí ngôn ngữ tự nhiên
-Natural Language Processing | 3 | 45 | 0 | 105 |  |
-| 7 | MAT6080 | Cơ sở dữ liệu nâng cao
-Advanced Database Systems | 3 | 45 | 0 | 105 |  |
-| 8 | MAT6081 | Phân tích thuật toán
-Analysis of Algorithms | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6082 | Học máy nâng cao<br>Advanced Machine Learning | 3 | 45 | 0 | 105 |  |
+| 5 | MAT6083 | Xêmina về các vấn đề chọn<br>lọc trong Tin học<br>Advanced Topics in<br>Computer Science | 3 | 45 | 0 | 105 |  |
+| 6 | MAT6087 | Xử lí ngôn ngữ tự nhiên<br>Natural Language Processing | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6080 | Cơ sở dữ liệu nâng cao<br>Advanced Database Systems | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6081 | Phân tích thuật toán<br>Analysis of Algorithms | 3 | 45 | 0 | 105 |  |
 | II.2 | Các học phần tự chọn |  | 9/42 |  |  |  |  |
-| 9 | MAT6091 | Hệ thống phân tán
-Distributed Systems | 3 | 45 | 0 | 105 |  |
-| 10 | MAT6085 | Mật mã và an toàn dữ liệu
-nâng cao
-Advanced Cryptography and
-Data Security | 3 | 45 | 0 | 105 |  |
-| 11 | MAT6088 | Một số vấn đề chọn lọc về trí
-tuệ nhân tạo
-Advanced Topics in Artificial
-Intelligence | 3 | 45 | 0 | 105 |  |
-| 12 | MAT6084 | Độ phức tạp tính toán
-Computational Complexity | 3 | 45 | 0 | 105 |  |
+| 9 | MAT6091 | Hệ thống phân tán<br>Distributed Systems | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6085 | Mật mã và an toàn dữ liệu<br>nâng cao<br>Advanced Cryptography and<br>Data Security | 3 | 45 | 0 | 105 |  |
+| 11 | MAT6088 | Một số vấn đề chọn lọc về trí<br>tuệ nhân tạo<br>Advanced Topics in Artificial<br>Intelligence | 3 | 45 | 0 | 105 |  |
+| 12 | MAT6084 | Độ phức tạp tính toán<br>Computational Complexity | 3 | 45 | 0 | 105 |  |
 7
 
 <!-- Page 8 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 13 | MAT6086 | Một số vấn đề chọn lọc về
-Toán rời rạc và ứng dụng
-Advanced Topics in Discrete
-Mathematics and Applications | 3 | 45 | 0 | 105 |  |
-| 14 | MAT6135 | Lý thuyết đồ thị và ứng dụng
-Graph Theory and Applications | 3 | 25 | 40 | 85 |  |
-| 15 | MAT6354 | Phân tích thống kê nhiều chiều
-Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/
-MAT6101 |
-| 16 | MAT6035 | Phương pháp Monte-Carlo
-trong giải tích số nhiều chiều
-Monte-Carlo methods in
-multivariate numerical
-analysis | 3 | 45 | 0 | 105 |  |
-| 17 | MAT6089 | Mạng máy tính nâng cao và
-các dịch vụ mạng
-Advanced Computer
-Networks and Services | 3 | 45 | 0 | 105 |  |
-| 18 | MAT6144 | Một số vấn đề chọn lọc về an
-ninh mạng
-Special Topics in Network
-Security | 3 | 25 | 20 | 105 |  |
-| 19 | MAT6355 | Tính toán đám mây
-Cloud Computing | 3 | 45 | 0 | 105 |  |
-| 20 | MAT6093 | Một số vấn đề chọn lọc về
-phát triển phần mềm và ngôn
-ngữ lập trình
-Advanced Topics in Software
-Development and
-Programming Languages | 3 | 45 | 0 | 105 |  |
-| 21 | MAT6142 | Thị giác máy tính
-Computer Vision | 3 | 25 | 20 | 105 |  |
-| 22 | MAT6152 | Những chương lựa chọn về
-đại số tuyến tính
-Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 13 | MAT6086 | Một số vấn đề chọn lọc về<br>Toán rời rạc và ứng dụng<br>Advanced Topics in Discrete<br>Mathematics and Applications | 3 | 45 | 0 | 105 |  |
+| 14 | MAT6135 | Lý thuyết đồ thị và ứng dụng<br>Graph Theory and Applications | 3 | 25 | 40 | 85 |  |
+| 15 | MAT6354 | Phân tích thống kê nhiều chiều<br>Multivariate statistical analysis | 3 | 30 | 30 | 90 | MAT6152/<br>MAT6101 |
+| 16 | MAT6035 | Phương pháp Monte-Carlo<br>trong giải tích số nhiều chiều<br>Monte-Carlo methods in<br>multivariate numerical<br>analysis | 3 | 45 | 0 | 105 |  |
+| 17 | MAT6089 | Mạng máy tính nâng cao và<br>các dịch vụ mạng<br>Advanced Computer<br>Networks and Services | 3 | 45 | 0 | 105 |  |
+| 18 | MAT6144 | Một số vấn đề chọn lọc về an<br>ninh mạng<br>Special Topics in Network<br>Security | 3 | 25 | 20 | 105 |  |
+| 19 | MAT6355 | Tính toán đám mây<br>Cloud Computing | 3 | 45 | 0 | 105 |  |
+| 20 | MAT6093 | Một số vấn đề chọn lọc về<br>phát triển phần mềm và ngôn<br>ngữ lập trình<br>Advanced Topics in Software<br>Development and<br>Programming Languages | 3 | 45 | 0 | 105 |  |
+| 21 | MAT6142 | Thị giác máy tính<br>Computer Vision | 3 | 25 | 20 | 105 |  |
+| 22 | MAT6152 | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
 | III | Nghiên cứu khoa học |  | 27 |  |  |  |  |
 | III.1 | Chuyên đề nghiên cứu |  |  |  |  |  |  |
-| 23 | MAT6350 | Chuyên đề nghiên cứu 1
-Research topic 1 | 3 | 30 | 0 | 120 |  |
+| 23 | MAT6350 | Chuyên đề nghiên cứu 1<br>Research topic 1 | 3 | 30 | 0 | 120 |  |
 8
 
 <!-- Page 9 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 24 | MAT6351 | Chuyên đề nghiên cứu 2
-Research topic 2 | 3 | 30 | 0 | 120 |  |
-| 25 | MAT6352 | Chuyên đề nghiên cứu 3
-Research topic 3 | 3 | 30 | 0 | 120 |  |
-| 26 | MAT6353 | Chuyên đề nghiên cứu 4
-Research topic 4 | 3 | 30 | 0 | 120 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 24 | MAT6351 | Chuyên đề nghiên cứu 2<br>Research topic 2 | 3 | 30 | 0 | 120 |  |
+| 25 | MAT6352 | Chuyên đề nghiên cứu 3<br>Research topic 3 | 3 | 30 | 0 | 120 |  |
+| 26 | MAT6353 | Chuyên đề nghiên cứu 4<br>Research topic 4 | 3 | 30 | 0 | 120 |  |
 | III.2 | Luận văn thạc sĩ |  |  |  |  |  |  |
-| 27 | MAT6906 | Luận văn thạc sĩ
-Master thesis | 15 | 0 | 0 | 750 |  |
+| 27 | MAT6906 | Luận văn thạc sĩ<br>Master thesis | 15 | 0 | 0 | 750 |  |
 | Tổng cộng |  |  | 62 |  |  |  |  |
 9

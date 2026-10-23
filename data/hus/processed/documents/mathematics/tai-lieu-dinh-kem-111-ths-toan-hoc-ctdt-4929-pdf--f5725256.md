@@ -191,148 +191,71 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I |  | Khối kiến thức chung | 8 |  |  |  |  |
-| 1 | PHI5001 | Triết học
-Philosophy | 3 | 42 | 6 | 102 |  |
-| 2 | ENG5001 | Tiếng Anh B2 (SĐH)
-English B2 | 5 | 40 | 60 | 150 |  |
+| 1 | PHI5001 | Triết học<br>Philosophy | 3 | 42 | 6 | 102 |  |
+| 2 | ENG5001 | Tiếng Anh B2 (SĐH)<br>English B2 | 5 | 40 | 60 | 150 |  |
 | II |  | Khối kiến thức cơ sở và chuyên ngành | 27 |  |  |  |  |
 | II.1 |  | Các học phần bắt buộc | 15 |  |  |  |  |
-| 3 | MAT6357 | Tiếng Anh học thuật
-English for academic purposes | 3 | 45 | 0 | 105 |  |
-| 4 | MAT6002 | Giải tích hàm nâng cao
-Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
-| 5 | MAT6152 | Những chương lựa chọn về đại số
-tuyến tính
-Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
-| 6 | MAT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 | 0 | 105 |  |
-| 7 | MAT6004 | Lý thuyết trường và lý thuyết Galois
-Field and Galois theory | 3 | 45 | 0 | 105 |  |
+| 3 | MAT6357 | Tiếng Anh học thuật<br>English for academic purposes | 3 | 45 | 0 | 105 |  |
+| 4 | MAT6002 | Giải tích hàm nâng cao<br>Advanced Functional Analysis | 3 | 45 | 0 | 105 |  |
+| 5 | MAT6152 | Những chương lựa chọn về đại số<br>tuyến tính<br>Selected Topics in Linear Algebra | 3 | 45 | 0 | 105 |  |
+| 6 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 | 0 | 105 |  |
+| 7 | MAT6004 | Lý thuyết trường và lý thuyết Galois<br>Field and Galois theory | 3 | 45 | 0 | 105 |  |
 | II.2 |  | Các học phần tự chọn | 12 |  |  |  |  |
 | A |  | Định hướng Toán giải tích | 12/30 |  |  |  |  |
-| 8 | MAT6017 | Lý thuyết hàm suy rộng và không gian
-Sobolev
-Theory of Distributions and Sobolev
-spaces | 3 | 45 | 0 | 105 | MAT6008 |
-| 9 | MAT6010 | Giải tích phức
-Complex Analysis | 3 | 45 | 0 | 105 |  |
-| 10 | MAT6100 | Phương trình đạo hàm riêng
-Partial Differential Equations | 3 | 45 | 0 | 105 |  |
-| 11 | MAT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
-| 12 | MAT6016 | Hệ động lực
-Dynamical Systems | 3 | 45 | 0 | 105 |  |
+| 8 | MAT6017 | Lý thuyết hàm suy rộng và không gian<br>Sobolev<br>Theory of Distributions and Sobolev<br>spaces | 3 | 45 | 0 | 105 | MAT6008 |
+| 9 | MAT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 | 0 | 105 |  |
+| 10 | MAT6100 | Phương trình đạo hàm riêng<br>Partial Differential Equations | 3 | 45 | 0 | 105 |  |
+| 11 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 | 0 | 105 |  |
+| 12 | MAT6016 | Hệ động lực<br>Dynamical Systems | 3 | 45 | 0 | 105 |  |
 7
 
 <!-- Page 8 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 13 | MAT6019 | Lý thuyết phổ của toán tử
-Spectral theory of linear operators | 3 | 45 | 0 | 105 |  |
-| 14 | MAT6122 | Phương trình vi phân trong không gian
-Banach
-Differential Equations in Banach spaces | 3 | 45 | 0 | 105 |  |
-| 15 | MAT6124 | Hàm nhiều biến phức
-Several complex variables | 3 | 45 | 0 | 105 | MAT6010 |
-| 16 | MAT6126 | Bài toán biên của phương trình Elliptic
-Elliptic boundary value problems | 3 | 45 | 0 | 105 | MAT6017 |
-| 17 | MAT6127 | Phương pháp biến phân
-Variational Methods | 3 | 45 | 0 | 105 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 13 | MAT6019 | Lý thuyết phổ của toán tử<br>Spectral theory of linear operators | 3 | 45 | 0 | 105 |  |
+| 14 | MAT6122 | Phương trình vi phân trong không gian<br>Banach<br>Differential Equations in Banach spaces | 3 | 45 | 0 | 105 |  |
+| 15 | MAT6124 | Hàm nhiều biến phức<br>Several complex variables | 3 | 45 | 0 | 105 | MAT6010 |
+| 16 | MAT6126 | Bài toán biên của phương trình Elliptic<br>Elliptic boundary value problems | 3 | 45 | 0 | 105 | MAT6017 |
+| 17 | MAT6127 | Phương pháp biến phân<br>Variational Methods | 3 | 45 | 0 | 105 |  |
 | B |  | Định hướng Đại số và lý thuyết số | 12/30 |  |  |  |  |
-| 18 | MAT6001 | Lý thuyết nhóm và biểu diễn nhóm
-Theory of Groups and Group
-Representations | 3 | 45 | 0 | 105 |  |
-| 19 | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | 45 | 0 | 105 |  |
-| 20 | MAT6006 | Hình học đại số
-Algebraic Geometry | 3 | 45 | 0 | 105 |  |
-| 21 | MAT6012 | Đại số đồng điều
-Homological Algebra | 3 | 45 | 0 | 105 |  |
-| 22 | MAT6119 | Đối đồng điều của nhóm
-Cohomology of Groups | 3 | 45 | 0 | 105 | MAT6152,
-MAT6003 |
-| 23 | MAT6013 | Lý thuyết số đại số
-Algebraic Number Theory | 3 | 45 | 0 | 105 | MAT6004 |
-| 24 | MAT6121 | Đại số giao hoán
-Commutative algebra | 3 | 45 | 0 | 105 |  |
-| 25 | MAT6136 | Nhóm Lie và đại số Lie
-Lie groups and Lie algebras | 3 | 45 | 0 | 105 | MAT6001;
-MAT6005 |
-| 26 | MAT6356 | Tôpô vi phân
-Differential Topology | 3 | 45 | 0 | 105 | MAT 6009 |
-| 27 | MAT6003 | Tôpô đại số
-Algebraic topology | 3 | 45 | 0 | 105 |  |
+| 18 | MAT6001 | Lý thuyết nhóm và biểu diễn nhóm<br>Theory of Groups and Group<br>Representations | 3 | 45 | 0 | 105 |  |
+| 19 | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | 45 | 0 | 105 |  |
+| 20 | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 | 0 | 105 |  |
+| 21 | MAT6012 | Đại số đồng điều<br>Homological Algebra | 3 | 45 | 0 | 105 |  |
+| 22 | MAT6119 | Đối đồng điều của nhóm<br>Cohomology of Groups | 3 | 45 | 0 | 105 | MAT6152,<br>MAT6003 |
+| 23 | MAT6013 | Lý thuyết số đại số<br>Algebraic Number Theory | 3 | 45 | 0 | 105 | MAT6004 |
+| 24 | MAT6121 | Đại số giao hoán<br>Commutative algebra | 3 | 45 | 0 | 105 |  |
+| 25 | MAT6136 | Nhóm Lie và đại số Lie<br>Lie groups and Lie algebras | 3 | 45 | 0 | 105 | MAT6001;<br>MAT6005 |
+| 26 | MAT6356 | Tôpô vi phân<br>Differential Topology | 3 | 45 | 0 | 105 | MAT 6009 |
+| 27 | MAT6003 | Tôpô đại số<br>Algebraic topology | 3 | 45 | 0 | 105 |  |
 8
 
 <!-- Page 9 -->
-| STT | Mã học
-phần | Học phần | Số
-tín
-chỉ | Số giờ học tập |  |  | Mã học
-phần
-tiên quyết |
+| STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | C |  | Định hướng Hình học - Tô pô | 12/30 |  |  |  |  |
-| 28 | MAT6001 | Lý thuyết nhóm và biểu diễn nhóm
-Theory of Groups and Group
-Representations | 3 | 45 | 0 | 105 |  |
-| 29 | MAT6005 | Hình học vi phân
-Differential Geometry | 3 | 45 | 0 | 105 |  |
-| 30 | MAT6012 | Đại số đồng điều
-Homological Algebra | 3 | 45 | 0 | 105 |  |
-| 31 | MAT6119 | Đối đồng điều của nhóm
-Cohomology of Groups | 3 | 45 | 0 | 105 | MAT6152,
-MAT6003 |
-| 32 | MAT6121 | Đại số giao hoán
-Commutative algebra | 3 | 45 | 0 | 105 |  |
-| 33 | MAT6136 | Nhóm Lie và đại số Lie
-Lie groups and Lie algebras | 3 | 45 | 0 | 105 | MAT6001;
-MAT6005 |
-| 34 | MAT6137 | Tôpô vi phân
-Differential Topology | 3 | 45 | 0 | 105 |  |
-| 35 | MAT6155 | Phân thớ, Lớp đặc trưng, K-Lý thuyết
-Fibre bundles, Charcteristic classes,
-and K-theory | 3 | 45 | 0 | 105 | MAT6003 |
-| 36 | MAT6118 | Toán tử đối đồng điều và ứng dụng
-Cohomology Operations and
-Applications | 3 | 45 | 0 | 105 | MAT6152 |
-| 37 | MAT6003 | Tôpô đại số
-Algebraic topology | 3 | 45 | 0 | 105 |  |
+| 28 | MAT6001 | Lý thuyết nhóm và biểu diễn nhóm<br>Theory of Groups and Group<br>Representations | 3 | 45 | 0 | 105 |  |
+| 29 | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | 45 | 0 | 105 |  |
+| 30 | MAT6012 | Đại số đồng điều<br>Homological Algebra | 3 | 45 | 0 | 105 |  |
+| 31 | MAT6119 | Đối đồng điều của nhóm<br>Cohomology of Groups | 3 | 45 | 0 | 105 | MAT6152,<br>MAT6003 |
+| 32 | MAT6121 | Đại số giao hoán<br>Commutative algebra | 3 | 45 | 0 | 105 |  |
+| 33 | MAT6136 | Nhóm Lie và đại số Lie<br>Lie groups and Lie algebras | 3 | 45 | 0 | 105 | MAT6001;<br>MAT6005 |
+| 34 | MAT6137 | Tôpô vi phân<br>Differential Topology | 3 | 45 | 0 | 105 |  |
+| 35 | MAT6155 | Phân thớ, Lớp đặc trưng, K-Lý thuyết<br>Fibre bundles, Charcteristic classes,<br>and K-theory | 3 | 45 | 0 | 105 | MAT6003 |
+| 36 | MAT6118 | Toán tử đối đồng điều và ứng dụng<br>Cohomology Operations and<br>Applications | 3 | 45 | 0 | 105 | MAT6152 |
+| 37 | MAT6003 | Tôpô đại số<br>Algebraic topology | 3 | 45 | 0 | 105 |  |
 | III |  | Nghiên cứu khoa học | 27 |  |  |  |  |
 | III.1 |  | Chuyên đề nghiên cứu | 12 |  |  |  |  |
-| 38 | MAT6336 | Chuyên đề 1
-Special Topics 1 | 4 | 30 | 0 | 170 |  |
-| 39 | MAT6337 | Chuyên đề 2
-Special Topics 2 | 4 | 30 | 0 | 170 |  |
-| 40 | MAT6338 | Chuyên đề 3
-Special Topics 3 | 4 | 30 | 0 | 170 |  |
+| 38 | MAT6336 | Chuyên đề 1<br>Special Topics 1 | 4 | 30 | 0 | 170 |  |
+| 39 | MAT6337 | Chuyên đề 2<br>Special Topics 2 | 4 | 30 | 0 | 170 |  |
+| 40 | MAT6338 | Chuyên đề 3<br>Special Topics 3 | 4 | 30 | 0 | 170 |  |
 | III.2 |  | Luận văn thạc sĩ | 15 |  |  |  |  |
-| 22 | MAT6901 | Luận văn thạc sĩ
-Master thesis | 15 | 0 | 0 | 750 |  |
+| 22 | MAT6901 | Luận văn thạc sĩ<br>Master thesis | 15 | 0 | 0 | 750 |  |
 |  |  | Tổng cộng | 62 |  |  |  |  |
 9

@@ -324,528 +324,208 @@ chương trình đào tạo)
 2. Khung chƣơng trình đào tạo
 2.1. Khung chương trình dành cho NCS có bằng thạc sĩ ngành đúng hoặc phù
 hợp
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | I | PHẦN 1. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG QUAN |  |  |  |  |  |  |
 | I.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | I.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | MA T8033 | Phương pháp số giải phương
-trình đạo hàm riêng
-Numerical methods for partial
-differential equations | 3 | 15 |  | 30 |  |
-| 2 | MA T8034 | Phương pháp số giải bài toán cực
-trị
-Numerical methods for extremal
-problems | 3 | 15 |  | 30 |  |
+| 1 | MA T8033 | Phương pháp số giải phương<br>trình đạo hàm riêng<br>Numerical methods for partial<br>differential equations | 3 | 15 |  | 30 |  |
+| 2 | MA T8034 | Phương pháp số giải bài toán cực<br>trị<br>Numerical methods for extremal<br>problems | 3 | 15 |  | 30 |  |
 | I.1.2 | Tự chọn |  | 3/9 |  |  |  |  |
-| 3 | MA T8035 | Chuyên đề nâng cao về giải
-phương trình toán tử
-Advanced course on solution
-methods for operator equations | 3 | 15 |  | 30 |  |
-| 4 | MA T8036 | Bài toán đặt không chỉnh phi
-tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems
-involving monotone operators | 3 | 15 |  | 30 |  |
-| 5 | MA T8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao
-(Advanced English for Academic
-Purposes) | 4 |  |  | 60 |  |
+| 3 | MA T8035 | Chuyên đề nâng cao về giải<br>phương trình toán tử<br>Advanced course on solution<br>methods for operator equations | 3 | 15 |  | 30 |  |
+| 4 | MA T8036 | Bài toán đặt không chỉnh phi<br>tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems<br>involving monotone operators | 3 | 15 |  | 30 |  |
+| 5 | MA T8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| I.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 6 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>(Advanced English for Academic<br>Purposes) | 4 |  |  | 60 |  |
 11
 
 <!-- Page 12 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-(Advanced Russian For
-Academic Purposes) | 4 |  |  | 60 |  |
-|  | FRE 8001 | Tiếng Pháp học thuật nâng cao
-(Advanced French For Academic
-Purposes) | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-(Advanced General For
-Academic Purposes) | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-(Advanced Chinese For
-Academic Purposes) | 4 |  |  | 60 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>(Advanced Russian For<br>Academic Purposes) | 4 |  |  | 60 |  |
+|  | FRE 8001 | Tiếng Pháp học thuật nâng cao<br>(Advanced French For Academic<br>Purposes) | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>(Advanced General For<br>Academic Purposes) | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>(Advanced Chinese For<br>Academic Purposes) | 4 |  |  | 60 |  |
 | I.3 | Các chuyên đề tiến sĩ |  | 6/27 |  |  |  |  |
-| 7 | MA T8036 | Bài toán đặt không chỉnh phi
-tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems
-involving monotone operators | 3 | 15 |  | 30 |  |
-| 8 | MA T8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| 9 | MA T8038 | Giải gần đúng phương trình vi
-phân nâng cao
-Advanced numerical methods for
-ordinary differential equations | 3 | 15 |  | 30 |  |
-| 10 | MA T8039 | Tối ưu toàn cục
-Global optimization | 3 | 15 |  | 30 |  |
-| 11 | MA T8040 | Các mô hình dự báo và tối ưu
-nâng cao trong lý thuyết đổi mới
-Advanced predictve and optimal
-models in Renewal theory | 3 | 15 |  | 30 |  |
-| 12 | MA T8041 | Quy hoạch phi tuyến nâng cao
-Advanced nonlinear
-mathematical programming | 3 | 15 |  | 30 |  |
-| 13 | MA T8042 | Phương pháp số giải bài toán
-điều khiển tối ưu | 3 | 15 |  | 30 |  |
+| 7 | MA T8036 | Bài toán đặt không chỉnh phi<br>tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems<br>involving monotone operators | 3 | 15 |  | 30 |  |
+| 8 | MA T8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| 9 | MA T8038 | Giải gần đúng phương trình vi<br>phân nâng cao<br>Advanced numerical methods for<br>ordinary differential equations | 3 | 15 |  | 30 |  |
+| 10 | MA T8039 | Tối ưu toàn cục<br>Global optimization | 3 | 15 |  | 30 |  |
+| 11 | MA T8040 | Các mô hình dự báo và tối ưu<br>nâng cao trong lý thuyết đổi mới<br>Advanced predictve and optimal<br>models in Renewal theory | 3 | 15 |  | 30 |  |
+| 12 | MA T8041 | Quy hoạch phi tuyến nâng cao<br>Advanced nonlinear<br>mathematical programming | 3 | 15 |  | 30 |  |
+| 13 | MA T8042 | Phương pháp số giải bài toán<br>điều khiển tối ưu | 3 | 15 |  | 30 |  |
 12
 
 <!-- Page 13 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | Numerical methods for optimal
-control problems |  |  |  |  |  |
-| 14 | MA T8043 | Phương pháp Monte-Carlo nâng
-cao trong giải tích số nhiều chiều
-Advanced course on Monte-
-Carlo methods in high-
-dimensional numerical analysis | 3 | 15 |  | 30 |  |
-| 15 | MA T8044 | Phương trình sai phân
-Difference equations | 3 | 15 |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | Numerical methods for optimal<br>control problems |  |  |  |  |  |
+| 14 | MA T8043 | Phương pháp Monte-Carlo nâng<br>cao trong giải tích số nhiều chiều<br>Advanced course on Monte-<br>Carlo methods in high-<br>dimensional numerical analysis | 3 | 15 |  | 30 |  |
+| 15 | MA T8044 | Phương trình sai phân<br>Difference equations | 3 | 15 |  | 30 |  |
 | I.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 16 | MA T8193 | Tiểu luận tổng quan
-Research Perspective Reportluận
-tổng quan | 2 |  |  | 30 |  |
-| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 16 | MA T8193 | Tiểu luận tổng quan<br>Research Perspective Reportluận<br>tổng quan | 2 |  |  | 30 |  |
+| II | PHẦN 2. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | III | PHẦN 3. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 17 | MA T9005 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 17 | MA T9005 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 91 |  |  |  |  |
 2.2. Khung chương trình dành cho NCS có bằng thạc sĩ ngành gần
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo
-thạc sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo<br>thạc sĩ) |  |  |  |  |  |  |
 | I.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 1 | M AT6028 | Cơ sở giải tích lồi
-Introduction to convex analysis | 3 | 45 |  |  |  |
-| 2 | M AT6029 | Phương pháp số giải phương
-trình vi phân
-Numerical methods for ordinary
-differential equations | 3 | 45 |  |  |  |
+| 1 | M AT6028 | Cơ sở giải tích lồi<br>Introduction to convex analysis | 3 | 45 |  |  |  |
+| 2 | M AT6029 | Phương pháp số giải phương<br>trình vi phân<br>Numerical methods for ordinary<br>differential equations | 3 | 45 |  |  |  |
 | I.2 | Tự chọn |  | 9/18 |  |  |  |  |
 13
 
 <!-- Page 14 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 3 | M AT6030 | Bài toán đặt không chỉnh
-Ill-posed problems | 3 | 45 |  |  |  |
-| 4 | M AT6031 | Giải phương trình toán tử
-Solving operator equations | 3 | 45 |  |  |  |
-| 5 | M AT6032 | Các mô hình dự báo và tối ưu
-trong lý thuyết đổi mới
-Prediction and optimization
-models in renewal theory | 3 | 45 |  |  |  |
-| 6 | M AT6033 | Quy hoạch phi tuyến
-Nonlinear mathematical
-programming | 3 | 45 |  |  |  |
-| 7 | M AT6034 | Mô hình toán kinh tế
-Models in mathematical finance | 3 | 45 |  |  |  |
-| 8 | M AT6035 | Phương pháp Monte-Carlo trong
-giải tích số nhiều chiều
-Monte-Carlo methods in
-multivariable numerical analysis | 3 | 45 |  |  |  |
-| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG
-QUAN |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 3 | M AT6030 | Bài toán đặt không chỉnh<br>Ill-posed problems | 3 | 45 |  |  |  |
+| 4 | M AT6031 | Giải phương trình toán tử<br>Solving operator equations | 3 | 45 |  |  |  |
+| 5 | M AT6032 | Các mô hình dự báo và tối ưu<br>trong lý thuyết đổi mới<br>Prediction and optimization<br>models in renewal theory | 3 | 45 |  |  |  |
+| 6 | M AT6033 | Quy hoạch phi tuyến<br>Nonlinear mathematical<br>programming | 3 | 45 |  |  |  |
+| 7 | M AT6034 | Mô hình toán kinh tế<br>Models in mathematical finance | 3 | 45 |  |  |  |
+| 8 | M AT6035 | Phương pháp Monte-Carlo trong<br>giải tích số nhiều chiều<br>Monte-Carlo methods in<br>multivariable numerical analysis | 3 | 45 |  |  |  |
+| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG<br>QUAN |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 9 | M AT8033 | Phương pháp số giải phương
-trình đạo hàm riêng
-Numerical methods for partial
-differential equations | 3 | 15 |  | 30 |  |
-| 10 | M AT8034 | Phương pháp số giải bài toán cực
-trị
-Numerical methods for extremal
-problems | 3 | 15 |  | 30 |  |
+| 9 | M AT8033 | Phương pháp số giải phương<br>trình đạo hàm riêng<br>Numerical methods for partial<br>differential equations | 3 | 15 |  | 30 |  |
+| 10 | M AT8034 | Phương pháp số giải bài toán cực<br>trị<br>Numerical methods for extremal<br>problems | 3 | 15 |  | 30 |  |
 | II.1.2 | Tự chọn |  | 3/9 |  |  |  |  |
-| 11 | M AT8035 | Chuyên đề nâng cao về giải
-phương trình toán tử
-Advanced course on solution
-methods for operator equations | 3 | 15 |  | 30 |  |
+| 11 | M AT8035 | Chuyên đề nâng cao về giải<br>phương trình toán tử<br>Advanced course on solution<br>methods for operator equations | 3 | 15 |  | 30 |  |
 | 12 | M AT8036 | Bài toán đặt không chỉnh phi | 3 | 15 |  | 30 |  |
 14
 
 <!-- Page 15 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-|  |  | tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems
-involving monotone operators |  |  |  |  |  |
-| 13 | M AT8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 14 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for Academic
-Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | FR E 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For Academic
-Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For Academic
-Purposes | 4 |  |  | 60 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+|  |  | tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems<br>involving monotone operators |  |  |  |  |  |
+| 13 | M AT8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 14 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | FR E 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For Academic<br>Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For Academic<br>Purposes | 4 |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/27 |  |  |  |  |
-| 15 | M AT8036 | Bài toán đặt không chỉnh phi
-tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems
-involving monotone operators | 3 | 15 |  | 30 |  |
-| 16 | M AT8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| 17 | M AT8038 | Giải gần đúng phương trình vi
-phân nâng cao
-Advanced numerical methods for
-ordinary differential equations | 3 | 15 |  | 30 |  |
+| 15 | M AT8036 | Bài toán đặt không chỉnh phi<br>tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems<br>involving monotone operators | 3 | 15 |  | 30 |  |
+| 16 | M AT8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| 17 | M AT8038 | Giải gần đúng phương trình vi<br>phân nâng cao<br>Advanced numerical methods for<br>ordinary differential equations | 3 | 15 |  | 30 |  |
 15
 
 <!-- Page 16 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| 18 | M AT8039 | Tối ưu toàn cục
-Global optimization | 3 | 15 |  | 30 |  |
-| 19 | M AT8040 | Các mô hình dự báo và tối ưu
-nâng cao trong lý thuyết đổi mới
-Advanced predictve and optimal
-models in Renewal theory | 3 | 15 |  | 30 |  |
-| 20 | M AT8041 | Quy hoạch phi tuyến nâng cao
-Advanced nonlinear
-mathematical programming | 3 | 15 |  | 30 |  |
-| 21 | M AT8042 | Phương pháp số giải bài toán
-điều khiển tối ưu
-Numerical methods for optimal
-control problems | 3 | 15 |  | 30 |  |
-| 22 | M AT8043 | Phương pháp Monte-Carlo nâng
-cao trong giải tích số nhiều chiều
-Advanced course on Monte-
-Carlo methods in high-
-dimensional numerical analysis | 3 | 15 |  | 30 |  |
-| 23 | M AT8044 | Phương trình sai phân
-Difference equations | 3 | 15 |  | 30 |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| 18 | M AT8039 | Tối ưu toàn cục<br>Global optimization | 3 | 15 |  | 30 |  |
+| 19 | M AT8040 | Các mô hình dự báo và tối ưu<br>nâng cao trong lý thuyết đổi mới<br>Advanced predictve and optimal<br>models in Renewal theory | 3 | 15 |  | 30 |  |
+| 20 | M AT8041 | Quy hoạch phi tuyến nâng cao<br>Advanced nonlinear<br>mathematical programming | 3 | 15 |  | 30 |  |
+| 21 | M AT8042 | Phương pháp số giải bài toán<br>điều khiển tối ưu<br>Numerical methods for optimal<br>control problems | 3 | 15 |  | 30 |  |
+| 22 | M AT8043 | Phương pháp Monte-Carlo nâng<br>cao trong giải tích số nhiều chiều<br>Advanced course on Monte-<br>Carlo methods in high-<br>dimensional numerical analysis | 3 | 15 |  | 30 |  |
+| 23 | M AT8044 | Phương trình sai phân<br>Difference equations | 3 | 15 |  | 30 |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-| 24 | M AT8193 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+| 24 | M AT8193 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 25 | M AT9005 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 25 | M AT9005 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 106 |  |  |  |  |
 2.3. Khung chương trình dành cho NCS chưa có bằng thạc sĩ
 16
 
 <!-- Page 17 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
-| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo
-thạc sĩ) |  |  |  |  |  |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
+| I | PHẦN 1. KHỐI KIẾN THỨC BỔ SUNG (các học phần của chương trình đào tạo<br>thạc sĩ) |  |  |  |  |  |  |
 | I.1 | Khối kiến thức chung |  | 6 |  |  |  |  |
-| 1 | C TP5001 | Triết học
-Philosophy | 2 |  |  |  |  |
-| 2 | EN G5001 | Tiếng Anh cơ bản
-General English | 4 |  |  |  |  |
+| 1 | C TP5001 | Triết học<br>Philosophy | 2 |  |  |  |  |
+| 2 | EN G5001 | Tiếng Anh cơ bản<br>General English | 4 |  |  |  |  |
 | I.2 | Khối kiến thức nhóm chuyên ngành |  | 15 |  |  |  |  |
 | I.2.1 | Bắt buộc |  | 9 |  |  |  |  |
-| 3 | EN G6001 | Tiếng Anh học thuật
-English for Academic Purposes | 3 |  |  |  |  |
-| 4 | M AT6001 | Lý thuyết nhóm và biểu diễn
-nhóm
-Group theory and group
-representations | 3 | 45 |  |  |  |
-| 5 | M AT6002 | Giải tích hàm nâng cao
-Advanced functional analysis | 3 | 45 |  |  |  |
+| 3 | EN G6001 | Tiếng Anh học thuật<br>English for Academic Purposes | 3 |  |  |  |  |
+| 4 | M AT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Group theory and group<br>representations | 3 | 45 |  |  |  |
+| 5 | M AT6002 | Giải tích hàm nâng cao<br>Advanced functional analysis | 3 | 45 |  |  |  |
 | I.2.2 | Tự chọn |  | 6/18 |  |  |  |  |
-| 6 | M AT6005 | Hình học vi phân
-Differential Geometry | 3 | 45 |  |  |  |
-| 7 | M AT6006 | Hình học đại số
-Algebraic Geometry | 3 | 45 |  |  |  |
-| 8 | M AT6007 | Bổ túc về đại số tuyến tính
-Advanced Linear Algebra | 3 | 45 |  |  |  |
-| 9 | M AT6008 | Độ đo và tích phân
-Measure and Integration | 3 | 45 |  |  |  |
-| 10 | M AT6009 | Giải tích trên đa tạp
-Analysis on Manifolds | 3 | 45 |  |  |  |
-| 11 | M AT6010 | Giải tích phức
-Complex Analysis | 3 | 45 |  |  |  |
+| 6 | M AT6005 | Hình học vi phân<br>Differential Geometry | 3 | 45 |  |  |  |
+| 7 | M AT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 |  |  |  |
+| 8 | M AT6007 | Bổ túc về đại số tuyến tính<br>Advanced Linear Algebra | 3 | 45 |  |  |  |
+| 9 | M AT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 45 |  |  |  |
+| 10 | M AT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 45 |  |  |  |
+| 11 | M AT6010 | Giải tích phức<br>Complex Analysis | 3 | 45 |  |  |  |
 | I.3 | Khối kiến thức chuyên ngành |  | 15 |  |  |  |  |
 | I.3.1 | Bắt buộc |  | 9 |  |  |  |  |
 | 12 | M AT6028 | Cơ sở giải tích lồi | 3 | 45 |  |  |  |
 17
 
 <!-- Page 18 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 |  |  | Introduction to convex analysis |  |  |  |  |  |
-| 13 | M AT6029 | Phương pháp số giải phương
-trình vi phân
-Numerical methods for ordinary
-differential equations | 3 | 45 |  |  |  |
-| 14 | M AT6030 | Bài toán đặt không chỉnh
-Ill-posed problems | 3 | 45 |  |  |  |
+| 13 | M AT6029 | Phương pháp số giải phương<br>trình vi phân<br>Numerical methods for ordinary<br>differential equations | 3 | 45 |  |  |  |
+| 14 | M AT6030 | Bài toán đặt không chỉnh<br>Ill-posed problems | 3 | 45 |  |  |  |
 | I.3.2 | Tự chọn |  | 6/15 |  |  |  |  |
-| 15 | M AT6031 | Giải phương trình toán tử
-Solving operator equations | 3 | 45 |  |  |  |
-| 16 | M AT6032 | Các mô hình dự báo và tối ưu
-trong lý thuyết đổi mới
-Prediction and optimization
-models in renewal theory | 3 | 45 |  |  |  |
-| 17 | M AT6033 | Quy hoạch phi tuyến
-Nonlinear mathematical
-programming | 3 | 45 |  |  |  |
-| 18 | M AT6034 | Mô hình toán kinh tế
-Models in mathematical finance | 3 | 45 |  |  |  |
-| 19 | M AT6035 | Phương pháp Monte-Carlo trong
-giải tích số nhiều chiều
-Monte-Carlo methods in
-multivariable numerical analysis | 3 | 45 |  |  |  |
-| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG
-QUAN |  |  |  |  |  |  |
+| 15 | M AT6031 | Giải phương trình toán tử<br>Solving operator equations | 3 | 45 |  |  |  |
+| 16 | M AT6032 | Các mô hình dự báo và tối ưu<br>trong lý thuyết đổi mới<br>Prediction and optimization<br>models in renewal theory | 3 | 45 |  |  |  |
+| 17 | M AT6033 | Quy hoạch phi tuyến<br>Nonlinear mathematical<br>programming | 3 | 45 |  |  |  |
+| 18 | M AT6034 | Mô hình toán kinh tế<br>Models in mathematical finance | 3 | 45 |  |  |  |
+| 19 | M AT6035 | Phương pháp Monte-Carlo trong<br>giải tích số nhiều chiều<br>Monte-Carlo methods in<br>multivariable numerical analysis | 3 | 45 |  |  |  |
+| II | PHẦN 2. CÁC HỌC PHẦN, CHUYÊN ĐỀ TIẾN SĨ VÀ TIỂU LUẬN TỔNG<br>QUAN |  |  |  |  |  |  |
 | II.1 | Các học phần tiến sĩ |  | 9 |  |  |  |  |
 | II.1.1 | Bắt buộc |  | 6 |  |  |  |  |
-| 20 | M AT8033 | Phương pháp số giải phương
-trình đạo hàm riêng
-Numerical methods for partial
-differential equations | 3 | 15 |  | 30 |  |
-| 21 | M AT8034 | Phương pháp số giải bài toán cực
-trị
-Numerical methods for extremal
-problems | 3 | 15 |  | 30 |  |
+| 20 | M AT8033 | Phương pháp số giải phương<br>trình đạo hàm riêng<br>Numerical methods for partial<br>differential equations | 3 | 15 |  | 30 |  |
+| 21 | M AT8034 | Phương pháp số giải bài toán cực<br>trị<br>Numerical methods for extremal<br>problems | 3 | 15 |  | 30 |  |
 18
 
 <!-- Page 19 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | II.1.1 | Tự chọn |  | 3/9 |  |  |  |  |
-| 22 | M AT8035 | Chuyên đề nâng cao về giải
-phương trình toán tử
-Advanced course on solution
-methods for operator equations | 3 | 15 |  | 30 |  |
-| 23 | M AT8036 | Bài toán đặt không chỉnh phi
-tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems
-involving monotone operators | 3 | 15 |  | 30 |  |
-| 24 | M AT8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong
-các thứ tiếng sau): |  | 4 |  |  |  |  |
-| 25 | ENG 8001 | Tiếng Anh học thuật nâng cao
-Advanced English for
-Academic Purposes | 4 |  |  | 60 |  |
-|  | RUS 8001 | Tiếng Nga học thuật nâng cao
-Advanced Russian For
-Academic Purposes | 4 |  |  | 60 |  |
-|  | FR E 8001 | Tiếng Pháp học thuật nâng cao
-Advanced French For
-Academic Purposes | 4 |  |  | 60 |  |
-|  | WES 8001 | Tiếng Đức học thuật nâng cao
-Advanced General For
-Academic Purposes | 4 |  |  | 60 |  |
-|  | CHI 8001 | Tiếng Trung học thuật nâng cao
-Advanced Chinese For
-Academic Purposes | 4 |  |  | 60 |  |
+| 22 | M AT8035 | Chuyên đề nâng cao về giải<br>phương trình toán tử<br>Advanced course on solution<br>methods for operator equations | 3 | 15 |  | 30 |  |
+| 23 | M AT8036 | Bài toán đặt không chỉnh phi<br>tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems<br>involving monotone operators | 3 | 15 |  | 30 |  |
+| 24 | M AT8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| II.2 | Ngoại ngữ học thuật nâng cao (chọn 1 trong<br>các thứ tiếng sau): |  | 4 |  |  |  |  |
+| 25 | ENG 8001 | Tiếng Anh học thuật nâng cao<br>Advanced English for<br>Academic Purposes | 4 |  |  | 60 |  |
+|  | RUS 8001 | Tiếng Nga học thuật nâng cao<br>Advanced Russian For<br>Academic Purposes | 4 |  |  | 60 |  |
+|  | FR E 8001 | Tiếng Pháp học thuật nâng cao<br>Advanced French For<br>Academic Purposes | 4 |  |  | 60 |  |
+|  | WES 8001 | Tiếng Đức học thuật nâng cao<br>Advanced General For<br>Academic Purposes | 4 |  |  | 60 |  |
+|  | CHI 8001 | Tiếng Trung học thuật nâng cao<br>Advanced Chinese For<br>Academic Purposes | 4 |  |  | 60 |  |
 | II.3 | Các chuyên đề tiến sĩ |  | 6/27 |  |  |  |  |
-| 26 | M AT8036 | Bài toán đặt không chỉnh phi
-tuyến với toán tử đơn điệu
-Nonlinear ill-posed problems | 3 | 15 |  | 30 |  |
+| 26 | M AT8036 | Bài toán đặt không chỉnh phi<br>tuyến với toán tử đơn điệu<br>Nonlinear ill-posed problems | 3 | 15 |  | 30 |  |
 19
 
 <!-- Page 20 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 |  |  | involving monotone operators |  |  |  |  |  |
-| 27 | M AT8037 | Phương pháp phần tử hữu hạn
-Finite element methods | 3 | 15 |  | 30 |  |
-| 28 | M AT8038 | Giải gần đúng phương trình vi
-phân nâng cao
-Advanced numerical methods for
-ordinary differential equations | 3 | 15 |  | 30 |  |
-| 29 | M AT8039 | Tối ưu toàn cục
-Global optimization | 3 | 15 |  | 30 |  |
-| 30 | M AT8040 | Các mô hình dự báo và tối ưu
-nâng cao trong lý thuyết đổi mới
-Advanced predictve and optimal
-models in Renewal theory | 3 | 15 |  | 30 |  |
-| 31 | M AT8041 | Quy hoạch phi tuyến nâng cao
-Advanced nonlinear
-mathematical programming | 3 | 15 |  | 30 |  |
-| 32 | M AT8042 | Phương pháp số giải bài toán
-điều khiển tối ưu
-Numerical methods for optimal
-control problems | 3 | 15 |  | 30 |  |
-| 33 | M AT8043 | Phương pháp Monte-Carlo nâng
-cao trong giải tích số nhiều chiều
-Advanced course on Monte-
-Carlo methods in high-
-dimensional numerical analysis | 3 | 15 |  | 30 |  |
-| 34 | M AT8044 | Phương trình sai phân
-Difference equations | 3 | 15 |  | 30 |  |
+| 27 | M AT8037 | Phương pháp phần tử hữu hạn<br>Finite element methods | 3 | 15 |  | 30 |  |
+| 28 | M AT8038 | Giải gần đúng phương trình vi<br>phân nâng cao<br>Advanced numerical methods for<br>ordinary differential equations | 3 | 15 |  | 30 |  |
+| 29 | M AT8039 | Tối ưu toàn cục<br>Global optimization | 3 | 15 |  | 30 |  |
+| 30 | M AT8040 | Các mô hình dự báo và tối ưu<br>nâng cao trong lý thuyết đổi mới<br>Advanced predictve and optimal<br>models in Renewal theory | 3 | 15 |  | 30 |  |
+| 31 | M AT8041 | Quy hoạch phi tuyến nâng cao<br>Advanced nonlinear<br>mathematical programming | 3 | 15 |  | 30 |  |
+| 32 | M AT8042 | Phương pháp số giải bài toán<br>điều khiển tối ưu<br>Numerical methods for optimal<br>control problems | 3 | 15 |  | 30 |  |
+| 33 | M AT8043 | Phương pháp Monte-Carlo nâng<br>cao trong giải tích số nhiều chiều<br>Advanced course on Monte-<br>Carlo methods in high-<br>dimensional numerical analysis | 3 | 15 |  | 30 |  |
+| 34 | M AT8044 | Phương trình sai phân<br>Difference equations | 3 | 15 |  | 30 |  |
 | II.4 | Tiểu luận tổng quan |  | 2 |  |  |  |  |
-|  | MAT8193 | Tiểu luận tổng quan
-Research Perspective Report | 2 |  |  | 30 |  |
-| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức
-triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí
-chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
+|  | MAT8193 | Tiểu luận tổng quan<br>Research Perspective Report | 2 |  |  | 30 |  |
+| III | PHẦN 3. NGHIÊN CỨU KHOA HỌC (NCS xây dựng kế hoạch nghiên cứu, tổ chức<br>triển khai và công bố các công trình nghiên cứu liên quan đến luận án trên các tạp chí<br>chuyên ngành dưới sự hướng dẫn của giáo viên hướng dẫn) |  |  |  |  |  |  |
 20
 
 <!-- Page 21 -->
-| STT | Mã số
-học phần | Tên học phần | Số
-tín
-chỉ | Số giờ tín chỉ |  |  | Mã số
-các
-học
-phần
-tiên
-quyết |
+| STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Lí
-thuyết | Thực
-hành | Tự
-học |  |
+|  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
 | IV | PHẦN 4. LUẬN ÁN TIẾN SĨ |  |  |  |  |  |  |
-| 35 | M AT9005 | Luận án tiến sĩ
-Ph.D thesis | 70 |  |  |  |  |
+| 35 | M AT9005 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 127 |  |  |  |  |
 CHỦ NHIỆM KT. HIỆU TRƢỞNG
 KHOA TOÁN – CƠ – TIN HỌC PHÓ HIỆU TRƢỞNG

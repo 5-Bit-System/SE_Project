@@ -6,7 +6,7 @@ import io
 
 import openpyxl
 
-from app.hus.cleaning import clean_text
+from app.hus.cleaning import format_markdown_table
 from app.hus.urls import CrawlError
 
 
@@ -21,25 +21,12 @@ def extract_excel(raw: bytes) -> str:
 
         for sheet_name in wb.sheetnames:
             ws = wb[sheet_name]
-            rows: list[list[str]] = []
-            for row in ws.iter_rows(values_only=True):
-                cells = [clean_text(str(c)).replace("|", "/") if c is not None else "" for c in row]
-                # Drop rows where all cells are empty
-                if any(cells):
-                    rows.append(cells)
-
-            if not rows:
+            raw_rows = [list(row) for row in ws.iter_rows(values_only=True)]
+            table_lines = format_markdown_table(raw_rows)
+            if not table_lines:
                 continue
 
-            sheet_lines = [f"## Sheet: {sheet_name}"]
-            col_count = max(len(r) for r in rows)
-            padded = [r + [""] * (col_count - len(r)) for r in rows]
-
-            sheet_lines.append("| " + " | ".join(padded[0]) + " |")
-            sheet_lines.append("|" + " --- |" * col_count)
-            for r in padded[1:]:
-                sheet_lines.append("| " + " | ".join(r) + " |")
-
+            sheet_lines = [f"## Sheet: {sheet_name}", *table_lines]
             sections.append("\n".join(sheet_lines))
 
         content = "\n\n".join(sections).strip()
