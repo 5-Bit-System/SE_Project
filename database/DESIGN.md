@@ -326,6 +326,7 @@ Hiện chưa lưu ngày bắt đầu/kết thúc đăng ký, lịch học hay l�
 | `curriculum_id` | `BIGINT` — FK → `curricula` | Sinh viên học theo CTĐT nào |
 | `admitted_year` | `INTEGER` | Năm nhập học |
 | `student_status` | `TEXT` | `studying`, `paused`, `graduated`, `withdrawn` |
+| `last_transcript_synced_at` | `TIMESTAMPTZ NULL`, không có default | Thời điểm đồng bộ bảng điểm thành công gần nhất; `NULL` nếu chưa đồng bộ |
 | `created_at` | `TIMESTAMPTZ` | Ngày tạo hồ sơ |
 
 Ví dụ: `students.student_code='99000005'` liên kết tài khoản cùng username `'99000005'`; trường `curriculum_id` dẫn tới CTĐT Khoa học dữ liệu `DEMO-2023`.
