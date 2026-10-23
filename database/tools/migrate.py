@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 from alembic.config import Config
+from dotenv import load_dotenv
 
 from alembic import command
 
@@ -21,6 +22,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Migrate the HUS database")
     parser.add_argument("action", choices=("upgrade", "current", "heads"))
     args = parser.parse_args()
+    # Resolve from this file, so configuration does not depend on the working directory.
+    # Explicit shell variables take precedence over the root .env file.
+    load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=False)
     cfg = config()
     if args.action == "upgrade":
         command.upgrade(cfg, "head")
