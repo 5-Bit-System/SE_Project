@@ -380,3 +380,16 @@ def test_metadata_change_creates_revision_without_changing_academic_rules(runtim
         )).all())
         assert active == second
     repository.ready()
+
+
+@pytest.mark.hus_postgres
+def test_transcript_sync_timestamp_is_nullable_without_default(runtime_engine):
+    """A newly migrated DB must not claim students have already synchronized."""
+    with runtime_engine.connect() as conn:
+        column = conn.execute(text("""
+            SELECT data_type, is_nullable, column_default
+            FROM information_schema.columns
+            WHERE table_schema = 'public' AND table_name = 'students'
+              AND column_name = 'last_transcript_synced_at'
+        """)).one()
+        assert tuple(column) == ('timestamp with time zone', 'YES', None)
