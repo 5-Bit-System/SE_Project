@@ -294,3 +294,13 @@ Trang có bảng `#ListHeader` trong `#divList2` chỉ chứa tiêu đề cột 
 trong `#divList3` chứa học kỳ, môn và tổng kết. Cả hai đều có ô mang
 `title="Mã môn học"`. Vì vậy phải giới hạn tìm kiếm trong `#divList3`,
 tránh chọn nhầm bảng tiêu đề.
+
+## Trường database cho bước đồng bộ tương lai
+
+`students.last_transcript_synced_at` (TIMESTAMPTZ, nullable, không có default)
+lưu thời điểm đồng bộ bảng điểm thành công gần nhất. `NULL` là chưa đồng bộ.
+Migration HUS: `hus_20261023_01`; xem `database/README.md` tại thư mục gốc.
+Luồng portal mới lưu snapshot riêng; client và CLI chưa ghi cột timestamp này. Khi bổ sung
+service lưu điểm, cập nhật timestamp cùng transaction lưu điểm thành công,
+kể cả không thay đổi điểm; không cập nhật khi lỗi. Số ngày đã qua được tính từ
+timestamp, ngưỡng nhắc cập nhật thuộc cấu hình ứng dụng.
