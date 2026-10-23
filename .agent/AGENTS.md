@@ -1005,3 +1005,14 @@ type, nullability and absent default. Historical baseline SQL is unchanged.
 The field supports future transcript synchronization; current portal trial only
 reads/prints data and does not persist transcripts or update this timestamp.
 
+## Local main integration — 2026-10-23
+
+User renamed the upstream target from codebase to main and requested pulling
+its updates into feat/login. Merged origin/main at 0b4b2fc; retained the newer
+portal connector/CLI and restored pre-merge uncommitted changes from stash.
+The local sync migration hus_20261023_01 and upstream portal migration
+hus_20261023_03 branch from the same baseline. A new merge revision
+hus_20261023_04 joins them without rewriting either applied history. Local
+readiness expects this head. No database migration or push was performed.
+Earlier claims that the CLI is only the original trial are superseded by main's
+portal integration. The transcript timestamp is still a separate local addition.
