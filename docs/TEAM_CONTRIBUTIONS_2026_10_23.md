@@ -32,13 +32,28 @@ They require separate functional review if requested. Because the source tip
 becomes an ancestor, Git will consider these historical changes merged; future
 adoption must explicitly restore/reapply and review the desired changes.
 
-## Crawler history pending
+## Crawler history
 
 The fetched crawler tip is `3a45aae`, with 53 commits not reachable from the
-starting main: 43 under `Thang`, and 10 under `Duong Van Tai`. Reconcile this
-history separately with the same explicit history-only scope. The crawler and
-RAG remain inactive; no crawl, trial-data restoration or corpus publication is
-authorized by this history task.
+starting main: 43 under `Thang`, and 10 under `Duong Van Tai`. This second
+history-only `ours` merge retains the original crawler tip as a merge parent,
+preserving all 53 original commits and authors. The current main tree is
+retained apart from this documentation and memory. The crawler and RAG remain
+inactive; no crawl, trial-data restoration or corpus publication occurs.
+The earlier candidate snapshot commit `1f95c3e` and retained local sources are
+historical evidence, not evidence of a production corpus or active serving.
+Future functional integration requires explicit reapplication and review of
+the desired crawler changes because Git will now consider this tip merged.
+
+## Pull requests and validation
+
+- Login: [PR #2](https://github.com/5-Bit-System/SE_Project/pull/2).
+- Crawler: a separate PR from `integration/crawler-history-20261023` to `main`.
+- Local offline regression: 398 passed, 39 deselected; one pre-existing
+  Starlette/httpx warning. Whole-repository Ruff and `git diff --check` passed.
+- Application, database, tests, tools, dependencies and CI files remain exactly
+  as at `0b4b2fc`. PostgreSQL checks are delegated to GitHub CI's synthetic
+  service databases; no local or production database is accessed.
 
 ## Attribution and scope
 

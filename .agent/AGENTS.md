@@ -13,6 +13,11 @@ scope; do not claim new source-branch features are functionally integrated.
 No new database migration, crawler activation, corpus publication, portal access
 or real data inspection. See docs/TEAM_CONTRIBUTIONS_2026_10_23.md. Functional
 changes skipped by the history merge need explicit review/reapplication later.
+Login history PR #2: https://github.com/5-Bit-System/SE_Project/pull/2.
+Crawler history is reconciled separately from integration/crawler-history-20261023.
+Local verification: 398 offline passed / 39 deselected, whole-repo Ruff passed,
+existing Starlette/httpx warning only. All runtime/source/dependency/CI files
+are unchanged from 0b4b2fc; only memory/contribution documentation changes.
 
 ## Session close and main publication — 2026-10-23
 
