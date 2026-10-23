@@ -60,3 +60,9 @@ Không tự dùng `DATABASE_URL` thay cho `HUS_DATABASE_URL` để tránh chọn
 `.venv` là thư mục môi trường Python, không phải file cấu hình. Với máy hiện tại,
 chạy bằng Conda `SE_Project`. Không cần lệnh `python -c` để nạp `.env` nữa.
 
+### Tích hợp main vào feat/login
+
+Migration `hus_20261023_04` gộp hai nhánh lịch sử: `hus_20261023_01`
+(thời điểm đồng bộ) và `hus_20261023_03` (portal). Không sửa revision đã có.
+Lệnh upgrade áp dụng phần còn thiếu từ nhánh nào đã chạy, rồi đến head duy nhất
+`hus_20261023_04`. Chưa áp dụng migration này vào database trong lần gộp mã.
