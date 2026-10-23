@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 122.%20TS%20Ph%C6%B0%C6%A1ng%20tr%C3%ACnh%20vi%20ph%C3%A2n%20v%C3%A0%20t%C3%ADch%20ph%C3%A2n%20CTDT%204936.pdf"
+title: "Tài liệu đính kèm: 122. TS Phương trình vi phân và tích phân CTDT 4936.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/122.%20TS%20Ph%C6%B0%C6%A1ng%20tr%C3%ACnh%20vi%20ph%C3%A2n%20v%C3%A0%20t%C3%ADch%20ph%C3%A2n%20CTDT%204936.pdf"
 publisher: "MIM"
 type: "curriculum"

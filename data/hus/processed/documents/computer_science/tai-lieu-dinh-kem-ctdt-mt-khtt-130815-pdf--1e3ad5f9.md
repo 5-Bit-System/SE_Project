@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: CTDT-MT%26KHTT-130815.pdf"
+title: "Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf"
 publisher: "MIM"
 type: "general_info"

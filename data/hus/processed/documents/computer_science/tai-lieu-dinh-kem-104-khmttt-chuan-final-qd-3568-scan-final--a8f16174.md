@@ -1,6 +1,6 @@
 ---
-title: "Tài liệu đính kèm: 104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final.pdf"
-url: "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final.pdf"
+title: "Tài liệu đính kèm: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203568%20Scan%20final.pdf"
 publisher: "MIM"
 type: "general_info"
 major: "computer_science"

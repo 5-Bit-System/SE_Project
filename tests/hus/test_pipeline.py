@@ -13,7 +13,7 @@ import pytest
 
 from app.hus.allowlist import Allowlist
 from app.hus.models import DocumentStatus, DocumentType, Publisher
-from app.hus.pipeline import CrawlSummary, HUSPipeline
+from app.hus.pipeline import CrawlSummary, HUSPipeline, _clean_attachment_filename
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from tools.migrate_catalog_majors import migrate_catalog
@@ -732,3 +732,78 @@ class TestHUSPipeline:
         assert catalog_path.read_bytes() == old_bytes
         assert migrate_catalog(catalog_path) == expected_stats
         assert json.loads(catalog_path.read_text(encoding="utf-8")) == before
+
+    def test_clean_attachment_filename_helper(self) -> None:
+        """Helper decodes URL-encoded characters, hex entities, and fixes mojibake."""
+        url1 = "https://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf"
+        assert _clean_attachment_filename(url1) == "4. KCTĐT-CLC MTKHTT 10082020_0.pdf"
+
+        url2 = (
+            "https://mim.hus.vnu.edu.vn/sites/default/files/"
+            "103.%20To%C3%83%C2%A1n%20tin-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203567%20Scan.pdf"
+        )
+        assert _clean_attachment_filename(url2) == "103. Toán tin-chuẩn final QD 3567 Scan.pdf"
+
+        url3 = "https://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx"
+        assert _clean_attachment_filename(url3) == "KHMTTT CĐR.docx"
+
+        # Plain filename without encoding remains unchanged
+        url4 = "https://mim.hus.vnu.edu.vn/sites/default/files/regular_document.pdf"
+        assert _clean_attachment_filename(url4) == "regular_document.pdf"
+
+    def test_attachment_url_encoded_title_decoded_in_pipeline(self, tmp_path: Path) -> None:
+        """Attachment URLs containing %20 and %C4%90 are decoded into clean Vietnamese titles."""
+        encoded_filename = "4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf"
+        decoded_filename = "4. KCTĐT-CLC MTKHTT 10082020_0.pdf"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            path = request.url.path
+            if path == "/robots.txt":
+                return httpx.Response(200, content=_ROBOTS_TXT)
+            if path == "/vi/dao-tao":
+                return httpx.Response(
+                    200,
+                    text=(
+                        '<article><h1>Đào tạo</h1>'
+                        f'<a href="/files/{encoded_filename}">Quy định</a>'
+                        '</article>'
+                    ),
+                    headers={"content-type": "text/html; charset=utf-8"},
+                )
+            if "KCT" in path:
+                return httpx.Response(
+                    200, content=_TINY_PDF, headers={"content-type": "application/pdf"}
+                )
+            return httpx.Response(404)
+
+        pipeline, _ = self._make_pipeline(tmp_path)
+        with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+            summary = pipeline.run(client=client, sleep=lambda _: None)
+
+        assert summary.error_count == 0
+        assert summary.attachment_count == 1
+
+        catalog_path = tmp_path / "processed" / "catalog.json"
+        data = json.loads(catalog_path.read_text(encoding="utf-8"))
+        att_docs = [
+            doc
+            for doc in data["documents"].values()
+            if doc["source_url"].endswith(encoded_filename)
+        ]
+        assert len(att_docs) == 1
+        att_doc = att_docs[0]
+        assert att_doc["title"] == f"Tài liệu đính kèm: {decoded_filename}"
+        assert "%20" not in att_doc["title"]
+        assert "%C4" not in att_doc["title"]
+
+        # Check saved markdown file has clean slug and clean title in frontmatter
+        md_files = list((tmp_path / "processed" / "documents").glob("*/*.md"))
+        att_md = [f for f in md_files if att_doc["document_id"][:8] in f.name]
+        assert len(att_md) == 1
+        md_path = att_md[0]
+        assert "4-kctdt-clc" in md_path.name
+        assert "%20" not in md_path.name
+        assert "-c4-90" not in md_path.name
+        content = md_path.read_text(encoding="utf-8")
+        assert f'title: "Tài liệu đính kèm: {decoded_filename}"' in content
+

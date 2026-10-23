@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+title: "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
 publisher: "MIM"
 type: "curriculum"

@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: KHMTTT%20C%C4%90R.docx"
+title: "Tài liệu đính kèm: KHMTTT CĐR.docx"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx"
 publisher: "MIM"
 type: "curriculum"

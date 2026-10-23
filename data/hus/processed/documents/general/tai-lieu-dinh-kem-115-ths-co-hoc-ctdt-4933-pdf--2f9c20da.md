@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf"
+title: "Tài liệu đính kèm: 115. ThS Cơ học CTDT 4933.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf"
 publisher: "MIM"
 type: "curriculum"

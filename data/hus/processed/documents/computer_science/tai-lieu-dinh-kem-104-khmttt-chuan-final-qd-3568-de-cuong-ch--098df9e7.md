@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568_%C4%90%E1%BB%81%20c%C6%B0%C6%A1ng%20chi%20ti%E1%BA%BFt.pdf"
+title: "Tài liệu đính kèm: 104.-KHMTTT-chuẩn final QD 3568_Đề cương chi tiết.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568_%C4%90%E1%BB%81%20c%C6%B0%C6%A1ng%20chi%20ti%E1%BA%BFt.pdf"
 publisher: "MIM"
 type: "curriculum"

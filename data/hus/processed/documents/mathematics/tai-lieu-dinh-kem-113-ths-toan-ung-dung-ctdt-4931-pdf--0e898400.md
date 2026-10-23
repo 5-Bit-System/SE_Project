@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf"
+title: "Tài liệu đính kèm: 113. ThS Toán ứng dụng CTDT 4931.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf"
 publisher: "MIM"
 type: "curriculum"

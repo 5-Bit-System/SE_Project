@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 112.%20ThS%20Ph%C6%B0%C6%A1ng%20ph%C3%A1p%20to%C3%A1n%20s%C6%A1%20c%E1%BA%A5p%20CTDT%204930.pdf"
+title: "Tài liệu đính kèm: 112. ThS Phương pháp toán sơ cấp CTDT 4930.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/112.%20ThS%20Ph%C6%B0%C6%A1ng%20ph%C3%A1p%20to%C3%A1n%20s%C6%A1%20c%E1%BA%A5p%20CTDT%204930.pdf"
 publisher: "MIM"
 type: "curriculum"

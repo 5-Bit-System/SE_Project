@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: 111.%20ThS%20To%C3%A1n%20h%E1%BB%8Dc%20CTDT%204929.pdf"
+title: "Tài liệu đính kèm: 111. ThS Toán học CTDT 4929.pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/111.%20ThS%20To%C3%A1n%20h%E1%BB%8Dc%20CTDT%204929.pdf"
 publisher: "MIM"
 type: "curriculum"

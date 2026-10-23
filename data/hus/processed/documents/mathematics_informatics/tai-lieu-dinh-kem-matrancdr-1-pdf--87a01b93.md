@@ -1,5 +1,5 @@
 ---
-title: "Tài liệu đính kèm: MaTranCDR%20%281%29.pdf"
+title: "Tài liệu đính kèm: MaTranCDR (1).pdf"
 url: "http://mim.hus.vnu.edu.vn/sites/default/files/MaTranCDR%20%281%29.pdf"
 publisher: "MIM"
 type: "curriculum"

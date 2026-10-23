@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import hashlib
 from pathlib import Path
 import time
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 import httpx
 
@@ -35,6 +35,20 @@ class CrawlSummary:
     failures: dict[str, str] = field(default_factory=dict)
     skipped_attachment_count: int = 0
     skipped_attachments: dict[str, str] = field(default_factory=dict)
+
+
+def _clean_attachment_filename(url_or_path: str) -> str:
+    raw_name = Path(urlsplit(url_or_path).path).name or "attachment"
+    decoded = unquote(raw_name)
+    if "%" in decoded:
+        decoded = unquote(decoded)
+    try:
+        fixed = decoded.encode("latin1").decode("utf-8")
+        if fixed:
+            decoded = fixed
+    except Exception:
+        pass
+    return decoded
 
 
 class HUSPipeline:
@@ -245,7 +259,7 @@ class HUSPipeline:
                         continue
 
                     ext = urlsplit(att_final).path.split(".")[-1].lower() if "." in att_final else "bin"
-                    att_filename = Path(urlsplit(att_final).path).name or "attachment"
+                    att_filename = _clean_attachment_filename(att_final)
 
                     # Extract attachment content
                     try:
