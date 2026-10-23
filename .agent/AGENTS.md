@@ -993,3 +993,15 @@ Historical session details and prior validation counts remain in [the archived h
 ## Cleanup - 2026-10-22
 
 User requested project-toolkit cleanup. Removed unused `database/hus_db/schema.py` (no import/reference; actual HUS DDL remains in migrations), 33 disposable rendered PDF PNGs, the inactive cutover test Chrome profile, and 29 project cache directories: 524 generated files, about 54 MiB. Original PDFs, OCR TXT/TSV, CSV/JUnit evidence, database dumps, legacy migration snapshots and local toolkit were preserved. Fresh combined run after code/artifact deletion: 337 passed, no skipped cases, Ruff passed; JUnit `backups/catalog_acceptance_20261022/cleanup-regression.xml`. No commit/push or runtime publication.
+
+## Session update — 2026-10-23
+
+The HUS migration head in code is now `hus_20261023_01`, adding nullable
+`students.last_transcript_synced_at` (TIMESTAMPTZ, no default). Repository readiness
+and catalog publisher expect this head. Apply through `database.tools.migrate`;
+this source change alone does not confirm the running database was migrated.
+The migration accepts an already manually added column only with the matching
+type, nullability and absent default. Historical baseline SQL is unchanged.
+The field supports future transcript synchronization; current portal trial only
+reads/prints data and does not persist transcripts or update this timestamp.
+
