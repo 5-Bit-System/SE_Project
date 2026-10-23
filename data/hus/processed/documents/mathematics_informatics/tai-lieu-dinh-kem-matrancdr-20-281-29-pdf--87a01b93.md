@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: MaTranCDR%20%281%29.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/MaTranCDR%20%281%29.pdf
-publisher: MIM
-type: curriculum
-major: mathematics_informatics
+title: "Tài liệu đính kèm: MaTranCDR%20%281%29.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/MaTranCDR%20%281%29.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

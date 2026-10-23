@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KTS.HHTP.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KTS.HHTP.pdf
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Tài liệu đính kèm: KTS.HHTP.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.HHTP.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

@@ -1,9 +1,9 @@
 ---
-title: Bộ môn Cơ học
-url: http://mim.hus.vnu.edu.vn/vi/cohoc
-publisher: MIM
-type: form
-major: general
+title: "Bộ môn Cơ học"
+url: "http://mim.hus.vnu.edu.vn/vi/cohoc"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 Trưởng đơn vị:

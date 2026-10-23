@@ -1,9 +1,9 @@
 ---
-title: Các lĩnh vực nghiên cứu chính
-url: http://mim.hus.vnu.edu.vn/vi/nghiencuuchinh
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Các lĩnh vực nghiên cứu chính"
+url: "http://mim.hus.vnu.edu.vn/vi/nghiencuuchinh"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 - [Bộ môn Đại số - Hình học - Tôpô](https://mim.hus.vnu.edu.vn/vi/ds-hh-tp)

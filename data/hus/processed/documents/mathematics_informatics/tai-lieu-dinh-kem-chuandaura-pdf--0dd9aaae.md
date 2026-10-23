@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: ChuanDauRa.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/ChuanDauRa.pdf
-publisher: MIM
-type: curriculum
-major: mathematics_informatics
+title: "Tài liệu đính kèm: ChuanDauRa.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/ChuanDauRa.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

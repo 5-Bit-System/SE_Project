@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 20260531220816-3phu-luc-3-hddkxt-dhcq-2026.pdf
-url: https://hus.vnu.edu.vn/DATA/IMAGES/2026/05/20260531220816-3phu-luc-3-hddkxt-dhcq-2026.pdf
-publisher: TUYENSINH
-type: general_info
-major: general
+title: "Tài liệu đính kèm: 20260531220816-3phu-luc-3-hddkxt-dhcq-2026.pdf"
+url: "https://hus.vnu.edu.vn/DATA/IMAGES/2026/05/20260531220816-3phu-luc-3-hddkxt-dhcq-2026.pdf"
+publisher: "TUYENSINH"
+type: "general_info"
+major: "general"
 ---
 
 <!-- Page 1 -->

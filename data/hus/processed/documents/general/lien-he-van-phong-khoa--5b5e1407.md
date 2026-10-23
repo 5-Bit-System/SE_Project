@@ -1,9 +1,9 @@
 ---
-title: Liên hệ - Văn phòng Khoa
-url: http://mim.hus.vnu.edu.vn/vi/lienhe
-publisher: MIM
-type: general_info
-major: general
+title: "Liên hệ - Văn phòng Khoa"
+url: "http://mim.hus.vnu.edu.vn/vi/lienhe"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Ban lãnh đạo Khoa:

@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: CTDT-MT%26KHTT-130815.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf
-publisher: MIM
-type: general_info
-major: computer_science
+title: "Tài liệu đính kèm: CTDT-MT%26KHTT-130815.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "computer_science"
 ---
 
 <!-- Page 1 -->

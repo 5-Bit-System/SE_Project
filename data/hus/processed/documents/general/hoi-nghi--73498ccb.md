@@ -1,9 +1,9 @@
 ---
-title: Hội nghị
-url: http://mim.hus.vnu.edu.vn/vi/conference
-publisher: MIM
-type: form
-major: general
+title: "Hội nghị"
+url: "http://mim.hus.vnu.edu.vn/vi/conference"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/conference)

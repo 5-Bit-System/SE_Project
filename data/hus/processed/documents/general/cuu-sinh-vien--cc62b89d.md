@@ -1,9 +1,9 @@
 ---
-title: Cựu sinh viên
-url: http://mim.hus.vnu.edu.vn/vi/cuusinhvien
-publisher: MIM
-type: general_info
-major: general
+title: "Cựu sinh viên"
+url: "http://mim.hus.vnu.edu.vn/vi/cuusinhvien"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Thống kê số lượng sinh viên các khoá

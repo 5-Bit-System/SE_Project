@@ -1,9 +1,9 @@
 ---
-title: Các nguồn tài trợ
-url: http://mim.hus.vnu.edu.vn/vi/nguontaitro
-publisher: MIM
-type: form
-major: general
+title: "Các nguồn tài trợ"
+url: "http://mim.hus.vnu.edu.vn/vi/nguontaitro"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/nguontaitro)

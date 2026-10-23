@@ -1,9 +1,9 @@
 ---
-title: Sứ mệnh & Tầm nhìn
-url: http://mim.hus.vnu.edu.vn/vi/content/s%E1%BB%A9-m%E1%BB%87nh-t%E1%BA%A7m-nh%C3%ACn
-publisher: MIM
-type: curriculum
-major: general
+title: "Sứ mệnh & Tầm nhìn"
+url: "http://mim.hus.vnu.edu.vn/vi/content/s%E1%BB%A9-m%E1%BB%87nh-t%E1%BA%A7m-nh%C3%ACn"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 Sứ mệnh và tầm nhìn của Khoa Toán - Cơ – Tin học:

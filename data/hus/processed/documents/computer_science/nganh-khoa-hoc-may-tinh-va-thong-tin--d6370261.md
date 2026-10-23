@@ -1,9 +1,9 @@
 ---
-title: Ngành Khoa học máy tính và thông tin
-url: http://mim.hus.vnu.edu.vn/vi/khmt-tt
-publisher: MIM
-type: curriculum
-major: computer_science
+title: "Ngành Khoa học máy tính và thông tin"
+url: "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+publisher: "MIM"
+type: "curriculum"
+major: "computer_science"
 ---
 
 Chương trình đào tạo Khoa học máy tính và thông tin là chương trình đào tạo trình độ đại học, bắt đầu được tuyển sinh từ năm 2012.

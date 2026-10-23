@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 04_De_cuong_chi_tiet_ToanTin_2021.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf
-publisher: MIM
-type: curriculum
-major: mathematics_informatics
+title: "Tài liệu đính kèm: 04_De_cuong_chi_tiet_ToanTin_2021.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

@@ -1,9 +1,9 @@
 ---
-title: Lịch sử phát triển
-url: http://mim.hus.vnu.edu.vn/vi/lichsupt
-publisher: MIM
-type: form
-major: mathematics
+title: "Lịch sử phát triển"
+url: "http://mim.hus.vnu.edu.vn/vi/lichsupt"
+publisher: "MIM"
+type: "form"
+major: "mathematics"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/lichsupt)

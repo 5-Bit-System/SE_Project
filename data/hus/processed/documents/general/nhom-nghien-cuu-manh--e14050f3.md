@@ -1,9 +1,9 @@
 ---
-title: Nhóm nghiên cứu mạnh
-url: http://mim.hus.vnu.edu.vn/vi/nhomncmanh
-publisher: MIM
-type: general_info
-major: general
+title: "Nhóm nghiên cứu mạnh"
+url: "http://mim.hus.vnu.edu.vn/vi/nhomncmanh"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Nhóm nghiên cứu Tôpô đại số, trưởng nhóm: [GS. TSKH. Nguyễn Hữu Việt Hưng](https://mim.hus.vnu.edu.vn/canbo/nhvhung)

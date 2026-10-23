@@ -62,7 +62,7 @@ def test_processed_storage_atomic_commit(tmp_path: Path):
     assert md_file.exists()
     content = md_file.read_text(encoding="utf-8")
     assert "# Điều 1: Tín chỉ" in content
-    assert "major: general" in content
+    assert 'major: "general"' in content
 
     # Before commit, catalog.json might not exist
     storage.commit()
@@ -131,12 +131,73 @@ def test_hierarchical_storage_and_metadata_header(tmp_path: Path):
     content = md_path.read_text(encoding="utf-8")
     expected_header = (
         "---\n"
-        "title: Chương trình Toán - Tin\n"
-        "url: https://mim.hus.vnu.edu.vn/vi/toan-tin\n"
-        "publisher: MIM\n"
-        "type: curriculum\n"
-        "major: mathematics_informatics\n"
+        'title: "Chương trình Toán - Tin"\n'
+        'url: "https://mim.hus.vnu.edu.vn/vi/toan-tin"\n'
+        'publisher: "MIM"\n'
+        'type: "curriculum"\n'
+        'major: "mathematics_informatics"\n'
         "---\n\n"
     )
     assert content.startswith(expected_header)
     assert "Nội dung chương trình đào tạo" in content
+
+
+def test_frontmatter_safely_quotes_titles_with_colons(tmp_path: Path):
+    processed_storage = ProcessedStorage(tmp_path)
+    title_with_colon = "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf"
+    doc = HUSDocument(
+        url="https://mim.hus.vnu.edu.vn/files/kct.pdf",
+        title=title_with_colon,
+        content="Nội dung đính kèm...",
+        content_hash="hash_colon_123",
+        fetched_at="2026-10-23T00:00:00Z",
+        major=MajorCategory.COMPUTER_SCIENCE,
+        document_type=DocumentType.GENERAL_INFO,
+        publisher=Publisher.MIM,
+    )
+    doc_id = processed_storage.save_document(doc)
+    md_files = list((tmp_path / "processed" / "documents").rglob("*.md"))
+    assert len(md_files) == 1
+    content = md_files[0].read_text(encoding="utf-8")
+
+    # Verify header starts and ends with YAML delimiters
+    assert content.startswith("---\n")
+    parts = content.split("---\n")
+    assert len(parts) >= 3
+    frontmatter_text = parts[1]
+
+    # Parse key-values from frontmatter and verify mapping is intact without broken syntax
+    parsed_meta = {}
+    for line in frontmatter_text.strip().split("\n"):
+        assert ": " in line
+        key, raw_val = line.split(": ", 1)
+        assert raw_val.startswith('"') and raw_val.endswith('"')
+        parsed_meta[key] = json.loads(raw_val)
+
+    assert parsed_meta["title"] == title_with_colon
+    assert parsed_meta["url"] == "https://mim.hus.vnu.edu.vn/files/kct.pdf"
+    assert parsed_meta["publisher"] == "MIM"
+    assert parsed_meta["type"] == "general_info"
+    assert parsed_meta["major"] == "computer_science"
+
+
+def test_existing_processed_markdown_files_frontmatter():
+    doc_dir = Path("data/hus/processed/documents")
+    if not doc_dir.exists():
+        return
+    files = list(doc_dir.rglob("*.md"))
+    assert len(files) == 106
+    for f in files:
+        text = f.read_text(encoding="utf-8")
+        assert text.startswith("---\n"), f"{f.name} missing frontmatter start"
+        assert "\n---\n\n" in text, f"{f.name} missing frontmatter delimiter"
+        header, body = text[4:].split("\n---\n\n", 1)
+        meta = {}
+        for line in header.split("\n"):
+            assert ": " in line, f"Invalid frontmatter line in {f.name}: {line}"
+            k, v = line.split(": ", 1)
+            assert v.startswith('"') and v.endswith('"'), f"Value not quoted in {f.name}: {line}"
+            meta[k] = json.loads(v)
+        assert set(meta.keys()) == {"title", "url", "publisher", "type", "major"}
+
+

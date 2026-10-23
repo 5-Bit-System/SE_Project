@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 125.%20TS%20L%C3%BD%20thuy%E1%BA%BFt%20x%C3%A1c%20su%E1%BA%A5t%20v%C3%A0%20th%E1%BB%91ng%20k%C3%AA%20to%C3%A1n%20h%E1%BB%8Dc%20CTDT%204939.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/125.%20TS%20L%C3%BD%20thuy%E1%BA%BFt%20x%C3%A1c%20su%E1%BA%A5t%20v%C3%A0%20th%E1%BB%91ng%20k%C3%AA%20to%C3%A1n%20h%E1%BB%8Dc%20CTDT%204939.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: 125.%20TS%20L%C3%BD%20thuy%E1%BA%BFt%20x%C3%A1c%20su%E1%BA%A5t%20v%C3%A0%20th%E1%BB%91ng%20k%C3%AA%20to%C3%A1n%20h%E1%BB%8Dc%20CTDT%204939.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/125.%20TS%20L%C3%BD%20thuy%E1%BA%BFt%20x%C3%A1c%20su%E1%BA%A5t%20v%C3%A0%20th%E1%BB%91ng%20k%C3%AA%20to%C3%A1n%20h%E1%BB%8Dc%20CTDT%204939.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

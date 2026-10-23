@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KCTThS.ToanUngDung.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.ToanUngDung.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: KCTThS.ToanUngDung.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.ToanUngDung.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

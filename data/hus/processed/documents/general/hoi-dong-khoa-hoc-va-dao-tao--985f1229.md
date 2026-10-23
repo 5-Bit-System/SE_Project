@@ -1,9 +1,9 @@
 ---
-title: Hội đồng khoa học và đào tạo
-url: http://mim.hus.vnu.edu.vn/vi/hoidongkhoahoc
-publisher: MIM
-type: general_info
-major: general
+title: "Hội đồng khoa học và đào tạo"
+url: "http://mim.hus.vnu.edu.vn/vi/hoidongkhoahoc"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Danh sách Hội đồng Khoa học và Đào tạo Khoa Toán - Cơ - Tin học nhiệm kì 2020-2025 (cập nhật 8/2023):

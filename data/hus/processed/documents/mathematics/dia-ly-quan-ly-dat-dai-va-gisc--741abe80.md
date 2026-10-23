@@ -1,9 +1,9 @@
 ---
-title: Địa lý, Quản lý đất đai và GISc
-url: https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-ly
-publisher: HUS
-type: general_info
-major: mathematics
+title: "Địa lý, Quản lý đất đai và GISc"
+url: "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-ly"
+publisher: "HUS"
+type: "general_info"
+major: "mathematics"
 ---
 
 Bậc đại học

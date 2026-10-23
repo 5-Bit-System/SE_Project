@@ -1,9 +1,9 @@
 ---
-title: bậc đào tạo
-url: https://tuyensinh.hus.vnu.edu.vn/dai-hoc
-publisher: TUYENSINH
-type: general_info
-major: general
+title: "bậc đào tạo"
+url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"
+publisher: "TUYENSINH"
+type: "general_info"
+major: "general"
 ---
 
 # bậc đào tạo

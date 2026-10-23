@@ -1,9 +1,9 @@
 ---
-title: Liên kết
-url: http://mim.hus.vnu.edu.vn/vi/lk
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Liên kết"
+url: "http://mim.hus.vnu.edu.vn/vi/lk"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 Một số viện nghiên cứu và hiệp hội

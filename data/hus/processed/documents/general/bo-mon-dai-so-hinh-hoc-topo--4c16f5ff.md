@@ -1,9 +1,9 @@
 ---
-title: Bộ môn Đại số - Hình học - Tôpô
-url: http://mim.hus.vnu.edu.vn/vi/ds-hh-tp
-publisher: MIM
-type: form
-major: general
+title: "Bộ môn Đại số - Hình học - Tôpô"
+url: "http://mim.hus.vnu.edu.vn/vi/ds-hh-tp"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 Trưởng đơn vị:

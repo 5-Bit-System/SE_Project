@@ -1,9 +1,9 @@
 ---
-title: Cơ hội học bổng
-url: http://mim.hus.vnu.edu.vn/vi/scholarships
-publisher: MIM
-type: form
-major: mathematics
+title: "Cơ hội học bổng"
+url: "http://mim.hus.vnu.edu.vn/vi/scholarships"
+publisher: "MIM"
+type: "form"
+major: "mathematics"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/scholarships)

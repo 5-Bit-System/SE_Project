@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KTS.CHCL.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHCL.pdf
-publisher: MIM
-type: general_info
-major: general
+title: "Tài liệu đính kèm: KTS.CHCL.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHCL.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 <!-- Page 1 -->

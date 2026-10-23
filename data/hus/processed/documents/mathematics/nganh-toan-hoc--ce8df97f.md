@@ -1,9 +1,9 @@
 ---
-title: Ngành Toán học
-url: http://mim.hus.vnu.edu.vn/vi/toanhoc
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Ngành Toán học"
+url: "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học, 7 chuyên ngành đào tạo thạc sĩ và 7 chuyên ngành đào tạo tiến sĩ (bấm vào đây để xem thông tin về các chương trình đào tạo [thạc sĩ](https://mim.hus.vnu.edu.vn/vi/ctdtthacsi) và [tiến sĩ](https://mim.hus.vnu.edu.vn/vi/ctdttiensi)).

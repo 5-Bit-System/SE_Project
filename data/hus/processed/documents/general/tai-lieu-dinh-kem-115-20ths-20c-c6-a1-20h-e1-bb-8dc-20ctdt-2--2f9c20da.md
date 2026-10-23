@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf
-publisher: MIM
-type: curriculum
-major: general
+title: "Tài liệu đính kèm: 115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 <!-- Page 1 -->

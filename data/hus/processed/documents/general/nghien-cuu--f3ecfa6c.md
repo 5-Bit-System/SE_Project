@@ -1,9 +1,9 @@
 ---
-title: Nghiên cứu
-url: http://mim.hus.vnu.edu.vn/vi/nghiencuu
-publisher: MIM
-type: general_info
-major: general
+title: "Nghiên cứu"
+url: "http://mim.hus.vnu.edu.vn/vi/nghiencuu"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Công tác nghiên cứu khoa học ở Khoa Toán - Cơ - Tin học không ngừng được đẩy mạnh, đặc biệt trong giai đoạn hiện nay vì mục tiêu xây dựng đại học nghiên cứu tiên tiến. Quan hệ hợp tác trong nước và quốc tế được tăng cường. Đã hình thành những nhóm nghiên cứu mạnh về Tôpô Đại số, Phương trình vi phân, Giải tích số, Xác suất - Thống kê... với nhiều công trình khoa học được công bố trên các tạp chí uy tín quốc tế.

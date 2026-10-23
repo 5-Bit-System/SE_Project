@@ -1,9 +1,9 @@
 ---
-title: Cơ hội việc làm
-url: http://mim.hus.vnu.edu.vn/vi/cohoivieclam
-publisher: MIM
-type: general_info
-major: general
+title: "Cơ hội việc làm"
+url: "http://mim.hus.vnu.edu.vn/vi/cohoivieclam"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp

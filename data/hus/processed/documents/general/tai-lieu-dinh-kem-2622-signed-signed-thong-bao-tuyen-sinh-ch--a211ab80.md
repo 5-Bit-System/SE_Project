@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 2622_signed.signed.thong-bao-tuyen-sinh-chuong-trinh-vnu-12-plus_hus_final.signed.pdf
-url: https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2024/08/2622_signed.signed.thong-bao-tuyen-sinh-chuong-trinh-vnu-12-plus_hus_final.signed.pdf
-publisher: TUYENSINH
-type: announcement
-major: general
+title: "Tài liệu đính kèm: 2622_signed.signed.thong-bao-tuyen-sinh-chuong-trinh-vnu-12-plus_hus_final.signed.pdf"
+url: "https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2024/08/2622_signed.signed.thong-bao-tuyen-sinh-chuong-trinh-vnu-12-plus_hus_final.signed.pdf"
+publisher: "TUYENSINH"
+type: "announcement"
+major: "general"
 ---
 
 <!-- Page 1 -->

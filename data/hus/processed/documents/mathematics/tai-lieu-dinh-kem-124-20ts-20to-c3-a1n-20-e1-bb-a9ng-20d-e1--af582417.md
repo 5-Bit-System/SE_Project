@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 124.%20TS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204938.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/124.%20TS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204938.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: 124.%20TS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204938.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/124.%20TS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204938.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: Exh01.02.06%20Ma%20tr%E1%BA%ADn%20C%C4%90R%202023.docx
-url: http://mim.hus.vnu.edu.vn/sites/default/files/Exh01.02.06%20Ma%20tr%E1%BA%ADn%20C%C4%90R%202023.docx
-publisher: MIM
-type: curriculum
-major: computer_science
+title: "Tài liệu đính kèm: Exh01.02.06%20Ma%20tr%E1%BA%ADn%20C%C4%90R%202023.docx"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/Exh01.02.06%20Ma%20tr%E1%BA%ADn%20C%C4%90R%202023.docx"
+publisher: "MIM"
+type: "curriculum"
+major: "computer_science"
 ---
 
 6. Ma trận chuẩn đầu ra

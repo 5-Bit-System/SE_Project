@@ -1,9 +1,9 @@
 ---
-title: Quản lý, Công nghệ Tài nguyên môi trường và Địa chất
-url: https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-chat
-publisher: HUS
-type: general_info
-major: mathematics
+title: "Quản lý, Công nghệ Tài nguyên môi trường và Địa chất"
+url: "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-chat"
+publisher: "HUS"
+type: "general_info"
+major: "mathematics"
 ---
 
 Bậc đại học

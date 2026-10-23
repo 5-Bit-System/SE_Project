@@ -1,9 +1,9 @@
 ---
-title: Bộ môn Toán học tính toán - Toán ứng dụng
-url: http://mim.hus.vnu.edu.vn/vi/thtt-tud
-publisher: MIM
-type: form
-major: mathematics
+title: "Bộ môn Toán học tính toán - Toán ứng dụng"
+url: "http://mim.hus.vnu.edu.vn/vi/thtt-tud"
+publisher: "MIM"
+type: "form"
+major: "mathematics"
 ---
 
 Trưởng đơn vị:

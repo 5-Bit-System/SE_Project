@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: CTDT-Toanhoc-130815.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Tài liệu đính kèm: CTDT-Toanhoc-130815.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

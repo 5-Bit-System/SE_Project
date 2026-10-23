@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: CurriculumMap-vn.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/CurriculumMap-vn.pdf
-publisher: MIM
-type: general_info
-major: mathematics_informatics
+title: "Tài liệu đính kèm: CurriculumMap-vn.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/CurriculumMap-vn.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

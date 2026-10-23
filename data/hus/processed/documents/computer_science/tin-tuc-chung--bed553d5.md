@@ -1,9 +1,9 @@
 ---
-title: Tin tức chung
-url: http://mim.hus.vnu.edu.vn/vi/generalnews
-publisher: MIM
-type: form
-major: computer_science
+title: "Tin tức chung"
+url: "http://mim.hus.vnu.edu.vn/vi/generalnews"
+publisher: "MIM"
+type: "form"
+major: "computer_science"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/generalnews)

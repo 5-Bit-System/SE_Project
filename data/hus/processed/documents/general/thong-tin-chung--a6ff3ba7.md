@@ -1,9 +1,9 @@
 ---
-title: Thông tin chung
-url: http://mim.hus.vnu.edu.vn/vi/tuyensinh
-publisher: MIM
-type: curriculum
-major: general
+title: "Thông tin chung"
+url: "http://mim.hus.vnu.edu.vn/vi/tuyensinh"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 Khoa Toán - Cơ - Tin học tuyển sinh 4 ngành đào tạo trình độ đại học, 10 chuyên ngành đào tạo trình độ thạc sĩ, 9 chuyên ngành đào tạo trình độ tiến sĩ (bấm vào đây để xem thông tin tuyển sinh các chương trình đào tạo [thạc sĩ](https://mim.hus.vnu.edu.vn/mim-hus/vi/ctdtthacsi) và [tiến sĩ](https://mim.hus.vnu.edu.vn/mim-hus/vi/ctdttiensi)).

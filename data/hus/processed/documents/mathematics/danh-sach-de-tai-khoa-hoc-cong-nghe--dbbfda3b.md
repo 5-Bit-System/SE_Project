@@ -1,9 +1,9 @@
 ---
-title: Danh sách đề tài khoa học - công nghệ
-url: http://mim.hus.vnu.edu.vn/vi/danhsachdetai
-publisher: MIM
-type: form
-major: mathematics
+title: "Danh sách đề tài khoa học - công nghệ"
+url: "http://mim.hus.vnu.edu.vn/vi/danhsachdetai"
+publisher: "MIM"
+type: "form"
+major: "mathematics"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/danhsachdetai)

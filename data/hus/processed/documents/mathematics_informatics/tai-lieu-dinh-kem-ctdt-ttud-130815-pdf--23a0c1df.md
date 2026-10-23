@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: CTDT-TTUD-130815.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-TTUD-130815.pdf
-publisher: MIM
-type: general_info
-major: mathematics_informatics
+title: "Tài liệu đính kèm: CTDT-TTUD-130815.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-TTUD-130815.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

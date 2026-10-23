@@ -1,9 +1,9 @@
 ---
-title: Thực tập, thực tế
-url: https://mim.hus.vnu.edu.vn/vi/thuctap
-publisher: MIM
-type: form
-major: general
+title: "Thực tập, thực tế"
+url: "https://mim.hus.vnu.edu.vn/vi/thuctap"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/thuctap)

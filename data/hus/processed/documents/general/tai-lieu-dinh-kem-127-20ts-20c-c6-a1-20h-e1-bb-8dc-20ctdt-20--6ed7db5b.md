@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 127.%20TS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204941.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/127.%20TS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204941.pdf
-publisher: MIM
-type: curriculum
-major: general
+title: "Tài liệu đính kèm: 127.%20TS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204941.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/127.%20TS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204941.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 <!-- Page 1 -->

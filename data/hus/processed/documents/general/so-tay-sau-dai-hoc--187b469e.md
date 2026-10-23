@@ -1,9 +1,9 @@
 ---
-title: Sổ tay sau đại học
-url: http://mim.hus.vnu.edu.vn/vi/saudaihoc
-publisher: MIM
-type: general_info
-major: general
+title: "Sổ tay sau đại học"
+url: "http://mim.hus.vnu.edu.vn/vi/saudaihoc"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Cao học

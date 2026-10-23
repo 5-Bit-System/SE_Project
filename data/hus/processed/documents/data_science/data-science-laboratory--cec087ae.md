@@ -1,9 +1,9 @@
 ---
-title: Data Science Laboratory
-url: http://mim.hus.vnu.edu.vn/vi/content/data-science-laboratory
-publisher: MIM
-type: form
-major: data_science
+title: "Data Science Laboratory"
+url: "http://mim.hus.vnu.edu.vn/vi/content/data-science-laboratory"
+publisher: "MIM"
+type: "form"
+major: "data_science"
 ---
 
 Trưởng đơn vị:

@@ -1,9 +1,9 @@
 ---
-title: Chương trình đào tạo tiến sĩ
-url: http://mim.hus.vnu.edu.vn/vi/ctdttiensi
-publisher: MIM
-type: curriculum
-major: general
+title: "Chương trình đào tạo tiến sĩ"
+url: "http://mim.hus.vnu.edu.vn/vi/ctdttiensi"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 Khoa Toán - Cơ - Tin học có 8 chương trình đào tạo tiến sĩ, trong đó có 7 chương trình ngành Toán học thuộc các chuyên ngành:

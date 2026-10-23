@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: Nguyen_NTT-Ext_Abstract.docx
-url: http://mim.hus.vnu.edu.vn/sites/default/files/semianar/Nguyen_NTT-Ext_Abstract.docx
-publisher: MIM
-type: general_info
-major: general
+title: "Tài liệu đính kèm: Nguyen_NTT-Ext_Abstract.docx"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/semianar/Nguyen_NTT-Ext_Abstract.docx"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Introduction to convergence research at 

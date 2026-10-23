@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KCTThS.DaiSoVaLyThuyetSo.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.DaiSoVaLyThuyetSo.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: KCTThS.DaiSoVaLyThuyetSo.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.DaiSoVaLyThuyetSo.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

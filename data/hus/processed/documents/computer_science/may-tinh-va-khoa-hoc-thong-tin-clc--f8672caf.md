@@ -1,9 +1,9 @@
 ---
-title: Máy tính và Khoa học thông tin CLC
-url: http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc
-publisher: MIM
-type: curriculum
-major: computer_science
+title: "Máy tính và Khoa học thông tin CLC"
+url: "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc"
+publisher: "MIM"
+type: "curriculum"
+major: "computer_science"
 ---
 
 Chương trình đào tạo Máy tính và Khoa học thông tin CLC là chương trình đào tạo trình độ đại học, bắt đầu được tuyển sinh từ năm 2018.

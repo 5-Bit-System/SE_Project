@@ -1,9 +1,9 @@
 ---
-title: Đối tác nghiên cứu
-url: http://mim.hus.vnu.edu.vn/vi/doitacnc
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Đối tác nghiên cứu"
+url: "http://mim.hus.vnu.edu.vn/vi/doitacnc"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 - [Viện Nghiên cứu Cao cấp về Toán](https://viasm.edu.vn/)

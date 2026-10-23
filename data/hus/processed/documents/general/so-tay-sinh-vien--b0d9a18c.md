@@ -1,9 +1,9 @@
 ---
-title: Sổ tay sinh viên
-url: http://mim.hus.vnu.edu.vn/vi/sotaysv
-publisher: MIM
-type: general_info
-major: general
+title: "Sổ tay sinh viên"
+url: "http://mim.hus.vnu.edu.vn/vi/sotaysv"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 - [Thông tin chung](https://mim.hus.vnu.edu.vn/vi/giaovudaihoc)

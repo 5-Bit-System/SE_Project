@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KCT_TTToan_Final.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Tài liệu đính kèm: KCT_TTToan_Final.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

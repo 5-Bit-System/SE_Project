@@ -26,6 +26,10 @@ def _normalize_major(major: MajorCategory | str | None) -> str:
         return val.lower() or MajorCategory.GENERAL.value
 
 
+def _escape_yaml_str(val: str) -> str:
+    return json.dumps(str(val), ensure_ascii=False)
+
+
 class RawStorage:
     """Manages raw byte files (HTML and downloaded documents) idempotently."""
 
@@ -141,13 +145,13 @@ class ProcessedStorage:
         type_val = doc.document_type.value if hasattr(doc.document_type, "value") else str(doc.document_type)
 
         header = (
-            f"---\n"
-            f"title: {doc.title}\n"
-            f"url: {doc.url}\n"
-            f"publisher: {publisher_val}\n"
-            f"type: {type_val}\n"
-            f"major: {major_str}\n"
-            f"---\n\n"
+            "---\n"
+            f"title: {_escape_yaml_str(doc.title)}\n"
+            f"url: {_escape_yaml_str(doc.url)}\n"
+            f"publisher: {_escape_yaml_str(publisher_val)}\n"
+            f"type: {_escape_yaml_str(type_val)}\n"
+            f"major: {_escape_yaml_str(major_str)}\n"
+            "---\n\n"
         )
         md_file.write_text(header + doc.content, encoding="utf-8")
 

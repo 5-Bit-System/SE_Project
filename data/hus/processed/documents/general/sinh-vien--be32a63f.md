@@ -1,9 +1,9 @@
 ---
-title: Sinh viên
-url: http://mim.hus.vnu.edu.vn/vi/sinhvien
-publisher: MIM
-type: general_info
-major: general
+title: "Sinh viên"
+url: "http://mim.hus.vnu.edu.vn/vi/sinhvien"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Đào tạo đại học

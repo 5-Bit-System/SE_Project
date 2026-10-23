@@ -1,9 +1,9 @@
 ---
-title: Biểu mẫu
-url: http://mim.hus.vnu.edu.vn/vi/cacloaibieumau
-publisher: MIM
-type: form
-major: general
+title: "Biểu mẫu"
+url: "http://mim.hus.vnu.edu.vn/vi/cacloaibieumau"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 - [Các biểu mẫu liên quan đến Tổ chức cán bộ](https://hus.vnu.edu.vn/vi/phtccb/5114)

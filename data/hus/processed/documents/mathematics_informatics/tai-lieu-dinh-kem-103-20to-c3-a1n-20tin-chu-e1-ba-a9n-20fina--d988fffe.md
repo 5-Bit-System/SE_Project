@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf
-publisher: MIM
-type: general_info
-major: mathematics_informatics
+title: "Tài liệu đính kèm: 103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

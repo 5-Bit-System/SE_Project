@@ -1,9 +1,9 @@
 ---
-title: Khoa học Dữ liệu
-url: http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu
-publisher: MIM
-type: general_info
-major: data_science
+title: "Khoa học Dữ liệu"
+url: "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+publisher: "MIM"
+type: "general_info"
+major: "data_science"
 ---
 
 Khoa học Dữ liệu – ngành “hot” mới của Trường Đại học Khoa học Tự nhiên

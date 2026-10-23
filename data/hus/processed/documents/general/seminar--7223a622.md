@@ -1,9 +1,9 @@
 ---
-title: Seminar
-url: http://mim.hus.vnu.edu.vn/vi/seminars
-publisher: MIM
-type: form
-major: general
+title: "Seminar"
+url: "http://mim.hus.vnu.edu.vn/vi/seminars"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/seminars)

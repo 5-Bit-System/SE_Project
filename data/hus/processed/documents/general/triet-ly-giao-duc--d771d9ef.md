@@ -1,9 +1,9 @@
 ---
-title: Triết lý giáo dục
-url: http://mim.hus.vnu.edu.vn/vi/content/tri%E1%BA%BFt-l%C3%BD-gi%C3%A1o-d%E1%BB%A5c
-publisher: MIM
-type: general_info
-major: general
+title: "Triết lý giáo dục"
+url: "http://mim.hus.vnu.edu.vn/vi/content/tri%E1%BA%BFt-l%C3%BD-gi%C3%A1o-d%E1%BB%A5c"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Triết lý giáo dục ở Khoa Toán - Cơ - Tin học phù hợp với triết lý giáo dục của trường ĐHKHTN và của Khoa Toán-Cơ-Tin học trong việc đào tạo sinh viên “chất lượng xuất sắc, học tập chủ động, đổi mới và sáng tạo, hợp tác”.

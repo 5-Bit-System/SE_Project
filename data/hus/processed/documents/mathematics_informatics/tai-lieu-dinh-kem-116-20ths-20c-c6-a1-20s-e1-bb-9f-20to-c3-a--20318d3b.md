@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf
-publisher: MIM
-type: curriculum
-major: mathematics_informatics
+title: "Tài liệu đính kèm: 116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics_informatics"
 ---
 
 <!-- Page 1 -->

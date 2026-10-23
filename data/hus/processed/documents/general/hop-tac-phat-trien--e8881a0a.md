@@ -1,9 +1,9 @@
 ---
-title: Hợp tác Phát triển
-url: http://mim.hus.vnu.edu.vn/vi/htpt
-publisher: MIM
-type: form
-major: general
+title: "Hợp tác Phát triển"
+url: "http://mim.hus.vnu.edu.vn/vi/htpt"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/htpt)

@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: 113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

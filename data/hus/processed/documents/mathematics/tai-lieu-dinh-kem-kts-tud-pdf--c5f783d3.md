@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KTS.TUD.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KTS.TUD.pdf
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Tài liệu đính kèm: KTS.TUD.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.TUD.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KCTThS.CohocVatRan.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.CohocVatRan.pdf
-publisher: MIM
-type: curriculum
-major: general
+title: "Tài liệu đính kèm: KCTThS.CohocVatRan.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.CohocVatRan.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 <!-- Page 1 -->

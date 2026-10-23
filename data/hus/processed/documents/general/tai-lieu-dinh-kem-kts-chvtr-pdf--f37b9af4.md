@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KTS.CHVTR.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHVTR.pdf
-publisher: MIM
-type: general_info
-major: general
+title: "Tài liệu đính kèm: KTS.CHVTR.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHVTR.pdf"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 <!-- Page 1 -->

@@ -1,9 +1,9 @@
 ---
-title: Thành tích - Khen thưởng
-url: http://mim.hus.vnu.edu.vn/vi/sinhvien-thanhtich-khenthuong
-publisher: MIM
-type: general_info
-major: mathematics
+title: "Thành tích - Khen thưởng"
+url: "http://mim.hus.vnu.edu.vn/vi/sinhvien-thanhtich-khenthuong"
+publisher: "MIM"
+type: "general_info"
+major: "mathematics"
 ---
 
 - Một số gương mặt tiêu biểu sinh viên & cựu sinh viên ngành Toán (hệ chuẩn & hệ CNTN) theo dòng thời gian:

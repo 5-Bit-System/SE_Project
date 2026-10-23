@@ -1,9 +1,9 @@
 ---
-title: Lời chào mừng
-url: http://mim.hus.vnu.edu.vn/vi/lcm
-publisher: MIM
-type: general_info
-major: general
+title: "Lời chào mừng"
+url: "http://mim.hus.vnu.edu.vn/vi/lcm"
+publisher: "MIM"
+type: "general_info"
+major: "general"
 ---
 
 Chào mừng các bạn đã đến với Khoa Toán – Cơ – Tin học, Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội.

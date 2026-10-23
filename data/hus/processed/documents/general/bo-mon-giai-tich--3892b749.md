@@ -1,9 +1,9 @@
 ---
-title: Bộ môn Giải tích
-url: http://mim.hus.vnu.edu.vn/vi/giaitich
-publisher: MIM
-type: form
-major: general
+title: "Bộ môn Giải tích"
+url: "http://mim.hus.vnu.edu.vn/vi/giaitich"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 Trưởng đơn vị:

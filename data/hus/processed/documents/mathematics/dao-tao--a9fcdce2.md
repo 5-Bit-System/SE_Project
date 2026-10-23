@@ -1,9 +1,9 @@
 ---
-title: Đào tạo
-url: https://hus.vnu.edu.vn/dao-tao/dai-hoc
-publisher: HUS
-type: general_info
-major: mathematics
+title: "Đào tạo"
+url: "https://hus.vnu.edu.vn/dao-tao/dai-hoc"
+publisher: "HUS"
+type: "general_info"
+major: "mathematics"
 ---
 
 Đào tạo

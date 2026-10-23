@@ -1,9 +1,9 @@
 ---
-title: Ngành Toán Tin
-url: http://mim.hus.vnu.edu.vn/vi/toantin
-publisher: MIM
-type: curriculum
-major: mathematics_informatics
+title: "Ngành Toán Tin"
+url: "http://mim.hus.vnu.edu.vn/vi/toantin"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics_informatics"
 ---
 
 Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.

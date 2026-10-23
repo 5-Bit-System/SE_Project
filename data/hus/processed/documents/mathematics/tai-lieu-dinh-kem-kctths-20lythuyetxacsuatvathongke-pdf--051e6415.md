@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KCTThS.%20LyThuyetXacSuatVaThongKe.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.%20LyThuyetXacSuatVaThongKe.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: KCTThS.%20LyThuyetXacSuatVaThongKe.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.%20LyThuyetXacSuatVaThongKe.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

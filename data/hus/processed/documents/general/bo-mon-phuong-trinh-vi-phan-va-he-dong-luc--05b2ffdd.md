@@ -1,9 +1,9 @@
 ---
-title: Bộ môn Phương trình vi phân và hệ động lực
-url: http://mim.hus.vnu.edu.vn/vi/ptvp-hdl
-publisher: MIM
-type: form
-major: general
+title: "Bộ môn Phương trình vi phân và hệ động lực"
+url: "http://mim.hus.vnu.edu.vn/vi/ptvp-hdl"
+publisher: "MIM"
+type: "form"
+major: "general"
 ---
 
 Trưởng đơn vị:

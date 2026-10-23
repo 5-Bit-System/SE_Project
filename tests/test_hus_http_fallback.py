@@ -154,7 +154,7 @@ def test_http_sources_survive_reload_and_304_without_duplicate_documents(tmp_pat
         canonical = doc["source_url"].replace("http://", "https://", 1)
         assert key == hashlib.sha256(canonical.encode()).hexdigest()[:16]
         markdown = list((tmp_path / "processed/documents").rglob(f"*{key[:8]}.md"))[0].read_text(encoding="utf-8")
-        assert f'url: {doc["source_url"]}' in markdown
+        assert f'url: "{doc["source_url"]}"' in markdown
         if doc["parent_url"]:
             assert doc["parent_url"] == HTTP + "/vi/seed"
     state = json.loads((tmp_path / "state/crawl_state.json").read_text(encoding="utf-8"))["records"]

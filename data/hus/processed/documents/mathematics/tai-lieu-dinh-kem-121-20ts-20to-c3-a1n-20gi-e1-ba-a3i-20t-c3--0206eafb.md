@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 121.%20TS%20To%C3%A1n%20gi%E1%BA%A3i%20t%C3%ADch%20CTDT%204935.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/121.%20TS%20To%C3%A1n%20gi%E1%BA%A3i%20t%C3%ADch%20CTDT%204935.pdf
-publisher: MIM
-type: curriculum
-major: mathematics
+title: "Tài liệu đính kèm: 121.%20TS%20To%C3%A1n%20gi%E1%BA%A3i%20t%C3%ADch%20CTDT%204935.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/121.%20TS%20To%C3%A1n%20gi%E1%BA%A3i%20t%C3%ADch%20CTDT%204935.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "mathematics"
 ---
 
 <!-- Page 1 -->

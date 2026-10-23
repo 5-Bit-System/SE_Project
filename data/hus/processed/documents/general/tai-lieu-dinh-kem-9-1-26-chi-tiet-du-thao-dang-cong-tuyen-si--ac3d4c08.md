@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 9.1.26-chi-tiet-du-thao_dang-cong-tuyen-sinh-1-edit.pdf
-url: https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2026/03/9.1.26-chi-tiet-du-thao_dang-cong-tuyen-sinh-1-edit.pdf
-publisher: TUYENSINH
-type: general_info
-major: general
+title: "Tài liệu đính kèm: 9.1.26-chi-tiet-du-thao_dang-cong-tuyen-sinh-1-edit.pdf"
+url: "https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2026/03/9.1.26-chi-tiet-du-thao_dang-cong-tuyen-sinh-1-edit.pdf"
+publisher: "TUYENSINH"
+type: "general_info"
+major: "general"
 ---
 
 <!-- Page 1 -->

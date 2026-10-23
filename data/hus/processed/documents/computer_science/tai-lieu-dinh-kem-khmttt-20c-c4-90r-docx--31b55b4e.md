@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: KHMTTT%20C%C4%90R.docx
-url: http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx
-publisher: MIM
-type: curriculum
-major: computer_science
+title: "Tài liệu đính kèm: KHMTTT%20C%C4%90R.docx"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx"
+publisher: "MIM"
+type: "curriculum"
+major: "computer_science"
 ---
 
 | ĐẠI HỌC QUỐC GIA HÀ NỘI

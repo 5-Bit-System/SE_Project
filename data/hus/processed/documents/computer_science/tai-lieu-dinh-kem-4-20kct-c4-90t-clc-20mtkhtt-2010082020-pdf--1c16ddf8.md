@@ -1,9 +1,9 @@
 ---
-title: Tài liệu đính kèm: 4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf
-url: http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf
-publisher: MIM
-type: curriculum
-major: computer_science
+title: "Tài liệu đính kèm: 4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf"
+url: "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf"
+publisher: "MIM"
+type: "curriculum"
+major: "computer_science"
 ---
 
 <!-- Page 1 -->

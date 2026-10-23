@@ -1,9 +1,9 @@
 ---
-title: Chương trình đào tạo thạc sĩ
-url: http://mim.hus.vnu.edu.vn/vi/ctdtthacsi
-publisher: MIM
-type: curriculum
-major: general
+title: "Chương trình đào tạo thạc sĩ"
+url: "http://mim.hus.vnu.edu.vn/vi/ctdtthacsi"
+publisher: "MIM"
+type: "curriculum"
+major: "general"
 ---
 
 | Ngành | Chuyên Ngành | Mã Ngành |
