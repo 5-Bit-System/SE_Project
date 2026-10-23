@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-07 | Không gian học tập</title>
+  <meta name="theme-color" content="#eef2ff">
+  <script src="/static/theme.js"></script>
+  <title>Sổ học tập | Kế hoạch học tập cá nhân</title>
   <meta name="description" content="Hệ thống gợi ý môn học cá nhân hóa và giải thích minh bạch theo chuẩn CTĐT ĐHKHTN - ĐHQGHN với Rule Engine và AI Advisor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/themes.css">
   <script src="/static/app.js" defer></script>
 </head>
 <body>
@@ -19,11 +22,11 @@
     <div class="header-container">
       <div class="brand">
         <div class="brand-logo">
-          <span class="logo-icon" aria-hidden="true">a<span>07</span></span>
+          <svg aria-hidden="true" viewBox="0 0 40 40" fill="none"><path d="M7 9h11l2 3 2-3h11v23H22l-2 3-2-3H7V9Z" stroke="currentColor" stroke-width="2"/><path d="M20 13v18M11 16h5m-5 6h5m8-6h5m-5 6h5" stroke="currentColor" stroke-width="2"/></svg>
         </div>
         <div class="brand-text">
           <span class="badge-eyebrow">ĐHKHTN · ĐHQG Hà Nội</span>
-          <h1 class="app-title">Không gian học tập</h1>
+          <h1 class="app-title">Sổ học tập</h1>
         </div>
       </div>
 
@@ -54,6 +57,13 @@
             <span class="select-arrow">▾</span>
           </div>
         </div>
+        <div class="appearance-control">
+          <span class="selector-label" id="appearance-label">Giao diện gradient</span>
+          <div class="theme-switcher" role="group" aria-labelledby="appearance-label">
+            <button type="button" data-theme-choice="light" aria-label="Gradient sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
+            <button type="button" data-theme-choice="dark" aria-label="Gradient tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -80,11 +90,11 @@
         <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true">3</span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
       </nav>
       <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Nhập môn đã đạt, kiểm tra điều kiện rồi khám phá những lựa chọn tiếp theo.</small></div>
-      <div class="sidebar-bottom">AI-07 <span>Course companion</span></div>
+      <div class="sidebar-bottom">Sổ học tập <span>Đồng hành qua từng học kỳ</span></div>
     </aside>
     <div class="workspace-body">
       <div class="workspace-intro">
-        <div><p class="intro-context">Kế hoạch học tập cá nhân</p><h2 id="workspace-heading" tabindex="-1">Hiểu tiến độ. Chọn bước tiếp theo.</h2><p>Bắt đầu với những môn bạn đã học, để mỗi lựa chọn đều có cơ sở.</p></div>
+        <div><p class="intro-context">Kế hoạch học tập cá nhân</p><h2 id="workspace-heading" tabindex="-1">Từng học kỳ, một bước tiến.</h2><p>Theo dõi kết quả đã học và chuẩn bị những lựa chọn cho kỳ tiếp theo.</p></div>
         <div class="intro-symbol" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M15 76V24h22v52M39 76V41h22v35M63 76V14h22v62" stroke="currentColor" stroke-width="2"/><path d="m20 60 28-9 26-27" stroke="currentColor" stroke-width="3"/><circle cx="74" cy="24" r="5" fill="currentColor"/></svg></div>
       </div>
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu chương trình đang được rà soát. Kết quả là thông tin tham khảo; hãy xác nhận quy định và lịch mở lớp với nhà trường.</p></div>
@@ -117,9 +127,12 @@
         <div class="card-header">
           <div>
             <h2 class="card-title">Bảng điểm của bạn</h2>
-            <p class="card-subtitle">Tích chọn các môn đã đạt hoặc nhập điểm số thang 10. Điểm ≥ 5.0 được tính là hoàn thành.</p>
+            <p class="card-subtitle">Kết quả theo học kỳ và năm học, sắp xếp từ mới nhất về trước.</p>
           </div>
           <div class="quick-actions">
+            <label class="btn-ghost btn-sm" for="transcript-preview-file">Mở bảng điểm mẫu</label>
+            <input id="transcript-preview-file" class="sr-only" type="file" accept=".json,application/json" />
+            <button id="btn-manual-transcript" class="btn-ghost btn-sm" type="button" hidden>Về bảng điểm nhập tay</button>
             <button id="btn-sample-freshman" class="btn-ghost btn-sm" type="button">Mẫu năm 1</button>
             <button id="btn-sample-sophomore" class="btn-ghost btn-sm" type="button">Mẫu năm 2</button>
             <button id="btn-sample-junior" class="btn-ghost btn-sm" type="button">Mẫu năm 3</button>
@@ -127,6 +140,22 @@
           </div>
         </div>
 
+        <p id="transcript-preview-notice" class="transcript-source-note" hidden></p>
+        <div id="manual-transcript-controls">
+          <div class="semester-toolbar">
+            <label for="transcript-term">Học kỳ đang nhập <select id="transcript-term" class="modern-select"><option value="">Chưa xếp học kỳ</option></select></label>
+            <details class="add-term-controls"><summary>Thêm học kỳ / năm học</summary>
+              <div class="add-term-fields">
+                <label for="term-year">Năm bắt đầu<input id="term-year" class="modern-input" type="number" min="1900" max="2200" placeholder="2025" /></label>
+                <label for="term-number">Học kỳ<select id="term-number" class="modern-select"><option value="1">1</option><option value="2">2</option><option value="3">Hè</option></select></label>
+                <button id="btn-add-term" class="btn-ghost" type="button">Thêm học kỳ</button>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div id="semester-tables" aria-live="polite"></div>
+        <details class="catalog-picker" open>
+        <summary>Thêm học phần vào bảng điểm <span>Chọn từ chương trình của bạn</span></summary>
         <div class="search-filter-bar">
           <input aria-label="Tìm môn theo mã hoặc tên" id="course-search-input" type="search" class="modern-input" placeholder="Tìm theo mã hoặc tên môn học…" />
           <select aria-label="Lọc khối kiến thức" id="course-block-filter" class="modern-select filter-select">
@@ -142,6 +171,7 @@
         <div id="course-checklist-container" class="course-checklist-wrapper">
           <div class="loading-spinner">Đang nạp danh sách học phần...</div>
         </div>
+        </details>
 
       </div>
     </section>
@@ -340,7 +370,7 @@
 
   <footer class="app-footer">
     <div class="container footer-content">
-      <p>Hệ thống Explainable Course Recommender (AI-07) · Dữ liệu trích xuất từ 4 khung CTĐT ĐHKHTN - ĐHQG Hà Nội (Khóa 2022).</p>
+      <p>Sổ học tập · Gợi ý học phần có giải thích · Chương trình ĐHKHTN - ĐHQG Hà Nội, khóa 2022.</p>
       <p class="footer-sub">Bảng điểm và hội thoại chỉ dùng trong phiên hiện tại. Gợi ý không xác nhận môn sẽ mở lớp.</p>
     </div>
   </footer>

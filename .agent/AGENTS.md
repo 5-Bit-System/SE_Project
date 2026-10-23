@@ -1,5 +1,81 @@
 # Project Memory and Contributor Guidelines
 
+## Latest UI update — 2026-10-23: selectable gradient themes
+
+User requested gradient light/dark interfaces with regular progress reports.
+Applied the GitHub frontend-design skill and local project-toolkit guidance.
+Header now has an accessible Sáng/Tối selector. `app/static/theme.js` restores
+the validated light/dark preference before CSS paints; first visit follows OS.
+Only `study-workspace-theme` is stored in localStorage. Blocked storage still
+allows switching for the session, and storage events synchronize other tabs.
+Transcript/chat remain session-only and unchanged by theme switching.
+
+`app/static/themes.css` defines light blue/lavender and dark navy/indigo/teal
+gradients plus matching surfaces for transcript tables, rules, recommendation
+results/forms, notices and advisor chat. Semester/year/source preview behavior
+from the previous correction remains in place. No backend/data changes.
+
+Headless Chrome checks passed for both themes, persistence, OS default versus
+explicit choice, blocked storage, Enter activation, transcript preservation,
+36-row source preview, 5 recommendation results per mode and chat controls.
+No page overflow at 390px or JS exceptions. Ten main text/background palette
+pairs measured above 4.5:1; screenshots inspected. JS syntax and diff checks
+passed. No Python/PostgreSQL rerun or live LLM test for this visual change.
+Report: `docs/GRADIENT_UI_2026_10_23.md`; evidence remains ignored under
+`backups/semester_ui_20261023/gradient-*`. Changes local; no commit/push requested.
+
+## Latest UI correction — 2026-10-23: actual academic terms
+
+User rejected the fixed semester 1–12 design and provided portal screenshots
+for a table grouped by actual academic year/semester/code, newest first.
+This supersedes the earlier semester UI description below. Frontend now has
+a continuous source preview table with STT, course code/name, credits, source
+10-point/letter/4-point grades, grouped by academic year, semester and source
+term code. Manual entry creates actual year/semester groups instead of a
+fixed sequence. Unassigned records retain an explicit unassigned group.
+
+User explicitly allowed their transcript as a UI sample. It exists only in an
+ignored local JSON under backups, without name/student ID; do not commit real
+transcript data. The browser reads a selected local JSON file into session
+memory via “Mở bảng điểm mẫu”. It is a read-only preview, separate from manual
+transcript, GPA/KPI and recommendations. No portal connector or review/apply
+flow was implemented, no catalog matching or grade conversion was invented.
+Retakes are retained as distinct source rows. Refresh clears the preview;
+select the local file again to reopen it. Major change clears preview and terms.
+
+Browser checks passed for file loading, newest-first grouping, preservation
+of source grades, duplicate attempts, text escaping, invalid input rollback,
+manual academic terms, major isolation and mobile containment; no JS errors.
+Screenshots were inspected. Updated evidence is ignored under
+`backups/semester_ui_20261023/portal-*`. A visible browser was opened with the
+sample at http://127.0.0.1:8000; PostgreSQL readiness returned ok. Uvicorn was
+launched as a hidden background process with local logs in that backup folder.
+Syntax and diff checks passed; Python tests were not rerun after this UI-only
+correction. Changes remain uncommitted; no push requested.
+
+## Session update — 2026-10-23: semester transcript UI
+
+User requested removal of visible AI-07 branding and a redesigned interface
+using the local GitHub frontend-design skill and project-toolkit. Local changes
+rename the UI to “Sổ học tập”, replace the logo/favicon and introduce actual
+HTML transcript tables grouped by user-assigned semester. Course selection is
+a separate collapsible catalog table. Users can add, grade, move and remove
+courses. Semester metadata exists only in browser session state; API contracts
+and academic catalog facts are unchanged. Records with no actual semester are
+shown under “Chưa xếp học kỳ”; do not infer actual semesters from catalog order.
+Year sample controls are hidden when year metadata is absent, and year filters
+explicitly reject null. Switching major resets transcript, term and filters.
+
+Chrome headless checks passed for grouping, grading, moving/removing courses,
+filtering, four majors (65/67/90/68), five recommendation results and chat window
+controls; no JavaScript exceptions or page overflow at 390px. Desktop/mobile
+screenshots were inspected. Evidence is ignored under
+`backups/semester_ui_20261023/`; design/behavior report is
+`docs/SEMESTER_UI_2026_10_23.md`. JavaScript syntax and diff checks passed.
+Changes remain local; no commit/push requested in this session.
+Offline regression including HUS PDF acceptance: 302 passed, 35 deselected,
+one existing Starlette/httpx warning. PostgreSQL tests were not rerun.
+
 ## Latest session close - 2026-10-23: main rename and PDF path correction
 
 This section supersedes older branch names, publication targets and PDF-path failure status below. The user renamed the GitHub default branch from `codebase` to **`main`**; all future publication/integration targets are `main` unless the user says otherwise. Remote HEAD and `refs/heads/main` were verified at `e98f59c4d111c487358f2d018f6c5d997b97e62e`; remote `codebase` was absent. The earlier frontend/specification commit `e98f59c` was successfully pushed before the rename.
