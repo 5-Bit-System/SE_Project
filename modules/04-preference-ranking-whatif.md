@@ -1,56 +1,30 @@
-# Module 04 — Preference, xếp hạng và What-if
+# Module 04 — Preference, xếp hạng và what-if
 
-## Mục tiêu
+Cập nhật: 23/10/2026. **Hiện trạng:** có extractor/ranker/fallback; còn lỗi normalization và thiếu baseline revision.
 
-Biến yêu cầu tự nhiên thành preference có cấu trúc và xếp hạng chỉ trên tập eligible.
+## Trách nhiệm và hợp đồng
 
-## Phạm vi
+app/recommendation/preference.py, scoring.py, ranking.py, llm.py cùng app/services/recommendation_service.py xếp hạng chỉ các môn 03 cho phép.
 
-- Preference schema gồm workload, difficulty, orientation, interest topics, career goal, target credits, target course count, course type và prerequisite tolerance.
-- Fallback extraction bằng rule/keyword khi LLM không có.
-- Ranking deterministic bằng metadata catalog.
-- What-if thay đổi trọng số hoặc preference trên cùng eligible set.
-- Tie-break ổn định bằng course code.
+Đầu vào: eligible set, metadata có sẵn, goal/structured preference, limit/max_credits và weights. Đầu ra: mã môn theo thứ tự, score/fit signals, preference, backend/version và warnings. Module 05 kiểm tra output và dựng explanation.
 
-## Không làm
+## Quy tắc
 
-- Không đánh giá eligibility.
-- Không đưa blocked/completed course vào ranking.
-- Không tự tạo metadata thiếu.
-- Không khẳng định môn dễ, nhẹ hoặc phù hợp nếu catalog không có dữ liệu.
-- Không dùng model training hoặc collaborative filtering.
+- LLM là extractor/ranker tùy chọn; lỗi provider/output dùng fallback có căn cứ.
+- Tie-break offline ổn định theo mã môn; loại mã lạ/trùng trước selection.
+- Áp cả limit và tổng max_credits. Không dùng prerequisite_tolerance để nới tiên quyết.
+- Metadata thiếu không là bằng chứng môn phù hợp/dễ/nhẹ. Chỉ dùng workload/difficulty/orientation khi có dữ liệu và trọng số tương ứng.
 
-## Dữ liệu đầu vào
+## Kế hoạch input và giới hạn
 
-- Preference text hoặc structured preference.
-- eligible_courses đã được Module 03 xác nhận.
-- Course metadata có sẵn.
-- What-if weights nếu có.
+Sửa lỗi raw_goal tối đa 500 nhưng career_goal chỉ 200 ký tự và lỗi target credits/count ngoài khoảng khiến fallback cũng lỗi. Chuẩn hóa từng trường, phản hồi rõ yêu cầu ngoài hỗ trợ.
 
-## Dữ liệu đầu ra
+Hiện selection dùng request.limit/max_credits, chưa áp các target đọc từ câu. Đề xuất contract: lựa chọn form/structured override rõ ràng ưu tiên; câu tự nhiên bổ sung phần chưa chọn. API phải phân biệt explicit value với default, trả effective constraints và cảnh báo xung đột. Đây là hợp đồng đề xuất, chưa triển khai.
 
-- Danh sách course code theo thứ tự.
-- Score hoặc fit signals.
-- Preference đã được kiểm tra hợp lệ.
-- Ranking backend/version.
-- Các thuộc tính còn thiếu dữ liệu.
-- Rank delta khi chạy What-if nếu có baseline.
+## Kế hoạch what-if
 
-## Quy tắc chấm điểm
-
-Có thể dùng các tín hiệu:
-
-- topic/interest match.
-- career goal/orientation match.
-- workload match nếu metadata tồn tại.
-- difficulty match nếu metadata tồn tại.
-- course type/hands-on match nếu metadata tồn tại.
-
-Thuộc tính thiếu phải được giữ là chưa biết và không được chấm như phù hợp hoặc không phù hợp một cách chắc chắn.
+Baseline gồm catalog revision, transcript/context digest, track/path, budget và rule/ranker version. Chỉ thay trọng số/preference xếp hạng. Context đổi yêu cầu baseline mới; response cũ bị loại. Rank delta chỉ có khi baseline hợp lệ; hiện chưa có baseline pinning/rank delta.
 
 ## Tiêu chí hoàn thành
 
-- Cùng input và version cho cùng thứ hạng.
-- LLM/ranker trả mã lạ bị loại.
-- What-if chỉ đổi score/rank, không đổi eligible set.
-- Có deterministic fallback khi LLM lỗi hoặc không có API key.
+Cùng input cho cùng thứ hạng offline; không lọt blocked/completed/foreign, không vượt ngân sách. Kiểm tra câu dài, số ngoài khoảng, yêu cầu 1 môn và mâu thuẫn form/câu. What-if giữ eligible set với cùng context và phát hiện mismatch. Preference thiếu/không hiểu được không làm fallback lỗi ngoài dự kiến.

@@ -1,0 +1,18 @@
+{
+    "status":  "candidate_not_active",
+    "source_branch":  "origin/crawldata",
+    "source_commit":  "3a45aae1732eccbb011f43428bee48add9bb718a",
+    "source_commit_date":  "2026-10-22",
+    "retrieved_at":  "2026-10-22",
+    "catalog_version":  "1.0",
+    "catalog_declared_document_count":  106,
+    "processed_markdown_files":  106,
+    "raw_html_files":  101,
+    "known_review_items":  [
+                               "6 documents have pending_ocr status",
+                               "academic_year is null for all 106 catalog records",
+                               "crawler README says sources are empty while config/sources.json contains enabled sources; reconcile before next crawl",
+                               "no activation pointer is created by this copy"
+                           ],
+    "catalog_sha256":  "98c0d383be45786aafe526c92a6a40dd9b4ef321be4a7e25976c07c7e42f4945"
+}

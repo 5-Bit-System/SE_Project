@@ -69,7 +69,7 @@ def pytest_addoption(parser):
         "--full-catalog-root",
         type=str,
         default=None,
-        help="Explicit external root for four-catalog source acceptance",
+        help="Explicit root for legacy four-catalog files or HUS PDF expectations",
     )
 
 

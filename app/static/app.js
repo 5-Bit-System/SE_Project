@@ -3,14 +3,15 @@
 // ==========================================================================
 
 const state = {
+  courseLanguage: window.workspaceI18n.language,
   programs: [],
-  profiles: [],
   currentProgramId: null,
-  currentProfileId: null,
   selectedTrackId: null,
   selectedGraduationPathId: null,
   currentCatalog: null,
   courses: [],
+  transcriptTerms: new Map(),
+  portalPreview: null,
   transcript: new Map(), // code -> { passed: bool, grade: float|null }
   eligibleCourses: [],
   blockedCourses: [],
@@ -23,8 +24,8 @@ const state = {
 
 // --- DOM References ---
 const dom = {
+  courseLanguageSelect: document.querySelector("#course-language-select"),
   programSelect: document.querySelector("#program-select"),
-  profileSelect: document.querySelector("#profile-select"),
   trackSelect: document.querySelector("#track-select"),
   graduationPathSelect: document.querySelector("#graduation-path-select"),
   catalogNameText: document.querySelector("#catalog-name-text"),
@@ -41,9 +42,6 @@ const dom = {
   courseSearchInput: document.querySelector("#course-search-input"),
   courseBlockFilter: document.querySelector("#course-block-filter"),
   btnClearTranscript: document.querySelector("#btn-clear-transcript"),
-  btnSampleFreshman: document.querySelector("#btn-sample-freshman"),
-  btnSampleSophomore: document.querySelector("#btn-sample-sophomore"),
-  btnSampleJunior: document.querySelector("#btn-sample-junior"),
   // Tab 2 Elements
   rulesEligibleList: document.querySelector("#rules-eligible-list"),
   rulesBlockedList: document.querySelector("#rules-blocked-list"),
@@ -125,14 +123,44 @@ function initTabs() {
       tabButtons.forEach(b => {
         b.classList.remove("active");
         b.setAttribute("aria-selected", "false");
+        b.tabIndex = -1;
       });
       tabPanels.forEach(p => p.classList.remove("active"));
 
       btn.classList.add("active");
       btn.setAttribute("aria-selected", "true");
+      btn.tabIndex = 0;
       document.querySelector(`#${targetId}`).classList.add("active");
+      document.documentElement.dataset.view = targetId;
+      const route = targetId === 'portal-dialog' ? 'profile' : targetId.replace('tab-', '');
+      if (location.hash !== `#${route}`) history.pushState(null, '', `#${route}`);
+      document.querySelector('#workspace-heading').textContent = btn.querySelector('.tab-label').firstChild.textContent;
+      document.dispatchEvent(new CustomEvent('workspace:navigate', {detail: targetId}));
+    });
+    btn.addEventListener("keydown", (event) => {
+      const buttons = Array.from(tabButtons);
+      const index = buttons.indexOf(btn);
+      let next;
+      if (["ArrowDown", "ArrowRight"].includes(event.key)) next = (index + 1) % buttons.length;
+      if (["ArrowUp", "ArrowLeft"].includes(event.key)) next = (index - 1 + buttons.length) % buttons.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = buttons.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      buttons[next].focus();
+      buttons[next].click();
     });
   });
+  window.workspaceNavigate = targetId => {
+    const target = [...tabButtons].find(button => button.dataset.tab === targetId);
+    target?.click();
+  };
+  const restoreRoute = () => {
+    const route = location.hash.slice(1);
+    window.workspaceNavigate(route === 'profile' ? 'portal-dialog' : `tab-${route || 'dashboard'}`);
+  };
+  window.addEventListener('popstate', restoreRoute);
+  restoreRoute();
 }
 
 // --- Major / Program Loading & Isolation ---
@@ -167,17 +195,19 @@ async function onProgramChanged() {
   // RÀNG BUỘC MAJOR ISOLATION: Xóa sạch dữ liệu môn đã chọn khi đổi ngành
   state.transcript.clear();
   state.courses = [];
-  state.profiles = [];
+  state.transcriptTerms.clear();
+  state.portalPreview = null;
+  termSelect.replaceChildren(new Option("Chưa xếp học kỳ", ""));
+  dom.courseSearchInput.value = "";
+  dom.courseBlockFilter.value = "all";
   state.eligibleCourses = [];
   state.blockedCourses = [];
   state.chatHistory = [];
   state.chatRequestId += 1;
   dom.chatMessagesContainer.replaceChildren();
   dom.btnSendChat.disabled = false;
-  state.currentProfileId = null;
   state.selectedTrackId = null;
   state.selectedGraduationPathId = null;
-  dom.profileSelect.value = "";
   dom.kpiPassedCount.textContent = "0";
   dom.kpiCredits.textContent = "0";
   dom.kpiGpa.textContent = "--";
@@ -189,7 +219,8 @@ async function onProgramChanged() {
   if (currentProgram) {
     const status = currentProgram.catalog_status || "unknown";
     const warning = status === "verified" ? "" : " · Nguồn CTĐT chưa được xác minh đầy đủ";
-    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} Tín chỉ chuẩn · Trạng thái: ${status}${warning}`;
+    const statusLabel = {verified: "Đã xác minh", draft_unverified: "Đang rà soát", unknown: "Chưa rõ trạng thái"}[status] || "Chưa rõ trạng thái";
+    dom.catalogNameText.textContent = `${currentProgram.name} · ${currentProgram.total_credits} tín chỉ · ${statusLabel}${warning}`;
     dom.kpiTotalCreditsSub.textContent = `/ ${currentProgram.total_credits} Tín chỉ`;
     renderProgramChoices(currentProgram);
   }
@@ -199,7 +230,7 @@ async function onProgramChanged() {
     if (requestId !== state.programRequestId) return;
     state.courses = courses;
     renderCourseChecklist();
-    await loadProfilesForProgram(progId, requestId);
+    await updateStudentState();
   } catch (error) {
     if (requestId !== state.programRequestId) return;
     console.error("Lỗi nạp môn học:", error);
@@ -245,210 +276,306 @@ function renderProgramChoices(program) {
   }
 }
 
-async function loadProfilesForProgram(programId, requestId = state.programRequestId) {
-  if (!dom.profileSelect) {
-    await updateStudentState();
-    return;
-  }
-
-  try {
-    const profiles = await api(`/profiles?program_id=${encodeURIComponent(programId)}`);
-    if (requestId !== state.programRequestId) return;
-    state.profiles = profiles;
-    dom.profileSelect.replaceChildren();
-
-    const emptyOption = document.createElement("option");
-    emptyOption.value = "";
-    emptyOption.textContent = state.profiles.length ? "Không dùng profile demo" : "Chưa có profile demo · nhập bảng điểm thủ công";
-    dom.profileSelect.appendChild(emptyOption);
-
-    state.profiles.forEach(profile => {
-      const option = document.createElement("option");
-      option.value = profile.profile_id;
-      option.textContent = `${profile.label} · ${profile.record_count} môn`;
-      dom.profileSelect.appendChild(option);
-    });
-
-    if (state.profiles.length > 0) {
-      dom.profileSelect.value = state.profiles[0].profile_id;
-      await loadSelectedProfile();
-    } else {
-      await updateStudentState();
-    }
-  } catch (error) {
-    if (requestId !== state.programRequestId) return;
-    console.error("Lỗi nạp profile demo:", error);
-    dom.profileSelect.replaceChildren();
-    const option = document.createElement("option");
-    option.value = "";
-    option.textContent = "Không nạp được profile demo";
-    dom.profileSelect.appendChild(option);
-    await updateStudentState();
-  }
-}
-
-async function loadSelectedProfile() {
-  const profileId = dom.profileSelect?.value;
-  const programId = state.currentProgramId;
-  const requestId = state.programRequestId;
-  state.transcript.clear();
-  state.chatHistory = [];
-  state.currentProfileId = profileId || null;
-  state.selectedTrackId = null;
-  if (dom.trackSelect) dom.trackSelect.value = "";
-  clearRecommendationResults("Hồ sơ học tập đã thay đổi. Hãy chạy lại đề xuất.");
-
-  if (!profileId) {
-    renderCourseChecklist();
-    await updateStudentState();
-    return;
-  }
-
-  try {
-    const profile = await api(`/profiles/${encodeURIComponent(profileId)}`);
-    if (requestId !== state.programRequestId || profileId !== dom.profileSelect?.value) return;
-    if (profile.program_id !== programId) {
-      throw new Error("Profile không thuộc ngành đang chọn.");
-    }
-
-    // Nếu profile có định hướng trùng tên một nhánh, dùng làm giá trị mặc định.
-    if (dom.trackSelect && profile.target_track) {
-      const matchingTrack = [...dom.trackSelect.options].find(
-        option => option.textContent === profile.target_track,
-      );
-      if (matchingTrack) {
-        dom.trackSelect.value = matchingTrack.value;
-        state.selectedTrackId = matchingTrack.value;
-      }
-    }
-
-    profile.records.forEach(record => {
-      state.transcript.set(record.course_code, {
-        passed: record.passed,
-        grade: record.grade,
-      });
-    });
-
-    renderCourseChecklist();
-    await updateStudentState();
-  } catch (error) {
-    if (requestId !== state.programRequestId) return;
-    console.error("Lỗi nạp profile:", error);
-    state.currentProfileId = null;
-    dom.profileSelect.value = "";
-    renderCourseChecklist();
-    await updateStudentState();
-  }
-}
-
-function clearProfileSelection() {
-  state.currentProfileId = null;
-  if (dom.profileSelect) dom.profileSelect.value = "";
-}
-
 // --- Render Course Checklist ---
-function renderCourseChecklist() {
-  dom.courseChecklistContainer.replaceChildren();
-  
-  const query = (dom.courseSearchInput.value || "").trim().toLowerCase();
-  const blockFilter = dom.courseBlockFilter.value;
+function localizedCourseName(course) {
+  const source = state.courses.find(item => item.code === course.code) || course;
+  return state.courseLanguage === "en" ? source.name_en || source.name : source.name;
+}
 
-  const filtered = state.courses.filter(c => {
-    const matchQuery = !query || c.code.toLowerCase().includes(query) || c.name.toLowerCase().includes(query);
-    const matchBlock = blockFilter === "all" || c.block === blockFilter;
-    return matchQuery && matchBlock;
+function setCourseTitle(element, course) {
+  element.dataset.courseCode = course.code;
+  element.textContent = `${course.code} — ${localizedCourseName(course)}`;
+}
+
+dom.courseLanguageSelect.addEventListener("change", () => {
+  state.courseLanguage = dom.courseLanguageSelect.value === "en" ? "en" : "vi";
+  window.workspaceI18n.setLanguage(state.courseLanguage);
+  renderCourseChecklist();
+  document.querySelectorAll("[data-course-code]").forEach(element => {
+    const course = state.courses.find(item => item.code === element.dataset.courseCode);
+    if (course) setCourseTitle(element, course);
   });
+});
 
-  if (filtered.length === 0) {
-    dom.courseChecklistContainer.innerHTML = `<div class="empty-state"><span class="empty-icon">🔍</span>Không tìm thấy môn học phù hợp.</div>`;
+const termSelect = document.querySelector("#transcript-term");
+termSelect.addEventListener("change", renderCourseChecklist);
+
+function termLabel(term) {
+  if (!term) return "Chưa xếp học kỳ";
+  const semester = term.semester === 3 ? "Hè" : term.semester;
+  return `Học kỳ ${semester} · ${term.year}–${term.year + 1}`;
+}
+
+document.querySelector("#btn-add-term").addEventListener("click", () => {
+  const yearInput = document.querySelector("#term-year");
+  if (!yearInput.value || !yearInput.reportValidity()) { yearInput.focus(); return; }
+  const year = Number(yearInput.value);
+  const semester = Number(document.querySelector("#term-number").value);
+  const key = `${year}-${semester}`;
+  if (!state.transcriptTerms.has(key)) {
+    state.transcriptTerms.set(key, {year, semester});
+    termSelect.add(new Option(termLabel({year, semester}), key));
+  }
+  termSelect.value = key;
+  renderCourseChecklist();
+});
+
+function makeTermSelect(value, label) {
+  const select = document.createElement("select");
+  select.className = "modern-select row-term-select";
+  select.setAttribute("aria-label", label);
+  select.add(new Option("Chưa xếp", ""));
+  for (const [key, term] of state.transcriptTerms) select.add(new Option(termLabel(term), key));
+  select.value = value || "";
+  return select;
+}
+
+// Preview source results separately: source grades and unmatched codes never
+// become eligibility input without the future portal review/apply workflow.
+function showPortalTranscript(data) {
+  if (!Array.isArray(data?.terms) || !data.terms.length) throw new Error("Tệp cần có danh sách học kỳ.");
+  const safe = {terms: data.terms.map(term => {
+    if (!Number.isInteger(term.year) || term.year < 1900 || term.year > 2200
+      || ![1, 2, 3].includes(term.semester) || !Array.isArray(term.courses)) {
+      throw new Error("Năm học hoặc học kỳ trong tệp không hợp lệ.");
+    }
+    return {year: term.year, semester: term.semester, code: String(term.code ?? ""),
+      courses: term.courses.map(course => {
+        const numeric = (value, max) => value === null || value === undefined ? null
+          : typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= max
+            ? value : (() => { throw new Error("Điểm hoặc tín chỉ trong tệp không hợp lệ."); })();
+        if (typeof course.code !== "string" || typeof course.name !== "string") throw new Error("Thiếu mã hoặc tên môn.");
+        return {code: course.code, name: course.name, credits: numeric(course.credits, 100),
+          grade: numeric(course.grade, 10), letter: String(course.letter ?? "—"), grade4: numeric(course.grade4, 4)};
+      })};
+  })};
+  state.portalPreview = safe;
+  renderCourseChecklist();
+}
+
+document.querySelector("#transcript-preview-file").addEventListener("change", async event => {
+  const file = event.target.files[0];
+  if (!file) return;
+  try {
+    if (file.size > 2_000_000) throw new Error("Tệp quá lớn. Hãy chọn tệp dưới 2 MB.");
+    showPortalTranscript(JSON.parse(await file.text()));
+  } catch (error) {
+    const notice = document.querySelector("#transcript-preview-notice");
+    notice.hidden = false;
+    notice.textContent = `Không mở được bảng điểm: ${error.message}`;
+  }
+  event.target.value = "";
+});
+document.querySelector("#btn-manual-transcript").addEventListener("click", () => {
+  state.portalPreview = null;
+  renderCourseChecklist();
+});
+
+function renderPortalTranscript(container) {
+  const scroll = document.createElement("div");
+  scroll.className = "table-scroll portal-table-scroll";
+  scroll.tabIndex = 0;
+  scroll.setAttribute("role", "region");
+  scroll.setAttribute("aria-label", "Bảng điểm theo năm học và học kỳ, mới nhất trước");
+  const table = document.createElement("table");
+  table.className = "portal-transcript-table";
+  const caption = document.createElement("caption");
+  caption.className = "sr-only";
+  caption.textContent = "Bảng điểm từ nguồn, giữ nguyên điểm hệ 10, điểm chữ và điểm hệ 4";
+  const head = document.createElement("thead");
+  const header = document.createElement("tr");
+  for (const title of ["STT", "Mã MH", "Môn học", "Số TC", "Điểm hệ 10", "Điểm chữ", "Điểm hệ 4"]) {
+    const th = document.createElement("th"); th.scope = "col"; th.textContent = title; header.append(th);
+  }
+  head.append(header); table.append(caption, head);
+  let count = 0, credits = 0;
+  const terms = [...state.portalPreview.terms].sort((a, b) => b.year - a.year || b.semester - a.semester);
+  terms.forEach(term => {
+    const body = document.createElement("tbody");
+    const heading = document.createElement("tr");
+    heading.className = "portal-term-heading";
+    const title = document.createElement("th"); title.colSpan = 7; title.scope = "rowgroup";
+    title.textContent = `${termLabel(term)}${term.code ? ` · Mã học kỳ ${term.code}` : ""}`;
+    heading.append(title); body.append(heading);
+    term.courses.forEach((course, index) => {
+      const row = document.createElement("tr");
+      // Never derive source letter/4-point grades from our demo conversion.
+      [index + 1, course.code, course.name, course.credits, course.grade, course.letter, course.grade4].forEach(value => {
+        const td = document.createElement("td"); td.textContent = value ?? "—"; row.append(td);
+      });
+      body.append(row); count++; credits += course.credits ?? 0;
+    });
+    table.append(body);
+  });
+  scroll.append(table); container.append(scroll);
+  const total = document.createElement("p");
+  total.className = "portal-table-total";
+  total.textContent = `${terms.length} học kỳ · ${count} học phần · Tổng tín chỉ trong bảng: ${credits}`;
+  container.append(total);
+}
+
+function renderCourseChecklist() {
+  document.querySelector("#course-language-note").hidden = state.courseLanguage !== "en"
+    || (!state.portalPreview && !state.courses.some(course => !course.name_en));
+  const tables = document.querySelector("#semester-tables");
+  tables.replaceChildren();
+  dom.courseChecklistContainer.replaceChildren();
+  const query = dom.courseSearchInput.value.trim().toLowerCase();
+  const block = dom.courseBlockFilter.value;
+  const preview = Boolean(state.portalPreview);
+  // Dashboard metrics always describe the manual plan, including during source preview.
+  document.querySelector("#manual-transcript-controls").hidden = preview;
+  document.querySelector(".catalog-picker").hidden = preview;
+  document.querySelector("#btn-manual-transcript").hidden = !preview;
+  dom.btnClearTranscript.hidden = preview;
+  const notice = document.querySelector("#transcript-preview-notice");
+  notice.hidden = !preview;
+  if (preview) {
+    notice.textContent = "Bản xem trước từ tệp. Điểm được giữ nguyên theo nguồn; chưa áp dụng vào tiến độ hoặc gợi ý môn. Dữ liệu chỉ ở trong phiên này.";
+    renderPortalTranscript(tables);
     return;
   }
-
-  filtered.forEach(course => {
-    const row = document.createElement("div");
-    row.className = "course-item-row";
-    row.id = `course-row-${course.code}`;
-
+  const groups = new Map();
+  for (const course of state.courses) {
     const record = state.transcript.get(course.code);
-    const isPassed = Boolean(record?.passed);
-    if (isPassed) row.classList.add("is-passed");
+    if (!record) continue;
+    const term = record.term || "";
+    if (!groups.has(term)) groups.set(term, []);
+    groups.get(term).push(course);
+  }
 
-    // Left check
-    const checkLabel = document.createElement("label");
-    checkLabel.className = "course-check-label";
-    
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "course-checkbox";
-    checkbox.checked = isPassed;
-    checkbox.addEventListener("change", async (e) => {
-      clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
-      if (e.target.checked) {
-        clearProfileSelection();
-        state.transcript.set(course.code, { passed: true, grade: null });
-        row.classList.add("is-passed");
-      } else {
-        state.transcript.delete(course.code);
-        row.classList.remove("is-passed");
+  function courseTable(courses, isCatalog = false) {
+    const scroll = document.createElement("div");
+    scroll.className = "table-scroll";
+    scroll.tabIndex = 0;
+    scroll.setAttribute("role", "region");
+    scroll.setAttribute("aria-label", isCatalog ? "Danh sách học phần để thêm" : "Bảng điểm học kỳ");
+    const table = document.createElement("table");
+    table.className = "transcript-table";
+    const caption = document.createElement("caption");
+    caption.className = "sr-only";
+    caption.textContent = scroll.getAttribute("aria-label");
+    const head = document.createElement("thead");
+    head.innerHTML = isCatalog
+      ? `<tr><th scope="col">Đã đạt</th><th scope="col">Học phần</th><th scope="col">Tín chỉ</th><th scope="col">Điểm / 10</th><th scope="col">Thao tác</th></tr>`
+      : `<tr><th scope="col">STT</th><th scope="col">Mã MH</th><th scope="col">Môn học</th><th scope="col">Số TC</th><th scope="col">Điểm hệ 10</th><th scope="col">Điểm chữ</th><th scope="col">Điểm hệ 4</th><th scope="col">Thao tác</th></tr>`;
+    const body = document.createElement("tbody");
+    courses.forEach((course, index) => {
+      const record = state.transcript.get(course.code);
+      const row = document.createElement("tr");
+      row.id = `course-row-${course.code}`;
+      row.className = `course-item-row${record?.passed ? " is-passed" : ""}`;
+      const cell = () => { const td = document.createElement("td"); row.append(td); return td; };
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.className = "course-checkbox";
+      checkbox.checked = Boolean(record?.passed);
+      checkbox.setAttribute("aria-label", `Đã hoàn thành ${course.code}`);
+      if (isCatalog) cell().append(checkbox);
+      else cell().textContent = index + 1;
+      const codeCell = isCatalog ? null : cell();
+      const nameCell = cell();
+      const code = document.createElement("span");
+      code.className = "table-course-code";
+      code.textContent = course.code;
+      const name = document.createElement("span");
+      name.className = "course-code-name";
+      name.textContent = localizedCourseName(course);
+      if (isCatalog) nameCell.append(code, name);
+      else { codeCell.append(code); nameCell.append(name); }
+      cell().textContent = course.credits;
+      const grade = document.createElement("input");
+      grade.type = "number";
+      grade.min = "0"; grade.max = "10"; grade.step = "0.1";
+      grade.className = "modern-input grade-input";
+      grade.placeholder = "—";
+      grade.setAttribute("aria-label", `Điểm hệ 10 của ${course.code}`);
+      grade.value = record?.grade ?? "";
+      cell().append(grade);
+      if (!isCatalog) {
+        cell().textContent = record?.letter ?? "—";
+        cell().textContent = record?.grade4 ?? "—";
       }
-      await updateStudentState();
+      const action = cell();
+      const save = async (next) => {
+              clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
+        state.transcript.set(course.code, next);
+        renderCourseChecklist();
+        await updateStudentState();
+      };
+      checkbox.addEventListener("change", () => save({
+        ...record, passed: checkbox.checked, grade: null,
+        term: record?.term ?? (isCatalog ? termSelect.value : ""),
+      }));
+      grade.addEventListener("change", () => {
+        if (!grade.checkValidity()) { grade.reportValidity(); return; }
+        const value = grade.value === "" ? null : Number(grade.value);
+        save({ ...record, grade: value, passed: value === null ? Boolean(record?.passed) : value >= 5,
+          term: record?.term ?? (isCatalog ? termSelect.value : "") });
+      });
+      if (isCatalog) {
+        const add = document.createElement("button");
+        add.type = "button";
+        add.className = "btn-ghost btn-sm";
+        add.textContent = "Thêm môn";
+        add.setAttribute("aria-label", `Thêm ${course.code} vào ${termLabel(state.transcriptTerms.get(termSelect.value))}`);
+        add.addEventListener("click", () => save({passed: false, grade: null, term: termSelect.value}));
+        action.append(add);
+      } else {
+        action.append(checkbox);
+        const select = makeTermSelect(record?.term, `Học kỳ của ${course.code}`);
+        select.addEventListener("change", () => save({...record, term: select.value}));
+        const remove = document.createElement("button");
+        remove.type = "button"; remove.className = "remove-course";
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", `Xóa ${course.code} khỏi bảng điểm`);
+        remove.addEventListener("click", async () => {
+                  clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
+          state.transcript.delete(course.code);
+          renderCourseChecklist();
+          await updateStudentState();
+        });
+        action.append(select, remove);
+      }
+      body.append(row);
     });
+    table.append(caption, head, body); scroll.append(table); return scroll;
+  }
 
-    const info = document.createElement("div");
-    info.className = "course-info";
-    
-    const codeName = document.createElement("span");
-    codeName.className = "course-code-name";
-    codeName.textContent = `${course.code} — ${course.name}`;
-
-    const tags = document.createElement("div");
-    tags.className = "course-meta-tags";
-    tags.innerHTML = `
-      <span class="badge badge-gray">${course.credits} TC</span>
-      <span class="badge badge-gray">Năm ${course.year || 'N/A'}</span>
-      <span>${course.block}</span>
-    `;
-
-    info.append(codeName, tags);
-    checkLabel.append(checkbox, info);
-
-    // Right: Grade Input (optional)
-    const gradeBox = document.createElement("div");
-    gradeBox.className = "grade-input-box";
-    const gradeInput = document.createElement("input");
-    gradeInput.type = "number";
-    gradeInput.min = "0";
-    gradeInput.max = "10";
-    gradeInput.step = "0.5";
-    gradeInput.className = "modern-input grade-input";
-    gradeInput.placeholder = "Điểm";
-    
-    const rec = state.transcript.get(course.code);
-    if (rec && rec.grade !== null && rec.grade !== undefined) {
-      gradeInput.value = rec.grade;
+  if (!groups.size) {
+    const empty = document.createElement("p"); empty.className = "semester-empty";
+    empty.textContent = "Chưa có bảng điểm nhập tay. Tạo học kỳ rồi thêm môn, hoặc mở tệp bảng điểm của bạn.";
+    tables.append(empty);
+  }
+  const termOrder = key => { const t = state.transcriptTerms.get(key); return t ? t.year * 10 + t.semester : -1; };
+  [...groups].sort(([a], [b]) => termOrder(b) - termOrder(a)).forEach(([term, courses]) => {
+    const section = document.createElement("section");
+    section.className = "semester-section";
+    const heading = document.createElement("div");
+    heading.className = "semester-heading";
+    const title = document.createElement("h3");
+    title.textContent = termLabel(state.transcriptTerms.get(term));
+    const stats = document.createElement("span");
+    const credits = courses.reduce((sum, c) => sum + (state.transcript.get(c.code)?.passed ? c.credits : 0), 0);
+    stats.textContent = `${courses.length} học phần · ${credits} tín chỉ đã đạt`;
+    heading.append(title, stats); section.append(heading);
+    if (courses.length) section.append(courseTable(courses));
+    else {
+      const empty = document.createElement("p"); empty.className = "semester-empty";
+      empty.textContent = "Chưa có học phần. Thêm môn từ danh sách bên dưới để bắt đầu học kỳ này.";
+      section.append(empty);
     }
-
-    gradeInput.addEventListener("change", async (e) => {
-      clearRecommendationResults("Bảng điểm đã thay đổi. Hãy chạy lại đề xuất.");
-      const val = parseFloat(e.target.value);
-      if (!isNaN(val)) {
-        clearProfileSelection();
-        checkbox.checked = val >= 5.0;
-        state.transcript.set(course.code, { passed: val >= 5.0, grade: val });
-        if (val >= 5.0) row.classList.add("is-passed");
-        else row.classList.remove("is-passed");
-      } else {
-        if (checkbox.checked) {
-          state.transcript.set(course.code, { passed: true, grade: null });
-        }
-      }
-      await updateStudentState();
-    });
-
-    gradeBox.append(gradeInput);
-    row.append(checkLabel, gradeBox);
-    dom.courseChecklistContainer.appendChild(row);
+    tables.append(section);
   });
+  const available = state.courses.filter(c => !state.transcript.has(c.code)
+    && (!query || [c.code, c.name, c.name_en || ""].some(v => v.toLowerCase().includes(query)))
+    && (block === "all" || c.block === block));
+  if (available.length) dom.courseChecklistContainer.append(courseTable(available, true));
+  else {
+    const empty = document.createElement("p"); empty.className = "empty-state";
+    empty.textContent = "Không còn học phần phù hợp với bộ lọc. Thử đổi từ khóa hoặc khối kiến thức.";
+    dom.courseChecklistContainer.append(empty);
+  }
 }
 
 // --- Update Student State: Transcript Summary + Eligibility + Roadmap ---
@@ -536,13 +663,14 @@ function renderRuleEngineTab(eligRes) {
             <strong>${c.code} — ${c.name}</strong>
             <div class="course-meta-tags mt-2">
               <span class="badge badge-success">${c.credits} TC</span>
-              <span class="badge badge-gray">Năm ${c.year || 'N/A'}</span>
+              <span class="badge badge-gray">${c.year ? `Năm ${c.year}` : 'Chưa rõ năm học'}</span>
               <span>${c.block}</span>
             </div>
           </div>
           <span class="badge badge-success">✓ Sẵn sàng</span>
         </div>
       `;
+      setCourseTitle(card.querySelector("strong"), c);
       dom.rulesEligibleList.appendChild(card);
     });
   }
@@ -562,7 +690,7 @@ function renderRuleEngineTab(eligRes) {
             <strong>${b.code} — ${b.name}</strong>
             <div class="course-meta-tags mt-2">
               <span class="badge badge-warning">${b.credits} TC</span>
-              <span class="badge badge-gray">Năm ${b.year || 'N/A'}</span>
+              <span class="badge badge-gray">${b.year ? `Năm ${b.year}` : 'Chưa rõ năm học'}</span>
               <span>${b.block}</span>
             </div>
           </div>
@@ -570,6 +698,7 @@ function renderRuleEngineTab(eligRes) {
         </div>
         ${reasonsHtml}
       `;
+      setCourseTitle(card.querySelector("strong"), b);
       dom.rulesBlockedList.appendChild(card);
     });
   }
@@ -673,7 +802,7 @@ function renderRecommendationSummary(data) {
   });
   appendRecommendationDetail(summaryGrid, "Bộ xếp hạng", `${data.ranking_backend || "Chưa xác định"} · ${data.ranking_version || "n/a"}`);
   if (data.what_if) {
-    appendRecommendationDetail(summaryGrid, "Cháº¿ Ä‘á»™", "What-if trên cùng tập đủ điều kiện", {
+    appendRecommendationDetail(summaryGrid, "Chế độ", "What-if trên cùng tập đủ điều kiện", {
       badges: true,
       badgeClass: "badge-info",
     });
@@ -710,7 +839,9 @@ function createRecommendationCard(rec, index) {
   const titleGroup = createElement("div");
   const rank = Number.isFinite(Number(rec.rank)) ? Number(rec.rank) : index + 1;
   titleGroup.appendChild(createElement("span", "badge badge-info rec-rank", `Hạng #${rank}`));
-  titleGroup.appendChild(createElement("div", "rec-title", `${rec.code || "Mã môn"} — ${rec.name || "Chưa có tên môn"}`));
+  const courseTitle = createElement("div", "rec-title");
+  setCourseTitle(courseTitle, rec);
+  titleGroup.appendChild(courseTitle);
   header.appendChild(titleGroup);
   header.appendChild(createElement("span", "badge badge-success", `${rec.credits ?? 0} Tín chỉ`));
   card.appendChild(header);
@@ -877,6 +1008,7 @@ function toggleAdvisorChat(forceOpen = null) {
   if (!dom.advisorChatWindow) return;
   const isHidden = dom.advisorChatWindow.classList.contains("hidden");
   const shouldOpen = forceOpen !== null ? forceOpen : isHidden;
+  dom.advisorBubbleBtn?.setAttribute("aria-expanded", String(shouldOpen));
 
   if (shouldOpen) {
     dom.advisorChatWindow.classList.remove("hidden");
@@ -887,6 +1019,7 @@ function toggleAdvisorChat(forceOpen = null) {
   } else {
     dom.advisorChatWindow.classList.add("hidden");
     dom.advisorChatWindow.setAttribute("aria-hidden", "true");
+    dom.advisorBubbleBtn?.focus();
   }
 }
 
@@ -995,43 +1128,8 @@ document.querySelectorAll(".chip-btn").forEach(chip => {
   });
 });
 
-// --- Sample Profile Helpers ---
-dom.btnSampleFreshman.addEventListener("click", async () => {
-  // Chọn các môn đầu khóa (Year 1)
-  const y1 = state.courses.filter(c => c.year === 1).slice(0, 5);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y1.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.0 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
-dom.btnSampleSophomore.addEventListener("click", async () => {
-  // Chọn Year 1 và một phần Year 2
-  const y12 = state.courses.filter(c => c.year <= 2).slice(0, 10);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y12.forEach(c => state.transcript.set(c.code, { passed: true, grade: 7.5 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
-dom.btnSampleJunior.addEventListener("click", async () => {
-  // Chọn Year 1, 2 và một phần Year 3
-  const y123 = state.courses.filter(c => c.year <= 3).slice(0, 18);
-  clearRecommendationResults("Bảng điểm mẫu đã thay đổi. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
-  state.transcript.clear();
-  y123.forEach(c => state.transcript.set(c.code, { passed: true, grade: 8.5 }));
-  renderCourseChecklist();
-  await updateStudentState();
-});
-
 dom.btnClearTranscript.addEventListener("click", async () => {
   clearRecommendationResults("Bảng điểm đã xóa. Hãy chạy lại đề xuất.");
-  clearProfileSelection();
   state.transcript.clear();
   renderCourseChecklist();
   await updateStudentState();
@@ -1041,7 +1139,6 @@ dom.btnClearTranscript.addEventListener("click", async () => {
 dom.courseSearchInput.addEventListener("input", renderCourseChecklist);
 dom.courseBlockFilter.addEventListener("change", renderCourseChecklist);
 dom.programSelect.addEventListener("change", onProgramChanged);
-dom.profileSelect?.addEventListener("change", loadSelectedProfile);
 dom.trackSelect?.addEventListener("change", async () => {
   state.selectedTrackId = dom.trackSelect.value || null;
   clearRecommendationResults("Nhánh chuyên sâu đã thay đổi. Hãy chạy lại đề xuất.");
@@ -1055,6 +1152,7 @@ dom.graduationPathSelect?.addEventListener("change", async () => {
 
 // --- Initialize App ---
 document.addEventListener("DOMContentLoaded", () => {
+  dom.courseLanguageSelect.value = state.courseLanguage;
   initTabs();
   initFloatingAdvisor();
   loadPrograms();

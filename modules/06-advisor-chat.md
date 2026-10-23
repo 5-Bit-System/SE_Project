@@ -1,47 +1,27 @@
-# Module 06 — Chatbot tư vấn học tập
+# Module 06 — Tư vấn môn học và phân luồng hội thoại
 
-## Mục tiêu
+Cập nhật: 23/10/2026. **Hiện trạng:** có course advisor/guardrail/LLM/fallback; chưa nối HUS RAG.
 
-Cung cấp chatbot nổi để tư vấn trong context ngành, transcript, eligible set và preference của phiên hiện tại.
+## Trách nhiệm và hợp đồng
 
-## Phạm vi cốt lõi
+app/services/advisor_service.py và app/schemas/advisor.py nhận message/history có giới hạn cùng context học tập. Đầu ra hiện có là reply, mode, guardrail status và suggested codes. Contract mục tiêu bổ sung intent, citations khi dùng RAG, warnings và context/release tham chiếu.
 
-- Nhận message và session context.
-- Nhánh recommendation advice: gọi pipeline recommendation qua Module 07.
-- Scope guardrail cho câu hỏi ngoài phạm vi.
-- Heuristic fallback khi LLM không khả dụng.
-- Giữ chat history trong session và xóa khi đổi ngành.
-- Không lưu message hoặc profile cá nhân lâu dài.
+## Phân luồng mục tiêu
 
-## Các câu hỏi được phép
+- Tư vấn/chọn môn: dùng facts từ 03/04/05 cùng context; history cũ không ghi đè facts hiện tại.
+- Tra cứu thông tin HUS: gọi 11, chỉ dùng release active.
+- Câu hỏi hỗn hợp: tách phần tính toán và phần trích dẫn; tài liệu không mở khóa môn.
+- Thiếu ngành/khóa/năm làm đổi đáp án: hỏi làm rõ.
+- Yêu cầu xếp lịch, kiểm tra trùng lớp, đánh giá giảng viên hoặc chắc chắn mở lớp: nêu giới hạn chức năng.
 
-- Nên học môn nào trong tập eligible.
-- Định hướng chủ đề, track và career goal.
-- Giải thích vì sao môn được phép hoặc bị chặn.
-- Hỏi lại để làm rõ preference mơ hồ.
+## Kế hoạch chỉnh sửa
 
-## Các câu hỏi phải từ chối
+Advisor hiện dùng max_credits=40, recommendation tối đa 30; cần thống nhất constraints hoặc phân biệt rõ tư vấn từng môn với chọn gói môn. Dùng chung facts/scoring và context, không nhân bản policy nghiệp vụ.
 
-- Xếp thời khóa biểu.
-- Kiểm tra trùng lịch.
-- Xác nhận môn chắc chắn mở lớp.
-- Đánh giá giảng viên hoặc khả năng chấm điểm.
-- Quyết định học vụ chính thức.
-- Câu hỏi HUS ngoài phạm vi dữ liệu được cung cấp.
+Giữ kiểm tra mã/guardrail/fallback; đánh giá riêng các khẳng định prose vì code validation không đủ chứng minh mọi lời văn đúng. Thêm router tới RAG sau khi module 11 sẵn sàng.
 
-## Thông tin HUS
+## Phiên và nghiệm thu
 
-HUS crawler, allowlist, chunking, retrieval index và citation model là phase sau. Ở core phase chỉ giữ interface để sau này thêm nhánh HUS, không trộn tài liệu HUS vào catalog course.
+History chỉ trong phiên, xóa/vô hiệu hóa khi đổi ngành hoặc áp transcript/context mới. Không đưa credentials, HTML portal hoặc thông tin định danh không cần thiết vào LLM.
 
-## Dữ liệu vào và dữ liệu ra
-
-Dữ liệu vào gồm tin nhắn, program_id, bảng điểm, context môn hợp lệ/bị chặn và lịch sử trong phiên.
-
-Dữ liệu ra gồm câu trả lời, loại ý định, kết quả gợi ý hoặc thông báo từ chối, nguồn trích dẫn nếu có, cảnh báo và metadata của phiên.
-
-## Tiêu chí hoàn thành
-
-- Chat recommendation không thể đề xuất blocked course.
-- Đổi ngành xóa history/context.
-- Có fallback không cần API key.
-- Có test guardrail cho câu hỏi lịch học, giảng viên và offering.
+Kiểm thử recommendation blocked, history đổi ngành, fallback, thiếu nguồn, phân luồng và constraints nhất quán. Không dùng course advisor hiện có làm bằng chứng đã hoàn thành tra cứu văn bản HUS.

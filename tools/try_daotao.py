@@ -10,6 +10,8 @@ from app.integrations.daotao.client import DaotaoClient
 def main() -> int:
     parser = argparse.ArgumentParser(description="Thử đọc bảng điểm VNU; không ghi database/file.")
     parser.add_argument("--selector", help="Đọc bảng tùy chọn thay vì bảng điểm mặc định")
+    parser.add_argument("--show-transcript", action="store_true",
+                        help="Hiện dữ liệu cá nhân ra terminal; không dùng với log chia sẻ")
     args = parser.parse_args()
     try:
         from playwright.sync_api import Error, sync_playwright
@@ -37,7 +39,8 @@ def main() -> int:
                     if args.selector else client.read_transcript()
                 )
                 print("Đã đọc bảng; đây là ô văn bản thô, chưa ánh xạ điểm.")
-                print(json.dumps(tables, ensure_ascii=False, indent=2))
+                if args.show_transcript:
+                    print(json.dumps(tables, ensure_ascii=False, indent=2))
                 return 0 if tables else 1
             finally:
                 browser.close()

@@ -1,5 +1,11 @@
 # Thử kết nối cổng đào tạo VNU
 
+> Cập nhật tích hợp 23/10/2026: API/profile và migration đã được thêm vào
+> hệ thống local. Xem `docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md` cho trạng
+> thái nghiệm thu, thiết lập mới và giới hạn identity/completeness. Các mục
+> bên dưới mô tả connector thử gốc. CLI chỉ in bảng điểm khi truyền rõ
+> `--show-transcript`; không dùng tùy chọn đó với log chia sẻ.
+
 Bản thử độc lập, chưa tích hợp API hoặc database. Không lưu tài khoản, cookie,
 HTML hay bảng điểm ra file. Kết quả chỉ in ra terminal trong phiên thử.
 

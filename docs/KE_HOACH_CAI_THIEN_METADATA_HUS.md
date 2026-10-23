@@ -1,6 +1,40 @@
 # Kế hoạch cải thiện metadata HUS và tài liệu cần cung cấp
 
-Ngày lập: **21/10/2026**. Trạng thái: **kế hoạch đề xuất, chưa triển khai các thay đổi dữ liệu**.
+Ngày lập: **21/10/2026**. Cập nhật đối chiếu nhánh Vinh: **22/10/2026**. Kế hoạch đã được triển khai một phần; các điều kiện nghiệm thu học vụ vẫn còn mở.
+
+**Thông tin người dùng xác nhận ngày 22/10/2026:** chỉ xét chương trình áp dụng từ khóa tuyển sinh 2022; hiện chưa biết có văn bản điều chỉnh sau QĐ 3565–3569 hay không; người dùng là người rà soát cuối. Năm PDF trong `docs/` khớp manifest SHA-256. Kết quả đối chiếu mã/trang độc lập và các điểm chờ xác nhận được ghi trong [báo cáo nghiệm thu PDF](HUS_PDF_ACCEPTANCE_REVIEW.md). Đã chạy đủ 10 ca tự động trên HUS: tổng lượt mới 302 offline và 35 PostgreSQL pass. Export bổ sung bằng chứng nhóm cha Khoa học dữ liệu `28/63`, chưa publish runtime. Chưa có xác nhận cuối cho toàn bộ dữ liệu học vụ.
+
+## Cập nhật để Vinh tiếp tục thực hiện (22/10/2026)
+
+Phạm vi đối chiếu: commit `8c60434` trên `origin/feat/vinh-database-tests`, so với kế hoạch này. Commit đó cũng là đầu nhánh `fix/hus-metadata-vi-en-20261021` tại lúc rà soát. Lượt đối chiếu ban đầu dựa trên mã nguồn và báo cáo đã đưa lên Git; người rà soát **chưa đọc lại độc lập các PDF**. Kết quả kiểm thử sau đó được ghi riêng ngay dưới đây và vẫn không thay thế nghiệm thu nguồn học thuật.
+
+**Mốc sau khi kiểm thử và merge local (22/10/2026):** Commit `8c60434` đạt 263 test offline, 31 test PostgreSQL, `verify_data` 26/26, Ruff, kiểm tra fixture tổng hợp và cú pháp JavaScript. Ở mốc đó `codebase` mới fast-forward local và chưa publish metadata mới vào database runtime. Sau đó `codebase` đã được đẩy lên GitHub qua `66002cd`. Mười ca `full_catalog_acceptance` vẫn chờ bộ nguồn được review độc lập đầy đủ.
+
+**Ước lượng tiến độ toàn kế hoạch: khoảng 40%.** Đây là ước lượng theo sáu giai đoạn và điều kiện hoàn thành, không phải tỷ lệ dòng dữ liệu đã được chuyên môn xác minh. Không dùng con số này để nâng trạng thái catalog.
+
+### Đã làm được trên nhánh
+
+- Có manifest nguồn ghi tên file, SHA-256, quyết định, khóa 2022 và trang bảng của bốn PDF chương trình; PDF QĐ 3566 được liệt kê để tham chiếu ngoài bốn catalog. Giá trị metadata mới có locator theo trang/dòng/cột. Xem `database/data/hus_source.json`.
+- Bổ sung `name_en` cho **290/290** học phần theo chương trình và `hours` cho **282/290**. Tám ô giờ GDQP/GDTC trống trong PDF vẫn là `null`, không chuyển thành 0. `coverage.json` có số liệu trước/sau theo chương trình.
+- Bộ dựng catalog áp dụng metadata theo `program_id` và mã môn, yêu cầu bằng chứng cho giá trị khác `null`, và không cho metadata ghi đè tiên quyết, tín chỉ hoặc quota. Có kiểm thử tập trung cho dữ liệu song ngữ, giờ học và ràng buộc này.
+- Theo báo cáo triển khai, đã đối chiếu tên Anh và giờ học trên 22 trang bảng, cập nhật tên nhóm V.2.2 của Toán tin theo PDF và tên MAT3366 riêng trong Toán tin. PHI1002 Toán học vẫn giữ PHI1006 theo PDF hiện có. MAT3423/MAT3402 và hai điều kiện MAT3325 vẫn được giữ ở trạng thái chưa rõ/xung đột để xử lý an toàn.
+- Có giao diện chọn tên học phần Việt/Anh, tìm kiếm theo hai tên hoặc mã, và hiển thị giờ học. Đây là chế độ tên môn song ngữ, chưa phải giao diện tiếng Anh toàn diện.
+- Có báo cáo độ đầy đủ, bảng dòng nguồn, rubric tư vấn **bản nháp** và mẫu thu thập review. Báo cáo triển khai ghi nhận lượt kiểm tra offline, demo local, sao lưu và publish bằng công cụ HUS; bằng chứng runtime chi tiết nằm trong `backups/` bị Git bỏ qua.
+
+### Chưa hoàn thành hoặc chưa đủ bằng chứng nghiệm thu
+
+| Giai đoạn | Trạng thái đối chiếu | Phần Vinh cần hoàn tất hoặc bàn giao |
+|---|---|---|
+| 1. Chốt nguồn và phiên bản | Có manifest/hash và phạm vi khóa 2022; chưa đủ kết luận về ngày ban hành, văn bản điều chỉnh và hiệu lực. | Ghi ngày ban hành, nguồn của từng quyết định, danh sách văn bản điều chỉnh đã kiểm tra hoặc xác nhận chưa có/chưa biết; xác nhận phạm vi khóa áp dụng với người phụ trách. |
+| 2. Điểm bất nhất ưu tiên | V.2.2 và MAT3366 đã sửa theo phần PDF được báo cáo; P0 MAT3402 và MAT3325 chưa chốt; PHI1002 còn khác biệt với web. | Lập sổ vấn đề có giá trị hiện tại, locator, tác động, người kết luận và trạng thái. Xin khoa/phòng đào tạo xác nhận MAT3402 hoặc tương đương, cách áp dụng hai điều kiện MAT3325 theo định hướng, và văn bản hiệu lực cho PHI1002 nếu có. Giữ chặn an toàn khi chưa rõ. |
+| 3. Đối chiếu toàn bộ khung | Có `row-audit.csv` nhưng `human_review=pending`; chưa có bộ nguồn được review cho `full_catalog_acceptance`. | Review độc lập từng dòng và chú thích PDF: mã/tên/tín chỉ/nhóm, AND/OR, quota, nhánh tốt nghiệp, môn không tính tín chỉ, tổng tín chỉ theo lựa chọn. Ghi sai lệch và phạm vi review. Chuẩn bị dữ liệu acceptance đúng định dạng nếu yêu cầu nghiệm thu. |
+| 4. Metadata có nguồn trực tiếp | Hoàn thành tên Anh và phần lớn giờ học. `instruction_language`, `year`, `suggested_term` và URL nguồn chính thức vẫn chưa có. | Chỉ điền khi có đề cương/kế hoạch học kỳ đúng phiên bản; giữ `null` và lý do khi thiếu. Bổ sung reviewer/thời gian review sau khi review thật. Không suy ngôn ngữ giảng dạy từ tên tiếng Anh hoặc tạo URL giả từ file local. |
+| 5. Metadata tư vấn | Mới có rubric dự thảo và mẫu review. `topics`, `orientation`, `difficulty`, `workload`, `description`, `career_paths` vẫn **0/290**. | Thu thập đề cương, chuẩn đầu ra và nguồn đánh giá; chốt từ vựng/rubric với chuyên môn; review từng giá trị trước khi đưa vào ranking. Nếu chưa có nguồn, bàn giao rubric/mẫu và giữ giá trị môn học chưa biết. |
+| 6. Kiểm tra và công bố | Báo cáo nhánh ghi đã test và publish demo local; bằng chứng backup, revision và snapshot nằm ngoài Git. Chưa có nghiệm thu học vụ đầy đủ. | Bàn giao báo cáo có thể kiểm tra được về revision trước/sau, phạm vi database, kết quả dry-run/publish, `/ready`, API/UI, rollback và các test liên quan. Tách rõ kiểm thử fixture, kiểm thử PostgreSQL và nghiệm thu nguồn đã review. |
+
+**Lưu ý về bằng chứng:** Trong `database/tools/metadata_report.py`, cột `core_source_consistency` của `row-audit.csv` được gán sẵn `matched` từ source export; cột đó **không chứng minh** đã đối chiếu độc lập từng dòng với PDF. Chỉ dùng kết quả review có locator, người review và kết luận để đánh dấu đã xác minh. Bốn catalog tiếp tục là `draft_unverified` cho đến khi đủ bằng chứng theo phạm vi review.
+
+**Tài liệu trên nhánh để bàn giao:** `reports/hus-metadata-2026-10-21/IMPLEMENTATION.md`, `coverage.json`, `row-audit.csv`, `docs/HUS_METADATA_RUBRIC_DRAFT.md`, `database/data/hus_source.json`. Nếu bàn giao chứng cứ local trong `backups/`, chỉ cung cấp qua kênh phù hợp; không đưa dump database, `.env` hoặc thông tin đăng nhập lên Git.
 
 ## 1. Mục tiêu và phạm vi
 

@@ -1,52 +1,34 @@
-# Module 01 — Quản lý catalog chương trình đào tạo
+# Module 01 — Catalog chương trình đào tạo
 
-## Mục tiêu
+Cập nhật: 23/10/2026. **Hiện trạng:** có repository HUS, builder, validation và publication; bốn catalog vẫn draft_unverified.
 
-Cung cấp bốn catalog CTĐT độc lập từ data/curricula/ và bảo đảm dữ liệu có thể được dùng an toàn bởi transcript, eligibility và ranking.
+## Trách nhiệm và code hiện có
 
-## Phạm vi
+Cung cấp snapshot chương trình đúng ngành/khóa/phiên bản cho transcript, progress, eligibility và ranking. Giữ provenance, prerequisite, choice groups, track/path và metadata có bằng chứng.
 
-- Load curriculum.json và courses.json.
-- Chuẩn hóa program_id và alias ngành.
-- Kiểm tra mã môn duy nhất trong từng ngành.
-- Kiểm tra choice group, track và graduation path tham chiếu đúng mã.
-- Giữ nguyên source_page, source status, source issues và raw prerequisite.
-- Giữ prerequisite ngoài catalog hoặc chưa xác minh ở trạng thái không mở khóa.
-- Cung cấp metadata cho ranking nếu metadata tồn tại.
+Nguồn export là database/data/hus_source.json; builder ở database/hus_db/catalog_builder.py. Runtime đọc PostgreSQL ai07 qua app/catalog.py và app/infrastructure/hus_repository.py. data/curricula/ chỉ là mẫu metadata một ngành, không phải nguồn đủ bốn catalog.
 
-## Không làm
+## Đầu vào và đầu ra
 
-- Không gộp course cùng mã giữa các ngành.
-- Không tự suy luận workload, difficulty, topic hoặc offering.
-- Không tự sửa dữ liệu PDF.
-- Không xây database repository.
+Đầu vào: bundle nguồn có provenance hoặc yêu cầu đọc program_id. Đầu ra: Catalog hợp lệ, metadata chương trình/revision, môn học, rules, trạng thái và cảnh báo nguồn.
 
-## Dữ liệu đầu vào
+Mã môn có thể dùng chung ở bảng nền nhưng tên/tín chỉ/điều kiện áp dụng phải theo membership từng chương trình. Không gộp ngữ nghĩa hai ngành chỉ vì trùng mã.
 
-- data/curricula/<program_id>/courses.json
-- data/curricula/<program_id>/curriculum.json
-- data/curricula/<program_id>/source_rows.json
+## Quy tắc
 
-## Dữ liệu đầu ra
+- Kiểm tra uniqueness, tham chiếu nhóm/track/path, prerequisite AND/OR và toàn vẹn snapshot.
+- Giữ raw/source locator và variants; không coi unknown/conflict/external là không có tiên quyết.
+- Không tự điền workload/difficulty/topics, môn tương đương hoặc lịch mở lớp.
+- Chỉ khớp portal với catalog khi có bằng chứng ngành/khóa/phiên bản; không tự dùng catalog 2022 cho khóa khác.
+- Publication dùng database.tools.publish_catalogs; migration dùng database.tools.migrate. Không chạy root Alembic lên HUS.
+- Bốn catalog được kiểm tra và kích hoạt cùng transaction; lỗi giữ active cũ. Không tự fallback JSON khi storage lỗi.
 
-- Catalog đã được kiểm tra hợp lệ.
-- Program metadata.
-- Metadata của môn học.
-- Choice groups, tracks và graduation rules.
-- Trạng thái catalog và cảnh báo nguồn.
-- Canonical prerequisite structure: outer list là AND, inner list là OR.
+## Kế hoạch cần làm
 
-## Quy tắc bắt buộc
-
-- Một course code chỉ unique trong một program.
-- program_id trong file phải khớp thư mục.
-- choice_group_ids phải tồn tại trong curriculum.
-- Không coi external_prerequisite_codes là prerequisite đã đạt.
-- Course có source_conflict phải được đánh dấu để eligibility chặn hoặc cảnh báo theo policy.
+Rà MAT3402, MAT3325, PHI1002 và hiệu lực văn bản theo báo cáo nguồn. Sửa PDF acceptance resolver theo vị trí tài liệu mới, giữ kiểm tra hash. Đồng bộ đặc tả nguồn runtime và contract revision với các module tiêu thụ.
 
 ## Tiêu chí hoàn thành
 
-- Có thể load đủ bốn catalog.
-- Sai program_id, mã trùng hoặc group không tồn tại bị từ chối.
-- Catalog không làm mất provenance.
-- Có test cho major isolation và external prerequisite.
+Đọc đủ bốn chương trình, từ chối cấu trúc sai, giữ provenance và không mất snapshot cũ khi publish lỗi. Có bằng chứng revision trước/sau và rollback. Test pass không nâng catalog thành verified; xác nhận học vụ là cổng riêng.
+
+Liên quan: [02](02-transcript-profile.md), [03](03-eligibility-engine.md), [vận hành HUS](../database/HUS_RUNTIME.md).

@@ -1,0 +1,20 @@
+{
+  "format": "hus-pdf-acceptance-v1",
+  "review_status": "pending_user_signoff",
+  "cohort_year": 2022,
+  "amendments": "unknown",
+  "inventory": "../../HUS_PDF_CODE_PAGE_AUDIT.csv",
+  "programs": {
+    "toan_hoc_7460101_2022": {"decision": "QD3565-2023", "pdf_number": "101", "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0", "last_numbered_row": 89, "unnumbered": 1, "courses": 90, "credits": 135, "total_locator": "PDF 14, Total"},
+    "toan_tin_7460117_2022": {"decision": "QD3567-2023", "pdf_number": "103", "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8", "last_numbered_row": 63, "unnumbered": 0, "courses": 68, "credits": 132, "total_locator": "PDF 12, Total"},
+    "khmtt_7480113qtd_2022": {"decision": "QD3568-2023", "pdf_number": "104", "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab", "last_numbered_row": 61, "unnumbered": 0, "courses": 67, "credits": 129, "total_locator": "PDF 13, Total"},
+    "khdl_7460108_2022": {"decision": "QD3569-2023", "pdf_number": "105", "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2", "last_numbered_row": 59, "unnumbered": 0, "courses": 65, "credits": 127, "total_locator": "PDF 13, Total"}
+  },
+  "special_checks": {
+    "language": "101/103 PDF 8; 104/105 PDF 9: 5/35, seven B1 choices; exclusions continued on next page",
+    "membership": "101 PDF 10 IV.2; 104 PDF 10 III: MAT2505",
+    "duplicates": "101 PDF 12 rows 54 and 62: MAT3323, V.2.1/V.2.2",
+    "conflict": "101 PDF 12 row 56 and PDF 13 row 72: MAT3325; PDF 13 row 76: MAT3423/MAT3402",
+    "anomalies": "105 PDF 8 summary 28/63; PDF 11-12 group offers 6+9+15+27=57, MAT3508 3 credits, repeated V.2.3; 103 PDF 12 MAT4082 hours 75/62/275; 101 PDF 14 unnumbered MAT4070"
+  }
+}
