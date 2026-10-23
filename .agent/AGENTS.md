@@ -1,5 +1,31 @@
 # Project Memory and Contributor Guidelines
 
+## Latest UI fix — 2026-10-23: language selection and appearance label
+
+User explicitly requested commit of the existing UI followed by fixes.
+Created local commit `0a2f76c` containing the semester UI and gradient themes.
+Then changed visible “Giao diện gradient” to “Giao diện” (including accessible
+light/dark names), and expanded the selector from course-name language to UI
+language. This correction is being recorded in a separate local commit; verify
+the resulting hash with Git. No push was requested.
+
+Root cause: selector only changed course names; the live first major exposed
+65 courses with zero name_en values, so all names fell back to Vietnamese.
+New `app/static/i18n.js` translates known UI copy/templates, including dynamic
+renders, reversibly through WeakMap originals and MutationObserver. Language
+preference alone is stored as `study-workspace-language`. Source course names
+without English metadata, source grades and user/LLM chat remain unchanged;
+the UI displays an explicit source-name fallback note. No runtime catalog
+publication or invented course translations. Corrected what-if “Chế độ” encoding.
+
+Committed browser regression source is `tests/frontend/check_language.mjs`;
+it passed VI/EN switching, persistence, async major/API renders, name_en and
+fallback branches, synthetic source preservation, recommendation/what-if,
+chat window labels, theme compatibility and 390px containment, with no JS
+exceptions. English screenshot inspected; JS syntax and diff checks passed.
+No Python/PostgreSQL rerun or live LLM conversation for this frontend fix.
+Details: `docs/LANGUAGE_UI_FIX_2026_10_23.md`. Real sample remains ignored.
+
 ## Latest UI update — 2026-10-23: selectable gradient themes
 
 User requested gradient light/dark interfaces with regular progress reports.

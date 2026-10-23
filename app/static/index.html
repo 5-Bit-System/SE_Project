@@ -13,6 +13,7 @@
   <link rel="icon" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/themes.css">
+  <script src="/static/i18n.js" defer></script>
   <script src="/static/app.js" defer></script>
 </head>
 <body>
@@ -32,7 +33,7 @@
 
       <div class="header-right-actions">
         <div class="program-selector-wrapper">
-          <label for="course-language-select" class="selector-label">Ngôn ngữ tên môn</label>
+          <label for="course-language-select" class="selector-label">Ngôn ngữ</label>
           <div class="select-container">
             <select id="course-language-select" class="modern-select">
               <option value="vi">Tiếng Việt (vi)</option>
@@ -58,10 +59,10 @@
           </div>
         </div>
         <div class="appearance-control">
-          <span class="selector-label" id="appearance-label">Giao diện gradient</span>
+          <span class="selector-label" id="appearance-label">Giao diện</span>
           <div class="theme-switcher" role="group" aria-labelledby="appearance-label">
-            <button type="button" data-theme-choice="light" aria-label="Gradient sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
-            <button type="button" data-theme-choice="dark" aria-label="Gradient tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
+            <button type="button" data-theme-choice="light" aria-label="Giao diện sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
+            <button type="button" data-theme-choice="dark" aria-label="Giao diện tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
           </div>
         </div>
       </div>
@@ -141,6 +142,7 @@
         </div>
 
         <p id="transcript-preview-notice" class="transcript-source-note" hidden></p>
+        <p id="course-language-note" class="card-subtitle" hidden>Tên môn chưa có bản tiếng Anh được giữ nguyên theo nguồn.</p>
         <div id="manual-transcript-controls">
           <div class="semester-toolbar">
             <label for="transcript-term">Học kỳ đang nhập <select id="transcript-term" class="modern-select"><option value="">Chưa xếp học kỳ</option></select></label>
@@ -341,7 +343,7 @@
 
       <!-- Chat Messages Scroll Area -->
       <div id="chat-messages-container" class="chat-messages">
-        <div class="chat-message message-advisor">
+        <div class="chat-message message-advisor" data-ui-copy>
           <div class="message-content">
             <p>Xin chào! Tôi là <strong>AI Advisor</strong> hỗ trợ học vụ cho bạn.</p>
             <p>Tôi có thể giúp bạn giải đáp định hướng nghề nghiệp, gợi ý môn học phù hợp theo từng track và giải thích lộ trình học tập dựa trên bảng điểm thực tế của bạn.</p>

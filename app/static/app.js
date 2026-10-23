@@ -3,7 +3,7 @@
 // ==========================================================================
 
 const state = {
-  courseLanguage: "vi",
+  courseLanguage: window.workspaceI18n.language,
   programs: [],
   profiles: [],
   currentProgramId: null,
@@ -385,6 +385,7 @@ function setCourseTitle(element, course) {
 
 dom.courseLanguageSelect.addEventListener("change", () => {
   state.courseLanguage = dom.courseLanguageSelect.value === "en" ? "en" : "vi";
+  window.workspaceI18n.setLanguage(state.courseLanguage);
   renderCourseChecklist();
   document.querySelectorAll("[data-course-code]").forEach(element => {
     const course = state.courses.find(item => item.code === element.dataset.courseCode);
@@ -510,6 +511,8 @@ function renderPortalTranscript(container) {
 }
 
 function renderCourseChecklist() {
+  document.querySelector("#course-language-note").hidden = state.courseLanguage !== "en"
+    || (!state.portalPreview && !state.courses.some(course => !course.name_en));
   // Year-based samples need sourced year metadata; null must not mean year zero.
   [dom.btnSampleFreshman, dom.btnSampleSophomore, dom.btnSampleJunior].forEach(button => {
     button.hidden = !state.courses.some(course => Number.isInteger(course.year));
@@ -901,7 +904,7 @@ function renderRecommendationSummary(data) {
   });
   appendRecommendationDetail(summaryGrid, "Bộ xếp hạng", `${data.ranking_backend || "Chưa xác định"} · ${data.ranking_version || "n/a"}`);
   if (data.what_if) {
-    appendRecommendationDetail(summaryGrid, "Cháº¿ Ä‘á»™", "What-if trên cùng tập đủ điều kiện", {
+    appendRecommendationDetail(summaryGrid, "Chế độ", "What-if trên cùng tập đủ điều kiện", {
       badges: true,
       badgeClass: "badge-info",
     });
@@ -1287,6 +1290,7 @@ dom.graduationPathSelect?.addEventListener("change", async () => {
 
 // --- Initialize App ---
 document.addEventListener("DOMContentLoaded", () => {
+  dom.courseLanguageSelect.value = state.courseLanguage;
   initTabs();
   initFloatingAdvisor();
   loadPrograms();
