@@ -3,8 +3,8 @@
 import mimetypes
 from pathlib import Path
 from urllib.parse import urlsplit
-from playwright.sync_api import sync_playwright
 
+from playwright.sync_api import sync_playwright
 
 
 def main():
