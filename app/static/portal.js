@@ -4,12 +4,12 @@
   const copy = {
     vi: {
       heading: 'Hồ sơ học tập', open: 'Đăng nhập VNU', profile: 'Hồ sơ của tôi', intro: 'Đăng nhập bằng tài khoản VNU để xem bảng điểm đã lưu. Mật khẩu chỉ dùng cho lần kết nối này.',
-      username: 'Tài khoản VNU', password: 'Mật khẩu VNU', show: 'Hiện mật khẩu', hide: 'Ẩn mật khẩu', login: 'Đăng nhập',
+      username: 'Tài khoản VNU', password: 'Mật khẩu VNU', show: 'Hiện mật khẩu', hide: 'Ẩn mật khẩu', login: 'Đăng nhập', processing: 'Đang lấy dữ liệu…',
       sync: 'Cập nhật hồ sơ và bảng điểm', logout: 'Đăng xuất', delete: 'Xóa dữ liệu đã lưu', cancel: 'Hủy cập nhật', keep: 'Giữ dữ liệu',
       confirm: 'Xóa bảng điểm và thông tin hồ sơ đã lưu? Thao tác này sẽ đăng xuất tài khoản.',
       unknown: 'Chưa xác minh độ đầy đủ của bảng điểm. Thông tin hồ sơ chỉ hiển thị khi đọc được từ nguồn VNU.',
       separate: 'Bảng điểm nguồn được lưu riêng; chưa dùng để tính GPA, tiến độ hoặc gợi ý môn.',
-      unparsed: 'Các hàng nguồn cần kiểm tra', waiting: 'Đang kết nối VNU. Có thể mất đến 2 phút…',
+      unparsed: 'Các hàng nguồn cần kiểm tra', waiting: 'Đang đăng nhập VNU và lấy hồ sơ, bảng điểm. Vui lòng chờ, quá trình có thể mất đến 2 phút…',
       saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
       updated: 'Lần cập nhật', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
       columns: ['Mã môn', 'Tên học phần', 'Tín chỉ', 'Hệ 10', 'Chữ', 'Hệ 4'],
@@ -30,12 +30,12 @@
     },
     en: {
       heading: 'Academic profile', open: 'Sign in with VNU', profile: 'My profile', intro: 'Sign in with your VNU account to view saved grades. Your password is used for this connection only.',
-      username: 'VNU account', password: 'VNU password', show: 'Show password', hide: 'Hide password', login: 'Sign in',
+      username: 'VNU account', password: 'VNU password', show: 'Show password', hide: 'Hide password', login: 'Sign in', processing: 'Retrieving your data…',
       sync: 'Update profile and transcript', logout: 'Sign out', delete: 'Delete saved data', cancel: 'Cancel update', keep: 'Keep data',
       confirm: 'Delete saved transcript and profile information? This also signs you out.',
       unknown: 'Transcript completeness is unverified. Profile details appear only when supplied by VNU.',
       separate: 'Source grades are saved separately and are not used for GPA, progress or recommendations.',
-      unparsed: 'Source rows requiring review', waiting: 'Connecting to VNU. This may take up to 2 minutes…',
+      unparsed: 'Source rows requiring review', waiting: 'Signing in to VNU and retrieving your profile and grades. Please wait; this may take up to 2 minutes…',
       saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
       updated: 'Last updated', account: 'Verified account', close: 'Close', table: 'Source transcript',
       columns: ['Course code', 'Course name', 'Credits', '10-point', 'Letter', '4-point'],
@@ -57,10 +57,18 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
-  function status(key = '', error = '') { messageKey = key; errorKey = error; $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || ''); }
+  function status(key = '', error = '') {
+    messageKey = key; errorKey = error;
+    const loading = key === 'waiting' && !error;
+    $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || '');
+    $('status').classList.toggle('is-loading', loading);
+    $('submit').classList.toggle('is-loading', loading);
+    $('submit').textContent = loading ? text().processing : text().login;
+    $('login').setAttribute('aria-busy', String(loading));
+  }
   function reset() {
     clearTimeout(expiryTimer);
-    epoch++; profile = null; job = null; $('table').replaceChildren(); $('summary').textContent = '';
+    epoch++; profile = null; job = null; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
@@ -156,7 +164,7 @@
       if (updating) { job = result.id; $('login').hidden = true; $('cancel').hidden = false; poll(current); }
       else { await load(); if (result.warning) status('', result.warning); }
     } catch (err) { if (current === epoch || err.message === 'session_expired') status('', err.message); }
-    finally { submitted.password = ''; lock(false); }
+    finally { submitted.password = ''; if (current === epoch) lock(Boolean(job)); }
   };
   async function poll(current) {
     if (!job || current !== epoch) return;
@@ -166,7 +174,8 @@
       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
       job = null; $('cancel').hidden = true; await load();
       if (result.error || result.state === 'cancelled') status('', result.error || 'cancelled');
-    } catch (err) { status('', err.message); job = null; $('cancel').hidden = true; }
+    } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
+    finally { if (current === epoch && !job) lock(false); }
   }
   $('sync').onclick = () => { if (job) return; $('login').hidden = false; $('username').value = profile.subject; $('password').focus(); };
   $('cancel').onclick = async () => { try { if (job) await api(`/me/portal-sync/${encodeURIComponent(job)}`, 'DELETE'); } catch (err) { status('', err.message); } };

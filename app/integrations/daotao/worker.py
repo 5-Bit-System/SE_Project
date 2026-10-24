@@ -23,7 +23,7 @@ def collect(credentials):
     from playwright.sync_api import TimeoutError, sync_playwright
 
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, channel="chrome")
+        browser = playwright.chromium.launch(headless=True, channel="chrome")
         try:
             context = browser.new_context(accept_downloads=False, service_workers="block")
             # Reject navigation/requests outside the reviewed portal host.

@@ -27,3 +27,20 @@
 .portal-actions { margin-top: 24px; }
 .portal-delete { color: var(--text-main); border-color: var(--border-focus); margin-left: auto; }
 #portal-confirm { margin-top: 16px; padding: 16px; background: var(--warning-bg); }
+
+/* Keep the pending portal request visible while its browser runs in the background. */
+#portal-status.is-loading {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  border: 1px solid var(--border-focus); border-radius: 10px;
+  background: var(--bg-input); color: var(--text-main);
+}
+#portal-status.is-loading::before, #portal-submit.is-loading::before {
+  content: ""; display: inline-block; width: 18px; height: 18px; flex-shrink: 0;
+  border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%;
+  animation: portal-loading-spin .8s linear infinite;
+}
+#portal-submit.is-loading { display: inline-flex; align-items: center; gap: 10px; }
+@keyframes portal-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  #portal-status.is-loading::before, #portal-submit.is-loading::before { animation: none; }
+}
