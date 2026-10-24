@@ -57,7 +57,15 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
-  function status(key = '', error = '') { messageKey = key; errorKey = error; $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || ''); }
+  function status(key = '', error = '') {
+    messageKey = key; errorKey = error;
+    const loading = key === 'waiting' && !error;
+    $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || '');
+    $('status').classList.toggle('is-loading', loading);
+    $('submit').classList.toggle('is-loading', loading);
+    $('submit').textContent = loading ? text().processing : text().login;
+    $('login').setAttribute('aria-busy', String(loading));
+  }
   function reset() {
     clearTimeout(expiryTimer);
     epoch++; profile = null; job = null; $('table').replaceChildren(); $('summary').textContent = '';
