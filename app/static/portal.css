@@ -27,3 +27,10 @@
 .portal-actions { margin-top: 24px; }
 .portal-delete { color: var(--text-main); border-color: var(--border-focus); margin-left: auto; }
 #portal-confirm { margin-top: 16px; padding: 16px; background: var(--warning-bg); }
+
+/* Keep the pending portal request visible while its browser runs in the background. */
+#portal-status.is-loading {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  border: 1px solid var(--border-focus); border-radius: 10px;
+  background: var(--bg-input); color: var(--text-main);
+}
