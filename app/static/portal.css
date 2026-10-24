@@ -34,3 +34,10 @@
   border: 1px solid var(--border-focus); border-radius: 10px;
   background: var(--bg-input); color: var(--text-main);
 }
+#portal-status.is-loading::before, #portal-submit.is-loading::before {
+  content: ""; display: inline-block; width: 18px; height: 18px; flex-shrink: 0;
+  border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%;
+  animation: portal-loading-spin .8s linear infinite;
+}
+#portal-submit.is-loading { display: inline-flex; align-items: center; gap: 10px; }
+@keyframes portal-loading-spin { to { transform: rotate(360deg); } }
