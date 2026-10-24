@@ -68,7 +68,7 @@
   }
   function reset() {
     clearTimeout(expiryTimer);
-    epoch++; profile = null; job = null; $('table').replaceChildren(); $('summary').textContent = '';
+    epoch++; profile = null; job = null; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
@@ -164,7 +164,7 @@
       if (updating) { job = result.id; $('login').hidden = true; $('cancel').hidden = false; poll(current); }
       else { await load(); if (result.warning) status('', result.warning); }
     } catch (err) { if (current === epoch || err.message === 'session_expired') status('', err.message); }
-    finally { submitted.password = ''; lock(false); }
+    finally { submitted.password = ''; if (current === epoch) lock(Boolean(job)); }
   };
   async function poll(current) {
     if (!job || current !== epoch) return;
@@ -174,7 +174,8 @@
       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
       job = null; $('cancel').hidden = true; await load();
       if (result.error || result.state === 'cancelled') status('', result.error || 'cancelled');
-    } catch (err) { status('', err.message); job = null; $('cancel').hidden = true; }
+    } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
+    finally { if (current === epoch && !job) lock(false); }
   }
   $('sync').onclick = () => { if (job) return; $('login').hidden = false; $('username').value = profile.subject; $('password').focus(); };
   $('cancel').onclick = async () => { try { if (job) await api(`/me/portal-sync/${encodeURIComponent(job)}`, 'DELETE'); } catch (err) { status('', err.message); } };
