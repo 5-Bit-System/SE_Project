@@ -18,7 +18,7 @@ python -m playwright install chromium
 python -m tools.try_daotao
 ```
 
-Cần desktop để mở Chromium. Nhập tài khoản trong terminal, mật khẩu được ẩn.
+Trình duyệt chạy nền (headless), không mở cửa sổ. Nhập tài khoản trong terminal, mật khẩu được ẩn.
 Công cụ gửi form đăng nhập một lần, đợi mục `#PortalModule_374` có title
 `Xem điểm sinh viên`, rồi bấm để trang chạy handler `showApp` sẵn có.
 Sau đó đợi ô `#divList3 td[title="Mã môn học"]` trong trang hoặc frame và đọc bảng
@@ -71,7 +71,7 @@ python -m tools.try_daotao
     ├─ Đọc tùy chọn --selector (nếu có)
     ├─ Kiểm tra đã cài Playwright
     ├─ Nhập tên đăng nhập và mật khẩu trong terminal
-    ├─ Mở Chromium có giao diện
+    ├─ Mở Chromium chạy nền
     ├─ Tạo context tạm và DaotaoClient
     │
     ├─ client.login()
@@ -119,7 +119,7 @@ HÀM main():
         thông báo và kết thúc với mã 1
 
     THỬ:
-        mở Chromium có giao diện
+        mở Chromium chạy nền
         THỬ:
             tạo context tạm, không nhận tải file
             tạo client bằng context
@@ -304,3 +304,11 @@ Luồng portal mới lưu snapshot riêng; client và CLI chưa ghi cột timest
 service lưu điểm, cập nhật timestamp cùng transaction lưu điểm thành công,
 kể cả không thay đổi điểm; không cập nhật khi lỗi. Số ngày đã qua được tính từ
 timestamp, ngưỡng nhắc cập nhật thuộc cấu hình ứng dụng.
+
+## Chạy nền khi đăng nhập
+
+Worker đăng nhập của web và CLI `tools.try_daotao` dùng `headless=True`,
+không bật cửa sổ trình duyệt. Worker vẫn dùng Google Chrome (`channel="chrome"`);
+CLI dùng Chromium do Playwright quản lý. Khởi động lại backend sau khi cập nhật
+để áp dụng. Cách xác thực và đọc bảng không thay đổi. Chưa kiểm chứng lại phiên
+VNU thật ở chế độ này; CAPTCHA/OTP vẫn chưa có luồng tương tác riêng.
