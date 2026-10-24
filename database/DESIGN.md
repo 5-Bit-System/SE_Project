@@ -326,7 +326,6 @@ Hiện chưa lưu ngày bắt đầu/kết thúc đăng ký, lịch học hay l�
 | `curriculum_id` | `BIGINT` — FK → `curricula` | Sinh viên học theo CTĐT nào |
 | `admitted_year` | `INTEGER` | Năm nhập học |
 | `student_status` | `TEXT` | `studying`, `paused`, `graduated`, `withdrawn` |
-| `last_transcript_synced_at` | `TIMESTAMPTZ NULL`, không có default | Thời điểm đồng bộ bảng điểm thành công gần nhất; `NULL` nếu chưa đồng bộ |
 | `created_at` | `TIMESTAMPTZ` | Ngày tạo hồ sơ |
 
 Ví dụ: `students.student_code='99000005'` liên kết tài khoản cùng username `'99000005'`; trường `curriculum_id` dẫn tới CTĐT Khoa học dữ liệu `DEMO-2023`.
@@ -334,13 +333,6 @@ Ví dụ: `students.student_code='99000005'` liên kết tài khoản cùng user
 **Tại sao không lưu thêm `major_code` trong `students`?** Ngành đã xác định được qua `students.curriculum_id → curricula.major_code → majors`. Lưu lại `major_code` trong `students` sẽ dễ sinh lệch dữ liệu khi sinh viên chuyển CTĐT.
 
 **Lưu ý khi nâng cấp:** mô hình một `curriculum_id` tại mỗi thời điểm chưa lưu **lịch sử chuyển ngành/chuyển chương trình**. Nếu cần, thêm bảng lịch sử phân bổ CTĐT cho sinh viên.
-
-**Thời điểm đồng bộ:** `students.last_transcript_synced_at` lưu timestamp, không
-lưu số ngày đã trôi qua. Backend tính tuổi dữ liệu khi cần; ngưỡng nhắc cập nhật
-(ví dụ 7 ngày) thuộc cấu hình ứng dụng, chưa được triển khai trong runtime.
-Chỉ cập nhật timestamp trong cùng transaction hoàn tất lưu bảng điểm, kể cả
-khi bảng điểm không đổi. Kết nối, đọc hoặc lưu lỗi thì giữ nguyên timestamp.
-Migration `hus_20261023_01` bổ sung cột; luồng portal lưu snapshot riêng, chưa cập nhật cột này.
 
 ### 5.10. `course_attempts` — Bảng điểm và từng lượt học
 

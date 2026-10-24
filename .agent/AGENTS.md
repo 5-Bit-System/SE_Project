@@ -1,5 +1,26 @@
 # Project Memory and Contributor Guidelines
 
+## Team history reconciliation — 2026-10-23
+
+User explicitly authorizes PRs, merges and publication to main to preserve
+teammates' original database, test, crawler and login commit histories. This
+supersedes the previous close-out stop for this history task only. Starting
+main is 0b4b2fc. Database setup/tests and Vinh branch tips are already ancestors.
+Login fetched tip b3964ce has 33 missing commits; crawler tip 3a45aae has 53.
+Use explicit history-only ours merges and GitHub merge commits, preserving the
+current application tree and original author/hash metadata. PRs must state this
+scope; do not claim new source-branch features are functionally integrated.
+No new database migration, crawler activation, corpus publication, portal access
+or real data inspection. See docs/TEAM_CONTRIBUTIONS_2026_10_23.md. Functional
+changes skipped by the history merge need explicit review/reapplication later.
+Login history PR #2: https://github.com/5-Bit-System/SE_Project/pull/2.
+Crawler history PR #3: https://github.com/5-Bit-System/SE_Project/pull/3.
+PR #2 merged as c73d08f after all six GitHub checks passed. Use the PR records
+for final publication/CI state; crawler PR retains the original 53 commits.
+Local verification: 398 offline passed / 39 deselected, whole-repo Ruff passed,
+existing Starlette/httpx warning only. All runtime/source/dependency/CI files
+are unchanged from 0b4b2fc; only memory/contribution documentation changes.
+
 ## Session close and main publication — 2026-10-23
 
 User requests memory update, session close, commit and push all current project
@@ -993,26 +1014,3 @@ Historical session details and prior validation counts remain in [the archived h
 ## Cleanup - 2026-10-22
 
 User requested project-toolkit cleanup. Removed unused `database/hus_db/schema.py` (no import/reference; actual HUS DDL remains in migrations), 33 disposable rendered PDF PNGs, the inactive cutover test Chrome profile, and 29 project cache directories: 524 generated files, about 54 MiB. Original PDFs, OCR TXT/TSV, CSV/JUnit evidence, database dumps, legacy migration snapshots and local toolkit were preserved. Fresh combined run after code/artifact deletion: 337 passed, no skipped cases, Ruff passed; JUnit `backups/catalog_acceptance_20261022/cleanup-regression.xml`. No commit/push or runtime publication.
-
-## Session update — 2026-10-23
-
-The HUS migration head in code is now `hus_20261023_01`, adding nullable
-`students.last_transcript_synced_at` (TIMESTAMPTZ, no default). Repository readiness
-and catalog publisher expect this head. Apply through `database.tools.migrate`;
-this source change alone does not confirm the running database was migrated.
-The migration accepts an already manually added column only with the matching
-type, nullability and absent default. Historical baseline SQL is unchanged.
-The field supports future transcript synchronization; current portal trial only
-reads/prints data and does not persist transcripts or update this timestamp.
-
-## Local main integration — 2026-10-23
-
-User renamed the upstream target from codebase to main and requested pulling
-its updates into feat/login. Merged origin/main at 0b4b2fc; retained the newer
-portal connector/CLI and restored pre-merge uncommitted changes from stash.
-The local sync migration hus_20261023_01 and upstream portal migration
-hus_20261023_03 branch from the same baseline. A new merge revision
-hus_20261023_04 joins them without rewriting either applied history. Local
-readiness expects this head. No database migration or push was performed.
-Earlier claims that the CLI is only the original trial are superseded by main's
-portal integration. The transcript timestamp is still a separate local addition.
