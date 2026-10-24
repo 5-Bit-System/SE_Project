@@ -27,7 +27,7 @@ def main() -> int:
 
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=False)
+            browser = playwright.chromium.launch(headless=True)
             try:
                 context = browser.new_context(accept_downloads=False)
                 client = DaotaoClient(context)
