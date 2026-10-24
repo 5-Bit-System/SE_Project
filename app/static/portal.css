@@ -41,3 +41,6 @@
 }
 #portal-submit.is-loading { display: inline-flex; align-items: center; gap: 10px; }
 @keyframes portal-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  #portal-status.is-loading::before, #portal-submit.is-loading::before { animation: none; }
+}
