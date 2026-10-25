@@ -1,7 +1,5 @@
-from fastapi.testclient import TestClient
 
 from app.catalog import list_catalogs
-from app.main import app
 from app.models import Catalog, ChoiceGroup, Course, Program, RecommendationRequest
 from app.rules import eligible_courses
 from app.services.recommendation_service import recommend
@@ -80,8 +78,8 @@ def test_wrong_program_and_unknown_passed_course_are_rejected():
             raise AssertionError("Invalid request was accepted")
 
 
-def test_http_contract():
-    client = TestClient(app)
+def test_http_contract(verified_client):
+    client = verified_client
     assert client.get("/health").json() == {"status": "ok"}
     assert len(client.get("/programs").json()) == 4
     assert client.get("/courses", params={"program_id": "unknown"}).status_code == 404

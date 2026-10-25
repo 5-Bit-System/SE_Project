@@ -5,6 +5,8 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+from tests.frontend.auth_fixture import session_payload
+
 
 def main():
     evidence = Path("backups/workspace_redesign_20261023")
@@ -22,7 +24,9 @@ def main():
 
     def intercept(route):
         url = route.request.url
-        if "/me/" in url or "/auth/" in url:
+        if '/auth/session' in url:
+            route.fulfill(json=session_payload())
+        elif "/me/" in url or "/auth/" in url:
             requests.append(url)
             route.fulfill(content_type="application/json", body=json.dumps(sample))
         elif not url.startswith("http://127.0.0.1:8000/"):

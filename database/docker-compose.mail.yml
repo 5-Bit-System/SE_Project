@@ -1,0 +1,10 @@
+name: se_auth_mail
+services:
+  mail:
+    image: axllent/mailpit@sha256:0790692be935ea4420d085694f7985b1f692ca6a8771ab0e0bd8ba75ac180498
+    container_name: se_auth_mail
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+    environment:
+      MP_MAX_MESSAGES: "100"

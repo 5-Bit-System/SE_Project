@@ -1,5 +1,11 @@
 # Module 07 — API và điều phối hệ thống
 
+Hướng mới 25/10/2026: [Module 12](12-system-authentication.md) và
+[kế hoạch tài khoản](../docs/KE_HOACH_TAI_KHOAN_HE_THONG_2026_10_25.md) sẽ thêm
+auth/email/admin API, dependency quyền và resolver VNU theo account. Người dùng
+đã yêu cầu kiến trúc account riêng, thay giới hạn lịch sử không thêm account
+AI-07 bên dưới. Chưa triển khai các API mới trong lượt lập kế hoạch.
+
 Cập nhật: 23/10/2026. **Hiện trạng:** có FastAPI pipeline hiện hành; import portal/RAG API chưa có.
 
 ## Trách nhiệm

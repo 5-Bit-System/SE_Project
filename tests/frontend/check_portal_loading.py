@@ -6,6 +6,8 @@ from urllib.parse import urlsplit
 
 from playwright.sync_api import sync_playwright
 
+from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
+
 
 def main():
     root = Path(__file__).resolve().parents[2] / "app" / "static"
@@ -16,7 +18,11 @@ def main():
       page=browser.new_page()
       def route_request(route):
        path=urlsplit(route.request.url).path
-       if path=='/auth/portal':
+       if path=='/auth/session':
+        route.fulfill(json=session_payload())
+       elif path=='/me/profile':
+        route.fulfill(json=EMPTY_PROFILE)
+       elif path=='/me/portal-connection':
         pending.append(route)
        elif path.startswith(('/auth/','/me/')):
         route.fulfill(status=401,json={'detail':'session_expired'})
@@ -39,7 +45,7 @@ def main():
       assert page.locator('#portal-submit').inner_text()=='Đang lấy dữ liệu…'
       page.wait_for_timeout(100)
       assert pending
-      pending.pop().fulfill(status=401,json={'detail':'identity_unverified'})
+      pending.pop().fulfill(status=409,json={'detail':'identity_unverified'})
       page.wait_for_function("!document.querySelector('#portal-submit').disabled")
       assert page.locator('#portal-login').get_attribute('aria-busy')=='false'
       assert 'is-loading' not in (page.locator('#portal-status').get_attribute('class') or '')

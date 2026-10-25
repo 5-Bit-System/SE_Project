@@ -8,6 +8,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.academic import router as academic_router
+from app.api.auth import router as auth_router
 from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
 from app.config import get_settings
@@ -28,9 +29,28 @@ def check_storage_ready() -> None:
             raise StorageDataError("Chưa có đủ bốn catalog")
 
 
+def check_auth_ready():
+    from sqlalchemy import text
+
+    from app.auth import repository
+    from app.auth.settings import settings as auth_settings
+
+    config = auth_settings()
+    if config.environment == 'production':
+        if get_settings().storage_backend != 'postgres':
+            raise StorageDataError('Production authentication requires PostgreSQL')
+        with repository.engine().connect() as conn:
+            if conn.execute(text('SELECT count(*) FROM accounts WHERE seeded_for_dev AND is_active')).scalar_one():
+                raise StorageDataError('Production cannot run with active development seed accounts')
+
+
 @asynccontextmanager
 async def lifespan(application: FastAPI) -> AsyncIterator[None]:
     check_storage_ready()
+    check_auth_ready()
+    from app.integrations.daotao.runtime import startup
+
+    startup()
     try:
         yield
     finally:
@@ -43,15 +63,19 @@ app = FastAPI(title="Explainable Course Recommender", version="0.2.0", lifespan=
 STATIC_ROOT = Path(__file__).resolve().parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
 app.include_router(api_router)
+app.include_router(auth_router)
 app.include_router(portal_router)
 app.include_router(academic_router)
 
 
 @app.middleware("http")
 async def portal_boundary(request: Request, call_next):
-    protected = request.url.path.startswith(("/auth/", "/me/"))
+    legacy = request.url.path.startswith('/profiles') or request.url.path in {
+        '/recommendations', '/recommendations/what-if', '/eligibility', '/transcript/summary', '/advisor/chat'}
+    protected = legacy or request.url.path.startswith(("/auth/", "/me/", "/admin/"))
     if protected:
-        allowed = {"http://127.0.0.1:8000", "http://localhost:8000"}
+        from app.auth.settings import settings as auth_settings
+        allowed = set(auth_settings().allowed_origins)
         origin = request.headers.get("origin")
         if (str(request.base_url).rstrip("/") not in allowed
                 or (request.method not in {"GET", "HEAD"} and origin not in allowed)):
@@ -82,6 +106,7 @@ def health() -> dict[str, str]:
 @app.get("/ready")
 def ready() -> dict[str, str]:
     check_storage_ready()
+    check_auth_ready()
     return {"status": "ok", "storage": get_settings().storage_backend}
 
 

@@ -48,12 +48,13 @@ def test_hus_mode_uses_hus_repository_and_hides_student_profiles(monkeypatch, ca
     monkeypatch.setenv("DATABASE_MODEL", "hus")
     monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg2://user:secret@localhost/ai07")
 
-    with TestClient(app) as client:
+    with TestClient(app, base_url='http://127.0.0.1:8000') as client:
         assert client.get("/ready").json() == {"status": "ok", "storage": "postgres"}
         assert len(client.get("/programs").json()) == 4
         assert client.get("/courses", params={"program_id": "khdl"}).status_code == 200
-        assert client.get("/profiles").json() == []
-        assert client.get("/profiles", params={"program_id": "khdl"}).json() == []
-        assert client.get("/profiles/student-1").status_code == 404
-        assert client.get("/profiles/student-1/transcript/summary").status_code == 404
-    assert {"ready", "list_catalogs", "load_catalog", "read_profiles"} <= set(calls)
+        assert client.get("/profiles").status_code == 410
+        assert client.get("/profiles", params={"program_id": "khdl"}).status_code == 410
+        assert client.get("/profiles/student-1").status_code == 410
+        assert client.get("/profiles/student-1/transcript/summary").status_code == 410
+    assert {"ready", "list_catalogs", "load_catalog"} <= set(calls)
+    assert 'read_profiles' not in calls

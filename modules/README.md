@@ -1,5 +1,14 @@
 # Đặc tả và kế hoạch các module AI-07
 
+**Tài khoản hệ thống (25/10/2026, đã triển khai local):** thêm tài khoản Sổ học tập
+riêng với đăng ký/xác thực email/login/logout, admin/student và hai account mẫu
+trong DB local. VNU là kết nối dữ liệu sau đăng nhập hệ thống.
+Xem [Module 12](12-system-authentication.md) và
+[kế hoạch chi tiết](../docs/KE_HOACH_TAI_KHOAN_HE_THONG_2026_10_25.md).
+Quyết định mới này thay các giới hạn lịch sử không tạo account hệ thống riêng;
+Bản local có migration, hai seed và Mailpit; xem [hướng dẫn vận hành](../docs/HUONG_DAN_TAI_KHOAN_HE_THONG.md).
+SMTP thật và triển khai công khai vẫn cần nghiệm thu riêng.
+
 **Hướng chuyển đổi mới nhất (23/10/2026):** người dùng đồng ý dùng bảng điểm
 VNU làm nguồn duy nhất cho học vụ và bỏ hoàn toàn nhập tay sau khi thay thế
 được backend/UI. Xem [kế hoạch chuyển đổi](../docs/KE_HOACH_CHUYEN_SANG_BANG_DIEM_VNU_2026_10_23.md).
@@ -32,6 +41,7 @@ OCR bảng điểm được bỏ khỏi kế hoạch. OCR PDF tài liệu HUS kh
 | [09 Portal](09-portal-transcript-import.md) | Kết nối cổng và lấy bảng điểm | Connector trên feat/login đã đọc thật; chưa tích hợp main |
 | [10 Corpus](10-hus-corpus-release.md) | Chuẩn bị/index/phát hành dữ liệu HUS | Có candidate 106 tài liệu; chưa active |
 | [11 RAG](11-hus-rag-qa.md) | Tra cứu và trả lời có nguồn | Chưa có service runtime |
+| [12 System auth](12-system-authentication.md) | Tài khoản hệ thống, email verification, admin/student, liên kết VNU | Đã triển khai local; SMTP Mailpit; production còn gate riêng |
 
 ## Luồng nghiệp vụ
 

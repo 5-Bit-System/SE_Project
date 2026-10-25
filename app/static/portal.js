@@ -4,25 +4,38 @@
   const copy = {
     vi: {
       heading: 'Hồ sơ học tập', open: 'Đăng nhập VNU', profile: 'Hồ sơ của tôi', intro: 'Đăng nhập bằng tài khoản VNU để xem bảng điểm đã lưu. Mật khẩu chỉ dùng cho lần kết nối này.',
-      username: 'Tài khoản VNU', password: 'Mật khẩu VNU', show: 'Hiện mật khẩu', hide: 'Ẩn mật khẩu', login: 'Đăng nhập', processing: 'Đang lấy dữ liệu…',
-      sync: 'Cập nhật hồ sơ và bảng điểm', logout: 'Đăng xuất', delete: 'Xóa dữ liệu đã lưu', cancel: 'Hủy cập nhật', keep: 'Giữ dữ liệu',
-      confirm: 'Xóa bảng điểm và thông tin hồ sơ đã lưu? Thao tác này sẽ đăng xuất tài khoản.',
+      username: 'Tài khoản VNU', password: 'Mật khẩu VNU', show: 'Hiện mật khẩu', hide: 'Ẩn mật khẩu', login: 'Kết nối VNU', processing: 'Đang lấy dữ liệu…',
+      sync: 'Cập nhật bảng điểm', logout: 'Ngắt phiên VNU', delete: 'Xóa bảng điểm VNU', cancel: 'Hủy cập nhật', keep: 'Giữ dữ liệu',
+      disconnected: 'Đã ngắt phiên VNU. Bạn vẫn xem được bảng điểm đã lưu.',
+      refreshTitle: 'Bảng điểm VNU', refreshDue: 'Đến lúc cập nhật bảng điểm',
+      refreshSignedOut: 'Đăng nhập để cập nhật bảng điểm. Bạn sẽ được nhắc cập nhật sau mỗi 7 ngày.',
+      refreshMissing: 'Chưa xác định lần cập nhật thành công. Hãy cập nhật bảng điểm từ VNU.',
+      refreshReminder: 'Đã ít nhất 7 ngày từ lần đồng bộ thành công. Cập nhật để kiểm tra điểm mới.',
+      refreshNext: 'Nhắc cập nhật tiếp theo: ', refreshLast: 'Đồng bộ thành công gần nhất: ',
+      reauthIntro: 'Phiên kết nối VNU không còn hiệu lực. Xác thực lại để cập nhật; bảng điểm đã lưu vẫn được giữ.',
+      reauthSubmit: 'Xác thực lại và cập nhật', reauthDismiss: 'Để sau',
+      confirm: 'Xóa bảng điểm và thông tin VNU đã lưu? Tài khoản Sổ học tập vẫn được giữ.',
       unknown: 'Chưa xác minh độ đầy đủ của bảng điểm. Thông tin hồ sơ chỉ hiển thị khi đọc được từ nguồn VNU.',
       separate: 'Bảng điểm nguồn được lưu riêng; chưa dùng để tính GPA, tiến độ hoặc gợi ý môn.',
       unparsed: 'Các hàng nguồn cần kiểm tra', waiting: 'Đang đăng nhập VNU và lấy hồ sơ, bảng điểm. Vui lòng chờ, quá trình có thể mất đến 2 phút…',
       saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
-      updated: 'Lần cập nhật', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
+      updated: 'Bảng điểm lưu lúc', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
       columns: ['Mã môn', 'Tên học phần', 'Tín chỉ', 'Hệ 10', 'Chữ', 'Hệ 4'],
       back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học', unavailable: 'Chưa có thông tin',
       welcomeTitle: 'Hồ sơ học tập của riêng bạn.', welcomeDescription: 'Một nơi để xem lại kết quả từ VNU qua từng học kỳ.', welcomeSource: 'Giữ nguyên điểm và thông tin nguồn', welcomeSync: 'Chủ động cập nhật khi cần', welcomeOwner: 'Quản lý dữ liệu theo tài khoản',
       transcript: 'Bảng điểm nguồn', newest: 'Theo năm học và học kỳ, mới nhất trước.', search: 'Tìm mã hoặc tên học phần', term: 'Học kỳ', allTerms: 'Tất cả học kỳ', rows: 'lượt học', noResults: 'Không có học phần phù hợp.',
-      errors: {identity_unverified: 'Chưa xác minh được danh tính từ VNU. Dữ liệu chưa được lưu.',
+      errors: {source_unavailable: 'Đã đăng nhập VNU, nhưng chưa tải được bảng điểm mới. Bạn có thể cập nhật lại; dữ liệu đã lưu vẫn được giữ.',
+        identity_unverified: 'Chưa xác minh được danh tính từ VNU. Dữ liệu chưa được lưu.',
+        vnu_not_connected: 'Bạn chưa kết nối VNU để lấy bảng điểm.', vnu_already_linked: 'Tài khoản VNU đã có liên kết khác. Không thể tự chuyển quyền sở hữu.',
+        vnu_reauth_required: 'Phiên VNU đã hết hạn. Xác thực lại để cập nhật bảng điểm.',
         interaction_required: 'VNU yêu cầu CAPTCHA hoặc mã xác thực. Lần kết nối này chưa hỗ trợ bước đó. Bảng điểm đã lưu được giữ nguyên.',
         incomplete_snapshot: 'Lần đọc mới chưa được xác minh đầy đủ. Giữ nguyên bảng điểm đã lưu.',
         session_expired: 'Phiên đã hết hạn. Vui lòng đăng nhập lại.', origin_rejected: 'Hãy mở hệ thống tại http://127.0.0.1:8000.',
         cancelled: 'Đã hủy cập nhật.', busy: 'Đang có lượt kết nối. Vui lòng chờ rồi thử lại.',
         storage_unavailable: 'Chưa kết nối được kho hồ sơ. Kiểm tra database và migration.',
-        browser_unavailable: 'Chưa cài thành phần kết nối VNU trên máy chủ.',
+        browser_unavailable: 'Không khởi động được trình duyệt kết nối VNU. Vui lòng thử lại hoặc kiểm tra Chrome trên máy chủ.',
+        portal_unavailable: 'Kết nối VNU gặp lỗi kỹ thuật. Vui lòng thử lại sau; dữ liệu đã lưu được giữ nguyên.',
+        structure_changed: 'Bố cục bảng điểm VNU chưa được nhận diện. Dữ liệu đã lưu được giữ nguyên.',
         worker_failed: 'Hệ thống gặp lỗi xử lý bảng điểm. Vui lòng thử lại.',
         worker_output_invalid: 'Hệ thống chưa đọc được kết quả bảng điểm. Vui lòng thử lại.',
         timeout: 'Kết nối quá thời gian chờ. Bảng điểm đã lưu được giữ nguyên.',
@@ -30,25 +43,38 @@
     },
     en: {
       heading: 'Academic profile', open: 'Sign in with VNU', profile: 'My profile', intro: 'Sign in with your VNU account to view saved grades. Your password is used for this connection only.',
-      username: 'VNU account', password: 'VNU password', show: 'Show password', hide: 'Hide password', login: 'Sign in', processing: 'Retrieving your data…',
-      sync: 'Update profile and transcript', logout: 'Sign out', delete: 'Delete saved data', cancel: 'Cancel update', keep: 'Keep data',
-      confirm: 'Delete saved transcript and profile information? This also signs you out.',
+      username: 'VNU account', password: 'VNU password', show: 'Show password', hide: 'Hide password', login: 'Connect VNU', processing: 'Retrieving your data…',
+      sync: 'Update transcript', logout: 'Disconnect VNU session', delete: 'Delete VNU data', cancel: 'Cancel update', keep: 'Keep data',
+      disconnected: 'VNU session disconnected. Your saved transcript remains available.',
+      refreshTitle: 'VNU transcript', refreshDue: 'Time to update your transcript',
+      refreshSignedOut: 'Sign in to update your transcript. You will be reminded every 7 days.',
+      refreshMissing: 'The last successful update is unknown. Update your transcript from VNU.',
+      refreshReminder: 'It has been at least 7 days since the last successful sync. Update to check for new grades.',
+      refreshNext: 'Next update reminder: ', refreshLast: 'Last successful sync: ',
+      reauthIntro: 'The VNU connection is no longer valid. Verify again to update; your saved transcript is retained.',
+      reauthSubmit: 'Verify and update', reauthDismiss: 'Later',
+      confirm: 'Delete your saved VNU transcript and profile? Your study account is retained.',
       unknown: 'Transcript completeness is unverified. Profile details appear only when supplied by VNU.',
       separate: 'Source grades are saved separately and are not used for GPA, progress or recommendations.',
       unparsed: 'Source rows requiring review', waiting: 'Signing in to VNU and retrieving your profile and grades. Please wait; this may take up to 2 minutes…',
       saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
-      updated: 'Last updated', account: 'Verified account', close: 'Close', table: 'Source transcript',
+      updated: 'Transcript saved', account: 'Verified account', close: 'Close', table: 'Source transcript',
       columns: ['Course code', 'Course name', 'Credits', '10-point', 'Letter', '4-point'],
       back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort', unavailable: 'Unavailable',
       welcomeTitle: 'Your own academic profile.', welcomeDescription: 'A place to revisit your VNU results, semester by semester.', welcomeSource: 'Original grades and source information', welcomeSync: 'Update whenever you need', welcomeOwner: 'Data managed under your account',
       transcript: 'Source transcript', newest: 'By academic year and semester, newest first.', search: 'Search course code or name', term: 'Semester', allTerms: 'All semesters', rows: 'attempts', noResults: 'No matching courses.',
-      errors: {identity_unverified: 'VNU identity could not be verified. No data was saved.',
+      errors: {source_unavailable: 'VNU sign-in succeeded, but the latest transcript could not be retrieved. Try updating again; your saved data is retained.',
+        identity_unverified: 'VNU identity could not be verified. No data was saved.',
+        vnu_not_connected: 'Connect VNU to retrieve your transcript.', vnu_already_linked: 'This VNU identity has another account link. Ownership cannot be transferred automatically.',
+        vnu_reauth_required: 'Your VNU session expired. Verify again to update your transcript.',
         interaction_required: 'VNU requires a CAPTCHA or verification code. This connection cannot complete that step yet. Your saved transcript was retained.',
         incomplete_snapshot: 'The new transcript is not verified complete. Your saved transcript was retained.',
         session_expired: 'Session expired. Please sign in again.', origin_rejected: 'Open http://127.0.0.1:8000.',
         cancelled: 'Update cancelled.', busy: 'A connection is running. Please try again shortly.',
         storage_unavailable: 'Profile storage is unavailable. Check database migrations.',
-        browser_unavailable: 'The VNU browser connector is not installed on the server.',
+        browser_unavailable: 'The VNU browser could not start. Try again or check Chrome on the server.',
+        portal_unavailable: 'The VNU connection encountered a technical error. Please try again later; saved data was retained.',
+        structure_changed: 'The VNU transcript layout was not recognized. Your saved data was retained.',
         worker_failed: 'The system could not process your transcript. Please try again.',
         worker_output_invalid: 'The system could not read the transcript result. Please try again.',
         timeout: 'Connection timed out. Your saved transcript was retained.',
@@ -56,6 +82,10 @@
     }
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
+  let signedOut = false;
+  let accountId = null;
+  let reminderTimer;
+  const reminderInterval = 7 * 24 * 60 * 60 * 1000;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
   function status(key = '', error = '') {
     messageKey = key; errorKey = error;
@@ -65,27 +95,47 @@
     $('submit').classList.toggle('is-loading', loading);
     $('submit').textContent = loading ? text().processing : text().login;
     $('login').setAttribute('aria-busy', String(loading));
+    $('reauth').setAttribute('aria-busy', String(loading));
+    $('reauth-submit').textContent = loading ? text().processing : text().reauthSubmit;
   }
   function reset() {
-    clearTimeout(expiryTimer);
-    epoch++; profile = null; job = null; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
+    clearTimeout(expiryTimer); clearTimeout(reminderTimer);
+    epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
     $('profile').hidden = true; $('login').hidden = false; $('confirm').hidden = true; $('cancel').hidden = true;
     $('login').reset(); $('password').type = 'password'; $('show').setAttribute('aria-pressed', 'false');
+    $('reauth').reset(); $('reauth').hidden = true;
     render();
     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}));
   }
   async function api(path, method = 'GET', body) {
     const current = epoch;
     const response = await fetch(path, {method, credentials: 'same-origin', cache: 'no-store',
-      headers: body ? {'Content-Type': 'application/json'} : {}, body: body ? JSON.stringify(body) : undefined});
+      headers: {...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
     const result = await response.json();
-    if (!response.ok) { if (current === epoch && response.status === 401 && path !== '/auth/portal') reset(); throw new Error(result.detail); }
+    if (!response.ok) {
+      if (current === epoch && response.status === 401) { reset(); window.systemAuth?.expire(); status('', 'session_expired'); }
+      throw new Error(result.detail);
+    }
     return result;
   }
   function cell(row, value, tag = 'td') { const node = document.createElement(tag); node.textContent = value ?? ''; row.append(node); return node; }
+  function renderReminder() {
+    clearTimeout(reminderTimer);
+    const t = text(), now = Date.now();
+    const last = Date.parse(profile?.last_synced_at || profile?.fetched_at || '');
+    const known = Boolean(profile?.snapshot) && Number.isFinite(last) && last <= now;
+    const due = known && now - last >= reminderInterval;
+    const locale = window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN';
+    $('refresh-title').textContent = due ? t.refreshDue : t.refreshTitle;
+    $('refresh-time').textContent = known ? t.refreshLast + new Date(last).toLocaleString(locale) : '';
+    $('refresh-message').textContent = !profile ? t.refreshSignedOut : !known ? t.refreshMissing
+      : due ? t.refreshReminder : t.refreshNext + new Date(last + reminderInterval).toLocaleString(locale);
+    document.querySelector('.transcript-refresh-bar').classList.toggle('is-due', due);
+    if (known && !due) reminderTimer = setTimeout(renderReminder, last + reminderInterval - now);
+  }
   function render() {
     const t = text(); $('heading').textContent = t.heading;
     $('close').textContent = t.back; document.querySelector('#portal-dialog .portal-table-scroll').setAttribute('aria-label', t.table);
@@ -93,13 +143,15 @@
     document.querySelectorAll('[data-portal-copy]').forEach(node => { node.textContent = t[node.dataset.portalCopy]; });
     $('show').textContent = $('password').type === 'password' ? t.show : t.hide;
     status(messageKey, errorKey);
+    renderReminder();
+    $('reauth-account').value = profile?.subject || '';
     if (!profile) return;
     ['name', 'program', 'cohort'].forEach(key => {
       const value = profile.profile?.[key];
       $(key).textContent = typeof value === 'string' && value.trim() ? value : t.unavailable;
     });
     $('identity').textContent = profile.subject;
-    $('updated').textContent = `${t.updated}: ${profile.fetched_at ? new Date(profile.fetched_at).toLocaleString() : '—'}`;
+    $('updated').textContent = `${t.updated}: ${profile.fetched_at ? new Date(profile.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN') : '—'}`;
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
     t.columns.forEach(value => cell(head, value, 'th').scope = 'col');
     const body = $('table').createTBody(), snap = profile.snapshot;
@@ -131,38 +183,91 @@
     $('unparsed').querySelector('pre').textContent = (snap?.unknown_rows || []).map(row => row.cells.join(' | ')).join('\n');
   }
   async function load() {
-    const current = epoch, sequence = ++loadSequence, result = await api('/me/profile');
+    const current = epoch, sequence = ++loadSequence;
+    let state, result;
+    try {
+      state = await api('/auth/session');
+      if (current !== epoch || sequence !== loadSequence) return;
+      if (state.authenticated !== true) {
+        const expired = Boolean(profile);
+        reset(); status('', expired ? 'session_expired' : ''); return;
+      }
+      result = await api('/me/profile');
+    } catch (err) {
+      if (current !== epoch || sequence !== loadSequence) return;
+      throw err;
+    }
     if (current !== epoch || sequence !== loadSequence) return;
+    if (!result.subject) {
+      profile = null; $('login').hidden = false; $('profile').hidden = true; render(); status('empty');
+      document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null})); return;
+    }
     profile = result; $('login').hidden = true; $('profile').hidden = false; render(); status(profile.snapshot ? 'saved' : 'empty');
     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: {
       snapshot: result.snapshot, fetched_at: result.fetched_at,
       profile: {program: result.profile?.program, cohort: result.profile?.cohort}
     }}));
     clearTimeout(expiryTimer);
-    if (Number.isFinite(result.expires_in)) expiryTimer = setTimeout(() => { reset(); status('', 'session_expired'); }, result.expires_in * 1000);
+    if (Number.isFinite(result.expires_in)) expiryTimer = setTimeout(() => window.systemAuth?.refresh().catch(() => {}), result.expires_in * 1000);
   }
-  function lock(value) { busy = value; $('submit').disabled = value; $('sync').disabled = value; }
-  async function openProfile() { render(); if (busy || profile) return; lock(true); try { await load(); } catch (err) { if (err.message !== 'session_expired') status('', err.message); else status(); } finally { lock(false); } }
+  function lock(value) {
+    busy = value; $('submit').disabled = value; $('sync').disabled = value;
+    $('reauth-submit').disabled = value; $('reauth-dismiss').disabled = value;
+  }
+  function syncError(code) {
+    if (code === 'vnu_reauth_required') status('reauthIntro');
+    else status('', code);
+    if (code === 'vnu_reauth_required' && profile) {
+      $('reauth').hidden = false; $('reauth-account').value = profile.subject;
+      $('reauth-password').value = ''; $('reauth-password').focus();
+      $('reauth').scrollIntoView({block: 'center'});
+    }
+  }
+  function beginPolling(result, current) {
+    if (result.state === 'reauth_required') { syncError('vnu_reauth_required'); return; }
+    job = result.id; $('reauth').hidden = true; $('reauth').reset();
+    $('cancel').hidden = false; poll(current);
+  }
+  async function openProfile() {
+    if (window.systemAuth?.ready) await window.systemAuth.ready;
+    if (window.systemAuth && (!window.systemAuth.account || window.systemAuth.account.must_change_password)) return;
+    render(); if (busy || profile || signedOut) return;
+    const current = epoch;
+    lock(true);
+    try { await load(); }
+    catch (err) { if (current === epoch) status('', err.message === 'session_expired' ? '' : err.message); }
+    finally { if (current === epoch) lock(false); }
+  }
   $('close').onclick = () => window.workspaceNavigate('tab-dashboard');
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();
-    else $('password').value = '';
+    else { $('password').value = ''; $('reauth-password').value = ''; }
   });
   document.addEventListener('workspace:portal-refresh', () => openProfile());
+  document.addEventListener('workspace:vnu-login', async event => {
+    const current = epoch;
+    if (!event.detail?.warning) return;
+    try { await load(); if (current === epoch) status('', event.detail.warning); }
+    catch (err) { if (current === epoch) status('', err.message); }
+  });
   document.addEventListener('workspace:session-expired', () => { reset(); status('', 'session_expired'); });
+  document.addEventListener('workspace:account-change', event => {
+    const id = event.detail && !event.detail.must_change_password ? event.detail.account_id + ':' + event.detail.session_id : null;
+    if (id !== accountId) { accountId = id; reset(); if (id) { signedOut = false; openProfile(); } }
+    if (!id) reset();
+  });
   $('search').addEventListener('input', render);
   $('term').addEventListener('change', render);
   $('show').onclick = () => { const visible = $('password').type === 'password'; $('password').type = visible ? 'text' : 'password'; $('show').setAttribute('aria-pressed', String(visible)); render(); };
   $('login').onsubmit = async event => {
-    event.preventDefault(); if (busy) return;
-    const updating = Boolean(profile), current = epoch;
+    event.preventDefault(); if (busy || profile) return;
+    const current = epoch;
     const submitted = {username: $('username').value, password: $('password').value};
     $('password').value = ''; lock(true); status('waiting');
     try {
-      const result = await api(updating ? '/me/portal-sync' : '/auth/portal', 'POST', submitted);
+      const result = await api('/me/portal-connection', 'POST', submitted);
       if (current !== epoch) return;
-      if (updating) { job = result.id; $('login').hidden = true; $('cancel').hidden = false; poll(current); }
-      else { await load(); if (result.warning) status('', result.warning); }
+      signedOut = false; await load(); if (current === epoch && result.warning) status('', result.warning);
     } catch (err) { if (current === epoch || err.message === 'session_expired') status('', err.message); }
     finally { submitted.password = ''; if (current === epoch) lock(Boolean(job)); }
   };
@@ -173,21 +278,44 @@
       if (current !== epoch) return;
       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
       job = null; $('cancel').hidden = true; await load();
-      if (result.error || result.state === 'cancelled') status('', result.error || 'cancelled');
+      if (current !== epoch) return;
+      if (result.error || result.state === 'cancelled') syncError(result.error || 'cancelled');
     } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
     finally { if (current === epoch && !job) lock(false); }
   }
-  $('sync').onclick = () => { if (job) return; $('login').hidden = false; $('username').value = profile.subject; $('password').focus(); };
+  $('sync').onclick = async () => {
+    if (busy || job) return;
+    window.workspaceNavigate('portal-dialog');
+    if (!profile) { $('username').focus(); $('login').scrollIntoView({block: 'center'}); return; }
+    const current = epoch;
+    lock(true); status('waiting');
+    try {
+      const result = await api('/me/portal-sync', 'POST');
+      if (current === epoch) beginPolling(result, current);
+    } catch (err) { if (current === epoch) syncError(err.message); }
+    finally { if (current === epoch) lock(Boolean(job)); }
+  };
+  $('reauth').onsubmit = async event => {
+    event.preventDefault(); if (busy || !profile) return;
+    const current = epoch, submitted = {password: $('reauth-password').value};
+    $('reauth-password').value = ''; lock(true); status('waiting');
+    try {
+      const result = await api('/me/portal-reauth', 'POST', submitted);
+      if (current === epoch) beginPolling(result, current);
+    } catch (err) { if (current === epoch) syncError(err.message); }
+    finally { submitted.password = ''; if (current === epoch) lock(Boolean(job)); }
+  };
+  $('reauth-dismiss').onclick = () => { $('reauth').hidden = true; $('reauth').reset(); status(); };
   $('cancel').onclick = async () => { try { if (job) await api(`/me/portal-sync/${encodeURIComponent(job)}`, 'DELETE'); } catch (err) { status('', err.message); } };
   $('logout').onclick = async () => {
-    reset(); lock(true); status();
-    try { await api('/auth/logout', 'POST'); }
+    lock(true); status();
+    try { await api('/me/portal-connection', 'DELETE'); status('disconnected'); }
     catch (err) { status('', err.message); }
     finally { lock(false); }
   };
   $('delete').onclick = () => { $('confirm').hidden = false; $('confirm').querySelector('button').focus(); };
   $('keep').onclick = () => { $('confirm').hidden = true; };
-  $('confirm').onsubmit = async event => { event.preventDefault(); try { await api('/me/portal-data', 'DELETE'); reset(); status(); } catch (err) { status('', err.message); } };
+  $('confirm').onsubmit = async event => { event.preventDefault(); try { await api('/me/portal-data', 'DELETE'); reset(); signedOut = false; await load(); } catch (err) { status('', err.message); } };
   document.addEventListener('workspace:language-change', render);
   document.addEventListener('visibilitychange', async () => { if (!document.hidden && profile) { try { await load(); } catch (err) { status('', err.message); } } });
   render();

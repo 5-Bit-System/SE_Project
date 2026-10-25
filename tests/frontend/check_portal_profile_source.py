@@ -1,5 +1,7 @@
 """Read landing-page profile before the transcript replaces it; no live requests."""
 
+import json
+
 from playwright.sync_api import sync_playwright
 
 from app.integrations.daotao.client import LOGIN_URL, PROFILE_URL, DaotaoClient
@@ -26,14 +28,21 @@ def main():
         try:
             for redirect in (False, True):
                 context = browser.new_context()
+                context.set_offline(True)
                 requests = []
 
                 def intercept(route):
                     request = route.request
+                    if request.resource_type != 'document':
+                        route.abort()
+                        return
                     requests.append((request.method, request.url))
                     if request.url == LOGIN_URL:
                         if request.method == "POST" and redirect:
-                            route.fulfill(status=302, headers={"Location": PROFILE_URL})
+                            # Browser routing may bypass a fulfilled HTTP redirect.
+                            # Model post-login navigation explicitly with networking off.
+                            route.fulfill(content_type='text/html', body='<script>location.replace('
+                                          + json.dumps(PROFILE_URL) + ')</script>')
                             return
                         body = LANDING if request.method == "POST" else FORM
                     elif request.url == PROFILE_URL:
@@ -87,9 +96,13 @@ def check_profile_module(browser):
         <tr><td>Họ và tên bố:</td><td>Unrelated family name</td></tr></table></fieldset>'''
     for fields_present in (True, False):
         context = browser.new_context()
+        context.set_offline(True)
         requests = []
 
         def intercept(route):
+            if route.request.resource_type != 'document':
+                route.abort()
+                return
             requests.append(route.request.url)
             if route.request.url == PROFILE_URL:
                 body = shell

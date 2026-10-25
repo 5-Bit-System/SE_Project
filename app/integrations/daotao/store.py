@@ -2,6 +2,7 @@
 
 import json
 import uuid
+from contextlib import nullcontext
 from functools import lru_cache
 
 from sqlalchemy import create_engine, text
@@ -38,13 +39,16 @@ def profile(owner_id):
         """), {"owner": owner_id}).mappings().one_or_none()
         if row is None:
             raise PortalFailure("session_expired")
-        return {"subject": row["subject"], "profile": row["profile"],
+        details = dict(row["profile"])
+        last_synced_at = details.pop("_last_synced_at", None)
+        return {"subject": row["subject"], "profile": details,
+                "last_synced_at": last_synced_at,
                 "snapshot": row["payload"],
                 "fetched_at": row["fetched_at"].isoformat() if row["fetched_at"] else None}
 
 
-def save(owner_id, generation, payload, source_profile=None):
-    with engine().begin() as conn:
+def save(owner_id, generation, payload, source_profile=None, *, connection=None):
+    with (engine().begin() if connection is None else nullcontext(connection)) as conn:
         user = conn.execute(text("SELECT * FROM portal_users WHERE id=:id FOR UPDATE"),
                             {"id": owner_id}).mappings().one_or_none()
         if user is None or user["generation"] != generation:
@@ -54,12 +58,16 @@ def save(owner_id, generation, payload, source_profile=None):
             details = {key: value if isinstance(value, str) and 0 < len(value) <= 200 else None
                        for key in ("name", "program", "cohort")
                        for value in [source_profile.get(key)]}
+            if "_last_synced_at" in user["profile"]:
+                details["_last_synced_at"] = user["profile"]["_last_synced_at"]
             conn.execute(text("UPDATE portal_users SET profile=CAST(:profile AS JSONB) WHERE id=:id"),
                          {"profile": json.dumps(details), "id": owner_id})
         existing = conn.execute(text("""
             SELECT id FROM portal_transcript_snapshots WHERE owner=:owner AND digest=:digest
         """), {"owner": owner_id, "digest": payload["digest"]}).scalar()
         if existing:
+            if str(existing) == str(user["current_snapshot_id"]):
+                mark_synced(conn, owner_id)
             return "unchanged"
         # Until pagination/filter completion is proven, never replace prior data.
         if user["current_snapshot_id"] and payload["completeness"] != "complete":
@@ -83,11 +91,21 @@ def save(owner_id, generation, payload, source_profile=None):
               (SELECT id FROM portal_transcript_snapshots WHERE owner=:owner
                ORDER BY fetched_at DESC LIMIT 2)
         """), {"owner": owner_id})
+        mark_synced(conn, owner_id)
         return "saved"
 
 
-def clear(owner_id):
-    with engine().begin() as conn:
+def mark_synced(conn, owner_id):
+    # Server-owned metadata, separate from the immutable transcript payload/time.
+    conn.execute(text("""
+        UPDATE portal_users
+        SET profile=jsonb_set(profile, '{_last_synced_at}', to_jsonb(CURRENT_TIMESTAMP))
+        WHERE id=:owner
+    """), {"owner": owner_id})
+
+
+def clear(owner_id, *, connection=None):
+    with (engine().begin() if connection is None else nullcontext(connection)) as conn:
         conn.execute(text("""
             UPDATE portal_users SET current_snapshot_id=NULL, profile='{}', generation=generation+1
             WHERE id=:owner

@@ -7,23 +7,22 @@
 - Runtime chính dùng database `ai07` tại `127.0.0.1:5433`, container `se_hus_db`, volume `se_hus_pgdata`.
 - Có bốn catalog HUS: Toán học, Toán tin, Khoa học máy tính và thông tin, và Khoa học dữ liệu. Snapshot hiện có lần lượt 65, 67, 90 và 68 học phần; 174 mã học phần dùng chung tạo thành 290 membership trong các chương trình. Catalog được giữ theo revision và công bố cùng một transaction.
 - Catalog hiện mang trạng thái `draft_unverified`: import thành công không đồng nghĩa nguồn PDF hoặc quy định học vụ đã được xác minh. Điều kiện tiên quyết chưa rõ sẽ khóa môn liên quan.
-- Bảng `accounts`, `students` và `course_attempts` đang trống. Người dùng nhập bảng điểm thủ công; transcript chỉ tồn tại trong phiên trình duyệt và bị xóa khi đổi ngành.
+- Sinh viên đăng nhập trực tiếp bằng tài khoản cổng đào tạo VNU; admin dùng tài khoản/mật khẩu riêng. Không cần đăng ký email cá nhân. Bảng điểm nguồn được lưu theo tài khoản đã xác minh; giao diện nhập điểm thủ công đã được gỡ.
 - Database legacy và volume cũ được giữ riêng để rollback. Hướng dẫn cutover và rollback nằm trong [database/HUS_RUNTIME.md](database/HUS_RUNTIME.md).
 
 ## Chức năng hiện có
 
-- Chọn một ngành và chỉ làm việc với catalog của ngành đó; đổi ngành sẽ xóa transcript và kết quả gợi ý hiện tại.
-- Nhập môn đã đạt hoặc nhập điểm hệ 10; xem tín chỉ tích lũy, GPA và tiến độ chương trình.
-- Kiểm tra điều kiện môn học dựa trên tiên quyết, nhánh học, giới hạn tín chỉ và quy tắc chương trình đã có trong catalog.
-- Gợi ý và xếp hạng các môn đủ điều kiện. What-if có thể đổi trọng số/xếp hạng nhưng không thay đổi eligibility.
-- Advisor hỗ trợ định hướng môn học và giải thích kết quả. Khi tắt LLM, hệ thống có thể dùng xếp hạng offline.
+- Xem hồ sơ, bảng điểm và thống kê mô tả từ nguồn VNU; giữ nguyên các lượt học và điểm nguồn.
+- Chủ động cập nhật bảng điểm; dùng lại phiên VNU trong RAM khi còn hiệu lực và nhắc cập nhật sau 7 ngày.
+- Quản trị viên quản lý tài khoản/quyền/trạng thái, không mặc định xem bảng điểm người khác.
+- Backend tính eligibility, progress, recommendation và advisor được giữ; luồng cá nhân từ VNU còn chờ completeness, mapping chương trình và chính sách học vụ được xác minh. Giao diện chưa mở kết quả học vụ khi thiếu các điều kiện này.
 
 Các gợi ý không xác nhận môn có được mở trong một học kỳ cụ thể hay không. Hệ thống không xếp lịch học, xử lý xung đột lớp hoặc chứng nhận quy định chính thức của trường.
 
 ## Giới hạn và phạm vi chưa triển khai
 
-- Chưa có đăng nhập, đồng bộ cổng đào tạo, lưu transcript sinh viên, nhập bảng điểm bằng OCR hoặc crawler/knowledge base để hỏi đáp quy định HUS.
-- Profile API hiện trả danh sách rỗng vì dữ liệu sinh viên/profile runtime chưa được nạp.
+- Đã có đăng nhập VNU qua connector, phiên app trong DB, lưu/cập nhật bảng điểm và đăng nhập admin riêng. Chưa tích hợp OAuth/SSO chính thức, OCR bảng điểm hoặc RAG HUS hoạt động.
+- API cá nhân dùng `/me/profile`; các `/profiles/...` legacy đã đóng với 410. Không có tự động đồng bộ VNU hằng tuần.
 - `data/curricula/` chỉ giữ một mẫu metadata Khoa học dữ liệu 2022; mẫu này không phải nguồn catalog runtime và không đủ để seed bốn catalog.
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
 - Không có tự động fallback sang JSON khi PostgreSQL lỗi. Muốn dùng JSON phải chọn rõ backend và cung cấp bộ catalog phù hợp.
@@ -68,6 +67,9 @@ postgresql+psycopg2://ai07:<local-password>@127.0.0.1:5433/ai07?sslmode=disable
 
 Không ghi credentials vào Git hoặc gửi chúng về frontend. Công cụ database đọc `HUS_DATABASE_URL` từ process hoặc file local `database/.env.docker`; FastAPI đọc `DATABASE_URL` từ process hoặc `.env` ở gốc repository.
 
+Auth đọc cấu hình riêng trong `.env.auth` (ignored); giữ file/secret đã có, không
+ghi đè hoặc chạy lại seed để reset mật khẩu. Xem [đăng nhập VNU/admin và migration](docs/VNU_SIGNIN_2026_10_25.md).
+
 ### 3. Khởi động database và công bố catalog
 
 ```powershell
@@ -105,7 +107,9 @@ Test mặc định dùng fixture tổng hợp và không gọi dịch vụ AI ha
 - `GET /programs`, `GET /courses?program_id=...`: danh sách ngành và môn học.
 - `POST /transcript/summary`, `POST /eligibility`: tổng hợp bảng điểm và kiểm tra điều kiện.
 - `POST /recommendations`, `POST /recommendations/what-if`: gợi ý và xếp hạng lại trên tập đủ điều kiện.
-- `GET /profiles`, `GET /profiles/{profile_id}`: profile demo nếu được nạp.
+- `POST /auth/vnu`: sinh viên đăng nhập VNU trực tiếp; `POST /auth/login`: admin local.
+- `GET /me/profile`, các `/me/portal-*`: hồ sơ nguồn/cập nhật bảng điểm theo tài khoản.
+- `GET /admin/users`, `PATCH /admin/users/{account_id}`: quản lý tài khoản, chỉ dành cho admin.
 - `POST /advisor/chat`: tư vấn trong phạm vi sản phẩm.
 
 ## Tài liệu thêm

@@ -1,7 +1,5 @@
-from fastapi.testclient import TestClient
 
 from app.catalog import load_catalog
-from app.main import app
 from app.models import Catalog, ChoiceGroup, Course, Program
 from app.rules import evaluate_eligibility
 
@@ -111,8 +109,8 @@ def test_zero_eligibility_violation_rate_on_fixture_catalog():
                 assert len(r.missing_prerequisites) > 0
 
 
-def test_eligibility_http_endpoint():
-    client = TestClient(app)
+def test_eligibility_http_endpoint(verified_client):
+    client = verified_client
     resp = client.post(
         "/eligibility",
         json={

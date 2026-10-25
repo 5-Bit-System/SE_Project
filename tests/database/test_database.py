@@ -312,19 +312,22 @@ def test_changing_bundle_creates_new_revision(seeded_engine, tmp_path, source_bu
     assert after["catalog_revisions"] == before["catalog_revisions"] + 1
 
 
-def test_runtime_api_uses_postgresql(seeded_engine, monkeypatch):
+def test_runtime_api_uses_postgresql(seeded_engine, monkeypatch, fake_accounts):
     monkeypatch.setenv("STORAGE_BACKEND", "postgres")
     monkeypatch.setenv("DATABASE_MODEL", "legacy")
     monkeypatch.setenv("DATABASE_URL", os.environ["TEST_DATABASE_URL"])
     monkeypatch.setattr("app.infrastructure.postgres_repository.get_engine", lambda: seeded_engine)
-    with TestClient(app) as client:
+    with TestClient(app, base_url='http://127.0.0.1:8000') as client:
+        client.headers['origin'] = 'http://127.0.0.1:8000'
+        fake_accounts.issue(client)
         assert client.get("/ready").json() == {"status": "ok", "storage": "postgres"}
         assert len(client.get("/programs").json()) == 4
-        assert len(client.get("/profiles").json()) == 12
+        assert client.get("/profiles").status_code == 410
+        assert len(PostgresRepository(seeded_engine).read_profiles()) == 12
         assert len(client.get("/courses", params={"program_id": "khdl"}).json()) == len(
             PostgresRepository(seeded_engine).load_catalog("khdl").courses
         )
-        assert client.get("/profiles/khdl_01/transcript/summary").status_code == 200
+        assert client.get("/profiles/khdl_01/transcript/summary").status_code == 410
         response = client.post("/recommendations", json={"program_id": "khdl"})
         assert response.status_code == 200
         assert response.json()["recommendations"]
