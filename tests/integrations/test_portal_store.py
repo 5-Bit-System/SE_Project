@@ -1,6 +1,7 @@
 """Real transaction checks in a disposable database only."""
 
 import copy
+from datetime import datetime
 
 import pytest
 from sqlalchemy import text
@@ -85,3 +86,38 @@ def test_source_profile_updates_on_identical_snapshot_without_changing_transcrip
     with pytest.raises(PortalFailure, match="incomplete_snapshot"):
         store.save(owner, generation, changed, {"name": "Must rollback"})
     assert store.profile(owner)["profile"] == saved["profile"]
+
+
+def test_successful_sync_time_refreshes_without_mutating_snapshot_and_rolls_back_on_rejection(portal_db):
+    owner, generation = store.owner("synthetic-reminder")
+    other, _ = store.owner("synthetic-reminder-other")
+    payload = source()
+    store.save(owner, generation, payload)
+    with portal_db.begin() as conn:
+        conn.execute(text("""
+            UPDATE portal_users SET profile=jsonb_set(
+                profile, '{_last_synced_at}', to_jsonb(CURRENT_TIMESTAMP - interval '8 days'))
+            WHERE id=:owner
+        """), {"owner": owner})
+        before = conn.execute(text("""
+            SELECT s.id, s.fetched_at, s.payload FROM portal_users u
+            JOIN portal_transcript_snapshots s ON s.id=u.current_snapshot_id WHERE u.id=:owner
+        """), {"owner": owner}).mappings().one()
+    previous = store.profile(owner)
+    assert store.save(owner, generation, payload, {"name": "Synthetic reminder"}) == "unchanged"
+    refreshed = store.profile(owner)
+    assert datetime.fromisoformat(refreshed["last_synced_at"]) > datetime.fromisoformat(previous["last_synced_at"])
+    assert refreshed["fetched_at"] == previous["fetched_at"]
+    assert refreshed["profile"] == {"name": "Synthetic reminder", "program": None, "cohort": None}
+    assert store.profile(other)["last_synced_at"] is None
+    with portal_db.connect() as conn:
+        after = conn.execute(text("""
+            SELECT s.id, s.fetched_at, s.payload FROM portal_users u
+            JOIN portal_transcript_snapshots s ON s.id=u.current_snapshot_id WHERE u.id=:owner
+        """), {"owner": owner}).mappings().one()
+    assert dict(before) == dict(after)
+    changed = copy.deepcopy(payload)
+    changed["digest"] = "synthetic-reminder-changed"
+    with pytest.raises(PortalFailure, match="incomplete_snapshot"):
+        store.save(owner, generation, changed, {"name": "Must rollback"})
+    assert store.profile(owner) == refreshed

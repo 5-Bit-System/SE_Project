@@ -5,6 +5,7 @@ import sys
 from urllib.parse import urlsplit
 
 from app.integrations.daotao.client import DaotaoClient
+from app.integrations.daotao.session_state import HOST, MAX_INPUT_BYTES, validated_cookies
 from app.integrations.daotao.snapshot import (
     PortalFailure,
     snapshot,
@@ -20,37 +21,95 @@ def write_result(result):
 
 
 def collect(credentials):
-    from playwright.sync_api import TimeoutError, sync_playwright
+    stage = "browser_start"
+    try:
+        from playwright.sync_api import Error, TimeoutError, sync_playwright
 
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, channel="chrome")
-        try:
-            context = browser.new_context(accept_downloads=False, service_workers="block")
-            # Reject navigation/requests outside the reviewed portal host.
-            context.route("**/*", lambda route: route.continue_()
-                          if urlsplit(route.request.url).hostname == "daotao.vnu.edu.vn"
-                          else route.abort())
-            context.set_default_timeout(15000)
-            client = DaotaoClient(context)
-            authenticated_subject = client.login(credentials["username"], credentials["password"])
-            texts = client.read_profile_texts()
-            client.open_transcript()
-            for page in context.pages:
-                for frame in page.frames:
-                    texts.append(frame.locator("body").inner_text())
-            subject = verified_subject("\n".join(texts), credentials["username"],
-                                       authenticated_subject=authenticated_subject)
-            return {"subject": subject, "snapshot": snapshot(client.read_transcript()),
-                    "profile": source_profile(texts)}
-        except TimeoutError:
-            raise PortalFailure("timeout") from None
-        finally:
-            browser.close()
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(headless=True, channel="chrome")
+            try:
+                stage = "browser_context"
+                context = browser.new_context(accept_downloads=False, service_workers="block")
+                # Reject navigation/requests outside the reviewed portal host.
+                context.route("**/*", lambda route: route.continue_()
+                              if urlsplit(route.request.url).hostname == "daotao.vnu.edu.vn"
+                              else route.abort())
+                context.set_default_timeout(15000)
+                client = DaotaoClient(context)
+                mode = credentials.get("mode", "login")
+                if mode in {"login", "signin"}:
+                    stage = "login"
+                    expected_subject = credentials["username"]
+                    authenticated_subject = client.login(expected_subject, credentials["password"])
+                elif mode == "resume":
+                    stage = "resume"
+                    if set(credentials) != {"mode", "subject", "cookies"}:
+                        raise PortalFailure("portal_state_invalid")
+                    expected_subject = credentials["subject"]
+                    if not isinstance(expected_subject, str) or not 0 < len(expected_subject) <= 128:
+                        raise PortalFailure("portal_state_invalid")
+                    authenticated_subject = client.resume(expected_subject, credentials["cookies"])
+                else:
+                    raise PortalFailure("portal_state_invalid")
+                # A fresh accepted student-portal login establishes identity;
+                # failures fetching academic data must not invent a snapshot.
+                subject = verified_subject('', expected_subject, authenticated_subject=authenticated_subject)
+                payload, details, warning = None, None, None
+                try:
+                    stage = "profile"
+                    texts = client.read_profile_texts()
+                    verified_subject('\n'.join(texts), expected_subject,
+                                     authenticated_subject=authenticated_subject)
+                    stage = "transcript"
+                    client.open_transcript()
+                    for page in context.pages:
+                        for frame in page.frames:
+                            texts.append(frame.locator("body").inner_text())
+                    stage = "identity"
+                    subject = verified_subject("\n".join(texts), expected_subject,
+                                               authenticated_subject=authenticated_subject)
+                    stage = "parse"
+                    payload = snapshot(client.read_transcript())
+                    details = source_profile(texts)
+                except (Error, PortalFailure) as exc:
+                    if mode != 'signin' or (isinstance(exc, PortalFailure) and str(exc) != 'structure_changed'):
+                        raise
+                    warning = 'source_unavailable'
+                cookies = validated_cookies([cookie for cookie in context.cookies()
+                                             if cookie.get("domain") in {HOST, "." + HOST}])
+                result = {"subject": subject, "snapshot": payload,
+                          "profile": details, "cookies": cookies}
+                if mode == 'signin':
+                    result.update(authenticated=True, warning=warning)
+                return result
+            finally:
+                browser.close()
+    except ImportError:
+        code, kind = "browser_unavailable", "missing_dependency"
+    except PortalFailure as exc:
+        code, kind = str(exc), "source_rejected"
+    except TimeoutError:
+        code, kind = "timeout", "timeout"
+    except Error:
+        code = ("browser_unavailable" if stage in {"browser_start", "browser_context"}
+                else "portal_unavailable")
+        kind = "browser_error"
+    except Exception:
+        code, kind = "portal_unavailable", "unexpected_error"
+    # Never include exception messages, DOM, credentials or provider responses.
+    return {"error": code, "stage": stage, "kind": kind}
 
 
 if __name__ == "__main__":
     try:
-        result = collect(json.loads(sys.stdin.read(8192)))
+        raw = sys.stdin.buffer.read(MAX_INPUT_BYTES + 1)
+        if len(raw) > MAX_INPUT_BYTES:
+            raise PortalFailure("portal_state_invalid")
+        request = json.loads(raw.decode("utf-8"))
+        if not isinstance(request, dict):
+            raise PortalFailure("portal_state_invalid")
+        result = collect(request)
+        request.clear()
     except PortalFailure as exc:
         result = {"error": str(exc)}
     except ImportError:

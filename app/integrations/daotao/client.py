@@ -4,6 +4,7 @@ from time import monotonic, sleep
 from urllib.parse import parse_qs, urlsplit
 
 from app.integrations.daotao.parser import normalize_rows
+from app.integrations.daotao.session_state import validated_cookies
 from app.integrations.daotao.snapshot import PortalFailure, source_profile
 
 LOGIN_URL = "https://daotao.vnu.edu.vn/dkmh/login.asp"
@@ -23,6 +24,22 @@ class DaotaoClient:
     def __init__(self, context):
         self.context = context
         self.page = context.new_page()
+        self.resuming = False
+
+    def resume(self, subject: str, cookies: list[dict], timeout_ms: int = 30000) -> str:
+        """Restore only the authenticated state supplied by the owning server session.
+
+        This method never authenticates a new account. Explicit source identity
+        evidence is still checked by the worker after reading profile/transcript.
+        """
+        cookies = validated_cookies(cookies)
+        if not cookies:
+            raise PortalFailure("vnu_reauth_required")
+        self.context.add_cookies(cookies)
+        self.resuming = True
+        self.page.goto(PROFILE_URL, wait_until="domcontentloaded")
+        self._wait_for_element('#PortalModule_374[title="Xem điểm sinh viên"]', timeout_ms)
+        return subject
 
     def login(self, username: str, password: str, timeout_ms: int = 30000) -> str:
         """Bind the submitted account to a fresh, accepted portal login transaction.
@@ -99,6 +116,8 @@ class DaotaoClient:
                 try:
                     if any(node.is_visible() for node in frame.locator(selector).all()):
                         raise PortalFailure("interaction_required")
+                    if self.resuming and frame.locator('#frmLogin').is_visible():
+                        raise PortalFailure("vnu_reauth_required")
                 except Error:
                     if not frame.is_detached() and not page.is_closed():
                         raise

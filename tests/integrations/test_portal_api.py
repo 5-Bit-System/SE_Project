@@ -8,7 +8,7 @@ from app.main import app
 
 
 @pytest.fixture
-def client(monkeypatch):
+def client(monkeypatch, fake_accounts):
     runtime.sessions.clear()
     runtime.jobs.clear()
     async def collect(value):
@@ -20,11 +20,14 @@ def client(monkeypatch):
     monkeypatch.setattr(store, "clear", lambda owner: None)
     with TestClient(app, base_url="http://127.0.0.1:8000") as value:
         value.headers["origin"] = "http://127.0.0.1:8000"
+        value.fake_accounts = fake_accounts
         yield value
 
 
 def login(client, username="synthetic-a"):
-    return client.post("/auth/portal", json={"username": username, "password": "secret-test"})
+    if not client.fake_accounts.resolve(client.cookies.get('study_app_session')):
+        client.fake_accounts.issue(client)
+    return client.post("/me/portal-connection", json={"username": username, "password": "secret-test"})
 
 
 def test_authentication_expiry_rotation_and_logout(client):
@@ -32,22 +35,48 @@ def test_authentication_expiry_rotation_and_logout(client):
     response = login(client)
     assert response.status_code == 200
     assert response.headers["cache-control"] == "no-store"
-    assert "HttpOnly" in response.headers["set-cookie"]
+    # Connecting VNU must not issue or replace an application login cookie.
+    assert 'set-cookie' not in response.headers
     profile = client.get("/me/profile").json()
     assert profile["subject"] == "synthetic-a"
     assert 0 < profile["expires_in"] <= 1800
-    old = client.cookies.get("study_portal_session")
+    old = client.cookies.get("study_app_session")
     login(client)
-    assert runtime.digest(old) not in runtime.sessions
-    runtime.sessions[runtime.digest(client.cookies.get("study_portal_session"))].expiry = 0
+    assert client.cookies.get('study_app_session') == old
+    client.fake_accounts.resolve(old)['expires_in'] = 0
     assert client.get("/auth/me").status_code == 401
     login(client)
     assert client.post("/auth/logout").status_code == 200
     assert client.get("/me/profile").status_code == 401
 
 
+def test_session_status_is_public_but_profile_remains_protected(client, monkeypatch):
+    def forbidden_read(*args):
+        pytest.fail("Session status must never read stored personal data")
+
+    monkeypatch.setattr(store, "profile", forbidden_read)
+    for cookie in (None, "unrecognized-test-token"):
+        if cookie:
+            client.cookies.set("study_app_session", cookie)
+        response = client.get("/auth/session")
+        assert response.status_code == 200
+        assert response.json() == {"authenticated": False}
+        assert response.headers["cache-control"] == "no-store"
+        assert client.get("/me/profile").status_code == 401
+    client.cookies.clear()
+    login(client)
+    response = client.get("/auth/session")
+    assert response.json()['authenticated'] is True
+    assert 'snapshot' not in response.json() and 'profile' not in response.json()
+    client.fake_accounts.resolve(client.cookies.get('study_app_session'))['expires_in'] = 0
+    assert client.get("/auth/session").json() == {"authenticated": False}
+    # Provider cookie cleanup is separately bounded by its RAM TTL/reaper.
+    assert client.get("/me/profile").status_code == 401
+
+
 def test_csrf_invalid_body_and_no_password_echo(client):
-    response = client.post("/auth/portal", json={"password": "never-echo-this"})
+    client.fake_accounts.issue(client)
+    response = client.post("/me/portal-connection", json={"password": "never-echo-this"})
     assert response.status_code == 400
     assert "never-echo-this" not in response.text
     client.headers["origin"] = "https://other.invalid"
@@ -61,13 +90,13 @@ def test_job_ownership_delete_and_failed_login(client, monkeypatch):
     assert client.get("/me/portal-sync/other").status_code == 404
     assert client.delete("/me/portal-sync/other").status_code == 404
     assert client.delete("/me/portal-data").status_code == 200
-    assert client.get("/auth/me").status_code == 401
+    assert client.get("/auth/me").status_code == 200
     from app.integrations.daotao.snapshot import PortalFailure
     async def fail(value):
         raise PortalFailure("identity_unverified")
     monkeypatch.setattr(runtime, "collect", fail)
-    assert login(client).status_code == 401
-    assert client.get("/me/profile").status_code == 401
+    assert login(client).status_code == 409
+    assert client.get("/me/profile").json()['subject'] is None
 
 
 def test_sync_is_bound_to_session_subject(client):
@@ -79,6 +108,8 @@ def test_sync_is_bound_to_session_subject(client):
 
 @pytest.mark.parametrize("code,status", [("worker_failed", 502), ("worker_output_invalid", 502),
                                         ("timeout", 504), ("busy", 429),
+                                        ("browser_unavailable", 503), ("portal_unavailable", 502),
+                                        ("structure_changed", 502),
                                         ("interaction_required", 409)])
 def test_worker_failure_is_technical_not_bad_password(client, monkeypatch, code, status):
     from app.integrations.daotao.snapshot import PortalFailure
@@ -96,23 +127,24 @@ def test_worker_failure_is_technical_not_bad_password(client, monkeypatch, code,
 def test_cancelled_and_finished_jobs_are_safe(client):
     login(client)
     runtime.jobs["finished"] = {"owner": "synthetic-a", "state": "done",
-                                "created": time.monotonic()}
+                                "created": time.monotonic(),
+                                "session": next(iter(runtime.sessions.values()))}
     assert client.delete("/me/portal-sync/finished").json() == {"state": "done"}
 
 
 @pytest.mark.parametrize("body", [b'[]', b'null', b'"text"', b'\xff'])
 def test_malformed_credentials_never_raise_server_error(client, body):
-    response = client.post("/auth/portal", content=body)
+    client.fake_accounts.issue(client)
+    response = client.post("/me/portal-connection", content=body)
     assert response.status_code == 400
     assert response.json() == {"detail": "invalid_credentials"}
 
 
 def test_logout_clears_expired_cookie_and_is_idempotent(client):
     login(client)
-    for value in runtime.sessions.values():
-        value.expiry = 0
+    client.fake_accounts.resolve(client.cookies.get('study_app_session'))['expires_in'] = 0
     assert client.post("/auth/logout").status_code == 200
-    assert not client.cookies.get("study_portal_session")
+    assert not client.cookies.get("study_app_session")
     assert not runtime.sessions
     assert client.post("/auth/logout").status_code == 200
 
@@ -121,7 +153,7 @@ def test_profile_not_returned_when_session_revoked_during_storage_read(client, m
     login(client)
 
     def profile(owner):
-        runtime.sessions.clear()
+        client.fake_accounts.revoke(client.cookies.get('study_app_session'))
         return {"subject": owner, "private": "must-not-return"}
 
     monkeypatch.setattr(store, "profile", profile)
@@ -140,7 +172,11 @@ def test_login_passes_only_worker_profile_to_store(client, monkeypatch):
 
     monkeypatch.setattr(runtime, "collect", collect)
     monkeypatch.setattr(store, "save", lambda *args: captured.append(args))
-    response = client.post("/auth/portal", json={
+    client.fake_accounts.issue(client)
+    response = client.post("/me/portal-connection", json={
         "username": "synthetic-a", "password": "synthetic", "profile": {"name": "Spoof"}})
+    assert response.status_code == 400
+    assert captured == []
+    response = client.post('/me/portal-connection', json={'username': 'synthetic-a', 'password': 'synthetic'})
     assert response.status_code == 200
     assert captured[0][3] == details

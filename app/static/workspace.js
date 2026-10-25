@@ -10,7 +10,7 @@
   function renderProfile() {
     document.getElementById('workspace-program-label').textContent = copy('Ngành học', 'Program');
     document.getElementById('workspace-cohort-label').textContent = copy('Khóa học', 'Cohort');
-    const empty = authenticated ? copy('Chưa có thông tin', 'Unavailable') : copy('Chưa đăng nhập', 'Not signed in');
+    const empty = authenticated ? copy('Chưa có thông tin', 'Unavailable') : copy('Chưa kết nối VNU', 'Not connected to VNU');
     document.getElementById('workspace-program').textContent = sourceProgram || empty;
     document.getElementById('workspace-cohort').textContent = sourceCohort || empty;
     // Source labels are display information, not a reviewed catalog binding.

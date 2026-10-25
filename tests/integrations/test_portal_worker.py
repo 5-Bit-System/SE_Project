@@ -1,10 +1,70 @@
 import asyncio
 import json
+import sys
+from types import SimpleNamespace
 
 import pytest
 
-from app.integrations.daotao import runtime
+from app.integrations.daotao import runtime, worker
 from app.integrations.daotao.snapshot import PortalFailure
+
+
+@pytest.mark.parametrize('failure,accepted', [
+    ('timeout', True), ('structure_changed', True), ('identity_unverified', False),
+    ('interaction_required', False), ('login', False),
+])
+def test_signin_requires_fresh_auth_but_source_failure_can_be_retried(monkeypatch, failure, accepted):
+    class BrowserError(Exception):
+        pass
+
+    class BrowserTimeout(BrowserError):
+        pass
+
+    class Client:
+        def __init__(self, context):
+            pass
+
+        def login(self, username, password):
+            if failure == 'login':
+                raise PortalFailure('identity_unverified')
+            return 'synthetic'
+
+        def read_profile_texts(self):
+            if failure == 'timeout':
+                raise BrowserTimeout('private-source-details')
+            if failure == 'identity_unverified':
+                return ['MSSV: another-student']
+            raise PortalFailure(failure)
+
+    class Browser:
+        def new_context(self, **kwargs):
+            return SimpleNamespace(route=lambda *args: None, set_default_timeout=lambda *args: None,
+                                   cookies=lambda: [])
+
+        def close(self):
+            pass
+
+    class Playwright:
+        def __enter__(self):
+            return SimpleNamespace(chromium=self)
+
+        def launch(self, **kwargs):
+            return Browser()
+
+        def __exit__(self, *args):
+            pass
+
+    monkeypatch.setitem(sys.modules, 'playwright.sync_api', SimpleNamespace(
+        Error=BrowserError, TimeoutError=BrowserTimeout, sync_playwright=Playwright))
+    monkeypatch.setattr(worker, 'DaotaoClient', Client)
+    result = worker.collect({'mode': 'signin', 'username': 'synthetic', 'password': 'never-log'})
+    if accepted:
+        assert result == {'authenticated': True, 'subject': 'synthetic', 'snapshot': None,
+                          'profile': None, 'cookies': [], 'warning': 'source_unavailable'}
+    else:
+        assert result['error'] in {'identity_unverified', 'interaction_required'}
+        assert not result.get('authenticated')
+    assert 'private-source-details' not in str(result) and 'never-log' not in str(result)
 
 
 def test_worker_receives_credentials_only_via_stdin(monkeypatch):
@@ -101,3 +161,94 @@ def test_timeout_and_cancellation_terminate_process_tree(monkeypatch, cancelled)
     assert process.returncode == 1
     if runtime.os.name == "nt":
         assert commands[-1] == ("taskkill", "/PID", "123456", "/T", "/F")
+
+
+@pytest.mark.parametrize("stage,expected_code", [
+    ("browser_start", "browser_unavailable"), ("login", "portal_unavailable"),
+    ("profile", "portal_unavailable"), ("transcript", "portal_unavailable"),
+])
+def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, stage, expected_code):
+    class BrowserError(Exception):
+        pass
+
+    class BrowserTimeout(BrowserError):
+        pass
+
+    private = "synthetic-private-password-cookie-and-grade"
+
+    def fail():
+        raise BrowserError(private)
+
+    class Client:
+        def __init__(self, context):
+            pass
+
+        def login(self, *args):
+            if stage == "login":
+                fail()
+            return "synthetic"
+
+        def read_profile_texts(self):
+            if stage == "profile":
+                fail()
+            return []
+
+        def open_transcript(self):
+            fail()
+
+    class Browser:
+        closed = False
+
+        def new_context(self, **kwargs):
+            return SimpleNamespace(route=lambda *args: None, set_default_timeout=lambda *args: None)
+
+        def close(self):
+            self.closed = True
+
+    browser = Browser()
+
+    class Playwright:
+        def __enter__(self):
+            return SimpleNamespace(chromium=self)
+
+        def launch(self, **kwargs):
+            assert kwargs == {"headless": True, "channel": "chrome"}
+            if stage == "browser_start":
+                fail()
+            return browser
+
+        def __exit__(self, *args):
+            pass
+
+    # Portal is optional; the ordinary offline/CI suite must not need Playwright.
+    monkeypatch.setitem(sys.modules, "playwright.sync_api", SimpleNamespace(
+        Error=BrowserError, TimeoutError=BrowserTimeout, sync_playwright=Playwright))
+    monkeypatch.setattr(worker, "DaotaoClient", Client)
+    result = worker.collect({"username": "synthetic", "password": private})
+    assert result == {"error": expected_code, "stage": stage, "kind": "browser_error"}
+    assert private not in json.dumps(result)
+    assert browser.closed == (stage != "browser_start")
+
+
+@pytest.mark.parametrize("hostile", [False, True])
+def test_runtime_logs_only_allowlisted_worker_diagnostics(monkeypatch, caplog, hostile):
+    private = "synthetic-private-provider-response"
+    result = {"error": "portal_unavailable", "stage": "profile", "kind": "browser_error",
+              "raw": private}
+    if hostile:
+        result.update(error=private, stage=[private], kind={"secret": private})
+
+    class Process:
+        returncode = 0
+
+        async def communicate(self, body):
+            return json.dumps(result).encode(), b''
+
+    async def spawn(*args, **kwargs):
+        return Process()
+
+    monkeypatch.setattr(asyncio, "create_subprocess_exec", spawn)
+    with pytest.raises(PortalFailure, match="^portal_unavailable$"):
+        asyncio.run(runtime.collect({"username": "synthetic", "password": private}))
+    assert f"stage={'unknown' if hostile else 'profile'}" in caplog.text
+    assert private not in caplog.text

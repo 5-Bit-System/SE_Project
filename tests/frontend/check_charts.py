@@ -5,6 +5,8 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+from tests.frontend.auth_fixture import session_payload
+
 
 def main():
     evidence = Path("backups/dashboard_charts_20261023")
@@ -35,7 +37,10 @@ def main():
 
     def intercept(route):
         url = route.request.url
-        if '/profiles' in url:
+        if '/auth/session' in url:
+            route.fulfill(json=session_payload(auth['valid']))
+            return
+        elif '/profiles' in url:
             raise AssertionError('Demo profiles must not be requested')
         if '/me/profile' in url:
             requests.append(url)
@@ -101,8 +106,8 @@ def main():
         assert page.locator('#analytics-trend .chart-point').count() == 1
         assert '—' in page.locator('#analytics-table').text_content()  # Missing grade stays missing.
         page.locator('#tab-btn-profile').click()
-        page.locator('#portal-logout').click()
-        page.locator('#tab-btn-dashboard').click()
+        page.locator('#system-logout').click()
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
         assert page.locator('#analytics-trend svg').count() == 0
         assert page.locator('#analytics-distribution svg').count() == 0
         assert page.locator('#analytics-credits .credit-chart-row').count() == 0

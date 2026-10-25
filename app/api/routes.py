@@ -1,5 +1,6 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 
+from app.auth.dependencies import retired_profile, verified_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
 from app.profiles import ProfileError, list_profiles, load_profile
 from app.progress import calculate_progress
@@ -61,7 +62,7 @@ def courses(program_id: str = Query(...)) -> list[Course]:
         _raise_domain_error(exc)
 
 
-@router.get("/profiles", response_model=list[ProfileSummary])
+@router.get("/profiles", response_model=list[ProfileSummary], dependencies=[Depends(retired_profile)])
 def profiles(program_id: str | None = Query(default=None)) -> list[ProfileSummary]:
     try:
         catalog = load_catalog(program_id) if program_id else None
@@ -89,7 +90,7 @@ def profiles(program_id: str | None = Query(default=None)) -> list[ProfileSummar
         _raise_domain_error(exc)
 
 
-@router.get("/profiles/{profile_id}", response_model=ProfileDetail)
+@router.get("/profiles/{profile_id}", response_model=ProfileDetail, dependencies=[Depends(retired_profile)])
 def profile_detail(profile_id: str) -> ProfileDetail:
     try:
         profile = load_profile(profile_id)
@@ -108,7 +109,7 @@ def profile_detail(profile_id: str) -> ProfileDetail:
         _raise_domain_error(exc)
 
 
-@router.get("/profiles/{profile_id}/transcript/summary", response_model=TranscriptSummary)
+@router.get("/profiles/{profile_id}/transcript/summary", response_model=TranscriptSummary, dependencies=[Depends(retired_profile)])
 def profile_transcript_summary(profile_id: str) -> TranscriptSummary:
     try:
         profile = load_profile(profile_id)
@@ -141,7 +142,7 @@ def profile_transcript_summary(profile_id: str) -> TranscriptSummary:
         _raise_domain_error(exc)
 
 
-@router.post("/recommendations", response_model=RecommendationResponse)
+@router.post("/recommendations", response_model=RecommendationResponse, dependencies=[Depends(verified_account)])
 def recommendations(request: RecommendationRequest) -> RecommendationResponse:
     try:
         catalog = load_catalog(request.program_id)
@@ -162,7 +163,7 @@ def recommendations(request: RecommendationRequest) -> RecommendationResponse:
         _raise_domain_error(exc)
 
 
-@router.post("/recommendations/what-if", response_model=RecommendationResponse)
+@router.post("/recommendations/what-if", response_model=RecommendationResponse, dependencies=[Depends(verified_account)])
 def recommendations_what_if(request: WhatIfRequest) -> RecommendationResponse:
     """Xep hang lai tren eligibility vua tinh, chi thay preference/weights."""
     try:
@@ -191,7 +192,7 @@ def recommendations_what_if(request: WhatIfRequest) -> RecommendationResponse:
         _raise_domain_error(exc)
 
 
-@router.post("/transcript/summary", response_model=TranscriptSummary)
+@router.post("/transcript/summary", response_model=TranscriptSummary, dependencies=[Depends(verified_account)])
 def transcript_summary(transcript: StudentTranscript) -> TranscriptSummary:
     try:
         catalog = load_catalog(transcript.program_id)
@@ -220,7 +221,7 @@ def transcript_summary(transcript: StudentTranscript) -> TranscriptSummary:
         _raise_domain_error(exc)
 
 
-@router.post("/eligibility", response_model=EligibilityResult)
+@router.post("/eligibility", response_model=EligibilityResult, dependencies=[Depends(verified_account)])
 def check_eligibility(request: EligibilityRequest) -> EligibilityResult:
     try:
         catalog = load_catalog(request.program_id)
@@ -237,7 +238,7 @@ def check_eligibility(request: EligibilityRequest) -> EligibilityResult:
         _raise_domain_error(exc)
 
 
-@router.post("/advisor/chat", response_model=AdvisorResponse)
+@router.post("/advisor/chat", response_model=AdvisorResponse, dependencies=[Depends(verified_account)])
 def advisor_chat_endpoint(request: AdvisorRequest) -> AdvisorResponse:
     try:
         catalog = load_catalog(request.program_id)

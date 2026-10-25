@@ -5,6 +5,8 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
+
 
 def main():
     logged_in = False
@@ -17,19 +19,21 @@ def main():
         nonlocal logged_in
         path = route.request.url.split('8000')[-1]
         requests.append(path)
-        if path == '/programs':
+        if path == '/auth/session':
+            result, code = session_payload(), 200
+        elif path == '/programs':
             result, code = [{"program_id": "synthetic", "name": "Chương trình thử"}], 200
         elif path.startswith('/me/academic-context?'):
             result, code = {"status": "needs_program_binding", "blocking_reasons": [
                 "source_incomplete", "program_binding_unverified"]}, 200
-        elif path == '/auth/portal':
+        elif path == '/me/portal-connection':
             logged_in = True
             result, code = {}, 200
         elif path == '/auth/logout':
             logged_in = False
             result, code = {}, 200
         elif path == '/me/profile':
-            result, code = (sample, 200) if logged_in else ({"detail": "session_expired"}, 401)
+            result, code = (sample, 200) if logged_in else (EMPTY_PROFILE, 200)
         elif path.startswith('/static/') or path == '/' or path.startswith('/?'):
             route.continue_()
             return
@@ -50,7 +54,7 @@ def main():
         assert page.locator('#program-select').count() == 0
         assert page.locator('#course-language-select').count() == 0
         assert page.locator('[data-language-choice="vi"]').get_attribute('aria-pressed') == 'true'
-        assert page.locator('#workspace-program').inner_text() == 'Chưa đăng nhập'
+        assert page.locator('#workspace-program').inner_text() == 'Chưa kết nối VNU'
         page.locator('#tab-btn-rules').click()
         assert 'Đăng nhập VNU' in page.locator('#tab-rules').inner_text()
         page.locator('#tab-btn-profile').click()
@@ -94,14 +98,14 @@ def main():
         page.wait_for_timeout(100)
         assert pending
         page.locator('#tab-btn-profile').click()
-        page.locator('#portal-logout').click()
+        page.locator('#system-logout').click()
         page.wait_for_function("document.getElementById('portal-profile').hidden")
         for route in pending:
             route.fulfill(content_type='application/json', body=json.dumps(sample))
         page.wait_for_timeout(100)
         assert 'Đăng nhập VNU' in page.locator('#tab-rules').text_content()
-        assert page.locator('#workspace-program').inner_text() == 'Chưa đăng nhập'
-        assert page.locator('#workspace-cohort').inner_text() == 'Chưa đăng nhập'
+        assert page.locator('#workspace-program').inner_text() == 'Chưa kết nối VNU'
+        assert page.locator('#workspace-cohort').inner_text() == 'Chưa kết nối VNU'
         assert page.locator('#catalog-name-text').inner_text() == 'Hồ sơ học tập VNU'
         evidence = Path('backups/vnu_only_ui_20261023')
         evidence.mkdir(parents=True, exist_ok=True)
@@ -109,7 +113,7 @@ def main():
             page.locator(f'[data-theme-choice="{theme}"]').click()
             for width in (1440, 390):
                 page.set_viewport_size({"width": width, "height": 1000})
-                page.locator('#tab-btn-recommend').click()
+                page.evaluate("window.workspaceNavigate('tab-recommend')")
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
                 page.screenshot(path=str(evidence / f'{theme}-{width}.png'), full_page=True)
         assert not errors, errors

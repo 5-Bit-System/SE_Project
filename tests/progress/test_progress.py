@@ -4,12 +4,8 @@ from app.models import Catalog, Course, Program
 from app.transcript import StudentTranscript
 
 
-def test_transcript_summary_api_exposes_group_progress_without_counting_excluded():
-    from fastapi.testclient import TestClient
-
-    from app.main import app
-
-    response = TestClient(app).post(
+def test_transcript_summary_api_exposes_group_progress_without_counting_excluded(verified_client):
+    response = verified_client.post(
         "/transcript/summary",
         json={
             "program_id": "khdl",
@@ -30,14 +26,11 @@ def test_transcript_summary_api_exposes_group_progress_without_counting_excluded
     assert result["progress"]["warnings"]
 
 
-def test_profile_summary_api_exposes_progress():
-    from fastapi.testclient import TestClient
-
-    from app.main import app
-
-    response = TestClient(app).get("/profiles/khdl_01/transcript/summary")
-    assert response.status_code == 200
-    result = response.json()
+def test_profile_summary_domain_exposes_progress_but_unowned_http_route_is_closed(verified_client):
+    from app.api.routes import profile_transcript_summary
+    from app.schemas.profile import TranscriptSummary
+    assert verified_client.get('/profiles/khdl_01/transcript/summary').status_code == 410
+    result = TranscriptSummary.model_validate(profile_transcript_summary('khdl_01')).model_dump()
     assert result["progress"] is not None
     assert result["progress"]["total"]["earned_credits"] == result["earned_credits"]
 

@@ -10,7 +10,7 @@ from app.main import app
 
 
 @pytest.fixture
-def client(monkeypatch):
+def client(monkeypatch, fake_accounts):
     runtime.sessions.clear()
     seen = []
     data = {"subject": "synthetic", "profile": {}, "snapshot": {
@@ -26,13 +26,13 @@ def client(monkeypatch):
         value.headers["origin"] = "http://127.0.0.1:8000"
         value.seen_owners = seen
         value.profile_data = data
+        value.fake_accounts = fake_accounts
         yield value
     runtime.sessions.clear()
 
 
 def authenticated(client, owner="synthetic-owner"):
-    token = runtime.new_session(owner, "synthetic", 0)
-    client.cookies.set("study_portal_session", token)
+    client.fake_accounts.issue(client, owner, 'synthetic', linked=True)
 
 
 def test_context_requires_authenticated_session(client):
@@ -78,8 +78,11 @@ def test_personalized_operations_share_the_context_gate(client, path):
     assert response.json()['detail']['code'] == 'academic_context_not_ready'
 
 
-def test_new_source_gate_keeps_legacy_routes_until_ready_cutover(client):
+def test_legacy_calculation_routes_require_a_verified_system_account(client):
     # The approved removal gate has not passed; do not prematurely delete the working flow.
+    response = client.post('/eligibility', json={'program_id': 'khdl', 'passed_course_codes': []})
+    assert response.status_code == 401
+    authenticated(client)
     response = client.post('/eligibility', json={'program_id': 'khdl', 'passed_course_codes': []})
     assert response.status_code == 200
 
@@ -133,7 +136,7 @@ def test_slow_recommendation_never_returns_results_after_source_or_session_chang
         if change == 'source':
             client.profile_data['snapshot']['digest'] = 'updated-during-ranking'
         else:
-            runtime.sessions.clear()
+            client.fake_accounts.revoke(client.cookies.get('study_app_session'))
         return result
 
     monkeypatch.setattr(academic, 'recommend', delayed)
@@ -180,9 +183,7 @@ def test_unready_source_does_not_accept_invalid_plan_selection(client, selection
 
 @pytest.mark.parametrize('path', ['/me/eligibility', '/me/academic-progress'])
 def test_expired_session_does_not_read_stored_source(client, path):
-    import time
     authenticated(client)
-    for value in runtime.sessions.values():
-        value.expiry = time.monotonic() - 1
+    client.fake_accounts.resolve(client.cookies.get('study_app_session'))['expires_in'] = 0
     assert client.get(path + '?program_id=khdl').status_code == 401
     assert client.seen_owners == []

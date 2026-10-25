@@ -103,12 +103,8 @@ def test_load_catalog_supports_all_short_aliases():
         assert cat.program.program_id == expected
 
 
-def test_transcript_endpoints():
-    from fastapi.testclient import TestClient
-
-    from app.main import app
-
-    client = TestClient(app)
+def test_transcript_endpoints(verified_client):
+    client = verified_client
 
     # Test POST /transcript/summary
     summary_resp = client.post(

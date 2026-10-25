@@ -1,5 +1,11 @@
 # Tested Python 3.11 runtime/dev constraints; install with -r requirements-dev.txt -c requirements-lock.txt
 alembic==1.20.0
+argon2-cffi==25.1.0
+argon2-cffi-bindings==26.1.0
+cffi==2.1.1
+dnspython==2.9.0
+email-validator==2.3.0
+pycparser==3.12
 annotated-doc==0.0.5
 annotated-types==0.8.0
 anyio==4.15.1

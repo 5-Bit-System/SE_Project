@@ -1,10 +1,8 @@
 from unittest.mock import patch
 
 import pytest
-from fastapi.testclient import TestClient
 
 from app.catalog import load_catalog
-from app.main import app
 from app.services.advisor_service import (
     AdvisorRequest,
     call_gemini_api,
@@ -98,8 +96,8 @@ def test_gemini_api_integration_with_mock():
         assert "FAKE9999" not in resp.suggested_courses
 
 
-def test_advisor_http_endpoint():
-    client = TestClient(app)
+def test_advisor_http_endpoint(verified_client):
+    client = verified_client
 
     # 1. Câu hỏi bị Guardrail chặn
     resp_block = client.post(

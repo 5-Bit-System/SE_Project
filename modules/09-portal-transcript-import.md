@@ -1,5 +1,25 @@
 # Module 09 — Kết nối cổng đào tạo và lấy bảng điểm
 
+## Kiến trúc tài khoản sắp tới — 25/10/2026
+
+Người dùng yêu cầu [module tài khoản hệ thống](12-system-authentication.md) với
+email verification và admin/student. Theo [kế hoạch mới](../docs/KE_HOACH_TAI_KHOAN_HE_THONG_2026_10_25.md),
+VNU sẽ là kết nối gắn vào account đã đăng nhập, không tự cấp quyền hệ thống.
+Đây là kế hoạch, chưa cutover; luồng VNU/giữ phiên local đã nghiệm thu bên dưới
+vẫn là code hiện tại. Không tự gán hồ sơ cũ cho hai account mẫu.
+
+## Phiên VNU mới — 25/10/2026
+
+Người dùng yêu cầu lập [kế hoạch giữ phiên VNU](../docs/KE_HOACH_GIU_PHIEN_VNU_2026_10_25.md)
+để cập nhật trong cùng phiên app không phải nhập lại mật khẩu. Thiết kế ưu tiên
+cookie tạm trong RAM, tách từng session, có TTL/thu hồi. Đã triển khai local và
+qua kiểm thử tổng hợp; người dùng đã xác nhận cập nhật trên VNU thật không hỏi
+lại mật khẩu. Xác nhận này áp dụng cho luồng chính, không chứng nhận toàn bộ nguồn.
+Mật khẩu vẫn không
+lưu; tự đồng bộ hằng tuần tiếp tục hoãn. Nút cập nhật và nhắc trong app sau 7 ngày
+đã có local. Tên/ngành/khóa đã được người dùng xác nhận hiển thị ở checkpoint
+mới hơn trong memory; các ghi chú 23/10 bên dưới là lịch sử trước bản sửa.
+
 Cập nhật chốt phiên: 23/10/2026. **Hiện trạng:** connector chọn lọc từ
 `origin/feat/login` tại `b790d6a` đã tích hợp local với UI/API và PostgreSQL;
 người dùng xác nhận đăng nhập và thấy bảng điểm. **Họ tên/ngành/khóa vẫn trống

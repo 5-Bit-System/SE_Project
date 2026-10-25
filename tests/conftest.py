@@ -8,11 +8,31 @@ os.environ["DATABASE_MODEL"] = "hus"
 os.environ["DATABASE_URL"] = ""
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
+os.environ['APP_ENV'] = 'test'
+os.environ['AUTH_TOKEN_PEPPER'] = 'synthetic-offline-server-secret-at-least-32-characters'
+os.environ['EMAIL_BACKEND'] = 'fake'
 
 import httpx
 import pytest
 
 from app.config import get_settings
+
+
+@pytest.fixture
+def fake_accounts(monkeypatch):
+    from tests.support.system_auth import SyntheticAccounts
+    return SyntheticAccounts(monkeypatch)
+
+
+@pytest.fixture
+def verified_client(fake_accounts):
+    from fastapi.testclient import TestClient
+
+    from app.main import app
+    with TestClient(app, base_url='http://127.0.0.1:8000') as client:
+        client.headers['origin'] = 'http://127.0.0.1:8000'
+        fake_accounts.issue(client)
+        yield client
 
 
 @pytest.fixture(autouse=True)

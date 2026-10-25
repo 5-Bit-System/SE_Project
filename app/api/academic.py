@@ -16,7 +16,8 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from app.academic_context import AcademicContextError, AcademicPolicy, build_context, require_ready
-from app.api.portal import COOKIE, safe_call, session
+from app.api.portal import safe_call, session
+from app.auth.dependencies import COOKIE
 from app.catalog import load_catalog
 from app.integrations.daotao import runtime, store
 from app.models import RankingWeights, RecommendationRequest, StructuredPreference
@@ -82,7 +83,7 @@ def _catalog_context(program_id: str):
 
 
 async def resolve_context(request: Request, query: AcademicQuery) -> tuple[Any, dict]:
-    owner_id = session(request).owner
+    owner_id = (await session(request)).owner
     saved = await safe_call(store.profile, owner_id)
     try:
         catalog, revision = await asyncio.to_thread(_catalog_context, query.program_id)
@@ -103,7 +104,7 @@ async def resolve_context(request: Request, query: AcademicQuery) -> tuple[Any, 
         "path": query.selected_graduation_path_id,
         "session": runtime.digest(request.cookies[COOKIE])}, sort_keys=True).encode()).hexdigest()
     context["fetched_at"] = saved.get("fetched_at")
-    session(request)  # DB/catalog I/O must not outlive a logout or expired session.
+    await session(request)  # DB/catalog I/O must not outlive a logout or expired session.
     return catalog, context
 
 
@@ -124,14 +125,14 @@ async def ensure_current(request: Request, query: AcademicQuery, context: dict) 
 
 @router.get("/me/academic-context")
 async def context_view(request: Request):
-    session(request)
+    await session(request)
     _, context = await resolve_context(request, parse_query(request))
     return context
 
 
 @router.get("/me/eligibility")
 async def eligibility(request: Request):
-    session(request)
+    await session(request)
     query = parse_query(request)
     catalog, context = await resolve_context(request, query)
     passed = ready(context)
@@ -143,7 +144,7 @@ async def eligibility(request: Request):
 
 @router.get("/me/academic-progress")
 async def progress(request: Request):
-    session(request)
+    await session(request)
     query = parse_query(request)
     catalog, context = await resolve_context(request, query)
     passed = ready(context)
@@ -154,7 +155,7 @@ async def progress(request: Request):
 
 
 async def operation(request: Request):
-    session(request)
+    await session(request)
     query = await parse_body(request)
     catalog, context = await resolve_context(request, query)
     passed = ready(context, query.expected_revision)

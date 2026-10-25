@@ -1,13 +1,36 @@
 # Thử kết nối cổng đào tạo VNU
 
+## Tái sử dụng phiên VNU — 25/10/2026
+
+Web worker có hai mode: `login` xác thực mới, `resume` nạp cookie từ đúng phiên
+server vào context mới. Cookie VNU chỉ được giữ trong RAM của phiên app tối đa
+30 phút và không vượt thời hạn cookie đã biết; tác vụ dọn chạy mỗi 30 giây.
+Logout thu hồi phiên hiện tại; xóa dữ liệu thu hồi mọi phiên cùng owner.
+Browser vẫn đóng cuối mỗi job. Không lưu mật khẩu, cookie file hoặc browser profile.
+
+`POST /me/portal-sync` không nhận credentials. Khi VNU cần đăng nhập lại, mã
+API trả 200 `{"state":"reauth_required"}` khi thiếu/hết cookie trong RAM; UI mở
+form riêng. Worker gặp phiên nguồn hết hạn vẫn báo `vnu_reauth_required` trong
+job status. `POST /me/portal-reauth` chỉ nhận password,
+tài khoản lấy từ session. Cookie không xuất hiện trong API/job status/log/repr.
+Contract chặn cookie ngoại domain, quá 64 cookie hoặc 64 KiB; stdin tối đa 72 KiB.
+Khởi động lại server làm mất phiên RAM và cần login mới.
+
+Fixture Chrome đã chứng minh login một lần rồi hai lần resume bằng browser mới,
+rotation, mismatch, expiry và challenge. Người dùng đã xác nhận cập nhật được
+trên VNU thật mà không hỏi lại mật khẩu; các tình huống nguồn khác vẫn cần
+nghiệm thu tương ứng, không suy ra bảng điểm đã được xác minh đầy đủ.
+Xem [kế hoạch và checkpoint](../../../docs/KE_HOACH_GIU_PHIEN_VNU_2026_10_25.md).
+Các phần thử nghiệm cũ bên dưới không thay thế checkpoint mới này.
+
 > Cập nhật tích hợp 23/10/2026: API/profile và migration đã được thêm vào
 > hệ thống local. Xem `docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md` cho trạng
 > thái nghiệm thu, thiết lập mới và giới hạn identity/completeness. Các mục
 > bên dưới mô tả connector thử gốc. CLI chỉ in bảng điểm khi truyền rõ
 > `--show-transcript`; không dùng tùy chọn đó với log chia sẻ.
 
-Bản thử độc lập, chưa tích hợp API hoặc database. Không lưu tài khoản, cookie,
-HTML hay bảng điểm ra file. Kết quả chỉ in ra terminal trong phiên thử.
+CLI thử độc lập với API/database của web. Không lưu tài khoản, cookie,
+HTML hay bảng điểm ra file. Chỉ in bảng điểm nếu người chạy chọn `--show-transcript`.
 
 ## Cài và chạy từ thư mục gốc
 
@@ -302,3 +325,28 @@ không bật cửa sổ trình duyệt. Worker vẫn dùng Google Chrome (`chann
 CLI dùng Chromium do Playwright quản lý. Khởi động lại backend sau khi cập nhật
 để áp dụng. Cách xác thực và đọc bảng không thay đổi. Chưa kiểm chứng lại phiên
 VNU thật ở chế độ này; CAPTCHA/OTP vẫn chưa có luồng tương tác riêng.
+
+## Kiểm tra phiên và chẩn đoán kết nối
+
+Giao diện kiểm tra `GET /auth/session` trước khi đọc hồ sơ. Endpoint chỉ trả
+`authenticated` (HTTP 200, `no-store`); khi chưa có phiên, không gọi lặp lại
+`/me/profile` khi chuyển tab. API hồ sơ vẫn trả 401 nếu không có phiên hợp lệ.
+
+Worker gửi mã bước và loại lỗi đã giới hạn về backend; log dạng
+`Portal worker stage=profile code=portal_unavailable kind=browser_error`.
+Không ghi exception message, tài khoản, mật khẩu, cookie, DOM hoặc bảng điểm.
+Lỗi khởi động Chrome trả `browser_unavailable` (503), timeout trả 504; lỗi
+kết nối/đọc nguồn vẫn trả 502 và được hiển thị rõ trên UI. Không tự gửi lại
+credentials. Chẩn đoán này không chứng minh nguyên nhân của các lỗi 502 cũ.
+
+## Cập nhật chủ động và nhắc sau 7 ngày
+
+Nút “Cập nhật bảng điểm” ở đầu workspace mở form xác thực VNU hiện có.
+Lời nhắc chỉ hiển thị khi sử dụng app; chưa có lịch chạy nền, email/push hay
+crawl tự động. Tự động đồng bộ hằng tuần được hoãn đến giai đoạn gần hoàn thiện.
+
+Mốc thành công được lưu bởi server trong `portal_users.profile._last_synced_at`
+và trả riêng qua API dưới tên `last_synced_at`, không phải trường nguồn VNU.
+Đọc lại đúng bảng điểm đang lưu cũng làm mới mốc nhắc, không sửa payload,
+digest hoặc thời điểm tạo snapshot. Cập nhật lỗi/bị từ chối không làm mới mốc.
+Hồ sơ cũ chưa có mốc này dùng `fetched_at` làm mốc ban đầu. Không cần migration.
