@@ -7,6 +7,7 @@ They are not presented as checksums of the original HTTP response bytes.
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+from datetime import date
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -15,12 +16,13 @@ import unicodedata
 from typing import Literal
 from urllib.parse import urlsplit
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from app.hus.models import HUSDocument
+from app.hus.models import HUSDocument, ReviewDecision
+from app.hus.review import require_review
 
 SCHEMA_VERSION = "1.0"
-PIPELINE_VERSION = "1.0"
+PIPELINE_VERSION = "1.1"
 REVIEW_STATUSES = ("include", "needs_review", "pending_ocr", "exclude")
 
 
@@ -55,15 +57,6 @@ class SourceManifest(StrictModel):
     documents: dict[str, DocumentSource]
 
 
-class ReviewDecision(StrictModel):
-    content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
-    status: Literal["include", "needs_review", "pending_ocr", "exclude"]
-    reason: str = Field(min_length=1)
-    reviewer: str | None = None
-    evidence_locator: str | None = None
-    reviewed_source_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
-
-
 class ReviewFile(StrictModel):
     schema_version: Literal["1.0"]
     source_snapshot_id: str
@@ -72,13 +65,19 @@ class ReviewFile(StrictModel):
 
 class BuildConfig(StrictModel):
     schema_version: Literal["1.0"]
-    pipeline_version: Literal["1.0"]
+    pipeline_version: Literal["1.1"]
     source_manifest: str
     review_decisions: str
     normalization: Literal["nfc-lf-trim-trailing-v1"]
     chunking: Literal["utf8-lines-v1"]
     max_chunk_bytes: int = Field(ge=128, le=16000)
     overlap_bytes: Literal[0]
+    as_of: str | None = None
+
+    @field_validator("as_of")
+    @classmethod
+    def build_date(cls, value: str | None) -> str | None:
+        return date.fromisoformat(value).isoformat() if value is not None else None
 
 
 def json_bytes(value: object) -> bytes:
@@ -212,7 +211,7 @@ def initial_reviews(root: Path, manifest: SourceManifest) -> ReviewFile:
     return ReviewFile(
         schema_version=SCHEMA_VERSION, source_snapshot_id=manifest.source_snapshot_id,
         decisions={key: ReviewDecision(
-            content_hash=doc.content_hash,
+            content_hash=doc.content_hash, source_url=doc.url,
             status="pending_ocr" if doc.status.value == "pending_ocr" else "needs_review",
             reason="Awaiting source extraction/OCR review" if doc.status.value == "pending_ocr"
             else "Awaiting source comparison and applicability review; not imported from build07",
@@ -245,6 +244,7 @@ def build_artifacts(
     root: Path, manifest: SourceManifest, reviews: ReviewFile, config: BuildConfig,
 ) -> dict[str, bytes]:
     documents = verify_sources(root, manifest)
+    as_of = date.fromisoformat(config.as_of) if config.as_of is not None else None
     if reviews.source_snapshot_id != manifest.source_snapshot_id:
         raise CorpusError("Review decisions belong to a different snapshot")
     if set(reviews.decisions) != set(documents):
@@ -275,13 +275,14 @@ def build_artifacts(
         if doc.status.value == "pending_ocr":
             flags.append("pending_ocr")
         if decision.status == "include":
-            if (
-                doc.status.value != "active" or not source.raw_path
-                or not (decision.reviewer or "").strip()
-                or not (decision.evidence_locator or "").strip()
-                or decision.reviewed_source_sha256 != source_files[source.raw_path].sha256
-            ):
-                raise CorpusError(f"Include lacks active source and hash-bound review evidence: {key}")
+            raw_file = source_files[source.raw_path] if source.raw_path else None
+            try:
+                decision = require_review(
+                    doc, decision, raw_file.sha256 if raw_file else None,
+                    source_encoding=raw_file.encoding if raw_file else "binary", as_of=as_of,
+                )
+            except ValueError as exc:
+                raise CorpusError(f"Include lacks valid review evidence: {key}: {exc}") from exc
         text = normalize(doc.content)
         normalized_path = f"normalized/{key}.md"
         artifacts[normalized_path] = text.encode()
@@ -294,6 +295,8 @@ def build_artifacts(
             "markdown_path": source.markdown_path, "raw_path": source.raw_path,
             "raw_sha256": source_files[source.raw_path].sha256 if source.raw_path else None,
             "raw_checksum_encoding": source_files[source.raw_path].encoding if source.raw_path else None,
+            "review_status": decision.status, "review": decision.model_dump(),
+            "review_as_of": config.as_of,
         }
         inventory.append({**metadata, "crawler_status": doc.status.value,
                           "review_status": decision.status, "flags": sorted(flags),
@@ -303,7 +306,7 @@ def build_artifacts(
         review_rows.append({"document_id": key, **decision.model_dump()})
         if decision.status != "include":
             continue
-        corpus.append({**metadata, "review_status": "include", "content_markdown": text})
+        corpus.append({**metadata, "content_markdown": text})
         for position, (start, end) in enumerate(split_chunks(text, config.max_chunk_bytes)):
             chunk_text = text[start:end]
             chunk_id = sha256(f"{key}\n{position}\n{chunk_text}".encode())[:24]
@@ -336,6 +339,7 @@ def build_artifacts(
     repo_root = Path(__file__).resolve().parents[2]
     implementations = {name: sha256(file_bytes(repo_root / name, "utf8-lf")) for name in (
         "app/hus/corpus.py", "app/hus/models.py", "tools/prepare_hus_corpus.py",
+        "app/hus/review.py",
     )}
     output_hashes = {name: sha256(data) for name, data in sorted(artifacts.items())}
     identity = {"pipeline_version": PIPELINE_VERSION, "implementation_sha256": implementations,

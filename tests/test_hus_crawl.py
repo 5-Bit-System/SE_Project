@@ -182,46 +182,59 @@ def test_empty_page_is_rejected():
 
 
 def make_doc(url: str, content: str) -> HUSDocument:
+    import hashlib
+
     return HUSDocument(
         url=url, title="Tiêu đề", fetched_at="2026-10-15T00:00:00+00:00",
-        content_hash=f"hash-{content}", content=content,
+        content_hash=hashlib.sha256(content.encode()).hexdigest(), content=content,
     )
 
 
 def test_chunks_keep_provenance_and_have_stable_ids():
+    from tests.hus_review_fixtures import approved_review
+
     content = "# Mục A\n" + "\n".join(f"Dòng số {i} " * 20 for i in range(30)) + "\n## Mục B\nKết."
     doc = make_doc(f"https://{HOST}/vi/long", content)
-    chunks = chunk_document(doc, max_chars=500)
+    raw = content.encode()
+    review = approved_review(doc, raw)
+    chunks = chunk_document(doc, max_chars=500, review=review, raw=raw)
     assert len(chunks) > 3
     assert all(len(c.text) <= 500 + 20 for c in chunks)
     assert {c.url for c in chunks} == {doc.url}
     assert chunks[0].heading == "Mục A" and chunks[-1].heading == "Mục B"
-    assert [c.chunk_id for c in chunks] == [c.chunk_id for c in chunk_document(doc, 500)]
+    assert [c.chunk_id for c in chunks] == [
+        c.chunk_id for c in chunk_document(doc, 500, review=review, raw=raw)
+    ]
     assert len({c.chunk_id for c in chunks}) == len(chunks)
 
 
 def test_index_dedup_update_and_atomic_reload(tmp_path):
+    from tests.hus_review_fixtures import approved_review
+
     index = HUSIndex(tmp_path / "index.json", tmp_path / "raw")
     a = make_doc(f"https://{HOST}/vi/a", "Nội dung A")
-    assert index.add(a, b"<html>a</html>") == "new"
+    assert index.add(a, b"<html>a</html>", review=approved_review(a, b"<html>a</html>")) == "new"
     assert index.add(a, b"<html>a</html>") == "unchanged"
     assert len(index.documents[a.url]["chunks"]) == 1  # no duplicate chunks on re-crawl
 
     changed = make_doc(a.url, "Nội dung A đã sửa")
-    assert index.add(changed, b"<html>a2</html>") == "updated"
+    assert index.add(changed, b"<html>a2</html>",
+                     review=approved_review(changed, b"<html>a2</html>")) == "updated"
     record = index.documents[a.url]
     assert record["version"] == 2 and record["history"][0]["content_hash"] == a.content_hash
     assert "đã sửa" in record["chunks"][0]["text"]
     assert len(list((tmp_path / "raw").iterdir())) == 2  # both original versions kept
 
     same_elsewhere = make_doc(f"https://{HOST}/vi/copy", "Nội dung A đã sửa")
-    assert index.add(same_elsewhere, b"<html>copy</html>") == "duplicate"
+    assert index.add(same_elsewhere, b"<html>copy</html>",
+                     review=approved_review(same_elsewhere, b"<html>copy</html>")) == "duplicate"
     copy = index.documents[same_elsewhere.url]
     assert copy["duplicate_of"] == a.url and copy["chunks"] == []
 
     index.save()
     assert not (tmp_path / "index.tmp").exists()
-    assert HUSIndex(tmp_path / "index.json", tmp_path / "raw").documents == index.documents
+    assert HUSIndex(tmp_path / "index.json", tmp_path / "raw",
+                    reviews=index.reviews).documents == index.documents
 
 
 def test_cli_empty_allowlist_and_dry_run_do_not_touch_network(tmp_path, capsys):

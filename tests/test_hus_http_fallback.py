@@ -192,12 +192,14 @@ def test_existing_https_record_is_corrected_without_new_document_id(tmp_path):
 
 
 def test_legacy_index_updates_actual_source_without_a_duplicate(tmp_path):
+    from tests.hus_review_fixtures import approved_review
+
     html = b"<main><h1>Seed</h1><p>Unchanged content.</p></main>"
     index = HUSIndex(tmp_path / "index.json", tmp_path / "raw")
     https_doc, _ = extract_html(html, HTTPS + "/vi/seed", NOW)
     http_doc, _ = extract_html(html, HTTP + "/vi/seed", NOW)
-    assert index.add(https_doc, html) == "new"
-    assert index.add(http_doc, html) == "unchanged"
+    assert index.add(https_doc, html, review=approved_review(https_doc, html)) == "new"
+    assert index.add(http_doc, html, review=approved_review(http_doc, html)) == "unchanged"
     assert len(index.documents) == 1
     record = index.documents[HTTPS + "/vi/seed"]
     assert record["source_url"] == HTTP + "/vi/seed"

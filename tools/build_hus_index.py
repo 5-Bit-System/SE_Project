@@ -1,13 +1,11 @@
-"""Crawl the allowlisted HUS pages into data/hus/index.json.
+"""Inspect the legacy allowlist; unreviewed legacy index export is disabled.
 
 python -m tools.build_hus_index --dry-run   # show rules and seeds, no network
-python -m tools.build_hus_index             # crawl, then write index.json + raw/ + failed.json
+Use python -m tools.prepare_hus_corpus build for reviewed candidate corpus export.
 An empty data/hus/allowlist.json crawls nothing.
 """
 
 import argparse
-from collections import Counter
-import json
 from pathlib import Path
 import sys
 
@@ -15,10 +13,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-import httpx  # noqa: E402
-
-from app.hus.crawler import Allowlist, crawl  # noqa: E402
-from app.hus.index import HUSIndex  # noqa: E402
+from app.hus.crawler import Allowlist  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -39,17 +34,9 @@ def main(argv: list[str] | None = None) -> int:
               f"max_depth={allowlist.max_depth}, delay={allowlist.delay_seconds}s")
         return 0
 
-    headers = {"User-Agent": allowlist.user_agent}
-    with httpx.Client(headers=headers, timeout=15, follow_redirects=False) as client:
-        documents, failures = crawl(allowlist, client)
-    index = HUSIndex(args.out / "index.json", args.out / "raw")
-    counts = Counter(index.add(document, raw) for document, raw in documents)
-    index.save()
-    (args.out / "failed.json").write_text(
-        json.dumps(failures, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8"
-    )
-    print(f"{len(documents)} trang: {dict(counts)}; {len(failures)} lỗi (xem failed.json)")
-    return 0
+    print("Legacy index export is disabled: use python -m tools.prepare_hus_corpus build "
+          "with a pinned source manifest and explicit review decisions.", file=sys.stderr)
+    return 1
 
 
 if __name__ == "__main__":

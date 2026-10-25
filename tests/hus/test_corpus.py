@@ -44,7 +44,7 @@ def snapshot(tmp_path):
     manifest = create_source_manifest(root, "synthetic-v1", "fixture://synthetic-v1")
     reviews = initial_reviews(root, manifest)
     config = BuildConfig(
-        schema_version="1.0", pipeline_version="1.0", source_manifest="source_manifest.json",
+        schema_version="1.0", pipeline_version="1.1", source_manifest="source_manifest.json",
         review_decisions="review_decisions.json", normalization="nfc-lf-trim-trailing-v1",
         chunking="utf8-lines-v1", max_chunk_bytes=128, overlap_bytes=0,
     )
@@ -56,8 +56,11 @@ def approve_first(manifest, reviews):
     decision = reviews.decisions[key]
     source = manifest.documents[key]
     decision.status = "include"
+    decision.source_url = source.source_url
     decision.reason = "Synthetic source reviewed for test only"
     decision.reviewer = "synthetic-reviewer"
+    decision.reviewed_at = "2026-10-26T00:00:00Z"
+    decision.source_checksum_encoding = "utf8-lf"
     decision.evidence_locator = "article, synthetic fixture"
     decision.reviewed_source_sha256 = next(
         f.sha256 for f in manifest.files if f.path == source.raw_path
@@ -222,4 +225,36 @@ def test_repinning_does_not_hide_markdown_catalog_divergence(snapshot):
     path.write_bytes(path.read_bytes() + b"changed meaning")
     manifest = create_source_manifest(root, "synthetic-v1", "fixture://synthetic-v1")
     with pytest.raises(CorpusError, match="Markdown body"):
+        build_artifacts(root, manifest, reviews, config)
+
+
+@pytest.mark.parametrize("update", [
+    {"reviewed_at": None}, {"reviewed_at": "2026-10-26T00:00:00"},
+    {"source_checksum_encoding": "binary"}, {"usage_scope": "current"},
+])
+def test_corpus_uses_the_same_review_gate(snapshot, update):
+    root, manifest, reviews, config = snapshot
+    approve_first(manifest, reviews)
+    decision = reviews.decisions["1000000000000000"]
+    reviews.decisions["1000000000000000"] = decision.model_copy(update=update)
+    with pytest.raises(CorpusError, match="Include lacks"):
+        build_artifacts(root, manifest, reviews, config)
+
+
+def test_corpus_checks_current_validity_at_build_date(snapshot):
+    root, manifest, reviews, config = snapshot
+    approve_first(manifest, reviews)
+    decision = reviews.decisions["1000000000000000"]
+    decision.usage_scope = "current"
+    decision.validity_status = "current_verified"
+    decision.validity_evidence_locator = "Synthetic section on effective dates"
+    decision.effective_from = "2026-10-26"
+    decision.effective_to = "2026-10-27"
+    with pytest.raises(CorpusError):
+        build_artifacts(root, manifest, reviews, config)
+    config.as_of = "2026-10-26"
+    artifacts = build_artifacts(root, manifest, reviews, config)
+    assert json.loads(artifacts["validation_report.json"])["included_documents"] == 1
+    config.as_of = "2026-10-28"
+    with pytest.raises(CorpusError):
         build_artifacts(root, manifest, reviews, config)

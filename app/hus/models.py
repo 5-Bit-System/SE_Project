@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 from urllib.parse import urlsplit
 
-from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 def _http_url(value: str) -> str:
@@ -68,6 +68,74 @@ class DocumentStatus(str, Enum):
     SUPERSEDED = "superseded"
     PENDING_OCR = "pending_ocr"
     ARCHIVED = "archived"
+
+
+class ReviewDecision(BaseModel):
+    """A review of the whole document, bound to its content and original source.
+
+    Unknown validity is usable only for descriptive information, never a current rule.
+    Older include decisions without a timestamp must be reviewed again before export.
+    """
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+    content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    source_url: str | None = None
+    review_scope: Literal["document"] = "document"
+    status: Literal["include", "needs_review", "pending_ocr", "exclude"]
+    reason: str = Field(min_length=1)
+    reviewer: str | None = None
+    reviewed_at: str | None = None
+    evidence_locator: str | None = None
+    reviewed_source_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    source_checksum_encoding: Literal["binary", "utf8-lf"] = "binary"
+    validity_status: Literal["unknown", "historical", "current_verified", "future_draft"] = "unknown"
+    usage_scope: Literal["descriptive", "historical", "current"] = "descriptive"
+    validity_evidence_locator: str | None = None
+    effective_from: str | None = None
+    effective_to: str | None = None
+
+    @property
+    def review_status(self) -> str:
+        return self.status
+
+    @field_validator("reason")
+    @classmethod
+    def reason_not_blank(cls, value: str) -> str:
+        return _non_empty(value)
+
+    @field_validator("source_url")
+    @classmethod
+    def review_source_url(cls, value: str | None) -> str | None:
+        return _http_url(value) if value is not None else None
+
+    @field_validator("reviewed_at")
+    @classmethod
+    def aware_review_time(cls, value: str | None) -> str | None:
+        if value is not None:
+            _iso_datetime(value)
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            if parsed.tzinfo is None or parsed.utcoffset() is None:
+                raise ValueError("reviewed_at must include timezone")
+        return value
+
+    @field_validator("effective_from", "effective_to")
+    @classmethod
+    def effective_date(cls, value: str | None) -> str | None:
+        if value is not None:
+            return date.fromisoformat(value).isoformat()
+        return value
+
+    @model_validator(mode="after")
+    def validate_validity(self) -> "ReviewDecision":
+        if self.effective_from and self.effective_to and self.effective_from > self.effective_to:
+            raise ValueError("effective_to precedes effective_from")
+        if self.validity_status != "unknown" and not (self.validity_evidence_locator or "").strip():
+            raise ValueError("Known validity needs its own source evidence")
+        if self.usage_scope == "current" and self.validity_status != "current_verified":
+            raise ValueError("Current usage requires current_verified validity")
+        if self.usage_scope == "historical" and self.validity_status != "historical":
+            raise ValueError("Historical usage requires historical validity")
+        return self
 
 
 class MajorCategory(str, Enum):
@@ -150,6 +218,9 @@ class HUSChunk(_StrictModel):
     title: str
     heading: Optional[str] = None
     text: str
+    review_status: Literal["include"]
+    review: ReviewDecision
+    review_as_of: Optional[str] = None
 
 
 class CrawlRecord(_StrictModel):
