@@ -18,6 +18,3 @@ Phụ lục 1: Ví dụ về quy đổi điểm SAT ra thang điểm 10 và than
 | 1200 | 7,50 | 22,50 |
 | 1120 | 7,00 | 21,00 |
 | 1100 | 6,88 | 20,63 |
-| Thang điểm |
-| --- |
-| chứng chỉ SAT |

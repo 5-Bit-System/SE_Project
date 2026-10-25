@@ -36,17 +36,23 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
                 page_lines: list[str] = [f"<!-- Page {idx} -->"]
                 text = clean_text(page.extract_text() or "")
                 total_chars += len(text)
-                tables = sorted(page.find_tables(), key=lambda table: table.bbox[1])
+                tables = [
+                    (table, rows)
+                    for table in sorted(page.find_tables(), key=lambda table: table.bbox[1])
+                    if (rows := table.extract()) and max(map(len, rows)) > 1
+                ]
                 if not tables and text:
                     page_lines.append(text)
                 cursor = 0
-                for table in tables:
+                for table, rows in tables:
                     top, bottom = table.bbox[1], table.bbox[3]
                     if cursor < top:
                         before = clean_text(page.crop((0, cursor, page.width, top)).extract_text() or "")
                         if before:
                             page_lines.append(before)
-                    page_lines.extend(_format_table(table.extract()))
+                    if page_lines[-1].startswith("|"):
+                        page_lines.append("")
+                    page_lines.extend(_format_table(rows))
                     cursor = max(cursor, bottom)
                 if tables and cursor < page.height:
                     after = clean_text(page.crop((0, cursor, page.width, page.height)).extract_text() or "")

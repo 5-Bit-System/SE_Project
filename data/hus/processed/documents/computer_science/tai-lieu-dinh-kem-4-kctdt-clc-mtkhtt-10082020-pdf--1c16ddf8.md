@@ -503,34 +503,32 @@ trường lao động chất lượng cao.
  Thường xuyên tổ chức các buổi gặp gỡ, giới thiệu việc làm cho sinh viên với
 các công ty, doanh nghiệp, tổ chức là đối tác của Trường, của Khoa.
  Các điều kiện đảm bảo chất lượng được nâng cao :
-|  Có Văn phòng điều hành CTĐT CLC là đơn vị đầu mối thực hiện nhiệm |
-| --- |
-| vụ vận hành CTĐT đảm bảo đi đúng mục tiêu và chuẩn đầu ra đã xây |
-| dựng; |
-|  Ngay sau khi nhập học, Nhà trường sẽ phân công cố vấn học tập cho |
-| từng nhóm sinh viên. Đầu khóa học CVHT trợ giúp sinh viên tìm hiểu về |
-| CTĐT và xây dựng “Dự kiến Kế hoạch học tập toàn khóa”, dựa vào kết |
-| quả học tập của mỗi học kì, CVHT sẽ cùng sinh viên điều chỉnh kế hoạch |
-| học tập cá nhân để cho phù hợp với từng sinh viên để đạt được mục tiêu |
-| và kết quả đề ra; |
-|  Ngoài giảng viên tham gia giảng dạy, mỗi lớp học phần sẽ có 1 trợ giảng, |
-| đảm bảo sinh viên được hỗ trợ giải quyết các vấn đề vướng mắc của sinh |
-| viên về nội dung học tập một cách thấu đáo cả ở trong và ngoài giờ lên |
-| lớp; |
-|  Mỗi lớp khóa học có cán bộ quản lý lớp, thường xuyên kiểm tra tính |
-| chuyên cần của sinh viên trong cả giờ học chính khóa và các hoạt động |
-| ngoại khóa khác; cùng với CVHT định hướng, hỗ trợ sinh viên thực hiện |
+ Có Văn phòng điều hành CTĐT CLC là đơn vị đầu mối thực hiện nhiệm
+vụ vận hành CTĐT đảm bảo đi đúng mục tiêu và chuẩn đầu ra đã xây
+dựng;
+ Ngay sau khi nhập học, Nhà trường sẽ phân công cố vấn học tập cho
+từng nhóm sinh viên. Đầu khóa học CVHT trợ giúp sinh viên tìm hiểu về
+CTĐT và xây dựng “Dự kiến Kế hoạch học tập toàn khóa”, dựa vào kết
+quả học tập của mỗi học kì, CVHT sẽ cùng sinh viên điều chỉnh kế hoạch
+học tập cá nhân để cho phù hợp với từng sinh viên để đạt được mục tiêu
+và kết quả đề ra;
+ Ngoài giảng viên tham gia giảng dạy, mỗi lớp học phần sẽ có 1 trợ giảng,
+đảm bảo sinh viên được hỗ trợ giải quyết các vấn đề vướng mắc của sinh
+viên về nội dung học tập một cách thấu đáo cả ở trong và ngoài giờ lên
+lớp;
+ Mỗi lớp khóa học có cán bộ quản lý lớp, thường xuyên kiểm tra tính
+chuyên cần của sinh viên trong cả giờ học chính khóa và các hoạt động
+ngoại khóa khác; cùng với CVHT định hướng, hỗ trợ sinh viên thực hiện
 20
 
 <!-- Page 21 -->
-| tốt kế hoạch học tập đã đề ra và phát huy được năng lực, sở trường của |
-| --- |
-| từng sinh viên; tạo sự gắn kết giữa các thành viên trong lớp; |
-|  Mỗi học kì tổ chức ít nhất một đợt lấy ý kiến phản hồi của sinh viên về |
-| nội dung, phương pháp giảng dạy của giảng viên, công tác quản lý, phục |
-| vụ, điều kiện cơ sở vật chất, … |
-|  Mỗi năm tổ chức 2 buổi tọa đàm trao đổi giữa lãnh đạo Nhà trường và |
-| người học. |
+tốt kế hoạch học tập đã đề ra và phát huy được năng lực, sở trường của
+từng sinh viên; tạo sự gắn kết giữa các thành viên trong lớp;
+ Mỗi học kì tổ chức ít nhất một đợt lấy ý kiến phản hồi của sinh viên về
+nội dung, phương pháp giảng dạy của giảng viên, công tác quản lý, phục
+vụ, điều kiện cơ sở vật chất, …
+ Mỗi năm tổ chức 2 buổi tọa đàm trao đổi giữa lãnh đạo Nhà trường và
+người học.
 21
 
 <!-- Page 22 -->

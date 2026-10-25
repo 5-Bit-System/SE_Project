@@ -171,25 +171,46 @@ def repair_all(
     return len(repaired_files), total_broken_rows, repaired_files
 
 
-def verify_no_broken_tables(root: Path) -> int:
-    """Verify that 0 markdown files contain broken table rows.
+def _has_broken_tables(content: str) -> bool:
+    """Check Markdown table width and header/separator continuity."""
+    block: list[str] = []
+    for line in [*content.splitlines(), ""]:
+        s = line.strip()
+        if s.startswith("|"):
+            if not s.endswith("|"):
+                return True
+            block.append(s)
+            continue
+        if not block:
+            continue
+        widths = {row.count("|") - 1 for row in block}
+        separators = [
+            index
+            for index, row in enumerate(block)
+            if re.fullmatch(r"\|(?:\s*:?-{3,}:?\s*\|)+", row)
+        ]
+        if len(block) < 2 or min(widths) < 2 or len(widths) != 1 or separators != [1]:
+            return True
+        block = []
+    return False
 
-    Returns:
-        int: number of files with broken tables
-    """
+
+def verify_no_broken_tables(root: Path) -> int:
+    """Count Markdown files and catalog entries with malformed tables."""
     doc_dir = root / "processed" / "documents"
     pattern = str(doc_dir / "**" / "*.md")
     md_files = sorted(glob.glob(pattern, recursive=True))
 
-    broken_files = 0
-    for file_path_str in md_files:
-        path = Path(file_path_str)
-        content = path.read_text(encoding="utf-8")
-        for line in content.splitlines():
-            s = line.strip()
-            if s.startswith("|") and not s.endswith("|"):
-                broken_files += 1
-                break
+    broken_files = sum(
+        _has_broken_tables(Path(path).read_text(encoding="utf-8")) for path in md_files
+    )
+    catalog_path = root / "processed" / "catalog.json"
+    if catalog_path.exists():
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        broken_files += sum(
+            _has_broken_tables(doc.get("content_markdown", ""))
+            for doc in catalog.get("documents", {}).values()
+        )
     return broken_files
 
 
@@ -200,9 +221,9 @@ def main() -> int:
     if args.check:
         broken_files = verify_no_broken_tables(args.root)
         if broken_files > 0:
-            print(f"Check FAILED: {broken_files} files contain broken markdown tables.")
+            print(f"Check FAILED: {broken_files} Markdown/catalog entries contain broken tables.")
             return 1
-        print("Check PASSED: 0 files contain broken markdown tables.")
+        print("Check PASSED: 0 Markdown/catalog entries contain broken tables.")
         return 0
 
     repaired_count, broken_rows, repaired_files = repair_all(
@@ -220,7 +241,7 @@ def main() -> int:
 
     if not args.dry_run:
         remaining_broken = verify_no_broken_tables(args.root)
-        print(f"Post-repair verification: {remaining_broken} files with broken tables.")
+        print(f"Post-repair verification: {remaining_broken} Markdown/catalog entries with broken tables.")
         if remaining_broken > 0:
             return 1
 

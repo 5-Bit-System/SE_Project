@@ -371,9 +371,6 @@ tính vào điểm trung bình chung tích lũy
 | --- | --- | --- | --- | --- |
 | 16. | MAT6014 | Lý thuyết biểu diễn nhóm<br>nâng cao<br>Advanced group<br>representation theory | 3 | 1. Tài liệu bắt buộc:<br>1. Schneider P., Modular Representation Theory, Springer.<br>2. Serre: Linear Representation of Finite Groups, Springer.<br>3. Alperin: Local Representation Theory, Cambridge.<br>2. Tài liệu tham khảo thêm:<br>1. Nguyễn H. V. Hưng: Đại số Đại cương, NXB ĐHQG HN.<br>2. Dornhoff L. Group Representation Theory, Part B.<br>3. Nagao H., Tsushima Y., Representations of Finite Groups.<br>4. Feit W., The Representation Theory of Finite Groups.<br>5. Benson D., Representations and Cohomology I, II.<br>6. Webb P., A Course in Finite Group Representation Theory, bản<br>thảo sách http://www.math.umn.edu/~webb/RepBook/ |
 | 17. | MAT6015 | Phân thớ, Lớp đặc trưng, K-lý<br>thuyết<br>Fibre bundles, Characteristic<br>classes, and K-theory | 3 | 1. Tài liệu bắt buộc:<br>1. Milnor J., Stasheff J. (1974), Characteristic Classes, Ann. of Math.<br>Studies 76, Princeton Univ. Press.<br>2. Hatcher A., Vector Bundle and K-theory,<br>http://www.math.cornell.edu/~hatcher/VBKT/VBpage.html<br>2. Tài liệu tham khảo thêm:<br>1. Bott R., Tu L. W. (1982), Differential Forms in Algebraic<br>Topology, Springer-Verlag.<br>2. Atiyah M. F. (1967), K-theory, W.A. Benjamin.<br>3. Bott R. (1994), Lectures on K(X), Collected Papers, Vol. 2,<br>Birkhäuser.<br>4. Bott R. (1994), The Periodicity Theorem for the Classical Groups<br>and Some of its Applications, Collected Papers, Vol. 1, Birkhäuser.<br>5. Husemoller, Fibre Bundles, Springer Graduate Texts in<br>Mathematics. |
-| Husemoller, Fibre Bundles, Springer Graduate Texts in |
-| --- |
-| Mathematics. |
 18
 
 <!-- Page 22 -->
@@ -622,27 +619,6 @@ b) Bảng so sánh chương trình đào tạo
 |  |  | Manifolds |  |  |
 |  |  | (MATH544/5/6) |  |  |
 |  |  | Tôpô và hình học của đa tạp |  |  |
-| Special Topics in Mathematics |
-| --- |
-| (MATH582, Graduate courses |
-| for 2010-2011, Algebraic |
-| Number Theory) |
-| Một số vấn đề chọn lọc trong |
-| Toán học |
-| MATH 570 Seminar in |
-| --- |
-| Topology |
-| Special Topics in Mathematics |
-| --- |
-| (MATH583, Graduate courses |
-| for 2010-2011, Algebraic |
-| Number Theory) |
-| Một số vấn đề chọn lọc trong |
-| Toán học |
-| Lie Groups and Lie Algebras |
-| --- |
-| (MATH577/8/9) |
-| Nhóm Lie và Đại số Lie |
 31
 
 <!-- Page 35 -->

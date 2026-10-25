@@ -821,9 +821,6 @@ b) Bảng so sánh chương trình đào tạo
 | 7. | Cơ học chất lỏng tính toán<br>Computational Fluid<br>Mechanics | ME534A/B: Fluid<br>Mechanics<br>Cơ học chất lỏng |  |
 | 8. | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced numerical Methods<br>in Mechanics | ME535 Computational<br>Techniques in<br>Mechanical Engineering<br>Các phương pháp số<br>trong Cơ học kỹ thuật | Về cơ bản các phương<br>pháp trình bày trong<br>hai giáo trình khá<br>tương đồng |
 | 9. | Phân tích tấm<br>Anaylysis of plates | AA431: Plates and<br>Shells<br>Tấm và vỏ |  |
-| Các phương pháp số |
-| --- |
-| trong Cơ học kỹ thuật |
 39
 
 <!-- Page 41 -->
@@ -840,13 +837,6 @@ b) Bảng so sánh chương trình đào tạo
 | 18. | Cơ học hệ nhiều vật<br>Mechanics of Multibody<br>System | PHYS505: Mechanics<br>Cơ học |  |
 | 19. | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | ME598: Topics in<br>Research<br>Các chủ đề trong nghiên<br>cứu |  |
 | 20. | Vật liệu cơ tính biến thiên | ME440: Advance<br>Mechanics of Materials |  |
-| MSE 563 Advanced |
-| --- |
-| Composites: Design |
-| and Manufacturing |
-| composite nâng cao: |
-| --- |
-| Thiết kế và sản xuất |
 40
 
 <!-- Page 42 -->

@@ -382,9 +382,6 @@ tính vào điểm trung bình chung tích lũy
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 17. | MAT6015 | Phân thớ, Lớp đặc trưng, K-lý<br>thuyết<br>Fibre bundles, Characteristic<br>classes, and K-theory | 3 | 1. Tài liệu bắt buộc:<br>1. Milnor J., Stasheff J. (1974), Characteristic Classes, Ann. of<br>Math. Studies 76, Princeton Univ. Press.<br>2. Hatcher A., Vector Bundle and K-theory,<br>http://www.math.cornell.edu/~hatcher/VBKT/VBpage.html<br>2. Tài liệu tham khảo thêm:<br>1. Bott R., Tu L. W. (1982), Differential Forms in Algebraic<br>Topology, Springer-Verlag.<br>2. Atiyah M. F. (1967), K-theory, W.A. Benjamin.<br>3. Bott R. (1994), Lectures on K(X), Collected Papers, Vol. 2,<br>Birkhäuser.<br>4. Bott R. (1994), The Periodicity Theorem for the Classical<br>Groups and Some of its Applications, Collected Papers, Vol. 1,<br>Birkhäuser.<br>5. Husemoller, Fibre Bundles, Springer Graduate Texts in<br>Mathematics. |
-| Husemoller, Fibre Bundles, Springer Graduate Texts in |
-| --- |
-| Mathematics. |
 20
 
 <!-- Page 24 -->
@@ -640,13 +637,6 @@ b) Bảng so sánh chương trình đào tạo
 |  |  | Manifolds |  |  |
 |  |  | (MATH544/5/6) |  |  |
 |  |  | Tôpô và hình học của đa tạp |  |  |
-| MATH 570 Seminar in |
-| --- |
-| Topology |
-| Lie Groups and Lie Algebras |
-| --- |
-| (MATH577/8/9) |
-| Nhóm Lie và Đại số Lie |
 33
 
 <!-- Page 37 -->

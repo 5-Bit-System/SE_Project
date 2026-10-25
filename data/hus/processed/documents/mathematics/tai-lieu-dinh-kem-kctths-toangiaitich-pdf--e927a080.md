@@ -426,9 +426,6 @@ tính vào điểm trung bình chung tích lũy
 | 6. | MAT6008 | Độ đo và tích phân<br>Measure and<br>Integration | 3 | Nguyễn Hữu<br>Dư | GS.TS | Toán học | ĐH KHTN |
 |  |  |  |  | Đặng Hùng<br>Thắng | GS. TSKH | Toán học | ĐH KHTN |
 |  |  |  |  | Lê Huy Chuẩn | TS | Toán học | ĐH KHTN |
-| Selected Topics in |
-| --- |
-| Linear Algebra |
 26
 
 <!-- Page 29 -->

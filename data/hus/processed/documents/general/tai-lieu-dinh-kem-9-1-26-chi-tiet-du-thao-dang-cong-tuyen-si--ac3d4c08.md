@@ -104,6 +104,7 @@ theo Quy chế tuyển sinh, Hướng dẫn tuyển sinh của ĐHQGHN.
 | 26 | QHT92 | Tài nguyên và môi trường<br>nước | B03; C01; C02; C04; D01; X02 |
 | 27 | QHT18 | Địa chất học | B03; C01; C02; C03; C04; D01; X01 |
 | 28 | QHT20 | Quản lý tài nguyên và môi<br>trường | B03; C01; C02; C03; C04; D01; X01 |
+
 | Mã tổ hợp môn xét kết quả thi tốt nghiệp THPT (mã 100) |  |  |
 | --- | --- | --- |
 | A00: Toán, Vật lí, Hóa học | B03: Toán, Sinh học, Ngữ văn | D10: Toán, Địa lý, Tiếng Anh |

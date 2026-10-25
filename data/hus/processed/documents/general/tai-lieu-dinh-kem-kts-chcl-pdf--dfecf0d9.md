@@ -378,12 +378,6 @@ chương trình đào tạo).
 | 24 | MAT8059 | Giải số các bài toán chuyển<br>động của chất lỏng bằng phương<br>pháp hạt trơn (SPH)<br>Smoot Particle Hydrodynamics<br>Method (SPH) for Fluid Flows | 3 | 45 |  |  |  |
 | 25 | MAT8060 | Phương pháp không lưới (MFM)<br>áp dụng cho tính toán động lực<br>học chất lỏng<br>Mesh Free Method (MFM)<br>Applied for Hydrodynamic<br>Problems | 3 | 45 |  |  |  |
 | 26 | MAT8061 | Lý thuyết ổn định thủy khí và<br>dòng chảy rối | 3 | 45 |  |  |  |
-| Phương pháp số giải các bài |
-| --- |
-| toán khí động lực học |
-| Giải số các bài toán chuyển |
-| --- |
-| động của chất lỏng bằng phương |
 12
 
 <!-- Page 14 -->

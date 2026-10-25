@@ -194,12 +194,6 @@ Chương trình đào tạo ngành Toán Tin:
 |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  | PR6 |  |  |
 | Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
-| 3 |
-| --- |
-| 2 |
-| --- |
-| 3 |
-| --- |
 4 7
 
 <!-- Page 8 -->
@@ -1075,9 +1069,6 @@ XÁC SUẤT - THỐNG KÊ
 | 5. | Phạm Đình Tùng | TS |  |  | ĐHKHTN | tungpd@vnu.edu.vn |
 | 6. | Lê Vĩ | TS |  |  | ĐHKHTN | levi121286@gmail.com |
 | 7. | Trần Mạnh Cường | TS |  |  | ĐHKHTN | cuongtm@vnu.edu.vn |
-| Đơn vị công |
-| --- |
-| tác |
 6. Mục tiêu của học phần:
 6.1. Mục tiêu chung: cung cấp kiến thức và kỹ năng cần thiết để người học có thể
 hiểu và vận dụng các kiến thức cơ bản của xác suất thống kê vào các bài toán thực
@@ -6896,9 +6887,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  | Tổng | 100% |  |  |
 10. Học liệu
 10.1. Học liệu bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
-| Trương Ninh Thuận, Đặng Đức Hạnh, Giáo trình phân tích và thiết kế hướng |
-| --- |
-| đối tượng, Nhà xuất bản Đại học Quốc gia |
+− Trương Ninh Thuận, Đặng Đức Hạnh, Giáo trình phân tích và thiết kế hướng
 đối tượng, Nhà xuất bản Đại học Quốc gia, 2013.
 − Alan Dennis, Barbara Haley Wixom, David Tegarden, Systems Analysis and
 Design: An Object-Oriented Approach with UML, Wiley, 2015.

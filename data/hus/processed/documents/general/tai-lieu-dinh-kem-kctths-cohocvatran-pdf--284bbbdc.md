@@ -456,9 +456,6 @@ b) Bảng so sánh chương trình đào tạo
 | 4. | Các phương pháp số trong cơ<br>học nâng cao<br>Advanced Numerical Methods<br>in Mechanics | ME535 Computational<br>Techniques in<br>Mechanical Engineering<br>Các phương pháp số<br>trong Cơ học kỹ thuật | Về cơ bản các phương<br>pháp trình bày trong<br>hai giáo trình khá<br>tương đồng |
 | 5. | Dao động phi tuyến<br>Nonlinear Oscillations | ME589: Vibrations<br>(nonlinear and random<br>dynamics)<br>Dao động (phi tuyến và<br>hệ động lực ngẫu nhiên) | Chương trình ME589<br>nghiên cứu nhiều vấn<br>đề hơn |
 | 6. | Phương trình vi phân nâng cao | AMATH568:Advanced | Về cơ bản là giống |
-| Các phương pháp số |
-| --- |
-| trong Cơ học kỹ thuật |
 22
 
 <!-- Page 25 -->
@@ -475,9 +472,6 @@ b) Bảng so sánh chương trình đào tạo
 | 14. | Dao động của hệ đàn hồi<br>Vibration of Elastic Systems | ME470 Mechanical<br>Vibrations<br>Dao động hệ cơ học | Về cơ bản là giống<br>nhau |
 | 15. | Ổn định của hệ biến dạng<br>Stability of Deformable<br>Systems | ME520: Seminar<br>Seminar |  |
 | 16. | Cơ học vật liệu composite<br>nâng cao | MSE 563 Advanced<br>Composites: Design and | Những vấn đề lý thuyết<br>được đề cập sâu hơn |
-| Giải tích hàm |
-| --- |
-| OCEAN511: |
 23
 
 <!-- Page 26 -->
@@ -487,9 +481,6 @@ b) Bảng so sánh chương trình đào tạo
 | 17. | Lý thuyết bản vỏ mỏng<br>Theory of Thin Plates and<br>Shells | AA431: Plates and<br>Shells<br>Tấm và vỏ | Hai chương trình khá<br>tương đồng |
 | 18. | Truyền sóng trong môi trường<br>đàn dẻo<br>Wave Propagation in Elasto-<br>Plastic Media | ME520: Seminar<br>Seminar |  |
 | 19. | Ổn định chuyển động<br>Stability of Motion | ME624: Vibration<br>Analysis<br>Phân tích dao động | Có một số phần tương<br>đồng |
-| composite nâng cao: |
-| --- |
-| Thiết kế và sản xuất |
 7. Nội dung các học phần
 1. PHI5001- Triết học - Số tín chỉ 3.
 Theo chương trình chung

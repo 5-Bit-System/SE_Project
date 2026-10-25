@@ -42,6 +42,7 @@ def test_docx_extractor():
     assert "Điều 1: Quy định chung về tín chỉ." in md
     assert "| STT | Môn học |" in md
     assert "| 1 | Đại số |" in md
+    assert "| STT | Môn học |\n| --- | --- |\n| 1 | Đại số |" in md
 
 
 def test_excel_extractor():
@@ -86,6 +87,17 @@ def test_docx_keeps_paragraph_table_order():
     document.save(data)
     markdown = extract_docx(data.getvalue())
     assert markdown.index("Trước bảng") < markdown.index("| Mã | Tên |") < markdown.index("Sau bảng")
+
+
+def test_docx_empty_table_does_not_add_blank_section():
+    document = docx.Document()
+    document.add_paragraph("Before")
+    document.add_table(rows=1, cols=1)
+    document.add_paragraph("After")
+    data = io.BytesIO()
+    document.save(data)
+
+    assert extract_docx(data.getvalue()) == "Before\n\nAfter"
 
 
 def test_excel_escapes_markdown_pipe():

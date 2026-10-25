@@ -36,6 +36,55 @@ def test_real_pdf_fixture_preserves_text_table_order_without_duplicates():
     assert content.count("MAT101") == 1
 
 
+def test_extract_pdf_ignores_one_column_fragments_and_separates_tables(monkeypatch):
+    class Table:
+        def __init__(self, bbox, rows):
+            self.bbox = bbox
+            self.rows = rows
+
+        def extract(self):
+            return self.rows
+
+    class Page:
+        width = 100
+        height = 100
+
+        def extract_text(self):
+            return "Introduction\nCourse A\nCourse B\nAfterword"
+
+        def find_tables(self):
+            return [
+                Table((0, 10, 90, 30), [["Code", "Name"], ["A", "Course A"]]),
+                Table((40, 12, 80, 22), [["Course"], ["A"]]),
+                Table((0, 30, 90, 50), [["ID", "Title"], ["B", "Course B"]]),
+                Table((0, 70, 90, 80), [["Afterword"], ["continues"]]),
+            ]
+
+        def crop(self, bbox):
+            top, bottom = bbox[1], bbox[3]
+            result = "Introduction" if bottom <= 10 else "Afterword" if top >= 50 else ""
+            return type("Crop", (), {"extract_text": lambda self: result})()
+
+    class PDF:
+        pages = [Page()]
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            pass
+
+    monkeypatch.setattr("app.hus.extractors.pdf.pdfplumber.open", lambda _: PDF())
+    content, _ = extract_pdf(b"mock")
+
+    assert "| Code | Name |\n| --- | --- |\n| A | Course A |" in content
+    assert "| ID | Title |\n| --- | --- |\n| B | Course B |" in content
+    assert "| A | Course A |\n\n| ID | Title |" in content
+    assert content.count("Course A") == 1
+    assert "| Afterword |" not in content
+    assert content.endswith("Afterword")
+
+
 def test_extract_pdf_text_table_and_approved_ocr_threshold(monkeypatch):
     class Page:
         def __init__(self, text):

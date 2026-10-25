@@ -195,6 +195,49 @@ def test_repair_all_and_verify(tmp_path: Path):
     assert verify_no_broken_tables(tmp_path) == 0
 
 
+def test_verify_detects_pdf_fragments_and_merged_table_widths(tmp_path: Path):
+    doc_dir = tmp_path / "processed" / "documents" / "general"
+    doc_dir.mkdir(parents=True)
+    (doc_dir / "fragment.md").write_text(
+        "| Code | Title |\n| --- | --- |\n| A | Course A |\n"
+        "| Course A |\n| --- |\n| Notes |\n",
+        encoding="utf-8",
+    )
+    (doc_dir / "merged.md").write_text(
+        "| Code | Title |\n| --- | --- |\n| A | Course A |\n"
+        "| Code | Title | Credits |\n| --- | --- | --- |\n| B | Course B | 3 |\n",
+        encoding="utf-8",
+    )
+
+    assert verify_no_broken_tables(tmp_path) == 2
+
+
+def test_verify_detects_blank_lines_between_docx_table_rows(tmp_path: Path):
+    doc_dir = tmp_path / "processed" / "documents" / "computer_science"
+    doc_dir.mkdir(parents=True)
+    (doc_dir / "split.md").write_text(
+        "| Code | Title |\n\n| --- | --- |\n\n| A | Course A |",
+        encoding="utf-8",
+    )
+
+    assert verify_no_broken_tables(tmp_path) == 1
+
+
+def test_verify_detects_catalog_only_broken_table(tmp_path: Path):
+    doc_dir = tmp_path / "processed" / "documents" / "general"
+    doc_dir.mkdir(parents=True)
+    (doc_dir / "valid.md").write_text(
+        "| Code | Title |\n| --- | --- |\n| A | Course A |",
+        encoding="utf-8",
+    )
+    (tmp_path / "processed" / "catalog.json").write_text(
+        json.dumps({"documents": {"abc": {"content_markdown": "| Broken |\n| --- |"}}}),
+        encoding="utf-8",
+    )
+
+    assert verify_no_broken_tables(tmp_path) == 1
+
+
 def test_pdf_format_table_with_vertical_cells():
     table_data = [
         ["STT", "Mã\nhọc phần", "Học phần", "ỉhc\nnít\nốS", "Số giờ tín chỉ", None, None],

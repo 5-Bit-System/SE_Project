@@ -15,9 +15,7 @@ CHƯƠNG TRÌNH ĐÀO TẠO
 TRÌNH ĐỘ ĐẠI HỌC
 
 | NGÀNH: | Khoa học máy tính và thông tin |
-
 | --- | --- |
-
 | MÃ SỐ: | 7480101 |
 
 Hà Nội, 2023
@@ -25,7 +23,6 @@ Hà Nội, 2023
 MỤC LỤC
 
 | ĐẠI HỌC QUỐC GIA HÀ NỘI<br>TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN | CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc |
-
 | --- | --- |
 
 CHƯƠNG TRÌNH ĐÀO TẠO CHUẨN
@@ -185,99 +182,52 @@ Sinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâ
 ## 6. Ma trận chuẩn đầu ra
 
 | STT | Mã HP | CĐR<br>Học phần | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kiến thức | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Kỹ năng | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ | Mức độ tự chủ |
-
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
 | STT | Mã HP | CĐR<br>Học phần | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PS1 | PS2 | PS3 | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
-
 | 17 | MAT2505 | Lập trình cơ bản |  | 3 | 3 | 3 |  | 2 |  | 2 | 3 | 3 | 2 |  | 2 |  | 2 |  | 3 | 2 |
-
 | 18 | MAT2400 | Đại số tuyến tính |  |  | 2 | 3 | 2 |  |  |  | 2 | 3 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 19 | MAT2501 | Giải tích 1 |  |  | 2 | 3 | 2 |  |  |  |  | 3 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 20 | MAT2502 | Giải tích 2 |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 21 | MAT2503 | Giải tích 3 |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 22 | MAT2403 | Phương trình vi phân |  |  |  | 3 |  |  |  |  | 2 | 3 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 23 | MAT2323 | Xác suất – Thống kê |  |  |  | 4 | 2 |  |  |  | 3 | 4 |  |  | 2 |  | 2 |  | 3 |  |
-
 | 24 | MAT2407 | Tối ưu hóa |  |  |  | 4 |  |  | 3 |  | 2 | 3 |  |  | 2 |  | 2 |  | 4 |  |
-
 | 25 | MAT1204 | Phương pháp nghiên cứu khoa học |  | 2 | 2 | 3 |  | 4 | 3 | 4 | 3 | 3 | 3 | 2 | 4 |  | 3 | 2 | 4 | 4 |
-
 | 26 | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính |  |  |  |  |  |  | 3 | 3 |  |  |  | 2 | 2 |  | 3 | 2 | 4 | 4 |
-
 | 27 | MAT3500 | Toán rời rạc |  |  | 3 | 4 | 3 |  | 3 |  |  | 3 |  |  | 2 |  | 2 |  | 4 |  |
-
 | 28 | MAT3557 | Môi trường lập trình Linux |  | 3 | 2 |  |  |  |  |  | 3 |  |  |  | 3 |  | 2 |  | 3 | 2 |
-
 | 29 | MAT3550E | Nguyên lí hệ điều hành |  | 3 | 2 |  | 2 |  |  |  | 3 | 3 |  |  | 3 |  | 2 |  | 3 | 2 |
-
 | 30 | MAT3507 | Cơ sở dữ liệu |  | 3 | 5 | 3 | 2 | 3 | 3 | 3 | 4 | 3 | 3 | 2 | 3 |  | 3 | 2 | 4 | 4 |
-
 | 31 | MAT1202 | Lập trình hướng đối tượng |  | 4 | 3 | 3 |  | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 3 |  | 3 | 2 | 4 | 4 |
-
 | 32 | MAT3514 | Cấu trúc dữ liệu và thuật toán |  | 5 | 3 | 4 | 3 |  |  |  | 3 | 3 | 4 |  | 3 |  | 2 |  | 3 | 2 |
-
 | 33 | MAT3552E | Thiết kế và đánh giá thuật toán |  | 5 |  | 4 | 3 |  | 3 |  | 3 | 4 | 4 | 3 | 3 |  | 3 | 4 | 4 | 4 |
-
 | 34 | MAT3505 | Kiến trúc máy tính |  | 3 |  |  | 2 |  | 3 | 3 |  | 3 | 3 |  | 3 |  | 2 |  | 4 | 2 |
-
 | 35 | MAT3373E | Nhập môn an toàn máy tính |  |  |  |  | 3 |  |  |  | 3 | 4 |  |  | 3 |  | 2 |  | 4 | 2 |
-
 | 36 | MAT3506 | Mạng máy tính |  | 3 | 3 |  | 2 |  |  |  |  | 3 |  |  | 2 |  | 2 |  | 4 | 2 |
-
 | 37 | MAT1206E | Nhập môn Trí tuệ nhân tạo |  |  |  | 4 |  |  | 3 |  | 3 | 4 | 3 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 38 | MAT3374 | Thực tập thực tế phát triển phần mềm |  | 6 | 5 | 3 |  | 3 | 3 | 4 | 4 | 4 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 39 | MAT1207 | Công nghệ phần mềm |  | 3 | 3 |  |  | 5 | 3 | 4 | 4 | 4 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 40 | MAT3541E | Nguyên lí các ngôn ngữ lập trình |  | 4 |  |  |  | 3 | 3 | 3 | 3 | 3 | 2 | 3 | 3 |  | 3 | 2 | 4 | 4 |
-
 | 41 | MAT3533 | Học máy |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 42 | MAT3519 | Ngôn ngữ lập trình thứ hai |  | 5 | 3 | 3 |  | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 |  | 3 | 4 | 4 | 4 |
-
 | 43 | MAT3558 | Lập trình mobile |  | 5 | 3 | 3 |  | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 |  | 3 | 4 | 4 | 4 |
-
 | 44 | MAT1208 | Xây dựng hệ thống nhúng |  | 5 |  | 3 |  | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 |  | 3 | 4 | 4 | 4 |
-
 | 45 | MAT3560 | Phát triển phần mềm trò chơi |  | 5 |  | 3 |  | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 |  | 3 | 4 | 4 | 4 |
-
 | 46 | MAT3148 | Tính toán song song |  | 4 |  | 4 |  |  | 3 |  | 4 | 4 | 3 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 47 | MAT3554E | Ngôn ngữ hình thức và ôtômat |  |  |  | 4 |  |  | 3 |  | 2 | 4 | 3 |  | 3 |  | 2 |  | 4 |  |
-
 | 48 | MAT3562E | Thị giác máy tính |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 49 | MAT3561E | Xử lí ngôn ngữ tự nhiên và ứng dụng |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 50 | MAT3563 | Một số vấn đề chọn lọc về thị giác máy tính |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 51 | MAT3534 | Khai phá dữ liệu |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 52 | MAT3542 | Phát triển ứng dụng web |  | 3 | 4 | 3 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 53 | MAT3539 | Mật mã và an toàn dữ liệu |  |  |  | 5 | 4 | 3 | 3 | 3 | 2 | 4 | 3 |  | 3 |  | 2 |  | 4 |  |
-
 | 54 | MAT3452 | Phân tích thống kê nhiều chiều |  |  |  | 5 |  | 3 |  | 3 | 3 | 4 | 3 |  | 3 |  | 2 | 2 | 3 |  |
-
 | 55 | MAT3453 | Phương pháp chọn mẫu dữ liệu |  |  |  | 5 |  | 3 |  | 3 | 2 | 4 | 3 |  | 3 |  | 2 | 2 | 3 |  |
-
 | 56 | MAT2034 | Giải tích số |  |  |  | 4 |  |  |  |  | 2 | 4 | 3 |  | 3 |  | 2 |  | 3 |  |
-
 | 57 | MAT3538 | Các hệ thống tri thức |  |  |  | 4 |  |  |  |  | 2 | 4 | 4 |  | 3 |  | 2 | 4 | 3 | 2 |
-
 | 58 | MAT3535 | Tìm kiếm thông tin |  |  |  | 5 |  | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 4 |  | 3 |  | 4 | 4 |
-
 | 59 | MAT4081 | Khóa luận tốt nghiệp |  | 6 | 5 | 5 | 2 | 5 | 3 | 4 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 60 | MAT1203 | Phân tích và thiết kế hệ thống thông tin |  | 6 | 5 | 5 | 2 | 5 | 3 | 4 | 4 | 5 | 4 | 3 | 4 |  | 3 | 4 | 4 | 4 |
-
 | 61 | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo |  |  |  | 5 | 2 | 5 | 3 | 4 | 4 | 5 | 4 | 3 | 4 |  | 3 | 3 | 4 | 4 |
 
 # PHẦN III: NỘI DUNG CHƯƠNG TRÌNH ĐÀO TẠO
@@ -285,31 +235,18 @@ Sinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâ
 ## Tóm tắt yêu cầu chương trình đào tạo
 
 | Tổng số tín chỉ của CTĐT (chưa tính Giáo dục thể chất, Giáo dục quốc phòng - an ninh, kỹ năng bổ trợ): | 129 tín chỉ |
-
 | --- | --- |
-
 | - Khối kiến thức chung (chưa tính Giáo dục thể chất, Giáo dục quốc phòng - an ninh, kỹ năng bổ trợ): | 21 tín chỉ |
-
 | - Khối kiến thức theo lĩnh vực: | 5 tín chỉ |
-
 | + Bắt buộc | 0 tín chỉ |
-
 | + Tự chọn | 5/13 tín chỉ |
-
 | - Khối kiến thức theo khối ngành: | 3 tín chỉ |
-
 | - Khối kiến thức theo nhóm ngành: | 28 tín chỉ |
-
 | + Bắt buộc | 33 tín chỉ |
-
 | + Tự chọn | 0 tín chỉ |
-
 | - Khối kiến thức ngành | 72 tín chỉ |
-
 | + Bắt buộc:<br>+ Tự chọn:<br>+ Khoá luận tốt nghiệp/các học phần thay thế khoá luận tốt nghiệp: | tín chỉ |
-
 | + Bắt buộc:<br>+ Tự chọn:<br>+ Khoá luận tốt nghiệp/các học phần thay thế khoá luận tốt nghiệp: | 16 tín chỉ |
-
 | + Bắt buộc:<br>+ Tự chọn:<br>+ Khoá luận tốt nghiệp/các học phần thay thế khoá luận tốt nghiệp: | 7 tín chỉ |
 
 Cách tính tín chỉ và giờ học tập trong chương trình đào tạo:
@@ -333,455 +270,234 @@ Mỗi giờ học tập được tính trong thời gian 50 phút
 ## 2. Khung chương trình đào tạo
 
 | STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ học tâp | Số giờ học tâp | Số giờ học tâp | Mã số<br>học phần<br>tiên quyết |
-
 | --- | --- | --- | --- | --- | --- | --- | --- |
-
 | STT | Mã<br>học phần | Học phần | Số tín chỉ | Lí thuyết | Thực hành | Tự học | Mã số<br>học phần<br>tiên quyết |
-
 | I |  | Khối kiến thức chung<br>(chưa tính Giáo dục thể chất, Giáo dục quốc phòng - an ninh và Kỹ năng bổ trợ) | 21 |  |  |  |  |
-
 |  | PHI1006 | Triết học Mác - Lênin<br>Marxist - Leninist Philosophy | 3 | 42 | 6 | 102 |  |
-
 |  | PEC1008 | Kinh tế chính trị Mác - Lênin<br>Marxist-Leninist Political Economy | 2 | 30 | 0 | 70 | PHI1006 |
-
 |  | PHI1002 | Chủ nghĩa xã hội khoa học<br>Scientific socialism | 2 | 28 | 4 | 68 | PHI1006 |
-
 |  | HIS1001 | Lịch sử Đảng Cộng sản Việt Nam<br>History of Vietnamese Communist Party | 2 | 28 | 4 | 68 |  |
-
 |  | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh's Ideology | 2 | 28 | 4 | 68 |  |
-
 |  | THL1057 | Nhà nước và pháp luật đại cương<br>General State and Law | 2 | 30 | 0 | 70 |  |
-
 |  | HUS1011 | Tin học cơ sở<br>General Informatics | 3 | 10 | 40 | 100 |  |
-
 |  |  | Ngoại ngữ B1<br>Foreign Language B1 | 5/15 |  |  |  |  |
-
 |  | FLF1107 | Tiếng Anh B1<br>English B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1207 | Tiếng Nga B1<br>Russian B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1307 | Tiếng Pháp B1<br>French B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1407 | Tiếng Trung Quốc B1<br>Chinese B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1507 | Tiếng Đức B1<br>German B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1607 | Tiếng Nhật Bản B1<br>Japanese B1 | 5 | 25 | 50 | 175 |  |
-
 |  | FLF1707 | Tiếng Hàn Quốc B1<br>Korean B1 | 5 | 25 | 50 | 175 |  |
-
 |  | CME1000 | Giáo dục quốc phòng-an ninh<br>National Defence Education | 8 |  |  |  |  |
-
 |  | PES1000 | Giáo dục thể chất<br>Physical Education | 4 |  |  |  |  |
-
 |  | HUS1012 | Kỹ năng bổ trợ<br>Soft skills | 3 | 31 | 14 | 105 |  |
-
 | II |  | Khối kiến thức theo lĩnh vực | 5/13 |  |  |  |  |
-
 |  | HUS1021 | Khoa học Trái Đất và sự sống<br>Earth and Life Sciences | 3 | 33 | 24 | 93 |  |
-
 |  | HUS1022 | Nhập môn Internet kết nối vạn vật<br>Introduction to Internet of Things | 2 | 24 | 12 | 64 |  |
-
 |  | HUS1023 | Nhập môn phân tích dữ liệu<br>Introduction to Data Analysis | 2 | 20 | 20 | 60 |  |
-
 |  | HUS1024 | Nhập môn Robotic<br>Introduction to Robotics | 3 | 30 | 20 | 100 |  |
-
 |  | HIS1056 | Cơ sở văn hóa Việt Nam<br>Introduction to Vietnamese Culture | 3 | 42 | 6 | 102 |  |
-
 | III |  | Khối kiến thức theo khối ngành | 3 |  |  |  |  |
-
 |  | MAT2505 | Lập trình cơ bản<br>Introduction to Programming | 3 | 22 | 46 | 82 | HUS1011 |
-
 | IV |  | Khối kiến thức theo nhóm ngành | 28 |  |  |  |  |
-
 |  | MAT2400 | Đại số tuyến tính<br>Linear Algebra | 5 | 50 | 50 | 150 |  |
-
 |  | MAT2501 | Giải tích 1<br>Calculus 1 | 4 | 40 | 40 | 120 |  |
-
 |  | MAT2502 | Giải tích 2<br>Calculus 2 | 4 | 40 | 40 | 120 | MAT2501 |
-
 |  | MAT2503 | Giải tích 3<br>Calculus 3 | 2 | 15 | 30 | 55 | MAT2502 |
-
 |  | MAT2403 | Phương trình vi phân<br>Differential Equations | 3 | 30 | 30 | 90 | MAT2400;<br>MAT2501 |
-
 |  | MAT2323 | Xác suất - Thống kê<br>Probability - Statistics | 4 | 45 | 30 | 125 | MAT2502 |
-
 |  | MAT2407 | Tối ưu hóa<br>Optimization | 3 | 30 | 30 | 90 | MAT2301/<br>MAT2321/<br>MAT2400; MAT2303/<br>MAT2502 |
-
 |  | MAT1204 | Phương pháp nghiên cứu khoa học<br>Research Methodology | 3 | 15 | 60 | 75 | MAT3507;<br>MAT3514 |
-
 | V |  | Khối kiến thức ngành | 72 |  |  |  |  |
-
 | V.1 |  | Các học phần bắt buộc | 49 |  |  |  |  |
-
 |  | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính<br>English for Computer Science | 2 | 10 | 40 | 50 | FLF1107 |
-
 |  | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 30 | 125 |  |
-
 |  | MAT3557 | Môi trường lập trình Linux<br>Linux Programming Environment | 2 | 15 | 30 | 55 |  |
-
 |  | MAT3550E | Nguyên lí hệ điều hành<br>Principles of Operating Systems | 3 | 30 | 30 | 90 | MAT2505 |
-
 |  | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | 40 | 40 | 120 | MAT2505 |
-
 |  | MAT1202 | Lập trình hướng đối tượng<br>Object Oriented Programming | 3 | 22 | 46 | 82 | MAT2505 |
-
 |  | MAT3514 | Cấu trúc dữ liệu và thuật toán<br>Data Structures and Algorithms | 4 | 40 | 40 | 120 | MAT2505 |
-
 |  | MAT3552E | Thiết kế và đánh giá thuật toán<br>Algorithm Design and Analysis | 3 | 30 | 30 | 90 | MAT3514 |
-
 |  | MAT3505 | Kiến trúc máy tính<br>Computer Architecture | 3 | 30 | 30 | 90 | MAT2505<br>MAT3557 |
-
 |  | MAT3373E | Nhập môn an toàn máy tính<br>Introduction to Computer Security | 3 | 40 | 10 | 100 | MAT2505 |
-
 |  | MAT3506 | Mạng máy tính<br>Computer Networks | 3 | 40 | 10 | 100 | MAT2505 |
-
 |  | MAT1206E | Nhập môn Trí tuệ nhân tạo<br>Introduction to Artificial Intelligence | 3 | 30 | 30 | 90 | MAT3507;<br>MAT1202 |
-
 |  | MAT3374 | Thực tập thực tế phát triển phần mềm<br>Internship on software development | 3 | 15 | 60 | 75 | MAT1202;<br>MAT3507 |
-
 |  | MAT1207 | Công nghệ phần mềm<br>Software Engineering | 3 | 22 | 46 | 82 | MAT3374 |
-
 |  | MAT3541E | Nguyên lí các ngôn ngữ lập trình<br>Principles of Programming Languages | 3 | 30 | 30 | 90 | MAT1202 |
-
 | 41 | MAT3533 | Học máy<br>Machine Learning | 3 | 30 | 30 | 90 | MAT2406/<br>MAT2323 |
-
 | V.2 |  | Các học phần tự chọn | 16 |  |  |  |  |
-
 | V.2.1 |  | Tự chọn về kĩ năng phần mềm | 4/8 |  |  |  |  |
-
 | 42 | MAT3519 | Ngôn ngữ lập trình thứ hai<br>Second Programming Language | 2 | 10 | 40 | 50 | MAT2505 |
-
 | 43 | MAT3558 | Lập trình mobile<br>Programming for mobile platforms | 2 | 10 | 40 | 50 | MAT2505 |
-
 | 44 | MAT1208 | Xây dựng hệ thống nhúng<br>Embedded System Workshop | 2 | 0 | 30 | 70 | MAT1202;<br>MAT3505 |
-
 | 45 | MAT3560 | Phát triển phần mềm trò chơi<br>Introduction to game design and development | 2 | 10 | 40 | 50 | MAT2505 |
-
 | V.2.2 |  | Tự chọn về Trí tuệ nhân tạo và phát triển phần mềm | 12/39 |  |  |  |  |
-
 | 46 | MAT3148 | Tính toán song song<br>Parallel Computing | 3 | 30 | 30 | 90 | MAT3514 |
-
 | 47 | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>Formal Language and Automata | 3 | 40 | 10 | 100 | MAT2505;<br>MAT3500 |
-
 | 48 | MAT3562E | Thị giác máy tính<br>Computer Vision | 3 | 30 | 30 | 90 | MAT3533;<br>MAT2400 |
-
 | 49 | MAT3561E | Xử lí ngôn ngữ tự nhiên và ứng dụng<br>Natural Language Processing and applications | 3 | 35 | 20 | 95 | MAT3533 |
-
 | 50 | MAT3563 | Một số vấn đề chọn lọc về thị giác máy tính<br>Advanced Reading in Computer Vision | 3 | 30 | 30 | 90 | MAT3562E |
-
 | 51 | MAT3534 | Khai phá dữ liệu<br>Data Mining | 3 | 30 | 30 | 90 | MAT3507;<br>MAT2323 |
-
 | 52 | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | 30 | 30 | 90 | MAT1202;<br>MAT3507 |
-
 | 53 | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | 30 | 30 | 90 | MAT2301/<br>MAT2400;<br>MAT2316/<br>MAT2505/<br>MAT2318/<br>MAT2319 |
-
 | 54 | MAT3452 | Phân tích thống kê nhiều chiều<br>Multivariate Statistical Analysis | 3 | 30 | 30 | 90 | MAT2311/<br>MAT2406/<br>MAT2323 |
-
 | 55 | MAT3453 | Phương pháp chọn mẫu dữ liệu<br>Sampling Methods | 3 | 30 | 30 | 90 | MAT2323 |
-
 | 56 | MAT2034 | Giải tích số<br>Numerical Analysis | 3 | 30 | 30 | 90 | MAT2502;<br>MAT2403 |
-
 | 57 | MAT3538 | Các hệ thống tri thức<br>Knowledge-Based Systems | 3 | 30 | 30 | 90 | MAT1206E;<br>MAT3514 |
-
 | 58 | MAT3535 | Tìm kiếm thông tin<br>Information Retrieval | 3 | 30 | 30 | 90 | MAT3514;<br>MAT2323 |
-
 | V.3 |  | Khóa luận tốt nghiệp/các học phần thay thế khóa luận tốt nghiệp | 7 |  |  |  |  |
-
 | 59 | MAT4080 | Khóa luận tốt nghiệp<br>Graduation Thesis | 7 | 70 | 60 | 215 |  |
-
 |  |  | Các học phần thay thế khóa luận tốt nghiệp | 7 |  |  |  |  |
-
 | 60 | MAT1203 | Phân tích và thiết kế hệ thống thông tin<br>Analysis and Design of Information Systems | 4 | 10 | 100 | 90 | MAT3374;<br>MAT3552E;<br>MAT1207 |
-
 | 61 | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo<br>Selected topics on Artificial Intelligence | 3 | 30 | 30 | 90 | MAT1206E |
-
 |  |  | Tổng cộng | 129 |  |  |  |  |
 
 ## 3. Danh mục tài liệu tham khảo
 
 | STT | Mã học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo |
-
 | --- | --- | --- | --- | --- |
-
 |  | PHI1006 | Triết học Mác - Lênin | 3 | Học liệu bắt buộc<br>Bộ Giáo dục và đào tạo, Giáo trình triết học Mác - Lênin (dùng cho bậc đại học hệ không chuyên lý luận chính trị), Nxb Chính trị Quốc gia Sự thật, Hà Nội, 2021. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng Tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>Bộ môn Triết học Mác - Lênin, ĐHKHXH&NV biên soạn, Bài tập Triết học Mác - Lênin (chỉnh lý và bổ sung hàng năm), Phòng Tư liệu, Khoa Triết học, Trường ĐHKHXH&NV.<br>Học liệu tham khảo<br>Hội đồng Trung ương chỉ đạo biên soạn giáo trình Quốc gia các bộ môn khoa học Mác - Lênin, Tư tưởng Hồ Chí Minh, Giáo trình Triết học Mác - Lênin, Nxb Chính trị Quốc gia, Hà Nội, 2014, phòng Tư liệu, Khoa Triết học, ĐHKHXH&NV.<br>Nguyễn Phú Trọng, Một số vấn đề lý luận và thực tiễn về Chủ nghĩa xã hội và con đường đi lên chủ nghĩa xã hội ở Việt Nam, Nxb Chính trị Quốc gia Sự thật, 2021, phòng Tư liệu Khoa Triết học, Trường ĐHKHXH&NV.<br>Hồ Sĩ Quý, Con người và phát triển con người, Nxb Sự thật, 2007, phòng Tư liệu Khoa Triết học, Trường ĐHKHXH&NV.<br>Đảng Cộng sản Việt Nam, Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII, tập 1, tập 2, Nxb Chính trị Quốc gia Sự thật, Hà Nội, 2021, phòng Tư liệu Khoa Triết học, Trường ĐHKHXH&NV. |
-
 |  | PEC1008 | Kinh tế chính trị Mác - Lênin | 2 | Học liệu bắt buộc<br>Bộ Giáo dục và Đào tạo, Giáo trình Kinh tế chính trị Mác – Lênin (dành cho bậc đại học – không chuyên lý luận chính trị), NXB Chính trị Quốc gia Sự thật, Hà Nội, 2021.<br>Phạm Văn Dũng, Trần Đức Hiệp (đồng chủ biên), Giáo trình Kinh tế chính trị Mác-Lênin, NXB Đại học Quốc gia Hà Nội, 2022.<br>Học liệu tham khảo<br>Đảng CSVN (2016), Văn kiện Đại hội đại biểu toàn quốc lần thứ XII, NXB Chính trị quốc gia, Hà Nội.<br>Hội đồng lý luận trung ương (2014), Định hướng xã hội chủ nghĩa trong phát triển kinh tế thị trường ở Việt Nam: một số vấn đề lý luận và thực tiễn mới đặt ra, NXB Chính trị quốc gia, Hà Nội.<br>Robert B. Ekelund và F.Hebert (2003), Lịch sử các học thuyết kinh tế, bản tiếng Việt, NXB Thống kê, Hà Nội.<br>Bộ Giáo dục và Đào tạo (2019), Giáo trình Kinh tế chính trị Mác – Lênin (dành cho bậc đại học – chuyên lý luận chính trị), NXB Giáo dục, Hà Nội.<br>Viện Kinh tế chính trị học, Học viện Chính trị quốc gia quốc gia Hồ Chí Minh (2018), Giáo trình Kinh tế chính trị Mác - Lênin, NXB Lý luận chính trị, Hà Nội.<br>Đảng CSVN (2017), Nghị quyết số 11-NQ/TW ngày 03/06/2017 về “Hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa”. |
-
 |  | PHI1002 | Chủ nghĩa xã hội khoa học | 2 | Học liệu bắt buộc<br>Bộ Giáo dục và Đào tạo, Giáo trình chủ nghĩa xã hội khoa học, Nxb Chính trị quốc gia Sự thật, 2021.<br>Tiêu Thị Mỹ Hồng, Hướng dẫn ôn tập môn Chủ nghĩa xã hội khoa học, Biên soạn theo chương trình của Bộ giáo dục và Đào tạo, Nxb Chính trị quốc gia Sự thật, 2021.<br>Học liệu tham khảo<br>C.Mác và Ph. Ăngghen, “Tuyên ngôn của Đảng Cộng sản”, C.Mác và Ph. Ăngghen toàn tập, tập 4, Nxb Chính trị Quốc gia, H.1995. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>C.Mác, “Phê phán Cương lĩnh Gô-ta”, C.Mác và Ph. Ăngghen, toàn tập, tập 19, Nxb Chính trị Quốc gia, H.2002. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>Đảng Cộng sản Việt Nam, Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội (bổ sung và phát triển năm 2011), Nxb Chính trị Quốc gia, Hà Nội. 2011. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>Đảng Cộng sản Việt Nam,Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII, 2 tập, Nxb Chính trị Quốc gia, Hà Nội. 2021. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>Ph. Ăngghen, “Sự phát triển của chủ nghĩa xã hội từ không tưởng đến khoa học”, C.Mác và Ph. Ăngghen, toàn tập, tập 19, Nxb Chính trị Quốc gia, H.2002. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>Ph. Ăngghen, “Nguồn gốc của gia đình của chế độ tư hữu và nhà nước”, C.Mác và Ph. Ăngghen toàn tập, tập 21, Nxb Chính trị Quốc gia sự thật, 1995. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>V.I.Lênin, Nhà nước và cách mạng, V.I.Lênin toàn tập, tập 33, Nxb Tiến bộ, M. 1981. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn.<br>V.I.Lênin, Về quyền dân tộc tự quyết, V.I.Lênin toàn tập, tập 25, Nxb Chính trị Quốc gia, H.2005. Nơi có tài liệu: Trung tâm Thư viện và Tri thức số ĐHQGHN, phòng tư liệu Khoa Triết học, Trường Đại học Khoa học Xã hội và Nhân văn. |
-
 |  | HIS1001 | Lịch sử Đảng Cộng sản Việt Nam | 2 | Học liệu bắt buộc<br>Bộ Giáo dục và Đào tạo (Nguyễn Trọng Phúc, Ngô Đăng Tri, Nguyễn Ngọc Hà,…): Giáo trình Lịch sử Đảng Cộng sản Việt Nam, Nhà xuất bản Chính trị Quốc gia, Hà Nội, 2021.<br>Học liệu tham khảo<br>Hội đồng Trung ương chỉ đạo biên soạn giáo trình Quốc gia các môn khoa học Mác- Lênin, Tư tưởng Hồ Chí Minh, Giáo trình Lịch sử Đảng Cộng sản Việt Nam (tái bản có sửa chữa, bổ sung), Nhà xuất bản Chính trị Quốc gia - Sự thật, Hà Nội, 2018.<br>Lê Mậu Hãn, Các cương lĩnh cách mạng của Đảng, Nxb Chính trị Quốc gia, Hà Nội, 2003.<br>Ngô Đăng Tri, Tiến trình Lịch sử Đảng Cộng sản Việt Nam (1930 - 2021), Nxb Thông tin và Truyền thông, Hà Nội, 2021.<br>Viện Lịch sử Đảng, Học viện Chính trị Quốc gia Hồ Chí Minh, Lịch sử Đảng Cộng sản Việt Nam, Tập 1, Quyển 1 (1930-1945), NXb Chính trị Quốc gia Sự Thật, Hà Nội, 2018.<br>Viện Lịch sử Đảng, Học viện Chính trị Quốc gia Hồ Chí Minh, Lịch sử Đảng Cộng sản Việt Nam, Tập 1, Quyển 2 (1945-1954), NXb Chính trị Quốc gia Sự Thật, Hà Nội, 2018. |
-
 |  | POL1001 | Tư tưởng Hồ Chí Minh | 2 | Học liệu bắt buộc<br>Bộ Giáo dục và đào tạo, Giáo trình Tư tưởng Hồ Chí Minh, Nxb CTQG, H., 2022<br>Hồ Chí Minh: Toàn tập. Nxb. CTQG, H., 2002.<br>Võ Nguyên Giáp: Tư tưởng Hồ Chí Minh và con đường cách mạng Việt Nam, Nxb.CTQG, H., 2003.<br>Hội đồng Trung ương chỉ đạo biên soạn các giáo trình Quốc gia các bộ môn khoa học Mác - Lênin, tư tưởng Hồ Chí Minh: Giáo trình tư tưởng Hồ Chí Minh, Nxb. CTQG, H. 2003.<br>Học liệu tham khảo<br>Lại Quốc Khánh: Biện chứng của tư tưởng Hồ Chí Minh về chủ nghĩa xã hội ở Việt Nam, Nxb CTQG, 2009.<br>Phạm Quốc Thành: Tư tưởng giải phóng dân tộc của Hồ Chí Minh những năm 20 của thế kỷ XX, Nxb CTQG, 2007.<br>Vũ Viết Mỹ: “Tìm hiểu tư tưởng Hồ Chí Minh về chủ nghĩa xã hội và con đường đi lên chủ nghĩa xã hội ở Việt Nam”, Nxb CTQG, 2002.<br>Lê Mậu Hãn: “Sức mạnh dân tộc của cách mạng Việt Nam dưới ánh sáng tư tưởng Hồ Chí Minh”, Nxb CTQG, 2001.<br>Hoàng Chí Bảo: “Tim hiểu phương pháp Hồ Chí Minh”, Nxb CTQG, 2002.<br>Vũ Dương Ninh: “Về con đường giải phóng dân tộc của Hồ Chí Minh”, Nxb CTQG, 1996.<br>Mạch Quang Thắng: “Hồ Chí Minh nhà cách mạng sáng tạo”, Nxb CTQG, 2009.<br>Nguyễn Bá Linh: “Mối quan hệ biện chứng giữa độc lập dân tộc và chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh”, Nxb CTQG, 2009.<br>Ho Chi Minh’s Heritage in Vietnam and Abroad, Moscow University Press, 2020. |
-
 |  | THL1057 | Nhà nước và pháp luật đại cương | 2 | Học liệu bắt buộc<br>Đào Trí Úc, Hoàng Thị Kim Quế (đồng chủ biên), Giáo trình đại cương về nhà nước và pháp luật, Nhà xuất bản Đại học Quốc gia Hà nội, 2018.<br>Học liệu tham khảo<br>Montesquieu, Tinh thần pháp luật (Bản dịch), Nhà xuất bản Giáo Dục, 1996.<br>Hoàng Thị Kim Quế, Giáo trình Lý luận chung nhà nước và pháp luật, Nhà xuất bản Đại học Quốc gia Hà nội, 2015.<br>Đào Trí Úc, Giáo trình nhà nước pháp quyền, Nhà xuất bản Đại học Quốc gia Hà nội, 2015.<br>Hoàng Thị Kim Quế, Ngô Huy Cương (đồng chủ biên), Văn hóa pháp luật - những vấn đề lý luận cơ bản và ứng dụng chuyên ngành, Nhà xuất bản Đại học Quốc gia Hà nội, năm 2012.<br>Nguyễn Minh Tuấn, Giáo trình Lịch sử nhà nước và pháp luật thế giới, Nhà xuất bản Đại học Quốc gia, Hà nội, 2016.<br>Nguyễn Minh Tuấn, Mai Văn Thắng, Phạm Thị Duyên Thảo (Đồng chủ biên), Giáo trình Lịch sử nhà nước và pháp luật Việt Nam, Nhà xuất bản Đại học Quốc gia, Hà nội, 2017.<br>Nguyễn Minh Tuấn, Mai Văn Thắng (Đồng chủ biên), Nhà nước và pháp luật triều Hậu Lê với việc bảo vệ quyền lợi chính đáng của con người (Sách chuyên khảo), Nhà xuất bản Đại học Quốc gia Hà nội, 2014.<br>Nguyễn Hoàng Anh, Vũ Công Giao, Nguyễn Minh Tuấn (Đồng chủ biên), Tư duy pháp lý – Lý luận và thực tiễn, Nhà xuất bản Đại học Quốc gia Hà nội, 2016.<br>Arnaud de Raulin, Jean – Paul Pastorel, Trịnh Quốc Toản, Nguyễn Hoàng Anh (Đồng chủ biên), Ảnh hưởng của truyền thống pháp luật Pháp tới Pháp luật Việt Nam, Nhà xuất bản Đại học Quốc gia Hà nội, 2016.<br>Hoàng Thị Kim Quế, Nguyễn Đăng Dung (Đồng chủ biên), Lịch sử tư tưởng chính trị - pháp lý, Nhà xuất bản Đại học Quốc gia Hà nội, 2016. |
-
 |  | HUS1101 | Tin học cơ sở | 3 |  |
-
 |  |  | Ngoại ngữ B1 |  |  |
-
 |  | FLF1107 | Tiếng Anh B1 | 5 |  |
-
 |  | FLF1207 | Tiếng Nga B1 | 5 |  |
-
 |  | FLF1307 | Tiếng Pháp B1 | 5 |  |
-
 |  | FLF1407 | Tiếng Trung Quốc B1 | 5 |  |
-
 |  | FLF1507 | Tiếng Đức B1 | 5 |  |
-
 |  | FLF1607 | Tiếng Nhật Bản B1 | 5 |  |
-
 |  | FLF1707 | Tiếng Hàn Quốc B1 | 5 |  |
-
 |  |  | Giáo dục thể chất | 4 | Theo Quyết định số 3244/2002/GD-ĐT, ngày 29/9/2009 của Bộ trưởng Bộ giáo dục và đào tạo |
-
 |  |  | Giáo dục quốc phòng-an ninh | 8 | Theo Quyết định số 81/2007/QĐ-BGDĐT, ngày 24/12/2007 của Bộ trưởng Bộ giáo dục và đào tạo và do Trung tâm giáo dục quốc phòng, ĐHQGHN quy định. |
-
 |  |  | Kỹ năng bổ trợ | 3 |  |
-
 |  | HUS1021 | Khoa học trái đất và sự sống | 3 | Học liệu bắt buộc<br>Nguyễn Vi Dân, Nguyễn Cao Huần, Trương Quang Hải. Cơ sở Địa lý tự nhiên, NXB Đại học Quốc gia Hà Nội, 2005.<br>Lưu Đức Hải, Trần Nghi. Giáo trình Khoa học Trái Đất. NXB Giáo dục, Hà Nội, 2009.<br>Học liệu tham khảo thêm<br>Phạm Quang Tuấn . Cơ sở thổ nhưỡng và địa lý thổ nhưỡng. Nxb ĐHQG Hà Nội, 2007.<br>Đào Đình Bắc. Địa mạo đại cương. NXB Đại học Quốc gia Hà Nội, 2004<br>Tống Duy Thanh và nnk. Giáo trình địa chất cơ sở. NXB Đại học Quốc gia Hà Nội, 2003.<br>Trần Công Minh, Khí tượng và khí hậu đại cương, Nxb ĐHQGHN, 2005<br>Phạm Văn Huấn. Cơ sở Hải dương học, NXB KH&KT Hà Nội, 1991<br>Nguyễn Như Hiền. Sinh học đại cương. NxB Đại học Quốc gia Hà Nội, 2005.<br>Vũ Văn Phái. Cơ sở địa lý tự nhiên biển và đại dương. NxB Đại học Quốc gia Hà Nội, 2007.<br>Lê Bá Thảo (chủ biên) và nnk, Cơ sở địa lý tự nhiên, tập 1, 2, 3. NXB Giáo Dục, Hà Nội, 1987.<br>Nguyễn Văn Tuần, Giáo trình thủy văn đại cương, Nxb Nông nghiệp, 2005. |
-
 |  | HUS1022 | Nhập môn Internet kết nối vạn vật | 2 | Học liệu bắt buộc<br>David Hanes, Gonzalo Salgueiro, Patrick Grossetete, Robert Barton, Jerome Henry, “IoT Fundamentals: Networking Technologies, Protocols, and Use Cases for the Internet of Things”, Cisco Press, 2017.<br>“The Internet”, khanacademy.org.<br>Học liệu tham khảo thêm<br>Olav Solgaard, Ada Poon, Beth Pruitt, Boris Murmann, Philip Levis, Ayfer Ozgur Aydin, “Introduction to Internet of Things”, Online Course (XEE100), Stanford University, 2020.<br>“Internet of Things: An Overview - Understanding the Issues and the challenges of a More Connected World”, Internet Society, 2015.<br>António Grilo, “Internet of Things: An Introduction”, Técnico Lisboa, University of Lisbon, 2018.<br>Keyur K Patel, Sumil M Patel, “Internet of things-IoTs: Definition, Characteristics, Architecture, Enabling Technologies, Application and Future challenges”, IJESC, vol. 6, Iss. 5 (2016) 6122-6131.<br>P. Gokhale, O. Bhat, S. Bhat, “Introduction to IoT”, IARJSET, vol. 5, Iss. 1 (2018), 41-44.<br>“Internet of Things Strategic Research Roadmap”, European Research Cluster on the Internet of Things (IERC), 2009.<br>“Internet of Things. IoT Semantic Interoperability: Research Challenges, Best Practices, Recommendations and Next Steps”, European Research Cluster on the Internet of Things (IERC), 2015.<br>Qusay F. Hassan, “Internet of Things A to Z: Technologies and Applications”, Wiley-IEEE Press, 2018.<br>Rana Asif Rehman and Bilal Khan, “IoT Elements, Layered Architectures and Security Issues: A Comprehensive Survey”, Sensors 18, (2018), 2796. |
-
 |  | HUS1023 | Nhập môn phân tích dữ liệu | 2 | Học liệu bắt buộc<br>Bài giảng của giảng viên.<br>Tiffany Timbers, Trevor Campbell, Melissa Lee (2022), Data Science: A First Introduction, Routledge.<br>Đặng Hùng Thắng, Trần Mạnh Cường (2019). Thống kê cho khoa học xã hội và khoa học sự sống (với phần mềm R). NXB ĐHQGHN.<br>Học liệu tham khảo<br>Glenn J. Myatt, Wayne P. Johnson (2014), Making sense of data 1, Second Edition, John Wiley & Sons, Inc.<br>Roger D. Peng (2015), Exploratory Data Analysis with R, Leanpub.<br>Alan Agresti, Christine Franklin (2013), Statistics: The Art and Science of Learning from data, 3rd Edition, Pearson Education Inc. |
-
 |  | HUS1024 | Nhập môn Robotics | 3 | Học liệu bắt buộc<br>Khoá học mở “Introduction to robotics”, MIT open courseware (https://ocw.mit.edu/courses/mechanical-engineering/2-12-introduction-to-robotics-fall-2005/index.htm),<br>GS.TSKH. Nguyễn Thiện Phúc, “Robot công nghiệp”, NXB Khoa học & Kỹ thuật, 2006.<br>Học liệu tham khảo<br>Saeed Niku, “An introduction to robotics : analysis, control, applications”, John Wiley & Sons, 2011.<br>PGS.TS. Tạ Duy Liêm, “Robot và hệ thống công nghệ robot hoá”, NXB Khoa học & Kỹ thuật, 2004<br>Asada, H., and J. J. Slotine. “Robot Analysis and Control”, New York, NY: Wiley, 1986. |
-
 |  | HIS1056 | Cơ sở văn hóa Việt Nam | 3 | Học liệu bắt buộc<br>Đào Duy Anh, Việt Nam văn hoá sử cương, NXb Văn hoá Thông tin, Hà Nội.<br>Trần Quốc Vượng (Cb), Cơ sở văn hoá Việt Nam, NXB Giáo dục, Hà Nội, 1998.<br>Học liệu tham khảo<br>Phan Đại Doãn, Làng Việt Nam đa nguyên và chặt, Nxb. Đại học Quốc gia Hà Nội, H., 2006.<br>Nguyễn Thừa Hỷ, Văn hóa Việt Nam truyền thống – Một góc nhìn, Nxb. Thông tin và Thông tin, H., 2011.<br>Phan Ngọc, Bản sắc văn hóa Việt Nam, NXB Văn học, 2002.<br>Ngô Đức Thịnh (CB), Văn hóa vùng và phân vùng văn hóa ở Việt Nam, Nxb. KHXH, H., 1993.<br>Trần Quốc Vượng, Văn hóa Việt Nam tìm tòi và suy ngẫm, Nxb Văn hóa Thông tin, Tạp chí Văn hóa Nghệ thuật, H., 2000. |
-
 |  | MAT2505 | Lập trình cơ bản | 3 | Học liệu bắt buộc:<br>Tài liệu, bài giảng do giảng viên cung cấp<br>David J. Eck, Introduction to Programming using Java, 8th Edition, 2016<br>Học liệu tham khảo thêm:<br>The Java Tutorial, http://docs.oracle.com/javase/tutorial/, 2021.<br>Robert Sedgewick, Kevin Wayne (2017), Introduction to Programming in Java: An Interdisciplinary Approach, 2nd Edition.<br>Y. Liang, Y. Daniel Liang, Introduction to Java Programming and Data Structures, 12th edition (Dec. 4, 2019) |
-
 |  | MAT2400 | Đại số tuyến tính | 5 | Tài liệu bắt buộc<br>Trần Trọng Huệ (2009), Đại số tuyến tính và Hình học giải tích, NXB Giáo dục.<br>Tạ Lê Lợi (2005), Đại số và Hình học giải tích 1-2, Giáo trình Đại học Đại cương Ngành Toán-Tin học, Đại học Đà Lạt.<br>Tài liệu tham khảo thêm<br>H. Anton (2005), Elementary linear algebra, 9th edition, Anton Textbooks, Inc.<br>J. Hefferon, Linear Algebra (2012) (tài liệu điện tử miễn phí, download tại bao gồm sách lí thuyết và sách lời giải các bài tập).<br>Lê Tuấn Hoa (2005), Đại số tuyến tính qua các ví dụ và bài tập, NXB ĐHQG.<br>V. Proskuryakov (1978), Problem in Linear Algebra, Mir Publishers, Moscow.<br>G. Strang (1988), Linear Algebra and its applications, 3rd edition, Brook/Cole. |
-
 |  | MAT2501 | Giải tích 1 | 4 | Tài liệu bắt buộc<br>J. Stewart, D.K. Clegg, S. Watson (2020), Calculus: Early Transcendentals, Cengage Learning, 9th edition.<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Giải tích tập I, II, III, NXB ĐHQGHN.<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Bài tập giải tích tập I, II, NXB ĐHQGHN.<br>Tài liệu tham khảo<br>Nguyễn Duy Tiến, Trần Đức Long, Bài giảng giải tích I và II, NXB ĐHQGHN.<br>V.A. Zorich (2008), Mathematical Analysis I, II (Universitext), Springer.<br>Nguyễn Văn Mậu, Nguyễn Thuỷ Thanh, Đặng Huy Ruận (1998), Giải tích tập I, II, III, NXB ĐHQGHN. |
-
 |  | MAT2502 | Giải tích 2 | 4 | Tài liệu bắt buộc<br>J. Stewart, D.K. Clegg, S. Watson (2020), Calculus: Early Transcendentals, Cengage Learning, 9th edition..<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Giải tích tập I, II, III, NXB ĐHQGHN.<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Bài tập giải tích tập I, II. NXB ĐHQGHN.<br>Tài liệu tham khảo<br>Nguyễn Duy Tiến, Trần Đức Long, Bài giảng giải tích I và II, NXB ĐHQGHN.<br>V.A. Zorich (2008), Mathematical Analísis I, II (Universitext), Springer.<br>Nguyễn Văn Mậu, Nguyễn Thuỷ Thanh, Đặng Huy Ruận (1998), Giải tích tập I, II, III, NXB ĐHQGHN. |
-
 |  | MAT2503 | Giải tích 3 | 2 | Tài liệu bắt buộc<br>J. Stewart, D.K. Clegg, S. Watson (2020), Calculus: Early Transcendentals, Cengage Learning, 9th edition.<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Giải tích tập I, II, III, NXB ĐHQGHN.<br>Trần Đức Long, Nguyễn Đình Sang, Hoàng Quốc Toàn (2005), Bài tập giải tích tập I, II, NXB ĐHQGHN.<br>Tài liệu tham khảo<br>Nguyễn Duy Tiến, Trần Đức Long, Bài giảng giải tích I và II, NXB ĐHQGHN.<br>V.A. Zorich (2008), Mathematical Analísis I, II (Universitext), Springer.<br>Nguyễn Văn Mậu, Nguyễn Thuỷ Thanh, Đặng Huy Ruận (1998), Giải tích tập I, II, III, NXB ĐHQGHN. |
-
 |  | MAT2403 | Phương trình vi phân | 3 | Tài liệu bắt buộc<br>Nguyễn Thế Hoàn, Phạm Phu (2000), Phương trình vi phân và lí thuyết ổn định, NXBGD.<br>Tài liệu tham khảo thêm<br>Nguyễn Thế Hoàn, Trần Văn Nhung (2005), Bài tập phương trình vi phân, NXBGD.<br>B. P. Demidovic, Higher Mathematics, Part 3<br>W. E. Boyce, R. C. DiPrima (2009), Elementary Differential Equations and Boundary Value Problems, 9th Edition, John Wiley&Sons. |
-
 |  | MAT2323 | Xác suất – Thống kê | 4 | Tài liệu bắt buộc<br>Bài giảng của giảng viên<br>Đặng Hùng Thắng (2005), Mở đầu về lí thuyết xác suất và các ứng dụng, Nhà xuất bản Giáo dục.<br>Đặng Hùng Thắng, Trần Mạnh Cường (2019), Thống kê cho khoa học xã hội và khoa học sự sống (với phần mềm R), NXB ĐHQGHN.<br>Tài liệu tham khảo thêm<br>Đặng Hùng Thắng (2009), Thống kê và ứng dụng, NXB Giáo dục.<br>Jay L. Devore (2016), Probability and Statistics for Engineering and the Sciences, 9th Edition, Cengage Learning. |
-
 |  | MAT2407 | Tối ưu hóa | 3 | Tài liệu bắt buộc<br>D. Bertsimas and J. N. Tsitsiklis, Introduction to Linear Optimization, AthenaScientific, 1997.<br>Nocedal and S. Wright, Numerical Optimization, Springer, 2006<br>Tài liệu tham khảo thêm<br>D. Luenberger and Y. Ye, Linear and Nonlinear Programming, Springer, 2008<br>S. Boyd and L. Vandenberghe, Convex Optimization, Cambridge University Press, 2013<br>Nguyễn Ngọc Thắng và Nguyễn Đình Hóa, Quy hoạch tuyến tính, NXB ĐHQGHN, 2005<br>Phan Quốc Khánh và Trần Huệ Nương, Quy hoạch tuyến tính, NXBGD, 2000.<br>Nguyễn Thị Bạch Kim, Giáo trình các phương pháp Tối ưu: lý thuyết và thuật toán, NXB ĐHBKHN, 2008. |
-
 |  | MAT1204 | Phương pháp nghiên cứu khoa học | 3 | Tài liệu bắt buộc:<br>Christian Dawson, Projects in Computing and Information System: A student’s guide (3rd edition), 2015.<br>Ranjit Kumar, Research methodology: a step-by-step guide for beginners, SAGE Publications Ltd, 3rd edition, 2010.<br>Tài liệu tham khảo<br>Vũ Cao Đàm, Giáo trình phương pháp luận nghiên cứu khoa học, NXB Giáo dục, 2015.<br>Nguyễn Văn Tuấn, Cẩm nang nghiên cứu khoa học: Từ ý tưởng đến công bố, NXB Tổng hợp Thành phố Hồ Chí Minh, 2022<br>Nguyễn Văn Tuấn, Đi vào nghiên cứu khoa học, NXB Tổng hợp Thành phố Hồ Chí Minh, 2018 |
-
 |  | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính | 2 | Tài liệu bắt buộc<br>Bishop C.M. (2011), Pattern Recognition and Machine learning, Springer.<br>Manning C. D., Raghavan P. and Schutze H. (2008), Introduction to Information Retrieval, Cambridge University Press.<br>Robert Sedgewick, Kevin Wayne (2011), Algorithms, 4th edition, Addison-Wesley Professional.<br>Tài liệu tham khảo thêm<br>Stuart Russell, Peter Norvig (2010), Artificial Intelligence: A Modern Approach, 3rd Edition, Pearson. |
-
 |  | MAT3500 | Toán rời rạc | 4 | Tài liệu bắt buộc<br>Kenneth H. Rosen (2012), Discrete Mathematics and its applications, 7th ed., McGraw-Hill, New York.<br>Tom Jenkĩns, Ben Stephenson (2013), Fundamentals of Discrete Math for Computer Science, Springer-Verlag London<br>Tài liệu tham khảo thêm<br>Oscar Levin (2016), Discrete Mathematics: An Open Introduction, Createspace Independent Publishing Platform.<br>Thomas Van Drunen (2013), Discrete Mathematics and functional programming, Franklin, Wilsonville.<br>Harry Lewis and Rachel Zax (2019), Essential Discrete Mathematics for Computer Science, Princeton University Press.<br>Mordechai Ben-Ari (2012), Mathematical Logic for Computer Science, 3rd ed., Springer, London. |
-
 |  | MAT3557 | Môi trường lập trình Linux | 2 | Tài liệu bắt buộc<br>E. Siever, S. Figgins, R. Love, A. Robbins (2009), Linuxin a Nutshell, O’Reillí.<br>Tài liệu tham khảo thêm<br>Paul Cobbaut (2015), Linux Fundamentals, http://linux-training.be/linuxfun.pdf - GNU Free Documentation License. |
-
 |  | MAT3550E | Nguyên lí hệ điều hành | 3 | Tài liệu bắt buộc<br>A.Tanenbaum, Modern Operating Systems, Pearson 2015, thư viện số VNU. |
-
 |  | MAT3507 | Cơ sở dữ liệu | 4 | Tài liệu bắt buộc<br>Đồng Thị Bích Thủy, Phạm Thị Bạch Huệ, Nguyễn Trần Minh Thư (2015), Giáo trình cơ sở dữ liệu, Nhà xuất bản Khoa học và kĩ thuật.<br>Nguyễn Tuệ (2009), Giáo trình nhập môn cơ sở dữ liệu, Nhà xuất bản Giáo dục.<br>Avi Silberschatz, Henry F. Korth, S. Sudarshan(2010), Database System Concepts, McGraw-Hill.<br>Ramez Elmasri, Shamkant B. Navathe(2011), Fundamentals of Database Systems, Addison-Wesley.<br>Tài liệu tham khảo thêm<br>Đỗ Trung Tuấn (2015), Cơ sở dữ liệu nâng cao, Nhà xuất bản Đại học Quốc gia Hà nội<br>Paul N. Weinberg, James Groff, James R. Groff, Andy Oppel (2009), SQL the Complete Reference, McGraw-Hill.<br>Clinton Gormley, Zachary Tong (2015), Elasticsearch The Definitive Guide: A Distributed Real-Time Search and Analítics Engine, O'Reillí Media. |
-
 |  | MAT1202 | Lập trình hướng đối tượng | 3 | Tài liệu bắt buộc<br>Tài liệu, bài giảng do giảng viên cung cấp<br>Cay S. Horstmann (2019), Big Java: Earlí Objects, Wiley (7th ed.).<br>Eric Freeman, Elisabeth Robson (2020). Head First Design Patterns: Building Extensible and Maintainable Object-Oriented Software. O'Reillí Media (2nd ed.)<br>Tài liệu tham khảo thêm<br>Erich Gamma, Richard Helm, Ralph Johnson, John M. Vlissides (1994), Design Patterns: Elements of Reusable Object-Oriented Software, Addison-Wesley Professional. |
-
 |  | MAT3514 | Cấu trúc dữ liệu và thuật toán | 4 | Tài liệu bắt buộc<br>Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser (2014), Data Structures and Algorithms in Java, Wiley.<br>Nguyễn Đình Hoá (2004), Cấu trúc dữ liệu & thuật giải, NXB ĐHQG HN<br>Tài liệu tham khảo thêm<br>Robert Sedgewick, Kevin Wayne (2011), Algorithms, 4th edition, Addison-Wesley Professional.<br>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (2009), Introduction to Algorithms, 3rd Edition, The MIT Press.<br>Đinh Mạnh Tường (2001), Cấu trúc dữ liệu và thuật toán, NXB Khoa học Kĩ thuật. |
-
 |  | MAT3552E | Thiết kế và đánh giá thuật toán | 3 | Tài liệu bắt buộc<br>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (2009), Introduction to Algorithms, Third Edition, McGraw Hill - MIT Press.<br>Ian Parberry, William Gasarch (2002), Problems on Algorithms, Prentice Hall. S. K. Basu (2013), Design methods and analysis of algorithms, PHI Learning Private Limited, Delhi.<br>V. V. Muniswavy (2009), Design And Analysis Of Algorithms, I. K. International Pvt Ltd.<br>Tài liệu tham khảo thêm<br>Jon Kleinberg, ÉvaTardos (2009), Algorithm Design, Pearson Education.<br>Sanjoy Dasgupta, Christos Papadimitriou, Umesh Vazirani (2006), Algorithms, McGraw-Hill.<br>Sara Baase, Allen Van Gelder (1999), Computer Algorithms: Introduction to Design and Analísis, 3rd Edition, Addison Wesley. |
-
 |  | MAT3505 | Kiến trúc máy tính | 3 | Tài liệu bắt buộc<br>Lê Quang Thảo. Tài liệu hướng dẫn thực hành kiến trúc máy tính - lưu hành nội bộ. Trường ĐHKHTN.<br>David A. Patterson, John L. Hennessy, Computer Organization and Design: The Hardware/Software Interface, Morgan Kaufmann, 4 edition, 2008.<br>Tài liệu tham khảo thêm<br>John L. Hennessy & David A. Patterson, Computer Architecture: A Quantitative Approach, 2003 (third edition).<br>Behrooz Parhami, Computer Architecture: From  Microprocessors to Supercomputers, 2005. |
-
 |  | MAT3373E | Nhập môn an toàn máy tính | 3 | Học liệu bắt buộc:<br>William Stallings, Computer Security Principles and Practice (3rd Edition), Pearson, 2015.<br>Học liệu tham khảo<br>Wenliang Du, Computer & Internet security – A Hands-on Approach, (2nd Edition), Syracus University (Independently published), 2019. |
-
 |  | MAT3506 | Mạng máy tính | 3 | Tài liệu bắt buộc<br>Computer Networks, A. Tanenbaum, Peason 2014, Thư viện điện tử VNU / Mạng máy tính, NXB Thống kê 2001.<br>Tài liệu tham khảo<br>Computer Networking: a top-down approach, Kurose, James F ; Ross, Keith W., Pearson 2013, thư viện điện tử VNU. |
-
 |  | MAT1206E | Nhập môn Trí tuệ nhân tạo | 3 | Tài liệu bắt buộc<br>Wolfgang Ertel. Introduction to Artificial Intelligence, 2nd edition. Springer, 2018<br>Stuart J. Russell, Peter Norvig, Artificial Intelligence: A modern approach. 3rd edition, Prentice Hall, 2010<br>Tài liệu tham khảo thêm<br>Elaine Rich, Kevin Knight, Shivashankar B Nair, Artificial Intelligence, 3rd edition. McGraw, 2009 |
-
 |  | MAT3374 | Thực tập thực tế phát triển phân mềm | 3 | Tài liệu bắt buộc<br>Do người hướng dẫn cung cấp<br>Tài liệu tham khảo<br>Do người hướng dẫn cung cấp |
-
 |  | MAT1207 | Công nghệ phần mềm | 3 | Tài liệu bắt buộc<br>Tài liệu, bài giảng do giảng viên cung cấp<br>Tài liệu tham khảo thêm<br>Ian Sommerville (2020), An Introduction to Modern Software Engineering, Pearson.<br>Roger Pressman, Bruce Maxim (2019), Software Engineering: A Practitioner's Approach, McGraw-Hill Education. |
-
 |  | MAT3541E | Nguyên lí các ngôn ngữ lập trình | 3 | Tài liệu bắt buộc<br>Michael L. Scott (2016), Programming Language Pragmatics, 4th edition, Morgan Kaufmann.<br>Tài liệu tham khảo thêm<br>Terrence W.Pratt, Marvin V. Zelkowitz (2001), Programming Languages – Design and Implementation, 4th Edition, Prentice Hall.<br>Robert W. Sebesta (2019), Concepts of Programming Languages, 12th Edition, Addison Wesley.<br>Cao Hoàng Trụ (2005), Nguyên lí ngôn ngữ lập trình, NXB ĐHQG TP Hồ Chí Minh. |
-
 |  | MAT3533 | Học máy | 3 | Giáo trình bắt buộc<br>Kevin P. Murphy (2022), Probabilistic Machine Learning: An Introduction, The MIT Press.<br>Kevin P. Murphy (2012), Machine Learning: A Probabilistic Perspective, The MIT Press<br>Tài liệu tham khảo<br>Trevor Hastie, Robert Tibshirani, Jerome Friedman (2009), The Elements of Statistical Learning, Springer.<br>Christopher Bishop (2006),  Pattern Recognition and Machine Learning, Springer.<br>Richard Duda, Peter Har, David Stork (2001), Pattern Classification, 2nd Edition, John Wiley &Sons.<br>Tom Mitchell (1997), Machine Learning, McGraw-Hill. |
-
 |  | MAT3519 | Ngôn ngữ lập trình thứ hai | 2 | Giáo trình bắt buộc (Sinh viên lựa chọn theo môn lập trình tương ứng)<br>Ben Lauwens and Allen B. Downey (2019), Think Julia: How to Think Like a Computer Scientist, 1st edition.<br>Paul Deitel and Harvey Deitel (2018), C how to program with an Introduction to C++, Pearson India.<br>Marijn Haverbeke (2018), Eloquent JavaScript, No Starch Press.<br>Mark Lutz (2018), Learning Python, 5th edition, O'Reillí Media.<br>Tài liệu tham khảo thêm<br>Avik Sengupta, Alan Edelman (2019), Julia High Performance: Optimizations, Distributed Computing, Multithreading, and GPU Programming with Julia 1.0 and Beyond, 2nd edition, Packt Publishing.<br>Steven F. Lott, Dusty Philips (2021), Python Object-Oriented Programming: Build Robust and Maintainable Object-Oriented Python Applications and Libraries, 4th edition., Packt Publishing.<br>Alex Allain (2013), Jumping into C++, USA.<br>Y. Daniel Liang (2012), Introduction to Programming Using Python, Prentice Hall. |
-
 |  | MAT3558 | Lập trình mobile | 2 | Tài liệu bắt buộc<br>Trương Thị Ngọc Phượng (2014), Lập trình Android, NXB Đại học Quốc gia TP. Hồ Chí Minh.<br>Reto Meier (2014), Professional Android Application Development, NXB CreateSpace Independent Publishing Platform.<br>Bài giảng do giảng viên cung cấp<br>Tài liệu tham khảo thêm<br>Bill Phillips, Brian Hardy (2015), Android Programming: The Big Nerd Ranch Guide, NXB Big Nerd Ranch Guides. |
-
 |  | MAT1208 | Xây dựng hệ thống nhúng | 2 | Tài liệu bắt buộc<br>Lê Quang Thảo, Tài liệu hướng dẫn thực hành Board mạch phát triển lập trình nhúng - lưu hành nội bộ, Trường ĐHKHTN.<br>Steven F. Barrett (2010), Embedded Systems Design with the Atmel AVR Microcontroller, Morgan&Claypool.<br>Tài liệu tham khảo thêm<br>- Michael J. Pont (2006), Programming Embedded Systems I, II, University of Leicester. |
-
 |  | MAT3560 | Phát triển phần mềm trò chơi | 2 | Tài liệu bắt buộc<br>Các bài giảng của giáo viên<br>Jemery Gibson, Introduction to Game Design, Prototyping, and Development, Addition-Wesley 2015<br>Tài liệu tham khảo thêm<br>Mathew Johnson, James A. Henley, Learning 2D Game Development with Unity, Addition-Wesley 2015. |
-
 |  | MAT3148 | Tính toán song song | 3 | Tài liệu bắt buộc<br>Roman Trobec, Bostjan Slivnik, Patricio Bulic, Borut Robic. Introduction to parallel computing, Springer, 2018<br>Peter Pacheco. An introduction to parallel programming, Morgan Kaufmann, 2011.<br>Tài liệu tham khảo thêm<br>Norman Matloff, Parallel computing for data science: with examples in R, C++ and CUDA, CRC Press, 2016.<br>Ananth Grama, Anshul Gupta, George Karypis, and Vipin Kumar, Introduction to parallel computing, 2nd edition, Addison-Wesley, 2003. |
-
 |  | MAT3554E | Ngôn ngữ hình thức và ôtômat | 3 | Tài liệu bắt buộc<br>Bài giảng của giảng viên<br>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman (2006), Introduction to Automata Theory, Languages, and Computation (3rd Edition), Addison Wesley.<br>Tài liệu tham khảo thêm<br>Đặng Huy Ruận (2005), Lí thuyết ngôn ngữ hình thức và Ôtômat, Nhà xuất bản Đại học Quốc gia Hà Nội.<br>Peter Linz (2011), An introduction to formal languages and automata (5th edition), Cathleen Sether. |
-
 |  | MAT3562E | Thị giác máy tính | 3 | Tài liệu bắt buộc<br>Richard Szeliski (2011), Computer vision: Algorithms and Applications, Springer Verlag London Limited<br>Simon J.D. Prince (2012), Computer Vision: Models, Learning, and Inference, Cambridge University Press; 1st edition<br>Tài liệu tham khảo<br>R. C. Gonzalez, R. E. Woods (2017), Digital Image Processing, Pearson; 4rd Edition.<br>Richard Szeliski (2011), Computer vision: Algorithms and Applications, Springer – Verlag London Limited. |
-
 |  | MAT3561E | Xử lí ngôn ngữ tự nhiên và ứng dụng | 3 | Tài liệu bắt buộc<br>Bài giảng của giảng viên<br>Jurafskĩ and Martin (2008), Speech and Language Processing, Prentice Hall, 2nd Edition.<br>Manning, Raghavan and Schütze (2008), Introduction to Information Retrieval, Cambridge University Press.<br>Jurafsky and Martin (2023), Speech and Language Processing, Draft of the 3rd edition - http://web.stanford.edu/~jurafsky/slp3/<br>Tài liệu tham khảo thêm<br>Manning and Schütze (1999), Foundations of Statistical Natural Language Processing, The MIT Press.<br>R. Mitkov (2002), The Oxford Handbook of Computational Linguistics, Oxford Univ. Press.<br>Manning, Raghavan and Schütze (2008), Introduction to Information Retrieval, Cambridge University Press. |
-
 |  | MAT3563 | Một số vấn đề chọn lọc về thị giác máy tính | 3 | Tài liệu bắt buộc<br>Richard Szeliski (2011), Computer Vision:Algorithms and Applications, Springer – Verlag London Limited.<br>G. M. Farinella, S. Battiato, R. Cipolla (2013), Advanced Topics in Computer Vision, Springer London Heidelberg New York Dordrecht.<br>Tài liệu tham khảo thêm<br>P. Shukla, R. Aluvalu, S. Gite, U. Maheswari (2022), Computer Vision Applications of Visual AI and Image Processing, De Gruyter.<br>Steven Holden (2019), Computer Vision: Advanced Techniques and Applications, Clanrye International.<br>E. R. Davies (2017), Computer Vision: Principles, Algorithms, Applications, Learning, Academic Press; 5th edition. |
-
 |  | MAT3534 | Khai phá dữ liệu | 3 | Tài liệu bắt buộc<br>C. C. Aggarwal (2015), Data Mining, Springer International Publishing.<br>Tài liệu, bài giảng do giáo viên cung cấp<br>M. M. Gaber (2010), Scientific Data Mining and Knowledge Discovery - Principles and Foundations, Springer, New York.<br>Tài liệu tham khảo thêm<br>M. Dunham (2002), Data Mining: Introductory and Advanced Topics, Prentice Hall, 2002.<br>J. Han, M. Kamber (2012), Data Mining: Concepts and Techniques, 3rd edition, Morgan Kaufmann. |
-
 |  | MAT3542 | Phát triển ứng dụng web | 3 | Tài liệu bắt buộc<br>Tài liệu, bài giảng do giảng viên cung cấp<br>Nguyễn Nam Hải và Nguyễn Việt Anh, Lập trình web, NXB ĐHQGHN, 2013<br>Ralph F. Grove, Web Based Application Development, Jones & Bartlett Publishers,2010.<br>Tài liệu tham khảo thêm<br>R. Hodson (2014), Ry’s Git Tutoria, RyPress.<br>C. Northwood (2019), The full stack developer: your essential guide to the everyday skills expected of a modern full stack Web developer, Apress.<br>J. Duckett (2014), Web Design with HTML, CSS, JavaScript and jQuery, Wiley.<br>T. Erl (2015), Service-Oriented Architecture: Concepts, Technology, and Design, Prentice Hall (2nd ed.)<br>L. Richardson, M. Amundsen and S. Ruby (2013), RESTful Web APIs. RESTful Web application programming interfaces, O’Reillí Media.<br>P. J. Sadalage (2013), NoSQL Distilled: A Brief Guide to the Emerging World of Políglot Persistence, Addison Wesley. |
-
 |  | MAT3539 | Mật mã và an toàn dữ liệu | 3 | Tài liệu bắt buộc<br>Phan Đình Diệu (2002), Lý thuyết mật mã và An toàn thông tin, ĐHQGHN.<br>W. Stallings, Cryptography and Network Security: Principles and Practice, Global Edition, Pearson, 2017. (Cho 3 chương đầu)<br>Christof Paar & Jan Pelzl, Understanding Cryptography, A Textbook for Students and Practitioners, Springer, 2010.<br>Tài liệu tham khảo thêm<br>Wenbo Mao (2003), Modern Cryptography: Theory and Practice, Pearson Education.<br>A.AM. Antonopoulos, Mastering Bitcoin, 2nd edition, O’Reilly, 2017. (Có bản dịch tiếng Việt: Bitcoin thực hành - Những khái niệm cơ bản và cách sử dụng đúng đồng tiền mã hóa, NXB ĐHKTQD, 2018). |
-
 |  | MAT3452 | Phân tích thống kê nhiều chiều | 3 | Tài liệu bắt buộc<br>Nguyễn Văn Hữu, Nguyễn Hữu Dư (2003), Phân tích thống kê và dự báo, Nhà xuất bản đại học Quốc gia Hà Nội.<br>Đào Hữu Hồ, Nguyễn Văn Hữu, Hoàng Hữu Như (2004), Thống kê Toán học, NXB ĐHQGHN<br>Ron S. Kenett, Shelemyahu Zacks, Daniele Amberti (2022) Modern Industrial Statistics With Applications in R, MINITAB and JMP. Wiley.<br>Tài liệu tham khảo<br>Daniel Zelterman (2022), Applied Multivariate Statistics with R, Springer.<br>Craig A. Mertler, Rachel A. Vannatta, Kristina N. LaVenia (2021), Advanced and Multivariate Statistical Methods: Practical Application and Interpretation. Routledge. |
-
 |  | MAT3453 | Phương pháp chọn mẫu dữ liệu | 3 | Tài liệu bắt buộc<br>Scheaffer R. L, Mendenhall III W, and Ott R.<br>Jan Eichhorn (2022), Survey Research and Sampling, SAGE Publications<br>Tài liệu tham khảo<br>- Raghunath Arnab (2017), Survey Sampling Theory and Applications, Academic Press. |
-
 |  | MAT2034 | Giải tích số | 3 | Tài liệu bắt buộc<br>Phạm kĩ Anh (2000), Giải tích số, NXB ĐHQG.<br>J. Stoer, Bulirsch (1999), Introduction to Numerical Analísis, Springer.<br>Greenbaum, T.P. Chartier (2010), Numerical methods: design, analísis and computer implementation of algorithms, University of Washington.<br>Tài liệu tham khảo<br>- Phạm Kỳ Anh, Phan Văn Hạp và các tác giả (Chủ biên Phan Văn Hạp)(1990), Giáo trình phương pháp tính, Tập I, II, Trường ĐHTH HN. |
-
 |  | MAT3538 | Các hệ thống tri thức | 3 | Tài liệu bắt buộc<br>- Rajendra Akerkar, Priti Sajja (2009), Knowledge- Based Systems (1st ed.), Jones and Bartlett Publishers, Inc., USA.<br>- Nguyen N.T (2008): Advanced Methods for Inconsistent Knowledge Management, Springer- Verlag London. |
-
 |  | MAT3535 | Tìm kiếm thông tin | 3 | Tài liệu bắt buộc<br>Tài liệu, bài giảng do giáo viên cung cấp<br>Manning Christopher D, Raghavan Prabhakar, Schütze Hinrich (2008), Introduction to Information Retrieval, CambridgeUniversityPress.<br>Tài liệu tham khảo thêm<br>CroftBruce, MetzlerDonald, StrohmanTrevor (2010), SearchEngines: Information Retrieval in Practice, Addison Wesley.<br>Langville Amy N., Meyer Carl D (2006), Google's PageRank and Beyond: the Science of Search Engine Rankings, Princeton University Press.<br>Grossman David, Frieder Ophir (2004), Information Retrieval: Algorithms and Heuristics, 2nd Edition Springer.<br>Chakrabarti Soumen (2003), Mining the Web: Discovering Knowledge from Hypertext Data, Elsevier. |
-
 |  | MAT4080 | Khóa luận tốt nghiệp | 7 |  |
-
 |  | MAT1203 | Phân tích và thiết kế hệ thống thông tin | 4 | Tài liệu bắt buộc<br>Trương Ninh Thuận, Đặng Đức Hạnh (2013), Giáo trình phân tích và thiết kế hướng đối tượng, Nhà xuất bản Đại học Quốc gia<br>Alan Dennis, Barbara Haley Wixom, David Tegarden (2015), Systems Analísis and Design: An Object-Oriented Approach with UML, Wiley.<br>Brahma Dathan, Sarnath Ramnath (2015), Object-Oriented Analísis, Design and Implementation: An Integrated Approach, Springer<br>Tài liệu tham khảo thêm<br>Kendall P. (2001), Introduction to System Analísis and Design: A structured Approach, Wm. C. Brown Publishers.<br>Quatrani T. (2000), Visual Modeling With Rational Rose and UML, Addison-Wesley.<br>Đặng Văn Đức (2002), Phân tích thiết kế hướng đối tượng bằng UML, NXB Khoa học và kĩ thuật, Hà Nội. |
-
 |  | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo | 3 | Tài liệu bắt buộc<br>Russell, Stuart J.; Norvig, Peter (2020), Artificial Intelligence: A Modern Approach (Pearson Series in Artificial Intelligence), Pearson; 4th edition<br>Tài liệu tham khảo thêm<br>Đỗ Trung Tuấn (2010), Trí tuệ nhân tạo. NXB. Đại học Quốc gia Hà Nội.<br>Ian Goodfellow, Yoshua Bengio, and Aaron Courville (2016), Deep Learning (Adaptive Computation and Machine Learning series), The MIT Press; Illustrated edition |
 
 ## 4. Đội ngũ cán bộ giảng dạy
 
 | STT | Mã học phần | Tên học phần | Số tín chỉ | Cán bộ giảng dạy | Cán bộ giảng dạy | Cán bộ giảng dạy | Cán bộ giảng dạy |
-
 | --- | --- | --- | --- | --- | --- | --- | --- |
-
 | STT | Mã học phần | Tên học phần | Số tín chỉ | Họ và tên | Chức danh KH, học vị | Chuyên ngành đào tạo | Đơn vị công tác |
-
 |  | PHI1006 | Triết học Mác - Lênin | 3 | Trần Thị Điểu<br>Trần Ngọc Liêu<br>Nguyễn Thị Thu Hường<br>Lương Thùy Liên<br>Lê Thị Vinh<br>Ngô Đăng Toàn<br>Hoàng Văn Thắng<br>Đoàn Thu Nguyệt<br>Phạm Thanh Hà<br>Phạm Thu Trang<br>Đặng Thị Lan<br>Trần Thị Hạnh<br>Nguyễn Thanh Bình<br>Nguyễn Thị Thanh Huyền<br>Nguyễn Thị Lan<br>Nguyễn Thị Kim Thanh<br>Phạm Công Nhất<br>Mai K Đa<br>Hà Thị Bắc<br>Nguyễn Thị Như | TS<br>PGS.TS<br>TS<br>TS<br>TS<br>ThS<br>ThS<br>TS<br>TS<br>TS<br>PGS.TS<br>PGS.TS<br>PGS.TS<br>PGS.TS<br>TS<br>ThS<br>TS<br>TS<br>TS<br>TS | Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học | KHXH&NV<br>KHXHn&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV |
-
 |  | PEC1008 | Kinh tế chính trị Mác - Lênin | 2 | Nguyễn Thuỳ Anh<br>Lê Thị Hồng Điệp<br>Phạm Thị Hồng Điệp<br>Trần Đức Hiệp<br>Hoàng Triều Hoa<br>Nguyễn Thị Thu Hoài<br>Nguyễn Thị Hương Lan<br>Phạm Thị Linh<br>Nguyễn Thị Thuỳ Linh<br>Hoàng Ngọc Quang<br>Phạm Ngọc Hương Quỳnh | TS<br>TS<br>PGS.TS<br>PGS.TS<br>TS<br>PGS.TS<br>TS<br>TS<br>Th.S<br>Th.S<br>TS | KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin<br>KTCT Mác – Lênin | ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT<br>ĐHKT |
-
 |  | PHI1002 | Chủ nghĩa xã hội Khoa học | 2 | Hà Thị Bắc<br>Phạm Quỳnh Chinh<br>Phạm Công Nhất<br>Phạm Hoàng Giang<br>Phan Thị Hoàng Mai<br>Nguyễn Thị Lan<br>Ngô Thị Phượng | TS<br>TS<br>PGS.TS<br>TS<br>ThS<br>TS<br>PGS.TS | Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học<br>Triết học | KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV |
-
 |  | HIS1001 | Lịch sử Đảng cộng sản Việt Nam | 2 | Nguyễn Thị Mai Hoa<br>Đỗ Thị Thanh Loan<br>Lê Quỳnh Nga<br>Phạm Thị Lương Diệu<br>Phạm Minh Thế<br>Đỗ Hoàng Ánh<br>Trương Bích Hạnh<br>Hoàng Thị Hồng Nga<br>Hồ Thành Tâm<br>Hồ Thị Liên Hương | PGS.TS<br>TS<br>TS<br>TS<br>TS<br>TS<br>TS<br>TS<br>TS<br>ThS | Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử | KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV |
-
 |  | POL1001 | Tư tưởng Hồ Chí Minh | 2 | Phạm Quốc Thành<br>Đỗ Thị Ngọc Anh<br>Nguyễn Thanh Tùng<br>Nguyễn Ngọc Diệp<br>Nguyễn Anh Cường<br>Nguyễn Duy Quỳnh<br>Nguyễn Thu Hồng<br>Trần Thị Quang Hoa<br>Phùng Chí Kiên<br>Nguyễn Thị Châu Loan<br>Nguyễn Thị Kim Hoa<br>Đặng Anh Dũng<br>Nguyễn Văn Thắng<br>Phạm Quỳnh Hương<br>Nguyễn Quỳnh Nga<br>Trần Thanh Việt | PGS.TS<br>TS<br>TS<br>ThS<br>PGS.TS<br>TS<br>TS<br>TS<br>TS<br>TS<br>ThS<br>ThS<br>ThS<br>ThS<br>ThS<br>TS |  | KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&N<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV<br>KHXH&NV |
-
 |  | THL1057 | Nhà nước và pháp luật đại cương | 2 | Hoàng Thị Kim Quế<br>Nguyễn Hoàng Anh<br>Nguyễn Minh Tuấn<br>Mai Văn Thắng<br>Phạm Thị Duyên Thảo<br>Lê Thị Phương Nga<br>Phan Thị Lan Hương<br>Nguyễn Thị Hoài Phương<br>Nguyễn Văn Quân | GS.TS<br>PGS.TS<br>PGS.TS<br>TS.<br>TS.<br>TS.<br>TS.<br>ThS.<br>TS. | Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL<br>Lịch sử NN và PL | Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật<br>Khoa Luật |
-
 |  | HUS1011 | Tin học cơ sở | 3 | Cao Văn Chung<br>Lê Khắc Tuấn<br>Trịnh Thúy Giang | TS<br>ThS<br>TS | Toán học tính toán<br>Khoa học máy tính<br>Tin học | Cty Việt Ves<br>ĐHKHTN<br>ĐHKHTN |
-
 |  |  | Ngoại ngữ B1 |  |  |  |  |  |
-
 |  | FLF1107 | Tiếng Anh B1 | 5 |  |  |  |  |
-
 |  | FLF1207 | Tiếng Nga B1 | 5 |  |  |  |  |
-
 |  | FLF1307 | Tiếng Pháp B1 | 5 |  |  |  |  |
-
 |  | FLF1407 | Tiếng Trung Quốc B1 | 5 |  |  |  |  |
-
 |  | FLF1507 | Tiếng Đức B1 | 5 |  |  |  |  |
-
 |  | FLF1607 | Tiếng Nhật Bản B1 | 5 |  |  |  |  |
-
 |  | FLF1707 | Tiếng Hàn Quốc B1 | 5 |  |  |  |  |
-
 |  |  | Giáo dục thể chất | 4 | Các giảng viên |  |  | TT Giáo dục Thể chất và Thể thao |
-
 |  |  | Giáo dục quốc phòng-an ninh | 8 | Các giảng viên |  |  | TT Giáo dục Quốc phòng và An ninh |
-
 |  | HUS1012 | Kỹ năng bổ trợ | 3 |  |  |  |  |
-
 |  | HUS1021 | Khoa học trái đất và sự sống | 3 | Ngô Văn Liêm<br>Đặng Kinh Bắc<br>Đỗ Trung Hiếu<br>Phạm Thị Phương Nga<br>Nguyễn Thị Thu Cúc<br>Hoàng Thị Thúy<br>Trần Văn Trường<br>Đặng Thị Ngọc<br>Phạm Viết Thành | TS<br>TS<br>TS<br>ThS<br>TS<br>TS<br>TS<br>TS<br>ThS | Địa lý<br>Địa lý<br>Địa lý<br>Địa lý<br>Địa lý<br>Địa lý<br>Địa lý<br>Địa lý<br>Địa lý | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | HUS1022 | Nhập môn Internet kết nối vạn vật | 2 | Nguyễn Tiến Cường<br>Nguyễn Cảnh Việt<br>Hà Thụy Long<br>Nguyễn Hồng Quang<br>Nguyễn Anh Tuấn<br>Giang Kiên Trung | TS<br>ThS<br>TS<br>TS<br>TS<br>TS | Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | HUS1023 | Nhập môn phân tích dữ liệu | 2 | Phạm Đình Tùng<br>Trịnh Quốc Anh<br>Hoàng Thị Phương Thảo<br>Trần Mạnh Cường<br>Tạ Công Sơn<br>Nguyễn Tiến Dũng<br>Lê Vĩ<br>Bùi Khánh Hằng<br>Nguyễn Bảo Ngọc | TS<br>TS<br>TS<br>TS<br>PGS<br>PGS<br>TS<br>ThS<br>ThS | Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | HUS1024 | Nhập môn Robotics | 3 | Phạm Văn Thành<br>Trần Vĩnh Thắng<br>Đỗ Quang Lộc<br>Nguyễn Ngọc Đỉnh<br>Lưu Mạnh Quỳnh<br>Nguyễn Hoàng Nam<br>Nguyễn Anh Đức<br>Trần Thế Vinh<br>Đặng Văn Sơn<br>Nguyễn Duy Thiện | TS<br>TS<br>TS<br>TS<br>TS<br>PGS. TS<br>TS<br>TS<br>TS<br>TS | Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý<br>Vật lý | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | HIS1056 | Cơ sở văn hóa Việt Nam | 3 | Trần Thị Lan<br>Nguyễn Ngọc Minh<br>Nguyễn Thị Hoài Phương<br>Đỗ Thị Hương Thảo<br>Đinh Đức Tiến<br>Nguyễn Bảo Trang<br>Nguyễn Văn Anh<br>Nguyễn Thị Bình<br>Hoàng Văn Diệp<br>Lâm Thị Mỹ Dung<br>Nguyễn Thị Mỹ Hạnh<br>Nguyễn Hữu Mạnh<br>Bùi Thị Bích Ngọc<br>Nguyễn Ngọc Phúc<br>Đặng Hồng Sơn | TS<br>TS<br>TS<br>TS<br>TS<br>ThS<br>TS<br>TS<br>ThS<br>GS.TS<br>TS<br>TS<br>ThS<br>ThS<br>PGS.TS | Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử<br>Lịch sử | KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV<br>KHXHN&NV |
-
 |  | MAT2505 | Lập trình cơ bản | 3 | Nguyễn Thị Minh Huyền<br>Lê Hồng Phương<br>Đỗ Thanh Hà<br>Cao Văn Chung<br>Nguyễn Thị Tâm | TS<br>PGS.TS<br>TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT2400 | Đại số tuyến tính | 5 | Đào Phương Bắc<br>Lê Quý Thường<br>Đỗ Việt Cường<br>Phạm Văn Tuấn | TS<br>TS<br>TS<br>TS | Đại số và Lí thuyết số<br>Đại số và Lí thuyết số<br>Đại số và Lí thuyết số<br>Đại số và Lí thuyết số | ĐH KHTN<br>ĐHKHTN<br>ĐH KHTN<br>ĐH KHTN |
-
 |  | MAT2501 | Giải tích 1 | 4 | Lê Huy Chuẩn<br>Phạm Trọng Tiến<br>Vũ Nhật Huy<br>Nguyễn Thạc Dũng<br>Ngô Quốc Anh<br>Nguyễn Hữu Dư<br>Phạm Chí Vĩnh<br>Trịnh Viết Được<br>Trần Thanh Tuấn<br>Nguyễn Thị Hoài<br>Lê Huy Tiễn<br>Đặng Anh Tuấn | TS<br>TS<br>PGS.TS<br>PGS.TS<br>PGS.TS<br>GS.TS<br>GS.TS<br>PGS.TS<br>PGS.TS<br>TS<br>TS<br>TS | Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT2502 | Giải tích 2 | 4 | Lê Huy Chuẩn<br>Phạm Trọng Tiến<br>Vũ Nhật Huy<br>Nguyễn Thạc Dũng<br>Ngô Quốc Anh<br>Nguyễn Hữu Dư<br>Phạm Chí Vĩnh<br>Trịnh Viết Được<br>Trần Thanh Tuấn<br>Nguyễn Thị Hoài<br>Lê Huy Tiễn<br>Đặng Anh Tuấn | TS<br>TS<br>PGS.TS<br>PGS.TS<br>PGS.TS<br>GS.TS<br>GS.TS<br>PGS.TS<br>PGS.TS<br>TS<br>TS<br>TS | Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT2503 | Giải tích 3 | 2 | Lê Huy Chuẩn<br>Phạm Trọng Tiến<br>Vũ Nhật Huy<br>Nguyễn Thạc Dũng<br>Ngô Quốc Anh<br>Nguyễn Hữu Dư<br>Phạm Chí Vĩnh<br>Trịnh Viết Được<br>Trần Thanh Tuấn<br>Nguyễn Thị Hoài<br>Lê Huy Tiễn<br>Đặng Anh Tuấn | TS<br>TS<br>PGS.TS<br>PGS.TS<br>PGS.TS<br>GS.TS<br>GS.TS<br>PGS.TS<br>PGS.TS<br>TS<br>TS<br>TS | Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích<br>Giải tích | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT2403 | Phương trình vi phân | 3 | Lê Huy Tiễn<br>Trịnh Viết Dược<br>Vũ Hoàng Linh | TS<br>TS<br>PGS.TSKH. | Giải tích<br>Giải tích<br>Toán học tính toán | ĐH KHTN<br>ĐHKHTN<br>ĐH KHTN |
-
 |  | MAT2323 | Xác suất – Thống kê | 4 | Trịnh Quốc Anh<br>Nguyễn Tiến Dũng<br>Tạ Công Sơn<br>Hoàng Thị Phương Thảo<br>Phạm Đình Tùng<br>Lê Vĩ<br>Trần Mạnh Cường | TS<br>PGS.TS<br>PGS.TS<br>TS<br>TS<br>TS<br>TS | Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN |
-
 |  | MAT2407 | Tối ưu hóa | 3 | Hoàng Nam Dũng<br>Nguyễn Thị Hoài<br>Ngô Thị Thương | TS<br>TS<br>ThS | Toán học tính toán<br>Toán học tính toán<br>Toán học tính toán | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN |
-
 |  | MAT1204 | Phương pháp nghiên cứu khoa học | 3 | Hoàng Anh Đức<br>Nguyễn Thị Tâm<br>Phạm Văn Thắng | TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính | 2 | Đỗ Thanh Hà<br>Nguyễn Thị Minh Huyền<br>Hoàng Quốc Hùng | TS<br>TS<br>Th.S | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3500 | Toán rời rạc | 4 | Nguyễn Hải Vinh<br>Phó Đức Tài<br>Phan Thị Hà Dương | TS<br>PGS.TS<br>PGS.TS | Tin học<br>Hình học Tôpô<br>Thuật toán | ĐH KHTN<br>ĐHKHTN<br>Viện Toán |
-
 |  | MAT3557 | Môi trường lập trình Linux | 2 | Trần Thị Hương<br>Hà Mỹ Linh | ThS.NCS<br>ThS.NCS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3550E | Nguyên lí hệ điều hành | 3 | Hoàng Quốc Hùng<br>Lê Hồng Phương<br>Lê Trọng Vĩnh<br>Bùi Vũ Anh | GV<br>TS<br>PGS.TS<br>TS | Tin học<br>Phòng TN KHDL<br>Tin học<br>Cơ sở toán cho tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>Viện ĐBCL |
-
 |  | MAT3507 | Cơ sở dữ liệu | 4 | Nguyễn Thị Bích Thuỷ<br>Vũ Tiến Dũng | TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT1202 | Lập trình hướng đối tượng | 3 | Quản Thái Hà | ThS | Tin học | ĐHKHTN |
-
 |  | MAT3514 | Cấu trúc dữ liệu và thuật toán | 4 | Lê Hồng Phương<br>Nguyễn Thị Hồng Minh<br>Nguyễn Thị Bích Thủy<br>Ngô Thế Quyền<br>Phạm Huy Thông<br>Vũ Đức Minh | PGS.TS<br>PGS.TS<br>TS<br>ThS.NCS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHQGHN<br>ĐH Phenika |
-
 |  | MAT3552E | Thiết kế và đánh giá thuật toán | 3 | Lê Trọng Vĩnh<br>Bùi Vũ Anh<br>Nguyễn Thị Hồng Minh<br>Lê Hồng Phương<br>Nguyễn Thị Tâm<br>Phạm Huy Thông | PGS.TS<br>TS<br>PGS.TS<br>PGS.TS<br>TS<br>TS | Tin học<br>Viện ĐBCL<br>CS Toán c.Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>Viện ĐBCL<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>Viện CNTT |
-
 |  | MAT3505 | Kiến trúc máy tính | 3 | Lê Quang Thảo | TS | Vật lí | ĐHKHTN |
-
 |  | MAT3373E | Nhập môn an toàn máy tính | 3 | Hoàng Quốc Hùng<br>Đinh Hữu Nghĩa | GV<br>ThS | Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3506 | Mạng máy tính | 3 | Hoàng Quốc Hùng<br>Đỗ Trung Tuấn<br>Lê Trọng Vĩnh | GV<br>PGS.TS<br>PGS.TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT1206E | Nhập môn Trí tuệ nhân tạo | 4 | Đỗ Trung Tuấn<br>Bùi Vũ Anh | PGS.TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>Viện ĐBCL |
-
 |  | MAT3374 | Thực tập thực tế phát triển phần mềm | 3 | Vũ Tiến Dũng<br>Nguyễn Thị Bích Thủy<br>Nguyễn Trọng Hiếu | TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT1207 | Công nghệ phần mềm | 3 | Quản Thái Hà | ThS | Tin học | ĐHKHTN |
-
 |  | MAT3541E | Nguyên lí của các ngôn ngữ lập trình | 3 | Nguyễn Thị Minh Huyền<br>Lê Hồng Phương<br>Nguyễn Thị Tâm | TS<br>PGS.TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3533 | Học máy | 3 | Lê Hồng Phương<br>Nguyễn Thị Minh Huyền<br>Cao Văn Chung | PGS.TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN |
-
 |  | MAT3519 | Ngôn ngữ lập trình thứ hai | 2 | Lê Hồng Phương<br>Hoàng Quốc Hùng<br>Nguyễn Thị Minh Huyền<br>Cao Văn Chung<br>Quản Thái Hà<br>Ngô Thế Quyền<br>Đỗ Thanh Hà<br>Nguyễn Thị Tâm | TS<br>GV<br>TS<br>TS<br>ThS<br>ThS. NCS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học<br>Tin học<br>Xác suất - Thống kê<br>Cơ sở toán cho tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3558 | Lập trình mobile | 2 | Bùi Vũ Anh<br>Ngô Thế Quyền<br>Đỗ Duy Đạo<br>Cao Văn Chung<br>Vũ Hải Đăng | TS<br>ThS<br>CN<br>TS<br>CN | Cơ sở toán cho tin học<br>Cơ sở toán cho tin học<br>Tin học<br>Tin học<br>Tin học | Viện ĐBCL<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT1208 | Xây dựng hệ thống nhúng | 2 | Lê Quang Thảo | TS | Vật lí | ĐHKHTN |
-
 |  | MAT3560 | Phát triển phần mềm trò chơi | 2 | Nguyễn Thị Bích Thủy<br>Lê Hoàng Sơn | TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3148 | Tính toán song song | 3 | Lê Trọng Vĩnh<br>Nguyễn Hải Vinh<br>Vũ Tiến Dũng | PGS.TS.<br>TS.<br>TS. | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3554E | Ngôn ngữ hình thức và ôtômat | 3 | Nguyễn Thị Minh Huyền<br>Nguyễn Thị Hồng Minh | TS<br>PGS.TS | Tin học<br>Cơ sở toán cho tin học | ĐH KHTN<br>ĐH KHTN |
-
 |  | MAT3562E | Thị giác máy tính | 3 | Đỗ Thanh Hà<br>Cao văn Chung | TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3561E | Xử lí ngôn ngữ tự nhiên và ứng dụng | 3 | Nguyễn Thị Minh Huyền<br>Ngô Thế Quyền | TS<br>ThS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3563 | Một số vấn đề chọn lọc về thị giác máy tính | 3 | Đỗ Thanh Hà<br>Nguyễn Thị Bích Thủy<br>Cao Văn Chung | TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐH KHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3534 | Khai phá dữ liệu | 3 | Lê Hồng Phương<br>Nguyễn Thị Minh Huyền<br>Nguyễn Hải Vinh | PGS.TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3542 | Phát triển ứng dụng web | 3 | Nguyễn Hải Vinh<br>Vũ Tiến Dũng | TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3539 | Mật mã và an toàn dữ liệu | 3 | Hoàng Quốc Hùng<br>Lê Minh Hà<br>Phó Đức Tài<br>Nguyễn Hải Vinh<br>Đỗ Việt Cường | GV<br>PGS. TS<br>PGS.TS<br>TS<br>TS | Tin học<br>Đại số và Lý thuyết số<br>Đại số và Lý thuyết số<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3452 | Phân tích thống kê nhiều chiều | 3 | Trịnh Quốc Anh<br>Phạm Đình Tùng<br>Hoàng Thị Phương Thảo<br>Trần Mạnh Cường | TS.<br>TS.<br>TS.<br>TS | Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3453 | Phương pháp chọn mẫu dữ liệu | 3 | Trịnh Quốc Anh<br>Phạm Đình Tùng<br>Hoàng Thị Phương Thảo<br>Trần Mạnh Cường | TS.<br>TS.<br>TS.<br>TS | Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê<br>Xác suất – Thống kê | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT2034 | Giải tích số | 4 | Nguyễn Trung Hiếu<br>Lê Huy Hoàng<br>Nguyễn Ngọc Phan<br>Nguyễn Thị Hoài | TS.<br>TS<br>TS<br>TS | Toán học tính toán<br>Toán học tính toán<br>Toán học tính toán<br>Toán học tính toán | ĐH KHTN<br>ĐH KHTN<br>ĐH KHTN<br>ĐHKHTN |
-
 |  | MAT3538 | Các hệ thống tri thức | 3 | Đỗ Trung Tuấn<br>Hoàng Quốc Hùng<br>Lê Trọng Vĩnh | PGS.TS.<br>GV<br>TS. | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3535 | Tìm kiếm thông tin | 3 | Nguyễn Thị Minh Huyền<br>Lê Hồng Phương | TS<br>TS | Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT4080 | Khóa luận tốt nghiệp | 7 |  |  |  |  |
-
 |  | MAT1203 | Phân tích và thiết kế hệ thống thông tin | 4 | Nguyễn Thị Bích Thủy<br>Lê Trọng Vĩnh<br>Vũ Tiến Dũng | TS<br>PGS.TS<br>GV | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
-
 |  | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo | 3 | Đỗ Trung Tuấn<br>Nguyễn Thị Bích Thủy<br>Nguyễn Hải Vinh | PGS.TS<br>TS<br>TS | Tin học<br>Tin học<br>Tin học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
 
 ## 5. Hướng dẫn thực hiện chương trình đào tạo
@@ -791,249 +507,141 @@ Mỗi giờ học tập được tính trong thời gian 50 phút
 Học kì I
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | PHI1006 | Triết học Mác – Lênin | 3 |  |
-
 |  | HUS1011 | Tin học cơ sở | 3 |  |
-
 |  | MAT2505 | Lập trình cơ bản | 3 | HUS1011 |
-
 |  | MAT2501 | Giải tích 1 | 4 |  |
-
 |  | MAT3557 | Môi trường lập trình Linux | 2 |  |
-
 |  | HUS1012 | Kỹ năng bổ trợ I | (2) |  |
-
 |  |  | Tổng | 15 |  |
 
 Học kì II
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | FLF1107 | Tiếng Anh B1 | 5 |  |
-
 |  | MAT2400 | Đại số tuyến tính | 5 |  |
-
 |  | MAT2502 | Giải tích 2 | 4 | MAT2501 |
-
 |  | MAT1202 | Lập trình hướng đối tượng | 3 | MAT2505 |
-
 |  | PEC1008 | Kinh tế chính trị Mác – Lênin | 2 | PHI1006 |
-
 |  |  | Tổng | 19 |  |
 
 Học kì III
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính | 2 | FLF1107 |
-
 |  | MAT2503 | Giải tích 3 | 2 | MAT2502 |
-
 |  | MAT3507 | Cơ sở dữ liệu | 4 | MAT2505 |
-
 |  | MAT3514 | Cấu trúc dữ liệu và thuật toán | 4 | MAT2505 |
-
 |  | MAT3500 | Toán rời rạc | 4 |  |
-
 |  |  | Tổng | 16 |  |
 
 Học kì IV
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | MAT2403 | Phương trình vi phân | 3 | MAT2400;<br>MAT2501 |
-
 |  | MAT2407 | Tối ưu hóa | 3 | MAT2301/<br>MAT2321/<br>MAT2400; MAT2303/<br>MAT2502 |
-
 |  | MAT3550E | Nguyên lý hệ điều hành | 3 | MAT2505 |
-
 |  | MAT2323 | Xác suất - Thống kê | 4 | MAT2502 |
-
 |  |  | Các học phần tự chọn |  |  |
-
 |  |  | Chọn 1 trong 3 học phần sau | 3/9 |  |
-
 |  | HUS1021 | Khoa học trái đất và sự sống | 3 |  |
-
 |  | HUS1024 | Nhập môn Robotics | 3 |  |
-
 |  | HIS1056 | Cơ sở văn hóa Việt Nam | 3 |  |
-
 |  |  | Chọn 1 trong 2 học phần sau | 2/4 |  |
-
 |  | HUS1023 | Nhập môn phân tích dữ liệu | 2 |  |
-
 |  | HUS1022 | Nhập môn Internet kết nối vạn vật | 2 |  |
-
 |  |  | Tổng | 18 |  |
 
 Học kì V
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | THL1057 | Nhà nước và pháp luật đại cương | 2 |  |
-
 |  | MAT3506 | Mạng máy tính | 3 | MAT2505 |
-
 |  | MAT3505 | Kiến trúc máy tính | 3 | MAT2505; MAT3557 |
-
 |  | MAT1206E | Nhập môn Trí tuệ nhân tạo | 3 | MAT3507; MAT1202 |
-
 |  | MAT3533 | Học máy | 3 | MAT2406;<br>MAT2323 |
-
 |  |  | Các học phần tự chọn |  |  |
-
 |  |  | Chọn 01 trong 04 học phần về kĩ năng phần mềm | 2/4 |  |
-
 |  | MAT3519 | Ngôn ngữ lập trình thứ 2 | 2 | MAT2505 |
-
 |  | MAT3558 | Lập trình mobile | 2 | MAT2505 |
-
 |  | MAT1208 | Xây dựng hệ thống nhúng | 2 | MAT1202; MAT3505 |
-
 |  | MAT3560 | Phát triển phần mềm trò chơi | 2 | MAT2505 |
-
 |  |  | Tổng | 16 |  |
 
 Học kì VI
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | PHI1002 | Chủ nghĩa xã hội khoa học | 2 | PHI1006 |
-
 |  | MATxxxx | Phương pháp nghiên cứu khoa học | 3 | MAT3507;<br>MAT3514 |
-
 |  | MAT3552E | Thiết kế và đánh giá thuật toán | 3 | MAT3514 |
-
 |  | MAT3374 | Thực tập thực tế phát triển phần mềm<br>(Thực tập hè) | 3 | MAT1202; MAT3507 |
-
 |  | MAT3541E | Nguyên lý các ngôn ngữ lập trình | 3 | MAT1202 |
-
 |  |  | Các học phần tự chọn |  |  |
-
 |  |  | Chọn 01 trong 10 học phần về Trí tuệ nhân tạo và phát triển phần mềm | 3/12 |  |
-
 |  | MAT3562E | Thị giác máy tính | 3 | MAT3533;<br>MAT2400 |
-
 |  | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng dụng | 3 | MAT3533 |
-
 |  | MAT3538 | Các hệ thống tri thức | 3 | MAT1206E; MAT3514 |
-
 |  | MAT3453 | Phương pháp chọn mẫu dữ liệu | 3 | MAT2323 |
-
 |  | MAT2034 | Giải tích số | 3 | MAT2502; MAT2403 |
-
 |  | MAT3535 | Tìm kiếm thông tin | 3 | MAT3514; MAT2323 |
-
 |  | MAT3148 | Tính toán song song | 3 | MAT3514 |
-
 |  | MAT3452 | Phân tích thống kê nhiều chiều | 3 | MAT2311/<br>MAT2406/<br>MAT2323 |
-
 |  | MAT3534 | Khai phá dữ liệu | 3 | MAT3507; MAT2323 |
-
 |  | MAT3554E | Ngôn ngữ hình thức và ôtômat | 3 | MAT2505; MAT3500 |
-
 |  |  | Chọn 01 trong 04 học phần về kĩ năng phần mềm | 2/4 |  |
-
 |  | MAT3519 | Ngôn ngữ lập trình thứ 2 | 2 | MAT2505 |
-
 |  | MAT3558 | Lập trình mobile | 2 | HUS1011 |
-
 |  | MAT1208 | Xây dựng hệ thống nhúng | 2 | MAT1202; MAT3505 |
-
 |  | MAT3560 | Phát triển phần mềm trò chơi | 2 | MAT2505 |
-
 |  |  | Tổng | 19 |  |
 
 Học kì VII
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Các học phần bắt buộc |  |  |
-
 |  | HIS1001 | Lịch sử Đảng Cộng sản Việt Nam | 2 |  |
-
 |  | POL1001 | Tư tưởng Hồ Chí Minh | 2 |  |
-
 |  | MAT3373E | Nhập môn an toàn máy tính | 3 | MAT2505 |
-
 |  | MAT1207 | Công nghệ phần mềm | 3 | MAT3374 |
-
 |  | HUS1012 | Kỹ năng bổ trợ II | (1) |  |
-
 |  |  | Các học phần tự chọn |  |  |
-
 |  |  | Chọn 03 trong các học phần về Trí tuệ nhân tạo và phát triển phần mềm | 9/36 |  |
-
 |  | MAT3148 | Tính toán song song | 3 | MAT3514 |
-
 |  | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng dụng | 3 | MAT3533 |
-
 |  | MAT3538 | Các hệ thống tri thức | 3 | MAT1206E; MAT3514 |
-
 |  | MAT3453 | Phương pháp chọn mẫu dữ liệu | 3 | MAT2323 |
-
 |  | MAT2034 | Giải tích số | 3 | MAT2502; MAT2403 |
-
 |  | MAT3535 | Tìm kiếm thông tin | 3 | MAT3514;<br>MAT2323 |
-
 |  | MAT3452 | Phân tích thống kê nhiều chiều | 3 | MAT2311/<br>MAT2406/<br>MAT2323 |
-
 |  | MAT3534 | Khai phá dữ liệu | 3 | MAT3507; MAT2323 |
-
 |  | MAT3554E | Ngôn ngữ hình thức và ôtômat | 3 | MAT2505; MAT3500 |
-
 |  | MAT3542 | Phát triển ứng dụng web | 3 | MAT3507;<br>MAT1202 |
-
 |  | MAT3539 | Mật mã và an toàn dữ liệu | 3 | MAT2301/<br>MAT2400;<br>MAT2316/<br>MAT2505/<br>MAT2318/<br>MAT2319 |
-
 |  | MAT3566 | Một số vấn đề chọn lọc về thị giác máy tính | 3 | MAT3562E |
-
 |  |  | Tổng | 19 |  |
 
 Học kì VIII
 
 | Số TT | Mã học phần | Học phần | Số TC | Học phần tiên quyết |
-
 | --- | --- | --- | --- | --- |
-
 |  |  | Khóa luận tốt nghiệp hoặc môn thay thế | 7 |  |
-
 |  | MAT4080 | Khóa luận tốt nghiệp | 7 |  |
-
 |  |  | Các học phần thay thế tốt nghiệp | 7 |  |
-
 |  | MAT1203 | Phân tích và thiết kế hệ thống thông tin | 4 | MAT3374; MAT3552E; MAT1207 |
-
 |  | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo | 3 | MAT1206E |
-
 |  |  | Tổng | 7 |  |
 
 ### 5.2. Tổ chức đào tạo
@@ -1135,155 +743,80 @@ Ngoài ra, do chương trình KHMT&TT định hướng Phát triển phần mề
 ### 6.2. Bảng so sánh chương trình đào tạo
 
 | STT | Chương trình đào tạo ngành Khoa học máy tính và thông tin | Chương trình đào tạo ngành Khoa học máy tính và thông tin | Chương trình đào tạo ngành Khoa học máy tính và thông tin | Chương trình đào tạo ngành Khoa học máy tính và thông tin, Trường Đại học Ohio State | Chương trình đào tạo ngành Khoa học máy tính và thông tin, Trường Đại học Ohio State | Chương trình đào tạo ngành Khoa học máy tính và thông tin, Trường Đại học Ohio State | Thuyết minh về những điểm giống và khác nhau của 2 chương trình đào tạo |
-
 | --- | --- | --- | --- | --- | --- | --- | --- |
-
 | STT | Mã học phần | Tên học phần | Số tín chỉ | Mã học phần | Tên học phần | Số tín chỉ | Thuyết minh về những điểm giống và khác nhau của 2 chương trình đào tạo |
-
 | I |  | Khối kiến thức chung<br>(Chưa tính Giáo dục thể chất, Giáo dục quốc phòng - an ninh) | 21 |  |  |  |  |
-
 |  | PHI1006 | Triết học Mác - Lênin | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | PEC1008 | Kinh tế chính trị Mác - Lênin | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | PHI1002 | Chủ nghĩa xã hội khoa học | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HIS1001 | Lịch sử Đảng Cộng sản Việt Nam | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | POL1001 | Tư tưởng Hồ Chí Minh | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | THL1057 | Nhà nước và pháp luật đại cương<br>General Law | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1011 | Tin học cơ sở<br>General Informatics | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | FLF1107 | Tiếng Anh B1 | 5 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  |  | Giáo dục thể chất<br>Physical Education | 4 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  |  | Giáo dục quốc phòng-an ninh<br>National Defence Education | 8 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1012 | Kỹ năng bổ trợ<br>Soft skills | 3 | Philos 1338 | Ethics in the professions: Introduction to Computing Ethics and Effective Presentation |  | > 80%<br>Doanh nghiệp tham gia vào quá trình giảng dạy |
-
 | II |  | Khối kiến thức chung theo lĩnh vực |  |  |  |  |  |
-
 |  |  | Học phần tự chọn | 5 |  |  |  |  |
-
 |  | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamental of Vietnamese Culture | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1021 | Khoa học trái đất và sự sống<br>Earth and Life Sciences | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1023 | Nhập môn phân tích dữ liệu<br>Introduction to Data Analísis | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1022 | Nhập môn Internet kết nối vạn vật<br>Internet of things | 2 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 |  | HUS1024 | Nhập môn Robotics<br>Introduction to Robotics | 3 |  |  |  | Theo yêu cầu chung của Đại học Quốc gia Hà Nội |
-
 | III. |  | Khối kiến thức chung theo khối ngành |  |  |  |  |  |
-
 |  | MAT2505 | Lập trình cơ bản<br>Introduction to Programming | 3 | CSE1223/CSE1222 | Introduction to Computer Programming in Java /Introduction to C/C++ |  | >90% |
-
 | IV. |  | Khối kiến thức theo nhóm ngành | 33 |  | Khối kiến thức theo nhóm ngành |  | >80%<br>Bổ sung phần đại số trừu tượng |
-
 |  | MAT2400 | Đại số tuyến tính<br>Linear Algebra | 5 | MATH2568 | Linear Algebra | 3 | >80%<br>Bổ sung phần đại số trừu tượng |
-
 |  | MAT2501 | Giải tích 1<br>Analísis 1 | 4 | MATH4547 | Introductory Analisis I | 3 | >80%<br>Giải tích 1, 2 học thêm một số loại chuỗi và hàm nhiều biến |
-
 |  | MAT2502 | Giải tích 2<br>Analísis 2 | 4 | MATH4548 | Introductory Analisis II | 3 | >80% |
-
 |  | MAT2502 | Giải tích 3<br>Analísis 3 | 2 | MATH4548 | Introductory Analisis II |  | Tách một phần nội dung của giải tích II sang giải tích 3 |
-
 |  | MAT2403 | Phương trình vi phân<br>Differential Equations | 3 | MATH2415 | Ordinary and Partial Differential Equations | 3 | >80%<br>Bớt phần phương trình sóng và nhiệt đã học trong môn Cơ-Nhiệt. Tăng bài tập. |
-
 |  | MAT2323 | Xác suất – Thống kê<br>Probability and Statistics | 4 | STAT3470 | Introduction to Probability and Statistics for Engineers |  | >80%<br>Bớt phần cơ sở xác suất đã học và thêm phần học sử dụng phần mềm R trong ứng dụng |
-
 |  | MAT2411E | Tối ưu hóa<br>Optimization | 3 | ISE5200 | Linear Optimization | 3 | >80%<br>Bổ sung một số mô hình ứng dụng. Giảm phần sử dụng phần mềm. |
-
 |  | MAT1204 | Phương pháp nghiên cứu khoa học | 3 | CSE4998 | Undergraduate Research in Computer. Science and Engineering |  | >80% |
-
 | V. |  | Khối kiến thức ngành | 70 |  |  |  |  |
-
 | V.1 |  | Bắt buộc | 47 |  |  |  |  |
-
 |  | MAT1205E | Tiếng Anh chuyên ngành khoa học máy tính<br>English for Special Purpose | 2 |  |  |  |  |
-
 |  | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | MATH2366 | Introduction to Discrete Mathematics | 2 | >90%<br>Tăng bài tập ứng dụng trong Khoa học máy tính |
-
 |  | MAT3557 | Môi trường lập trình Linux<br>Linux Programming Environment | 2 | CSE459.11 | The UNIX Programming Environment | 1 | >80%<br>Tăng nội dung thực hành |
-
 |  | MAT3550E | Nguyên lí hệ điều hành<br>Principles of Operating Systems | 3 | CSE660 | Introduction to Operating Systems | 3 | 100% |
-
 |  | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | CSE679 | Introduction to Database systems | 3 | >80%<br>Bỏ nội dung CSDL hướng đối tượng. Tăng thời lượng thực hành triển khai hệ thống. |
-
 |  | MAT1202 | Lập trình hướng đối tượng<br>Object–Oriented Programming | 3 | CSE4221 | Introduction to Object–Oriented Programming | 3 | >80%<br>Giảm bớt một phần nội dung thiết kế mẫu, trong môn Công nghệ phần mềm |
-
 |  | MAT3514 | Cấu trúc dữ liệu và thuật toán<br>Data Structures and Algorithms | 4 | CSE2331 | Foundations II: Data Structures and Algorithms | 3 | 100% |
-
 |  | MAT3552E | Thiết kế và đánh giá thuật toán<br>Algorithm Design and Analísis | 3 | CSE6331 | Algorithms | 3 | >80%<br>Giảm bớt phần hình học tính toán |
-
 |  | MAT3505 | Kiến trúc máy tính<br>Computer Architecture | 3 | CSE 3421 | Introduction to Computer Architecture | 3 | >80%<br>Khác môi trường lập trình |
-
 |  | MAT3373E | Nhập môn an toàn máy tính<br>Introduction to Computer Security | 3 | CSE 5473 | Network Security |  | >80% |
-
 |  | MAT3506 | Mạng máy tính<br>Computer Networks | 3 | CSE677 | Computer Networking and Internet Technologies | 3 | >80%<br>Giảm phần an ninh mạng |
-
 |  | MAT1206E | Nhập môn Trí tuệ nhân tạo<br>Introduction to Artificial Intelligence | 4 | CSE3521 | Survey of Artificial Intelligence I: Basic Techniques | 3 | >80%<br>Bổ sung thực hành Prolog |
-
 |  | MAT3374 | Thực tập thực tế phát triển phần mềm<br>Internship on software development | 3 | CSE4191 | Professional Practice in Industry |  | Tập trung thực tập vào xây dựng và phát triển phần mềm |
-
 |  | MAT1207 | Công nghệ phần mềm<br>Software Engineering | 3 | CSE757 | Software Engineering Techniques | 2 | >80%<br>Khác môi trường phần mềm trong thực hành |
-
 |  | MAT3541E | Nguyên lí các ngôn ngữ lập trình<br>Principles of Programming Languages | 3 | CSE3341 | Principles of Programming Languages |  | 100% |
-
 |  | MAT3533 | Học máy<br>Machine Learning | 3 | CSE5523 | Machine Learning and Statistical Pattern Recognition | 3 | >80%<br>Chủ đề nâng cao và bài tập ứng dụng khác nhau. |
-
 | V.2. |  | Các học phần tự chọn<br>Sinh viên lựa chọn các học phần thuộc cùng một định hướng trong 2 định hướng dưới đây | 16 |  | Tự chọn |  |  |
-
 | V.2.1 |  | Tự chọn về kĩ năng phần mềm | 4/8 |  | Các học phần chuyên sâu |  |  |
-
 |  | MAT3519 | Ngôn ngữ lập trình thứ hai<br>Second Programming Language | 2 |  |  |  | >80% |
-
 |  | MAT3558 | Lập trình mobile<br>Programming for mobile platforms | 2 | CS 5236 | Mobile Application Development | 3 | >70%<br>Tập trung vào ứng dụng cụ thể trên Android |
-
 |  | MAT1208 | Xây dựng hệ thống nhúng<br>Embedded System Workshop | 2 | CSE5239 | Intermediate Studies in Software Engineering | 2 | Chủ đề tự chọn |
-
 |  | MAT3560 | Phát triển phần mềm trò chơi<br>Introduction to game design and development | 2 | CSE 5541 | Computer Game and Animation Techniques | 2 | > 70%<br>Khác môi trường lập trình |
-
 | V.2.2 |  | Tự chọn về Trí tuệ nhân tạo và phát triển phần mềm | 12/45 |  |  |  |  |
-
 |  | MAT3148 | Tính toán song song<br>Parallel Computing | 3 | CSE5234 | Distributed Enterprise Computing |  |  |
-
 |  | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>Formal Language and Automata | 3 | CSE625 | Automata and Formal Languages | 2 | >80%<br>Bổ sung bài tập thực hành |
-
 |  | MAT3562E | Thị giác máy tính<br>Computer Vision | 3 | CSE5524 | Computer vision for Human-Computer Interaction | 3 | > 80%<br>Khác bài tập, môi trường thực hành |
-
 |  | MAT3561E | Xử lí ngôn ngữ tự nhiên và ứng dụng<br>Natural Language Processing and applications | 3 | CSE 5539 | Intermediate Studies in Artificial Intelligence | 2 | Chủ đề ứng dụng cụ thể trong Trí tuệ nhân tạo |
-
 |  | MAT3563 | Một số vấn đề chọn lọc về thị giác máy tính<br>Advanced Reading in Computer Vision | 3 | CSE5559 | Intermediate Studies in Computer Graphics | 2 | Chủ đề tự do |
-
 |  | MAT3534 | Khai phá dữ liệu<br>Data Mining | 3 | CS 246 | Mining Masive Data Sets |  | 100%<br>Môn mới, tham khảo Stanford |
-
 |  | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | CSE 3903 | Project: Design, Development, and Documentation of Web Applications |  | Ít tín chỉ hơn, thực hiện tại doanh nghiệp |
-
 |  | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | CSE5351 | Introduction to Cryptography | 3 | > 90%<br>Tăng nội dung an toàn thông tin |
-
 |  | MAT3452 | Phân tích thống kê nhiều chiều | 3 |  |  |  |  |
-
 |  | MAT3453 | Phương pháp chọn mẫu dữ liệu<br>Sampling Methods |  | STAT6510 | Survey Sampling Methods |  | 100% |
-
 |  | MAT2404 | Giải tích số<br>Numerical Analísis | 4 | CSE5361 | Numerical Methods | 3 | >90%<br>Tăng phần bài tập, giảm phần đại số máy tính |
-
 |  | MAT3538 | Các hệ thống tri thức<br>Knowledge-Based Systems | 3 | CSE 5941 | Capstone Design: Knowledge-Based Systems |  | > 80% |
-
 |  | MAT3535 | Tìm kiếm thông tin<br>Introduction to Information Retrieval | 3 | CS 276 | Information retrieval and Web Search | 4 | 100%<br>Môn mới, tham khảo Stanford |
-
 | V.3 |  | Khối kiến thức thực tập và tốt nghiệp | 7 |  |  |  |  |
-
 |  | MAT4080 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 7 |  |  |  |  |
-
 |  |  | Các môn thay thế khoá luận tốt nghiệp | 7 |  |  |  |  |
-
 |  | MAT1203 | Phân tích và thiết kế hệ thống thông tin<br>Analísis and Design of Information Systems | 4 | CSE772 | Capstone Design: Information Systems | 4 | Ít tín chỉ hơn. Thực hiện tại doanh nghiệp |
-
 |  | MAT3377 | Một số vấn đề chọn lọc về Trí tuệ nhân tạo<br>Selected topics on Artificial Intelligence | 3 | CSE5522 | Survey of Artificial Intelligence II: Advanced Techniques |  | >80% |
 
 ## 7. Tóm tắt nội dung học phần

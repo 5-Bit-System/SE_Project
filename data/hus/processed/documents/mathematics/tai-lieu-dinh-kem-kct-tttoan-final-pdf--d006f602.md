@@ -607,6 +607,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 | INM 1001<br>Tin học cơ sở<br>Introduction to computer science<br>and information technology | 4 hrs | MATH 318<br>Đại số tuyến tính I<br>Linear Algebra I | 5 hrs |
 |  |  | MATH 136 - 334<br>Giải tích I<br>Calculus I | 5 hrs |
 | Tổng / Total | 21 hrs | Tổng / Total | 21 hrs |
+
 | Năm thứ 2 / Year 2 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 3 / Semester 3 |  | Học kỳ 4 / Semester 4 |  |
@@ -621,6 +622,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 | KHXH-NV 1 | 2 hrs | PHI 1001<br>Những nguyên lý cơ bản của Chủ<br>nghĩa Mác Lênin (phần II)<br>Marxist-Leninist (part II) | 3 hrs |
 | --- | --- | --- | --- |
 | Tổng / Total | 18 hrs | Tổng / Total | 18 hrs |
+
 | Năm thứ 3 / Year 3 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 5 / Semester 5 |  | Học kỳ 6 / Semester 6 |  |
@@ -631,6 +633,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 | MATH 403 – 404<br>Tôpô đại cƣơng<br>Topology | 3 hrs | Môn chuyên ngành (bắt buộc)* IV<br>Advanced core course IV | 3 hrs |
 | KHXH-NV 2 | 2 hrs | HIS 1001<br>Đƣờng lối cách mạng của Đảng<br>CSVN<br>Policies of the Vietnam Communist<br>Ideology | 3 hrs |
 | Tổng / Total | 17 hrs | Tổng / Total | 18 hrs |
+
 | Năm thứ 4 / Year 4 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 7 / Semester 7 |  | Học kỳ 8 / Semester 8 |  |

@@ -626,9 +626,8 @@ Chương 6. Vấn đề dân tộc và tôn giáo trong thời kỳ quá độ l
 6.2. Tôn giáo trong thời kỳ quá độ lên chủ nghĩa xã hội
 6.2.1. Chủ nghĩa Mác - Lênin về tôn giáo
 6.2.2. Tôn giáo ở Việt Nam và chính sách tôn giáo của Đảng, Nhà nước ta hiện nay
-| 6.3. Quan hệ dân tộc và tôn giáo ở Việt Nam |
-| --- |
-| 6.3.1. Đặc điểm quan hệ dân tộc và tôn giáo ở Việt Nam |
+6.3. Quan hệ dân tộc và tôn giáo ở Việt Nam
+6.3.1. Đặc điểm quan hệ dân tộc và tôn giáo ở Việt Nam
 6.3.2. Định hướng giải quyết mối quan hệ dân tộc và tôn giáo ở Việt Nam hiện nay
 Chương 7.Vấn đề gia đình trong thời kỳ quá độ lên chủ nghĩa xã hội
 7.1. Khái niệm, vị trí và chức năng của gia đình
@@ -645,9 +644,8 @@ Chương 7.Vấn đề gia đình trong thời kỳ quá độ lên chủ nghĩa
 20
 
 <!-- Page 21 -->
-| 7.3.2. Phương hướng cơ bản xây dựng và phát triển gia đình Việt Nam trong thời kỳ |
-| --- |
-| quá độ lên chủ nghĩa xã hội. |
+7.3.2. Phương hướng cơ bản xây dựng và phát triển gia đình Việt Nam trong thời kỳ
+quá độ lên chủ nghĩa xã hội.
 21
 
 <!-- Page 22 -->
@@ -1110,230 +1108,223 @@ Lịch sử Đảng Cộng sản Việt Nam đã làm nổi bật những truy�
 | KHÁI NIỆM TƯ TƯỞNG HỒ CHÍ MINH |  |
 KHÁI NIỆM TƯ TƯỞNG HỒ CHÍ MINH
 PHƯƠNG PHÁP NGHIÊN CỨU
-| 1.1.1. Cơ sở phương pháp luận |
-| --- |
-| 1.1.1.1. Thống nhất nguyên tắc tính đảng và tính khoa học |
+1.1.1. Cơ sở phương pháp luận
+1.1.1.1. Thống nhất nguyên tắc tính đảng và tính khoa học
 34
 
 <!-- Page 35 -->
-| 1.1.1.2. Thống nhất giữa lý luận và thực tiễn |
-| --- |
-| 1.1.1.3. Quan điểm lịch sử - cụ thể |
-| 1.1.1.4. Quan điểm toàn diện và hệ thống |
-| 1.1.1.5. Quan điểm kế thừa và phát triển |
-| 1.1.2. Một số phương pháp cụ thể |
-| Ý NGHĨA CỦA VIỆC HỌC TẬP MÔN TƯ TƯỞNG HỒ CHÍ MINH |
-| 1.1.3. Góp phần nâng cao năng lực tư duy lý luận |
-| 1.1.4. Giáo dục và thực hành đạo đức cách mạng, củng cố niềm tin khoa học gắn liền |
-| với trau dồi tình cảm cách mạng, bồi dưỡng lòng yêu nước |
-| 1.1.5. Xây dựng, rèn luyện phương pháp và phong cách công tác |
-| CHƯƠNG 2 : CƠ SỞ, QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN TƯ TƯỞNG |
-| HỒ CHÍ MINH CƠ SỞ HÌNH THÀNH TƯ TƯỞNG HỒ CHÍ MINH |
-| 2.1.1. Cơ sở thực tiễn |
-| 2.1.1.1. Thực tiễn về thế giới cuối thế kỷ XIX đầu thế kỷ XX |
-| 2.1.1.2. Thực tiễn Việt Nam cuối thế kỷ XIX đầu thế kỷ XX |
-| 2.1.2. Cơ sở lý luận |
-| 2.1.2.1. Giá trị truyền thống tốt đẹp của dân tộc Việt Nam |
-| 2.1.2.2. Tinh hoa văn hóa nhân loại |
-| 2.1.2.3. Chủ nghĩa Mác – Lênin |
-| 2.1.3. Nhân tố chủ quan Hồ Chí Minh |
-| 2.1.3.1. Phẩm chất Hồ Chí Minh |
-| 2.1.3.2. Tài năng hoạt độg thực tiễn Hồ Chí Minh |
-| QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN TƯ TƯỞNG HỒ CHÍ MINH |
-| 2.1.4. Thời kỳ trước năm 1911: Hình thành tư tưởng yêu nước và tìm phương hướng |
-| cứu nước |
-| 2.1.5. Thời kỳ 1911 - 1920: Hình thành phương hướng cứu nước, giải phóng dân tộc |
-| Việt Nam theo con đường Cách mạng vô sản |
-| 2.1.6. Thời kỳ 1920 - 1930: Hình thành những nội dung cơ bản tư tưởng về cách |
-| mạng Việt Nam |
-| 2.1.7. Thời kỳ 1930 - 1941: Vượt qua thử thách, kiên định giữ vững đường lối, |
-| phương pháp cách mạng Việt Nam đúng đắn, sáng tạo |
-| 2.1.8. Thời kỳ 1941 - 1969: Tư tưởng Hồ Chí Minh tiếp tục hoàn thiện, phát triển, soi |
-| đường cho sự nghiệp cách mạng của Đảng và nhân dân ta |
-| CHƯƠNG 3 : TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC VÀ CHỦ |
-| NGHĨA XÃ HỘI |
+1.1.1.2. Thống nhất giữa lý luận và thực tiễn
+1.1.1.3. Quan điểm lịch sử - cụ thể
+1.1.1.4. Quan điểm toàn diện và hệ thống
+1.1.1.5. Quan điểm kế thừa và phát triển
+1.1.2. Một số phương pháp cụ thể
+Ý NGHĨA CỦA VIỆC HỌC TẬP MÔN TƯ TƯỞNG HỒ CHÍ MINH
+1.1.3. Góp phần nâng cao năng lực tư duy lý luận
+1.1.4. Giáo dục và thực hành đạo đức cách mạng, củng cố niềm tin khoa học gắn liền
+với trau dồi tình cảm cách mạng, bồi dưỡng lòng yêu nước
+1.1.5. Xây dựng, rèn luyện phương pháp và phong cách công tác
+CHƯƠNG 2 : CƠ SỞ, QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN TƯ TƯỞNG
+HỒ CHÍ MINH CƠ SỞ HÌNH THÀNH TƯ TƯỞNG HỒ CHÍ MINH
+2.1.1. Cơ sở thực tiễn
+2.1.1.1. Thực tiễn về thế giới cuối thế kỷ XIX đầu thế kỷ XX
+2.1.1.2. Thực tiễn Việt Nam cuối thế kỷ XIX đầu thế kỷ XX
+2.1.2. Cơ sở lý luận
+2.1.2.1. Giá trị truyền thống tốt đẹp của dân tộc Việt Nam
+2.1.2.2. Tinh hoa văn hóa nhân loại
+2.1.2.3. Chủ nghĩa Mác – Lênin
+2.1.3. Nhân tố chủ quan Hồ Chí Minh
+2.1.3.1. Phẩm chất Hồ Chí Minh
+2.1.3.2. Tài năng hoạt độg thực tiễn Hồ Chí Minh
+QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN TƯ TƯỞNG HỒ CHÍ MINH
+2.1.4. Thời kỳ trước năm 1911: Hình thành tư tưởng yêu nước và tìm phương hướng
+cứu nước
+2.1.5. Thời kỳ 1911 - 1920: Hình thành phương hướng cứu nước, giải phóng dân tộc
+Việt Nam theo con đường Cách mạng vô sản
+2.1.6. Thời kỳ 1920 - 1930: Hình thành những nội dung cơ bản tư tưởng về cách
+mạng Việt Nam
+2.1.7. Thời kỳ 1930 - 1941: Vượt qua thử thách, kiên định giữ vững đường lối,
+phương pháp cách mạng Việt Nam đúng đắn, sáng tạo
+2.1.8. Thời kỳ 1941 - 1969: Tư tưởng Hồ Chí Minh tiếp tục hoàn thiện, phát triển, soi
+đường cho sự nghiệp cách mạng của Đảng và nhân dân ta
+CHƯƠNG 3 : TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC VÀ CHỦ
+NGHĨA XÃ HỘI
 35
 
 <!-- Page 36 -->
-| TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC |
-| --- |
-| 3.1.1. Quan điểm Hồ Chí Minh về độc lập dân tộc |
-| 3.1.1.1. Độc lập, tự do là quyền thiêng liêng, bất khả xâm phạm của tất cả các |
-| dân tộc |
-| 3.1.1.2. Độc lập dân tộc phải gắn liền tự do, cơm no, áo ấm và hạnh phúc của |
-| nhân dân |
-| 3.1.1.3. Độc lập dân tộc phải là nền độc lập thật sự, hoàn toàn và triệt để |
-| 3.1.1.4. Độc lập dân tộc gắn liền với thống nhất và toàn vẹn lãnh thổ |
-| 3.1.2. Tư tưởng Hồ Chí Minh về con đường đấu tranh giành độc lập dân tộc |
-| 3.1.2.1. Trước hết, cách mạng giải phóng dân tộc muốn thắng lợi phải đi theo |
-| con đường cách mạng vô sản |
-| 3.1.2.2. Cách mạng giải phóng dân tộc muốn thắng lợi phải do Đảng cộng sản |
-| lãnh đạo |
-| 3.1.2.3. Cách mạng giải phóng dân tộc phải dựa trên lực lượng đại đoàn kết toàn |
-| dân, lấy liên minh công-nông làm nền tảng |
-| 3.1.2.4. Cách mạng giải phóng dân tộc phải cần chủ động sáng tạo, có khả năng |
-| giành thắng lợi trước cách mạng vô sản ở chính quốc |
-| 3.1.2.5. Cách mạng giải phóng dân tộc phải được tiến hành bằng phương pháp |
-| bạo lực cách mạng |
-| TƯ TƯỞNG HỒ CHÍ MINH VỀ CHỦ NGHĨA XÃ HỘI VÀ XÂY DỰNG CHỦ |
-| NGHĨA XÃ HỘI Ở VIỆT NAM |
-| 3.1.3. Tư tưởng Hồ Chí Minh về chủ nghĩa xã hội |
-| 3.1.3.1. Quan niệm Hồ Chí Minh về chủ nghĩa xã hội |
-| 3.1.3.2. Tiến lên chủ nghĩa xã hội là một tất yếu khách quan |
-| 3.1.3.3. Một số đặc trưng cơ bản của chủ nghĩa xã hội |
-| 3.1.4. Tư tưởng Hồ Chí Minh xây dựng chủ nghĩa xã hội ở Việt Nam |
-| 3.1.4.1. Mục tiêu của chủ nghĩa xã hội ở Việt Nam |
-| 3.1.4.2. Động lực của chủ nghĩa xã hội ở Việt Nam |
-| 3.1.5. Tư tưởng Hồ Chí Minh về thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam |
-| 3.1.5.1. Tính chất, đặc điểm và nhiệm vụ của thời kỳ quá độ |
-| 3.1.5.2. Một số nguyên tắc xây dựng chủ nghĩa xã hội trong thời kỳ quá độ |
-| TƯ TƯỞNG HỒ CHÍ MINH VỀ MỐI QUAN HỆ GIỮA ĐỘC LẬP DÂN TỘC |
-| VÀ CHỦ NGHĨA XÃ HỘI |
-| 3.1.6. Độc lập dân tộc là cơ sở, tiền đề để tiến lên chủ nghĩa xã hội |
-| 3.1.7. Chủ nghĩa xã hội là điều kiện để đảm bảo nền độc lập dân tộc vững chắc |
+TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC
+3.1.1. Quan điểm Hồ Chí Minh về độc lập dân tộc
+3.1.1.1. Độc lập, tự do là quyền thiêng liêng, bất khả xâm phạm của tất cả các
+dân tộc
+3.1.1.2. Độc lập dân tộc phải gắn liền tự do, cơm no, áo ấm và hạnh phúc của
+nhân dân
+3.1.1.3. Độc lập dân tộc phải là nền độc lập thật sự, hoàn toàn và triệt để
+3.1.1.4. Độc lập dân tộc gắn liền với thống nhất và toàn vẹn lãnh thổ
+3.1.2. Tư tưởng Hồ Chí Minh về con đường đấu tranh giành độc lập dân tộc
+3.1.2.1. Trước hết, cách mạng giải phóng dân tộc muốn thắng lợi phải đi theo
+con đường cách mạng vô sản
+3.1.2.2. Cách mạng giải phóng dân tộc muốn thắng lợi phải do Đảng cộng sản
+lãnh đạo
+3.1.2.3. Cách mạng giải phóng dân tộc phải dựa trên lực lượng đại đoàn kết toàn
+dân, lấy liên minh công-nông làm nền tảng
+3.1.2.4. Cách mạng giải phóng dân tộc phải cần chủ động sáng tạo, có khả năng
+giành thắng lợi trước cách mạng vô sản ở chính quốc
+3.1.2.5. Cách mạng giải phóng dân tộc phải được tiến hành bằng phương pháp
+bạo lực cách mạng
+TƯ TƯỞNG HỒ CHÍ MINH VỀ CHỦ NGHĨA XÃ HỘI VÀ XÂY DỰNG CHỦ
+NGHĨA XÃ HỘI Ở VIỆT NAM
+3.1.3. Tư tưởng Hồ Chí Minh về chủ nghĩa xã hội
+3.1.3.1. Quan niệm Hồ Chí Minh về chủ nghĩa xã hội
+3.1.3.2. Tiến lên chủ nghĩa xã hội là một tất yếu khách quan
+3.1.3.3. Một số đặc trưng cơ bản của chủ nghĩa xã hội
+3.1.4. Tư tưởng Hồ Chí Minh xây dựng chủ nghĩa xã hội ở Việt Nam
+3.1.4.1. Mục tiêu của chủ nghĩa xã hội ở Việt Nam
+3.1.4.2. Động lực của chủ nghĩa xã hội ở Việt Nam
+3.1.5. Tư tưởng Hồ Chí Minh về thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam
+3.1.5.1. Tính chất, đặc điểm và nhiệm vụ của thời kỳ quá độ
+3.1.5.2. Một số nguyên tắc xây dựng chủ nghĩa xã hội trong thời kỳ quá độ
+TƯ TƯỞNG HỒ CHÍ MINH VỀ MỐI QUAN HỆ GIỮA ĐỘC LẬP DÂN TỘC
+VÀ CHỦ NGHĨA XÃ HỘI
+3.1.6. Độc lập dân tộc là cơ sở, tiền đề để tiến lên chủ nghĩa xã hội
+3.1.7. Chủ nghĩa xã hội là điều kiện để đảm bảo nền độc lập dân tộc vững chắc
 36
 
 <!-- Page 37 -->
-| VẬN DỤNG TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC GẮN LIỀN |
-| --- |
-| VỚI CHỦ NGHĨA XÃ HỘI TRONG SỰ NGHIỆP CÁCH MẠNG VIỆT NAM |
-| GIAI ĐOẠN HIỆN NAY |
-| 3.1.8. Kiên định mục tiêu và con đường cách mạng mà Hồ Chí Minh đã xác định |
-| 3.1.9. Phát huy sức mạnh dân chủ xã hội chủ nghĩa |
-| 3.1.10. Củng cố, kiện toàn, phát huy sức mạnh và hiệu quả hoạt động của hệ thống |
-| chính trị |
-| 3.1.11. Đấu tranh chống những biểu hiện suy thoái về tư tưởng chính trị, suy thoái về |
-| đạo đức, lối sống và “tự diễn biến”, “tự chuyển hóa” trong nội bộ |
-| CHƯƠNG 4 : TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẢNG CỘNG SẢN VÀ NHÀ |
-| NƯỚC VIỆT NAM |
-| TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẢNG CỘNG SẢN VIỆT NAM |
-| 4.1.1. Tính tất yếu và vai trò lãnh đạo của Đảng Cộng sản Việt Nam |
-| 4.1.2. Đảng là đạo đức, là văn minh |
-| 4.1.3. Các nguyên tắc xây dựng Đảng |
-| 4.1.3.1. Đảng lấy chủ nghĩa Mác – Lênin làm nền tảng tư tưởng và kim chỉ nam |
-| cho hành động |
-| 4.1.3.2. Tập trung dân chủ |
-| 4.1.3.3. Tự phê bình và phê bình |
-| 4.1.3.4. Kỷ luận nghiêm minh, tự giác |
-| 4.1.3.5. Đảng phải thường xuyên tự chỉnh đốn |
-| 4.1.3.6. Đoàn kết, thống nhất trong Đảng |
-| 4.1.3.7. Đảng phải liên hệ mật thiết với nhân dân |
-| 4.1.3.8. Đoàn kết quốc tế |
-| 4.1.4. Xây dựng đội ngũ cán bộ, đảng viên |
-| TƯ TƯỞNG HỒ CHÍ MINH VỀ NHÀ NƯỚC VIỆT NAM |
-| 4.1.5. Nhà nước dân chủ |
-| 4.1.5.1. Bản chất giai cấp của nhà nước |
-| 4.1.5.2. Nhà nước của dân, do dân, vì dân |
-| 4.1.6. Nhà nước pháp quyền |
-| 4.1.6.1. Nhà nước hợp hiến, hợp pháp |
-| 4.1.6.2. Nhà nước thượng tôn pháp luật |
-| 4.1.6.3. Nhà nước pháp quyền nhân nghĩa |
-| 4.1.7. Nhà nước trong sạch, vững mạnh |
-| 4.1.7.1. Kiểm soát quyền lực nhà nước |
+VẬN DỤNG TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC GẮN LIỀN
+VỚI CHỦ NGHĨA XÃ HỘI TRONG SỰ NGHIỆP CÁCH MẠNG VIỆT NAM
+GIAI ĐOẠN HIỆN NAY
+3.1.8. Kiên định mục tiêu và con đường cách mạng mà Hồ Chí Minh đã xác định
+3.1.9. Phát huy sức mạnh dân chủ xã hội chủ nghĩa
+3.1.10. Củng cố, kiện toàn, phát huy sức mạnh và hiệu quả hoạt động của hệ thống
+chính trị
+3.1.11. Đấu tranh chống những biểu hiện suy thoái về tư tưởng chính trị, suy thoái về
+đạo đức, lối sống và “tự diễn biến”, “tự chuyển hóa” trong nội bộ
+CHƯƠNG 4 : TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẢNG CỘNG SẢN VÀ NHÀ
+NƯỚC VIỆT NAM
+TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẢNG CỘNG SẢN VIỆT NAM
+4.1.1. Tính tất yếu và vai trò lãnh đạo của Đảng Cộng sản Việt Nam
+4.1.2. Đảng là đạo đức, là văn minh
+4.1.3. Các nguyên tắc xây dựng Đảng
+4.1.3.1. Đảng lấy chủ nghĩa Mác – Lênin làm nền tảng tư tưởng và kim chỉ nam
+cho hành động
+4.1.3.2. Tập trung dân chủ
+4.1.3.3. Tự phê bình và phê bình
+4.1.3.4. Kỷ luận nghiêm minh, tự giác
+4.1.3.5. Đảng phải thường xuyên tự chỉnh đốn
+4.1.3.6. Đoàn kết, thống nhất trong Đảng
+4.1.3.7. Đảng phải liên hệ mật thiết với nhân dân
+4.1.3.8. Đoàn kết quốc tế
+4.1.4. Xây dựng đội ngũ cán bộ, đảng viên
+TƯ TƯỞNG HỒ CHÍ MINH VỀ NHÀ NƯỚC VIỆT NAM
+4.1.5. Nhà nước dân chủ
+4.1.5.1. Bản chất giai cấp của nhà nước
+4.1.5.2. Nhà nước của dân, do dân, vì dân
+4.1.6. Nhà nước pháp quyền
+4.1.6.1. Nhà nước hợp hiến, hợp pháp
+4.1.6.2. Nhà nước thượng tôn pháp luật
+4.1.6.3. Nhà nước pháp quyền nhân nghĩa
+4.1.7. Nhà nước trong sạch, vững mạnh
+4.1.7.1. Kiểm soát quyền lực nhà nước
 37
 
 <!-- Page 38 -->
-| 4.1.7.2. Phòng chống tiêu cực trong Nhà nước |
-| --- |
-| VẬN DỤNG TƯ TƯỞNG HỒ CHÍ MINH VÀO CÔNG TÁC XÂY DỰNG |
-| ĐẢNG VÀ XÂY DỰNG NHÀ NƯỚC |
-| 4.1.8. Xây dựng Đảng |
-| 4.1.9. Xây dựng Nhà nước |
-| CHƯƠNG 5 : TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TOÀN |
-| DÂN TỘC VÀ ĐOÀN KẾT QUỐC TẾ |
-| MỤC TIÊU |
-| - Về kiến thức: Trang bị cho người học những quan điểm cơ bản của tư tưởng Hồ |
-| Chính Minh về đại đoàn kết toàn dân tộc, kết hợp sức mạnh dân tộc với sức mạnh thời |
-| đại và sự vận dụng của Đảng Cộng sản Việt Nam vào sự nghiệp đổi mới đất nước; |
-| - Về kỹ năng: Góp phần làm cho người học rèn luyện kỹ năng vận dụng tư tưởng |
-| Hồ Chính Minh về đại đoàn kết dân tộc và đoàn kết quốc tế vào trong cuộc sống giai |
-| đoạn hiện nay; |
-| - Về tư tưởng: Củng cố niềm tin của người học vào khối đại đoàn kết toàn dân tộc |
-| và sự kết hợp sức mạn dân tộc Việt Nam với sức mạnh thời đại trong sự nghiệp đổi |
-| mới theo tư tưởng Hồ Chính Minh. |
-| 5.1. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC |
-| 5.1.1. Vai trò của đại đoàn kết toàn dân tộc |
-| 5.1.1.1. Đại đoàn kết toàn dân tộc là vấn đề có ý nghĩa chiến lược, quyết định |
-| thành công của cách mạng |
-| 5.1.1.2. Đại đoàn kết toàn dân tộc là mục tiêu, nhiệm vụ hàng đầu của Đảng, là |
-| nhu cầu khách quan của nhân dân |
-| 5.1.2. Lực lượng đại đoàn kết toàn dân tộc |
-| 5.1.2.1. Lực lượng toàn dân |
-| 5.1.2.2. Điều kiện thực hiện khối đại đoàn kết toàn dân tộc |
-| 5.1.2.3. Nền tảng của khối đại đoàn kết toàn dt |
-| 5.1.3. Hình thức tổ chức của khối đại đoàn kết toàn dân tộc |
-| 5.1.4. Nguyên tắc, phương pháp đại đoàn kết toàn dân tộc |
-| 5.1.4.1. Nguyên tắc đại đoàn kết toàn dân tộc |
-| 5.1.4.2. Phương pháp đại đoàn kết toàn dân tộc |
-| 5.2. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐOÀN KẾT QUỐC TẾ |
-| 5.2.1. Sự cần thiết phải đoàn kết quốc tế |
-| 5.2.1.1. Thực hiện đoàn kết quốc tế nhằm kêt hợp sức mạnh dân tộc với sức |
-| mạnh thời đại, tạo sức mạnh tổng hợp cho cách mạng |
+4.1.7.2. Phòng chống tiêu cực trong Nhà nước
+VẬN DỤNG TƯ TƯỞNG HỒ CHÍ MINH VÀO CÔNG TÁC XÂY DỰNG
+ĐẢNG VÀ XÂY DỰNG NHÀ NƯỚC
+4.1.8. Xây dựng Đảng
+4.1.9. Xây dựng Nhà nước
+CHƯƠNG 5 : TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TOÀN
+DÂN TỘC VÀ ĐOÀN KẾT QUỐC TẾ
+MỤC TIÊU
+- Về kiến thức: Trang bị cho người học những quan điểm cơ bản của tư tưởng Hồ
+Chính Minh về đại đoàn kết toàn dân tộc, kết hợp sức mạnh dân tộc với sức mạnh thời
+đại và sự vận dụng của Đảng Cộng sản Việt Nam vào sự nghiệp đổi mới đất nước;
+- Về kỹ năng: Góp phần làm cho người học rèn luyện kỹ năng vận dụng tư tưởng
+Hồ Chính Minh về đại đoàn kết dân tộc và đoàn kết quốc tế vào trong cuộc sống giai
+đoạn hiện nay;
+- Về tư tưởng: Củng cố niềm tin của người học vào khối đại đoàn kết toàn dân tộc
+và sự kết hợp sức mạn dân tộc Việt Nam với sức mạnh thời đại trong sự nghiệp đổi
+mới theo tư tưởng Hồ Chính Minh.
+5.1. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC
+5.1.1. Vai trò của đại đoàn kết toàn dân tộc
+5.1.1.1. Đại đoàn kết toàn dân tộc là vấn đề có ý nghĩa chiến lược, quyết định
+thành công của cách mạng
+5.1.1.2. Đại đoàn kết toàn dân tộc là mục tiêu, nhiệm vụ hàng đầu của Đảng, là
+nhu cầu khách quan của nhân dân
+5.1.2. Lực lượng đại đoàn kết toàn dân tộc
+5.1.2.1. Lực lượng toàn dân
+5.1.2.2. Điều kiện thực hiện khối đại đoàn kết toàn dân tộc
+5.1.2.3. Nền tảng của khối đại đoàn kết toàn dt
+5.1.3. Hình thức tổ chức của khối đại đoàn kết toàn dân tộc
+5.1.4. Nguyên tắc, phương pháp đại đoàn kết toàn dân tộc
+5.1.4.1. Nguyên tắc đại đoàn kết toàn dân tộc
+5.1.4.2. Phương pháp đại đoàn kết toàn dân tộc
+5.2. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐOÀN KẾT QUỐC TẾ
+5.2.1. Sự cần thiết phải đoàn kết quốc tế
+5.2.1.1. Thực hiện đoàn kết quốc tế nhằm kêt hợp sức mạnh dân tộc với sức
+mạnh thời đại, tạo sức mạnh tổng hợp cho cách mạng
 38
 
 <!-- Page 39 -->
-| 5.2.1.2. Thực hiện đoàn kết quốc tế nhằm góp phần cùng nhân dân tôn giáo |
-| --- |
-| thực hiện thắng lợi các mục tiêu cách mạng của thời đại |
-| 5.2.2. Lực lượng đoàn kết quốc tế và hình thức tổ chức |
-| 5.2.2.1. Các lực lượng cần đoàn kết |
-| 5.2.2.2. Hình thức tổ chức |
-| 5.2.3. Nguyên tắc đoàn kết quốc tế |
-| 5.2.3.1. Đoàn kết trên cơ sở thống nhất mục tiêu và lợi ích: có lý, có tình |
-| 5.2.3.2. Đoàn kết trên cơ sở độc lập, tự chủ, tự cường |
-| 5.3. VẬN DỤNG TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TRONG |
-| GIAI ĐOẠN HIỆN NAY |
-| 5.3.1. Quán triệt tư TTHCM về đoàn kết trong hoạch định chủ trương, đường |
-| lối của Đảng |
-| 5.3.2. Xây dựng khối đại đoàn kết toàn dân tộc trên nền tảng liên minh công – |
-| nông – trí |
-| 5.3.3. Đại đoàn kết toàn dân tộc phải gắn với đoàn kết quốc tế |
-| CHƯƠNG 6 : TƯ TƯỞNG HỒ CHÍNH MINH VỀ VĂN HÓA, ĐẠO ĐỨC, CON |
-| NGƯỜI |
-| MỤC TIÊU |
-| - Về kiến thức: Cung cấp cho người học kiến thức cơ bản của tư tưởng Hồ |
-| Chính Minh về văn hóa, đạo đức, con người. Trên cơ sở đó, người học biết vận dụng |
-| vào thực tiễn, thể hiện trách nhiệm xây dựng văn hóa, đạo đức, con người Việt Nam |
-| hiện nay theo tư tưởng Hồ Chính Minh; |
-| - Về kỹ năng: Góp phần giúp cho người học có phương pháp tư duy mới trong |
-| học tập, nghiên cứu; tự mình biết đào sâu lý luận gắn với thực tiễn với tinh thần độc |
-| lập, sáng tạo; |
-| - Về tư tưởng: trên cơ sở nhận thức khoa học, người học có niềm tin về giá trị tư |
-| tưởng Hồ Chính Minh mãi mãi soi đường cho sự nghiệp cách mạng của nhân dân ta |
-| giành thắng lợi; đồng thời chống lại các quan điểm sai trái, luận điệu thù địch nhằm |
-| phủ nhận, xóa bỏ tư tưởng Hồ Chính Minh nói chung, tư tưởng của Người về văn hóa, |
-| đạo đức, con người nói riêng. |
-| 6.1. TƯ TƯỞNG HỒ CHÍNH MINH VỀ VĂN HÓA |
-| 6.1.1. Một số nhận thức chung về văn hóa và quan hệ giữa văn hóa với các linh vực |
-| khác |
-| 6.1.2. Quan điểm của Hồ Chính Minh về quan hệ giữa văn hóa với các lĩnh vực khác |
-| 6.1.3. Quan điểm của Hồ Chính Minh về vai trò của văn hóa |
+5.2.1.2. Thực hiện đoàn kết quốc tế nhằm góp phần cùng nhân dân tôn giáo
+thực hiện thắng lợi các mục tiêu cách mạng của thời đại
+5.2.2. Lực lượng đoàn kết quốc tế và hình thức tổ chức
+5.2.2.1. Các lực lượng cần đoàn kết
+5.2.2.2. Hình thức tổ chức
+5.2.3. Nguyên tắc đoàn kết quốc tế
+5.2.3.1. Đoàn kết trên cơ sở thống nhất mục tiêu và lợi ích: có lý, có tình
+5.2.3.2. Đoàn kết trên cơ sở độc lập, tự chủ, tự cường
+5.3. VẬN DỤNG TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠI ĐOÀN KẾT TRONG
+GIAI ĐOẠN HIỆN NAY
+5.3.1. Quán triệt tư TTHCM về đoàn kết trong hoạch định chủ trương, đường
+lối của Đảng
+5.3.2. Xây dựng khối đại đoàn kết toàn dân tộc trên nền tảng liên minh công –
+nông – trí
+5.3.3. Đại đoàn kết toàn dân tộc phải gắn với đoàn kết quốc tế
+CHƯƠNG 6 : TƯ TƯỞNG HỒ CHÍNH MINH VỀ VĂN HÓA, ĐẠO ĐỨC, CON
+NGƯỜI
+MỤC TIÊU
+- Về kiến thức: Cung cấp cho người học kiến thức cơ bản của tư tưởng Hồ
+Chính Minh về văn hóa, đạo đức, con người. Trên cơ sở đó, người học biết vận dụng
+vào thực tiễn, thể hiện trách nhiệm xây dựng văn hóa, đạo đức, con người Việt Nam
+hiện nay theo tư tưởng Hồ Chính Minh;
+- Về kỹ năng: Góp phần giúp cho người học có phương pháp tư duy mới trong
+học tập, nghiên cứu; tự mình biết đào sâu lý luận gắn với thực tiễn với tinh thần độc
+lập, sáng tạo;
+- Về tư tưởng: trên cơ sở nhận thức khoa học, người học có niềm tin về giá trị tư
+tưởng Hồ Chính Minh mãi mãi soi đường cho sự nghiệp cách mạng của nhân dân ta
+giành thắng lợi; đồng thời chống lại các quan điểm sai trái, luận điệu thù địch nhằm
+phủ nhận, xóa bỏ tư tưởng Hồ Chính Minh nói chung, tư tưởng của Người về văn hóa,
+đạo đức, con người nói riêng.
+6.1. TƯ TƯỞNG HỒ CHÍNH MINH VỀ VĂN HÓA
+6.1.1. Một số nhận thức chung về văn hóa và quan hệ giữa văn hóa với các linh vực
+khác
+6.1.2. Quan điểm của Hồ Chính Minh về quan hệ giữa văn hóa với các lĩnh vực khác
+6.1.3. Quan điểm của Hồ Chính Minh về vai trò của văn hóa
 39
 
 <!-- Page 40 -->
-| 6.1.4. Quan điểm Hồ Chính Minh về xây dựng nền văn hóa mới |
-| --- |
-| 6.2. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠO ĐỨC |
-| 6.2.1. Về vai trò và sức mạnh của đạo đức |
-| 6.2.1.1. Đạo đức là gốc, là nền tảng của người cách mạng |
-| 6.2.1.2. Đạo đức là nhân tố tạo nên sức hấp dẫn của chủ nghĩa xã hội |
-| 6.2.2. Về những chuẩn mực đạo đức cách mạng |
-| 6.2.2.1. Thương yêu con người, sống có tình có nghĩa |
-| 6.2.2.2. Trung với nước, hiếu với dân |
-| 6.2.2.3. Cần, kiệm, liêm, chính, chí công vô tư |
-| 6.2.2.4. Tinh thần quốc tế trong sáng |
-| 6.2.3. Những nguyên tắc xây dựng đạo đức cách mạng |
-| 6.2.3.1. Nói đi đôi với làm, nêu gương về đạo đức |
-| 6.2.3.2. Xây đi đôi với chống |
-| 6.2.3.3. Tu dưỡng đạo đức suốt đời |
-| 6.3. TƯ TƯỞNG HỒ CHÍNH MINH VỀ CON NGƯỜI |
-| 6.3.1. Quan điểm về con người |
-| 6.3.2. Quan điểm của Hồ Chính Minh về vai trò của con người |
-| 6.3.3. Quan điểm Hồ Chính Minh về xây dựng cpn người |
-| 6.4. XÂY DỰNG VĂN HÓA, ĐẠO ĐỨC, CON NGƯỜI VIỆT NAM HIỆN |
-| NAY THEO TƯ TƯỞNG HỒ CHÍNH MINH |
-| 6.4.1. Xây dựng và phát triển văn hóa, con người |
-| 6.4.2. Về xây dựng đạo đức cách mạng |
+6.1.4. Quan điểm Hồ Chính Minh về xây dựng nền văn hóa mới
+6.2. TƯ TƯỞNG HỒ CHÍNH MINH VỀ ĐẠO ĐỨC
+6.2.1. Về vai trò và sức mạnh của đạo đức
+6.2.1.1. Đạo đức là gốc, là nền tảng của người cách mạng
+6.2.1.2. Đạo đức là nhân tố tạo nên sức hấp dẫn của chủ nghĩa xã hội
+6.2.2. Về những chuẩn mực đạo đức cách mạng
+6.2.2.1. Thương yêu con người, sống có tình có nghĩa
+6.2.2.2. Trung với nước, hiếu với dân
+6.2.2.3. Cần, kiệm, liêm, chính, chí công vô tư
+6.2.2.4. Tinh thần quốc tế trong sáng
+6.2.3. Những nguyên tắc xây dựng đạo đức cách mạng
+6.2.3.1. Nói đi đôi với làm, nêu gương về đạo đức
+6.2.3.2. Xây đi đôi với chống
+6.2.3.3. Tu dưỡng đạo đức suốt đời
+6.3. TƯ TƯỞNG HỒ CHÍNH MINH VỀ CON NGƯỜI
+6.3.1. Quan điểm về con người
+6.3.2. Quan điểm của Hồ Chính Minh về vai trò của con người
+6.3.3. Quan điểm Hồ Chính Minh về xây dựng cpn người
+6.4. XÂY DỰNG VĂN HÓA, ĐẠO ĐỨC, CON NGƯỜI VIỆT NAM HIỆN
+NAY THEO TƯ TƯỞNG HỒ CHÍNH MINH
+6.4.1. Xây dựng và phát triển văn hóa, con người
+6.4.2. Về xây dựng đạo đức cách mạng
 40
 
 <!-- Page 41 -->
@@ -1679,22 +1670,21 @@ nắm được thông tin phản hồi để điều chỉnh cách dạy và h�
 | --- | --- | --- | --- |
 | Bài kiểm tra cuối kỳ | Năng lực phân<br>tích, so sánh,<br>đưa ra nhận<br>định cá nhân<br>của sinh viên | Đánh giá trên 3 mức: trình<br>bày, chứng minh, phân<br>tích, so sánh của sinh viên | 60% |
 9. Giáo trình bắt buộc (tác giả, tên giáo trình, nhà xuất bản, năm xuất bản):
-| - Trần Quốc Vượng (Cb), Cơ sở văn hoá Việt Nam, NXB Giáo dục, Hà Nội, |
-| --- |
-| 1998. |
-| - Đào Duy Anh, Việt Nam văn hoá sử cương, NXb Văn hoá Thông tin, Hà Nội. |
-| - Toan Ánh, Làng xóm Việt Nam, NXB TP. Hồ Chí Minh,1999. |
-| - Toan Ánh, Nếp cũ tín ngưỡng Việt Nam (2 quyển), Nếp cũ hội hè đình |
-| đám (2 quyển), Nếp cũ con người Việt Nam, Nếp cũ làng xóm Việt Nam, |
-| NXB Trẻ, 2005. |
-| - Phan Kế Bính, Việt Nam phong tục, NXB Thành phố Hồ Chí Minh, 1995 |
-| - Nguyễn Thừa Hỷ, Văn hóa Việt Nam truyền thống – Một góc nhìn, Nxb. Thông |
-| tin và Thông tin, H., 2011. |
-| - Phan Ngọc, Bản sắc văn hóa Việt Nam, NXB Văn học, 2002. |
-| - Trần Quốc Vượng, Văn hóa Việt Nam tìm tòi và suy ngẫm, Nxb Văn hóa Thông |
-| tin, Tạp chí Văn hóa Nghệ thuật, H., 2000. |
-| - Trần Quốc Vượng, Môi trường, Con người và Văn hóa, NXB Văn hóa Thông |
-| tin, Viện Văn hóa, H., 2005. |
+- Trần Quốc Vượng (Cb), Cơ sở văn hoá Việt Nam, NXB Giáo dục, Hà Nội,
+1998.
+- Đào Duy Anh, Việt Nam văn hoá sử cương, NXb Văn hoá Thông tin, Hà Nội.
+- Toan Ánh, Làng xóm Việt Nam, NXB TP. Hồ Chí Minh,1999.
+- Toan Ánh, Nếp cũ tín ngưỡng Việt Nam (2 quyển), Nếp cũ hội hè đình
+đám (2 quyển), Nếp cũ con người Việt Nam, Nếp cũ làng xóm Việt Nam,
+NXB Trẻ, 2005.
+- Phan Kế Bính, Việt Nam phong tục, NXB Thành phố Hồ Chí Minh, 1995
+- Nguyễn Thừa Hỷ, Văn hóa Việt Nam truyền thống – Một góc nhìn, Nxb. Thông
+tin và Thông tin, H., 2011.
+- Phan Ngọc, Bản sắc văn hóa Việt Nam, NXB Văn học, 2002.
+- Trần Quốc Vượng, Văn hóa Việt Nam tìm tòi và suy ngẫm, Nxb Văn hóa Thông
+tin, Tạp chí Văn hóa Nghệ thuật, H., 2000.
+- Trần Quốc Vượng, Môi trường, Con người và Văn hóa, NXB Văn hóa Thông
+tin, Viện Văn hóa, H., 2005.
 10. Tóm tắt nội dung học phần (mỗi học phần tóm tắt khoảng 120 từ):
 Cơ sở Văn hóa Việt Nam cung cấp cho người học những khái niệm cơ bản về
 văn hóa như: văn hóa, văn minh, văn hiến, văn vật. Những vấn đề liên quan đến hình

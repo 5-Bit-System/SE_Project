@@ -27,7 +27,8 @@ def extract_docx(raw: bytes) -> str:
 
         for block in doc.iter_inner_content():
             if isinstance(block, Table):
-                lines.extend(_format_table(block))
+                if table_lines := _format_table(block):
+                    lines.append("\n".join(table_lines))
                 continue
             p = block
             text = clean_text(p.text)
