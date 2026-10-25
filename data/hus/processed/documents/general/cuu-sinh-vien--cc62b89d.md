@@ -7,6 +7,7 @@ major: "general"
 ---
 
 Thống kê số lượng sinh viên các khoá
+
 | Khoá/Lớp | Thời gian | Ngành học | Loại hình đào tạo | Số lượng | Trang tin |
 | --- | --- | --- | --- | --- | --- |
 | K1 | 1956 - 1959 | Toán | Chính Quy | 24 |  |

@@ -50,7 +50,7 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
                         before = clean_text(page.crop((0, cursor, page.width, top)).extract_text() or "")
                         if before:
                             page_lines.append(before)
-                    if page_lines[-1].startswith("|"):
+                    if page_lines[-1].strip():
                         page_lines.append("")
                     page_lines.extend(_format_table(rows))
                     cursor = max(cursor, bottom)

@@ -23,6 +23,8 @@ if str(REPO_ROOT) not in sys.path:
 
 from app.hus.cleaning import normalize_vertical_text
 
+_TABLE_SEPARATOR = re.compile(r"\|(?:\s*:?-{3,}:?\s*\|)+")
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -97,6 +99,14 @@ def repair_markdown_text(
                 if normalized_line != line:
                     broken_rows += 1
                     line = normalized_line
+            if (
+                i + 1 < n
+                and _TABLE_SEPARATOR.fullmatch(lines[i + 1].strip())
+                and repaired_lines
+                and repaired_lines[-1].strip()
+            ):
+                repaired_lines.append("")
+                broken_rows += 1
             repaired_lines.append(line.strip())
         else:
             if normalize_vertical:
@@ -174,8 +184,17 @@ def repair_all(
 def _has_broken_tables(content: str) -> bool:
     """Check Markdown table width and header/separator continuity."""
     block: list[str] = []
-    for line in [*content.splitlines(), ""]:
+    lines = content.splitlines()
+    for index, line in enumerate([*lines, ""]):
         s = line.strip()
+        if (
+            s.startswith("|")
+            and index + 1 < len(lines)
+            and _TABLE_SEPARATOR.fullmatch(lines[index + 1].strip())
+            and index > 0
+            and lines[index - 1].strip()
+        ):
+            return True
         if s.startswith("|"):
             if not s.endswith("|"):
                 return True

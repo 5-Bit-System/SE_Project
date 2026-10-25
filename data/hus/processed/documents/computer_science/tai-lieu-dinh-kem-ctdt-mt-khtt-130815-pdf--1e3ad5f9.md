@@ -278,6 +278,7 @@ thế khoá luận tốt nghiệp:
 
 <!-- Page 12 -->
 2. Khung chƣơng trình đào tạo
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -295,6 +296,7 @@ thế khoá luận tốt nghiệp:
 12
 
 <!-- Page 13 -->
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -316,6 +318,7 @@ thế khoá luận tốt nghiệp:
 13
 
 <!-- Page 14 -->
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -337,6 +340,7 @@ thế khoá luận tốt nghiệp:
 14
 
 <!-- Page 15 -->
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -357,6 +361,7 @@ thế khoá luận tốt nghiệp:
 15
 
 <!-- Page 16 -->
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -376,6 +381,7 @@ thế khoá luận tốt nghiệp:
 16
 
 <!-- Page 17 -->
+
 | STT | Mã<br>học phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |

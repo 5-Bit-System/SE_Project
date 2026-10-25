@@ -9,6 +9,7 @@ major: "general"
 <!-- Page 1 -->
 Phụ lục 3. Danh sách các ngành (chương trình) đào tạo đại học sử dụng cộng điểm theo
 môn đạt giải học sinh giỏi
+
 | Số<br>TT | Tên môn<br>thi | Tên ngành (chương trình) đào tạo | Mã xét<br>tuyển |  |  |
 | --- | --- | --- | --- | --- | --- |
 | 1 | học sinh<br>giỏi<br>Toán | Toán học (*) | QHT01 |  |  |
@@ -42,6 +43,7 @@ môn đạt giải học sinh giỏi
 | 2 | Tin học | Khoa học máy tính và thông tin (*) (thuộc ngành Khoa<br>học máy tính) | QHT98 |  |  |
 
 <!-- Page 2 -->
+
 | Số<br>TT | Tên môn<br>thi | Tên ngành (chương trình) đào tạo | Mã xét<br>tuyển |  |  |
 | --- | --- | --- | --- | --- | --- |
 |  | học sinh<br>giỏi | Toán tin | QHT02 |  |  |
@@ -77,6 +79,7 @@ môn đạt giải học sinh giỏi
 |  |  | Khoa học thông tin địa không gian (thuộc ngành Kỹ thuật<br>không gian) | QHT91 |  |  |
 
 <!-- Page 3 -->
+
 | Số<br>TT | Tên môn<br>thi | Tên ngành (chương trình) đào tạo | Mã xét<br>tuyển |  |  |
 | --- | --- | --- | --- | --- | --- |
 |  | học sinh<br>giỏi | Quản lý phát triển đô thị và bất động sản | QHT95 |  |  |
@@ -112,6 +115,7 @@ môn đạt giải học sinh giỏi
 |  |  | Công nghệ sinh học (*) |  | QHT09 |  |
 
 <!-- Page 4 -->
+
 | Số<br>TT | Tên môn<br>thi | Tên ngành (chương trình) đào tạo | Mã xét<br>tuyển |  |  |
 | --- | --- | --- | --- | --- | --- |
 |  | học sinh<br>giỏi | Sinh dược học (*) (thuộc ngành Sinh học ứng dụng) |  | QHT81 |  |

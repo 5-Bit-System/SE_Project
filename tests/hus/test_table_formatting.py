@@ -84,6 +84,26 @@ def test_repair_markdown_text():
     assert "| 2 | MAT1002 | Đại số tuyến tính | 3 |" in repaired
 
 
+def test_repair_adds_block_boundary_before_table_after_numbered_heading():
+    content = "2. Khung chương trình đào tạo\n| Mã | Học phần |\n| --- | --- |\n| 1 | Toán |"
+
+    repaired, count = repair_markdown_text(content)
+
+    assert "2. Khung chương trình đào tạo\n\n| Mã | Học phần |" in repaired
+    assert count == 1
+
+
+def test_verify_detects_table_merged_into_numbered_list_item(tmp_path: Path):
+    path = tmp_path / "processed" / "documents" / "doc.md"
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        "2. Khung chương trình đào tạo\n| Mã | Học phần |\n| --- | --- |\n| 1 | Toán |",
+        encoding="utf-8",
+    )
+
+    assert verify_no_broken_tables(tmp_path) == 1
+
+
 def test_repair_markdown_text_cleans_dividers():
     broken = (
         "| Col 1 |\n"

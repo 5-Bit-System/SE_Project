@@ -104,6 +104,7 @@ Trong quá trình tổ chức thực hiện Chương trình VNU12+, trường h�
 hồ sơ học sinh tốt và phù hợp với các chương trình đào tạo, Trường ĐHKHTN có thể
 báo cáo ĐHQGHN để bổ sung thêm chỉ tiêu.
 2.2. Các học phần được giảng dạy
+
 | TT | Các ngành đào tạo | Tên học phần (Số tín chỉ) |
 | --- | --- | --- |
 | 1. | Toán học | Đại số tuyến tính (3TC),<br>Giải tích 1 (3TC),<br>Giải tích 2 (3TC),<br>Xác suất thống kê (3TC),<br>Tin học cơ sở (3TC). |
@@ -114,6 +115,7 @@ báo cáo ĐHQGHN để bổ sung thêm chỉ tiêu.
 3
 
 <!-- Page 4 -->
+
 | TT | Các ngành đào tạo | Tên học phần (Số tín chỉ) |
 | --- | --- | --- |
 |  | Khoa học vật liệu | Cơ học (4 TC),<br>Nhiệt học (3TC),<br>Điện từ (4TC),<br>Quang học (3 TC),<br>Cơ lý thuyết (4TC),<br>Thực tập Vật lý đại cương 1 (2TC). |
@@ -143,6 +145,7 @@ hiểu về ngành, nghề và giải đáp các mối quan tâm trong học t�
 3. Phương thức tuyển sinh
 3.1. Xét tuyển:
 a) Nội dung đánh giá và trọng số:
+
 | TT | Nội dung đánh giá | Trọng số |
 | --- | --- | --- |
 | 1. | Kết quả học tập (điểm trung bình) THPT đến thời điểm xét tuyển | 70% |

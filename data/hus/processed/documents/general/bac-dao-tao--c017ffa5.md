@@ -30,6 +30,7 @@ TUYỂN SINH ĐẠI HỌC CHÍNH QUY NĂM 2026
 [THÔNG BÁO DANH SÁCH SINH VIÊN TRÚNG TUYỂN VÀO CÁC CHƯƠNG TRÌNH ĐÀO TẠO ĐẶC BIỆT CỦA TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN NĂM 2026 (diện sinh viên trúng tuyển vào Trường)](https://tuyensinh.hus.vnu.edu.vn/dai-hoc)
 Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội thông báo danh sách sinh viên trúng tuyển vào các chương trình đào tạo đặc biệt (diện sinh viên đã trúng tuyển vào Trường) năm 2026 như sau:
 - Công nhận 75 sinh viên trúng tuyển vào các chương trình đào tạo cử nhân tài năng, chương trình tích hợp thạc sĩ-cử nhân tài năng lĩnh vực STEM, chương trình chất lượng cao năm 2026 ( [tra cứu tại đây](https://tuyensinh.hus.vnu.edu.vn/tc-chuong-trinh-dac-biet-2026) ) .
+
 | STT | Chương trình đào tạo | Số lượng trúng tuyển |
 | --- | --- | --- |
 |  | Cử nhân tài năng Toán học | 5 |
@@ -53,6 +54,7 @@ Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội
 Trường Đại học Khoa học Tự nhiên (ĐHKHTN), xét tuyển sinh viên vào học các chương trình đào tạo đặc biệt: chương trình đào tạo cử nhân khoa học tài năng và chất lượng cao; chương trình đào tạo tích hợp thạc sĩ-cử nhân tài năng lĩnh vực STEM năm 2026 xét cho đối tượng sinh viên đã trúng tuyển vào Trường ĐHKHTN như sau:
 >>> [Thông tin chi tiết về Thông báo xét tuyển sinh viên vào các chương trình đào tạo đặc biệt năm 2026 (Áp dụng cho đối tượng sinh viên đã trúng tuyển vào trường)](https://drive.google.com/file/d/1r1ECbHGlexiUds6-Eiaz2pW2bnlL5sEk/view?usp=drive_link)
 CHỈ TIÊU TUYỂN SINH VÀ ĐIỀU KIỆN NỘP ĐƠN DỰ TUYỂN
+
 | TT | Tên chương trình đào tạo (CTĐT) | Tổng chỉ tiêu | Đ iểm xét tuyển (*) | Tuyển sinh viên (SV) từ các ngành/CTĐT |
 | --- | --- | --- | --- | --- |
 | I | CTĐT cử nhân khoa học tài năng | CTĐT cử nhân khoa học tài năng | CTĐT cử nhân khoa học tài năng | CTĐT cử nhân khoa học tài năng |
@@ -121,6 +123,7 @@ b. Ngày 27/8/2026 (Sáng từ 8 giờ, chiều từ 13 giờ 30): Nhập học 
 >>> Thông báo xét tuyển sinh viên vào các chương trình đào tạo đặc biệt năm 2026 (Áp dụng cho đối tượng sinh viên đã trúng tuyển vào trường) [xem chi tiết tại đây](https://hus.vnu.edu.vn/thong-bao/dao-tao-tuyen-sinh/thong-bao-xet-tuyen-sinh-vien-vao-cac-chuong-trinh-dao-tao-dac-biet-nam-2026-ap-dung-cho-doi-tuong-sinh-vien-da-trung-tuyen-vao-truong-145802)
 [Thông báo điểm chuẩn trúng tuyển vào các ngành/ chương trình đào tạo đại học chính quy năm 2026](https://tuyensinh.hus.vnu.edu.vn/dai-hoc)
 Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội thông báo điểm chuẩn trúng tuyển quy về thang điểm 30 vào các ngành/ chương trình đào tạo đại học chính quy năm 2026 như sau:
+
 | STT | Mã xét tuyển | Tên ngành/CTĐT | Các mã PTXT | Điểm chuẩn |
 | --- | --- | --- | --- | --- |
 |  | QHT01 | Toán học | 100/401/415/409/500 | 26.35 |
@@ -152,6 +155,7 @@ Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội
 |  | QHT98 | Khoa học máy tính và thông tin (thuộc ngành Khoa học máy tính) | 100/401/415/409/500 | 25.28 |
 |  | QHT99 | Công nghệ bán dẫn (thuộc ngành Khoa học vật liệu) | 100/401/415/409/500 | 25.43 |
 Phương thức xét tuyển:
+
 | 100 | Sử dụng kết quả thi tốt nghiệp trung học phổ thông (THPT) |
 | --- | --- |
 | 401 | Thi đánh giá năng lực của Đại học Quốc gia Hà Nội (HSA) |
@@ -173,6 +177,7 @@ Chỉ các thí sinh đủ điều kiện trúng tuyển mới có tên trong da
 2. Thí sinh trúng tuyển thẳng (phương thức xét tuyển 301) phải đặt Nguyện vọng trên trang tuyển sinh của Bộ Giáo dục và Đào tạo mới đủ điều kiện trúng tuyển chính thức vào chương trình đào tạo tài năng.
 3. Thí sinh trúng tuyển có điều kiện theo phương thức 500 phải tốt nghiệp trung học phổ thông và trúng tuyển vào đúng ngành học/ chương trình đào tạo chuẩn (chương trình đại trà) và đạt ngưỡng đảm bảo chất lượng mới đủ điều kiện trúng tuyển chính thức vào chương trình đào tạo tài năng và chất lượng cao.
 4. Điểm xét trúng tuyển vào chương trình đào tạo tài năng và chất lượng cao năm 2026 bằng phương thức 401 và các phương thức 409, 415 được quy đổi tương đương sang thang điểm 30 như sau:
+
 | STT | Mã xét tuyển | Ngành/ Chương trình đào tạo | Điểm xét |
 | --- | --- | --- | --- |
 | 1. | QHT01 | Tài năng Toán học | 28 |

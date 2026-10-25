@@ -84,6 +84,7 @@ LẬP TRÌNH CƠ BẢN
 - HUS1011: Tin học cơ sở
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
@@ -161,12 +162,14 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 3 | 2 |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 3 | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  | 3 |  |  |
@@ -176,18 +179,21 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 
 <!-- Page 7 -->
 Chương trình đào tạo ngành Toán học:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |
 | Mức đóng góp<br>của học phần |  | 3 |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  | 2 |  |  |
 Chương trình đào tạo ngành CNKHTN Toán học:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  | 2 |  |  |  |
 Chương trình đào tạo ngành Toán Tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  | 3 |  |  |
@@ -199,6 +205,7 @@ Chương trình đào tạo ngành Toán Tin:
 <!-- Page 8 -->
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK4<br>CS1, CS2<br>CR1-CR3 |
@@ -218,6 +225,7 @@ Structures, 12th edition (Dec. 4, 2019)
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về chương trình máy tính và ngôn ngữ lập<br>trình |  | CK1, CK4 |
@@ -228,6 +236,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 8
 
 <!-- Page 9 -->
+
 | Chương 2. Ngôn ngữ lập trình java |  | CK1-CK4 |
 | --- | --- | --- |
 | 2.1 | Các phép toán cơ bản |  |
@@ -264,6 +273,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 6 9
 
 <!-- Page 10 -->
+
 | 9.3 | Tổ chức theo gói |  |
 | --- | --- | --- |
 | 9.4 | Java API |  |
@@ -288,6 +298,7 @@ Trưởng Khoa Trưởng Bộ môn Giảng viên
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
@@ -366,21 +377,25 @@ giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK4 | PK5 | PK6 | PS1 | PS2 | PS3 | PR1 | PR3 | PR4 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK4 | PK5 | PS1 | PS2 | PS3 | PR1 | PR3 | PR4 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 4 | 4 | 2 | 2 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra cần<br>đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Hình thức đánh giá: bài tập về nhà, bài<br>tập trên lớp và tham gia xây dựng bài trên | CK1, CK2, CK3,<br>CK4, CS1, CS2, |
 3 13
 
 <!-- Page 14 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra cần<br>đo được |
 | --- | --- | --- | --- | --- |
 |  |  |  | lớp.<br>- Thang điểm đánh giá: 10. | CS3, CR1, CR2,<br>CR3. |
@@ -403,6 +418,7 @@ cácbài tập), 2012.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
 | Chương 0. Kiến thức chuẩn bị |  | CK1, CS1, CS2, CR1,<br>CR3 |
@@ -412,6 +428,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 14
 
 <!-- Page 15 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
 | Chương 1. Ma trận và hệ phương trình tuyến tính |  | CK1, CK2, CS1, CS2,<br>CR1, CR3 |
@@ -440,6 +457,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 15
 
 <!-- Page 16 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
 | 6.3 | Phép biến đổi đối xứng và chéo hóa ma trận đối<br>xứng |  |
@@ -459,6 +477,7 @@ GIẢI TÍCH 1
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- |
 | 1. | Nguyễn Hữu Dư | GS.TS. | Trường<br>ĐHKHTN | nguyenhuudu@hus.edu.vn |
@@ -531,21 +550,25 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp của<br>học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp của<br>học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm<br>bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
 3 19
 
 <!-- Page 20 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 2 | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CS1, CS2, CS3 |
@@ -567,6 +590,7 @@ NXB ĐHQGHN, 1998.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới hạn và tính liên tục của hàm số một biến |  |  |
@@ -575,6 +599,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 20
 
 <!-- Page 21 -->
+
 |  | 1.2.2. Ba nguyên lý Cantor, Bolzano-Weierstrass, Cauchy<br>1.2.3. Sự hội tụ của dãy đơn điệu. Khái niệm giới hạn trên,<br>giới hạn dưới<br>1.2.4. Giới hạn vô hạn<br>1.2.5. Số e. Logarit tự nhiên |  |
 | --- | --- | --- |
 | 1.3 | Giới hạn hàm số<br>1.3.1. Định nghĩa giới hạn hàm số, các mệnh đề tương đương<br>1.3.2. Các tính chất của giới hạn hàm số<br>1.3.3. Giới hạn phải, giới hạn trái. Mở rộng khái niệm giới hạn<br>1.3.4. Các vô cùng bé (VCB), vô cùng lớn (VCL): Định nghĩa,<br>so sánh, các VCB tương đương, áp dụng để tìm giới hạn | CK1 |
@@ -588,6 +613,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 21
 
 <!-- Page 22 -->
+
 |  | biến, công thức tích phân từng phần<br>3.1.2. Tích phân các hàm hữu tỉ. Tích phân các hàm vô tỉ. Tích<br>phân các hàm lượng giác | CS2, CS3 |
 | --- | --- | --- |
 | 3.2 | Tích phân xác định<br>3.2.1. Định nghĩa tích phân xác định, điều kiện cần để khả tích<br>3.2.2. Tổng Darboux. Điều kiện cần và đủ để khả tích. Các lớp<br>hàm khả tích<br>3.2.3. Các tính chất của tích phân xác định. Các định lý trung<br>bình<br>3.2.4. Công thức Newton – Leibniz. Công thức đổi biến, công<br>thức tích phân từng phần | CK3, CS1,<br>CS2, CS3 |
@@ -607,6 +633,7 @@ GIẢI TÍCH 2
 - Giải tích 1 (MAT2501)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -680,15 +707,18 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
+
 | ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
@@ -696,6 +726,7 @@ ra)
 3 25
 
 <!-- Page 26 -->
+
 | ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
 |  |  |  | cong phân bố chuẩn. | CS3 |
@@ -718,6 +749,7 @@ III, NXB ĐHQGHN.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Chuỗi số, dãy hàm, chuỗi hàm, chuỗi lũy thừa, chuỗi<br>Fourier |  |  |
@@ -725,6 +757,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 26
 
 <!-- Page 27 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 1.1.2. Chuỗi dương: các dấu hiệu hội tụ của chuỗi dương<br>1.1.3. Chuỗi có dấu bất kỳ: dấu hiệu Leibniz, dấu hiệu<br>Dirichlet và dấu hiệu Abel |  |
@@ -737,6 +770,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 27
 
 <!-- Page 28 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 2.2.3. Tính chất của hàm liên tục trên tập compact và tập<br>liên thông<br>2.2.4. Mở rộng các khái niệm liên tục cho hàm véc tơ |  |
@@ -756,6 +790,7 @@ GIẢI TÍCH 3
 - Giải tích 2 (MAT2502)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- |
 | 1. | Nguyễn Hữu Dư | GS.TS. | Trường<br>ĐHKHTN | nguyenhuudu@hus.edu.vn |
@@ -821,15 +856,18 @@ bài tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK3 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PK6 | PS1 | PS4 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 | 2 | 2 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm làm<br>bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2,<br>CK3, CS1,<br>CS2, CS3,<br>CR1, CR2,<br>CR3 |
@@ -855,6 +893,7 @@ NXB ĐHQGHN, 1998.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tích phân bội |  |  |
@@ -866,6 +905,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 32
 
 <!-- Page 33 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | đường loại I<br>2.2.2. Định nghĩa, sự tồn tại, công thức tính |  |
@@ -887,6 +927,7 @@ PHƯƠNG TRÌNH VI PHÂN
 - MAT2400: Đại số tuyến tính.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -951,15 +992,18 @@ nhóm, thúc đẩy hoạt động nhóm và phát triển nhóm làm việc.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK3 | PK4 | PS1 | PS2 | PS4 | PS6 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PK4 | PS2 | PS4 | PS5 | PS6 | PR3 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày. | CK1, CK2<br>CS1, CS2<br>CR1,CR2 |
@@ -986,6 +1030,7 @@ Methods and Applications, 2nd edition, John Wiley & Sons, 2011.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về Phương trình vi phân |  |  |
@@ -1003,6 +1048,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 37
 
 <!-- Page 38 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.8 | Phương trình Lagrange và phương trình Clairaut |  |
@@ -1033,6 +1079,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 38
 
 <!-- Page 39 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.10 | Đa thức đặc trưng |  |
@@ -1058,6 +1105,7 @@ XÁC SUẤT - THỐNG KÊ
 - MAT2502: Giải tích 2
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học |  | Đơn vị công<br>tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | hàm, |  |  |  |
@@ -1119,6 +1167,7 @@ trách nhiệm đối với nhóm. (PR3, PR4, PR5:3)
 và các phương pháp phân tích khoa học (PR3:3).
 9. Ma trận liên kết chuẩn đầu ra của học phần với chuẩn đầu ra của CTĐT
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK2 | PK3 | PK4 | PS2 | PS3 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 |
@@ -1126,10 +1175,12 @@ b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
 2 41
 
 <!-- Page 42 -->
+
 | CĐR CTĐT | PK2 | PK3 | PK4 | PS1 | PS2 | PS7 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 |
 10. Kiểm tra, đánh giá kết quả học tập
+
 | STT | Tiêu chí<br>đánh giá | Trọng<br>số | Mô tả<br>(nội dung, thang điểm) | Chuẩn đầu<br>ra<br>cần đo<br>được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 20% | - Đánh giá thông qua<br>điểm danh, bài tập, kiểm<br>tra.<br>- Thang điểm 10. | CK1, CK2,<br>CS1, CS2 |
@@ -1148,12 +1199,14 @@ học sự sống (với phần mềm R), NXB ĐHQGHN, 2019.
  Jay L. Devore, Probability and Statistics for Engineering and the Sciences, 9th
 Edition, Cengage Learning, 2019.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
+
 | Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 | Chương 1. Xác suất thống kê trong việc xử lý thông tin |  | CK3, CS1, |
 3 42
 
 <!-- Page 43 -->
+
 | Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 | (03LT, 02TH) |  | CS2, CR2 |
@@ -1183,6 +1236,7 @@ Edition, Cengage Learning, 2019.
 4 43
 
 <!-- Page 44 -->
+
 | Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 |  |  | CS2, CR1,<br>CR2 |
@@ -1202,6 +1256,7 @@ Edition, Cengage Learning, 2019.
 5 44
 
 <!-- Page 45 -->
+
 | Chương,<br>mục | Tiêu đề/Nội dung | Chuẩn đầu<br>ra của học<br>phần |
 | --- | --- | --- |
 |  | 8.2.4. Dự báo và sai số |  |
@@ -1224,6 +1279,7 @@ tính;
 - MAT2303 hoặc MAT2502: Giải tích 2.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên | Học hàm,<br>học vị | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- |
 | 1. | Hoàng Nam Dũng | TS | Trường ĐHKHTN |  |
@@ -1292,18 +1348,22 @@ thảo luận nhóm, thuyết trình và các bài thi
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Toán học
+
 | CĐR<br>CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PK3 | PK5 | PK6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 4 | 2 | 3 | 3 |
 b. Chương trình đào tạo CNKHTN ngành Toán học
+
 | CĐR<br>CTĐT | PK3 | PK4 | PK5 | PK7 | PS1 | PS3 | PS4 | PS6 | PR3 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 4 | 3 | 4 | 2 | 3 | 4 |
 c. Chương trình đào tạo ngành Toán Tin
+
 | CĐR<br>CTĐT | PK3 | PK4 | PK8 | PK9 | PS1 | PS2 | PS4 | PS6 | PS7 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của<br>học phần | 3 | 3 | 5 | 3 | 3 | 4 | 4 | 4 | 4 | 3 | 4 | 4 |
 d. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PS4 |  | PS5 | PR3 |  |  | PR5 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 3 | 3 |  | 3 |  | 4 |  |  |
@@ -1311,11 +1371,13 @@ e. Chương trình đào tạo ngành Khoa học dữ liệu
 3 48
 
 <!-- Page 49 -->
+
 | CĐR CTĐT | PK3 | PS4 | PS5 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần | 3 | 3 | 3 | 3 | 3 | 4 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn đầu
 ra)
+
 | ST<br>T | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu<br>ra cần đo<br>được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Bài tập về nhà<br>- Thang điểm 10 | CK1-CK6,<br>CS1-CS3,<br>CS5,<br>CR1-CR3 |
@@ -1340,6 +1402,7 @@ toán, NXB ĐHBKHN, 2008.
 4 49
 
 <!-- Page 50 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Mở đầu và một số khái niệm |  | CK1, CS5, CR1-<br>CR3 |
@@ -1368,6 +1431,7 @@ toán, NXB ĐHBKHN, 2008.
 5 50
 
 <!-- Page 51 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 4.1 | Định nghĩa và một số ứng dụng |  |
@@ -1389,6 +1453,7 @@ PHƯƠNG PHÁP NGHIÊN CỨU KHOA HỌC
 - MAT3507: Cơ sở dữ liệu
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị công |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | tác |  |  |
@@ -1455,12 +1520,14 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 2 | 2 | 3 |  |  |  |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 2 | 2 | 3 |  |  | 3 |  |  | 4 |  |  | 3 |  |  | 4 |  |  | 3 |  |  |
@@ -1468,6 +1535,7 @@ Chương trình đào tạo ngành Khoa học dữ liệu:
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 | 4 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp. | CK1,CR1-CR3 |
@@ -1493,6 +1561,7 @@ Chí Minh, 2018
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1: Thế nào là nghiên cứu khoa học |  | CK1, CS1-CS3,<br>CR1 |
@@ -1504,6 +1573,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 55
 
 <!-- Page 56 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.3 | Một số quy ước chung trong hoạt động nghiên cứu<br>khoa học<br>a. Trích dẫn và phương pháp trích dẫn hiệu quả<br>b. Vai trò của tác giả và cách xác định<br>c. Chất lượng nghiên cứu khoa học và các cách<br>đánh giá |  |
@@ -1528,6 +1598,7 @@ TIẾNG ANH CHUYÊN NGÀNH KHOA HỌC MÁY TÍNH
 - FLF1107: Tiếng anh B1
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị công |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | tác |  |  |
@@ -1596,6 +1667,7 @@ nhiệt tình và say mê công việc.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
@@ -1603,6 +1675,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần |  |  | 2 | 2 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Các bài kiểm tra trên lớp<br>- Thang điểm đánh giá: CK1 5<br>điểm, CS1 + CS2 + CS4: 4 điểm,<br>CR2: 1 điểm | CK1, CS1, CR2 |
@@ -1625,6 +1698,7 @@ Edition, Pearson, 2010.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. MODULE 1 – Mathematics |  |  |
@@ -1638,6 +1712,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 60
 
 <!-- Page 61 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.1 | Mục 2.1 Fundamentals | CK1, CS1, CS4,<br>CR1 |
@@ -1653,6 +1728,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 61
 
 <!-- Page 62 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 3.3. Regression | CK1, CS1, CS4,<br>CR1 |
@@ -1673,6 +1749,7 @@ TOÁN RỜI RẠC
 3. Học phần tiên quyết: Không có.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -1734,18 +1811,21 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 65 -->
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  |  | 3 | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng<br>góp của học<br>phần |  | 3 |  | 3 |  |  | 3 |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |  |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  | 3 | 4 |  | 3 |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 3 |  |  | 2 |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  | 3 | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |
@@ -1756,6 +1836,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 <!-- Page 66 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 10 % | - Hình thức đánh giá: Bài tập,<br>chuyên cần<br>- Thang điểm đánh giá: 10 | CK1, CK2,<br>CS1, CS2,<br>CR1, CR2 |
@@ -1783,6 +1864,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 66
 
 <!-- Page 67 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Lôgic và chứng minh |  | CK1-CK3, CS2-CS3 |
@@ -1819,6 +1901,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 67
 
 <!-- Page 68 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 7.5 | Nhân đồ thị và ứng dụng |  |
@@ -1847,6 +1930,7 @@ MÔI TRƯỜNG LẬP TRÌNH LINUX
 3. Học phần tiên quyết: Không có.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -1914,6 +1998,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 71 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -1923,6 +2008,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -1933,6 +2019,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK2<br>CS1, CS2<br>CR1, CR3 |
@@ -1951,6 +2038,7 @@ Free Documentation License, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về Linux |  | CK1 |
@@ -1976,6 +2064,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 72
 
 <!-- Page 73 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.1 | Các trạng thái của tiến trình |  |
@@ -2009,6 +2098,7 @@ NGUYÊN LÝ HỆ ĐIỀU HÀNH
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -2073,6 +2163,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 2 75
 
 <!-- Page 76 -->
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2083,6 +2174,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 10% | - Điểm bài tập thực hành hàng tuần<br>- Thang điểm 10 | CK1,CR1,<br>CR2, CR3 |
@@ -2096,12 +2188,14 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Các khái niệm cơ sở |  | CK1, CK3, CS1, |
 3 76
 
 <!-- Page 77 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  |  | CS2 |
@@ -2134,6 +2228,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 77
 
 <!-- Page 78 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.5 | Duy trì thời gian và đặt lịch thực hiện |  |
@@ -2153,6 +2248,7 @@ CƠ SỞ DỮ LIỆU
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -2213,12 +2309,14 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 81 -->
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức<br>đóng góp<br>của học<br>phần |  |  |  |  | 3 | 3 | 3 | 2 |  |  | 3 |
 | CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | Mức<br>đóng góp<br>của học<br>phần |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2228,6 +2326,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2241,6 +2340,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 <!-- Page 82 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Hình thức đánh giá:<br>Bài kiểm tra ngắn trên lớp (10%) và<br>các bài kiểm tra thực hành ngôn ngữ<br>hỏi SQL sử dụng hệ quản trị dữ liệu<br>MySQL (10%)<br>- Thang điểm đánh giá. CK2:3,<br>CK4: 3, CS1: 3, CR2:1 | CK1, CK2,<br>CK4, CS1,<br>CR2 |
@@ -2269,6 +2369,7 @@ Distributed Real-Time Search and Analytics Engine, O'Reilly Media (2015).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Khái niệm cơ bản về cơ sở dữ liệu |  | CK1 |
@@ -2298,6 +2399,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 83
 
 <!-- Page 84 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.1 | Giới thiệu |  |
@@ -2348,6 +2450,7 @@ LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG
 - MAT2505: Lập trình cơ bản
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -2424,29 +2527,34 @@ Có ý thức hỗ trợ, giúp đỡ, làm việc vì mục tiêu chung của n
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  |  |  | 3 |  |  | 4 |  | 3 |  | 3 |  |  | 2 |  |  | 3 |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng<br>góp của học<br>phần |  |  |  |  |  |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |  |  |  | 3 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 | 3 |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 4 | 3 | 3 |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
 3 88
 
 <!-- Page 89 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 | 3 | 2 | 3 |  | 3 | 2 | 4 | 4 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Đánh giá bài thực hành trên lab,<br>bài tập về nhà, điểm danh trên lớp.<br>- Thang điểm đánh giá: CK1: 4 điểm<br>, CK2: 3 điểm, CS1: 2 điểm, CR1: 1<br>điểm | CK1, CK2,<br>CS1, CR1 |
@@ -2480,6 +2588,7 @@ Media, (2009).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Phần 1: Giới thiệu về ngôn ngữ lập trình Java và Lập trình hướng đối tượng |  |  |
@@ -2498,6 +2607,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 90
 
 <!-- Page 91 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 3.1 | Mục 3.1 Đối tượng và lớp | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
@@ -2518,6 +2628,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 6 91
 
 <!-- Page 92 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.4 | Mục 4.4 Các lớp String, StringBuilder, StringBuffer,<br>StringTokenizer | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
@@ -2540,6 +2651,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 7 92
 
 <!-- Page 93 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.1 | Mục 7.1 Java Collections Interfaces | CK1, CK3, CS1,<br>CS2, CR1, CR2 |
@@ -2560,6 +2672,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 8 93
 
 <!-- Page 94 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 10.1 | Mục 10.1 Adapter, Bridge, Composite, Decorator,<br>Façade, Proxy, Flyweight | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
@@ -2579,6 +2692,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 9 94
 
 <!-- Page 95 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 13.5 | Mục 13.5 Type Erasure | CK1, CK2, CK3,<br>CS1, CS2, CR1,<br>CR2 |
@@ -2606,6 +2720,7 @@ CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  | hàm, |  |  | Đơn vị công tác |  |  | Email |  |
@@ -2670,12 +2785,14 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 98 -->
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức<br>đóng góp<br>của học<br>phần |  |  |  | 3 | 3 | 3 |  |  |  |  | 4 |
 | CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | Mức<br>đóng góp<br>của học<br>phần | 3 |  |  |  | 3 |  |  | 3 |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2685,6 +2802,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 3 | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 3 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2698,6 +2816,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 <!-- Page 99 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 10% | Làm bài tập hàng tuần, nộp bài và<br>tham gia chấm chéo bài tập.<br>Đi học đầy đủ. | CR1 |
@@ -2719,6 +2838,7 @@ Introduction to Algorithms, 3rd Edition, The MIT Press, (2009).
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Mở đầu |  | CS1 |
@@ -2727,6 +2847,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 99
 
 <!-- Page 100 -->
+
 | Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | - Lớp và đối tượng<br>- Làm việc với tệp<br>- Kế thừa, đa hình, lập trình generic |  |
@@ -2748,6 +2869,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 100
 
 <!-- Page 101 -->
+
 | Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 4.3.3 Ứng dụng<br>4.3.4 Luyện tập và bài tập |  |
@@ -2772,6 +2894,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 6 101
 
 <!-- Page 102 -->
+
 | Chương<br>/mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 8.2.2 Danh sách kề<br>8.2.3 Danh sách cạnh |  |
@@ -2797,6 +2920,7 @@ THIẾT KẾ VÀ ĐÁNH GIÁ THUẬT TOÁN
 - MAT3414: Cấu trúc dữ liệu và thuật toán.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -2866,6 +2990,7 @@ nhân và đưa ra kết luận chuyên môn.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -2876,6 +3001,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | Bài tập nộp hàng tuần | CK1,CK2,<br>CK3, CR1 |
@@ -2904,6 +3030,7 @@ and Analysis, 3rd Edition, Addison Wesley, 1999.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1: Mở đầu |  | CK1, CS1 |
@@ -2923,6 +3050,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 106
 
 <!-- Page 107 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 3.3 | Chứng minh tính đúng đắn của thuật toán |  |
@@ -2955,6 +3083,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 107
 
 <!-- Page 108 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | 7.5 | Thuật toán Kruskal tìm cây bao trùm thối thiểu |  |
@@ -2984,6 +3113,7 @@ KIẾN TRÚC MÁY TÍNH
 - MAT3557: Môi trường lập trình Linux.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -3033,6 +3163,7 @@ xã hội.
 (Mức độ đóng góp đánh giá theo thang Bloom của học phần vào các chuẩn đầu ra của
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 |  |  |  |  | 2 |  |  |  |  |  | 3 |  |  | 3 |  |  |  |  |  |
@@ -3043,6 +3174,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 <!-- Page 111 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 20 % | Đi học đầy đủ, tham gia các bài tập<br>theo nhóm chủ đề môn học, tích lũy<br>trả lời các tình huống trên lớp học<br>CK1: 1 điểm; CK2: 1 điểm, CS1: 1<br>điểm, CS2: 5 điểm, CS3: 1 điểm,<br>CS4: 1 điểm | CK1, CK2,<br>CS1- CS4 |
@@ -3066,6 +3198,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 111
 
 <!-- Page 112 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu chung |  |  |
@@ -3081,6 +3214,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 112
 
 <!-- Page 113 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 3.2.4. Hệ đếm thập lục phân (Hexa system)<br>3.2.5. Các phép toán |  |
@@ -3095,6 +3229,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 113
 
 <!-- Page 114 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 4.4.4. Memory Access (Truy cập bộ nhớ)<br>4.4.5. Write-back (Ghi kết quả) |  |
@@ -3119,6 +3254,7 @@ NHẬP MÔN AN TOÀN MÁY TÍNH
 - MAT2505: Lập trình cơ bản
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  |  | Đơn vị |  | Email |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  | công tác |  |  |
@@ -3180,6 +3316,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 117 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  | 3 |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
@@ -3187,6 +3324,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  | 2 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thực hành hàng tuần<br>- Thang điểm 10 | CK1, CR1, CR2,<br>CR3 |
@@ -3206,6 +3344,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 117
 
 <!-- Page 118 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về an toàn máy tính |  | CK1, CK3, CS1,<br>CS2 |
@@ -3238,6 +3377,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 118
 
 <!-- Page 119 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | TCP session hijacking |  |
@@ -3257,6 +3397,7 @@ MẠNG MÁY TÍNH
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -3312,6 +3453,7 @@ tập thể.
 (Mức độ đóng góp đánh giá theo thang Bloom của học phần vào các chuẩn đầu ra của
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 3 |  |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -3322,6 +3464,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 <!-- Page 122 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 10 % | - Điểm bài tập thường xuyên<br>- Thang điểm 10 | CK1, CK2,<br>CS1, CR1<br>CK1, CR1,<br>CR2, CR3 |
@@ -3338,12 +3481,14 @@ approach, thư viện điện tử VNU, 2013.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Các khái niệm cơ sở |  | CK1, CK3, CS1,<br>CS2 |
 3 122
 
 <!-- Page 123 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.1 | Các mô hình kết nối và phân loại mạng |  |
@@ -3376,6 +3521,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 123
 
 <!-- Page 124 -->
+
 | Chương<br>/ mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 6.2 | Dịch vụ thư điện tử |  |
@@ -3398,6 +3544,7 @@ NHẬP MÔN TRÍ TUỆ NHÂN TẠO
 - MAT1202: Lập trình hướng đối tượng
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -3454,17 +3601,20 @@ hạn và đạt yêu cầu khi làm việc độc lập cũng như làm việc 
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 4 |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  |
 2 126
 
 <!-- Page 127 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  | 3 | 4 | 4 | 4 |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, trên<br>lớp và tham gia thảo luận.<br>- Thang điểm đánh giá 10 | CR1-CR3 |
@@ -3483,6 +3633,7 @@ edition. McGraw, 2009.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Mở đầu |  |  |
@@ -3492,6 +3643,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 127
 
 <!-- Page 128 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.4 | Tác tử và hệ cơ sở tri thức |  |
@@ -3528,6 +3680,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 128
 
 <!-- Page 129 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.1 | Phân tích dữ liệu |  |
@@ -3558,6 +3711,7 @@ THỰC TẬP THỰC TẾ PHÁT TRIỂN PHẦN MỀM
 - MAT3507: Cơ sở dữ liệu
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -3622,6 +3776,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 132 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 6 | 5 | 3 |  |  |  |  |  | 3 |  |  | 3 |  | 4 |  |  | 4 |  |  |
@@ -3629,6 +3784,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK1, CK2<br>CS1, CS2<br>CR1-CR3 |
@@ -3640,6 +3796,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Hình thức dạy | Số tiết/ tuần | Từ tuần – Đến tuần | Địa điểm |
 | --- | --- | --- | --- |
 | Lý thuyết |  | 1-2 | Giảng đường |
@@ -3657,6 +3814,7 @@ CÔNG NGHỆ PHẦN MỀM
 - MAT1202: Lập trình hướng đối tượng
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -3722,6 +3880,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 135 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 3 |  |  |  |  |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
@@ -3729,6 +3888,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Kiểm tra trắc nghiệm<br>- Thang điểm đánh giá: CK1: 3<br>điểm, CK2: 2 điểm, CS1: 1 điểm,<br>CS2: 2 điểm, CR1: 1 điểm, CR2: 1<br>điểm | CK1, CK2, CS1,<br>CS2, CR1, CR2 |
@@ -3749,6 +3909,7 @@ Approach, McGraw-Hill Education, 2019.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1: Tổng quan về phần mềm và công nghệ phần mềm |  |  |
@@ -3763,6 +3924,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 136
 
 <!-- Page 137 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 3.1.3. Sơ lược về MVC, Design Patterns và khái niệm<br>Framework |  |
@@ -3778,6 +3940,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 137
 
 <!-- Page 138 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 5.2.2. Kiểm soát tiến độ và tái lập kế hoạch<br>5.2.3. Đóng gói và chuyển giao<br>5.2.4. Kết thúc dự án |  |
@@ -3794,6 +3957,7 @@ NGUYÊN LÍ CÁC NGÔN NGỮ LẬP TRÌNH
 - MAT1202: Lập trình hướng đối tượng.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 |  | STT |  |  | Họ và tên |  |  | Học hàm, |  |  | Đơn vị công tác |  |  | Email |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  | học vị |  |  |  |  |  |  |  |
@@ -3856,6 +4020,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 141 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -3866,6 +4031,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Bài kiểm tra thường xuyên giờ lí<br>thuyết và bài tập<br>- CK1: 0.5 điểm, CK2: 1 điểm, CK3:<br>1 điểm, CS1: 0.5 điểm, CS2: 3.5<br>điểm, CS3: 1 điểm, CS4: 0.5 điểm,<br>CR1: 0.5 điểm, CR2: 0.5 điểm,<br>CR3: 1 điểm | CK1-CK3,<br>CS1-CS4,<br>CR1-CR3 |
@@ -3889,6 +4055,7 @@ Implementation, 4th Edition, Prentice Hall, 2001.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan |  | CK1, CK3, CS3,<br>CS4, CR1, CR3 |
@@ -3910,6 +4077,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 142
 
 <!-- Page 143 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  |  | CS3, CS4, CR1-<br>CR3 |
@@ -3941,6 +4109,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 143
 
 <!-- Page 144 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  |  | CR3 |
@@ -3970,6 +4139,7 @@ HỌC MÁY
 - MAT2323: Xác suất – Thống kê hoặc MAT2406: Thống kê ứng dụng.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -4054,12 +4224,14 @@ dụng các kiến thức môn học vào xử lý các vấn đề thực tiễ
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức<br>đóng góp<br>của học<br>phần |  |  |  | 3 |  | 3 | 4 | 5 | 2 | 3 | 4 |
 | CĐR<br>CTĐT | PS3 | PS4 | PS5 | PS6 | PS7 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | Mức<br>đóng góp<br>của học<br>phần |  | 3 |  |  |  | 4 | 4 | 4 |  |  | 4 |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4067,12 +4239,14 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 3 147
 
 <!-- Page 148 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
 | Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4083,6 +4257,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Các bài thực hành, bài kiểm tra<br>trắc nghiệm và kiểm tra trên lớp (lý<br>thuyết và thực hành)<br>- Thang điểm đánh giá.<br>CK1 – 2 – 3 : 1 – 1.5 – 2.5 điểm<br>CS1 – CS2 : 1.5 – 1.5 điểm<br>CR1 – CR3: 1 – 1 điểm | CK1,CK2,CK3<br>,CS1, CS2,<br>CR1, CR3 |
@@ -4091,6 +4266,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 4 148
 
 <!-- Page 149 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 |  | Tổng | 100% |  |  |
@@ -4111,6 +4287,7 @@ Wiley &Sons, 2001.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu |  |  |
@@ -4120,6 +4297,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 149
 
 <!-- Page 150 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 2. Các mô hình phân loại đơn giản |  |  |
@@ -4143,6 +4321,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 6 150
 
 <!-- Page 151 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  |  | CR1, CR2 |
@@ -4165,6 +4344,7 @@ NGÔN NGỮ LẬP TRÌNH THỨ HAI
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -4239,6 +4419,7 @@ bài tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4249,6 +4430,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1,<br>CS1, CS2<br>CR1-CR3 |
@@ -4256,6 +4438,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 3 154
 
 <!-- Page 155 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 3 | Cuối kỳ | 60 % | Bài lập trình trên máy tính, kết hợp<br>với vấn đáp trực tiếp | CK1-CK3<br>CS1-CS2,<br>CR1-CR3 |
@@ -4281,6 +4464,7 @@ Robust and Maintainable Object-Oriented Python Applications and Libraries,
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Cú pháp cơ bản của ngôn ngữ |  | CK1, CK4 |
@@ -4292,6 +4476,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 155
 
 <!-- Page 156 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 7. Lập trình song song, đa luồng |  | CK1-CK3, CS2 |
@@ -4309,6 +4494,7 @@ LẬP TRÌNH MOBILE
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -4376,6 +4562,7 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4386,6 +4573,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy hoặc là bài<br>tập lập trình trên máy tính | CK1, CK4<br>CS1, CS2<br>CR1-CR3 |
@@ -4408,6 +4596,7 @@ NXB Big Nerd Ranch Guides, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về các nền tảng điện thoại di động |  | CK1, CK4 |
@@ -4438,6 +4627,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 160
 
 <!-- Page 161 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.3 | Tìm hiểu về LayoutInflater, dialogs |  |
@@ -4474,6 +4664,7 @@ XÂY DỰNG HỆ THỐNG NHÚNG
 - MAT3505: Kiến trúc máy tính
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -4535,6 +4726,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 164 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 |  | 3 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  |
@@ -4542,6 +4734,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 | 3 | 3 | 3 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Đi học đầy đủ, tham gia các bài<br>tập theo nhóm chủ đề môn học,<br>tích lũy trả lời các tình huống trên<br>lớp học, trình bày và bảo vệ các<br>nội dung bài tập lớn được giao.<br>- Thang điểm đánh giá: CK1: 4<br>điểm, CK2: 1 điểm; CS2: 2 điểm;<br>CS3: 1 điểm; CS4: 0.5 điểm; CS5:<br>0.5 điểm; CR1+CR2+CR3: 1 điểm | CK1, CS1, CS3,<br>CS5 |
@@ -4550,6 +4743,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 3 164
 
 <!-- Page 165 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 |  |  |  | CS5: 1 điểm, CR1+CR2+CR3: 1<br>điểm |  |
@@ -4569,6 +4763,7 @@ Leicester, 2006.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
 | Chương 1. Tổng quan về hệ thống nhúng |  |  |  |
@@ -4578,6 +4773,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 165
 
 <!-- Page 166 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
 | 2.1 | Kiến trúc chung của AVR<br>2.1.1. Mô tả tổng quan về cấu trúc bên trong của vi<br>điều khiển AVR<br>2.1.2. Phân tích các thành phần chính như CPU, bộ<br>nhớ, bộ định thời, và bộ ngoại vi |  | CK2, CS1,<br>CR1 |
@@ -4593,6 +4789,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 166
 
 <!-- Page 167 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Thời<br>lượng | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- | --- |
 | 4.2 | Thiết kế điều khiển thiết bị điện từ xa bằng sóng vô<br>tuyến |  | CK3, CS2,<br>CS2-CS5,<br>CR3 |
@@ -4612,6 +4809,7 @@ PHÁT TRIỂN PHẦN MỀM TRÒ CHƠI
 - MAT2505: Lập trình cơ bản.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -4666,6 +4864,7 @@ tập thể.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4679,6 +4878,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 <!-- Page 170 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 10% | - Điểm bài tập thường xuyên<br>- Thang điểm 10 | CK1,CR1,<br>CR2, CR3 |
@@ -4695,6 +4895,7 @@ Unity, Addition-Wesley, 2015.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan |  | CK1, CK3, CS1,<br>CS2 |
@@ -4704,6 +4905,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 170
 
 <!-- Page 171 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 1.4 | Ứng dụng toán học trong trò chơi |  |
@@ -4749,6 +4951,7 @@ TÍNH TOÁN SONG SONG
 - MAT3514: Cấu trúc dữ liệu và thuật toán
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -4810,18 +5013,21 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 175 -->
 Chương trình đào tạo ngành Khoa học dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 4 |  | 4 |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  | PR2 |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |
 | Mức đóng góp<br>của học phần | 4 | 3 | 3 | 4 |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 Chương trình đào tạo ngành Toán Tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  | 3 | 3 | 3 |  |  | 3 |  |  |  |  |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  |
@@ -4832,6 +5038,7 @@ Chương trình đào tạo ngành Toán Tin:
 <!-- Page 176 -->
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, trên<br>lớp và tham gia thảo luận.<br>- Thang điểm đánh giá 10 | CK1, CK2, CS1,<br>CS2, CR1, CR2 |
@@ -4852,6 +5059,7 @@ C++ and CUDA, CRC Press, 2016.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu về tính toán song song |  | CK1 |
@@ -4864,6 +5072,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 176
 
 <!-- Page 177 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.3 | Các thành phần chính của máy tính song song |  |
@@ -4900,6 +5109,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 177
 
 <!-- Page 178 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.2 | Nhân hai ma trận |  |
@@ -4919,6 +5129,7 @@ NGÔN NGỮ HÌNH THỨC VÀ ÔTÔMAT
 - MAT3500: Toán rời rạc.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -4979,6 +5190,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 181 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -4989,6 +5201,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  |  |  |  | 4 |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Bài kiểm tra về xây dựng văn phạm<br>hình thức<br>- CK1: 2 điểm, CK2: 2 điểm, CS1:4<br>điểm, CS5:1 điểm, CR1: 0.5 điểm,<br>CR2: 0.5 điểm | CK1, CK2,<br>CS1, CS5,<br>CR1, CR2 |
@@ -5011,6 +5224,7 @@ Cathleen Sether, 2011.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Văn phạm và ngôn ngữ |  |  |
@@ -5036,6 +5250,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 182
 
 <!-- Page 183 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 3.6 | Thuật toán CKY | CK1, CK2, CS1,<br>CS4, CS5, CR1,<br>CR2 |
@@ -5054,6 +5269,7 @@ THỊ GIÁC MÁY TÍNH
 - MAT3533: Học máy.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -5109,6 +5325,7 @@ nhóm.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -5116,6 +5333,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 2 185
 
 <!-- Page 186 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
@@ -5123,6 +5341,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Các bài kiểm tra trên lớp (lý thuyết<br>và thực hành)<br>- Thang điểm đánh giá.<br>CK1: 4 điểm<br>CS1: 3.5 điểm<br>CS4: 2 điểm<br>CR1: 0.5 điểm | CK1, CS1,<br>CS4, CR1 |
@@ -5150,6 +5369,7 @@ Khoa học và Kỹ thuật, 2008.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về xử lí ảnh |  |  |
@@ -5165,6 +5385,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 187
 
 <!-- Page 188 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 3: Các vùng ảnh và phân đoạn |  |  |
@@ -5191,6 +5412,7 @@ XỬ LÍ NGÔN NGỮ TỰ NHIÊN VÀ ỨNG DỤNG
 - MAT3533: Học máy.
 4. Ngôn ngữ giảng dạy: Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -5242,6 +5464,7 @@ quan điểm cá nhân.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 4 |  |  |
@@ -5252,6 +5475,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 <!-- Page 191 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Các bài kiểm tra thường xuyên<br>- CK1: 4 điểm, CK2: 1 điểm, CS1:1<br>điểm, CS2: 2 điểm, CS4: 0.5 điểm,<br>CS5: 0.5 điểm, CR1: 0.5 điểm, CR3:<br>0.5 điểm | CK1,CK2,<br>CS1,CS2, CS4,<br>CS5, CR1, CR3 |
@@ -5278,6 +5502,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 191
 
 <!-- Page 192 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan |  | CK1, CS4, CR1 |
@@ -5307,6 +5532,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 192
 
 <!-- Page 193 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 6.1 | Từ loại |  |
@@ -5339,6 +5565,7 @@ MỘT SỐ VẤN ĐỀ CHỌN LỌC VỀ THỊ GIÁC MÁY TÍNH
 - MAT3562E: Thị giác máy tính.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -5422,6 +5649,7 @@ thông tin.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -5435,6 +5663,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 <!-- Page 197 -->
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Bài thực hành và các bài kiểm tra<br>trên lớp (lý thuyết và thực hành)<br>- Thang điểm đánh giá.<br>CK1: 2.5 điểm<br>CK2: 2 điểm<br>CS1: 2 điểm<br>CS2: 1.5 điểm<br>CR1: 1 điểm<br>CR3: 1 điểm | CK1,CK2,<br>CS1, CS2,<br>CR1, CR3 |
@@ -5460,6 +5689,7 @@ Academic Press; 5th edition, 2017.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu |  |  |
@@ -5471,6 +5701,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 198
 
 <!-- Page 199 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | 2.2.1. Các phương pháp trích xuất đặc trưng toàn cục<br>2.2.2. Các phương pháp trích xuất đặc trưng cục bộ<br>2.2.3. Giới thiệu các phương pháp sử dụng học sâu trích<br>xuất đặc trưng ảnh | CS2, CS3 |
@@ -5489,6 +5720,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 6 199
 
 <!-- Page 200 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | 4.5.3 Cơ chế chú ý trong thị giác máy tính (Attention<br>Mechanisms)<br>4.5.3 Giới thiệu mô hình học sâu sử dụng cơ chế chú ý<br>trong thị giác máy tính: Vision Transformer (visTrans) |  |
@@ -5505,6 +5737,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 7 200
 
 <!-- Page 201 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | 6.3.4 Nhóm mô hình có sử dụng cơ chế chú ý. |  |
@@ -5522,6 +5755,7 @@ KHAI PHÁ DỮ LIỆU
 - MAT2323: Xác suất – Thống kê.
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -5575,6 +5809,7 @@ học tập, làm bài tập theo nhóm, làm các bài kiểm tra cá nhân ho�
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -5582,12 +5817,14 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 2 203
 
 <!-- Page 204 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
 | Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -5598,6 +5835,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp<br>hoặc giờ thực hành tại phòng máy<br>tính<br>- Đếm số buổi vắng mặt | CR1, CR3 |
@@ -5620,6 +5858,7 @@ Kaufmann, 2012.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Tổng quan về khai phá dữ liệu |  | CK1, CK2, CS1,<br>CS2, CR1, CR2,<br>CR3 |
@@ -5644,6 +5883,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 205
 
 <!-- Page 206 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.3 | Thuật toán cực đại hóa kỳ vọng |  |
@@ -5668,6 +5908,7 @@ PHÁT TRIỂN ỨNG DỤNG WEB
 - MAT3507: Cơ sở dữ liệu.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -5733,6 +5974,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 209 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 3 | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -5743,6 +5985,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Hình thức đánh giá:<br>Bài kiểm tra ngắn trên lớp (10%) và<br>các bài kiểm tra thực hành (10%)<br>- Thang điểm đánh giá: 10 | CK1, CS1,<br>CR2 |
@@ -5772,6 +6015,7 @@ Polyglot Persistence. Addison Wesley, 2013.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Kiến trúc ứng dụng web |  | CK1 |
@@ -5792,6 +6036,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 210
 
 <!-- Page 211 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 2.7 | Headings, Paragraphs, and định dạng văn bản<br>(Formatting Text) |  |
@@ -5824,6 +6069,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 211
 
 <!-- Page 212 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 5.5 | Error Handling |  |
@@ -5862,6 +6108,7 @@ hoặc MAT2318: Lập trình Python hoặc MAT2319: Lập trình Julia;
 - MAT2301: Đại số tuyến tính 2 hoặc MAT2400: Đại số tuyến tính
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -5922,18 +6169,21 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 215 -->
 Chương trình đào tạo ngành Toán học hệ Chuẩn
+
 | CĐR CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PS1 | PS2 | PS3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |  |
 | Mức đóng<br>góp của học<br>phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
 Chương trình đào tạo ngành Toán học CNKHTN:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PS1 | PS2 | PS3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng<br>góp của học<br>phần |  |  |  | 3 | 3 | 4 | 5 | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |  |
 | Mức đóng<br>góp của học<br>phần | 3 |  | 5 |  |  |  |  | 3 | 4 |  |
 Chương trình đào tạo ngành Toán – Tin:
+
 | CĐR<br>CTĐT | PK1 | PK2 | PK3 | PK4 | PK5 | PK6 | PK7 | PK8 | PK9 | PS1 | PS2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức<br>đóng góp<br>của học<br>phần |  |  | 2 | 3 |  | 4 |  |  | 3 |  | 4 |
@@ -5943,6 +6193,7 @@ Chương trình đào tạo ngành Toán – Tin:
 
 <!-- Page 216 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 5 |  |  | 4 |  |  | 3 |  |  | 3 |  | 3 |  |  | 2 |  |  |
@@ -5950,6 +6201,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  |  |  | 4 |  |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm danh; Điểm bài tập thường<br>xuyên và trình bày.<br>- Thang điểm 10: Điểm danh 5<br>điểm, Bài tập thường xuyên: 5<br>điểm. | CK: 1,2,3<br>CS:1,3<br>CR: 1,2 |
@@ -5975,6 +6227,7 @@ dịch tiếng Việt: Bitcoin thực hành - Những khái niệm cơ bản và
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1: Một số kiến thức chuẩn bị (12 tiết) |  | CK: 1,2,3<br>CS: 1,3 |
@@ -5997,6 +6250,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 217
 
 <!-- Page 218 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 4.2 | Chữ ký số Elgamal và Thuật toán chữ ký số DSA |  |
@@ -6020,6 +6274,7 @@ PHÂN TÍCH THỐNG KÊ NHIỀU CHIỀU
 - MAT2311 hoặc MAT2406: Thống kê ứng dụng / MAT2323: Xác suất – Thống kê.
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -6102,28 +6357,33 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Toán học:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |  |  |  |  |
 | Mức đóng góp<br>của học phần | 3 |  |  |  |  |  |  |  |  | 2 |  |  | 2 |  |  |  |  |  |  |  |  |  |  |  |
 Chương trình đào tạo ngành Toán học hệ cử nhân tài năng:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PR7 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  | 3 | 3 |  |  | 4 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3 |  |  |
 3 221
 
 <!-- Page 222 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 3 |  |  |  |  | 2 | 2 |  |  |
 Chương trình đào tạo ngành Toán - Tin:
+
 | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 | PK6 |  |  | PK7 |  |  | PK8 |  |  | PK9 |  |  | PS1 |  | PS2 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  | 3 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4 |  |  |
 | PS3 | PS4 | PS5 | PS6 |  |  | PS7 |  | PR1 |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  | PR6 |  |  |
 |  |  |  |  |  |  |  |  |  |  | 2 |  |  |  |  |  | 2 |  |  |  |  |  |  |  |
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 | PK5 |  |  | PK6 |  |  | PS1 |  | PS2 |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  | 3 |  |  |  |  |  | 3 |  | 3 |  |
@@ -6131,12 +6391,14 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK3<br>CS1, CS2<br>CR1-CR3 |
 4 222
 
 <!-- Page 223 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 2. | Giữa kỳ | 20 % | - Thi tự luận<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK3, CK4<br>CS3 |
@@ -6158,6 +6420,7 @@ Routledge, 2021.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Phân phối xác suất nhiều chiều |  | CK1, CK2, CS1 |
@@ -6168,6 +6431,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 223
 
 <!-- Page 224 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung |  |  | Chuẩn đầu ra<br>của học phần |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Chương 2. Mô hình hồi qui tuyến tính bội |  |  |  |  |  |  |
@@ -6197,6 +6461,7 @@ PHƯƠNG PHÁP CHỌN MẪU DỮ LIỆU
 - MAT2323: Xác suất thống kê.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -6263,6 +6528,7 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá.
 (Mức độ đóng góp đánh giá theo thang Bloom của học phần vào các chuẩn đầu ra của
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 5 |  |  |  |  |  | 3 |  |  |  |  |  | 3 |  |  | 2 |  |  |
@@ -6270,6 +6536,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 | Mức đóng góp<br>của học phần | 4 | 3 |  | 3 |  |  |  |  |  | 2 |  |  | 2 |  |  | 3 |  |  |  |  |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1. | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK3,<br>CK4<br>CS1, CS2<br>CR1-CR3 |
@@ -6291,6 +6558,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của học<br>phần |
 | --- | --- | --- |
 | Chương 1. Các khái niệm cơ bản |  | CK1, CK2, CS1 |
@@ -6320,6 +6588,7 @@ GIẢI TÍCH SỐ
 - MAT2403: Phương trình vi phân
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -6392,20 +6661,24 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá. (mức 2)
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 a. Chương trình đào tạo ngành Khoa học dữ liệu
+
 | CĐR CTĐT | PK3 | PK4 | PS1 | PS2 | PS4 | PR3 | PR4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp của<br>học phần | 3 | 3 | 3 | 3 | 3 | 2 | 2 | 2 |
 b. Chương trình đào tạo ngành Khoa học máy tính và thông tin
+
 | CĐR CTĐT | PK3 | PK4 | PK6 | PS1 | PS3 | PS4 | PR5 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp của<br>học phần | 3 | 3 | 4 | 4 | 3 | 3 | 2 |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 231
 
 <!-- Page 232 -->
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm 10. | CK1, CK2,<br>CK3<br>CS1, CS4<br>CR1-CR3 |
@@ -6422,6 +6695,7 @@ implementation of algorithms, University of Washington, 2010.
 - Phạm Kỳ Anh, Phan Văn Hạp và các tác giả (Chủ biên Phan Văn Hạp), Giáo trình
 phương pháp tính, Tập I, II, Trường ĐHTH HN, 1990.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 | Chương 1. Sai số |  | CK1 |
@@ -6432,6 +6706,7 @@ phương pháp tính, Tập I, II, Trường ĐHTH HN, 1990.
 232
 
 <!-- Page 233 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  | và sai số làm tròn. |  |
@@ -6457,6 +6732,7 @@ phương pháp tính, Tập I, II, Trường ĐHTH HN, 1990.
 233
 
 <!-- Page 234 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra của<br>học phần |
 | --- | --- | --- |
 |  |  | CS1, CS2, CS4 |
@@ -6483,6 +6759,7 @@ CÁC HỆ THỐNG TRI THỨC
 - MAT3514: Cấu trúc dữ liệu và thuật toán.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -6542,6 +6819,7 @@ nhân và đưa ra kết luận chuyên môn.
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -6549,6 +6827,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 2 236
 
 <!-- Page 237 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | PR1 |  |  | PR2 |  |  | PR3 |  |  | PR4 |  |  | PR5 |  |  | PR6 |  |
@@ -6556,6 +6835,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 |  |  |  |  |  | 3 |  |  |  |  |  | 2 |  |  | 4 |  |  | 3 |  |  | 2 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20% | Bài kiểm tra trên giấy/Bài thi trắc<br>nghiệm | CK1, CK2 |
@@ -6575,6 +6855,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 237
 
 <!-- Page 238 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Giới thiệu chung về các hệ thống tri thức |  | CK1, CS2 |
@@ -6609,6 +6890,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 238
 
 <!-- Page 239 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 5. Các phương pháp xử lý tri thức |  | CK1,CK2, CK3,<br>CS3 |
@@ -6631,6 +6913,7 @@ TÌM KIẾM THÔNG TIN
 - MAT2323: Xác suất – Thống kê.
 4. Ngôn ngữ giảng dạy: Tiếng Việt hoặc Tiếng Anh
 5. Giảng viên:
+
 |  |  |  |  |  |  |  | Học hàm, |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | STT |  |  | Họ và tên |  |  |  |  |  | Đơn vị công tác |  |  | Email |  |
@@ -6690,6 +6973,7 @@ chủ và trách nhiệm (Program Responsibility-PR))
 
 <!-- Page 242 -->
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -6699,6 +6983,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 5 | 4 | 3 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  |  |  |  | 4 |  |  | 4 |  |
 Chương trình đào tạo ngành Khoa học Dữ liệu:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -6709,6 +6994,7 @@ Chương trình đào tạo ngành Khoa học Dữ liệu:
 |  |  |  |  |  | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |
 10. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm danh giờ lý thuyết trên lớp<br>hoặc giờ thực hành tại phòng máy<br>tính<br>- Đếm số buổi vắng mặt | CR1, CR3 |
@@ -6735,6 +7021,7 @@ Data, Elsevier, 2003.
 12. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chapter 1. Boolean model |  | CK1, CK2<br>CS1, CS2<br>CR1, CR2, CR3 |
@@ -6753,6 +7040,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 243
 
 <!-- Page 244 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 3.3 | Spelling correction |  |
@@ -6782,6 +7070,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 244
 
 <!-- Page 245 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | 7.3 | Text clustering |  |
@@ -6807,6 +7096,7 @@ PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG THÔNG TIN
 - MAT1207: Công nghệ phần mềm
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -6872,6 +7162,7 @@ của học phần với chuẩn đầu ra của CTĐT
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  | 6 | 5 | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
@@ -6879,6 +7170,7 @@ Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
 | Mức đóng góp<br>của học phần | 5 | 4 | 3 | 4 |  |  |  |  |  | 3 |  |  | 4 |  |  | 4 |  |  | 4 |  |  |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK4<br>CS1, CS2<br>CR1-CR3 |
@@ -6906,6 +7198,7 @@ và Kỹ thuật, Hà Nội, 2002.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Các vấn đề chung về phân tích và thiết kế hệ thống<br>thông tin |  | CS1, CK1 |
@@ -6913,6 +7206,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 249
 
 <!-- Page 250 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 1.4.1. Mức quan niệm<br>1.4.2. Mức tổ chức<br>1.4.3. Mức tác nghiệp |  |
@@ -6925,6 +7219,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 5 250
 
 <!-- Page 251 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 4.4 Biểu đồ lớp<br>4.5 Thuộc tính lớp<br>4.6 Các phương thức của lớp<br>4.7 Thực hiện với Rational Rose |  |
@@ -6945,6 +7240,7 @@ MỘT SỐ VẤN ĐỀ CHỌN LỌC VỀ TRÍ TUỆ NHÂN TẠO
 - MAT1206E: Nhập môn trí tuệ nhân tạo
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | STT | Họ và tên |  | Học hàm, |  | Đơn vị công tác | Email |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  | học vị |  |  |  |
@@ -7002,17 +7298,20 @@ tập, thảo luận nhóm và các bài kiểm tra đánh giá. .
 CTĐT theo Kiến thức (Program Knowledge-PK), Kỹ năng (Program Skill-PS), Mức tự
 chủ và trách nhiệm (Program Responsibility-PR))
 Chương trình đào tạo ngành Khoa học Máy tính và Thông tin:
+
 | CĐR CTĐT | PK1 | PK2 | PK3 |  | PK4 |  |  | PK5 |  |  | PK6 |  |  | PS1 |  |  | PS2 |  |  | PS3 |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần |  |  |  | 5 |  |  | 2 |  |  | 5 |  |  | 3 |  |  | 4 |  |  | 4 |  |  |
 2 253
 
 <!-- Page 254 -->
+
 | CĐR CTĐT | PS4 | PS5 | PS6 | PR1 | PR2 | PR3 | PR4 | PR5 | PR6 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mức đóng góp<br>của học phần | 5 | 4 | 3 | 4 |  | 3 | 3 | 4 | 4 |
 9. Kiểm tra, đánh giá kết quả học tập (cần đo lường mức độ người học đạt chuẩn
 đầu ra)
+
 | STT | Tiêu chí<br>đánh giá | Trọng số | Mô tả | Chuẩn đầu ra<br>cần đo được |
 | --- | --- | --- | --- | --- |
 | 1 | Thường<br>xuyên | 20 % | - Điểm bài tập thường xuyên, điểm<br>làm bài tập trên lớp và trình bày.<br>- Thang điểm đánh giá theo đường<br>cong phân bố chuẩn. | CK2, CK4<br>CS1, CS2<br>CR1-CR3 |
@@ -7031,6 +7330,7 @@ Illustrated edition, 2016.
 11. Nội dung chi tiết học phần và liên kết nội dung với chuẩn đầu ra
 (lưu ý: Nội dung chi tiết thể hiện chuẩn đầu ra của học phần, có thể chi tiết thông tin
 về phân bổ giờ học tập, lịch trình giảng dạy)
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 | Chương 1. Hệ chuyên gia |  | CK1, CK2, CS1 |
@@ -7038,6 +7338,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 3 254
 
 <!-- Page 255 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 1.2. Các ứng dụng của các hệ thống chuyên gia<br>1.2.1. Hệ thống trong y tế<br>1.2.2. Hệ thống trong giáo dục và đào tạo<br>1.3. Hệ chuyên gia mờ<br>1.3.1. Tiếp cận mờ<br>1.3.2. Tri thức mờ và lập luận mờ<br>1.4. Hệ chuyên gia MYCIN<br>1.4.1. Lí thuyết chắc chắn trong hệ chuyên gia<br>1.4.2. Lập luận chắc chắn |  |
@@ -7048,6 +7349,7 @@ về phân bổ giờ học tập, lịch trình giảng dạy)
 4 255
 
 <!-- Page 256 -->
+
 | Chương/<br>mục | Tiêu đề/Nội dung | Chuẩn đầu ra<br>của học phần |
 | --- | --- | --- |
 |  | 3.5.1. Chia sẻ tri thức hiện<br>3.5.2. Chia sẻ tri thức ngầm<br>3.5.3. Một số tiếp cận đặc biệt đối với chia sẻ tri thức<br>3.6. Hệ thống khám phá tri thức<br>3.6.1. Khai phá dữ liệu<br>3.6.2. Khám phá tri thức |  |

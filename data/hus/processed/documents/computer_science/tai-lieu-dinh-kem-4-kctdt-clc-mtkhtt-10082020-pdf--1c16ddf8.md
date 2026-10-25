@@ -348,6 +348,7 @@ thế khoá luận tốt nghiệp:
 
 <!-- Page 13 -->
 2. Khung chương trình đào tạo
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -370,6 +371,7 @@ thế khoá luận tốt nghiệp:
 13
 
 <!-- Page 14 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -392,6 +394,7 @@ thế khoá luận tốt nghiệp:
 14
 
 <!-- Page 15 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -413,6 +416,7 @@ thế khoá luận tốt nghiệp:
 15
 
 <!-- Page 16 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -430,6 +434,7 @@ thế khoá luận tốt nghiệp:
 16
 
 <!-- Page 17 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -448,6 +453,7 @@ thế khoá luận tốt nghiệp:
 17
 
 <!-- Page 18 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -464,6 +470,7 @@ thế khoá luận tốt nghiệp:
 18
 
 <!-- Page 19 -->
+
 | STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -534,6 +541,7 @@ người học.
 <!-- Page 22 -->
 5.2. Kế hoạch giảng dạy (dự kiến)
 Học kì I
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -546,6 +554,7 @@ Học kì I
 | 7. | MAT2506 | Kĩ năng mềm | 2 |  |
 |  |  | Tổng | 23 |  |
 Học kì II
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -567,6 +576,7 @@ Học kì II
 
 <!-- Page 23 -->
 Học kì III
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -583,6 +593,7 @@ Học kì III
 | 9. | PHY1020 | Nhập môn Robotics | 3 |  |
 |  |  | Tổng | 21 |  |
 Học kì IV
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -594,6 +605,7 @@ Học kì IV
 23
 
 <!-- Page 24 -->
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | MAT2319 |
@@ -601,6 +613,7 @@ Học kì IV
 | 7. | MAT3374 | Thực tập thực tế phát triển phần<br>mềm | 3 | INM1000<br>MAT3507 |
 |  |  | Tổng | 20 |  |
 Học kì V
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -617,12 +630,14 @@ Học kì V
 24
 
 <!-- Page 25 -->
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Embedded System Workshop |  | MAT3505 |
 | 9. | MAT3560 | Phát triển phần mềm trò chơi (*)<br>Introduction to game design and<br>development | 2 | MAT3376 |
 |  |  | Tổng | 20 |  |
 Học kì VI
+
 | Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -639,12 +654,14 @@ Học kì VI
 25
 
 <!-- Page 26 -->
+
 | Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | MAT3500 |
 | 9. | MAT3562E | Thị giác máy tính (**)<br>Computer Vision: Foundations<br>and Applications | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Tổng | 21 |  |
 Học kì VII
+
 | Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |
@@ -660,6 +677,7 @@ Học kì VII
 26
 
 <!-- Page 27 -->
+
 | Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 | 7. | MAT3566 | Xử lý ảnh 3D (*)<br>Computer Vision: From 3D<br>Reconstruction to Recognition | 3 | MAT3533<br>MAT3562E<br>MAT3376 |
@@ -669,6 +687,7 @@ Học kì VII
 | 11. | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
 |  |  | Tổng | 17 |  |
 Học kì VIII
+
 | Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
 | --- | --- | --- | --- | --- |
 |  |  | Các học phần bắt buộc |  |  |

@@ -112,6 +112,7 @@ sinh, Khoa Toán-Cơ-Tin học xem xét và đề xuất trình Trường ĐHKHT
 ĐHQGHN xem xét và phê duyệt.
 - Danh mục các học phần bổ sung kiến thức dành cho đối tượng dự tuyển phải
 bổ sung kiến thức:
+
 | STT | Tên học phần | Số tín chỉ |
 | --- | --- | --- |
 | 1 | Giải tích hàm nâng cao | 3 |
@@ -273,6 +274,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 <!-- Page 8 -->
 2. Khung chương trình đào tạo
 2.1. Đối với NCS có bằng thạc sĩ
+
 | STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -297,6 +299,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 8
 
 <!-- Page 9 -->
+
 | STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -309,6 +312,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 10 -->
 2.2. Đối với NCS chưa có bằng thạc sĩ
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -332,6 +336,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 10
 
 <!-- Page 11 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -357,6 +362,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 11
 
 <!-- Page 12 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |

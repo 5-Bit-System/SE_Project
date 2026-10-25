@@ -128,6 +128,7 @@ Phương trình vi phân và hệ động lực, Toán ứng dụng định hư�
 Toán kinh tế, Phương pháp toán sơ cấp.
 - Danh mục các học phần bổ sung kiến thức dành cho đối tượng dự tuyển phải bổ
 sung kiến thức:
+
 | STT | Học phần | Số tín chỉ |
 | --- | --- | --- |
 | 1 | Phân tích thống kê nhiều chiều | 3 |
@@ -292,6 +293,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 <!-- Page 9 -->
 2. Khung chương trình đào tạo
 2.1. Đối với NCS có bằng thạc sĩ
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -316,6 +318,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 9
 
 <!-- Page 10 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -328,6 +331,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 11 -->
 2.2. Đối với NCS chưa có bằng thạc sĩ
+
 | STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -352,6 +356,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 11
 
 <!-- Page 12 -->
+
 | STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -377,6 +382,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 12
 
 <!-- Page 13 -->
+
 | STT | Mã học<br>phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |

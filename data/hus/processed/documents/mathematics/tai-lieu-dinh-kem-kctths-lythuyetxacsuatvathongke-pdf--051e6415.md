@@ -121,6 +121,7 @@ Tin ứng dụng, Sư phạm Toán học.
 - Danh mục các ngành gần: Tin học, Sư phạm Toán Tin, Máy tính và khoa
 học thông tin.
 3.4. Danh mục các học phần bổ sung kiến thức
+
 | TT | Học phần | Số tín<br>chỉ |
 | --- | --- | --- |
 | 1. | Đại số đại cương | 3 |
@@ -134,6 +135,7 @@ học thông tin.
 3
 
 <!-- Page 6 -->
+
 |  | Tổng cộng | 25 |
 | --- | --- | --- |
 3.5. Dự kiến quy mô tuyển sinh
@@ -275,6 +277,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 11 -->
 2. Khung chương trình
+
 | ST<br>T | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -297,6 +300,7 @@ tính vào điểm trung bình chung tích lũy
 9
 
 <!-- Page 12 -->
+
 |  |  | Representations |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 13. | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 45 |  |  |  |
@@ -317,6 +321,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 13 -->
 3. Danh mục tài liệu tham khảo
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 1 | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
@@ -326,6 +331,7 @@ tính vào điểm trung bình chung tích lũy
 11
 
 <!-- Page 14 -->
+
 |  |  |  |  | 6. Dunford N. , Schwartz J.T. (1988), Linear opeartors Wiley<br>classics library. |
 | --- | --- | --- | --- | --- |
 | 5 | MAT6007 | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected Topics in Linear<br>Algebra | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB<br>ĐHQG Hà Nội.<br>2. Golan J. S. (2007), The linear algebra a beginning graduate<br>student ought to know, Springer.<br>2. Tài liệu tham khảo thêm<br>1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện<br>đại, NXB ĐH và THCN, Hà Nội.<br>2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka,<br>Moskva (Tiếng Nga).<br>3. Gourdon X. (1994), Algèbre, Ellipses, Paris.<br>4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.<br>5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học<br>tuyến tính, NXB Đại học Moskva, Moskva (Tiếng Nga).<br>6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva<br>(Tiếng Nga).<br>7. Lang S. (1965), Algebra, Addison-Wesley publishing<br>company, Massachusetts.<br>8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir<br>publishers, Moscow.<br>9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
@@ -333,6 +339,7 @@ tính vào điểm trung bình chung tích lũy
 12
 
 <!-- Page 15 -->
+
 |  |  |  |  | Introduction, 2nd., John Wiley & Sons, Ltd.<br>2. Tài liệu tham khảo thêm<br>1. Lawrence Evans C. (2010), Partial differential equations, 2nd,<br>American Mathemtical Society.<br>2. Gerald Folland B. (1995), An introduction to partial differential<br>equations, 2nd, Princeton University Press.<br>3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
 | --- | --- | --- | --- | --- |
 | 7 | MAT6021 | Giải tích ngẫu nhiên<br>Stochastic Analysis | 3 | 1. Tài liệu bắt buộc<br>1. Đặng Hùng Thắng (2001), Các mô hình xác suất và ứng dụng,<br>Phần II, NXB ĐHQG.<br>2. Đặng Hùng Thắng (2013), Xác suất nâng cao, NXB ĐHQG.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Duy Tiến (2001), Các mô hình xác suất và ứng dụng.<br>Phần III: Giải tích ngẫu nhiên, NXB ĐHQG.<br>2. Bernt Oksendal (1992), Stochastic Differential Equation:, An<br>introduction with applications, Springer-Verlarg, Berlin.<br>3. K.L. Chung (1986), A course in probability theory, INC. |
@@ -340,6 +347,7 @@ tính vào điểm trung bình chung tích lũy
 13
 
 <!-- Page 16 -->
+
 |  |  |  |  | - Verlag, New York.<br>3. Shaffer J. P. (1995), Multiple Hypotheses Testing, Ann. Rev.<br>Psych., 46, 561-584. |
 | --- | --- | --- | --- | --- |
 | 9 | MAT6008 | Độ đo và tích phân<br>Measure and Integration | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Dư, Giáo trình lý thuyết độ đo, đang in ở NXB<br>ĐHQG Hà Nội.<br>2. Hoàng Tụy (2005), Hàm thực và giải tích hàm, NXB Bộ giáo<br>dục Đào tạo.<br>3. Loeve, Lecture on theory of measure and integration, MRI-<br>Netherland.<br>2. Tài liệu tham khảo thêm<br>1. Trần Đức Long, Nguyễn Duy Tiến, Bài giảng giải tích, NXB<br>ĐHQG HN.<br>2. Nguyễn Viết Phú, Nguyễn Duy Tiến, Cơ sở lý thuyết xác suất.<br>Nhà xuất bản ĐHQG HN<br>3. Patrick Billingsley, Probability and measure, John Wiley and<br>Sons.<br>4. Paul.R.Halmos (1974), Measures theory. Springer – Verlag.<br>5. Loeve M. (1963), Probability theory, Van Nostrand, Princeton. |
@@ -347,6 +355,7 @@ tính vào điểm trung bình chung tích lũy
 14
 
 <!-- Page 17 -->
+
 |  |  |  |  | Verlag. |
 | --- | --- | --- | --- | --- |
 | 11 | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc<br>1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt,<br>NXB ĐHTHCN.<br>2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –<br>Verlag.<br>3. Lee J. M. (2009), Manifolds and Differential Geometry,<br>American Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Carmo M. P. do (1994), Differential forms and Applications,<br>Springer-Verlag.<br>2. Guillemin V. , Pollack A. (1974), Differential Topology,<br>Prentice-Hall.<br>3. Boothby W. M. (1986), An introduction to differentiable<br>manifolds and Riemannian geometry, Academic Press. |
@@ -354,6 +363,7 @@ tính vào điểm trung bình chung tích lũy
 15
 
 <!-- Page 18 -->
+
 |  |  |  |  | 6. Serre J. P. (1977), Linear Representations of finite groups,<br>Springer-Verlag, New York -Heidelberg- Berlin. |
 | --- | --- | --- | --- | --- |
 | 13 | MAT6006 | Hình học đại số<br>Algebraic Geometry | 3 | 1. Tài liệu bắt buộc<br>1. Mumford D. (1976), Algebraic Geometry I - Complex<br>Projective Varieties, Springer-Verlag.<br>2. Tài liệu tham khảo thêm<br>1. Cox D. et al (1996), Ideals, Varieties, and Algorithms,<br>Springer-Verlag, 2nd ed.<br>2. Hartshorne R. (1977), Algebraic Geometry, Springer-Verlag.<br>3. Shafarevich I.R. (1997), Basic Algebraic Geometry I&II,<br>Springer-Verlag, 2nd ed.<br>4. Smith. K.E. (2000), An invitation to Algebraic Geometry,<br>Springer-Verlag. |
@@ -362,6 +372,7 @@ tính vào điểm trung bình chung tích lũy
 16
 
 <!-- Page 19 -->
+
 |  |  |  |  | 2. Tài liệu tham khảo thêm<br>1. Đỗ Văn Lưu và Phan Huy Khải (2000), Giải tích lồi, Nhà xuât<br>bản KHKT.<br>2. Tuy H. (2003), Convex Analysis and Global Optimization,<br>Kluwer Academic Publishers.<br>3. Rochafellar R. (1970), Convex analysis, Princeton Univ- Press.<br>4. Bertsekas D.P. (2003) et al., Convex Analysis and Optimization,<br>Athena Scientific. |
 | --- | --- | --- | --- | --- |
 | 16 | MAT6023 | Lý thuyết Martingale<br>Theory of Martingales | 3 | 1.Tài liệu bắt buộc<br>1. David Williams (1991), Probability with Martingales,<br>CAMBRIDGE UNIVERSITY PRESS.<br>2. Michael Meyer (2001), Stochastic calculus with application to<br>Finance, Chapman & Hall.<br>3. Neveu J. (1972), Discrete-Parameter Martingales; North<br>Holland Publishing Company- Amsterdam, Oxford, American<br>Elsevier Publishing company Inc-New York ( Martingales à<br>Temps Discret; © Masson et Cie, Paris).<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Duy Tiến-Vũ Việt Yên (2001), Lý thuyết xác suất; Nhà<br>xuất bản Giáo dục.<br>2. Hall P. , Heyde C.C. (1980), Martingale Limit Theory and its<br>Application; Academic Press, Inc. New York.<br>3. Meyer P.A. (1974) Martingales and Stochastic Integrales;<br>Lecture Notes in Math.V.284, Springer-Verlag, Heidelberg,<br>New York. |
@@ -369,6 +380,7 @@ tính vào điểm trung bình chung tích lũy
 17
 
 <!-- Page 20 -->
+
 |  |  | analysis |  | 2. Đào Hữu Hồ, Nguyễn Văn Hữu, Hoàng Hữu Như (2004),<br>Thống kê Toán học, NXB ĐHQGHN.<br>2. Tài liệu tham khảo thêm<br>1. Đào Hữu Hồ (2001), Xác suất Thống kê, NXB ĐHQGHN.<br>2. Anderson T.W (1984), An introduction to Multivariate<br>Statistical Methods, John Wiley, New York (the second<br>edition).<br>3. Johnson R. A., Wicher D. W. (2001), Applied Multivariate<br>Statistical Analysis, Fourth edition, Prentice Hall. |
 | --- | --- | --- | --- | --- |
 | 18 | MAT6025 | Quá trình dừng<br>Stationary processes | 3 | 1. Tài liệu bắt buộc<br>1. Đặng Hùng Thắng (2001), Các mô hình xác suất và ứng dụng.<br>Phần II, Quá trình dừng và ứng dụng, NXB ĐHQG.<br>2. Genshiro Kitagawa (2010), Introduction to Time Series<br>Modeling, CRC Press.<br>2. Tài liệu tham khảo thêm<br>1. James D. Hamilton (1994), Time Series Analysis, Princeton<br>University Press, Princeton NewJersey.<br>2. Chris Chatfield (1995), The analysis of time series – An<br>introduction, 5th edition, CRC Press.<br>3. I Gusti Ngurah Agung (2009), Time series analysis Using<br>Eviews, John Wiley & Sons. |
@@ -376,6 +388,7 @@ tính vào điểm trung bình chung tích lũy
 18
 
 <!-- Page 21 -->
+
 |  |  |  |  | 2. Araujo A. , Gine E. (1980), The central limit theorem for real<br>and Banach valued random variables, Wiley New York.<br>3. Dudley R.M. (2002), Real analysis and Probability, Cambridge<br>University Press. |
 | --- | --- | --- | --- | --- |
 | 20 | MAT6027 | Toán tài chính<br>Mathematical Finance | 3 | 1.Tài liệu bắt buộc<br>1. Trần Hùng Thao (2009), Nhập môn toán tài chính, NXB Khoa<br>học và kỹ thuật.<br>2. Alison Etheridge (2002), A Course in Financial Calculus,<br>Cambridge Univ. Press.<br>3. Martin Baxter & Andrew Renie (2000), Financial Calculus -An<br>introduction to derivative pricing, Cambridge Univ Press.<br>2. Tài liệu tham khảo thêm<br>1. Vương Quân Hoàng , Nguyễn Văn Hữu (2007), Các phương<br>pháp toán học trong tài chính, Nhà xuất bản Đại học quốc gia.<br>2. Jaksa Cvitanic, Fernardo Zapatero (2002), Introduction to the<br>Economics and Mathematics of Financial Markets, The MIT<br>Press.<br>3. JaksaCvitanic, Fernardo Zapatero (2003), Introduction to the<br>Economics and Mathematics of Financial Markets;<br>STUDENT'S MANUAL, The MIT Press.<br>4. Steven Shreve (2004), Stochastic Calculus for Finance, I and<br>II, Springer.<br>5. Salih N. Neftci (2000), An Introduction to the Mathematics of<br>Financial Derivatives, Second Edition, Academic Press. |
@@ -383,6 +396,7 @@ tính vào điểm trung bình chung tích lũy
 19
 
 <!-- Page 22 -->
+
 |  |  | analysis |  | 1. Bucklew J. A. (2004), Introduction to Rare Event Simulation,<br>Springer-Verlag.<br>2. Ermakov S.M. (1975), Phương pháp Monte Carlo và các vấn đề<br>liên quan (Bản dịch từ tiếng Nga), NXB Khoa học và Kỹ thuật,<br>Hà Nội.<br>3. Fishman G.S. (1996), Monte Carlo Concepts, Algorithms and<br>Applications, Springer.<br>4. Glasserman P. (2004), Monte Carlo methods in financial<br>Engineering, Springer-Verlag.<br>5. Hammersley J.M. & Handscomb D.C. (1961), Monte Carlo<br>methods, Menthuen Wiley.<br>6. Michalewicz Z. (1994), Genetic Algorithms + data structures =<br>Evolution Programs, Springer-Verlag. |
 | --- | --- | --- | --- | --- |
 | 22 | MAT6031 | Giải phương trình toán tử<br>Solving operator equations | 3 | 1. Tài liệu bắt buộc<br>1. Krasnoselkii, M.A. et al. (1972), Approximate solution of<br>operator equations. Wolters-Noerdhoff Groningen.<br>2. Kantorovich L. and Akilov G. (1982), Functional analysis in<br>normed spaces, 2nd ed. Pergamon Press, New York.<br>2. Tài liệu tham khảo thêm<br>1. Atkinson K., Han W. (2009), Theoretical numerical analysis. A<br>functional analysis framework, 3rd ed., Springer.<br>2. Ortega J.M., Rheinboldt W.C. (2000), Iterative solution of<br>nonlinear equations in several variables, Classics ed., SIAM,<br>Philadelphia. |
@@ -390,12 +404,14 @@ tính vào điểm trung bình chung tích lũy
 20
 
 <!-- Page 23 -->
+
 |  |  |  |  | 2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>4. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
 | --- | --- | --- | --- | --- |
 21
 
 <!-- Page 24 -->
 4. Đội ngũ cán bộ giảng dạy (ghi theo số thứ tự trong khung chương trình)
+
 | STT | Mã<br>học phần | Tên học phần | Số tín chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên ngành<br>đào tạo | Đơn vị công tác |
@@ -415,6 +431,7 @@ tính vào điểm trung bình chung tích lũy
 22
 
 <!-- Page 25 -->
+
 |  |  | hàm riêng<br>Partial differential<br>equations |  | Toàn |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Đặng Anh Tuấn | TS | Toán học | Trường ĐHKHTN |
@@ -436,6 +453,7 @@ tính vào điểm trung bình chung tích lũy
 23
 
 <!-- Page 26 -->
+
 |  |  |  |  | Nguyễn Thạc<br>Dũng | TS | Toán học | Trường ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Ngô Quốc Anh | TS | Toán học | Trường ĐHKHTN |
@@ -458,6 +476,7 @@ tính vào điểm trung bình chung tích lũy
 24
 
 <!-- Page 27 -->
+
 | 15. | MAT6028 | Giải tích lồi<br>Convex analysis | 3 | Phạm Kỳ Anh | GS.TSKH | Toán học | Trường ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lê Dũng Mưu | GS.TSKH | Toán học | Viện Toán học |
@@ -476,6 +495,7 @@ tính vào điểm trung bình chung tích lũy
 25
 
 <!-- Page 28 -->
+
 |  |  | số nhiều chiều<br>Monte-Carlo method<br>in multivariate<br>numerical analysis |  | Lê Hồng<br>Phương | TS | Toán học | Trường ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 22. | MAT6031 | Giải phương trình<br>toán tử<br>Solving operator<br>equations | 3 | Phạm Kỳ Anh | GS. TSKH | Toán học | Trường ĐHKHTN |
@@ -499,6 +519,7 @@ Lịch trình tổ chức thực hiện chương trình đào tạo cụ thể n
 Thời gian đào tạo bắt đầu từ giữa tháng 11 hàng năm, kết thúc vào tháng 11 hai
 năm sau. Thời gian thực hiện được khái quát trong sơ đồ sau:
 Tháng 11 Tháng 1 Tháng 7 Tháng 1 Tháng 7 Tháng 11
+
 | A | T<br>1 | B | H<br>1 | C D |  | T<br>2 | D E |  | H<br>2 | E |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 Trong đó:
@@ -510,6 +531,7 @@ cụ thể tùy lịch từng năm.
 - H , H : Các đợt nghỉ hè, mỗi đợt 1 tháng, từ 30/6 đến 31/7 hàng
 1 2
 năm.
+
 | Giai<br>đoạ<br>n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
 | --- | --- | --- | --- | --- |
 |  |  | Bắt đầu | Kết thúc |  |
@@ -517,6 +539,7 @@ năm.
 | B | 4 tháng<br>( từ tháng 3 đến tháng<br>6) | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt | - Tiếng<br>Anh chuyên<br>ngành<br>- 3 học<br>phần bắt |  |
 
 <!-- Page 30 -->
+
 |  |  | buộc | buộc |  |
 | --- | --- | --- | --- | --- |
 | C | 4 tháng<br>( từ tháng 8 đến tháng<br>11) | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | Giới thiệu hướng đề<br>tài<br>Phân công đề tài luận<br>văn |
@@ -531,6 +554,7 @@ Master of Science in Mathematics
 - Xếp hạng của cơ sở đào đạo, ngành/chuyên ngành đào tạo: trong danh sách 20
 khoa Toán tốt nhất Hoa Kỳ
 b) Bảng so sánh chương trình đào tạo
+
 | STT | Tên học phần trong<br>chương trình đào tạo tiên<br>tiến của nước ngoài<br>(Tiếng Anh, tiếng<br>Việt) | Tên học phần trong<br>chương trình đào tạo của<br>đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống<br>và khác nhau giữa<br>các học phần của 2<br>chương trình đào<br>tạo |
 | --- | --- | --- | --- |
 | 1. | Modern Algebra<br>Đại số hiện đại | Lý thuyết nhóm và biểu<br>diễn nhóm<br>Group theory and group<br>representations | Nội dung giống nhau |
@@ -542,6 +566,7 @@ b) Bảng so sánh chương trình đào tạo
 28
 
 <!-- Page 31 -->
+
 |  | Các khái niệm cơ sở của<br>giải tích |  |  |  |
 | --- | --- | --- | --- | --- |
 | 7. | Geometric structures<br>Các cấu trúc hình học |  | Giải tích trên đa tạp<br>Analysis on Manifolds | Nội dung giống nhau |

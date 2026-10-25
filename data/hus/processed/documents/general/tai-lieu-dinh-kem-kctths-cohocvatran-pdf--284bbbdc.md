@@ -246,6 +246,7 @@ Tổng số tín chỉ của chương trình đào tạo: 641 tín chỉ, trong 
 + Tự chọn: 21/42 tín chỉ
 - Luận văn thạc sĩ: 18 tín chỉ
 2. Khung chương trình
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -261,6 +262,7 @@ tính vào điểm trung bình chung tích lũy
 7
 
 <!-- Page 10 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -280,6 +282,7 @@ tính vào điểm trung bình chung tích lũy
 8
 
 <!-- Page 11 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -297,6 +300,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 12 -->
 3. Danh mục tài liệu tham khảo
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
@@ -307,6 +311,7 @@ tính vào điểm trung bình chung tích lũy
 10
 
 <!-- Page 13 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | 2. Tài liệu tham khảo<br>- Nguyễn Minh Chương và các tác giả (1995), Lý thuyết phương trình<br>đạo hàm riêng, Nhà xuất bản Giáo dục, Hà Nội.<br>- Nguyễn Mạnh Hùng (2006), Giáo trình phương trình đạo hàm riêng,<br>Nhà xuất bản Đại học Sư phạm Hà Nội. |
@@ -316,6 +321,7 @@ tính vào điểm trung bình chung tích lũy
 11
 
 <!-- Page 14 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  | Oscillations |  | - Nayfesh A. H. (1997), Pertubation methods, John Wiley & Sons,<br>New York, London, Sydney and Toronto.<br>2. Tài liệu tham khảo<br>- Bagaliubốp N. N., Mitrôpôlxki Y. A. (1988), Các phương pháp tiệm<br>cận trong lý thuyết dao động phi tuyến, Nauka, M. (tiếng Nga).<br>- M. (1994), Một số bài toán của lý thuyết dao động phi tuyến, NXB<br>toán lý (tiếng Nga). |
@@ -324,6 +330,7 @@ tính vào điểm trung bình chung tích lũy
 12
 
 <!-- Page 15 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | applications, Springer Verlag.<br>- Shouten J. A. ( 1975), Tensor analysis for physicists, Oxford.<br>- Srinvastava et al. A. N. (1993), Tensor calculus: Theory and<br>problems, New York. |
@@ -332,6 +339,7 @@ tính vào điểm trung bình chung tích lũy
 13
 
 <!-- Page 16 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 13. | MAT6109 | Giải tích hàm ứng dụng<br>Applied functional analysis | 3 | 1. Tài liệu bắt buộc<br>- Phạm Kỳ Anh, Trần Đức Long..(2002), Giáo trình hàm thực và<br>giải tích hàm, NXB ĐHQGHN.<br>- Lebedev L. P., Vorovich I. , Cloud M. J. (2012), Functional Analysis<br>in Mechanics (Springer Monographs in Mathematics), Springer.<br>2. Tài liệu tham khảo<br>- Nguyễn Xuân Liêm (2000), Bài tập Giải tích hàm, NXB GD.<br>- Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.<br>- Lebedev L. P., Vorovich I. I., Gladwell G. M. (2002), Functional<br>analysis Applications in mechanics and inverse problems, Springer. |
@@ -340,6 +348,7 @@ tính vào điểm trung bình chung tích lũy
 14
 
 <!-- Page 17 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | 2. Tài liệu tham khảo<br>- Chen Chi-Tsong (1999), Linear System Theory and Design, 3rd. ed.,<br>Oxford University Press.<br>- Nise Norman S. (2004), Control Systems Engineering, 4th ed., John<br>Wiley & Sons, Inc.<br>- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems, 3rd<br>Ed, Prentice Hall, Englewood Cliffs.<br>- Sontag Eduardo D. (1999), Mathematical Control Theory:<br>Deterministic Finite Dimensional Systems, Second Edition, Springer.<br>- Zhou K., Doyle J. C. (1997), Essentials of Robust Control, 1st ed,<br>Prentice-Hall, Inc., New Jersey. |
@@ -348,6 +357,7 @@ tính vào điểm trung bình chung tích lũy
 15
 
 <!-- Page 18 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | đàn hồi, MGU (Tiếng Nga).<br>- Timoshenko S. P. (1978), Dao động trong kỹ thuật, MGU. |
@@ -357,6 +367,7 @@ tính vào điểm trung bình chung tích lũy
 16
 
 <!-- Page 19 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 |  |  |  |  | (tiếng nga).<br>- Timoshenko S., Woinowsky-Krieger S. (1970), Theory of plates and<br>shells, Mc Graw-Hill Book Company N.Y.<br>- Voyiadjis G. Z., Karamanlidis D. (1999), Advances in the Theory of<br>Plales and Shells, North-Holland. |
@@ -366,6 +377,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 20 -->
 4. Đội ngũ cán bộ giảng dạy
+
 | Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
@@ -380,6 +392,7 @@ tính vào điểm trung bình chung tích lũy
 18
 
 <!-- Page 21 -->
+
 | Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
@@ -395,6 +408,7 @@ tính vào điểm trung bình chung tích lũy
 19
 
 <!-- Page 22 -->
+
 | Stt | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công tác |
@@ -448,6 +462,7 @@ University of Washington.
 (2013) thì thứ hạng của chương trình đào tạo sau đại học ngành Mechanical
 Engineering của University of Washington là ở vị trí thứ 24.
 b) Bảng so sánh chương trình đào tạo
+
 | STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
 | 1. | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | ME503: Continuum<br>Mechanics<br>Cơ học môi trường liên<br>tục | Về cơ bản là giống<br>nhau |
@@ -459,6 +474,7 @@ b) Bảng so sánh chương trình đào tạo
 22
 
 <!-- Page 25 -->
+
 | STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
 |  | Advanced Differential<br>Equations | Methods for Ordinary<br>Differential Equations<br>Phương trình vi phân<br>thường nâng cao | nhau |
@@ -475,6 +491,7 @@ b) Bảng so sánh chương trình đào tạo
 23
 
 <!-- Page 26 -->
+
 | STT | Tên học phần trong chương<br>trình đào tạo của đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>tiên tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
 |  | Advanced mechanics of<br>Composite Materials | Manufacturing (3)<br>Cơ học vật liệu<br>composite nâng cao:<br>Thiết kế và sản xuất | nhưng có rất ít những<br>vấn đề ứng dụng khi so<br>sánh với CT của UW. |

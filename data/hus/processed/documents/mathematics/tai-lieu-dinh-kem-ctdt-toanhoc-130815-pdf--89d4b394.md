@@ -220,6 +220,7 @@ Tự chọn: 12 tín chỉ
 
 <!-- Page 11 -->
 2. Khung chƣơng trình đào tạo
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -235,6 +236,7 @@ Tự chọn: 12 tín chỉ
 | 9 | FLF2103 | Tiếng Anh cơ sở 3<br>General English 3 | 5 | 20 | 50 | 5 | FLF2102 |
 
 <!-- Page 12 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -253,6 +255,7 @@ Tự chọn: 12 tín chỉ
 | 19 | MAT2302 | Giải tích 1<br>Analysis 1 | 5 | 45 | 30 |  |  |
 
 <!-- Page 13 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -272,6 +275,7 @@ Tự chọn: 12 tín chỉ
 | 31 | MAT3302 | Toán rời rạc | 4 | 45 | 15 |  | MAT2300 |
 
 <!-- Page 14 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -290,6 +294,7 @@ Tự chọn: 12 tín chỉ
 | 41 | MAT3311 | Lý thuyết nhóm và biểu diễn | 3 | 45 |  |  | MAT3300 |
 
 <!-- Page 15 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -306,6 +311,7 @@ Tự chọn: 12 tín chỉ
 | 51 | MAT3321 | Quá trình ngẫu nhiên<br>Stochastic Processes | 3 | 45 |  |  | MAT2311 |
 
 <!-- Page 16 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -323,6 +329,7 @@ Tự chọn: 12 tín chỉ
 | 62 | MAT3322 | Xác suất 2<br>Probability 2 | 3 | 45 |  |  | MAT2308<br>MAT3301<br>MAT3307 |
 
 <!-- Page 17 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -339,6 +346,7 @@ Tự chọn: 12 tín chỉ
 | V.3 |  | Khóa luận tốt nghiệp và các học<br>phần thay thế | 7 |  |  |  |  |
 
 <!-- Page 18 -->
+
 | TT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ tín chi ̉ |  |  | Học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |

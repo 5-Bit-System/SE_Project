@@ -9,6 +9,7 @@ major: "mathematics"
 [Nhảy đến nội dung](https://mim.hus.vnu.edu.vn/vi/danhsachdetai)
 ## Biểu mẫu tìm kiếm
 # Danh sách đề tài khoa học - công nghệ
+
 | Mã đề tài | Ngày bắt đầu | Tiêu đề | Thành viên | Tình trạng đề tài |
 | --- | --- | --- | --- | --- |
 | TN.24.02 | Tháng 10, 2024 | [Các định lý giới hạn cho tổng trọng số và áp dụng trong mô hình thống kê](https://mim.hus.vnu.edu.vn/vi/project/2102) | Tạ Văn Chiến | Chưa nghiệm thu |

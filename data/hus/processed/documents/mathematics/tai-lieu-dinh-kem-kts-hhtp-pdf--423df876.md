@@ -325,6 +325,7 @@ chương trình đào tạo)
 2. Khung chƣơng trình đào tạo
 2.1. Khung chương trình dành cho NCS có bằng thạc sĩ ngành đúng hoặc phù
 hợp
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -340,6 +341,7 @@ hợp
 11
 
 <!-- Page 12 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -362,6 +364,7 @@ hợp
 12
 
 <!-- Page 13 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -373,6 +376,7 @@ hợp
 | 16 | MAT9002 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  |  | Tổng cộng | 91 |  |  |  |  |
 2.1. Khung chương trình dành cho NCS có bằng thạc sĩ ngành gần
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -389,6 +393,7 @@ hợp
 13
 
 <!-- Page 14 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -413,6 +418,7 @@ hợp
 14
 
 <!-- Page 15 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -434,6 +440,7 @@ hợp
 
 <!-- Page 16 -->
 2.3. Khung chương trình dành cho NCS chưa có bằng thạc sĩ
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -459,6 +466,7 @@ hợp
 16
 
 <!-- Page 17 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -483,6 +491,7 @@ hợp
 17
 
 <!-- Page 18 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -504,6 +513,7 @@ hợp
 18
 
 <!-- Page 19 -->
+
 | STT | Mã số<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các<br>học<br>phần<br>tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |

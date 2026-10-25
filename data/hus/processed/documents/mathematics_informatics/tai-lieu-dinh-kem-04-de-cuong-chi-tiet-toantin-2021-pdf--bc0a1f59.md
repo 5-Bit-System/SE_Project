@@ -102,6 +102,7 @@ MỤC LỤC
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác)
+
 | STT | Họ và tên | Chức danh,<br>học vị | Đơn vị công tác | Ghi chú |
 | --- | --- | --- | --- | --- |
 | 1. | Đặng Thị Lan | PGS.TS | KHXHN&NV |  |
@@ -311,6 +312,7 @@ sáng của đất nước.
 gia xây dựng và bảo vệ Đất nước.
 8. Phương pháp, hình thức kiểm tra, đánh giá kết quả học tập của học phần
 8.1.Mục đích và trọng số kiểm tra - đánh giá
+
 | Hình thức | Tính chất của nội dung<br>kiểm tra | Mục đích kiểm tra | Trọng số |
 | --- | --- | --- | --- |
 | Chuyên cần | Mức độ tham gia học tập<br>của sinh viên | Thái độ với học phần | 10% |
@@ -351,6 +353,7 @@ dung cơ bản của đường lối, chính sách của Đảng và Nhà nướ
 dụng là mức 2).
 5. Có khả năng lập luận, phân tích và đánh giá tác động của các nhân tố mới đến
 một vấn đề kinh tế - xã hội cụ thể của Việt Nam và thế giới hiện nay (mức 3).
+
 | Mức điểm | Tiêu chí đánh giá bài thi cuối kỳ |
 | --- | --- |
 | 9 – 10 | − Đạt 5 tiêu chí |
@@ -1038,6 +1041,7 @@ Lịch sử Đảng Cộng sản Việt Nam đã làm nổi bật những truy�
 ĐỀ CƯƠNG HỌC PHẦN
 5. TƯ TƯỞNG HỒ CHÍ MINH
 (Ho Chi Minh Ideology)
+
 | 1. Mã học phần: POL1001 |  |
 | --- | --- |
 | 2. Số tín chỉ: 2 (20/10/0) |  |
@@ -1073,6 +1077,7 @@ Lịch sử Đảng Cộng sản Việt Nam đã làm nổi bật những truy�
 33
 
 <!-- Page 34 -->
+
 | - Về thái độ: Sinh viên được nâng cao bản lĩnh chính trị, yêu nước, trung thành |  |
 | --- | --- |
 | với mục tiêu, lý tưởng học tập gắn liền với chủ nghĩa xã hội; nhận thức được vai trò, |  |
@@ -1369,6 +1374,7 @@ nâng cao chất lượng của công việc, phong cách làm việc trong xã 
 đại.
 Mục tiêu chi tiết
 Phần 1. Các kiến thức cơ bản về công nghệ thông tin
+
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
 | Nội dung 1.<br>Thông tin và xử lý thông tin | Nắm được khái niệm cơ bản về thông<br>tin và xử lý thông tin . |
@@ -1376,6 +1382,7 @@ Phần 1. Các kiến thức cơ bản về công nghệ thông tin
 42
 
 <!-- Page 43 -->
+
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
 | Xử lý thông tin bằng máy tính điện tử | điện tử |
@@ -1393,10 +1400,12 @@ Phần 1. Các kiến thức cơ bản về công nghệ thông tin
 43
 
 <!-- Page 44 -->
+
 | Nội dung | Kiến thức bắt buộc |
 | --- | --- |
 | Nội dung 14.<br>Công nghệ thông tin và xã hội | Có hiểu biết đúng về an toàn thông tin và<br>mạng, các phần mềm có hại (virus, worm,<br>spyware, ...), tội phạm tin học, sở hữu trí tuệ<br>và luật pháp về CNTT |
 Phần 2. Sử dụng máy tính
+
 | Nội dung | Các kỹ năng cần đạt được |
 | --- | --- |
 | Nội dung 1.<br>Sử dụng hệ điều hành | - Khởi động và tắt máy an toàn; biết cách tra<br>cứu cấu hình hệ thống<br>- Tạo hệ thống thư mục, tổ chức lưu trữ, quản<br>lý các tệp, kể cả chia sẻ qua mạng<br>- Thực hiện được các ứng dụng từ hệ điều hành |
@@ -1660,12 +1669,14 @@ nắm được thông tin phản hồi để điều chỉnh cách dạy và h�
 - Chuẩn bị bài đầy đủ.
 - Tích cực tham gia ý kiến.
 8.2. Kiểm tra – đánh giá định kỳ
+
 | Hình thức | Nội dung<br>kiểm tra | Mục đích kiểm tra | Tỷ lệ<br>điểm |
 | --- | --- | --- | --- |
 | Đánh giá thường<br>xuyên trên lớp<br>(phát biểu, trả<br>lời câu hỏi, tham<br>gia thảo luận) | Điểm danh<br>Tính tích cực học<br>tập của sinh<br>viên | - Ý thức học tập của sinh viên<br>- Trách nhiệm đối với học<br>phần của sinh viên<br>- chuẩn bị bài, đọc sách<br>- có được thông tin phản hồi<br>từ sinh viên để điều chỉnh<br>cách dạy và học phù hợp | 10% |
 51
 
 <!-- Page 52 -->
+
 | Bài kiểm tra giữa kỳ | Năng lực khái<br>quát kiến thức<br>của sinh viên | Đánh giá tổng hợp kiến thức<br>và kỹ năng thu được sau<br>nửa học kỳ | 30% |
 | --- | --- | --- | --- |
 | Bài kiểm tra cuối kỳ | Năng lực phân<br>tích, so sánh,<br>đưa ra nhận<br>định cá nhân<br>của sinh viên | Đánh giá trên 3 mức: trình<br>bày, chứng minh, phân<br>tích, so sánh của sinh viên | 60% |
@@ -2146,6 +2157,7 @@ lắng nghe.
 được giao và có tinh thần làm việc hợp tác, phối hợp với người khác và
 trong tập thể.
 8. Phương pháp kiểm tra đánh giá:
+
 | Hình thức | Tính chất của<br>nội dung kiểm tra | Mục đích kiểm tra | Trọng<br>số tính điểm |
 | --- | --- | --- | --- |
 | Bài tập cá<br>nhân<br>(các bài tập<br>được giao có kiểm tra,<br>đánh giá, các bài tóm<br>tắt những tài liệu đã<br>đọc, các thu hoạch đã<br>làm ở nhà và các nội<br>dung sưu tầm, ứng<br>dụng của học phần) | Kiểm soát<br>việc chuẩn bị bài và<br>năng lực tổng hợp<br>vấn đề từ các kênh<br>thông tin liên quan<br>đến học phần. | Đánh giá ý thức<br>học tập thường xuyên và<br>kỹ năng làm việc độc lập.<br>Đánh giá khả năng tổng<br>hợp và trình bầy các kiến<br>thức thu nhận được từ các<br>nguồn tài liệu và từ bài<br>giảng. | 20% |
@@ -2297,12 +2309,14 @@ Tuần 14: Tự học có kiểm tra, đánh gia nội dung 8 (1 giờ tín ch�
 dung 8 trên lớp (1 giờ tín chỉ);
 Tuần 15: Giảng nội dung 8 trên lớp (1 giờ tín chỉ); Thảo luận nội dung 8 (1 giờ tín
 chỉ).
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 | Tuần 1 | Đối tượng nghiên cứu, phạm vi nghiên cứu và<br>phương pháp nghiên cứu học phần nhà nước | - Giáo trình đại<br>cương về nhà nước |  |
 70
 
 <!-- Page 71 -->
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 |  | và pháp luật đại cương<br>1. Giới thiệu đề cương và tổng quan học phần.<br>2. Trình bày bài Khái luận về nhà nước và pháp<br>luật đại cương gồm:<br>6.2. - Đối tượng nghiên cứu của khoa<br>học NNPLĐC<br>6.3. - Phạm vi nghiên cứu<br>6.4. - Phương pháp nghiên cứu<br>- ý nghĩa của khoa học, học phần NNPLĐC | và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
@@ -2312,6 +2326,7 @@ chỉ).
 71
 
 <!-- Page 72 -->
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 |  | Việt Nam hiện nay. | liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
@@ -2319,6 +2334,7 @@ chỉ).
 72
 
 <!-- Page 73 -->
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 | Tuần 6 | Bộ máy, chức năng, hình thức nhà nước và<br>chế độ chính trị<br>1. Bộ máy nhà nước và Bộ máy nhà nước Cộng<br>hòa xã hội chủ nghĩa Việt Nam; | - Giáo trình đại<br>cương về nhà nước và<br>pháp luật, Nhà xuất<br>bản Đại học Quốc gia<br>Hà nội, 2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
@@ -2328,6 +2344,7 @@ chỉ).
 73
 
 <!-- Page 74 -->
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 |  |  | liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
@@ -2338,6 +2355,7 @@ chỉ).
 74
 
 <!-- Page 75 -->
+
 | Tuần | Nội dung chính | Tài liệu chính cần<br>đọc | Ghi chú |
 | --- | --- | --- | --- |
 |  | pháp luật; hành vi pháp luật, vi phạm pháp<br>luật, trách nhiệm pháp lý (Tiếp theo)<br>1. Hành vi pháp luật và vi phạm pháp luật;<br>2. Trách nhiệm pháp lý; | và pháp luật, Nhà<br>xuất bản Đại học<br>Quốc gia Hà nội,<br>2018<br>- Đọc các tài<br>liệu liên quan theo<br>hướng dẫn của giảng<br>viên |  |
@@ -2374,6 +2392,7 @@ cứu.
 + Về hình thức:
 Bố cục hợp lý, ngôn ngữ trong sáng, trích dẫn hợp lệ, trình bày đẹp đúng qui cách.
 Biểu điểm trên cơ sở mức độ đạt các tiêu chí:
+
 | Điểm | Tiêu chí |
 | --- | --- |
 | 9-10 | - Đạt cả 3 tiêu chí về nội dung và hình thức; |
@@ -2382,6 +2401,7 @@ Biểu điểm trên cơ sở mức độ đạt các tiêu chí:
 76
 
 <!-- Page 77 -->
+
 | Điểm | Tiêu chí |
 | --- | --- |
 |  | các kỹ năng phân tích, tồng hợp. |
@@ -2751,6 +2771,7 @@ Thí nghiệm/ Mô phỏng/ Thực hành: 10 bài thực hành
 3. Học phần tiên quyết: MAT2302
 4. Ngôn ngữ giảng dạy: tiếng Việt
 5. Giảng viên:
+
 | TT | Họ và tên | Chức danh,<br>học vị | Địa chỉ liên hệ | Điện thoại |
 | --- | --- | --- | --- | --- |
 | 1 | Đỗ Thị Kim Anh | TS. | ĐH KHTN | 0904543849 |
@@ -2936,6 +2957,7 @@ lực học theo Thomson và theo Clausius
 3. Học phần tiên quyết: MAT2302
 4. Ngôn ngữ giảng dạy: tiếng Việt
 5. Giảng viên
+
 | TT | Họ và tên | Chức danh, học<br>vị | Địa chỉ liên hệ | Điện thoại |
 | --- | --- | --- | --- | --- |
 | 1 | Đỗ Thị Kim Anh | TS.GV | ĐH KHTN | 0904543849 |
@@ -2997,11 +3019,13 @@ hoạt động chuyên môn sau này.
 - Thấy được ý nghĩa, vị trí, giá trị khoa học của học phần.
 8. Phương pháp kiểm tra, đánh giá:
 8.1. Mục đích và trọng số kiểm tra - đánh giá
+
 | Hình thức | Mục đích kiểm tra | Trọng<br>số |
 | --- | --- | --- |
 95
 
 <!-- Page 96 -->
+
 | Kiểm tra<br>thường xuyên | Đánh giá khả năng nhớ và tái hiện các nội<br>dung cơ bản của học phần.<br>Đánh giá kỹ năng làm việc nhóm, khả năng<br>trình bày, thuyết trình một vấn đề lý luận cơ<br>bản. | 15% |
 | --- | --- | --- |
 | Kiểm tra giữa kỳ<br>(Phần 1) | Đánh giá kỹ năng nghiên cứu độc lập và kĩ<br>năng trình bày. | 25% |
@@ -3014,6 +3038,7 @@ Các tiêu chí đánh giá các loại bài tập này bao gồm:
 dụng các tài liệu do giảng viên hướng dẫn (có thể sử dụng thêm tài liệu do
 người học tự tìm) mở rộng kiến thức.
 Biểu điểm trên cơ sở mức độ đạt 3 tiêu chí:
+
 | Điểm | Tiêu chí |
 | --- | --- |
 | 9 – 10 | Đạt cả 3 tiêu chí.(mục tiêu A,B,C) |
@@ -4039,6 +4064,7 @@ C/C++/ MAT2317- Lập trình Java/ MAT2318- Lập trình Python/ MAT2319-
 Lập trình Julia.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Phạm Kỳ Anh | GS. TSKH | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Vũ Hoàng Linh | PGS. TSKH | Trường ĐHKHTN |
@@ -4180,6 +4206,7 @@ Neumann và nguyên tắc maximum.
 3. Học phần tiên quyết: MAT2301- Đại số tuyến tính 2, MAT2303- Giải tích 2
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Đặng Hùng Thắng | GS. TSKH | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Phan Viết Thư | PGS. TS | Trường ĐHKHTN |
@@ -4292,6 +4319,7 @@ Bài tập
 3. Học phần tiên quyết: MAT2405 (Xác suất)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Trần Mạnh Cường | TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Trịnh Quốc Anh | TS | Trường ĐHKHTN |
@@ -5600,6 +5628,7 @@ Môn Hệ thống Máy tính bao gồm các nội dung chính sau đây:
 Java hoặc MAT2318- Lập trình Python hoặc MAT2319- Lập trình Julia.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên
+
 | Lê Hồng Phương | TS. | ĐHKHTN |
 | --- | --- | --- |
 | Nguyễn Thị Hồng Minh | PGS.TS. | ĐHKHTN |
@@ -5932,6 +5961,7 @@ Chương 9: Phương pháp xấp xỉ
 MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, MAT3500 (Toán rời rạc)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Đỗ Trung Tuấn | PGS. TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Vũ Tiến Dũng | TS | Trường ĐHKHTN |
@@ -6055,6 +6085,7 @@ cáo dự án (3 tiết)
 3. Học phần tiên quyết: MAT2406 (Thống kê ứng dụng)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1 | Trịnh Quốc Anh | TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2 | Trần Mạnh Cường | TS | Trường ĐHKHTN |
@@ -6240,6 +6271,7 @@ Chương 6. Thực hành giải toán với phần mềm thống kê R
 3. Học phần tiên quyết: MAT2404 (Giải tích số)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên :
+
 |  | 1 |  |  | Nguyễn Hữu Điển |  |  | PGS. TS |  |  | Trường ĐHKHTN |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | 2 |  |  | Nguyễn Trung Hiếu |  |  | TS |  |  | Trường ĐHKHTN |  |
@@ -6348,6 +6380,7 @@ có thể điều chỉnh chiến lược học trong năm cuối một cách hi
 Chuẩn đầu ra của học phần này là tổng hòa của toàn bộ kiến thức và kỹ năng của các
 khối kiến thức M3, M4 và M5. Trong đó, học phần chú trọng nhiều vào các kiến thức
 và kỹ năng sau:
+
 | Chuẩn đầu ra | Bậc<br>1 | Bậc<br>2 | Bậc<br>3 | Bậc<br>4 | Bậc<br>5 | Bậc<br>6 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Kiến thức |  |  |  |  |  |  |
@@ -6357,6 +6390,7 @@ và kỹ năng sau:
 197
 
 <!-- Page 198 -->
+
 | máy tính, có tính tới việc cân bằng các ràng buộc. |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Kỹ năng |  |  |  |  |  |  |
@@ -6368,6 +6402,7 @@ và kỹ năng sau:
 | Kiên trì, chăm chỉ, nhiệt tình, say mê, sáng tạo |  |  | X |  |  |  |
 | Trung thực, có trách nhiệm trong công việc |  |  | X |  |  |  |
 8. Phương pháp kiểm tra, đánh giá:
+
 | Hình thức | Phương pháp | Trọng<br>số |
 | --- | --- | --- |
 | Điểm thường<br>xuyên | Sinh viên báo cáo tiến độ thực hiện công việc hàng tuần<br>cho giảng viên phụ trách | 20% |
@@ -6394,11 +6429,13 @@ trong quá trình thực tập kèm theo nhận xét đánh giá và cho điểm
 trực tiếp tại nơi thực tập.
 11. Hình thức tổ chức dạy học
 11.1 Phân bổ lịch trình giảng dạy trong 1 học kỳ
+
 | Hình thức dạy | Số tiết/ tuần | Từ tuần – Đến tuần | Địa điểm |
 | --- | --- | --- | --- |
 | Lý thuyết |  | 1-2 | Giảng đường |
 | Thực hành |  | 3-15 | Đơn vị thực tập |
 11.2 Lịch trình giảng dạy chi tiết
+
 | STT | Công việc | Thời<br>gian |
 | --- | --- | --- |
 | 1 | Khoa gửi thư liên hệ với các Đơn vị thực tập để biết nhu cầu. Các<br>Đơn vị tiếp nhận thực tập phản hồi cho Khoa về khả năng và nhu<br>cầu nhận sinh viên thực tập. | Đầu<br>tháng 5 |
@@ -6443,6 +6480,7 @@ liên hệ với giảng viên phụ trách để nhận được sự tư vấn
 giải thuật), MAT2406 (Thống kê ứng dụng)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1 | Lê Hồng Phương | TS | ĐH KHTN |
 | --- | --- | --- | --- |
 | 2 | Nguyễn Thị Minh Huyền | TS | ĐH KHTN |
@@ -6582,6 +6620,7 @@ Chương 6. Giảm số chiều
 3. Học phần tiên quyết: Không
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Lê Minh Hà | PGS. TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Nguyễn Phụ Hoàng Lân | TS | Trường ĐHKHTN |
@@ -6658,6 +6697,7 @@ Chương 5: Đường cong elliptic (9 tiết)
 thuật toán.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Lê Trọng Vĩnh | PGS. TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Lê Hồng Phương | TS | Trường ĐHKHTN |
@@ -6746,6 +6786,7 @@ Chương 4. Lý thuyết độ phức tạp
 MAT2318- Lập trình Python/ MAT2319- Lập trình Julia.
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 4. | Lê Trọng Vĩnh | PGS. TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 5. | Lê Minh Hà | PGS. TS | Trường ĐHKHTN |
@@ -6950,6 +6991,7 @@ Chương 9. Một số bài toán NP-khó và thuật toán xấp xỉ
 MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, (MAT3500) Toán rời rạc
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Nguyễn Thị Minh Huyền | TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Lê Hồng Phương | TS | Trường ĐHKHTN |
@@ -7050,6 +7092,7 @@ MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, MAT3500 (Toán rời
 rạc).
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1.<br>2. | Nguyễn Hải Vinh<br>Phan Thị Hà Dương | TS<br>PGS.TS | Trường ĐHKHTN<br>Viện Toán |
 | --- | --- | --- | --- |
 6. Mục tiêu của học phần (kiến thức, kĩ năng, thái độ):
@@ -7074,6 +7117,7 @@ quyết các vấn đề công nghệ thông tin
 220
 
 <!-- Page 221 -->
+
 | Hình thức | Nội dung kiểm tra | Mục đích kiểm tra | Trọng số |
 | --- | --- | --- | --- |
 | Đánh giá<br>thường<br>xuyên | Phát vấn lý thuyết | Đánh giá khả năng tiếp thu về lý<br>thuyết và việc chuẩn bị bài của sinh<br>viên. | 20% |
@@ -7145,6 +7189,7 @@ hàm đại số lôgic bằng mạch tổ hợp.
 phần phần mềm)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Nguyễn Hữu Điển | PGS. TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Lê Trọng Vĩnh | PGS. TS | Trường ĐHKHTN |
@@ -7228,6 +7273,7 @@ Chương 7. Thời gian và các trạng thái toàn cục
 3. Học phần tiên quyết: MAT3507 (Cơ sở dữ liệu), MAT3500 (Toán rời rạc)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1.<br>2. | Đỗ Trung Tuấn<br>Vũ Tiến Dũng | PGS. TS<br>TS | Trường ĐHKHTN<br>Trường ĐHKHTN |
 | --- | --- | --- | --- |
 6. Mục tiêu của học phần (kiến thức, kĩ năng, thái độ):
@@ -7465,6 +7511,7 @@ MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, MAT2301 (Đại số
 tuyến tính 2)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên:
+
 | 1 | Lê Minh Hà | PGS.TS | ĐH KHTN |
 | --- | --- | --- | --- |
 | 2 | Nguyễn Phụ Hoàng Lân | TS | ĐH KHTN |
@@ -7555,6 +7602,7 @@ Chương 5. Cơ sở Gröbner và thuật toán tính tích phân hàm phân th�
 3. Học phần tiên quyết: MAT2405 (Xác suất)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Tạ Công Sơn | TS | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 | 2. | Nguyễn Thịnh | TS | Trường ĐHKHTN |
@@ -7645,6 +7693,7 @@ Chương 6: Martigale
 MAT2407 (Tối ưu hoá).
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên (họ và tên, chức danh, học vị, đơn vị công tác):
+
 | 1. | Phạm Kỳ Anh | GS. TSKH | Trường ĐHKHTN |
 | --- | --- | --- | --- |
 6. Mục tiêu của học phần (kiến thức, kĩ năng, thái độ):
@@ -8691,6 +8740,7 @@ Java/ MAT2318- Lập trình Python/ MAT2319- Lập trình Julia, MAT2404
 (Giải tích số)
 4. Ngôn ngữ giảng dạy: Tiếng Việt
 5. Giảng viên :
+
 |  |  |  |  | P1h ạm Kỳ Anh |  |  | GS. TSKH |  |  | Trường ĐHKHTN |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | N2 guyễn Trung Hiếu |  |  | TS |  |  | Trường ĐHKHTN |  |
@@ -8811,6 +8861,7 @@ phần cũng cung cấp phương pháp mô hình hóa bằng tiếp cận Bayes 
 giải số Monte Carlo. Các ví dụ và bài tập đều có thể thực hành trên các phần mềm
 thống kê.
 10. Nội dung chi tiết học phần (trình bày các chương, mục, tiểu mục…):
+
 |  | Nội dung | Hình thức tổ chức dạy học học |  |  | Tổng |
 | --- | --- | --- | --- | --- | --- |
 |  |  | Lên lớp ph |  | ần Tự học,<br>tự nghiên cứu,<br>kiểm tra |  |
@@ -8820,6 +8871,7 @@ thống kê.
 273
 
 <!-- Page 274 -->
+
 | Chương 3 | Ước lượng Bayes<br>3.1 Không gian các tham số<br>3.2 Ước lượng MAP<br>3.3 Độ chính xác của ước lượng<br>Bayes<br>3.4 Ước lượng hàm thiệt hại<br>3.5 Trung bình hóa mô hình<br>Bài tập chương 3 | 6 | 2 |  | 8 |
 | --- | --- | --- | --- | --- | --- |
 | Chương 4 | Hồi quy tuyến tính<br>4.1 Phân phối tiên nghiệm nửa<br>liên hợp<br>4.2 Các phân phối tiên nghiệm<br>thiếu thông tin<br>4.3 Hồi quy siêu tham số<br>4.4 Hồi quy tuyến tính với ảnh<br>hưởng trộn<br>Bài tập chương 4 | 4 | 2 | 1 | 7 |
@@ -8938,6 +8990,7 @@ Mục tiêu của học phần là cung cấp cho sinh viên những kiến th�
 dựng phần mềm. Sinh viên sẽ nắm được các nguyên tắc và các kỹ thuật cơ bản về
 phát triển phần mềm bao gồm cách viết phần mềm an toàn, dễ hiểu và có thể thay đổi.
 7. Chuẩn đầu ra của học phần (kiến thức, kĩ năng, thái độ):
+
 | Chuẩn đầu ra | Bậc 1 | Bậc 2 | Bậc 3 | Bậc 4 |
 | --- | --- | --- | --- | --- |
 | Kiến thức |  |  |  |  |
@@ -8953,6 +9006,7 @@ phát triển phần mềm bao gồm cách viết phần mềm an toàn, dễ hi
 278
 
 <!-- Page 279 -->
+
 | án |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | Thái độ |  |  |  |  |

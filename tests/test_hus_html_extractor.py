@@ -40,6 +40,14 @@ def test_malformed_or_huge_table_span_does_not_crash():
     assert len(doc.content) < 2000
 
 
+def test_html_table_is_separated_from_numbered_paragraph():
+    raw = b"<main><p>2. Khung chuong trinh</p><table><tr><th>Ma</th><th>Hoc phan</th></tr><tr><td>1</td><td>Toan</td></tr></table></main>"
+
+    doc, _ = extract_html(raw, "https://mim.hus.vnu.edu.vn/vi/table", "2026-10-16T00:00:00Z")
+
+    assert "2. Khung chuong trinh\n\n| Ma | Hoc phan |" in doc.content
+
+
 def test_extract_html_with_attachments_and_tables():
     raw_html = b"""
     <!DOCTYPE html>

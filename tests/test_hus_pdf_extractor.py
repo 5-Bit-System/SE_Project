@@ -77,6 +77,7 @@ def test_extract_pdf_ignores_one_column_fragments_and_separates_tables(monkeypat
     monkeypatch.setattr("app.hus.extractors.pdf.pdfplumber.open", lambda _: PDF())
     content, _ = extract_pdf(b"mock")
 
+    assert "Introduction\n\n| Code | Name |" in content
     assert "| Code | Name |\n| --- | --- |\n| A | Course A |" in content
     assert "| ID | Title |\n| --- | --- |\n| B | Course B |" in content
     assert "| A | Course A |\n\n| ID | Title |" in content

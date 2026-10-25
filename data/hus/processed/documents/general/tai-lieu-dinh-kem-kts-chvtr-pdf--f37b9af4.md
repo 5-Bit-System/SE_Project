@@ -286,6 +286,7 @@ chương trình đào tạo)
 - Luận án tiến sĩ: 70 tín chỉ
 2. Khung chƣơng trình
 a) Đối với nghiên cứu sinh chƣa có bằng thạc sĩ:
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -301,6 +302,7 @@ a) Đối với nghiên cứu sinh chƣa có bằng thạc sĩ:
 9
 
 <!-- Page 11 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -322,6 +324,7 @@ a) Đối với nghiên cứu sinh chƣa có bằng thạc sĩ:
 10
 
 <!-- Page 12 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -341,6 +344,7 @@ a) Đối với nghiên cứu sinh chƣa có bằng thạc sĩ:
 11
 
 <!-- Page 13 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -356,6 +360,7 @@ a) Đối với nghiên cứu sinh chƣa có bằng thạc sĩ:
 12
 
 <!-- Page 14 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -368,6 +373,7 @@ Ghi chú: * Tổng số giờ tín chỉ (số giờ tín chỉ lên lớp/số 
 giờ tín chỉ tự học).
 ** Tổng số tiết học (số tiết lên lớp/số tiết thực hành/số tiết tự học).
 b) Đối với nghiên cứu sinh đã có bằng thạc sĩ ngành gần
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự học |  |
@@ -381,6 +387,7 @@ b) Đối với nghiên cứu sinh đã có bằng thạc sĩ ngành gần
 13
 
 <!-- Page 15 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự học |  |
@@ -400,6 +407,7 @@ b) Đối với nghiên cứu sinh đã có bằng thạc sĩ ngành gần
 14
 
 <!-- Page 16 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự học |  |
@@ -416,6 +424,7 @@ b) Đối với nghiên cứu sinh đã có bằng thạc sĩ ngành gần
 15
 
 <!-- Page 17 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự học |  |
@@ -427,6 +436,7 @@ b) Đối với nghiên cứu sinh đã có bằng thạc sĩ ngành gần
 | 18 | MAT9007 | Luận án tiến sĩ<br>Ph.D thesis | 70 |  |  |  |  |
 |  | Tổng Phần 1+2+3+4 |  | 106 |  |  |  |  |
 c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợp
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -437,6 +447,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 16
 
 <!-- Page 18 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -456,6 +467,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 17
 
 <!-- Page 19 -->
+
 | TT | Mã<br>môn học | Tên môn học<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các môn<br>học tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -472,6 +484,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 
 <!-- Page 20 -->
 3. Tài liệu tham khảo
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 1 | CTP5001 | Triết học<br>Philosophy | 2 | Theo chương trình chung |
@@ -481,6 +494,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 19
 
 <!-- Page 21 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 5 | MAT6037 | Phương trình đạo<br>hàm riêng nâng cao<br>Advanced Partial<br>Differential<br>Equations | 3 | 1. Petrovski I.G. Bài giảng về PTĐHR,<br>M.1961 (tiếng Nga)<br>2. Nguyễn Thừa Hợp - Giáo trình PTĐHR<br>NXB ĐHQGHN 2001<br>3. Mikhailov V.P.Phương trình đạo hàm<br>riêng, Nauka 1986 (tiếng Nga)<br>4. Mikhlin S.R. Giáo trình phương trình<br>Toán, Lý, M.1968 (tiếng Nga)<br>5. Nguyễn Minh Chương và các tác giả<br>khác: Lý thuyết PTĐHR, Hà Nội 1995 |
@@ -488,6 +502,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 20
 
 <!-- Page 22 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 7 | MAT6041 | Phương trình vi phân<br>nâng cao<br>Advanced Differential<br>Equations | 3 | 1. Hoàng Hữu Đường, Võ Đức Tôn,<br>Nguyễn Thế Hoàn. Phương trình vi<br>phân, 2 tập. NXBĐH và THCN 1970<br>2. Demiovitch. Những bài giảng về lý<br>thuyết ổn định. Nauka 1967 (Tiếng Nga)<br>3. Barbashin E.A. Nhập môn lý thuyết ổn<br>định Nauka 1967 (Tiếng Nga)<br>4. Cesari L.Asympfotic Behaviour and<br>Stability problem in ordinary differential<br>euations springer 1959 |
@@ -495,12 +510,14 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 21
 
 <!-- Page 23 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 9 | MAT6045 | Các phương pháp số<br>trong cơ học nâng cao<br>Advanced numerical<br>Methods in<br>Mechanics | 3 | 1. Đemidovitch., Maron I.A. Các phương<br>pháp giải tích số .M.1962 (Tiếng Nga).<br>2. Bakhvalov N.S. Các phương pháp số,<br>M.1973 (Tiếng Nga)<br>3. Colats L. Các phương pháp số để giải<br>phương trình vi phân, M.1953<br>4. Koirmian Th., Biot A.M. Mathematical<br>method in engineering, Mc. Graw-Hill<br>Book company.<br>5. Tabarok I., Rimott P.J.Variational<br>Methods and Complementary<br>formulation in Dynamics, Kluver<br>Acad.1994<br>6. Brebbia C.A.Recent advances in<br>boundary element methods.London 1978<br>7. Crouch S.L.Strarfield A.M.Boundary<br>element methods in soilid mechanics -<br>London 1983<br>8. Lions J.L.Quelques methods de<br>resolution de problems aux limites<br>nonlineaires-Paris 1969.<br>9. Zienkiewciz O.C.The finite element<br>methods in engineering sciences 1971<br>10. Klaus-Jurgen Bathe, Eduard L, Wilson<br>E.L.Numerical in finite element analysis.<br>11. Vilenkin N.J. Phương pháp gần đúng<br>liên tiếp M.1968 (tiếng Nga).<br>12. Frinell.M.Finite element model updating<br>in structural dynamics 1995 |
 22
 
 <!-- Page 24 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 10 | MAT6038 | Phân tích tấm<br>Analysis of plates | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi,<br>NXB ĐH & THCN, 2000.<br>2. Timoshenko S., Woinowsky, Krieger S.<br>Theory plates and shells, McGraw –<br>Hill Book Company New York, 1959.<br>3. Farland D. Mc, Smith B, Bernhart W.<br>Anaylysis of plates. Spartan books,<br>1972.<br>4. Trần Lưu Chương, Phạm Sĩ Liêm. Lí<br>thuyết bản và vỏ mỏng đàn hồi. Uỷ ban<br>KHKT, Hà Nội 1967. |
@@ -509,6 +526,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 23
 
 <!-- Page 25 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 13 | MAT6044 | Cơ học chất lỏng tính<br>toán<br>Computational Fluid<br>Mechanics | 3 | 1. Trần Văn Trản, Phương pháp số thực<br>hành, Tập 2, NXB ĐHQGHN, 2007<br>2. T.J.Chung, Computational fluid<br>dynamics, Cambridge University Press,<br>2002.<br>3. P.Wesseling, Principles of<br>computational fluid dynamics, Springer,<br>2001.<br>4. J.H.Ferziger, M.Peric, Computational<br>methods for fluid dynamics 3rd edition,<br>Springer, 2002<br>5. Flefcher C.A. Computational techniques<br>for fluid 1, Springer-Verlag 1987.<br>6. John D.Anderson, Computational fluid<br>dynamics: the basics with applications,<br>Mc Graw-Hill, 1995.<br>7. H.K. Versteeg, W.Malalasekera, An<br>introduction to computational fluid<br>mechanics, Longman 1995.<br>8. C.Pozrikidis, Fluid dynamics: theory,<br>computation, and numerical simulation,<br>Kluwer Academic Press, 2001. |
@@ -516,6 +534,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 24
 
 <!-- Page 26 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 15 | MAT6048 | Dao động của hệ đàn<br>hồi<br>Vibration of Elastic<br>Systems | 3 | 1. Panovko Ja.G. Cơ sở lý thuyết dao<br>động đàn hồi ứng dụng. M. 1967<br>2. Panovko Ja.G., Gubanova I.I. Ổn định<br>và dao động của hệ đàn hồi. M. 1964.<br>3. Filippov A.P. Dao động của hệ cơ học,<br>Kiev 1996<br>4. Timoshenco S.P. Dao động trong kĩ<br>thuật. M.1954<br>5. Bachman H., Ammann I.W. Vibration<br>problems in structure. Birkhauser<br>Verlag 1995.<br>6. Clough R.W., Penzien J. Dynamics of<br>structure. Mc Graw – Hill 1993.<br>7. Burton T.D. Introduction to Dynamics<br>system Analysis. Mc Graw – Hill 1994. |
@@ -524,6 +543,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 25
 
 <!-- Page 27 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 18 | MAT8049 | Bài toán ổn định tĩnh<br>của kết cấu có cơ tính<br>biến thiên<br>Static stability of<br>functionally graded<br>material structures | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi, NXB<br>ĐHQG HN, 2000.<br>2. Hui – Shen Shen. Functionally graded<br>materials – Nonlinear analysis of<br>Plates and Shells. CRC Press, 2009.<br>3. Don O. Brush, BO O. Almroth.<br>Buckling of Bars, Plates, and Shells.<br>McGraw – Hill, New York, 1975.<br>4. Volmir AS. Stability of elastic systems.<br>Science Edition Moscow, 1963.<br>5. Timoshenko SP, Gere JM. Theory of<br>elastic stability. Mc Graw-Hill, New<br>York, 1961. |
@@ -531,6 +551,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 26
 
 <!-- Page 28 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 20 | MAT8047 | Lý thuyết bản vỏ<br>mỏng<br>Theory of Thin Plates<br>and Shells | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi. Nxb<br>ĐHQGHN 2000<br>2. Oghibalov P.M., Koltunov M.A. Vỏ và<br>bản mỏng, MGU 1969 (tiếng Nga)<br>3. Timoshenko S., Woinowsky. Krieger S.<br>Theory plates and shells. Mc. Graw –<br>Hill Book Company New York 1959<br>4. Goldenveizer A.L. Lý thuyết vỏ mỏng<br>đàn hồi. M. 1953 (tiếng Nga)<br>5. Novozhgilov V.V Lý thuyết vỏ mỏng.<br>M. 1962 (tiếng Nga)<br>6. Brush D.O., Almroth B.O Buckling of<br>bars, plates and shells. New York 1995<br>7. Michel Bernadou. Finite element<br>methods of thin shell problems. J.<br>Wiley 1996 |
@@ -540,6 +561,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 27
 
 <!-- Page 29 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 24 | MAT8048 | Vật liệu cơ tính biến<br>thiên<br>The functionally<br>graded materials<br>(FGM) | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi, NXB<br>ĐHQG HN, 2000.<br>2. Hui – Shen Shen. Functionally graded<br>materials – Nonlinear analysis of<br>Plates and Shells. CRC Press, 2009.<br>3. Don O. Brush, BO O. Almroth.<br>Buckling of Bars, Plates, and Shells.<br>McGraw – Hill, New York, 1975.<br>4. Koizumi M. FGM activities Japan.<br>Composite Part B: Engineering, 1997,<br>28: 1-4. |
@@ -547,11 +569,13 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 28
 
 <!-- Page 30 -->
+
 | TT | Mã<br>môn học | Tên môn học | Số<br>tín<br>chỉ | Danh mục tài liệu tham khảo<br>(Tài liệu bắt buộc, Tài liệu tham khảo<br>thêm) |
 | --- | --- | --- | --- | --- |
 | 26 | MAT8052 | Phương pháp điều<br>kiện biên hiệu dụng<br>và sóng Rayleigh<br>trong lớp đặt trên bán<br>không gian<br>The effective<br>boundary condition<br>method for Rayleigh<br>surface waves in<br>layers over a half-<br>space | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi, NXB<br>ĐHQG HN, 2000.<br>2. Ting T. C. T.. Anisotropic Elasticity:<br>Theory and applications, Oxford<br>University Press, New York, 1996. |
 | 27 | MAT8053 | Thuần nhất hóa các<br>biên phân chia hai<br>chiều có độ nhám cao<br>Homogenization of<br>two-dimensional very<br>rough interfaces | 3 | 1. Đào Huy Bích. Lý thuyết đàn hồi, NXB<br>ĐHQG HN, 2000.<br>2. Ting T. C. T.. Anisotropic Elasticity:<br>Theory and applications, Oxford<br>University Press, New York, 1996.<br>3. Bensoussan, A., Lions, J. B.,<br>Papanicolaou, J., Asymptotic analysis<br>for periodic structures. North-Holland,<br>Amsterdam 1978. |
 4. Đội ngũ cán bộ giảng dạy
+
 | ST<br>T | Mã môn<br>học | Tên môn học | Số<br>tín<br>ch<br>ỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh,<br>học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị<br>công<br>tác |
@@ -561,6 +585,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 29
 
 <!-- Page 31 -->
+
 | 4. | MAT6036 | Cơ học môi trường<br>liên tục nâng cao<br>Advance<br>Mechanics of<br>Continuous Media | 3 | Đào Huy Bích<br>Đào Văn Dũng<br>Nguyễn Đình<br>Đức | GS.TSKH<br>PGS.TS<br>PGS.<br>TSKH | Cơ học<br>Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN<br>ĐHQGHN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 5. | MAT6037 | Phương trình đạo<br>hàm riêng nâng cao<br>Advanced Partial<br>Differential<br>Equations | 3 | Trần Huy Hổ<br>Hoàng Quốc<br>Toàn | PGS.TS<br>PGS.TS | Toán học<br>Toán học | ĐHKHTN<br>ĐHKHTN |
@@ -573,6 +598,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 30
 
 <!-- Page 32 -->
+
 | 14 | MAT6049 | Các phương pháp<br>trong dao động phi<br>tuyến<br>Methods in<br>Nonlinear<br>Oscillation | 3 | Lê Xuân Cận | GS.TS | Cơ học | ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 15 | MAT6046 | Nhiệt đàn hồi<br>Thermo - Elasticity | 3 | Đào Huy Bích | GS.TSKH | Cơ học | ĐHKHTN |
@@ -584,6 +610,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 31
 
 <!-- Page 33 -->
+
 |  |  | waves |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 21 | MAT8047 | Lý thuyết bản vỏ<br>mỏng<br>Theory of Thin<br>Plates and Shells | 3 | Đào Văn Dũng<br>Phạm Thị<br>Oanh<br>Vũ Đỗ Long | PGS.TS<br>TS<br>PGS.TS | Cơ học<br>Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN<br>ĐHKHTN |
@@ -595,6 +622,7 @@ c. Đối với NCS có bằng thạc sĩ đúng chuyên ngành hoặc phù hợ
 32
 
 <!-- Page 34 -->
+
 |  |  | Homogenization of<br>two-dimensional<br>very rough<br>interfaces |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 5. Tóm tắt nội dung môn học (Ghi theo số thứ tự trong khung chương trình)
@@ -810,6 +838,7 @@ b) Bảng so sánh chương trình đào tạo
 38
 
 <!-- Page 40 -->
+
 | STT | Tên môn học trong chƣơng<br>trình đào tạo tiên tiến của<br>nƣớc ngoài<br>(Tiếng Anh, tiếng Việt) | Tên môn học trong<br>chƣơng trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>môn học của 2<br>chƣơng trình đào tạo |
 | --- | --- | --- | --- |
 | 1. | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | ME503: Continuum<br>Mechanics<br>Cơ học môi trường liên<br>tục | Về cơ bản là giống<br>nhau |
@@ -824,6 +853,7 @@ b) Bảng so sánh chương trình đào tạo
 39
 
 <!-- Page 41 -->
+
 | STT | Tên môn học trong chƣơng<br>trình đào tạo tiên tiến của<br>nƣớc ngoài<br>(Tiếng Anh, tiếng Việt) | Tên môn học trong<br>chƣơng trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>môn học của 2<br>chƣơng trình đào tạo |
 | --- | --- | --- | --- |
 | 10. | Truyền sóng trong môi trường<br>đàn dẻo<br>Wave Propagation in Elasto-<br>Plastic Media | ME520: Seminar<br>Seminar |  |
@@ -840,6 +870,7 @@ b) Bảng so sánh chương trình đào tạo
 40
 
 <!-- Page 42 -->
+
 | STT | Tên môn học trong chƣơng<br>trình đào tạo tiên tiến của<br>nƣớc ngoài<br>(Tiếng Anh, tiếng Việt) | Tên môn học trong<br>chƣơng trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>môn học của 2<br>chƣơng trình đào tạo |
 | --- | --- | --- | --- |
 |  |  | and Solids<br>Cơ học nâng cao về vật<br>liệu và vật thể rắn |  |
@@ -861,6 +892,7 @@ Năm thứ ba: Viết bài báo khoa học, hoàn thành luận án TS.
 
 <!-- Page 43 -->
 Phụ lục: Môn học thuộc học phần tiến sĩ CHVTR
+
 | Các học phần bắt buộc |  |
 | --- | --- |
 | MAT8049 | Bài toán ổn định tĩnh của kết cấu có cơ tính biến thiên<br>Static stability of functionally graded material structures |

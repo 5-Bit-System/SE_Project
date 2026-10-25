@@ -10,6 +10,7 @@ major: "general"
 ## Biểu mẫu tìm kiếm
 # Danh sách cán bộ
 Lọc theo đơn vị
+
 | [Nguyễn Bảo Ngọc](https://mim.hus.vnu.edu.vn/vi/canbo/ngocnb) | Thạc sĩ Thiết kế thí nghiệm |
 | --- | --- |
 | [Ngô Quốc Anh](https://mim.hus.vnu.edu.vn/vi/canbo/anhnq) | Phó giáo sư, Tiến sĩ Giải tích hình học và phương trình đạo hàm riêng |

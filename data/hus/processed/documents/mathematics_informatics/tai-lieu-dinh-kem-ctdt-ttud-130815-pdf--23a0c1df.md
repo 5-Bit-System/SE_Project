@@ -269,6 +269,7 @@ nghiệp:
 
 <!-- Page 11 -->
 2. Khung chƣơng trình đào tạo
+
 | STT | Mã học<br>phần | Học phần | Số tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số học<br>phần tiên<br>quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -293,6 +294,7 @@ nghiệp:
 13
 
 <!-- Page 12 -->
+
 | 16 | PHY1103 | Điện- Quang<br>Electromagnetism - Optics | 3 | 30 | 15 |  | MAT2302 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | IV |  | Khối kiến thức theo nhóm ngành | 43 |  |  |  |  |
@@ -322,6 +324,7 @@ nghiệp:
 14
 
 <!-- Page 13 -->
+
 | 38 | MAT3349 | Tiểu luận khoa học<br>Mini project | 2 |  | 30 |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | V.2 |  | Các học phần tự chọn<br>(Sinh viên lựa chọn các học phần<br>thuộc cùng một định hướng trong 2<br>định hướng dưới đây) | 12 |  |  |  |  |
@@ -346,6 +349,7 @@ nghiệp:
 15
 
 <!-- Page 14 -->
+
 | V.3 |  | Khoá luận tốt nghiệp/các học phần<br>thay thế khoá luận tốt nghiệp | 7 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 55 | MAT4082 | Khóa luận tốt nghiệp | 7 |  |  |  |  |

@@ -84,6 +84,7 @@ Việc học bổ sung kiến thức được phải hoàn thành trước khi �
 - Danh mục các học phần bổ sung kiến thức: Số tín chỉ và học phần cần bổ sung
 kiến thức do đơn vị đào tạo quyết định tùy thuộc vào bảng điểm hệ đại học của người
 dự tuyển. Danh mục các học phần bổ sung kiến thức cụ thể như sau:
+
 | TT | Tên học phần | Số tín chỉ |
 | --- | --- | --- |
 | 1 | Đại số đại cương | 4 |
@@ -191,6 +192,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -214,6 +216,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 7
 
 <!-- Page 8 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -236,6 +239,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 8
 
 <!-- Page 9 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |

@@ -232,6 +232,7 @@ Tự chọn: 12 tín chỉ
 
 <!-- Page 10 -->
 2. Khung chƣơng trình đào tạo
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -252,6 +253,7 @@ Tự chọn: 12 tín chỉ
 10
 
 <!-- Page 11 -->
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -276,6 +278,7 @@ Tự chọn: 12 tín chỉ
 11
 
 <!-- Page 12 -->
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -300,6 +303,7 @@ Tự chọn: 12 tín chỉ
 12
 
 <!-- Page 13 -->
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -322,6 +326,7 @@ Tự chọn: 12 tín chỉ
 13
 
 <!-- Page 14 -->
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
@@ -345,6 +350,7 @@ Tự chọn: 12 tín chỉ
 14
 
 <!-- Page 15 -->
+
 | STT | Mã<br>học phần | Tên học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chi ̉ |  |  | Mã số<br>học phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |

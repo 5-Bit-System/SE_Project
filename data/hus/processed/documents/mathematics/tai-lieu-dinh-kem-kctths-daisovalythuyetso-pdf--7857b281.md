@@ -125,6 +125,7 @@ Tin ứng dụng, Sư phạm Toán học.
 - Danh mục các ngành gần: Tin học, Sư phạm Toán Tin, Máy tính và Khoa
 học thông tin.
 3.4. Danh mục các học phần bổ sung kiến thức
+
 | TT | Học phần | Số tín chỉ |
 | --- | --- | --- |
 | 1 | Đại số đại cương | 4 |
@@ -138,6 +139,7 @@ học thông tin.
 3
 
 <!-- Page 7 -->
+
 |  | Tổng cộng | 27 |
 | --- | --- | --- |
 3.5. Dự kiến quy mô tuyển sinh: 5-10 học viên/năm.
@@ -266,6 +268,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 11 -->
 2. Khung chương trình (Đại số và lý thuyết số)
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã<br>số<br>các<br>học<br>phần<br>tiên<br>quyế<br>t |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyế<br>t | Thự<br>c<br>hàn<br>h | Tự<br>họ<br>c |  |
@@ -288,6 +291,7 @@ tính vào điểm trung bình chung tích lũy
 8
 
 <!-- Page 12 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) |  | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã<br>số<br>các<br>học<br>phần<br>tiên<br>quyế<br>t |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  | Lý<br>thuyế<br>t | Thự<br>c<br>hàn<br>h | Tự<br>họ<br>c |  |
@@ -310,6 +314,7 @@ tính vào điểm trung bình chung tích lũy
 9
 
 <!-- Page 13 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và tiếng<br>Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã<br>số<br>các<br>học<br>phần<br>tiên<br>quyế<br>t |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyế<br>t | Thự<br>c<br>hàn<br>h | Tự<br>họ<br>c |  |
@@ -318,6 +323,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 14 -->
 3. Danh mục tài liệu tham khảo (ghi theo số thứ tự trong khung chương trình)
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
@@ -327,30 +333,35 @@ tính vào điểm trung bình chung tích lũy
 11
 
 <!-- Page 15 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 5. | MAT6100 | Phương trình đạo hàm riêng<br>Partial differential equations | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Thừa Hợp (2006), Giáo trình phương trình đạo hàm<br>riêng, Đại học Quốc gia Hà Nội.<br>2. Qing Han (2010), A basic course in partial differential<br>equations, American Mathematical Society.<br>3. Walter A. Strauss (2008), Partial Differential Equations: An<br>Introduction, 2nd., John Wiley & Sons, Ltd.<br>2. Tài liệu tham khảo thêm<br>1. Lawrence Evans C. (2010), Partial differential equations, 2nd,<br>American Mathemtical Society.<br>2. Gerald Folland B. (1995), An introduction to partial differential<br>equations, 2nd, Princeton University Press.<br>3. Jurgen Jost (2013), Partial differential equations, 3rd, Springer. |
 12
 
 <!-- Page 16 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 6. | MAT6007 | Những chương lựa chọn về<br>đại số tuyến tính<br>Selected chapters in linear<br>algebra | 3 | 1. Tài liệu bắt buộc<br>1. Nguyễn Hữu Việt Hưng (2000), Đại số tuyến tính, NXB<br>ĐHQG Hà Nội.<br>2. Golan J. S. (2007), The linear algebra a beginning graduate<br>student ought to know, Springer.<br>2. Tài liệu tham khảo thêm<br>1. Birkhoff G. và MacLane S. (1979), Tổng quan về Đại số hiện<br>đại, NXB ĐH và THCN, Hà Nội.<br>2. Gelfand M. (1971), Bài giảng Đại số tuyến tính, Nauka,<br>Moskva (Tiếng Nga).<br>3. Gourdon X. (1994), Algèbre, Ellipses, Paris.<br>4. Graeub W. (1962), Linear Algebra, Springer Verlag, Berlin.<br>5. Kostrikin A. I. và Manin YU. I. (1980), Đại số và Hình học<br>tuyến tính, NXB Đại học Moskva, Moskva (Tiếng Nga).<br>6. Kostrikin A. I. (1977), Nhập môn đại số, Nauka, Moskva<br>(Tiếng Nga).<br>7. Lang S. (1965), Algebra, Addison-Wesley publishing<br>company, Massachusetts.<br>8. Proskuryakov I. V. (1978), Problems in Linear Algebra, Mir<br>publishers, Moscow.<br>9. Vander Waerden (1955), Algebra, Springer Verlag, Berlin. |
 13
 
 <!-- Page 17 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 7. | MAT6004 | Lý thuyết trường và lý thuyết<br>Galois<br>Field theory and Galois<br>theory | 3 | 1. Tài liệu bắt buộc:<br>1. Lang S., Algebra, 3rd revised edition, Springer (có bản dịch<br>tiếng Việt).<br>2. Milne J. S., Field theory and Galois theory, sách miễn phí,<br>http://www.jmilne.org/math/CourseNotes/ft.html /<br>2. Tài liệu tham khảo thêm:<br>1. Ngô Việt Trung, Lý thuyết Galois, NXB ĐHQG HN.<br>2. Nguyễn H. V. Hưng, Đại số Đại cương, NXB ĐHQG HN.<br>3. Cox D., Galois theory, 2nd edition, John Wiley and Sons.<br>4. Stewart I., Galois theory, 3rd edition, Chapman and Hall.<br>5. Morandi P., Field and Galois theory, Springer.<br>6. Edwards H., Galois Theory, Springer.<br>7. Dummit, Foote, Abstract Algebra, 3rd edition, John Wiley and<br>Sons.<br>8. Trang web về tiểu sử của Galois: http://www-gap.dcs.st-<br>and.ac.uk/~history/Mathematicians/Galois.html |
 14
 
 <!-- Page 18 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 8. | MAT6001 | Lý thuyết nhóm và biểu diễn<br>nhóm<br>Group theory and group<br>representations | 3 | 1. Tài liệu bắt buộc<br>1. James G. and Liebeck M. (1993), Representations and<br>characters of groups, Cambridge Univ. Press, Cambridge.<br>2. Tài liệu tham khảo thêm<br>1. Nguyễn Hữu Việt Hưng (1998), Đại số đại cương, NXB Giáo<br>dục, Hà Nội.<br>2. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>3. Collins M. J. (1990), Representations and characters of finite<br>groups, Cambridge University Press.<br>4. Curtis C. W. and Reiner I. (1966), Representation Theory of<br>finite groups and associate algebras, Interscience Publishers,<br>New York-London-Sedney.<br>5. Feit W. (1967), Characters of finite groups, Benjamin.<br>6. Serre J. P. (1977), Linear Representations of finite groups,<br>Springer-Verlag, New York -Heidelberg- Berlin. |
 15
 
 <!-- Page 19 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 9. | MAT6003 | Tôpô đại số<br>Algebraic Topology | 3 | 1. Tài liệu bắt buộc:<br>1. Dold A. (1972), Lectures on algebraic topology, Springer-<br>Verlag, Berlin-Heidelberg-New York.<br>2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>3. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>4. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
@@ -358,6 +369,7 @@ tính vào điểm trung bình chung tích lũy
 16
 
 <!-- Page 20 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 11. | MAT6118 | Toán tử đối đồng điều và<br>ứng dụng<br>Cohomology Operations and<br>Applications | 3 | 1. Tài liệu bắt buộc:<br>1. Steenrod N. E. and Epstein D. B. A. (1962), Cohomology<br>Operations, Ann. Math. Studies 50, Princeton Univ. Press,<br>Princeton.<br>2. Tài liệu tham khảo thêm:<br>1. Mosher R. E. and Tangora M. C. (1968), Cohomology<br>Operations and Applications in Homotopy Theory, Harper and<br>Row, New York.<br>2. Spanier E. H. (1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>3. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
@@ -365,6 +377,7 @@ tính vào điểm trung bình chung tích lũy
 17
 
 <!-- Page 21 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 13. | MAT6012 | Đại số đồng điều<br>Homological Algebra | 3 | 1. Tài liệu bắt buộc:<br>1. Cartan H. and Eilenberg S. (1956), Homological Algebra,<br>Princeton Univ. Press, Princeton.<br>2. MacLane S. (1967), Homology, Springer-Verlag, Berlin-<br>Heidelberg-New York.<br>2. Tài liệu tham khảo thêm:<br>1. Benson D. J. (1991), Representations and Cohomology (I)-(II),<br>Cambridge University Press.<br>2. Dold A.(1972), Lectures on algebraic topology, Springer-<br>Verlag, Berlin-Heidelberg-New York.<br>3. Evens L.(1991), The cohomology of groups, Clarendon Press,<br>Oxford - New York - Tokyo.<br>4. Spanier E. H.(1966), Algebraic Topology, McGraw-Hill, New<br>York.<br>5. Switzer R. W. (1975), Algebraic Topology- Homotopy and<br>Homology, Springer-Verlag, Berlin-Heidelberg-New York. |
@@ -372,6 +385,7 @@ tính vào điểm trung bình chung tích lũy
 18
 
 <!-- Page 22 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 15. | MAT6013 | Lý thuyết số đại số<br>Algebraic number theory | 3 | 1. Tài liệu bắt buộc:<br>1. Lang S. (1965), Algebraic Numbers, Addison-Wesley.<br>2. Tài liệu tham khảo thêm:<br>2. Lang S. (1972), Algebra, Addison-Wesley.<br>3. Borevich Z., Shafarevich I. R. (1975) Teoria chisel(Tiếng<br>Nga), Nauka. (Có bản dịch Tiếng Anh)<br>4. Weil A. (1972), Basic Number Theory, Springer-Verlag. |
@@ -379,12 +393,14 @@ tính vào điểm trung bình chung tích lũy
 19
 
 <!-- Page 23 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 17. | MAT6015 | Phân thớ, Lớp đặc trưng, K-lý<br>thuyết<br>Fibre bundles, Characteristic<br>classes, and K-theory | 3 | 1. Tài liệu bắt buộc:<br>1. Milnor J., Stasheff J. (1974), Characteristic Classes, Ann. of<br>Math. Studies 76, Princeton Univ. Press.<br>2. Hatcher A., Vector Bundle and K-theory,<br>http://www.math.cornell.edu/~hatcher/VBKT/VBpage.html<br>2. Tài liệu tham khảo thêm:<br>1. Bott R., Tu L. W. (1982), Differential Forms in Algebraic<br>Topology, Springer-Verlag.<br>2. Atiyah M. F. (1967), K-theory, W.A. Benjamin.<br>3. Bott R. (1994), Lectures on K(X), Collected Papers, Vol. 2,<br>Birkhäuser.<br>4. Bott R. (1994), The Periodicity Theorem for the Classical<br>Groups and Some of its Applications, Collected Papers, Vol. 1,<br>Birkhäuser.<br>5. Husemoller, Fibre Bundles, Springer Graduate Texts in<br>Mathematics. |
 20
 
 <!-- Page 24 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 18. | MAT6120 | Lý thuyết kỳ dị và tai biến<br>Singularity theory and<br>Castatrophe theory | 3 | 1. Tài liệu bắt buộc:<br>1. Dimca A. (1987), Topics on Real and Complex Singularities,<br>Advanced Lectures in Mathematics, Vieweg-Verlag.<br>2. Tài liệu tham khảo thêm:<br>1. Arnol’d V. I., Guisein-Zade S.M. and Varchenko A.N. (1988),<br>Singularities of Differentiable Maps, vols. I & II, Birkhäuser.<br>2. Arnol’d V. I. (1992), Catastrophe Theory, 3rd ed. Berlin:<br>Springer-Verlag.<br>3. Bättig D. and Knörrer H. (1991), Singularitäten, Lectures in<br>Mathematics ETH Zürich, Vieweg-Verlag.<br>4. Dimca A. (1992), Singularities and Topology of<br>Hypersurfaces, Springer-Verlag.<br>5. Milnor J. (1968), Singular Points of Complex Hypersurfaces,<br>Ann. of Math. Studies 61. |
@@ -392,6 +408,7 @@ tính vào điểm trung bình chung tích lũy
 21
 
 <!-- Page 25 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 20. | MAT6009 | Giải tích trên đa tạp<br>Analysis on Manifolds | 3 | 1. Tài liệu bắt buộc<br>1. Spivak M. (1985), Giải tích trên đa tạp, bản dịch tiếng Việt,<br>NXB ĐHTHCN.<br>2. Lee J. M. (2013), Introduction to smooth manifolds, Springer –<br>Verlag.<br>3. Lee J. M. (2009), Manifolds and Differential Geometry,<br>American Mathematical Society.<br>2. Tài liệu tham khảo thêm<br>1. Carmo M. P. do (1994), Differential forms and Applications,<br>Springer-Verlag.<br>2. Guillemin V. , Pollack A. (1974), Differential Topology,<br>Prentice-Hall.<br>3. Boothby W. M. (1986), An introduction to differentiable<br>manifolds and Riemannian geometry, Academic Press. |
@@ -399,6 +416,7 @@ tính vào điểm trung bình chung tích lũy
 22
 
 <!-- Page 26 -->
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 22. | MAT6136 | Nhóm Lie và đại số Lie<br>Lie groups and Lie algebras | 3 | 1. Tài liệu bắt buộc:<br>1. P.Serre J. (1992), Lie groups and Lie algebras, LNM vol. 1500,<br>Springer.<br>2. Kirillov A. (2011), Elements of the theory of representations,<br>Springer.<br>2. Tài liệu tham khảo thêm:<br>3. Đỗ Ngọc Diệp, Nhóm Lie và đại số Lie (Bản thảo). |
@@ -407,6 +425,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 27 -->
 4. Đội ngũ cán bộ giảng dạy (ghi theo số thứ tự trong khung chương trình)
+
 | TT | Mã<br>học phần | Tên học phần | Số tín chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học, học vị | Chuyên ngành<br>đào tạo | Đơn vị công tác |
@@ -427,6 +446,7 @@ tính vào điểm trung bình chung tích lũy
 24
 
 <!-- Page 28 -->
+
 |  |  | Selected topics in<br>Linear Algebra |  | Phó Đức Tài | TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Đào Phương<br>Bắc | TS | Toán học | ĐHKHTN |
@@ -448,6 +468,7 @@ tính vào điểm trung bình chung tích lũy
 25
 
 <!-- Page 29 -->
+
 | 10. | MAT6005 | Hình học vi phân<br>Differential Geometry | 3 | Phó Đức Tài | TS | Toán học | ĐH KHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Nguyễn Thị<br>Hồng Vân | TS | Toán học | ĐH KHTN |
@@ -470,6 +491,7 @@ tính vào điểm trung bình chung tích lũy
 26
 
 <!-- Page 30 -->
+
 |  |  |  |  | Nguyễn Việt<br>Dũng | PGS.TS | Toán học | Viện Toán học |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 14. | MAT6119 | Đối đồng điều của<br>nhóm<br>Cohomology of Groups | 3 | Nguyễn Hữu<br>Việt Hưng | GS.TSKH | Toán học | ĐHKHTN |
@@ -490,6 +512,7 @@ tính vào điểm trung bình chung tích lũy
 27
 
 <!-- Page 31 -->
+
 |  |  |  |  | Hà Huy Vui | PGS. TSKH | Toán học | Viện Toán học |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Đinh Sĩ Tiệp | TS | Toán học | Viện Toán học |
@@ -512,6 +535,7 @@ tính vào điểm trung bình chung tích lũy
 28
 
 <!-- Page 32 -->
+
 |  |  |  |  | Đỗ Ngọc Diệp | GS.TSKH | Toán học | Viện Toán học |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Nguyễn Duy<br>Tân | TS | Toán học | Viện Toán học |
@@ -534,6 +558,7 @@ Lịch trình tổ chức thực hiện chương trình đào tạo cụ thể n
 Thời gian đào tạo bắt đầu từ giữa tháng 11 hàng năm, kết thúc vào tháng 11 hai
 năm sau. Thời gian thực hiện được khái quát trong sơ đồ sau:
 Tháng 11 Tháng 1 Tháng 7 Tháng 1 Tháng 7 Tháng 11
+
 | A | T<br>1 | B | H<br>1 | C D |  | T<br>2 | D E |  | H<br>2 | E |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 Trong đó:
@@ -544,6 +569,7 @@ tháng và kì E gồm 6 tháng.
 tùy lịch từng năm.
 - H , H : Các đợt nghỉ hè, mỗi đợt 1 tháng, từ 30/6 đến 31/7 hàng năm.
 1 2
+
 | Giai<br>đoạ<br>n | Thời gian | Hoạt động dạy và học |  | Hoạt động khác |
 | --- | --- | --- | --- | --- |
 |  |  | Bắt đầu | Kết thúc |  |
@@ -552,6 +578,7 @@ tùy lịch từng năm.
 30
 
 <!-- Page 34 -->
+
 | C | 4 tháng<br>( từ tháng 8 đến tháng<br>11) | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | -2 học phần<br>bắt buộc<br>-2 học phần<br>lựa chọn | Giới thiệu hướng đề<br>tài<br>Phân công đề tài luận<br>văn |
 | --- | --- | --- | --- | --- |
 | D | 4 tháng<br>( từ tháng 12 đến tháng<br>4) | -5 học phần<br>lựa chọn | -5 học phần<br>lựa chọn | Làm luận văn |
@@ -566,6 +593,7 @@ University of Washington, Seattle, Hoa Kỳ
 - Xếp hạng của cơ sở đào tạo, ngành/chuyên ngành đào tạo: trong danh sách 20
 khoa Toán tốt nhất Hoa Kỳ
 b) Bảng so sánh chương trình đào tạo
+
 | STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
 | II | Khối kiến thức cơ sở và<br>chuyên ngành |  |  |
@@ -576,6 +604,7 @@ b) Bảng so sánh chương trình đào tạo
 31
 
 <!-- Page 35 -->
+
 | STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) |  | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- | --- |
 |  | Đại số tuyến tính nâng cao |  | chọn về đại số tuyến<br>tính<br>Selected topics in<br>Linear algebra |  |
@@ -611,6 +640,7 @@ b) Bảng so sánh chương trình đào tạo
 32
 
 <!-- Page 36 -->
+
 | STT | Tên học phần trong chương<br>trình đào tạo tiên tiến của<br>nước ngoài<br>(Tiếng Anh, tiếng Việt) |  | Tên học phần trong<br>chương trình đào tạo<br>của đơn vị<br>(Tiếng Anh, tiếng<br>Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- | --- |
 |  | Toán học |  |  |  |

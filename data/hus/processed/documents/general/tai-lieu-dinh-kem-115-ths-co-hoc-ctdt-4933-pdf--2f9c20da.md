@@ -85,6 +85,7 @@ học tính toán.
 Việc học bổ sung kiến thức được phải hoàn thành trước khi đăng ký dự thi
 - Danh mục các học phần bổ sung kiến thức được lựa chọn trong các học phần
 sau (tùy thuộc vào bảng điểm đại học của thí sinh):
+
 | STT | Học phần | Số tín chỉ |
 | --- | --- | --- |
 | 1 | Cơ học môi trường liên tục | 4 |
@@ -200,6 +201,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 
 <!-- Page 7 -->
 2. Khung chương trình đào tạo
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -222,6 +224,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 7
 
 <!-- Page 8 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -241,6 +244,7 @@ Số tín chỉ x 50 – Số giờ lý thuyết – Số giờ thực hành
 8
 
 <!-- Page 9 -->
+
 | STT | Mã học<br>phần | Học phần | Số<br>tín<br>chỉ | Số giờ học tập |  |  | Mã học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lí<br>thuyết | Thực<br>hành | Tự<br>học |  |

@@ -266,6 +266,7 @@ Grade Scale and GPA Calculation
 8
 
 <!-- Page 9 -->
+
 | Điểm chữ (grade) | Điểm số (points) | Xếp loại / Range |
 | --- | --- | --- |
 | A | 4 | Xuất sắc / Excellent |
@@ -469,6 +470,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 
 <!-- Page 15 -->
 7.3. Danh mục các học phần trong chƣơng trình / List of courses
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -489,6 +491,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 15
 
 <!-- Page 16 -->
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -516,6 +519,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 16
 
 <!-- Page 17 -->
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -543,6 +547,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 17
 
 <!-- Page 18 -->
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -566,6 +571,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 18
 
 <!-- Page 19 -->
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -587,6 +593,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 19
 
 <!-- Page 20 -->
+
 | STT | Chƣơng trình của Trƣờng Đại<br>học KHTN |  | Mã môn<br>học | Chƣơng trình gốc<br>(Trƣờng UW ) |  |
 | --- | --- | --- | --- | --- | --- |
 |  | Tên môn | Số tín<br>chỉ |  | Tên môn học | Số tín<br>chỉ |
@@ -599,6 +606,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 <!-- Page 21 -->
 8. KẾ HOẠCH HỌC TẬP CHUẨN
 (hrs = TC = credits)
+
 | Năm thứ 1 / Year 1 |  |  |  |
 | --- | --- | --- | --- |
 | Học kỳ 1 / Semester 1 |  | Học kỳ 2 / Semester 2 |  |
@@ -619,6 +627,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 21
 
 <!-- Page 22 -->
+
 | KHXH-NV 1 | 2 hrs | PHI 1001<br>Những nguyên lý cơ bản của Chủ<br>nghĩa Mác Lênin (phần II)<br>Marxist-Leninist (part II) | 3 hrs |
 | --- | --- | --- | --- |
 | Tổng / Total | 18 hrs | Tổng / Total | 18 hrs |
@@ -642,6 +651,7 @@ MATH 496: Khóa luận tốt nghiệp (Thesis): 8
 22
 
 <!-- Page 23 -->
+
 | Môn chuyên ngành (chọn có đk)**<br>II<br>Advanced elective course II | 3 hrs | Môn chuyên ngành (chọn có đk)***<br>VII<br>Advanced elective course VII | 3 hrs |
 | --- | --- | --- | --- |
 | Môn chuyên ngành (chọn có đk)**<br>III<br>Advanced elective course III | 3 hrs | Môn học nâng cao (chọn tự do ) I<br>Additional elective course I | 2 hrs |
@@ -655,6 +665,7 @@ choices.
 the corresponding group of the choice.
 *** Chọn từ nhóm Đại số, Giải tích số, Thống kê. Choose from the groups
 Algebra, Numerical Analysis or Statistics.
+
 | Năm thứ 5 / Year 5 |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | Học kỳ 9 / Semester 9 |  |  | Học kỳ 10 / Semester 10 |  |
@@ -1414,6 +1425,7 @@ Số tín chỉ - Credits: 8
 Nội dung: Undergraduate thesis
 10. DỰ KIẾN PHÂN CÔNG GIẢNG DẠY – Teaching Assignment
 (tentative)
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | Kiến thức chung, Tiếng Anh và kiến thức KHXH-NV General courses (57 tín chỉ) |  |  |  |  |  |
@@ -1421,6 +1433,7 @@ Nội dung: Undergraduate thesis
 44
 
 <!-- Page 45 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | 2 | Tiếng Anh giao tiếp II<br>(General English II) | 8 | ENG<br>102 | Bộ môn ngoại ngữ, Trƣờng<br>ĐHKHTN .<br>Department of Foreign<br>Languages, HUS. | ĐHKHTN –<br>HUS |
@@ -1434,6 +1447,7 @@ Nội dung: Undergraduate thesis
 45
 
 <!-- Page 46 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | 10 | Giáo dục Quốc phòng<br>– An ninh I (National<br>Defense Education I) | 2 | CME<br>1001 | Theo phân công của Trung<br>tâm giáo dục Quốc phòng,<br>ĐHQGHN<br>Instructors provided by<br>Center for National Defence<br>trainning, VNU | ĐHQGHN –<br>VNU |
@@ -1446,6 +1460,7 @@ Nội dung: Undergraduate thesis
 46
 
 <!-- Page 47 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | 17 | Xã hội học đại cƣơng<br>(General Sociology) | 2 | SOC<br>1050 | Theo phân công của ĐH<br>KHXH – NV<br>Instructor provided by the<br>College of Social Sciences<br>and Humanities (USSH) | ĐH KHXH -<br>NV<br>USSH |
@@ -1459,6 +1474,7 @@ Nội dung: Undergraduate thesis
 47
 
 <!-- Page 48 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | TS. Đặng Anh Tuấn<br>GS.TSKH. Đỗ Ngọc Diệp<br>Prof. Jim Burke<br>Prof. Zhenqing Chen<br>Prof. Steffen Rohde<br>Prof. Tatiana Toro | ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
@@ -1471,6 +1487,7 @@ Nội dung: Undergraduate thesis
 48
 
 <!-- Page 49 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | TS. Trần Ngọc Nam<br>PGS.TSKH. Phùng Hồ Hải<br>Prof. John Palmieri<br>Prof. Steve Mitchell<br>Prof. Paul Smith<br>Prof. James Zhang | ĐHKHTN<br>VTH<br>UW<br>UW<br>UW<br>UW |
@@ -1482,6 +1499,7 @@ Nội dung: Undergraduate thesis
 49
 
 <!-- Page 50 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | 33 | Tôpô đại cƣơng<br>(Topology) | 3 | MATH<br>441 | TS. Lê Minh Hà<br>TS. Trần Ngọc Nam<br>Prof. Steve Mitchell | ĐHKHTN<br>ĐHKHTN<br>UW |
@@ -1494,6 +1512,7 @@ Nội dung: Undergraduate thesis
 50
 
 <!-- Page 51 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 | Nhóm 2 – Hình học Geometry |  |  |  |  |  |
@@ -1509,6 +1528,7 @@ Nội dung: Undergraduate thesis
 51
 
 <!-- Page 52 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  | (Methods for Partial<br>Differential<br>Equations) |  |  | Prof. Yu Yuan | UW |
@@ -1524,6 +1544,7 @@ Nội dung: Undergraduate thesis
 52
 
 <!-- Page 53 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Prof. Rekha Thomas<br>Prof. Paul Tseng | UW<br>UW |
@@ -1540,6 +1561,7 @@ Nội dung: Undergraduate thesis
 53
 
 <!-- Page 54 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  | Statistics) |  |  | TS. Nguyễn Thịnh<br>TS. Hồ Đăng Phúc<br>Prof. Mark Handcock<br>Prof. Tilmann Gneiting | ĐHKHTN<br>VTH<br>UW<br>UW |
@@ -1554,6 +1576,7 @@ Nội dung: Undergraduate thesis
 54
 
 <!-- Page 55 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  | Research) |  |  | Lecturers from the Faculty<br>of Mathematics, Mechanics<br>and Informatics |  |
@@ -1568,6 +1591,7 @@ Nội dung: Undergraduate thesis
 55
 
 <!-- Page 56 -->
+
 | Số<br>TT | Tên môn | Số<br>tín<br>chỉ | Mã<br>môn<br>học | Họ tên GV | Đơn vị công<br>tác |
 | --- | --- | --- | --- | --- | --- |
 |  | systems) |  |  | Prof. Doug Lind | UW |
@@ -1600,6 +1624,7 @@ tự học với diện tích:
 - Thƣ viện tự học và nghiên cứu liên ngành: 2 x 75m2
 Trang thiết bị cho các phòng học, phòng hội thảo (Current equipments for
 classrooms, conference rooms)
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên<br>hãng,<br>Nƣớc SX | Số<br>lƣợng<br>(bộ) |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Máy chiếu treo tƣờng cho<br>giảng đƣờng và phòng máy<br>(Projectors)<br>Màn chiếu có động cơ,<br>Điều khiển từ xa (Screens,<br>Remote controls) | 3.000 ANSI XGA<br>KC chiếu: 1.2 – 10.4<br>m)<br>Wireless LAN<br>IEEE802.11b/g | VPL –<br>CX86 | Sony<br>Nhật | 5 |
@@ -1610,6 +1635,7 @@ classrooms, conference rooms)
 57
 
 <!-- Page 58 -->
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã TB | Tên<br>hãng,<br>Nƣớc SX | Số<br>lƣợng<br>(bộ) |
 | --- | --- | --- | --- | --- | --- |
 | 6 | Máy tính để bàn trang bị<br>cho 7 phòng học, phòng<br>hội thảo và thƣ viện<br>(Computers for 7 rooms,<br>reference rooms and<br>library) | Pentium IV 3.0GHz/<br>1M Cache/ Chipset<br>Intel 945/ 512MB<br>DDR/ 80GB HDD/<br>DVD-Rom/NIC/ 15"<br>LCD | 8215-<br>6AA | IBM M52<br>TQ | 10 |
@@ -1617,6 +1643,7 @@ classrooms, conference rooms)
 | 8 | Máy chiếu vật thể dùng để<br>chiếu tài liệu giấy, vật thể<br>(Projectors) | F2.8 ~ 2.9, f=6.3 ~<br>74.4mm, 12X Powered<br>AF Optical Zoom<br>VGA Out - Horizontal:<br>700TVL/Video out -<br>Horizontal: 400TVL | SDP-<br>6500P | Samsung | 2 |
 Trang thiết bị phục vụ các Bộ môn nghiên cứu và xemine chuyên đề (Current
 equipments for offices)
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Máy tính để bàn trang bị<br>cho 7 Bộ môn<br>(Computers for 7<br>departments) | Pentium IV 3.0GHz/<br>1M Cache/ Chipset Intel<br>945/ 512MB DDR/<br>80GB HDD/ DVD-<br>Rom/NIC/ 15" LCD | 8215-<br>6AA | IBM M52<br>TQ | 14 |
@@ -1624,10 +1651,12 @@ equipments for offices)
 58
 
 <!-- Page 59 -->
+
 | 3 | Máy ảnh kỹ thuật số dùng<br>cho Văn phòng và làm bài<br>giảng<br>(Digital cameras) | 7.2 Megapixel; Zoom<br>12X; LCD 3.0"; Pin<br>AAA | Sony<br>Camera<br>DSC-<br>H5 | Sony | 2 |
 | --- | --- | --- | --- | --- | --- |
 Trang thiết bị phục vụ Văn phòng, quản lý và phần mềm (Office equipments,
 database and softwares)
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Máy Fax | 600dpi, tốc độ in 18<br>trang/phút, tốc độ<br>modem 33.6 kp/s, gửi<br>fax 40 bản liên tục, khay<br>nạp giấy 250 bản | Panaso<br>nic<br>KX-<br>FLB81<br>2 | Panasonic | 1 |
@@ -1640,6 +1669,7 @@ database and softwares)
 59
 
 <!-- Page 60 -->
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
 |  | viên, lƣu dữ liệu | 1/2CPU 2MB L3 ECC<br>Cache<br>Dual Ultra 160 SCSI<br>1GB RAM<br>PC3200ECC/16GB<br>16MB Video<br>73.4 HS U320<br>DVD-Rom (8X-24X)<br>1,44MB<br>Dual Ethernet Net<br>10/100/1000<br>E54 15" monitor | 346<br>8840-<br>25A |  |  |
@@ -1651,6 +1681,7 @@ database and softwares)
 60
 
 <!-- Page 61 -->
+
 | TT | Tên thiết bị | Tính năng kỹ thuật | Mã<br>hiệu | Tên hãng,<br>Nƣớc SX | Số<br>lƣợng |
 | --- | --- | --- | --- | --- | --- |
 |  | dụng<br>(Maple 11 software) | BlockBuilder for<br>Simulink, Global<br>Optimization Toolbox<br>for Maple, DynaFlexPro |  | etts |  |

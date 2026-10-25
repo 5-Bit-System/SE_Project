@@ -258,6 +258,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 10 -->
 2. Khung chương trình
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -279,6 +280,7 @@ tính vào điểm trung bình chung tích lũy
 8
 
 <!-- Page 11 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -297,6 +299,7 @@ tính vào điểm trung bình chung tích lũy
 9
 
 <!-- Page 12 -->
+
 | STT | Mã<br>học phần | Tên học phần<br>(ghi bằng tiếng Việt và<br>tiếng Anh) | Số<br>tín<br>chỉ | Số giờ tín chỉ |  |  | Mã số<br>các học<br>phần<br>tiên quyết |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Lý<br>thuyết | Thực<br>hành | Tự<br>học |  |
@@ -309,6 +312,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 13 -->
 3. Danh mục tài liệu tham khảo
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 1. | PHI5001 | Triết học<br>Philosophy | 3 | Theo chương trình chung |
@@ -318,6 +322,7 @@ tính vào điểm trung bình chung tích lũy
 11
 
 <!-- Page 14 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 5. | MAT6037 | Phương trình đạo hàm riêng<br>nâng cao<br>Advanced Partial Differential<br>Equations | 3 | 1. Tài liệu bắt buộc<br>- Nguyễn Thừa Hợp (2001), Giáo trình phương trình đạo hàm riêng,<br>Nhà xuất bản Đại học Quốc gia Hà Nội.<br>- Trần Đức Vân (2005), Lý thuyết phương trình đạo hàm riêng, Nhà<br>xuất bản Đại học Quốc gia Hà Nội.<br>2. Tài liệu tham khảo<br>- Nguyễn Minh Chương và các tác giả (1995), Lý thuyết phương<br>trình đạo hàm riêng, Nhà xuất bản Giáo dục, Hà Nội.<br>- Nguyễn Mạnh Hùng (2006), Giáo trình phương trình đạo hàm<br>riêng, Nhà xuất bản Đại học Sư phạm Hà Nội. |
@@ -325,12 +330,14 @@ tính vào điểm trung bình chung tích lũy
 12
 
 <!-- Page 15 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 7. | MAT6052 | Cơ học chất lỏng nâng cao<br>Advanced Fluid Mechanics | 3 | 1. Tài liệu bắt buộc<br>- Trần Văn Cúc (2004), Cơ học chất lỏng, NXB ĐHQGHN.<br>- Cochin N.E., Kibel I.A., Roze N.V. (1975), Cơ học chất lỏng lý<br>thuyết, tập 1, 2 (Sách dịch), NXB khoa học kỹ thuật.<br>2. Tài liệu tham khảo<br>- Batchelor G. K. (2000), An introduction to fluid dynamics,<br>Cambridge University Press.<br>- Chorin A. 1992, A mathematical introduction to fluid mechanics,<br>3rd edition, Springer.<br>- Krause E. (2005), Fluid Mechanics, Springer.<br>- Kundu R. K., Cohen I. M. (2002), Fluid mechanics, 2nd edition,<br>Academic Press.<br>- Gersynhi G. Z., Gikhoviski E. M. (1972), Ổn định nhiệt trong chất<br>lỏng không nén được (tiếng Nga).<br>- Merzkirch W. (2005), Fluid mechanics of flow metering, Springer.<br>- Nihoul J. C. J. (1990), Coupled Ocean – Atmosphere Modelling,<br>Elsevier – Amsterdam – London – New York – Tokyo. |
 13
 
 <!-- Page 16 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 8. | MAT6113 | Lý thuyết truyền tải và khuếch<br>tán hợp chất<br>Theory of mass transfer and<br>diffusion | 3 | 1. Tài liệu bắt buộc<br>- Jaime Benitez (2002), Principles and morden application of<br>Mass Transfer Operations, John Wiley &Sons, Inc, New York.<br>2. Tài liệu tham khảo<br>- Frank P. I. and David P. D. (2006), Fundamentals of Heat and<br>Mass Transfer, Separation Process Principles, 5th Edition, John<br>Wiley & Sons, Inc, New York,.<br>- Treybal F. (1980), ”Mass Transfer Operations”, 3rd, Mc Graw-<br>Hill, New York.<br>- Seader J. D., Henley E. J. (2006), Separation Process Principle,<br>2nd Edition, John Wiley&Sons, Inc., New York. |
@@ -338,6 +345,7 @@ tính vào điểm trung bình chung tích lũy
 14
 
 <!-- Page 17 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 10. | MAT6040 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | 1. Tài liệu bắt buộc<br>- Blaquiere A. (1996), Nonlinear system analysis, Academic<br>Press, New York and London.<br>- Migulin V. V., Medvedev V. I. (1989), Fundamentals of<br>Oacillations, John Wiley and Sons, New York – London,.<br>2. Tài liệu tham khảo<br>- Hayashi T. (1968), Nonlinear oscillations in physical systems,<br>John Wiley and Sons, New York – London – Toronto.<br>- Stoker J. J. (1972), Nonlinear oscillations in mechanical and<br>electrical systems, Mc Graw – Hill, New York. |
@@ -345,6 +353,7 @@ tính vào điểm trung bình chung tích lũy
 15
 
 <!-- Page 18 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 12. | MAT6041 | Phương trình vi phân nâng cao<br>Advanced differential equations | 3 | 1. Tài liệu bắt buộc<br>- Nguyễn Thế Hoàn, Trần Văn Nhung (2005), Bài tập phương trình<br>vi phân, Nhà xuất bản Giáo dục.<br>- Nguyễn Thế Hoàn, Phạm Phu (2000), Cơ sở phương trình vi phân<br>và lý thuyết ổn định, Nhà xuất bản Giáo dục.<br>2. Tài liệu tham khảo<br>- Hoàng Hữu Đường, Võ Đức Tôn, Nguyễn Thế Hoàn (1970),<br>Phương trình vi phân T1,2, Nhà xuất bản Đại học và Trung học<br>chuyên nghiệp.<br>- Awrejcewicz J. (2014), Ordinary Differential Equations and<br>Mechanical Systems, Springer International Publishing.<br>- Tenenbaum M., Pollard H. (1985), Ordinary differential equations<br>an elementary textbook for students of mathematics, engineering,<br>and the sciences, Dover Publications. |
@@ -352,6 +361,7 @@ tính vào điểm trung bình chung tích lũy
 16
 
 <!-- Page 19 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 14. | MAT6109 | Giải tích hàm ứng dụng<br>Applied Functional Analysis | 3 | 1. Tài liệu bắt buộc<br>- Phạm Kỳ Anh, Trần Đức Long (2002), Giáo trình hàm thực và<br>giải tích hàm, NXB ĐHQGHN.<br>- Lebedev L. P., Vorovich I. , Cloud M. J. (2012), Functional<br>Analysis in Mechanics (Springer Monographs in Mathematics),<br>Springer.<br>2. Tài liệu tham khảo<br>- Nguyễn Xuân Liêm (2000), Bài tập Giải tích hàm, NXB GD.<br>- Hoàng Tụy (2003), Giải tích hiện đại, NXB ĐHQG Hà Nội.<br>- Lebedev L. P., Vorovich I. I., Gladwell G. M. (2002), Functional<br>analysis Applications in mechanics and inverse problems,<br>Springer. |
@@ -359,6 +369,7 @@ tính vào điểm trung bình chung tích lũy
 17
 
 <!-- Page 20 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 16. | MAT6111 | Lý thuyết điều khiển chuyển<br>động<br>Theory of Motion Control | 3 | 1. Tài liệu bắt buộc<br>- Jacobs O. L. R. (1996), Introduction to Control Theory, 2nd ed,<br>Oxford University Press, New York.<br>- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems,<br>3rd ed, Prentice Hall, Englewood Cliffs.<br>2. Tài liệu tham khảo<br>- Chen Chi-Tsong (1999), Linear System Theory and Design, 3rd.<br>ed., Oxford University Press.<br>- Nise Norman S. (2004), Control Systems Engineering, 4th ed.,<br>John Wiley & Sons, Inc.<br>- Phillips C. L., Harbor R. D. (1996), Feedback Control Systems,<br>3rd Ed, Prentice Hall, Englewood Cliffs.<br>- Sontag Eduardo D. (1999), Mathematical Control Theory:<br>Deterministic Finite Dimensional Systems, Second Edition,<br>Springer.<br>- Zhou K., Doyle J. C. (1997), Essentials of Robust Control, 1st<br>ed, Prentice-Hall, Inc., New Jersey. |
@@ -366,6 +377,7 @@ tính vào điểm trung bình chung tích lũy
 18
 
 <!-- Page 21 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 18. | MAT6139 | Nhiệt động lực học các quá<br>trình không thuận nghịch<br>Thermodynamics of<br>Irreversible Processes | 3 | 1. Tài liệu tham khảo bắt buộc<br>- Trần Văn Trản (2004), Khí động lực học cơ bản, NXB ĐHQG<br>HN.<br>2. Tài liệu tham khảo thêm<br>- Moran M. J. (1999), Engineering Thermodynamics, in the<br>Mechanical Engineering Handbook, Ed. Frank Kreith, Boca<br>Raton CRC Press LLC.<br>- Dixon S. L. (1998), Fluid Mechanics and Thermodynamics of<br>Turbomachinery, 4th Edition, Butterworth Heinemann.<br>- Lienhard IV J. H., Lienhard V J. H. (2001), A Heat Transfer<br>Textbook, 3rd, Phlogiston Press. |
@@ -373,12 +385,14 @@ tính vào điểm trung bình chung tích lũy
 19
 
 <!-- Page 22 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 20. | MAT6053 | Cơ học chất lỏng tính toán<br>Computational Fluid<br>Mechanics | 3 | 1. Tài liệu bắt buộc<br>- Trần Văn Trản (2007). Phương pháp số thực hành, tập 2. NXB<br>ĐHQG HN.<br>- Chung T. J. (2003), Computational Fluid Dynamics, Cambridge<br>University Press.<br>2. Tài liệu tham khảo<br>- Anderson J. D. (1995), Computational fluid dynamics: the basics<br>with applications, Mc Graw-Hill.<br>- Blazek J. (2001), Computational Fluid Dynamics: Principles and<br>Applications, Elsevier.<br>- Pozrikidis C. (2001), Fluid dynamics: theory, computation, and<br>numerical simulation, Kluwer Academic Press.<br>- Flefcher C. A. (1987). Computational techniques for fluid 1,<br>Springer-Verlag.<br>- Ferziger J. H., Peric M. (2002), Computational methods for fluid<br>dynamics 3rd edition, Springer.<br>- Versteeg H. K., Malalasekera W. (1995), An introduction to<br>computational fluid mechanics, Longman.<br>- Wesseling P. (2001), Principles of computational fluid dynamics,<br>Springer.<br>- Zienkievicz O. C., Taylor R. L., Nithiarasu P. (2005), The Finite<br>Element Method for Fluid Mechanics, 6th Edition, Elsevie. |
 20
 
 <!-- Page 23 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 21. | MAT6115 | Lý thuyết ổn định thuỷ khí<br>Theory of Hydrodynamic<br>Stability | 3 | 1. Tài liệu bắt buộc<br>- Criminale W. O., Jackson T. L., Joslin R. D. (2003) Theory and<br>Computation of Hydrodynamic Stability, Cambridge University<br>Press.<br>- Drazin P. G. (2002), Introduction to Hydrodynamic Stability,<br>Cambridge University Press.<br>- Drazin P. G., Reid W. H. (2004), Hydrodynamic Stability, 2nd<br>Edition, Cambridge University Press.<br>2. Tài liệu tham khảo<br>- Betchov R., Criminale W. O. (1976) Stability of Parallel Flows,<br>Academic Press.<br>- Chandrasekhar S. (1955). Hydrodynamic and Hydromagnetic<br>Stability. Oxford University Press.<br>- Joshep D. D. (1976) Stability of Fluid Motions I & II. Springer-<br>Verlag. |
@@ -386,6 +400,7 @@ tính vào điểm trung bình chung tích lũy
 21
 
 <!-- Page 24 -->
+
 | TT | Mã học<br>phần | Tên học phần | Số tín chỉ | Danh mục tài liệu tham khảo<br>(1. Tài liệu bắt buộc, 2. Tài liệu tham khảo thêm) |
 | --- | --- | --- | --- | --- |
 | 23. | MAT6059 | Lý thuyết thứ nguyên, tương tự<br>và phân tích chiều<br>Dimensional Analysis and<br>Similarities | 3 | 1. Tài liệu bắt buộc<br>- Sedov L. I. (1993), Similarity and Dimensional methods in<br>Mechanics, 10-th edition, CRC press.<br>- Szirtes T. (2007), Applied dimensional analysis and modelling,<br>Elsevier Inc.<br>2. Tài liệu tham khảo<br>- Randall D. (2012), Dimensional Analysis, Scale Analysis, and<br>Similar Theories. Quick Studies in Atmospheric Science. |
@@ -393,6 +408,7 @@ tính vào điểm trung bình chung tích lũy
 
 <!-- Page 25 -->
 4. Đội ngũ cán bộ giảng dạy (ghi theo số thứ tự trong khung chương trình)
+
 | TT | Mã<br>học phần | Tên học phần | Số<br>tín<br>chỉ | Cán bộ giảng dạy |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | Họ và tên | Chức danh<br>khoa học,<br>học vị | Chuyên<br>ngành<br>đào tạo | Đơn vị công<br>tác |
@@ -407,6 +423,7 @@ tính vào điểm trung bình chung tích lũy
 23
 
 <!-- Page 26 -->
+
 | 9. | MAT6107 | Khí động lực học<br>Gas dynamics | 3 | Trần Văn Trản<br>Lê Quang | PGS. TS<br>PGS. TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHBKHN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 10. | MAT6049 | Dao động phi tuyến<br>Nonlinear Oscillations | 3 | Phạm Chí Vĩnh<br>Nguyễn Đông Anh<br>Lã Đức Việt | PGS. TS<br>GS.TSKH<br>TS | Cơ học<br>Cơ học<br>Cơ học | ĐHKHTN<br>Viện Cơ học<br>Viện Cơ học |
@@ -422,6 +439,7 @@ tính vào điểm trung bình chung tích lũy
 24
 
 <!-- Page 27 -->
+
 | 20. | MAT6053 | Cơ học chất lỏng tính toán<br>Computational Fluid Mechanics | 3 | Trần Văn Trản<br>Bùi Thanh Tú | PGS. TS<br>TS | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHKHTN |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 21. | MAT6115 | Lý thuyết ổn định thuỷ khí<br>Theory of Hydrodynamic Stability | 3 | Trần Văn Trản<br>Vũ Duy Quang | PGS. TS<br>GS. TSKH | Cơ học<br>Cơ học | ĐHKHTN<br>ĐHBKHN |
@@ -472,6 +490,7 @@ Engineering, University of Washington.
 Ranking (2013) thì thứ hạng của chương trình đào tạo sau đại học ngành
 Mechanical Engineering của University of Washington là ở vị trí thứ 24.
 b. Bảng so sánh chương trình đào tạo
+
 | STT | Tên học phần trong<br>chương trình đào tạo của<br>đơn vị<br>(Tiếng Anh, tiếng Việt) | Tên học phần trong<br>chương trình đào tạo tiên<br>tiến của nước ngoài<br>(Tiếng Anh, tiếng Việt) | Thuyết minh về<br>những điểm giống và<br>khác nhau giữa các<br>học phần của 2<br>chương trình đào tạo |
 | --- | --- | --- | --- |
 | 1. | Cơ học môi trường liên tục<br>nâng cao<br>Advanced Mechanics of<br>Continuous Media | ME503: Continuum<br>Mechanics,<br>Cơ học môi trường liên tục | Về cơ bản là giống<br>nhau |
@@ -479,6 +498,7 @@ b. Bảng so sánh chương trình đào tạo
 27
 
 <!-- Page 30 -->
+
 | 3. | Các phương pháp số trong<br>cơ học nâng cao<br>Advanced numerical<br>Methods in Mechanics | ME535: Computational<br>Techniques in Mechanical<br>Engineering,<br>Các phương pháp số trong<br>cơ học kỹ thuật | Về cơ bản các phương<br>pháp trình bày trong<br>hai giáo trình khá<br>tương đồng |
 | --- | --- | --- | --- |
 | 4. | Cơ học chất lỏng nâng cao<br>Advanced Fluid<br>Mechanics | ME431: Advanced Fluid<br>Mechanics.<br>Cơ học chất lỏng nâng cao | Kiến thức cơ bản là<br>giống nhau. |
@@ -491,6 +511,7 @@ b. Bảng so sánh chương trình đào tạo
 28
 
 <!-- Page 31 -->
+
 | 11. | Giải tích hàm ứng dụng<br>Applied functional<br>analysis | MATH527: Functional<br>Analysis, University of<br>Washington<br>Giải tích hàm | MATH527 vừa<br>nghiên cứu lý thuyết<br>và ứng dụng. |
 | --- | --- | --- | --- |
 | 12. | Động lực học sông biển<br>River and Sea Dynamics | OCEAN511: Introduction<br>to Fluid Dynamics<br>Đại cương về động lực học<br>chất lỏng | Muôn học OCEAN511<br>giới thiệu tổng quan về<br>dòng chảy, không đi<br>sâu về sông biển |
@@ -504,6 +525,7 @@ b. Bảng so sánh chương trình đào tạo
 29
 
 <!-- Page 32 -->
+
 | 20. | Lý thuyết thứ nguyên,<br>tương tự và phân tích<br>chiều<br>Dimensional<br>Analysis and Similarities | ME 333 Introduction to<br>Fluid Mechanics<br>Cơ học chất lỏng. | Là một phần<br>trong giới thiệu cơ học<br>chất lỏng cửa trường<br>Washington. Nhưng<br>môn ME333 không<br>chuyên sâu. |
 | --- | --- | --- | --- |
 7. Tóm tắt nội dung học phần (Ghi theo số thứ tự trong khung chương trình)

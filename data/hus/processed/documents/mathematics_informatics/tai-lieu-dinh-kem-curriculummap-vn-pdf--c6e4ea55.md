@@ -8,6 +8,7 @@ major: "mathematics_informatics"
 
 <!-- Page 1 -->
 Học kì 1 Họckì 2 Họckì 3 Học kì 4 Học kì 5 Học kì 6 Họckì 6.5 Họckì 7 Học kì 8
+
 |  |  |  |  |  |  |  |  |  | Tốiưuhóa Thựctậpchuyênngành Đạisốmáytính<br>MAT2407 MAT3359 MAT3335 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  | Phươngtrìnhđạohàm<br>riêngMAT3365 |  |  | Thiếtkếvàđánhgiá<br>thuậttoánMAT3504 |  |  |  |  |  |  |  |  |  |  | Thuậttoánngẫunhiên<br>MAT3368 | Líthuyếttínhtoán<br>MAT3545<br>Đạisốứngdụng<br>MAT3367<br>Nhậpmôntrítuệnhân<br>tạoMAT3508 |  |  |  |  |

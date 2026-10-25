@@ -145,6 +145,7 @@ def _lines(node: Tag) -> list[str]:
                 if text := _clean(child.get_text(" ")):
                     lines.append(f"{'#' * int(child.name[1])} {text}")
             elif child.name == "table":
+                lines.append("")
                 lines.extend(_table(child))
             elif child.name in ("ul", "ol"):
                 for li in child.find_all("li", recursive=False):

@@ -7,6 +7,7 @@ major: "general"
 ---
 
 <!-- Page 1 -->
+
 |  | ĐẠI HỌC QUỐC GIA HÀ NỘI |  |  | CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM |  |
 | --- | --- | --- | --- | --- | --- |
 |  | TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN |  |  | Độc lập - Tự do - Hạnh phúc |  |
@@ -64,6 +65,7 @@ tạo (CTĐT). Cụ thể như sau:
 - Phương thức 6. Sử dụng phương thức khác:
 Trường ĐHKHTN xét tuyển các thí sinh diện hiệp định, diện dự bị đại học, xét tuyển
 theo Quy chế tuyển sinh, Hướng dẫn tuyển sinh của ĐHQGHN.
+
 | TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 1 | QHT01 | Toán học | A00; A01; C01; D07; D08; X26 |
@@ -77,6 +79,7 @@ theo Quy chế tuyển sinh, Hướng dẫn tuyển sinh của ĐHQGHN.
 2
 
 <!-- Page 3 -->
+
 | TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 9 | QHT94 | Kỹ thuật điện tử và tin học | A00; A01; A02; B00; C01; C02; D07; X06 |
@@ -98,6 +101,7 @@ theo Quy chế tuyển sinh, Hướng dẫn tuyển sinh của ĐHQGHN.
 3
 
 <!-- Page 4 -->
+
 | TT | Mã<br>ngành xét<br>tuyển | Tên ngành xét tuyển | Mã tổ hợp theo phương thức<br>Xét kết quả thi tốt nghiệp THPT năm 2026 |
 | --- | --- | --- | --- |
 | 25 | QHT17 | Hải dương học | B03; C01; C02; C04; D01; X02 |
@@ -151,6 +155,7 @@ tướng Chính phủ quy định về cơ chế thu, quản lý học phí đ�
 giáo dục quốc dân và chính sách miễn, giảm học phí, hỗ trợ chi phí học tập; giá dịch vụ trong
 nhóm ngành giáo dục, đào tạo. Dự kiến mức học phí năm học 2026-2027 và lộ trình tăng học
 phí các năm học tiếp theo như sau:
+
 | TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
 | 1 | QHT01 | Toán học | 2.090 | Theo Nghị định 238/2025/NĐ-CP<br>của Thủ tướng Chính phủ |
@@ -158,6 +163,7 @@ phí các năm học tiếp theo như sau:
 5
 
 <!-- Page 6 -->
+
 | TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
 | 3 | QHT98 | Khoa học máy tính và<br>thông tin | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
@@ -170,6 +176,7 @@ phí các năm học tiếp theo như sau:
 6
 
 <!-- Page 7 -->
+
 | TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
 | 10 | QHT06 | Hóa học | 4.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
@@ -184,6 +191,7 @@ phí các năm học tiếp theo như sau:
 7
 
 <!-- Page 8 -->
+
 | TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển |  |  | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  | Lộ trình tăng không quá 10% so<br>với năm học trước. |
@@ -200,6 +208,7 @@ phí các năm học tiếp theo như sau:
 8
 
 <!-- Page 9 -->
+
 | TT | Mã<br>ngành<br>xét tuyển | Tên ngành xét tuyển | Mức học phí<br>dự kiến<br>năm học<br>2026 - 2027<br>(nghìn đồng/<br>tháng) | Lộ trình tăng học phí<br>các năm học tiếp theo |
 | --- | --- | --- | --- | --- |
 | 28 | QHT20 | Quản lý tài nguyên và<br>môi trường | 3.000 | Chương trình đào tạo đã kiểm định<br>chất lượng. Thu học phí theo đề án<br>định mức kinh tế kỹ thuật.<br>Lộ trình tăng không quá 10% so<br>với năm học trước. |
