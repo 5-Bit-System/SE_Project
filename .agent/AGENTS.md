@@ -1,5 +1,454 @@
 # Project Memory and Contributor Guidelines
 
+## Session close/publication authorized — 2026-10-25
+
+User explicitly requests closing memory update, commits for the accumulated work
+and push to GitHub. This supersedes preceding no-commit/push notes for the VNU
+session/reminder/auth/UI/docs and cleanup change set. Publish on the existing
+feature branch feat/system-auth-email-20261025, based on fetched main 586d659;
+HEAD/main/origin/main were equal before publication. Plan two genuine commits:
+integrated VNU/student/admin feature with tests, then docs/workflow/cleanup/memory.
+Feature commit created as 211cd0d (73 files); docs close-out follows separately.
+Preserve the existing configured author identity; no history rewriting or main
+push. Open a draft PR for review; merge remains a separate action using a merge
+commit after CI and authorization. Do not start new implementation at close-out.
+
+One preexisting whitespace-only edit to the immutable candidate corpus document
+ending exh01-02-06...0a180289.md is outside this feature publication. Keep it local
+unchanged; do not normalize/publish source bytes as part of auth or cleanup.
+Ignored .env/.env.auth/backups/private handoffs/toolkit/.venv stay outside commits.
+Local admin username is admin; chosen password remains only a local DB credential,
+never in tracked memory/source. Gmail SMTP and local account data remain untouched.
+
+Latest verification remains 440 offline passed / 71 deselected (HUS PDF acceptance),
+Ruff/diff checks, Chrome VNU/admin and UI/session regressions, HUS PostgreSQL 54
+full-group passes followed by 31 auth/VNU passes after final ownership guard.
+Cleanup changes only ignored artifacts plus documentation; no extra test rerun
+or backend change is implied by committing. Live health/ready and 13 local assets
+were OK. Source completeness/policy binding, real new-login acceptance, official
+SSO, RAG and production rollout remain unverified/deferred as described below.
+
+Use Git/PR records for resulting commit hashes, remote delivery and CI state;
+this entry records authorization and pre-publication evidence, not a claim that
+an unverified push/PR or CI already succeeded. Finish with publication handoff.
+
+## Workspace/backups cleanup completed — 2026-10-25
+
+User requests review of unnecessary files throughout the project, particularly
+backups. Audited sizes, Git status and code/test/doc references; cleanup removes
+generated/redundant local files, not academic sources or uncommitted application
+work. Deleted 5,869 files / 1,049,153,955 bytes (~1001 MiB); backups reduced from
+~1008 MiB to ~10 MiB (about 99%). Historical artifact paths below may now be gone.
+
+Removed inactive semester Chrome profiles/cache, obsolete separate trial browser
+dependencies, old Git-reproducible auth-review checkout/archive (495 files matched
+586d659 with CRLF normalization), superseded screenshots/logs/synthetic fixtures,
+exact duplicate crawl files/archive and Python/pytest/Ruff caches. Preserved all
+9 database dumps, legacy rollback environment, original 5 PDFs, audit/OCR/CSV/JUnit
+evidence, distinct crawl/config variants, .env/.env.auth, .venv, toolkit, Git and
+all preceding dirty code/source changes. Original handoff accounts.private.txt
+remains historical and is not current admin credentials; never reset seed.
+
+Kept latest VNU/admin screenshots under system_auth_20261025/browser_4e62b1e236/
+and active vnu_signin_20261025/runtime.* logs. One old synthetic credential (248
+bytes) in browser_f8654fdd83 and other tiny ACL-protected test credentials retained
+without altering ACL. Removal of that folder partially failed due to its ACL;
+remaining old screenshots were separately removed. No auto-review rejection.
+Precise ignored inventory/results: backups/cleanup_20261025/. Backup index:
+backups/README.md. Git-visible report: docs/BAO_CAO_DON_DEP_2026_10_25.md.
+
+Validation: hash comparison confirmed 530 protected project/config files unchanged
+before this report/memory update. 440 offline passed / 71 deselected with HUS PDF
+acceptance, bytecode/pytest caching disabled; Ruff --no-cache and diff check passed.
+Live health/ready/anonymous session and all 13 HTML-linked local assets returned
+200. Existing Starlette/httpx warning remains. No new PG tests needed: no runtime
+code/schema/DB changes. No server restart, source publication, real VNU request,
+grade inspection, password/SMTP changes, commit or push. Disk savings are local
+workspace hygiene, not an API performance or full code-audit claim.
+
+## Admin credentials changed by explicit user request — 2026-10-25
+
+User explicitly requested local administrator username `admin` and a chosen
+replacement password. Applied only to the existing verified active admin account
+previously identified by admin@sohoctap.test: username/hash changed, initial-change
+flag cleared for the user-chosen password, auth_version incremented and old admin
+sessions revoked, maintenance audit recorded. Account UUID, email, role, seed flag,
+other users and source data retained. No students FK referenced the old username.
+Do not record the password in memory, tracked files or logs, and do not rerun seed.
+
+Checked fresh ignored backup under backups/vnu_signin_20261025/admin_change_*/.
+Live /auth/login using username admin and /admin/users permission check succeeded;
+verification session logged out. Original accounts.private.txt remains a historical
+temporary-password handoff and does not contain the current credentials. User can
+now choose Quản trị viên and sign in as admin. No runtime restart, code change,
+SMTP change, commit or push was needed.
+
+## VNU student sign-in replaces personal email login — 2026-10-25
+
+User explicitly authorizes the proposed implementation and frequent progress:
+students sign in directly with VNU; administrators retain local account/password.
+This supersedes the earlier separate-email student flow below. Work stays on
+feat/system-auth-email-20261025 with all preceding unpublished changes retained;
+no commit/push/PR requested or performed. This is the existing student-portal
+connector, NOT official OAuth/SSO. Official integration/access to grades is unproven.
+
+New POST /auth/vnu uses fresh accepted VNU login evidence, creates/reuses one
+student account and a DB app session, saves source when accepted and installs
+per-session RAM cookies. No personal-email registration or separate app password.
+POST /auth/login accepts admin username/email only; public register/resend/verify
+return 410 use_vnu_login. Admin password rotation and role/status guards remain.
+VNU-only students cannot change local passwords or become admins without separate
+eligible admin credentials. Admin list/search includes VNU-only student accounts.
+
+Additive hus_20261025_06 adds accounts.vnu_subject and sessions.auth_method.
+Backfills only existing student-owned VNU links, preserving account IDs and all
+original account fields; old student sessions revoked. Unlinked email accounts
+remain stored, never auto-associated by email/name. Stable VNU identity survives
+source deletion and prevents another account from claiming the deleted source.
+Concurrent first logins serialize; admin-owned links cannot become student logins.
+Fresh student-portal auth/menu is the current admission boundary, not a new
+university affiliation API or proof of every VNU account type.
+
+After proven fresh authentication, source fetch/layout errors may return a
+source_unavailable warning and still enter app with old/empty source; never
+create fake snapshots or advance successful-sync time. Identity conflicts and
+CAPTCHA/OTP fail closed. Unknown changed snapshots retain existing rollback guard.
+Session/ownership/rate-limit/origin/CSRF/no-store, reminder and academic gates stay.
+UI defaults to Sinh viên VNU with a separate Quản trị viên tab; student gets no
+email/signup/local-password flow and no second connection form after successful
+sign-in. This change does not unblock academic recommendations or activate RAG.
+
+Validation: 440 offline passed / 71 deselected including HUS PDF acceptance;
+whole-repo Ruff, JS syntax and diff checks passed. HUS PG full group 54 passed,
+then 31 auth/VNU checks passed after final ownership guard. Chrome app+disposable
+DB proof passed single sign-in/no second connection, session reload, admin login/
+password/disable, sync/logout, VI/EN/mobile. Source/profile/workspace/charts/loading/
+reminder/reauth/resume and session expiry/late logout response regressions passed.
+Two old expiry assertions expected the admin form; updated to student form and
+reran successfully. Existing Starlette/httpx deprecation warning remains.
+No real VNU login, personal grades inspection or external email by agent.
+
+Docker/PostgreSQL were stopped at task start; started Docker Desktop and existing
+se_hus_db volume without reset. Backup/check archive and transaction preservation
+proof at backups/vnu_signin_20261025/run_20261025T050450Z/. Applied 06 to local ai07;
+aggregate checksums preserve all old account fields, links, source and catalogs;
+only new auth fields and permitted student session revocation differ. No publish.
+Gmail SMTP/.env.auth/passwords/seed handoff unchanged. Never rerun seed to reset.
+
+App started on 127.0.0.1:8000: launcher PID 22352, child 21140 (verify command lines
+before future stops); health/ready OK, anonymous /auth/session false. Runtime logs
+ignored under backups/vnu_signin_20261025/. User should Ctrl+F5 and test VNU through
+the UI; old student sessions intentionally require login. Real-account acceptance
+is pending, not implied by synthetic checks. Read docs/VNU_SIGNIN_2026_10_25.md.
+
+## Normal VNU reauth no longer returns HTTP 409 — 2026-10-25
+
+User reports red console /me/portal-sync 409 after a successful VNU update.
+Screenshot shows reauth 202, completed polling/profile 200 and a new successful
+sync timestamp: the red request was the earlier expected missing/expired VNU
+RAM state, not a failed update. API now returns HTTP 200
+{"state":"reauth_required"} for that specific pre-job condition, while accepted
+jobs remain 202. UI opens the existing explicit password-only reauth form as a
+normal step, starts no job/poll and does not advance last_synced_at before an
+actual successful job. Worker-detected expiry still arrives via job status and
+uses the same form. Genuine session/auth/ownership/technical errors retain their
+error responses; do not blanket-convert failures to 200 or suppress the console.
+
+Validation: 435 offline passed / 61 deselected; two targeted disposable-PG
+checks passed (RAM loss/reauth and unique ownership/delete); Chrome reauth test
+asserts no new console error or failed sync HTTP response on expected expiry,
+no spurious polling/profile read, successful reauth and logout race protection.
+Reminder/VI/EN/themes/mobile, Ruff, JS syntax and diff checks passed. Gmail SMTP,
+approved ownership repair, passwords and stored source data were not changed.
+
+Restarted app to load API changes, /ready OK and live JS verified. Current
+launcher PID 14056, child 23668; verify before stopping. Logs ignored under
+backups/system_auth_20261025/runtime_reauth_state.*. User should Ctrl+F5 to load
+new UI/clear prior console history; restarting discards provider RAM, so the
+next update may need one explicit VNU verification. No real portal login by agent.
+
+## Approved VNU seed-link repair completed — 2026-10-25
+
+User reports /me/portal-connection 409 after signing in as the now email-verified
+real Gmail account. Read-only metadata confirms VNU 23001953 is already linked
+to the development seed student@sohoctap.test; real account has no link. This
+is the intended one-to-one ownership guard, not a bad-password/worker failure.
+Do not relax that guard or expose another real user's account in public errors.
+
+Prepared ignored repair: backups/system_auth_20261025/
+relink_vnu_seed_to_verified_account.py. Exact old/target UUIDs are pinned in the
+script; local ai07 only, eligibility checks, account/owner locks, transfer one
+link, increment generation, revoke old seed sessions and audit; source/profile
+checksum must remain unchanged. Dry-run passed, preserves one snapshot, no DB
+changes made. Fresh ignored backup before_vnu_relink.dump (214546 bytes) created.
+User explicitly replied "đồng ý" to the concrete ownership transfer. Applied
+the prepared script with --apply. Link now belongs to the requested verified
+Gmail account; old student seed has no VNU link or unrevoked app sessions.
+Transactional checksum verified the one existing source snapshot and profile
+were preserved. Owner generation incremented and two maintenance audit events
+recorded. This is a specifically approved local repair, not a general automatic
+transfer policy or an authorization to weaken ownership checks.
+
+Restarted the identified app to discard old VNU RAM/jobs; /ready OK. Current
+launcher PID 26764, child 26696; verify command lines before future stops.
+Gmail SMTP/secret/passwords unchanged. User should refresh the profile page;
+the next sync may need explicit VNU reauth because restart cleared provider RAM.
+No real VNU login or reading personal grade values was performed by the agent.
+
+## Gmail SMTP configured by user — 2026-10-25
+
+User requests actual inbox delivery, creates a Google app password privately in
+ignored .env.auth and explicitly asks the agent to complete that configuration.
+Updated only SMTP fields to smtp.gmail.com:587/starttls, matching username/from;
+normalized the user's existing app password by removing grouping whitespace.
+Never print or copy its value into Git/logs/chat. AUTH_TOKEN_PEPPER and other
+settings preserved. TLS SMTP authentication succeeded; no email was sent by
+that credential check. User should use the app resend button to verify delivery.
+Runtime now uses Gmail SMTP, superseding Mailpit as the live local mail target.
+Do not switch it back to Mailpit during later tests; use isolated test overrides.
+
+Cleared only resend:account rate bucket for the active pending sender/email
+used in the user's earlier Mailpit test; all other rate limits retained. No
+verification flags, passwords, tokens or source records changed. Restarted app,
+/ready OK: launcher PID 26912, child 26844; verify command lines before stopping.
+Gmail sending/inbox acceptance still awaits user's resend; SMTP login alone is
+not end-to-end delivery proof. Mailpit remains available for isolated tests.
+
+## Password minimum changed by user — 2026-10-25
+
+User explicitly requests minimum password length 6 instead of 15. System
+password validator, register/change/cross-device verification HTML constraints,
+VI/EN hints/errors and current docs now use 6–128 characters. Existing password
+hashes/seed credentials remain intact; no password reset or migration involved.
+Boundary API test passed: 5 rejected / 6 accepted for registration, cross-device
+verification and password change. Chrome/SMTP proof passed using a six-character
+synthetic password; Ruff, JS syntax and diff checks passed. Restarted local app:
+launcher PID 28492, child 27300; /ready 200 and live form minlength=6 confirmed.
+These PIDs supersede the older runtime checkpoint below; verify before stopping.
+
+## Separate system accounts implemented locally — 2026-10-25
+
+User authorized implementation of the detailed system-auth plan, superseding
+the planning-only checkpoint below. Work is on
+`feat/system-auth-email-20261025`, retaining the preceding unpublished VNU
+session/reminder work. No commit, push or PR authorized; future main changes
+still require a feature branch, PR and merge commit preserving real authors.
+
+Implemented email/password register, pending verification, one-use 30-minute
+email tokens with same-browser registration proof / cross-device password
+replacement, resend/rate limits in DB, Argon2id, persistent opaque app sessions,
+2-hour idle / 12-hour absolute expiry, CSRF/origin/no-store, forced initial
+password change, account/role/status guards and safe audit metadata. Session
+family survives password rotation so simultaneous logout invalidates replacement.
+Account-before-session locking and serialized admin updates are concurrency-tested.
+
+System login is separate from VNU: retired POST /auth/portal returns 410;
+/me/portal-connection requires verified local account. Unique account/VNU owner
+claim needs fresh successful VNU evidence, including old unclaimed owners; never
+assign legacy grades to seed users or by email/name. Provider cookies remain
+per-app-session RAM only. DB session/account/link/generation rechecked before
+source reads/writes and after workers. Disconnect/delete VNU preserves app account;
+logout/password/role/disable revokes relevant VNU RAM and late work. Admin manages
+accounts without default access to another user's grades. Legacy /profiles routes
+are closed with 410; retained academic POST calculators require verified account
+and CSRF. Domain tests remain; active UI still VNU-only, seven-day reminders kept.
+
+Actual ai07 backup: ignored backups/system_auth_20261025/before_auth.dump.
+Applied additive hus_20261025_04 and hus_20261025_05, runtime HEAD now 05.
+Restored the pre-auth backup to a disposable DB and compared count/checksum of
+all 17 original non-version tables (old accounts projected to original columns,
+excluding new seeds): unchanged, including catalogs and source snapshots.
+No catalog publication, invented student rows or source-owner reassignment.
+
+Exactly two local bootstrap-verified DB accounts created with random temporary
+passwords: admin@sohoctap.test/admin and student@sohoctap.test/student. Both start
+must_change_password=true and seeded_for_dev=true, no VNU link. Private handoff:
+backups/system_auth_20261025/accounts.private.txt, ignored, user-only file ACL;
+never print its contents. Seed idempotent/no reset, rejects collisions and production.
+Later user testing may change password/flags; do not reset them or regenerate handoff.
+
+Ignored .env.auth configured for local SMTP and generated server secret; keep it.
+Versioned .env.auth.example has placeholders only. Mailpit se_auth_mail is bound
+to loopback 1025/8025; inbox http://127.0.0.1:8025/. Actual browser+SMTP proof used
+disposable DB and synthetic .test accounts, not outside inboxes. Real SMTP/domain/
+HTTPS/proxy and production deployment remain gates; production rejects active dev
+seeds, fake/insecure SMTP and HTTP at startup/readiness. No password recovery or
+weekly automatic crawl added. Multiple processes still need a VNU-state design.
+
+Validation: 434 offline passed / 57 deselected before three additional PG-only
+checks; 41 HUS PostgreSQL passed plus 3 additional concurrent/production checks
+passed (44 total exercised). Chrome/SMTP, source UI, workspace/charts, loading,
+session expiry/logout races, reminders, reauth/resume, identity/profile source,
+VI/EN/themes/mobile passed. Existing Starlette/httpx deprecation warning remains.
+Profile-source browser test exposed Playwright HTTP-redirect mock escape: an
+anonymous source-page GET could leave the fixture; no real credentials were
+submitted and no personal grades were read. It now uses networking-off contexts
+and explicit fixture navigation, and passes. Do not claim an intercepted 302 proof.
+No real VNU login for the new local-account link was performed by the agent;
+previous user-reported VNU update acceptance applies to the earlier session flow.
+
+Runtime restarted on 127.0.0.1:8000, /ready 200 with postgres and public
+/auth/session returns authenticated:false without a cookie. Launcher PID 26284,
+child 17420; verify command line before future stops. Ignored runtime logs and
+synthetic screenshots under backups/system_auth_20261025/. User may now test;
+do not silently change seeded roles/passwords during follow-up validation.
+
+Implementation/runbook: docs/HUONG_DAN_TAI_KHOAN_HE_THONG.md and module 12.
+
+## Separate system accounts architecture plan — 2026-10-25
+
+User requests a detailed PLAN for Sổ học tập accounts: register, verify email,
+login/logout, admin/ordinary user roles, and two seeded local DB accounts when
+implemented. VNU becomes a data connection after system authentication. This
+supersedes historical no-separate-local-password scope for the planned module;
+VNU passwords/cookies still must not be persisted. Current turn is planning-only.
+
+Plan: docs/KE_HOACH_TAI_KHOAN_HE_THONG_2026_10_25.md, new module 12. Proposes
+extending existing accounts with UUID/email/verification and reusing student/admin
+roles, DB-backed app sessions, explicit unique account-to-portal links and verified
+claim of old VNU owners. No automatic assignment to seed users or based on email.
+Mailpit local / configurable real SMTP, bounded single-use verification, explicit
+bootstrap exceptions only for two local test users. No actual accounts, email,
+DB migration, runtime/auth cutover, restart, commit or push in this planning turn.
+Mail delivery/provider and production domain are future configuration gates, not
+an excuse to skip verification. Preserve all existing unpublished session/reminder
+work. Weekly automatic VNU sync remains deferred.
+
+## VNU session reuse implemented locally — 2026-10-25
+
+User explicitly requests implementation of the session-reuse plan and frequent
+updates, superseding the planning-only checkpoint below for this task. No commit,
+push or PR authorized. Work remains on fix/portal-session-diagnostics-20261025.
+
+Implemented bounded, host-scoped cookie contract (64 cookies/64 KiB, stdin 72 KiB),
+worker login/resume with fresh Chrome/context per job, private per-web-session
+RAM state, versioned rotation and TTL, 30-second cleanup, logout/current-session
+and delete/all-owner revocation, no password/cookie persistence. Existing fresh
+login evidence remains required; resume state originates only from the server
+session and conflicting source identity fails closed. API sync accepts no
+credentials; explicit /me/portal-reauth accepts password only, subject from session.
+UI sync runs immediately; only vnu_reauth_required opens a separate reauth form.
+Technical failure does not force reauth. Seven-day reminder/source gates remain.
+
+Automated Chrome proof: one synthetic password POST, two new-browser resumes,
+cookie rotation, identity conflict, expired source and CAPTCHA. UI regressions
+pass profile/VNU-only/workspace/charts/session/reminder/reauth, VI/EN/themes/mobile
+and stale responses. Synthetic mobile screenshot inspected. No real portal
+request or personal-record inspection by the agent. User subsequently confirms
+"Cập nhật được, không hỏi lại mật khẩu" after the requested UI test. This is
+user-reported real happy-path acceptance, not independent completeness or all-account
+verification. Single-process RAM sessions only; restart
+loses them. No new migration, catalog publication, .env edit or scheduled crawl.
+
+Final offline verification: 434 passed / 40 deselected with explicit HUS PDF
+acceptance root, whole-repo Ruff, JS syntax and diff checks passed; existing
+Starlette/httpx warning. No new PostgreSQL run was needed for session-only changes.
+
+Restarted the identified local Uvicorn; launcher PID 21908, health/ready 200 on
+127.0.0.1:8000 with PostgreSQL. Logs/screenshots ignored in
+backups/portal_reuse_20261025/. User confirmed the requested login/update flow.
+The scoped local implementation and happy-path acceptance are complete; do not
+claim full portal delivery, completeness acceptance or production readiness.
+This acceptance update changes documentation only, with no new tests/restart.
+
+## VNU session reuse plan — 2026-10-25
+
+User requests a PLAN for updating grades within the app session without entering
+the VNU password again. See docs/KE_HOACH_GIU_PHIEN_VNU_2026_10_25.md and module 09.
+This request is planning-only: no runtime implementation, restart, credential
+collection, live portal request, commit or push in this turn.
+
+Design: VNU cookies in RAM scoped to each authenticated web session, short-lived
+workers restoring an isolated context, explicit reauthentication only when VNU
+requires it, TTL/rotation/logout/delete/expiry cleanup. Cookie-only restoration
+on real VNU is NOT proven; retain a validation gate and never weaken identity.
+The planned lifetime supersedes job-only cookie disposal only upon implementation;
+it does not authorize password persistence or durable cookie storage. Weekly
+automatic sync remains deferred; current button/seven-day reminder stay in scope.
+
+## Portal update reminders — 2026-10-25
+
+User targets a real multi-student server app, but explicitly defers automatic
+weekly VNU sync until the system is nearly complete. Current scope is an explicit
+“Cập nhật bảng điểm” button and an in-app reminder after seven days. No scheduled
+crawl, email/push, password persistence or background reauthentication is added.
+The global workspace bar replaces the curriculum warning on Dashboard/profile;
+the draft-catalog warning remains on eligibility/recommendation pages.
+
+Successful accepted sync stores server-owned `_last_synced_at` in existing
+portal_users.profile JSONB, exposed separately as last_synced_at. Identical
+current-snapshot reads refresh it; failed/rejected sync does not. Snapshot
+payload/digest/fetched_at remain unchanged. Legacy profiles fall back to fetched_at.
+Changes remain local on fix/portal-session-diagnostics-20261025, together with
+the preceding session-status/502-diagnostics work; no commit/push authorized.
+
+## Session close — 2026-10-23: team history preserved, temporary branches removed
+
+User requests memory update and a permanent PR rule to keep each member's
+original commits visible on main. This close-out changes documentation only;
+do not start new implementation or publish these edits without a new request.
+
+Latest verified main/origin/main is 8f77ce3, with no ahead/behind difference and
+a clean working tree before this memory update. Login PR #2 merged as c73d08f;
+crawler PR #3 merged as 8f77ce3, both using GitHub merge commits after all six
+PR CI checks passed. Original added history: 33 commits under 23172c43 (login),
+43 under Thang and 10 under Duong Van Tai (crawler), including merge commits.
+Database setup/tests and Vinh branch tips were already ancestors of main.
+All four fetched source tips were verified ancestors of final main, with zero
+remaining commits in main..source. Original author/hash metadata is retained.
+
+These were explicitly history-only ours merges; only contribution docs and
+memory changed from 0b4b2fc. They did not adopt every source-branch feature.
+Later login timestamp/schema changes, crawler activation and RAG/corpus serving
+remain deferred. Future functional adoption needs explicit reapplication/review
+because Git now regards these historical source tips as merged. Do not treat
+this special reconciliation as the normal feature integration workflow.
+
+User authorized deletion of ONLY integration/login-history-20261023 and
+integration/crawler-history-20261023. First attempt did not execute because
+automatic approval review hit a usage limit. On retry, both remote branches
+were already absent; after ancestry verification, removed the two local branches
+and pruned stale remote-tracking refs. Fetch also reported codebase,
+feat/catalog-validation and fix/hus-metadata-vi-en-20261021 already deleted
+remotely; this agent did not delete those remote branches. Keep teammates'
+remaining branches. Deleting merged branch names does not remove main's commits
+or the merged PR records.
+
+Validation from the history work: 398 offline passed / 39 deselected, whole-repo
+Ruff and diff checks passed; existing Starlette/httpx warning. No tests rerun
+for branch cleanup or this documentation-only close-out. No portal access,
+real-data inspection, DB migration, restart or crawler run. Main-branch CI
+after final merge was not separately rechecked; six-check evidence is per PR.
+
+## Permanent workflow — PRs and original team commits on main
+
+- All future updates to main, including docs/memory, go through a feature branch
+  and GitHub PR. Never push changes directly to main. Prior one-off direct-push
+  authorizations are historical, not a standing exception to this rule.
+- For new work, branch from current main. To integrate an existing teammate
+  branch, preserve its genuine commit ancestry in the PR branch and resolve
+  conflicts there. Do not silently replace original commits with an integrator's
+  copy/import commit. Check which original commits are already in main first.
+- Merge PRs using Create a merge commit (API merge_method=merge). Do not use
+  Squash and merge or Rebase and merge, and do not rewrite/force-push main.
+  Preserve original author identities and hashes; never manufacture commits,
+  change authors to boost counts, or add fictitious co-author credit.
+- Describe actual functionality, conflicts, deferred changes and verification
+  in the PR. Run relevant checks and wait for required CI before merging. A
+  history-only reconciliation requires explicit authorization and disclosure;
+  never substitute it for requested functional integration.
+- Verify source-tip ancestry and original commits in the resulting main after
+  merge. GitHub attribution also depends on each original author email being
+  linked to that member's GitHub account; commit history is not a grading promise.
+- Existing publication rules still apply: do not commit/push/create or merge PRs
+  without user authorization for that task. If only local edits are requested,
+  leave them local and report their unpublished state. If publication is
+  authorized, carry it out through this PR workflow.
+- Delete temporary merged branches only when authorized; preserve branches
+  teammates still use. This is a contributor rule, not a claim that GitHub branch
+  protection/settings have been configured. Change hosting settings only when
+  separately requested. Exceptions require an explicit new user instruction.
+
 ## Team history reconciliation — 2026-10-23
 
 User explicitly authorizes PRs, merges and publication to main to preserve
