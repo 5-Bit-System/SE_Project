@@ -186,3 +186,123 @@ def test_expired_session_does_not_read_stored_source(client, path):
         value.expiry = time.monotonic() - 1
     assert client.get(path + '?program_id=khdl').status_code == 401
     assert client.seen_owners == []
+
+
+def test_course_board_requires_session_and_never_guesses_program_from_display(client):
+    assert client.get('/me/course-status').status_code == 401
+    assert client.seen_owners == []
+    authenticated(client)
+    client.profile_data['profile'].update(program='Khoa học dữ liệu', cohort='2022')
+    response = client.get('/me/course-status')
+    assert response.status_code == 200
+    assert response.json()['courses'] is None
+    assert response.json()['blocking_reasons'] == [
+        'source_incomplete', 'program_binding_unverified']
+    assert response.headers['cache-control'] == 'no-store'
+
+
+@pytest.mark.parametrize('query', [
+    'program_id=khdl', 'passed_course_codes=PHI1006', 'owner=someone-else',
+    'max_credits=0', 'max_credits=31', 'max_credits=2.5',
+])
+def test_course_board_rejects_foreign_facts_and_invalid_budget(client, query):
+    authenticated(client)
+    assert client.get('/me/course-status?' + query).status_code == 422
+    assert client.seen_owners == []
+
+
+def test_course_board_returns_disjoint_states_from_verified_server_context(client, ready_context):
+    selections = 'selected_track_id=synthetic_track&selected_graduation_path_id=thesis'
+    response = client.get('/me/course-status?max_credits=20&' + selections)
+    assert response.status_code == 200
+    data = response.json()
+    assert data['status'] == 'ready'
+    selected_context = client.get('/me/academic-context?program_id=khdl&' + selections).json()
+    assert data['context_revision'] == selected_context['revision']
+    sets = [{course['code'] for course in data['courses'][key]}
+            for key in ('completed', 'eligible', 'blocked')]
+    assert sets[0] == {'PHI1006'}
+    assert not sets[0] & sets[1] and not sets[0] & sets[2] and not sets[1] & sets[2]
+    assert len(set.union(*sets)) == 14
+    assert data['plan']['max_credits'] == 20
+    assert data['plan']['suggested_credits'] <= 20
+    assert set(data['plan']['course_codes']) <= sets[1]
+    assert data['plan']['offering_status'] == 'unknown'
+
+
+def test_course_board_does_not_expose_colors_when_source_becomes_unready(client, ready_context):
+    client.profile_data['snapshot']['completeness'] = 'unknown'
+    data = client.get('/me/course-status').json()
+    assert data['courses'] is None
+    assert data['progress'] is None
+    assert data['plan'] is None
+    assert 'source_incomplete' in data['blocking_reasons']
+
+
+@pytest.mark.parametrize('change, expected', [('source', 409), ('logout', 401)])
+def test_course_board_discards_result_if_source_or_session_changes_during_calculation(
+        client, ready_context, monkeypatch, change, expected):
+    from app.api import academic
+    calculate = academic.course_board
+
+    def changed(*args, **kwargs):
+        result = calculate(*args, **kwargs)
+        if change == 'source':
+            client.profile_data['snapshot']['digest'] = 'changed-during-course-board'
+        else:
+            runtime.sessions.clear()
+        return result
+
+    monkeypatch.setattr(academic, 'course_board', changed)
+    response = client.get('/me/course-status?selected_track_id=synthetic_track'
+                          '&selected_graduation_path_id=thesis')
+    assert response.status_code == expected
+    assert 'courses' not in response.json()
+
+
+def test_course_board_requires_track_and_path_before_suggesting_a_bundle(client, ready_context):
+    data = client.get('/me/course-status').json()
+    assert data['status'] == 'partial'
+    assert data['can_plan'] is False
+    assert data['courses']['eligible'] == []
+    assert data['plan']['course_codes'] == []
+    assert [course['code'] for course in data['courses']['completed']] == ['PHI1006']
+    assert set(data['blocking_reasons']) == {
+        'track_selection_required', 'graduation_selection_required'}
+    assert data['selections']['tracks'][0]['id'] == 'synthetic_track'
+
+
+def test_known_pending_result_is_excluded_without_hiding_resolved_courses(client, ready_context):
+    from app.catalog import load_catalog
+
+    course = next(course for course in load_catalog('khdl').courses if course.code != 'PHI1006')
+    client.profile_data['snapshot']['attempts'].append({
+        'row_key': 'pending', 'code': course.code, 'credits': str(course.credits),
+        'grade10': '', 'letter': 'I', 'grade4': ''})
+    result = client.get('/me/course-status?selected_track_id=synthetic_track'
+                        '&selected_graduation_path_id=thesis').json()
+    assert result['status'] == 'partial'
+    assert result['can_plan'] is True
+    assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
+    assert course.code not in {row['code'] for row in result['courses']['eligible']}
+    assert course.code not in result['plan']['course_codes']
+    strict = client.get('/me/academic-context?program_id=khdl').json()
+    assert strict['status'] == 'needs_policy_review'
+    assert strict['completed_course_codes'] == []
+    assert client.get('/me/eligibility?program_id=khdl').status_code == 409
+    assert client.post('/me/recommendations', json={
+        'program_id': 'khdl', 'expected_revision': strict['revision']}).status_code == 409
+
+
+def test_unmapped_result_pauses_bundle_but_preserves_independently_resolved_courses(client, ready_context):
+    client.profile_data['snapshot']['attempts'].append({
+        'row_key': 'foreign', 'code': 'UNMAPPED001', 'credits': '3',
+        'grade10': '7', 'letter': 'B', 'grade4': '3'})
+    result = client.get('/me/course-status?selected_track_id=synthetic_track'
+                        '&selected_graduation_path_id=thesis').json()
+    assert result['status'] == 'partial'
+    assert result['can_plan'] is False
+    assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
+    assert result['courses']['eligible'] == []
+    assert result['plan']['course_codes'] == []
+    assert result['review_items'][0]['code'] == 'UNMAPPED001'

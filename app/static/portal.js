@@ -8,9 +8,10 @@
       sync: 'Cập nhật hồ sơ và bảng điểm', logout: 'Đăng xuất', delete: 'Xóa dữ liệu đã lưu', cancel: 'Hủy cập nhật', keep: 'Giữ dữ liệu',
       confirm: 'Xóa bảng điểm và thông tin hồ sơ đã lưu? Thao tác này sẽ đăng xuất tài khoản.',
       unknown: 'Chưa xác minh độ đầy đủ của bảng điểm. Thông tin hồ sơ chỉ hiển thị khi đọc được từ nguồn VNU.',
-      separate: 'Bảng điểm nguồn được lưu riêng; chưa dùng để tính GPA, tiến độ hoặc gợi ý môn.',
+      separate: 'Bảng điểm nguồn được giữ nguyên. Điều kiện học đối chiếu theo khung và quy chế đã xác nhận; kết quả chưa rõ được báo riêng.',
+      complete: 'Bảng điểm đã được kiểm tra tải đầy đủ trong lần cập nhật này. Thông tin hồ sơ được giữ theo nguồn VNU.',
       unparsed: 'Các hàng nguồn cần kiểm tra', waiting: 'Đang kết nối VNU. Có thể mất đến 2 phút…',
-      saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
+      saved: 'Đã tải hồ sơ.', syncDone: 'Đã xử lý xong lần cập nhật bảng điểm. Xem kết quả kiểm tra bên dưới.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
       updated: 'Lần cập nhật', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
       columns: ['Mã môn', 'Tên học phần', 'Tín chỉ', 'Hệ 10', 'Chữ', 'Hệ 4'],
       back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học', unavailable: 'Chưa có thông tin',
@@ -34,9 +35,10 @@
       sync: 'Update profile and transcript', logout: 'Sign out', delete: 'Delete saved data', cancel: 'Cancel update', keep: 'Keep data',
       confirm: 'Delete saved transcript and profile information? This also signs you out.',
       unknown: 'Transcript completeness is unverified. Profile details appear only when supplied by VNU.',
-      separate: 'Source grades are saved separately and are not used for GPA, progress or recommendations.',
+      separate: 'Source grades remain unchanged. Course requirements use a confirmed curriculum and policy; unresolved results are shown separately.',
+      complete: 'The full transcript was checked during this update. Profile details retain their VNU source values.',
       unparsed: 'Source rows requiring review', waiting: 'Connecting to VNU. This may take up to 2 minutes…',
-      saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
+      saved: 'Profile loaded.', syncDone: 'Transcript update finished. See the collection check below.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
       updated: 'Last updated', account: 'Verified account', close: 'Close', table: 'Source transcript',
       columns: ['Course code', 'Course name', 'Credits', '10-point', 'Letter', '4-point'],
       back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort', unavailable: 'Unavailable',
@@ -56,12 +58,14 @@
     }
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
+  let syncRequested = false;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
   function status(key = '', error = '') { messageKey = key; errorKey = error; $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || ''); }
   function reset() {
     clearTimeout(expiryTimer);
-    epoch++; profile = null; job = null; $('table').replaceChildren(); $('summary').textContent = '';
+    epoch++; profile = null; job = null; syncRequested = false; $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
+    $('collection-review').replaceChildren(); $('collection-review').hidden = true;
     ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
     $('profile').hidden = true; $('login').hidden = false; $('confirm').hidden = true; $('cancel').hidden = true;
@@ -83,9 +87,15 @@
     $('close').textContent = t.back; document.querySelector('#portal-dialog .portal-table-scroll').setAttribute('aria-label', t.table);
     $('welcome').hidden = Boolean(profile);
     document.querySelectorAll('[data-portal-copy]').forEach(node => { node.textContent = t[node.dataset.portalCopy]; });
+    $('submit').textContent = profile ? t.sync : t.login;
     $('show').textContent = $('password').type === 'password' ? t.show : t.hide;
     status(messageKey, errorKey);
     if (!profile) return;
+    const review = $('collection-review'); review.replaceChildren();
+    window.workspaceI18n.collectionReviewMessages(profile.latest_collection).forEach(message => {
+      const item = document.createElement('li'); item.textContent = message; review.append(item);
+    });
+    review.hidden = !review.childElementCount;
     ['name', 'program', 'cohort'].forEach(key => {
       const value = profile.profile?.[key];
       $(key).textContent = typeof value === 'string' && value.trim() ? value : t.unavailable;
@@ -95,6 +105,7 @@
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
     t.columns.forEach(value => cell(head, value, 'th').scope = 'col');
     const body = $('table').createTBody(), snap = profile.snapshot;
+    document.querySelector('[data-portal-copy="unknown"]').textContent = snap?.completeness === 'complete' ? t.complete : t.unknown;
     $('summary').textContent = (snap?.source_summary || []).map(row => window.workspaceI18n.formatSourceSummary(row)).join('\n');
     const groups = new Map();
     (snap?.attempts || []).forEach(row => { const key = row.term || '—'; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); });
@@ -125,13 +136,17 @@
   async function load() {
     const current = epoch, sequence = ++loadSequence, result = await api('/me/profile');
     if (current !== epoch || sequence !== loadSequence) return;
-    profile = result; $('login').hidden = true; $('profile').hidden = false; render(); status(profile.snapshot ? 'saved' : 'empty');
+    const keepEditing = Boolean(profile && !$('login').hidden && !job && !busy);
+    profile = result; if (!keepEditing) $('login').hidden = true; $('profile').hidden = false; render();
+    if (!job && profile.latest_collection?.save_status === 'retained') status('', 'incomplete_snapshot');
+    else if (!job && !errorKey && !['waiting', 'syncDone'].includes(messageKey)) status(profile.snapshot ? 'saved' : 'empty');
     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: {
-      snapshot: result.snapshot, fetched_at: result.fetched_at,
+      snapshot: result.snapshot, fetched_at: result.fetched_at, latest_collection: result.latest_collection,
       profile: {program: result.profile?.program, cohort: result.profile?.cohort}
     }}));
     clearTimeout(expiryTimer);
     if (Number.isFinite(result.expires_in)) expiryTimer = setTimeout(() => { reset(); status('', 'session_expired'); }, result.expires_in * 1000);
+    if (syncRequested) { syncRequested = false; beginSync(); }
   }
   function lock(value) { busy = value; $('submit').disabled = value; $('sync').disabled = value; }
   async function openProfile() { render(); if (busy || profile) return; lock(true); try { await load(); } catch (err) { if (err.message !== 'session_expired') status('', err.message); else status(); } finally { lock(false); } }
@@ -141,6 +156,10 @@
     else $('password').value = '';
   });
   document.addEventListener('workspace:portal-refresh', () => openProfile());
+  document.addEventListener('workspace:portal-begin-sync', () => {
+    if (profile) beginSync();
+    else { syncRequested = true; openProfile(); }
+  });
   document.addEventListener('workspace:session-expired', () => { reset(); status('', 'session_expired'); });
   $('search').addEventListener('input', render);
   $('term').addEventListener('change', render);
@@ -154,7 +173,7 @@
       const result = await api(updating ? '/me/portal-sync' : '/auth/portal', 'POST', submitted);
       if (current !== epoch) return;
       if (updating) { job = result.id; $('login').hidden = true; $('cancel').hidden = false; poll(current); }
-      else { await load(); if (result.warning) status('', result.warning); }
+      else { await load(); status(result.warning ? '' : 'saved', result.warning || ''); }
     } catch (err) { if (current === epoch || err.message === 'session_expired') status('', err.message); }
     finally { submitted.password = ''; lock(false); }
   };
@@ -166,9 +185,16 @@
       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
       job = null; $('cancel').hidden = true; await load();
       if (result.error || result.state === 'cancelled') status('', result.error || 'cancelled');
+      else status('syncDone');
     } catch (err) { status('', err.message); job = null; $('cancel').hidden = true; }
   }
-  $('sync').onclick = () => { if (job) return; $('login').hidden = false; $('username').value = profile.subject; $('password').focus(); };
+  function beginSync() {
+    if (job || !profile) return;
+    status();
+    $('login').hidden = false; $('username').value = profile.subject; $('password').focus();
+    $('submit').textContent = text().sync;
+  }
+  $('sync').onclick = beginSync;
   $('cancel').onclick = async () => { try { if (job) await api(`/me/portal-sync/${encodeURIComponent(job)}`, 'DELETE'); } catch (err) { status('', err.message); } };
   $('logout').onclick = async () => {
     reset(); lock(true); status();
@@ -180,6 +206,7 @@
   $('keep').onclick = () => { $('confirm').hidden = true; };
   $('confirm').onsubmit = async event => { event.preventDefault(); try { await api('/me/portal-data', 'DELETE'); reset(); status(); } catch (err) { status('', err.message); } };
   document.addEventListener('workspace:language-change', render);
-  document.addEventListener('visibilitychange', async () => { if (!document.hidden && profile) { try { await load(); } catch (err) { status('', err.message); } } });
+  document.addEventListener('visibilitychange', async () => { if (!document.hidden && profile && $('login').hidden) { try { await load(); } catch (err) { status('', err.message); } } });
   render();
+  openProfile();
 })();

@@ -40,7 +40,8 @@ def collect(credentials):
                     texts.append(frame.locator("body").inner_text())
             subject = verified_subject("\n".join(texts), credentials["username"],
                                        authenticated_subject=authenticated_subject)
-            return {"subject": subject, "snapshot": snapshot(client.read_transcript()),
+            rows, evidence = client.read_transcript_capture()
+            return {"subject": subject, "snapshot": snapshot(rows, evidence),
                     "profile": source_profile(texts)}
         except TimeoutError:
             raise PortalFailure("timeout") from None

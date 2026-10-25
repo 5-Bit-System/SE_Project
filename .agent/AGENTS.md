@@ -1,5 +1,223 @@
 # Project Memory and Contributor Guidelines
 
+## Authorized publication to existing personal branch — 2026-10-25
+
+User explicitly requests commit/push ALL current project changes to their existing
+personal branch, NOT main. This supersedes older leave-uncommitted/publication-to-main
+notes for this change set. Target is feat/vinh-database-tests, existing local/remote
+branch at 8c60434 whose author matches configured Git identity. It is an ancestor of
+workspace base 8f77ce3, so local branch was advanced without dropping any history,
+then checked out with the working tree intact. No source/runtime files were replaced.
+
+Fresh origin/main is e781ab3 with newer teammate auth/loading work; do not merge or
+push main as part of this branch-only publication. Local main stays 8f77ce3. Publish
+the current workspace implementation on feat/vinh-database-tests with an explicit
+push refspec; no force push, PR, merge or catalog/DB publication is requested.
+
+Fresh publication verification: 499 offline passed / 40 deselected with explicit
+HUS acceptance root; Ruff, diff and both catalog builder checks passed. Secret scan
+of 50 prospective text files found zero local configured-secret matches. Earlier
+Chrome source/UI regressions and five isolated PostgreSQL store tests remain prior
+evidence; no new real-portal/DB inspection or server restart during publication.
+The portable .vscode/settings.json only enables Python terminal env-file loading;
+it contains no local path or secret and is included in the user's all-changes scope.
+Credentials, .env, backups, probes, screenshots and local toolkit remain ignored.
+
+Commit/push preparation is recorded here; verify Git/remote for the resulting SHA
+and publication outcome rather than treating a planned push as completed evidence.
+
+## Live full transcript accepted; classification verified — 2026-10-25
+
+Final source capture and current stored snapshot now completeness=complete, binding
+preserved, all proof checks true and no unparsed rows. Actual checkbox caption did
+NOT match the narrow Xem cả môn grammar, but DOES match Xem cả [các/những] môn.
+Client supports those variants only with the reviewed submit_d handler, activates
+the known display control through DOM (works outside viewport), then verifies its
+checked state and all full-table proof. This resolves the actual source blocker;
+do not ask owner to repeat login or source sync for this resolved issue.
+
+Read-only scoped classification audit uses existing binding/policy/catalog and emits
+only anonymous aggregate states/counts, no identity/grades/course codes. Context is
+ready with no outcome blockers. Before a graduation path is selected, existing board
+logic returns partial with planning paused and the graduation_selection_required
+selector. BOTH source graduation paths produce a ready board with all three groups
+nonempty and a 20-credit suggestion. Owner must choose the applicable path in the UI;
+do not silently choose thesis vs substitute courses. Academic counts are NOT retained
+in repo artifacts; final chat may report the owner's requested result.
+
+All temporary worker probe/wait/reload/helper code, client phase fields and three
+opt-in flags are REMOVED. Safe ignored technical JSON artifacts only remain under
+backups/local_runtime. Server/session not restarted for these final client changes.
+499 offline passed earlier in this fix; final Chrome source tests cover caption
+variants/offscreen checkbox, native form navigation, repeat reads, unknown checkbox
+rejection and route constraints. Ruff/diff checked at handoff. No schema/catalog
+publication or manual snapshot/binding edits, no commit/push. Older pending/debug
+notes below describe superseded states; source acceptance is now observed.
+
+## Actual source full-view checkbox identified — 2026-10-25
+
+Live probes establish root /ListPoint/ module and exactly one outside checkbox,
+unchecked by default, caption prefix Xem cả môn, handler submit_d. This is a REAL
+include-more-records filter, not a presentation checkbox. Original user observation
+of no filters was incomplete. Client now selects ONLY that reviewed checkbox before
+capture, requiring matching source caption/handler; it is exempt from restrictive
+filters only while checked. All unknown/unchecked filters still fail closed. Other
+full-table proof, source preservation, grade and program rules remain unchanged.
+Module path recognition supports observed /ListPoint/ namespace on same HTTPS host
+when the reviewed menu literal was invoked; wrong menu targets remain rejected.
+
+Chrome verifies checkbox default-off reveals extra failed course, both onclick and
+onchange handlers, unknown checkboxes remain blocked, nested/root module route rules.
+All 499 offline tests passed / 40 deselected after final client changes; auth/profile,
+sync feedback and full-view Chrome checks passed. Temporary worker wait/reload, client
+probe code and both opt-in flags are REMOVED. Only safe ignored JSON artifacts remain.
+
+Pending async question asks the owner one more source sync to run this final fix
+(no logout/restart needed; worker loads client afresh). Last probe source job closed
+before patch, so it cannot be reprocessed in its old browser. Do NOT report real
+classification accepted until current snapshot flags/board results are verified.
+
+## Live sync diagnosis: retained transcript and false collection blockers — 2026-10-25
+
+User still sees three waiting columns after confirming the curriculum. Read-only
+technical aggregates now show binding present but the old unknown snapshot remains.
+User describes entering password for update then returning to the normal page.
+Found/reproduced visibilitychange load overwriting progress/error with Profile loaded.
+Fixed state preservation, explicit sync submit caption, detailed per-session latest
+collection report in profile and blocked board, and specific waiting-column reasons.
+Reports whitelist booleans/counts/version/status only; no URLs/control values/grades/
+identity/course codes. Session/logout isolation tested, no schema/store gate change.
+
+User logged in again on request; safe retained-report log proves ONLY source_path_valid
+and filters_absent failed; one table, stable 3, idle, no hidden/paging/virtual/loading/
+unknown rows. Client now recognizes the literal showApp(this.id, ListPoint/listpoint.asp)
+route from the existing reviewed source menu, including deeper module directories;
+same HTTPS host and route required, never guesses/navigates a new URL. Disabled/readonly
+controls no longer count as active filters. Active filters still block. Worker imports
+client fresh on each sync, so these last client fixes require no server/session restart.
+
+Backend reporter restart launcher PID 26476, port 8000; current safe diagnostic log is
+backups/personal_academic_20261025/runtime/14d52e2a47ea4eb09db09607ce215bfc.err.log.
+Read ONLY lines matching Portal collection retained report=; these contain allowlisted
+technical facts. Do not dump raw logs/config/records. Pending async user request asks
+one more local profile/transcript update (no logout), then reply done, to verify the
+last two client fixes on real source. Do not claim real board acceptance yet.
+
+499 offline passed / 40 deselected before final client change; 165 integration passed /
+5 deselected after. Chrome menu-module/readonly vs active-filter/paging/hidden/multiple
+tables, profile, sync visibility/reload proof/VI-EN/logout, binding, board/portal passed.
+Ruff/JS/diff passed; synthetic feedback screenshot inspected. Earlier 5 PostgreSQL
+tests not rerun; no DB schema/catalog/data edits or commit/push. Dated personal report
+has details. Do not end with another speculative refresh fix; await current sync result.
+
+## Personal board delivery and session restoration fix — 2026-10-25
+
+User still sees empty board without the new confirmation form, at the correct
+127.0.0.1:8000/#rules URL. A read-only aggregate of technical flags (no identity,
+grades or course rows) confirms the saved current snapshot still uses the old
+b790d6af+identity1 connector, unknown completeness and no binding. No snapshot
+was changed/reclassified. Browser screenshot alone does not prove cache as cause.
+
+Fixed delivery gaps: root HTML now no-store and uses content-versioned local
+asset URLs; static assets revalidate. Portal restores the existing session/profile
+on initial load instead of requiring a profile-tab visit. Deep link
+/?course-mode=personal#rules opens personal mode. An explicit Update VNU transcript
+button on the blocked board opens the existing source update form; no automatic
+credential submission, no changed completeness gates. Source must still be synced
+by the owner and curriculum confirmation remains per-account.
+
+Verification: 497 offline passed / 40 deselected, Ruff/JS/diff passed. Chrome
+two-owner regression now restores the profile through HTTP on page load (not a
+synthetic initial portal-data event), opens the sync form from the blocked board,
+and deliberately serves an obsolete script for the old bare asset URL to prove
+the new page bypasses it. Portal/VNU-only/course board/workspace/charts passed;
+public reference --live checked after restart. Earlier 5 disposable PostgreSQL
+cases were not rerun for this delivery change. Only verified project Uvicorn
+restarted: launcher PID 17036, port 8000; HTML/versioned script and health/ready
+200, headers verified. RAM sessions ended; user must sign in after this restart.
+No real login/grade read or data edit, no commit/push. See dated personal report.
+
+## Personal course board: per-account binding and collection — 2026-10-25
+
+This supersedes older empty-policy/no-binding/completeness-always-unknown notes.
+User confirms VNU shows all semesters together, no filters or pagination. New
+guarded full-table collector proves the reviewed layout with booleans/counts:
+HTTPS host/path/container, exactly one data table, stable three reads, network
+idle, no filters/paging/hidden/virtual/loading/unknown rows. Failure stays unknown;
+never upgrade old snapshots manually or bypass changed-unknown rollback.
+
+Personal mode now has owner-specific one-time program/cohort confirmation,
+checked against source enrollment, snapshot/catalog revisions, cookie/generation
+and source scope. No global user-program default. Source aliases suggest only;
+unqualified Math requires explicit standard/talented choice. All five source
+programs supported for binding; unsupported enrollment stays unresolved. Binding
+lives in existing profile JSON metadata under owner row lock. Refresh preserves
+it only with unchanged source program/cohort; delete generation prevents late writes.
+
+Production policy vnu-3626-2022-grades-v1 uses official preserved 52-page PDF.
+See docs/policies/README.md for SHA, clauses and retake interpretation/limits.
+Exact code/credits and grade-column consistency required; never highest-grade,
+suffix stripping or guessed equivalence. Strict academic APIs still require ready.
+Course board may show independently resolved passed results as partial; unresolved
+codes never unlock/enter plan. Out-of-catalog, missing selectors or program-rule
+ambiguity pauses bundle. Talented Math planning stays paused because source track
+rules conflict. No DB catalog publication or migration/schema changes.
+
+Verification: 495 offline passed / 40 deselected with HUS acceptance root; 5 store
+PostgreSQL cases passed on disposable test DBs; Chrome two-owner binding/three
+states, source collection/auth/profile and VNU-only/portal checks passed. Synthetic
+desktop/mobile images inspected. Real student classification remains unaccepted;
+fresh owner sync is required to run new collector. Source fixtures now use closed
+local proxy against unmocked requests; fake profile landing uses history API,
+not native redirect coverage. An earlier fake redirect reached only anonymous VNU
+login, no real credential submission/student data. See current dated report.
+
+One local setup traceback exposed DB credentials through config method repr.
+User informed; no secret copied into repo. Config repr disabled and regression
+tested; credential value scan found zero changed-source/doc matches. Do not print
+config/method repr or connection URLs. No .env/password rotation performed.
+Changes remain local/uncommitted. Full report: docs/VNU_PERSONAL_ACADEMIC_2026_10_25.md;
+usage/current behavior: docs/COURSE_STATUS_BOARD.md. Older checkpoints below are
+historical evidence, not current personal integration status.
+
+Final local handoff: restarted only the verified workspace Uvicorn listener;
+launcher PID 32156, port 8000. Health/ready/policy PDF 200; unauthenticated binding
+401; served board/portal JS hashes match workspace; five public curricula and
+default 20-credit plan verified. Chrome public reference --live passed again.
+Owner must sign in again after restart. No real owner endpoint inspected, no
+browser auto-open retried after the earlier automatic-policy rejection.
+
+## Curriculum reference and semester planning — 2026-10-25
+
+User requests complete lookup in Điều kiện học using the supplied 2023/K67 ZIP,
+default 20 credits per term, adjustable. User explicitly confirms K67 onward;
+pre-K67 sources are outside this request. The five ZIP PDFs match the original
+docs/pdf hashes. Four standard programs reuse the checked-in source builder;
+new data/reference_curricula/mathematics_talented_2022.json transcribes PDF 3566
+pages 8–14: 97 occurrences, 96 codes, source total 168. Preserve its duplicated
+group headings, two/three-track ambiguity, source totals and external references.
+All references remain draft_unverified; this is not academic policy acceptance.
+
+Điều kiện học now defaults to public curriculum lookup, with a separate personal
+VNU mode. The explicit reference program/cohort picker is authorized here; it
+does not replace the source-owned sidebar or bind a VNU account. Public routes:
+/curricula/reference, /{program_id}, /{program_id}/source and /{program_id}/plan.
+Lookup includes all five programs, K67 through current admission year, filters,
+prerequisite/source details and PDF page links. Reference plans default to 20,
+allow 1–30, validate budgets/language choices, warn about prerequisites, and
+export CSV. Planned courses never become completed facts or unlock same-term
+prerequisites. Personal VNU readiness/policy/completeness gates remain intact.
+No DB schema, active catalog publication, real student data or credentials changed.
+
+Verification: 435 offline passed / 39 deselected with explicit HUS acceptance
+root; Ruff/diff/JS syntax passed. Chrome reference tests passed with intercepted
+source facts and again against actual new local HTTP APIs (--live); course board,
+VNU-only, workspace, charts and portal synthetic regressions passed. Desktop and
+390px screenshots inspected. Restarted only verified project Uvicorn at port 8000;
+/health and /ready 200, all five public references and a 20-credit plan verified.
+No VNU calls or PostgreSQL integration tests. Changes remain local/uncommitted,
+including the pre-existing course-board work. See docs/COURSE_STATUS_BOARD.md.
+
 ## Team history reconciliation — 2026-10-23
 
 User explicitly authorizes PRs, merges and publication to main to preserve

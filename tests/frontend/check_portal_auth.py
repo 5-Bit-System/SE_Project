@@ -15,7 +15,8 @@ MENU = '<a id="PortalModule_374" title="Xem điểm sinh viên">Xem điểm</a>'
 
 def main():
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+        browser = p.chromium.launch(channel="chrome", headless=True,
+                                    proxy={"server": "http://127.0.0.1:9"})
         try:
             for scenario in ("valid", "invalid", "http_rejected", "preauthenticated",
                              "existing_cookie", "foreign_form", "captcha", "otp",

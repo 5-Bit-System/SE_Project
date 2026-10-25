@@ -109,9 +109,22 @@ def recommend(
     ordered_codes.extend(code for code in fallback_codes if code not in ordered_codes)
     selected = []
     total = 0
+    groups = {group.id: group for group in catalog.program.choice_groups}
+    used_by_group = {
+        group_id: sum(course.credits for course in catalog.courses
+                      if course.code in passed and group_id in course.choice_group_ids)
+        for group_id in groups
+    }
     for code in ordered_codes:
         course = by_code[code]
         if total + course.credits > request.max_credits:
+            continue
+        course_groups = [groups[group_id] for group_id in course.choice_group_ids if group_id in groups]
+        # Candidates are individually eligible. The chosen bundle must also
+        # respect quotas consumed by earlier selections, without treating those
+        # selections as completed prerequisites for other courses this term.
+        if course_groups and all(used_by_group[group.id] >= group.required_credits
+                                 for group in course_groups):
             continue
         score = score_course(course, preference, ranking_weights)
         explanation, fit = build_grounded_explanation(
@@ -133,6 +146,8 @@ def recommend(
             offering_status="unknown",
         ))
         total += course.credits
+        for group in course_groups:
+            used_by_group[group.id] += course.credits
         if len(selected) >= request.limit:
             break
     blocked_summary: dict[str, int] = {}

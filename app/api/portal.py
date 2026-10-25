@@ -10,7 +10,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 
 from app.integrations.daotao import runtime, store
-from app.integrations.daotao.snapshot import PortalFailure
+from app.integrations.daotao.snapshot import PortalFailure, collection_review
 
 router = APIRouter()
 COOKIE = "study_portal_session"
@@ -79,13 +79,18 @@ async def login(request: Request):
     owner, generation = await safe_call(store.owner, result["subject"])
     # A returning user may view their old snapshot even if this read is incomplete.
     try:
-        await safe_call(store.save, owner, generation, result["snapshot"], result.get("profile"))
+        saved = await safe_call(store.save, owner, generation, result["snapshot"], result.get("profile"))
         warning = None
     except HTTPException as exc:
         if exc.detail != "incomplete_snapshot":
             raise
         warning = "incomplete_snapshot"
+        saved = "retained"
     token = runtime.new_session(owner, result["subject"], generation)
+    runtime.sessions[runtime.digest(token)].latest_collection = collection_review(result["snapshot"], saved)
+    if warning:
+        logger.warning("Portal collection retained report=%s", json.dumps(
+            runtime.sessions[runtime.digest(token)].latest_collection, sort_keys=True))
     old = request.cookies.get(COOKIE)
     if old:
         runtime.sessions.pop(runtime.digest(old), None)
@@ -107,6 +112,7 @@ async def profile(request: Request):
     if not runtime.session_active(value):
         raise HTTPException(401, "session_expired")
     result["expires_in"] = max(0, int(value.expiry - time.monotonic()))
+    result["latest_collection"] = value.latest_collection
     return result
 
 
@@ -129,6 +135,7 @@ async def logout(request: Request):
 
 
 async def sync_job(job, value, submitted):
+    captured = None
     try:
         result = await runtime.collect(submitted)
         if result["subject"] != value.subject:
@@ -137,6 +144,7 @@ async def sync_job(job, value, submitted):
             return
         if not runtime.session_active(value):
             raise PortalFailure("session_expired")
+        captured = result["snapshot"]
         job["state"] = "saving"
         saving = asyncio.create_task(safe_call(store.save, value.owner, value.generation,
                                               result["snapshot"], result.get("profile")))
@@ -146,12 +154,19 @@ async def sync_job(job, value, submitted):
             # A DB thread cannot be cancelled. Wait rather than report a false rollback.
             job["result"] = await saving
         job["state"] = "done"
+        value.latest_collection = collection_review(captured, job["result"])
     except asyncio.CancelledError:
         job["state"] = "cancelled"
     except Exception as exc:
         job["state"] = "failed"
         job["error"] = exc.detail if isinstance(exc, HTTPException) else (
             str(exc) if isinstance(exc, PortalFailure) else "portal_unavailable")
+        if captured is not None and runtime.session_active(value):
+            value.latest_collection = collection_review(captured,
+                "retained" if job["error"] == "incomplete_snapshot" else "failed")
+            if job["error"] == "incomplete_snapshot":
+                logger.warning("Portal collection retained report=%s",
+                               json.dumps(value.latest_collection, sort_keys=True))
     finally:
         submitted.clear()
 

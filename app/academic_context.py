@@ -29,6 +29,8 @@ class AcademicPolicy:
     # Explicit source-reviewed bands: minimum grade10, maximum grade10, grade4.
     letter_bands: dict[str, tuple[float, float, float | None]]
     failing_letters: tuple[str, ...] = ("F",)
+    min_cohort: int | None = None
+    retake_strategy: str = "unresolved"
 
 
 def _number(value: Any) -> Decimal | None:
@@ -45,9 +47,27 @@ def _number(value: Any) -> Decimal | None:
 
 
 def _outcome(rows: list[dict], credits: int, policy: AcademicPolicy) -> tuple[str, str]:
-    # Improvement/retake validity is not encoded in raw rows. Never pick best/latest.
     if len(rows) != 1:
-        return "unresolved", "retake_policy_unresolved"
+        if policy.retake_strategy != "later_final_after_f_d_or_d_plus":
+            return "unresolved", "retake_policy_unresolved"
+        ordered = []
+        for row in rows:
+            term = str(row.get("term") or "")
+            match = re.fullmatch(r"HỌC K[ỲÌ]\s+([1-3])\s*-\s*(\d{4})\s*[-–]\s*(\d{4})(?:\..*)?",
+                                 term.strip(), re.I)
+            if not match or int(match[3]) != int(match[2]) + 1:
+                return "unresolved", "retake_term_unresolved"
+            ordered.append(((int(match[2]), int(match[1])), row))
+        if len({key for key, _ in ordered}) != len(ordered):
+            return "unresolved", "retake_term_unresolved"
+        ordered.sort(key=lambda item: item[0])
+        for _, row in ordered:
+            state, reason = _outcome([row], credits, policy)
+            if state == "unresolved":
+                return state, reason
+        if any(row.get("letter") not in {"F", "D", "D+"} for _, row in ordered[:-1]):
+            return "unresolved", "retake_policy_unresolved"
+        return _outcome([ordered[-1][1]], credits, policy)
     attempt = rows[0]
     if _number(attempt.get("credits")) != Decimal(str(credits)):
         return "unresolved", "source_catalog_credit_conflict"
@@ -82,6 +102,7 @@ def build_context(
             "version": policy.version, "source": policy.source_ref,
             "program_ids": policy.program_ids, "bands": policy.letter_bands,
             "failing_letters": policy.failing_letters,
+            "min_cohort": policy.min_cohort, "retake_strategy": policy.retake_strategy,
         },
     }
     revision = hashlib.sha256(json.dumps(fingerprint, ensure_ascii=False,
@@ -125,11 +146,16 @@ def build_context(
         return result
     if (policy is None or not policy.source_ref or not policy.version
             or catalog.program.program_id not in policy.program_ids
-            or binding.get("policy_version") != policy.version):
+            or binding.get("policy_version") != policy.version
+            or (policy.min_cohort is not None and (
+                type(binding.get("cohort")) is not int or binding["cohort"] < policy.min_cohort))):
         reasons.append("policy_not_applicable")
         result["status"] = "needs_policy_review"
         return result
     groups: dict[str, list[dict]] = defaultdict(list)
+    if getattr(catalog.program, "planning_blockers", []):
+        reasons.append("program_rules_review_required")
+        result["status"] = "needs_policy_review"
     for attempt in attempts:
         groups[str(attempt.get("code") or "").strip()].append(attempt)
     courses = {course.code: course for course in catalog.courses}

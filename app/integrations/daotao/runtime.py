@@ -25,6 +25,7 @@ class Session:
     subject: str
     generation: int
     expiry: float
+    latest_collection: dict | None = None
 
 
 def digest(token):
