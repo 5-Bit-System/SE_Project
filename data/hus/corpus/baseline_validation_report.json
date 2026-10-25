@@ -1,0 +1,24 @@
+{
+  "academic_validity_verified_by_pipeline": false,
+  "active_release": false,
+  "candidate_only": true,
+  "chunk_count": 0,
+  "document_count": 106,
+  "flag_counts": {
+    "academic_year_unknown": 106,
+    "identical_text_candidate_not_source_deduplicated": 8,
+    "original_attachment_missing": 51,
+    "pending_ocr": 6,
+    "published_at_unknown": 100,
+    "table_requires_review": 49
+  },
+  "included_documents": 0,
+  "review_counts": {
+    "exclude": 0,
+    "include": 0,
+    "needs_review": 100,
+    "pending_ocr": 6
+  },
+  "schema_version": "1.0",
+  "source_files_verified": 162
+}
