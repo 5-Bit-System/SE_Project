@@ -1,10 +1,12 @@
+import hashlib
 import logging
+import re
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.academic import router as academic_router
@@ -85,12 +87,27 @@ async def portal_boundary(request: Request, call_next):
     if protected:
         response.headers["Cache-Control"] = "no-store"
         response.headers["Pragma"] = "no-cache"
+    elif request.url.path == "/":
+        response.headers["Cache-Control"] = "no-store"
+    elif request.url.path.startswith("/static/"):
+        response.headers["Cache-Control"] = "no-cache"
     return response
 
 
 @app.get("/")
-def index() -> FileResponse:
-    return FileResponse(STATIC_ROOT / "index.html")
+def index() -> HTMLResponse:
+    template = (STATIC_ROOT / "index.html").read_text(encoding="utf-8")
+
+    def version_asset(match: re.Match) -> str:
+        name = match[2]
+        path = STATIC_ROOT / name
+        if not path.is_file():
+            return match[0]
+        revision = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+        return f'{match[1]}/static/{name}?v={revision}"'
+
+    markup = re.sub(r'(\b(?:src|href)=")/static/([^"?#]+)"', version_asset, template)
+    return HTMLResponse(markup)
 
 
 @app.get("/favicon.ico", include_in_schema=False)

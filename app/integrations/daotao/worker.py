@@ -69,7 +69,8 @@ def collect(credentials):
                     subject = verified_subject("\n".join(texts), expected_subject,
                                                authenticated_subject=authenticated_subject)
                     stage = "parse"
-                    payload = snapshot(client.read_transcript())
+                    rows, evidence = client.read_transcript_capture()
+                    payload = snapshot(rows, evidence)
                     details = source_profile(texts)
                 except (Error, PortalFailure) as exc:
                     if mode != 'signin' or (isinstance(exc, PortalFailure) and str(exc) != 'structure_changed'):

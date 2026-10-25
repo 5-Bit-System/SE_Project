@@ -16,7 +16,7 @@
       reauthSubmit: 'Xác thực lại và cập nhật', reauthDismiss: 'Để sau',
       confirm: 'Xóa bảng điểm và thông tin VNU đã lưu? Tài khoản Sổ học tập vẫn được giữ.',
       unknown: 'Chưa xác minh độ đầy đủ của bảng điểm. Thông tin hồ sơ chỉ hiển thị khi đọc được từ nguồn VNU.',
-      separate: 'Bảng điểm nguồn được lưu riêng; chưa dùng để tính GPA, tiến độ hoặc gợi ý môn.',
+      separate: 'Điểm nguồn được giữ nguyên. Điều kiện học chỉ sử dụng bảng điểm và chương trình đã đối chiếu.',
       unparsed: 'Các hàng nguồn cần kiểm tra', waiting: 'Đang đăng nhập VNU và lấy hồ sơ, bảng điểm. Vui lòng chờ, quá trình có thể mất đến 2 phút…',
       saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
       updated: 'Bảng điểm lưu lúc', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
@@ -55,7 +55,7 @@
       reauthSubmit: 'Verify and update', reauthDismiss: 'Later',
       confirm: 'Delete your saved VNU transcript and profile? Your study account is retained.',
       unknown: 'Transcript completeness is unverified. Profile details appear only when supplied by VNU.',
-      separate: 'Source grades are saved separately and are not used for GPA, progress or recommendations.',
+      separate: 'Source grades stay unchanged. Course eligibility uses reviewed transcript and curriculum context.',
       unparsed: 'Source rows requiring review', waiting: 'Signing in to VNU and retrieving your profile and grades. Please wait; this may take up to 2 minutes…',
       saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
       updated: 'Transcript saved', account: 'Verified account', close: 'Close', table: 'Source transcript',
@@ -144,6 +144,11 @@
     $('show').textContent = $('password').type === 'password' ? t.show : t.hide;
     status(messageKey, errorKey);
     renderReminder();
+    const review = $('collection-review');
+    review.replaceChildren();
+    const messages = window.workspaceI18n.collectionReviewMessages(profile?.latest_collection);
+    review.hidden = !messages.length;
+    messages.forEach(message => { const row = document.createElement('p'); row.textContent = message; review.append(row); });
     $('reauth-account').value = profile?.subject || '';
     if (!profile) return;
     ['name', 'program', 'cohort'].forEach(key => {
@@ -202,9 +207,10 @@
       profile = null; $('login').hidden = false; $('profile').hidden = true; render(); status('empty');
       document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null})); return;
     }
-    profile = result; $('login').hidden = true; $('profile').hidden = false; render(); status(profile.snapshot ? 'saved' : 'empty');
+    profile = result; $('login').hidden = true; $('profile').hidden = false; render();
+    if (!errorKey && $('reauth').hidden) status(profile.latest_collection?.save_status === 'retained' ? '' : profile.snapshot ? 'saved' : 'empty', profile.latest_collection?.save_status === 'retained' ? 'incomplete_snapshot' : '');
     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: {
-      snapshot: result.snapshot, fetched_at: result.fetched_at,
+      snapshot: result.snapshot, fetched_at: result.fetched_at, latest_collection: result.latest_collection,
       profile: {program: result.profile?.program, cohort: result.profile?.cohort}
     }}));
     clearTimeout(expiryTimer);
@@ -317,6 +323,7 @@
   $('keep').onclick = () => { $('confirm').hidden = true; };
   $('confirm').onsubmit = async event => { event.preventDefault(); try { await api('/me/portal-data', 'DELETE'); reset(); signedOut = false; await load(); } catch (err) { status('', err.message); } };
   document.addEventListener('workspace:language-change', render);
-  document.addEventListener('visibilitychange', async () => { if (!document.hidden && profile) { try { await load(); } catch (err) { status('', err.message); } } });
+  document.addEventListener('workspace:portal-begin-sync', () => { if (!busy && !job) $('sync').click(); });
+  document.addEventListener('visibilitychange', async () => { if (!document.hidden && profile && !busy && $('reauth').hidden) { try { await load(); } catch (err) { status('', err.message); } } });
   render();
 })();

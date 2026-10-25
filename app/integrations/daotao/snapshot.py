@@ -9,6 +9,30 @@ class PortalFailure(Exception):
     """Only a safe, predefined code may cross the portal boundary."""
 
 
+def collection_review(payload: dict, save_status: str) -> dict:
+    """Allowlisted technical proof only, independent of retained student records."""
+    version = payload.get("connector_version")
+    report = {
+        "connector_version": version if version in {"b790d6af+identity1", "vnu-full-table-20261025"} else "unsupported",
+        "completeness": "complete" if payload.get("completeness") == "complete" else "unknown",
+        "save_status": save_status if save_status in {"saved", "unchanged", "retained", "accepted"} else "failed",
+        "unparsed_rows": len(payload.get("unknown_rows")) if isinstance(payload.get("unknown_rows"), list) else 0,
+    }
+    proof = payload.get("collection_evidence")
+    if isinstance(proof, dict):
+        checks = ("source_host_valid", "source_path_valid", "transcript_container_valid",
+                  "filters_absent", "pagination_absent", "hidden_records_absent",
+                  "virtualization_absent", "loading_absent", "network_idle")
+        evidence = {key: proof.get(key) is True for key in checks}
+        for key in ("stable_reads", "data_table_count"):
+            value = proof.get(key)
+            evidence[key] = value if type(value) is int and 0 <= value <= 100000 else 0
+        report["evidence"] = evidence
+    else:
+        report["evidence"] = None
+    return report
+
+
 def source_profile(texts: list[str]) -> dict:
     """Read explicit labels only; missing or conflicting values remain unknown.
 
@@ -65,7 +89,7 @@ def verified_subject(text: str, requested: str, *, authenticated_subject: str | 
     return expected
 
 
-def snapshot(rows: list[list[str]]) -> dict:
+def snapshot(rows: list[list[str]], collection_evidence: dict | None = None) -> dict:
     terms, attempts, summary, unknown = [], [], [], []
     term = None
     for index, cells in enumerate(rows):
@@ -82,6 +106,9 @@ def snapshot(rows: list[list[str]]) -> dict:
             })
         elif re.search(r"tổng|trung bình|tích lũy", joined, re.I):
             summary.append(cells)
+        elif cells == ["Mã môn học"]:
+            # Exact known table header, never a grade/course row or free-form text.
+            continue
         else:
             unknown.append({"row_key": str(index), "cells": cells})
     if not attempts:
@@ -89,6 +116,21 @@ def snapshot(rows: list[list[str]]) -> dict:
     result = {"schema_version": 1, "connector_version": "b790d6af+identity1",
               "completeness": "unknown", "terms": terms, "attempts": attempts,
               "source_summary": summary, "unknown_rows": unknown, "rows": rows}
+    if collection_evidence is not None:
+        required = ("source_host_valid", "source_path_valid", "transcript_container_valid",
+                    "filters_absent", "pagination_absent", "hidden_records_absent",
+                    "virtualization_absent", "loading_absent", "network_idle")
+        evidence = {key: collection_evidence.get(key) is True for key in required}
+        evidence.update(layout_contract=collection_evidence.get("layout_contract"),
+                        stable_reads=collection_evidence.get("stable_reads"),
+                        data_table_count=collection_evidence.get("data_table_count"))
+        result["collection_evidence"] = evidence
+        result["connector_version"] = "vnu-full-table-20261025"
+        if (all(evidence[key] for key in required) and not unknown
+                and evidence["layout_contract"] == "vnu-full-table-20261025"
+                and type(evidence["stable_reads"]) is int and evidence["stable_reads"] >= 3
+                and type(evidence["data_table_count"]) is int and evidence["data_table_count"] == 1):
+            result["completeness"] = "complete"
     result["digest"] = hashlib.sha256(
         json.dumps(result, ensure_ascii=False, sort_keys=True).encode()
     ).hexdigest()

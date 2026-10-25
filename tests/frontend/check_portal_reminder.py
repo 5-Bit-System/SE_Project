@@ -30,6 +30,9 @@ def main():
             route.fulfill(json=session_payload(state['authenticated']))
         elif path == "/me/profile":
             route.fulfill(json=sample)
+        elif path == "/me/course-status":
+            route.fulfill(json={"status": "needs_program_binding", "courses": None,
+                               "blocking_reasons": ["program_binding_unverified"]})
         elif path == "/me/portal-sync":
             route.fulfill(status=202, json={"id": "synthetic-job", "state": "running"})
         elif path == "/me/portal-sync/synthetic-job":

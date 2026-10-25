@@ -1,5 +1,55 @@
 # Project Memory and Contributor Guidelines
 
+## VNU eligibility integration — 2026-10-26
+
+User authorizes implementation, tests and integration of the teammate's
+eligibility flow while retaining all existing modules, with frequent progress.
+Integration branch integration/vnu-eligibility-20261026 starts at main e781ab3
+and uses a genuine merge of teammate commit 5e1a9bf, preserving its authorship.
+Do not replace main with the old teammate checkout. Main delivery uses a PR
+and Create a merge commit, with actual publication/CI/merge state in Git/PR.
+
+Scope: personal course board, per-owner program/cohort confirmation, versioned
+grade policy, source-completeness collector and 20-credit adjustable plan.
+Keep current student/admin auth, study_app_session, CSRF/origin, one-to-one
+ownership, DB session checks, RAM VNU cookies/resume/reauth and seven-day reminder.
+No public curriculum reference/CSV/talented catalog, RAG, what-if or persistent
+semester-plan expansion. Auth.js/workspace/analytics/recommendation_service and
+migration files remain identical to the main base.
+
+Binding uses existing portal_users.profile JSONB with binding_schema_version=1.
+Account/session/link checks and owner generation/digest/scope lock share one
+transaction, with a safe audit event. Refresh preserves binding and last_synced_at;
+changed enrollment invalidates binding, confirmation does not advance sync time.
+No schema migration, seed, catalog publication, password/SMTP change or manual
+upgrade of old completeness. Unknown source and uncertain outcomes remain gated.
+
+Independent integration checks: 523 offline passed / 75 deselected including HUS
+PDF acceptance; 75 PostgreSQL passed on disposable container port 55433 including
+legacy, HUS/auth and four new binding transaction tests. Ruff, both catalog builder
+checks, all JS syntax and diff checks pass. Fifteen synthetic Chrome regressions
+pass; real HTTP + disposable-PG Chrome proves sign-in, program confirmation,
+track/path selection and board plus existing admin/session/sync/logout checks.
+Screenshots desktop/mobile inspected. Existing Starlette/httpx warning remains.
+No agent real-VNU login or personal grades inspection; real-account acceptance
+must be performed by the owner after deployment. Catalogs remain draft_unverified.
+
+Final ownership audit adds checks of the original source owner after I/O, including
+when an account's link changes while program metadata is being read. Two new
+regressions pass; binding/system-auth/VNU PostgreSQL group rerun: 35 passed.
+
+Runtime backup at ignored backups/vnu_eligibility_integration_20261026/
+before_runtime.dump restored successfully to isolated ai07_backup_verify_20261026.
+Ignored test reports/screenshots/clone remain under the same integration directory.
+Do not reset seed or restore the full DB to resolve a UI/source-gating issue.
+Deployment restart loses VNU RAM cookies; app sessions retain their normal DB
+lifecycle and the next update may require one reauth. See docs/COURSE_STATUS_BOARD.md
+and docs/VNU_PERSONAL_ACADEMIC_2026_10_25.md for scope/limits.
+
+The preexisting candidate corpus whitespace edit remains outside this work.
+Previous temporary Docker cleanup removed se_auth_mail/se_recommender_db containers
+only; both database volumes remain. Keep test infrastructure separate from se_hus.
+
 ## Session close/publication authorized — 2026-10-25
 
 User explicitly requests closing memory update, commits for the accumulated work
