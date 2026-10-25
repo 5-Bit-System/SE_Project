@@ -1,1 +1,2 @@
 tests/fixtures/hus/*.pdf binary
+data/hus/quality/** text eol=lf
