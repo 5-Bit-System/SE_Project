@@ -150,6 +150,20 @@ def save(value, payload, details):
             raise AuthFailure(str(exc), 409) from None
 
 
+def save_academic_binding(value, binding, expected_snapshot_digest, expected_source_scope):
+    """Account/session and source confirmation are checked in one transaction."""
+    with repository.engine().begin() as conn:
+        principal = bound(conn, value, lock=True)
+        try:
+            result = store.save_academic_binding(value.owner, value.generation, binding,
+                expected_snapshot_digest, expected_source_scope, connection=conn)
+        except PortalFailure as exc:
+            raise AuthFailure(str(exc), 409) from None
+        repository.audit(conn, principal['account_id'], principal['account_id'],
+                         'confirm_academic_program')
+        return result
+
+
 def clear(principal):
     with repository.engine().begin() as conn:
         repository.current(conn, principal['session_id'], lock=True)

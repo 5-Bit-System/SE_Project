@@ -15,7 +15,7 @@ from app.auth import repository as auth_repository
 from app.auth.dependencies import call as auth_call
 from app.auth.dependencies import require_account
 from app.integrations.daotao import runtime, store
-from app.integrations.daotao.snapshot import PortalFailure
+from app.integrations.daotao.snapshot import PortalFailure, collection_review
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -89,6 +89,9 @@ async def student_login(request: Request):
         if not principal:
             raise HTTPException(401, 'session_expired')
         value = account_portal.connection(principal, link)
+        if isinstance(result.get('snapshot'), dict):
+            value.latest_collection = collection_review(result['snapshot'],
+                'retained' if warning == 'incomplete_snapshot' else 'accepted')
         await auth_call(account_portal.check, value)
         runtime.install_portal(value, result.get('cookies', []), value.portal_version)
         previous = await auth_call(auth_repository.revoke_token, request.cookies.get(COOKIE, ''))
@@ -123,6 +126,8 @@ async def login(request: Request):
     principal = await require_account(request)
     value = account_portal.connection(principal, link)
     version = value.portal_version
+    value.latest_collection = collection_review(result['snapshot'],
+        'retained' if warning == 'incomplete_snapshot' else 'accepted')
     await auth_call(account_portal.check, value)
     try:
         runtime.install_portal(value, result.get('cookies', []), version)
@@ -151,6 +156,7 @@ async def profile(request: Request):
     result = await safe_call(store.profile, value.owner)
     await auth_call(account_portal.check, value)
     result["expires_in"] = principal['expires_in']
+    result['latest_collection'] = value.latest_collection
     return result
 
 
@@ -168,6 +174,7 @@ async def logout(request: Request):
 
 async def sync_job(job, value, submitted):
     version = job.get("portal_version", value.portal_version)
+    captured = None
     try:
         if value.app_session_id:
             await auth_call(account_portal.check, value)
@@ -194,6 +201,7 @@ async def sync_job(job, value, submitted):
             raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
         if "cookies" in result:
             runtime.install_portal(value, result["cookies"], version)
+        captured = result['snapshot']
         job["state"] = "saving"
         saving = asyncio.create_task(auth_call(account_portal.save, value, result['snapshot'], result.get('profile'))
                                      if value.app_session_id else safe_call(store.save, value.owner,
@@ -204,6 +212,8 @@ async def sync_job(job, value, submitted):
             # A DB thread cannot be cancelled. Wait rather than report a false rollback.
             job["result"] = await saving
         job["state"] = "done"
+        if runtime.session_active(value):
+            value.latest_collection = collection_review(captured, job['result'])
     except asyncio.CancelledError:
         job["state"] = "cancelled"
         if runtime.session_active(value):
@@ -212,6 +222,9 @@ async def sync_job(job, value, submitted):
         job["state"] = "failed"
         job["error"] = exc.detail if isinstance(exc, HTTPException) else (
             str(exc) if isinstance(exc, PortalFailure) else "portal_unavailable")
+        if captured is not None and runtime.session_active(value):
+            value.latest_collection = collection_review(captured,
+                'retained' if job['error'] == 'incomplete_snapshot' else 'failed')
         if value.app_session_id and job['error'] in {'session_expired', 'password_change_required', 'forbidden', 'vnu_not_connected'}:
             runtime.revoke(value)
         if job["error"] == "vnu_reauth_required" and value.portal_version == version:

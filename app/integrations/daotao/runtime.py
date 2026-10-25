@@ -38,6 +38,7 @@ class Session:
     portal_version: int = 0
     account_id: str | None = None
     app_session_id: str | None = None
+    latest_collection: dict | None = None
 
 
 def digest(token):
@@ -92,6 +93,7 @@ def cancel_session(value):
 
 def revoke(value):
     clear_portal(value)
+    value.latest_collection = None
     for key, active in list(sessions.items()):
         if active is value:
             sessions.pop(key, None)

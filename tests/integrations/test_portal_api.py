@@ -1,3 +1,4 @@
+import asyncio
 import time
 
 import pytest
@@ -180,3 +181,68 @@ def test_login_passes_only_worker_profile_to_store(client, monkeypatch):
     response = client.post('/me/portal-connection', json={'username': 'synthetic-a', 'password': 'synthetic'})
     assert response.status_code == 200
     assert captured[0][3] == details
+
+
+def test_rejected_collection_keeps_new_diagnostics_separate_from_old_snapshot(client, monkeypatch):
+    from app.integrations.daotao.snapshot import PortalFailure
+
+    async def collect(submitted):
+        return {"subject": submitted["username"], "snapshot": {
+            "connector_version": "vnu-full-table-20261025", "completeness": "unknown",
+            "unknown_rows": [], "collection_evidence": {"filters_absent": False,
+                "source_host_valid": True, "stable_reads": 3, "data_table_count": 1,
+                "unreviewed_private_value": "must-not-echo"},
+            "rows": [["never-copy-source-rows"]]}}
+
+    def refused(*args):
+        raise PortalFailure("incomplete_snapshot")
+
+    monkeypatch.setattr(runtime, "collect", collect)
+    monkeypatch.setattr(store, "save", refused)
+    monkeypatch.setattr(store, "profile", lambda owner: {"subject": owner, "profile": {},
+        "snapshot": {"connector_version": "b790d6af+identity1", "completeness": "unknown"}})
+    response = login(client)
+    assert response.status_code == 200
+    assert response.json()["warning"] == "incomplete_snapshot"
+    for _ in range(2):  # Passive reload must retain the failed attempt's proof.
+        response = client.get("/me/profile")
+        result = response.json()
+        assert result["snapshot"]["connector_version"] == "b790d6af+identity1"
+        report = result["latest_collection"]
+        assert report["connector_version"] == "vnu-full-table-20261025"
+        assert report["save_status"] == "retained"
+        assert report["evidence"]["filters_absent"] is False
+        assert "must-not-echo" not in response.text
+        assert "never-copy-source-rows" not in response.text
+    assert client.get("/me/course-status").json()["latest_collection"] == report
+    # A separate owner/session has no access to this attempt report.
+    client.fake_accounts.issue(client, "synthetic-b", linked=True)
+    assert client.get("/me/profile").json()["latest_collection"] is None
+
+
+def test_failed_sync_reports_why_new_collection_was_not_saved(client, monkeypatch):
+    from app.api.portal import sync_job
+    from app.integrations.daotao.snapshot import PortalFailure
+
+    login(client)
+    principal = client.fake_accounts.resolve(client.cookies.get("study_app_session"))
+    value = runtime.sessions["app:" + principal["session_id"]]
+
+    async def collect(submitted):
+        return {"subject": value.subject, "snapshot": {
+            "connector_version": "vnu-full-table-20261025", "completeness": "unknown",
+            "collection_evidence": {"network_idle": False}, "unknown_rows": []}}
+
+    def refused(*args):
+        raise PortalFailure("incomplete_snapshot")
+
+    monkeypatch.setattr(runtime, "collect", collect)
+    monkeypatch.setattr(store, "save", refused)
+    job, submitted = {"state": "running"}, {"password": "synthetic"}
+    asyncio.run(sync_job(job, value, submitted))
+    assert job["state"] == "failed"
+    assert job["error"] == "incomplete_snapshot"
+    assert not submitted
+    response = client.get("/me/profile")
+    assert response.json()["latest_collection"]["save_status"] == "retained"
+    assert response.json()["latest_collection"]["evidence"]["network_idle"] is False

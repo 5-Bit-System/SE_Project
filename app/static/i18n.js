@@ -264,7 +264,7 @@
   try { if (localStorage.getItem(storageKey) === "en") language = "en"; } catch { /* Optional preference. */ }
   const originals = new WeakMap();
   const attributes = new WeakMap();
-  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy])';
+  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,#curriculum-reference,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy])';
 
   function translate(source) {
     if (language !== "en") return source;
@@ -369,7 +369,30 @@
     }).join(' | ');
   }
 
+  function collectionReviewMessages(report) {
+    if (!report) return [];
+    const copy = (vi, en) => language === 'en' ? en : vi;
+    const messages = [];
+    if (report.save_status === 'retained') messages.push(copy('Lần cập nhật mới chưa được chấp nhận; hệ thống đang giữ bảng điểm trước đó.', 'The latest update was not accepted; the previous transcript is still in use.'));
+    if (report.save_status === 'failed') messages.push(copy('Lần cập nhật mới gặp lỗi lưu dữ liệu.', 'The latest update could not be saved.'));
+    const proof = report.evidence;
+    if (report.completeness === 'complete') return messages;
+    if (!proof) return [...messages, copy('Lần đọc này chưa có đủ thông tin kiểm tra toàn bộ bảng điểm.', 'This collection did not provide proof that the full transcript was read.')];
+    const checks = [
+      [!proof.source_host_valid || !proof.source_path_valid, copy('Vị trí trang bảng điểm chưa được hỗ trợ.', 'The transcript page location is not supported.')],
+      [!proof.transcript_container_valid || proof.data_table_count !== 1, copy('Chưa nhận diện được đúng một bảng điểm đầy đủ.', 'A single complete transcript table could not be identified.')],
+      [!proof.filters_absent, copy('Phát hiện điều khiển lọc cần được kiểm tra.', 'Detected filter controls need review.')],
+      [!proof.pagination_absent, copy('Phát hiện dấu hiệu phân trang.', 'Pagination controls were detected.')],
+      [!proof.hidden_records_absent || !proof.virtualization_absent, copy('Có dấu hiệu hàng ẩn hoặc dữ liệu chưa được tải hết.', 'Hidden or virtualized records may not have been collected.')],
+      [!proof.network_idle || proof.stable_reads < 3 || !proof.loading_absent, copy('Bảng điểm chưa tải ổn định khi kiểm tra.', 'The transcript was not stable when checked.')],
+      [report.unparsed_rows > 0, copy('Có hàng nguồn chưa phân tích được.', 'Some source rows could not be parsed.')]
+    ];
+    checks.forEach(([failed, message]) => { if (failed) messages.push(message); });
+    return messages;
+  }
+
   window.workspaceI18n = {
+    collectionReviewMessages,
     formatSourceSummary,
     get language() { return language; },
     setLanguage(value) {

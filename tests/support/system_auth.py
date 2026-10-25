@@ -8,6 +8,7 @@ import uuid
 from app.auth import portal, repository
 from app.auth.security import AuthFailure, csrf, token
 from app.integrations.daotao import runtime, store
+from app.integrations.daotao.snapshot import PortalFailure
 
 
 class SyntheticAccounts:
@@ -64,14 +65,23 @@ class SyntheticAccounts:
     def connect(self, account, result):
         self.current(account['session_id'])
         owner, generation = store.owner(result['subject'])
-        store.save(owner, generation, result['snapshot'], result.get('profile'))
+        warning = None
+        try:
+            store.save(owner, generation, result['snapshot'], result.get('profile'))
+        except PortalFailure as exc:
+            if str(exc) != 'incomplete_snapshot':
+                raise
+            warning = 'incomplete_snapshot'
         link = {'owner': owner, 'subject': result['subject'], 'generation': generation}
         self.links[account['account_id']] = link
-        return link, None
+        return link, warning
 
     def save(self, value, payload, details):
         self.check(value)
-        return store.save(value.owner, value.generation, payload, details)
+        try:
+            return store.save(value.owner, value.generation, payload, details)
+        except PortalFailure as exc:
+            raise AuthFailure(str(exc), 409) from None
 
     def clear(self, account):
         self.current(account['session_id'])

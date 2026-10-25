@@ -46,14 +46,19 @@ def main():
         get_settings.cache_clear()
         settings.cache_clear()
         source_failure = [False]
+        proof = dict.fromkeys(('source_host_valid', 'source_path_valid', 'transcript_container_valid',
+            'filters_absent', 'pagination_absent', 'hidden_records_absent', 'virtualization_absent',
+            'loading_absent', 'network_idle'), True)
+        proof.update(layout_contract='vnu-full-table-20261025', stable_reads=3, data_table_count=1)
 
         async def collect(value):
             subject = value.get('subject', value.get('username'))
             if source_failure[0]:
                 return {'authenticated': True, 'subject': subject, 'snapshot': None,
                         'warning': 'source_unavailable', 'cookies': []}
-            return {'authenticated': True, 'subject': subject, 'snapshot': snapshot([['1', 'TEST001', 'Synthetic only', '3', '8', 'B', '3']]),
-                    'profile': {'name': 'Synthetic student', 'program': None, 'cohort': None},
+            return {'authenticated': True, 'subject': subject, 'snapshot': snapshot([
+                    ['HỌC KỲ 1 - 2023-2024'], ['1', 'PHI1006', 'Synthetic only', '3', '7.5', 'B', '3']], proof),
+                    'profile': {'name': 'Synthetic student', 'program': 'Khoa học máy tính và thông tin', 'cohort': '68'},
                     'cookies': [{'name': 'synthetic', 'value': 'private-synthetic-browser-cookie',
                                  'domain': 'daotao.vnu.edu.vn', 'path': '/dkmh/', 'expires': -1}]}
 
@@ -110,6 +115,25 @@ def main():
                         assert page.locator('#system-password').is_hidden()
                         assert page.locator('#system-admin-open').is_hidden()
                         assert page.request.get(base+'/admin/users').status==403
+                        page.locator('#tab-btn-rules').click()
+                        page.locator('#academic-program-choice').wait_for(state='visible')
+                        assert page.locator('#academic-program-choice').input_value() == 'khmtt_7480113qtd_2022'
+                        source_before = page.request.get(base+'/me/profile').json()
+                        page.locator('#academic-program-consent').check()
+                        page.get_by_role('button', name='Xác nhận và đối chiếu bảng điểm', exact=True).click()
+                        board = page.locator('#course-status-board')
+                        board.locator('[data-course-code="PHI1006"]').wait_for(state='visible')
+                        board.get_by_label('Hướng chuyên ngành', exact=True).select_option('synthetic_track')
+                        board.get_by_label('Nhánh tốt nghiệp', exact=True).select_option('thesis')
+                        page.wait_for_function("document.querySelectorAll('.course-state-eligible .course-status-card').length > 0")
+                        assert board.locator('.course-status-column').count() == 3
+                        assert board.locator('.course-state-completed .course-status-card').count() == 1
+                        assert page.locator('#course-credit-budget').input_value() == '20'
+                        source_after = page.request.get(base+'/me/profile').json()
+                        assert source_after['snapshot'] == source_before['snapshot']
+                        assert source_after['last_synced_at'] == source_before['last_synced_at']
+                        assert source_after['profile']['academic_binding']['cohort'] == 68
+                        page.screenshot(path=str(evidence/'rules-real-api.png'), full_page=True)
                         page.locator('#tab-btn-profile').click()
                         page.locator('#portal-profile').wait_for(state='visible')
                         assert page.locator('#portal-login').is_hidden()

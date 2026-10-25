@@ -1,0 +1,119 @@
+.course-status { --state-green: var(--accent-emerald); --state-yellow: var(--accent-amber); --state-red: var(--accent-rose); }
+.course-status [hidden] { display: none !important; }
+.course-status-heading { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin: 4px 0 24px; }
+.course-status-heading h2 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -.7px; }
+.course-status p { line-height: 1.75; }
+.course-status-heading p, .course-status-note { color: var(--text-muted); font-size: 12px; margin-top: 8px; }
+.course-status-legend { display: flex; flex-wrap: wrap; gap: 12px 22px; font-size: 12px; padding: 15px 0; }
+.course-status-legend span { display: flex; align-items: center; gap: 8px; }
+.course-status-dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; flex: 0 0 auto; }
+.course-state-completed { --state-color: var(--state-green); --state-bg: var(--success-bg); }
+.course-state-eligible { --state-color: var(--state-yellow); --state-bg: var(--warning-bg); }
+.course-state-blocked { --state-color: var(--state-red); --state-bg: var(--danger-bg); }
+.course-status-legend .course-state-completed, .course-status-legend .course-state-eligible, .course-status-legend .course-state-blocked { color: var(--state-color); }
+.course-status-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0 20px; }
+.course-status-summary > div { border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px; background: var(--bg-card); }
+.course-status-summary p { font-size: 12px; color: var(--text-muted); }
+.course-status-summary strong { display: block; font-size: 26px; letter-spacing: -.6px; margin-block: 8px; }
+.course-status-summary progress { width: 100%; height: 7px; accent-color: var(--state-green); }
+.course-status-toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+.course-status-toolbar label { display: grid; gap: 7px; font-size: 11px; color: var(--text-muted); min-width: 0; }
+.course-status-toolbar .course-status-search { flex: 1; min-width: 170px; }
+.course-status input[type="search"], .course-status input[type="number"], .course-status select { border: 1px solid var(--border-medium); border-radius: 9px; background: var(--bg-input); color: var(--text-main); font: inherit; padding: 10px 12px; width: 100%; min-width: 0; }
+.course-status input[type="number"] { max-width: 110px; }
+.course-status-notice { padding: 16px 20px; background: var(--info-bg); border: 1px solid var(--border-subtle); border-radius: 12px; font-size: 12px; margin: 16px 0; }
+.course-status-notice ul { padding-left: 20px; margin-top: 8px; line-height: 1.8; }
+.course-status-notice .portal-button { margin-top: 12px; }
+.course-status-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.course-status-column { min-width: 0; border: 1px solid var(--border-subtle); border-radius: 14px; overflow: hidden; background: var(--bg-card); }
+.course-status-column > header { padding: 18px 16px; border-top: 3px solid var(--state-color); background: var(--state-bg); }
+.course-status-column h3 { color: var(--state-color); font-size: 14px; display: flex; justify-content: space-between; gap: 8px; }
+.course-status-column header p { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+.course-status-list { display: grid; gap: 12px; padding: 12px; }
+.course-status-card { padding: 16px 13px; border: 1px solid var(--border-subtle); border-left: 3px solid var(--state-color); border-radius: 10px; min-width: 0; overflow-wrap: anywhere; }
+.course-status-card .course-code-name { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
+.course-status-card h4 { font-size: 13px; line-height: 1.7; font-weight: 600; }
+.course-status-card h4.source-course-name { font-size: 13px; color: var(--text-main); margin-bottom: 0; }
+.course-status-meta { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+.course-status-badge { font-size: 10px; color: var(--state-color); background: var(--state-bg); border-radius: 6px; padding: 4px 7px; }
+.course-status-reasons { font-size: 11px; padding-left: 16px; color: var(--text-muted); line-height: 1.8; }
+.course-status-reasons li + li { margin-top: 6px; }
+.course-status-check { display: flex; align-items: start; gap: 8px; margin-top: 13px; font-size: 11px; cursor: pointer; line-height: 1.6; }
+.course-status-check input { margin-top: 3px; accent-color: var(--state-color); width: 14px; height: 14px; flex: 0 0 auto; }
+.course-status-empty { padding: 18px 8px; font-size: 12px; color: var(--text-muted); text-align: center; }
+.course-plan-error { font-size: 12px; color: var(--state-red); margin-bottom: 14px; }
+.course-program-confirmation, .course-review-items { padding: 20px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-card); margin: 18px 0; font-size: 12px; line-height: 1.9; }
+.course-program-confirmation h3 { font-size: 16px; margin-bottom: 8px; }
+.course-program-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin: 15px 0; }
+.course-program-controls label { display: grid; gap: 6px; }
+.course-program-confirmation .course-program-consent { display: flex; align-items: start; gap: 8px; margin: 15px 0; }
+.course-program-consent input { margin-top: 6px; flex: 0 0 auto; }
+.course-program-confirmation a { display: block; color: var(--accent-primary, #5268b7); margin-bottom: 15px; }
+.course-review-items ul { padding-left: 18px; }
+@media (max-width: 650px) { .course-program-controls { grid-template-columns: 1fr; } }
+@media (max-width: 1200px) { .course-status-columns { grid-template-columns: 1fr; } .course-status-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .course-status-summary, .course-status-list { grid-template-columns: 1fr; } .course-status-heading { flex-direction: column; } .course-status-toolbar > label, .course-status-toolbar .course-status-search { flex: 1 1 100%; } .course-status input[type="number"] { max-width: none; } }
+
+.course-mode-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+.course-mode-controls button[aria-pressed="true"] { background: var(--text-main); color: var(--bg-card); border-color: var(--text-main); }
+#curriculum-reference[hidden], #course-status-board[hidden] { display: none !important; }
+.curriculum-reference { min-width: 0; }
+.reference-heading h2 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -.7px; }
+.reference-heading p, .reference-muted, .reference-scope, .reference-result-count { color: var(--text-muted); font-size: 12px; line-height: 1.8; }
+.reference-heading p { margin: 8px 0 20px; }
+.reference-selectors, .reference-filters { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin: 16px 0; }
+.curriculum-reference label { display: grid; align-content: start; gap: 7px; font-size: 11px; color: var(--text-muted); min-width: 0; }
+.curriculum-reference input[type="search"], .curriculum-reference input[type="number"], .curriculum-reference select { width: 100%; min-width: 0; font: inherit; padding: 11px 12px; border-radius: 9px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main); }
+.reference-scope { padding: 12px 16px; border-left: 3px solid var(--accent-amber); background: var(--warning-bg); border-radius: 6px; }
+.reference-program-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 24px 0; }
+.reference-program-card.portal-button { display: grid; gap: 12px; text-align: left; padding: 22px; white-space: normal; line-height: 1.7; }
+.reference-program-card strong { font-size: 14px; }
+.reference-program-card span, .reference-program-card small { font-size: 12px; color: var(--text-muted); }
+.reference-facts, .reference-plan { border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-card); padding: 20px; margin: 20px 0; min-width: 0; }
+.reference-facts h3, .reference-plan h3 { font-size: 17px; }
+.reference-facts p { font-size: 12px; color: var(--text-muted); margin: 10px 0; line-height: 1.7; }
+.curriculum-reference a { color: var(--accent-primary, #5268b7); text-underline-offset: 3px; font-size: 12px; }
+.reference-source-issues, .reference-group-summary { font-size: 12px; line-height: 1.9; margin: 16px 0; padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--bg-card); }
+.reference-source-issues summary, .reference-group-summary summary { cursor: pointer; font-weight: 600; }
+.reference-source-issues ul, .reference-group-summary ul, .reference-plan-warnings { padding-left: 20px; margin-top: 10px; }
+.reference-budget-form { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 16px 0; }
+.reference-budget-form label { max-width: 200px; }
+.reference-budget-form strong { font-size: 26px; margin-left: auto; letter-spacing: -.7px; }
+.reference-plan progress { width: 100%; height: 7px; accent-color: var(--accent-primary, #5268b7); }
+.reference-plan-actions, .reference-selected { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.reference-plan-actions .portal-button { white-space: normal; text-align: left; }
+.reference-selected .portal-button { font-size: 11px; padding: 7px 10px; }
+.reference-plan-warnings { color: var(--text-muted); font-size: 12px; line-height: 1.8; }
+.reference-filters { grid-template-columns: 2fr 1.4fr 1fr 1fr; margin-top: 28px; }
+.reference-table-scroll { width: 100%; max-height: 76vh; overflow: auto; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-card); }
+.reference-table { width: 100%; border-collapse: collapse; min-width: 800px; text-align: left; font-size: 12px; }
+.reference-table th { position: sticky; top: 0; background: var(--bg-card); z-index: 1; font-size: 11px; color: var(--text-muted); }
+.reference-table td, .reference-table th { padding: 14px 12px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; line-height: 1.8; }
+.reference-table td:first-child { text-align: center; width: 55px; }
+.reference-table td:nth-child(2) { min-width: 190px; }
+.reference-table td:nth-child(4) { min-width: 140px; max-width: 220px; }
+.reference-table td:nth-child(5) { min-width: 180px; max-width: 280px; }
+.reference-table td:nth-child(6) { min-width: 78px; }
+.reference-table strong, .reference-table small, .reference-table a { display: block; }
+.reference-table small { color: var(--text-muted); margin-top: 6px; }
+.reference-table td:nth-child(2) .portal-button { padding: 3px 0; font-size: 11px; border: 0; background: transparent; color: var(--accent-primary, #5268b7); text-decoration: underline; text-underline-offset: 3px; }
+.reference-table input { width: 16px; height: 16px; margin-top: 7px; accent-color: var(--accent-primary, #5268b7); cursor: pointer; }
+.reference-badge { display: inline-block; font-size: 10px; background: var(--info-bg); border-radius: 5px; padding: 3px 6px; }
+.reference-source-warning { font-size: 10px; display: inline-block; background: var(--warning-bg); color: var(--text-main); border-radius: 5px; padding: 3px 6px; }
+.reference-error { padding: 14px 18px; border-radius: 8px; background: var(--danger-bg); font-size: 12px; line-height: 1.8; }
+.reference-result-count { margin: 10px 0; }
+.reference-detail { width: min(700px, calc(100vw - 32px)); max-height: 85vh; margin: auto; padding: 26px; border: 1px solid var(--border-subtle); border-radius: 16px; background: var(--bg-card); color: var(--text-main); line-height: 1.9; }
+.reference-detail::backdrop { background: #11172e88; backdrop-filter: blur(3px); }
+.reference-detail-heading { display: flex; align-items: start; gap: 16px; justify-content: space-between; margin-bottom: 15px; }
+.reference-detail-heading h3 { font-size: 18px; }
+.reference-detail h4 { margin-top: 20px; }
+.reference-detail p, .reference-detail li { font-size: 13px; }
+.reference-detail ul { padding-left: 20px; }
+@media (max-width: 1200px) { .reference-filters { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 650px) {
+  .reference-selectors, .reference-filters, .reference-program-grid { grid-template-columns: 1fr; }
+  .reference-facts, .reference-plan { padding: 16px; }
+  .reference-budget-form label { max-width: none; flex: 1 1 100%; }
+  .reference-budget-form strong { font-size: 22px; }
+  .course-mode-controls .portal-button { flex: 1 1 100%; }
+}

@@ -60,7 +60,7 @@ def with_ssl_required(url: str) -> str:
     return f"{url}{separator}sslmode={DEFAULT_SSLMODE}"
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class HusDatabaseConfig:
     """A validated HUS database connection target."""
 
