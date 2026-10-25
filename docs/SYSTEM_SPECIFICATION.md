@@ -401,6 +401,21 @@ Tiêu đề nhắc từ hai ngành khác nhau trở lên cũng được giữ �
 xét URL hoặc phần đầu nội dung, tránh thu hẹp thông báo dành cho nhiều ngành.
 Tên ngành ghép “Toán học và Tin học” được tính là một ngành Toán–Tin.
 
+### Chuẩn bị corpus ứng viên có thể tái lập — 2026-10-25
+
+`tools.prepare_hus_corpus` là pipeline offline riêng sau crawl. Đầu vào gồm snapshot được ghim
+theo commit/checksum, cấu hình versioned và quyết định review đủ document ID; lưu trong
+`data/hus/corpus/`. Công cụ kiểm tra hash/catalog/Markdown trước khi tạo inventory, bản chuẩn hóa,
+quyết định review và documents/chunks/source map ứng viên. Mỗi build có manifest hash mã công cụ,
+contract và output; `verify` dựng lại và so từng byte. Không ghi đè nguồn hoặc build cũ.
+
+Baseline mới có 106 ID, 100 `needs_review`, 6 `pending_ocr`, 0 `include`; không nhập quyết định
+build07 chưa có hồ sơ trong checkout. `active` của crawler không chứng nhận review. Chỉ quyết định
+`include` có raw hash-bound và bằng chứng review mới xuất corpus. Metadata thời gian/ngành vẫn
+cần thẩm định; locator chunk chỉ về bản chuẩn hóa, chưa xác nhận trang/ô bảng gốc. Không tự gộp
+text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xem
+[quy trình và nghiệm thu](HUS_CORPUS_PREPARATION.md) để tái tạo trên cùng snapshot.
+
 ### Giai đoạn B: Trả lời câu hỏi
 
 1. Người dùng hỏi trong chatbot.
