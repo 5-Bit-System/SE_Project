@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "pipeline_version": "1.3",
+  "pipeline_version": "1.4",
   "applicability_metadata": "applicability.json",
   "source_manifest": "source_manifest.json",
   "review_decisions": "review_decisions.json",

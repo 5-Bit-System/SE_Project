@@ -21,9 +21,10 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from app.hus.models import HUSDocument, ReviewDecision
 from app.hus.review import require_review
 from app.hus.metadata import ApplicabilityFile, metadata_for, validate_metadata
+from app.hus.quality import analyze_source, quality_digest
 
 SCHEMA_VERSION = "1.0"
-PIPELINE_VERSION = "1.3"
+PIPELINE_VERSION = "1.4"
 REVIEW_STATUSES = ("include", "needs_review", "pending_ocr", "exclude")
 
 
@@ -66,7 +67,7 @@ class ReviewFile(StrictModel):
 
 class BuildConfig(StrictModel):
     schema_version: Literal["1.0"]
-    pipeline_version: Literal["1.3"]
+    pipeline_version: Literal["1.4"]
     source_manifest: str
     review_decisions: str
     normalization: Literal["nfc-lf-trim-trailing-v1"]
@@ -279,6 +280,7 @@ def build_artifacts(
     source_files = {item.path: item for item in manifest.files}
     artifacts: dict[str, bytes] = {}
     inventory, review_rows, corpus, chunks, source_map = [], [], [], [], []
+    quality_reports, ocr_queue, quality_blockers = [], [], []
     hash_groups: dict[str, list[str]] = defaultdict(list)
     for key, doc in documents.items():
         hash_groups[doc.content_hash].append(key)
@@ -311,12 +313,29 @@ def build_artifacts(
             flags.append("outside_supported_majors")
         if selected.major.verified == "unknown":
             flags.append("applicability_unverified")
+        raw_file = source_files[source.raw_path] if source.raw_path else None
+        raw = source_path(root, source.raw_path).read_bytes() if source.raw_path else None
+        quality = None
+        if raw_file is not None:
+            try:
+                quality = analyze_source(raw, doc.url, doc.fetched_at, raw_file.encoding)
+                quality_reports.append({"document_id": key, "report_sha256": quality_digest(quality),
+                                        "report": quality.model_dump()})
+                ocr_queue.extend({"document_id": key, "source_url": doc.url, "page_id": page.page_id,
+                                  "page": page.page_number, "reasons": page.reasons,
+                                  "source_sha256": quality.source_sha256} for page in quality.pages if page.needs_ocr)
+            except Exception as exc:
+                if decision.status == "include":
+                    raise CorpusError(f"Cannot assess source quality for {key}: {exc}") from exc
+                quality_blockers.append({"document_id": key, "reason": "quality_extraction_failed", "detail": str(exc)})
+        else:
+            quality_blockers.append({"document_id": key, "reason": "raw_source_missing", "source_url": doc.url})
         if decision.status == "include":
-            raw_file = source_files[source.raw_path] if source.raw_path else None
             try:
                 decision = require_review(
                     doc, decision, raw_file.sha256 if raw_file else None,
                     source_encoding=raw_file.encoding if raw_file else "binary", as_of=as_of,
+                    raw=raw,
                 )
             except ValueError as exc:
                 raise CorpusError(f"Include lacks valid review evidence: {key}: {exc}") from exc
@@ -337,6 +356,9 @@ def build_artifacts(
             "review_status": decision.status, "review": decision.model_dump(),
             "review_as_of": config.as_of,
             "raw_capture": doc.raw_source.model_dump() if doc.raw_source else None,
+            "source_quality_sha256": quality_digest(quality) if quality else None,
+            "source_unit_ids": ([page.page_id for page in quality.pages] + [table.table_id for table in quality.tables]
+                                if quality and decision.status == "include" else []),
         }
         inventory.append({**metadata, "crawler_status": doc.status.value,
                           "review_status": decision.status, "flags": sorted(flags),
@@ -358,7 +380,9 @@ def build_artifacts(
                            "position": position, "locator": locator})
             source_map.append({"chunk_id": chunk_id, "document_id": key,
                                "source_url": doc.url, "locator": locator,
-                               "review_evidence_locator": decision.evidence_locator})
+                               "review_evidence_locator": decision.evidence_locator,
+                               "source_quality_sha256": metadata["source_quality_sha256"],
+                               "source_unit_ids": metadata["source_unit_ids"], "quality_scope": "whole_document"})
     counts = dict(Counter(row["review_status"] for row in inventory))
     report = {
         "schema_version": SCHEMA_VERSION, "document_count": len(documents),
@@ -367,6 +391,8 @@ def build_artifacts(
         "source_files_verified": len(manifest.files), "included_documents": len(corpus),
         "chunk_count": len(chunks), "candidate_only": True, "active_release": False,
         "academic_validity_verified_by_pipeline": False,
+        "source_quality_reports": len(quality_reports), "ocr_page_count": len(ocr_queue),
+        "quality_blocker_count": len(quality_blockers),
     }
     artifacts.update({
         "source_manifest.json": json_bytes(manifest.model_dump()),
@@ -378,12 +404,16 @@ def build_artifacts(
         "inventory.jsonl": jsonl_bytes(inventory), "document_review.jsonl": jsonl_bytes(review_rows),
         "documents.jsonl": jsonl_bytes(corpus), "chunks.jsonl": jsonl_bytes(chunks),
         "source_map.jsonl": jsonl_bytes(source_map), "validation_report.json": json_bytes(report),
+        "source_quality.jsonl": jsonl_bytes(quality_reports), "ocr_queue.jsonl": jsonl_bytes(ocr_queue),
+        "quality_blockers.jsonl": jsonl_bytes(quality_blockers),
     })
     repo_root = Path(__file__).resolve().parents[2]
     implementations = {name: sha256(file_bytes(repo_root / name, "utf8-lf")) for name in (
         "app/hus/corpus.py", "app/hus/models.py", "tools/prepare_hus_corpus.py",
         "app/hus/review.py",
         "app/hus/metadata.py", "app/hus/cleaning.py",
+        "app/hus/quality.py", "app/hus/quality_models.py", "app/hus/extractors/pdf.py",
+        "app/hus/extractors/docx.py", "app/hus/extractors/excel.py", "app/hus/extractors/html.py",
     )}
     output_hashes = {name: sha256(data) for name, data in sorted(artifacts.items())}
     identity = {"pipeline_version": PIPELINE_VERSION, "implementation_sha256": implementations,

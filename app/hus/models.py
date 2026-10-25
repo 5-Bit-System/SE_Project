@@ -8,6 +8,7 @@ from typing import Literal, Optional
 from urllib.parse import urlsplit
 
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator, model_validator
+from app.hus.quality_models import QualityReview, SourceQuality
 
 
 def _http_url(value: str) -> str:
@@ -93,6 +94,7 @@ class ReviewDecision(BaseModel):
     validity_evidence_locator: str | None = None
     effective_from: str | None = None
     effective_to: str | None = None
+    source_quality: QualityReview | None = None
 
     @property
     def review_status(self) -> str:
@@ -291,6 +293,7 @@ class HUSDocument(_StrictModel):
     attachments: list[HUSAttachment] = Field(default_factory=list)
     status: DocumentStatus = DocumentStatus.ACTIVE
     raw_source: Optional[RawSourceReference] = None
+    source_quality: Optional[SourceQuality] = None
 
     _validate_url = field_validator("source_url")(_http_url)
     _validate_strings = field_validator("title", "content_markdown", "content_hash")(_non_empty)
@@ -344,6 +347,8 @@ class HUSChunk(_StrictModel):
     review: ReviewDecision
     review_as_of: Optional[str] = None
     applicability: ApplicabilityMetadata
+    source_quality_sha256: Optional[str] = None
+    source_unit_ids: list[str] = Field(default_factory=list)
 
 
 class CrawlRecord(_StrictModel):

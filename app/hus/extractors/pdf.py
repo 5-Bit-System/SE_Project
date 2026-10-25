@@ -24,7 +24,7 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
         raise CrawlError("empty pdf file")
 
     pages_text: list[str] = []
-    total_chars = 0
+    page_ocr_flags: list[bool] = []
 
     try:
         with pdfplumber.open(io.BytesIO(raw)) as pdf:
@@ -35,7 +35,7 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
             for idx, page in enumerate(pdf.pages, start=1):
                 page_lines: list[str] = [f"<!-- Page {idx} -->"]
                 text = clean_text(page.extract_text() or "")
-                total_chars += len(text)
+                page_ocr_flags.append(len(text) < 50)
                 tables = [
                     (table, rows)
                     for table in sorted(page.find_tables(), key=lambda table: table.bbox[1])
@@ -61,7 +61,7 @@ def extract_pdf(raw: bytes) -> tuple[str, bool]:
 
                 pages_text.append("\n".join(page_lines))
 
-            needs_ocr = (total_chars / page_count) < 50
+            needs_ocr = any(page_ocr_flags)
             content = "\n\n".join(pages_text).strip()
             return content, needs_ocr
     except Exception as exc:

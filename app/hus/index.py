@@ -15,6 +15,21 @@ from app.hus.review import ReviewGateError, require_review, source_digest
 from app.hus.urls import canonicalize_url
 
 
+def _source_quality(document: HUSDocument, raw: bytes, review: ReviewDecision) -> dict | None:
+    """Only publish a freshly extracted report matching the checks that passed the gate."""
+    if review.source_quality is None:
+        return None
+    from app.hus.quality import analyze_source, quality_digest
+
+    try:
+        report = analyze_source(raw, document.url, document.fetched_at, review.source_checksum_encoding)
+        if quality_digest(report) != review.source_quality.report_sha256:
+            raise ReviewGateError("Index quality report differs from verified report")
+        return report.model_dump()
+    except Exception as exc:
+        raise ReviewGateError(f"Cannot publish index source quality: {exc}") from exc
+
+
 def chunk_document(
     document: HUSDocument, max_chars: int = 1200, *, review: ReviewDecision | None = None,
     raw: bytes | None = None, as_of: date | None = None,
@@ -24,6 +39,7 @@ def chunk_document(
         document, review,
         source_digest(raw, review.source_checksum_encoding) if raw is not None and review else None,
         source_encoding=review.source_checksum_encoding if review else "binary", as_of=as_of,
+        raw=raw,
     )
     applicability = metadata_for(document)
     if max_chars < 1:
@@ -44,6 +60,9 @@ def chunk_document(
                 heading=heading, text=text, review_status="include", review=review,
                 review_as_of=as_of.isoformat() if as_of else None,
                 applicability=applicability,
+                source_quality_sha256=review.source_quality.report_sha256 if review.source_quality else None,
+                source_unit_ids=(list(review.source_quality.page_checks) + list(review.source_quality.table_checks)
+                                 if review.source_quality else []),
             )
         )
         buf.clear()
@@ -91,9 +110,9 @@ class HUSIndex:
                 raw_path = self.raw_dir / record["raw_file"]
                 if not raw_path.resolve().is_relative_to(self.raw_dir.resolve()):
                     raise ReviewGateError("Raw file escapes index source directory")
-                chunks = chunk_document(
-                    doc, review=self._review_for(doc), raw=raw_path.read_bytes(), as_of=self.as_of,
-                )
+                raw = raw_path.read_bytes()
+                chunks = chunk_document(doc, review=self._review_for(doc), raw=raw, as_of=self.as_of)
+                quality = _source_quality(doc, raw, chunks[0].review)
                 approved[identity] = {
                     **record, "review_status": "include",
                     "review": chunks[0].review.model_dump(),
@@ -102,6 +121,7 @@ class HUSIndex:
                     "major": chunks[0].applicability.major.verified,
                     "proposed_major": chunks[0].applicability.major.proposed,
                     "chunks": [chunk.model_dump() for chunk in chunks],
+                    "source_quality": quality,
                 }
             except (ValueError, OSError, KeyError):
                 continue
@@ -124,6 +144,7 @@ class HUSIndex:
             chunks = chunk_document(
                 document, review=self._review_for(document), raw=raw, as_of=self.as_of,
             )
+            quality = _source_quality(document, raw, chunks[0].review)
         except ValueError:
             self.documents.pop(identity, None)
             raise
@@ -135,6 +156,7 @@ class HUSIndex:
             raw_file.write_bytes(raw)
 
         record = document.model_dump(exclude={"links"})
+        record["source_quality"] = quality
         record["raw_file"] = raw_name
         record.update(review_status="include", review=chunks[0].review.model_dump(),
                       review_as_of=chunks[0].review_as_of,

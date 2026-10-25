@@ -44,7 +44,7 @@ def snapshot(tmp_path):
     manifest = create_source_manifest(root, "synthetic-v1", "fixture://synthetic-v1")
     reviews = initial_reviews(root, manifest)
     config = BuildConfig(
-        schema_version="1.0", pipeline_version="1.3", source_manifest="source_manifest.json",
+        schema_version="1.0", pipeline_version="1.4", source_manifest="source_manifest.json",
         review_decisions="review_decisions.json", normalization="nfc-lf-trim-trailing-v1",
         chunking="utf8-lines-v1", max_chunk_bytes=128, overlap_bytes=0,
     )

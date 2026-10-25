@@ -19,6 +19,7 @@ from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
 from app.hus.models import DocumentStatus, HUSDocument, RawSourceReference
 from app.hus.metadata import assign_proposal
+from app.hus.quality import analyze_source
 from app.hus.provenance import document_id_for
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
@@ -197,7 +198,8 @@ class HUSPipeline:
                         doc, attachment_urls = extract_html(raw_bytes, final_url, fetched_at)
                         doc.document_type = infer_document_type(doc.title, doc.content)
                         assign_proposal(doc)
-                    except CrawlError as exc:
+                        doc.source_quality = analyze_source(raw_bytes, final_url, fetched_at)
+                    except (CrawlError, ValueError) as exc:
                         self.raw_storage.save_raw_html(final_url, raw_bytes, title="unparsed",
                                                        fetched_at=fetched_at,
                                                        content_type=resp_headers.get("content-type"))
@@ -330,7 +332,8 @@ class HUSPipeline:
                     # Extract attachment content
                     try:
                         att_content, needs_ocr = extract_attachment(att_raw, ext)
-                    except CrawlError as exc:
+                        att_quality = analyze_source(att_raw, att_final, fetched_at)
+                    except (CrawlError, ValueError) as exc:
                         att_major = infer_attachment_major(att_final, parent_major=doc.major)
                         self.raw_storage.save_raw_document(
                             att_final, att_raw, ext, major=att_major, title=att_filename,
@@ -370,6 +373,7 @@ class HUSPipeline:
                         raw_source=self.raw_storage.archive.latest(att_final),
                     )
                     assign_proposal(att_doc, parent_major=doc.major)
+                    att_doc.source_quality = att_quality
                     att_doc_id = self.processed_storage.save_document(att_doc)
                     self.processed_storage.link_attachment(
                         document_id_for(final_url), att_final, att_doc.raw_source.raw_path,

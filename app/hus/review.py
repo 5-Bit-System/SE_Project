@@ -23,7 +23,7 @@ def source_digest(raw: bytes, encoding: str) -> str:
 
 def require_review(
     document: HUSDocument, decision: ReviewDecision | None, source_sha256: str | None,
-    *, source_encoding: str = "binary", as_of: date | None = None,
+    *, source_encoding: str = "binary", as_of: date | None = None, raw: bytes | None = None,
 ) -> ReviewDecision:
     """Validate current decisions, not a cached review embedded in an old index record."""
     if decision is None:
@@ -74,4 +74,28 @@ def require_review(
             decision.effective_to and as_of > date.fromisoformat(decision.effective_to)
         ):
             raise ReviewGateError("Document is not effective on as_of")
+    from app.hus.quality import analyze_source, kind_for, require_quality
+
+    try:
+        if raw is not None and source_digest(raw, source_encoding) != source_sha256:
+            raise ReviewGateError("Quality source bytes differ from reviewed source hash")
+        table_text = any(line.lstrip().startswith("|") for line in document.content.splitlines())
+        raw_kind = kind_for(raw, document.url) if raw is not None else "unknown"
+        suffix = document.url.split("?")[0].lower()
+        if raw is None and (table_text or suffix.endswith((".pdf", ".docx", ".xlsx"))):
+            raise ReviewGateError("Raw bytes are required for page/table quality verification")
+        if raw is not None and (table_text or raw_kind in {"pdf", "docx", "xlsx", "html"}):
+            report = analyze_source(raw, document.url, document.fetched_at, source_encoding)
+            if report.pages or report.tables or table_text:
+                if report.source_kind == "unknown" or (table_text and not report.tables):
+                    raise ReviewGateError("Source table structure could not be verified")
+                if report.display_content_sha256 != document.content_hash:
+                    raise ReviewGateError("Document text differs from the source quality extraction")
+                require_quality(report, decision.source_quality, as_of)
+    except ReviewGateError:
+        raise
+    except Exception as exc:
+        # Parsers may raise CrawlError, BadZipFile or XML errors. No failed parse
+        # may bypass the gate or prevent index reload from dropping the record.
+        raise ReviewGateError(f"Source quality verification failed: {exc}") from exc
     return decision

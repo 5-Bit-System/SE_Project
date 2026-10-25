@@ -135,6 +135,7 @@ class ProcessedStorage:
         self.documents[document_id]["attachments"] = [item.model_dump() for item in doc.attachments]
         self.documents[document_id]["major"] = cached.major.value
         self.documents[document_id]["applicability"] = cached.applicability.model_dump()
+        self.documents[document_id]["source_quality"] = doc.source_quality.model_dump() if doc.source_quality else None
         return True
 
     def link_attachment(self, parent_id: str, url: str, raw_path: str) -> None:

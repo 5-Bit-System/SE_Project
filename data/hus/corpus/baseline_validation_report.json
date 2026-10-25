@@ -15,6 +15,8 @@
     "table_requires_review": 49
   },
   "included_documents": 0,
+  "ocr_page_count": 0,
+  "quality_blocker_count": 51,
   "review_counts": {
     "exclude": 0,
     "include": 0,
@@ -22,5 +24,6 @@
     "pending_ocr": 6
   },
   "schema_version": "1.0",
-  "source_files_verified": 162
+  "source_files_verified": 162,
+  "source_quality_reports": 55
 }
