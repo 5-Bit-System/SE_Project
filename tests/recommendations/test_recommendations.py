@@ -66,6 +66,39 @@ def test_ranker_failure_uses_safe_fallback():
     assert any("dự phòng" in warning for warning in response.warnings)
 
 
+def test_recommendation_bundle_consumes_choice_quota_without_unlocking_prerequisites():
+    catalog = sample_catalog()
+    catalog.courses.extend([
+        Course(code="F", name="Lựa chọn thay thế", credits=3, block="elective",
+               choice_group_ids=["elective"]),
+        Course(code="G", name="Môn sau E", credits=3, block="required", prerequisites=[["E"]]),
+    ])
+
+    class AlternativesFirst:
+        def rank(self, candidates, goal):
+            return ["E", "F", "G", "A"]
+
+    response = recommend(catalog, RecommendationRequest(program_id="demo", max_credits=18),
+                         ranker=AlternativesFirst())
+    assert [course.code for course in response.recommendations] == ["E", "A"]
+    # All alternatives remain eligible individually; selection is a separate constraint.
+    assert response.eligible_count == 3
+
+
+def test_group_can_take_multiple_courses_until_required_credits_are_reached():
+    catalog = sample_catalog()
+    catalog.program.choice_groups[0].required_credits = 6
+    catalog.courses.extend([
+        Course(code=code, name=code, credits=3, block="elective", choice_group_ids=["elective"])
+        for code in ["F", "G"]
+    ])
+    response = recommend(catalog, RecommendationRequest(program_id="demo", max_credits=18))
+    assert {c.code for c in response.recommendations} == {"A", "E", "F"}
+    response = recommend(catalog, RecommendationRequest(program_id="demo", max_credits=18,
+                                                        passed_course_codes=["E"]))
+    assert {c.code for c in response.recommendations} == {"A", "F"}
+
+
 def test_wrong_program_and_unknown_passed_course_are_rejected():
     catalog = sample_catalog()
     for request in [

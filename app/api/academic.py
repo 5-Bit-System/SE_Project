@@ -1,8 +1,7 @@
-"""Authenticated source-owned academic endpoints, staged before legacy cutover.
+"""Authenticated academic endpoints using source-owned records and owner binding.
 
-Real applicability evidence/policy registration is deliberately absent until the
-user's deferred program/login work is verified. Preview/readiness works now;
-personal results fail closed rather than falling back to client-supplied grades.
+Full academic operations require a ready context. The course board can display
+individually resolved results while keeping uncertain outcomes and plans gated.
 """
 
 from __future__ import annotations
@@ -10,26 +9,39 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from app.academic_context import AcademicContextError, AcademicPolicy, build_context, require_ready
+from app.academic_catalogs import load_academic_catalog
+from app.academic_context import AcademicContextError, build_context, require_ready
+from app.academic_policies import POLICIES
 from app.api.portal import COOKIE, safe_call, session
-from app.catalog import load_catalog
 from app.integrations.daotao import runtime, store
 from app.models import RankingWeights, RecommendationRequest, StructuredPreference
+from app.program_bindings import ProgramBindingError, binding_current, catalog_fingerprint
+from app.program_bindings import confirm as confirm_program
+from app.program_bindings import options as program_options
 from app.progress import calculate_progress
 from app.recommendation.llm import configured_adapters
 from app.rules import _prepare_selection_context, evaluate_eligibility
 from app.schemas.advisor import AdvisorMessage, AdvisorRequest
 from app.services.advisor_service import chat_advisor
+from app.services.course_status_service import course_board, reviewed_course_board
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
-# Server-reviewed policies only; no route accepts a policy or review flag from a student.
-POLICIES: dict[str, AcademicPolicy] = {}
+# No route accepts a policy or a verified flag from a student.
+
+
+@router.get("/academic-policy/vnu-3626-2022")
+def policy_source():
+    path = Path(__file__).resolve().parents[2] / "docs/policies/vnu_3626_2022.pdf"
+    return FileResponse(path, media_type="application/pdf", filename="vnu_3626_2022.pdf",
+                        content_disposition_type="inline")
 
 
 class AcademicQuery(BaseModel):
@@ -74,16 +86,18 @@ async def parse_body(request: Request) -> AcademicOperation:
 
 
 def _catalog_context(program_id: str):
-    catalog = load_catalog(program_id)
+    catalog = load_academic_catalog(program_id)
     # Content-addressed revision for this staged read-only context, not a DB FK.
-    revision = hashlib.sha256(json.dumps(catalog.model_dump(mode="json"),
-                                        sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    revision = catalog_fingerprint(catalog)
     return catalog, revision
 
 
-async def resolve_context(request: Request, query: AcademicQuery) -> tuple[Any, dict]:
+async def resolve_context(
+    request: Request, query: AcademicQuery, saved: dict | None = None,
+) -> tuple[Any, dict]:
     owner_id = session(request).owner
-    saved = await safe_call(store.profile, owner_id)
+    if saved is None:
+        saved = await safe_call(store.profile, owner_id)
     try:
         catalog, revision = await asyncio.to_thread(_catalog_context, query.program_id)
         _prepare_selection_context(catalog, query.selected_track_id,
@@ -92,7 +106,7 @@ async def resolve_context(request: Request, query: AcademicQuery) -> tuple[Any, 
         raise HTTPException(422, "academic_program_invalid") from None
     metadata = saved.get("profile") or {}
     binding = metadata.get("academic_binding")
-    if not isinstance(binding, dict):
+    if not isinstance(binding, dict) or not binding_current(metadata):
         binding = None
     policy = POLICIES.get(binding.get("policy_version")) if binding else None
     context = build_context(saved.get("snapshot"), owner_id=owner_id, catalog=catalog,
@@ -127,6 +141,131 @@ async def context_view(request: Request):
     session(request)
     _, context = await resolve_context(request, parse_query(request))
     return context
+
+
+class CourseBoardQuery(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    max_credits: int = Field(default=20, ge=1, le=30)
+    selected_track_id: str | None = Field(default=None, max_length=100)
+    selected_graduation_path_id: str | None = Field(default=None, max_length=100)
+
+
+class ProgramConfirmation(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    program_id: str = Field(min_length=1, max_length=100)
+    cohort: int = Field(ge=67, le=200)
+    expected_catalog_revision: str = Field(min_length=64, max_length=64)
+    expected_snapshot_digest: str = Field(min_length=1, max_length=100)
+    expected_source_scope: str = Field(min_length=64, max_length=64)
+    confirm: bool = Field(strict=True)
+
+
+@router.get("/me/academic-program")
+async def academic_program(request: Request):
+    value = session(request)
+    saved = await safe_call(store.profile, value.owner)
+    result = await asyncio.to_thread(program_options, saved)
+    session(request)
+    return result
+
+
+@router.post("/me/academic-program")
+async def academic_program_confirm(request: Request):
+    value = session(request)
+    raw = bytearray()
+    async for chunk in request.stream():
+        raw.extend(chunk)
+        if len(raw) > 4096:
+            raise HTTPException(413, "invalid_academic_request")
+    try:
+        body = ProgramConfirmation.model_validate_json(raw)
+        if body.confirm is not True:
+            raise ValueError
+    except ValueError:
+        raise HTTPException(422, "academic_program_confirmation_required") from None
+    saved = await safe_call(store.profile, value.owner)
+    try:
+        binding = await asyncio.to_thread(confirm_program, saved,
+            **body.model_dump(exclude={"confirm"}))
+    except ProgramBindingError as exc:
+        raise HTTPException(409, str(exc)) from None
+    session(request)
+    await safe_call(store.save_academic_binding, value.owner, value.generation, binding,
+                    body.expected_snapshot_digest, body.expected_source_scope)
+    session(request)
+    return {"confirmed": True, "program_id": binding["program_id"], "cohort": binding["cohort"]}
+
+
+@router.get("/me/course-status")
+async def course_status(request: Request):
+    """Choose the catalog from server-owned evidence, never a display name/default."""
+    owner_id = session(request).owner
+    try:
+        options = CourseBoardQuery.model_validate(dict(request.query_params))
+    except ValidationError:
+        raise HTTPException(422, "invalid_academic_request") from None
+    saved = await safe_call(store.profile, owner_id)
+    session(request)
+    binding = (saved.get("profile") or {}).get("academic_binding")
+    unavailable = {
+        "status": "needs_program_binding", "blocking_reasons": [],
+        "courses": None, "progress": None, "plan": None,
+        "latest_collection": session(request).latest_collection,
+    }
+    snapshot = saved.get("snapshot") or {}
+    unavailable["collection_status"] = {
+        "connector_version": snapshot.get("connector_version"),
+        "completeness": snapshot.get("completeness"),
+        "evidence": snapshot.get("collection_evidence"),
+        "unparsed_rows": len(snapshot.get("unknown_rows") or []),
+    }
+    if not snapshot:
+        unavailable["blocking_reasons"].append("source_missing")
+    elif snapshot.get("completeness") != "complete":
+        unavailable["blocking_reasons"].append("source_incomplete")
+    if (not isinstance(binding, dict) or not binding_current(saved.get("profile") or {})
+            or binding.get("verified") is not True
+            or not isinstance(binding.get("program_id"), str)
+            or not binding["program_id"].strip()):
+        unavailable["blocking_reasons"].append("program_binding_unverified")
+        unavailable["program_selection"] = await asyncio.to_thread(program_options, saved)
+        session(request)
+        return unavailable
+    query = AcademicQuery(program_id=binding["program_id"], **options.model_dump(exclude={"max_credits"}))
+    catalog, context = await resolve_context(request, query, saved)
+    selections = {
+        "tracks": [track.model_dump() for track in catalog.program.track_selection.tracks],
+        "paths": [path.model_dump() for path in catalog.program.graduation_selection.paths],
+        "track_required": catalog.program.track_selection.mode == "exactly_one_track",
+        "path_required": catalog.program.graduation_selection.mode == "exactly_one_path",
+    }
+    reviewable = (context["status"] == "needs_policy_review" and context["blocking_reasons"]
+                  and set(context["blocking_reasons"]) <= {
+                      "course_outcomes_unresolved", "program_rules_review_required"})
+    if context["status"] != "ready" and not reviewable:
+        return {**unavailable, "status": context["status"],
+                "blocking_reasons": context["blocking_reasons"], "selections": selections}
+    missing = []
+    if selections["track_required"] and not query.selected_track_id:
+        missing.append("track_selection_required")
+    if selections["path_required"] and not query.selected_graduation_path_id:
+        missing.append("graduation_selection_required")
+    if missing:
+        result = reviewed_course_board(catalog, context, options.max_credits,
+            query.selected_track_id, query.selected_graduation_path_id, missing)
+    elif reviewable:
+        result = reviewed_course_board(catalog, context, options.max_credits,
+            query.selected_track_id, query.selected_graduation_path_id)
+    else:
+        result = course_board(catalog, context, options.max_credits,
+                              query.selected_track_id, query.selected_graduation_path_id)
+    if result["status"] == "partial":
+        _, current = await resolve_context(request, query)
+        if current["revision"] != context["revision"]:
+            raise HTTPException(409, "context_changed")
+    else:
+        await ensure_current(request, query, context)
+    return {**result, "selections": selections}
 
 
 @router.get("/me/eligibility")

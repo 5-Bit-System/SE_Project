@@ -1,5 +1,15 @@
 # Thử kết nối cổng đào tạo VNU
 
+> Cập nhật 25/10/2026: connector tích hợp đọc module nguồn trong `/ListPoint/`
+> được mở từ menu VNU đã xác minh. Trang có checkbox mặc định tắt, nhãn bắt đầu
+> bằng “Xem cả môn …”, gọi `submit_d`. Bộ đọc chọn đúng control này để yêu cầu
+> đầy đủ các lượt học, rồi kiểm tra bảng/nguồn ổn định, request tải xong và không
+> có lọc hạn chế khác. Checkbox không rõ nghĩa vẫn chặn. Không sửa điểm hoặc
+> form hồ sơ; không đánh dấu snapshot cũ là đầy đủ. Báo cáo kỹ thuật của lần
+> đồng bộ bị từ chối được giữ riêng theo session để không bị che sau reload.
+> Xem `docs/VNU_PERSONAL_ACADEMIC_2026_10_25.md`; các phần CLI thử gốc dưới đây
+> không mô tả đầy đủ hành vi tích hợp hiện tại.
+
 > Cập nhật tích hợp 23/10/2026: API/profile và migration đã được thêm vào
 > hệ thống local. Xem `docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md` cho trạng
 > thái nghiệm thu, thiết lập mới và giới hạn identity/completeness. Các mục

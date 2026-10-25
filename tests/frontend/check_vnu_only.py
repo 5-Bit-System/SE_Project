@@ -22,6 +22,9 @@ def main():
         elif path.startswith('/me/academic-context?'):
             result, code = {"status": "needs_program_binding", "blocking_reasons": [
                 "source_incomplete", "program_binding_unverified"]}, 200
+        elif path.startswith('/me/course-status?'):
+            result, code = {"status": "needs_program_binding", "blocking_reasons": [
+                "source_incomplete", "program_binding_unverified"], "courses": None}, 200
         elif path == '/auth/portal':
             logged_in = True
             result, code = {}, 200
@@ -52,6 +55,7 @@ def main():
         assert page.locator('[data-language-choice="vi"]').get_attribute('aria-pressed') == 'true'
         assert page.locator('#workspace-program').inner_text() == 'Chưa đăng nhập'
         page.locator('#tab-btn-rules').click()
+        page.locator('#course-mode-personal').click()
         assert 'Đăng nhập VNU' in page.locator('#tab-rules').inner_text()
         page.locator('#tab-btn-profile').click()
         page.wait_for_function("!document.getElementById('portal-submit').disabled")

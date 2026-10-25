@@ -1,5 +1,7 @@
 """Read landing-page profile before the transcript replaces it; no live requests."""
 
+from urllib.parse import urlsplit
+
 from playwright.sync_api import sync_playwright
 
 from app.integrations.daotao.client import LOGIN_URL, PROFILE_URL, DaotaoClient
@@ -22,9 +24,12 @@ document.getElementById('facts').remove();document.getElementById('divList3').hi
 
 def main():
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+        # Mock fulfillment works before network access. Unintercepted requests
+        # must hit a closed local proxy, never the real VNU host.
+        browser = p.chromium.launch(channel="chrome", headless=True,
+                                    proxy={"server": "http://127.0.0.1:9"})
         try:
-            for redirect in (False, True):
+            for landing_url_changed in (False, True):
                 context = browser.new_context()
                 requests = []
 
@@ -32,21 +37,22 @@ def main():
                     request = route.request
                     requests.append((request.method, request.url))
                     if request.url == LOGIN_URL:
-                        if request.method == "POST" and redirect:
-                            route.fulfill(status=302, headers={"Location": PROFILE_URL})
-                            return
                         body = LANDING if request.method == "POST" else FORM
+                        if request.method == "POST" and landing_url_changed:
+                            # Exercise already-at-default.asp without a native
+                            # HTTP redirect, whose follow-up can bypass routing.
+                            body += "<script>history.replaceState(null, '', '/dkmh/default.asp')</script>"
                     elif request.url == PROFILE_URL:
                         body = LANDING
                     else:
-                        raise AssertionError("Unexpected request")
+                        raise AssertionError(f"Unexpected source-fixture request: {urlsplit(request.url).path}")
                     route.fulfill(content_type="text/html; charset=utf-8", body=body)
 
                 context.route("**/*", intercept)
                 client = DaotaoClient(context)
                 subject = client.login("synthetic001", "synthetic-password")
                 texts = client.read_profile_texts()
-                assert requests.count(("GET", PROFILE_URL)) == 1
+                assert requests.count(("GET", PROFILE_URL)) == (0 if landing_url_changed else 1)
                 assert source_profile(texts) == {
                     "name": "Sinh viên giả lập", "program": "Ngành nguồn thử", "cohort": "QH-2099"}
                 client.open_transcript()

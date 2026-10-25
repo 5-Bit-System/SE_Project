@@ -85,3 +85,34 @@ def test_source_profile_updates_on_identical_snapshot_without_changing_transcrip
     with pytest.raises(PortalFailure, match="incomplete_snapshot"):
         store.save(owner, generation, changed, {"name": "Must rollback"})
     assert store.profile(owner)["profile"] == saved["profile"]
+
+
+def test_binding_is_owner_scoped_preserved_on_same_enrollment_and_invalidated_on_change(portal_db):
+    from app.program_bindings import source_scope
+
+    a, generation = store.owner("synthetic-binding-a")
+    b, other_generation = store.owner("synthetic-binding-b")
+    details = {"name": "Invented student", "program": "Invented program", "cohort": "79"}
+    payload = source()
+    store.save(a, generation, payload, details)
+    store.save(b, other_generation, payload, {**details, "cohort": "80"})
+    binding = {"program_id": "synthetic-program", "cohort": 79,
+               "confirmation_method": "owner_confirmed_source_enrollment",
+               "source_scope": source_scope(details)}
+    store.save_academic_binding(a, generation, binding, payload["digest"], source_scope(details))
+    assert store.profile(a)["profile"]["academic_binding"] == binding
+    assert "academic_binding" not in store.profile(b)["profile"]
+    with pytest.raises(PortalFailure, match="context_changed"):
+        store.save_academic_binding(b, other_generation, binding, payload["digest"], source_scope(details))
+    store.save(a, generation, payload, {**details, "name": "New invented display name"})
+    assert store.profile(a)["profile"]["academic_binding"] == binding
+    changed = copy.deepcopy(payload)
+    changed["digest"] = "incomplete-new"
+    with pytest.raises(PortalFailure, match="incomplete_snapshot"):
+        store.save(a, generation, changed, {**details, "cohort": "80"})
+    assert store.profile(a)["profile"]["academic_binding"] == binding
+    store.save(a, generation, payload, {**details, "cohort": "80"})
+    assert "academic_binding" not in store.profile(a)["profile"]
+    store.clear(a)
+    with pytest.raises(PortalFailure, match="cancelled"):
+        store.save_academic_binding(a, generation, binding, payload["digest"], source_scope(details))

@@ -1,7 +1,8 @@
 """Headed, session-only exploration of the VNU student portal."""
 
+import re
 from time import monotonic, sleep
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, urljoin, urlsplit
 
 from app.integrations.daotao.parser import normalize_rows
 from app.integrations.daotao.snapshot import PortalFailure, source_profile
@@ -22,6 +23,14 @@ class DaotaoClient:
 
     def __init__(self, context):
         self.context = context
+        self._pending_reads = set()
+        self._network_tracking = hasattr(context, "on")
+        self._transcript_menu_path = None
+        if self._network_tracking:
+            context.on("request", lambda request: self._pending_reads.add(request)
+                       if request.resource_type in {"document", "xhr", "fetch"} else None)
+            context.on("requestfinished", lambda request: self._pending_reads.discard(request))
+            context.on("requestfailed", lambda request: self._pending_reads.discard(request))
         self.page = context.new_page()
 
     def login(self, username: str, password: str, timeout_ms: int = 30000) -> str:
@@ -108,6 +117,16 @@ class DaotaoClient:
         menu = self._wait_for_element(
             '#PortalModule_374[title="Xem điểm sinh viên"]', timeout_ms
         )
+        # Follow the literal route of the existing source menu, whose shell may
+        # load the module under a deeper directory. Never invoke a guessed URL.
+        target = menu.evaluate("node => ({handler: node.getAttribute('onclick') || '', base: node.ownerDocument.baseURI})")
+        route = re.search(r"\bshowApp\s*\(\s*this\.id\s*,\s*(['\"])([^'\"]+)\1", target["handler"])
+        self._transcript_menu_path = None
+        if route:
+            location = urlsplit(urljoin(target["base"], route[2]))
+            if (location.scheme == "https" and location.hostname == "daotao.vnu.edu.vn"
+                    and urlsplit(route[2]).path.casefold() == "listpoint/listpoint.asp"):
+                self._transcript_menu_path = location.path.casefold()
         menu.click(timeout=timeout_ms)
         self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
 
@@ -216,6 +235,94 @@ class DaotaoClient:
             .filter(row => row.closest('table') === table)
             .map(row => Array.from(row.cells).map(cell => cell.innerText))""")
         return normalize_rows(rows)
+
+    def read_transcript_capture(self, timeout_ms: int = 8000) -> tuple[list[list[str]], dict]:
+        """Select the reviewed include-all view, then validate the full-table layout.
+
+        Other filters, paging, hidden records, multiple tables, pending network reads or
+        an unsupported document keep completeness unknown. No values from controls,
+        URLs, credentials or raw DOM enter this diagnostic evidence.
+        """
+        # The reviewed source has an opt-in "Xem cả môn ..." checkbox. Its
+        # unchecked default restricts the transcript; request the full view.
+        source_cell = self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
+        frame = source_cell.element_handle().owner_frame()
+        if frame is None:
+            raise PortalFailure("structure_changed")
+        for control in frame.locator('input[type="checkbox"]').all():
+            include_all = control.evaluate(r"""node => {
+                const label = [...(node.labels || [])].map(label => label.innerText).join(' ')
+                    || node.getAttribute('aria-label') || (node.parentElement.innerText.length < 200 ? node.parentElement.innerText : '');
+                const caption = label.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+                return /\bxem\s+ca\s+(?:(?:cac|nhung)\s+)?mon\b/.test(caption)
+                    && /\bsubmit_d\s*\(/.test((node.getAttribute('onclick') || node.onclick?.toString() || '')
+                        + ' ' + (node.getAttribute('onchange') || node.onchange?.toString() || ''));
+            }""")
+            if include_all and control.is_visible() and not control.is_disabled() and not control.is_checked():
+                # This source control submits a form. A navigation may replace
+                # the checkbox; inspect the resulting page instead of asserting
+                # the old control's post-click state.
+                control.evaluate("node => node.click()")
+        deadline = monotonic() + timeout_ms / 1000
+        previous, stable = None, 0
+        rows = self.read_transcript()
+        while monotonic() < deadline:
+            current = self.read_transcript()
+            if current == previous and not self._pending_reads:
+                stable += 1
+            else:
+                stable = 1 if not self._pending_reads else 0
+            rows, previous = current, current
+            if stable >= 3:
+                break
+            sleep(0.5)
+        cell = self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
+        table = cell.locator("xpath=ancestor::table[1]")
+        evidence = table.evaluate(r"""(table, menuPath) => {
+            const doc = table.ownerDocument;
+            const visible = node => node.getClientRects().length > 0
+                && getComputedStyle(node).visibility !== 'hidden';
+            const scope = table.closest('#divList3');
+            const dataTables = new Set([...doc.querySelectorAll('#divList3 td[title="Mã môn học"]')]
+                .filter(visible).map(node => node.closest('table')));
+            const controls = [...doc.querySelectorAll('select, textarea, input')].filter(node =>
+                visible(node) && !node.disabled && !node.readOnly
+                && !['hidden', 'button', 'submit', 'reset', 'image'].includes(node.type))
+                .filter(node => {
+                    if (node.type !== 'checkbox' || !node.checked) return true;
+                    const label = [...(node.labels || [])].map(label => label.innerText).join(' ')
+                        || node.getAttribute('aria-label') || (node.parentElement.innerText.length < 200 ? node.parentElement.innerText : '');
+                    const caption = label.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+                    return !(/\bxem\s+ca\s+(?:(?:cac|nhung)\s+)?mon\b/.test(caption)
+                        && /\bsubmit_d\s*\(/.test((node.getAttribute('onclick') || node.onclick?.toString() || '')
+                            + ' ' + (node.getAttribute('onchange') || node.onchange?.toString() || '')));
+                });
+            const paging = [...doc.querySelectorAll('[rel="next"], [rel="prev"], .pagination, .pager, '
+                + '[aria-label*="pagination" i], [aria-label*="phân trang" i], '
+                + 'a[onclick*="page" i], button[onclick*="page" i], select[name*="page" i]')].filter(visible);
+            const hiddenRecords = [...table.rows].some(row => row.closest('table') === table
+                && /^\d+$/.test(row.cells[0]?.innerText.trim() || '') && !visible(row));
+            const virtual = scope?.querySelector('[data-virtualized="true"], .virtual-scroll')
+                || [...(scope?.querySelectorAll('[aria-rowcount]') || [])].some(node =>
+                    Number(node.getAttribute('aria-rowcount')) > table.rows.length);
+            const loading = [...doc.querySelectorAll('[aria-busy="true"], .loading, .spinner, '
+                + '[id*="loading" i]')].some(visible);
+            const url = new URL(doc.URL);
+            return {
+                layout_contract: 'vnu-full-table-20261025',
+                source_host_valid: url.protocol === 'https:' && url.hostname === 'daotao.vnu.edu.vn',
+                source_path_valid: ['/dkmh/default.asp', '/dkmh/listpoint/listpoint.asp', menuPath].includes(url.pathname.toLowerCase())
+                    || (menuPath !== null && (url.pathname.toLowerCase().endsWith('/listpoint/listpoint.asp')
+                        || url.pathname.toLowerCase().startsWith('/listpoint/'))),
+                transcript_container_valid: Boolean(scope), data_table_count: dataTables.size,
+                filters_absent: controls.length === 0, pagination_absent: paging.length === 0,
+                hidden_records_absent: !hiddenRecords, virtualization_absent: !virtual,
+                loading_absent: !loading
+            };
+        }""", self._transcript_menu_path)
+        evidence.update(stable_reads=min(stable, 3),
+                        network_idle=self._network_tracking and not self._pending_reads)
+        return rows, evidence
 
     def read_tables(self, selector: str = "table") -> list[dict]:
         """Read visible tables from all open pages and their frames, in memory."""
