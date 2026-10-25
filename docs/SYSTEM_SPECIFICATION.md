@@ -370,56 +370,56 @@ API key chỉ dùng để xác thực với nhà cung cấp LLM và cho phép g�
 
 ## 9. Pipeline chatbot hỏi đáp thông tin HUS
 
-**Hiện trạng:** đây là thiết kế mục tiêu. Candidate 106 tài liệu chỉ dùng để thử nghiệm; chưa có corpus/index active hoặc dịch vụ hỏi đáp HUS trong runtime. Luồng tra cứu sẽ được gọi từ chatbot hiện có, không tạo trang FAQ riêng.
-
-### A. Chuẩn bị và phát hành nguồn tra cứu
-
-```mermaid
-flowchart LR
-    A[Đợt crawl phát hành từ nguồn được phép] --> B[Snapshot nguồn bất biến]
-    B --> C[Kiểm kê URL, file, hash và phạm vi]
-    C --> D[Review: include, exclude, needs_review, pending_ocr]
-    D -->|Chỉ include| E[Làm sạch, trích xuất PDF và chuẩn hóa metadata]
-    E --> F[Chia đoạn, giữ trang hoặc mục và hash nguồn]
-    F --> G[Tạo index gắn release_id]
-    G --> H[Đánh giá truy xuất, câu trả lời và citation]
-    H -->|Được duyệt| I[Chuyển active release nguyên tử]
-```
-
-1. Chốt danh sách nguồn được phép, rồi crawl **một lần cho từng release**. Giữ snapshot gốc để kiểm tra và dựng lại; candidate hiện tại chưa phải bản v1 được duyệt.
-2. Review từng tài liệu về loại, bậc học, ngành/chương trình, khóa/năm và hiệu lực. Giữ nguồn thạc sĩ/tiến sĩ để phục vụ câu hỏi học tiếp sau đại học khi được duyệt; `unknown` không được tự coi là tài liệu chung, ngày crawl không chứng minh ngày áp dụng. Chỉ tài liệu `include` mới được lập chỉ mục phục vụ trả lời.
-3. Làm sạch HTML; trích xuất PDF theo trang và OCR PDF scan khi cần. Giữ nguyên bảng, đơn vị, điều kiện và ngoại lệ. Không đưa bảng điểm hoặc dữ liệu cá nhân của sinh viên vào corpus.
-4. Chia theo mục/điều/bảng; mỗi đoạn có document ID, release ID, URL/file nguồn, locator và hash. So sánh tìm kiếm từ khóa, vector và kết hợp trên bộ câu hỏi đã review trước khi chọn index.
-5. Đóng gói manifest, quyết định review, corpus, chunks, cấu hình index và báo cáo đánh giá. Chỉ chuyển con trỏ active sau khi cả release được duyệt; giữ bản cũ để rollback. Runtime chỉ đọc active release, không crawl lúc khởi động, theo request hoặc theo lịch.
-
-### B. Xử lý một câu hỏi trong chatbot
+### Sơ đồ phân nhánh chatbot
 
 ```mermaid
 flowchart TD
-    Q[Câu hỏi và context phiên] --> R[Phân loại ý định]
-    R -->|Tính tiến độ, điều kiện, gợi ý môn| N[Pipeline nghiệp vụ hiện có]
-    R -->|Tra cứu văn bản HUS| S[Kiểm tra bậc học, ngành, khóa, năm và phạm vi]
-    R -->|Câu hỏi hỗn hợp| M[Tách phần nghiệp vụ và phần tra cứu]
-    M --> N
-    M --> S
-    S -->|Thiếu thông tin quyết định đáp án| CL[Hỏi làm rõ]
-    S -->|Đủ phạm vi| P[Pin active release cho request]
-    P --> T[Truy xuất đoạn đã review đúng phạm vi]
-    T --> E[Kiểm tra bằng chứng, hiệu lực và mâu thuẫn]
-    E -->|Đủ căn cứ| A[Tạo câu trả lời trong phạm vi bằng chứng]
-    A --> C[Backend gắn citation từ chunk cùng release]
-    C --> O[Hiển thị câu trả lời và nguồn]
-    E -->|Thiếu hoặc mâu thuẫn chưa giải được| U[Nêu giới hạn hoặc chưa đủ căn cứ]
-    P -->|Index không khả dụng| V[Thông báo tra cứu không khả dụng]
+    Q[Câu hỏi trong chatbot] --> I[Intent Router]
+    I -->|Gợi ý môn| R[Recommendation Pipeline]
+    I -->|Thông tin HUS| S[Kiểm tra phạm vi Khoa Toán – Cơ – Tin học]
+    S -->|Trong phạm vi| RET[Tìm tài liệu liên quan]
+    S -->|Ngoài phạm vi| REFUSE[Từ chối lịch sự]
+    RET --> GEN[LLM trả lời dựa trên tài liệu]
+    GEN --> CITE[Kiểm tra nguồn và citation]
+    CITE --> ANSWER[Câu trả lời HUS]
 ```
 
-1. Router phân biệt câu hỏi tra cứu văn bản với câu hỏi cần tính GPA, xét điều kiện hoặc gợi ý môn. Phần tính toán luôn dùng catalog và pipeline nghiệp vụ; nội dung RAG không sửa eligibility, tiên quyết hay kết quả xếp hạng.
-2. Xác định bậc học, ngành/chương trình và khóa/năm khi chúng có thể làm thay đổi câu trả lời. Nếu thiếu thông tin quyết định đáp án thì hỏi lại. Với câu hỏi lịch sử, giữ đúng phạm vi thời gian của nguồn thay vì mặc định văn bản mới nhất là còn hiệu lực.
-3. Chọn active release **một lần** cho toàn request. Tìm trong các đoạn `include` đúng bậc học, ngành/chương trình và nguồn chung đã review; không trộn index của các release hoặc dùng nhãn phạm vi chưa xác minh làm kết luận. Câu hỏi về việc học tiếp cần bằng chứng tuyển sinh/chuyển tiếp riêng, không suy điều kiện từ khung chương trình sau đại học.
-4. Lấy đủ ngữ cảnh cho bảng, điều kiện và ngoại lệ. Nếu nguồn mâu thuẫn, đối chiếu phạm vi và hiệu lực; khi chưa thể phân xử thì trình bày điểm khác nhau và chưa kết luận. Nếu tài liệu khác catalog nghiệp vụ, ghi nhận để review nhưng giữ kết quả tính toán theo catalog đang dùng.
-5. Tạo câu trả lời chỉ từ bằng chứng tìm được. Backend ánh xạ citation tới đúng đoạn, URL và trang/mục; mô hình không tự tạo nguồn. Nếu thiếu chứng cứ, ngoài phạm vi hoặc index lỗi, trả trạng thái phù hợp và giải thích ngắn gọn thay vì suy đoán.
+Luồng này chỉ chạy trong khung chatbot, không tạo thêm trang FAQ bên ngoài.
 
-Nội dung crawl là **dữ liệu tham khảo**, không phải chỉ dẫn để thay đổi quy tắc hệ thống hoặc gọi công cụ. Chatbot không gửi credentials, bảng điểm đầy đủ hay thông tin định danh không cần thiết vào luồng RAG. Chi tiết xử lý và tiêu chí nghiệm thu nằm trong [kế hoạch RAG](KE_HOACH_XU_LY_DATA_RAG_HUS.md), [module corpus](../modules/10-hus-corpus-release.md) và [module hỏi đáp](../modules/11-hus-rag-qa.md).
+### Giai đoạn A: Chuẩn bị dữ liệu HUS
+
+1. Xác định danh sách URL được phép crawl.
+2. Chỉ lấy các trang thuộc phạm vi thông tin đào tạo của Khoa Toán – Cơ – Tin học.
+3. Làm sạch nội dung, bỏ menu và phần không liên quan.
+4. Chia nội dung thành các đoạn nhỏ.
+5. Lưu nội dung cùng URL, tiêu đề và ngày cập nhật.
+6. Tạo chỉ mục tìm kiếm hoặc embedding.
+
+### Giai đoạn B: Trả lời câu hỏi
+
+1. Người dùng hỏi trong chatbot.
+2. Router xác định đây là câu hỏi HUS hay câu hỏi gợi ý môn.
+3. Nếu là câu hỏi HUS, hệ thống tìm các đoạn tài liệu liên quan.
+4. LLM trả lời dựa trên các đoạn đã tìm được.
+5. Backend kiểm tra câu trả lời có nguồn hay không.
+6. Chatbot hiển thị câu trả lời cùng URL và tiêu đề nguồn.
+
+Nếu không tìm thấy thông tin, chatbot nói rõ chưa tìm thấy và không tự đoán. Nếu câu hỏi ngoài phạm vi khoa, chatbot từ chối lịch sự. Nếu tài liệu mâu thuẫn, chatbot nói rõ có mâu thuẫn và hướng dẫn người dùng xác nhận với đơn vị phụ trách.
+
+### Sơ đồ dữ liệu của HUS RAG
+
+```mermaid
+flowchart LR
+    WEB[Trang thông tin HUS được cho phép] --> CRAWL[Crawler]
+    CRAWL --> CLEAN[Làm sạch nội dung]
+    CLEAN --> CHUNK[Chia đoạn tài liệu]
+    CHUNK --> INDEX[Search index hoặc embedding index]
+    Q[Câu hỏi người dùng] --> SEARCH[Tìm đoạn liên quan]
+    INDEX --> SEARCH
+    SEARCH --> CONTEXT[Context có URL và tiêu đề]
+    CONTEXT --> LLM[LLM trả lời có căn cứ]
+    LLM --> OUT[Câu trả lời + nguồn]
+```
 
 ## 10. What-if hoạt động thế nào?
 

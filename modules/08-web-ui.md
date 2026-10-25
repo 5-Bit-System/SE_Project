@@ -1,31 +1,55 @@
-# Module 08 — Giao diện web học tập
+# Module 08 — Giao diện web
 
-Cập nhật: 23/10/2026. **Hiện trạng:** đã thiết kế lại giao diện tĩnh; chưa có import portal/RAG citations.
+## Mục tiêu
 
-## Trách nhiệm và code
+Hiển thị đầy đủ pipeline cho người dùng demo mà không làm thay đổi rule backend.
 
-app/static/index.html, styles.css, app.js và favicon.svg cung cấp workspace chọn chương trình → bảng điểm → điều kiện → gợi ý/what-if, cùng floating advisor.
+## Phạm vi
 
-Giữ HTML/CSS/JavaScript và backend hiện có. Runtime HUS cần PostgreSQL/backend sẵn sàng. Nhập tay là dự phòng; OCR/upload ảnh bảng điểm không nằm trong kế hoạch.
+Trang chính gồm:
 
-## Kế hoạch màn hình
+1. Chọn đúng một ngành.
+2. Chọn/nhập môn đã hoàn thành.
+3. Xem tiến độ, tín chỉ và GPA.
+4. Xem eligible courses.
+5. Xem blocked courses và lý do.
+6. Nhập yêu cầu recommendation.
+7. Xem 3–5 recommendation có explanation và warning.
+8. Thử What-if trên cùng eligible set.
+9. Mở floating advisor chat.
 
-- Kết nối portal: các trạng thái theo contract 09, lỗi/hết phiên/ngắt kết nối và bước tương tác cần thiết.
-- Review import: ngành/khóa, record khớp/chưa rõ, điểm/lần học, nguồn; xác nhận trước apply, cancel giữ transcript cũ.
-- Track/path đặt trong workspace vì ảnh hưởng eligibility; đồng bộ với chat.
-- Hiển thị progress theo khối/nhóm từ API; quota chưa biết giữ chưa biết.
-- RAG: hiển thị citations URL/tiêu đề/trang-mục từ backend, thiếu nguồn hoặc hiệu lực chưa rõ.
+## Không làm
 
-## State và quy tắc
+- Không tự lọc course bằng JavaScript để thay backend.
+- Không hiển thị course bị blocked như recommendation.
+- Không gửi API key.
+- Không tạo màn hình đăng nhập.
+- Không tạo trang timetable hoặc xác nhận offering.
+- Không yêu cầu database để chạy demo.
 
-Context gồm program/revision, transcript/draft, eligibility, recommendation/baseline, effective constraints, track/path và chat history. Đổi ngành xóa dữ liệu liên quan và loại response muộn. UI không tự quyết định eligibility.
+## Trạng thái bắt buộc
 
-Không lưu credentials, cookie portal, transcript hoặc history lâu dài trong browser storage. Dữ liệu ngoài dùng textContent hoặc sanitizer được kiểm tra; không chèn HTML portal/crawl trực tiếp.
+- selectedProgram.
+- transcript selection.
+- latestEligibility.
+- latestRecommendation.
+- session chat history.
+- what-if preference state.
 
-Nút mẫu năm học hiện dùng year trong khi HUS year=null; cần ẩn/vô hiệu hóa, không dùng null <= year để tạo điểm giả. Profile fixture chỉ phục vụ kiểm thử, không yêu cầu runtime có 12 profile.
+Khi selectedProgram thay đổi, phải xóa transcript, eligibility, recommendation và chat context của ngành cũ.
+
+## Hiển thị cảnh báo
+
+- Catalog đang ở trạng thái nháp/chưa xác minh.
+- Prerequisite external/unverified.
+- Workload/difficulty/topic chưa có dữ liệu.
+- Offering hiện tại chưa được xác nhận.
+- Kết quả chỉ hỗ trợ tham khảo, không phải quyết định học vụ.
 
 ## Tiêu chí hoàn thành
 
-Responsive desktop/mobile, focus/keyboard/label rõ, reduced motion, trạng thái loading/empty/error. Kiểm tra nhập điểm/tìm kiếm/đổi ngành/track-path/what-if/chat; bổ sung cancel/apply/citation khi tính năng sẵn sàng. Cảnh báo nguồn nháp/offering chưa biết hiển thị nhất quán.
-
-Bằng chứng hiện có: [báo cáo frontend](../docs/FRONTEND_REDESIGN_2026_10_23.md); không chứng nhận luồng portal/RAG chưa triển khai.
+- Người dùng không thể trộn transcript giữa hai ngành.
+- UI hiển thị riêng eligible và blocked.
+- Gợi ý chỉ hiển thị mã môn do backend trả về.
+- What-if không mở khóa course.
+- Có happy-path demo từ chọn ngành đến xem explanation.

@@ -6180,15 +6180,6 @@
         "offered_credits": 7,
         "source_heading": "V.3.2",
         "group_note": "Các học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp."
-      },
-      {
-        "curriculum_id": 4,
-        "group_key": "V.2",
-        "group_title": "Các học phần tự chọn",
-        "min_credits_if_selected": 28,
-        "offered_credits": 63,
-        "source_heading": "V.2",
-        "group_note": "28/63 tín chỉ theo QĐ 3569, PDF trang 8, mục tóm tắt; tổng offered_credits của bốn nhóm con ở trang 11-12 là 57. Giữ nguyên khác biệt của nguồn, chờ người dùng rà soát."
       }
     ],
     "official_curriculum_entries": [

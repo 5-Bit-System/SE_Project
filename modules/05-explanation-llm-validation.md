@@ -1,26 +1,59 @@
-# Module 05 — Kiểm tra đầu ra và giải thích gợi ý
+# Module 05 — Giải thích và kiểm tra kết quả LLM
 
-Cập nhật: 23/10/2026. **Hiện trạng:** có validation mã ranking và explanation template từ facts backend.
+## Mục tiêu
 
-## Trách nhiệm và hợp đồng
+Tạo explanation có căn cứ và kiểm tra mọi output từ LLM trước khi trả ra frontend.
 
-app/recommendation/validation.py lọc ranker output; explanation.py dựng diễn giải. Đầu vào: eligible set, thứ tự ranker, metadata/score/fit facts và trạng thái nguồn. Đầu ra: recommendation hợp lệ, lý do đủ điều kiện, lý do phù hợp và cảnh báo.
+## Phạm vi
 
-## Quy tắc
+- Validate preference extraction.
+- Validate ranking output.
+- Validate explanation output.
+- Tạo explanation fallback bằng template từ facts backend.
+- Tách rõ lý do đủ điều kiện và lý do phù hợp.
+- Gắn source status và offering uncertainty vào response.
 
-- Code thuộc eligible set, không trùng và không completed/blocked/foreign.
-- Giới hạn số môn/tín chỉ do 04/service áp sau validation; không tin giới hạn do LLM tự khai.
-- Tách lý do đủ điều kiện và phù hợp; chỉ khẳng định điều được facts hỗ trợ.
-- Không bịa prerequisite, quota, workload, difficulty, offering hoặc metadata thiếu.
-- Output ranker lỗi dùng fallback hợp lệ; cảnh báo catalog chưa xác minh/offering chưa biết đến được UI.
-- Provider keys, thông tin định danh và credentials portal không vào prompt/response.
+## Không làm
 
-## Kế hoạch và ranh giới
+- Không để LLM quyết định eligibility.
+- Không cho LLM đưa course ngoài eligible set vào kết quả.
+- Không cho LLM bịa topic, workload, difficulty, prerequisite hoặc offering.
+- Không đưa API key xuống frontend.
+- Không coi lời văn của LLM là dữ liệu sự thật nếu không có fact backend.
 
-Recommendation hiện dùng template, không có bước bắt buộc LLM viết lại mọi explanation. Giữ cơ chế này; thêm LLM prose chỉ khi cần và có kiểm tra facts/fallback riêng. Đặc tả cũ nói LLM viết explanation cần được hiểu là đề xuất, không phải hiện trạng.
+## Các sự kiện backend cung cấp
 
-Advisor 06 có đường prose riêng; kiểm tra mã không chứng minh mọi câu văn đúng. Grounding/citations HUS do 11 phụ trách; nguồn RAG không thay quyền quyết định eligibility.
+- Metadata môn học.
+- Eligibility reasons.
+- Missing prerequisite/group reasons.
+- Preference matches.
+- Score contributions.
+- Catalog status và source status.
+
+## Dữ liệu đầu ra
+
+Mỗi recommendation nên có:
+
+- course code, name, credits.
+- rank/score.
+- eligible_because.
+- fit_reasons.
+- source_status.
+- warnings.
+- explanation_status.
+
+## Kiểm tra kết quả
+
+- Code phải thuộc eligible set.
+- Không trùng code.
+- Không chứa completed hoặc blocked course.
+- Rank và limit hợp lệ.
+- Explanation không mâu thuẫn với facts.
+- Khi validation fail, dùng fallback code-based.
 
 ## Tiêu chí hoàn thành
 
-Có ca output sai kiểu, mã bịa, duplicate, blocked/completed/foreign, provider lỗi và không có key. Explanation vẫn có nghĩa khi score=0 hoặc thiếu metadata. API có đủ facts để UI hiển thị từng lý do. Nếu mở rộng LLM prose, kiểm tra khẳng định không có căn cứ và quay về template.
+- Có fixture cho hallucinated course code.
+- Có fixture cho duplicate/malformed output.
+- Có fallback không cần API key.
+- Explanation luôn chứa cảnh báo catalog/offering khi cần.

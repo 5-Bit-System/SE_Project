@@ -15,7 +15,6 @@ from database.hus_db.connection import create_engine_for
 from database.hus_db.introspect import CORE_TABLES, OFFICIAL_TABLES, VIEW_NAMES
 from database.hus_db.verify import DEFAULT_MIN_ROWS, run_checks
 from database.tools.publish_catalogs import SOURCE
-from tests.support.postgres_targets import validate_hus_test_target
 
 pytestmark = pytest.mark.hus_postgres
 
@@ -25,8 +24,10 @@ def hus_engine():
     url = os.environ.get("HUS_TEST_DATABASE_URL")
     if not url:
         pytest.skip("Set HUS_TEST_DATABASE_URL explicitly to test local Docker ai07")
-    validate_hus_test_target(url)
     engine = create_engine_for(HusDatabaseConfig(url))
+    if engine.url.host not in {"127.0.0.1", "localhost"} or engine.url.database != "ai07":
+        engine.dispose()
+        pytest.fail("HUS integration tests require a local ai07 database")
     yield engine
     engine.dispose()
 

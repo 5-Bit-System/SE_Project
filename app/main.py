@@ -1,17 +1,12 @@
-import hashlib
 import logging
-import re
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.api.academic import router as academic_router
-from app.api.curricula import router as curricula_router
-from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
 from app.config import get_settings
 from app.errors import StorageDataError, StorageUnavailable
@@ -34,58 +29,18 @@ def check_storage_ready() -> None:
 @asynccontextmanager
 async def lifespan(application: FastAPI) -> AsyncIterator[None]:
     check_storage_ready()
-    try:
-        yield
-    finally:
-        from app.integrations.daotao.runtime import shutdown
-
-        await shutdown()
+    yield
 
 
 app = FastAPI(title="Explainable Course Recommender", version="0.2.0", lifespan=lifespan)
 STATIC_ROOT = Path(__file__).resolve().parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
 app.include_router(api_router)
-app.include_router(portal_router)
-app.include_router(academic_router)
-app.include_router(curricula_router)
-
-
-@app.middleware("http")
-async def portal_boundary(request: Request, call_next):
-    protected = request.url.path.startswith(("/auth/", "/me/"))
-    if protected:
-        allowed = {"http://127.0.0.1:8000", "http://localhost:8000"}
-        origin = request.headers.get("origin")
-        if (str(request.base_url).rstrip("/") not in allowed
-                or (request.method not in {"GET", "HEAD"} and origin not in allowed)):
-            return JSONResponse({"detail": "origin_rejected"}, status_code=403,
-                                headers={"Cache-Control": "no-store"})
-    response = await call_next(request)
-    if protected:
-        response.headers["Cache-Control"] = "no-store"
-        response.headers["Pragma"] = "no-cache"
-    elif request.url.path == "/":
-        response.headers["Cache-Control"] = "no-store"
-    elif request.url.path.startswith("/static/"):
-        response.headers["Cache-Control"] = "no-cache"
-    return response
 
 
 @app.get("/")
-def index() -> HTMLResponse:
-    template = (STATIC_ROOT / "index.html").read_text(encoding="utf-8")
-
-    def version_asset(match: re.Match) -> str:
-        name = match[2]
-        path = STATIC_ROOT / name
-        if not path.is_file():
-            return match[0]
-        revision = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
-        return f'{match[1]}/static/{name}?v={revision}"'
-
-    markup = re.sub(r'(\b(?:src|href)=")/static/([^"?#]+)"', version_asset, template)
-    return HTMLResponse(markup)
+def index() -> FileResponse:
+    return FileResponse(STATIC_ROOT / "index.html")
 
 
 @app.get("/favicon.ico", include_in_schema=False)

@@ -1,89 +1,116 @@
-# Kế hoạch cải thiện test database sau khi nhập nhánh Vinh
+# Kế hoạch cải thiện bộ test database
 
-Ngày cập nhật: **22/10/2026**. Nhánh làm việc: `codebase` local, sau khi nhập commit `8c60434`. Kế hoạch test suite calibration ngày 17/10 và các mục đã hoàn thành của bản kế hoạch cũ là hồ sơ lịch sử; tài liệu này chỉ ghi công việc tiếp theo.
+Ngày lập: 21/10/2026. Nhánh tích hợp: `codebase`.
+Nguồn: `feat/vinh-database-tests`, commit `9ca403d83d9f29f9cce40ed5253bfee143fbcdee`.
 
-**Tiến độ: 5/5 việc cải thiện test database đã hoàn thành.** Đã bổ sung bộ kỳ vọng PDF cho HUS và chạy đủ 10 ca nguồn. Lượt mới có **302 offline + 35 PostgreSQL = 337 passed**, không skip khi cung cấp bộ HUS; xác nhận học vụ cuối của người dùng vẫn chờ.
+## Mốc đã xác minh
 
-## 1. Trạng thái hiện tại và mục tiêu
+Chạy độc lập trên Windows, Python 3.11.9, dependency theo `requirements-lock.txt`,
+PostgreSQL 16 Alpine trong container riêng, database mới được migrate và publish:
 
-Trên đúng commit `8c60434`, bản sao độc lập của nhánh đã đạt **263 passed / 41 deselected** offline và **31 passed / 273 deselected** với PostgreSQL. `database.tools.verify_data` đạt **26/26**; Ruff, bốn fixture tổng hợp, cú pháp JavaScript và `git diff --check` đạt. Test dùng database migration tạm đã dọn sau khi chạy; các bảng `accounts`, `students`, `course_attempts` vẫn rỗng. CI hiện có ba job và ba artifact JUnit riêng. Đây là mốc kiểm thử mã và database, không phải nghiệm thu PDF.
+| Kiểm tra | Kết quả |
+| --- | --- |
+| Offline, loại ba marker integration/acceptance | 246 passed, 39 deselected |
+| `postgres or hus_postgres` | 29 passed, 256 deselected |
+| Tổng ca riêng biệt đã chạy | 275 passed |
+| `database.tools.verify_data` | 26/26 đạt |
+| Ruff; builder fixture bốn ngành; builder metadata mẫu | Đạt |
 
-Đã có test cho migration, publisher idempotent, rollback giữa lúc upsert, hai publisher đồng thời với cùng bundle, revision/rollback, constraint PostgreSQL, dữ liệu nguồn bốn ngành, tiên quyết và kiểm tra SQL. Không viết lại các ca này chỉ để tăng số lượng test.
+Trong 246 ca offline có 91 ca thuộc `tests/database/source` và `integrity`.
+10 ca `full_catalog_acceptance` chưa chạy do thiếu bộ nguồn đã được rà soát độc lập.
+Hai lượt chạy đều có cảnh báo deprecation của Starlette về httpx TestClient.
+Đây là kết quả của commit nguồn trước tích hợp; merge fast-forward giữ nguyên mã
+và dữ liệu đã kiểm thử. Kế hoạch này chưa triển khai các cải tiến dưới đây.
 
-**Mục tiêu cải thiện:** bảo vệ database dùng cho test trước khi kết nối, kiểm tra các ranh giới transaction và khả năng đọc metadata sau khi publish, rồi bàn giao kết quả có thể đối chiếu trên commit mới. Mười ca `full_catalog_acceptance` là cổng nghiệm thu nguồn riêng và hiện chưa chạy vì thiếu bộ dữ liệu đã review độc lập. Bốn catalog vẫn là `draft_unverified`.
+## Thứ tự thực hiện
 
-## 2. Công việc theo thứ tự ưu tiên
+### 1. P1 — Kiểm tra rollback thật của publisher HUS
 
-### P0 — Chặn nhầm đích database ở mọi fixture tích hợp
+File chính: `tests/database/test_hus_migration_runtime.py`;
+đường ghi: `database/tools/publish_catalogs.py`.
 
-**Trạng thái 22/10/2026: hoàn thành.** Validator chung chạy trước khi tạo engine ở cả ba fixture PostgreSQL. URL HUS chỉ nhận local `ai07`; URL legacy chỉ nhận local `se_project_test`; query có thể chuyển hướng bị từ chối. Sau thay đổi, 28 ca URL mới cùng các ca cũ chạy offline; toàn suite đạt 291 passed / 41 deselected, PostgreSQL đạt 31 passed / 301 deselected, Ruff đạt. Các mục dưới đây ghi tiêu chí đã thực hiện để theo dõi lịch sử.
+Ca hiện có làm trùng khóa nguồn và bị chặn ở preflight. Ca rollback của legacy
+seed không xác minh transaction của publisher HUS.
 
-**Trước khi thực hiện:** `tests/database/test_hus_migration_runtime.py` kiểm tra URL trước khi tạo engine; `tests/database/test_hus_postgres.py` kiểm tra host/database sau khi tạo engine. Các test legacy nhận `TEST_DATABASE_URL` rồi tạo schema ngẫu nhiên.
+- Dùng database tạm từ fixture `runtime_engine`, publish bản nguồn hợp lệ ban đầu.
+- Chụp nội dung các bảng được publisher ghi, danh sách revision và revision active.
+- Tạo bản nguồn thay đổi hợp lệ; giả lập lỗi sau một số upsert và tại bước đổi
+  revision active. Dùng hook SQLAlchemy hoặc monkeypatch trong test, không thêm
+  cơ chế gây lỗi vào luồng sản phẩm.
+- Sau lỗi, mở connection mới và so sánh trạng thái với snapshot trước đó.
+- Publish lại bản hợp lệ để xác nhận transaction/lock đã được giải phóng.
 
-- Đưa quy tắc xác thực đích test vào helper dùng chung, gọi trước mọi `create_engine` trong fixture PostgreSQL. Với HUS, chỉ cho phép PostgreSQL loopback, database `ai07` và tham số kết nối không thể chuyển host/database. Với legacy, dùng database thử nghiệm được chỉ định rõ và schema riêng; xác định quy tắc tương ứng trước khi sửa fixture.
-- Thêm ca offline chứng minh URL từ xa, sai database, sai driver và query chuyển hướng bị từ chối trước khi tạo engine/kết nối. Giữ ca URL hợp lệ của Docker và CI.
-- Chạy lại hai job PostgreSQL để chắc việc siết đích test không làm mất phạm vi integration.
+Nghiệm thu: không có dữ liệu hay revision ghi dở, cả bốn revision active giữ nguyên,
+repository vẫn ready và lần publish kế tiếp thành công. Các ca chạy trong job
+`hus_postgres` của CI.
 
-**Hoàn thành khi:** cấu hình nhầm không thể mở kết nối hoặc chạy DDL; cấu hình local hợp lệ vẫn chạy hết các ca tích hợp.
+### 2. P1 — Nghiệm thu dữ liệu nguồn độc lập
 
-### P1 — Kiểm tra rollback đúng lúc đổi revision active
+File chính: `tests/catalogs/test_curriculum_data.py`, `tests/conftest.py`,
+`.github/workflows/checks.yml`.
 
-**Trạng thái 22/10/2026: hoàn thành.** Ca mới trong `test_hus_migration_runtime.py` gây lỗi trước lệnh kích hoạt revision mới, sau lệnh tắt active cũ. Snapshot của mọi bảng publisher không đổi sau rollback; bốn revision cũ vẫn active, repository vẫn `ready`, và publish lại bundle mới thành công. Ca tập trung và toàn nhóm HUS PostgreSQL (16 passed) đạt trên database tạm.
+- Chuẩn bị bộ dữ liệu đúng định dạng `--full-catalog-root`, được người phụ trách
+  học vụ/dữ liệu rà soát; không tạo expected bằng chính builder đang kiểm tra.
+- Lưu manifest phiên bản, SHA-256 PDF, trang/dòng tham chiếu và người duyệt.
+  ZIP PDF không thể truyền trực tiếp làm catalog root.
+- Đối chiếu bốn ngành, tên/mã môn, tín chỉ, nhóm tự chọn, môn không tính tổng và
+  các quan hệ tiên quyết, bao gồm AND/OR và tham chiếu ngoài ngành.
+- Giữ trạng thái chưa xác minh của các trường hợp chưa đủ bằng chứng, đặc biệt
+  MAT3325 và MAT3423/MAT3402; ghi rõ phạm vi được nghiệm thu.
+- Thêm job acceptance dùng artifact đã định phiên bản, chạy với
+  `--full-catalog-root`; thiếu artifact phải báo thiếu điều kiện nghiệm thu,
+  không được hiển thị như đã kiểm tra nguồn thành công.
 
-**Trước khi thực hiện:** ca rollback của HUS publisher gây lỗi giữa lúc upsert và xác nhận toàn bộ bảng không đổi. Chưa có ca gây lỗi ngay sau bước tắt các revision active.
+Nghiệm thu: 10 ca acceptance thực sự được chạy; báo cáo ghi rõ pass/fail và các
+ngoại lệ cần xử lý. Chỉ nâng trạng thái catalog sau quyết định nghiệm thu dữ liệu,
+không tự nâng từ kết quả unit test.
 
-- Trên database tạm của `runtime_engine`, publish bundle A, chụp toàn bộ bảng publisher có thể sửa cùng bốn revision active.
-- Publish bundle B hợp lệ và gây lỗi tại bước đổi active bằng hook trong test. Dùng connection mới so sánh snapshot: không có hàng ghi dở, mỗi ngành vẫn trỏ revision A, repository vẫn `ready`.
-- Bỏ hook và publish lại bundle B để xác nhận transaction cùng advisory lock được giải phóng.
+Phụ thuộc: cần bộ nguồn được duyệt riêng; có thể làm các mục khác trong lúc chờ.
 
-**Hoàn thành khi:** lỗi ở ranh giới kích hoạt rollback toàn bộ bốn ngành và lần publish kế tiếp thành công.
+### 3. P2 — Làm các ca tiên quyết ổn định và đủ nhánh
 
-### P1 — Kiểm tra publish đồng thời với hai bundle khác nhau
+File chính: `tests/database/source/test_reviewed_prerequisites.py`.
 
-**Trạng thái 22/10/2026: hoàn thành.** Ca mới dùng hai bundle tổng hợp khác nhau về `source`, `name_en` và bằng chứng test; hai publisher bắt đầu qua barrier trên database tạm. Kết quả active của cả bốn ngành phải trọn vẹn thuộc một bundle, cùng source digest; metadata lưu trong `curriculum_courses` phải khớp bundle thắng. Ca tập trung và toàn nhóm HUS PostgreSQL (17 passed) đạt.
+- Thay `{next(iter(passed))}` bằng tham số tường minh: tập rỗng, mỗi singleton,
+  tập đủ điều kiện, cho từng ngành liên quan.
+- Giữ bảng chân trị tám trường hợp cho `(A AND B) OR C`; bổ sung các biểu thức
+  hỗn hợp/ngoặc lồng mà parser hỗ trợ với kỳ vọng độc lập.
+- Kiểm tra dữ liệu chưa rõ hoặc xung đột vẫn bị chặn qua eligibility.
 
-**Trước khi thực hiện:** ca đồng thời dùng hai bản của cùng một bundle và xác nhận một revision active cho mỗi ngành.
+Nghiệm thu: mỗi nhánh thiếu điều kiện có test ID riêng; chạy tập ca liên quan với
+ít nhất hai `PYTHONHASHSEED` khác nhau cho cùng kết quả và cùng phạm vi trường hợp.
 
-- Chạy hai publisher với hai bundle hợp lệ **khác nhau** trên database tạm; đồng bộ bằng barrier và dùng timeout hữu hạn.
-- Chấp nhận một trong hai thứ tự commit. Snapshot cuối phải là trọn bộ bốn revision của một bundle, không pha giữa hai bundle; mỗi ngành có đúng một active revision và repository đọc được.
-- Nếu kiểm tra reader trong lúc publish, xác nhận reader chỉ thấy snapshot cũ hoặc mới theo một transaction đọc nhất quán. Tránh assert thứ tự chạy theo thời gian sleep.
+### 4. P2 — Tăng độ rõ của báo cáo và CI
 
-**Hoàn thành khi:** chạy lặp lại ổn định, không có revision pha trộn và database tạm được dọn cả khi test lỗi.
+- Thay assertion chỉ khóa số lượng `len(results) == 26` bằng tập tên kiểm tra
+  bắt buộc và kết quả tương ứng. Giữ assertion số môn khi đó là hợp đồng dữ liệu.
+- Xuất JUnit XML cho từng job và lưu artifact kể cả khi test lỗi. Phân biệt
+  passed, failed, skipped và deselected trong hướng dẫn/báo cáo.
+- Ghi rõ các ca thiếu điều kiện nghiệm thu nguồn, không cộng chúng vào số ca đạt.
+- Đánh giá nâng dependency tương thích để xử lý cảnh báo TestClient; chạy lại
+  API tests trước khi cập nhật lockfile, không chỉ tắt cảnh báo.
 
-### P1 — Xác nhận metadata mới đi qua PostgreSQL và API
+Nghiệm thu: CI cung cấp báo cáo tải được; thêm một kiểm tra SQL mới không làm
+test thất bại chỉ vì thay đổi tổng số; các kiểm tra bắt buộc bị thiếu vẫn làm fail.
 
-**Trạng thái 22/10/2026: hoàn thành.** Hai ca HUS PostgreSQL mới đối chiếu toàn bộ 290 học phần từ source-built catalog qua repository, kiểm tra `runtime_metadata` trong SQL và `/courses` trên repository thật của database tạm. Tám giá trị giờ trống vẫn `null`. Thay đổi metadata có bằng chứng tạo revision mới; publish lặp lại không tạo thêm revision, còn tín chỉ và tiên quyết không đổi. Toàn nhóm HUS đạt 19 passed.
+### 5. P3 — Đồng thời và vận hành
 
-**Trước khi thực hiện:** test metadata kiểm tra source-built catalog và API giả lập; migration test đã publish và đọc catalog từ PostgreSQL nhưng chưa assert cụ thể các trường vừa thêm.
+- Chạy hai publisher đồng thời trên database tạm bằng hai connection riêng;
+  dùng synchronization và timeout giới hạn, tránh phụ thuộc thời gian sleep.
+- Xác nhận mỗi ngành có đúng một revision active, không có trạng thái trộn trong
+  một snapshot đọc nhất quán, và advisory lock được giải phóng khi transaction lỗi.
+- Đo thời gian publish/read trên fixture lớn có quy mô được mô tả; ghi baseline
+  trước khi quyết định ngưỡng hiệu năng. Tách khỏi unit tests thường ngày.
 
-- Publish bundle hiện tại vào database tạm, đọc lại catalog qua `HusRepository` và kiểm tra mẫu đại diện có `name_en`, `hours`, `field_evidence` đúng theo chương trình; kiểm tra tám giá trị giờ trống vẫn `null`.
-- Kiểm tra revision/digest đổi khi metadata có bằng chứng đổi, publish lại cùng bundle không tạo revision mới, và metadata không làm thay đổi credits/eligibility/prerequisites.
-- Kiểm tra đường API đọc từ repository thật trên database tạm cho một vài mã đại diện, kể cả tên riêng của MAT3366 trong Toán tin.
+Nghiệm thu: ca đồng thời chạy ổn định, lỗi có timeout rõ ràng, không để lại database
+hay dữ liệu thử. Chỉ đặt ngưỡng hiệu năng khi đã có môi trường và baseline ổn định.
 
-**Hoàn thành khi:** source, hàng lưu PostgreSQL, snapshot active và API trả cùng metadata; dữ liệu chưa biết vẫn chưa biết.
+## Cách bàn giao từng bước
 
-### P2 — Cập nhật bằng chứng kiểm thử và hướng dẫn chạy
+Mỗi mục thành một PR riêng với vấn đề cần bắt, ca lỗi tái hiện được, kết quả trước
+và sau. Ưu tiên mục 1, tiếp theo mục 3 và 4; chuẩn bị nguồn cho mục 2 song song
+về lịch thực hiện; mục 5 sau khi các kiểm tra nền ổn định.
 
-**Trạng thái 22/10/2026: hoàn thành.** Trên commit `2bf1e5c`, ba nhóm local đạt 291 offline, 16 legacy PostgreSQL và 19 HUS PostgreSQL; Ruff, bốn fixture builder và `verify_data` 26/26 đạt. Mười ca acceptance được chạy riêng và đều skip vì thiếu nguồn review. JUnit XML local và kiểm tra dọn database/schema tạm đã ghi ở `docs/VINH_DATABASE_TEST_REPORT.md`; GitHub Actions cho commit mới chưa được xác nhận.
-
-- Chạy đúng ba nhóm CI trên commit hoàn thiện: offline, `postgres`, `hus_postgres`; lưu số passed/failed/skipped/deselected riêng, cùng kết quả Ruff và `verify_data`.
-- Cập nhật `tests/database/README.md` và `docs/VINH_DATABASE_TEST_REPORT.md` bằng commit, môi trường, lệnh chạy và mốc mới. Các số liệu từ commit cũ phải được ghi là lịch sử.
-- Kiểm tra sau chạy không còn database/schema tạm, không có bản ghi sinh viên tổng hợp tồn lưu. Không dùng việc test pass để đổi trạng thái catalog.
-
-**Hoàn thành khi:** người khác có thể đối chiếu kết quả theo commit và biết rõ phần nào chưa được nghiệm thu.
-
-## 3. Cổng nghiệm thu nguồn học thuật riêng
-
-**Cập nhật 22/10/2026:** Người dùng xác nhận phạm vi từ khóa 2022, nhận vai trò người rà soát cuối và cho biết chưa rõ có văn bản điều chỉnh sau đó hay không. Năm PDF khớp SHA-256 của manifest. Đã đối chiếu độc lập mã/trang của 297 occurrence, rà các ô và điều kiện mà 10 ca kiểm tra, bổ sung [bộ kỳ vọng HUS](acceptance/hus_2022/README.md). Cả 10 ca đã pass trong nhóm offline; đường kiểm tra catalog JSON cũ vẫn được giữ. Xem [báo cáo](HUS_PDF_ACCEPTANCE_REVIEW.md). Pass tự động không thay thế review toàn diện từng trường hoặc xác nhận hiệu lực văn bản.
-
-Chạy bằng `python -m pytest tests/catalogs/test_curriculum_data.py -q --full-catalog-root docs/acceptance/hus_2022`. Expected data lấy từ ảnh PDF, source export là đối tượng đang kiểm tra. Đã bổ sung nhóm cha Khoa học dữ liệu `V.2` để giữ nguyên tóm tắt `28/63` bên cạnh tổng nhóm con 57; chưa publish runtime. MAT3402, MAT3325, PHI1002 và phạm vi đã xác minh ghi trong báo cáo. Bốn catalog tiếp tục `draft_unverified` trong khi chờ kết luận học vụ.
-
-## 4. Thông tin cần người dùng cung cấp
-
-**Để bắt đầu P0–P2 trên Docker local hiện có: chưa cần cung cấp thêm.** Repo đã có cấu hình Docker local bị Git bỏ qua; không gửi mật khẩu hoặc dump database. Nếu muốn test legacy trên database thử nghiệm khác `se_project_test`, cần cho biết tên database và giới hạn được phép tạo/xóa schema trước khi đổi quy tắc an toàn.
-
-**Để chạy kiểm tra nguồn:** đã đủ tài liệu và bộ kỳ vọng cho 10 ca. **Để xác nhận học vụ đầy đủ:** người dùng rà kết luận trong báo cáo và văn bản điều chỉnh khi tìm được; các điểm chưa rõ giữ nguyên trạng thái an toàn.
-
-## 5. Quy tắc thực hiện
-
-Mỗi thay đổi test phải bắt một rủi ro cụ thể và chạy trên database/schema tạm. Giữ `ai07` runtime, legacy database, volume Docker, cấu hình bí mật và dữ liệu người dùng nguyên vẹn. Không publish catalog vào runtime, commit hay push như một phần của việc viết kế hoạch này. Khi triển khai, báo riêng tiến độ test kỹ thuật và tiến độ nghiệm thu nguồn.
+Chạy test liên quan trước, sau đó job offline/PostgreSQL tương ứng với thay đổi.
+Trước khi chốt nghiệm thu, chạy cả ba nhóm và công bố riêng kết quả acceptance.
+Không dùng test để publish vào database vận hành hoặc thay dữ liệu sinh viên thật.

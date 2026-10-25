@@ -1,42 +1,8 @@
 # Báo cáo kiểm thử database — Vinh
 
-Ngày cập nhật: **22/10/2026**. Các kết quả gốc ngày 20/10/2026 trên commit `26aeb39` được giữ ở phần lịch sử bên dưới.
+Ngày chạy: 20/10/2026. Nền mã: `codebase`, commit `26aeb39`.
 
-## Lượt mới với bộ kỳ vọng PDF HUS 2022
-
-Trên working tree sau `66002cd`: **302 offline passed** (gồm đủ 10 ca `full_catalog_acceptance`) và **35 PostgreSQL passed**, tổng **337 ca riêng biệt**. Không có skip trong hai lượt này. Cấu hình PostgreSQL và cách cô lập giữ như phần dưới. Bộ kỳ vọng lấy từ ảnh PDF và CSV mã/trang độc lập; test dùng production HUS builder, vẫn hỗ trợ định dạng file catalog cũ. Xem [cách chạy](acceptance/hus_2022/README.md) và [báo cáo nguồn](HUS_PDF_ACCEPTANCE_REVIEW.md).
-
-Test phát hiện phần tóm tắt Khoa học dữ liệu `28/63` chưa được giữ trong HUS export; đã bổ sung nhóm cha `V.2` với locator, giữ nguyên tổng nhóm con 57. Chưa publish thay đổi này vào runtime. Kết quả test không nâng trạng thái catalog lên verified hoặc thay xác nhận học vụ của người dùng. Các mốc có 10 skip bên dưới là lịch sử trước cập nhật này.
-
-## Kết quả sau cải thiện test database
-
-Nền mã kiểm tra: `codebase` tại commit **`2bf1e5c`** (gồm các commit riêng `9327166` cho publish đồng thời và `2bf1e5c` cho metadata persistence/API). Môi trường: Windows, Python **3.11.9**, PostgreSQL **16.15** trong Docker local; dependency từ `.venv` của dự án. Các nhóm dưới đây chạy riêng, với marker và database thử nghiệm tường minh.
-
-| Nhóm kiểm tra | Kết quả | Đối tượng |
-| --- | ---: | --- |
-| Offline, loại `postgres`, `hus_postgres`, `full_catalog_acceptance` | **291 passed, 45 deselected** | Fixture tổng hợp, source regression và URL guard |
-| `postgres` | **16 passed, 320 deselected** | Schema riêng trong `se_project_test` |
-| `hus_postgres` | **19 passed, 317 deselected** | `ai07` chỉ đọc/rollback test; migration/publisher trên database tạm |
-| `full_catalog_acceptance` | **10 skipped, 326 deselected** | Chưa có bộ nguồn được review qua `--full-catalog-root` |
-
-Ba nhóm kỹ thuật có **326 ca passed riêng biệt**, không có ca failed. Ruff, bốn fixture builder tổng hợp và `database.tools.verify_data` (**26/26**) đạt. Có một cảnh báo Starlette/httpx TestClient đã tồn tại. Đây là kết quả local của ba nhóm marker dùng trong CI; chưa chạy toàn bộ bước thiết lập/publish của GitHub Actions và chưa xác nhận CI cho hai commit mới.
-
-Test P0 từ chối URL sai đích trước khi tạo engine. Test P1 chèn lỗi ngay sau khi tắt revision active, publish hai bundle tổng hợp khác nhau đồng thời, và kiểm tra metadata qua SQL, repository, `/courses`. Sau chạy, không còn database `ai07_runtime_test_*` hay schema `se_test_*`; `accounts`, `students`, `course_attempts` trong `ai07` đều có **0** dòng. Database thử nghiệm `se_project_test` được giữ để chạy lại test legacy. Không publish metadata mới vào runtime `ai07` trong lượt này.
-
-Chạy lại từ thư mục gốc với `TEST_DATABASE_URL` trỏ PostgreSQL local `se_project_test` và `HUS_TEST_DATABASE_URL` trỏ PostgreSQL local `ai07` (nạp thông tin từ file cấu hình bị Git bỏ qua, không ghi mật khẩu vào lệnh hoặc báo cáo):
-
-```powershell
-.venv\Scripts\python.exe -m pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"
-.venv\Scripts\python.exe -m pytest -q -m postgres
-.venv\Scripts\python.exe -m pytest -q -m hus_postgres
-.venv\Scripts\python.exe -m pytest -q -m full_catalog_acceptance
-.venv\Scripts\python.exe -m ruff check .
-.venv\Scripts\python.exe -m database.tools.verify_data
-```
-
-JUnit XML của lượt local nằm trong thư mục Git bỏ qua `backups/database-tests-20261022-2bf1e5c/`: `offline.xml`, `postgres.xml`, `hus-postgres.xml`, `acceptance-skipped.xml`. Workflow `.github/workflows/checks.yml` đã cấu hình upload ba artifact JUnit kỹ thuật cho các lần chạy CI. Test fixture và việc khớp source export/SQL không thay thế review độc lập PDF; bốn catalog vẫn `draft_unverified`.
-
-## Kết quả lịch sử sau sửa tiên quyết
+## Kết quả mới nhất sau sửa tiên quyết
 
 - Toàn bộ suite chạy với PostgreSQL: **275 passed, 10 skipped** trong 34,77 giây.
 - Ruff đạt; `database.tools.verify_data` đạt **26/26** kiểm tra.

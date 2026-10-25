@@ -26,7 +26,6 @@ from app.main import app
 from app.profiles import DemoProfile
 from app.rules import evaluate_eligibility
 from tests.support.catalog_fixtures import create_catalog_fixture
-from tests.support.postgres_targets import validate_legacy_test_target
 from tools.seed_database import seed_database
 
 pytestmark = pytest.mark.postgres
@@ -37,8 +36,7 @@ def postgres_engine():
     url = os.getenv("TEST_DATABASE_URL", "")
     if not url:
         pytest.skip("Set TEST_DATABASE_URL to run PostgreSQL integration tests")
-    target = validate_legacy_test_target(url)
-    engine = create_engine(target, hide_parameters=True, connect_args={"connect_timeout": 5})
+    engine = create_engine(url, hide_parameters=True, connect_args={"connect_timeout": 5})
     namespace = "se_test_" + uuid4().hex
     with engine.begin() as conn:
         conn.execute(CreateSchema(namespace))

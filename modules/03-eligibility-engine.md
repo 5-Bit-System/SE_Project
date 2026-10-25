@@ -1,28 +1,66 @@
-# Module 03 — Kiểm tra điều kiện học
+# Module 03 — Bộ máy kiểm tra điều kiện học
 
-Cập nhật: 23/10/2026. **Hiện trạng:** đã có app/rules.py; cần regression bổ sung cho dữ liệu portal đã chuẩn hóa.
+## Mục tiêu
 
-## Trách nhiệm và hợp đồng
+Là cổng chặn tất định để tạo tập môn đủ điều kiện và tập môn bị chặn trước mọi ranking hoặc LLM call.
 
-Tạo eligible, blocked, completed và lý do tất định trước mọi ranking/LLM. Đầu vào: catalog đúng program_id/revision, passed codes hợp lệ, track/path và credit budget. Đầu ra: EligibilityResult với lý do đủ/chưa đủ điều kiện và nhóm tiên quyết thiếu.
+## Phạm vi
 
-## Quy tắc hiện có
+Eligibility phải xử lý:
 
-- Outer prerequisite list là AND; mỗi inner list là OR.
-- Loại môn đã hoàn thành, từ chối passed code ngoài catalog.
-- Chặn unknown/conflict và điều kiện external chưa thỏa; không tự gán môn tương đương.
-- Áp dụng track/path và quota theo dữ liệu catalog.
-- Credit budget chỉ kiểm tra khả thi của từng môn; không tiêu ngân sách theo thứ tự catalog. Module 04 áp tổng ngân sách khi chọn gói môn.
-- Kết quả phụ thuộc input và revision/rule version; không phụ thuộc lời người dùng hay model.
+1. Môn đã đạt.
+2. Môn ngoài ngành.
+3. Prerequisite AND/OR.
+4. External hoặc unverified prerequisite.
+5. Choice group và quota nếu catalog biểu diễn được.
+6. Track và graduation branch nếu người dùng đã chọn và catalog có rule.
+7. Credit limit dùng để lọc/giải thích theo request.
 
-## Ranh giới và kế hoạch
+## Không làm
 
-Không gọi LLM, không parse HTML/credentials/OCR, không xác nhận offering. Module 02 chịu trách nhiệm attempt/điểm và passed set; importer chưa được xác nhận không mở tiên quyết.
+- Không xếp hạng.
+- Không gọi LLM.
+- Không mở khóa môn dựa trên sở thích.
+- Không tự đoán prerequisite bị thiếu.
+- Không kiểm tra lịch học hoặc môn có mở kỳ hiện tại.
 
-What-if có thể tính lại để kiểm tra, nhưng cùng context phải cho cùng eligible set. Thay trọng số không đổi rules. Nếu transcript/catalog/track/path/budget đổi thì đó là context mới, không so như baseline cũ.
+## Dữ liệu đầu vào
+
+- Catalog đúng một program_id.
+- passed_course_codes và transcript context.
+- track/path selection nếu có.
+- credit constraints nếu có.
+
+## Dữ liệu đầu ra
+
+EligibilityResult gồm:
+
+- eligible_courses.
+- blocked_courses.
+- completed_course_codes.
+- reason code và message cho từng blocked course.
+- missing prerequisite groups/options.
+- catalog/source warnings.
+
+## Cách diễn giải rule
+
+- Các group prerequisite khác nhau của một môn là AND.
+- Các mã trong một group là OR.
+- Mã external/unverified không thỏa prerequisite.
+- Course đã passed không xuất hiện trong eligible.
+- Course blocked tuyệt đối không xuất hiện trong candidate set gửi ranking.
+
+## Bất biến bắt buộc
+
+- Eligibility violation rate = 0%.
+- Kết quả chỉ phụ thuộc input, catalog version và rule version.
+- Không có course ngoài catalog.
+- Không trộn dữ liệu giữa hai ngành.
+- What-if không được gọi lại eligibility để mở khóa môn.
 
 ## Tiêu chí hoàn thành
 
-Regression AND/OR, thiếu group, external/unknown/conflict, quota, track/path, credit feasibility và major isolation. Blocked/completed/foreign không lọt candidate set. Có tình huống import chưa xác nhận, học lại chưa rõ policy và context đổi. Kiểm thử kỹ thuật không thay nghiệm thu nguồn học thuật.
-
-Liên quan: [01](01-curriculum-catalog.md), [02](02-transcript-profile.md), [04](04-preference-ranking-whatif.md).
+- Test AND, OR, thiếu một group, external code và source conflict.
+- Test choice group quota.
+- Test track/graduation branch khi catalog có dữ liệu.
+- Test blocked course không lọt sang recommendation.

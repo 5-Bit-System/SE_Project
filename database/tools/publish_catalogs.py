@@ -77,7 +77,7 @@ def publish_catalogs(engine: Engine, bundle: dict, catalogs: list[Catalog] | Non
     with engine.begin() as conn:
         conn.execute(text("SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))"))
         head = conn.execute(text("SELECT version_num FROM hus_alembic_version")).scalar_one()
-        if head not in {"hus_20261017_02", "hus_20261023_03"}:
+        if head != "hus_20261017_02":
             raise RuntimeError("HUS migrations are not at runtime head")
         metadata = MetaData()
         tables = {name: Table(name, metadata, autoload_with=conn) for name in (*NATURAL_KEYS, "hus_catalog_revisions")}
