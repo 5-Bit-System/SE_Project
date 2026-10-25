@@ -20,3 +20,23 @@ Kết quả cuối cùng được ghi trong [execution ledger](superpowers/plans
 Kiểm tra mặc định: **108 passed, 26 skipped** (16 PostgreSQL thiếu URL + 10 full-source acceptance). Với PostgreSQL test riêng được chỉ định: **124 passed, 10 skipped**; tất cả integration PostgreSQL đã chạy. Còn một deprecation warning Starlette/httpx; không nâng dependency trong phần A.
 
 Sau đợt dọn file, đã chạy lại kiểm thử offline: **108 passed, 26 skipped**; Ruff, builder trên mẫu 65 môn và bốn fixture tổng hợp, cùng `git diff --check` đều đạt. Kết quả PostgreSQL ở trên thuộc lần nghiệm thu phần A; không chạy lại PostgreSQL, browser, model provider hay CI remote trong đợt dọn file.
+
+## P0 — Tái tạo corpus HUS, nghiệm thu local 2026-10-25
+
+- [x] Ghim snapshot nguồn `cdc0290658cb4eeb7736395015f273129076f418`: manifest có 106 ID, URL và checksum 162 file; 51 binary thiếu được ghi rõ.
+- [x] Version cấu hình và quyết định review đủ 106 ID; baseline mới có 100 `needs_review`, 6 `pending_ocr`, 0 `include`, không giả lập hồ sơ build07.
+- [x] Công cụ offline tạo inventory, bản chuẩn hóa, quyết định review, documents/chunks/source map và manifest output; từ chối ghi đè và nguồn/review thay đổi.
+- [x] Build thật tại `backups/rag_preparation/20261025-p0-build01`; verify khớp từng byte đủ 116 file, cả khi lấy nguồn qua `git archive` của commit đã ghim.
+- [x] Bổ sung kiểm thử nguồn/review/hash/Unicode/CRLF và corpus không rỗng trên fixture tổng hợp; bộ offline đạt **386 passed, 26 deselected**, Ruff và diff check đạt. Không chạy PostgreSQL, browser hoặc LLM trong P0.
+- [x] Viết [hướng dẫn tái tạo](HUS_CORPUS_PREPARATION.md), lưu baseline report/build manifest trong `data/hus/corpus/`, thêm bước CI build/verify và lưu artifact.
+- [ ] Chạy CI remote sau khi thay đổi được publish; cấu hình CI đã bổ sung nhưng chưa được chạy trên GitHub trong nhiệm vụ này.
+- [ ] Thu hồi/đối chiếu 51 bản đính kèm, xử lý 6 OCR, review nội dung/bảng và metadata hiệu lực trước khi mở rộng corpus; không thuộc nghiệm thu tái lập P0.
+
+P0 hoàn thành quy trình tái lập, không chứng nhận dữ liệu học vụ hoặc RAG active. Baseline có 0 chunk vì chưa có hồ sơ review đủ căn cứ; snapshot crawl và hai file HTML diagnostic local được giữ nguyên.
+
+Cập nhật trước publish 2026-10-26: tích hợp hai commit remote sửa bảng, cập nhật contract hiện tại
+sang snapshot `0404f37c1b6c3864b7fe2e9938a8a21f777663f0` (`hus-0404f37-20261026`). Build tại
+`backups/rag_preparation/20261026-p0-build01` tái tạo đúng 116 artifact, cả từ `git archive` của
+snapshot mới. Bộ offline sau tích hợp: **394 passed, 26 deselected**; Ruff và diff check đạt.
+Baseline cũ và build ngày 25/10 được giữ nguyên trong backups; các manifest trong
+`data/hus/corpus/` mô tả baseline hiện tại. Chưa có kết quả CI remote cho phần P0 tại thời điểm ghi.
