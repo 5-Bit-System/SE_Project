@@ -17,6 +17,17 @@ jobs:
         run: python -X utf8 tools/build_catalogs.py --check
       - name: Offline unit and metadata tests
         run: python -m pytest -q -m "not postgres and not full_catalog_acceptance"
+      - name: Build pinned HUS candidate corpus offline
+        run: python -X utf8 -m tools.prepare_hus_corpus build --out "${{ runner.temp }}/hus-corpus-candidate"
+      - name: Verify byte-identical HUS corpus reproduction
+        run: python -X utf8 -m tools.prepare_hus_corpus verify --out "${{ runner.temp }}/hus-corpus-candidate"
+      - name: Keep HUS candidate build evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: hus-corpus-candidate
+          path: ${{ runner.temp }}/hus-corpus-candidate
+          if-no-files-found: error
+          retention-days: 14
   postgres:
     runs-on: ubuntu-latest
     services:
