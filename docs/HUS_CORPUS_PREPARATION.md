@@ -16,7 +16,7 @@ Có thể kiểm chứng luồng xuất corpus không rỗng bằng fixture tổ
 | --- | --- |
 | `data/hus/corpus/source_manifest.json` | Vị trí snapshot bất biến, đủ 106 ID/URL, đường dẫn Markdown/raw và SHA-256 của 162 file có thật. |
 | `data/hus/corpus/review_decisions.json` | Quyết định của đủ 106 ID, gắn với hash nội dung; lý do và bằng chứng review khi có. |
-| `data/hus/corpus/build_config.json` | Pipeline 1.1, phép chuẩn hóa, cấu hình chia chunk và ngày `as_of` khi cần. |
+| `data/hus/corpus/build_config.json` | Pipeline 1.2, phép chuẩn hóa, cấu hình chia chunk và ngày `as_of` khi cần. |
 | `data/hus/corpus/baseline_validation_report.json` | Kết quả nghiệm thu cấu trúc của baseline; không phải xác nhận học vụ. |
 | `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 115 output của build nghiệm thu; test đối chiếu toàn bộ manifest tái tạo. |
 
@@ -179,3 +179,8 @@ Pipeline 1.1 thay đổi output review/manifest; baseline checksum được cậ
 công cụ mới, giữ snapshot nguồn `0404f37` và các quyết định chờ nguyên trạng. Để tái tạo artifact
 1.0 cũ, dùng code/config tại commit đã tạo chúng; không chạy `verify` 1.1 rồi coi khác hash là lỗi
 của nguồn. Build cũ trong backups không bị sửa hoặc ghi đè.
+
+Pipeline 1.2 thêm raw_capture và hỗ trợ RawSourceReference tường minh (byte-exact binary checksum),
+giữ cổng duyệt 1.1. Baseline tiếp tục ghim nguồn 0404f37; hai PDF recovery chưa được chèn vào
+snapshot cũ hoặc duyệt học vụ. Xem [HUS_RAW_PROVENANCE.md](HUS_RAW_PROVENANCE.md) để phân biệt
+51 binary thiếu trong snapshot với 49 URL còn thiếu sau khi tìm lại hai candidate local.

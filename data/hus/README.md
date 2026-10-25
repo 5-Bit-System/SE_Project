@@ -25,7 +25,12 @@ Baseline mới có 106 tài liệu: 100 `needs_review`, 6 `pending_ocr`, 0 `incl
 Không nhập lại quyết định 6 `include` của build07 vì hồ sơ review đó chưa có trong checkout.
 Corpus rỗng là kết quả minh bạch của baseline này; công cụ không tự xác nhận học vụ hay phát hành RAG.
 
-Pipeline 1.1 dùng chung cổng duyệt với `HUSIndex` và `chunk_document()`. `include` phải có
+Pipeline 1.2 giữ cổng duyệt chung của 1.1 với `HUSIndex` và `chunk_document()`. `include` phải có
 URL nguồn, hash nội dung/raw, reviewer, `reviewed_at` có múi giờ và locator bằng chứng.
 Hiệu lực chưa rõ giữ `unknown` và chỉ dùng cho thông tin mô tả. Xem mục review trong hướng dẫn
 để cấu hình `as_of` khi xuất dữ liệu được xác minh là hiện hành.
+
+Raw mới lưu bất biến theo SHA-256 kèm `raw/provenance.jsonl` và `HUSDocument.raw_source`.
+Đã nhập 2 PDF local có text khớp catalog; vẫn chưa xác minh phiên bản gốc. Có hàng đợi 49 URL
+còn thiếu tại `recovery/20261026-local-originals-final/recovery_queue.jsonl`. Nguồn/corpus ghim
+snapshot cũ được giữ nguyên. Xem [quy trình provenance và recovery](../../docs/HUS_RAW_PROVENANCE.md).

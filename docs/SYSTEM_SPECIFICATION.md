@@ -418,6 +418,15 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 
 ### Giai đoạn B: Trả lời câu hỏi
 
+P1 provenance (2026-10-26): RawStorage lưu byte bất biến theo SHA-256, append-only acquisition
+ledger có URL/document ID/thời điểm/loại file và kết quả từng lần lấy. HUSDocument.raw_source
+trỏ capture cụ thể; attachment của trang cha trỏ raw_path. Thiếu raw hợp lệ thì không gửi
+validator; 304 không có cache/body phải tải lại không validator hoặc ghi blocker, không bỏ qua.
+Corpus 1.2 xuất raw_capture, kiểm tra reference với manifest và giữ nguyên cổng duyệt 1.1.
+Hai PDF local khớp text catalog đã được lưu như candidate chưa xác minh phiên bản byte gốc;
+49 URL còn queued. Không thay catalog, snapshot bất biến hoặc review vì tìm được file.
+Chi tiết phạm vi/bằng chứng tại [HUS_RAW_PROVENANCE.md](HUS_RAW_PROVENANCE.md).
+
 Cổng duyệt P0 (pipeline 1.1, 2026-10-26) dùng chung `ReviewDecision` và `require_review()` cho
 corpus, chunking và index Python. `include` cần URL/hash nguồn và nội dung khớp, reviewer,
 timestamp có múi giờ và locator. Review toàn tài liệu; chưa hỗ trợ xuất từng phần đã duyệt.

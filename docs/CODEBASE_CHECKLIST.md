@@ -52,3 +52,17 @@ Baseline cũ và build ngày 25/10 được giữ nguyên trong backups; các ma
 - [ ] Commit/publish và CI remote cho thay đổi cổng duyệt mới; chưa thực hiện trong yêu cầu bổ sung này.
 
 Index Python yêu cầu caller cung cấp quyết định hiện tại theo URL canonical; sau khi file review thay đổi phải nạp lại mapping, không có cơ chế tự theo dõi file. Corpus vẫn là candidate, chưa phát hành RAG active. Không chạy PostgreSQL, browser hoặc model provider trong nghiệm thu này.
+
+## P1 — Bảo toàn nguồn và thu hồi local, nghiệm thu 2026-10-26
+
+- [x] RawStorage ghi phiên bản byte-exact theo full SHA-256; cùng URL đổi nội dung giữ cả hai file. Ledger append-only ghi từng lần lấy/kiểm tra/import/lỗi, URL, document ID, thời điểm và loại file.
+- [x] Thêm RawSourceReference trên document và raw_path cho attachment của trang cha; snapshot/corpus 1.2 kiểm tra tham chiếu/hash và dẫn về capture cụ thể.
+- [x] Thiếu raw hợp lệ thì bỏ validator; HTTP 304 thiếu cache/body được thử lại không validator hoặc ghi source_blockers/event failed. Không dùng bản cũ hơn thay phiên bản mới nhất đã mất.
+- [x] Đối chiếu/nhập 2 PDF local: a211ab8040a69821 (8 trang) và ac3d4c08968d577f (9 trang), text trích xuất khớp chính xác catalog. Lưu full hash và liên kết ID; fetched_at gốc chưa biết giữ null, version_status unverified; không tự cấp approval.
+- [x] Có report/inventory/comparisons và hàng đợi 49 URL thiếu tại `data/hus/recovery/20261026-local-originals-final/`; đủ 51 ID được kiểm kê, 0 phiên bản gốc được chứng nhận.
+- [x] **436 passed, 26 deselected** offline; Ruff và diff check đạt. Build `backups/rag_preparation/20261026-provenance-v12-build01` tái tạo đúng 116 artifact từ archive nguồn 0404f37. Catalog/Markdown nguồn và các quyết định review được giữ nguyên.
+- [x] Có [hướng dẫn provenance/recovery](HUS_RAW_PROVENANCE.md); kho raw mới/ledger local được ignore, báo cáo nhỏ có thể version trong Git.
+- [ ] Tải/đối chiếu 49 URL queued và xác minh phiên bản gốc/học vụ cho các nguồn đủ căn cứ; không coi bản cùng URL hoặc text match là bằng chứng byte-identical lịch sử.
+- [ ] Commit/publish và CI remote cho P1 mới; chưa thực hiện trong nhiệm vụ này.
+
+Phạm vi ba việc P1 đã hoàn thành ở mã local, hai candidate và hàng đợi; không tuyên bố đã thu hồi đủ 51 bản gốc. Snapshot bất biến tiếp tục báo thiếu 51 binary; recovery mới báo 49 URL cần lấy, 2 candidate chưa xác minh phiên bản. Không chạy crawl mạng hàng loạt, PostgreSQL, browser hoặc LLM trong lượt này.
