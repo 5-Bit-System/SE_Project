@@ -418,6 +418,19 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 
 ### Giai đoạn B: Trả lời câu hỏi
 
+Cổng duyệt P0 (pipeline 1.1, 2026-10-26) dùng chung `ReviewDecision` và `require_review()` cho
+corpus, chunking và index Python. `include` cần URL/hash nguồn và nội dung khớp, reviewer,
+timestamp có múi giờ và locator. Review toàn tài liệu; chưa hỗ trợ xuất từng phần đã duyệt.
+Metadata hiệu lực giữ unknown khi chưa có căn cứ. Scope hiện hành cần current_verified,
+bằng chứng, ngày bắt đầu hiệu lực và as_of tường minh, nằm trong khoảng hiệu lực nếu có.
+Chunk/output lưu review và review_as_of. Không suy hiệu lực từ fetched_at hoặc ngày hệ thống.
+
+Index cần quyết định hiện tại do caller cung cấp, không tin approval lưu trong cache; kiểm tra
+lại khi nạp/lưu, bỏ chunk bị rút duyệt hoặc nguồn thay đổi, kể cả content_hash không đổi khi
+trạng thái crawler chuyển sang pending_ocr. Lệnh index cũ chỉ cho empty/dry-run, chặn xuất từ
+crawl chưa duyệt trước HTTP. Crawler vẫn giữ mọi bằng chứng; corpus/index chỉ nhận phần đã
+qua cổng. Đây là kiểm tra contract và bằng chứng review, không tự chứng nhận học vụ.
+
 1. Người dùng hỏi trong chatbot.
 2. Router xác định đây là câu hỏi HUS hay câu hỏi gợi ý môn.
 3. Nếu là câu hỏi HUS, hệ thống tìm các đoạn tài liệu liên quan.

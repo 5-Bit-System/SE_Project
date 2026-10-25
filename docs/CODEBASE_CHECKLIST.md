@@ -40,3 +40,15 @@ sang snapshot `0404f37c1b6c3864b7fe2e9938a8a21f777663f0` (`hus-0404f37-20261026`
 snapshot mới. Bộ offline sau tích hợp: **394 passed, 26 deselected**; Ruff và diff check đạt.
 Baseline cũ và build ngày 25/10 được giữ nguyên trong backups; các manifest trong
 `data/hus/corpus/` mô tả baseline hiện tại. Chưa có kết quả CI remote cho phần P0 tại thời điểm ghi.
+
+## P0 — Cổng duyệt corpus/index, nghiệm thu local 2026-10-26
+
+- [x] Dùng chung `ReviewDecision`/`require_review()` cho corpus, chunking và index; bắt buộc include, crawler active, URL/hash nguồn/nội dung khớp, reviewer, timestamp có múi giờ và locator.
+- [x] Thêm scope review toàn tài liệu và metadata hiệu lực; unknown chỉ dùng mô tả. Scope hiện hành cần bằng chứng và as_of tường minh nằm trong khoảng hiệu lực. Chưa xuất riêng từng phần của tài liệu.
+- [x] Khi nạp/lưu index, kiểm lại hồ sơ hiện tại và raw, tạo lại chunk thay vì tin cache; loại mục bị rút duyệt, nguồn thay đổi hoặc hết hiệu lực. Ca active sang pending_ocr cùng content_hash đã được chặn.
+- [x] Vô hiệu hóa đường CLI xuất index trực tiếp từ crawl chưa duyệt, giữ empty/dry-run; raw và dữ liệu crawl không bị sửa.
+- [x] Pipeline 1.1 có baseline/manifest mới, giữ nguồn 0404f37 và 100 needs_review + 6 pending_ocr; 0 include, không tự cấp approval hoặc xác minh học vụ.
+- [x] **425 passed, 26 deselected** trong bộ offline; Ruff và diff check đạt. Build `backups/rag_preparation/20261026-review-gate-v11-build02` tái tạo đúng 116 artifact từ nguồn lấy qua git archive.
+- [ ] Commit/publish và CI remote cho thay đổi cổng duyệt mới; chưa thực hiện trong yêu cầu bổ sung này.
+
+Index Python yêu cầu caller cung cấp quyết định hiện tại theo URL canonical; sau khi file review thay đổi phải nạp lại mapping, không có cơ chế tự theo dõi file. Corpus vẫn là candidate, chưa phát hành RAG active. Không chạy PostgreSQL, browser hoặc model provider trong nghiệm thu này.
