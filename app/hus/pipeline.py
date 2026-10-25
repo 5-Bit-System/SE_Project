@@ -17,7 +17,8 @@ from app.hus.cleaning import infer_attachment_major, infer_document_type, infer_
 from app.hus.crawler import Robots, fetch_attachment, fetch_html
 from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
-from app.hus.models import DocumentStatus, HUSDocument
+from app.hus.models import DocumentStatus, HUSDocument, RawSourceReference
+from app.hus.provenance import document_id_for
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError, canonicalize_url
@@ -35,6 +36,7 @@ class CrawlSummary:
     failures: dict[str, str] = field(default_factory=dict)
     skipped_attachment_count: int = 0
     skipped_attachments: dict[str, str] = field(default_factory=dict)
+    source_blockers: dict[str, str] = field(default_factory=dict)
 
 
 def _clean_attachment_filename(url_or_path: str) -> str:
@@ -65,6 +67,19 @@ class HUSPipeline:
         self.raw_storage = raw_storage
         self.processed_storage = processed_storage
         self.state_manager = state_manager
+
+    def _cached_raw(self, url: str) -> RawSourceReference | None:
+        ref = self.raw_storage.archive.latest(url)
+        if ref is None or ref.version_status != "captured" or ref.source_url != url:
+            return None
+        record = self.state_manager.get_record(url)
+        cached = self.processed_storage.get_document(record.document_id) if record else None
+        if cached is not None and (
+            cached.raw_source is None or cached.raw_source.raw_sha256 != ref.raw_sha256
+            or cached.raw_source.document_id != ref.document_id
+        ):
+            return None
+        return ref
 
     def run(
         self,
@@ -120,6 +135,9 @@ class HUSPipeline:
                 previous = self.state_manager.get_record(url) if incremental else None
                 request_url = previous.url if previous else url
                 headers = self.state_manager.get_request_headers(request_url) if incremental else {}
+                cached_raw = self._cached_raw(request_url)
+                if cached_raw is None:
+                    headers = {}
 
                 try:
                     final_url, resp_headers, raw_bytes = fetch_html(
@@ -131,6 +149,8 @@ class HUSPipeline:
                         headers=headers,
                     )
                 except CrawlError as exc:
+                    self.raw_storage.archive.record_failure(request_url, str(exc))
+                    summary.source_blockers[request_url] = str(exc)
                     summary.failures[url] = str(exc)
                     summary.error_count += 1
                     continue
@@ -145,7 +165,7 @@ class HUSPipeline:
                     identity = canonicalize_url(final_url)
                     document_id = document_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
                     doc = self.processed_storage.get_document(document_id)
-                    if doc is None or doc.url != final_url:
+                    if doc is None or doc.url != final_url or self._cached_raw(final_url) is None:
                         # State may outlive its catalog entry. Rebuild it once without validators.
                         try:
                             final_url, resp_headers, raw_bytes = fetch_html(
@@ -154,9 +174,11 @@ class HUSPipeline:
                             )
                             if not raw_bytes:
                                 raise CrawlError(
-                                    f"not modified response without a usable cached document: {final_url}"
+                                    f"not modified response without a usable cached document and raw source: {final_url}"
                                 )
                         except CrawlError as exc:
+                            self.raw_storage.archive.record_failure(final_url, str(exc))
+                            summary.source_blockers[final_url] = str(exc)
                             summary.failures[final_url] = str(exc)
                             summary.error_count += 1
                             continue
@@ -164,6 +186,8 @@ class HUSPipeline:
                         not_modified = False
 
                 if not_modified:
+                    ref = self.raw_storage.archive.record_not_modified(final_url, fetched_at)
+                    self.processed_storage.documents[document_id]["raw_source"] = ref.model_dump()
                     attachment_urls = [attachment.source_url for attachment in doc.attachments]
                     summary.unchanged_count += 1
                 else:
@@ -173,9 +197,21 @@ class HUSPipeline:
                         doc.document_type = infer_document_type(doc.title, doc.content)
                         doc.major = infer_major(doc.title, final_url, doc.content)
                     except CrawlError as exc:
+                        self.raw_storage.save_raw_html(final_url, raw_bytes, title="unparsed",
+                                                       fetched_at=fetched_at,
+                                                       content_type=resp_headers.get("content-type"))
+                        self.raw_storage.archive.record_failure(final_url, str(exc))
+                        summary.source_blockers[final_url] = str(exc)
                         summary.failures[final_url] = str(exc)
                         summary.error_count += 1
                         continue
+
+                    self.raw_storage.save_raw_html(
+                        final_url, raw_bytes, major=doc.major, title=doc.title,
+                        document_id=document_id_for(final_url), fetched_at=fetched_at,
+                        content_type=resp_headers.get("content-type"),
+                    )
+                    doc.raw_source = self.raw_storage.archive.latest(final_url)
 
                     should_proc, reason = True, "new"
                     if incremental:
@@ -191,10 +227,15 @@ class HUSPipeline:
                             should_proc, reason = True, "updated"
 
                     if not should_proc:
+                        self.processed_storage.documents[document_id]["raw_source"] = doc.raw_source.model_dump()
+                        self.state_manager.update_record(
+                            url=final_url, content_hash=doc.content_hash, last_crawled=fetched_at,
+                            etag=resp_headers.get("etag"), last_modified=resp_headers.get("last-modified"),
+                            status_code=200, document_id=document_id,
+                        )
                         summary.unchanged_count += 1
                     else:
                         # Save raw HTML and processed markdown document.
-                        self.raw_storage.save_raw_html(final_url, raw_bytes, major=doc.major, title=doc.title)
                         doc_id = self.processed_storage.save_document(doc)
                         self.state_manager.update_record(
                             url=final_url,
@@ -240,6 +281,9 @@ class HUSPipeline:
                     )
                     att_request_url = previous_attachment.url if previous_attachment else clean_att_url
                     att_headers = self.state_manager.get_request_headers(att_request_url) if incremental else {}
+                    att_cache = self._cached_raw(att_request_url)
+                    if att_cache is None:
+                        att_headers = {}
                     try:
                         att_final, att_resp_headers, att_raw = fetch_attachment(
                             att_request_url,
@@ -250,13 +294,34 @@ class HUSPipeline:
                             headers=att_headers,
                         )
                     except CrawlError as exc:
+                        self.raw_storage.archive.record_failure(att_request_url, str(exc))
+                        summary.source_blockers[att_request_url] = str(exc)
                         summary.failures[clean_att_url] = str(exc)
                         summary.error_count += 1
                         continue
 
                     if not att_raw:
-                        # 304 Not Modified for attachment
-                        continue
+                        att_record = self.state_manager.get_record(att_final)
+                        att_id = att_record.document_id if att_record else document_id_for(att_final)
+                        att_cached_doc = self.processed_storage.get_document(att_id)
+                        if (self._cached_raw(att_final) is not None and att_cached_doc is not None
+                            and att_cached_doc.url == att_final):
+                            ref = self.raw_storage.archive.record_not_modified(att_final, fetched_at)
+                            self.processed_storage.documents[att_id]["raw_source"] = ref.model_dump()
+                            self.processed_storage.link_attachment(document_id_for(final_url), att_final, ref.raw_path)
+                            continue
+                        try:
+                            att_final, att_resp_headers, att_raw = fetch_attachment(
+                                att_final, self.allowlist, http_client, robots, sleep=sleep_fn, headers={},
+                            )
+                            if not att_raw:
+                                raise CrawlError("304 without a usable raw attachment or cached document")
+                        except CrawlError as exc:
+                            self.raw_storage.archive.record_failure(att_final, str(exc))
+                            summary.source_blockers[att_final] = str(exc)
+                            summary.failures[att_final] = str(exc)
+                            summary.error_count += 1
+                            continue
 
                     ext = urlsplit(att_final).path.split(".")[-1].lower() if "." in att_final else "bin"
                     att_filename = _clean_attachment_filename(att_final)
@@ -267,8 +332,12 @@ class HUSPipeline:
                     except CrawlError as exc:
                         att_major = infer_attachment_major(att_final, parent_major=doc.major)
                         self.raw_storage.save_raw_document(
-                            att_final, att_raw, ext, major=att_major, title=att_filename
+                            att_final, att_raw, ext, major=att_major, title=att_filename,
+                            document_id=document_id_for(att_final), fetched_at=fetched_at,
+                            content_type=att_resp_headers.get("content-type"),
                         )
+                        self.raw_storage.archive.record_failure(att_final, str(exc))
+                        summary.source_blockers[att_final] = str(exc)
                         summary.failures[att_final] = str(exc)
                         summary.error_count += 1
                         continue
@@ -281,7 +350,9 @@ class HUSPipeline:
                         att_final, cleaned_content, parent_major=doc.major,
                     )
                     self.raw_storage.save_raw_document(
-                        att_final, att_raw, ext, major=att_major, title=att_filename
+                        att_final, att_raw, ext, major=att_major, title=att_filename,
+                        document_id=document_id_for(att_final), fetched_at=fetched_at,
+                        content_type=att_resp_headers.get("content-type"),
                     )
 
                     att_doc = HUSDocument(
@@ -295,8 +366,12 @@ class HUSPipeline:
                         publisher=doc.publisher,
                         major=att_major,
                         status=att_status,
+                        raw_source=self.raw_storage.archive.latest(att_final),
                     )
                     att_doc_id = self.processed_storage.save_document(att_doc)
+                    self.processed_storage.link_attachment(
+                        document_id_for(final_url), att_final, att_doc.raw_source.raw_path,
+                    )
                     self.state_manager.update_record(
                         url=att_final,
                         content_hash=att_hash,

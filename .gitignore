@@ -26,5 +26,8 @@ pgdata/
 # Crawled originals (HUS)
 data/hus/raw/documents/
 data/hus/state/
+data/hus/raw/provenance.jsonl
+# New byte-exact captures are archived locally; legacy tracked HTML stays versioned.
+data/hus/raw/html/**/*--*--*.html
 .codegraph/
 .pytest_temp/

@@ -22,7 +22,7 @@ from app.hus.models import HUSDocument, ReviewDecision
 from app.hus.review import require_review
 
 SCHEMA_VERSION = "1.0"
-PIPELINE_VERSION = "1.1"
+PIPELINE_VERSION = "1.2"
 REVIEW_STATUSES = ("include", "needs_review", "pending_ocr", "exclude")
 
 
@@ -65,7 +65,7 @@ class ReviewFile(StrictModel):
 
 class BuildConfig(StrictModel):
     schema_version: Literal["1.0"]
-    pipeline_version: Literal["1.1"]
+    pipeline_version: Literal["1.2"]
     source_manifest: str
     review_decisions: str
     normalization: Literal["nfc-lf-trim-trailing-v1"]
@@ -158,12 +158,20 @@ def create_source_manifest(root: Path, snapshot_id: str, location: str) -> Sourc
         raw_dir = root / "raw" / ("documents" if attachment else "html")
         url_hash = hashlib.sha1(doc.url.encode()).hexdigest()[:12]
         suffix = extension if attachment else ".html"
-        raw_matches = list(raw_dir.rglob(f"*--{url_hash}{suffix}"))
-        if len(raw_matches) > 1:
-            raise CorpusError(f"Ambiguous raw source for {key}")
-        raw_path = raw_matches[0].relative_to(root).as_posix() if raw_matches else None
+        if doc.raw_source:
+            ref = doc.raw_source
+            raw_file = source_path(root, ref.raw_path)
+            if (ref.source_url != doc.url or ref.document_id != key
+                or not raw_file.is_file() or sha256(raw_file.read_bytes()) != ref.raw_sha256):
+                raise CorpusError(f"Raw provenance does not match document: {key}")
+            raw_path = ref.raw_path
+        else:
+            raw_matches = list(raw_dir.rglob(f"*--{url_hash}{suffix}"))
+            if len(raw_matches) > 1:
+                raise CorpusError(f"Ambiguous raw source for {key}")
+            raw_path = raw_matches[0].relative_to(root).as_posix() if raw_matches else None
         if raw_path:
-            files[raw_path] = "binary" if attachment else "utf8-lf"
+            files[raw_path] = "binary" if attachment or doc.raw_source else "utf8-lf"
         sources[key] = DocumentSource(
             source_url=doc.url, markdown_path=markdown, raw_path=raw_path,
             source_kind="attachment" if attachment else "web",
@@ -189,10 +197,18 @@ def verify_sources(root: Path, manifest: SourceManifest) -> dict[str, HUSDocumen
     if set(documents) != set(manifest.documents) or len(documents) != manifest.document_count:
         raise CorpusError("Manifest document IDs/count do not match catalog")
     expected_names = {manifest.catalog_path}
+    file_index = {item.path: item for item in manifest.files}
     for key, doc in documents.items():
         source = manifest.documents[key]
         if source.source_url != doc.url:
             raise CorpusError(f"Source URL mismatch: {key}")
+        if doc.raw_source:
+            ref = doc.raw_source
+            raw_file = file_index.get(ref.raw_path)
+            if (ref.document_id != key or ref.source_url != doc.url
+                or source.raw_path != ref.raw_path or raw_file is None
+                or raw_file.encoding != "binary" or raw_file.sha256 != ref.raw_sha256):
+                raise CorpusError(f"Raw capture reference mismatch: {key}")
         expected_names.add(source.markdown_path)
         if source.raw_path:
             expected_names.add(source.raw_path)
@@ -297,6 +313,7 @@ def build_artifacts(
             "raw_checksum_encoding": source_files[source.raw_path].encoding if source.raw_path else None,
             "review_status": decision.status, "review": decision.model_dump(),
             "review_as_of": config.as_of,
+            "raw_capture": doc.raw_source.model_dump() if doc.raw_source else None,
         }
         inventory.append({**metadata, "crawler_status": doc.status.value,
                           "review_status": decision.status, "flags": sorted(flags),

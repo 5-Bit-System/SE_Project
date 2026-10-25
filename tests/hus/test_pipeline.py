@@ -280,7 +280,7 @@ class TestHUSPipeline:
                 assert len(matches) == 1
                 path = matches[0]
                 assert (path.read_bytes(), path.stat().st_mtime_ns) == before[path]
-        assert len(list((tmp_path / "raw/html").rglob("*.html"))) == 3
+        assert len(list((tmp_path / "raw/html").rglob("*.html"))) == 4  # both grandchild versions survive
 
     def test_304_parent_still_refreshes_attachment(self, tmp_path: Path) -> None:
         phase = 1

@@ -5,12 +5,14 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from typing import Literal
 from urllib.parse import urlsplit
 
 from pydantic import ValidationError
 
 from app.hus.cleaning import slugify
 from app.hus.models import HUSDocument, MajorCategory
+from app.hus.provenance import RawArchive
 from app.hus.urls import canonicalize_url
 
 
@@ -35,6 +37,7 @@ class RawStorage:
 
     def __init__(self, root: Path):
         self.root = root
+        self.archive = RawArchive(root)
         self.html_dir = root / "raw" / "html"
         self.doc_dir = root / "raw" / "documents"
         self.html_dir.mkdir(parents=True, exist_ok=True)
@@ -46,6 +49,8 @@ class RawStorage:
         raw_bytes: bytes,
         major: MajorCategory | str = "general",
         title: str = "",
+        *, document_id: str | None = None, fetched_at: str | None = None,
+        content_type: str | None = "text/html",
     ) -> Path:
         major_str = _normalize_major(major)
         url_hash = hashlib.sha1(url.encode("utf-8")).hexdigest()[:12]
@@ -54,14 +59,11 @@ class RawStorage:
             title = path_stem if path_stem and path_stem not in ("/", "\\") else "document"
 
         slug = slugify(title) or "document"
-        filename = f"{slug}--{url_hash}.html"
-
         dest_dir = self.html_dir / major_str
-        dest_dir.mkdir(parents=True, exist_ok=True)
-        path = dest_dir / filename
-        if not path.exists() or path.read_bytes() != raw_bytes:
-            path.write_bytes(raw_bytes)
-        return path
+        ref = self.archive.store(url, raw_bytes, dest_dir, f"{slug}--{url_hash}", "html",
+                                 document_id=document_id, fetched_at=fetched_at,
+                                 content_type=content_type)
+        return self.archive.path_for(ref)
 
     def save_raw_document(
         self,
@@ -70,6 +72,9 @@ class RawStorage:
         ext: str,
         major: MajorCategory | str = "general",
         title: str = "",
+        *, document_id: str | None = None, fetched_at: str | None = None,
+        content_type: str | None = None, kind: Literal["fetched", "local_import"] = "fetched",
+        origin_locator: str | None = None,
     ) -> Path:
         clean_ext = ext.lower().lstrip(".") or "bin"
         major_str = _normalize_major(major)
@@ -82,15 +87,11 @@ class RawStorage:
             title = title[: -len(clean_ext) - 1]
 
         slug = slugify(title) or "document"
-        filename = f"{slug}--{url_hash}.{clean_ext}"
-
         dest_dir = self.doc_dir / major_str
-        dest_dir.mkdir(parents=True, exist_ok=True)
-        path = dest_dir / filename
-        if not path.exists() or path.read_bytes() != raw_bytes:
-            path.write_bytes(raw_bytes)
-        return path
-
+        ref = self.archive.store(url, raw_bytes, dest_dir, f"{slug}--{url_hash}", clean_ext,
+                                 document_id=document_id, fetched_at=fetched_at,
+                                 content_type=content_type, kind=kind, origin_locator=origin_locator)
+        return self.archive.path_for(ref)
 
 class ProcessedStorage:
     """Manages processed markdown documents and atomic catalog.json index."""
@@ -127,6 +128,13 @@ class ProcessedStorage:
         self.documents[document_id]["links"] = list(doc.links)
         self.documents[document_id]["attachments"] = [item.model_dump() for item in doc.attachments]
         return True
+
+    def link_attachment(self, parent_id: str, url: str, raw_path: str) -> None:
+        record = self.documents.get(parent_id)
+        if record:
+            for attachment in record.get("attachments", []):
+                if canonicalize_url(attachment["source_url"]) == canonicalize_url(url):
+                    attachment["raw_path"] = raw_path
 
     def save_document(self, doc: HUSDocument) -> str:
         identity = canonicalize_url(doc.url)

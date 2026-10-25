@@ -146,6 +146,31 @@ class MajorCategory(str, Enum):
     GENERAL = "general"
 
 
+class RawSourceReference(_StrictModel):
+    capture_id: str = Field(pattern=r"^[0-9a-f]{32}$")
+    document_id: str = Field(pattern=r"^[0-9a-f]{16}$")
+    source_url: str
+    raw_path: str
+    raw_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    byte_size: int = Field(ge=0)
+    file_type: str
+    content_type: Optional[str] = None
+    observed_at: str
+    fetched_at: Optional[str] = None
+    version_status: Literal["captured", "unverified"] = "unverified"
+
+    _validate_url = field_validator("source_url")(_http_url)
+    @field_validator("observed_at", "fetched_at")
+    @classmethod
+    def aware_capture_time(cls, value: str | None) -> str | None:
+        if value is not None:
+            _iso_datetime(value)
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            if parsed.tzinfo is None or parsed.utcoffset() is None:
+                raise ValueError("Capture timestamps must include timezone")
+        return value
+
+
 class HUSAttachment(_StrictModel):
     attachment_id: str
     source_url: str
@@ -177,6 +202,7 @@ class HUSDocument(_StrictModel):
     links: list[str] = Field(default_factory=list)
     attachments: list[HUSAttachment] = Field(default_factory=list)
     status: DocumentStatus = DocumentStatus.ACTIVE
+    raw_source: Optional[RawSourceReference] = None
 
     _validate_url = field_validator("source_url")(_http_url)
     _validate_strings = field_validator("title", "content_markdown", "content_hash")(_non_empty)

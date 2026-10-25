@@ -1,18 +1,18 @@
 {
-  "build_config_sha256": "68e521f3cc5c4038555c750b7fb50daa96986f64e40576a2d3a2c76507eced9c",
-  "build_id": "f5c24e045b01bb2d3ad620a0950b830c9c6503affac1ed4617bb786d502a6f49",
+  "build_config_sha256": "84b946c2e5bf3f2016ef9b381c011ac10b88b0f1c662dd7d92779a3706f87090",
+  "build_id": "c7de6af92f073d0ea38318f3535f9142813eaf402c59f653e3b959547cdc74a7",
   "implementation_sha256": {
-    "app/hus/corpus.py": "838fda183ff936a6287ca3d452c0a14ffae70d046ea0d460ad9108fcb52fd2f1",
-    "app/hus/models.py": "8f6def4afba2b657aeba76f4e9e39712b7f93e91d43b8e394d28699f337bb1dd",
+    "app/hus/corpus.py": "1647edb801a4e6adbcd0fa5de2c4d904843b839d55c7f985e36e5c195e2c2b6b",
+    "app/hus/models.py": "42cd740f96347eeabc7269add08b5441a4adb653e4fce629862dcd92acf9ad6c",
     "app/hus/review.py": "ad9e97ae97f1d8aa7e4add5dd0cfd86b66d9dd25c036e155cfb598f822acb62f",
     "tools/prepare_hus_corpus.py": "d57450a30b80d859b4fe3e9251d3a5450fc2598c1c31688a6cb33212ff04c3f4"
   },
   "outputs": {
-    "build_config.json": "68e521f3cc5c4038555c750b7fb50daa96986f64e40576a2d3a2c76507eced9c",
+    "build_config.json": "84b946c2e5bf3f2016ef9b381c011ac10b88b0f1c662dd7d92779a3706f87090",
     "chunks.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "document_review.jsonl": "86c1212f8da24e56ea82a93675ae35c0cc33027a001f3d7642812da4ab64ef48",
     "documents.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "inventory.jsonl": "478a2bdaa5dd5c738c9e0bda6890f73dab95072c50ebb0c6c9f3e743972e9acf",
+    "inventory.jsonl": "3a555be5074415f82f47baa06f9f77746956cd8058d960bc6d60d5f3b943edca",
     "normalized/0206eafb973dac3e.md": "ccad6617f2f4d05eb0b22de43bdb3c18d94c9577aee189264cc0b3b742db6f2f",
     "normalized/051e64151696c9c8.md": "c2fc43e5a4d349d7904dcb74551e6393d194be332112b3977e1cbe8375599618",
     "normalized/055c47bf412172c0.md": "f97b05e95be86d7e3f1b0d0f3f1dd8f572b371f4b7581cd4a805ef140e8bcd45",
@@ -124,7 +124,7 @@
     "source_map.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "validation_report.json": "a5f59aca2a5e4ee0dea66be92abce37e20e957f1d0cdcb38619038a0be3e91aa"
   },
-  "pipeline_version": "1.1",
+  "pipeline_version": "1.2",
   "review_decisions_sha256": "f92c41caae1e4e5c445e084661b3a000fe527f8165829eeb0c2efcfac783ebf8",
   "schema_version": "1.0",
   "source_manifest_sha256": "069a00f313b6a09512b804a8b1d21602329ece99c09cd439f654d1115694e99b",
