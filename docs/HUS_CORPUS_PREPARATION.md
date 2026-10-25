@@ -16,7 +16,7 @@ Có thể kiểm chứng luồng xuất corpus không rỗng bằng fixture tổ
 | --- | --- |
 | `data/hus/corpus/source_manifest.json` | Vị trí snapshot bất biến, đủ 106 ID/URL, đường dẫn Markdown/raw và SHA-256 của 162 file có thật. |
 | `data/hus/corpus/review_decisions.json` | Quyết định của đủ 106 ID, gắn với hash nội dung; lý do và bằng chứng review khi có. |
-| `data/hus/corpus/build_config.json` | Phiên bản schema/pipeline, phép chuẩn hóa và cấu hình chia chunk. |
+| `data/hus/corpus/build_config.json` | Pipeline 1.1, phép chuẩn hóa, cấu hình chia chunk và ngày `as_of` khi cần. |
 | `data/hus/corpus/baseline_validation_report.json` | Kết quả nghiệm thu cấu trúc của baseline; không phải xác nhận học vụ. |
 | `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 115 output của build nghiệm thu; test đối chiếu toàn bộ manifest tái tạo. |
 
@@ -99,8 +99,47 @@ Mọi quyết định gắn với `content_hash` của catalog; sửa nội dung
 `active` là trạng thái crawler, không phải đã duyệt. `include` chỉ xuất được khi:
 
 - Nguồn crawler là `active`, có raw được manifest hash và kiểm tra.
-- Có `reviewer`, `reason`, `evidence_locator` và `reviewed_source_sha256` khớp raw đã ghim.
+- Có `source_url` khớp URL thực, `reviewer`, `reason`, `reviewed_at` có múi giờ,
+  `evidence_locator`, `source_checksum_encoding` và `reviewed_source_sha256` khớp raw đã ghim.
 - Quyết định thuộc đúng snapshot và đúng hash nội dung.
+
+`ReviewDecision` nằm tại `app/hus/models.py`, tách khỏi nhãn crawler, và dùng chung qua
+`require_review()` cho corpus, `chunk_document()` và `HUSIndex`. Mỗi output có `review_status`,
+hồ sơ `review` và `review_as_of`. Trạng thái crawler `pending_ocr`, `archived`, `superseded`,
+review `needs_review`, `pending_ocr`, `exclude`, thiếu quyết định hoặc bằng chứng không hợp lệ
+đều không được tạo chunk/index. Hồ sơ cũ thiếu timestamp/URL/encoding không tự được nâng cấp
+thành review hợp lệ. Các quyết định chưa duyệt hiện tại giữ nguyên; metadata mới mặc định unknown/null.
+
+Phạm vi review hiện là **toàn tài liệu** (`review_scope: document`). Nếu chỉ kiểm được một đoạn,
+không đánh dấu cả tài liệu `include`; tiếp tục giữ `needs_review`. Chưa hỗ trợ xuất một phần bằng
+locator tùy ý, để tránh đưa các phần chưa được duyệt vào corpus.
+
+`validity_status` có `unknown`, `historical`, `current_verified`, `future_draft`;
+`usage_scope` có `descriptive`, `historical`, `current`. Known validity cần
+`validity_evidence_locator`; không suy từ ngày crawl. `unknown` chỉ được xuất với scope mô tả.
+Scope lịch sử cần nhãn `historical`. Scope hiện hành cần `current_verified`, bằng chứng,
+`effective_from` và `as_of` tường minh trong config build. `effective_to` có thể null nếu nguồn
+không nêu ngày kết thúc; không được tự điền. Nếu có khoảng hiệu lực, `as_of` phải nằm trong đó;
+ngày review không được nằm sau `as_of`. Các ngày hiệu lực là ISO date; timestamp review có múi giờ.
+Build không lấy ngày hệ thống để suy hiệu lực, nên vẫn có thể tái lập.
+
+Ví dụ thêm `"as_of": "2026-10-26"` vào một bản config mới sau khi có review hiện hành đủ bằng
+chứng. Một corpus dựng cho ngày đó chỉ chứng minh scope tại ngày đã ghi; không tự cập nhật theo
+thời gian và không được dùng để khẳng định hiệu lực cho một ngày khác mà chưa kiểm tra lại.
+
+Với index Python, truyền các quyết định **hiện tại** qua `HUSIndex(..., reviews=...)`, dictionary
+key là URL canonical, và `as_of=date(...)` nếu có scope hiện hành. Gọi `add(..., review=...)`
+để cấp/cập nhật quyết định tường minh; gọi `save()` để xuất sau thay đổi. Lúc nạp và trước khi
+lưu, index xác minh lại nguồn và hồ sơ, tạo lại chunk từ text được duyệt, loại bản bị rút duyệt,
+hết hiệu lực hoặc thiếu nguồn. Không dùng trường review đã lưu trong index làm thẩm quyền duyệt.
+Nếu không truyền review hiện tại khi nạp index cũ, không có bản ghi nào được phục vụ/xuất.
+Rút quyết định bằng cách xóa key hoặc thay bằng trạng thái chờ/loại trong mapping hiện tại;
+index không tự theo dõi file review trên đĩa. Caller phải nạp lại quyết định khi file thay đổi.
+Các raw/version gốc vẫn được giữ, chỉ các bản ghi phục vụ tra cứu bị loại khỏi output.
+
+`tools.build_hus_index` không còn xuất crawl trực tiếp, kể cả cấu hình có seed: lệnh trả mã 1
+trước khi gửi HTTP, hướng dẫn dùng pipeline corpus có review. Empty allowlist và dry-run vẫn
+kiểm tra được. Bước crawl tiếp tục dùng `tools.run_hus_crawler`, không tự duyệt tài liệu.
 
 Cổng này ghi trách nhiệm/bằng chứng review, không tự xác nhận hiệu lực học vụ, độ đúng từng ô
 bảng hoặc độ chính xác OCR. Những việc đó vẫn phải thực hiện trước khi reviewer chọn `include`.
@@ -123,7 +162,7 @@ archive hoặc credential và không chứng minh một URI bất kỳ đang tru
 ## 5. Nghiệm thu và giới hạn
 
 ```powershell
-python -m pytest -q tests/hus/test_corpus.py
+python -m pytest -q tests/hus/test_corpus.py tests/hus/test_review_gate.py
 python -m ruff check .
 ```
 
@@ -135,3 +174,8 @@ học vụ; 0 chunk ở baseline không phải lỗi công cụ và cũng không
 
 P0 không khôi phục 51 binary còn thiếu, xử lý 6 OCR, duyệt 49 tài liệu có bảng, sửa nhãn ngành,
 đánh giá retrieval/citation hay phát hành corpus active. Các phần này là công việc tiếp theo.
+
+Pipeline 1.1 thay đổi output review/manifest; baseline checksum được cập nhật theo phiên bản
+công cụ mới, giữ snapshot nguồn `0404f37` và các quyết định chờ nguyên trạng. Để tái tạo artifact
+1.0 cũ, dùng code/config tại commit đã tạo chúng; không chạy `verify` 1.1 rồi coi khác hash là lỗi
+của nguồn. Build cũ trong backups không bị sửa hoặc ghi đè.
