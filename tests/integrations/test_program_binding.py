@@ -214,3 +214,20 @@ def test_confirmation_requires_current_app_csrf(client):
     client.headers.pop('x-csrf-token')
     assert client.post('/me/academic-program', json=body).status_code == 403
     assert client.writes == []
+
+
+@pytest.mark.parametrize('route', ['/me/academic-program', '/me/course-status'])
+def test_owner_link_change_during_source_read_cannot_return_previous_owner_metadata(client, monkeypatch, route):
+    authenticate(client, 'owner-a')
+
+    def changed(owner):
+        for link in client.fake_accounts.links.values():
+            if link['owner'] == owner:
+                link['owner'] = 'different-owner'
+        return copy.deepcopy(client.data[owner])
+
+    monkeypatch.setattr(store, 'profile', changed)
+    response = client.get(route)
+    assert response.status_code == 409
+    assert response.json()['detail'] == 'vnu_not_connected'
+    assert 'source_program' not in response.json()

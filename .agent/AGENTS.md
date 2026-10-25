@@ -24,7 +24,7 @@ changed enrollment invalidates binding, confirmation does not advance sync time.
 No schema migration, seed, catalog publication, password/SMTP change or manual
 upgrade of old completeness. Unknown source and uncertain outcomes remain gated.
 
-Independent integration checks: 521 offline passed / 75 deselected including HUS
+Independent integration checks: 523 offline passed / 75 deselected including HUS
 PDF acceptance; 75 PostgreSQL passed on disposable container port 55433 including
 legacy, HUS/auth and four new binding transaction tests. Ruff, both catalog builder
 checks, all JS syntax and diff checks pass. Fifteen synthetic Chrome regressions
@@ -33,6 +33,10 @@ track/path selection and board plus existing admin/session/sync/logout checks.
 Screenshots desktop/mobile inspected. Existing Starlette/httpx warning remains.
 No agent real-VNU login or personal grades inspection; real-account acceptance
 must be performed by the owner after deployment. Catalogs remain draft_unverified.
+
+Final ownership audit adds checks of the original source owner after I/O, including
+when an account's link changes while program metadata is being read. Two new
+regressions pass; binding/system-auth/VNU PostgreSQL group rerun: 35 passed.
 
 Runtime backup at ignored backups/vnu_eligibility_integration_20261026/
 before_runtime.dump restored successfully to isolated ai07_backup_verify_20261026.

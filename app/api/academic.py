@@ -96,10 +96,13 @@ def _catalog_context(program_id: str):
     return catalog, revision
 
 
-async def resolve_context(request: Request, query: AcademicQuery, saved: dict | None = None) -> tuple[Any, dict]:
-    owner_id = (await session(request)).owner
+async def resolve_context(request: Request, query: AcademicQuery, saved: dict | None = None,
+                          source_session: runtime.Session | None = None) -> tuple[Any, dict]:
+    value = source_session or await session(request)
+    owner_id = value.owner
     if saved is None:
         saved = await safe_call(store.profile, owner_id)
+    await auth_call(account_portal.check, value)
     try:
         catalog, revision = await asyncio.to_thread(_catalog_context, query.program_id)
         _prepare_selection_context(catalog, query.selected_track_id,
@@ -119,7 +122,7 @@ async def resolve_context(request: Request, query: AcademicQuery, saved: dict | 
         "path": query.selected_graduation_path_id,
         "session": runtime.digest(request.cookies[COOKIE])}, sort_keys=True).encode()).hexdigest()
     context["fetched_at"] = saved.get("fetched_at")
-    await session(request)  # DB/catalog I/O must not outlive a logout or expired session.
+    await auth_call(account_portal.check, value)  # Recheck the original owner after I/O.
     return catalog, context
 
 
@@ -167,7 +170,7 @@ async def academic_program(request: Request):
     value = (await session(request))
     saved = await safe_call(store.profile, value.owner)
     result = await asyncio.to_thread(program_options, saved)
-    await session(request)
+    await auth_call(account_portal.check, value)
     return result
 
 
@@ -201,13 +204,14 @@ async def academic_program_confirm(request: Request):
 @router.get("/me/course-status")
 async def course_status(request: Request):
     """Choose the catalog from server-owned evidence, never a display name/default."""
-    owner_id = (await session(request)).owner
+    value = await session(request)
+    owner_id = value.owner
     try:
         options = CourseBoardQuery.model_validate(dict(request.query_params))
     except ValidationError:
         raise HTTPException(422, "invalid_academic_request") from None
     saved = await safe_call(store.profile, owner_id)
-    await session(request)
+    await auth_call(account_portal.check, value)
     binding = (saved.get("profile") or {}).get("academic_binding")
     unavailable = {
         "status": "needs_program_binding", "blocking_reasons": [],
@@ -231,10 +235,10 @@ async def course_status(request: Request):
             or not binding["program_id"].strip()):
         unavailable["blocking_reasons"].append("program_binding_unverified")
         unavailable["program_selection"] = await asyncio.to_thread(program_options, saved)
-        await session(request)
+        await auth_call(account_portal.check, value)
         return unavailable
     query = AcademicQuery(program_id=binding["program_id"], **options.model_dump(exclude={"max_credits"}))
-    catalog, context = await resolve_context(request, query, saved)
+    catalog, context = await resolve_context(request, query, saved, source_session=value)
     selections = {
         "tracks": [track.model_dump() for track in catalog.program.track_selection.tracks],
         "paths": [path.model_dump() for path in catalog.program.graduation_selection.paths],
