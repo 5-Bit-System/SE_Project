@@ -418,6 +418,19 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 
 ### Giai đoạn B: Trả lời câu hỏi
 
+P1 applicability (2026-10-26, corpus 1.3): unknown, general và out_of_scope là ba trạng thái
+khác nhau. Bộ suy luận bỏ tín hiệu link/menu/bảng và query URL; nhận diện hai chương trình
+Địa chất/Địa lý ngoài phạm vi trước tín hiệu Toán trong nội dung phụ. HUSDocument.major là
+proposal crawler; ApplicabilityMetadata tách proposed/verified cho ngành, bậc học, chương trình,
+biến thể, khóa/năm và hiệu lực. Verified khác unknown cần reviewer, thời gian có múi giờ và
+locator/quote khớp source có hash/URL đúng; không kế thừa xác minh từ trang cha.
+
+Lớp applicability.json versioned áp dụng lên snapshot bất biến theo đủ 106 ID; không viết lại
+source để sửa nhãn cũ. Corpus/index xuất major từ verified, giữ proposal/legacy riêng, chặn
+nguồn out_of_scope ngay tại cổng duyệt. Chưa có verified major trong baseline; unknown không
+được coi là general hoặc mở khóa học phần. Hướng dẫn tại
+[HUS_APPLICABILITY_METADATA.md](HUS_APPLICABILITY_METADATA.md).
+
 P1 provenance (2026-10-26): RawStorage lưu byte bất biến theo SHA-256, append-only acquisition
 ledger có URL/document ID/thời điểm/loại file và kết quả từng lần lấy. HUSDocument.raw_source
 trỏ capture cụ thể; attachment của trang cha trỏ raw_path. Thiếu raw hợp lệ thì không gửi

@@ -16,9 +16,10 @@ Có thể kiểm chứng luồng xuất corpus không rỗng bằng fixture tổ
 | --- | --- |
 | `data/hus/corpus/source_manifest.json` | Vị trí snapshot bất biến, đủ 106 ID/URL, đường dẫn Markdown/raw và SHA-256 của 162 file có thật. |
 | `data/hus/corpus/review_decisions.json` | Quyết định của đủ 106 ID, gắn với hash nội dung; lý do và bằng chứng review khi có. |
-| `data/hus/corpus/build_config.json` | Pipeline 1.2, phép chuẩn hóa, cấu hình chia chunk và ngày `as_of` khi cần. |
+| `data/hus/corpus/build_config.json` | Pipeline 1.3, phép chuẩn hóa, cấu hình chia chunk, metadata bổ sung và ngày `as_of` khi cần. |
 | `data/hus/corpus/baseline_validation_report.json` | Kết quả nghiệm thu cấu trúc của baseline; không phải xác nhận học vụ. |
-| `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 115 output của build nghiệm thu; test đối chiếu toàn bộ manifest tái tạo. |
+| `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 116 output của build 1.3; test đối chiếu toàn bộ manifest tái tạo. |
+| `data/hus/corpus/applicability.json` | Proposal/verified theo trường, gắn đúng 106 ID/hash nguồn; không tự cấp approval. |
 
 Snapshot nguồn nằm trong commit đầy đủ `0404f37c1b6c3864b7fe2e9938a8a21f777663f0` của
 `https://github.com/5-Bit-System/SE_Project.git`, thư mục `data/hus/`.
@@ -184,3 +185,9 @@ Pipeline 1.2 thêm raw_capture và hỗ trợ RawSourceReference tường minh (
 giữ cổng duyệt 1.1. Baseline tiếp tục ghim nguồn 0404f37; hai PDF recovery chưa được chèn vào
 snapshot cũ hoặc duyệt học vụ. Xem [HUS_RAW_PROVENANCE.md](HUS_RAW_PROVENANCE.md) để phân biệt
 51 binary thiếu trong snapshot với 49 URL còn thiếu sau khi tìm lại hai candidate local.
+
+Pipeline 1.3 thêm applicability.json vào output và build ID (117 file tổng cộng). Các output
+major dùng verified, proposed_major/legacy_crawler_major là trường audit riêng. Metadata ngoài
+phạm vi chặn xuất; snapshot nguồn và quyết định review giữ nguyên. Để tái tạo bản có giá trị đã
+review, phải dùng đúng file applicability được config chọn. Xem
+[HUS_APPLICABILITY_METADATA.md](HUS_APPLICABILITY_METADATA.md) để tạo/review lớp bổ sung.

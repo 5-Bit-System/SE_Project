@@ -66,3 +66,16 @@ Index Python yêu cầu caller cung cấp quyết định hiện tại theo URL 
 - [ ] Commit/publish và CI remote cho P1 mới; chưa thực hiện trong nhiệm vụ này.
 
 Phạm vi ba việc P1 đã hoàn thành ở mã local, hai candidate và hàng đợi; không tuyên bố đã thu hồi đủ 51 bản gốc. Snapshot bất biến tiếp tục báo thiếu 51 binary; recovery mới báo 49 URL cần lấy, 2 candidate chưa xác minh phiên bản. Không chạy crawl mạng hàng loạt, PostgreSQL, browser hoặc LLM trong lượt này.
+
+## P1 — Phân loại và metadata áp dụng, nghiệm thu local 2026-10-26
+
+- [x] Phân biệt unknown/general/out_of_scope; URL query, link/menu và bảng không được dùng như tín hiệu ngành chung. Hai trang d73edbb5ad3fc8e5 và 741abe805f966790 có proposal out_of_scope, bị chặn ở cổng corpus/chunk/index.
+- [x] ApplicabilityMetadata tách proposed/verified cho ngành, bậc học, chương trình, biến thể, khóa/năm và hiệu lực. Mọi verified khác unknown cần evidence/reviewer/review time có timezone; locator/quote phải nằm đúng nguồn/hash/URL, parent link không đủ để xác minh child.
+- [x] Có applicability.json bổ sung cho đủ 106 ID, giữ snapshot nguồn và quyết định review. Proposal hiện có 53 unknown, 2 out_of_scope; tất cả verified metadata vẫn unknown, không tự cấp xác minh học vụ.
+- [x] Corpus/index xuất major từ verified và giữ proposed_major/legacy riêng. Config có metadata bổ sung mà caller bỏ qua thì build fail. Proposal/update chỉ giữ review còn khớp; title thay đổi cũng buộc xây lại metadata.
+- [x] Tool đề xuất readonly, từ chối ghi đè; tài liệu tại [HUS_APPLICABILITY_METADATA.md](HUS_APPLICABILITY_METADATA.md). Không chạy migration ghi đè snapshot 0404f37.
+- [x] **457 passed, 26 deselected** offline; Ruff và diff check đạt. Build `backups/rag_preparation/20261026-applicability-v13-build01` tái tạo đúng 117 artifact từ archive nguồn 0404f37, gồm applicability.json.
+- [ ] Thẩm định thực tế từng metadata, hiệu lực và phạm vi học vụ trước khi dùng giá trị verified; framework không thay người review.
+- [ ] Commit/publish và CI remote cho thay đổi metadata mới; chưa thực hiện trong nhiệm vụ này.
+
+Mốc hoàn tất là mô hình/cổng kiểm tra, sửa phạm vi sử dụng và lớp đề xuất có thể review; không chứng nhận đã review cả 106 nguồn. Nhãn mathematics sai trong source catalog bất biến được giữ ở phần legacy để audit, không còn được dùng như ngành áp dụng đã xác minh. Không thay catalog học phần hoặc chạy PostgreSQL, browser, provider LLM trong nghiệm thu này.
