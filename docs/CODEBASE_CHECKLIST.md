@@ -79,3 +79,17 @@ Phạm vi ba việc P1 đã hoàn thành ở mã local, hai candidate và hàng 
 - [ ] Commit/publish và CI remote cho thay đổi metadata mới; chưa thực hiện trong nhiệm vụ này.
 
 Mốc hoàn tất là mô hình/cổng kiểm tra, sửa phạm vi sử dụng và lớp đề xuất có thể review; không chứng nhận đã review cả 106 nguồn. Nhãn mathematics sai trong source catalog bất biến được giữ ở phần legacy để audit, không còn được dùng như ngành áp dụng đã xác minh. Không thay catalog học phần hoặc chạy PostgreSQL, browser, provider LLM trong nghiệm thu này.
+
+## P1 — Chất lượng trang, bảng và hồ sơ đối chiếu, nghiệm thu local 2026-10-26
+
+- [x] PDF đánh dấu OCR theo từng trang dưới 50 ký tự, phát hiện trang scan xen giữa trang text; báo cáo có page ID, text thô/hiển thị, ảnh/graphic và locator. Không tự coi trang ít text là trắng hoặc chạy OCR.
+- [x] Bảng PDF/DOCX/HTML/XLSX có ID hàng/cột/ô, raw riêng với display, header/scope/header paths, ô gộp và locator. Phân biệt ô rỗng/thiếu/covered/unresolved; chặn grid lỗi, spans chồng lấn và công thức chưa có giá trị nguồn được duyệt.
+- [x] ReviewDecision.source_quality có hồ sơ trang/bảng/ô gắn hash, locator, reviewer và thời gian; ô cần observed_value. Corpus/chunk/index đọc và trích xuất lại raw, chặn thiếu/thừa check, số liệu/locator/hash sai hoặc stale. Chặn toàn tài liệu nếu còn phần chưa được kiểm tra.
+- [x] Index nạp/lưu kiểm lại review hiện tại, bỏ record không còn hợp lệ; báo cáo xuất phải được dựng lại và khớp hash đã duyệt. Chunk/source map dẫn report và unit ở phạm vi toàn tài liệu, chưa ánh xạ chính xác từng chunk tới ô.
+- [x] Tool readonly tạo report/page_quality/tables/OCR queue/source blockers/review queue, hash đầu vào/mã/output; từ chối ghi đè. Có [hướng dẫn đối chiếu](HUS_SOURCE_QUALITY.md) và báo cáo nhỏ tại data/hus/quality/20261026/.
+- [x] Báo cáo local: 55 HTML + 2 PDF recovery, 17 trang, 25 bảng, 2.093 unit cần đối chiếu, 0 trang/ô verified. Text hiển thị của 57 nguồn khớp catalog; 49 tài liệu thiếu raw, gồm 6 pending_ocr; 2 phiên bản PDF gốc vẫn unverified.
+- [x] **482 passed, 26 deselected** offline, gồm 25 kiểm thử chất lượng mới; Ruff và diff check đạt. Corpus 1.4 tại backups/rag_preparation/20261026-source-quality-v14-build01 tái lập khớp từng byte cả 120 artifact từ archive nguồn 0404f37. Nguồn và review cũ giữ nguyên: 100 needs_review, 6 pending_ocr, 0 include/chunk.
+- [ ] Đối chiếu thực tế các trang/ô, xử lý nguồn thiếu/OCR và xác minh phiên bản, metadata/hiệu lực trước khi cấp duyệt. Report tự động không chứng nhận chất lượng học vụ hoặc độ chính xác OCR.
+- [ ] Commit/publish và CI remote cho phần chất lượng mới; chưa thực hiện trong yêu cầu bổ sung này.
+
+Hoàn tất ba phần framework/report/gate trên local. Không triển khai OCR engine, retrieval/answering hoặc xuất riêng một phần tài liệu; không chạy PostgreSQL, browser, crawl mạng hay LLM trong nghiệm thu này.

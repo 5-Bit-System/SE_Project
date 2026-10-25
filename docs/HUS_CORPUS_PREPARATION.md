@@ -16,9 +16,9 @@ Có thể kiểm chứng luồng xuất corpus không rỗng bằng fixture tổ
 | --- | --- |
 | `data/hus/corpus/source_manifest.json` | Vị trí snapshot bất biến, đủ 106 ID/URL, đường dẫn Markdown/raw và SHA-256 của 162 file có thật. |
 | `data/hus/corpus/review_decisions.json` | Quyết định của đủ 106 ID, gắn với hash nội dung; lý do và bằng chứng review khi có. |
-| `data/hus/corpus/build_config.json` | Pipeline 1.3, phép chuẩn hóa, cấu hình chia chunk, metadata bổ sung và ngày `as_of` khi cần. |
+| `data/hus/corpus/build_config.json` | Pipeline 1.4, phép chuẩn hóa, cấu hình chia chunk, metadata bổ sung và ngày `as_of` khi cần. |
 | `data/hus/corpus/baseline_validation_report.json` | Kết quả nghiệm thu cấu trúc của baseline; không phải xác nhận học vụ. |
-| `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 116 output của build 1.3; test đối chiếu toàn bộ manifest tái tạo. |
+| `data/hus/corpus/baseline_build_manifest.json` | Build ID và checksum 119 output của build 1.4; test đối chiếu toàn bộ manifest tái tạo (120 file gồm manifest). |
 | `data/hus/corpus/applicability.json` | Proposal/verified theo trường, gắn đúng 106 ID/hash nguồn; không tự cấp approval. |
 
 Snapshot nguồn nằm trong commit đầy đủ `0404f37c1b6c3864b7fe2e9938a8a21f777663f0` của
@@ -83,6 +83,7 @@ không có kho lưu PDF/DOCX gốc bên ngoài được giả định là tồn 
 | `chunks.jsonl`, `source_map.jsonl` | Chunk của tập `include`, ID ổn định, URL/hash và locator trong bản chuẩn hóa. |
 | `validation_report.json` | Số tài liệu/trạng thái/cờ/chunk; luôn ghi `candidate_only: true`, `active_release: false`. |
 | `manifest.json` | Build ID, hash mã công cụ/model, hash contract và SHA-256 của mọi output còn lại. Không tự hash chính nó. |
+| `source_quality.jsonl`, `ocr_queue.jsonl`, `quality_blockers.jsonl` | Report trang/bảng từ raw, OCR theo trang và blocker thiếu nguồn/lỗi phân tích. Không dùng như corpus trả lời. |
 
 Chia chunk `utf8-lines-v1`: ưu tiên nguyên dòng, tối đa 2.400 byte UTF-8/chunk, overlap 0.
 Dòng dài được cắt tại ranh giới ký tự Unicode; các span liên tiếp ghép lại đúng toàn bộ text.
@@ -142,8 +143,9 @@ Các raw/version gốc vẫn được giữ, chỉ các bản ghi phục vụ tr
 trước khi gửi HTTP, hướng dẫn dùng pipeline corpus có review. Empty allowlist và dry-run vẫn
 kiểm tra được. Bước crawl tiếp tục dùng `tools.run_hus_crawler`, không tự duyệt tài liệu.
 
-Cổng này ghi trách nhiệm/bằng chứng review, không tự xác nhận hiệu lực học vụ, độ đúng từng ô
-bảng hoặc độ chính xác OCR. Những việc đó vẫn phải thực hiện trước khi reviewer chọn `include`.
+Cổng này ghi trách nhiệm/bằng chứng review, không tự xác nhận hiệu lực học vụ hoặc độ chính xác OCR.
+Pipeline 1.4 bắt buộc thêm hồ sơ đối chiếu từng trang PDF và từng bảng/ô trước khi xuất.
+Chi tiết tại [HUS_SOURCE_QUALITY.md](HUS_SOURCE_QUALITY.md).
 Sau OCR phải tạo snapshot/review mới với nội dung và trạng thái tương ứng, không đổi nhãn của
 snapshot cũ chỉ để vượt kiểm tra. Không tự dùng 6 trang đã chọn ở build07 khi chưa có hồ sơ.
 
@@ -191,3 +193,8 @@ major dùng verified, proposed_major/legacy_crawler_major là trường audit ri
 phạm vi chặn xuất; snapshot nguồn và quyết định review giữ nguyên. Để tái tạo bản có giá trị đã
 review, phải dùng đúng file applicability được config chọn. Xem
 [HUS_APPLICABILITY_METADATA.md](HUS_APPLICABILITY_METADATA.md) để tạo/review lớp bổ sung.
+
+Pipeline 1.4 thêm 3 output chất lượng (120 file tổng cộng), kiểm tra từng trang PDF và cấu trúc/
+giá trị ô bảng từ raw. Snapshot và quyết định chờ được giữ nguyên. Raw/report/locator thay đổi,
+ô hoặc trang chưa duyệt sẽ chặn corpus/index, kể cả document đã có include. Xem
+[HUS_SOURCE_QUALITY.md](HUS_SOURCE_QUALITY.md) để tạo report và ghi hồ sơ đối chiếu.

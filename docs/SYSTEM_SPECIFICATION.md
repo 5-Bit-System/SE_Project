@@ -418,6 +418,15 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 
 ### Giai đoạn B: Trả lời câu hỏi
 
+P1 chất lượng nguồn (2026-10-26, corpus 1.4): báo cáo và hàng đợi OCR theo từng trang PDF,
+không lấy trung bình toàn file. SourceTable giữ raw_rows riêng với display, định danh hàng/
+cột/ô, header/spans và locator PDF bbox, DOCX block, HTML DOM hoặc XLSX sheet/address.
+ReviewDecision.source_quality gắn hash report và hồ sơ đối chiếu từng trang/bảng/ô với reviewer,
+timestamp, locator và giá trị đã đọc. Gate trích xuất lại từ raw; thiếu hoặc sai một unit,
+grid chưa giải quyết hay nội dung hiển thị khác nguồn đều chặn toàn document khỏi corpus/index.
+Chunks dẫn report/unit ở phạm vi toàn tài liệu; chưa có ánh xạ chính xác từng chunk tới ô.
+Không tự chạy OCR, duyệt số liệu hoặc phát hành RAG; xem [HUS_SOURCE_QUALITY.md](HUS_SOURCE_QUALITY.md).
+
 P1 applicability (2026-10-26, corpus 1.3): unknown, general và out_of_scope là ba trạng thái
 khác nhau. Bộ suy luận bỏ tín hiệu link/menu/bảng và query URL; nhận diện hai chương trình
 Địa chất/Địa lý ngoài phạm vi trước tín hiệu Toán trong nội dung phụ. HUSDocument.major là

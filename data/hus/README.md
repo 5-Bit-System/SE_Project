@@ -35,8 +35,13 @@ Raw mới lưu bất biến theo SHA-256 kèm `raw/provenance.jsonl` và `HUSDoc
 còn thiếu tại `recovery/20261026-local-originals-final/recovery_queue.jsonl`. Nguồn/corpus ghim
 snapshot cũ được giữ nguyên. Xem [quy trình provenance và recovery](../../docs/HUS_RAW_PROVENANCE.md).
 
-Pipeline hiện tại là **1.3**, thêm `corpus/applicability.json` tách proposal/verified cho đủ 106 ID.
+Pipeline hiện tại là **1.4**, giữ `corpus/applicability.json` tách proposal/verified cho đủ 106 ID.
 Hai trang Địa chất/Địa lý có proposal out_of_scope và bị chặn xuất; 53 nguồn còn unknown, không
 coi là general. Mọi verified metadata khác unknown cần locator khớp nguồn, reviewer và thời gian.
 Snapshot nguồn giữ nguyên; dùng metadata bổ sung để sửa phạm vi sử dụng. Xem
-[hướng dẫn metadata áp dụng](../../docs/HUS_APPLICABILITY_METADATA.md). Build 1.3 có 117 artifact.
+[hướng dẫn metadata áp dụng](../../docs/HUS_APPLICABILITY_METADATA.md). Build 1.4 có 120 artifact.
+
+Chất lượng/OCR được báo cáo từng trang PDF; bảng giữ riêng raw và bản hiển thị, có ID hàng/cột/ô,
+header, ô gộp và locator nguồn. Corpus/index bắt buộc hồ sơ đối chiếu từng trang/bảng/ô, không tự
+duyệt từ trạng thái active. Tạo báo cáo bằng `python -X utf8 -m tools.inspect_hus_source_quality --out backups/rag_preparation/quality01`.
+Xem [hướng dẫn đối chiếu nguồn](../../docs/HUS_SOURCE_QUALITY.md) và [báo cáo local](quality/20261026/report.json).
