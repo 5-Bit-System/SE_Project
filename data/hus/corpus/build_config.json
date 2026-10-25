@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
-  "pipeline_version": "1.2",
+  "pipeline_version": "1.3",
+  "applicability_metadata": "applicability.json",
   "source_manifest": "source_manifest.json",
   "review_decisions": "review_decisions.json",
   "normalization": "nfc-lf-trim-trailing-v1",

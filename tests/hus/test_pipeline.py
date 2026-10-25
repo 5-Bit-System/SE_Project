@@ -139,6 +139,8 @@ class TestHUSPipeline:
                 "computer_science",
                 "data_science",
                 "general",
+                "unknown",
+                "out_of_scope",
             }
 
         # Raw HTML files saved
@@ -529,7 +531,7 @@ class TestHUSPipeline:
         docs = catalog["documents"]
 
         seed = next(d for d in docs.values() if d["source_url"].endswith("/dao-tao"))
-        assert seed["major"] == "general"
+        assert seed["major"] == "unknown"
 
         ds_doc = next(d for d in docs.values() if d["source_url"].endswith("/khoa-hoc-du-lieu"))
         assert ds_doc["major"] == "data_science"
@@ -538,10 +540,10 @@ class TestHUSPipeline:
         assert att_doc["major"] == "computer_science"
 
         # Verify hierarchical storage by major subdirectories
-        assert (tmp_path / "raw" / "html" / "general").is_dir()
+        assert (tmp_path / "raw" / "html" / "unknown").is_dir()
         assert (tmp_path / "raw" / "html" / "data_science").is_dir()
         assert (tmp_path / "raw" / "documents" / "computer_science").is_dir()
-        assert (tmp_path / "processed" / "documents" / "general").is_dir()
+        assert (tmp_path / "processed" / "documents" / "unknown").is_dir()
         assert (tmp_path / "processed" / "documents" / "data_science").is_dir()
         assert (tmp_path / "processed" / "documents" / "computer_science").is_dir()
 
@@ -549,7 +551,7 @@ class TestHUSPipeline:
         ("Khoa học dữ liệu", "guide.docx", "Hướng dẫn đăng ký học phần.", "data_science"),
         ("Khoa học dữ liệu", "guide.docx", "Ngành Khoa học máy tính.", "computer_science"),
         ("Khoa học dữ liệu", "KHMTTT.docx", "Hướng dẫn đăng ký học phần.", "computer_science"),
-        ("Thông tin đào tạo", "guide.docx", "Hướng dẫn đăng ký học phần.", "general"),
+        ("Thông tin đào tạo", "guide.docx", "Hướng dẫn đăng ký học phần.", "unknown"),
     ])
     def test_migration_preserves_pipeline_attachment_classification(
         self, tmp_path: Path, parent_title: str, filename: str, body: str, expected: str,

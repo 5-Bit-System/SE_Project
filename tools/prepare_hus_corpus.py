@@ -12,6 +12,7 @@ import sys
 import tempfile
 
 from pydantic import ValidationError
+from app.hus.metadata import ApplicabilityFile
 
 from app.hus.corpus import (
     BuildConfig, CorpusError, ReviewFile, SourceManifest, build_artifacts,
@@ -66,7 +67,9 @@ def main(argv: list[str] | None = None) -> int:
         root = args.source_root.resolve()
         if out == root or out.is_relative_to(root) or root.is_relative_to(out):
             raise CorpusError("Build output must be outside the source snapshot tree")
-        artifacts = build_artifacts(root, manifest, reviews, config)
+        applicability = (ApplicabilityFile.model_validate(read_json(args.config.parent / config.applicability_metadata))
+                         if config.applicability_metadata else None)
+        artifacts = build_artifacts(root, manifest, reviews, config, applicability)
         if args.command == "verify":
             verify_artifacts(out, artifacts)
             print(f"Verified byte-identical reproduction: {len(artifacts)} files")

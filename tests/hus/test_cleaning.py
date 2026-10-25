@@ -269,30 +269,30 @@ def test_infer_major_general_and_defaults():
     # University-wide / General documents
     assert (
         infer_major("Quy chế đào tạo đại học năm 2026", "https://hus.vnu.edu.vn/dao-tao/dai-hoc")
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
     assert (
         infer_major("Bậc đào tạo", "https://tuyensinh.hus.vnu.edu.vn/dai-hoc")
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
     # Faculty-wide information (Khoa Toán - Cơ - Tin học as a whole)
     assert (
         infer_major(
             "Giới thiệu về khoa Toán - Cơ - Tin học", "https://mim.hus.vnu.edu.vn/vi/gioi-thieu"
         )
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
     assert (
         infer_major("Sứ mệnh & Tầm nhìn", "https://mim.hus.vnu.edu.vn/vi/content/su-menh-tam-nhin")
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
     assert (
         infer_major("Biểu mẫu", "https://mim.hus.vnu.edu.vn/vi/cacloaibieumau")
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
     assert (
         infer_major("Học bổng", "https://mim.hus.vnu.edu.vn/vi/scholarships")
-        == MajorCategory.GENERAL
+        == MajorCategory.UNKNOWN
     )
 
 

@@ -4,6 +4,9 @@ from datetime import date, datetime
 import hashlib
 
 from app.hus.models import HUSDocument, ReviewDecision
+from app.hus.cleaning import infer_major
+from app.hus.metadata import metadata_for
+from app.hus.models import MajorCategory
 
 
 class ReviewGateError(ValueError):
@@ -25,8 +28,16 @@ def require_review(
     """Validate current decisions, not a cached review embedded in an old index record."""
     if decision is None:
         raise ReviewGateError("Missing review decision")
+    applicability = metadata_for(document)
+    if (infer_major(document.title, document.url, document.content) == MajorCategory.OUT_OF_SCOPE
+        or applicability.major.proposed == "out_of_scope" or applicability.major.verified == "out_of_scope"):
+        raise ReviewGateError("Source is outside the four supported HUS majors")
     # Revalidate even if a caller mutated an existing model after creation.
     decision = ReviewDecision.model_validate(decision.model_dump())
+    for name in ("validity_status", "effective_from", "effective_to"):
+        verified = getattr(applicability, name).verified
+        if verified != "unknown" and verified != getattr(decision, name):
+            raise ReviewGateError(f"Review and verified applicability disagree: {name}")
     if document.status.value != "active" or decision.status != "include":
         raise ReviewGateError("Only active documents with include review may be exported")
     if decision.source_url != document.url:
@@ -45,6 +56,15 @@ def require_review(
         decision.reviewed_at.replace("Z", "+00:00")
     ).date() > as_of:
         raise ReviewGateError("Review is later than the requested as_of date")
+    if as_of is not None:
+        from app.hus.metadata import METADATA_FIELDS
+
+        for name in METADATA_FIELDS:
+            field = getattr(applicability, name)
+            if field.verified != "unknown" and datetime.fromisoformat(
+                field.reviewed_at.replace("Z", "+00:00")
+            ).date() > as_of:
+                raise ReviewGateError(f"Metadata review is later than as_of: {name}")
     if decision.usage_scope == "current":
         if as_of is None:
             raise ReviewGateError("Current usage requires an explicit as_of date")

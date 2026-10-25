@@ -144,6 +144,93 @@ class MajorCategory(str, Enum):
     COMPUTER_SCIENCE = "computer_science"
     DATA_SCIENCE = "data_science"
     GENERAL = "general"
+    UNKNOWN = "unknown"
+    OUT_OF_SCOPE = "out_of_scope"
+
+
+class MetadataEvidence(_StrictModel):
+    field: Literal["title", "source_url", "content_markdown", "parent_url"]
+    start: int = Field(ge=0)
+    end: int = Field(gt=0)
+    quote: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def valid_span(self) -> "MetadataEvidence":
+        if self.end <= self.start:
+            raise ValueError("Evidence span must be non-empty")
+        if not self.quote.strip():
+            raise ValueError("Evidence quote must contain text")
+        return self
+
+
+class MetadataField(_StrictModel):
+    proposed: str = "unknown"
+    proposal_method: str = "unknown"
+    proposal_evidence: list[MetadataEvidence] = Field(default_factory=list)
+    verified: str = "unknown"
+    evidence: list[MetadataEvidence] = Field(default_factory=list)
+    reviewer: Optional[str] = None
+    reviewed_at: Optional[str] = None
+
+    @field_validator("proposed", "verified", "proposal_method")
+    @classmethod
+    def non_blank_value(cls, value: str) -> str:
+        return _non_empty(value)
+
+    @field_validator("reviewed_at")
+    @classmethod
+    def aware_metadata_review(cls, value: Optional[str]) -> Optional[str]:
+        if value is not None:
+            _iso_datetime(value)
+            if datetime.fromisoformat(value.replace("Z", "+00:00")).utcoffset() is None:
+                raise ValueError("Metadata review time must include timezone")
+        return value
+
+    @model_validator(mode="after")
+    def verified_requires_evidence(self) -> "MetadataField":
+        if self.verified != "unknown" and (
+            not self.evidence or not (self.reviewer or "").strip() or not self.reviewed_at
+        ):
+            raise ValueError("Verified metadata needs evidence, reviewer and review time")
+        if self.verified != "unknown" and all(item.field == "parent_url" for item in self.evidence):
+            raise ValueError("Verified metadata needs evidence from the document itself")
+        return self
+
+
+class ApplicabilityMetadata(_StrictModel):
+    source_url: Optional[str] = None
+    content_hash: Optional[str] = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    major: MetadataField = Field(default_factory=MetadataField)
+    education_level: MetadataField = Field(default_factory=MetadataField)
+    program: MetadataField = Field(default_factory=MetadataField)
+    program_variant: MetadataField = Field(default_factory=MetadataField)
+    admission_cohort: MetadataField = Field(default_factory=MetadataField)
+    academic_year: MetadataField = Field(default_factory=MetadataField)
+    validity_status: MetadataField = Field(default_factory=MetadataField)
+    effective_from: MetadataField = Field(default_factory=MetadataField)
+    effective_to: MetadataField = Field(default_factory=MetadataField)
+
+    @model_validator(mode="after")
+    def metadata_vocabulary(self) -> "ApplicabilityMetadata":
+        vocabularies = {
+            "major": {item.value for item in MajorCategory},
+            "education_level": {"unknown", "undergraduate", "master", "doctoral", "shared"},
+            "program_variant": {"unknown", "standard", "high_quality", "talent", "advanced"},
+            "validity_status": {"unknown", "historical", "current_verified", "future_draft"},
+        }
+        for name, values in vocabularies.items():
+            field = getattr(self, name)
+            if field.proposed not in values or field.verified not in values:
+                raise ValueError(f"Invalid metadata vocabulary: {name}")
+        for name in ("effective_from", "effective_to"):
+            for value in (getattr(self, name).proposed, getattr(self, name).verified):
+                if value != "unknown":
+                    date.fromisoformat(value)
+        for status in ("proposed", "verified"):
+            start, end = getattr(self.effective_from, status), getattr(self.effective_to, status)
+            if start != "unknown" and end != "unknown" and date.fromisoformat(start) > date.fromisoformat(end):
+                raise ValueError("Applicability effective_to precedes effective_from")
+        return self
 
 
 class RawSourceReference(_StrictModel):
@@ -196,9 +283,10 @@ class HUSDocument(_StrictModel):
     publisher: Publisher = Publisher.MIM
     academic_year: Optional[str] = None
     major: MajorCategory = Field(
-        default=MajorCategory.GENERAL,
-        description="Ngành học áp dụng của tài liệu (hoặc 'general' nếu là quy định chung toàn trường)",
+        default=MajorCategory.UNKNOWN,
+        description="Unverified crawler proposal; use applicability.major.verified for filtering",
     )
+    applicability: ApplicabilityMetadata = Field(default_factory=ApplicabilityMetadata)
     links: list[str] = Field(default_factory=list)
     attachments: list[HUSAttachment] = Field(default_factory=list)
     status: DocumentStatus = DocumentStatus.ACTIVE
@@ -233,6 +321,14 @@ class HUSDocument(_StrictModel):
     def url(self) -> str:
         return self.source_url
 
+    @model_validator(mode="after")
+    def validate_applicability(self) -> "HUSDocument":
+        if self.applicability != ApplicabilityMetadata():
+            from app.hus.metadata import validate_metadata
+
+            self.applicability = validate_metadata(self, self.applicability)
+        return self
+
     @property
     def content(self) -> str:
         return self.content_markdown
@@ -247,6 +343,7 @@ class HUSChunk(_StrictModel):
     review_status: Literal["include"]
     review: ReviewDecision
     review_as_of: Optional[str] = None
+    applicability: ApplicabilityMetadata
 
 
 class CrawlRecord(_StrictModel):

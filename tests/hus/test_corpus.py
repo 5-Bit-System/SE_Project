@@ -44,7 +44,7 @@ def snapshot(tmp_path):
     manifest = create_source_manifest(root, "synthetic-v1", "fixture://synthetic-v1")
     reviews = initial_reviews(root, manifest)
     config = BuildConfig(
-        schema_version="1.0", pipeline_version="1.2", source_manifest="source_manifest.json",
+        schema_version="1.0", pipeline_version="1.3", source_manifest="source_manifest.json",
         review_decisions="review_decisions.json", normalization="nfc-lf-trim-trailing-v1",
         chunking="utf8-lines-v1", max_chunk_bytes=128, overlap_bytes=0,
     )
@@ -204,9 +204,11 @@ def test_production_snapshot_reproduces_without_local_backups():
     root = Path(__file__).resolve().parents[2] / "data/hus"
     config_dir = root / "corpus"
     config = BuildConfig.model_validate(read_json(config_dir / "build_config.json"))
+    from app.hus.metadata import ApplicabilityFile
     manifest = SourceManifest.model_validate(read_json(config_dir / config.source_manifest))
     reviews = ReviewFile.model_validate(read_json(config_dir / config.review_decisions))
-    artifacts = build_artifacts(root, manifest, reviews, config)
+    applicability = ApplicabilityFile.model_validate(read_json(config_dir / config.applicability_metadata))
+    artifacts = build_artifacts(root, manifest, reviews, config, applicability)
     report = json.loads(artifacts["validation_report.json"])
     assert report["document_count"] == 106
     assert report["review_counts"] == {

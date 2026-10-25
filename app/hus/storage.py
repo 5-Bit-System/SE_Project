@@ -18,14 +18,14 @@ from app.hus.urls import canonicalize_url
 
 def _normalize_major(major: MajorCategory | str | None) -> str:
     if major is None:
-        return MajorCategory.GENERAL.value
+        return MajorCategory.UNKNOWN.value
     if isinstance(major, MajorCategory):
         return major.value
     val = str(major).strip()
     try:
         return MajorCategory(val).value
     except ValueError:
-        return val.lower() or MajorCategory.GENERAL.value
+        return val.lower() or MajorCategory.UNKNOWN.value
 
 
 def _escape_yaml_str(val: str) -> str:
@@ -47,7 +47,7 @@ class RawStorage:
         self,
         url: str,
         raw_bytes: bytes,
-        major: MajorCategory | str = "general",
+        major: MajorCategory | str = "unknown",
         title: str = "",
         *, document_id: str | None = None, fetched_at: str | None = None,
         content_type: str | None = "text/html",
@@ -70,7 +70,7 @@ class RawStorage:
         url: str,
         raw_bytes: bytes,
         ext: str,
-        major: MajorCategory | str = "general",
+        major: MajorCategory | str = "unknown",
         title: str = "",
         *, document_id: str | None = None, fetched_at: str | None = None,
         content_type: str | None = None, kind: Literal["fetched", "local_import"] = "fetched",
@@ -125,8 +125,16 @@ class ProcessedStorage:
         cached = self.get_document(document_id)
         if cached is None or cached.url != doc.url:
             return False
+        if cached.title != doc.title:
+            # A title is also evidence for metadata even when body text has not changed.
+            return False
+        from app.hus.metadata import assign_proposal
+
+        assign_proposal(cached)
         self.documents[document_id]["links"] = list(doc.links)
         self.documents[document_id]["attachments"] = [item.model_dump() for item in doc.attachments]
+        self.documents[document_id]["major"] = cached.major.value
+        self.documents[document_id]["applicability"] = cached.applicability.model_dump()
         return True
 
     def link_attachment(self, parent_id: str, url: str, raw_path: str) -> None:

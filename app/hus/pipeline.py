@@ -13,11 +13,12 @@ from urllib.parse import unquote, urlsplit
 import httpx
 
 from app.hus.allowlist import Allowlist, check_allowed
-from app.hus.cleaning import infer_attachment_major, infer_document_type, infer_major
+from app.hus.cleaning import infer_attachment_major, infer_document_type
 from app.hus.crawler import Robots, fetch_attachment, fetch_html
 from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
 from app.hus.models import DocumentStatus, HUSDocument, RawSourceReference
+from app.hus.metadata import assign_proposal
 from app.hus.provenance import document_id_for
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
@@ -195,7 +196,7 @@ class HUSPipeline:
                     try:
                         doc, attachment_urls = extract_html(raw_bytes, final_url, fetched_at)
                         doc.document_type = infer_document_type(doc.title, doc.content)
-                        doc.major = infer_major(doc.title, final_url, doc.content)
+                        assign_proposal(doc)
                     except CrawlError as exc:
                         self.raw_storage.save_raw_html(final_url, raw_bytes, title="unparsed",
                                                        fetched_at=fetched_at,
@@ -368,6 +369,7 @@ class HUSPipeline:
                         status=att_status,
                         raw_source=self.raw_storage.archive.latest(att_final),
                     )
+                    assign_proposal(att_doc, parent_major=doc.major)
                     att_doc_id = self.processed_storage.save_document(att_doc)
                     self.processed_storage.link_attachment(
                         document_id_for(final_url), att_final, att_doc.raw_source.raw_path,

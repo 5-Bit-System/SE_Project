@@ -39,13 +39,13 @@ def test_migrate_catalog_success(tmp_path: Path) -> None:
     assert total == 3
     assert stats["data_science"] == 1
     assert stats["computer_science"] == 1
-    assert stats["general"] == 1
+    assert stats["unknown"] == 1
 
     # Verify written file has major field
     updated = json.loads(catalog_path.read_text(encoding="utf-8"))
     assert updated["documents"]["doc1"]["major"] == "data_science"
     assert updated["documents"]["doc2"]["major"] == "computer_science"
-    assert updated["documents"]["doc3"]["major"] == "general"
+    assert updated["documents"]["doc3"]["major"] == "unknown"
 
 
 def test_migrate_catalog_dry_run(tmp_path: Path) -> None:
@@ -142,8 +142,8 @@ def test_migration_inherits_reclassified_parent_regardless_of_order(
 
 @pytest.mark.parametrize("existing_major, expected", [
     ("data_science", "data_science"),
-    (None, "general"),
-    ("invalid", "general"),
+    (None, "unknown"),
+    ("invalid", "unknown"),
 ])
 def test_migration_missing_parent_preserves_valid_attachment_label(
     tmp_path: Path, existing_major: str | None, expected: str,

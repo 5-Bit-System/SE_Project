@@ -6,8 +6,10 @@
   "document_count": 106,
   "flag_counts": {
     "academic_year_unknown": 106,
+    "applicability_unverified": 106,
     "identical_text_candidate_not_source_deduplicated": 8,
     "original_attachment_missing": 51,
+    "outside_supported_majors": 2,
     "pending_ocr": 6,
     "published_at_unknown": 100,
     "table_requires_review": 49

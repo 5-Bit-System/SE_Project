@@ -13,7 +13,7 @@ def test_raw_storage_idempotent(tmp_path: Path):
     p1 = storage.save_raw_html(url, raw_html)
     assert p1.exists()
     assert p1.read_bytes() == raw_html
-    assert p1.parent.name == "general"
+    assert p1.parent.name == "unknown"
     assert "--" in p1.name
     assert p1.suffix == ".html"
 
@@ -35,7 +35,7 @@ def test_raw_storage_idempotent(tmp_path: Path):
     # Save document (pdf)
     p_pdf = storage.save_raw_document("https://mim.hus.vnu.edu.vn/file.pdf", b"%PDF-1.4", "pdf")
     assert p_pdf.exists()
-    assert p_pdf.parent.name == "general"
+    assert p_pdf.parent.name == "unknown"
     assert "--" in p_pdf.name
     assert p_pdf.suffix == ".pdf"
 
@@ -56,13 +56,13 @@ def test_processed_storage_atomic_commit(tmp_path: Path):
     md_files = list((tmp_path / "processed" / "documents").rglob("*.md"))
     assert len(md_files) == 1
     md_file = md_files[0]
-    assert md_file.parent.name == "general"
+    assert md_file.parent.name == "unknown"
     assert md_file.name.startswith("quy-che-dao-tao--")
     assert md_file.name.endswith(f"{doc_id[:8]}.md")
     assert md_file.exists()
     content = md_file.read_text(encoding="utf-8")
     assert "# Điều 1: Tín chỉ" in content
-    assert 'major: "general"' in content
+    assert 'major: "unknown"' in content
 
     # Before commit, catalog.json might not exist
     storage.commit()

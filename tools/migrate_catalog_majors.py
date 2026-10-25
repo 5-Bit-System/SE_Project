@@ -84,8 +84,10 @@ def migrate_catalog(catalog_path: Path, dry_run: bool = False) -> tuple[int, dic
                 # Retain a valid existing label rather than silently losing it.
                 try:
                     parent_major = MajorCategory(doc.get("major"))
+                    if parent_major == MajorCategory.GENERAL:
+                        parent_major = MajorCategory.UNKNOWN
                 except ValueError:
-                    parent_major = MajorCategory.GENERAL
+                    parent_major = MajorCategory.UNKNOWN
             major = infer_attachment_major(
                 doc.get("source_url", ""), doc.get("content_markdown", ""),
                 parent_major=parent_major,

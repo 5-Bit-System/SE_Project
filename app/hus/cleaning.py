@@ -196,7 +196,14 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
     3. Keywords in initial content lead.
     4. None when these signals do not identify a scope.
     """
-    if _has_shared_scope(title, content):
+    path = _strip_accents(unquote(urlsplit(url).path).lower())
+    title_normalized = _strip_accents(clean_text(title).lower())
+    if (re.search(r"/dao-tao/(?:bac-dai-hoc|dai-hoc)/(?:dia-chat|dia-ly)(?:/|$)", path)
+        or (not _find_all_major_matches(clean_text(title)) and (
+            title_normalized.startswith("dia ly") or "va dia chat" in title_normalized
+        ))):
+        return MajorCategory.OUT_OF_SCOPE
+    if _has_shared_scope(title, classification_content(content)):
         return MajorCategory.GENERAL
 
     title_matches = _find_all_major_matches(clean_text(title))
@@ -216,7 +223,7 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
             pass
         return dec
 
-    decoded_url = _decode_url_path(url)
+    decoded_url = _decode_url_path(urlsplit(url).path)
     unquoted_url = _strip_accents(decoded_url.lower())
 
     # 1. Check URL slug patterns
@@ -288,7 +295,7 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
 
     # 3. Check lead content (up to 1000 characters)
     if content:
-        lead_content = clean_text(content[:1000])
+        lead_content = clean_text(classification_content(content)[:1000])
         content_matches = _find_all_major_matches(lead_content)
         if len(content_matches) == 1:
             return next(iter(content_matches))
@@ -297,12 +304,12 @@ def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | 
 
 
 def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
-    """Infer a major, keeping the existing GENERAL catalog default for unknown scope."""
-    return _classify_major(title, url, content) or MajorCategory.GENERAL
+    """Return an unverified proposal; unknown is never treated as shared scope."""
+    return _classify_major(title, url, content) or MajorCategory.UNKNOWN
 
 
 def infer_attachment_major(
-    url: str, content: str = "", *, parent_major: MajorCategory = MajorCategory.GENERAL,
+    url: str, content: str = "", *, parent_major: MajorCategory = MajorCategory.UNKNOWN,
 ) -> MajorCategory:
     """Inherit only when an attachment's scope is unknown; preserve shared scope.
 
@@ -313,6 +320,18 @@ def infer_attachment_major(
     filename = Path(urlsplit(url).path).name or "attachment"
     major = _classify_major(filename, url, content)
     return parent_major if major is None else major
+
+
+def classification_content(content: str) -> str:
+    """Use narrative applicability signals, not navigation/link inventories or table headers."""
+    lines = []
+    for line in content.splitlines():
+        if "](" in line or line.lstrip().startswith("|"):
+            continue
+        # A bare menu label is not evidence that a page applies to that major.
+        if re.search(r"\b(?:ngành|chương trình|sinh viên|học viên|áp dụng|dành cho)\b", line, re.I):
+            lines.append(line)
+    return "\n".join(lines)
 
 
 def clean_table_cell(cell: Any) -> str:
@@ -352,8 +371,9 @@ def format_markdown_table(rows: list[list[Any]]) -> list[str]:
 
 def extract_document(raw: bytes, url: str, fetched_at: str):
     from app.hus.extractors.html import extract_html
+    from app.hus.metadata import assign_proposal
 
     doc, _ = extract_html(raw, url, fetched_at)
     doc.document_type = infer_document_type(doc.title, doc.content)
-    doc.major = infer_major(doc.title, url, doc.content)
+    assign_proposal(doc)
     return doc

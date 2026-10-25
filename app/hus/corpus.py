@@ -20,9 +20,10 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.hus.models import HUSDocument, ReviewDecision
 from app.hus.review import require_review
+from app.hus.metadata import ApplicabilityFile, metadata_for, validate_metadata
 
 SCHEMA_VERSION = "1.0"
-PIPELINE_VERSION = "1.2"
+PIPELINE_VERSION = "1.3"
 REVIEW_STATUSES = ("include", "needs_review", "pending_ocr", "exclude")
 
 
@@ -65,7 +66,7 @@ class ReviewFile(StrictModel):
 
 class BuildConfig(StrictModel):
     schema_version: Literal["1.0"]
-    pipeline_version: Literal["1.2"]
+    pipeline_version: Literal["1.3"]
     source_manifest: str
     review_decisions: str
     normalization: Literal["nfc-lf-trim-trailing-v1"]
@@ -73,6 +74,7 @@ class BuildConfig(StrictModel):
     max_chunk_bytes: int = Field(ge=128, le=16000)
     overlap_bytes: Literal[0]
     as_of: str | None = None
+    applicability_metadata: str | None = None
 
     @field_validator("as_of")
     @classmethod
@@ -258,13 +260,22 @@ def split_chunks(text: str, limit: int) -> list[tuple[int, int]]:
 
 def build_artifacts(
     root: Path, manifest: SourceManifest, reviews: ReviewFile, config: BuildConfig,
+    applicability: ApplicabilityFile | None = None,
 ) -> dict[str, bytes]:
     documents = verify_sources(root, manifest)
+    if config.applicability_metadata and applicability is None:
+        raise CorpusError("Configured applicability metadata must be supplied to the build API")
     as_of = date.fromisoformat(config.as_of) if config.as_of is not None else None
     if reviews.source_snapshot_id != manifest.source_snapshot_id:
         raise CorpusError("Review decisions belong to a different snapshot")
     if set(reviews.decisions) != set(documents):
         raise CorpusError("Review decisions must cover exactly the snapshot document IDs")
+    if applicability is not None and (
+        applicability.source_snapshot_id != manifest.source_snapshot_id
+        or set(applicability.documents) != set(documents)
+    ):
+        raise CorpusError("Applicability metadata must match exactly the source snapshot IDs")
+    selected_metadata = {}
     source_files = {item.path: item for item in manifest.files}
     artifacts: dict[str, bytes] = {}
     inventory, review_rows, corpus, chunks, source_map = [], [], [], [], []
@@ -272,6 +283,12 @@ def build_artifacts(
     for key, doc in documents.items():
         hash_groups[doc.content_hash].append(key)
     for key, doc in sorted(documents.items()):
+        try:
+            selected = validate_metadata(doc, applicability.documents[key]) if applicability else metadata_for(doc)
+        except ValueError as exc:
+            raise CorpusError(f"Invalid applicability metadata for {key}: {exc}") from exc
+        selected_metadata[key] = selected
+        doc = doc.model_copy(update={"applicability": selected})
         source = manifest.documents[key]
         decision = reviews.decisions[key]
         if decision.content_hash != doc.content_hash:
@@ -290,6 +307,10 @@ def build_artifacts(
             flags.append("published_at_unknown")
         if doc.status.value == "pending_ocr":
             flags.append("pending_ocr")
+        if selected.major.proposed == "out_of_scope":
+            flags.append("outside_supported_majors")
+        if selected.major.verified == "unknown":
+            flags.append("applicability_unverified")
         if decision.status == "include":
             raw_file = source_files[source.raw_path] if source.raw_path else None
             try:
@@ -304,7 +325,9 @@ def build_artifacts(
         artifacts[normalized_path] = text.encode()
         metadata = {
             "document_id": key, "source_url": doc.url, "title": doc.title,
-            "major": doc.major.value, "document_type": doc.document_type.value,
+            "major": selected.major.verified, "proposed_major": selected.major.proposed,
+            "legacy_crawler_major": doc.major.value, "document_type": doc.document_type.value,
+            "applicability": selected.model_dump(),
             "publisher": doc.publisher.value, "academic_year": doc.academic_year,
             "published_at": doc.published_at, "fetched_at": doc.fetched_at,
             "source_content_hash": doc.content_hash, "normalized_sha256": sha256(text.encode()),
@@ -349,6 +372,9 @@ def build_artifacts(
         "source_manifest.json": json_bytes(manifest.model_dump()),
         "build_config.json": json_bytes(config.model_dump()),
         "review_decisions.json": json_bytes(reviews.model_dump()),
+        "applicability.json": json_bytes(ApplicabilityFile(
+            source_snapshot_id=manifest.source_snapshot_id, documents=selected_metadata,
+        ).model_dump()),
         "inventory.jsonl": jsonl_bytes(inventory), "document_review.jsonl": jsonl_bytes(review_rows),
         "documents.jsonl": jsonl_bytes(corpus), "chunks.jsonl": jsonl_bytes(chunks),
         "source_map.jsonl": jsonl_bytes(source_map), "validation_report.json": json_bytes(report),
@@ -357,12 +383,14 @@ def build_artifacts(
     implementations = {name: sha256(file_bytes(repo_root / name, "utf8-lf")) for name in (
         "app/hus/corpus.py", "app/hus/models.py", "tools/prepare_hus_corpus.py",
         "app/hus/review.py",
+        "app/hus/metadata.py", "app/hus/cleaning.py",
     )}
     output_hashes = {name: sha256(data) for name, data in sorted(artifacts.items())}
     identity = {"pipeline_version": PIPELINE_VERSION, "implementation_sha256": implementations,
                 "source_manifest_sha256": output_hashes["source_manifest.json"],
                 "build_config_sha256": output_hashes["build_config.json"],
                 "review_decisions_sha256": output_hashes["review_decisions.json"]}
+    identity["applicability_sha256"] = output_hashes["applicability.json"]
     artifacts["manifest.json"] = json_bytes({
         **identity, "schema_version": SCHEMA_VERSION, "build_id": sha256(json_bytes(identity)),
         "source_snapshot_id": manifest.source_snapshot_id, "outputs": output_hashes,

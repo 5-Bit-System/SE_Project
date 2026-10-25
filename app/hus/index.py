@@ -10,6 +10,7 @@ from pathlib import Path
 import textwrap
 
 from app.hus.models import HUSChunk, HUSDocument, ReviewDecision
+from app.hus.metadata import metadata_for
 from app.hus.review import ReviewGateError, require_review, source_digest
 from app.hus.urls import canonicalize_url
 
@@ -24,6 +25,7 @@ def chunk_document(
         source_digest(raw, review.source_checksum_encoding) if raw is not None and review else None,
         source_encoding=review.source_checksum_encoding if review else "binary", as_of=as_of,
     )
+    applicability = metadata_for(document)
     if max_chars < 1:
         raise ValueError("max_chars must be positive")
     chunks: list[HUSChunk] = []
@@ -41,6 +43,7 @@ def chunk_document(
                 chunk_id=digest[:16], url=document.url, title=document.title,
                 heading=heading, text=text, review_status="include", review=review,
                 review_as_of=as_of.isoformat() if as_of else None,
+                applicability=applicability,
             )
         )
         buf.clear()
@@ -95,6 +98,9 @@ class HUSIndex:
                     **record, "review_status": "include",
                     "review": chunks[0].review.model_dump(),
                     "review_as_of": chunks[0].review_as_of,
+                    "applicability": chunks[0].applicability.model_dump(),
+                    "major": chunks[0].applicability.major.verified,
+                    "proposed_major": chunks[0].applicability.major.proposed,
                     "chunks": [chunk.model_dump() for chunk in chunks],
                 }
             except (ValueError, OSError, KeyError):
@@ -131,7 +137,11 @@ class HUSIndex:
         record = document.model_dump(exclude={"links"})
         record["raw_file"] = raw_name
         record.update(review_status="include", review=chunks[0].review.model_dump(),
-                      review_as_of=chunks[0].review_as_of)
+                      review_as_of=chunks[0].review_as_of,
+                      applicability=chunks[0].applicability.model_dump(),
+                      legacy_crawler_major=document.major.value,
+                      major=chunks[0].applicability.major.verified,
+                      proposed_major=chunks[0].applicability.major.proposed)
         existing = self.documents.get(identity)
         original = next(
             (

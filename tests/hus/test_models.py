@@ -50,7 +50,7 @@ def test_models_serialization():
 
 
 def test_major_category_defaults_and_validation():
-    # Default is GENERAL
+    # Missing applicability is unknown, never silently shared.
     doc_default = HUSDocument(
         source_url="https://mim.hus.vnu.edu.vn/vi/thong-tin-chung",
         title="Quy chế đào tạo",
@@ -58,7 +58,7 @@ def test_major_category_defaults_and_validation():
         content_hash="hash123",
         fetched_at="2026-10-15T22:00:00Z",
     )
-    assert doc_default.major == MajorCategory.GENERAL
+    assert doc_default.major == MajorCategory.UNKNOWN
 
     # Valid string coercion
     doc_ds = HUSDocument(
