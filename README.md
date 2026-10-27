@@ -50,7 +50,10 @@ Yêu cầu Python 3.11+, Docker Desktop và PowerShell. Các bước dưới đ�
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+python -m pip install -r requirements-portal.txt -c requirements-lock.txt
 ```
+
+Đăng nhập VNU cần Playwright trong `requirements-portal.txt` và Google Chrome đã cài trên máy. Khi chuyển thư mục dự án, tạo lại `.venv` tại vị trí mới và cài cả hai nhóm phụ thuộc ở trên.
 
 ### 2. Chuẩn bị cấu hình local
 
