@@ -158,6 +158,7 @@ if (typeof document !== 'undefined') {
     if (!stats.count) { empty(container, t('Chưa có lượt học để thống kê.', 'No attempts available.')); return; }
     const layout = element('div', '', 'distribution-layout');
     const svg = svgRoot(t('Phân bố ký hiệu điểm nguồn theo lượt học', 'Distribution of source grade labels by attempt'), 200, 200);
+    svg.setAttribute('role', 'group');
     const radius = 69, circumference = 2 * Math.PI * radius;
     svg.append(svgElement('circle', {cx: 100, cy: 100, r: radius, fill: 'none', 'stroke-width': 22, class: 'chart-ring-bg'}));
     let offset = 0;
@@ -166,13 +167,27 @@ if (typeof document !== 'undefined') {
       const length = count / stats.count * circumference, color = colors[index % colors.length];
       const segment = svgElement('circle', {cx: 100, cy: 100, r: radius, fill: 'none', stroke: color,
         'stroke-width': 22, 'stroke-dasharray': `${length} ${circumference - length}`,
-        'stroke-dashoffset': -offset, transform: 'rotate(-90 100 100)'});
+        'stroke-dashoffset': -offset, transform: 'rotate(-90 100 100)', class: 'chart-grade-segment',
+        'data-grade-letter': letter, role: 'button', tabindex: 0});
       offset += length;
       const label = letter || t('Chưa có điểm chữ', 'No letter grade');
-      const title = svgElement('title'); title.textContent = `${label}: ${count}`; segment.append(title); svg.append(segment);
+      const title = svgElement('title'); title.textContent = `${label}: ${count}`;
+      segment.setAttribute('aria-label', `${t('Lọc bảng điểm theo điểm chữ', 'Filter transcript by letter grade')}: ${label}, ${count}`);
+      segment.append(title); svg.append(segment);
+      const selectGrade = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter}}));
+      segment.addEventListener('click', selectGrade);
+      segment.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault(); selectGrade();
+      });
       const item = element('li', '');
+      const button = element('button', '', 'distribution-grade-button');
+      button.type = 'button'; button.dataset.gradeLetter = letter;
+      button.setAttribute('aria-label', `${t('Lọc bảng điểm theo điểm chữ', 'Filter transcript by letter grade')}: ${label}, ${count}`);
       const swatch = element('span', '', 'legend-swatch'); swatch.style.backgroundColor = color;
-      item.append(swatch, element('span', label), element('strong', `${count} · ${number(count / stats.count * 100)}%`)); legend.append(item);
+      button.append(swatch, element('span', label), element('strong', `${count} · ${number(count / stats.count * 100)}%`));
+      button.addEventListener('click', selectGrade);
+      item.append(button); legend.append(item);
     });
     const total = svgElement('text', {x: 100, y: 99, 'text-anchor': 'middle', class: 'chart-ring-total'}); total.textContent = stats.count;
     const caption = svgElement('text', {x: 100, y: 122, 'text-anchor': 'middle', class: 'chart-axis'}); caption.textContent = t('lượt học', 'attempts');

@@ -127,6 +127,16 @@ def main():
             'HỌC KỲ 2 - 2100-2101', 'HỌC KỲ 1 - 2099-2100']
         assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
+        assert grade_button.count() == 1
+        grade_button.click()
+        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        grade_segment = page.locator('#analytics-distribution .chart-grade-segment[data-grade-letter="A+"]')
+        assert grade_segment.get_attribute('role') == 'button'
+        grade_segment.click(position={'x': 90, 'y': 3})
+        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)
