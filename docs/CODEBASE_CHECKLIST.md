@@ -93,3 +93,59 @@ Mốc hoàn tất là mô hình/cổng kiểm tra, sửa phạm vi sử dụng v
 - [ ] Commit/publish và CI remote cho phần chất lượng mới; chưa thực hiện trong yêu cầu bổ sung này.
 
 Hoàn tất ba phần framework/report/gate trên local. Không triển khai OCR engine, retrieval/answering hoặc xuất riêng một phần tài liệu; không chạy PostgreSQL, browser, crawl mạng hay LLM trong nghiệm thu này.
+
+## Dữ liệu hỏi đáp F1–F3 — nghiệm thu local 2026-10-28
+
+- [x] Theo yêu cầu mới, bỏ trang nghề nghiệp trộn Toán Cơ khỏi bổ sung và duyệt 24 phần
+  F1 trên Markdown của đúng 10 nguồn: hồ sơ hash/locator/reviewer/time riêng, `include_markdown`,
+  original_verified=false. F1 hiện 15 nguồn/69 chunks, pending rỗng; ba phần CLC trùng chỉ
+  index một lần và giữ cả provenance. Cập nhật `data/hus/rag/f1` và manifest chung.
+- [x] 15 test Markdown review mới đạt; toàn repo **541 passed, 26 skipped**, Ruff/diff đạt;
+  release chín file tái tạo byte-identical, 19 payload bàn giao khớp nguồn. Gate raw,
+  F2/F3, catalog, raw và các release cũ giữ nguyên. Chi tiết tại
+  [F1 duyệt Markdown](../data/hus/qa/20261028/f1_markdown_approved/README.md).
+
+- [x] Gom bản bàn giao chung tại `data/hus/rag/{f1,f2,f3}` với README và manifest nguồn/hash.
+  Đã kiểm 18 file dữ liệu khớp nguyên byte, F1 42 chunks/F2 4 ngành 290 membership/F3 870
+  chunks; giữ nhãn nguồn/generated, blueprint và các release gốc. Không thay code runtime.
+
+- [x] Mở rộng F1 từ toàn bộ 106 nguồn crawl: thêm bài CLC qua raw/full-text review,
+  tạo 42 đoạn trích nguyên văn từ 5 nguồn, giữ locator/hash, scope mô tả và hệ riêng.
+  Không sinh F1, không đếm mục tiêu học phần F3 hoặc tin tức làm F1 chương trình.
+- [x] Inventory F1 mới phân 5 đủ gate / 11 quarantine / 90 ngoài F1; 27 đoạn mục tiêu/
+  nghề nghiệp trong tài liệu thiếu raw hoặc trang trộn Toán Cơ vẫn ngoài tập trả lời.
+- [x] Tám test F1 mới đạt; toàn repo **526 passed, 26 skipped**, Ruff/diff đạt. Tám artifact
+  F1 tái tạo byte-identical, 16 contract câu hỏi đạt; baseline/F1 cũ/F2/F3 và raw giữ nguyên.
+  Hướng dẫn hiện dùng: [F1 mở rộng](../data/hus/qa/20261028/f1_expanded/README.md).
+
+- [x] Theo yêu cầu bổ sung, tạo F3 tham khảo AI sinh cho đầy đủ 290 membership/174 mã
+  từ F2 main ghim blob: 90/68/67/65 hồ sơ theo bốn ngành, 154 phác thảo chuyên môn,
+  870 chunks RAG có nhãn và scope riêng. Đủ nội dung/mục tiêu/gợi ý đánh giá, mọi official
+  F3/weights/exam format vẫn null; không nâng reviewer/gate hoặc trộn corpus nguồn.
+- [x] Công cụ build/verify riêng cho generated reference dùng lại serialization/chunking/
+  verify của corpus hiện có; 17 test mới, **518 passed, 26 skipped** toàn repo, Ruff/diff
+  đạt, bảy file tái tạo byte-identical, 16 câu hỏi contract đạt. Chưa tạo vector index
+  hoặc đánh giá LLM. Xem [hướng dẫn F3](../data/hus/qa/20261028/f3_reference/README.md).
+
+- [x] Đính chính sau kiểm tra remote main `cfb2ec4`: có nguồn F2 bốn ngành trong
+  `database/data/hus_source.json`, 290 membership/297 dòng, 42 nhóm/348 option tiên quyết
+  và PDF tại `docs/pdf/`. Các nhận định thiếu F2/PDF bên dưới chỉ thuộc snapshot crawldata.
+  Đã kiểm tra joins/locator JSON; chưa nhập bundle, merge hoặc chạy lại nghiệm thu PDF.
+
+- [x] Kiểm tra nhánh `crawldata`/HEAD `38a5ddb`, giữ ba tệp untracked có sẵn; kiểm kê
+  nguồn snapshot 0404f37 và các artifact local. Chưa tìm được artifact/contract chứng minh
+  tuyên bố 30 chunks; baseline cũ vẫn 0, không nhập lại review build07.
+- [x] Quy trình `tools.audit_hus_scope` tái lập qua gate chuẩn, không sửa nguồn/gate;
+  manifest 106 tài liệu: 79 exclude, 11 quarantine, 16 giữ làm ứng viên; matrix theo
+  ngành/edition/variant/trường, kiểm kê F2 cả HUS và catalog KHDL 2022 (65 môn).
+- [x] Contract riêng ghi đối chiếu của Codex trên bốn HTML F1 toàn tài liệu, 4 include/8 chunks
+  cho mô tả, không xác nhận học vụ hiện hành. Corpus ứng viên chưa kích hoạt.
+- [x] F2/F3 giữ unknown/provenance; hàng đợi mã thiếu/lặp, mâu thuẫn tín chỉ và bảng chưa
+  ánh xạ. Ba mẫu F3 suy luận có hash/pointer/method riêng, không vào corpus nguồn.
+- [x] Thử tải 5 URL có mục tiêu, policy robots fail-closed do robots không có HTTP response;
+  lưu attempts/provenance, không thu được PDF mới. Không crawl rộng hoặc bỏ qua robots.
+- [x] **501 passed, 26 skipped**; Ruff/diff/catalog check đạt. Audit tái tạo đúng 19 artifact;
+  12 câu hỏi contract có kết quả rõ ràng. Chi tiết tại [báo cáo bàn giao](HUS_QA_DATA_AUDIT.md).
+- [ ] Bổ sung original/OCR, đối chiếu trang/ô và xác minh phiên bản/cohort; chưa đủ điều kiện
+  trả lời F2/F3 chính thức. Không xem số dòng/mục/chunk là độ bao phủ đầy đủ.
+- [ ] Nghiệm thu retrieval/citation và hiệu lực học vụ, CI remote hoặc publication chưa thực hiện.

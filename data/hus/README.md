@@ -1,5 +1,9 @@
 # Dữ liệu HUS (crawl)
 
+**Thư mục quản lý chung F1/F2/F3 hiện tại: [rag/](rag/README.md).**
+Ba tệp chính là `rag/f1/rag_chunks.jsonl`, `rag/f2/hus_source.json` và
+`rag/f3/rag_chunks.jsonl`. Các nguồn/raw và release gốc vẫn ở vị trí cũ để giữ provenance.
+
 Crawler hiện dùng `config/sources.json` để quyết định host, path và seed. Crawler kiểm tra `robots.txt` khi chạy. Kiểm tra cấu hình mà không gửi HTTP:
 
 ```powershell
@@ -45,3 +49,13 @@ Chất lượng/OCR được báo cáo từng trang PDF; bảng giữ riêng raw
 header, ô gộp và locator nguồn. Corpus/index bắt buộc hồ sơ đối chiếu từng trang/bảng/ô, không tự
 duyệt từ trạng thái active. Tạo báo cáo bằng `python -X utf8 -m tools.inspect_hus_source_quality --out backups/rag_preparation/quality01`.
 Xem [hướng dẫn đối chiếu nguồn](../../docs/HUS_SOURCE_QUALITY.md) và [báo cáo local](quality/20261026/report.json).
+
+Đợt chuẩn bị dữ liệu F1–F3 ngày 2026-10-28 dùng contract riêng tại `qa/20261028/contract`,
+giữ nguyên baseline trên. Tập đầu 4 bài giới thiệu/8 chunks được giữ làm lịch sử.
+F1 5 nguồn/42 đoạn tại `qa/20261028/f1_expanded/` là bản trước. Sau yêu cầu duyệt thêm
+10 nguồn Markdown, bản hiện tại có 15 nguồn/69 chunks, không còn đoạn chờ, tại
+`rag/f1/` và `qa/20261028/f1_markdown_approved/`; vẫn ghi rõ chưa đối chiếu original cho
+10 nguồn này. Trang nghề nghiệp có Toán Cơ đã loại khỏi phần bổ sung. F2 đủ bốn ngành trên main đã được ghim lại trong
+`qa/20261028/f3_reference/inputs/hus_source.json`; F3 tham khảo AI sinh có 290 hồ sơ/870
+chunks trong `qa/20261028/f3_reference/release/`, tách khỏi nguồn chính thức.
+Xem [kiểm kê, giới hạn và lệnh tái tạo](../../docs/HUS_QA_DATA_AUDIT.md).

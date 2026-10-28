@@ -418,6 +418,38 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 
 ### Giai đoạn B: Trả lời câu hỏi
 
+Theo yêu cầu mới của người dùng, adapter `app/hus/f1_markdown_review.py` cho phép duyệt
+tường minh các phần F1 trên Markdown đã crawl của đúng 10 tài liệu, giữ hash/locator và
+nhãn `include_markdown`, không tự coi là đã đối chiếu PDF/DOCX. Không thay `require_review`
+hoặc review gate raw của corpus/index cũ. Trang nghề nghiệp trộn Toán Cơ bị loại khỏi
+phần bổ sung. `tools.prepare_hus_f1 --markdown-reviews ...` tạo F1 15 nguồn/69 chunks,
+ghi scope mô tả, original_verified=false cho 10 nguồn và giữ riêng edition/variant.
+Tập chung hiện tại tại `data/hus/rag/f1/`; release năm nguồn trước được giữ làm lịch sử.
+
+F1 mở rộng (2026-10-28) tại `data/hus/qa/20261028/f1_expanded/` dùng 5 tài liệu crawl
+đã duyệt toàn văn để tạo 42 đơn vị nguồn theo chủ đề F1. `tools.prepare_hus_f1` tái dùng
+gate corpus chuẩn, xuất exact quote/source offset và giữ riêng CLC/tài năng; không sửa
+review scope để xuất phần của nguồn chưa duyệt. Inventory đủ 106 nguồn, 27 đoạn ứng viên
+từ 11 tài liệu còn chờ raw/phạm vi không được đưa vào corpus trả lời. Tập 8 chunks trước
+được giữ làm lịch sử, không index cùng tập mới. Xem
+[contract F1](../data/hus/qa/20261028/f1_expanded/README.md).
+
+Chuẩn bị dữ liệu F1–F3 (2026-10-28) bổ sung `tools.audit_hus_scope` làm lớp kiểm kê/phân loại
+trên pipeline corpus hiện có, dùng contract riêng tại `data/hus/qa/20261028/contract`.
+Không thay baseline hoặc cổng review. Tập mô tả F1 có 4 bài/8 chunks với review đối chiếu
+của Codex, scope mô tả, chưa xác minh hiệu lực hiện tại. F2/F3 thiếu nguồn/đối chiếu được
+cách ly; F3 suy luận có kiểm tra hash/pointer F2 và nằm riêng ngoài corpus nguồn.
+`tools.fetch_hus_gaps` chỉ lấy URL thiếu tường minh qua policy robots/rate/provenance cũ.
+Ma trận trường/từng môn, dữ liệu xuất và giới hạn tại [báo cáo dữ liệu](HUS_QA_DATA_AUDIT.md).
+
+Theo yêu cầu bổ sung, `tools.prepare_hus_f3_reference` dựng riêng dữ liệu F3 AI sinh từ
+nguồn F2 main đã ghim và blueprint theo mã môn: 290 hồ sơ, 870 chunks cho nội dung/mục tiêu/
+gợi ý đánh giá. Dataset `generated_f3_reference` giữ cảnh báo và identity ngành/phiên bản
+trong từng chunk, không dùng `ReviewDecision.include`, không tự nạp `HUSIndex` hoặc corpus
+nguồn chính thức. Official F3/weights/exam format vẫn null. Tích hợp RAG phải chọn namespace
+riêng và công bố nhãn tham khảo; chi tiết tại
+[contract F3 tham khảo](../data/hus/qa/20261028/f3_reference/README.md).
+
 P1 chất lượng nguồn (2026-10-26, corpus 1.4): báo cáo và hàng đợi OCR theo từng trang PDF,
 không lấy trung bình toàn file. SourceTable giữ raw_rows riêng với display, định danh hàng/
 cột/ô, header/spans và locator PDF bbox, DOCX block, HTML DOM hoặc XLSX sheet/address.
