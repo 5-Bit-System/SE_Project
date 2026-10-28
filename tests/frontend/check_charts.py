@@ -60,7 +60,9 @@ def main():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(channel='chrome', headless=True)
-        page = browser.new_page(viewport={'width': 1600, 'height': 1080})
+        context = browser.new_context(viewport={'width': 1600, 'height': 1080}, locale='vi-VN',
+                                      timezone_id='Asia/Bangkok')
+        page = context.new_page()
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.route('**/*', intercept)
@@ -86,6 +88,7 @@ def main():
         page.locator('[data-language-choice="en"]').click()
         assert 'Grades across semesters' in page.locator('.analytics-trend').inner_text()
         assert '4.25' in page.locator('#analytics-trend').inner_text()
+        assert 'Updated: 23/10/2026, 07:00:00' in page.locator('#analytics-status').inner_text()
         assert 'Tổng kết nguồn giả lập' in page.locator('#analytics-source-totals').inner_text()
         totals = page.locator('#analytics-source-totals').inner_text()
         assert 'Total credits: 6' in totals

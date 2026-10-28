@@ -149,7 +149,7 @@ if (typeof document !== 'undefined') {
     $('year').disabled = !attempts.length;
     const stats = sourceStatistics(attempts, $('year').value);
     $('status').textContent = source ? t('Nguồn: bảng điểm VNU đã lưu', 'Source: saved VNU transcript')
-      + (source.fetched_at ? ` · ${t('Cập nhật', 'Updated')}: ${new Date(source.fetched_at).toLocaleString()}` : '')
+      + (source.fetched_at ? ` · ${t('Cập nhật', 'Updated')}: ${new Date(source.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN')}` : '')
       + (source.snapshot?.completeness !== 'complete' ? t(' · Chưa xác minh độ đầy đủ', ' · Completeness unverified') : '')
       : t('Đăng nhập VNU để xem biểu đồ từ bảng điểm đã lưu trong hồ sơ của bạn.', 'Sign in with VNU to view charts from your saved transcript.');
     $('source-totals').replaceChildren();
