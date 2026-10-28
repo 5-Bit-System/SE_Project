@@ -1,0 +1,43 @@
+{
+  "active_release": false,
+  "corpus_build_id": "87f278b74b36f63723c3d73e923dafe85f2e426dfa2a6f073cf1e3eeb0e3b371",
+  "generated_F1_units": 0,
+  "implementation_sha256": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+  "inventory_counts": {
+    "answer_eligible": 5,
+    "excluded_from_F1": 90,
+    "quarantine": 11
+  },
+  "outputs": {
+    "acceptance_questions.jsonl": "dc2bc4c20e336f8768cc666ba0e018071868b32e84d496e1bbeaba26b506981b",
+    "documents.jsonl": "781d3b6adcb9a34fc2b04ae12c1280a89a1c9dd10b473078891b4766d9edb333",
+    "f1_units.jsonl": "7f8e1586e782bfc471f80613f7272f3885dfca6336c7282ecf8fee4c6b44bc94",
+    "pending_F1_sections.jsonl": "ef5122aefc4134b96b70dd8889b722c93825782c531a71d39b248cb945d421be",
+    "rag_chunks.jsonl": "b8f056846601e5ea069e788020c35dd5a6f8bac711901dd9cbe3bfd7915ee739",
+    "source_inventory.jsonl": "1ceb90a9c523e660e3e49ec647de79bb7fed3cff4c90cd5365ae84600faa9a87",
+    "source_map.jsonl": "ae0e509cdb9a4ace2de68e63f6e94e7375f4ce63b52c318afaf5187c00d1568f"
+  },
+  "pending_sections": 27,
+  "pending_source_documents": 11,
+  "question_contracts": {
+    "pass": 16
+  },
+  "rag_chunks": 42,
+  "schema_version": "1.0",
+  "selection_plan_sha256": "8ee7344b10558e766821cca0e9389db8a5c7a48b8467bb890a2775f65628afac",
+  "semantic_units": 42,
+  "source_documents": 5,
+  "source_snapshot_id": "hus-0404f37-20261026",
+  "unit_counts_by_field": {
+    "careers": 15,
+    "further_study": 6,
+    "introduction": 7,
+    "objectives": 14
+  },
+  "unit_counts_by_major": {
+    "computer_science": 17,
+    "data_science": 10,
+    "mathematics": 9,
+    "mathematics_informatics": 6
+  }
+}
