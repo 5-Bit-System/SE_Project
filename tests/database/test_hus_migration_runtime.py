@@ -95,7 +95,7 @@ def test_runtime_target_accepts_local_ai07(query):
         "mysql+pymysql://user:secret@localhost:5433/ai07",
     ],
 )
-def test_runtime_engine_rejects_unsafe_target_before_connection(monkeypatch, url):
+def test_runtime_engine_rejects_unsafe_target_before_connection(monkeypatch, url, request):
     monkeypatch.setenv("HUS_TEST_DATABASE_URL", url)
 
     def reject_engine_creation(*args, **kwargs):
@@ -103,7 +103,7 @@ def test_runtime_engine_rejects_unsafe_target_before_connection(monkeypatch, url
 
     monkeypatch.setitem(runtime_engine.__wrapped__.__globals__, "create_engine", reject_engine_creation)
     with pytest.raises(ValueError, match="local ai07"):
-        next(runtime_engine.__wrapped__())
+        next(runtime_engine.__wrapped__(request))
 
 
 @pytest.mark.hus_postgres
