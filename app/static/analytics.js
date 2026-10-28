@@ -193,6 +193,7 @@ if (typeof document !== 'undefined') {
     const total = svgElement('text', {x: 100, y: 99, 'text-anchor': 'middle', class: 'chart-ring-total'}); total.textContent = stats.count;
     const caption = svgElement('text', {x: 100, y: 122, 'text-anchor': 'middle', class: 'chart-axis'}); caption.textContent = t('lượt học', 'attempts');
     svg.append(total, caption); layout.append(svg, legend); container.append(layout);
+    legend.style.setProperty('--grade-count-width', `${Math.max(...[...legend.querySelectorAll('strong')].map(node => node.getBoundingClientRect().width))}px`);
   }
   function render() {
     const attempts = source?.snapshot?.attempts || [], year = $('year').value;

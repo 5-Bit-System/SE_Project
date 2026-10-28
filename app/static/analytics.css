@@ -26,12 +26,10 @@
 .chart-ring-total { fill: var(--text-main); font: 600 32px 'Be Vietnam Pro', sans-serif; }
 .distribution-legend { list-style: none; padding: 0; display: grid; gap: 5px; }
 .distribution-legend li { font-size: 12.67px; }
-.distribution-grade-button { display: grid; grid-template-columns: 9px 24px max-content; column-gap: 6px; align-items: center; width: 100%; padding: 3px 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.distribution-grade-button { display: grid; grid-template-columns: 9px minmax(24px, 1fr) var(--grade-count-width, max-content); column-gap: 6px; align-items: center; width: 100%; padding: 3px 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .distribution-grade-button:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; border-radius: 4px; }
 .distribution-grade-button > span:nth-child(2) { overflow-wrap: anywhere; min-width: 0; }
-.distribution-grade-button[data-grade-letter=""] { grid-template-columns: 9px 92px max-content; }
-.distribution-grade-button[data-grade-letter=""] > span:nth-child(2) { overflow-wrap: normal; }
-.distribution-legend strong { font-weight: 500; margin-left: 10px; white-space: nowrap; }
+.distribution-legend strong { font-weight: 500; text-align: right; white-space: nowrap; }
 .legend-swatch { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
 .credit-chart-row { display: grid; grid-template-columns: minmax(150px, .35fr) minmax(100px, 1fr) 45px; align-items: center; gap: 18px; margin: 18px 0; font-size: 12px; }
 .credit-chart-term { color: var(--text-muted); line-height: 1.6; }

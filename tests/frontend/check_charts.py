@@ -89,6 +89,9 @@ def main():
         assert page.locator('#analytics-credits .credit-chart-row').count() == 5
         assert '4' in page.locator('#analytics-credits .credit-chart-row').first.inner_text()
         assert '7 lượt học' in page.locator('#analytics-count').inner_text()
+        count_positions = page.locator('#analytics-distribution .distribution-grade-button strong').evaluate_all(
+            'nodes => nodes.map(node => node.getBoundingClientRect().x)')
+        assert max(count_positions) - min(count_positions) < 1, count_positions
         page.locator('#analytics-year').select_option('2099–2100')
         assert page.locator('#analytics-trend .chart-point').count() == 2
         assert page.locator('#analytics-trend4 .chart-point').count() == 2
