@@ -2,6 +2,7 @@
 
 import copy
 import json
+import mimetypes
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -65,12 +66,19 @@ def main():
                 result.update(status='needs_program_binding', courses=None, progress=None, plan=None,
                               blocking_reasons=['source_incomplete', 'program_binding_unverified'])
             route.fulfill(content_type='application/json', body=json.dumps(result))
+        elif path == '/me/semester-plans':
+            route.fulfill(json={'plans': []})
         elif path == '/auth/session':
             route.fulfill(json=session_payload())
         elif path == '/me/profile':
             route.fulfill(json=source)
         elif parsed.hostname == '127.0.0.1' and (path == '/' or path.startswith('/static/')):
-            route.continue_()
+            static = Path(__file__).resolve().parents[2] / 'app/static'
+            file = static / ('index.html' if path == '/' else path.removeprefix('/static/'))
+            if file.is_file():
+                route.fulfill(body=file.read_bytes(), content_type=mimetypes.guess_type(file)[0] or 'text/plain')
+            else:
+                route.fulfill(status=404)
         else:
             route.abort()
 
@@ -106,7 +114,10 @@ def main():
         assert root.locator('.course-state-completed [data-course-code="TEST-B"]').count() == 0
         page.locator('#course-credit-budget').fill('6')
         root.get_by_role('button', name='Áp dụng', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('4 / 6 TC')")
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('7 / 6 TC')")
+        assert page.locator('[data-plan-code="TEST-E2"]').is_checked()
+        assert 'vượt ngân sách mới' in root.locator('.course-plan-error').inner_text()
+        page.locator('[data-plan-code="TEST-E2"]').uncheck()
         page.locator('[data-plan-code="TEST-E1"]').click()
         assert not page.locator('[data-plan-code="TEST-E1"]').is_checked()
         assert 'vượt mức tín chỉ' in root.locator('.course-plan-error').inner_text()
