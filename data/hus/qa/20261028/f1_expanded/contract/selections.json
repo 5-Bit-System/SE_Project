@@ -1,0 +1,176 @@
+{
+  "note": "Every quote remains an exact source span; source articles must first pass whole-document review. No target chunk count.",
+  "schema_version": "1.0",
+  "selection_method": "reviewed_source_paragraph_and_topic_spans_v1",
+  "source_snapshot_id": "hus-0404f37-20261026",
+  "sources": [
+    {
+      "content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+      "document_id": "ce8df97fe49665e9",
+      "major": "mathematics",
+      "program_variant": "unknown",
+      "selections": [
+        {
+          "before": ", 7 chuyên ngành",
+          "field": "introduction",
+          "line": 0
+        },
+        {
+          "field": "objectives",
+          "field_overrides": {
+            "2": "further_study"
+          },
+          "line": 2,
+          "split": "sentences"
+        },
+        {
+          "field": "careers",
+          "line": 3,
+          "split": "sentences"
+        },
+        {
+          "field": "further_study",
+          "line": 4
+        },
+        {
+          "field": "objectives",
+          "line": 6,
+          "program_variant": "talent",
+          "split": "sentences"
+        }
+      ]
+    },
+    {
+      "content_hash": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+      "document_id": "1b525683101bf943",
+      "major": "mathematics_informatics",
+      "program_variant": "unknown",
+      "selections": [
+        {
+          "field": "introduction",
+          "line": 0
+        },
+        {
+          "field": "objectives",
+          "line": 1,
+          "split": "sentences"
+        },
+        {
+          "field": "careers",
+          "line": 3
+        },
+        {
+          "field": "careers",
+          "line": 4
+        },
+        {
+          "field": "further_study",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+      "document_id": "055c47bf412172c0",
+      "major": "data_science",
+      "program_variant": "unknown",
+      "selections": [
+        {
+          "field": "introduction",
+          "line": 2
+        },
+        {
+          "field": "introduction",
+          "from": "Ngành đào tạo Khoa học dữ liệu",
+          "line": 3,
+          "split": "sentences"
+        },
+        {
+          "field": "objectives",
+          "line": 4,
+          "split": "sentences"
+        },
+        {
+          "after": "như: ",
+          "field": "careers",
+          "line": 5,
+          "split": "semicolons"
+        },
+        {
+          "field": "further_study",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "content_hash": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+      "document_id": "d6370261338de29f",
+      "major": "computer_science",
+      "program_variant": "unknown",
+      "selections": [
+        {
+          "field": "introduction",
+          "line": 0
+        },
+        {
+          "field": "objectives",
+          "line": 3,
+          "split": "sentences"
+        },
+        {
+          "field": "careers",
+          "line": 5
+        },
+        {
+          "field": "careers",
+          "line": 6
+        },
+        {
+          "field": "careers",
+          "line": 7
+        },
+        {
+          "field": "further_study",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "content_hash": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+      "document_id": "f8672cafba05d016",
+      "major": "computer_science",
+      "program_variant": "high_quality",
+      "selections": [
+        {
+          "field": "introduction",
+          "line": 0
+        },
+        {
+          "field": "objectives",
+          "line": 3,
+          "split": "sentences"
+        },
+        {
+          "field": "careers",
+          "line": 5
+        },
+        {
+          "field": "careers",
+          "line": 6
+        },
+        {
+          "field": "careers",
+          "line": 7
+        },
+        {
+          "field": "careers",
+          "line": 8
+        },
+        {
+          "field": "further_study",
+          "line": 10
+        }
+      ]
+    }
+  ]
+}

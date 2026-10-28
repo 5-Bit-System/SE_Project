@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "selection_method": "reviewed_source_paragraph_and_topic_spans_v1",
+  "note": "Every quote remains an exact source span; source articles must first pass whole-document review. No target chunk count.",
+  "sources": [
+    {
+      "document_id": "ce8df97fe49665e9",
+      "major": "mathematics",
+      "program_variant": "unknown",
+      "selections": [
+        {"line": 0, "field": "introduction", "before": ", 7 chuyên ngành"},
+        {"line": 2, "field": "objectives", "split": "sentences", "field_overrides": {"2": "further_study"}},
+        {"line": 3, "field": "careers", "split": "sentences"},
+        {"line": 4, "field": "further_study"},
+        {"line": 6, "field": "objectives", "program_variant": "talent", "split": "sentences"}
+      ]
+    },
+    {
+      "document_id": "1b525683101bf943",
+      "major": "mathematics_informatics",
+      "program_variant": "unknown",
+      "selections": [
+        {"line": 0, "field": "introduction"},
+        {"line": 1, "field": "objectives", "split": "sentences"},
+        {"line": 3, "field": "careers"},
+        {"line": 4, "field": "careers"},
+        {"line": 6, "field": "further_study"}
+      ]
+    },
+    {
+      "document_id": "055c47bf412172c0",
+      "major": "data_science",
+      "program_variant": "unknown",
+      "selections": [
+        {"line": 2, "field": "introduction"},
+        {"line": 3, "field": "introduction", "from": "Ngành đào tạo Khoa học dữ liệu", "split": "sentences"},
+        {"line": 4, "field": "objectives", "split": "sentences"},
+        {"line": 5, "field": "careers", "after": "như: ", "split": "semicolons"},
+        {"line": 6, "field": "further_study"}
+      ]
+    },
+    {
+      "document_id": "d6370261338de29f",
+      "major": "computer_science",
+      "program_variant": "unknown",
+      "selections": [
+        {"line": 0, "field": "introduction"},
+        {"line": 3, "field": "objectives", "split": "sentences"},
+        {"line": 5, "field": "careers"},
+        {"line": 6, "field": "careers"},
+        {"line": 7, "field": "careers"},
+        {"line": 9, "field": "further_study"}
+      ]
+    },
+    {
+      "document_id": "f8672cafba05d016",
+      "major": "computer_science",
+      "program_variant": "high_quality",
+      "selections": [
+        {"line": 0, "field": "introduction"},
+        {"line": 3, "field": "objectives", "split": "sentences"},
+        {"line": 5, "field": "careers"},
+        {"line": 6, "field": "careers"},
+        {"line": 7, "field": "careers"},
+        {"line": 8, "field": "careers"},
+        {"line": 10, "field": "further_study"}
+      ]
+    }
+  ]
+}
