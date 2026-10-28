@@ -27,6 +27,8 @@ Các gợi ý không xác nhận môn có được mở trong một học kỳ c
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
 - Không có tự động fallback sang JSON khi PostgreSQL lỗi. Muốn dùng JSON phải chọn rõ backend và cung cấp bộ catalog phù hợp.
 
+Xem [lưu nhiều kế hoạch học kỳ](docs/SEMESTER_PLANS.md) trong tab Điều kiện học.
+
 ## Cấu trúc repository
 
 | Đường dẫn | Nội dung |
@@ -55,7 +57,7 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 
 Mở <http://127.0.0.1:8000/>. `/health` kiểm tra tiến trình; `/ready` kiểm tra
 schema/catalog. Sau pull có migration mới, sao lưu DB rồi chạy
-`python -m database.tools.migrate upgrade`. Head hiện tại `hus_20261028_07`.
+`python -m database.tools.migrate upgrade`. Head hiện tại `hus_20261028_08`.
 Giữ nguyên cấu hình và khóa đã có; không seed/publish lại chỉ để chạy app.
 Worker VNU dùng Google Chrome chạy nền. Dùng một worker; restart/reload mất
 cookie VNU trong RAM. Tắt LLM bằng `RECOMMENDATION_LLM_ENABLED=false` nếu cần.

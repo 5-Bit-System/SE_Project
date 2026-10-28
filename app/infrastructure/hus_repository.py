@@ -18,7 +18,7 @@ from app.models import Catalog
 from app.transcript import resolve_program_id
 
 logger = logging.getLogger(__name__)
-HEAD = "hus_20261028_07"
+HEAD = "hus_20261028_08"
 
 
 class HusRepository:

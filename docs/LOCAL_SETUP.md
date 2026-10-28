@@ -172,8 +172,8 @@ python -m database.tools.migrate upgrade
 python -m database.tools.migrate current
 ```
 
-Head hiện tại: `hus_20261028_07 (head) (mergepoint)`; cách in thứ tự nhãn có thể
-khác. `(mergepoint)` là bình thường: lịch sử cũ được nối với lịch sử auth mới.
+Head hiện tại: `hus_20261028_08 (head)`; cách in thứ tự nhãn có thể
+khác. Migration trước đó nối lịch sử cũ với auth; head hiện tại bổ sung kế hoạch học kỳ.
 Không chạy root Alembic, sửa `hus_alembic_version` hoặc dùng `stamp` để vượt lỗi.
 
 **Chỉ database mới/chưa có catalog:** sau migration, kiểm tra rồi publish nguồn

@@ -1,5 +1,28 @@
 # Project Memory and Contributor Guidelines
 
+## Semester plans — 2026-10-28, local implementation
+
+User explicitly requests durable multiple semester plan alternatives. Branch
+feat/semester-plans adds account-owned CRUD and migration hus_20261028_08.
+This supersedes older scope exclusions about persistent semester plans only.
+Source readiness, program binding, deterministic eligibility and session/CSRF
+remain required. No real DB migration, portal login, seed/publication or push
+was authorized for the initial implementation turn. User authorized 15 commits,
+push of feat/semester-plans and a PR into main on 2026-10-29; merge is not
+authorized in this publication turn. See docs/SEMESTER_PLANS.md.
+Local checks in Conda SE_Project: 531 offline passed / 89 deselected; 23
+PostgreSQL migration/plan checks passed on disposable localhost:55439; synthetic
+Chrome plan lifecycle/mobile/VI-EN/logout passed. Existing Starlette/httpx warning.
+Follow-up user request keeps draft choices/filter/plan selection across F5 in
+sessionStorage keyed by verified account and app-session IDs (not token). Only
+draft metadata and course codes are stored, never transcript/grades/cookies.
+Startup/F5 now renders a session-restoration loader until /auth/session resolves,
+avoiding the login-form flash. Delayed valid/expired/error Chrome checks pass.
+Repeated same-source portal events no longer reset the board; source changes
+revalidate while preserving the draft. Logout/expiry/session change clears it.
+No real VNU acceptance or production migration is implied. Plans are keyed by
+account UUID, not transient portal cookies, and never become completed courses.
+
 ## VNU eligibility integration — 2026-10-26
 
 User authorizes implementation, tests and integration of the teammate's

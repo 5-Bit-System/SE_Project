@@ -14,7 +14,7 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
 Back up existing DB data before upgrading. Current migration head is
-`hus_20261028_07`. Migration reads `HUS_DATABASE_URL` from shell/root `.env`/local
+`hus_20261028_08`. Migration reads `HUS_DATABASE_URL` from shell/root `.env`/local
 Docker fallback; app uses `DATABASE_URL`, pointing to the same HUS database.
 Other DB tools do not automatically load root `.env`. Use one worker; VNU
 cookies/jobs are in process memory. Never overwrite existing credentials.
@@ -61,7 +61,7 @@ natural keys, and activates all four in one transaction under an advisory lock.
 Repeated imports reuse content hashes. Invalid bundles preserve active versions.
 Removing existing source relationships requires explicit review and is rejected.
 Historical snapshots are retained; the publisher never overwrites their payloads.
-Readiness checks migration head `hus_20261028_07`, exactly four active catalogs,
+Readiness checks migration head `hus_20261028_08`, exactly four active catalogs,
 identity, hashes and domain rules. There is no automatic legacy/JSON fallback.
 
 The catalogs remain **draft_unverified**. Missing/complex/conflicting prerequisite

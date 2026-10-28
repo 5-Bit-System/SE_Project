@@ -31,7 +31,7 @@ python -m database.tools.migrate current
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Sao lưu database trước upgrade; head hiện tại `hus_20261028_07`. Migration
+Sao lưu database trước upgrade; head hiện tại `hus_20261028_08`. Migration
 không seed tài khoản và không publish catalog. Không chạy seed để sửa lỗi
 mật khẩu, migration hoặc bảng điểm. Mailpit chỉ dành cho thử nghiệm email
 local riêng; không thay SMTP đã cấu hình bằng Mailpit theo thói quen.

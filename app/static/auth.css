@@ -30,3 +30,20 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
 #admin-total { color: var(--text-muted); margin-bottom: 16px; }
 @media(max-width: 850px) { .system-auth-page { grid-template-columns: 1fr; gap: 24px; padding-block: 24px; } .auth-intro { padding-top: 0; } #system-account { text-align: left; } .system-account-actions { justify-content: start; } }
 @media(max-width: 480px) { .auth-card { padding: 22px; } .auth-intro h2 { font-size: 30px; } }
+
+/* Keep the sign-in form hidden until the server has resolved the existing session. */
+#system-session-loading { display: none; }
+body[data-auth-state="loading"] #system-auth,
+body[data-auth-state="loading"] #system-admin,
+body[data-auth-state="loading"] .app-footer { display: none; }
+body[data-auth-state="loading"] #system-session-loading {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  min-height: 50dvh; padding: 24px; color: var(--text-main);
+}
+.session-spinner {
+  width: 24px; height: 24px; flex-shrink: 0; border: 3px solid var(--border-medium);
+  border-top-color: var(--border-focus); border-radius: 50%;
+  animation: session-restore-spin .8s linear infinite;
+}
+@keyframes session-restore-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .session-spinner { animation: none; } }

@@ -395,7 +395,7 @@ def test_upgrade_deployed_history_preserves_account(runtime_engine):
         cfg.attributes['connection'] = conn
         command.upgrade(cfg, 'head')
         assert conn.execute(text('SELECT version_num FROM hus_alembic_version')).scalar_one() == (
-            'hus_20261028_07'
+            'hus_20261028_08'
         )
         assert conn.execute(text("""
             SELECT password_hash FROM accounts WHERE username='synthetic-migration-owner'

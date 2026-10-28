@@ -117,3 +117,13 @@
   .reference-budget-form strong { font-size: 22px; }
   .course-mode-controls .portal-button { flex: 1 1 100%; }
 }
+
+.semester-plans { margin-block: 20px; padding: 20px; border: 1px solid var(--border-subtle); border-radius: 12px; }
+.semester-plans > p { margin-block: 10px; color: var(--text-muted); }
+.semester-plans label { display: grid; gap: 8px; font-size: 13px; }
+.semester-plans input, .semester-plans select { min-width: 0; width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid var(--border-medium); border-radius: 8px; background: var(--bg-input); color: var(--text-main); font: inherit; }
+.semester-plan-fields { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 14px; margin-block: 16px; }
+.semester-plan-courses { padding: 0; list-style: none; }
+.semester-plan-courses li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 10px; border-bottom: 1px solid var(--border-subtle); overflow-wrap: anywhere; }
+.semester-plan-courses button { flex-shrink: 0; }
+@media (max-width: 640px) { .semester-plan-fields { grid-template-columns: 1fr; } }
