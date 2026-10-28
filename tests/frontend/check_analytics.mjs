@@ -53,6 +53,7 @@ assert.equal(weighted.weightedMean10, 8);
 assert.equal(weighted.weightedMean4, 3);
 assert.equal(weighted.weightedCredits10, 6);
 assert.equal(weighted.weightedCredits4, 6);
+assert.equal(weighted.zeroCreditAttempts, 1);
 assert.equal(sourceStatistics([
   {term: 'HỌC KỲ 1 - 2099-2100', grade10: '8', grade4: '3', credits: '3'},
   {term: 'HỌC KỲ 1 - 2099-2100', grade10: '4', grade4: '1', credits: '1'},
