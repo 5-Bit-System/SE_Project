@@ -1,0 +1,15 @@
+{
+  "authorization_instruction": "Loại trang nghề nghiệp trộn Toán Cơ; duyệt 10 tài liệu này luôn theo bản Markdown đã crawl.",
+  "sources": {
+    "23a0c1df14a5708a": {"major": "mathematics_informatics", "variant": "standard", "version": "2015", "sections": [["objectives",3319,4037],["careers",10301,10721],["further_study",10722,10922]]},
+    "1e3ad5f9915aa051": {"major": "computer_science", "variant": "standard", "version": "2015", "sections": [["objectives",3557,5018],["careers",11337,11736],["further_study",11737,11937]]},
+    "89d4b39494d72217": {"major": "mathematics", "variant": "standard", "version": "2015", "sections": [["objectives",2021,2477],["careers",6819,7267],["further_study",7268,7865]]},
+    "d4fae066858f0b94": {"major": "mathematics", "variant": "talent", "version": "2015", "sections": [["objectives",1890,2639],["careers",7340,7857],["further_study",7858,8458]]},
+    "1c16ddf8a6f1f409": {"major": "computer_science", "variant": "high_quality", "version": "2019", "sections": [["objectives",7475,9203],["careers",17783,18502],["further_study",18524,19074]]},
+    "8afffd3cada3d048": {"major": "computer_science", "variant": "high_quality", "version": "2019", "sections": [["objectives",991,2719],["careers",11298,12017],["further_study",12038,12588]]},
+    "f7f470e712738589": {"major": "computer_science", "variant": "standard", "version": "2023", "sections": [["objectives",1159,3550],["careers",7923,8627],["further_study",8629,8991]]},
+    "0dd9aaaeefcbd7d7": {"major": "mathematics_informatics", "variant": "unknown", "version": "unknown", "sections": [["objectives",16,3304]]},
+    "31b55b4ee6f451a6": {"major": "computer_science", "variant": "standard", "version": "2023", "sections": [["objectives",363,4039]]},
+    "d006f60211246633": {"major": "mathematics", "variant": "advanced", "version": "2008", "sections": [["objectives",13276,14487]]}
+  }
+}
