@@ -24,3 +24,28 @@ The four runtime memberships are unchanged. MAT3325 retains conflicting source
 variants and MAT3423 remains unknown pending a definition for MAT3402. Use the
 current export and publisher; the historical raw SQL import predates this review.
 See [PDF review and verification](../docs/VINH_PDF_SOURCE_REVIEW.md).
+
+## Recovery for missing revision hus_20261023_04 (2026-10-28)
+
+Some deployed databases applied transcript-sync revisions that were later absent
+from the main tree. Those original files (`hus_20261023_01`, `hus_20261023_04`)
+are restored unchanged from Git. New merge revision `hus_20261028_07` joins that
+history with VNU authentication head `hus_20261025_06`. Existing migrations are
+not rewritten and no version row is manually relabeled. Databases at either
+parent apply only missing migrations before reaching the single merged head.
+Fresh databases also receive nullable `students.last_transcript_synced_at`.
+
+The migration CLI now loads the root `.env` without overriding shell variables.
+Set `HUS_DATABASE_URL` to the same intended HUS database as app `DATABASE_URL`.
+Back up that database before upgrading, then run from the repository root:
+
+```bash
+conda activate SE_Project
+python -m database.tools.migrate upgrade
+python -m database.tools.migrate current
+```
+
+Expected head: `hus_20261028_07`. Then start Uvicorn normally. Do not use `stamp`,
+change `hus_alembic_version` manually or reset the database to bypass this error.
+This change does not make the portal service write the restored sync timestamp;
+portal snapshots and existing synchronization logic remain separate.
