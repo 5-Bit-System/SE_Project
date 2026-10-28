@@ -298,6 +298,7 @@
     requestedLetter = null; requestedYear = null; requestedTerm = '';
     $('search').value = ''; $('term').value = '';
     render();
+    $('heading').focus();
   });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();

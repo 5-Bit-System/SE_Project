@@ -139,6 +139,7 @@ def main():
         assert 'A+' in grade_filter.inner_text()
         assert '2099–2100' in grade_filter.inner_text()
         page.locator('#portal-grade-filter-clear').click()
+        assert page.evaluate('document.activeElement.id') == 'portal-heading'
         assert grade_filter.is_hidden()
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 7
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
