@@ -112,6 +112,8 @@
 .profile-table-tools { display: grid; grid-template-columns: 1fr minmax(200px, .8fr); gap: 20px; margin: 20px 0 14px; }
 .profile-table-tools label { min-width: 0; display: grid; gap: 8px; font-size: 11px; color: var(--text-muted); }
 .profile-table-tools input, .profile-table-tools select { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid var(--border-medium); border-radius: 8px; background: var(--bg-input); color: var(--text-main); font: inherit; font-size: 12px; }
+.portal-grade-filter { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; color: var(--text-main); font-size: 12px; }
+.portal-grade-filter .portal-button { padding: 7px 10px; }
 #portal-dialog .portal-table-scroll { max-height: none; background: var(--bg-card); overflow-x: auto; }
 #portal-table { font-size: 12px; }
 #portal-table th, #portal-table td { padding: 14px 16px; }

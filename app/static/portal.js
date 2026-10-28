@@ -25,6 +25,7 @@
       earnedCredits: 'Tổng tín chỉ tích lũy', gpa4: 'Điểm trung bình tích lũy hệ 4', unavailable: 'Chưa có thông tin',
       welcomeTitle: 'Hồ sơ học tập của riêng bạn.', welcomeDescription: 'Một nơi để xem lại kết quả từ VNU qua từng học kỳ.', welcomeSource: 'Giữ nguyên điểm và thông tin nguồn', welcomeSync: 'Chủ động cập nhật khi cần', welcomeOwner: 'Quản lý dữ liệu theo tài khoản',
       transcript: 'Bảng điểm nguồn', newest: 'Theo năm học và học kỳ, mới nhất trước.', search: 'Tìm mã hoặc tên học phần', term: 'Học kỳ', allTerms: 'Tất cả học kỳ', rows: 'lượt học', noResults: 'Không có học phần phù hợp.',
+      gradeFilter: 'Điểm chữ', academicYear: 'Năm học', noLetterGrade: 'Chưa có điểm chữ', clearGradeFilter: 'Xóa bộ lọc',
       errors: {source_unavailable: 'Đã đăng nhập VNU, nhưng chưa tải được bảng điểm mới. Bạn có thể cập nhật lại; dữ liệu đã lưu vẫn được giữ.',
         identity_unverified: 'Chưa xác minh được danh tính từ VNU. Dữ liệu chưa được lưu.',
         vnu_not_connected: 'Bạn chưa kết nối VNU để lấy bảng điểm.', vnu_already_linked: 'Tài khoản VNU đã có liên kết khác. Không thể tự chuyển quyền sở hữu.',
@@ -65,6 +66,7 @@
       earnedCredits: 'Accumulated credits', gpa4: 'Cumulative GPA (4-point scale)', unavailable: 'Unavailable',
       welcomeTitle: 'Your own academic profile.', welcomeDescription: 'A place to revisit your VNU results, semester by semester.', welcomeSource: 'Original grades and source information', welcomeSync: 'Update whenever you need', welcomeOwner: 'Data managed under your account',
       transcript: 'Source transcript', newest: 'By academic year and semester, newest first.', search: 'Search course code or name', term: 'Semester', allTerms: 'All semesters', rows: 'attempts', noResults: 'No matching courses.',
+      gradeFilter: 'Grade', academicYear: 'Academic year', noLetterGrade: 'No letter grade', clearGradeFilter: 'Clear filter',
       errors: {source_unavailable: 'VNU sign-in succeeded, but the latest transcript could not be retrieved. Try updating again; your saved data is retained.',
         identity_unverified: 'VNU identity could not be verified. No data was saved.',
         vnu_not_connected: 'Connect VNU to retrieve your transcript.', vnu_already_linked: 'This VNU identity has another account link. Ownership cannot be transferred automatically.',
@@ -167,6 +169,9 @@
     review.hidden = !messages.length;
     messages.forEach(message => { const row = document.createElement('p'); row.textContent = message; review.append(row); });
     $('reauth-account').value = profile?.subject || '';
+    const gradeFilter = $('grade-filter');
+    gradeFilter.hidden = requestedLetter === null;
+    $('grade-filter-label').textContent = `${t.gradeFilter}: ${requestedLetter || t.noLetterGrade}${requestedYear ? ` · ${t.academicYear} ${requestedYear}` : ''}`;
     if (!profile) return;
     ['name', 'program', 'cohort'].forEach(key => {
       const value = profile.profile?.[key];
@@ -285,6 +290,11 @@
     $('search').value = '';
     window.workspaceNavigate('portal-dialog');
     if (profile) render();
+  });
+  $('grade-filter-clear').addEventListener('click', () => {
+    requestedLetter = null; requestedYear = null; requestedTerm = '';
+    $('search').value = ''; $('term').value = '';
+    render();
   });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();

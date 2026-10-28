@@ -126,6 +126,13 @@ def main():
         assert page.locator('#portal-term').input_value() == ''
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
         assert page.locator('#portal-table tbody tr:not(.portal-term) td:first-child').inner_text() == 'TEST001E'
+        grade_filter = page.locator('#portal-grade-filter')
+        assert grade_filter.is_visible()
+        assert 'A+' in grade_filter.inner_text()
+        assert '2099–2100' in grade_filter.inner_text()
+        page.locator('#portal-grade-filter-clear').click()
+        assert grade_filter.is_hidden()
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 7
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
         page.locator('#analytics-year').select_option('')
         grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
