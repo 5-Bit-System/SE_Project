@@ -73,7 +73,7 @@ if (typeof document !== 'undefined') {
     for (const value of [0, 2, 4, 6, 8, 10]) {
       const y = 218 - value * 18;
       svg.append(svgElement('line', {x1: left, x2: right, y1: y, y2: y, class: 'chart-grid-line'}));
-      const label = svgElement('text', {x: left - 12, y: y + 4, 'text-anchor': 'end', class: 'chart-axis'});
+      const label = svgElement('text', {x: left - 30, y: y + 4, 'text-anchor': 'end', class: 'chart-axis'});
       label.textContent = value; svg.append(label);
     }
     const xAt = i => stats.groups.length === 1 ? (left + right) / 2 : left + i * (right - left) / (stats.groups.length - 1);
