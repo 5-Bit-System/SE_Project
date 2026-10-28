@@ -16,7 +16,9 @@ def main():
     sample = {"subject": "synthetic-only", "fetched_at": "2026-10-23T00:00:00+00:00",
               "profile": {"name": "Sinh viên giả lập", "program": "Ngành nguồn thử",
                           "cohort": "79"},
-              "snapshot": {"source_summary": [["Tổng tín chỉ: 6"]], "unknown_rows": [],
+              "snapshot": {"source_summary": [["Tổng tín chỉ: 6"],
+                                                ["Tổng tín chỉ tích lũy:", "110"],
+                                                ["Điểm trung bình tích lũy hệ 4: 3.37"]], "unknown_rows": [],
                            "attempts": [
                                {"term": "HỌC KỲ 1 - 2099-2100", "code": "TEST001E",
                                 "name": "<script>synthetic</script>", "credits": "3",
@@ -70,7 +72,9 @@ def main():
         assert page.locator("#portal-name").inner_text() == "Sinh viên giả lập"
         assert page.locator("#portal-program").inner_text() == "Ngành nguồn thử"
         assert page.locator("#portal-cohort").inner_text() == "79"
-        assert page.locator("#portal-summary").inner_text() == "Tổng tín chỉ: 6"
+        assert page.locator("#portal-earned-credits").inner_text() == "110"
+        assert page.locator("#portal-gpa4").inner_text() == "3.37"
+        assert page.locator("#portal-summary").inner_text().startswith("Tổng tín chỉ: 6")
         assert page.locator("#portal-sync").inner_text() == "Cập nhật bảng điểm"
         assert page.locator("#portal-table tbody tr:not(.portal-term)").count() == 2
         assert "2100-2101" in page.locator("#portal-table .portal-term").first.inner_text()
@@ -84,10 +88,14 @@ def main():
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
         page.locator('[data-language-choice="en"]').click()
         assert page.locator("#portal-heading").inner_text() == "Academic profile"
-        assert page.locator("#portal-summary").inner_text() == "Total credits: 6"
+        assert page.locator("#portal-summary").inner_text().startswith("Total credits: 6")
         assert page.locator("#portal-name").inner_text() == "Sinh viên giả lập"
         assert page.locator("#portal-program").inner_text() == "Ngành nguồn thử"
         assert page.locator("#portal-cohort").inner_text() == "79"
+        assert page.locator("#portal-earned-credits").inner_text() == "110"
+        assert page.locator("#portal-gpa4").inner_text() == "3.37"
+        assert "Accumulated credits" in page.locator(".profile-facts").inner_text()
+        assert "Cumulative GPA (4-point scale)" in page.locator(".profile-facts").inner_text()
         assert page.locator("#portal-sync").inner_text() == "Update transcript"
         sample["profile"]["cohort"] = None
         page.evaluate("document.dispatchEvent(new Event('visibilitychange'))")
@@ -109,7 +117,7 @@ def main():
         page.wait_for_timeout(150)
         assert page.locator("#portal-table").inner_text() == ""
         assert page.locator("#portal-identity").inner_text() == ""
-        for field in ("name", "program", "cohort"):
+        for field in ("name", "program", "cohort", "earned-credits", "gpa4"):
             assert page.locator(f"#portal-{field}").inner_text() == ""
         assert page.locator("#portal-profile").is_hidden()
         page.unroute("**/me/profile")

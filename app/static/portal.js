@@ -21,7 +21,8 @@
       saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
       updated: 'Bảng điểm lưu lúc', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
       columns: ['Mã môn', 'Tên học phần', 'Tín chỉ', 'Hệ 10', 'Chữ', 'Hệ 4'],
-      back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học', unavailable: 'Chưa có thông tin',
+      back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học',
+      earnedCredits: 'Tổng tín chỉ tích lũy', gpa4: 'Điểm trung bình tích lũy hệ 4', unavailable: 'Chưa có thông tin',
       welcomeTitle: 'Hồ sơ học tập của riêng bạn.', welcomeDescription: 'Một nơi để xem lại kết quả từ VNU qua từng học kỳ.', welcomeSource: 'Giữ nguyên điểm và thông tin nguồn', welcomeSync: 'Chủ động cập nhật khi cần', welcomeOwner: 'Quản lý dữ liệu theo tài khoản',
       transcript: 'Bảng điểm nguồn', newest: 'Theo năm học và học kỳ, mới nhất trước.', search: 'Tìm mã hoặc tên học phần', term: 'Học kỳ', allTerms: 'Tất cả học kỳ', rows: 'lượt học', noResults: 'Không có học phần phù hợp.',
       errors: {source_unavailable: 'Đã đăng nhập VNU, nhưng chưa tải được bảng điểm mới. Bạn có thể cập nhật lại; dữ liệu đã lưu vẫn được giữ.',
@@ -60,7 +61,8 @@
       saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
       updated: 'Transcript saved', account: 'Verified account', close: 'Close', table: 'Source transcript',
       columns: ['Course code', 'Course name', 'Credits', '10-point', 'Letter', '4-point'],
-      back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort', unavailable: 'Unavailable',
+      back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort',
+      earnedCredits: 'Accumulated credits', gpa4: 'Cumulative GPA (4-point scale)', unavailable: 'Unavailable',
       welcomeTitle: 'Your own academic profile.', welcomeDescription: 'A place to revisit your VNU results, semester by semester.', welcomeSource: 'Original grades and source information', welcomeSync: 'Update whenever you need', welcomeOwner: 'Data managed under your account',
       transcript: 'Source transcript', newest: 'By academic year and semester, newest first.', search: 'Search course code or name', term: 'Semester', allTerms: 'All semesters', rows: 'attempts', noResults: 'No matching courses.',
       errors: {source_unavailable: 'VNU sign-in succeeded, but the latest transcript could not be retrieved. Try updating again; your saved data is retained.',
@@ -104,7 +106,7 @@
     requestedTerm = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
-    ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
+    ['name', 'program', 'cohort', 'earned-credits', 'gpa4'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
     $('profile').hidden = true; $('login').hidden = false; $('confirm').hidden = true; $('cancel').hidden = true;
     $('login').reset(); $('password').type = 'password'; $('show').setAttribute('aria-pressed', 'false');
@@ -124,6 +126,19 @@
     return result;
   }
   function cell(row, value, tag = 'td') { const node = document.createElement(tag); node.textContent = value ?? ''; row.append(node); return node; }
+  function sourceSummaryValue(rows, label) {
+    for (const row of rows || []) {
+      for (let index = 0; index < row.length; index++) {
+        const value = String(row[index] ?? '').trim();
+        if (!value.startsWith(label)) continue;
+        const inline = value.slice(label.length).replace(/^\s*[:：]?\s*/, '').trim();
+        if (inline) return inline;
+        const adjacent = row.slice(index + 1).find(item => String(item ?? '').trim());
+        if (adjacent !== undefined) return String(adjacent).trim();
+      }
+    }
+    return '—';
+  }
   function renderReminder() {
     clearTimeout(reminderTimer);
     const t = text(), now = Date.now();
@@ -157,6 +172,8 @@
       const value = profile.profile?.[key];
       $(key).textContent = typeof value === 'string' && value.trim() ? value : t.unavailable;
     });
+    $('earned-credits').textContent = sourceSummaryValue(profile.snapshot?.source_summary, 'Tổng tín chỉ tích lũy');
+    $('gpa4').textContent = sourceSummaryValue(profile.snapshot?.source_summary, 'Điểm trung bình tích lũy hệ 4');
     $('identity').textContent = profile.subject;
     $('updated').textContent = `${t.updated}: ${profile.fetched_at ? new Date(profile.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN') : '—'}`;
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
