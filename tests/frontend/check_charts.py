@@ -119,7 +119,17 @@ def main():
         page.locator('#analytics-trend4 circle.chart-point').first.click()
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
-        page.evaluate("document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter: 'A+'}}))")
+        page.locator('#analytics-year').select_option('2099–2100')
+        grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
+        assert grade_button.count() == 1
+        grade_button.click()
+        assert page.locator('#portal-term').input_value() == ''
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
+        assert page.locator('#portal-table tbody tr:not(.portal-term) td:first-child').inner_text() == 'TEST001E'
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        page.locator('#analytics-year').select_option('')
+        grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
+        grade_button.click()
         assert page.locator('#portal-profile').is_visible()
         assert page.locator('#portal-term').input_value() == ''
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2

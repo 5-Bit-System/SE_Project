@@ -85,7 +85,7 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   let signedOut = false;
-  let requestedTerm = null, requestedLetter = null;
+  let requestedTerm = null, requestedLetter = null, requestedYear = null;
   let accountId = null;
   let reminderTimer;
   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
@@ -103,7 +103,7 @@
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
-    requestedTerm = null; requestedLetter = null;
+    requestedTerm = null; requestedLetter = null; requestedYear = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort', 'earned-credits', 'gpa4'].forEach(key => { $(key).textContent = ''; });
@@ -196,7 +196,9 @@
     let shown = 0;
     sorted.forEach(([term, sourceRows]) => {
       if ($('term').value && $('term').value !== term) return;
+      const termYear = term.match(/(\d{4})\s*[-–]\s*(\d{4})/)?.slice(1).join('–');
       const rows = sourceRows.filter(row => (requestedLetter === null || String(row.letter ?? '').trim() === requestedLetter)
+        && (!requestedYear || termYear === requestedYear)
         && (!query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query)));
       if (!rows.length) return;
       shown += rows.length;
@@ -278,6 +280,7 @@
     const letter = event.detail?.letter;
     if (typeof letter !== 'string') return;
     requestedLetter = letter;
+    requestedYear = event.detail?.year || null;
     requestedTerm = '';
     $('search').value = '';
     window.workspaceNavigate('portal-dialog');
@@ -285,7 +288,7 @@
   });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();
-    else { requestedLetter = null; $('password').value = ''; $('reauth-password').value = ''; }
+    else { requestedLetter = null; requestedYear = null; $('password').value = ''; $('reauth-password').value = ''; }
   });
   document.addEventListener('workspace:portal-refresh', () => openProfile());
   document.addEventListener('workspace:vnu-login', async event => {

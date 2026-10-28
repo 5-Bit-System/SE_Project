@@ -174,7 +174,7 @@ if (typeof document !== 'undefined') {
       const title = svgElement('title'); title.textContent = `${label}: ${count}`;
       segment.setAttribute('aria-label', `${t('Lọc bảng điểm theo điểm chữ', 'Filter transcript by letter grade')}: ${label}, ${count}`);
       segment.append(title); svg.append(segment);
-      const selectGrade = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter}}));
+      const selectGrade = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter, year: $('year').value}}));
       segment.addEventListener('click', selectGrade);
       segment.addEventListener('keydown', event => {
         if (event.key !== 'Enter' && event.key !== ' ') return;
