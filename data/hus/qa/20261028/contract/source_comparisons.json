@@ -1,0 +1,65 @@
+{
+  "documents": {
+    "055c47bf412172c0": {
+      "checksum_encoding": "utf8-lf",
+      "content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+      "display_content_matches_catalog": true,
+      "markdown_path": "processed/documents/data_science/khoa-hoc-du-lieu--055c47bf.md",
+      "pages": 0,
+      "raw_path": "raw/html/data_science/khoa-hoc-du-lieu--f9206b852afd.html",
+      "raw_sha256": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394",
+      "review_scope": "document",
+      "reviewed_at": "2026-10-28T11:19:52+00:00",
+      "reviewer": "Codex (automated source comparison and full-text scope review; not university approval)",
+      "scope": "descriptive F1 only; edition, cohort and validity unknown",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+      "tables": 0
+    },
+    "1b525683101bf943": {
+      "checksum_encoding": "utf8-lf",
+      "content_hash": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+      "display_content_matches_catalog": true,
+      "markdown_path": "processed/documents/mathematics_informatics/nganh-toan-tin--1b525683.md",
+      "pages": 0,
+      "raw_path": "raw/html/mathematics_informatics/nganh-toan-tin--e56738f1794b.html",
+      "raw_sha256": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001",
+      "review_scope": "document",
+      "reviewed_at": "2026-10-28T11:19:52+00:00",
+      "reviewer": "Codex (automated source comparison and full-text scope review; not university approval)",
+      "scope": "descriptive F1 only; edition, cohort and validity unknown",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+      "tables": 0
+    },
+    "ce8df97fe49665e9": {
+      "checksum_encoding": "utf8-lf",
+      "content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+      "display_content_matches_catalog": true,
+      "markdown_path": "processed/documents/mathematics/nganh-toan-hoc--ce8df97f.md",
+      "pages": 0,
+      "raw_path": "raw/html/mathematics/nganh-toan-hoc--a80a4b0d8526.html",
+      "raw_sha256": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+      "review_scope": "document",
+      "reviewed_at": "2026-10-28T11:19:52+00:00",
+      "reviewer": "Codex (automated source comparison and full-text scope review; not university approval)",
+      "scope": "descriptive F1 only; edition, cohort and validity unknown",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+      "tables": 0
+    },
+    "d6370261338de29f": {
+      "checksum_encoding": "utf8-lf",
+      "content_hash": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+      "display_content_matches_catalog": true,
+      "markdown_path": "processed/documents/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--d6370261.md",
+      "pages": 0,
+      "raw_path": "raw/html/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--355fefeb6658.html",
+      "raw_sha256": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+      "review_scope": "document",
+      "reviewed_at": "2026-10-28T11:19:52+00:00",
+      "reviewer": "Codex (automated source comparison and full-text scope review; not university approval)",
+      "scope": "descriptive F1 only; edition, cohort and validity unknown",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+      "tables": 0
+    }
+  },
+  "source_snapshot_id": "hus-0404f37-20261026"
+}
