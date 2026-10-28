@@ -15,7 +15,7 @@ def main():
     requests = []
     attempts = [
         {"term": "HỌC KỲ 1 - 2099-2100", "code": "TEST001E", "name": "Môn giả lập",
-         "credits": "3", "grade10": "8,5", "letter": "B+", "grade4": "3,5"},
+         "credits": "3", "grade10": "8,5", "letter": "A+", "grade4": "3,5"},
         {"term": "HỌC KỲ 1 - 2099-2100", "code": "TEST001E", "name": "Môn giả lập",
          "credits": "1", "grade10": "0", "letter": "F", "grade4": "0"},
         {"term": "HỌC KỲ 2 - 2099-2100", "code": "TEST002", "name": "Môn giả lập",
@@ -23,7 +23,7 @@ def main():
         {"term": "HỌC KỲ 1 - 2100-2101", "code": "TEST003", "name": "Môn giả lập",
          "credits": "2", "grade10": "", "letter": "I", "grade4": ""},
         {"term": "HỌC KỲ 2 - 2100-2101", "code": "TEST004", "name": "Môn giả lập",
-         "credits": "3", "grade10": "9", "letter": "A", "grade4": "4"},
+         "credits": "3", "grade10": "9", "letter": "A+", "grade4": "4"},
         {"term": None, "code": "TEST005", "name": "Môn giả lập",
          "credits": "", "grade10": "Miễn", "letter": "", "grade4": ""},
         {"term": None, "code": "TEST006", "name": "Môn giả lập",
@@ -118,6 +118,14 @@ def main():
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
         page.locator('#analytics-trend4 circle.chart-point').first.click()
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        page.evaluate("document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter: 'A+'}}))")
+        assert page.locator('#portal-profile').is_visible()
+        assert page.locator('#portal-term').input_value() == ''
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2
+        assert page.locator('#portal-table .portal-term').all_inner_texts() == [
+            'HỌC KỲ 2 - 2100-2101', 'HỌC KỲ 1 - 2099-2100']
+        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()

@@ -85,7 +85,7 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   let signedOut = false;
-  let requestedTerm = null;
+  let requestedTerm = null, requestedLetter = null;
   let accountId = null;
   let reminderTimer;
   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
@@ -103,7 +103,7 @@
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
-    requestedTerm = null;
+    requestedTerm = null; requestedLetter = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort', 'earned-credits', 'gpa4'].forEach(key => { $(key).textContent = ''; });
@@ -196,7 +196,8 @@
     let shown = 0;
     sorted.forEach(([term, sourceRows]) => {
       if ($('term').value && $('term').value !== term) return;
-      const rows = sourceRows.filter(row => !query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query));
+      const rows = sourceRows.filter(row => (requestedLetter === null || String(row.letter ?? '').trim() === requestedLetter)
+        && (!query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query)));
       if (!rows.length) return;
       shown += rows.length;
       const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term).colSpan = 6;
@@ -273,9 +274,18 @@
     window.workspaceNavigate('portal-dialog');
     if (profile) render();
   });
+  document.addEventListener('workspace:open-transcript-grade', event => {
+    const letter = event.detail?.letter;
+    if (typeof letter !== 'string') return;
+    requestedLetter = letter;
+    requestedTerm = '';
+    $('search').value = '';
+    window.workspaceNavigate('portal-dialog');
+    if (profile) render();
+  });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();
-    else { $('password').value = ''; $('reauth-password').value = ''; }
+    else { requestedLetter = null; $('password').value = ''; $('reauth-password').value = ''; }
   });
   document.addEventListener('workspace:portal-refresh', () => openProfile());
   document.addEventListener('workspace:vnu-login', async event => {
