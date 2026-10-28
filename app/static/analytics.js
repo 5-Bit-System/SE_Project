@@ -6,6 +6,8 @@ export function sourceNumber(value, max = Infinity) {
   return Number.isFinite(number) && number <= max ? number : null;
 }
 
+export const gradeColors = ['#2d70d4', '#1a7f7f', '#6f54dc', '#9a691f', '#cf2a8d', '#1b8344', '#30831b', '#d53434', '#b533d5', '#6b7f1a'];
+
 export function sourceStatistics(attempts, year = '') {
   const terms = new Map(), letters = new Map();
   let count = 0, missingGrades = 0, missingGrades4 = 0, invalidCredits = 0, zeroCreditAttempts = 0;
@@ -66,7 +68,6 @@ if (typeof document !== 'undefined') {
   const t = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
   const number = value => value === null ? '—' : new Intl.NumberFormat(
     window.workspaceI18n.language === 'en' ? 'en' : 'vi', {maximumFractionDigits: 2}).format(value);
-  const colors = ['#6485e8', '#35b6a3', '#a08aef', '#e2ae52', '#d780ad', '#79a7d2', '#95b66b', '#b68d6c', '#d5747b', '#8492a9'];
   let source = null;
   function element(tag, text, cls = '') {
     const node = document.createElement(tag); node.textContent = text; node.className = cls; return node;
@@ -164,7 +165,7 @@ if (typeof document !== 'undefined') {
     let offset = 0;
     const legend = element('ul', '', 'distribution-legend');
     stats.letters.forEach(([letter, count], index) => {
-      const length = count / stats.count * circumference, color = colors[index % colors.length];
+      const length = count / stats.count * circumference, color = gradeColors[index % gradeColors.length];
       const segment = svgElement('circle', {cx: 100, cy: 100, r: radius, fill: 'none', stroke: color,
         'stroke-width': 22, 'stroke-dasharray': `${length} ${circumference - length}`,
         'stroke-dashoffset': -offset, transform: 'rotate(-90 100 100)', class: 'chart-grade-segment',

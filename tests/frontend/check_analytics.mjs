@@ -1,5 +1,19 @@
 import assert from 'node:assert/strict';
-import {sourceNumber, sourceStatistics} from '../../app/static/analytics.js';
+import {gradeColors, sourceNumber, sourceStatistics} from '../../app/static/analytics.js';
+
+function contrast(foreground, background) {
+  const luminance = color => color.slice(1).match(/../g)
+    .map(value => parseInt(value, 16) / 255)
+    .map(value => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4)
+    .reduce((sum, value, index) => sum + value * [0.2126, 0.7152, 0.0722][index], 0);
+  const [high, low] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+  return (high + 0.05) / (low + 0.05);
+}
+
+for (const color of gradeColors) {
+  assert.ok(contrast(color, '#ffffff') >= 3, `${color} lacks light-theme contrast`);
+  assert.ok(contrast(color, '#15223b') >= 3, `${color} lacks dark-theme contrast`);
+}
 
 const rows = [
   {term: 'HỌC KỲ 1 - 2099-2100', code: 'TEST001E', grade10: '8,5', grade4: '3,5', letter: 'B+', credits: '3'},
