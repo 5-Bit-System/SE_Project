@@ -16,7 +16,7 @@ python -m database.tools.migrate upgrade
 python -m database.tools.migrate current
 ```
 
-Current head: `hus_20261028_07`. The migration CLI loads root `.env`; other DB
+Current head: `hus_20261028_08`. The migration CLI loads root `.env`; other DB
 CLIs still require process configuration, `database/.env.docker` or the explicit
 dotenv wrapper documented in the setup guide. App `DATABASE_URL` must point to
 the same HUS database. Back up existing data before migration.
@@ -56,3 +56,11 @@ Expected head: `hus_20261028_07`. Then start Uvicorn normally. Do not use `stamp
 change `hus_alembic_version` manually or reset the database to bypass this error.
 This change does not make the portal service write the restored sync timestamp;
 portal snapshots and existing synchronization logic remain separate.
+
+## Semester plans (2026-10-28)
+
+Migration `hus_20261028_08` adds account-owned `semester_plans`, with multiple
+alternatives, optimistic versions, server-calculated credits and source/catalog
+provenance. See [the feature guide](../docs/SEMESTER_PLANS.md). Back up existing
+data and upgrade before starting the new app; historical recovery instructions
+above describe the prior `hus_20261028_07` checkpoint, not the current head.
