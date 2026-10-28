@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "method": "codex_conservative_title_inference_v1",
+  "method_description": "Ba mô tả do Codex soạn thủ công từ tên và bản ghi F2, sau khi kiểm kê đề cương thật và thử tải nguồn. Không dùng provider/API bên ngoài. Nội dung là suy luận chủ đề để thử nghiệm, không được dùng làm dữ kiện học vụ.",
+  "input_source": "data/curricula/khdl_7460108_2022/courses.json",
+  "input_sha256_utf8_lf": "4e0291c819e71b169417b3b6b08ba3a3ca28332f026f8ccab45f3338690d4390",
+  "catalog_revision": "khdl_2022_metadata_sample_v1",
+  "program_id": "khdl_7460108_2022",
+  "source_status": "draft_unverified",
+  "generation_status": "inferred",
+  "review_status": "needs_review",
+  "reviewer": null,
+  "verified": false,
+  "answer_corpus_eligible": false,
+  "warning": "Mô tả tham khảo suy luận từ F2 chưa thẩm định, chưa phải đề cương chính thức. Không xác nhận nội dung, chuẩn đầu ra hay đánh giá của HUS.",
+  "courses": [
+    {
+      "code": "MAT3507",
+      "input_pointer": "/courses/36",
+      "input_name": "Cơ sở dữ liệu",
+      "input_credits": 4,
+      "input_prerequisites_raw": "MAT2505",
+      "inferred_content": "Tên học phần gợi ý chủ đề tổ chức dữ liệu và truy vấn dữ liệu trong hệ cơ sở dữ liệu. Một mô tả thử nghiệm có thể tập trung vào cách biểu diễn quan hệ giữa dữ liệu và đặt câu hỏi để truy xuất thông tin; F2 hiện có không xác định hệ quản trị hoặc ngôn ngữ được giảng dạy.",
+      "inferred_objectives": "Mục tiêu tham khảo là giúp người học hình dung vai trò của mô hình dữ liệu và truy vấn trong việc lưu trữ, khai thác thông tin. Đây là mục tiêu do người soạn suy luận, không phải chuẩn đầu ra HUS.",
+      "official_content": null,
+      "official_objectives": null,
+      "official_assessment": null,
+      "suggested_assessment": null,
+      "unknown_fields": ["Đề cương áp dụng cho khóa 2022", "Hệ quản trị", "Hình thức và tỷ lệ đánh giá", "Chuẩn đầu ra chính thức"]
+    },
+    {
+      "code": "MAT3533",
+      "input_pointer": "/courses/40",
+      "input_name": "Học máy",
+      "input_credits": 3,
+      "input_prerequisites_raw": "MAT2406/\nMAT2323",
+      "inferred_content": "Tên học phần gợi ý việc xây dựng mô hình học từ dữ liệu để nhận dạng quy luật và đưa ra dự đoán. Mô tả thử nghiệm có thể đề cập sự khác nhau giữa dữ liệu dùng để xây dựng mô hình và dữ liệu dùng để kiểm tra khả năng dự đoán; không xác định thuật toán, phần mềm hoặc bài tập mà HUS yêu cầu.",
+      "inferred_objectives": "Mục tiêu tham khảo là giải thích ý nghĩa của việc học từ ví dụ và nhận biết giới hạn khi dùng một mô hình để dự đoán trên dữ liệu mới. Chưa có bằng chứng đây là mục tiêu chính thức của học phần.",
+      "official_content": null,
+      "official_objectives": null,
+      "official_assessment": null,
+      "suggested_assessment": null,
+      "unknown_fields": ["Thuật toán và công cụ được giảng dạy", "Nghĩa chính thức của biểu thức tiên quyết", "Hình thức và tỷ lệ đánh giá", "Chuẩn đầu ra chính thức"]
+    },
+    {
+      "code": "MAT3386",
+      "input_pointer": "/courses/49",
+      "input_name": "Phương pháp tính toán trong thống kê và khoa học dữ liệu",
+      "input_credits": 3,
+      "input_prerequisites_raw": "MAT2323",
+      "inferred_content": "Tên học phần gợi ý các cách dùng tính toán để giải quyết bài toán thống kê và xử lý dữ liệu. Mô tả thử nghiệm có thể nói đến việc biểu diễn một bài toán thống kê bằng các bước tính và xem xét kết quả tính toán; F2 không cho biết phương pháp số, ngôn ngữ hay thư viện cụ thể.",
+      "inferred_objectives": "Mục tiêu tham khảo là kết nối một câu hỏi thống kê với quy trình tính toán và cách diễn giải kết quả. Đây là gợi ý chủ đề học tập, chưa phải mục tiêu đào tạo đã được xác nhận.",
+      "official_content": null,
+      "official_objectives": null,
+      "official_assessment": null,
+      "suggested_assessment": null,
+      "unknown_fields": ["Phương pháp tính cụ thể", "Ngôn ngữ và thư viện", "Hình thức và tỷ lệ đánh giá", "Chuẩn đầu ra chính thức"]
+    }
+  ]
+}
