@@ -1,2 +1,10 @@
 tests/fixtures/hus/*.pdf binary
 data/hus/quality/** text eol=lf
+data/hus/qa/**/*.json text eol=lf
+data/hus/qa/**/*.jsonl text eol=lf
+data/hus/qa/**/*.md text eol=lf
+data/hus/qa/**/*.psv text eol=lf
+data/hus/rag/**/*.json text eol=lf
+data/hus/rag/**/*.jsonl text eol=lf
+data/hus/rag/**/*.md text eol=lf
+data/hus/rag/**/*.psv text eol=lf
