@@ -4,15 +4,22 @@ The active FastAPI runtime reads versioned course catalogs from PostgreSQL `ai07
 
 ## Current workflow
 
-From the repository root, with `HUS_DATABASE_URL` pointing to the intended HUS database (or defined in the ignored `database/.env.docker`):
+For first-time local setup (Conda, Neon/Docker, auth and catalog publication),
+follow [docs/LOCAL_SETUP.md](../docs/LOCAL_SETUP.md). Do not overwrite existing
+credentials, reset admin accounts or publish catalogs on every startup.
 
-```powershell
-docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d --wait
-.venv\Scripts\python.exe -m database.tools.migrate upgrade
-.venv\Scripts\python.exe -m database.tools.publish_catalogs --dry-run
-.venv\Scripts\python.exe -m database.tools.publish_catalogs
-.venv\Scripts\python.exe -m database.tools.verify_data
+From the repository root with the intended `HUS_DATABASE_URL` in root `.env`:
+
+```bash
+conda activate SE_Project
+python -m database.tools.migrate upgrade
+python -m database.tools.migrate current
 ```
+
+Current head: `hus_20261028_07`. The migration CLI loads root `.env`; other DB
+CLIs still require process configuration, `database/.env.docker` or the explicit
+dotenv wrapper documented in the setup guide. App `DATABASE_URL` must point to
+the same HUS database. Back up existing data before migration.
 
 Use [HUS_RUNTIME.md](HUS_RUNTIME.md) for environment variables, migration behavior, publication, validation and rollback. `database/data/hus_source.json` is the checked-in source for four `draft_unverified` catalogs. Official source review is still needed for full catalog acceptance. Test fixtures are synthetic.
 

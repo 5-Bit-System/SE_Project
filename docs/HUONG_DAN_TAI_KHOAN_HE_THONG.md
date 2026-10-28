@@ -1,117 +1,89 @@
 # Vận hành tài khoản Sổ học tập
 
-**Cập nhật mới nhất 25/10/2026:** sinh viên đăng nhập trực tiếp bằng VNU, admin
-giữ tài khoản/mật khẩu riêng. Luồng đăng ký/xác thực email sinh viên bên dưới là
-lịch sử, API công khai tương ứng đã đóng. Xem [hướng dẫn hiện tại](VNU_SIGNIN_2026_10_25.md).
-Gmail SMTP hiện có được giữ nguyên; không đổi cấu hình runtime về Mailpit.
+Cập nhật 28/10/2026. Hướng dẫn cài mới và chạy dự án được duy trì tại
+[LOCAL_SETUP.md](LOCAL_SETUP.md). Các lệnh bên dưới chạy từ thư mục gốc trong
+môi trường Python đã kích hoạt.
 
-Bản local triển khai ngày 25/10/2026. Tài khoản hệ thống dùng email/mật khẩu riêng.
-Sau khi đăng nhập, sinh viên mới kết nối tài khoản VNU để lấy bảng điểm. VNU không
-cấp phiên đăng nhập hệ thống. Chưa triển khai crawl tự động hằng tuần.
+## Luồng hiện tại
 
-## Cấu hình và chạy local
+- Sinh viên chọn **Sinh viên VNU** và đăng nhập trực tiếp bằng tài khoản VNU.
+  Backend xác thực nguồn, tạo/tìm danh tính ứng dụng và cấp session riêng.
+- Admin chọn **Quản trị viên**, dùng username/email và mật khẩu local được cấp.
+- Không có đăng ký/xác thực email cá nhân cho sinh viên trong luồng hiện tại.
+  Các API register/resend/verify cũ trả 410; không cần Mailpit để đăng nhập VNU.
+- Connector không phải OAuth/SSO chính thức. CAPTCHA/OTP hoặc nguồn không xác
+  minh được có thể chặn kết nối; không tự nâng cờ dữ liệu để vượt kiểm tra.
 
-Giữ cấu hình PostgreSQL HUS trong `.env`. Sao chép `.env.auth.example` thành
-`.env.auth`, tạo `AUTH_TOKEN_PEPPER` ngẫu nhiên bằng lệnh được ghi trong mẫu.
-File này được Git bỏ qua. Không ghi đè file đang dùng: đổi secret làm các phiên
-và liên kết email hiện tại hết hiệu lực. Biến môi trường tiến trình có ưu tiên
-cao hơn `.env.auth`; cấu hình auth không tự đọc các giá trị trong `.env`.
+Xem chi tiết [VNU_SIGNIN_2026_10_25.md](VNU_SIGNIN_2026_10_25.md).
 
-```powershell
-docker compose -f database/docker-compose.mail.yml up -d
-.venv/Scripts/python.exe -m database.tools.migrate upgrade
-.venv/Scripts/python.exe -m database.tools.seed_system_accounts
-.venv/Scripts/python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --no-access-log
+## Cấu hình và khởi động
+
+`.env` chứa database runtime và migration. `.env.auth` chứa `APP_ENV`,
+`AUTH_TOKEN_PEPPER`, base URL, origin và SMTP. Cả hai đều ignored.
+Auth settings đọc `.env.auth` và shell; shell có ưu tiên cao hơn file.
+Khóa cần được sinh ngẫu nhiên, ít nhất 32 ký tự. Không đổi khóa hợp lệ hoặc ghi
+đè SMTP đang dùng khi cập nhật code. Xem cách tạo file còn thiếu trong setup.
+
+```bash
+conda activate SE_Project
+python -m database.tools.migrate upgrade
+python -m database.tools.migrate current
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Trước migration trên database đã có dữ liệu, sao lưu bằng `pg_dump -Fc` và kiểm
-tra bản sao. Bản local này đã có backup trong `backups/system_auth_20261025/`.
-Migration bổ sung đi qua `hus_20261025_04` rồi `hus_20261025_05`; không publish
-lại catalog, không tạo bản ghi sinh viên giả, không chuyển bảng điểm sang seed user.
+Sao lưu database trước upgrade; head hiện tại `hus_20261028_07`. Migration
+không seed tài khoản và không publish catalog. Không chạy seed để sửa lỗi
+mật khẩu, migration hoặc bảng điểm. Mailpit chỉ dành cho thử nghiệm email
+local riêng; không thay SMTP đã cấu hình bằng Mailpit theo thói quen.
 
-Mở app tại <http://127.0.0.1:8000/>. Mailpit ở <http://127.0.0.1:8025/> là hộp
-thư thử nhận email xác thực; SMTP chỉ mở loopback `1025`, không chuyển email ra
-Gmail/Outlook. Đăng ký địa chỉ bất kỳ đúng cú pháp trong local, mở thư tương ứng,
-bấm liên kết và xác nhận trên app. API không xác thực giả nếu SMTP lỗi.
+## Admin trên database mới
 
-## Hai tài khoản mẫu
+Sinh viên không cần seed; danh tính được tạo qua đăng nhập VNU đã xác thực.
+Với **DB local mới** thật sự cần tài khoản thử, công cụ dev có sẵn:
 
-CLI tạo `admin@sohoctap.test` (`admin`) và `student@sohoctap.test` (`student`),
-đều được đánh dấu `seeded_for_dev`, active và bootstrap verified cho local.
-Mật khẩu ngẫu nhiên được lưu riêng tại
-`backups/system_auth_20261025/accounts.private.txt`, không đưa vào Git/log.
-Phải đổi mật khẩu khi đăng nhập lần đầu, trước khi dùng các chức năng khác.
-
-Database chỉ lưu Argon2id hash. Chạy lại seed không reset mật khẩu hoặc tạo
-trùng; account trùng email nhưng không phải seed hoặc sai role sẽ làm lệnh dừng.
-CLI chỉ cho phép local `ai07`, hoặc database dùng một lần với tên
-`ai07_runtime_test_*` khi `APP_ENV=test`. Không tự seed khi khởi động app.
-File bàn giao là mật khẩu **tạm**, không được cập nhật sau khi người dùng đổi mật khẩu.
-
-## Luồng sử dụng
-
-1. Đăng ký email, tên hiển thị và mật khẩu 6–128 ký tự. Tài khoản ở trạng thái
-   pending cho đến khi xác thực; người dùng không tự chọn role/admin.
-2. Liên kết email hết hạn sau 30 phút và chỉ dùng một lần; mở link không tự
-   kích hoạt cho đến khi bấm xác nhận. Nếu mở trên thiết bị khác, app yêu cầu
-   người sở hữu email đặt mật khẩu để tránh giữ mật khẩu do người khác đăng ký hộ.
-   Gửi lại có giới hạn/cooldown, giữ các liên kết cũ còn hạn trong giới hạn cho phép.
-3. Đăng nhập Sổ học tập, rồi vào Hồ sơ để kết nối VNU. Chỉ nhận bảng điểm cũ
-   sau đăng nhập VNU mới thành công; không ghép theo tên/email và không tự chuyển
-   danh tính VNU đã thuộc tài khoản hệ thống khác.
-4. Cập nhật dùng cookie VNU trong RAM của phiên hiện tại. Hết phiên VNU hoặc
-   restart server có thể yêu cầu xác thực VNU lại; vẫn xem được bảng điểm đã lưu
-   khi phiên hệ thống còn hợp lệ. Giữ nhắc cập nhật sau 7 ngày và cổng completeness.
-5. “Ngắt phiên VNU” hủy cookie VNU, giữ tài khoản và bảng điểm. “Xóa bảng điểm
-   VNU” xóa dữ liệu/link nguồn và hủy các phiên VNU của owner, giữ tài khoản.
-   “Đăng xuất” trên header hủy phiên hệ thống và cookie VNU của phiên đó.
-6. Admin mở Quản trị để tìm/danh sách, đổi role hoặc khóa/mở tài khoản. Không
-   tự khóa/hạ quyền chính mình hoặc xóa admin hoạt động cuối cùng. Thay đổi quyền
-   thu hồi phiên của tài khoản bị sửa. Admin không mặc nhiên xem bảng điểm người khác.
-
-Phiên hệ thống lưu DB dưới dạng digest token, cookie HttpOnly/SameSite=Lax;
-idle 2 giờ, tối đa 12 giờ. Đổi mật khẩu thu hồi phiên cũ và cấp phiên mới.
-Quan hệ family bảo đảm logout đồng thời vẫn hủy phiên vừa được xoay token.
-Origin/CSRF được kiểm tra phía server; auth/personal/admin trả `no-store`.
-Mật khẩu/cookie VNU không lưu DB, localStorage, log hoặc email.
-
-## API và tương thích
-
-`/auth/register`, `/auth/email/resend`, `/auth/email/verify`, `/auth/login`,
-`/auth/logout`, `/auth/session`, `/auth/me`, `/me/password` phục vụ tài khoản hệ
-thống. `/me/portal-connection` tạo/đọc/ngắt kết nối nguồn; các route sync/reauth
-tiếp tục dưới `/me/` và tra owner từ link server.
-
-`POST /me/portal-sync` trả 202 cùng job khi bắt đầu cập nhật. Khi cookie VNU
-trong RAM đã hết hạn/chưa có, trả 200 với `{"state":"reauth_required"}` để UI
-mở bước xác thực lại bình thường; chưa có job hoặc lần đồng bộ thành công mới.
-Mất phiên hệ thống/quyền sở hữu và các lỗi kỹ thuật vẫn trả lỗi phù hợp.
-
-`POST /auth/portal` cũ trả 410. Các `/profiles/...` chưa có mapping ownership
-cũng trả 410; domain/fixture tính toán vẫn được giữ. GET catalog public; POST
-tính toán legacy yêu cầu tài khoản verified và CSRF. UI hoạt động từ nguồn VNU,
-không khôi phục nhập tay/CSV trong luồng người dùng.
-
-## Kiểm tra
-
-```powershell
-.venv/Scripts/python.exe -m pytest -q tests -m "not postgres and not hus_postgres" --full-catalog-root docs/acceptance/hus_2022
-.venv/Scripts/python.exe -m pytest -q tests -m hus_postgres
-.venv/Scripts/python.exe -m tests.frontend.check_system_auth
-.venv/Scripts/python.exe -m ruff check .
+```bash
+python -m database.tools.seed_system_accounts
 ```
 
-PostgreSQL tests cần `HUS_TEST_DATABASE_URL` trỏ đến đích local được bộ kiểm tra
-cho phép. Test tự tạo/drop database riêng; không chạy destructive tests trên bảng
-production. Browser/SMTP proof cần Chrome, Playwright và Mailpit; nó tạo DB dùng
-một lần, chỉ dùng account/bảng điểm/email `.test` giả, không gọi VNU thật.
+Chỉ chạy sau migration và cấu hình auth. CLI từ chối Neon/production, chỉ cho
+local `ai07` hoặc DB test được phép. Nó tạo admin và một tài khoản student
+local lịch sử; student seed không thay thế đăng nhập VNU. Không mở lại API
+email cũ để dùng student seed. Mật khẩu tạm được ghi riêng trong
+`backups/system_auth_20261025/accounts.private.txt`, không in ra console.
+Đăng nhập admin bằng email được tạo, đổi mật khẩu khi được yêu cầu.
 
-## Điều kiện trước khi triển khai công khai
+Seed không reset mật khẩu đã đổi, không phải công cụ khôi phục tài khoản và
+không được dùng trên DB đang có chỉ vì quên thông tin đăng nhập. File bàn giao
+là mật khẩu tạm, không phản ánh thay đổi mật khẩu về sau. Admin trên Neon cần
+quy trình cấp tài khoản riêng được nhóm cho phép; không bỏ kiểm tra bảo vệ seed.
 
-Cần cấu hình SMTP thật, mail-from/domain được kiểm soát và kiểm thử gửi/nhận tại
-địa chỉ được phép, HTTPS, origin/proxy chính xác, secret riêng và chính sách backup.
-`APP_ENV=production` từ chối SMTP fake/không mã hóa, HTTP và seed còn active;
-startup cùng `/ready` kiểm tra các điều kiện tương ứng. Rate limit đăng ký/login/
-verify/resend dùng DB để chia sẻ giữa các worker. Cookie VNU hiện chỉ ở RAM một
-process; triển khai nhiều process cần thiết kế kho phiên nguồn phù hợp trước.
-Khôi phục mật khẩu qua email và tự động đồng bộ hằng tuần chưa thuộc bản này.
+## Session và dữ liệu nguồn
+
+- Cookie ứng dụng `study_app_session`: HttpOnly/SameSite=Lax, Secure khi chạy
+  HTTPS. Database lưu digest token; idle 2 giờ, tối đa 12 giờ.
+- Cookie VNU được giữ riêng trong RAM backend, không lưu DB/localStorage/log;
+  có thể hết hạn sớm hoặc mất khi restart. Có cookie hợp lệ thì thử resume;
+  hết hiệu lực thì yêu cầu xác thực VNU lại.
+- Cập nhật và các thay đổi cá nhân yêu cầu session, origin và CSRF phù hợp.
+  Đăng xuất thu hồi session ứng dụng và kết nối VNU tương ứng.
+- Xóa/ngắt dữ liệu nguồn theo UI không biến tài khoản VNU khác thành cùng
+  sinh viên; quyền sở hữu được kiểm tra ở server.
+- Admin quản lý quyền/trạng thái tài khoản, không mặc định được xem bảng điểm
+  người khác. Chỉnh quyền hoặc khóa tài khoản có thể thu hồi phiên của người đó.
+
+## API chính
+
+| API | Chức năng |
+|---|---|
+| `POST /auth/vnu` | Đăng nhập sinh viên VNU |
+| `POST /auth/login` | Đăng nhập admin local |
+| `GET /auth/session`, `GET /auth/me` | Đọc trạng thái phiên/tài khoản |
+| `POST /auth/logout` | Đăng xuất |
+| `POST /me/password` | Đổi mật khẩu khi loại tài khoản cho phép |
+| Các `/me/portal-*`, `GET /me/profile` | Kết nối, cập nhật và xem nguồn VNU |
+| `GET /admin/users`, `PATCH /admin/users/{account_id}` | Quản trị có phân quyền |
+
+Dùng `/docs` để đối chiếu method/schema hiện tại. `/auth/portal` và `/profiles/...`
+legacy đã đóng với 410. Chưa hỗ trợ triển khai nhiều worker chia sẻ cookie VNU.
+Production cần HTTPS, cấu hình origin/SMTP phù hợp và không có seed dev đang
+active; không coi hướng dẫn local là nghiệm thu production.
