@@ -205,5 +205,13 @@ def test_mathematics_requires_disambiguation_and_talented_rules_stay_explicitly_
     assert board["status"] == "partial"
     assert board["can_plan"] is False
     assert [item["code"] for item in board["courses"]["completed"]] == ["PHI1006"]
-    assert board["courses"]["eligible"] == []
+    # Default availability is independent of the global planning pause.
+    available = {course["code"]: course for course in board["courses"]["eligible"]}
+    assert available["CME1000"]["eligibility_basis"] == "excluded_from_total"
+    assert all(course["eligibility_basis"] in {
+        "excluded_from_total", "no_prerequisites", "requested_default"
+    } for course in available.values())
+    assert all(course["suggested"] is False for course in available.values())
+    assert "program_rules_review_required" in board["blocking_reasons"]
     assert board["plan"]["course_codes"] == []
+    assert board["plan"]["suggested_credits"] == 0
