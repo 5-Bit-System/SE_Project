@@ -101,7 +101,10 @@ def main():
         first_point = page.locator('#analytics-trend circle.chart-point').first
         assert first_point.get_attribute('role') == 'button'
         first_point.click()
+        assert page.evaluate('document.activeElement.id') == 'portal-heading'
         assert page.locator('#portal-profile').is_visible()
+        assert page.locator('#portal-row-count').get_attribute('role') == 'status'
+        assert page.locator('#portal-row-count').get_attribute('aria-live') == 'polite'
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
         assert page.locator('#portal-search').input_value() == ''
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2
@@ -111,6 +114,7 @@ def main():
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2099-2100'
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
         assert page.locator('#portal-table .portal-term').first.inner_text() == 'HỌC KỲ 2 - 2099-2100'
+        assert page.locator('#portal-table .portal-term th[scope="rowgroup"]').count() == 1
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
         page.locator('#analytics-trend circle.chart-point').nth(2).press('Space')
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2100-2101'
@@ -123,6 +127,7 @@ def main():
         grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
         assert grade_button.count() == 1
         grade_button.click()
+        assert page.evaluate('document.activeElement.id') == 'portal-heading'
         assert page.locator('#portal-term').input_value() == ''
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
         assert page.locator('#portal-table tbody tr:not(.portal-term) td:first-child').inner_text() == 'TEST001E'

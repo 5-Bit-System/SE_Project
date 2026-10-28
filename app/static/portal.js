@@ -183,7 +183,7 @@
     $('updated').textContent = `${t.updated}: ${profile.fetched_at ? new Date(profile.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN') : '—'}`;
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
     t.columns.forEach(value => cell(head, value, 'th').scope = 'col');
-    const body = $('table').createTBody(), snap = profile.snapshot;
+    const snap = profile.snapshot;
     $('summary').textContent = (snap?.source_summary || []).map(row => window.workspaceI18n.formatSourceSummary(row)).join('\n');
     const groups = new Map();
     (snap?.attempts || []).forEach(row => { const key = row.term || '—'; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); });
@@ -207,11 +207,12 @@
         && (!query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query)));
       if (!rows.length) return;
       shown += rows.length;
-      const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term).colSpan = 6;
+      const body = $('table').createTBody();
+      const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term, 'th').scope = 'rowgroup'; heading.firstElementChild.colSpan = 6;
       rows.forEach(attempt => { const row = body.insertRow(); ['code', 'name', 'credits', 'grade10', 'letter', 'grade4'].forEach(key => cell(row, attempt[key])); });
     });
     $('row-count').textContent = `${shown} / ${snap?.attempts?.length || 0} ${t.rows}`;
-    if (!shown) cell(body.insertRow(), t.noResults).colSpan = 6;
+    if (!shown) cell($('table').createTBody().insertRow(), t.noResults).colSpan = 6;
     $('unparsed').hidden = !snap?.unknown_rows?.length;
     $('unparsed').querySelector('pre').textContent = (snap?.unknown_rows || []).map(row => row.cells.join(' | ')).join('\n');
   }
@@ -279,6 +280,7 @@
     requestedTerm = term;
     $('search').value = '';
     window.workspaceNavigate('portal-dialog');
+    $('heading').focus();
     if (profile) render();
   });
   document.addEventListener('workspace:open-transcript-grade', event => {
@@ -289,6 +291,7 @@
     requestedTerm = '';
     $('search').value = '';
     window.workspaceNavigate('portal-dialog');
+    $('heading').focus();
     if (profile) render();
   });
   $('grade-filter-clear').addEventListener('click', () => {
