@@ -1,0 +1,42 @@
+{
+  "active_release": false,
+  "blueprints": 154,
+  "blueprints_sha256_utf8_lf": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+  "candidate_syllabus_inventory_sha256": "c20c3a46257724d49f36e016a42b990b1fa49bca2b1f1a63feca828fa680ce13",
+  "dataset_kind": "generated_f3_reference",
+  "distinct_course_codes": 174,
+  "generated_field_coverage": {
+    "content": 290,
+    "objectives": 290,
+    "suggested_assessment": 290
+  },
+  "implementation_sha256": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+  "method": "codex_authored_concept_blueprints_v1",
+  "official_F3_verified": 0,
+  "official_corpus_modified": false,
+  "outputs": {
+    "acceptance_questions.jsonl": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac",
+    "coverage.jsonl": "8458c0e227cdcb4efe5dc2416de2fc0b6ccb9d07e51003a9cbfdd96a2d0932cb",
+    "rag_chunks.jsonl": "f0e60548e28ec438c0fd0ef69ed04fb4863d9a18e7984e2582c634aa2cec651c",
+    "rag_documents.jsonl": "cf829aead81aa738ad9fb3c5fb423b9060bd880926ecaab61d2dc898e7113f2a",
+    "records.jsonl": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45",
+    "source_map.jsonl": "f988fcf8e484f64127093b17116072bcbb2a820dd57f9bd9140a3b889d63dd46"
+  },
+  "program_counts": {
+    "khdl_7460108_2022": 65,
+    "khmtt_7480113qtd_2022": 67,
+    "toan_hoc_7460101_2022": 90,
+    "toan_tin_7460117_2022": 68
+  },
+  "question_contracts": {
+    "pass": 16
+  },
+  "rag_chunks": 870,
+  "rag_documents": 290,
+  "records": 290,
+  "schema_version": "1.0",
+  "source_commit": "cfb2ec4c7f3f8e80428abc3db535dad0cc5db41d",
+  "source_git_blob": "79dd58bc54998def1f0f5fe60016d068affc0433",
+  "source_sha256_utf8_lf": "6cd94644f6df4a6bfd75f3354cc78c287a6fe161662e2b2729d01390c9edc15a",
+  "source_url": "https://github.com/5-Bit-System/SE_Project/blob/cfb2ec4c7f3f8e80428abc3db535dad0cc5db41d/database/data/hus_source.json"
+}
