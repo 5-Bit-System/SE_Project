@@ -9,6 +9,7 @@ export function sourceNumber(value, max = Infinity) {
 export function sourceStatistics(attempts, year = '') {
   const terms = new Map(), letters = new Map();
   let count = 0, missingGrades = 0, missingGrades4 = 0, invalidCredits = 0;
+  let weightedPoints10 = 0, weightedCredits10 = 0, weightedPoints4 = 0, weightedCredits4 = 0;
   for (const attempt of attempts) {
     const term = String(attempt.term || '');
     const match = term.match(/(\d{4})\s*[-–]\s*(\d{4})/);
@@ -17,24 +18,42 @@ export function sourceStatistics(attempts, year = '') {
     count++;
     if (!terms.has(term)) terms.set(term, {term, year: academicYear, count: 0,
       grades: [], grades4: [], credits: 0, knownCredits: 0,
+      weightedPoints10: 0, weightedCredits10: 0, weightedPoints4: 0, weightedCredits4: 0,
       order: match ? Number(match[1]) * 10 + Number(term.match(/K[ỲÌ]\s*(\d+)/i)?.[1] || 0) : Infinity});
     const group = terms.get(term); group.count++;
-    const grade = sourceNumber(attempt.grade10, 10);
-    if (grade === null) missingGrades++; else group.grades.push(grade);
-    const grade4 = sourceNumber(attempt.grade4, 4);
-    if (grade4 === null) missingGrades4++; else group.grades4.push(grade4);
     const credits = sourceNumber(attempt.credits);
+    const grade = sourceNumber(attempt.grade10, 10);
+    if (grade === null) missingGrades++;
+    else {
+      group.grades.push(grade);
+      if (credits > 0) {
+        group.weightedPoints10 += grade * credits; group.weightedCredits10 += credits;
+        weightedPoints10 += grade * credits; weightedCredits10 += credits;
+      }
+    }
+    const grade4 = sourceNumber(attempt.grade4, 4);
+    if (grade4 === null) missingGrades4++;
+    else {
+      group.grades4.push(grade4);
+      if (credits > 0) {
+        group.weightedPoints4 += grade4 * credits; group.weightedCredits4 += credits;
+        weightedPoints4 += grade4 * credits; weightedCredits4 += credits;
+      }
+    }
     if (credits === null) invalidCredits++; else { group.credits += credits; group.knownCredits++; }
     const letter = String(attempt.letter ?? '').trim();
     letters.set(letter, (letters.get(letter) || 0) + 1);
   }
   const groups = [...terms.values()].sort((a, b) => a.order - b.order || a.term.localeCompare(b.term));
   groups.forEach(group => {
-    group.mean = group.grades.length ? group.grades.reduce((a, b) => a + b, 0) / group.grades.length : null;
-    group.mean4 = group.grades4.length ? group.grades4.reduce((a, b) => a + b, 0) / group.grades4.length : null;
+    group.mean = group.weightedCredits10 ? group.weightedPoints10 / group.weightedCredits10 : null;
+    group.mean4 = group.weightedCredits4 ? group.weightedPoints4 / group.weightedCredits4 : null;
   });
   const rank = ['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
   return {count, missingGrades, missingGrades4, invalidCredits, groups,
+    weightedMean10: weightedCredits10 ? weightedPoints10 / weightedCredits10 : null,
+    weightedMean4: weightedCredits4 ? weightedPoints4 / weightedCredits4 : null,
+    weightedCredits10, weightedCredits4,
     letters: [...letters].sort(([a], [b]) => {
       const x = rank.indexOf(a), y = rank.indexOf(b);
       return (x < 0 ? 99 : x) - (y < 0 ? 99 : y) || a.localeCompare(b);
