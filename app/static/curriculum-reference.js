@@ -71,7 +71,10 @@
       if (current !== epoch) return;
       plan = result; selected = new Set(result.course_codes); budget = nextBudget;
     } catch (err) { if (current === epoch) error = err.message; }
-    if (current === epoch) { planning = false; render(); }
+    if (current === epoch) {
+      const finishMotion = window.workspaceMotion?.capturePlan(root);
+      planning = false; render(); finishMotion?.();
+    }
   }
   function select(labelText, id, values, value, change) {
     const label = el('label', labelText), input = el('select'); input.id = id;
@@ -96,8 +99,11 @@
   function unresolved(course) { return ['conflict', 'unknown', 'source_conflict'].includes(course.prerequisite_status); }
   function courseDetail(course) {
     const dialog = el('dialog', undefined, 'reference-detail');
+    dialog.setAttribute('aria-label', `${course.code}: ${course.name}`);
+    const close = () => window.workspaceMotion ? window.workspaceMotion.closeDialog(dialog) : dialog.close();
+    dialog.addEventListener('cancel', event => { event.preventDefault(); close(); });
     const top = el('div', undefined, 'reference-detail-heading');
-    top.append(el('h3', `${course.code} · ${course.name}`), button(copy('Đóng', 'Close'), () => dialog.close()));
+    top.append(el('h3', `${course.code} · ${course.name}`), button(copy('Đóng', 'Close'), close));
     dialog.append(top, el('p', credits(course.credits)), el('h4', copy('Điều kiện tiên quyết', 'Prerequisites')), el('p', prerequisites(course)));
     if (course.prerequisite_variants.length) {
       dialog.append(el('p', copy('Các cách ghi khác nhau trong nguồn:', 'Different source expressions:')));
@@ -191,7 +197,10 @@
       button(copy('Bỏ chọn tất cả', 'Clear selection'), () => updatePlan([]), planning || !selected.size),
       button(copy('Tải kế hoạch CSV', 'Download plan CSV'), download, planning || !selected.size)); section.append(actions);
     const chips = el('div', undefined, 'reference-selected');
-    curriculum.courses.filter(course => selected.has(course.code)).forEach(course => chips.append(button(`${course.code} · ${credits(course.credits)} ×`, () => updatePlan([...selected].filter(code => code !== course.code)), planning)));
+    curriculum.courses.filter(course => selected.has(course.code)).forEach(course => {
+      const chip = button(`${course.code} · ${credits(course.credits)} ×`, () => updatePlan([...selected].filter(code => code !== course.code)), planning);
+      chip.dataset.planCourse = course.code; chips.append(chip);
+    });
     section.append(chips);
     if (plan?.warnings.length) {
       const list = el('ul', undefined, 'reference-plan-warnings');

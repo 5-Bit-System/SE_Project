@@ -60,7 +60,11 @@
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   let syncRequested = false;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
-  function status(key = '', error = '') { messageKey = key; errorKey = error; $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || ''); }
+  function status(key = '', error = '') {
+    messageKey = key; errorKey = error;
+    $('status').textContent = error ? (text().errors[error] || text().errors.fallback) : (text()[key] || '');
+    window.workspaceMotion?.statusFeedback($('status'), error ? 'error' : key === 'waiting' ? 'loading' : 'idle');
+  }
   function reset() {
     clearTimeout(expiryTimer);
     epoch++; profile = null; job = null; syncRequested = false; $('table').replaceChildren(); $('summary').textContent = '';
@@ -185,7 +189,13 @@
       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
       job = null; $('cancel').hidden = true; await load();
       if (result.error || result.state === 'cancelled') status('', result.error || 'cancelled');
-      else status('syncDone');
+      else {
+        status('syncDone');
+        const review = profile?.latest_collection;
+        if (result.state === 'done' && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
+          window.workspaceMotion?.statusFeedback($('status'), 'success');
+        }
+      }
     } catch (err) { status('', err.message); job = null; $('cancel').hidden = true; }
   }
   function beginSync() {

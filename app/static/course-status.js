@@ -52,6 +52,7 @@
 
   function updatePlan(course, checked) {
     if (board?.can_plan === false) return;
+    const finishMotion = window.workspaceMotion?.capturePlan(root);
     planError = '';
     if (!checked) chosen.delete(course.code);
     else {
@@ -63,6 +64,7 @@
       } else chosen.add(course.code);
     }
     render();
+    finishMotion?.();
     root.querySelectorAll('input[data-plan-code]').forEach(input => {
       if (input.dataset.planCode === course.code) input.focus();
     });

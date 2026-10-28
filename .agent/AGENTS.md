@@ -1,5 +1,125 @@
 # Project Memory and Contributor Guidelines
 
+## UI publication authorized — 2026-10-29
+
+User explicitly requests commit and push of the completed frontend/motion work.
+Target is the existing feat/vnu-curriculum-planning branch, starting at 883b9d3;
+fresh fetch confirms it matches origin with no divergence. This supersedes the
+implementation-time uncommitted/no-push notes below. Do not merge or publish
+main, feat/vinh-database-tests or another teammate's work. Pre-push remote main
+is 7bde36e and the restored Vinh branch is 4285c0e.
+
+Publication scope: 38 reviewed frontend/font/license/test/report/memory files,
+plus one integration-test expectation repair (39 unique files in two commits).
+Preserve academic rules, API/storage behavior and Windows no-reload
+runtime. Credentials, .env, AD-102, logs, screenshots, videos and other backups
+remain local/ignored. Ten synthetic Chrome scripts and Node aggregation passed
+during implementation. Publication preflight: 500 offline tests passed / 50
+deselected, one existing Starlette/httpx warning; whole-repo Ruff, Node analytics
+and seven JS syntax checks plus both catalog builder checks passed. The obsolete
+eligible=[] expectation was reproduced at pristine 883b9d3 in an isolated
+worktree, then corrected to require visible independent defaults while keeping
+can_plan=false, all suggestions off, and an empty suggested bundle. Production
+Python is unchanged. Keep this test-only correction in its own commit. Temporary
+baseline worktree was removed; XML reports stay ignored in backups/local_runtime.
+Use an explicit non-force feature-branch push, then verify the remote commit and
+clean workspace. This checkpoint records authorization/preparation; the actual
+publication outcome must be confirmed from Git, not inferred from this note.
+
+## Digital study desk motion — 2026-10-29
+
+User asks to EXTEND the existing motion system with a page-turning book, max two
+small ornaments, scoped click ripple, nav/card feedback, plan enter/exit, real
+success feedback and small book loader. Preserve routes/layout/content/API and
+academic behavior. No new motion library, duplicate background, fake milestones
+or persistent plan-save claims. Report: docs/STUDY_DESK_MOTION_2026_10_29.md.
+
+Implemented in the SAME motion.css/motion.js, HTML revision 20261029-study-desk.
+CSS 3D/SVG book fits unused heading space, guards text/control/surface collisions,
+waits for page entrance to settle, scrolls naturally in a clipped decorative
+layer and pauses offscreen. Front/back faces, 1.6s visible flip in 8s cycle,
+hidden underside return; two ornaments only. Hide book <=800px; reduced static.
+Ripple 380ms, keyboard center/pointer origin, max four transients/one per control,
+cleanup on end/cancel/navigation/visibility/logout. Focus ring not clipped.
+Public-plan chips enter/exit/FLIP only after the existing stateless plan response;
+totals change immediately. Small presentational hooks in both plan frontends.
+Portal waiting status gets a 20px book; check only after job done AND latest
+review saved/unchanged + complete, never on passive load/error/retained. Existing
+status region/text remains; no new API or fixed global toast. Pause via shared
+visibility + IntersectionObserver; reduced motion keeps final feedback.
+
+Ten synthetic Chrome scripts passed (new study_desk plus previous nine), including
+18.69 real seconds/two flips recorded, phase/backface/seam checks, independent
+text/control clearance at 24 page/theme/viewport combos + EN, rapid 60 activations,
+keyboard/disabled/focus, plan pending/accept/remove/totals, loader/offscreen/hidden,
+success-vs-retained and repeated navigation cleanup. Node aggregation/syntax,
+whole-repo Ruff and diff passed. Video/phase screenshots in ignored
+backups/study_desk_motion_20261029/, invented credentials/records only; public
+planner stateless. Chrome only, no Safari/Firefox/device FPS measurement.
+Keep the existing no-reload Windows server; no restart/real VNU/DB mutation.
+All UI work remains local/uncommitted on feat/vnu-curriculum-planning, no push.
+
+## Ambient background and actual motion — 2026-10-29
+
+User explicitly REPLACES earlier no-gradient/short-transition limits. Keep the
+current layout/content/features/academic logic; add visible multilayer animated
+background, selective glass, entrances, interaction and chart motion. This also
+supersedes the interrupted typography/Archivo plan (not implemented; unused
+temporary font assets removed). Keep existing Be Vietnam Pro.
+
+Current implementation: app/static/motion.css + motion.js loaded in index.html,
+revision 20261028-ambient-motion. Fixed aria-hidden/inert decorative radial
+layers, lavender/cyan/rose at 24/28/30 seconds, light/dark, subtle dots. Glass
+only header/sidebar with opaque fallback. Mobile has two layers and 8px blur.
+WAAPI entrance/tab/charts; moving existing-nav indicator; button hover/active;
+native dialog open/160ms close with Escape/focus; progressive native details.
+No added motion dependency, product video, WebGL or data/formula/API changes.
+Reduced motion cancels movement and reveals final content; hidden browser tab
+pauses background. Logout clears chart motion revisions and chart animations;
+generic page entrance survives the initial anonymous 401 (separately verified).
+
+Nine synthetic Chrome checks passed (new motion plus prior eight UI checks).
+Motion records a full real 30.59s cycle and interactions to ignored local WebM;
+samples changing transforms/currentTime, charts and deduplication, hover/active,
+navigation, focus/Escape, scroll continuity, mobile/themes and JS fallback.
+Rendered-pixel text contrast samples across 48 areas/phases have min 4.7:1.
+Node analytics/syntax, whole-repo Ruff and diff passed. No real VNU credentials
+or records used. Evidence/report: docs/FRONTEND_MOTION_2026_10_28.md and ignored
+backups/frontend_motion_20261029/. Select remains native; Safari/Firefox/mobile
+FPS are not measured. /health and /ready 200, single no-reload Uvicorn kept alive.
+UI changes remain local/uncommitted on feat/vnu-curriculum-planning; no push.
+
+## Existing-structure frontend refinement — 2026-10-28
+
+User supplies a detailed visual brief: quiet Amie interaction plus confident
+Shopify Design typography, while STRICTLY preserving the current four pages,
+routes/menu names, section order, fields/filters/table columns/actions and
+academic/API/auth/storage behavior. Apply the local frontend-design skill.
+Implementation and report: docs/FRONTEND_POLISH_2026_10_28.md.
+
+Refined existing shared CSS tokens, shell, charts, profile/table, course board
+and public lookup. Neutral light canvas/purple accents, charcoal dark theme,
+larger Vietnamese typography, subtle surfaces, consistent focus and controls.
+Self-host the EXISTING Be Vietnam Pro family (five weights, 15 WOFF2 subsets,
+238132 bytes, SIL OFL included). No Google font requests or new UI dependency.
+At 390px the SAME four nav buttons wrap 2x2; language/theme stay in header.
+JS changes are presentation only: theme-aware chart colors and plot geometry,
+tablist orientation and an accessible label on the existing native dialog.
+Recommendation remains its existing integration-waiting state; no invented UI.
+
+Eight synthetic Chrome regressions passed: presentation, workspace, charts,
+course_status, curriculum_reference, portal, portal_sync_feedback and vnu_only.
+New check_presentation.py covers 1440/1024/390, both themes, VI/EN, local fonts,
+text/control contrast, overflow, keyboard focus, table scrolling, dialog focus,
+empty filter, loading/error/disabled and reduced motion. Node analytics/syntax,
+whole-repo Ruff and diff checks passed. Reviewed synthetic screenshots locally;
+real VNU credentials/records were not used. No backend/schema/catalog change.
+
+Local /health and /ready are 200. Keep the single no-reload Windows Uvicorn
+process running; static edits need no restart. Prior authorized publication
+completed at 883b9d3 on feat/vnu-curriculum-planning before this task. The current
+UI changes are UNCOMMITTED, with no commit/push requested in the current brief.
+
 ## Authorized feature-branch publication — 2026-10-28
 
 User requests commit and push of the current changes. Target remains the
