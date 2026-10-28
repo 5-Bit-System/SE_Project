@@ -80,6 +80,14 @@ def main():
         assert page.locator('#analytics-credits .credit-chart-row').count() == 2
         assert '3 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('')
+        page.evaluate("window.openedTerms = []; document.addEventListener('workspace:open-transcript-term', event => window.openedTerms.push(event.detail.term))")
+        first_point = page.locator('#analytics-trend circle.chart-point').first
+        assert first_point.get_attribute('role') == 'button'
+        first_point.click()
+        first_point.press('Enter')
+        first_point.press('Space')
+        assert page.evaluate('window.openedTerms') == [
+            'HỌC KỲ 1 - 2099-2100', 'HỌC KỲ 1 - 2099-2100', 'HỌC KỲ 1 - 2099-2100']
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)

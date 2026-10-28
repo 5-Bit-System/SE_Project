@@ -69,6 +69,7 @@ if (typeof document !== 'undefined') {
     }
     const width = Math.max(620, stats.groups.length * 110 + 140), height = 285, left = 70, right = width - 70;
     const svg = svgRoot(t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 10', 'Arithmetic mean by semester, from 0 to 10'), width, height);
+    svg.setAttribute('role', 'group');
     for (const value of [0, 2, 4, 6, 8, 10]) {
       const y = 218 - value * 18;
       svg.append(svgElement('line', {x1: left, x2: right, y1: y, y2: y, class: 'chart-grid-line'}));
@@ -92,8 +93,17 @@ if (typeof document !== 'undefined') {
     stats.groups.forEach((group, index) => {
       if (group.mean === null) return;
       const x = xAt(index), y = 218 - group.mean * 18;
-      const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: 0, class: 'chart-point',
-        'aria-label': `${termLabel(group)}: ${number(group.mean)} / 10; ${group.grades.length} ${t('lượt có điểm', 'graded attempts')}`});
+      const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: group.term ? 0 : -1,
+        ...(group.term ? {role: 'button'} : {}), class: 'chart-point',
+        'aria-label': `${termLabel(group)}: ${number(group.mean)} / 10; ${group.grades.length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Mở bảng điểm học kỳ', 'Open semester transcript')}` : ''}`});
+      if (group.term) {
+        const openTranscript = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-term', {detail: {term: group.term}}));
+        dot.addEventListener('click', openTranscript);
+        dot.addEventListener('keydown', event => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault(); openTranscript();
+        });
+      }
       const title = svgElement('title'); title.textContent = dot.getAttribute('aria-label'); dot.append(title);
       const label = svgElement('text', {x, y: y - 14, 'text-anchor': 'middle', class: 'chart-point-label'});
       label.textContent = number(group.mean); svg.append(dot, label);
