@@ -80,14 +80,25 @@ def main():
         assert page.locator('#analytics-credits .credit-chart-row').count() == 2
         assert '3 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('')
-        page.evaluate("window.openedTerms = []; document.addEventListener('workspace:open-transcript-term', event => window.openedTerms.push(event.detail.term))")
+        page.evaluate("document.getElementById('portal-search').value = 'TEST004'")
         first_point = page.locator('#analytics-trend circle.chart-point').first
         assert first_point.get_attribute('role') == 'button'
         first_point.click()
-        first_point.press('Enter')
-        first_point.press('Space')
-        assert page.evaluate('window.openedTerms') == [
-            'HỌC KỲ 1 - 2099-2100', 'HỌC KỲ 1 - 2099-2100', 'HỌC KỲ 1 - 2099-2100']
+        assert page.locator('#portal-profile').is_visible()
+        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
+        assert page.locator('#portal-search').input_value() == ''
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2
+        assert page.locator('#portal-table .portal-term').first.inner_text() == 'HỌC KỲ 1 - 2099-2100'
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        page.locator('#analytics-trend circle.chart-point').nth(1).press('Enter')
+        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2099-2100'
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
+        assert page.locator('#portal-table .portal-term').first.inner_text() == 'HỌC KỲ 2 - 2099-2100'
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        page.locator('#analytics-trend circle.chart-point').nth(2).press('Space')
+        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2100-2101'
+        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)

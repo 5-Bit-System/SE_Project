@@ -83,6 +83,7 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   let signedOut = false;
+  let requestedTerm = null;
   let accountId = null;
   let reminderTimer;
   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
@@ -100,6 +101,7 @@
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
+    requestedTerm = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
@@ -169,10 +171,11 @@
       return Number(year) * 10 + Number(semester);
     }
     const sorted = [...groups].sort((a, b) => termOrder(b[0]) - termOrder(a[0]));
-    const selected = $('term').value, query = $('search').value.trim().toLocaleLowerCase();
+    const selected = requestedTerm ?? $('term').value, query = $('search').value.trim().toLocaleLowerCase();
     $('term').replaceChildren(new Option(t.allTerms, ''));
     sorted.forEach(([term]) => $('term').add(new Option(term, term)));
     $('term').value = [...groups.keys()].includes(selected) ? selected : '';
+    requestedTerm = null;
     let shown = 0;
     sorted.forEach(([term, sourceRows]) => {
       if ($('term').value && $('term').value !== term) return;
@@ -245,6 +248,14 @@
     finally { if (current === epoch) lock(false); }
   }
   $('close').onclick = () => window.workspaceNavigate('tab-dashboard');
+  document.addEventListener('workspace:open-transcript-term', event => {
+    const term = event.detail?.term;
+    if (typeof term !== 'string' || !term) return;
+    requestedTerm = term;
+    $('search').value = '';
+    window.workspaceNavigate('portal-dialog');
+    if (profile) render();
+  });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();
     else { $('password').value = ''; $('reauth-password').value = ''; }
