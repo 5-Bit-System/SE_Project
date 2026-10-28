@@ -35,7 +35,7 @@ _validate_runtime_test_target = validate_hus_test_target
 
 
 @pytest.fixture
-def runtime_engine():
+def runtime_engine(request):
     url = os.getenv("HUS_TEST_DATABASE_URL")
     if not url:
         pytest.skip("HUS_TEST_DATABASE_URL is not configured")
@@ -49,7 +49,7 @@ def runtime_engine():
         with engine.begin() as conn:
             cfg = config()
             cfg.attributes["connection"] = conn
-            command.upgrade(cfg, "head")
+            command.upgrade(cfg, getattr(request, "param", "head"))
         yield engine
     finally:
         engine.dispose()
@@ -380,3 +380,31 @@ def test_metadata_change_creates_revision_without_changing_academic_rules(runtim
         )).all())
         assert active == second
     repository.ready()
+
+
+@pytest.mark.hus_postgres
+@pytest.mark.parametrize('runtime_engine', ['hus_20261023_04', 'hus_20261025_06'], indirect=True)
+def test_upgrade_deployed_history_preserves_account(runtime_engine):
+    with runtime_engine.begin() as conn:
+        conn.execute(text("""
+            INSERT INTO accounts(username, password_hash)
+            VALUES ('synthetic-migration-owner', 'not-a-real-password-hash')
+        """))
+    with runtime_engine.begin() as conn:
+        cfg = config()
+        cfg.attributes['connection'] = conn
+        command.upgrade(cfg, 'head')
+        assert conn.execute(text('SELECT version_num FROM hus_alembic_version')).scalar_one() == (
+            'hus_20261028_07'
+        )
+        assert conn.execute(text("""
+            SELECT password_hash FROM accounts WHERE username='synthetic-migration-owner'
+        """)).scalar_one() == 'not-a-real-password-hash'
+        column = conn.execute(text("""
+            SELECT data_type, is_nullable, column_default
+            FROM information_schema.columns
+            WHERE table_schema='public' AND table_name='students'
+              AND column_name='last_transcript_synced_at'
+        """)).one()
+        assert tuple(column) == ('timestamp with time zone', 'YES', None)
+        assert conn.execute(text('SELECT count(*) FROM auth_sessions')).scalar_one() == 0
