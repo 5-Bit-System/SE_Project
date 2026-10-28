@@ -35,7 +35,7 @@
 .analytics-data-table { margin-top: 20px; border-bottom: 1px solid var(--border-subtle); padding: 12px 0 20px; }
 .analytics-data-table summary, .dashboard-manual-plan > summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-main); }
 .analytics-data-table .table-scroll { margin-top: 16px; }
-#analytics-table { min-width: 800px; font-size: 12px; }
+#analytics-table { min-width: 960px; font-size: 12px; }
 .dashboard-manual-plan { margin-top: 28px; border-top: 1px solid var(--border-subtle); padding-top: 22px; }
 .dashboard-manual-plan > summary { padding: 8px 0; }
 .workspace-selectors { grid-template-columns: 1fr; }

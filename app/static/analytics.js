@@ -8,7 +8,7 @@ export function sourceNumber(value, max = Infinity) {
 
 export function sourceStatistics(attempts, year = '') {
   const terms = new Map(), letters = new Map();
-  let count = 0, missingGrades = 0, missingGrades4 = 0, invalidCredits = 0;
+  let count = 0, missingGrades = 0, missingGrades4 = 0, invalidCredits = 0, zeroCreditAttempts = 0;
   let weightedPoints10 = 0, weightedCredits10 = 0, weightedPoints4 = 0, weightedCredits4 = 0;
   for (const attempt of attempts) {
     const term = String(attempt.term || '');
@@ -22,6 +22,7 @@ export function sourceStatistics(attempts, year = '') {
       order: match ? Number(match[1]) * 10 + Number(term.match(/K[ỲÌ]\s*(\d+)/i)?.[1] || 0) : Infinity});
     const group = terms.get(term); group.count++;
     const credits = sourceNumber(attempt.credits);
+    if (credits === 0) zeroCreditAttempts++;
     const grade = sourceNumber(attempt.grade10, 10);
     if (grade === null) missingGrades++;
     else {
@@ -50,7 +51,7 @@ export function sourceStatistics(attempts, year = '') {
     group.mean4 = group.weightedCredits4 ? group.weightedPoints4 / group.weightedCredits4 : null;
   });
   const rank = ['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
-  return {count, missingGrades, missingGrades4, invalidCredits, groups,
+  return {count, missingGrades, missingGrades4, invalidCredits, zeroCreditAttempts, groups,
     weightedMean10: weightedCredits10 ? weightedPoints10 / weightedCredits10 : null,
     weightedMean4: weightedCredits4 ? weightedPoints4 / weightedCredits4 : null,
     weightedCredits10, weightedCredits4,
@@ -93,8 +94,8 @@ if (typeof document !== 'undefined') {
         : t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
     }
     const width = Math.max(620, stats.groups.length * 110 + 140), height = 285, left = 70, right = width - 70;
-    const svg = svgRoot(four ? t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 4', 'Arithmetic mean by semester, from 0 to 4')
-      : t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 10', 'Arithmetic mean by semester, from 0 to 10'), width, height);
+    const svg = svgRoot(four ? t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 4', 'Credit-weighted mean by semester, from 0 to 4')
+      : t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 10', 'Credit-weighted mean by semester, from 0 to 10'), width, height);
     svg.setAttribute('role', 'group');
     for (const value of four ? [0, 1, 2, 3, 4] : [0, 2, 4, 6, 8, 10]) {
       const y = 218 - value * 180 / scale;
@@ -192,19 +193,26 @@ if (typeof document !== 'undefined') {
     (source?.snapshot?.source_summary || []).forEach(row => $('source-totals').append(element('p', window.workspaceI18n.formatSourceSummary(row))));
     $('source-totals').hidden = !$('source-totals').childElementCount;
     $('count').textContent = `${stats.count} ${t('lượt học', 'attempts')} · ${stats.count - stats.missingGrades} ${t('lượt có điểm hệ 10', 'attempts with numeric 10-point grades')} · ${stats.count - stats.missingGrades4} ${t('lượt có điểm hệ 4', 'attempts with numeric 4-point grades')}`;
+    const scope = $('year').value ? `${t('Năm học', 'Academic year')} ${$('year').value}` : t('Tất cả lượt học', 'All attempts');
+    const summary = $('weighted-summary'); summary.replaceChildren();
+    summary.setAttribute('aria-label', t('Điểm trung bình gia quyền theo tín chỉ', 'Credit-weighted averages'));
+    summary.append(element('strong', `${t('Tổng hợp', 'Summary')} · ${scope}`),
+      element('span', `${t('Hệ 10', 'Scale 10')}: ${number(stats.weightedMean10)} · ${number(stats.weightedCredits10)} ${t('tín chỉ tính điểm', 'credits counted')}`),
+      element('span', `${t('Hệ 4', 'Scale 4')}: ${number(stats.weightedMean4)} · ${number(stats.weightedCredits4)} ${t('tín chỉ tính điểm', 'credits counted')}`));
     trend(stats, 10); trend(stats, 4); distribution(stats); credits(stats);
-    $('method').textContent = t('Giữ mọi lần học, không chọn điểm cao nhất hoặc quy đổi thang điểm.', 'Every attempt is retained; no best-attempt selection or grade conversion.')
+    $('method').textContent = t('Điểm theo kỳ, năm và toàn bộ lượt học = tổng (điểm × tín chỉ) / tổng tín chỉ hợp lệ. Mỗi lượt học lại được giữ riêng.', 'Semester, year and all-attempt scores = sum (grade × credits) / valid credits. Each retake is kept as a separate attempt.')
+      + ` ${t('Lượt học 0 tín chỉ được loại khỏi phép tính', 'Zero-credit attempts excluded from weighting')}: ${stats.zeroCreditAttempts};`
       + ` ${stats.missingGrades} ${t('lượt thiếu/không có điểm hệ 10 hợp lệ;', 'attempts lack valid 10-point grades;')}`
       + ` ${stats.missingGrades4} ${t('lượt thiếu/không có điểm hệ 4 hợp lệ;', 'attempts lack valid 4-point grades;')}`
       + ` ${stats.invalidCredits} ${t('lượt thiếu/không có tín chỉ hợp lệ. Giá trị chưa rõ không được thay bằng 0.', 'attempts lack valid credits. Unknown values are not replaced with zero.')}`;
     const table = $('table'); table.replaceChildren();
     const header = table.createTHead().insertRow();
-    [t('Học kỳ', 'Semester'), t('Lượt học', 'Attempts'), t('Lượt có điểm hệ 10', 'Graded / 10'), t('TB hệ 10', 'Mean / 10'), t('Lượt có điểm hệ 4', 'Graded / 4'), t('TB hệ 4', 'Mean / 4'), t('TC ghi trên lượt học', 'Credits on attempts')].forEach(label => {
+    [t('Học kỳ', 'Semester'), t('Lượt học', 'Attempts'), t('Lượt có điểm hệ 10', 'Graded / 10'), t('TC tính hệ 10', 'Credits / 10'), t('TB hệ 10', 'Weighted mean / 10'), t('Lượt có điểm hệ 4', 'Graded / 4'), t('TC tính hệ 4', 'Credits / 4'), t('TB hệ 4', 'Weighted mean / 4'), t('TC ghi trên lượt học', 'Credits on attempts')].forEach(label => {
       const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell);
     });
     const body = table.createTBody();
     stats.groups.forEach(group => {
-      const row = body.insertRow(); [termLabel(group), group.count, group.grades.length, number(group.mean), group.grades4.length, number(group.mean4), number(group.knownCredits ? group.credits : null)].forEach(value => {
+      const row = body.insertRow(); [termLabel(group), group.count, group.grades.length, number(group.weightedCredits10), number(group.mean), group.grades4.length, number(group.weightedCredits4), number(group.mean4), number(group.knownCredits ? group.credits : null)].forEach(value => {
         row.insertCell().textContent = value;
       });
     });

@@ -17,7 +17,7 @@ def main():
         {"term": "HỌC KỲ 1 - 2099-2100", "code": "TEST001E", "name": "Môn giả lập",
          "credits": "3", "grade10": "8,5", "letter": "B+", "grade4": "3,5"},
         {"term": "HỌC KỲ 1 - 2099-2100", "code": "TEST001E", "name": "Môn giả lập",
-         "credits": "3", "grade10": "0", "letter": "F", "grade4": "0"},
+         "credits": "1", "grade10": "0", "letter": "F", "grade4": "0"},
         {"term": "HỌC KỲ 2 - 2099-2100", "code": "TEST002", "name": "Môn giả lập",
          "credits": "4", "grade10": "7", "letter": "B", "grade4": "3"},
         {"term": "HỌC KỲ 1 - 2100-2101", "code": "TEST003", "name": "Môn giả lập",
@@ -26,6 +26,8 @@ def main():
          "credits": "3", "grade10": "9", "letter": "A", "grade4": "4"},
         {"term": None, "code": "TEST005", "name": "Môn giả lập",
          "credits": "", "grade10": "Miễn", "letter": "", "grade4": ""},
+        {"term": None, "code": "TEST006", "name": "Môn giả lập",
+         "credits": "0", "grade10": "8", "letter": "B", "grade4": "3"},
     ]
     sample = {"subject": "synthetic-only", "expires_in": 1800,
               "fetched_at": "2026-10-23T00:00:00+00:00",
@@ -72,17 +74,26 @@ def main():
         assert page.locator('#profile-select').count() == 0
         assert len(requests) == 1
         assert page.locator('#analytics-trend polyline').count() == 1  # Gap is not bridged.
-        assert '4,25' in page.locator('#analytics-trend').inner_text()
-        assert '1,75' in page.locator('#analytics-trend4').inner_text()
+        assert '6,38' in page.locator('#analytics-trend').inner_text()
+        assert '2,63' in page.locator('#analytics-trend4').inner_text()
         assert page.locator('#analytics-trend4 polyline').count() == 1
+        assert '7,32' in page.locator('#analytics-weighted-summary').inner_text()
+        assert '3,14' in page.locator('#analytics-weighted-summary').inner_text()
+        assert 'Tất cả lượt học' in page.locator('#analytics-weighted-summary').inner_text()
         assert 'TB hệ 4' in page.locator('#analytics-table thead').text_content()
-        assert '1,75' in page.locator('#analytics-table tbody').text_content()
+        assert '2,63' in page.locator('#analytics-table tbody').text_content()
+        assert page.locator('#analytics-table tbody tr').first.locator('td').nth(3).text_content() == '4'
+        assert page.locator('#analytics-table tbody tr').first.locator('td').nth(4).text_content() == '6,38'
+        assert page.locator('#analytics-table tbody tr').first.locator('td').nth(6).text_content() == '4'
+        assert page.locator('#analytics-table tbody tr').first.locator('td').nth(7).text_content() == '2,63'
         assert page.locator('#analytics-credits .credit-chart-row').count() == 5
-        assert '6' in page.locator('#analytics-credits .credit-chart-row').first.inner_text()
-        assert '6 lượt học' in page.locator('#analytics-count').inner_text()
+        assert '4' in page.locator('#analytics-credits .credit-chart-row').first.inner_text()
+        assert '7 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('2099–2100')
         assert page.locator('#analytics-trend .chart-point').count() == 2
         assert page.locator('#analytics-trend4 .chart-point').count() == 2
+        assert '6,69' in page.locator('#analytics-weighted-summary').inner_text()
+        assert '2,81' in page.locator('#analytics-weighted-summary').inner_text()
         assert page.locator('#analytics-credits .credit-chart-row').count() == 2
         assert '3 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('')
@@ -116,8 +127,15 @@ def main():
         page.locator('[data-language-choice="en"]').click()
         assert 'Grades across semesters' in page.locator('.analytics-trend').first.inner_text()
         assert '4-point scale' in page.locator('.analytics-trend-four').inner_text()
-        assert '4.25' in page.locator('#analytics-trend').inner_text()
-        assert '1.75' in page.locator('#analytics-trend4').inner_text()
+        assert 'Credit-weighted mean' in page.locator('.analytics-trend').first.inner_text()
+        assert 'Credit-weighted mean' in page.locator('.analytics-trend-four').inner_text()
+        assert '6.38' in page.locator('#analytics-trend').inner_text()
+        assert '2.63' in page.locator('#analytics-trend4').inner_text()
+        assert 'All attempts' in page.locator('#analytics-weighted-summary').inner_text()
+        page.locator('.analytics-data-table summary').click()
+        assert 'sum (grade × credits) / valid credits' in page.locator('#analytics-method').inner_text()
+        assert 'Zero-credit attempts excluded from weighting: 1' in page.locator('#analytics-method').inner_text()
+        page.locator('.analytics-data-table summary').click()
         assert 'Updated: 23/10/2026, 07:00:00' in page.locator('#analytics-status').inner_text()
         assert 'Tổng kết nguồn giả lập' in page.locator('#analytics-source-totals').inner_text()
         totals = page.locator('#analytics-source-totals').inner_text()
@@ -138,6 +156,8 @@ def main():
         page.locator('#analytics-year').select_option('2100–2101')
         assert page.locator('#analytics-trend .chart-point').count() == 1
         assert page.locator('#analytics-trend4 .chart-point').count() == 1
+        assert '9' in page.locator('#analytics-weighted-summary').inner_text()
+        assert '4' in page.locator('#analytics-weighted-summary').inner_text()
         assert '4' in page.locator('#analytics-trend4').inner_text()
         assert '—' in page.locator('#analytics-table').text_content()  # Missing grade stays missing.
         page.locator('#tab-btn-profile').click()
