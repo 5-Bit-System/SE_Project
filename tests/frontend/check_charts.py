@@ -68,15 +68,21 @@ def main():
         page.route('**/*', intercept)
         page.goto('http://127.0.0.1:8000/#dashboard')
         page.wait_for_function("document.querySelectorAll('#analytics-trend .chart-point').length===3")
+        page.wait_for_function("document.querySelectorAll('#analytics-trend4 .chart-point').length===3")
         assert page.locator('#profile-select').count() == 0
         assert len(requests) == 1
         assert page.locator('#analytics-trend polyline').count() == 1  # Gap is not bridged.
         assert '4,25' in page.locator('#analytics-trend').inner_text()
+        assert '1,75' in page.locator('#analytics-trend4').inner_text()
+        assert page.locator('#analytics-trend4 polyline').count() == 1
+        assert 'TB hệ 4' in page.locator('#analytics-table thead').text_content()
+        assert '1,75' in page.locator('#analytics-table tbody').text_content()
         assert page.locator('#analytics-credits .credit-chart-row').count() == 5
         assert '6' in page.locator('#analytics-credits .credit-chart-row').first.inner_text()
         assert '6 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('2099–2100')
         assert page.locator('#analytics-trend .chart-point').count() == 2
+        assert page.locator('#analytics-trend4 .chart-point').count() == 2
         assert page.locator('#analytics-credits .credit-chart-row').count() == 2
         assert '3 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('')
@@ -99,14 +105,19 @@ def main():
         assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2100-2101'
         assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        page.locator('#analytics-trend4 circle.chart-point').first.click()
+        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
+        page.evaluate("window.workspaceNavigate('tab-dashboard')")
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)
         page.locator('#analytics-trend circle.chart-point').first.focus()
         assert page.locator('#analytics-trend circle.chart-point').first.get_attribute('aria-label')
         page.locator('[data-language-choice="en"]').click()
-        assert 'Grades across semesters' in page.locator('.analytics-trend').inner_text()
+        assert 'Grades across semesters' in page.locator('.analytics-trend').first.inner_text()
+        assert '4-point scale' in page.locator('.analytics-trend-four').inner_text()
         assert '4.25' in page.locator('#analytics-trend').inner_text()
+        assert '1.75' in page.locator('#analytics-trend4').inner_text()
         assert 'Updated: 23/10/2026, 07:00:00' in page.locator('#analytics-status').inner_text()
         assert 'Tổng kết nguồn giả lập' in page.locator('#analytics-source-totals').inner_text()
         totals = page.locator('#analytics-source-totals').inner_text()
@@ -126,18 +137,21 @@ def main():
         page.screenshot(path=str(evidence / 'charts-mobile.png'), full_page=True)
         page.locator('#analytics-year').select_option('2100–2101')
         assert page.locator('#analytics-trend .chart-point').count() == 1
+        assert page.locator('#analytics-trend4 .chart-point').count() == 1
+        assert '4' in page.locator('#analytics-trend4').inner_text()
         assert '—' in page.locator('#analytics-table').text_content()  # Missing grade stays missing.
         page.locator('#tab-btn-profile').click()
         page.locator('#system-logout').click()
         page.evaluate("window.workspaceNavigate('tab-dashboard')")
         assert page.locator('#analytics-trend svg').count() == 0
+        assert page.locator('#analytics-trend4 svg').count() == 0
         assert page.locator('#analytics-distribution svg').count() == 0
         assert page.locator('#analytics-credits .credit-chart-row').count() == 0
         assert page.locator('#analytics-source-totals').inner_text() == ''
         assert page.locator('#analytics-table tbody tr').count() == 0
         assert not errors, errors
         browser.close()
-    print('Charts: source snapshot, mean/retakes/gaps, credits/letters, filters, VI/EN, themes, mobile, logout passed')
+    print('Charts: source grade 10/4 means, retakes/gaps, credits/letters, filters, VI/EN, themes, mobile, logout passed')
 
 
 if __name__ == '__main__':

@@ -4,8 +4,7 @@
 .analytics-toolbar { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin: 22px 0 16px; }
 .analytics-toolbar label { display: grid; gap: 7px; font-size: 11px; color: var(--text-muted); min-width: 180px; }
 #analytics-count { font-size: 11px; color: var(--text-muted); text-align: right; }
-.analytics-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; }
-.analytics-credits { grid-column: 1 / -1; }
+.analytics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .analytics-grid > section { min-width: 0; }
 .chart-region { min-height: 245px; margin-top: 22px; overflow-x: auto; }
 .analytics-trend .chart-region > svg { width: 100%; min-width: 620px; display: block; }
@@ -13,6 +12,8 @@
 .chart-axis { fill: var(--text-muted); font-size: 11px; font-family: inherit; }
 .chart-trend-line { fill: none; stroke: var(--accent-primary); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .chart-point { fill: var(--bg-surface); stroke: var(--accent-primary); stroke-width: 3; }
+.analytics-trend-four .chart-trend-line { stroke: var(--accent-emerald); }
+.analytics-trend-four .chart-point { stroke: var(--accent-emerald); }
 .chart-point[role="button"] { cursor: pointer; }
 .chart-point[role="button"]:focus-visible { stroke-width: 5; }
 .chart-point-label { fill: var(--text-main); font: 600 12px 'Be Vietnam Pro', sans-serif; }
@@ -34,7 +35,7 @@
 .analytics-data-table { margin-top: 20px; border-bottom: 1px solid var(--border-subtle); padding: 12px 0 20px; }
 .analytics-data-table summary, .dashboard-manual-plan > summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-main); }
 .analytics-data-table .table-scroll { margin-top: 16px; }
-#analytics-table { min-width: 660px; font-size: 12px; }
+#analytics-table { min-width: 800px; font-size: 12px; }
 .dashboard-manual-plan { margin-top: 28px; border-top: 1px solid var(--border-subtle); padding-top: 22px; }
 .dashboard-manual-plan > summary { padding: 8px 0; }
 .workspace-selectors { grid-template-columns: 1fr; }

@@ -66,16 +66,19 @@ if (typeof document !== 'undefined') {
     return root;
   }
   function empty(target, message) { target.replaceChildren(element('p', message, 'analytics-empty')); }
-  function trend(stats) {
-    const container = $('trend'); container.replaceChildren();
-    if (!stats.groups.some(group => group.mean !== null)) {
-      empty(container, t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
+  function trend(stats, scale) {
+    const four = scale === 4, meanKey = four ? 'mean4' : 'mean', gradesKey = four ? 'grades4' : 'grades';
+    const container = $(four ? 'trend4' : 'trend'); container.replaceChildren();
+    if (!stats.groups.some(group => group[meanKey] !== null)) {
+      empty(container, four ? t('Chưa có điểm hệ 4 hợp lệ để vẽ biểu đồ.', 'No valid 4-point grades to plot.')
+        : t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
     }
     const width = Math.max(620, stats.groups.length * 110 + 140), height = 285, left = 70, right = width - 70;
-    const svg = svgRoot(t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 10', 'Arithmetic mean by semester, from 0 to 10'), width, height);
+    const svg = svgRoot(four ? t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 4', 'Arithmetic mean by semester, from 0 to 4')
+      : t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 10', 'Arithmetic mean by semester, from 0 to 10'), width, height);
     svg.setAttribute('role', 'group');
-    for (const value of [0, 2, 4, 6, 8, 10]) {
-      const y = 218 - value * 18;
+    for (const value of four ? [0, 1, 2, 3, 4] : [0, 2, 4, 6, 8, 10]) {
+      const y = 218 - value * 180 / scale;
       svg.append(svgElement('line', {x1: left, x2: right, y1: y, y2: y, class: 'chart-grid-line'}));
       const label = svgElement('text', {x: left - 30, y: y + 4, 'text-anchor': 'end', class: 'chart-axis'});
       label.textContent = value; svg.append(label);
@@ -91,15 +94,15 @@ if (typeof document !== 'undefined') {
       const label = svgElement('text', {x, y: 255, 'text-anchor': 'middle', class: 'chart-axis'});
       label.textContent = termLabel(group); svg.append(label);
       // No numeric zero or connecting line is invented for a semester without grades.
-      if (group.mean === null) { flush(); return; }
-      segment.push(`${x},${218 - group.mean * 18}`);
+      if (group[meanKey] === null) { flush(); return; }
+      segment.push(`${x},${218 - group[meanKey] * 180 / scale}`);
     }); flush();
     stats.groups.forEach((group, index) => {
-      if (group.mean === null) return;
-      const x = xAt(index), y = 218 - group.mean * 18;
+      if (group[meanKey] === null) return;
+      const x = xAt(index), y = 218 - group[meanKey] * 180 / scale;
       const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: group.term ? 0 : -1,
         ...(group.term ? {role: 'button'} : {}), class: 'chart-point',
-        'aria-label': `${termLabel(group)}: ${number(group.mean)} / 10; ${group.grades.length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Mở bảng điểm học kỳ', 'Open semester transcript')}` : ''}`});
+        'aria-label': `${termLabel(group)}: ${number(group[meanKey])} / ${scale}; ${group[gradesKey].length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Mở bảng điểm học kỳ', 'Open semester transcript')}` : ''}`});
       if (group.term) {
         const openTranscript = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-term', {detail: {term: group.term}}));
         dot.addEventListener('click', openTranscript);
@@ -110,7 +113,7 @@ if (typeof document !== 'undefined') {
       }
       const title = svgElement('title'); title.textContent = dot.getAttribute('aria-label'); dot.append(title);
       const label = svgElement('text', {x, y: y - 14, 'text-anchor': 'middle', class: 'chart-point-label'});
-      label.textContent = number(group.mean); svg.append(dot, label);
+      label.textContent = number(group[meanKey]); svg.append(dot, label);
     }); container.append(svg);
   }
   function credits(stats) {
@@ -169,19 +172,20 @@ if (typeof document !== 'undefined') {
     $('source-totals').replaceChildren();
     (source?.snapshot?.source_summary || []).forEach(row => $('source-totals').append(element('p', window.workspaceI18n.formatSourceSummary(row))));
     $('source-totals').hidden = !$('source-totals').childElementCount;
-    $('count').textContent = `${stats.count} ${t('lượt học', 'attempts')} · ${stats.count - stats.missingGrades} ${t('lượt có điểm hệ 10', 'attempts with numeric grades')}`;
-    trend(stats); distribution(stats); credits(stats);
+    $('count').textContent = `${stats.count} ${t('lượt học', 'attempts')} · ${stats.count - stats.missingGrades} ${t('lượt có điểm hệ 10', 'attempts with numeric 10-point grades')} · ${stats.count - stats.missingGrades4} ${t('lượt có điểm hệ 4', 'attempts with numeric 4-point grades')}`;
+    trend(stats, 10); trend(stats, 4); distribution(stats); credits(stats);
     $('method').textContent = t('Giữ mọi lần học, không chọn điểm cao nhất hoặc quy đổi thang điểm.', 'Every attempt is retained; no best-attempt selection or grade conversion.')
       + ` ${stats.missingGrades} ${t('lượt thiếu/không có điểm hệ 10 hợp lệ;', 'attempts lack valid 10-point grades;')}`
+      + ` ${stats.missingGrades4} ${t('lượt thiếu/không có điểm hệ 4 hợp lệ;', 'attempts lack valid 4-point grades;')}`
       + ` ${stats.invalidCredits} ${t('lượt thiếu/không có tín chỉ hợp lệ. Giá trị chưa rõ không được thay bằng 0.', 'attempts lack valid credits. Unknown values are not replaced with zero.')}`;
     const table = $('table'); table.replaceChildren();
     const header = table.createTHead().insertRow();
-    [t('Học kỳ', 'Semester'), t('Lượt học', 'Attempts'), t('Lượt có điểm', 'Graded attempts'), t('TB hệ 10', 'Mean / 10'), t('TC ghi trên lượt học', 'Credits on attempts')].forEach(label => {
+    [t('Học kỳ', 'Semester'), t('Lượt học', 'Attempts'), t('Lượt có điểm hệ 10', 'Graded / 10'), t('TB hệ 10', 'Mean / 10'), t('Lượt có điểm hệ 4', 'Graded / 4'), t('TB hệ 4', 'Mean / 4'), t('TC ghi trên lượt học', 'Credits on attempts')].forEach(label => {
       const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell);
     });
     const body = table.createTBody();
     stats.groups.forEach(group => {
-      const row = body.insertRow(); [termLabel(group), group.count, group.grades.length, number(group.mean), number(group.knownCredits ? group.credits : null)].forEach(value => {
+      const row = body.insertRow(); [termLabel(group), group.count, group.grades.length, number(group.mean), group.grades4.length, number(group.mean4), number(group.knownCredits ? group.credits : null)].forEach(value => {
         row.insertCell().textContent = value;
       });
     });
