@@ -1,5 +1,26 @@
 # Bản đồ học phần — 24/10/2026
 
+## Mặc định môn có thể học — 28/10/2026
+
+Theo yêu cầu người dùng, môn không có tiên quyết hoặc không tính vào tổng tín
+chỉ tích lũy/GPA được giữ ở nhóm **Có thể học kỳ tới** khi chưa xác định hoàn
+thành, kể cả kết quả của chính môn đó còn chờ đối chiếu. Quy tắc áp dụng theo
+metadata của từng khung. Riêng MAT3374 cũng được yêu cầu mặc định có thể học;
+môn này vẫn phải thỏa hai tiên quyết MAT1202 và MAT3507 theo khung KHMTTT.
+Môn đã xác định hoàn thành vẫn ở nhóm xanh. Bản đồ ghi rõ lý do mặc
+định và kết quả đang chờ; không sửa bảng điểm hoặc coi lựa chọn là đã đạt.
+
+Rule engine vẫn kiểm tra tiên quyết có nguồn, xung đột/điều kiện chưa rõ,
+hướng/nhánh và hạn mức nhóm trước khi áp dụng mặc định. Môn thiếu tiên quyết
+thật vẫn ở nhóm đỏ. Kết quả chưa rõ không được dùng mở khóa môn khác; các API
+recommendation/advisor đầy đủ vẫn yêu cầu context ready.
+
+Phân loại tách khỏi việc lập kế hoạch: nếu còn thiếu chọn hướng/nhánh, có mã
+ngoài khung hoặc quy tắc chương trình chưa rõ, các môn mặc định vẫn hiện màu
+vàng nhưng kế hoạch tạm dừng, không tự chọn môn và khóa checkbox. Khi được
+phép lập kế hoạch, vẫn mặc định 20 tín chỉ, tổng tải học tính cả tín chỉ môn
+ngoại khóa đã chọn; các môn bị loại trừ vẫn không cộng vào tín chỉ tích lũy.
+
 ## Nối bảng điểm cá nhân theo từng tài khoản — 25/10/2026
 
 Nghiệm thu nguồn thực cuối lượt sửa: snapshot mới đã được nhận là đầy đủ, context
@@ -51,7 +72,8 @@ không bỏ cơ chế bảo vệ snapshot cũ khi dữ liệu mới thay đổi 
 
 Khi độ đầy đủ, binding và quy chế hợp lệ nhưng còn vài kết quả cần đối chiếu,
 bản đồ có thể hiển thị `partial`: các môn đã xác định đạt vẫn xuất hiện màu
-xanh; môn chưa rõ không được chọn hoặc dùng thỏa tiên quyết. Mã ngoài khung,
+xanh; môn chưa rõ không được dùng thỏa tiên quyết. Các môn thuộc quy tắc mặc
+định ở đầu tài liệu vẫn có thể chọn khi được phép lập kế hoạch. Mã ngoài khung,
 thiếu chọn hướng/nhánh hoặc quy tắc chương trình mâu thuẫn sẽ tạm dừng kế hoạch.
 Toán tài năng vẫn dừng kế hoạch do mâu thuẫn chọn hướng trong nguồn; không sửa
 PDF để tạo quy tắc. Các API eligibility/recommendation/advisor/progress đầy đủ

@@ -1,5 +1,64 @@
 # Project Memory and Contributor Guidelines
 
+## Authorized feature-branch publication — 2026-10-28
+
+User requests commit and push of the current changes. Target remains the
+existing feature branch feat/vnu-curriculum-planning, not main or the restored
+feat/vinh-database-tests branch. Remote target is still at 5e1a9bf before this
+publication; fetch confirmed no divergent feature commits. Remote main has
+advanced independently to cfb2ec4; do not merge or publish it in this task.
+
+Publish the eight reviewed source/test/documentation/memory files for course
+board defaults and the Windows no-reload login launch correction. AD-102 files,
+credentials, .env, logs, screenshots and other backups remain ignored/local.
+This change's evidence is 76 focused eligibility/context/API tests, 23 portal
+API/job tests, Chrome board checks, Ruff, JS syntax and diff checks; the actual
+Uvicorn no-reload subprocess configuration was tested without VNU credentials.
+Use an explicit branch push refspec, then verify the resulting remote hash and
+clean working tree. This is publication preparation, not a completed push record.
+
+## Windows login launch fix — 2026-10-28
+
+The reload launcher introduced during the board change broke VNU login:
+three observed POST /auth/portal requests returned 502; allowlisted logs showed
+Portal login stage=worker code=NotImplementedError. Installed Uvicorn chooses
+SelectorEventLoop with Windows reload, which cannot create the collector's
+async subprocess. Stop only the owned reload session; run ONE Uvicorn process
+WITHOUT --reload on port 8000. This supersedes the reload note below. README
+now records the correct command. Do not re-enable reload to deliver changes.
+
+Verified the exact installed Uvicorn no-reload loop factory uses Proactor and
+can launch a harmless subprocess with the collector's pipe configuration.
+No VNU connection, password or real student data was used for that check.
+Server was restarted normally; source course defaults are preserved. Browser
+sessions are RAM-only and must be renewed after restart. No commit or push.
+
+## User-requested course board defaults — 2026-10-28
+
+User explicitly requests uncompleted courses excluded from earned credits/GPA
+or with no prerequisites to stay in the yellow available group by default,
+including when their OWN result remains unresolved. This supersedes the older
+blanket rule moving every unresolved course to red. Earlier request also names
+MAT3374: it has MAT1202 AND MAT3507 prerequisites in the KHMTTT catalog; its
+pending result may use the default ONLY after the rule engine allows it.
+
+Board service exposes eligibility_basis/result_pending and keeps independently
+eligible defaults visible during global planning pauses. Missing actual
+prerequisites, unknown/conflicting source rules, track/path mismatches and full
+elective quotas are still enforced. Pending results never become completed
+facts or unlock other courses. Global planning gates still return no suggestions
+and disable all plan checkboxes. Strict academic APIs stay gated. Default budget
+20 remains adjustable; excluded credits still consume term workload but never
+earned program credits. No academic source/policy/catalog/data was modified.
+
+Verification: 76 focused eligibility/context/API tests passed; Chrome board
+regression passed for defaults, pending labels, paused checkboxes, budget/quotas,
+VI/EN, mobile/themes and logout race. Ruff/JS/diff passed. A read-only current
+KHMTTT catalog check with invented outcomes verified all four requested codes
+and MAT3374's prerequisite gate; no real student results or VNU calls inspected.
+Local Uvicorn restarted with reload limited to app on port 8000; sessions are
+RAM-only, so re-login may be needed. Changes are local, no commit or push.
+
 ## Publication target corrected by user — 2026-10-25
 
 User explicitly asks to undo the just-pushed 51-file publication on the existing

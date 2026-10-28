@@ -1,10 +1,12 @@
 """Source-ready board behavior using invented courses, never student records."""
 
+import copy
+
 import pytest
 
 from app.academic_context import AcademicContextError
 from app.models import Catalog, ChoiceGroup, Course, Program
-from app.services.course_status_service import course_board
+from app.services.course_status_service import course_board, reviewed_course_board
 
 
 @pytest.fixture
@@ -65,3 +67,99 @@ def test_fulfilled_elective_group_is_red_with_explicit_reason(curriculum):
 def test_unready_context_cannot_be_treated_as_an_empty_completed_set(curriculum):
     with pytest.raises(AcademicContextError, match="academic_context_not_ready"):
         course_board(curriculum, {**context(), "status": "needs_policy_review"})
+
+
+def pending_context(*, outside=False):
+    return {
+        "status": "needs_policy_review", "revision": "synthetic-review",
+        "blocking_reasons": ["course_outcomes_unresolved"],
+        "outcomes": [
+            {"code": "A", "state": "completed"},
+            {"code": "B", "state": "unresolved"},
+            {"code": "E1", "state": "unresolved"},
+            {"code": "X", "state": "unresolved"},
+            *([{"code": "OUTSIDE", "state": "out_of_catalog"}] if outside else []),
+        ],
+    }
+
+
+@pytest.mark.parametrize("exclusion", ["course", "program"])
+def test_pending_no_prerequisite_and_excluded_courses_remain_available(curriculum, exclusion):
+    excluded = next(course for course in curriculum.courses if course.code == "X")
+    excluded.prerequisites = [["A"]]
+    if exclusion == "program":
+        excluded.counted_in_total = True
+        curriculum.program.excluded_from_total = ["X"]
+    pending = pending_context()
+    before = copy.deepcopy(pending)
+    board = reviewed_course_board(curriculum, pending, max_credits=5)
+    available = {row["code"]: row for row in board["courses"]["eligible"]}
+    assert set(available) == {"E1", "E2", "X"}
+    assert available["E1"]["eligibility_basis"] == "no_prerequisites"
+    assert available["X"]["eligibility_basis"] == "excluded_from_total"
+    assert available["X"]["counted_in_total"] is False
+    assert available["E1"]["result_pending"] is True
+    assert available["E2"]["result_pending"] is False
+    assert board["plan"]["course_codes"] == ["X", "E1"]
+    assert board["plan"]["suggested_credits"] == 5
+    assert [row["code"] for row in board["courses"]["completed"]] == ["A"]
+    assert board["progress"]["total"]["earned_credits"] == 3
+    blocked = {row["code"]: row for row in board["courses"]["blocked"]}
+    assert blocked["B"]["reasons"][0]["kind"] == "academic_review_required"
+    assert blocked["C"]["reasons"][0]["missing_prerequisites"] == [["B"]]
+    assert blocked["D"]["reasons"][0]["kind"] == "prerequisite_unknown"
+    assert pending == before
+
+
+@pytest.mark.parametrize("gate", ["selection", "outside", "program"])
+def test_defaults_stay_visible_but_global_gate_pauses_all_planning(curriculum, gate):
+    if gate == "program":
+        curriculum.program.planning_blockers = ["synthetic-rule-conflict"]
+    board = reviewed_course_board(
+        curriculum, pending_context(outside=gate == "outside"),
+        selection_blockers=["graduation_selection_required"] if gate == "selection" else None,
+    )
+    assert {row["code"] for row in board["courses"]["eligible"]} == {"E1", "E2", "X"}
+    assert board["can_plan"] is False
+    assert board["plan"]["course_codes"] == []
+    assert board["plan"]["suggested_credits"] == 0
+    assert not any(row["suggested"] for row in board["courses"]["eligible"])
+
+
+def test_default_never_bypasses_missing_prerequisites_or_completed_facts(curriculum):
+    excluded = next(course for course in curriculum.courses if course.code == "X")
+    excluded.prerequisites = [["B"]]
+    board = reviewed_course_board(curriculum, pending_context())
+    blocked = {row["code"]: row for row in board["courses"]["blocked"]}
+    assert blocked["X"]["reasons"][0]["missing_prerequisites"] == [["B"]]
+    assert "X" not in board["plan"]["course_codes"]
+    ready = course_board(curriculum, context("A", "B", "X", "E1"))
+    assert {row["code"] for row in ready["courses"]["completed"]} == {"A", "B", "X", "E1"}
+    assert ready["progress"]["total"]["earned_credits"] == 9
+    assert "E2" in {row["code"] for row in ready["courses"]["blocked"]}
+
+
+def test_defaults_require_verified_collection_and_program_context(curriculum):
+    with pytest.raises(AcademicContextError, match="academic_context_not_ready"):
+        reviewed_course_board(curriculum, {
+            **pending_context(), "blocking_reasons": ["source_incomplete"],
+        })
+
+
+@pytest.mark.parametrize("prerequisite, expected_state", [("A", "eligible"), ("B", "blocked")])
+def test_explicit_internship_default_still_requires_completed_prerequisites(
+        curriculum, prerequisite, expected_state):
+    curriculum.courses.append(Course(
+        code="MAT3374", name="Synthetic requested internship", credits=3, block="major",
+        prerequisites=[[prerequisite]],
+    ))
+    pending = pending_context()
+    pending["outcomes"].append({"code": "MAT3374", "state": "unresolved"})
+    board = reviewed_course_board(curriculum, pending)
+    row = next(row for row in board["courses"][expected_state] if row["code"] == "MAT3374")
+    if expected_state == "eligible":
+        assert row["eligibility_basis"] == "requested_default"
+        assert row["result_pending"] is True
+    else:
+        assert row["reasons"][0]["missing_prerequisites"] == [["B"]]
+    assert board["progress"]["total"]["earned_credits"] == 3

@@ -84,8 +84,13 @@ Lệnh publish kiểm tra đủ bốn catalog trước khi thay đổi active re
 Để chạy offline, đặt `RECOMMENDATION_LLM_ENABLED=false` trong `.env`:
 
 ```powershell
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
+
+Trên Windows, chạy không có `--reload` khi dùng đăng nhập VNU. Chế độ reload
+của Uvicorn dùng event loop không hỗ trợ tiến trình con mà bộ kết nối VNU cần,
+khiến `/auth/portal` trả 502 với `NotImplementedError`. Sau khi sửa Python,
+khởi động lại server bằng lệnh trên; phiên đăng nhập hiện tại sẽ hết hiệu lực.
 
 Mở <http://127.0.0.1:8000/>. `/health` kiểm tra tiến trình, `/ready` kiểm tra kết nối và catalog, còn `/docs` hiển thị OpenAPI. Nếu bật LLM, cấu hình API key ở server-side trong `.env`; không đưa key vào JavaScript hoặc response API.
 

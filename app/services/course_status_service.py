@@ -1,9 +1,24 @@
 """Source-owned course states and constrained views of independently resolved facts."""
 
 from app.academic_context import AcademicContextError, require_ready
-from app.models import Catalog
+from app.models import Catalog, Course
 from app.progress import calculate_progress, counts_toward_total
 from app.rules import evaluate_eligibility
+
+
+def _default_eligibility_basis(catalog: Catalog, course: Course) -> str | None:
+    """Board defaults requested by the user; never evidence of completion."""
+    if not counts_toward_total(catalog, course):
+        return "excluded_from_total"
+    if (not course.prerequisites and not course.external_prerequisite_codes
+            and not any(course.prerequisite_variants)
+            and course.prerequisite_status not in {"unknown", "conflict", "source_conflict"}):
+        return "no_prerequisites"
+    # The user also explicitly requested this internship on 2026-10-28.
+    # Only called for courses already allowed by the prerequisite rule engine.
+    if course.code == "MAT3374":
+        return "requested_default"
+    return None
 
 
 def course_board(
@@ -48,6 +63,8 @@ def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
             "groups": [group.model_dump(mode="json") for group in memberships],
             "reasons": [reason.model_dump(mode="json")
                         for reason in blocked[course.code].reasons] if state == "blocked" else [],
+            "eligibility_basis": _default_eligibility_basis(catalog, course)
+            if state == "eligible" else None,
             "suggested": False,
         }
         if (state == "eligible" and suggested_credits + course.credits <= max_credits
@@ -76,7 +93,9 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
     """View independently resolved courses while keeping strict academic APIs gated.
 
     Requires complete collection, valid program binding and applicable policy.
-    Unresolved courses cannot satisfy prerequisites or enter a suggested bundle.
+    Unresolved courses cannot satisfy prerequisites. Otherwise eligible courses
+    without prerequisites, excluded from earned credits or explicitly requested
+    by the user remain available when their own outcome still needs review.
     Any out-of-catalog code pauses the entire bundle until equivalence is reviewed.
     """
     allowed = {"course_outcomes_unresolved", "program_rules_review_required"}
@@ -96,7 +115,8 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
     pause_plan = outside or bool(selection_blockers) or bool(getattr(catalog.program, "planning_blockers", []))
     kept, moved = [], []
     for course in view["courses"]["eligible"]:
-        if pause_plan or course["code"] in unresolved:
+        course["result_pending"] = course["code"] in unresolved
+        if (pause_plan or course["result_pending"]) and not course["eligibility_basis"]:
             course["suggested"] = False
             course["reasons"] = [{"kind": "academic_review_required",
                 "message": "Kết quả hoặc lựa chọn chương trình cần được đối chiếu.",
@@ -106,13 +126,15 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
             kept.append(course)
     view["courses"]["eligible"] = kept
     view["courses"]["blocked"].extend(moved)
-    # Recompute the bundle after exclusions; never leave an unresolved suggestion selected.
+    # Classification is independent of global planning gates. Defaults may stay
+    # yellow while selections/outside mappings still pause the suggested bundle.
     selected, total, used = [], 0, {item.id: item.earned_credits for item in
         calculate_progress(catalog, completed, selected_track_id,
                            selected_graduation_path_id).choice_groups}
     for course in kept:
         course["suggested"] = False
-        if (total + course["credits"] <= max_credits and (not course["groups"] or any(
+        if (not pause_plan and total + course["credits"] <= max_credits
+                and (not course["groups"] or any(
                 used[group["id"]] < group["required_credits"] for group in course["groups"]))):
             course["suggested"] = True
             selected.append(course["code"])
