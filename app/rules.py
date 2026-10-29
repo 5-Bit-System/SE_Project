@@ -210,6 +210,13 @@ def evaluate_eligibility(
                     message="Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.",
                 )
             )
+        elif course.prerequisite_status != "verified":
+            reasons.append(
+                BlockedReason(
+                    kind="prerequisite_unverified",
+                    message="Điều kiện tiên quyết của môn học chưa được xác minh.",
+                )
+            )
 
         # Outer list is AND; each inner list is OR. Unknown prerequisite
         # references remain missing and can never be unlocked by an external

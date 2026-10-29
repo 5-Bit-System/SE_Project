@@ -1,4 +1,6 @@
 
+import pytest
+
 from app.catalog import load_catalog
 from app.models import Catalog, ChoiceGroup, Course, Program
 from app.rules import evaluate_eligibility
@@ -10,18 +12,18 @@ def sample_catalog() -> Catalog:
             program_id="demo",
             name="CTĐT thử nghiệm cho Rule Engine",
             total_credits=20,
-            catalog_status="draft_unverified",
+            catalog_status="verified",
             source_file="synthetic",
             source_pages="none",
             choice_groups=[ChoiceGroup(id="elective_group", name="Nhóm Tự chọn 1", required_credits=3)],
         ),
         courses=[
-            Course(code="A", name="Nhập môn A", credits=3, block="general"),
-            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]]),
-            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]]),
-            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]]),
-            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"]),
-            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"]),
+            Course(code="A", name="Nhập môn A", credits=3, block="general", prerequisite_status="verified"),
+            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]], prerequisite_status="verified"),
+            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]], prerequisite_status="verified"),
+            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]], prerequisite_status="verified"),
+            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified"),
+            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified"),
             Course(code="CONFLICT", name="Môn xung đột nguồn", credits=3, block="major", prerequisite_status="source_conflict"),
         ],
     )
@@ -48,6 +50,34 @@ def test_rule_engine_basic_prerequisites_and_blocked_reasons():
 
     assert "CONFLICT" in blocked_dict
     assert any(r.kind == "source_conflict" for r in blocked_dict["CONFLICT"].reasons)
+
+
+@pytest.mark.parametrize(
+    "status", ["draft_unverified", "unresolved_external", "transcribed"]
+)
+def test_unverified_prerequisites_never_make_a_course_eligible(status):
+    cat = sample_catalog()
+    course = next(course for course in cat.courses if course.code == "B")
+    course.prerequisite_status = status
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert "B" not in {course.code for course in result.eligible_courses}
+    blocked = next(course for course in result.blocked_courses if course.code == "B")
+    assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)
+
+
+@pytest.mark.parametrize("status", ["draft_unverified", "unresolved_external", "transcribed"])
+def test_course_without_prerequisites_still_requires_verified_status(status):
+    cat = sample_catalog()
+    course = next(course for course in cat.courses if course.code == "A")
+    course.prerequisite_status = status
+
+    result = evaluate_eligibility(cat, passed_codes=set())
+
+    assert "A" not in {course.code for course in result.eligible_courses}
+    blocked = next(course for course in result.blocked_courses if course.code == "A")
+    assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)
 
 
 def test_rule_engine_or_and_clauses_and_choice_quota():

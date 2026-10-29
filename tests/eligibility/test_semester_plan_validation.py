@@ -41,7 +41,7 @@ def test_paused_plan_cannot_be_saved_even_when_empty():
 def test_reviewed_defaults_can_be_saved_without_satisfying_downstream_courses(curriculum):  # noqa: F811
     curriculum.courses.append(Course(
         code='FOLLOWUP', name='Synthetic follow-up', credits=3, block='major',
-        prerequisites=[['E1']],
+        prerequisites=[['E1']], prerequisite_status='verified',
     ))
     pending = pending_context()
     board = reviewed_course_board(curriculum, pending)
