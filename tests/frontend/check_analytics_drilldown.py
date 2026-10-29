@@ -63,6 +63,11 @@ def main():
         assert "Hệ 10" in page.locator("#analytics-detail-meta").inner_text()
         assert page.locator("#analytics-detail-table tr[data-source-code]").evaluate_all(
             "rows => rows.map(row => row.dataset.sourceCode)") == ["MAT100", "MAT101"]
+        assert page.evaluate("""() => {
+            const table = document.querySelector('#analytics-detail-table');
+            return getComputedStyle(table.tHead.rows[0].cells[0]).fontSize ===
+                getComputedStyle(table.querySelector('tr[data-source-code] td')).fontSize;
+        }""")
         assert page.locator("#analytics-detail-table img").count() == 0
 
         page.locator("#analytics-trend4 .chart-point").nth(1).click()

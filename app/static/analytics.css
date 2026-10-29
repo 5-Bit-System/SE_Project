@@ -42,7 +42,7 @@
 .analytics-detail-hint { display: none; margin: 0 0 10px; color: var(--text-muted); font-size: var(--text-xs); }
 .analytics-detail-scroll { max-height: 440px; overflow: auto; border: 1px solid var(--border-subtle); border-radius: 10px; }
 #analytics-detail-table { min-width: 620px; font-size: var(--text-sm); }
-#analytics-detail-table thead th { position: sticky; top: 0; z-index: 1; }
+#analytics-detail-table thead th { position: sticky; top: 0; z-index: 1; font-size: var(--text-sm); }
 #analytics-detail-table th:first-child, #analytics-detail-table td:first-child { width: 100px; text-align: left; }
 #analytics-detail-table th:nth-child(n+3), #analytics-detail-table td:nth-child(n+3) { min-width: 72px; text-align: center; font-variant-numeric: tabular-nums; }
 #analytics-detail-table td:last-child { width: auto; }
