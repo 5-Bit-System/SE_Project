@@ -257,7 +257,8 @@ def test_cutover_preserves_linked_account_source_and_admin_credentials(system):
         conn.execute(text("UPDATE hus_alembic_version SET version_num='hus_20261025_05'"))
         cfg = config()
         cfg.attributes['connection'] = conn
-        command.upgrade(cfg, 'head')
+        # Only replay this historical cutover; newer tables already exist in this fixture.
+        command.upgrade(cfg, 'hus_20261025_06')
         after = conn.execute(text('SELECT username,password_hash,email,email_verified_at FROM accounts')).one()
         assert original == after
         assert conn.execute(text('SELECT vnu_subject FROM accounts')).scalar_one() == 'synthetic-linked'

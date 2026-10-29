@@ -1,10 +1,10 @@
 # SE_Project — Explainable Course Recommender (AI-07)
 
-Ứng dụng web giúp sinh viên xem tiến độ học tập, xác định các môn đủ điều kiện và nhận gợi ý môn học có giải thích. Backend dùng FastAPI, giao diện HTML/CSS/JavaScript tĩnh và runtime hiện đọc catalog HUS từ PostgreSQL chạy bằng Docker.
+Ứng dụng web giúp sinh viên xem tiến độ học tập, xác định các môn đủ điều kiện và nhận gợi ý môn học có giải thích. Backend dùng FastAPI, giao diện HTML/CSS/JavaScript tĩnh và runtime đọc catalog HUS từ PostgreSQL (Neon hoặc Docker tùy cấu hình).
 
 ## Trạng thái hiện tại
 
-- Runtime chính dùng database `ai07` tại `127.0.0.1:5433`, container `se_hus_db`, volume `se_hus_pgdata`.
+- Runtime dùng database HUS `ai07` theo `DATABASE_URL`. Có thể dùng Neon hoặc Docker local (`127.0.0.1:5433`, container `se_hus_db`); không mặc định hai máy dùng cùng cấu hình.
 - Có bốn catalog HUS: Toán học, Toán tin, Khoa học máy tính và thông tin, và Khoa học dữ liệu. Snapshot hiện có lần lượt 65, 67, 90 và 68 học phần; 174 mã học phần dùng chung tạo thành 290 membership trong các chương trình. Catalog được giữ theo revision và công bố cùng một transaction.
 - Catalog hiện mang trạng thái `draft_unverified`: import thành công không đồng nghĩa nguồn PDF hoặc quy định học vụ đã được xác minh. Điều kiện tiên quyết chưa rõ sẽ khóa môn liên quan.
 - Sinh viên đăng nhập trực tiếp bằng tài khoản cổng đào tạo VNU; admin dùng tài khoản/mật khẩu riêng. Không cần đăng ký email cá nhân. Bảng điểm nguồn được lưu theo tài khoản đã xác minh; giao diện nhập điểm thủ công đã được gỡ.
@@ -27,6 +27,8 @@ Các gợi ý không xác nhận môn có được mở trong một học kỳ c
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
 - Không có tự động fallback sang JSON khi PostgreSQL lỗi. Muốn dùng JSON phải chọn rõ backend và cung cấp bộ catalog phù hợp.
 
+Xem [lưu nhiều kế hoạch học kỳ](docs/SEMESTER_PLANS.md) trong tab Điều kiện học.
+
 ## Cấu trúc repository
 
 | Đường dẫn | Nội dung |
@@ -40,59 +42,25 @@ Các gợi ý không xác nhận môn có được mở trong một học kỳ c
 | `modules/` | Tài liệu phân chia trách nhiệm module; không phải bằng chứng rằng module đã hoàn thành. |
 | `.agent/` | Memory dự án và hướng dẫn cho agent; xem [`.agent/AGENTS.md`](.agent/AGENTS.md). |
 
-## Chạy local trên Windows
+## Cài đặt và chạy local
 
-Yêu cầu Python 3.11+, Docker Desktop và PowerShell. Các bước dưới đây giữ nguyên file cấu hình có sẵn; chỉ tạo file mẫu nếu file đích chưa tồn tại.
+Hướng dẫn chuẩn: **[docs/LOCAL_SETUP.md](docs/LOCAL_SETUP.md)** — cài mới bằng
+Conda `SE_Project` hoặc `.venv`, Playwright/Chrome, Neon hoặc Docker, cấu hình
+`.env`/`.env.auth`, migration, catalog và cách xử lý lỗi khởi động.
 
-### 1. Tạo môi trường Python
+Nếu máy đã cài đủ dependency và database đã nâng cấp:
 
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements-dev.txt -c requirements-lock.txt
-python -m pip install -r requirements-portal.txt -c requirements-lock.txt
+```bash
+conda activate SE_Project
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Đăng nhập VNU cần Playwright trong `requirements-portal.txt` và Google Chrome đã cài trên máy. Khi chuyển thư mục dự án, tạo lại `.venv` tại vị trí mới và cài cả hai nhóm phụ thuộc ở trên.
-
-### 2. Chuẩn bị cấu hình local
-
-```powershell
-if (!(Test-Path .env)) { Copy-Item .env.example .env }
-if (!(Test-Path database/.env.docker)) { Copy-Item database/.env.example database/.env.docker }
-```
-
-Đặt mật khẩu local trong `database/.env.docker`. Trong `.env`, đặt `DATABASE_URL` trỏ tới cùng database `ai07` ở cổng `5433`, đặt `DATABASE_MODEL=hus` và `STORAGE_BACKEND=postgres`. Ví dụ dạng URL:
-
-```text
-postgresql+psycopg2://ai07:<local-password>@127.0.0.1:5433/ai07?sslmode=disable
-```
-
-Không ghi credentials vào Git hoặc gửi chúng về frontend. Công cụ database đọc `HUS_DATABASE_URL` từ process hoặc file local `database/.env.docker`; FastAPI đọc `DATABASE_URL` từ process hoặc `.env` ở gốc repository.
-
-Auth đọc cấu hình riêng trong `.env.auth` (ignored); giữ file/secret đã có, không
-ghi đè hoặc chạy lại seed để reset mật khẩu. Xem [đăng nhập VNU/admin và migration](docs/VNU_SIGNIN_2026_10_25.md).
-
-### 3. Khởi động database và công bố catalog
-
-```powershell
-docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d --wait
-python -m database.tools.migrate upgrade
-python -m database.tools.publish_catalogs --dry-run
-python -m database.tools.publish_catalogs
-```
-
-Lệnh publish kiểm tra đủ bốn catalog trước khi thay đổi active revisions. Chạy lại với nội dung không đổi sẽ dùng lại revision theo content hash. Không dùng root `alembic upgrade head` cho HUS; đó là migration history của database legacy. Không chạy `docker compose down -v` nếu cần giữ dữ liệu.
-
-### 4. Chạy ứng dụng
-
-Để chạy offline, đặt `RECOMMENDATION_LLM_ENABLED=false` trong `.env`:
-
-```powershell
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-
-Mở <http://127.0.0.1:8000/>. `/health` kiểm tra tiến trình, `/ready` kiểm tra kết nối và catalog, còn `/docs` hiển thị OpenAPI. Nếu bật LLM, cấu hình API key ở server-side trong `.env`; không đưa key vào JavaScript hoặc response API.
+Mở <http://127.0.0.1:8000/>. `/health` kiểm tra tiến trình; `/ready` kiểm tra
+schema/catalog. Sau pull có migration mới, sao lưu DB rồi chạy
+`python -m database.tools.migrate upgrade`. Head hiện tại `hus_20261028_08`.
+Giữ nguyên cấu hình và khóa đã có; không seed/publish lại chỉ để chạy app.
+Worker VNU dùng Google Chrome chạy nền. Dùng một worker; restart/reload mất
+cookie VNU trong RAM. Tắt LLM bằng `RECOMMENDATION_LLM_ENABLED=false` nếu cần.
 
 ## Kiểm thử và kiểm tra dữ liệu
 

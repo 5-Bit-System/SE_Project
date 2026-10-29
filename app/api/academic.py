@@ -11,6 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Any
+from uuid import UUID
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse
@@ -20,9 +21,10 @@ from app.academic_context import AcademicContextError, build_context, require_re
 from app.academic_policies import POLICIES
 from app.api.portal import safe_call, session
 from app.auth import portal as account_portal
-from app.auth.dependencies import COOKIE
+from app.auth.dependencies import COOKIE, require_account
 from app.auth.dependencies import call as auth_call
 from app.catalog import load_catalog
+from app.catalog_contracts import digest
 from app.integrations.daotao import runtime, store
 from app.models import RankingWeights, RecommendationRequest, StructuredPreference
 from app.program_bindings import ProgramBindingError, binding_current
@@ -32,6 +34,7 @@ from app.progress import calculate_progress
 from app.recommendation.llm import configured_adapters
 from app.rules import _prepare_selection_context, evaluate_eligibility
 from app.schemas.advisor import AdvisorMessage, AdvisorRequest
+from app.services import semester_plan_service as plans
 from app.services.advisor_service import chat_advisor
 from app.services.course_status_service import course_board, reviewed_course_board
 from app.services.recommendation_service import recommend
@@ -271,7 +274,9 @@ async def course_status(request: Request):
             raise HTTPException(409, "context_changed")
     else:
         await ensure_current(request, query, context)
-    return {**result, "selections": selections}
+    return {**result, "selections": selections,
+            "plan_basis": digest(plans.basis_for(saved, catalog,
+                query.selected_track_id, query.selected_graduation_path_id))}
 
 
 @router.get("/me/eligibility")
@@ -341,3 +346,62 @@ async def advisor(request: Request):
     result = await asyncio.to_thread(chat_advisor, catalog, internal)
     await ensure_current(request, query, context)
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
+
+
+class SemesterPlanInput(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
+    title: str = Field(min_length=1, max_length=100)
+    academic_year_start: int = Field(ge=2000, le=2100, strict=True)
+    semester: int = Field(ge=1, le=3, strict=True)
+    max_credits: int = Field(default=20, ge=1, le=30, strict=True)
+    selected_track_id: str | None = Field(default=None, max_length=100)
+    selected_graduation_path_id: str | None = Field(default=None, max_length=100)
+    course_codes: list[str] = Field(max_length=100)
+    expected_basis: str = Field(pattern=r'^[a-f0-9]{64}$')
+    expected_version: int | None = Field(default=None, ge=1, strict=True)
+
+
+async def plan_body(request):
+    raw = bytearray()
+    async for chunk in request.stream():
+        raw.extend(chunk)
+        if len(raw) > 16384:
+            raise HTTPException(413, 'invalid_semester_plan')
+    try:
+        return SemesterPlanInput.model_validate_json(raw)
+    except ValueError:
+        raise HTTPException(422, 'invalid_semester_plan') from None
+
+
+@router.get('/me/semester-plans')
+async def semester_plans(request: Request):
+    principal = await require_account(request)
+    return {'plans': await auth_call(plans.list_plans, principal)}
+
+
+@router.post('/me/semester-plans', status_code=201)
+async def semester_plan_create(request: Request):
+    value = await session(request)
+    body = await plan_body(request)
+    if body.expected_version is not None:
+        raise HTTPException(422, 'invalid_semester_plan')
+    return await auth_call(plans.save_plan, value, body)
+
+
+@router.put('/me/semester-plans/{plan_id}')
+async def semester_plan_update(plan_id: UUID, request: Request):
+    value = await session(request)
+    body = await plan_body(request)
+    if body.expected_version is None:
+        raise HTTPException(422, 'semester_plan_version_required')
+    return await auth_call(plans.save_plan, value, body, plan_id)
+
+
+@router.delete('/me/semester-plans/{plan_id}')
+async def semester_plan_delete(plan_id: UUID, request: Request):
+    principal = await require_account(request)
+    raw = request.query_params.get('expected_version', '')
+    if not raw.isdigit() or int(raw) < 1 or len(raw) > 10:
+        raise HTTPException(422, 'semester_plan_version_required')
+    await auth_call(plans.delete_plan, principal, plan_id, int(raw))
+    return {'deleted': True}

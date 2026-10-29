@@ -15,8 +15,8 @@ Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
    đó trở thành đã đạt để mở tiên quyết khác trong cùng kỳ.
 
 Ngân sách chỉ giới hạn bộ môn dự kiến, không thay đổi tập môn đủ điều kiện.
-Nhóm tự chọn đã đủ yêu cầu không tiếp tục được gợi ý. Kế hoạch tồn tại trong
-trang, chưa được lưu qua lần tải lại. Không xác nhận lịch mở lớp hay hạn mức
+Nhóm tự chọn đã đủ yêu cầu không tiếp tục được gợi ý. Kế hoạch có thể lưu thành nhiều phương án theo tài khoản; xem
+[SEMESTER_PLANS.md](SEMESTER_PLANS.md). Bản chưa lưu vẫn chỉ tồn tại trên trang. Không xác nhận lịch mở lớp hay hạn mức
 đăng ký chính thức của nhà trường.
 
 ## Phạm vi

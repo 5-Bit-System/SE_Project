@@ -173,3 +173,14 @@
 .sidebar-profile { display: grid; gap: 16px; padding: 0 10px 20px; margin-bottom: 16px; border-bottom: 1px solid var(--nav-line); }
 .sidebar-profile span { display: block; color: var(--nav-muted); font-size: 11px; margin-bottom: 6px; }
 .sidebar-profile strong { display: block; color: var(--nav-text); font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+
+/* A short desktop viewport must not trap the lower navigation below the page. */
+@media (min-width: 801px) {
+  .workspace-sidebar {
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+}

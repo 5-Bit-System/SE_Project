@@ -1,28 +1,25 @@
-# HUS runtime cutover — 2026-10-17
+# HUS runtime operations and historical cutover
 
-FastAPI now reads the four active HUS catalogs from `ai07` on Docker
-(`127.0.0.1:5433`). The legacy `course_recommender` database and volume remain intact.
-Login, transcript persistence, portal synchronization and new recommendation/chat modules
-are outside this change. Manual transcripts remain in browser session memory.
+## Current startup (2026-10-28)
 
-## Start or rebuild
+Use [the local setup guide](../docs/LOCAL_SETUP.md) for Conda/venv, root `.env`,
+auth `.env.auth`, Chrome and either Neon or Docker. Authentication and saved VNU
+source data are now part of the application; the original manual-input cutover
+below is historical. No automatic catalog publication is performed on startup.
 
-Set local Docker credentials in ignored `database/.env.docker` using
-`database/.env.example`. Never overwrite an existing credential file.
-
-```powershell
-docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d db
-.venv/Scripts/python.exe -m database.tools.migrate upgrade
-.venv/Scripts/python.exe -m database.tools.publish_catalogs --dry-run
-.venv/Scripts/python.exe -m database.tools.publish_catalogs
-.venv/Scripts/python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```bash
+conda activate SE_Project
+python -m database.tools.migrate upgrade
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-The migration/publisher uses `HUS_DATABASE_URL` (including the local file fallback).
-The **application requires `DATABASE_URL`** pointing to that same `ai07` database,
-`STORAGE_BACKEND=postgres`, `DATABASE_MODEL=hus`. For offline ranking set
-`RECOMMENDATION_LLM_ENABLED=false`. Credentials belong in root `.env`, never frontend code.
-Visit <http://127.0.0.1:8000/> and `/ready`.
+Back up existing DB data before upgrading. Current migration head is
+`hus_20261028_08`. Migration reads `HUS_DATABASE_URL` from shell/root `.env`/local
+Docker fallback; app uses `DATABASE_URL`, pointing to the same HUS database.
+Other DB tools do not automatically load root `.env`. Use one worker; VNU
+cookies/jobs are in process memory. Never overwrite existing credentials.
+Docker-only startup: `docker compose --env-file database/.env.docker -f database/docker-compose.yml up -d --wait`.
+Neon users do not need Docker. See the setup guide for first publication only.
 
 Do not run root `alembic upgrade head` against HUS: that history belongs to legacy.
 Legacy migrations and the raw SQL apply tool reject the migrated HUS runtime.
@@ -64,7 +61,7 @@ natural keys, and activates all four in one transaction under an advisory lock.
 Repeated imports reuse content hashes. Invalid bundles preserve active versions.
 Removing existing source relationships requires explicit review and is rejected.
 Historical snapshots are retained; the publisher never overwrites their payloads.
-Readiness checks migration head `hus_20261017_02`, exactly four active catalogs,
+Readiness checks migration head `hus_20261028_08`, exactly four active catalogs,
 identity, hashes and domain rules. There is no automatic legacy/JSON fallback.
 
 The catalogs remain **draft_unverified**. Missing/complex/conflicting prerequisite

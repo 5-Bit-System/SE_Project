@@ -125,3 +125,27 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
                               if outcome["state"] in {"unresolved", "out_of_catalog"}])
     view["plan"].update(course_codes=selected, suggested_credits=total)
     return view
+
+
+def validate_plan_courses(board: dict, codes: list[str], budget: int) -> list[dict]:
+    """Validate the whole bundle without treating selected courses as completed."""
+    if board.get('status') not in {'ready', 'partial'} or board.get('can_plan') is False:
+        raise AcademicContextError('semester_plan_not_ready')
+    if len(codes) != len(set(codes)):
+        raise AcademicContextError('semester_plan_duplicate_course')
+    available = {row['code']: row for row in board['courses']['eligible']}
+    if set(codes) - available.keys():
+        raise AcademicContextError('semester_plan_course_unavailable')
+    selected, used = [], {}
+    for code in codes:
+        row = available[code]
+        groups = [group for group in row['groups'] if group['required_credits'] is not None]
+        if groups and all(group['earned_credits'] + used.get(group['id'], 0)
+                          >= group['required_credits'] for group in groups):
+            raise AcademicContextError('semester_plan_group_full')
+        selected.append({key: row[key] for key in ('code', 'name', 'name_en', 'credits')})
+        for group in groups:
+            used[group['id']] = used.get(group['id'], 0) + row['credits']
+    if sum(row['credits'] for row in selected) > budget:
+        raise AcademicContextError('semester_plan_budget_exceeded')
+    return selected
