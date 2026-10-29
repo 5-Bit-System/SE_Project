@@ -78,14 +78,14 @@ def test_wrong_program_and_unknown_passed_course_are_rejected():
             raise AssertionError("Invalid request was accepted")
 
 
-def test_http_contract(verified_client):
+def test_http_contract_does_not_recommend_from_unverified_catalog(verified_client):
     client = verified_client
     assert client.get("/health").json() == {"status": "ok"}
     assert len(client.get("/programs").json()) == 4
     assert client.get("/courses", params={"program_id": "unknown"}).status_code == 404
     response = client.post("/recommendations", json={"program_id": "toan_hoc_7460101_2022"})
     assert response.status_code == 200
-    assert response.json()["recommendations"]
-    allowed = {course["code"] for course in client.get("/courses", params={"program_id": "toan_hoc_7460101_2022"}).json()}
-    assert all(course["code"] in allowed for course in response.json()["recommendations"])
-    assert response.json()["warnings"]
+    assert response.json()["catalog_status"] == "draft_unverified"
+    assert response.json()["eligible_count"] == 0
+    assert response.json()["recommendations"] == []
+    assert any("Catalog chưa được xác minh" in warning for warning in response.json()["warnings"])

@@ -167,7 +167,7 @@ def test_zero_eligibility_violation_rate_on_fixture_catalog():
                 assert len(r.missing_prerequisites) > 0
 
 
-def test_eligibility_http_endpoint(verified_client):
+def test_eligibility_http_endpoint_blocks_unverified_catalog_facts(verified_client):
     client = verified_client
     resp = client.post(
         "/eligibility",
@@ -180,12 +180,10 @@ def test_eligibility_http_endpoint(verified_client):
     assert resp.status_code == 200
     data = resp.json()
     assert data["program_id"] == "khdl_7460108_2022"
-    assert data["total_eligible"] > 0
+    assert data["total_eligible"] == 0
     assert data["total_blocked"] > 0
-    assert "PHI1006" in data["completed_course_codes"]
-    assert "MAT2505" in data["completed_course_codes"]
-    # Kiểm tra định dạng cấu trúc blocked_courses
-    sample_blocked = data["blocked_courses"][0]
-    assert "code" in sample_blocked
-    assert "reasons" in sample_blocked
-    assert len(sample_blocked["reasons"]) > 0
+    assert data["completed_course_codes"] == []
+    reasons = {reason["kind"] for course in data["blocked_courses"]
+               for reason in course["reasons"]}
+    assert "catalog_unverified" in reasons
+    assert "course_source_unverified" in reasons
