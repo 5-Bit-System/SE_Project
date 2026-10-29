@@ -63,6 +63,17 @@ export function sourceStatistics(attempts, year = '') {
     })};
 }
 
+export function filterDrilldownAttempts(attempts, selection, year = '') {
+  return attempts.filter(attempt => {
+    const term = String(attempt.term || '');
+    const match = term.match(/(\d{4})\s*[-–]\s*(\d{4})/);
+    if (year && (!match || `${match[1]}–${match[2]}` !== year)) return false;
+    if (selection.kind === 'term') return term === selection.term;
+    if (selection.kind === 'grade') return String(attempt.letter ?? '').trim() === selection.letter;
+    return false;
+  });
+}
+
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(`analytics-${id}`);
   const t = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
