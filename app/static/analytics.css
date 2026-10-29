@@ -20,6 +20,7 @@
 .chart-point[role="button"]:focus-visible { stroke-width: 5; }
 .chart-grade-segment { cursor: pointer; }
 .chart-grade-segment:focus-visible { stroke-width: 27; }
+.chart-grade-segment[aria-expanded="true"] { stroke-width: 27; }
 .chart-point-label { fill: var(--text-main); font: 600 13px var(--font-family); font-variant-numeric: tabular-nums; }
 .analytics-empty { display: grid; place-items: center; min-height: 210px; padding: 24px; color: var(--text-muted); font-size: var(--text-sm); text-align: center; line-height: 1.9; background: var(--soft-surface); border-radius: 8px; }
 .distribution-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); align-items: center; gap: 16px; }
@@ -30,6 +31,7 @@
 .distribution-legend li { font-size: var(--text-sm); }
 .distribution-grade-button { display: grid; grid-template-columns: 9px minmax(24px, 1fr) var(--grade-count-width, max-content); column-gap: 6px; align-items: center; width: 100%; padding: 3px 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .distribution-grade-button:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; border-radius: 4px; }
+.distribution-grade-button[aria-expanded="true"] { background: var(--soft-surface); border-radius: 6px; }
 .distribution-grade-button > span:nth-child(2) { overflow-wrap: anywhere; min-width: 0; }
 .distribution-legend strong { font-weight: 500; text-align: right; white-space: nowrap; }
 .legend-swatch { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }

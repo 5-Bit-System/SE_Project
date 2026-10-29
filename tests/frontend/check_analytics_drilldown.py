@@ -71,16 +71,39 @@ def main():
         assert page.locator("#analytics-detail-table tr[data-source-code]").evaluate_all(
             "rows => rows.map(row => row.dataset.sourceCode)") == ["MAT200"]
 
+        page.locator("#analytics-distribution .distribution-grade-button[data-grade-letter='A+']").click()
+        assert page.locator("#dashboard-analytics").is_visible()
+        assert page.locator("#portal-dialog").is_hidden()
+        assert page.locator(".analytics-distribution #analytics-detail").count() == 1
+        assert page.locator("#analytics-detail-table tr[data-source-code]").evaluate_all(
+            "rows => rows.map(row => row.dataset.sourceCode)") == ["MAT300", "MAT100"]
+        assert page.locator("#analytics-detail-table .analytics-detail-term").count() == 2
+        page.locator("#analytics-year").select_option("2024–2025")
+        assert page.locator("#analytics-detail-table tr[data-source-code]").evaluate_all(
+            "rows => rows.map(row => row.dataset.sourceCode)") == ["MAT300"]
+
+        page.locator("#analytics-year").select_option("")
+        page.locator("#analytics-distribution .distribution-grade-button[data-grade-letter='']").click()
+        assert page.locator("#analytics-detail-table tr[data-source-code]").evaluate_all(
+            "rows => rows.map(row => row.dataset.sourceCode)") == ["MAT101"]
+        page.locator("[data-language-choice='en']").click()
+        assert "Transcript" in page.locator("#analytics-detail-title").inner_text()
+        assert page.locator("#analytics-detail-table tr[data-source-code]").count() == 1
+        page.locator("[data-language-choice='vi']").click()
+
         page.locator("#analytics-detail-close").click()
         assert page.locator("#analytics-detail").is_hidden()
-        page.locator("#analytics-trend .chart-point").first.focus()
+        page.locator("#analytics-distribution .chart-grade-segment[data-grade-letter='A+']").focus()
         page.keyboard.press("Enter")
         assert page.locator("#analytics-detail").is_visible()
+        assert page.locator("#analytics-detail-table tr[data-source-code]").count() == 2
+        page.set_viewport_size({"width": 390, "height": 844})
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}))")
         assert page.locator("#analytics-detail").is_hidden()
         assert not errors, errors
         browser.close()
-    print("Analytics drilldown: 10/4 terms, keyboard, source reset passed")
+    print("Analytics drilldown: 10/4 terms, A+ year filter, keyboard, language, mobile and source reset passed")
 
 
 if __name__ == "__main__":

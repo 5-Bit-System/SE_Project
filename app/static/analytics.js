@@ -253,25 +253,27 @@ if (typeof document !== 'undefined') {
       const segment = svgElement('circle', {cx: 100, cy: 100, r: radius, fill: 'none', stroke: color,
         'stroke-width': 22, 'stroke-dasharray': `${length} ${circumference - length}`,
         'stroke-dashoffset': -offset, transform: 'rotate(-90 100 100)', class: 'chart-grade-segment',
-        'data-grade-letter': letter, role: 'button', tabindex: 0});
+        'data-grade-letter': letter, 'data-detail-letter': letter, role: 'button', tabindex: 0,
+        'aria-controls': 'analytics-detail', 'aria-expanded': false});
       offset += length;
       const label = letter || t('Chưa có điểm chữ', 'No letter grade');
       const title = svgElement('title'); title.textContent = `${label}: ${count}`;
-      segment.setAttribute('aria-label', `${t('Lọc bảng điểm theo điểm chữ', 'Filter transcript by letter grade')}: ${label}, ${count}`);
+      segment.setAttribute('aria-label', `${t('Xem bảng điểm theo điểm chữ tại Dashboard', 'Show dashboard transcript for letter grade')}: ${label}, ${count}`);
       segment.append(title); svg.append(segment);
-      const selectGrade = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-grade', {detail: {letter, year: $('year').value}}));
-      segment.addEventListener('click', selectGrade);
+      const selectGrade = trigger => openDetail({kind: 'grade', letter}, trigger);
+      segment.addEventListener('click', () => selectGrade(segment));
       segment.addEventListener('keydown', event => {
         if (event.key !== 'Enter' && event.key !== ' ') return;
-        event.preventDefault(); selectGrade();
+        event.preventDefault(); selectGrade(segment);
       });
       const item = element('li', '');
       const button = element('button', '', 'distribution-grade-button');
-      button.type = 'button'; button.dataset.gradeLetter = letter;
-      button.setAttribute('aria-label', `${t('Lọc bảng điểm theo điểm chữ', 'Filter transcript by letter grade')}: ${label}, ${count}`);
+      button.type = 'button'; button.dataset.gradeLetter = letter; button.dataset.detailLetter = letter;
+      button.setAttribute('aria-controls', 'analytics-detail'); button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', `${t('Xem bảng điểm theo điểm chữ tại Dashboard', 'Show dashboard transcript for letter grade')}: ${label}, ${count}`);
       const swatch = element('span', '', 'legend-swatch'); swatch.style.backgroundColor = color;
       button.append(swatch, element('span', label), element('strong', `${count} · ${number(count / stats.count * 100)}%`));
-      button.addEventListener('click', selectGrade);
+      button.addEventListener('click', () => selectGrade(button));
       item.append(button); legend.append(item);
     });
     const total = svgElement('text', {x: 100, y: 99, 'text-anchor': 'middle', class: 'chart-ring-total'}); total.textContent = stats.count;
