@@ -193,6 +193,13 @@ def evaluate_eligibility(
 
         # Reason order is deliberate and stable for UI/fallback consumers:
         # source -> prerequisites -> track/path -> group -> credit budget.
+        if catalog.program.catalog_status != "verified":
+            reasons.append(
+                BlockedReason(
+                    kind="catalog_unverified",
+                    message="Khung chương trình chưa được xác minh.",
+                )
+            )
         if course.prerequisite_status in ("source_conflict", "conflict"):
             reasons.append(
                 BlockedReason(

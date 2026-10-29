@@ -65,6 +65,18 @@ def test_fulfilled_elective_group_is_red_with_explicit_reason(curriculum):
     assert "E2" not in board["plan"]["course_codes"]
 
 
+def test_unverified_catalog_cannot_supply_a_course_plan(curriculum):
+    curriculum.program.catalog_status = "draft_unverified"
+
+    board = course_board(curriculum, context("A"))
+
+    assert board["courses"]["eligible"] == []
+    assert all(
+        any(reason["kind"] == "catalog_unverified" for reason in row["reasons"])
+        for row in board["courses"]["blocked"]
+    )
+
+
 def test_unready_context_cannot_be_treated_as_an_empty_completed_set(curriculum):
     with pytest.raises(AcademicContextError, match="academic_context_not_ready"):
         course_board(curriculum, {**context(), "status": "needs_policy_review"})

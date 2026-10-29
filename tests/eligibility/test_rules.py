@@ -80,6 +80,19 @@ def test_course_without_prerequisites_still_requires_verified_status(status):
     assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)
 
 
+def test_unverified_catalog_never_returns_eligible_courses():
+    cat = sample_catalog()
+    cat.program.catalog_status = "draft_unverified"
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert not result.eligible_courses
+    assert all(
+        any(reason.kind == "catalog_unverified" for reason in course.reasons)
+        for course in result.blocked_courses
+    )
+
+
 def test_rule_engine_or_and_clauses_and_choice_quota():
     cat = sample_catalog()
 

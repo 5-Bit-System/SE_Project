@@ -153,6 +153,9 @@ def build_context(
         result["status"] = "needs_policy_review"
         return result
     groups: dict[str, list[dict]] = defaultdict(list)
+    if catalog.program.catalog_status != "verified":
+        reasons.append("catalog_unverified")
+        result["status"] = "needs_policy_review"
     if getattr(catalog.program, "planning_blockers", []):
         reasons.append("program_rules_review_required")
         result["status"] = "needs_policy_review"
