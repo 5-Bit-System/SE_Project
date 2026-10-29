@@ -251,7 +251,7 @@
   }
 
   function updatePlan(course, checked) {
-    if (board?.can_plan === false || planBusy || loading) return;
+    if (board?.can_plan === false || planBusy || loading || failed) return;
     const finishMotion = window.workspaceMotion?.capturePlan(root);
     planError = ''; planDirty = true;
     if (!checked) chosen.delete(course.code);
@@ -297,7 +297,7 @@
         reasons.append(item);
       });
       const label = el('label', undefined, 'course-status-check');
-      const input = el('input'); input.type = 'checkbox'; input.disabled = planBusy || loading || board?.can_plan === false; input.checked = chosen.has(course.code); input.dataset.planCode = course.code;
+      const input = el('input'); input.type = 'checkbox'; input.disabled = planBusy || loading || failed || board?.can_plan === false; input.checked = chosen.has(course.code); input.dataset.planCode = course.code;
       input.addEventListener('change', () => updatePlan(course, input.checked));
       label.append(input, el('span', copy('Chọn cho kế hoạch kỳ tới', 'Select for next term')));
       node.append(reasons, label);
@@ -332,13 +332,14 @@
     return columns;
   }
 
-  function select(labelText, items, value, update) {
-    const label = el('label', labelText), input = el('select'); input.disabled = planBusy;
+  function select(labelText, items, value, update, focusKey) {
+    const label = el('label', labelText), input = el('select'); input.disabled = planBusy || loading || failed;
+    input.dataset.courseStatusFocus = focusKey;
     input.setAttribute('aria-label', labelText);
     input.append(new Option(copy('Chưa chọn', 'Not selected'), ''));
     items.forEach(item => input.append(new Option(item.name, item.id)));
     input.value = value;
-    input.addEventListener('change', () => { update(input.value); load(); });
+    input.addEventListener('change', () => { update(input.value); load(focusKey); });
     label.append(input); return label;
   }
 
@@ -397,12 +398,13 @@
     const heading = el('div', undefined, 'course-status-heading');
     const intro = el('div'); intro.append(el('h2', copy('Bản đồ học phần', 'Your course map')), el('p', copy('Biết mình đã hoàn thành gì, nên học gì tiếp và còn vướng điều kiện nào.', 'See what you have completed, what you can take next and what still needs to be fulfilled.')));
     const refresh = el('button', copy('Cập nhật', 'Refresh'), 'portal-button'); refresh.type = 'button'; refresh.disabled = !source || loading || planBusy;
-    refresh.addEventListener('click', load); heading.append(intro, refresh); root.append(heading);
+    refresh.dataset.courseStatusFocus = 'refresh';
+    refresh.addEventListener('click', () => load('refresh')); heading.append(intro, refresh); root.append(heading);
     const legend = el('div', undefined, 'course-status-legend');
     states.forEach((state, index) => { const item = el('span', undefined, `course-state-${state}`); item.append(el('i', undefined, 'course-status-dot'), document.createTextNode(titles()[index])); legend.append(item); });
     root.append(legend);
     const displayable = Boolean(board?.courses);
-    const ready = board?.status === 'ready' || (board?.status === 'partial' && board.can_plan);
+    const ready = !failed && (board?.status === 'ready' || (board?.status === 'partial' && board.can_plan));
     if (!ready || loading || failed || board?.status === 'partial') {
       const notice = el('div', undefined, 'course-status-notice'); notice.setAttribute('role', 'status');
       notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Môn không có tiên quyết hoặc không tính tín chỉ tích lũy được hiển thị có thể học theo mặc định. Kết quả chưa rõ chưa được tính là hoàn thành để mở khóa môn khác.', 'Reviewed results are shown. Courses without prerequisites or excluded from earned credits remain available by default. Unresolved results do not count as completed or unlock other courses.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
@@ -428,7 +430,7 @@
       const profile = el('button', copy('Xem bảng điểm VNU', 'View VNU transcript'), 'portal-button'); profile.type = 'button'; profile.addEventListener('click', () => window.workspaceNavigate('portal-dialog'));
       notice.append(profile); root.append(notice);
     }
-    if (board?.program_selection && source && !loading) root.append(renderProgramConfirmation(board.program_selection));
+    if (board?.program_selection && source && !loading && !failed) root.append(renderProgramConfirmation(board.program_selection));
     if (board?.review_items?.length) {
       const review = el('details', undefined, 'course-review-items');
       review.append(el('summary', `${board.review_items.length} ${copy('mã môn cần đối chiếu thêm', 'course codes need further review')}`));
@@ -446,13 +448,14 @@
     }
     const selections = board?.selections;
     const toolbar = el('form', undefined, 'course-status-toolbar');
-    if (selections?.track_required) toolbar.append(select(copy('Hướng chuyên ngành', 'Study track'), selections.tracks, track, value => { track = value; path = ''; planDirty = true; }));
-    if (selections?.path_required) toolbar.append(select(copy('Nhánh tốt nghiệp', 'Graduation path'), selections.paths.filter(item => !track || !item.allowed_track_ids.length || item.allowed_track_ids.includes(track)), path, value => { path = value; planDirty = true; }));
+    if (selections?.track_required) toolbar.append(select(copy('Hướng chuyên ngành', 'Study track'), selections.tracks, track, value => { track = value; path = ''; planDirty = true; }, 'track'));
+    if (selections?.path_required) toolbar.append(select(copy('Nhánh tốt nghiệp', 'Graduation path'), selections.paths.filter(item => !track || !item.allowed_track_ids.length || item.allowed_track_ids.includes(track)), path, value => { path = value; planDirty = true; }, 'path'));
     const budgetLabel = el('label', copy('Tín chỉ kỳ tới', 'Next-term credit budget'));
     const budgetInput = el('input'); budgetInput.type = 'number'; budgetInput.disabled = planBusy; budgetInput.min = '1'; budgetInput.max = '30'; budgetInput.step = '1'; budgetInput.value = budget; budgetInput.id = 'course-credit-budget'; budgetInput.disabled = !ready || loading || planBusy;
     budgetLabel.append(budgetInput);
     const apply = el('button', copy('Áp dụng', 'Apply'), 'portal-button'); apply.type = 'submit'; apply.disabled = !ready || loading || planBusy;
-    toolbar.addEventListener('submit', event => { event.preventDefault(); if (!toolbar.reportValidity()) return; budget = Number(budgetInput.value); planDirty = true; load(); });
+    apply.dataset.courseStatusFocus = 'budget';
+    toolbar.addEventListener('submit', event => { event.preventDefault(); if (!toolbar.reportValidity()) return; budget = Number(budgetInput.value); planDirty = true; load('budget'); });
     const searchLabel = el('label', copy('Tìm môn học', 'Find a course'), 'course-status-search');
     const searchInput = el('input'); searchInput.type = 'search'; searchInput.value = search; searchInput.placeholder = copy('Mã hoặc tên môn học', 'Course code or name'); searchInput.disabled = !displayable;
     searchInput.addEventListener('input', () => { search = searchInput.value; saveDraft(); root.querySelector('.course-status-columns').replaceWith(renderColumns()); });
@@ -470,10 +473,10 @@
     root.append(el('p', copy('Màu vàng cho biết có thể học theo điều kiện chương trình hoặc quy tắc mặc định ghi trên môn; chưa xác nhận môn sẽ mở kỳ tới. Tổng tín chỉ và lựa chọn là kế hoạch tham khảo; cần đối chiếu quy định của nhà trường.', 'Yellow means availability under catalog requirements or the default rule shown on the course; it does not confirm next-term course availability. Credit totals and selections are an advisory plan; confirm official requirements with the university.'), 'course-status-note'));
   }
 
-  async function load() {
+  async function load(focusKey = null) {
     if (!source) return;
     const current = ++sequence; controller?.abort(); controller = new AbortController();
-    loading = true; failed = false; board = null; planError = ''; render();
+    loading = true; failed = false; planError = ''; render();
     const params = new URLSearchParams({max_credits: String(budget)});
     if (track) params.set('selected_track_id', track);
     if (path) params.set('selected_graduation_path_id', path);
@@ -484,7 +487,7 @@
       if (response.status === 422 && activePlan && (track || path)) {
         track = ''; path = ''; planDirty = true;
         planMessage = copy('Hướng/nhánh cũ không còn phù hợp. Chọn lại theo chương trình hiện tại.', 'The old track/path is unavailable. Select from your current curriculum.');
-        return load();
+        return load(focusKey);
       }
       if (!response.ok) throw new Error('course_status_unavailable');
       const result = await response.json();
@@ -496,6 +499,11 @@
     } catch (error) { if (current !== sequence || error.name === 'AbortError') return; failed = true; }
     if (current !== sequence) return;
     loading = false; render();
+    if (focusKey) {
+      const focusTarget = [...root.querySelectorAll('[data-course-status-focus]')]
+        .find(element => element.dataset.courseStatusFocus === focusKey);
+      focusTarget?.focus();
+    }
   }
   document.addEventListener('workspace:portal-data', event => {
     const next = event.detail;

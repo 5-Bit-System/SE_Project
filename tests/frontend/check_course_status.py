@@ -22,7 +22,13 @@ def main():
              "required_credits": 3, "remaining_credits": 3}
     data = {
         "status": "ready", "context_revision": "synthetic-revision", "blocking_reasons": [],
-        "catalog_status": "verified", "selections": {},
+        "catalog_status": "verified", "selections": {
+            "track_required": True,
+            "tracks": [{"id": "synthetic-track", "name": "Synthetic track"}],
+            "path_required": True,
+            "paths": [{"id": "synthetic-path", "name": "Synthetic path",
+                       "allowed_track_ids": ["synthetic-track"]}],
+        },
         "courses": {
             "completed": [course("TEST-A", "Synthetic completed")],
             "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True,
@@ -57,6 +63,9 @@ def main():
         if path == '/me/course-status':
             if mode == 'pending':
                 pending.append(route)
+                return
+            if mode == 'failed':
+                route.fulfill(status=503, content_type='application/json', body='{}')
                 return
             if mode == 'expired':
                 route.fulfill(status=401, content_type='application/json', body='{}')
@@ -130,6 +139,7 @@ def main():
         page.locator('#course-credit-budget').fill('6')
         root.get_by_role('button', name='Áp dụng', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('7 / 6 TC')")
+        assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'budget'
         assert page.locator('[data-plan-code="TEST-E2"]').is_checked()
         assert 'vượt ngân sách mới' in root.locator('.course-plan-error').inner_text()
         page.locator('[data-plan-code="TEST-E2"]').uncheck()
@@ -139,6 +149,10 @@ def main():
         root.locator('input[type=search]').fill('TEST-C')
         assert root.locator('.course-status-card').count() == 1
         root.locator('input[type=search]').fill('')
+        root.locator('.course-status-toolbar select').nth(0).select_option('synthetic-track')
+        page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'track'")
+        root.locator('.course-status-toolbar select').nth(1).select_option('synthetic-path')
+        page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
         page.locator('[data-language-choice="en"]').click()
         assert 'Your course map' in root.inner_text()
         assert '(TEST-B or TEST-OR) and (TEST-AND)' in root.inner_text()
@@ -159,6 +173,16 @@ def main():
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('4 / 6 TC')")
+        mode = 'failed'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa tải được kết quả')")
+        assert root.locator('.course-status-card').count() == 6
+        assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+        assert page.locator('[data-plan-code="TEST-B"]').is_disabled()
+        assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'refresh'
+        mode = 'ready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_selector('[data-course-code="TEST-A"]')
         evidence = Path('backups/local_runtime/course-status')
         evidence.mkdir(parents=True, exist_ok=True)
         for theme in ('light', 'dark'):
