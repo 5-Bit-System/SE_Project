@@ -247,12 +247,29 @@ class DaotaoClient:
         return texts
 
     def read_transcript(self, timeout_ms: int = 30000) -> list[list[str]]:
-        """Read only the grade table, including semester headings and totals."""
+        """Read grade rows plus cumulative totals rendered under the table."""
         cell = self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
         table = cell.locator("xpath=ancestor::table[1]")
-        rows = table.evaluate("""table => Array.from(table.rows)
-            .filter(row => row.closest('table') === table)
-            .map(row => Array.from(row.cells).map(cell => cell.innerText))""")
+        rows = table.evaluate("""table => {
+            const rows = Array.from(table.rows)
+                .filter(row => row.closest('table') === table)
+                .map(row => Array.from(row.cells).map(cell => cell.innerText));
+            const scope = table.closest('#divList3');
+            const lines = (scope?.innerText || '').split(/\\r?\\n/).map(line => line.trim()).filter(Boolean);
+            const labels = ['Tổng tín chỉ tích lũy', 'Điểm trung bình tích lũy hệ 4'];
+            for (const label of labels) {
+                const hasLabel = value => value.slice(0, label.length).toLocaleLowerCase() === label.toLocaleLowerCase()
+                    && (!value.slice(label.length) || /^[\\s:：]/.test(value.slice(label.length)));
+                if (rows.some(row => hasLabel(row.join(' ').trim()))) continue;
+                const index = lines.findIndex(line => hasLabel(line));
+                if (index < 0) continue;
+                let summary = lines[index];
+                const value = summary.slice(label.length).replace(/^[\\s:：]*/, '').trim();
+                if (!value && /^[\\d.,]+$/.test(lines[index + 1] || '')) summary += ` ${lines[index + 1]}`;
+                rows.push([summary]);
+            }
+            return rows;
+        }""")
         return normalize_rows(rows)
 
     def read_transcript_capture(self, timeout_ms: int = 8000) -> tuple[list[list[str]], dict]:
@@ -265,6 +282,13 @@ class DaotaoClient:
         # The reviewed source has an opt-in "Xem cả môn ..." checkbox. Its
         # unchecked default restricts the transcript; request the full view.
         source_cell = self._wait_for_element(TRANSCRIPT_CELL, timeout_ms)
+        labels = ("Tổng tín chỉ tích lũy", "Điểm trung bình tích lũy hệ 4")
+        source_totals = {}
+        for row in self.read_transcript(timeout_ms):
+            line = " ".join(row).strip()
+            for label in labels:
+                if line.startswith(label):
+                    source_totals[label] = row
         frame = source_cell.element_handle().owner_frame()
         if frame is None:
             raise PortalFailure("structure_changed")
@@ -341,6 +365,10 @@ class DaotaoClient:
         }""", self._transcript_menu_path)
         evidence.update(stable_reads=min(stable, 3),
                         network_idle=self._network_tracking and not self._pending_reads)
+        # The include-all form can omit the source's cumulative totals after submission.
+        for label, row in source_totals.items():
+            if not any(" ".join(current).strip().startswith(label) for current in rows):
+                rows.append(row)
         return rows, evidence
 
     def read_tables(self, selector: str = "table") -> list[dict]:

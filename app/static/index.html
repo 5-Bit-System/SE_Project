@@ -122,8 +122,10 @@
         <div id="analytics-status" class="analytics-status" role="status"></div>
         <div id="analytics-source-totals" class="analytics-source-totals portal-source"></div>
         <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label><span id="analytics-count"></span></div>
+        <div id="analytics-weighted-summary" class="analytics-source-totals" role="status" aria-live="polite"></div>
         <div class="analytics-grid">
-          <section class="workspace-surface analytics-trend"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 10</span></div><p class="muted-copy">Trung bình cộng các lượt có điểm hệ 10 hợp lệ; không phải GPA chính thức.</p><div id="analytics-trend" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-trend"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 10</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 10 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-trend analytics-trend-four"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 4</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 4 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend4" class="chart-region"></div></section>
           <section class="workspace-surface analytics-distribution"><div class="section-title"><h3>Phân bố điểm chữ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.</p><div id="analytics-distribution" class="chart-region"></div></section>
           <section class="workspace-surface analytics-credits"><div class="section-title"><h3>Tín chỉ theo học kỳ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.</p><div id="analytics-credits" class="chart-region"></div></section>
         </div>
@@ -132,7 +134,7 @@
     </section>
   <section id="portal-dialog" class="tab-panel profile-page" role="tabpanel" aria-labelledby="tab-btn-profile">
     <div class="portal-top">
-      <h2 id="portal-heading">Hồ sơ học tập</h2>
+      <h2 id="portal-heading" tabindex="-1">Hồ sơ học tập</h2>
       <button type="button" id="portal-close" class="text-action">Về Dashboard</button>
     </div>
     <div id="portal-collection-review" class="source-notice" role="status" hidden></div>
@@ -162,10 +164,11 @@
     <section id="portal-profile" hidden>
       <div class="profile-identity-strip"><div class="profile-emblem" aria-hidden="true">◎</div><div><p class="page-context" data-portal-copy="account"></p><h3 id="portal-identity"></h3><p id="portal-updated"></p></div><span class="subtle-tag" data-portal-copy="source"></span></div>
       <div class="profile-source-notice"><p data-portal-copy="unknown"></p><p data-portal-copy="separate"></p></div>
-      <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div></div>
-      <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag"></span></div>
+      <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div><div><span data-portal-copy="earnedCredits"></span><strong id="portal-earned-credits"></strong></div><div><span data-portal-copy="gpa4"></span><strong id="portal-gpa4"></strong></div></div>
+      <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag" role="status" aria-live="polite" aria-atomic="true"></span></div>
       <div id="portal-summary" class="portal-source"></div>
       <div class="profile-table-tools"><label for="portal-search"><span data-portal-copy="search"></span><input id="portal-search" type="search" autocomplete="off"></label><label for="portal-term"><span data-portal-copy="term"></span><select id="portal-term"></select></label></div>
+      <div id="portal-grade-filter" class="portal-grade-filter" hidden><span id="portal-grade-filter-label"></span><button type="button" id="portal-grade-filter-clear" class="portal-button" data-portal-copy="clearGradeFilter"></button></div>
       <div class="portal-table-scroll" tabindex="0" role="region" aria-label="Bảng điểm nguồn">
         <table class="portal-transcript-table" id="portal-table"></table>
       </div>

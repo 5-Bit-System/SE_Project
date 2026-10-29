@@ -21,9 +21,11 @@
       saved: 'Đã tải hồ sơ.', empty: 'Chưa có bảng điểm đã lưu. Chọn cập nhật để lấy từ VNU.',
       updated: 'Bảng điểm lưu lúc', account: 'Tài khoản đã xác minh', close: 'Đóng', table: 'Bảng điểm nguồn',
       columns: ['Mã môn', 'Tên học phần', 'Tín chỉ', 'Hệ 10', 'Chữ', 'Hệ 4'],
-      back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học', unavailable: 'Chưa có thông tin',
+      back: 'Về Dashboard', source: 'Nguồn VNU', name: 'Họ và tên', program: 'Ngành học', cohort: 'Khóa học',
+      earnedCredits: 'Tổng tín chỉ tích lũy', gpa4: 'Điểm trung bình tích lũy hệ 4', unavailable: 'Chưa có thông tin',
       welcomeTitle: 'Hồ sơ học tập của riêng bạn.', welcomeDescription: 'Một nơi để xem lại kết quả từ VNU qua từng học kỳ.', welcomeSource: 'Giữ nguyên điểm và thông tin nguồn', welcomeSync: 'Chủ động cập nhật khi cần', welcomeOwner: 'Quản lý dữ liệu theo tài khoản',
       transcript: 'Bảng điểm nguồn', newest: 'Theo năm học và học kỳ, mới nhất trước.', search: 'Tìm mã hoặc tên học phần', term: 'Học kỳ', allTerms: 'Tất cả học kỳ', rows: 'lượt học', noResults: 'Không có học phần phù hợp.',
+      gradeFilter: 'Điểm chữ', academicYear: 'Năm học', noLetterGrade: 'Chưa có điểm chữ', clearGradeFilter: 'Xóa bộ lọc',
       errors: {source_unavailable: 'Đã đăng nhập VNU, nhưng chưa tải được bảng điểm mới. Bạn có thể cập nhật lại; dữ liệu đã lưu vẫn được giữ.',
         identity_unverified: 'Chưa xác minh được danh tính từ VNU. Dữ liệu chưa được lưu.',
         vnu_not_connected: 'Bạn chưa kết nối VNU để lấy bảng điểm.', vnu_already_linked: 'Tài khoản VNU đã có liên kết khác. Không thể tự chuyển quyền sở hữu.',
@@ -60,9 +62,11 @@
       saved: 'Profile loaded.', empty: 'No saved transcript. Choose update to retrieve it from VNU.',
       updated: 'Transcript saved', account: 'Verified account', close: 'Close', table: 'Source transcript',
       columns: ['Course code', 'Course name', 'Credits', '10-point', 'Letter', '4-point'],
-      back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort', unavailable: 'Unavailable',
+      back: 'Back to Dashboard', source: 'VNU source', name: 'Full name', program: 'Program', cohort: 'Cohort',
+      earnedCredits: 'Accumulated credits', gpa4: 'Cumulative GPA (4-point scale)', unavailable: 'Unavailable',
       welcomeTitle: 'Your own academic profile.', welcomeDescription: 'A place to revisit your VNU results, semester by semester.', welcomeSource: 'Original grades and source information', welcomeSync: 'Update whenever you need', welcomeOwner: 'Data managed under your account',
       transcript: 'Source transcript', newest: 'By academic year and semester, newest first.', search: 'Search course code or name', term: 'Semester', allTerms: 'All semesters', rows: 'attempts', noResults: 'No matching courses.',
+      gradeFilter: 'Grade', academicYear: 'Academic year', noLetterGrade: 'No letter grade', clearGradeFilter: 'Clear filter',
       errors: {source_unavailable: 'VNU sign-in succeeded, but the latest transcript could not be retrieved. Try updating again; your saved data is retained.',
         identity_unverified: 'VNU identity could not be verified. No data was saved.',
         vnu_not_connected: 'Connect VNU to retrieve your transcript.', vnu_already_linked: 'This VNU identity has another account link. Ownership cannot be transferred automatically.',
@@ -83,6 +87,7 @@
   };
   let profile = null, job = null, epoch = 0, loadSequence = 0, busy = false, messageKey = '', errorKey = '', expiryTimer;
   let signedOut = false;
+  let requestedTerm = null, requestedLetter = null, requestedYear = null;
   let accountId = null;
   let reminderTimer;
   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
@@ -100,9 +105,10 @@
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
+    requestedTerm = null; requestedLetter = null; requestedYear = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
-    ['name', 'program', 'cohort'].forEach(key => { $(key).textContent = ''; });
+    ['name', 'program', 'cohort', 'earned-credits', 'gpa4'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
     $('profile').hidden = true; $('login').hidden = false; $('confirm').hidden = true; $('cancel').hidden = true;
     $('login').reset(); $('password').type = 'password'; $('show').setAttribute('aria-pressed', 'false');
@@ -122,6 +128,19 @@
     return result;
   }
   function cell(row, value, tag = 'td') { const node = document.createElement(tag); node.textContent = value ?? ''; row.append(node); return node; }
+  function sourceSummaryValue(rows, label) {
+    for (const row of rows || []) {
+      for (let index = 0; index < row.length; index++) {
+        const value = String(row[index] ?? '').trim();
+        if (!value.startsWith(label)) continue;
+        const inline = value.slice(label.length).replace(/^\s*[:：]?\s*/, '').trim();
+        if (inline) return inline;
+        const adjacent = row.slice(index + 1).find(item => String(item ?? '').trim());
+        if (adjacent !== undefined) return String(adjacent).trim();
+      }
+    }
+    return '—';
+  }
   function renderReminder() {
     clearTimeout(reminderTimer);
     const t = text(), now = Date.now();
@@ -150,16 +169,21 @@
     review.hidden = !messages.length;
     messages.forEach(message => { const row = document.createElement('p'); row.textContent = message; review.append(row); });
     $('reauth-account').value = profile?.subject || '';
+    const gradeFilter = $('grade-filter');
+    gradeFilter.hidden = requestedLetter === null;
+    $('grade-filter-label').textContent = `${t.gradeFilter}: ${requestedLetter || t.noLetterGrade}${requestedYear ? ` · ${t.academicYear} ${requestedYear}` : ''}`;
     if (!profile) return;
     ['name', 'program', 'cohort'].forEach(key => {
       const value = profile.profile?.[key];
       $(key).textContent = typeof value === 'string' && value.trim() ? value : t.unavailable;
     });
+    $('earned-credits').textContent = sourceSummaryValue(profile.snapshot?.source_summary, 'Tổng tín chỉ tích lũy');
+    $('gpa4').textContent = sourceSummaryValue(profile.snapshot?.source_summary, 'Điểm trung bình tích lũy hệ 4');
     $('identity').textContent = profile.subject;
     $('updated').textContent = `${t.updated}: ${profile.fetched_at ? new Date(profile.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN') : '—'}`;
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
     t.columns.forEach(value => cell(head, value, 'th').scope = 'col');
-    const body = $('table').createTBody(), snap = profile.snapshot;
+    const snap = profile.snapshot;
     $('summary').textContent = (snap?.source_summary || []).map(row => window.workspaceI18n.formatSourceSummary(row)).join('\n');
     const groups = new Map();
     (snap?.attempts || []).forEach(row => { const key = row.term || '—'; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); });
@@ -169,21 +193,26 @@
       return Number(year) * 10 + Number(semester);
     }
     const sorted = [...groups].sort((a, b) => termOrder(b[0]) - termOrder(a[0]));
-    const selected = $('term').value, query = $('search').value.trim().toLocaleLowerCase();
+    const selected = requestedTerm ?? $('term').value, query = $('search').value.trim().toLocaleLowerCase();
     $('term').replaceChildren(new Option(t.allTerms, ''));
     sorted.forEach(([term]) => $('term').add(new Option(term, term)));
     $('term').value = [...groups.keys()].includes(selected) ? selected : '';
+    requestedTerm = null;
     let shown = 0;
     sorted.forEach(([term, sourceRows]) => {
       if ($('term').value && $('term').value !== term) return;
-      const rows = sourceRows.filter(row => !query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query));
+      const termYear = term.match(/(\d{4})\s*[-–]\s*(\d{4})/)?.slice(1).join('–');
+      const rows = sourceRows.filter(row => (requestedLetter === null || String(row.letter ?? '').trim() === requestedLetter)
+        && (!requestedYear || termYear === requestedYear)
+        && (!query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query)));
       if (!rows.length) return;
       shown += rows.length;
-      const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term).colSpan = 6;
+      const body = $('table').createTBody();
+      const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term, 'th').scope = 'rowgroup'; heading.firstElementChild.colSpan = 6;
       rows.forEach(attempt => { const row = body.insertRow(); ['code', 'name', 'credits', 'grade10', 'letter', 'grade4'].forEach(key => cell(row, attempt[key])); });
     });
     $('row-count').textContent = `${shown} / ${snap?.attempts?.length || 0} ${t.rows}`;
-    if (!shown) cell(body.insertRow(), t.noResults).colSpan = 6;
+    if (!shown) cell($('table').createTBody().insertRow(), t.noResults).colSpan = 6;
     $('unparsed').hidden = !snap?.unknown_rows?.length;
     $('unparsed').querySelector('pre').textContent = (snap?.unknown_rows || []).map(row => row.cells.join(' | ')).join('\n');
   }
@@ -245,9 +274,35 @@
     finally { if (current === epoch) lock(false); }
   }
   $('close').onclick = () => window.workspaceNavigate('tab-dashboard');
+  document.addEventListener('workspace:open-transcript-term', event => {
+    const term = event.detail?.term;
+    if (typeof term !== 'string' || !term) return;
+    requestedTerm = term;
+    $('search').value = '';
+    window.workspaceNavigate('portal-dialog');
+    $('heading').focus();
+    if (profile) render();
+  });
+  document.addEventListener('workspace:open-transcript-grade', event => {
+    const letter = event.detail?.letter;
+    if (typeof letter !== 'string') return;
+    requestedLetter = letter;
+    requestedYear = event.detail?.year || null;
+    requestedTerm = '';
+    $('search').value = '';
+    window.workspaceNavigate('portal-dialog');
+    $('heading').focus();
+    if (profile) render();
+  });
+  $('grade-filter-clear').addEventListener('click', () => {
+    requestedLetter = null; requestedYear = null; requestedTerm = '';
+    $('search').value = ''; $('term').value = '';
+    render();
+    $('heading').focus();
+  });
   document.addEventListener('workspace:navigate', event => {
     if (event.detail === 'portal-dialog') openProfile();
-    else { $('password').value = ''; $('reauth-password').value = ''; }
+    else { requestedLetter = null; requestedYear = null; $('password').value = ''; $('reauth-password').value = ''; }
   });
   document.addEventListener('workspace:portal-refresh', () => openProfile());
   document.addEventListener('workspace:vnu-login', async event => {
