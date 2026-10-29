@@ -206,7 +206,7 @@
     return section;
   }
   const states = ['completed', 'eligible', 'blocked'];
-  const titles = () => [copy('Đã hoàn thành', 'Completed'), copy('Có thể học kỳ tới', 'Eligible next term'), copy('Chưa thể học', 'Blocked')];
+  const titles = () => [copy('Đã hoàn thành', 'Completed'), copy('Có thể chọn vào kế hoạch', 'Can be selected for a plan'), copy('Chưa thể học', 'Blocked')];
   const subtitles = () => [copy('Đã đạt / được công nhận tín chỉ', 'Passed / credits recognized'), copy('Đủ điều kiện; chọn môn cho kế hoạch', 'Eligible; choose courses for your plan'), copy('Xem điều kiện cần hoàn thành', 'See the requirements still unmet')];
   const el = (tag, text, cls) => {
     const node = document.createElement(tag);

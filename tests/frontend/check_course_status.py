@@ -109,6 +109,7 @@ def main():
         assert root.locator('.course-state-completed .course-status-card').count() == 1
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
         assert root.locator('.course-state-blocked .course-status-card').count() == 2
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể chọn vào kế hoạch')
         assert page.locator('#course-credit-budget').input_value() == '20'
         assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
         assert root.locator('img').count() == 0
