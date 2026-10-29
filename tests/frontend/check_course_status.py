@@ -45,8 +45,19 @@ def main():
                         course("TEST-D", "Synthetic unknown", reasons=[{
                             "kind": "prerequisite_unknown", "missing_prerequisites": []}])],
         },
-        "progress": {"total": {"earned_credits": 3, "required_credits": 120,
-                               "remaining_credits": 117}},
+        "progress": {
+            "total": {"earned_credits": 3, "required_credits": 120,
+                      "remaining_credits": 117},
+            "blocks": [
+                {"id": "field", "name": "Khối nền tảng", "earned_credits": 3,
+                 "required_credits": 9, "remaining_credits": 6},
+                {"id": "unresolved", "name": "Khối chưa rõ", "earned_credits": 0,
+                 "required_credits": None, "remaining_credits": None},
+            ],
+            "choice_groups": [{"id": "choice", "name": "Nhóm tự chọn",
+                               "earned_credits": 0, "required_credits": 3,
+                               "remaining_credits": 3}],
+        },
         "plan": {"max_credits": 20, "suggested_credits": 7,
                  "course_codes": ["TEST-B", "TEST-E1"], "offering_status": "unknown"},
     }
@@ -120,6 +131,15 @@ def main():
         assert root.locator('.course-state-blocked .course-status-card').count() == 2
         assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể chọn vào kế hoạch')
         assert page.get_by_role('checkbox', name='Chọn TEST-B - Synthetic required cho kế hoạch kỳ tới').count() == 1
+        progress_detail = root.locator('.course-status-progress-breakdown')
+        assert progress_detail.count() == 1
+        assert progress_detail.get_by_role('heading', name='Tiến độ theo khối và nhóm tín chỉ').count() == 1
+        assert 'Khối nền tảng' in progress_detail.inner_text()
+        assert '3 / 9 TC · còn thiếu 6 TC' in progress_detail.inner_text()
+        assert 'Khối chưa rõ' in progress_detail.inner_text()
+        assert 'chưa xác định yêu cầu' in progress_detail.inner_text()
+        assert 'Nhóm tự chọn' in progress_detail.inner_text()
+        assert 'khối/nhóm có thể chồng lấp' in progress_detail.inner_text()
         assert page.locator('#course-credit-budget').input_value() == '20'
         assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
         assert root.locator('img').count() == 0
@@ -164,6 +184,8 @@ def main():
         page.locator('[data-language-choice="en"]').click()
         assert 'Your course map' in root.inner_text()
         assert page.get_by_role('checkbox', name='Select TEST-B - Synthetic required for the next-term plan').count() == 1
+        assert 'Progress by blocks and credit groups' in root.locator('.course-status-progress-breakdown').inner_text()
+        assert 'Blocks and groups can overlap' in root.locator('.course-status-progress-breakdown').inner_text()
         assert '(TEST-B or TEST-OR) and (TEST-AND)' in root.inner_text()
         assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
         assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()

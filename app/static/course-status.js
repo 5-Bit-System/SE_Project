@@ -343,6 +343,42 @@
     return columns;
   }
 
+  function renderProgressBreakdown(progress) {
+    const sections = [
+      {title: copy('Theo khối', 'By block'), items: progress?.blocks || []},
+      {title: copy('Nhóm tín chỉ tự chọn', 'Elective credit groups'), items: progress?.choice_groups || []},
+    ].filter(section => section.items.length);
+    if (!sections.length) return null;
+
+    const section = el('section', undefined, 'course-status-progress-breakdown');
+    const heading = el('h3', copy('Tiến độ theo khối và nhóm tín chỉ', 'Progress by blocks and credit groups'));
+    heading.id = 'course-status-progress-heading';
+    section.setAttribute('aria-labelledby', heading.id);
+    section.append(heading, el('p',
+      copy('Các khối/nhóm có thể chồng lấp; không cộng các dòng này.',
+        'Blocks and groups can overlap; do not add these rows together.'),
+      'course-status-progress-note'));
+    const content = el('div', undefined, 'course-status-progress-sections');
+    sections.forEach(group => {
+      const groupSection = el('div');
+      groupSection.append(el('h4', group.title));
+      const list = el('ul');
+      group.items.forEach(item => {
+        const row = el('li');
+        const earned = item.earned_credits || 0;
+        const value = item.required_credits == null
+          ? copy(`Đã đạt ${credits(earned)} · chưa xác định yêu cầu`, `${credits(earned)} earned · requirement unknown`)
+          : copy(`${earned} / ${item.required_credits} TC · còn thiếu ${item.remaining_credits ?? Math.max(0, item.required_credits - earned)} TC`,
+            `${earned} / ${item.required_credits} credits · ${item.remaining_credits ?? Math.max(0, item.required_credits - earned)} remaining`);
+        row.append(el('span', item.name), el('span', value));
+        list.append(row);
+      });
+      groupSection.append(list); content.append(groupSection);
+    });
+    section.append(content);
+    return section;
+  }
+
   function select(labelText, items, value, update, focusKey) {
     const label = el('label', labelText), input = el('select'); input.disabled = planBusy || loading || failed;
     input.dataset.courseStatusFocus = focusKey;
@@ -489,6 +525,8 @@
       const bar = el('progress'); bar.max = progress.required_credits; bar.value = Math.min(progress.earned_credits, bar.max); bar.setAttribute('aria-label', copy('Tiến độ tín chỉ', 'Credit progress')); done.append(bar, el('p', `${copy('Còn thiếu', 'Remaining')}: ${credits(progress.remaining_credits)}`));
       const plan = el('div'); plan.append(el('p', copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', copy('Ưu tiên môn bắt buộc; tự chọn theo nhóm tín chỉ còn thiếu. Bạn có thể thay đổi các môn đã chọn.', 'Required courses come first, then electives in unfulfilled credit groups. You can change the selected courses.')));
       summary.append(done, plan); root.append(summary);
+      const breakdown = renderProgressBreakdown(board.progress);
+      if (breakdown) root.append(breakdown);
     }
     if (source) root.append(renderSavedPlans(ready));
     const error = el('p', planError, 'course-plan-error'); error.setAttribute('role', 'status'); root.append(error, renderColumns());
