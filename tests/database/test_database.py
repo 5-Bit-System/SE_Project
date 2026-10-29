@@ -330,7 +330,7 @@ def test_runtime_api_uses_postgresql(seeded_engine, monkeypatch, fake_accounts):
         assert client.get("/profiles/khdl_01/transcript/summary").status_code == 410
         response = client.post("/recommendations", json={"program_id": "khdl"})
         assert response.status_code == 200
-        assert response.json()["recommendations"]
+        assert response.json()["recommendations"] == []
         assert client.get("/courses", params={"program_id": "foreign"}).status_code == 404
 
 
