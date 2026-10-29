@@ -266,7 +266,8 @@ def test_course_board_requires_track_and_path_before_suggesting_a_bundle(client,
     data = client.get('/me/course-status').json()
     assert data['status'] == 'partial'
     assert data['can_plan'] is False
-    assert data['courses']['eligible'] == []
+    assert {row['code'] for row in data['courses']['eligible']} == {
+        'MAT2505', 'PEC1008', 'MAT2400', 'CME1000', 'ELECT101', 'ELECT102'}
     assert data['plan']['course_codes'] == []
     assert [course['code'] for course in data['courses']['completed']] == ['PHI1006']
     assert set(data['blocking_reasons']) == {
@@ -274,10 +275,14 @@ def test_course_board_requires_track_and_path_before_suggesting_a_bundle(client,
     assert data['selections']['tracks'][0]['id'] == 'synthetic_track'
 
 
-def test_known_pending_result_is_excluded_without_hiding_resolved_courses(client, ready_context):
+@pytest.mark.parametrize('code, available', [
+    ('MAT2505', True), ('CME1000', True), ('OR101', False),
+])
+def test_pending_result_defaults_do_not_promote_completion_or_unlock_dependents(
+        client, ready_context, code, available):
     from app.catalog import load_catalog
 
-    course = next(course for course in load_catalog('khdl').courses if course.code != 'PHI1006')
+    course = next(course for course in load_catalog('khdl').courses if course.code == code)
     client.profile_data['snapshot']['attempts'].append({
         'row_key': 'pending', 'code': course.code, 'credits': str(course.credits),
         'grade10': '', 'letter': 'I', 'grade4': ''})
@@ -286,8 +291,10 @@ def test_known_pending_result_is_excluded_without_hiding_resolved_courses(client
     assert result['status'] == 'partial'
     assert result['can_plan'] is True
     assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
-    assert course.code not in {row['code'] for row in result['courses']['eligible']}
-    assert course.code not in result['plan']['course_codes']
+    assert (course.code in {row['code'] for row in result['courses']['eligible']}) is available
+    assert (course.code in result['plan']['course_codes']) is available
+    if code == 'MAT2505':
+        assert 'THESIS101' not in {row['code'] for row in result['courses']['eligible']}
     strict = client.get('/me/academic-context?program_id=khdl').json()
     assert strict['status'] == 'needs_policy_review'
     assert strict['completed_course_codes'] == []
@@ -305,6 +312,7 @@ def test_unmapped_result_pauses_bundle_but_preserves_independently_resolved_cour
     assert result['status'] == 'partial'
     assert result['can_plan'] is False
     assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
-    assert result['courses']['eligible'] == []
+    assert {row['code'] for row in result['courses']['eligible']} == {
+        'MAT2505', 'PEC1008', 'MAT2400', 'CME1000', 'ELECT101', 'ELECT102'}
     assert result['plan']['course_codes'] == []
     assert result['review_items'][0]['code'] == 'UNMAPPED001'

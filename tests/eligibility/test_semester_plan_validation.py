@@ -3,8 +3,13 @@
 import pytest
 
 from app.academic_context import AcademicContextError
-from app.services.course_status_service import course_board, validate_plan_courses
-from tests.eligibility.test_course_status import context, curriculum  # noqa: F401
+from app.models import Course
+from app.services.course_status_service import (
+    course_board,
+    reviewed_course_board,
+    validate_plan_courses,
+)
+from tests.eligibility.test_course_status import context, curriculum, pending_context  # noqa: F401
 
 
 def test_valid_bundle_uses_server_credits_and_keeps_selected_courses_unpassed(curriculum):  # noqa: F811
@@ -31,3 +36,36 @@ def test_invalid_bundles_rejected(curriculum, codes, budget, error):  # noqa: F8
 def test_paused_plan_cannot_be_saved_even_when_empty():
     with pytest.raises(AcademicContextError, match='not_ready'):
         validate_plan_courses({'status': 'partial', 'can_plan': False}, [], 20)
+
+
+def test_reviewed_defaults_can_be_saved_without_satisfying_downstream_courses(curriculum):  # noqa: F811
+    curriculum.courses.append(Course(
+        code='FOLLOWUP', name='Synthetic follow-up', credits=3, block='major',
+        prerequisites=[['E1']],
+    ))
+    pending = pending_context()
+    board = reviewed_course_board(curriculum, pending)
+    rows = validate_plan_courses(board, ['E1', 'X'], 5)
+    assert [row['code'] for row in rows] == ['E1', 'X']
+    assert sum(row['credits'] for row in rows) == 5
+    assert [row['code'] for row in board['courses']['completed']] == ['A']
+    assert board['progress']['total']['earned_credits'] == 3
+    with pytest.raises(AcademicContextError, match='course_unavailable'):
+        validate_plan_courses(board, ['E1', 'FOLLOWUP'], 20)
+    assert next(row for row in board['courses']['blocked']
+                if row['code'] == 'FOLLOWUP')['reasons'][0]['missing_prerequisites'] == [['E1']]
+    assert next(row for row in pending['outcomes'] if row['code'] == 'E1')['state'] == 'unresolved'
+
+
+@pytest.mark.parametrize('gate', ['selection', 'outside', 'program'])
+@pytest.mark.parametrize('codes', [[], ['E1', 'X']])
+def test_defaults_cannot_be_saved_across_global_planning_gates(curriculum, gate, codes):  # noqa: F811
+    if gate == 'program':
+        curriculum.program.planning_blockers = ['synthetic-rule-conflict']
+    board = reviewed_course_board(
+        curriculum, pending_context(outside=gate == 'outside'),
+        selection_blockers=['graduation_selection_required'] if gate == 'selection' else None,
+    )
+    assert {'E1', 'X'} <= {row['code'] for row in board['courses']['eligible']}
+    with pytest.raises(AcademicContextError, match='not_ready'):
+        validate_plan_courses(board, codes, 20)

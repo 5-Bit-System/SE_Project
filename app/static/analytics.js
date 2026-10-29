@@ -94,9 +94,10 @@ if (typeof document !== 'undefined') {
       empty(container, four ? t('Chưa có điểm hệ 4 hợp lệ để vẽ biểu đồ.', 'No valid 4-point grades to plot.')
         : t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
     }
-    const width = Math.max(620, stats.groups.length * 110 + 140), height = 285, left = 70, right = width - 70;
+    const width = Math.max(540, stats.groups.length * 120 + 140), height = 285, left = 70, right = width - 70;
     const svg = svgRoot(four ? t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 4', 'Credit-weighted mean by semester, from 0 to 4')
       : t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 10', 'Credit-weighted mean by semester, from 0 to 10'), width, height);
+    svg.style.minWidth = `${width}px`;
     svg.setAttribute('role', 'group');
     for (const value of four ? [0, 1, 2, 3, 4] : [0, 2, 4, 6, 8, 10]) {
       const y = 218 - value * 180 / scale;
@@ -233,6 +234,7 @@ if (typeof document !== 'undefined') {
         row.insertCell().textContent = value;
       });
     });
+    document.dispatchEvent(new Event('workspace:charts-rendered'));
   }
   document.addEventListener('workspace:portal-data', event => { source = event.detail; if (!source) $('year').value = ''; render(); });
   document.addEventListener('workspace:language-change', render);
