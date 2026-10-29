@@ -129,7 +129,7 @@ def main():
         assert root.locator('.course-state-completed .course-status-card').count() == 1
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
         assert root.locator('.course-state-blocked .course-status-card').count() == 2
-        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể chọn vào kế hoạch')
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Đủ điều kiện theo chương trình')
         assert page.get_by_role('checkbox', name='Chọn TEST-B - Synthetic required cho kế hoạch kỳ tới').count() == 1
         progress_detail = root.locator('.course-status-progress-breakdown')
         assert progress_detail.count() == 1
@@ -200,6 +200,8 @@ def main():
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chọn nhánh tốt nghiệp')")
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Đủ điều kiện theo chương trình')
+        assert root.locator('.course-state-eligible input[data-plan-code]').first.is_disabled()
         for plan_input in root.locator('input[data-plan-code]').all():
             assert plan_input.is_disabled()
         # Existing edited drafts survive a pause, but no action can persist them.
