@@ -1,4 +1,6 @@
-from app.academic_context import AcademicPolicy, build_context, require_ready
+import pytest
+
+from app.academic_context import AcademicContextError, AcademicPolicy, build_context, require_ready
 from app.models import Catalog, Course, Program
 
 
@@ -19,6 +21,7 @@ def inputs(catalog_status):
             credits=3,
             block="synthetic",
             prerequisite_status="verified",
+            source_status="verified",
         )],
     )
     snapshot = {
@@ -83,3 +86,28 @@ def test_verified_catalog_can_produce_a_ready_academic_context():
 
     assert context["status"] == "ready"
     assert require_ready(context) == {"SYN101"}
+
+
+def test_unverified_course_source_cannot_become_a_completed_academic_fact():
+    catalog, snapshot, binding, policy = inputs("verified")
+    catalog.courses[0].source_status = "draft_unverified"
+
+    context = build_context(
+        snapshot,
+        owner_id="synthetic-owner",
+        catalog=catalog,
+        catalog_revision="synthetic-revision",
+        binding=binding,
+        policy=policy,
+    )
+
+    assert context["status"] == "needs_policy_review"
+    assert context["completed_course_codes"] == []
+    with pytest.raises(AcademicContextError, match="academic_context_not_ready"):
+        require_ready(context)
+    assert context["outcomes"] == [{
+        "code": "SYN101",
+        "state": "unresolved",
+        "reason": "course_source_unverified",
+        "row_keys": ["synthetic-row-1"],
+    }]

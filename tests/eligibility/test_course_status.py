@@ -17,17 +17,17 @@ def curriculum():
         source_file="synthetic-only", source_pages="1",
         choice_groups=[ChoiceGroup(id="choice", name="Invented elective group", required_credits=3)],
     ), courses=[
-        Course(code="A", name="Passed", credits=3, block="general", prerequisite_status="verified"),
-        Course(code="B", name="Next", credits=3, block="major", prerequisites=[["A"]], prerequisite_status="verified"),
-        Course(code="C", name="Later", credits=3, block="major", prerequisites=[["B"]], prerequisite_status="verified"),
+        Course(code="A", name="Passed", credits=3, block="general", prerequisite_status="verified", source_status="verified"),
+        Course(code="B", name="Next", credits=3, block="major", prerequisites=[["A"]], prerequisite_status="verified", source_status="verified"),
+        Course(code="C", name="Later", credits=3, block="major", prerequisites=[["B"]], prerequisite_status="verified", source_status="verified"),
         Course(code="D", name="Unknown prerequisite", credits=3, block="major",
-               prerequisite_status="unknown"),
+               prerequisite_status="unknown", source_status="verified"),
         Course(code="E1", name="Alternative 1", credits=3, block="elective",
-               requirement_type="elective", choice_group_ids=["choice"], prerequisite_status="verified"),
+               requirement_type="elective", choice_group_ids=["choice"], prerequisite_status="verified", source_status="verified"),
         Course(code="E2", name="Alternative 2", credits=3, block="elective",
-               requirement_type="elective", choice_group_ids=["choice"], prerequisite_status="verified"),
+               requirement_type="elective", choice_group_ids=["choice"], prerequisite_status="verified", source_status="verified"),
         Course(code="X", name="Excluded", credits=2, block="general",
-               requirement_type="required_excluded", counted_in_total=False, prerequisite_status="verified"),
+               requirement_type="required_excluded", counted_in_total=False, prerequisite_status="verified", source_status="verified"),
     ])
 
 
@@ -164,7 +164,7 @@ def test_explicit_internship_default_still_requires_completed_prerequisites(
         curriculum, prerequisite, expected_state):
     curriculum.courses.append(Course(
         code="MAT3374", name="Synthetic requested internship", credits=3, block="major",
-        prerequisites=[[prerequisite]], prerequisite_status="verified",
+        prerequisites=[[prerequisite]], prerequisite_status="verified", source_status="verified",
     ))
     pending = pending_context()
     pending["outcomes"].append({"code": "MAT3374", "state": "unresolved"})

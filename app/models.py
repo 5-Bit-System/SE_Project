@@ -200,6 +200,7 @@ class BlockedReason(BaseModel):
         "prerequisite_unknown",
         "prerequisite_unverified",
         "catalog_unverified",
+        "course_source_unverified",
     ]
     message: str
     missing_prerequisites: list[list[str]] = Field(default_factory=list)

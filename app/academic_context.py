@@ -165,6 +165,8 @@ def build_context(
     for code, rows in sorted(groups.items()):
         if code not in courses:
             state, reason = "out_of_catalog", "exact_mapping_unresolved"
+        elif courses[code].source_status != "verified":
+            state, reason = "unresolved", "course_source_unverified"
         else:
             state, reason = _outcome(rows, courses[code].credits, policy)
         result["outcomes"].append({"code": code, "state": state, "reason": reason,

@@ -18,13 +18,13 @@ def sample_catalog() -> Catalog:
             choice_groups=[ChoiceGroup(id="elective_group", name="Nhóm Tự chọn 1", required_credits=3)],
         ),
         courses=[
-            Course(code="A", name="Nhập môn A", credits=3, block="general", prerequisite_status="verified"),
-            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]], prerequisite_status="verified"),
-            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]], prerequisite_status="verified"),
-            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]], prerequisite_status="verified"),
-            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified"),
-            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified"),
-            Course(code="CONFLICT", name="Môn xung đột nguồn", credits=3, block="major", prerequisite_status="source_conflict"),
+            Course(code="A", name="Nhập môn A", credits=3, block="general", prerequisite_status="verified", source_status="verified"),
+            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified", source_status="verified"),
+            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified", source_status="verified"),
+            Course(code="CONFLICT", name="Môn xung đột nguồn", credits=3, block="major", prerequisite_status="source_conflict", source_status="verified"),
         ],
     )
 
@@ -91,6 +91,21 @@ def test_unverified_catalog_never_returns_eligible_courses():
         any(reason.kind == "catalog_unverified" for reason in course.reasons)
         for course in result.blocked_courses
     )
+
+
+def test_unverified_course_source_cannot_complete_or_unlock_courses():
+    cat = sample_catalog()
+    for course in cat.courses:
+        course.source_status = "verified"
+    next(course for course in cat.courses if course.code == "A").source_status = "draft_unverified"
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert "A" not in result.completed_course_codes
+    assert "B" not in {course.code for course in result.eligible_courses}
+    blocked = {course.code: course for course in result.blocked_courses}
+    assert any(reason.kind == "course_source_unverified" for reason in blocked["A"].reasons)
+    assert any(reason.kind == "missing_prerequisites" for reason in blocked["B"].reasons)
 
 
 def test_rule_engine_or_and_clauses_and_choice_quota():

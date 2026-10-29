@@ -11,17 +11,17 @@ def sample_catalog() -> Catalog:
             program_id="demo",
             name="Dữ liệu tổng hợp dùng riêng cho test",
             total_credits=12,
-            catalog_status="draft_unverified",
+            catalog_status="verified",
             source_file="synthetic",
             source_pages="none",
             choice_groups=[ChoiceGroup(id="elective", name="Tự chọn", required_credits=3)],
         ),
         courses=[
-            Course(code="A", name="Nhập môn", credits=3, block="required"),
-            Course(code="B", name="Dữ liệu", credits=3, block="required", prerequisites=[["A"]]),
-            Course(code="C", name="AI", credits=3, block="required", prerequisites=[["A", "B"]]),
-            Course(code="D", name="Nâng cao", credits=3, block="required", prerequisites=[["A"], ["B"]]),
-            Course(code="E", name="Tự chọn", credits=3, block="elective", choice_group_ids=["elective"]),
+            Course(code="A", name="Nhập môn", credits=3, block="required", prerequisite_status="verified", source_status="verified"),
+            Course(code="B", name="Dữ liệu", credits=3, block="required", prerequisites=[["A"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="C", name="AI", credits=3, block="required", prerequisites=[["A", "B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="D", name="Nâng cao", credits=3, block="required", prerequisites=[["A"], ["B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="E", name="Tự chọn", credits=3, block="elective", choice_group_ids=["elective"], prerequisite_status="verified", source_status="verified"),
         ],
     )
 
