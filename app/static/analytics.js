@@ -79,7 +79,7 @@ if (typeof document !== 'undefined') {
   const t = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
   const number = value => value === null ? '—' : new Intl.NumberFormat(
     window.workspaceI18n.language === 'en' ? 'en' : 'vi', {maximumFractionDigits: 2}).format(value);
-  let source = null;
+  let source = null, detailSelection = null, detailTrigger = null;
   function element(tag, text, cls = '') {
     const node = document.createElement(tag); node.textContent = text; node.className = cls; return node;
   }
@@ -98,6 +98,77 @@ if (typeof document !== 'undefined') {
     return root;
   }
   function empty(target, message) { target.replaceChildren(element('p', message, 'analytics-empty')); }
+  function syncDetailControls() {
+    document.querySelectorAll('#dashboard-analytics [aria-controls="analytics-detail"]').forEach(control => {
+      const active = detailSelection?.kind === 'term'
+        ? control.dataset.detailTerm === detailSelection.term && Number(control.dataset.detailScale) === detailSelection.scale
+        : detailSelection?.kind === 'grade' && control.dataset.detailLetter === detailSelection.letter;
+      control.setAttribute('aria-expanded', String(Boolean(active)));
+    });
+  }
+  function closeDetail(restoreFocus = false) {
+    const trigger = detailTrigger;
+    detailSelection = null; detailTrigger = null;
+    $('detail').hidden = true;
+    $('detail').parentElement?.classList.remove('analytics-expanded');
+    syncDetailControls();
+    if (restoreFocus) (trigger?.isConnected ? trigger : $('year')).focus();
+  }
+  function renderDetail() {
+    if (!detailSelection || !source?.snapshot?.attempts) { closeDetail(); return; }
+    const selection = detailSelection, year = $('year').value;
+    const rows = filterDrilldownAttempts(source.snapshot.attempts, selection, year);
+    const target = $(selection.kind === 'grade' ? 'distribution' : selection.scale === 4 ? 'trend4' : 'trend').closest('section');
+    const detail = $('detail');
+    if (detail.parentElement !== target) {
+      detail.parentElement?.classList.remove('analytics-expanded');
+      target.append(detail);
+    }
+    target.classList.add('analytics-expanded'); detail.hidden = false;
+    const match = selection.kind === 'term' ? selection.term.match(/(\d{4})\s*[-–]\s*(\d{4})/) : null;
+    const label = selection.kind === 'term'
+      ? termLabel({term: selection.term, year: match ? `${match[1]}–${match[2]}` : ''})
+      : selection.letter || t('Chưa có điểm chữ', 'No letter grade');
+    const title = `${t('Bảng điểm', 'Transcript')} · ${label}`;
+    $('detail-title').textContent = title;
+    $('detail-close').textContent = t('Đóng bảng', 'Close table');
+    $('detail-meta').textContent = selection.kind === 'term'
+      ? `${t('Hệ', 'Scale')} ${selection.scale} · ${rows.length} ${t('lượt học', 'attempts')} · ${t('Gồm cả lượt chưa có điểm', 'Includes ungraded attempts')}`
+      : `${year ? `${t('Năm học', 'Academic year')} ${year}` : t('Tất cả năm học', 'All academic years')} · ${rows.length} ${t('lượt học', 'attempts')}`;
+    const table = $('detail-table'); table.replaceChildren();
+    table.append(element('caption', title, 'sr-only'));
+    const header = table.createTHead().insertRow();
+    [t('Mã học phần', 'Course code'), t('Học phần', 'Course'), t('Tín chỉ', 'Credits'),
+      t('Hệ 10', 'Scale 10'), t('Điểm chữ', 'Letter grade'), t('Hệ 4', 'Scale 4')].forEach(value => {
+      const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = value; header.append(cell);
+    });
+    const groups = sourceStatistics(rows).groups;
+    [...groups.filter(group => group.term).reverse(), ...groups.filter(group => !group.term)].forEach(group => {
+      const body = table.createTBody(), heading = body.insertRow();
+      heading.className = 'analytics-detail-term';
+      const labelCell = document.createElement('th'); labelCell.scope = 'rowgroup'; labelCell.colSpan = 6;
+      labelCell.textContent = termLabel(group); heading.append(labelCell);
+      rows.filter(row => String(row.term || '') === group.term).forEach(attempt => {
+        const row = body.insertRow(); row.dataset.sourceCode = String(attempt.code ?? '');
+        ['code', 'name', 'credits', 'grade10', 'letter', 'grade4'].forEach(key => {
+          row.insertCell().textContent = String(attempt[key] ?? '').trim() || '—';
+        });
+      });
+    });
+    if (!rows.length) {
+      const cell = table.createTBody().insertRow().insertCell(); cell.colSpan = 6;
+      cell.textContent = t('Không có lượt học phù hợp.', 'No matching attempts.');
+    }
+    syncDetailControls();
+  }
+  function openDetail(selection, trigger) {
+    if (detailSelection?.kind === selection.kind && detailSelection?.term === selection.term
+        && detailSelection?.scale === selection.scale && detailSelection?.letter === selection.letter) {
+      closeDetail(true); return;
+    }
+    detailSelection = selection; detailTrigger = trigger;
+    renderDetail(); $('detail-title').focus();
+  }
   function trend(stats, scale) {
     const four = scale === 4, meanKey = four ? 'mean4' : 'mean', gradesKey = four ? 'grades4' : 'grades';
     const container = $(four ? 'trend4' : 'trend'); container.replaceChildren();
@@ -134,14 +205,15 @@ if (typeof document !== 'undefined') {
       if (group[meanKey] === null) return;
       const x = xAt(index), y = 218 - group[meanKey] * 180 / scale;
       const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: group.term ? 0 : -1,
-        ...(group.term ? {role: 'button'} : {}), class: 'chart-point',
-        'aria-label': `${termLabel(group)}: ${number(group[meanKey])} / ${scale}; ${group[gradesKey].length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Mở bảng điểm học kỳ', 'Open semester transcript')}` : ''}`});
+        ...(group.term ? {role: 'button', 'aria-controls': 'analytics-detail', 'aria-expanded': false,
+          'data-detail-term': group.term, 'data-detail-scale': scale} : {}), class: 'chart-point',
+        'aria-label': `${termLabel(group)}: ${number(group[meanKey])} / ${scale}; ${group[gradesKey].length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Xem bảng điểm tại Dashboard', 'Show transcript on dashboard')}` : ''}`});
       if (group.term) {
-        const openTranscript = () => document.dispatchEvent(new CustomEvent('workspace:open-transcript-term', {detail: {term: group.term}}));
-        dot.addEventListener('click', openTranscript);
+        const showDetail = () => openDetail({kind: 'term', term: group.term, scale}, dot);
+        dot.addEventListener('click', showDetail);
         dot.addEventListener('keydown', event => {
           if (event.key !== 'Enter' && event.key !== ' ') return;
-          event.preventDefault(); openTranscript();
+          event.preventDefault(); showDetail();
         });
       }
       const title = svgElement('title'); title.textContent = dot.getAttribute('aria-label'); dot.append(title);
@@ -229,6 +301,8 @@ if (typeof document !== 'undefined') {
       element('span', `${t('Hệ 10', 'Scale 10')}: ${number(stats.weightedMean10)} · ${number(stats.weightedCredits10)} ${t('tín chỉ tính điểm', 'credits counted')}`),
       element('span', `${t('Hệ 4', 'Scale 4')}: ${number(stats.weightedMean4)} · ${number(stats.weightedCredits4)} ${t('tín chỉ tính điểm', 'credits counted')}`));
     trend(stats, 10); trend(stats, 4); distribution(stats); credits(stats);
+    if (detailSelection?.kind === 'term' && !stats.groups.some(group => group.term === detailSelection.term)) closeDetail();
+    else if (detailSelection) renderDetail();
     $('method').textContent = t('Điểm theo kỳ, năm và toàn bộ lượt học = tổng (điểm × tín chỉ) / tổng tín chỉ hợp lệ. Mỗi lượt học lại được giữ riêng.', 'Semester, year and all-attempt scores = sum (grade × credits) / valid credits. Each retake is kept as a separate attempt.')
       + ` ${t('Lượt học 0 tín chỉ được loại khỏi phép tính', 'Zero-credit attempts excluded from weighting')}: ${stats.zeroCreditAttempts};`
       + ` ${stats.missingGrades} ${t('lượt thiếu/không có điểm hệ 10 hợp lệ;', 'attempts lack valid 10-point grades;')}`
@@ -247,9 +321,13 @@ if (typeof document !== 'undefined') {
     });
     document.dispatchEvent(new Event('workspace:charts-rendered'));
   }
-  document.addEventListener('workspace:portal-data', event => { source = event.detail; if (!source) $('year').value = ''; render(); });
+  document.addEventListener('workspace:portal-data', event => {
+    if (!event.detail || source?.snapshot?.digest !== event.detail.snapshot?.digest) closeDetail();
+    source = event.detail; if (!source) $('year').value = ''; render();
+  });
   document.addEventListener('workspace:language-change', render);
   $('year').addEventListener('change', render);
+  $('detail-close').addEventListener('click', () => closeDetail(true));
   render();
   const refresh = () => document.dispatchEvent(new CustomEvent('workspace:portal-refresh'));
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh, {once: true}); else refresh();
