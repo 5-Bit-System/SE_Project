@@ -99,6 +99,8 @@ def main():
         assert page.locator("#analytics-detail-table tr[data-source-code]").count() == 2
         page.set_viewport_size({"width": 390, "height": 844})
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        assert page.locator("#analytics-detail-hint").is_visible()
+        assert "Vuốt ngang" in page.locator("#analytics-detail-hint").inner_text()
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}))")
         assert page.locator("#analytics-detail").is_hidden()
         assert not errors, errors

@@ -132,6 +132,7 @@ if (typeof document !== 'undefined') {
     const title = `${t('Bảng điểm', 'Transcript')} · ${label}`;
     $('detail-title').textContent = title;
     $('detail-close').textContent = t('Đóng bảng', 'Close table');
+    $('detail-hint').textContent = t('Vuốt ngang trong bảng để xem đầy đủ các cột.', 'Swipe across the table to see all columns.');
     $('detail-meta').textContent = selection.kind === 'term'
       ? `${t('Hệ', 'Scale')} ${selection.scale} · ${rows.length} ${t('lượt học', 'attempts')} · ${t('Gồm cả lượt chưa có điểm', 'Includes ungraded attempts')}`
       : `${year ? `${t('Năm học', 'Academic year')} ${year}` : t('Tất cả năm học', 'All academic years')} · ${rows.length} ${t('lượt học', 'attempts')}`;
