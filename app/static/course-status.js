@@ -227,6 +227,7 @@
     academic_program_source_mismatch: copy('Lựa chọn không khớp ngành/khóa đọc từ VNU.', 'Your selection does not match source enrollment.'),
     context_changed: copy('Dữ liệu đã thay đổi. Hãy tải lại rồi xác nhận.', 'The data changed. Reload it before confirming.')
     ,program_rules_review_required: copy('Quy tắc chọn hướng trong khung này cần đối chiếu thêm. Vẫn hiển thị các môn đã đối chiếu điểm đạt; kế hoạch tạm dừng.', 'This curriculum’s study-track rules need review. Resolved passed courses remain visible; planning is paused.')
+    ,catalog_unverified: copy('Khung chương trình chưa được xác minh; tạm dừng phân loại và lập kế hoạch.', 'The curriculum has not been verified; classification and planning are paused.')
   })[reason] || copy('Dữ liệu bảng điểm cần được kiểm tra thêm.', 'Transcript data needs further review.');
 
   function blockedReason(reason) {
@@ -319,6 +320,8 @@
       if (!matching.length) {
         const pending = board?.blocking_reasons?.includes('source_incomplete')
           ? copy('Chưa phân loại: lần lấy bảng điểm chưa được xác minh đầy đủ.', 'Not classified: transcript collection is not verified complete.')
+          : board?.blocking_reasons?.includes('catalog_unverified')
+            ? copy('Chưa phân loại: khung chương trình chưa được xác minh.', 'Not classified: curriculum is not verified.')
           : board?.blocking_reasons?.includes('program_binding_unverified')
             ? copy('Chưa phân loại: cần xác nhận chương trình áp dụng ở phía trên.', 'Not classified: confirm your curriculum above.')
             : copy('Chờ dữ liệu học tập được xác minh', 'Awaiting verified academic data');

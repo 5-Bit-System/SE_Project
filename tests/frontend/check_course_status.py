@@ -22,7 +22,7 @@ def main():
              "required_credits": 3, "remaining_credits": 3}
     data = {
         "status": "ready", "context_revision": "synthetic-revision", "blocking_reasons": [],
-        "catalog_status": "draft_unverified", "selections": {},
+        "catalog_status": "verified", "selections": {},
         "courses": {
             "completed": [course("TEST-A", "Synthetic completed")],
             "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True,
@@ -68,6 +68,9 @@ def main():
             if mode == 'unready':
                 result.update(status='needs_program_binding', courses=None, progress=None, plan=None,
                               blocking_reasons=['source_incomplete', 'program_binding_unverified'])
+            if mode == 'catalog_unverified':
+                result.update(status='needs_policy_review', courses=None, progress=None, plan=None,
+                              blocking_reasons=['catalog_unverified'])
             if mode == 'paused':
                 result.update(status='partial', can_plan=False,
                               blocking_reasons=['graduation_selection_required'])
@@ -169,6 +172,10 @@ def main():
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa xác minh chương trình')")
         assert root.locator('.course-status-card').count() == 0
         assert root.locator('.course-status-column').count() == 3
+        mode = 'catalog_unverified'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Khung chương trình chưa được xác minh')")
+        assert root.locator('.course-status-card').count() == 0
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_selector('[data-course-code="TEST-A"]')
