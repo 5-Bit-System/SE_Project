@@ -69,7 +69,27 @@ def confirmation(client, selected_program=None):
             "expected_source_scope": setup["source_scope"], "confirm": True}
 
 
-def test_two_accounts_keep_different_programs_cohorts_and_completed_facts(client):
+def use_reviewed_catalogs(monkeypatch):
+    import app.program_bindings as bindings
+    from app.api import academic
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    list_catalogs = bindings.list_catalogs
+    load_catalog = academic.load_catalog
+    monkeypatch.setattr(
+        bindings,
+        "list_catalogs",
+        lambda: [mark_catalog_reviewed_for_test(catalog) for catalog in list_catalogs()],
+    )
+    monkeypatch.setattr(
+        academic,
+        "load_catalog",
+        lambda program_id: mark_catalog_reviewed_for_test(load_catalog(program_id)),
+    )
+
+
+def test_two_accounts_keep_different_programs_cohorts_and_completed_facts(client, monkeypatch):
+    use_reviewed_catalogs(monkeypatch)
     assert client.get("/me/academic-program").status_code == 401
     for owner, program, cohort, expected in [("owner-a", KHMT, 68, ["PHI1006"]),
                                              ("owner-b", KHDL, 67, [])]:
@@ -181,7 +201,8 @@ def test_binding_does_not_override_unknown_completeness(client):
     ("Khoa học dữ liệu", KHDL, 70),
     ("Khoa học máy tính và thông tin", KHMT, 68),
 ])
-def test_each_supported_program_uses_its_own_source_enrollment(client, name, program, cohort):
+def test_each_supported_program_uses_its_own_source_enrollment(client, monkeypatch, name, program, cohort):
+    use_reviewed_catalogs(monkeypatch)
     authenticate(client, "owner-a")
     client.data["owner-a"]["profile"].update(program=name, cohort=str(cohort))
     body = confirmation(client, program)
