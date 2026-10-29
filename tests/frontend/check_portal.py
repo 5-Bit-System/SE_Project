@@ -78,6 +78,7 @@ def main():
         assert page.locator("#portal-gpa4").inner_text() == "3.37"
         assert page.locator("#portal-summary").inner_text().startswith("Tổng tín chỉ: 6")
         assert page.locator("#portal-sync").inner_text() == "Cập nhật bảng điểm"
+        assert page.locator("#portal-sync").is_hidden()
         assert page.locator("#portal-table tbody tr:not(.portal-term)").count() == 2
         assert "2100-2101" in page.locator("#portal-table .portal-term").first.inner_text()
         assert "<script>synthetic</script>" in page.locator("#portal-table").inner_text()
@@ -99,6 +100,7 @@ def main():
         assert "Accumulated credits" in page.locator(".profile-facts").inner_text()
         assert "Cumulative GPA (4-point scale)" in page.locator(".profile-facts").inner_text()
         assert page.locator("#portal-sync").inner_text() == "Update transcript"
+        assert page.locator("#portal-sync").is_hidden()
         sample["profile"]["cohort"] = None
         page.evaluate("document.dispatchEvent(new Event('visibilitychange'))")
         page.wait_for_function("document.getElementById('portal-cohort').textContent === 'Unavailable'")

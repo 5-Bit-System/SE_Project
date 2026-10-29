@@ -158,7 +158,7 @@ def main():
         selected = page.locator("#tab-btn-profile").bounding_box()
         assert abs(indicator["y"] - selected["y"]) < 1
         assert "8,5" in page.locator("#portal-table").inner_text()
-        button = page.locator("#portal-sync")
+        button = page.locator('[data-theme-choice="light"]')
         button.hover()
         page.wait_for_timeout(240)
         assert button.evaluate("n => getComputedStyle(n).boxShadow !== 'none'")

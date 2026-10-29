@@ -18,7 +18,7 @@ pytestmark = pytest.mark.hus_postgres
 @pytest.fixture
 def planner(system, monkeypatch):  # noqa: F811
     client, engine, _ = system
-    publish_catalogs(engine, json.loads(SOURCE.read_text()))
+    publish_catalogs(engine, json.loads(SOURCE.read_text(encoding='utf-8')))
     from app import program_bindings
     from app.api import academic
     from app.infrastructure.hus_repository import HusRepository

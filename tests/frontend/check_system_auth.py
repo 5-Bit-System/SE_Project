@@ -138,7 +138,7 @@ def main():
                         page.locator('#portal-profile').wait_for(state='visible')
                         assert page.locator('#portal-login').is_hidden()
                         assert page.locator('#auth-vnu-password').input_value()==''
-                        page.locator('#portal-sync').click()
+                        page.evaluate("document.dispatchEvent(new Event('workspace:portal-begin-sync'))")
                         page.wait_for_function("!document.getElementById('portal-sync').disabled")
                         assert page.locator('#portal-reauth').is_hidden()
                         page.reload()

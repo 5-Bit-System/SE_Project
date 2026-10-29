@@ -179,7 +179,7 @@ def main():
         # Loading is tied to a real mocked job; a retained/failed collection never celebrates.
         page.locator('#tab-btn-profile').click()
         assert page.locator('.status-success').count() == 0
-        page.locator('#portal-sync').click()
+        page.evaluate("document.dispatchEvent(new Event('workspace:portal-begin-sync'))")
         page.wait_for_selector('.book-loader')
         assert page.locator('#portal-status').get_attribute('role') == 'status'
         assert page.locator('.book-loader').get_attribute('aria-hidden') == 'true'
@@ -198,7 +198,7 @@ def main():
         assert page.locator('#portal-status').inner_text()
         page.screenshot(path=str(evidence / 'success.png'))
         state['job'] = 'running'
-        page.locator('#portal-sync').click()
+        page.evaluate("document.dispatchEvent(new Event('workspace:portal-begin-sync'))")
         page.wait_for_selector('.book-loader')
         state['review'] = {"save_status": "retained", "completeness": "unknown", "unparsed_rows": 0}
         state['job'] = 'failed'
