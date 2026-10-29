@@ -93,7 +93,13 @@ def ready_context(client, monkeypatch):
     import importlib.util
     assert importlib.util.find_spec('app.api.academic') is not None, 'Source-owned API missing'
     from app.academic_context import AcademicPolicy
+    from app.api import academic
     from app.api.academic import POLICIES
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    load_catalog = academic.load_catalog
+    monkeypatch.setattr(academic, 'load_catalog', lambda program_id:
+                        mark_catalog_reviewed_for_test(load_catalog(program_id)))
 
     authenticated(client)
     preview = client.get('/me/academic-context?program_id=khdl').json()
