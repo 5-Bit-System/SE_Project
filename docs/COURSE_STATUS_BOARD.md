@@ -3,6 +3,28 @@
 Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
 `feat/vnu-curriculum-planning`, trên cơ chế tài khoản/phiên hiện hành của main.
 
+## Mặc định môn có thể học — 28/10/2026
+
+Theo yêu cầu người dùng, môn không có tiên quyết hoặc không tính vào tổng tín
+chỉ tích lũy/GPA được giữ ở nhóm **Có thể học kỳ tới** khi chưa xác định hoàn
+thành, kể cả kết quả của chính môn đó còn chờ đối chiếu. Quy tắc áp dụng theo
+metadata của từng khung. Riêng MAT3374 cũng được yêu cầu mặc định có thể học;
+môn này vẫn phải thỏa hai tiên quyết MAT1202 và MAT3507 theo khung KHMTTT.
+Môn đã xác định hoàn thành vẫn ở nhóm xanh. Bản đồ ghi rõ lý do mặc
+định và kết quả đang chờ; không sửa bảng điểm hoặc coi lựa chọn là đã đạt.
+
+Rule engine vẫn kiểm tra tiên quyết có nguồn, xung đột/điều kiện chưa rõ,
+hướng/nhánh và hạn mức nhóm trước khi áp dụng mặc định. Môn thiếu tiên quyết
+thật vẫn ở nhóm đỏ. Kết quả chưa rõ không được dùng mở khóa môn khác; các API
+recommendation/advisor đầy đủ vẫn yêu cầu context ready.
+
+Phân loại tách khỏi việc lập kế hoạch: nếu còn thiếu chọn hướng/nhánh, có mã
+ngoài khung hoặc quy tắc chương trình chưa rõ, các môn mặc định vẫn hiện màu
+vàng nhưng kế hoạch tạm dừng, không tự chọn môn và khóa checkbox. Khi được
+phép lập kế hoạch, vẫn mặc định 20 tín chỉ, tổng tải học tính cả tín chỉ môn
+ngoại khóa đã chọn; các môn bị loại trừ vẫn không cộng vào tín chỉ tích lũy.
+
+
 ## Luồng sử dụng
 
 1. Đăng nhập VNU như hiện tại; mở **Điều kiện học**.
@@ -44,9 +66,6 @@ khớp chính xác, tín chỉ/điểm phải nhất quán. Các trường hợp
 đương khác mã, miễn/chuyển đổi hay học lại không được hỗ trợ vẫn chờ đối chiếu.
 Không sửa điểm nguồn hoặc tính lại GPA của VNU.
 
-Partial có thể hiển thị các môn đã xác định. Môn chưa rõ không thỏa tiên quyết
-hoặc được chọn vào kế hoạch. Mã ngoài khung, thiếu hướng/nhánh hoặc nguồn mâu
-thuẫn có thể dừng kế hoạch. API học thuật đầy đủ tiếp tục yêu cầu context ready.
 Các catalog vẫn draft_unverified; chưa đối chiếu mọi sửa đổi theo từng khóa.
 
 ## API và lưu trữ

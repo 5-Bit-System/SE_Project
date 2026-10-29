@@ -2,6 +2,12 @@
 (() => {
   'use strict';
   const buttons = [...document.querySelectorAll('.tab-btn')];
+  const navigation = document.querySelector('.nav-tabs');
+  const compactNavigation = window.matchMedia('(max-width: 800px)');
+  const syncNavigationOrientation = () => navigation.setAttribute(
+    'aria-orientation', compactNavigation.matches ? 'horizontal' : 'vertical');
+  syncNavigationOrientation();
+  compactNavigation.addEventListener('change', syncNavigationOrientation);
   const languageButtons = [...document.querySelectorAll('[data-language-choice]')];
   const copy = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
   let authenticated = false, reasons = [], status = 'signed-out';

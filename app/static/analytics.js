@@ -42,7 +42,7 @@ if (typeof document !== 'undefined') {
   const t = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
   const number = value => value === null ? '—' : new Intl.NumberFormat(
     window.workspaceI18n.language === 'en' ? 'en' : 'vi', {maximumFractionDigits: 2}).format(value);
-  const colors = ['#6485e8', '#35b6a3', '#a08aef', '#e2ae52', '#d780ad', '#79a7d2', '#95b66b', '#b68d6c', '#d5747b', '#8492a9'];
+  const colors = Array.from({length: 10}, (_, index) => `var(--chart-${index + 1})`);
   let source = null;
   function element(tag, text, cls = '') {
     const node = document.createElement(tag); node.textContent = text; node.className = cls; return node;
@@ -67,8 +67,9 @@ if (typeof document !== 'undefined') {
     if (!stats.groups.some(group => group.mean !== null)) {
       empty(container, t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
     }
-    const width = Math.max(620, stats.groups.length * 110 + 140), height = 285, left = 70, right = width - 70;
+    const width = Math.max(540, stats.groups.length * 120 + 140), height = 285, left = 70, right = width - 70;
     const svg = svgRoot(t('Điểm trung bình cộng các lượt theo học kỳ, thang 0 đến 10', 'Arithmetic mean by semester, from 0 to 10'), width, height);
+    svg.style.minWidth = `${width}px`;
     for (const value of [0, 2, 4, 6, 8, 10]) {
       const y = 218 - value * 18;
       svg.append(svgElement('line', {x1: left, x2: right, y1: y, y2: y, class: 'chart-grid-line'}));
@@ -171,6 +172,7 @@ if (typeof document !== 'undefined') {
         row.insertCell().textContent = value;
       });
     });
+    document.dispatchEvent(new Event('workspace:charts-rendered'));
   }
   document.addEventListener('workspace:portal-data', event => { source = event.detail; if (!source) $('year').value = ''; render(); });
   document.addEventListener('workspace:language-change', render);

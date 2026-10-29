@@ -12,7 +12,7 @@
       button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
     });
     const color = document.querySelector('meta[name="theme-color"]');
-    if (color) color.content = theme === "dark" ? "#101a32" : "#eef2ff";
+    if (color) color.content = theme === "dark" ? "#151522" : "#f7f5ff";
   }
 
   applyTheme(valid(saved) ? saved : preferred);

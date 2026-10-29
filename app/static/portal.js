@@ -97,6 +97,7 @@
     $('login').setAttribute('aria-busy', String(loading));
     $('reauth').setAttribute('aria-busy', String(loading));
     $('reauth-submit').textContent = loading ? text().processing : text().reauthSubmit;
+    window.workspaceMotion?.statusFeedback($('status'), error ? 'error' : key === 'waiting' ? 'loading' : 'idle');
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
@@ -286,6 +287,12 @@
       job = null; $('cancel').hidden = true; await load();
       if (current !== epoch) return;
       if (result.error || result.state === 'cancelled') syncError(result.error || 'cancelled');
+      else {
+        const review = profile?.latest_collection;
+        if (result.state === 'done' && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
+          window.workspaceMotion?.statusFeedback($('status'), 'success');
+        }
+      }
     } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
     finally { if (current === epoch && !job) lock(false); }
   }
