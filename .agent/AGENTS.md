@@ -23,6 +23,346 @@ revalidate while preserving the draft. Logout/expiry/session change clears it.
 No real VNU acceptance or production migration is implied. Plans are keyed by
 account UUID, not transient portal cookies, and never become completed courses.
 
+## Session update — 2026-10-27: project relocated to D; connections verified
+
+The canonical workspace is now `D:/SE_Project`. The user copied the project,
+recreated the main `.venv` there, and deleted the old `E:/SE_Project`; the final
+PowerShell `Test-Path` returned false and the relocation audit reconfirmed it.
+Use D for all future commands, editor folders, runtime and local maintenance.
+Earlier E paths in dated session entries, archived logs and immutable source
+receipts describe historical execution, not a current dependency. Do not recreate
+the deleted E workspace or mass-edit byte-bound source/audit evidence.
+
+The user explicitly authorized this memory update, repair of remaining project
+path references and connection/regression checks. This authorizes relocation
+maintenance, without resuming the unrelated pending RAG/source work below.
+Root branch remains `chore/remove-old-crawl-markdown-20261026` at
+`7650c123c67082f476af8f4f8c83cf72c0ce9708`; no commit, push, PR or merge occurred.
+The existing 107 tracked crawl deletions, data README/manifest changes and
+untracked `.vscode/` / `docs/rag_normalization/` were preserved. The RAG handoff's
+two local paths were updated; `.vscode/settings.json` itself remains unchanged.
+
+The new main venv now contains Playwright 1.64.1 and uses installed Google Chrome.
+The earlier VNU 503 `browser_start/browser_unavailable/missing_dependency` was
+caused by omitting `requirements-portal.txt` when rebuilding the venv, not a
+removed VNU container. README setup now installs both dev and portal requirements
+with the pinned core constraints and explains the Chrome requirement. VNU uses
+a Python/Chrome worker; it has no separate Docker container.
+
+Repaired local selection JSON/CSV/Markdown locators, current HUS run/handoff
+paths and helper scripts. Helpers now derive their paths where practical.
+The copied parser venv at `backups/crawldata_audit_20261026_28d61c4/venv` had E in
+its activation/configuration and pip launchers; regenerated it at D, preserving
+system-site-package access, and reinstalled its existing pip 24.0 from Python's
+bundled local wheel. Its Python, pip, bs4 4.15.0 and soupsieve 2.9.1 were checked.
+No global Python environment was upgraded.
+
+The separate HUS feature checkout remains at
+`backups/hus_pipeline_worktree_20261026`, HEAD `4b52f85accfad41460cf25c48b678bd11d43341a`,
+branch `feat/hus-normalize-chunks-20261026`, unpushed/unmerged. Its former origin
+pointed at an already-removed E baseline bundle; origin now points to the valid
+local `D:/SE_Project` repository. `ls-remote` succeeded and both repositories
+passed `git fsck`. Seven tracked files in this feature checkout (six run/handoff
+documents plus the handoff generator) now have local relocation edits; the
+original commit/authorship is preserved. The root GitHub origin was also checked
+read-only successfully, without fetch or push.
+
+Docker container `se_hus_db` was recreated from `database/docker-compose.yml`
+on D because its Compose labels still referenced E. Its only mount remains
+named volume `se_hus_pgdata`; the PostgreSQL cluster identifier matched before
+and after, and the container is healthy. No migration, seed, catalog publication,
+credential change or personal-table inspection was performed. The existing app
+on port 8000 was verified through its D venv launcher and reused. Root `.env`,
+`.env.auth`, `database/.env.docker` and `.vscode/settings.json` hashes are unchanged.
+Process/user/machine environment checks and VS Code user settings found no old
+SE_Project path. A scan of 156 active project/config/launcher files and filesystem
+reparse targets found no current E project dependency.
+
+Validation on D: 523 offline tests passed, 75 PostgreSQL tests deselected, zero
+skipped, including the explicit existing HUS PDF expectation suite. One existing
+Starlette/httpx deprecation warning remains. Root Ruff, changed-helper Python/JS
+syntax, nested generator Ruff, four synthetic catalog fixture checks and Git
+diff checks passed. Five existing Chrome regressions passed: portal auth,
+collection, profile source, session and loading; their VNU pages/identities are
+synthetic and intercepted. They did not overwrite historical screenshot evidence.
+
+Live read-only checks: `/`, `/health`, `/ready`, `/auth/session`, `/programs`, all
+15 referenced assets and the academic-policy PDF returned 200; readiness reported
+PostgreSQL and four programs. Anonymous `/me/profile` and `/admin/users` correctly
+returned 401. Chrome launched with no local-page JS errors and loaded the public
+VNU login form with HTTP 200. SMTP EHLO/STARTTLS succeeded without authentication
+or sending mail. LLM remains disabled and no paid provider request was made.
+Real-account VNU login/grades and SMTP credentials/delivery were not tested;
+these checks do not certify every product behavior or external-service uptime.
+
+The offline HUS completion verifier passed at D with 1,381 records / 1,520 chunks.
+Dataset manifest SHA-256 remains
+`3dbdd56d0b8c7357bcd0711ec197716868c3f9ffa231b4847eb91af7482cbfae`.
+All 106 local selection locators were relocated; the same known historical
+`23a0c1df14a5708a` Markdown remains absent, not a new relocation failure. Raw
+sources, derived dataset hashes, approval states and academic unknowns remain
+unchanged. This verification does not approve or publish the HUS corpus.
+
+Current evidence and rollback copies are ignored under
+`backups/relocation_20261027/`: start with `REPORT.md`, `connections.json`,
+`integrity.json`, `browser_checks.json`, `offline.xml`, Docker before/after
+metadata, `baseline.json` and `originals/`. Originals contain historical paths
+for rollback only; do not treat them as runnable current configuration.
+
+## Session close — 2026-10-27: HUS completion and backup cleanup
+
+The user closes this turn with a memory update only. Do not resume source work,
+run tests, alter application/runtime/database state, create another commit, push
+or merge as part of this close-out. The root project remains on
+`chore/remove-old-crawl-markdown-20261026` at `7650c123c67082f476af8f4f8c83cf72c0ce9708`.
+Preserve its pre-existing dirty crawl-corpus deletions, README/manifest and RAG
+handoff work, and unexamined `.vscode/`; this session changed only this memory
+file and ignored backup cleanup documentation/artifacts.
+
+The HUS data-completion implementation is isolated at
+`backups/hus_pipeline_worktree_20261026`, branch
+`feat/hus-normalize-chunks-20261026`, local commit
+`4b52f85accfad41460cf25c48b678bd11d43341a`, based on `5d0dacc`. It was clean at
+close and remains unpushed/unmerged. Its outputs are ignored local files under
+`backups/hus_completion_20261026/`; a fresh Git clone will not contain them.
+Start with `START_HERE.md`, `CHATGPT_HANDOFF.md` and `DELIVERY_RECEIPT.json` there;
+reproduction steps live in the feature checkout's
+`docs/hus_pipeline/COMPLETION_RUN_V2.md`.
+
+Final dataset manifest SHA-256 is
+`3dbdd56d0b8c7357bcd0711ec197716868c3f9ffa231b4847eb91af7482cbfae`.
+Results: 20 AI-verified capture metadata fields, 12 issuance facts, 297 visually
+checked course occurrences across 22 table pages, 1,381 records and 1,520 chunks.
+There are 30 offline descriptive AI-ready chunks, 383 source-checked PDF chunks
+outside formal whole-document include, and 1,107 quarantined chunks. No human or
+university approval, individual academic applicability, embedding, active release
+or runtime/database change is asserted. Final offline suite evidence is 716
+passed, zero skipped, 75 PostgreSQL tests deselected; the last full run predates
+this cleanup. Independent component/aggregate replays matched 40/98/15 files.
+No tests were run for backup cleanup or this memory update.
+
+Five matching original attachments remain missing. The network probe for
+`8afffd3cada3d048` failed with WinError 10013; four other URLs were not attempted.
+The missing-file list is `backups/hus_completion_20261026/MISSING_SOURCE_REQUESTS.csv`.
+Dedicated F3 sources for Mathematics and Data Science remain unavailable. Keep
+current validity, remote equality, unresolved printed credit/code conflicts and
+individual applicability unknown; preserve the absent historical ID
+`23a0c1df14a5708a`. Do not represent the remaining data as full academic or
+source acceptance.
+
+On 2026-10-27 the user explicitly asked to remove unnecessary backup files. The
+cleanup removed 3,299 files (~642 MiB): two clean nested VNU Git clones whose
+commits are already in root history, generated test/cache folders, a byte-
+identical completion replay, superseded aggregate builds and old review boards,
+plus the stale `5d0dacc` bundle. Before removing the clones, 87 distinct UI
+screenshots were moved to
+`backups/vnu_eligibility_integration_20261026/visual_evidence_from_clone/` and
+`backups/vnu_curriculum_review_20261026/visual_evidence_from_clone/`. The final
+HUS completion output, pinned source audit, PDF/OCR assets, baseline, runtime
+rollback dumps and unpushed feature checkout were kept. `backups/README.md` has
+the inventory. At close, backups occupied about 0.75 GiB, E: had about 0.81 GiB
+free, and the only nested Git repository in backups was the active HUS feature
+checkout.
+
+The old preservation JSON mishandled five Git-quoted Unicode PDF paths as null.
+Close-out verified 547 recorded paths, and separately verified those five PDFs
+match root Git `HEAD`; this is not a recovered pre-task hash for those five.
+`backups/hus_pipeline_DELIVERY_20261026.json` is historical and refers to an old
+ZIP that is no longer present; use the current delivery receipt instead.
+
+## Session close — 2026-10-26: one-file normalization preview pending
+
+User explicitly closes the session and requests a memory update. Stop the
+normalization attempt here; this close performs only memory/document-state
+recording. No commit/push/PR, application/runtime/DB changes or new source review.
+
+Completed: data audit and F1/F2/F3 selection proposal; general-folder review;
+portable handoff at `docs/rag_normalization/HANDOFF_2026_10_26.md` with
+`source_selection.csv`, `inventory_snapshot.json`, `example_course_record.json`;
+updated package `backups/rag_normalization_handoff_20261026.zip`. Section 1.1
+and W2/W3 explicitly require reusing the crawldata metadata models/validators and
+basic normalization. The MAT2502 JSON is an illustrative record with unverified
+proposals, not a normalized copy of the full source document or an approved source.
+
+The user's final work request before closing was to normalize ONE actual file
+and show before/after. Target selected from their IDE context:
+`backups/crawldata_audit_20261026_28d61c4/source/data/hus/processed/documents/`
+`computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-0-pdf--8afffd3c.md`
+(document ID `8afffd3cada3d048`). Only read-only inspection was done. No preview
+script, before/after files, demo directory or full normalized document was created.
+If the user resumes, continue by producing a concrete, separate comparison for
+that one file; do not claim the earlier MAT2502 example fulfills this request.
+
+Inspection findings for that future preview: the current Markdown has 661 lines,
+25 page markers and 19 table blocks. The main curriculum spans 7 table fragments,
+with numbered course rows 1–66 and continuation cells across page markers 13,
+14 and 16. Preserve fragments and provenance; joining them is an unverified
+derived proposal until checked against raw. Do not indiscriminately remove
+standalone numbers: `2015` in the final comparison section is a meaningful year.
+Beyond the known 78-vs-81 credit discrepancy, the summary/table states 148 total
+credits while section 5.3 states 154. Record conflicts rather than silently
+repairing values. Original PDF remains missing. Source text/body matches catalog
+after stripping only the outer frontmatter/newline wrapper.
+
+Workset remains 12 proposed sources (7 core + 5 supplemental), with no formal
+include/chunks. Unknown metadata stays unknown; normalization may create
+candidates without assigning verified values or replacing runtime eligibility.
+Current branch remains `chore/remove-old-crawl-markdown-20261026`; preserve the
+prior old-crawl deletions, README/manifest/memory edits, untracked
+`docs/rag_normalization/` and the now-present untracked `.vscode/` directory.
+The latter was not created, inspected or modified by this task.
+
+## RAG normalization handoff — 2026-10-26
+
+Metadata clarification: remote crawldata was rechecked and still points to
+28d61c4. It already implements MetadataField/ApplicabilityMetadata, proposal and
+evidence validation, a 106-document applicability.json, basic text normalization
+and corpus build/verify. Complete and verify existing metadata rather than
+recreate those models. All nine applicability fields currently have zero
+non-unknown verified values; program/variant/cohort/year/validity/effective-date
+proposals are also all unknown. Handoff section 1.1 and W2/W3 now make reuse
+explicit. The example's nested applicability uses the existing model and
+high_quality vocabulary; its additional proposals are illustrative and do not
+change source metadata. The portable inventory and handoff ZIP are refreshed.
+
+User asks to consolidate the data state and normalization plan for assigning
+work to a teammate. Prepared the shareable, local-only handoff at
+`docs/rag_normalization/HANDOFF_2026_10_26.md`, with portable
+`source_selection.csv` (106 records), `inventory_snapshot.json` and a real
+Markdown-derived MAT2502 `example_course_record.json`. This is documentation
+and an example, not implementation of the normalizer or a corpus approval.
+
+Current selection: 7 core + 5 supplemental (3 CLC, 2 general F1) + 6 deferred OCR
++ 3 historical + 85 outside v1 = 106. Workset: 12 documents, 7 with raw HTML and
+5 attachments without raw. All selected approved_for_rag flags remain false.
+Source review baseline remains 100 needs_review / 6 pending_ocr / 0 include,
+0 chunks and inactive. User reading Markdown does not create fabricated
+reviewer, timestamp, raw-quality or effective-scope evidence.
+
+Pinned audit tree: 28d61c4bc13ff32592c48ef890a087166494cc59; internal source
+manifest still references hus-0404f37-20261026. Local audit has 105 Markdown
+against 106 catalog records: the unselected historical 23a0c1df file is missing.
+All 161 present manifest files match; do not implicitly restore that local file.
+Other machines should obtain a complete isolated source at the pinned commit.
+Backups are ignored and are not included in a fresh clone.
+
+Normalization plan preserves sources, creates derived records and source maps,
+records proposed/verified metadata and same-scope version decisions, recovers
+raw/OCR sources, and leaves unresolved scope/logic unknown. Pipeline 1.4 currently
+reviews whole documents; section records cannot bypass require_review or mark
+an entire source include after checking only selected paragraphs. Embedding,
+runtime publication, DB/catalog/eligibility changes are later work. No normalizer,
+full corpus, commit/push/PR or app changes were requested in this handoff turn.
+
+## HUS RAG source-version preference — 2026-10-26
+
+The user selected F1 major overview, F2 curriculum frameworks and F3 course
+descriptions for the first RAG source review. They now require the newest
+published document when several versions cover the same scope, especially
+curriculum frameworks because recommendations depend on them. Compare within
+major, degree, program/track and document kind using the issuance evidence in
+the source, not filenames or crawl/fetched timestamps. Keep older versions for
+historical questions and older cohorts where still applicable. For a student's
+course recommendations, the framework must additionally apply to that student's
+cohort/program; a newer framework
+for another cohort is not automatically applicable. If version/effective scope
+is unknown, do not replace the existing verified catalog or eligibility rules
+with crawl text.
+
+Updated the ignored selection proposal at
+`backups/rag_selection_f1_f2_f3_20261026/SELECTION.md` and its JSON policy.
+Current examples: KHMTTT 2024 course descriptions may supersede overlapping
+2023 descriptions only after same-scope verification; the 2023 Word framework
+has a blank issuance line. Two CLC PDFs both show decision 3340 dated 2019;
+`2020` in the filename does not establish a newer version. The 2015 frameworks
+remain historical where newer sources are identified but not yet recovered or
+OCR-verified. This is a selection rule, not approval of any source or a runtime
+recommendation change. No commit/push/PR, database migration or publication.
+
+## Old crawl Markdown removed — 2026-10-26
+
+User explicitly requests deleting all old crawled Markdown data and will supply
+replacement data later. This supersedes earlier immutable-snapshot and preserve
+instructions for those files, including the preexisting whitespace-only edit to
+the document ending `exh01-02-06...0a180289.md`.
+
+On local branch `chore/remove-old-crawl-markdown-20261026`, removed all 106 `.md`
+files (2,904,117 bytes) under
+`data/hus/releases/2026-10-22-3a45aae-candidate/processed/documents/`.
+All were tracked in Git. No commit/push/PR is requested. Preserve the preexisting
+memory changes from `docs/session-close-20261026` carried into this branch.
+
+Automatic approval review rejected the initial combined deletion because it
+also removed `processed/catalog.json`, outside the explicitly requested `.md`
+scope. That rejected command made no deletions. The narrower Markdown-only
+deletion succeeded. The user then explicitly answered "Xóa luôn catalog.json
+của bộ crawl cũ". Removed that exact catalog (3,232,362 bytes) after checking
+its path and SHA-256 against the manifest. The prior review block is resolved;
+no deletion approval remains pending. Total removal: 107 files / 6,136,479 bytes.
+
+The 101 raw HTML files remain. SHA-256 checks verified 260 retained snapshot,
+sample catalog, original PDF, database source, application and config files
+unchanged through Markdown deletion; 259 retained files were checked unchanged
+through the subsequent JSON deletion. Updated snapshot README/manifest and data README
+record retirement; earlier crawl/chunk statistics are historical. No runtime/DB
+change, crawler, preprocessing, index build or restart. New corpus work waits
+for the user's replacement data.
+
+## Session close — 2026-10-26: eligibility delivered; owner acceptance pending
+
+User requests session close and memory update only. No new implementation,
+commit/push/PR, database write or restart is authorized by this close-out.
+Memory edits stay local on docs/session-close-20261026, based on main 7650c12,
+to follow the permanent feature-branch/PR rule. Preserve the preexisting corpus
+whitespace edit ending exh01-02-06...0a180289.md; do not publish it with memory.
+
+Eligibility delivery is complete through PR #7:
+https://github.com/5-Bit-System/SE_Project/pull/7.
+Merged using Create a merge commit as 7650c123c67082f476af8f4f8c83cf72c0ce9708.
+The genuine integration merge f9e7a0c has parents e781ab3 and teammate 5e1a9bf;
+deb3fb0 adds original-owner checks after I/O. Teammate 5e1a9bf keeps author
+huyvinh005 and is an ancestor of main and present in PR #7. A duplicate PR from
+the old source branch is unnecessary; its existing contribution already has
+the PR record and original history. No invented authorship or copied-only credit.
+
+Final verification recorded below remains: 523 offline, 75 PostgreSQL, 35
+targeted auth/binding/VNU rerun, 15 fixture Chrome scripts and one real-HTTP/
+disposable-PG Chrome flow. PR checks 6/6 and post-merge main checks 3/3 passed.
+No tests rerun for branch cleanup or this documentation-only close-out.
+
+Runtime is served from E:/SE_Project at http://127.0.0.1:8000/#rules. Latest
+read-only close-out /ready returns status=ok, storage=postgres. Last recorded
+launcher PID 23348; verify command lines before any future stop. Health, 15
+versioned assets, policy PDF and anonymous personal-route rejection were checked
+after deployment. Logs/evidence: backups/vnu_eligibility_integration_20261026/.
+RESULT.md there records exact commits, tests, integrity and rollout details.
+
+The runtime backup was restored in isolation; 19 protected table fingerprints
+matched before/after rollout. No runtime migration/seed/catalog publication,
+password/SMTP changes, manual completeness upgrade or actual grades inspection.
+Existing config and corpus hashes were unchanged. Subsequent owner-initiated
+confirmation/synchronization may legitimately write binding/snapshots; do not
+assume deployment-time fingerprints describe all later user activity.
+
+User authorized deleting completed temporary branches. Removed ONLY
+integration/vnu-eligibility-20261026 remotely and from the integration clone,
+after full-ancestry verification; that clone is now on main 7650c12. Kept
+feat/vnu-curriculum-planning and teammates' other branches. Removed temporary
+PostgreSQL test container after verification. se_auth_mail and se_recommender_db
+containers were also removed earlier by request; both DB volumes remain.
+
+Latest owner screenshot shows selected program/cohort and consent checked, but
+the confirmation form remains and all three columns state that program
+confirmation is required. User asked for an answer only: explained that ticking
+consent alone does not persist confirmation; press the confirmation/compare
+button. If already pressed, the screenshot alone does not identify why the
+request did not complete. No authenticated API, DB, logs or personal source was
+inspected to diagnose that screenshot, and no fix was made. Do not assert that
+the user never clicked, declare a confirmed bug, or mark real-account academic
+acceptance complete. If asked to investigate later, check the confirmation
+request/result and remaining readiness gates; do not reset seed, transfer owners,
+rewrite source records or force verification flags to populate the columns.
+
 ## VNU eligibility integration — 2026-10-26
 
 User authorizes implementation, tests and integration of the teammate's

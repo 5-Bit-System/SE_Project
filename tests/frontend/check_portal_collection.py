@@ -10,7 +10,9 @@ from app.integrations.daotao.snapshot import snapshot
 TABLE = '''<div id="divList3"><table><tr><td title="Mã môn học">Mã môn học</td></tr>
 <tr><td>HỌC KỲ 1 - 2099-2100</td></tr>
 <tr><td>1</td><td>TEST001</td><td>Invented course</td><td>3</td><td>7.5</td><td>B</td><td>3</td></tr>
-<tr><td>Tổng tín chỉ: 3</td></tr></table></div>'''
+<tr><td>Tổng tín chỉ: 3</td></tr></table>
+<div>Tổng tín chỉ tích lũy: <strong>110</strong></div>
+<div>Điểm trung bình tích lũy hệ 4: <strong>3.37</strong></div></div>'''
 
 
 def main():
@@ -35,7 +37,10 @@ def main():
                 client = DaotaoClient(context)
                 client.page.goto(PROFILE_URL)
                 rows, evidence = client.read_transcript_capture(timeout_ms=4000)
-                assert snapshot(rows, evidence)["completeness"] == expected
+                result = snapshot(rows, evidence)
+                assert result["completeness"] == expected
+                assert ["Tổng tín chỉ tích lũy: 110"] in result["source_summary"]
+                assert ["Điểm trung bình tích lũy hệ 4: 3.37"] in result["source_summary"]
                 assert evidence["stable_reads"] == 3
                 assert evidence["network_idle"] is True
                 context.close()
@@ -94,14 +99,19 @@ def main():
                     body = checkbox.replace('CHECKED', 'checked' if expanded and echoes_selection else '') + TABLE
                     if expanded:
                         body = body.replace('</table>', '<tr><td>2</td><td>TESTFAIL</td><td>Invented failed course</td><td>3</td><td>2</td><td>F</td><td>0</td></tr></table>')
+                        body = body.replace('<div>Tổng tín chỉ tích lũy: <strong>110</strong></div>', '')
+                        body = body.replace('<div>Điểm trung bình tích lũy hệ 4: <strong>3.37</strong></div>', '')
                     route.fulfill(content_type='text/html; charset=utf-8', body=body)
 
                 context.route('**/*', native_form)
                 client = DaotaoClient(context)
                 client.page.goto(PROFILE_URL)
                 rows, evidence = client.read_transcript_capture(timeout_ms=4000)
-                assert snapshot(rows, evidence)['completeness'] == ('complete' if echoes_selection else 'unknown')
-                assert len(snapshot(rows, evidence)['attempts']) == 2
+                result = snapshot(rows, evidence)
+                assert result['completeness'] == ('complete' if echoes_selection else 'unknown')
+                assert len(result['attempts']) == 2
+                assert ['Tổng tín chỉ tích lũy: 110'] in result['source_summary']
+                assert ['Điểm trung bình tích lũy hệ 4: 3.37'] in result['source_summary']
                 assert len(requests) == 2
                 context.close()
         finally:

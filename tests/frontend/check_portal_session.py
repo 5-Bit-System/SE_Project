@@ -47,6 +47,9 @@ def main():
         elif path == '/auth/logout':
             state['authenticated'] = False
             route.fulfill(json={'logged_out':True})
+        elif path == '/me/semester-plans' and route.request.method == 'GET':
+            assert state['authenticated'], 'No plan fetch while signed out'
+            route.fulfill(json={'plans': []})
         elif path.startswith(('/auth/','/me/')):
             raise AssertionError('Unexpected private API')
         else:

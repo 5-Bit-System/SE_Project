@@ -1,0 +1,145 @@
+{
+  "as_of": "2026-10-26",
+  "purpose": "normalization_handoff_inventory_not_corpus_approval",
+  "audit_tree_commit": "28d61c4bc13ff32592c48ef890a087166494cc59",
+  "manifest_source_snapshot_id": "hus-0404f37-20261026",
+  "manifest_source_location": "git+https://github.com/5-Bit-System/SE_Project.git@0404f37c1b6c3864b7fe2e9938a8a21f777663f0#data/hus",
+  "catalog_documents": 106,
+  "local_audit_markdown_files": 105,
+  "local_audit_html_files": 101,
+  "manifest_mapped_raw_sources": 55,
+  "manifest_attachments_missing_raw": 51,
+  "source_manifest_declared_files": 162,
+  "source_manifest_present_matching_files": 161,
+  "source_manifest_missing_files_in_local_audit": [
+    "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-ctdt-ttud-130815-pdf--23a0c1df.md"
+  ],
+  "source_manifest_changed_files_in_local_audit": [],
+  "source_catalog_sha256_utf8_lf": "d74ce592c71e303e09bbc0f48cd4bdb04a184068e4232aa3cab46c24e1164352",
+  "crawler_status_counts": {
+    "active": 100,
+    "pending_ocr": 6
+  },
+  "source_review_status_counts": {
+    "needs_review": 100,
+    "pending_ocr": 6
+  },
+  "missing_academic_year": 106,
+  "missing_published_at": 100,
+  "existing_applicability_metadata": {
+    "documents": 106,
+    "source_path": "corpus/applicability.json",
+    "model_path": "app/hus/models.py:ApplicabilityMetadata",
+    "fields": {
+      "major": {
+        "proposed_counts": {
+          "mathematics": 25,
+          "data_science": 4,
+          "unknown": 53,
+          "computer_science": 12,
+          "mathematics_informatics": 10,
+          "out_of_scope": 2
+        },
+        "verified_non_unknown": 0
+      },
+      "education_level": {
+        "proposed_counts": {
+          "unknown": 103,
+          "undergraduate": 1,
+          "master": 1,
+          "doctoral": 1
+        },
+        "verified_non_unknown": 0
+      },
+      "program": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "program_variant": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "admission_cohort": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "academic_year": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "validity_status": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "effective_from": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      },
+      "effective_to": {
+        "proposed_counts": {
+          "unknown": 106
+        },
+        "verified_non_unknown": 0
+      }
+    }
+  },
+  "selection_counts": {
+    "outside_v1_selection": 85,
+    "proposed_supplemental": 5,
+    "proposed_core": 7,
+    "deferred_ocr": 6,
+    "deferred_historical": 3
+  },
+  "selected_workset": {
+    "documents": 12,
+    "raw_present": 7,
+    "raw_missing": 5,
+    "formal_approved_for_rag": 0
+  },
+  "general_review": {
+    "documents": 43,
+    "supplemental_f1_candidates": 2,
+    "outside_v1_selection": 41
+  },
+  "committed_baseline_report": {
+    "included_documents": 0,
+    "chunk_count": 0,
+    "active_release": false
+  },
+  "retired_old_snapshot_in_local_workspace": {
+    "markdown_files_present": 0,
+    "catalog_present": false,
+    "html_files_present": 101,
+    "git_publication_status": "local_deletions_not_committed_or_pushed"
+  },
+  "previous_audit_evidence_not_rerun_for_this_handoff": {
+    "old_documents_with_malformed_tables": 48,
+    "audited_documents_with_malformed_tables": 0,
+    "changed_markdown_documents": 48,
+    "unchanged_markdown_documents": 58,
+    "related_tests_passed": 274
+  },
+  "handoff_artifacts": {
+    "source_selection.csv": {
+      "sha256": "a923bf644d84090b4a326c8dc4ea759c0948e494d02d2c6e3ad2e7447d9ae8ef",
+      "encoding": "utf8-bom-lf",
+      "rows": 106
+    },
+    "example_course_record.json": {
+      "sha256": "2ec5b258d5425de3180032775683c0b5e642fcee9c7b4339957115adcfac7a4d",
+      "encoding": "utf8-lf"
+    }
+  }
+}

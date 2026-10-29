@@ -25,11 +25,14 @@ def main():
         "catalog_status": "draft_unverified", "selections": {},
         "courses": {
             "completed": [course("TEST-A", "Synthetic completed")],
-            "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True),
+            "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True,
+                                counted_in_total=False, eligibility_basis="excluded_from_total"),
                          course("TEST-E1", "<img src=x onerror=alert(1)>",
-                                requirement_type="elective", groups=[group], suggested=True),
+                                requirement_type="elective", groups=[group], suggested=True,
+                                eligibility_basis="requested_default"),
                          course("TEST-E2", "Synthetic alternative", requirement_type="elective",
-                                groups=[group])],
+                                groups=[group], eligibility_basis="no_prerequisites",
+                                result_pending=True)],
             "blocked": [course("TEST-C", "Synthetic blocked", reasons=[{
                 "kind": "missing_prerequisites", "missing_prerequisites": [
                     ["TEST-B", "TEST-OR"], ["TEST-AND"]]}]),
@@ -65,6 +68,10 @@ def main():
             if mode == 'unready':
                 result.update(status='needs_program_binding', courses=None, progress=None, plan=None,
                               blocking_reasons=['source_incomplete', 'program_binding_unverified'])
+            if mode == 'paused':
+                result.update(status='partial', can_plan=False,
+                              blocking_reasons=['graduation_selection_required'])
+                result['plan'].update(course_codes=[], suggested_credits=0)
             route.fulfill(content_type='application/json', body=json.dumps(result))
         elif path == '/me/semester-plans':
             route.fulfill(json={'plans': []})
@@ -103,6 +110,10 @@ def main():
         assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
         assert root.locator('img').count() == 0
         assert '<img src=x' in root.inner_text()
+        assert 'môn không tính vào tín chỉ tích lũy' in root.locator('[data-course-code="TEST-B"]').inner_text()
+        assert 'mặc định đã chọn; điều kiện tiên quyết đã thỏa' in root.locator('[data-course-code="TEST-E1"]').inner_text()
+        assert 'môn không có điều kiện tiên quyết' in root.locator('[data-course-code="TEST-E2"]').inner_text()
+        assert 'chưa tính là đã hoàn thành' in root.locator('[data-course-code="TEST-E2"]').inner_text()
         assert '7 / 20 TC' in root.inner_text()
         page.locator('[data-plan-code="TEST-E2"]').click()
         assert not page.locator('[data-plan-code="TEST-E2"]').is_checked()
@@ -128,8 +139,22 @@ def main():
         assert 'Your course map' in root.inner_text()
         assert '(TEST-B or TEST-OR) and (TEST-AND)' in root.inner_text()
         assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
+        assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()
+        assert 'excluded from earned program credits' in root.locator('[data-course-code="TEST-B"]').inner_text()
         assert page.locator('[data-plan-code="TEST-B"]').is_checked()
         page.locator('[data-language-choice="vi"]').click()
+        mode = 'paused'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chọn nhánh tốt nghiệp')")
+        assert root.locator('.course-state-eligible .course-status-card').count() == 3
+        for plan_input in root.locator('input[data-plan-code]').all():
+            assert plan_input.is_disabled()
+        # Existing edited drafts survive a pause, but no action can persist them.
+        assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+        assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
+        mode = 'ready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('4 / 6 TC')")
         evidence = Path('backups/local_runtime/course-status')
         evidence.mkdir(parents=True, exist_ok=True)
         for theme in ('light', 'dark'):

@@ -1,4 +1,4 @@
-"""Seven-day reminders and explicit sync, with synthetic data and no outbound requests."""
+"""Refresh banner stays hidden; retained sync uses synthetic data and no outbound requests."""
 
 import mimetypes
 from datetime import datetime, timedelta, timezone
@@ -30,6 +30,8 @@ def main():
             route.fulfill(json=session_payload(state['authenticated']))
         elif path == "/me/profile":
             route.fulfill(json=sample)
+        elif path == "/me/semester-plans" and route.request.method == "GET":
+            route.fulfill(json={"plans": []})
         elif path == "/me/course-status":
             route.fulfill(json={"status": "needs_program_binding", "courses": None,
                                "blocking_reasons": ["program_binding_unverified"]})
@@ -79,7 +81,10 @@ def main():
                 for width in (1440, 390):
                     page.set_viewport_size({"width": width, "height": 1000})
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
-                    assert page.locator("#portal-sync").is_visible()
+                    assert page.locator(".transcript-refresh-bar").is_hidden()
+                    assert page.locator("#portal-sync").is_hidden()
+                    assert page.locator(".transcript-refresh-bar").evaluate(
+                        "node => node.getBoundingClientRect().height") == 0
                     page.screenshot(path=str(evidence / f"{theme}-{width}.png"), full_page=True)
             page.set_viewport_size({"width": 1440, "height": 1000})
             page.locator('[data-language-choice="en"]').click()
@@ -89,7 +94,7 @@ def main():
             def update():
                 page.locator("#tab-btn-dashboard").click()
                 assert page.locator(".source-notice:visible").count() == 0
-                page.locator("#portal-sync").click()
+                page.evaluate("document.dispatchEvent(new Event('workspace:portal-begin-sync'))")
                 assert page.evaluate("location.hash") == "#profile"
                 page.wait_for_function("!document.getElementById('portal-sync').disabled")
                 assert page.locator("#portal-login").is_hidden()

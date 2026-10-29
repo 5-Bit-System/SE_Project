@@ -13,7 +13,7 @@
 ## Chức năng hiện có
 
 - Xem hồ sơ, bảng điểm và thống kê mô tả từ nguồn VNU; giữ nguyên các lượt học và điểm nguồn.
-- Chủ động cập nhật bảng điểm; dùng lại phiên VNU trong RAM khi còn hiệu lực và nhắc cập nhật sau 7 ngày.
+- Lấy hồ sơ và bảng điểm mới từ VNU khi đăng nhập; giữ dữ liệu đã lưu nếu lần lấy nguồn mới gặp lỗi.
 - Quản trị viên quản lý tài khoản/quyền/trạng thái, không mặc định xem bảng điểm người khác.
 - Backend tính eligibility, progress, recommendation và advisor được giữ; luồng cá nhân từ VNU còn chờ completeness, mapping chương trình và chính sách học vụ được xác minh. Giao diện chưa mở kết quả học vụ khi thiếu các điều kiện này.
 

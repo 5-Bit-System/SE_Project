@@ -6,7 +6,7 @@
 .portal-top { justify-content: space-between; border-bottom: 2px solid var(--border-focus); padding-bottom: 12px; }
 .portal-top h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 0; }
 .portal-button { font: inherit; color: var(--text-main); background: var(--bg-input); border: 1px solid var(--border-medium); border-radius: 8px; padding: 10px 16px; cursor: pointer; }
-.portal-button:disabled { opacity: .6; cursor: wait; }
+.portal-button:disabled { opacity: .6; cursor: not-allowed; }
 .portal-button:focus-visible, #portal-dialog input:focus-visible, .portal-table-scroll:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
 #portal-login { max-width: 480px; margin: 24px auto; }
 #portal-login label { display: block; margin: 16px 0 8px; font-weight: 600; }

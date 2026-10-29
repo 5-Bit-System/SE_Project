@@ -28,6 +28,8 @@ def main():
             route.fulfill(json=session_payload(state['authenticated']))
         elif path == "/me/profile":
             route.fulfill(json=sample)
+        elif path == "/me/semester-plans" and request.method == "GET":
+            route.fulfill(json={"plans": []})
         elif path == "/me/portal-sync":
             assert request.post_data is None, "Sync must not submit credentials or cookie state"
             if state["missing"]:
@@ -72,7 +74,7 @@ def main():
             page.wait_for_function("!document.getElementById('portal-profile').hidden")
 
             def sync():
-                page.locator("#portal-sync").click()
+                page.evaluate("document.dispatchEvent(new Event('workspace:portal-begin-sync'))")
                 page.wait_for_function("!document.getElementById('portal-sync').disabled")
 
             sync()
