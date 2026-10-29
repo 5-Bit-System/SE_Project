@@ -307,6 +307,15 @@
     return node;
   }
 
+  function matchesSearch(course) {
+    return `${course.code} ${course.name} ${course.name_en || ''}`
+      .toLocaleLowerCase().includes(search.toLocaleLowerCase());
+  }
+
+  function searchResultCount() {
+    return states.reduce((total, state) => total + (board?.courses?.[state] || []).filter(matchesSearch).length, 0);
+  }
+
   function renderColumns() {
     const columns = el('div', undefined, 'course-status-columns');
     states.forEach((state, index) => {
@@ -317,7 +326,7 @@
       heading.append(el('span', courses ? String(courses.length) : '—'));
       header.append(heading, el('p', subtitles()[index]));
       const list = el('div', undefined, 'course-status-list');
-      const matching = (courses || []).filter(course => `${course.code} ${course.name} ${course.name_en || ''}`.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+      const matching = (courses || []).filter(matchesSearch);
       matching.forEach(course => list.append(card(course, state)));
       if (!matching.length) {
         const pending = board?.blocking_reasons?.includes('source_incomplete')
@@ -460,8 +469,19 @@
     toolbar.addEventListener('submit', event => { event.preventDefault(); if (!toolbar.reportValidity()) return; budget = Number(budgetInput.value); planDirty = true; load('budget'); });
     const searchLabel = el('label', copy('Tìm môn học', 'Find a course'), 'course-status-search');
     const searchInput = el('input'); searchInput.type = 'search'; searchInput.value = search; searchInput.placeholder = copy('Mã hoặc tên môn học', 'Course code or name'); searchInput.disabled = !displayable;
-    searchInput.addEventListener('input', () => { search = searchInput.value; saveDraft(); root.querySelector('.course-status-columns').replaceWith(renderColumns()); });
-    searchLabel.append(searchInput); toolbar.append(budgetLabel, apply, searchLabel); root.append(toolbar);
+    const searchResults = el('p', '', 'course-status-search-results');
+    searchResults.setAttribute('role', 'status'); searchResults.setAttribute('aria-live', 'polite');
+    searchResults.setAttribute('aria-atomic', 'true');
+    searchInput.addEventListener('input', () => {
+      search = searchInput.value; saveDraft();
+      const count = searchResultCount();
+      searchResults.textContent = search
+        ? count ? copy(`Có ${count} môn phù hợp.`, `${count} matching courses.`)
+          : copy('Không có môn phù hợp.', 'No courses match this search.')
+        : copy(`Đã xóa tìm kiếm. Hiện ${count} môn.`, `Search cleared. Showing ${count} courses.`);
+      root.querySelector('.course-status-columns').replaceWith(renderColumns());
+    });
+    searchLabel.append(searchInput); toolbar.append(budgetLabel, apply, searchLabel); root.append(toolbar, searchResults);
     if (displayable && !loading) {
       const summary = el('div', undefined, 'course-status-summary');
       const progress = board.progress.total;

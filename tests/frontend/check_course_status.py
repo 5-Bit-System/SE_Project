@@ -149,7 +149,14 @@ def main():
         assert 'vượt mức tín chỉ' in root.locator('.course-plan-error').inner_text()
         root.locator('input[type=search]').fill('TEST-C')
         assert root.locator('.course-status-card').count() == 1
+        search_status = root.locator('.course-status-search-results')
+        assert search_status.get_attribute('role') == 'status'
+        assert search_status.get_attribute('aria-live') == 'polite'
+        assert search_status.inner_text() == 'Có 1 môn phù hợp.'
+        root.locator('input[type=search]').fill('NO-MATCH')
+        assert search_status.inner_text() == 'Không có môn phù hợp.'
         root.locator('input[type=search]').fill('')
+        assert search_status.inner_text() == 'Đã xóa tìm kiếm. Hiện 6 môn.'
         root.locator('.course-status-toolbar select').nth(0).select_option('synthetic-track')
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'track'")
         root.locator('.course-status-toolbar select').nth(1).select_option('synthetic-path')
@@ -162,6 +169,10 @@ def main():
         assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()
         assert 'excluded from earned program credits' in root.locator('[data-course-code="TEST-B"]').inner_text()
         assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+        root.locator('input[type=search]').fill('TEST-C')
+        assert root.locator('.course-status-search-results').inner_text() == '1 matching courses.'
+        root.locator('input[type=search]').fill('')
+        assert root.locator('.course-status-search-results').inner_text() == 'Search cleared. Showing 6 courses.'
         page.locator('[data-language-choice="vi"]').click()
         mode = 'paused'
         root.get_by_role('button', name='Cập nhật', exact=True).click()

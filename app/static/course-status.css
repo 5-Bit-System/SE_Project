@@ -19,6 +19,8 @@
 .course-status-toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
 .course-status-toolbar label { display: grid; gap: 7px; font-size: var(--text-xs); color: var(--text-muted); min-width: 0; }
 .course-status-toolbar .course-status-search { flex: 1; min-width: 170px; }
+.course-status-search-results { color: var(--text-muted); font-size: var(--text-xs); margin: -8px 0 16px; }
+.course-status-search-results:empty { display: none; }
 .course-status input[type="search"], .course-status input[type="number"], .course-status select { border: 1px solid var(--border-medium); border-radius: var(--radius-control); background: var(--bg-input); color: var(--text-main); font: inherit; font-size: var(--text-base); min-height: 44px; padding: 10px 12px; width: 100%; min-width: 0; }
 .course-status input[type="number"] { max-width: 110px; }
 .course-status-notice { padding: 16px 20px; background: var(--info-bg); border: 1px solid var(--border-subtle); border-radius: 12px; font-size: var(--text-sm); margin: 16px 0; }
