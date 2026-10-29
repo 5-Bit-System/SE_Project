@@ -42,8 +42,9 @@ def main():
             "blocked": [course("TEST-C", "Synthetic blocked", reasons=[{
                 "kind": "missing_prerequisites", "missing_prerequisites": [
                     ["TEST-B", "TEST-OR"], ["TEST-AND"]]}]),
-                        course("TEST-D", "Synthetic unknown", reasons=[{
-                            "kind": "prerequisite_unknown", "missing_prerequisites": []}])],
+                        course("TEST-D", "Synthetic unknown", reasons=[
+                            {"kind": "prerequisite_unknown", "missing_prerequisites": []},
+                            {"kind": "course_source_unverified", "missing_prerequisites": []}])],
         },
         "progress": {
             "total": {"earned_credits": 3, "required_credits": 120,
@@ -142,6 +143,7 @@ def main():
         assert 'khối/nhóm có thể chồng lấp' in progress_detail.inner_text()
         assert page.locator('#course-credit-budget').input_value() == '20'
         assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
+        assert 'Thông tin mã môn, tên, tín chỉ hoặc khối chưa được xác minh.' in root.locator('[data-course-code="TEST-D"]').inner_text()
         assert root.locator('img').count() == 0
         assert '<img src=x' in root.inner_text()
         assert 'môn không tính vào tín chỉ tích lũy' in root.locator('[data-course-code="TEST-B"]').inner_text()

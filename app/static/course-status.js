@@ -227,7 +227,8 @@
     academic_program_source_mismatch: copy('Lựa chọn không khớp ngành/khóa đọc từ VNU.', 'Your selection does not match source enrollment.'),
     context_changed: copy('Dữ liệu đã thay đổi. Hãy tải lại rồi xác nhận.', 'The data changed. Reload it before confirming.')
     ,program_rules_review_required: copy('Quy tắc chọn hướng trong khung này cần đối chiếu thêm. Vẫn hiển thị các môn đã đối chiếu điểm đạt; kế hoạch tạm dừng.', 'This curriculum’s study-track rules need review. Resolved passed courses remain visible; planning is paused.')
-    ,catalog_unverified: copy('Khung chương trình chưa được xác minh; tạm dừng phân loại và lập kế hoạch.', 'The curriculum has not been verified; classification and planning are paused.')
+    ,catalog_unverified: copy('Khung chương trình chưa được xác minh; tạm dừng phân loại và lập kế hoạch.', 'The curriculum has not been verified; classification and planning are paused.'),
+    course_source_unverified: copy('Thông tin cơ bản của môn học chưa được xác minh.', 'Core course information has not been verified.')
   })[reason] || copy('Dữ liệu bảng điểm cần được kiểm tra thêm.', 'Transcript data needs further review.');
 
   function blockedReason(reason) {
@@ -238,6 +239,7 @@
     return ({
       choice_group_full: copy('Nhóm tự chọn đã đủ tín chỉ yêu cầu.', 'The elective group credit requirement is already fulfilled.'),
       prerequisite_unknown: copy('Chưa xác minh được điều kiện tiên quyết.', 'Prerequisites have not been verified.'),
+      course_source_unverified: copy('Thông tin mã môn, tên, tín chỉ hoặc khối chưa được xác minh.', 'Course code, name, credits or block have not been verified.'),
       source_conflict: copy('Tài liệu nguồn có điều kiện tiên quyết mâu thuẫn.', 'Source documents contain conflicting prerequisites.'),
       track_mismatch: copy('Môn thuộc hướng chuyên ngành khác.', 'This course belongs to another study track.'),
       graduation_path_mismatch: copy('Môn thuộc nhánh tốt nghiệp khác.', 'This course belongs to another graduation path.'),
