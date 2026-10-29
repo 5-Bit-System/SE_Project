@@ -119,6 +119,7 @@ def main():
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
         assert root.locator('.course-state-blocked .course-status-card').count() == 2
         assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể chọn vào kế hoạch')
+        assert page.get_by_role('checkbox', name='Chọn TEST-B - Synthetic required cho kế hoạch kỳ tới').count() == 1
         assert page.locator('#course-credit-budget').input_value() == '20'
         assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
         assert root.locator('img').count() == 0
@@ -155,6 +156,7 @@ def main():
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
         page.locator('[data-language-choice="en"]').click()
         assert 'Your course map' in root.inner_text()
+        assert page.get_by_role('checkbox', name='Select TEST-B - Synthetic required for the next-term plan').count() == 1
         assert '(TEST-B or TEST-OR) and (TEST-AND)' in root.inner_text()
         assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
         assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()

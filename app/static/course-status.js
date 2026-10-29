@@ -273,7 +273,8 @@
   function card(course, state) {
     const node = el('article', undefined, 'course-status-card');
     node.dataset.courseCode = course.code;
-    node.append(el('span', course.code, 'course-code-name'), el('h4', window.workspaceI18n.language === 'en' && course.name_en ? course.name_en : course.name, 'course-code-name source-course-name'));
+    const courseName = window.workspaceI18n.language === 'en' && course.name_en ? course.name_en : course.name;
+    node.append(el('span', course.code, 'course-code-name'), el('h4', courseName, 'course-code-name source-course-name'));
     const meta = el('div', undefined, 'course-status-meta');
     const labels = {required: copy('Bắt buộc', 'Required'), elective: copy('Tự chọn', 'Elective'), required_excluded: copy('Bắt buộc', 'Required'), graduation: copy('Tốt nghiệp', 'Graduation')};
     meta.append(el('span', credits(course.credits), 'course-status-badge'), el('span', labels[course.requirement_type] || '', 'course-status-badge'));
@@ -298,6 +299,7 @@
       });
       const label = el('label', undefined, 'course-status-check');
       const input = el('input'); input.type = 'checkbox'; input.disabled = planBusy || loading || failed || board?.can_plan === false; input.checked = chosen.has(course.code); input.dataset.planCode = course.code;
+      input.setAttribute('aria-label', copy(`Chọn ${course.code} - ${course.name} cho kế hoạch kỳ tới`, `Select ${course.code} - ${courseName} for the next-term plan`));
       input.addEventListener('change', () => updatePlan(course, input.checked));
       label.append(input, el('span', copy('Chọn cho kế hoạch kỳ tới', 'Select for next term')));
       node.append(reasons, label);
