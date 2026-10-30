@@ -92,8 +92,9 @@ def build_context(
     snapshot: dict | None, *, owner_id: str, catalog: Catalog,
     catalog_revision: str, binding: dict | None = None,
     policy: AcademicPolicy | None = None,
+    preview_unverified_metadata: bool = False,
 ) -> dict:
-    """Derive immutable facts. Only ready contexts expose a usable completed set."""
+    """Derive immutable facts; optional metadata preview is only for the course board."""
     source = snapshot or {}
     fingerprint = {
         "owner": owner_id, "source": source, "catalog_revision": catalog_revision,
@@ -165,9 +166,12 @@ def build_context(
     for code, rows in sorted(groups.items()):
         if code not in courses:
             state, reason = "out_of_catalog", "exact_mapping_unresolved"
-        elif courses[code].source_status != "verified":
+        elif courses[code].source_status != "verified" and not preview_unverified_metadata:
             state, reason = "unresolved", "course_source_unverified"
         else:
+            if courses[code].source_status != "verified" and "course_source_unverified" not in reasons:
+                reasons.append("course_source_unverified")
+                result["status"] = "needs_policy_review"
             state, reason = _outcome(rows, courses[code].credits, policy)
         result["outcomes"].append({"code": code, "state": state, "reason": reason,
                                    "row_keys": [row.get("row_key") for row in rows]})

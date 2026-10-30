@@ -18,6 +18,20 @@ hướng/nhánh và hạn mức nhóm trước khi áp dụng mặc định. Mô
 thật vẫn ở nhóm đỏ. Kết quả chưa rõ không được dùng mở khóa môn khác; các API
 recommendation/advisor đầy đủ vẫn yêu cầu context ready.
 
+### Bản xem trước khi metadata chưa xác minh
+
+Nếu bảng điểm đã được lấy đầy đủ, ngành/khóa và quy chế đã được xác nhận nhưng
+catalog hoặc metadata môn còn `draft_unverified`, **Điều kiện học** vẫn hiển thị
+bản đồ xem trước từ các dữ liệu hiện có. Kết quả xanh/vàng trong bản này là tạm
+tính; kết quả học chưa rõ không mở khóa môn khác. Tiến độ được ghi là tạm tính.
+Kế hoạch, checkbox chọn môn và thao tác lưu phương án bị khóa cho đến khi
+catalog, thông tin môn và tiên quyết được xác minh. Các API eligibility,
+recommendation, advisor và academic-progress vẫn giữ kiểm tra nghiêm ngặt.
+
+Preview không thay đổi bảng điểm, trạng thái xác minh hay catalog đã xuất bản.
+Nếu nguồn bảng điểm chưa đầy đủ, chưa xác nhận đúng ngành/khóa hoặc chưa có quy
+chế áp dụng, màn hình tiếp tục yêu cầu xử lý điều kiện đó trước khi hiển thị.
+
 Phân loại tách khỏi việc lập kế hoạch: nếu còn thiếu chọn hướng/nhánh, có mã
 ngoài khung hoặc quy tắc chương trình chưa rõ, các môn mặc định vẫn hiện màu
 vàng nhưng kế hoạch tạm dừng, không tự chọn môn và khóa checkbox. Khi được

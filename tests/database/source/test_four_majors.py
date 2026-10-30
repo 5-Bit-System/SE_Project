@@ -30,7 +30,10 @@ def test_major_coverage_and_credit_target(major):
     assert {e["course_code"] for e in entries} == set(codes)
     assert {c.code for c in catalog.courses} == set(codes)
     assert catalog.program.total_credits == curriculum["credits_required"] == credits
-    assert catalog.program.catalog_status == "draft_unverified"
+    expected_status = (
+        "verified" if catalog.program.program_id == "khmtt_7480113qtd_2022" else "draft_unverified"
+    )
+    assert catalog.program.catalog_status == expected_status
 
 
 def test_all_source_occurrences_and_memberships_survive_conversion(major, source_bundle):

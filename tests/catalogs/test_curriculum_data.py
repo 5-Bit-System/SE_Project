@@ -37,7 +37,8 @@ def test_complete_source_table_and_generated_catalog(
         assert len(catalog.courses) == count
         assert len({c.code for c in catalog.courses}) == count
         assert catalog.program.total_credits == credits
-        assert catalog.program.catalog_status == "draft_unverified"
+        expected_status = "verified" if program_id == "khmtt_7480113qtd_2022" else "draft_unverified"
+        assert catalog.program.catalog_status == expected_status
         assert all("sources" not in c.model_dump() for c in catalog.courses)
         assert sum(len(c.source_occurrences) for c in catalog.courses) == len(rows)
         return
