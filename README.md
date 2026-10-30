@@ -76,6 +76,7 @@ Test mặc định dùng fixture tổng hợp và không gọi dịch vụ AI ha
 ## API chính
 
 - `GET /programs`, `GET /courses?program_id=...`: danh sách ngành và môn học.
+- `GET /courses/search?program_id=...`: tìm kiếm/lọc catalog, phân trang và thứ tự xác định; giữ nguyên mảng `/courses` cũ. Contract và cách tái lập: [BT3 VT-101](docs/assignments/BT3_23001953_VT-101/SPEC.md).
 - `POST /transcript/summary`, `POST /eligibility`: tổng hợp bảng điểm và kiểm tra điều kiện.
 - `POST /recommendations`, `POST /recommendations/what-if`: gợi ý và xếp hạng lại trên tập đủ điều kiện.
 - `POST /auth/vnu`: sinh viên đăng nhập VNU trực tiếp; `POST /auth/login`: admin local.

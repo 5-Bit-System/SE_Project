@@ -7,11 +7,18 @@ from app.progress import calculate_progress
 from app.recommendation.llm import configured_adapters
 from app.rules import evaluate_eligibility
 from app.schemas.advisor import AdvisorRequest, AdvisorResponse
-from app.schemas.catalog import Course, ProgramCatalogMetadata
+from app.schemas.catalog import (
+    Course,
+    CourseRequirementType,
+    CourseSearchPage,
+    CourseSort,
+    ProgramCatalogMetadata,
+)
 from app.schemas.eligibility import EligibilityRequest, EligibilityResult
 from app.schemas.profile import ProfileDetail, ProfileSummary, TranscriptSummary
 from app.schemas.recommendation import RecommendationRequest, RecommendationResponse, WhatIfRequest
 from app.services.advisor_service import chat_advisor
+from app.services.course_search_service import search_courses
 from app.services.recommendation_service import recommend
 from app.transcript import StudentTranscript
 
@@ -56,6 +63,25 @@ def programs() -> list[ProgramCatalogMetadata]:
 def courses(program_id: str = Query(...)) -> list[Course]:
     try:
         return load_catalog(program_id).courses
+    except CatalogError as exc:
+        _raise_domain_error(exc)
+    except ValueError as exc:
+        _raise_domain_error(exc)
+
+
+@router.get("/courses/search", response_model=CourseSearchPage)
+def course_search(
+    program_id: str = Query(...), q: str = Query(default="", max_length=120),
+    block: str | None = Query(default=None),
+    requirement_type: CourseRequirementType | None = Query(default=None),
+    sort: CourseSort = Query(default="code"), page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+) -> CourseSearchPage:
+    try:
+        return search_courses(
+            load_catalog(program_id), q=q, block=block, requirement_type=requirement_type,
+            sort=sort, page=page, page_size=page_size,
+        )
     except CatalogError as exc:
         _raise_domain_error(exc)
     except ValueError as exc:

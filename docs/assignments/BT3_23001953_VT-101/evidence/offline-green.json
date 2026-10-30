@@ -1,0 +1,25 @@
+{
+  "label": "offline-green",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests",
+    "-m",
+    "not postgres and not hus_postgres",
+    "--full-catalog-root",
+    "docs/acceptance/hus_2022",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "started_utc": "2026-10-30T16:48:32.763574+00:00",
+  "head": "a5aab95c9d8453093621453b25f5807e584e15a3",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "M app/api/routes.py\n M app/schemas/catalog.py\n?? app/services/course_search_service.py\n?? docs/assignments/BT3_23001953_VT-101/evidence/green.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/green.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/lint-initial.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/lint-initial.log\n?? tests/catalogs/test_course_search.py",
+  "exit_code": 0,
+  "duration_seconds": 11.5512,
+  "finished_utc": "2026-10-30T16:48:44.409504+00:00",
+  "working_tree_after": "M app/api/routes.py\n M app/schemas/catalog.py\n?? app/services/course_search_service.py\n?? docs/assignments/BT3_23001953_VT-101/evidence/analytics.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/analytics.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/fixture-builders.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/fixture-builders.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/green.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/green.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/lint-initial.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/lint-initial.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/sample-builder.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/sample-builder.log\n?? tests/catalogs/test_course_search.py"
+}

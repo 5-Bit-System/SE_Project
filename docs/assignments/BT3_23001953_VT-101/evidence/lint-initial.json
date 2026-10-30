@@ -1,0 +1,19 @@
+{
+  "label": "lint-initial",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "ruff",
+    "check",
+    ".",
+    "--no-cache"
+  ],
+  "started_utc": "2026-10-30T16:48:16.700299+00:00",
+  "head": "a5aab95c9d8453093621453b25f5807e584e15a3",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "M app/api/routes.py\n M app/schemas/catalog.py\n?? app/services/course_search_service.py\n?? tests/catalogs/test_course_search.py",
+  "exit_code": 0,
+  "duration_seconds": 1.1265,
+  "finished_utc": "2026-10-30T16:48:17.917026+00:00",
+  "working_tree_after": "M app/api/routes.py\n M app/schemas/catalog.py\n?? app/services/course_search_service.py\n?? tests/catalogs/test_course_search.py"
+}

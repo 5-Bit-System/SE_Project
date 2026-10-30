@@ -1,4 +1,6 @@
-from pydantic import Field
+from typing import Literal
+
+from pydantic import BaseModel, Field
 
 from app.models import (
     Catalog,
@@ -17,10 +19,28 @@ class ProgramCatalogMetadata(Program):
 
     course_count: int = Field(ge=0)
 
+
+CourseSort = Literal["code", "name", "credits"]
+CourseRequirementType = Literal["required", "elective", "required_excluded", "graduation"]
+
+
+class CourseSearchPage(BaseModel):
+    """Additive search contract; the legacy /courses array remains unchanged."""
+
+    program_id: str
+    items: list[Course]
+    total: int = Field(ge=0)
+    page: int = Field(ge=1)
+    page_size: int = Field(ge=1, le=100)
+
+
 __all__ = [
     "Catalog",
     "ChoiceGroup",
     "Course",
+    "CourseRequirementType",
+    "CourseSearchPage",
+    "CourseSort",
     "GraduationPath",
     "GraduationSelection",
     "Program",
