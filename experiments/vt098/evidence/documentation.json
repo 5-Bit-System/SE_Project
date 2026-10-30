@@ -15,5 +15,16 @@
     "TC20"
   ],
   "independent_human_review_observed": false,
-  "historical_experiment_logs_overwritten": false
+  "historical_experiment_logs_overwritten": false,
+  "pdf_layout": {
+    "total_pages": 17,
+    "main_pages": 8,
+    "appendix_pages": 9,
+    "all_20_case_ids_present": true,
+    "text_span_clipping_detected": false,
+    "compiler": "Tectonic 0.17.0",
+    "pdf_inspector": "PyMuPDF 1.27.2.3"
+  },
+  "pdf_output_name": "BT3_23001925_VT-098.pdf",
+  "direct_overleaf_run": false
 }

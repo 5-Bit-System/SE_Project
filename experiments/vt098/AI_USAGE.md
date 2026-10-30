@@ -126,3 +126,17 @@ claim additional production verification. All app/database production sources
 are unchanged; no merge is authorized or performed. The branch link and runnable
 README satisfy the GitHub evidence route; a PR number is not invented after the
 connector's 403 response.
+
+## PDF presentation validation
+
+The agent downloaded the official Tectonic 0.17.0 portable compiler into the
+workspace and verified its release SHA-256. It downloaded TeX packages/fonts,
+not uploaded report contents. PyMuPDF 1.27.2.3 inspected the local rendered PDF.
+File-based TeX Gyre declarations, paragraph breaks around tables and breakable
+test identifiers fixed the observed font-resolution/table-overflow issues.
+
+The local report has **8 main pages and 9 AI/log appendix pages (17 total)**.
+All twenty TC IDs remain present; text-span checks found no page-edge clipping.
+Reflection text is identical between Markdown and LaTeX and has 286 whitespace
+tokens. No direct Overleaf run or independent student/team review is claimed.
+This validates the report's presentation, not any additional software behavior.
