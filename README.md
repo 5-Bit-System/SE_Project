@@ -62,6 +62,23 @@ Giữ nguyên cấu hình và khóa đã có; không seed/publish lại chỉ đ
 Worker VNU dùng Google Chrome chạy nền. Dùng một worker; restart/reload mất
 cookie VNU trong RAM. Tắt LLM bằng `RECOMMENDATION_LLM_ENABLED=false` nếu cần.
 
+Để kiểm tra Chrome truy cập được form VNU trước khi chạy app, dùng:
+
+```powershell
+.venv\Scripts\python.exe -m tools.run_local
+# Chỉ kiểm tra kết nối, không chạy thêm server:
+.venv\Scripts\python.exe -m tools.run_local --check-only
+```
+
+Kiểm tra này chỉ mở form đăng nhập công khai, không gửi tài khoản/mật khẩu.
+`/health` và `/ready` không kiểm tra kết nối ra VNU. Nếu báo
+`network_access_denied`, chạy app từ terminal có quyền truy cập mạng; khi agent
+khởi động app, cần dùng phiên thực thi được phê duyệt ngoài sandbox hạn chế mạng.
+Chrome worker kế thừa hạn chế của tiến trình server, nên chỉ thử đăng nhập lại
+hoặc restart worker trong cùng môi trường bị chặn sẽ không giải quyết được lỗi.
+Lệnh kiểm tra thất bại sẽ dừng trước khi mở server và không đổi cấu hình hay dữ liệu.
+
+
 ## Kiểm thử và kiểm tra dữ liệu
 
 ```powershell

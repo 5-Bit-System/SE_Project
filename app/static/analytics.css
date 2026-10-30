@@ -1,12 +1,9 @@
 #dashboard-analytics { margin: 22px 0 26px; }
 .analytics-status { color: var(--text-muted); font-size: var(--text-xs); line-height: 1.9; margin: 16px 0; }
-.analytics-source-totals { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; display: flex; gap: 16px 28px; flex-wrap: wrap; padding: 18px 22px; font-size: var(--text-sm); line-height: 1.8; }
 .analytics-toolbar { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin: 22px 0 16px; }
 .analytics-toolbar label { display: grid; gap: 7px; font-size: var(--text-xs); color: var(--text-muted); min-width: 180px; }
-#analytics-count { font-size: var(--text-xs); color: var(--text-muted); text-align: right; }
 .analytics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
 .analytics-grid > section { min-width: 0; }
-.analytics-grid > section.analytics-expanded { grid-column: 1 / -1; }
 .chart-region { min-height: 245px; margin-top: 22px; overflow-x: auto; }
 .analytics-trend .chart-region > svg { width: 100%; display: block; }
 .analytics-credits .chart-region { min-height: 0; }
@@ -35,12 +32,19 @@
 .distribution-grade-button > span:nth-child(2) { overflow-wrap: anywhere; min-width: 0; }
 .distribution-legend strong { font-weight: 500; text-align: right; white-space: nowrap; }
 .legend-swatch { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
-.analytics-detail { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+html:has(#analytics-detail[open]) { overflow: hidden; padding-right: var(--analytics-scrollbar-width, 0px); }
+.analytics-detail { width: min(1060px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); box-sizing: border-box; margin: auto; padding: 28px; overflow: hidden; border: 1px solid var(--border-subtle); border-radius: 20px; background: var(--bg-card); color: var(--text-main); font-family: inherit; box-shadow: 0 24px 80px rgb(0 0 0 / 24%); }
+.analytics-detail[open] { display: flex; flex-direction: column; }
+.analytics-detail::backdrop { background: rgb(12 18 40 / 55%); }
 .analytics-detail-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+.analytics-detail-head > div { min-width: 0; }
 .analytics-detail-head h4 { margin: 0 0 4px; font-size: 18px; line-height: 1.4; color: var(--text-main); }
+.analytics-detail-close { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--soft-surface); color: var(--text-main); font: 28px/1 var(--font-family); cursor: pointer; }
+.analytics-detail-close:hover { background: var(--hover-surface); }
+.analytics-detail-close:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
 #analytics-detail-meta { margin: 0 0 14px; color: var(--text-muted); font-size: var(--text-sm); line-height: 1.6; }
 .analytics-detail-hint { display: none; margin: 0 0 10px; color: var(--text-muted); font-size: var(--text-xs); }
-.analytics-detail-scroll { max-height: 440px; overflow: auto; border: 1px solid var(--border-subtle); border-radius: 10px; }
+.analytics-detail-scroll { min-height: 0; max-height: none; overscroll-behavior: contain; overflow: auto; border: 1px solid var(--border-subtle); border-radius: 10px; }
 #analytics-detail-table { min-width: 620px; font-size: var(--text-sm); }
 #analytics-detail-table thead th { position: sticky; top: 0; z-index: 1; font-size: var(--text-sm); }
 #analytics-detail-table th:first-child, #analytics-detail-table td:first-child { width: 100px; text-align: left; }
@@ -64,10 +68,10 @@
 @media (max-width: 520px) {
   .analytics-toolbar { flex-wrap: wrap; align-items: start; }
   .analytics-toolbar label { width: 100%; }
-  #analytics-count { text-align: left; }
   .analytics-grid { gap: 18px; }
   .distribution-layout { grid-template-columns: 140px minmax(0, 1fr); gap: 10px; }
   .credit-chart-row { grid-template-columns: 105px minmax(60px, 1fr) 30px; gap: 10px; font-size: var(--text-xs); }
   .chart-region { min-height: 200px; }
   .analytics-detail-hint { display: block; }
+  .analytics-detail { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 18px; border-radius: 16px; }
 }

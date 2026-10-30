@@ -24,6 +24,8 @@
   <script src="/static/analytics.js" type="module"></script>
   <link rel="stylesheet" href="/static/motion.css">
   <script src="/static/motion.js" defer></script>
+  <link rel="stylesheet" href="/static/login-scene.css">
+  <script src="/static/login-scene.js" defer></script>
 </head>
 <body data-auth-state="loading">
   <div class="ambient-background" aria-hidden="true" inert>
@@ -91,10 +93,69 @@
     <p data-auth-copy="restoringSession">Đang khôi phục phiên đăng nhập…</p>
   </div>
   <section id="system-auth" class="container system-auth-page">
-    <div class="auth-intro"><p class="page-context" data-auth-copy="eyebrow"></p><h2 data-auth-copy="headline"></h2><p data-auth-copy="description"></p></div>
+    <div class="auth-intro">
+      <p class="page-context" data-auth-copy="eyebrow"></p><h2 data-auth-copy="headline"></h2><p data-auth-copy="description"></p>
+      <div class="login-study-scene" aria-hidden="true" inert hidden>
+        <svg class="login-scene-network" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" focusable="false">
+          <g class="login-course-map">
+            <path d="M-40 440H180Q210 440 210 410V250Q210 220 240 220H680Q710 220 710 190V-20M210 440H500Q530 440 530 470V720Q530 750 560 750H900Q930 750 930 720V570Q930 540 960 540H1660M710 220H1160Q1190 220 1190 250V350Q1190 380 1220 380H1660M530 750V1060"/>
+            <path d="M-40 440H180Q210 440 210 410V250Q210 220 240 220H680Q710 220 710 190V-20" class="login-map-pulse login-scene-motion" pathLength="1"/>
+            <path d="M210 440H500Q530 440 530 470V720Q530 750 560 750H900Q930 750 930 720V570Q930 540 960 540H1660" class="login-map-pulse login-map-pulse-two login-scene-motion" pathLength="1"/>
+            <rect x="185" y="415" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="m199 440 8 8 15-18"/>
+            <rect x="685" y="195" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="M698 220h24m-12-12v24"/>
+            <rect x="505" y="725" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="m518 755 8-12 8 6 9-11"/>
+            <circle cx="1190" cy="290" r="5" class="login-map-dot"/>
+            <circle cx="930" cy="630" r="5" class="login-map-dot"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-one login-scene-motion" viewBox="0 0 150 165" fill="none" focusable="false">
+          <rect x="5" y="8" width="136" height="148" rx="9" class="login-paper"/>
+          <path d="M5 36h136M34 36v120" class="login-paper-rule"/>
+          <rect x="22" y="3" width="38" height="13" rx="3" class="login-paper-tape"/>
+          <g class="login-paper-ink">
+            <path d="M48 57h65M48 76h53M48 95h62M48 114h44M48 133h57"/>
+            <path d="m17 57 4 4 6-8m-10 23 4 4 6-8m-10 23 4 4 6-8"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-two login-scene-motion" viewBox="0 0 126 140" fill="none" focusable="false">
+          <path d="M13 5h82l26 26v95a8 8 0 0 1-8 8H13a8 8 0 0 1-8-8V13a8 8 0 0 1 8-8Z" class="login-paper"/>
+          <path d="M95 5v20a6 6 0 0 0 6 6h20" class="login-paper-fold"/>
+          <g class="login-paper-ink">
+            <path d="M25 102V49m0 53h76M34 87l16-12 16 5 26-28"/>
+            <circle cx="50" cy="75" r="3"/><circle cx="66" cy="80" r="3"/>
+            <path d="M27 118h40"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-three login-scene-motion" viewBox="0 0 130 140" fill="none" focusable="false">
+          <rect x="5" y="5" width="120" height="130" rx="10" class="login-paper"/>
+          <g class="login-paper-ink">
+            <path d="M24 28h80M24 48h40M44 75h44m-22-8v16M38 103h56"/>
+            <circle cx="28" cy="75" r="10"/><circle cx="104" cy="75" r="10"/>
+          </g>
+        </svg>
+        <svg class="login-bg-books login-scene-motion" viewBox="0 0 360 180" fill="none" focusable="false">
+          <g stroke-linejoin="round">
+            <path d="M26 134h140v22H26a11 11 0 0 1 0-22Z" class="login-book-cover"/>
+            <path d="M32 139h134v12H32a6 6 0 0 1 0-12Z" class="login-book-pages"/>
+            <path d="M40 113h141v21H40a10.5 10.5 0 0 1 0-21Z" class="login-book-cover-light"/>
+            <path d="M45 118h136v11H45a5.5 5.5 0 0 1 0-11Z" class="login-book-pages"/>
+            <path d="M136 117v25l7-5 7 5v-25" class="login-bookmark login-scene-motion"/>
+            <path d="M140 34h88q10 0 10 9v77q-9-6-21-6h-77ZM336 34h-88q-10 0-10 9v77q9-6 21-6h77Z" class="login-book-cover"/>
+            <path d="M144 29h84q10 0 10 9v77q-9-6-21-6h-73ZM332 29h-84q-10 0-10 9v77q9-6 21-6h73Z" class="login-paper"/>
+            <path d="M238 39v68M155 46h58M155 62h50M155 78h58M260 46h55M260 62h47M260 78h55" class="login-paper-rule"/>
+            <path d="m300 143 34-14 3 7-34 14-14 1Z" class="login-pencil"/>
+          </g>
+        </svg>
+      </div>
+    </div>
     <div class="auth-card workspace-surface">
-      <nav class="auth-switch" aria-label="Đăng nhập"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
-      <p id="auth-notice" role="status" aria-live="polite"></p>
+      <div class="auth-controls">
+        <nav class="auth-switch" aria-label="Đăng nhập"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
+        <p id="auth-notice" role="status" aria-live="polite"></p>
+      </div>
       <form id="auth-student-form"><h3 data-auth-copy="studentTitle"></h3><p class="auth-hint" data-auth-copy="studentHint"></p><label for="auth-vnu-username" data-auth-copy="vnuUsername"></label><input id="auth-vnu-username" autocomplete="username" required maxlength="128" autocapitalize="none" spellcheck="false"><label for="auth-vnu-password" data-auth-copy="vnuPassword"></label><input id="auth-vnu-password" type="password" autocomplete="current-password" required maxlength="512"><button class="portal-button primary-action" type="submit" data-auth-copy="vnuLogin"></button><p class="auth-hint" data-auth-copy="privacyHint"></p></form>
       <form id="auth-login-form" hidden><h3 data-auth-copy="loginTitle"></h3><label for="auth-login-email" data-auth-copy="adminUsername"></label><input id="auth-login-email" autocomplete="username" required maxlength="254" autocapitalize="none" spellcheck="false"><label for="auth-login-password" data-auth-copy="password"></label><input id="auth-login-password" type="password" autocomplete="current-password" required maxlength="128"><button class="portal-button primary-action" type="submit" data-auth-copy="login"></button></form>
       <form id="auth-password-form" hidden><h3 data-auth-copy="changePassword"></h3><p data-auth-copy="changeHint"></p><label for="auth-current-password" data-auth-copy="currentPassword"></label><input id="auth-current-password" type="password" autocomplete="current-password" maxlength="128" required><label for="auth-new-password" data-auth-copy="newPassword"></label><input id="auth-new-password" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><label for="auth-new-confirm" data-auth-copy="confirmPassword"></label><input id="auth-new-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><button class="portal-button primary-action" type="submit" data-auth-copy="savePassword"></button></form>
@@ -143,31 +204,28 @@
         <div><p class="page-context">Không gian học tập</p><h2>Dashboard học tập</h2><p>Kết quả đã ghi nhận, những lựa chọn phía trước.</p></div>
         <button type="button" class="portal-button primary-action" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
       </div>
-      <div class="dashboard-basis"><span class="basis-dot" aria-hidden="true"></span><p>Thống kê từ bảng điểm VNU đã lưu. Mỗi lần học được giữ thành một lượt riêng.</p><button type="button" class="text-action" data-navigate="portal-dialog">Xem hồ sơ VNU</button></div>
       <section id="dashboard-analytics" aria-label="Thống kê bảng điểm VNU">
         <div id="analytics-status" class="analytics-status" role="status"></div>
-        <div id="analytics-source-totals" class="analytics-source-totals portal-source"></div>
-        <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label><span id="analytics-count"></span></div>
-        <div id="analytics-weighted-summary" class="analytics-source-totals" role="status" aria-live="polite"></div>
+        <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label></div>
         <div class="analytics-grid">
           <section class="workspace-surface analytics-trend"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 10</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 10 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend" class="chart-region"></div></section>
           <section class="workspace-surface analytics-trend analytics-trend-four"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 4</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 4 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend4" class="chart-region"></div></section>
           <section class="workspace-surface analytics-distribution"><div class="section-title"><h3>Phân bố điểm chữ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.</p><div id="analytics-distribution" class="chart-region"></div></section>
           <section class="workspace-surface analytics-credits"><div class="section-title"><h3>Tín chỉ theo học kỳ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.</p><div id="analytics-credits" class="chart-region"></div></section>
         </div>
-        <div id="analytics-detail" class="analytics-detail" hidden>
+        <dialog id="analytics-detail" class="analytics-detail" aria-labelledby="analytics-detail-title" aria-describedby="analytics-detail-meta" aria-modal="true">
           <div class="analytics-detail-head">
             <div>
               <h4 id="analytics-detail-title" tabindex="-1">Bảng điểm theo lựa chọn</h4>
               <p id="analytics-detail-meta" aria-live="polite"></p>
             </div>
-            <button type="button" id="analytics-detail-close" class="text-action">Đóng</button>
+            <button type="button" id="analytics-detail-close" class="analytics-detail-close" aria-label="Đóng bảng điểm"><span aria-hidden="true">×</span></button>
           </div>
           <p id="analytics-detail-hint" class="analytics-detail-hint"></p>
           <div class="table-scroll analytics-detail-scroll" role="region" tabindex="0" aria-labelledby="analytics-detail-title">
             <table id="analytics-detail-table" class="transcript-table"></table>
           </div>
-        </div>
+        </dialog>
         <details class="analytics-data-table"><summary>Xem số liệu và cách tính</summary><p id="analytics-method" class="muted-copy"></p><div class="table-scroll"><table id="analytics-table" class="transcript-table"></table></div></details>
       </section>
     </section>
@@ -202,7 +260,6 @@
     </form>
     <section id="portal-profile" hidden>
       <div class="profile-identity-strip"><div class="profile-emblem" aria-hidden="true">◎</div><div><p class="page-context" data-portal-copy="account"></p><h3 id="portal-identity"></h3><p id="portal-updated"></p></div><span class="subtle-tag" data-portal-copy="source"></span></div>
-      <div class="profile-source-notice"><p data-portal-copy="unknown"></p><p data-portal-copy="separate"></p></div>
       <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div><div><span data-portal-copy="earnedCredits"></span><strong id="portal-earned-credits"></strong></div><div><span data-portal-copy="gpa4"></span><strong id="portal-gpa4"></strong></div></div>
       <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag" role="status" aria-live="polite" aria-atomic="true"></span></div>
       <div id="portal-summary" class="portal-source"></div>

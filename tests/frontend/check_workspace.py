@@ -57,7 +57,7 @@ def main():
         assert page.evaluate("new Set([...document.querySelectorAll('[id]')].map(e=>e.id)).size === document.querySelectorAll('[id]').length")
         page.locator("#tab-btn-profile").click()
         page.wait_for_function("!document.getElementById('portal-profile').hidden")
-        assert page.locator("dialog").count() == 0
+        assert page.locator("#analytics-detail").is_hidden()
         assert page.locator("#portal-dialog").is_visible()
         assert page.evaluate("location.hash") == "#profile"
         assert page.locator("#portal-table tbody tr:not(.portal-term)").count() == 2

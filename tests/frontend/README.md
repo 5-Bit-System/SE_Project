@@ -22,10 +22,13 @@ python -m tests.frontend.check_motion
 node tests/frontend/check_analytics.mjs
 ```
 
-`check_analytics_drilldown` kiểm tra bảng chi tiết hệ 10/4, lọc điểm chữ/năm học,
-bàn phím, VI/EN, mobile và việc xóa các hàng điểm khỏi DOM khi mất nguồn.
+`check_analytics_drilldown` kiểm tra popup chỉ chứa bảng điểm, chọn kỳ từ hệ 10/4,
+lọc điểm chữ/năm học, đóng bằng ×/Esc/nền ngoài, vòng focus bàn phím, giữ nguyên
+bố cục/vị trí cuộn Dashboard, VI/EN và bảng dài trên mobile. Kiểm tra cũng xác
+nhận xóa hàng điểm khỏi DOM khi đóng popup, rời Dashboard hoặc mất nguồn.
 `check_charts` còn kiểm tra điểm 0, dấu phẩy thập phân, học lại, khoảng trống
 điểm, trung bình gia quyền, khôi phục focus và xóa dữ liệu sau logout.
+Chi tiết hành vi popup và bằng chứng: [Dashboard popup](../../docs/DASHBOARD_POPUP_2026_10_31.md).
 
 `check_workspace` và `check_program_binding` cung cấp response riêng cho kế
 hoạch học kỳ và bảng điều kiện học. Kiểm tra hai người dùng sử dụng account và

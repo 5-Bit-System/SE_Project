@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 cleanup_task = None
 WORKER_ERRORS = {"identity_unverified", "interaction_required", "structure_changed",
                  "browser_unavailable", "portal_unavailable", "timeout", "vnu_reauth_required",
-                 "portal_state_invalid"}
+                 "portal_state_invalid", "network_access_denied"}
 WORKER_STAGES = {"browser_start", "browser_context", "login", "resume", "profile", "transcript",
                  "identity", "parse"}
 WORKER_KINDS = {"missing_dependency", "source_rejected", "timeout", "browser_error",

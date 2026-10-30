@@ -14,6 +14,25 @@ from app.integrations.daotao.snapshot import (
 )
 
 
+def portal_context(browser):
+    """Use the same restricted browser context for the worker and startup probe."""
+    context = browser.new_context(accept_downloads=False, service_workers="block")
+    context.route("**/*", lambda route: route.continue_()
+                  if urlsplit(route.request.url).hostname == "daotao.vnu.edu.vn"
+                  else route.abort())
+    context.set_default_timeout(15000)
+    return context
+
+
+def browser_error_code(stage, error):
+    """Classify only the observed Chromium code; never return provider text."""
+    if stage in {"browser_start", "browser_context"}:
+        return "browser_unavailable"
+    if "net::ERR_NETWORK_ACCESS_DENIED" in str(error):
+        return "network_access_denied"
+    return "portal_unavailable"
+
+
 def write_result(result):
     """The parent expects UTF-8 bytes, regardless of the Windows console locale."""
     sys.stdout.buffer.write(json.dumps(result, ensure_ascii=False).encode("utf-8"))
@@ -29,12 +48,7 @@ def collect(credentials):
             browser = playwright.chromium.launch(headless=True, channel="chrome")
             try:
                 stage = "browser_context"
-                context = browser.new_context(accept_downloads=False, service_workers="block")
-                # Reject navigation/requests outside the reviewed portal host.
-                context.route("**/*", lambda route: route.continue_()
-                              if urlsplit(route.request.url).hostname == "daotao.vnu.edu.vn"
-                              else route.abort())
-                context.set_default_timeout(15000)
+                context = portal_context(browser)
                 client = DaotaoClient(context)
                 mode = credentials.get("mode", "login")
                 if mode in {"login", "signin"}:
@@ -91,9 +105,8 @@ def collect(credentials):
         code, kind = str(exc), "source_rejected"
     except TimeoutError:
         code, kind = "timeout", "timeout"
-    except Error:
-        code = ("browser_unavailable" if stage in {"browser_start", "browser_context"}
-                else "portal_unavailable")
+    except Error as exc:
+        code = browser_error_code(stage, exc)
         kind = "browser_error"
     except Exception:
         code, kind = "portal_unavailable", "unexpected_error"

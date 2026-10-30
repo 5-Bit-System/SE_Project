@@ -77,7 +77,8 @@ async def student_login(request: Request):
     except PortalFailure as exc:
         code = str(exc)
         status = {'identity_unverified': 401, 'timeout': 504, 'busy': 429,
-                  'browser_unavailable': 503, 'interaction_required': 409}.get(code, 502)
+                  'browser_unavailable': 503, 'network_access_denied': 503,
+                  'interaction_required': 409}.get(code, 502)
         raise HTTPException(status, code) from None
     except Exception:
         raise HTTPException(502, 'portal_unavailable') from None
@@ -115,7 +116,8 @@ async def login(request: Request):
     except PortalFailure as exc:
         code = str(exc)
         status_code = {"identity_unverified": 409, "timeout": 504, "busy": 429,
-                       "browser_unavailable": 503, "interaction_required": 409}.get(code, 502)
+                       "browser_unavailable": 503, "network_access_denied": 503,
+                       "interaction_required": 409}.get(code, 502)
         raise HTTPException(status_code, code) from None
     except Exception as exc:
         logger.warning("Portal login stage=worker code=%s", type(exc).__name__)

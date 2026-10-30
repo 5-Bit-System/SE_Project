@@ -33,7 +33,7 @@ NEXT TASK:
 
 ## Attach these for general project context
 
-Attach these seven files for a next-step planning or review task:
+These seven files explain the work and its limits. They are context and reported verification, not the normalized dataset or enough evidence for an independent content audit:
 
 1. `backups/hus_completion_20261026/START_HERE.md`
 2. `backups/hus_completion_20261026/CHATGPT_HANDOFF.md`
@@ -44,6 +44,18 @@ Attach these seven files for a next-step planning or review task:
 7. `backups/hus_completion_20261026/MISSING_SOURCE_REQUESTS.csv`
 
 The new handoff prompt above is sufficient as the message body; attaching this Markdown file is optional. The older `docs/rag_normalization/HANDOFF_2026_10_26.md` is useful only for source-selection history. If attached, tell ChatGPT that V2 supersedes its earlier zero-chunk/pending-preview state. For a metadata-focused task, also attach `backups/hus_pipeline_worktree_20261026/docs/hus_pipeline/METADATA_F1_REVIEW_V2.md`; for PDF row work, attach `PDF_TABLE_REVIEW_V2.md` from the same folder.
+
+## Attach these for an independent check of the normalized data
+
+1. Attach the entire `backups/hus_completion_20261026/delivered/` folder, preserving its relative paths. It is about 24 MiB and contains all 15 output files: normalized records, all three chunk partitions, source maps/registers, schemas, manifests, gate receipts, issue/correction ledgers, version decisions and summary.
+2. Attach the entire `backups/hus_completion_20261026/metadata/` folder, preserving `inputs/`. It contains verified metadata claims, receipts, review decisions, manifests and their source-image evidence.
+3. Attach the entire `backups/hus_completion_20261026/pdf_tables/` folder, preserving `pdf_inputs/` and `review_assets/`. It contains the 383 PDF records, table/page inventory, corrections, source maps, four local PDF captures, extracted page text/images and visual crops. The folder is about 107 MiB.
+4. From `backups/crawldata_audit_20261026_28d61c4/source/data/hus/`, attach the 12 selected `processed/documents/` Markdown files with IDs: `055c47bf412172c0`, `098df9e79c1391af`, `1b525683101bf943`, `1c16ddf8a6f1f409`, `1f6ad01008734152`, `8afffd3cada3d048`, `a6ff3ba74dfbcf06`, `bc0a1f59b7ab202c`, `ce8df97fe49665e9`, `d6370261338de29f`, `f7f470e712738589`, and `f8672cafba05d016`.
+5. From that same source snapshot's `raw/html/`, attach the seven raw HTML files referenced by the selected HTML records in `delivered/source_register.jsonl`. These permit comparison of the extracted Markdown and normalized HTML records against the captured pages.
+
+The five selected PDF/DOCX attachment Markdown files have no matching original binaries in the audit snapshot. The four PDFs under `pdf_tables/pdf_inputs/raw/` are separate local captures with `remote_equivalence=unknown`; they provide evidence for their own transcription, but must not be presented as verified copies of those five missing attachments. ChatGPT can check normalization and evidence for available sources, while those original attachment contents remain unverified.
+
+To reproduce the pipeline rather than review the content, also provide the V2 source/config/tests named in the code-changes bullet below, plus the exact baseline and legacy inputs referenced by `delivered/resource_roots.json`. Preserve the folder layout; do not send only the receipt or reports and call that an independent data check.
 
 ## Add files only when the next task needs them
 
