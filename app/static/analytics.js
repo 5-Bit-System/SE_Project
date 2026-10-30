@@ -296,20 +296,11 @@ if (typeof document !== 'undefined') {
       + (source.fetched_at ? ` · ${t('Cập nhật', 'Updated')}: ${new Date(source.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN')}` : '')
       + (source.snapshot?.completeness !== 'complete' ? t(' · Chưa xác minh độ đầy đủ', ' · Completeness unverified') : '')
       : t('Đăng nhập VNU để xem biểu đồ từ bảng điểm đã lưu trong hồ sơ của bạn.', 'Sign in with VNU to view charts from your saved transcript.');
-    $('source-totals').replaceChildren();
-    (source?.snapshot?.source_summary || []).forEach(row => $('source-totals').append(element('p', window.workspaceI18n.formatSourceSummary(row))));
-    $('source-totals').hidden = !$('source-totals').childElementCount;
     $('count').textContent = `${stats.count} ${t('lượt học', 'attempts')} · ${stats.count - stats.missingGrades} ${t('lượt có điểm hệ 10', 'attempts with numeric 10-point grades')} · ${stats.count - stats.missingGrades4} ${t('lượt có điểm hệ 4', 'attempts with numeric 4-point grades')}`;
-    const scope = $('year').value ? `${t('Năm học', 'Academic year')} ${$('year').value}` : t('Tất cả lượt học', 'All attempts');
-    const summary = $('weighted-summary'); summary.replaceChildren();
-    summary.setAttribute('aria-label', t('Điểm trung bình gia quyền theo tín chỉ', 'Credit-weighted averages'));
-    summary.append(element('strong', `${t('Tổng hợp', 'Summary')} · ${scope}`),
-      element('span', `${t('Hệ 10', 'Scale 10')}: ${number(stats.weightedMean10)} · ${number(stats.weightedCredits10)} ${t('tín chỉ tính điểm', 'credits counted')}`),
-      element('span', `${t('Hệ 4', 'Scale 4')}: ${number(stats.weightedMean4)} · ${number(stats.weightedCredits4)} ${t('tín chỉ tính điểm', 'credits counted')}`));
     trend(stats, 10); trend(stats, 4); distribution(stats); credits(stats);
     if (detailSelection?.kind === 'term' && !stats.groups.some(group => group.term === detailSelection.term)) closeDetail();
     else if (detailSelection) renderDetail();
-    $('method').textContent = t('Điểm theo kỳ, năm và toàn bộ lượt học = tổng (điểm × tín chỉ) / tổng tín chỉ hợp lệ. Mỗi lượt học lại được giữ riêng.', 'Semester, year and all-attempt scores = sum (grade × credits) / valid credits. Each retake is kept as a separate attempt.')
+    $('method').textContent = t('Điểm theo học kỳ = tổng (điểm × tín chỉ) / tổng tín chỉ hợp lệ trong kỳ. Mỗi lượt học lại được giữ riêng.', 'Semester scores = sum (grade × credits) / valid credits in that semester. Each retake is kept as a separate attempt.')
       + ` ${t('Lượt học 0 tín chỉ được loại khỏi phép tính', 'Zero-credit attempts excluded from weighting')}: ${stats.zeroCreditAttempts};`
       + ` ${stats.missingGrades} ${t('lượt thiếu/không có điểm hệ 10 hợp lệ;', 'attempts lack valid 10-point grades;')}`
       + ` ${stats.missingGrades4} ${t('lượt thiếu/không có điểm hệ 4 hợp lệ;', 'attempts lack valid 4-point grades;')}`
