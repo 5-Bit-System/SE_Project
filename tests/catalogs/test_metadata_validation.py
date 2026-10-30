@@ -110,24 +110,28 @@ def test_conflict_or_unknown_with_empty_prerequisites_is_blocked():
     assert any(r.kind == "prerequisite_unknown" for r in blocked_map["TEST_UNK"].reasons)
 
 
-def test_or_group_satisfied_by_internal_passed_course_with_unresolved_external():
+def test_unverified_prerequisites_block_even_when_internal_or_alternative_passed():
     catalog = get_sample_catalog()
     c_target = copy.deepcopy(catalog.courses[0])
     c_target.code = "TARGET"
     c_target.prerequisites = [["INTERNAL_PASSED", "EXTERNAL_UNKNOWN"]]
     c_target.prerequisite_status = "unresolved_external"
+    c_target.source_status = "verified"
     c_target.external_prerequisite_codes = ["EXTERNAL_UNKNOWN"]
 
     c_internal = copy.deepcopy(catalog.courses[0])
     c_internal.code = "INTERNAL_PASSED"
     c_internal.prerequisites = []
     c_internal.prerequisite_status = "draft_unverified"
+    c_internal.source_status = "verified"
 
     test_catalog = Catalog(
         program=catalog.program,
         courses=[c_target, c_internal],
     )
 
-    # When INTERNAL_PASSED is in passed_codes, TARGET should be eligible!
+    # Course-level unresolved prerequisite evidence remains a hard blocker.
     result = evaluate_eligibility(test_catalog, passed_codes=["INTERNAL_PASSED"])
-    assert any(c.code == "TARGET" for c in result.eligible_courses)
+    assert not any(c.code == "TARGET" for c in result.eligible_courses)
+    blocked = next(course for course in result.blocked_courses if course.code == "TARGET")
+    assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)

@@ -151,7 +151,10 @@ def evaluate_eligibility(
 
     groups = {group.id: group for group in catalog.program.choice_groups}
     course_map = {course.code: course for course in catalog.courses}
-    passed = _validate_passed_codes(passed_codes, set(course_map))
+    passed = {
+        code for code in _validate_passed_codes(passed_codes, set(course_map))
+        if course_map[code].source_status == "verified"
+    }
     (
         _tracks_by_id,
         selected_track,
@@ -193,6 +196,20 @@ def evaluate_eligibility(
 
         # Reason order is deliberate and stable for UI/fallback consumers:
         # source -> prerequisites -> track/path -> group -> credit budget.
+        if catalog.program.catalog_status != "verified":
+            reasons.append(
+                BlockedReason(
+                    kind="catalog_unverified",
+                    message="Khung chương trình chưa được xác minh.",
+                )
+            )
+        if course.source_status != "verified":
+            reasons.append(
+                BlockedReason(
+                    kind="course_source_unverified",
+                    message="Thông tin mã, tên, tín chỉ hoặc khối của môn học chưa được xác minh.",
+                )
+            )
         if course.prerequisite_status in ("source_conflict", "conflict"):
             reasons.append(
                 BlockedReason(
@@ -208,6 +225,13 @@ def evaluate_eligibility(
                 BlockedReason(
                     kind="prerequisite_unknown",
                     message="Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.",
+                )
+            )
+        elif course.prerequisite_status != "verified":
+            reasons.append(
+                BlockedReason(
+                    kind="prerequisite_unverified",
+                    message="Điều kiện tiên quyết của môn học chưa được xác minh.",
                 )
             )
 

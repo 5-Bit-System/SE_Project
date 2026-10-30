@@ -72,7 +72,9 @@ def test_honors_references_do_not_become_major_memberships(source_bundle, source
     ("khdl_7460108_2022", {"MAT2400", "MAT2502"}),
 ])
 def test_optimization_requires_every_own_major_prerequisite(source_catalogs, program, required):
-    catalog = source_catalogs[program]
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    catalog = mark_catalog_reviewed_for_test(deepcopy(source_catalogs[program]))
     assert "MAT2407" in {c.code for c in evaluate_eligibility(catalog, required).eligible_courses}
     for missing in required:
         result = evaluate_eligibility(catalog, required - {missing})
@@ -86,7 +88,9 @@ def test_optimization_requires_every_own_major_prerequisite(source_catalogs, pro
     ("toan_tin_7460117_2022", {"MAT1202", "MAT3507"}),
 ])
 def test_internship_unlocks_only_when_complete_branch_passed(source_catalogs, program, passed):
-    catalog = source_catalogs[program]
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    catalog = mark_catalog_reviewed_for_test(deepcopy(source_catalogs[program]))
     assert "MAT3359" in {c.code for c in evaluate_eligibility(catalog, passed).eligible_courses}
     assert "MAT3359" not in {c.code for c in evaluate_eligibility(catalog, set()).eligible_courses}
 

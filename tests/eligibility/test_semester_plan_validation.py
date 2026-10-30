@@ -33,6 +33,22 @@ def test_invalid_bundles_rejected(curriculum, codes, budget, error):  # noqa: F8
         validate_plan_courses(course_board(curriculum, context('A')), codes, budget)
 
 
+def test_unverified_catalog_courses_cannot_be_saved_to_a_plan(curriculum):  # noqa: F811
+    curriculum.program.catalog_status = 'draft_unverified'
+    board = course_board(curriculum, context('A'))
+
+    with pytest.raises(AcademicContextError, match='course_unavailable'):
+        validate_plan_courses(board, ['B'], 20)
+
+
+def test_unverified_course_source_cannot_be_saved_to_a_plan(curriculum):  # noqa: F811
+    next(course for course in curriculum.courses if course.code == 'E1').source_status = 'draft_unverified'
+    board = course_board(curriculum, context('A'))
+
+    with pytest.raises(AcademicContextError, match='course_unavailable'):
+        validate_plan_courses(board, ['E1'], 20)
+
+
 def test_paused_plan_cannot_be_saved_even_when_empty():
     with pytest.raises(AcademicContextError, match='not_ready'):
         validate_plan_courses({'status': 'partial', 'can_plan': False}, [], 20)
@@ -41,7 +57,7 @@ def test_paused_plan_cannot_be_saved_even_when_empty():
 def test_reviewed_defaults_can_be_saved_without_satisfying_downstream_courses(curriculum):  # noqa: F811
     curriculum.courses.append(Course(
         code='FOLLOWUP', name='Synthetic follow-up', credits=3, block='major',
-        prerequisites=[['E1']],
+        prerequisites=[['E1']], prerequisite_status='verified', source_status='verified',
     ))
     pending = pending_context()
     board = reviewed_course_board(curriculum, pending)

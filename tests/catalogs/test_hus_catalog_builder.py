@@ -59,7 +59,10 @@ def test_unknown_prerequisite_never_unlocks(catalogs):
 
 
 def test_selections_and_excluded_credits(catalogs):
-    math = catalogs["toan_hoc_7460101_2022"]
+    math = copy.deepcopy(catalogs["toan_hoc_7460101_2022"])
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    mark_catalog_reviewed_for_test(math)
     groups = {g.id: g for g in math.program.choice_groups}
     assert len(groups["language"].course_codes) == 7
     assert groups["language"].required_credits == 5

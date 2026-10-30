@@ -6,6 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import common_route
 
 
 def main():
@@ -60,7 +61,7 @@ def main():
         elif not url.startswith('http://127.0.0.1:8000/'):
             route.abort()
         else:
-            route.continue_()
+            assert common_route(route), url
 
     with sync_playwright() as p:
         browser = p.chromium.launch(channel='chrome', headless=True)
@@ -106,65 +107,49 @@ def main():
         first_point = page.locator('#analytics-trend circle.chart-point').first
         assert first_point.get_attribute('role') == 'button'
         first_point.click()
-        assert page.evaluate('document.activeElement.id') == 'portal-heading'
-        assert page.locator('#portal-profile').is_visible()
-        assert page.locator('#portal-row-count').get_attribute('role') == 'status'
-        assert page.locator('#portal-row-count').get_attribute('aria-live') == 'polite'
-        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
-        assert page.locator('#portal-search').input_value() == ''
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2
-        assert page.locator('#portal-table .portal-term').first.inner_text() == 'HỌC KỲ 1 - 2099-2100'
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert page.evaluate('document.activeElement.id') == 'analytics-detail-title'
+        assert page.locator('#dashboard-analytics').is_visible()
+        assert page.locator('#portal-dialog').is_hidden()
+        assert page.locator('#portal-search').input_value() == 'TEST004'
+        detail_rows = page.locator('#analytics-detail-table tr[data-source-code]')
+        assert detail_rows.count() == 2
+        assert detail_rows.locator('td:nth-child(4)').all_inner_texts() == ['8,5', '0']
+        assert first_point.get_attribute('aria-expanded') == 'true'
+        page.locator('#analytics-detail-close').click()
+        assert page.locator('#analytics-detail').is_hidden()
+        assert page.evaluate("document.activeElement === document.querySelector('#analytics-trend .chart-point')")
         page.locator('#analytics-trend circle.chart-point').nth(1).press('Enter')
-        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2099-2100'
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
-        assert page.locator('#portal-table .portal-term').first.inner_text() == 'HỌC KỲ 2 - 2099-2100'
-        assert page.locator('#portal-table .portal-term th[scope="rowgroup"]').count() == 1
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert detail_rows.count() == 1
+        assert detail_rows.first.get_attribute('data-source-code') == 'TEST002'
+        assert '2099–2100' in page.locator('#analytics-detail-title').inner_text()
+        assert page.locator('#analytics-detail-table th[scope="rowgroup"]').count() == 1
         page.locator('#analytics-trend circle.chart-point').nth(2).press('Space')
-        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 2 - 2100-2101'
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert detail_rows.first.get_attribute('data-source-code') == 'TEST004'
         page.locator('#analytics-trend4 circle.chart-point').first.click()
-        assert page.locator('#portal-term').input_value() == 'HỌC KỲ 1 - 2099-2100'
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert detail_rows.count() == 2
+        assert 'Hệ 4' in page.locator('#analytics-detail-meta').inner_text()
         page.locator('#analytics-year').select_option('2099–2100')
         grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
         assert grade_button.count() == 1
         grade_button.click()
-        assert page.evaluate('document.activeElement.id') == 'portal-heading'
-        assert page.locator('#portal-term').input_value() == ''
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 1
-        assert page.locator('#portal-table tbody tr:not(.portal-term) td:first-child').inner_text() == 'TEST001E'
-        grade_filter = page.locator('#portal-grade-filter')
-        assert grade_filter.is_visible()
-        assert 'A+' in grade_filter.inner_text()
-        assert '2099–2100' in grade_filter.inner_text()
-        page.locator('#portal-grade-filter-clear').click()
-        assert page.evaluate('document.activeElement.id') == 'portal-heading'
-        assert grade_filter.is_hidden()
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 7
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert page.evaluate('document.activeElement.id') == 'analytics-detail-title'
+        assert detail_rows.count() == 1
+        assert detail_rows.first.get_attribute('data-source-code') == 'TEST001E'
+        assert '2099–2100' in page.locator('#analytics-detail-meta').inner_text()
+        page.locator('#analytics-detail-close').click()
+        assert page.locator('#analytics-detail-table tr').count() == 0
         page.locator('#analytics-year').select_option('')
         grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
         grade_button.click()
-        assert page.locator('#portal-profile').is_visible()
-        assert page.locator('#portal-term').input_value() == ''
-        assert page.locator('#portal-table tbody tr:not(.portal-term)').count() == 2
-        assert page.locator('#portal-table .portal-term').all_inner_texts() == [
-            'HỌC KỲ 2 - 2100-2101', 'HỌC KỲ 1 - 2099-2100']
-        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
-        grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
-        assert grade_button.count() == 1
+        assert detail_rows.count() == 2
+        assert detail_rows.evaluate_all('rows => rows.map(row => row.dataset.sourceCode)') == ['TEST004', 'TEST001E']
+        assert detail_rows.locator('td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
         grade_button.click()
-        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        assert page.locator('#analytics-detail').is_hidden()
         grade_segment = page.locator('#analytics-distribution .chart-grade-segment[data-grade-letter="A+"]')
         assert grade_segment.get_attribute('role') == 'button'
-        grade_segment.click(position={'x': 90, 'y': 3})
-        assert page.locator('#portal-table tbody tr:not(.portal-term) td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
-        page.evaluate("window.workspaceNavigate('tab-dashboard')")
+        grade_segment.press('Space')
+        assert detail_rows.locator('td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
         for theme in ('light', 'dark'):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)
@@ -179,8 +164,9 @@ def main():
         assert '2.63' in page.locator('#analytics-trend4').inner_text()
         assert 'All attempts' in page.locator('#analytics-weighted-summary').inner_text()
         page.locator('.analytics-data-table summary').click()
-        assert 'sum (grade × credits) / valid credits' in page.locator('#analytics-method').inner_text()
-        assert 'Zero-credit attempts excluded from weighting: 1' in page.locator('#analytics-method').inner_text()
+        method = page.locator('#analytics-method').text_content()
+        assert 'sum (grade × credits) / valid credits' in method, method
+        assert 'Zero-credit attempts excluded from weighting: 1' in method
         page.locator('.analytics-data-table summary').click()
         assert 'Updated: 23/10/2026, 07:00:00' in page.locator('#analytics-status').inner_text()
         assert 'Tổng kết nguồn giả lập' in page.locator('#analytics-source-totals').inner_text()
@@ -215,6 +201,8 @@ def main():
         assert page.locator('#analytics-credits .credit-chart-row').count() == 0
         assert page.locator('#analytics-source-totals').inner_text() == ''
         assert page.locator('#analytics-table tbody tr').count() == 0
+        assert page.locator('#analytics-detail').is_hidden()
+        assert page.locator('#analytics-detail-table tr').count() == 0
         assert not errors, errors
         browser.close()
     print('Charts: source grade 10/4 means, retakes/gaps, credits/letters, filters, VI/EN, themes, mobile, logout passed')

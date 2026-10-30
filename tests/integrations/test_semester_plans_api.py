@@ -15,7 +15,18 @@ def test_plan_endpoints_require_current_account(client):  # noqa: F811
     assert client.post('/me/semester-plans', json={}).status_code == 401
 
 
-def test_board_provides_stable_plan_basis_across_app_sessions(client):  # noqa: F811
+def test_board_provides_stable_plan_basis_across_app_sessions(client, monkeypatch):  # noqa: F811
+    from app import program_bindings
+    from app.api import academic
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    list_catalogs = program_bindings.list_catalogs
+    load_catalog = academic.load_catalog
+    monkeypatch.setattr(program_bindings, 'list_catalogs', lambda:
+                        [mark_catalog_reviewed_for_test(catalog) for catalog in list_catalogs()])
+    monkeypatch.setattr(academic, 'load_catalog', lambda program_id:
+                        mark_catalog_reviewed_for_test(load_catalog(program_id)))
+
     authenticate(client, 'owner-a')
     assert client.post('/me/academic-program', json=confirmation(client)).status_code == 200
     first = client.get('/me/course-status').json()

@@ -60,8 +60,9 @@ def test_fixture_source_rows_validate_and_conflict_variants_survive(catalog_root
 def test_fixture_enforces_track_graduation_and_external_reference_rules(catalog_root):
     from app.catalog import load_catalog
     from app.rules import evaluate_eligibility
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
 
-    catalog = load_catalog("khdl", catalog_root)
+    catalog = mark_catalog_reviewed_for_test(load_catalog("khdl", catalog_root))
     before = evaluate_eligibility(catalog, {"PHI1006", "MAT2505"})
     eligible = {course.code for course in before.eligible_courses}
     assert "OR101" in eligible

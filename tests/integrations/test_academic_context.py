@@ -27,6 +27,9 @@ def source(rows=None):
 
 
 def inputs(toy_catalog):
+    toy_catalog.program.catalog_status = "verified"
+    for course in toy_catalog.courses:
+        course.source_status = "verified"
     policy = module().AcademicPolicy(
         version="synthetic-policy-v1", source_ref="synthetic-only:test-spec",
         program_ids=("toy",), letter_bands={"D": (4.0, 4.9, 1.0),

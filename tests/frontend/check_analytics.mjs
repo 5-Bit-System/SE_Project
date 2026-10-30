@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
-import {gradeColors, sourceNumber, sourceStatistics} from '../../app/static/analytics.js';
+import * as analytics from '../../app/static/analytics.js';
+
+const {gradeColors, sourceNumber, sourceStatistics, filterDrilldownAttempts} = analytics;
 
 function contrast(foreground, background) {
   const luminance = color => color.slice(1).match(/../g)
@@ -76,4 +78,15 @@ assert.equal(sourceStatistics([
   {term: 'HỌC KỲ 1 - 2099-2100', grade10: '8', grade4: '3', credits: '3'},
   {term: 'HỌC KỲ 1 - 2099-2100', grade10: '4', grade4: '1', credits: '1'},
 ], '2099–2100').weightedMean4, 2.5);
+assert.equal(typeof filterDrilldownAttempts, 'function');
+const detailRows = [
+  {term: 'HỌC KỲ 1 - 2023-2024', code: 'MAT100', letter: 'A+'},
+  {term: 'HỌC KỲ 1 - 2023-2024', code: 'MAT101', letter: ''},
+  {term: 'HỌC KỲ 2 - 2023-2024', code: 'MAT200', letter: 'B'},
+  {term: 'HỌC KỲ 1 - 2024-2025', code: 'MAT300', letter: 'A+'},
+];
+assert.deepEqual(filterDrilldownAttempts(detailRows, {kind: 'term', term: 'HỌC KỲ 1 - 2023-2024'}).map(row => row.code), ['MAT100', 'MAT101']);
+assert.deepEqual(filterDrilldownAttempts(detailRows, {kind: 'grade', letter: 'A+'}).map(row => row.code), ['MAT100', 'MAT300']);
+assert.deepEqual(filterDrilldownAttempts(detailRows, {kind: 'grade', letter: 'A+'}, '2024–2025').map(row => row.code), ['MAT300']);
+assert.deepEqual(filterDrilldownAttempts(detailRows, {kind: 'grade', letter: ''}, '2023–2024').map(row => row.code), ['MAT101']);
 console.log('Analytics aggregation: retakes, comma grades, zero, unknowns, credits, year filter passed');
