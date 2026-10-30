@@ -140,7 +140,6 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
     )
     if any(not isinstance(tables.get(name), list) for name in required_tables):
         raise ValueError("Incomplete HUS source tables")
-    catalog_reviews = _verified_reviews(bundle)
     faculties = _unique(tables["faculties"], "faculty_code", "faculties")
     majors = _unique(tables["majors"], "major_code", "majors")
     curricula = _unique(tables["curricula"], "curriculum_id", "curricula")
@@ -155,6 +154,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
         c["major_code"], c["cohort_year"], c["curriculum_version"]
     ) for c in curricula.values()} != set(PROGRAM_IDS):
         raise ValueError("Unexpected HUS curriculum identity")
+    catalog_reviews = _verified_reviews(bundle)
     for major in majors.values():
         if major["faculty_code"] not in faculties:
             raise ValueError("Major references missing faculty")
