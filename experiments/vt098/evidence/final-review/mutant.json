@@ -1,0 +1,17 @@
+{
+  "stage": "mutant",
+  "commit": "0a057964cb2819cda5af0abbadd4b748536f8600",
+  "command": [
+    "C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\mutant",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... \n  test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64) ... ERROR\ntest_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... FAIL\n\n======================================================================\nERROR: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\mutant\\experiments\\vt098\\test_harness.py\", line 145, in test_valid_key_boundaries\n    self.assertEqual(self.store.create(ACCOUNT, 'k' * length, body()).status, 201)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\mutant\\experiments\\vt098\\harness.py\", line 92, in create\n    key_digest = validate_key(key)\n                 ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\mutant\\experiments\\vt098\\harness.py\", line 42, in validate_key\n    raise HarnessError(400, 'invalid_idempotency_key')\nexperiments.vt098.harness.HarnessError: invalid_idempotency_key\n\n======================================================================\nFAIL: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\mutant\\experiments\\vt098\\test_harness.py\", line 146, in test_valid_key_boundaries\n    self.assertEqual(self.counts(), (3, 3, 3))\nAssertionError: Tuples differ: (2, 2, 2) != (3, 3, 3)\n\nFirst differing element 0:\n2\n3\n\n- (2, 2, 2)\n+ (3, 3, 3)\n\n----------------------------------------------------------------------\nRan 1 test in 0.015s\n\nFAILED (failures=1, errors=1)\n"
+}

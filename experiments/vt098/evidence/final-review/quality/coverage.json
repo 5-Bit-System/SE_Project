@@ -1,0 +1,103 @@
+{
+  "head_before_capture": "bf47b3c8ed59860a77b97dbff3f984711b6867d1",
+  "python": "3.11.9",
+  "sqlite": "3.45.1",
+  "pydantic": "2.12.5",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "cpu_count": 24,
+  "scope": "SQLite harness; not production HTTP/auth/PostgreSQL",
+  "sha256": {
+    "harness.py": "ac70d7b62acb4544223e365a443ed8ff8d22c8484a1e79e2422e40148659acb1",
+    "schema.py": "434e9fb5f3ae9eabbe003fcea1d50bd17d62f9c577834debfd416a9951f3946e",
+    "test_harness.py": "b127149e2016b26553aba196a1aa6190d91f36c6fbf419f94bb6d51996c3c337",
+    "quality.py": "3d4a3c2e9175ea6167571b69b6afa90e8118dba4c4004c5a16cc9ba1e830a044"
+  },
+  "coverage_version": "7.17.0",
+  "run": {
+    "command": [
+      "C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "coverage",
+      "run",
+      "--branch",
+      "--source=experiments.vt098.harness,experiments.vt098.schema",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/vt098",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "C:\\Users\\dtai168\\VScode\\SE\\vt098-work",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_account_scope_and_required_principal (test_harness.HarnessTests.test_account_scope_and_required_principal) ... ok\ntest_basis_and_nonempty_courses_are_not_faked (test_harness.HarnessTests.test_basis_and_nonempty_courses_are_not_faked) ... ok\ntest_canonicalization_uses_real_schema_defaults (test_harness.HarnessTests.test_canonicalization_uses_real_schema_defaults) ... ok\ntest_conflict_keeps_original_unchanged (test_harness.HarnessTests.test_conflict_keeps_original_unchanged) ... ok\ntest_failure_before_commit_rolls_back_then_retry (test_harness.HarnessTests.test_failure_before_commit_rolls_back_then_retry) ... ok\ntest_invalid_keys_do_not_write (test_harness.HarnessTests.test_invalid_keys_do_not_write) ... ok\ntest_key_digest_does_not_persist_raw_key (test_harness.HarnessTests.test_key_digest_does_not_persist_raw_key) ... ok\ntest_lost_response_after_commit_replays_receipt (test_harness.HarnessTests.test_lost_response_after_commit_replays_receipt) ... ok\ntest_new_key_same_body_creates_separate_intent (test_harness.HarnessTests.test_new_key_same_body_creates_separate_intent) ... ok\ntest_normalize_body_byte_limit (test_harness.HarnessTests.test_normalize_body_byte_limit) ... ok\ntest_pairwise_create_replay_conflict_and_scope (test_harness.HarnessTests.test_pairwise_create_replay_conflict_and_scope) ... ok\ntest_pairwise_has_all_24_pairs (test_harness.HarnessTests.test_pairwise_has_all_24_pairs) ... ok\ntest_real_schema_forbids_extra_and_non_strict_input (test_harness.HarnessTests.test_real_schema_forbids_extra_and_non_strict_input) ... ok\ntest_receipt_does_not_resurrect_deleted_plan (test_harness.HarnessTests.test_receipt_does_not_resurrect_deleted_plan) ... ok\ntest_receipt_is_read_before_current_basis_validation (test_harness.HarnessTests.test_receipt_is_read_before_current_basis_validation) ... ok\ntest_replay_at_limit_does_not_create_again (test_harness.HarnessTests.test_replay_at_limit_does_not_create_again) ... ok\ntest_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result) ... ok\ntest_retry_response_and_counts (test_harness.HarnessTests.test_retry_response_and_counts) ... ok\ntest_valid_key_boundaries (test_harness.HarnessTests.test_valid_key_boundaries) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.696s\n\nOK\n"
+  },
+  "report": {
+    "command": [
+      "C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "coverage",
+      "json",
+      "-o",
+      "C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\quality\\coverage-full.json"
+    ],
+    "cwd": "C:\\Users\\dtai168\\VScode\\SE\\vt098-work",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Wrote JSON report to C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\quality\\coverage-full.json\n"
+  },
+  "scoped_files": {
+    "experiments\\vt098\\harness.py": {
+      "covered_lines": 85,
+      "num_statements": 85,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": [],
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 18,
+      "num_partial_branches": 0,
+      "covered_branches": 18,
+      "missing_branches": [],
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100",
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "experiments\\vt098\\schema.py": {
+      "covered_lines": 13,
+      "num_statements": 14,
+      "percent_covered": 87.5,
+      "percent_covered_display": "88",
+      "missing_lines": [
+        20
+      ],
+      "excluded_lines": 0,
+      "percent_statements_covered": 92.85714285714286,
+      "percent_statements_covered_display": "93",
+      "num_branches": 2,
+      "num_partial_branches": 1,
+      "covered_branches": 1,
+      "missing_branches": [
+        [
+          19,
+          20
+        ]
+      ],
+      "percent_branches_covered": 50.0,
+      "percent_branches_covered_display": "50",
+      "line_percent": 92.8571,
+      "branch_percent": 50.0
+    }
+  },
+  "raw_report": "coverage-full.json",
+  "scope_note": "Dynamic AST class also traces academic.py; that partial file is not production route coverage. No whole-project percentage."
+}

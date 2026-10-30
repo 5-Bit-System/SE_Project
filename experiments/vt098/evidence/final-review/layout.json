@@ -1,0 +1,14 @@
+{
+  "total_pages": 17,
+  "main_pages": 8,
+  "appendix_pages": 9,
+  "all_20_case_ids_present": true,
+  "reflection_word_count_whitespace": 286,
+  "pinned_method_links_validated": 18,
+  "text_span_clipping_detected": false,
+  "overfull_box_detected": false,
+  "compiler": "Tectonic 0.17.0",
+  "pdf_inspector": "PyMuPDF 1.27.2.3",
+  "reviewed_revision_before_docs_commit": "bf47b3c",
+  "runtime_test_runner_unchanged": true
+}

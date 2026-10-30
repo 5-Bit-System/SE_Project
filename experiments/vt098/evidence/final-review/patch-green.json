@@ -1,0 +1,21 @@
+{
+  "stage": "patch-green",
+  "commit": "91b20308dc86daa8b1067db3e558aba350635e61",
+  "command": [
+    "C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments/vt098",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\patch-green",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_account_scope_and_required_principal (test_harness.HarnessTests.test_account_scope_and_required_principal) ... ok\ntest_basis_and_nonempty_courses_are_not_faked (test_harness.HarnessTests.test_basis_and_nonempty_courses_are_not_faked) ... ok\ntest_canonicalization_uses_real_schema_defaults (test_harness.HarnessTests.test_canonicalization_uses_real_schema_defaults) ... ok\ntest_conflict_keeps_original_unchanged (test_harness.HarnessTests.test_conflict_keeps_original_unchanged) ... ok\ntest_failure_before_commit_rolls_back_then_retry (test_harness.HarnessTests.test_failure_before_commit_rolls_back_then_retry) ... ok\ntest_invalid_keys_do_not_write (test_harness.HarnessTests.test_invalid_keys_do_not_write) ... ok\ntest_key_digest_does_not_persist_raw_key (test_harness.HarnessTests.test_key_digest_does_not_persist_raw_key) ... ok\ntest_lost_response_after_commit_replays_receipt (test_harness.HarnessTests.test_lost_response_after_commit_replays_receipt) ... ok\ntest_new_key_same_body_creates_separate_intent (test_harness.HarnessTests.test_new_key_same_body_creates_separate_intent) ... ok\ntest_pairwise_create_replay_conflict_and_scope (test_harness.HarnessTests.test_pairwise_create_replay_conflict_and_scope) ... ok\ntest_pairwise_has_all_24_pairs (test_harness.HarnessTests.test_pairwise_has_all_24_pairs) ... ok\ntest_real_schema_forbids_extra_and_non_strict_input (test_harness.HarnessTests.test_real_schema_forbids_extra_and_non_strict_input) ... ok\ntest_receipt_does_not_resurrect_deleted_plan (test_harness.HarnessTests.test_receipt_does_not_resurrect_deleted_plan) ... ok\ntest_receipt_is_read_before_current_basis_validation (test_harness.HarnessTests.test_receipt_is_read_before_current_basis_validation) ... ok\ntest_replay_at_limit_does_not_create_again (test_harness.HarnessTests.test_replay_at_limit_does_not_create_again) ... ok\ntest_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result) ... ok\ntest_retry_response_and_counts (test_harness.HarnessTests.test_retry_response_and_counts) ... ok\ntest_valid_key_boundaries (test_harness.HarnessTests.test_valid_key_boundaries) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.724s\n\nOK\n"
+}

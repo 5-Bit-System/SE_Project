@@ -135,8 +135,29 @@ not uploaded report contents. PyMuPDF 1.27.2.3 inspected the local rendered PDF.
 File-based TeX Gyre declarations, paragraph breaks around tables and breakable
 test identifiers fixed the observed font-resolution/table-overflow issues.
 
-The local report has **8 main pages and 9 AI/log appendix pages (17 total)**.
+The report at `bf47b3c` had **8 main pages and 9 AI/log appendix pages (17 total)**.
 All twenty TC IDs remain present; text-span checks found no page-edge clipping.
 Reflection text is identical between Markdown and LaTeX and has 286 whitespace
 tokens. No direct Overleaf run or independent student/team review is claimed.
 This validates the report's presentation, not any additional software behavior.
+
+## Full-assignment final review
+
+Actual prompt: the user supplied the complete assignment/rubric again and asked
+“kiểm tra lại toàn bộ 1 lần nữa”. The agent exported historical commits, reran
+the red/green/mutant stages, coverage, six flaky scenarios and nine 150-task load
+bursts with an independent output directory. A clean venv without system-site
+packages confirmed the README recipe (19 methods OK). No original experiment
+artifact or runtime/test/runner file was overwritten.
+
+The agent shortened README, retained REPRODUCTION.md, corrected TC05's mapping
+to the pairwise method and removed the implication that every JSON contains a
+command field. Ruff was clarified as optional rather than a harness dependency.
+These are documentation fixes, not new production functionality.
+
+FINAL_REVIEW.md and evidence/final-review/ preserve actual rerun output. The
+rerun max burst p95 is 2.5604576 s; the report retains the original 3.0686327 s
+instead of replacing it with the more favorable result. Scope and human-review
+limitations are unchanged. Current PDF pagination after the audit is recorded
+separately in evidence/final-review/layout.json; the old documentation.json is
+retained as a historical snapshot.

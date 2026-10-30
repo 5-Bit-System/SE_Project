@@ -1,0 +1,21 @@
+{
+  "stage": "draft-red",
+  "commit": "9b18b7d729976fb7704976845cab70f3dd1d21d1",
+  "command": [
+    "C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments/vt098",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\draft-red",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "test_ai_draft_duplicate_happy_path (test_harness.HarnessTests.test_ai_draft_duplicate_happy_path) ... ok\ntest_ai_draft_retry_status_only (test_harness.HarnessTests.test_ai_draft_retry_status_only) ... ok\ntest_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result) ... FAIL\n\n======================================================================\nFAIL: test_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\.tex-tools\\audit-review\\draft-red\\experiments\\vt098\\test_harness.py\", line 44, in test_retry_after_reopen_preserves_result\n    self.assertEqual(first.body, replay.body)\nAssertionError: {'tit[275 chars]ne, 'id': 'c9a665bb-f969-4d43-97a1-eec8d7752f65', 'version': 1} != {'tit[275 chars]ne, 'id': 'e565421a-6bd4-4902-a091-364e61639040', 'version': 1}\n  {'academic_year_start': 2026,\n   'course_codes': [],\n   'expected_basis': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',\n   'expected_version': None,\n-  'id': 'c9a665bb-f969-4d43-97a1-eec8d7752f65',\n+  'id': 'e565421a-6bd4-4902-a091-364e61639040',\n   'max_credits': 20,\n   'selected_graduation_path_id': None,\n   'selected_track_id': None,\n   'semester': 1,\n   'title': 'VT098-Draft',\n   'version': 1}\n\n----------------------------------------------------------------------\nRan 3 tests in 0.042s\n\nFAILED (failures=1)\n"
+}

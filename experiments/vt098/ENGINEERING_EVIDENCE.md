@@ -24,7 +24,7 @@ Nội dung không thay thế kiểm tra quyền/nguồn học vụ của product
 
 | Acceptance criterion / risk | Test case | Test file / method (permalink dòng) | Commit | Kết quả / artifact |
 |---|---|---|---|---|
-| AC1–2 / RK1: ghi mới, replay giữ kết quả | TC01, TC05 | [T:64 `test_retry_response_and_counts`](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L64) | R → P; C | Harness pass; JSON/version/SQL counts. `reviewed-red.json` → `green.json`; `coverage.json` |
+| AC1–2 / RK1: ghi mới, replay giữ kết quả | TC01 (TC05 ở hàng pairwise kế tiếp) | [T:64 `test_retry_response_and_counts`](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L64) | R → P; C | Harness pass; JSON/version/SQL counts. `reviewed-red.json` → `green.json`; `coverage.json` |
 | AC1–4 / RK1–2: key/body/account/dispatch | TC01–TC08 | [T:100 `test_pairwise_create_replay_conflict_and_scope`](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L100), [T:92 pair coverage](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L92) | P, C | 8 subcases pass trong SQLite, 24/24 cặp; API/PostgreSQL level chưa chạy |
 | AC3 / RK2: key cũ/body khác | TC03 | [T:182 `test_conflict_keeps_original_unchanged`](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L182) | P, C | Harness 409 conflict, không thêm/sửa dữ liệu gốc; `coverage.json` |
 | AC3 / RK5: biên key hợp lệ và key sai | TC09–10 | [T:142 valid boundaries](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L142), [T:148 invalid keys](https://github.com/5-Bit-System/SE_Project/blob/682496291524ae28f51574085a6023ef8ff1478a/experiments/vt098/test_harness.py#L148) | P, C | Harness pass cho 1/63/64 và các key sai; chưa HTTP header/middleware |
@@ -64,7 +64,9 @@ chưa test, auth/CSRF và PostgreSQL vẫn là risk chưa chứng minh.
 ## Lệnh tái chạy
 
 Xem [README.md](README.md): unittest cho harness, quality coverage/flaky/load,
-mutation worktree riêng. Mỗi JSON lưu command thật, môi trường và source hashes.
+mutation worktree riêng. README/REPRODUCTION ghi lệnh tái chạy; JSON capture
+(test/coverage/mutation/flaky) có command, còn load JSON ghi cấu hình, môi trường,
+source hashes và toàn bộ mẫu. Không mặc định mọi JSON đều có trường command.
 Source `harness.py` nhánh nộp giữ nguyên `91b2030`; không merge mutant hoặc main.
 
 ## Reflection và AI Usage Log

@@ -1,0 +1,32 @@
+{
+  "stages": [
+    {
+      "stage": "draft-red",
+      "exit_code": 1,
+      "methods": 3
+    },
+    {
+      "stage": "reviewed-red",
+      "exit_code": 1,
+      "methods": 18
+    },
+    {
+      "stage": "patch-green",
+      "exit_code": 0,
+      "methods": 18
+    },
+    {
+      "stage": "current-green",
+      "exit_code": 0,
+      "methods": 19
+    },
+    {
+      "stage": "mutant",
+      "exit_code": 1,
+      "methods": 1
+    }
+  ],
+  "old_load_samples": 1350,
+  "old_max_p95_seconds": 3.0686327000148594,
+  "all_measured_source_hashes_unchanged": true
+}
