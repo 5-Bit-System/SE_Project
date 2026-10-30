@@ -119,11 +119,14 @@ def main():
         assert detail_rows.first.get_attribute('data-source-code') == 'TEST002'
         assert '2099–2100' in page.locator('#analytics-detail-title').inner_text()
         assert page.locator('#analytics-detail-table th[scope="rowgroup"]').count() == 1
+        page.keyboard.press('Escape')
         page.locator('#analytics-trend circle.chart-point').nth(2).press('Space')
         assert detail_rows.first.get_attribute('data-source-code') == 'TEST004'
+        page.keyboard.press('Escape')
         page.locator('#analytics-trend4 circle.chart-point').first.click()
         assert detail_rows.count() == 2
         assert 'Hệ 4' in page.locator('#analytics-detail-meta').inner_text()
+        page.keyboard.press('Escape')
         page.locator('#analytics-year').select_option('2099–2100')
         grade_button = page.locator('#analytics-distribution .distribution-legend button').filter(has_text='A+')
         assert grade_button.count() == 1
@@ -140,15 +143,16 @@ def main():
         assert detail_rows.count() == 2
         assert detail_rows.evaluate_all('rows => rows.map(row => row.dataset.sourceCode)') == ['TEST004', 'TEST001E']
         assert detail_rows.locator('td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
-        grade_button.click()
+        page.keyboard.press('Escape')
         assert page.locator('#analytics-detail').is_hidden()
         grade_segment = page.locator('#analytics-distribution .chart-grade-segment[data-grade-letter="A+"]')
         assert grade_segment.get_attribute('role') == 'button'
         grade_segment.press('Space')
         assert detail_rows.locator('td:nth-child(5)').all_inner_texts() == ['A+', 'A+']
         for theme in ('light', 'dark'):
-            page.locator(f'[data-theme-choice="{theme}"]').click()
+            page.evaluate("theme => document.querySelector(`[data-theme-choice=\"${theme}\"]`).click()", theme)
             page.screenshot(path=str(evidence / f'charts-{theme}.png'), full_page=True)
+        page.keyboard.press('Escape')
         page.locator('#analytics-trend circle.chart-point').first.focus()
         assert page.locator('#analytics-trend circle.chart-point').first.get_attribute('aria-label')
         page.locator('[data-language-choice="en"]').click()
