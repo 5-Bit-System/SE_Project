@@ -16,9 +16,11 @@ python -m pip install -r experiments/vt098/requirements.txt
 python -X utf8 -m unittest discover -s experiments/vt098 -p "test_*.py" -v
 ```
 
-Kết quả đã quan sát: **18 test methods passed**, gồm 8 pairwise subcases
-(24/24 cặp), các parameter biên, rollback, conflict và reopen connection.
-Đây không phải 18 test API/E2E production; không có số đo p95/coverage/mutation.
+Yêu cầu 3 ghi nhận **18 test methods passed**. Yêu cầu 4 bổ sung test body đúng
+16 KiB / vượt 1 byte sau khi xem coverage: hiện có **19 methods passed**, gồm
+8 pairwise subcases (24/24 cặp), biên, rollback, conflict và reopen connection.
+Đây là test harness, không phải test API/E2E production. Kết quả mutation,
+line/branch coverage, flaky review và tải nằm trong [QUALITY_REPORT.md](QUALITY_REPORT.md).
 
 ## Slice và giới hạn
 
@@ -88,3 +90,34 @@ Chỉ dùng tài khoản/basis và dữ liệu tự tạo, không dùng test dat
 
 Chi tiết plan và assumptions: [PLAN_REVIEW.md](PLAN_REVIEW.md).
 Khai báo AI và trách nhiệm review: [AI_USAGE.md](AI_USAGE.md).
+
+## Chạy lại yêu cầu 4
+
+Dùng môi trường riêng (coverage 7.17.0); các lệnh quality ghi đè artifact cùng
+tên nên nên chạy trong checkout riêng khi muốn giữ nguyên log lịch sử đã commit.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r experiments/vt098/requirements-quality.txt
+.\.venv\Scripts\python.exe -X utf8 -m experiments.vt098.quality coverage
+.\.venv\Scripts\python.exe -X utf8 -m experiments.vt098.quality flaky
+.\.venv\Scripts\python.exe -X utf8 -m experiments.vt098.quality load --workers 150 --rounds 3
+```
+
+Mutation được giữ **chỉ ở nhánh tạm**
+[`vt098/23001925-boundary-mutation-reviewed`](https://github.com/5-Bit-System/SE_Project/tree/vt098/23001925-boundary-mutation-reviewed),
+commit `0a057964cb2819cda5af0abbadd4b748536f8600`. Không merge nhánh này.
+Tạo worktree mới từ commit đó, rồi dùng runner ở nhánh nộp để so sánh:
+
+```powershell
+git worktree add --detach ../vt098-mutation 0a057964cb2819cda5af0abbadd4b748536f8600
+.\.venv\Scripts\python.exe -X utf8 -m experiments.vt098.quality mutation --mutant-root ../vt098-mutation
+```
+
+Runner yêu cầu toàn file test giống nhau giữa control/mutant và runtime harness
+chỉ khác đúng `len(key) > 64` thành `len(key) >= 64`. Mutation không nằm trên
+nhánh nộp; evidence riêng có control exit 0 / mutant exit 1.
+
+Kết quả tải: 9 burst, mỗi burst phát 150 tác vụ qua barrier, tổng 1.350 mẫu; peak
+lời gọi thực tế 149–150, p95 cao nhất 3,0686 giây, không lỗi và số ghi đúng.
+Đo SQLite `create()` trên máy cục bộ, chưa chứng nhận p95 HTTP/production.

@@ -1,0 +1,8 @@
+{
+  "submission_head_before_capture": "682496291524ae28f51574085a6023ef8ff1478a",
+  "mutant_commit": "0a057964cb2819cda5af0abbadd4b748536f8600",
+  "mutant_is_ancestor_of_submission": false,
+  "harness_identical_to_clean_91b2030": true,
+  "clean_harness_sha256": "ac70d7b62acb4544223e365a443ed8ff8d22c8484a1e79e2422e40148659acb1",
+  "runtime_boundary": "len(key) > 64"
+}

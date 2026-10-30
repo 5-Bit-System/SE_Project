@@ -1,5 +1,5 @@
 {
-  "head_before_capture": "91b20308dc86daa8b1067db3e558aba350635e61",
+  "head_before_capture": "682496291524ae28f51574085a6023ef8ff1478a",
   "python": "3.11.9",
   "sqlite": "3.45.1",
   "pydantic": "2.12.5",
@@ -9,7 +9,7 @@
   "sha256": {
     "harness.py": "ac70d7b62acb4544223e365a443ed8ff8d22c8484a1e79e2422e40148659acb1",
     "schema.py": "434e9fb5f3ae9eabbe003fcea1d50bd17d62f9c577834debfd416a9951f3946e",
-    "test_harness.py": "a266859ac1d8b4720c084144f20280a5d9f83e1a46a576aba065f626cfdcca24",
+    "test_harness.py": "b127149e2016b26553aba196a1aa6190d91f36c6fbf419f94bb6d51996c3c337",
     "quality.py": "3d4a3c2e9175ea6167571b69b6afa90e8118dba4c4004c5a16cc9ba1e830a044"
   },
   "control": {
@@ -40,9 +40,9 @@
     "cwd": "C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation",
     "exit_code": 1,
     "stdout": "",
-    "stderr": "test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... \n  test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64) ... ERROR\ntest_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... FAIL\n\n======================================================================\nERROR: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\test_harness.py\", line 145, in test_valid_key_boundaries\n    self.assertEqual(self.store.create(ACCOUNT, 'k' * length, body()).status, 201)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\harness.py\", line 92, in create\n    key_digest = validate_key(key)\n                 ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\harness.py\", line 42, in validate_key\n    raise HarnessError(400, 'invalid_idempotency_key')\nexperiments.vt098.harness.HarnessError: invalid_idempotency_key\n\n======================================================================\nFAIL: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\test_harness.py\", line 146, in test_valid_key_boundaries\n    self.assertEqual(self.counts(), (3, 3, 3))\nAssertionError: Tuples differ: (2, 2, 2) != (3, 3, 3)\n\nFirst differing element 0:\n2\n3\n\n- (2, 2, 2)\n+ (3, 3, 3)\n\n----------------------------------------------------------------------\nRan 1 test in 0.016s\n\nFAILED (failures=1, errors=1)\n"
+    "stderr": "test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... \n  test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64) ... ERROR\ntest_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) ... FAIL\n\n======================================================================\nERROR: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries) (length=64)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\test_harness.py\", line 145, in test_valid_key_boundaries\n    self.assertEqual(self.store.create(ACCOUNT, 'k' * length, body()).status, 201)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\harness.py\", line 92, in create\n    key_digest = validate_key(key)\n                 ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\harness.py\", line 42, in validate_key\n    raise HarnessError(400, 'invalid_idempotency_key')\nexperiments.vt098.harness.HarnessError: invalid_idempotency_key\n\n======================================================================\nFAIL: test_valid_key_boundaries (experiments.vt098.test_harness.HarnessTests.test_valid_key_boundaries)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-mutation\\experiments\\vt098\\test_harness.py\", line 146, in test_valid_key_boundaries\n    self.assertEqual(self.counts(), (3, 3, 3))\nAssertionError: Tuples differ: (2, 2, 2) != (3, 3, 3)\n\nFirst differing element 0:\n2\n3\n\n- (2, 2, 2)\n+ (3, 3, 3)\n\n----------------------------------------------------------------------\nRan 1 test in 0.028s\n\nFAILED (failures=1, errors=1)\n"
   },
-  "mutant_commit": "55f03c700f0075146a6e58828758769ecdb0decc",
+  "mutant_commit": "0a057964cb2819cda5af0abbadd4b748536f8600",
   "same_test_bytes": true,
   "exactly_one_operator_change": true,
   "killed": true

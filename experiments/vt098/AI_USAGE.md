@@ -48,3 +48,28 @@ no fabricated human approval is recorded. The observed evidence increases
 confidence only in the isolated SQLite slice. Production auth/CSRF/eligibility,
 PostgreSQL, browser E2E, process death, coverage, mutation and 150-task performance
 remain unproven. No main-branch merge is authorized or performed.
+
+## Requirement 4 continuation (same individual conversation)
+
+The user subsequently requested the boundary mutation `>` to `>=`, demonstration
+that a test detects it, line/branch and risk coverage, at least two flaky risks,
+and 150 simultaneous tasks compared with p95 4.0 seconds (or a disclosed harness).
+These are the actual supplied requirements, not a teammate's prompt.
+
+The agent used a separate temporary mutation worktree and preserved control versus
+mutant test output. It installed coverage 7.17.0 into a workspace virtual
+environment, added one 16 KiB body boundary test after inspecting missed branches,
+and reran mutation against identical 19-method test files. No test was weakened
+to kill the mutant or to improve percentages. The missing schema guard remains
+disclosed. `harness.py` on the submission branch is byte-identical to `91b2030`.
+
+Six guarded functional runs vary wall clock, order and hash seed, block sleep/DNS/
+socket connections, and retain every result. Nine load bursts offer 150 tasks
+each, retain all 1,350 samples and check SQL counts; actual peaks 149–150 and the
+absence of real HTTP/PostgreSQL are disclosed. See QUALITY_REPORT.md and evidence
+JSON for measured numbers and limitations. A raw report that includes AST schema
+lines under academic.py is explicitly distinguished from production API coverage.
+
+All code, data, interpretation and self-review are by the coding agent; no
+independent student/team approval is claimed. No merge was performed. Requirement
+5, including the final personal reflection, remains pending.
