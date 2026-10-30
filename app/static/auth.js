@@ -9,7 +9,7 @@
   let restoringSession = true;
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
   Object.assign(copy.vi, {
-    restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Sổ học tập dành cho sinh viên VNU', description:'Dùng tài khoản cổng đào tạo VNU để đăng nhập và xem bảng điểm. Không cần đăng ký email cá nhân.',
+    restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Sổ học tập dành cho sinh viên VNU', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian.',
     studentTab:'Sinh viên VNU', adminTab:'Quản trị viên', studentTitle:'Đăng nhập bằng VNU',
     studentHint:'Nhập tài khoản bạn dùng tại cổng đào tạo VNU. Hồ sơ được tạo tự động sau khi xác thực thành công.',
     vnuUsername:'Tài khoản VNU', vnuPassword:'Mật khẩu VNU', vnuLogin:'Đăng nhập bằng VNU',
@@ -27,7 +27,7 @@
     admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.'
   });
   Object.assign(copy.en, {
-    eyebrow:'A study workspace for VNU students', description:'Use your VNU student portal account to sign in and view your transcript. No personal email registration is needed.',
+    eyebrow:'A study workspace for VNU students', description:'Your transcript and study information, together in one place.',
     studentTab:'VNU student', adminTab:'Administrator', studentTitle:'Sign in with VNU',
     studentHint:'Use your VNU student portal credentials. Your profile is created after successful verification.',
     vnuUsername:'VNU account', vnuPassword:'VNU password', vnuLogin:'Sign in with VNU',
