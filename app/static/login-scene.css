@@ -1,0 +1,63 @@
+/* Local design preview, enabled only by ?preview=study-login. */
+.login-study-scene {
+  --scene-paper: #fffdf8;
+  --scene-rule: #d7cfdf;
+  --scene-ink: #9c8ab2;
+  --scene-cover: #b5a1d3;
+  --scene-cover-light: #d0c1e3;
+  --scene-accent: #8060b9;
+  --scene-node: #f2edf9;
+  --scene-play-state: paused;
+  width: calc(100% + 64px);
+  margin: 22px -32px -20px;
+  pointer-events: none;
+  user-select: none;
+}
+:root[data-theme="dark"] .login-study-scene {
+  --scene-paper: #302e42;
+  --scene-rule: #514a66;
+  --scene-ink: #9283ae;
+  --scene-cover: #605079;
+  --scene-cover-light: #77658f;
+  --scene-accent: #ad92da;
+  --scene-node: #292639;
+}
+.login-study-scene > svg { display: block; width: 100%; height: auto; overflow: visible; }
+.login-scene-shadow { fill: var(--scene-accent); opacity: .09; }
+.login-course-map { stroke: var(--scene-ink); stroke-width: 1.5; opacity: .65; }
+.login-map-node { fill: var(--scene-node); }
+.login-map-dot { fill: var(--scene-accent); stroke: none; }
+.login-map-pulse { stroke: var(--scene-accent); stroke-width: 2.5; stroke-dasharray: .07 .93; animation: login-map-trace 20s linear infinite; }
+.login-note-shadow { fill: var(--scene-accent); opacity: .07; }
+.login-paper { fill: var(--scene-paper); stroke: var(--scene-rule); stroke-width: 1.4; }
+.login-paper-rule { stroke: var(--scene-rule); stroke-width: 1.2; }
+.login-paper-ink { stroke: var(--scene-ink); stroke-width: 1.7; }
+.login-paper-fold { fill: var(--scene-node); stroke: var(--scene-rule); stroke-width: 1.3; }
+.login-paper-tape { fill: var(--scene-cover-light); opacity: .7; }
+.login-note-one { animation: login-note-drift 18s ease-in-out infinite; }
+.login-note-two { animation: login-note-drift 22s ease-in-out -8s infinite reverse; }
+.login-book-cover { fill: var(--scene-cover); stroke: var(--scene-accent); stroke-width: 1.2; }
+.login-book-cover-light { fill: var(--scene-cover-light); stroke: var(--scene-ink); stroke-width: 1.2; }
+.login-book-pages { fill: var(--scene-paper); stroke: var(--scene-rule); }
+.login-bookmark { fill: var(--scene-accent); transform-box: fill-box; transform-origin: top center; animation: login-bookmark-sway 18s ease-in-out -4s infinite; }
+.login-pencil { fill: var(--scene-cover); stroke: var(--scene-accent); stroke-width: 1.2; }
+.login-pencil-line { stroke: var(--scene-paper); stroke-width: 1.1; }
+.login-desk-edge { stroke: var(--scene-ink); stroke-width: 1.5; opacity: .45; }
+.login-ruler { fill: var(--scene-cover-light); stroke: var(--scene-ink); stroke-width: 1.2; opacity: .65; }
+.login-scene-motion { animation-play-state: var(--scene-play-state); }
+.login-study-scene[data-visible="true"] { --scene-play-state: running; }
+html[data-motion-paused="true"] .login-study-scene { --scene-play-state: paused; }
+@keyframes login-note-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes login-map-trace { 0% { stroke-dashoffset: 1; opacity: 0; } 12%, 80% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes login-bookmark-sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(3deg); } }
+@media (max-width: 850px) {
+  .login-study-scene { width: min(440px, 100%); margin: 12px auto 0; }
+  :root[data-login-scene-preview] .system-auth-page { gap: 14px; }
+}
+@media (max-width: 480px) {
+  .login-study-scene { width: min(300px, 100%); margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-study-scene .login-scene-motion { animation: none; }
+  .login-map-pulse { opacity: 0; }
+}

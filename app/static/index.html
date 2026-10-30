@@ -24,6 +24,8 @@
   <script src="/static/analytics.js" type="module"></script>
   <link rel="stylesheet" href="/static/motion.css">
   <script src="/static/motion.js" defer></script>
+  <link rel="stylesheet" href="/static/login-scene.css">
+  <script src="/static/login-scene.js" defer></script>
 </head>
 <body data-auth-state="loading">
   <div class="ambient-background" aria-hidden="true" inert>
@@ -91,7 +93,70 @@
     <p data-auth-copy="restoringSession">Đang khôi phục phiên đăng nhập…</p>
   </div>
   <section id="system-auth" class="container system-auth-page">
-    <div class="auth-intro"><p class="page-context" data-auth-copy="eyebrow"></p><h2 data-auth-copy="headline"></h2><p data-auth-copy="description"></p></div>
+    <div class="auth-intro">
+      <p class="page-context" data-auth-copy="eyebrow"></p><h2 data-auth-copy="headline"></h2><p data-auth-copy="description"></p>
+      <div class="login-study-scene" aria-hidden="true" inert hidden>
+        <svg viewBox="0 0 660 340" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <ellipse cx="333" cy="297" rx="270" ry="17" class="login-scene-shadow"/>
+          <g class="login-course-map" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M77 136V98Q77 83 93 83H276Q294 83 294 65V48M294 83H381Q398 83 398 101V151H553M294 83V184Q294 202 312 202H350"/>
+            <path d="M77 136V98Q77 83 93 83H276Q294 83 294 65V48" class="login-map-pulse login-scene-motion" pathLength="1"/>
+            <rect x="51" y="117" width="52" height="39" rx="10" class="login-map-node"/>
+            <path d="m66 137 8 7 13-15"/>
+            <rect x="268" y="28" width="52" height="39" rx="10" class="login-map-node"/>
+            <path d="M283 47h23m-11-8v17"/>
+            <rect x="368" y="183" width="52" height="39" rx="10" class="login-map-node"/>
+            <path d="m382 205 7-9 7 5 10-10"/>
+            <circle cx="398" cy="151" r="5" class="login-map-dot"/>
+            <circle cx="553" cy="151" r="5" class="login-map-dot"/>
+          </g>
+          <g transform="translate(123 100) rotate(-9 66 70)">
+            <g class="login-note-one login-scene-motion">
+              <rect x="3" y="7" width="136" height="148" rx="9" class="login-note-shadow"/>
+              <rect width="136" height="148" rx="9" class="login-paper"/>
+              <path d="M0 28h136M29 28v120" class="login-paper-rule"/>
+              <rect x="17" y="-5" width="38" height="13" rx="3" class="login-paper-tape"/>
+              <g class="login-paper-ink" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M43 49h65M43 68h53M43 87h62M43 106h44M43 125h57"/>
+                <path d="m12 49 4 4 6-8m-10 23 4 4 6-8m-10 23 4 4 6-8"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(457 65) rotate(10 58 65)">
+            <g class="login-note-two login-scene-motion">
+              <rect x="3" y="7" width="116" height="129" rx="8" class="login-note-shadow"/>
+              <path d="M8 0h82l26 26v95a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8Z" class="login-paper"/>
+              <path d="M90 0v20a6 6 0 0 0 6 6h20" class="login-paper-fold"/>
+              <g class="login-paper-ink" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 97V44m0 53h76M29 82l16-12 16 5 26-28"/>
+                <circle cx="45" cy="70" r="3"/><circle cx="61" cy="75" r="3"/>
+                <path d="M22 113h40"/>
+              </g>
+            </g>
+          </g>
+          <g class="login-desk-books" stroke-linejoin="round">
+            <path d="M70 270h159v22H70a11 11 0 0 1 0-22Z" class="login-book-cover"/>
+            <path d="M77 275h152v12H77a6 6 0 0 1 0-12Z" class="login-book-pages"/>
+            <path d="M86 249h157v21H86a10.5 10.5 0 0 1 0-21Z" class="login-book-cover-light"/>
+            <path d="M91 254h152v11H91a5.5 5.5 0 0 1 0-11Z" class="login-book-pages"/>
+            <path d="M100 260h133M90 281h126" class="login-paper-rule"/>
+            <path d="M191 253v25l7-5 7 5v-25" class="login-bookmark login-scene-motion"/>
+          </g>
+          <g transform="translate(270 224) rotate(-5 108 30)" stroke-linejoin="round">
+            <rect x="-3" y="5" width="214" height="61" rx="7" class="login-book-cover"/>
+            <path d="M0 2h99q10 0 10 9v49q-9-6-21-6H0ZM218 2H119q-10 0-10 9v49q9-6 21-6h88Z" class="login-paper"/>
+            <path d="M109 12v43M15 17h69M15 29h61M15 41h68M134 17h68M134 29h55M134 41h64" class="login-paper-rule"/>
+            <path d="M112 9v43" class="login-paper-ink"/>
+          </g>
+          <g transform="translate(520 236) rotate(27)">
+            <path d="M0 0h9v61l-4.5 12L0 61Z" class="login-pencil"/>
+            <path d="M0 9h9M0 61h9M4.5 65v7" class="login-pencil-line"/>
+          </g>
+          <path d="M55 296h538" class="login-desk-edge" stroke-linecap="round"/>
+          <path d="M578 271h30v25h-30Zm0 6h30m-22-6v10m12-10v8" class="login-ruler" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
     <div class="auth-card workspace-surface">
       <nav class="auth-switch" aria-label="Đăng nhập"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
       <p id="auth-notice" role="status" aria-live="polite"></p>
