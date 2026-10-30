@@ -17,6 +17,10 @@ Chế độ tối dùng cùng hình dạng với bảng màu dịu hơn. Bố c�
 cao viewport thực, header gọn hơn và form được căn trong phần còn lại. Footer
 thông tin dự án được ẩn ở login preview; nội dung riêng tư về mật khẩu vẫn hiển thị.
 
+Hai cột được gom trong container tối đa 1120px và căn giữa màn hình. Cột chữ
+rộng tối đa 560px, form 440px, khoảng cách 32–64px theo chiều rộng. Tiêu đề
+giảm còn tối đa 46px và cân dòng để cả cụm có trọng lượng thị giác đồng đều.
+
 Các trang trôi 24px và nghiêng nhẹ trong 12–15 giây; hai vệt sáng chạy dọc nhánh
 trong 8/11 giây, sách và bookmark chuyển động nhẹ. Cảnh dừng khi ẩn hoặc tab bị
 ẩn; chế độ giảm chuyển động dùng hình tĩnh. Hình trang trí không nhận focus
@@ -50,3 +54,7 @@ Script QA, ảnh và `verification.json` được Git bỏ qua tại
 `backups/login_scene_preview_20261031/`. Đây là kiểm tra với phiên giả lập,
 không đăng nhập VNU thật hay đọc dữ liệu cá nhân. Chờ người dùng duyệt trước
 khi bật mặc định hoặc mở rộng sang các màn hình khác.
+
+Lần cân bố cục hai cột có ảnh và QA riêng tại `backups/login_centered_20261031/`:
+13 viewport/VI-EN tiếp tục qua kiểm tra; desktop đo thêm khoảng cách ngang
+32–64px và tâm cụm nội dung trùng tâm viewport.
