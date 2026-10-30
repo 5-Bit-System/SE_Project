@@ -47,7 +47,7 @@ def main() -> int:
     result = subprocess.run(command, cwd=target, env=env, capture_output=True,
                             text=True, encoding="utf-8", check=False)
     (EVIDENCE / "mutation.log").write_text(result.stdout + result.stderr, encoding="utf-8")
-    record = {"started_utc": datetime.now(timezone.utc).isoformat(),
+    record = {"recorded_utc": datetime.now(timezone.utc).isoformat(),
               "base_commit": query("rev-parse", "HEAD"), "branch": "detached",
               "command": command, "exit_code": result.returncode,
               "working_tree": query("status", "--porcelain=v1"),

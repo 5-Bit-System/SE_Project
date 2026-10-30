@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "hus_postgres",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/5-Bit-System/SE_Project/actions/runs/41097122762/job/124205555699"
+    },
+    {
+      "name": "offline",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/5-Bit-System/SE_Project/actions/runs/41097122762/job/124205555432"
+    },
+    {
+      "name": "postgres",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/5-Bit-System/SE_Project/actions/runs/41097122762/job/124205554869"
+    }
+  ],
+  "head": "2e864fc565e525da3b967f6c607e1ba5860f67f5",
+  "checked_utc": "2026-10-30T17:17:11.4596211Z"
+}

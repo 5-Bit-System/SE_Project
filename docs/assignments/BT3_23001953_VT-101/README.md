@@ -21,6 +21,8 @@ mặc định và thử 8 thread. Không diễn giải các lượt nhanh thành
 - Commit harness/docs tiếp theo được tra bằng `git log --oneline` và
   [PUBLICATION.md](PUBLICATION.md). Bản đo app là cb3b35d, working-tree context
   khi đo có trong JSON. Harness được công bố sau đó, không sửa số liệu.
+- Harness/evidence đã publish tại `2e864fc565e525da3b967f6c607e1ba5860f67f5`,
+  GitHub Actions cả3job passed. Receipt cuối theo sau, không đổi production/tests.
 - [Branch GitHub](https://github.com/5-Bit-System/SE_Project/tree/bt3/23001953-VT-101-search-contract)
   chỉ được coi đã phát hành khi PUBLICATION.md ghi verified push; không có merge.
 

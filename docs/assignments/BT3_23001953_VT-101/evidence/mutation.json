@@ -1,5 +1,4 @@
 {
-  "started_utc": "2026-10-30T16:50:14.660334+00:00",
   "base_commit": "cb3b35d944364e74fec65af4b299a79fcb90df36",
   "branch": "detached",
   "command": [
@@ -16,5 +15,6 @@
   "working_tree": "M app/api/routes.py",
   "compile_valid": true,
   "expected_detection": "503/500 became 200 only in the added /courses/search boundary",
-  "mutation_killed": true
+  "mutation_killed": true,
+  "recorded_utc": "2026-10-30T16:50:14.660334+00:00"
 }

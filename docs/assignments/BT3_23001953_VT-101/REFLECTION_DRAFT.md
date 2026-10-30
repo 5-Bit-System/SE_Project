@@ -22,7 +22,9 @@ thấy nhiều test xanh. Việc phát hiện lỗi encoding, tên biến che mo
 Tuy nhiên, coverage cao của service chưa chứng minh mọi điều kiện sản phẩm.
 Benchmark dùng HTTP thật nhưng catalog tổng hợp và JSON repository; kết quả
 không chứng nhận PostgreSQL production chịu cùng tải. Phân trang offset cũng
-chưa bảo đảm nhất quán khi revision catalog đổi giữa các request. Chưa có
+chưa bảo đảm nhất quán khi revision catalog đổi giữa các request. Ở cả hai cấu
+hình thử, một lượt vượt ngưỡng p95; tôi chưa có cơ sở kết luận mục tiêu hiệu năng
+đã đạt ổn định. Chưa có
 bằng chứng rằng mọi nguồn học vụ đã được trường xác minh.
 
 Test tiếp theo có giá trị cao nhất là chạy cùng contract và workload trên một

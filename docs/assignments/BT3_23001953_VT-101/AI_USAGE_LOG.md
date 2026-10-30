@@ -36,6 +36,7 @@ khác hoặc user acceptance ngầm. Spec map các yêu cầu thành AC01..05/NF
 | 8 | taskkill cleanup sẽ luôn có quyền | Sửa thành test-only graceful shutdown; giữ log failed | performance-cleanup-failed.log: 2000 correctness pass nhưng cleanup failure; không gộp thành benchmark hoàn chỉnh |
 | 9 | Broad except/default có vẻ giúp API “bền” | Chỉ đưa vào mutant detached, tuyệt đối không giữ implementation | mutation.patch/log/json:3failed39passed; branch đúng after-mutation46passed |
 | 10 | Coverage100% có nghĩa toàn app được chứng minh | Bác bỏ cách diễn giải | coverage.json: service100%, whole routes≈42%; REPORT.md nêu coverage tổng và residual risks |
+| 11 | Runner và review cùng ghi final-review.json | Sửa tên output review thành scope-review-results.json; log gốc vẫn giữ kết quả | Phát hiện ở review tài liệu; chạy lại final-review, tách command metadata khỏi findings |
 
 Ít nhất hai output nhìn hợp lý nhưng cần xác minh được ghi cụ thể ở dòng3,
 4,6,7,8. Những lỗi harness đã được phát hiện nhờ thực thi thay vì tin vào code

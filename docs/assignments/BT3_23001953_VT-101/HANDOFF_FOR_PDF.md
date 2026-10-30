@@ -15,6 +15,8 @@ sinh viên đối chiếu nếu giảng viên có biểu mẫu riêng.
 - RED `a5aab95c9d8453093621453b25f5807e584e15a3`, intentional37failed5passed.
 - Implementation `cb3b35d944364e74fec65af4b299a79fcb90df36`, initial78passed,
   offline619passed79deselected0skipped, focused46passed.
+- Harness/evidence `2e864fc565e525da3b967f6c607e1ba5860f67f5` đã push,
+  GitHub Actions3/3passed. Receipt tiếp theo theo PUBLICATION.md; PR chưa tạo.
 - Mutant valid syntax swallow Exception/default:3failed39passed, killed;
   submission không có mutant. Coverage service12/12line4/4branch, toàn3module
   chỉ83/163lines và6/8branches. Flaky6×46passed. Browser realHTTP passed.
@@ -38,7 +40,7 @@ sinh viên đối chiếu nếu giảng viên có biểu mẫu riêng.
 | Coverage/ACrisk map/flaky |coverage.json/report.log; TRACEABILITY; flaky-runs.log/json |
 |100concurrency/p95≤3s |REPORT performance; performance[-tuned]-results.json/requests.csv; profile.log; giữ failed SLO |
 | AI disclosure +≥2untrusted outputs |AI_USAGE_LOG.md, lỗi runner/harness thực tế và cách kiểm chứng |
-| Reflection250–350từ |REFLECTION_DRAFT.md:292whitespace-separated words, AI draft sinh viên cần sửa |
+| Reflection250–350từ |REFLECTION_DRAFT.md:318whitespace-separated words, AI draft sinh viên cần sửa/xác nhận |
 | Reproduction/source/Git/evidence |README commands; PUBLICATION; final-review/root-integrity evidence |
 
 Đọc JSON/log/CSV làm nguồn số liệu, không chỉ dựa tóm tắt. Không biến exit1 của

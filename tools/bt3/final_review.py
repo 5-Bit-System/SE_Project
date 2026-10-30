@@ -48,7 +48,7 @@ def main() -> int:
                   whitespace_exit_code=whitespace.returncode,
                   scanner_limit="Common patterns on BT3 changes only; not proof that every possible secret is detectable")
     result["passed"] = not (unexpected or catch_all or findings or whitespace.returncode) and unchanged
-    (EVIDENCE / "final-review.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    (EVIDENCE / "scope-review-results.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
     return 0 if result["passed"] else 1
 
