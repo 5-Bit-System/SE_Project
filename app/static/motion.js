@@ -59,7 +59,7 @@
     panel.querySelectorAll(surfaces).forEach(node => {
       if (node.getClientRects().length) protectedRects.push(node.getBoundingClientRect());
     });
-    panel.querySelectorAll('h2,p,summary,li,label,#analytics-count').forEach(node => {
+    panel.querySelectorAll('h2,p,summary,li,label').forEach(node => {
       if (!node.getClientRects().length) return;
       const box = node.getBoundingClientRect();
       if (box.top > notice.bottom + 170 || box.bottom < notice.bottom) return;

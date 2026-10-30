@@ -89,7 +89,7 @@ def main():
         assert page.locator('#analytics-table tbody tr').first.locator('td').nth(7).text_content() == '2,63'
         assert page.locator('#analytics-credits .credit-chart-row').count() == 5
         assert '4' in page.locator('#analytics-credits .credit-chart-row').first.inner_text()
-        assert '7 lượt học' in page.locator('#analytics-count').inner_text()
+        assert page.locator('#analytics-count').count() == 0
         count_positions = page.locator('#analytics-distribution .distribution-grade-button strong').evaluate_all(
             'nodes => nodes.map(node => node.getBoundingClientRect().x)')
         assert max(count_positions) - min(count_positions) < 1, count_positions
@@ -97,7 +97,6 @@ def main():
         assert page.locator('#analytics-trend .chart-point').count() == 2
         assert page.locator('#analytics-trend4 .chart-point').count() == 2
         assert page.locator('#analytics-credits .credit-chart-row').count() == 2
-        assert '3 lượt học' in page.locator('#analytics-count').inner_text()
         page.locator('#analytics-year').select_option('')
         page.evaluate("document.getElementById('portal-search').value = 'TEST004'")
         first_point = page.locator('#analytics-trend circle.chart-point').first
