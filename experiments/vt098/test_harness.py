@@ -165,6 +165,20 @@ class HarnessTests(unittest.TestCase):
         reverse = normalize({**body(), 'course_codes': ['TEST-B', 'TEST-A']})
         self.assertNotEqual(fingerprint(first), fingerprint(reverse))
 
+    def test_normalize_body_byte_limit(self):
+        # Coverage exposed a missing boundary contract from the actual plan_body.
+        candidate = {**body(), 'course_codes': ['']}
+        padding = 16384 - len(json.dumps(candidate, ensure_ascii=False).encode('utf-8'))
+        candidate['course_codes'] = ['X' * padding]
+        self.assertEqual(len(json.dumps(candidate, ensure_ascii=False).encode('utf-8')), 16384)
+        self.assertEqual(normalize(candidate)['course_codes'], candidate['course_codes'])
+        too_large = {**candidate, 'course_codes': ['X' * (padding + 1)]}
+        with self.assertRaises(HarnessError) as error:
+            normalize(too_large)
+        self.assertEqual((error.exception.status, error.exception.code),
+                         (413, 'invalid_semester_plan'))
+        self.assertEqual(self.counts(), (0, 0, 0))
+
     def test_conflict_keeps_original_unchanged(self):
         first = self.store.create(ACCOUNT, 'vt098-k0', body())
         with self.assertRaises(HarnessError) as error:
