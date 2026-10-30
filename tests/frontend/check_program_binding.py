@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import common_route
 
 KHMT = "khmtt_7480113qtd_2022"
 KHDL = "khdl_7460108_2022"
@@ -72,9 +73,17 @@ def main():
                 result = ready_board()
             route.fulfill(content_type="application/json", body=json.dumps(result))
         elif path == "/auth/session":
-            route.fulfill(json=session_payload())
+            session = session_payload()
+            session["account"].update(
+                account_id="00000000-0000-4000-8000-00000000000" + ("1" if owner == "a" else "3"),
+                session_id="00000000-0000-4000-8000-00000000000" + ("2" if owner == "a" else "4"))
+            route.fulfill(json=session)
         elif path == "/me/profile":
             route.fulfill(content_type="application/json", body=json.dumps(saved_profile()))
+        elif path == "/me/semester-plans":
+            route.fulfill(json={"plans": []})
+        elif path == "/me/portal-sync":
+            route.fulfill(json={"state": "reauth_required"})
         elif path == "/me/academic-program":
             assert route.request.headers.get("x-csrf-token") == "synthetic-browser-csrf"
             body = route.request.post_data_json
@@ -91,11 +100,8 @@ def main():
             route.fulfill(content_type="application/json", body='{"confirmed":true}')
         elif path.startswith(("/me/", "/auth/")):
             route.fulfill(status=401, content_type="application/json", body='{"detail":"session_expired"}')
-        elif path == "/static/course-status.js" and not parsed.query:
-            # Model a browser still holding the pre-confirmation script at the old URL.
-            route.fulfill(content_type="application/javascript", body="window.obsoleteBoardLoaded = true;")
         elif parsed.hostname == "127.0.0.1" and (path == "/" or path.startswith("/static/")):
-            route.continue_()
+            assert common_route(route)
         else:
             route.abort()
 
@@ -105,8 +111,7 @@ def main():
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.route("**/*", intercept)
         page.goto("http://127.0.0.1:8000/?course-mode=personal#rules")
-        assert page.locator("#course-status-board").is_visible()
-        assert page.evaluate("window.obsoleteBoardLoaded") is None
+        page.wait_for_selector("#course-status-board")
         root = page.locator("#course-status-board")
 
         def emit():
@@ -135,6 +140,7 @@ def main():
         page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
         assert root.locator('[data-course-code="TESTA"]').count() == 0
         owner = "b"
+        page.evaluate("window.systemAuth.refresh()")
         emit()
         page.wait_for_selector("#academic-program-choice")
         assert page.locator("#academic-program-choice").input_value() == KHDL
