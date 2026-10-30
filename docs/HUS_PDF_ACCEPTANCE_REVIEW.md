@@ -56,3 +56,12 @@ Chưa hoàn thành nghiệm thu học vụ toàn bộ. Trước đây 10 ca ch�
 Sau chạy PostgreSQL, không còn database `ai07_runtime_test_*` hoặc schema `se_test_*`; `accounts`, `students`, `course_attempts` đều có 0 dòng. JUnit 10 ca nguồn lưu tại `backups/catalog_acceptance_20261022/acceptance.xml`. Không commit/push hoặc publish runtime trong lượt này.
 
 Sau rà dọn bằng project-toolkit: đã xóa ảnh PNG render tạm (có thể tạo lại từ PDF), giữ TXT/TSV OCR, CSV đối chiếu và JUnit. Đã xóa module không dùng `database/hus_db/schema.py`; migration HUS vẫn là nguồn định nghĩa schema và publisher dùng reflection từ database. Suite sau dọn đạt **337 passed, không skip**, Ruff đạt; JUnit ở `backups/catalog_acceptance_20261022/cleanup-regression.xml`.
+
+
+## Status update - 2026-10-31
+
+The user explicitly attested in this session that the complete supplied KHMTTT cohort-2022 catalog under QD3568-2023 had been verified and requested activation of the study-eligibility flow. The sign-off is recorded in `database/data/hus_source.json` as `explicit_user_attestation`, bound to source PDF SHA-256 `bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab`. This is the user's project-level review record, not an institutional certification or an independent search for post-2023 amendments.
+
+The catalog builder now applies that matching sign-off to the KHMTTT program, its 67 course records, and parseable prerequisite evidence. Runtime publication completed; active revision `c46163d1629819649f9bc8d54db59156d8a46ee40deec6c6d1fdb923c731e1da` is verified. The other three catalogs remain `draft_unverified`.
+
+Four KHMTTT courses still refer to prerequisite codes outside that program catalog: MAT2407, MAT3452, MAT3533, and MAT3539. Those prerequisites and any unresolved VNU transcript rows remain separate eligibility checks; no account transcript or grade data was inspected for this update.

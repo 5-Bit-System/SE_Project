@@ -79,7 +79,7 @@
     "Kế hoạch học tập cá nhân": "Your personal study plan",
     "Từng học kỳ, một bước tiến.": "A step forward, every semester.",
     "Theo dõi kết quả đã học và chuẩn bị những lựa chọn cho kỳ tiếp theo.": "Track your results and prepare your choices for next semester.",
-    "Dữ liệu chương trình đang được rà soát. Kết quả là thông tin tham khảo; hãy xác nhận quy định và lịch mở lớp với nhà trường.": "Curriculum data is under review. Results are for reference; confirm regulations and course offerings with your university.",
+    "Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.": "Eligibility requirements may change; results are for reference. Confirm current course offerings with your university.",
     "Môn đã hoàn thành": "Completed courses",
     "Điểm ≥ 5.0": "Grade ≥ 5.0",
     "Tín chỉ tích lũy": "Earned credits",

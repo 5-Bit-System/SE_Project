@@ -7,6 +7,7 @@ deliberately keyed by stable major/cohort/version, never by database row ids.
 from __future__ import annotations
 
 from collections import defaultdict
+from datetime import datetime
 from typing import Any
 
 from app.catalog_validation import validate_catalog
@@ -35,14 +36,87 @@ def _unique(rows: list[dict], key: str, table: str) -> dict[Any, dict]:
     return result
 
 
-def _evidence(entry: dict, field: str) -> list[dict]:
-    return [{
+def _verified_reviews(bundle: dict) -> dict[str, dict]:
+    records = bundle.get("catalog_reviews", [])
+    if not isinstance(records, list):
+        raise ValueError("catalog_reviews must be a list")
+    curricula_by_program = {
+        PROGRAM_IDS[(row["major_code"], row["cohort_year"], row["curriculum_version"])]: row
+        for row in bundle["tables"]["curricula"]
+    }
+    manifest = bundle.get("metadata_source_manifest", [])
+    if not isinstance(manifest, list):
+        raise ValueError("metadata_source_manifest must be a list")
+
+    result = {}
+    for review in records:
+        if not isinstance(review, dict) or review.get("status") != "verified":
+            raise ValueError("Catalog review must be a verified record")
+        program_id = review.get("program_id")
+        if program_id not in curricula_by_program or program_id in result:
+            raise ValueError(f"Invalid or duplicate catalog review: {program_id}")
+        curriculum = curricula_by_program[program_id]
+        if (review.get("cohort_year") != curriculum["cohort_year"]
+                or review.get("decision") != curriculum["curriculum_version"]):
+            raise ValueError(f"Catalog review does not match curriculum identity: {program_id}")
+        sources = [row for row in manifest
+                   if row.get("decision") == review.get("decision")
+                   and row.get("cohort_year") == review.get("cohort_year")]
+        if (len(sources) != 1 or sources[0].get("sha256") != review.get("source_sha256")
+                or sources[0].get("status") != "verified"
+                or sources[0].get("review_record_sha256") != review.get("source_sha256")
+                or sources[0].get("reviewed_at") != review.get("reviewed_at")
+                or sources[0].get("reviewer") != review.get("reviewer")
+                or sources[0].get("review_basis") != review.get("basis")):
+            raise ValueError(f"Catalog review source is missing or does not match: {program_id}")
+        if (review.get("reviewer") != "user"
+                or review.get("basis") != "explicit_user_attestation"
+                or not all(isinstance(review.get(key), str) and review[key].strip()
+                           for key in ("scope", "statement"))):
+            raise ValueError(f"Catalog review sign-off is incomplete: {program_id}")
+        try:
+            reviewed_at = datetime.fromisoformat(review["reviewed_at"].replace("Z", "+00:00"))
+        except (KeyError, AttributeError, TypeError, ValueError):
+            raise ValueError(f"Catalog review date is invalid: {program_id}") from None
+        if reviewed_at.tzinfo is None or reviewed_at.utcoffset() is None:
+            raise ValueError(f"Catalog review timestamp must include timezone: {program_id}")
+        result[program_id] = dict(review)
+    return result
+
+
+def _reviewed_evidence(evidence: dict[str, list[dict]], review: dict | None) -> dict[str, list[dict]]:
+    if not review:
+        return evidence
+    result = {}
+    for field, items in evidence.items():
+        reviewed = []
+        for item in items:
+            row = dict(item)
+            if row.get("status") == "draft_unverified":
+                row.update(status="verified", reviewed_at=review["reviewed_at"],
+                           reviewed_by=review["reviewer"], review_basis=review["basis"])
+                note = row.get("note", "")
+                note = note.replace("academic reviewer not assigned", "covered by user catalog sign-off")
+                row["note"] = f"{note} Review sign-off: {review['reviewer']} on {review['reviewed_at']}.".strip()
+            reviewed.append(row)
+        result[field] = reviewed
+    return result
+
+
+def _evidence(entry: dict, field: str, review: dict | None = None) -> list[dict]:
+    status = "verified" if review else "draft_unverified"
+    evidence = [{
         "source_ref": entry["pdf_document"],
         "locator": f"page={entry['pdf_page']}; row={entry['source_row_number']}; code={entry['course_code']}",
         "method": "transcription",
-        "status": "draft_unverified",
-        "note": f"HUS source export: {field}; field-level review scope is recorded in the source bundle.",
+        "status": status,
+        "note": f"HUS source export: {field}; field-level review scope is recorded in the source bundle."
+        + (f" User sign-off recorded on {review['reviewed_at']}." if review else ""),
     }]
+    if review:
+        evidence[0].update(reviewed_at=review["reviewed_at"], reviewed_by=review["reviewer"],
+                           review_basis=review["basis"])
+    return evidence
 
 
 def _indexed(rows: list[dict], keys: tuple[str, ...], table: str) -> dict[tuple, dict]:
@@ -56,7 +130,7 @@ def _indexed(rows: list[dict], keys: tuple[str, ...], table: str) -> dict[tuple,
 
 
 def build_catalogs(bundle: dict) -> list[Catalog]:
-    """Validate the complete export and return four draft catalogs, with no writes."""
+    """Validate the complete export; only explicitly signed-off catalogs become verified."""
     if bundle.get("schema_version") != 1 or not isinstance(bundle.get("tables"), dict):
         raise ValueError("Unsupported HUS source bundle")
     tables = bundle["tables"]
@@ -66,6 +140,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
     )
     if any(not isinstance(tables.get(name), list) for name in required_tables):
         raise ValueError("Incomplete HUS source tables")
+    catalog_reviews = _verified_reviews(bundle)
     faculties = _unique(tables["faculties"], "faculty_code", "faculties")
     majors = _unique(tables["majors"], "major_code", "majors")
     curricula = _unique(tables["curricula"], "curriculum_id", "curricula")
@@ -188,6 +263,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                        for key in group_rows}
         source_doc = next(iter(entries_by_course[(cid, code)][0]["pdf_document"] for code in sorted(member_rows)))
         all_entries = [entry for (entry_cid, _), rows in entries_by_course.items() if entry_cid == cid for entry in rows]
+        review = catalog_reviews.get(program_id)
 
         # I: one B1 language; II: five credits; V.2 is either parallel quotas
         # or exactly one orientation, depending on the source major.
@@ -225,12 +301,16 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                                "source_group_keys": sorted(keys), "required_credits": None})
         program = Program(
             program_id=program_id, name=majors[curriculum["major_code"]]["major_name"],
-            total_credits=curriculum["credits_required"], catalog_status="draft_unverified",
+            total_credits=curriculum["credits_required"],
+            catalog_status="verified" if review else "draft_unverified",
             source_file=source_doc, source_pages=", ".join(map(str, sorted({e["pdf_page"] for e in all_entries}))),
             notes=[curriculum["note"],
+                   f"User sign-off recorded {review['reviewed_at']} for the complete supplied catalog source."
+                   if review else
                    "Prerequisite PDF review is recorded in the source bundle; full academic validation remains outstanding."
                    if bundle.get("prerequisite_pdf_review") else
                    "Source export has not been re-reviewed against original PDFs."],
+            catalog_review=review,
             choice_groups=choice_groups,
             track_selection={"mode": "exactly_one_track" if has_tracks else "not_applicable", "tracks": tracks},
             graduation_selection={"mode": "exactly_one_path", "required_credits": 7, "paths": paths},
@@ -256,23 +336,23 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
             elif raw_texts and not expression:
                 prereq_status = "unknown"
             else:
-                prereq_status = "draft_unverified"
+                prereq_status = "verified" if review else "draft_unverified"
             key = membership["course_group"]
             requirement = "graduation" if key.startswith("V.3.") else ("required_excluded" if code in EXCLUDED else
                           "elective" if code in LANGUAGES or key == "II" or key == "IV.2" or key.startswith("V.2.") else "required")
             first = occurrences[0]
             enrichment = enrichment_by_key.get((program_id, code), {"values": {}, "field_evidence": {}})
-            evidence = {field: _evidence(first, field) for field in
+            evidence = {field: _evidence(first, field, review) for field in
                         ("code", "name", "credits", "block", "requirement_type", "counted_in_total",
                          "prerequisites", "source_page", "choice_group_ids", "graduation_path_ids")}
             if conflict:
                 evidence["prerequisites"] = [
                     {**item, "status": "conflict"}
-                    for entry in occurrences for item in _evidence(entry, "prerequisites")
+                    for entry in occurrences for item in _evidence(entry, "prerequisites", review)
                 ]
             if membership["suggested_semester"] is not None:
-                evidence["suggested_term"] = _evidence(first, "suggested_term")
-            evidence.update(enrichment["field_evidence"])
+                evidence["suggested_term"] = _evidence(first, "suggested_term", review)
+            evidence.update(_reviewed_evidence(enrichment["field_evidence"], review))
             course_values = {"suggested_term": membership["suggested_semester"], **enrichment["values"]}
             applicable_name = course_values.pop("name", source_course["course_name"])
             if (membership["suggested_semester"] is not None
@@ -283,6 +363,7 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
                 block=BLOCKS[key.split(".")[0]], requirement_type=requirement,
                 counted_in_total=code not in EXCLUDED, prerequisites=expression,
                 prerequisites_raw=" | ".join(raw_texts) or None, prerequisite_status=prereq_status,
+                source_status="verified" if review else "draft_unverified",
                 prerequisite_variants=[list(map(list, v)) for v in sorted(variants)] if conflict else [],
                 external_prerequisite_codes=sorted({ref for variant in
                     ([expression] + [list(map(list, v)) for v in variants] if conflict else [expression])

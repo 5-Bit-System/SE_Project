@@ -227,8 +227,9 @@
     academic_program_source_mismatch: copy('Lựa chọn không khớp ngành/khóa đọc từ VNU.', 'Your selection does not match source enrollment.'),
     context_changed: copy('Dữ liệu đã thay đổi. Hãy tải lại rồi xác nhận.', 'The data changed. Reload it before confirming.')
     ,program_rules_review_required: copy('Quy tắc chọn hướng trong khung này cần đối chiếu thêm. Vẫn hiển thị các môn đã đối chiếu điểm đạt; kế hoạch tạm dừng.', 'This curriculum’s study-track rules need review. Resolved passed courses remain visible; planning is paused.')
-    ,catalog_unverified: copy('Khung chương trình chưa được xác minh; tạm dừng phân loại và lập kế hoạch.', 'The curriculum has not been verified; classification and planning are paused.'),
-    course_source_unverified: copy('Thông tin cơ bản của môn học chưa được xác minh.', 'Core course information has not been verified.')
+    ,catalog_unverified: copy('Khung chương trình chưa được xác minh. Bản đồ đang ở chế độ xem trước; kế hoạch tạm dừng.', 'The curriculum is unverified. The course map is a preview; planning is paused.'),
+    course_source_unverified: copy('Một số thông tin môn học chưa được xác minh. Kết quả chỉ là xem trước.', 'Some course details are unverified. Results are shown as a preview.'),
+    prerequisite_unverified: copy('Một số điều kiện tiên quyết chưa được xác minh. Kế hoạch tạm dừng.', 'Some prerequisites are unverified. Planning is paused.')
   })[reason] || copy('Dữ liệu bảng điểm cần được kiểm tra thêm.', 'Transcript data needs further review.');
 
   function blockedReason(reason) {
@@ -456,7 +457,7 @@
     const ready = !failed && (board?.status === 'ready' || (board?.status === 'partial' && board.can_plan));
     if (!ready || loading || failed || board?.status === 'partial') {
       const notice = el('div', undefined, 'course-status-notice'); notice.setAttribute('role', 'status');
-      notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Môn không có tiên quyết hoặc không tính tín chỉ tích lũy được hiển thị có thể học theo mặc định. Kết quả chưa rõ chưa được tính là hoàn thành để mở khóa môn khác.', 'Reviewed results are shown. Courses without prerequisites or excluded from earned credits remain available by default. Unresolved results do not count as completed or unlock other courses.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
+      notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.preview_only ? copy('Đây là bản xem trước theo bảng điểm và khung hiện có. Thông tin khung hoặc môn học chưa xác minh nên chưa thể lập kế hoạch; kết quả đang chờ đối chiếu không mở khóa môn khác.', 'This preview uses the current transcript and curriculum data. Unverified curriculum or course details prevent planning; unresolved outcomes do not unlock other courses.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Môn không có tiên quyết hoặc không tính tín chỉ tích lũy được hiển thị có thể học theo mặc định. Kết quả chưa rõ chưa được tính là hoàn thành để mở khóa môn khác.', 'Reviewed results are shown. Courses without prerequisites or excluded from earned credits remain available by default. Unresolved results do not count as completed or unlock other courses.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
       if (source && !loading) {
         const reasons = board?.blocking_reasons || ['program_binding_unverified', ...(source.snapshot?.completeness !== 'complete' ? ['source_incomplete'] : [])];
         const list = el('ul'); [...new Set(reasons.map(reasonText))].forEach(text => list.append(el('li', text))); notice.append(list);
@@ -523,16 +524,16 @@
     if (displayable && !loading) {
       const summary = el('div', undefined, 'course-status-summary');
       const progress = board.progress.total;
-      const done = el('div'); done.append(el('p', board.progress_is_lower_bound ? copy('Tín chỉ đạt đã đối chiếu (tối thiểu)', 'Reviewed earned credits (minimum)') : copy('Tín chỉ tích lũy trong chương trình', 'Earned program credits')), el('strong', `${progress.earned_credits} / ${progress.required_credits} ${copy('TC', 'credits')}`));
+      const done = el('div'); done.append(el('p', board.preview_only ? copy('Tín chỉ tạm tính theo dữ liệu chưa xác minh', 'Estimated credits from unverified data') : board.progress_is_lower_bound ? copy('Tín chỉ đạt đã đối chiếu (tối thiểu)', 'Reviewed earned credits (minimum)') : copy('Tín chỉ tích lũy trong chương trình', 'Earned program credits')), el('strong', `${progress.earned_credits} / ${progress.required_credits} ${copy('TC', 'credits')}`));
       const bar = el('progress'); bar.max = progress.required_credits; bar.value = Math.min(progress.earned_credits, bar.max); bar.setAttribute('aria-label', copy('Tiến độ tín chỉ', 'Credit progress')); done.append(bar, el('p', `${copy('Còn thiếu', 'Remaining')}: ${credits(progress.remaining_credits)}`));
-      const plan = el('div'); plan.append(el('p', copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', copy('Ưu tiên môn bắt buộc; tự chọn theo nhóm tín chỉ còn thiếu. Bạn có thể thay đổi các môn đã chọn.', 'Required courses come first, then electives in unfulfilled credit groups. You can change the selected courses.')));
+      const plan = el('div'); plan.append(el('p', board.preview_only ? copy('Kế hoạch kỳ tới đang tạm dừng', 'Next-term planning is paused') : copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', board.preview_only ? copy('Mở lại kế hoạch sau khi khung và thông tin môn học được xác minh.', 'Planning will resume after the curriculum and course details are verified.') : copy('Ưu tiên môn bắt buộc; tự chọn theo nhóm tín chỉ còn thiếu. Bạn có thể thay đổi các môn đã chọn.', 'Required courses come first, then electives in unfulfilled credit groups. You can change the selected courses.')));
       summary.append(done, plan); root.append(summary);
       const breakdown = renderProgressBreakdown(board.progress);
       if (breakdown) root.append(breakdown);
     }
     if (source) root.append(renderSavedPlans(ready));
     const error = el('p', planError, 'course-plan-error'); error.setAttribute('role', 'status'); root.append(error, renderColumns());
-    root.append(el('p', copy('Màu vàng cho biết có thể học theo điều kiện chương trình hoặc quy tắc mặc định ghi trên môn; chưa xác nhận môn sẽ mở kỳ tới. Tổng tín chỉ và lựa chọn là kế hoạch tham khảo; cần đối chiếu quy định của nhà trường.', 'Yellow means availability under catalog requirements or the default rule shown on the course; it does not confirm next-term course availability. Credit totals and selections are an advisory plan; confirm official requirements with the university.'), 'course-status-note'));
+    root.append(el('p', board?.preview_only ? copy('Màu trong bản xem trước phản ánh dữ liệu hiện có, chưa xác nhận điều kiện học chính thức. Không dùng kết quả này để đăng ký môn; hãy xác nhận khung và quy định với nhà trường.', 'Preview colors reflect the available data and do not confirm official eligibility. Do not use this result to register; confirm the curriculum and rules with the university.') : copy('Màu vàng cho biết có thể học theo điều kiện chương trình hoặc quy tắc mặc định ghi trên môn; chưa xác nhận môn sẽ mở kỳ tới. Tổng tín chỉ và lựa chọn là kế hoạch tham khảo; cần đối chiếu quy định của nhà trường.', 'Yellow means availability under catalog requirements or the default rule shown on the course; it does not confirm next-term course availability. Credit totals and selections are an advisory plan; confirm official requirements with the university.'), 'course-status-note'));
   }
 
   async function load(focusKey = null) {
@@ -554,6 +555,18 @@
       if (!response.ok) throw new Error('course_status_unavailable');
       const result = await response.json();
       if (current !== sequence) return;
+      if ((result.blocking_reasons || []).includes('program_binding_unverified')
+          && !result.program_selection) {
+        try {
+          const selectionResponse = await fetch('/me/academic-program', {
+            credentials: 'same-origin', cache: 'no-store', signal: controller.signal,
+          });
+          if (current !== sequence) return;
+          if (selectionResponse.ok) result.program_selection = await selectionResponse.json();
+        } catch (selectionError) {
+          if (current !== sequence || selectionError.name === 'AbortError') return;
+        }
+      }
       board = result;
       if (!activePlan && !planDirty && !restoringDraft) chosen = new Set(result.plan?.course_codes || []);
       restoringDraft = false;

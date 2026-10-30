@@ -1,6 +1,20 @@
 {
   "schema_version": 1,
-  "source": "HUS SQL export with prerequisite PDF review dated 2026-10-20; catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+  "source": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+  "catalog_reviews": [
+    {
+      "program_id": "khmtt_7480113qtd_2022",
+      "cohort_year": 2022,
+      "decision": "QD3568-2023",
+      "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "status": "verified",
+      "reviewed_at": "2026-10-30T20:15:35Z",
+      "reviewer": "user",
+      "basis": "explicit_user_attestation",
+      "scope": "Complete supplied KHMTTT curriculum export for cohort 2022, including course rows, credits, teaching hours, names, prerequisites, groups, quotas, and graduation rules.",
+      "statement": "The user explicitly stated that this curriculum had been fully verified and requested activation of the study eligibility flow. This records the user's sign-off and is not an institutional certification."
+    }
+  ],
   "tables": {
     "faculties": [
       {
@@ -19171,7 +19185,11 @@
         "name_en",
         "hours"
       ],
-      "status": "draft_unverified"
+      "status": "verified",
+      "reviewed_at": "2026-10-30T20:15:35Z",
+      "reviewer": "user",
+      "review_basis": "explicit_user_attestation",
+      "review_record_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
     },
     {
       "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",

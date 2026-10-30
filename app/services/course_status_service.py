@@ -33,10 +33,12 @@ def course_board(
 
 def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
                     max_credits: int, selected_track_id: str | None,
-                    selected_graduation_path_id: str | None) -> dict:
+                    selected_graduation_path_id: str | None,
+                    preview_unverified_metadata: bool = False) -> dict:
     eligibility = evaluate_eligibility(
         catalog, passed, max_credits=30, selected_track_id=selected_track_id,
         selected_graduation_path_id=selected_graduation_path_id,
+        preview_unverified_metadata=preview_unverified_metadata,
     )
     progress = calculate_progress(catalog, passed, selected_track_id, selected_graduation_path_id)
     groups = {group.id: group for group in progress.choice_groups}
@@ -97,8 +99,12 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
     without prerequisites, excluded from earned credits or explicitly requested
     by the user remain available when their own outcome still needs review.
     Any out-of-catalog code pauses the entire bundle until equivalence is reviewed.
+    Unverified metadata can be previewed here, but always pauses plan selection.
     """
-    allowed = {"course_outcomes_unresolved", "program_rules_review_required"}
+    allowed = {
+        "catalog_unverified", "course_source_unverified", "prerequisite_unverified",
+        "course_outcomes_unresolved", "program_rules_review_required",
+    }
     if set(context.get("blocking_reasons", [])) - allowed:
         raise AcademicContextError("academic_context_not_ready")
     if context.get("status") not in {"ready", "needs_policy_review"}:
@@ -108,11 +114,18 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
     unresolved = {outcome["code"] for outcome in context["outcomes"]
                   if outcome["state"] == "unresolved"}
     outside = any(outcome["state"] == "out_of_catalog" for outcome in context["outcomes"])
+    preview_unverified_metadata = bool(
+        set(context.get("blocking_reasons", []))
+        & {"catalog_unverified", "course_source_unverified", "prerequisite_unverified"}
+    )
     # A separate view calculation; the AcademicContext remains unready for the
     # strict recommendation/advisor/progress APIs. No readiness flag is changed.
     view = _assemble_board(catalog, completed, context["revision"], max_credits,
-                           selected_track_id, selected_graduation_path_id)
-    pause_plan = outside or bool(selection_blockers) or bool(getattr(catalog.program, "planning_blockers", []))
+                           selected_track_id, selected_graduation_path_id,
+                           preview_unverified_metadata=preview_unverified_metadata)
+    pause_plan = (outside or bool(selection_blockers)
+                  or bool(getattr(catalog.program, "planning_blockers", []))
+                  or preview_unverified_metadata)
     kept, moved = [], []
     for course in view["courses"]["eligible"]:
         course["result_pending"] = course["code"] in unresolved
@@ -143,6 +156,7 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
                 used[group["id"]] += course["credits"]
     view.update(status="partial", can_plan=not pause_plan, progress_is_lower_bound=True,
                 blocking_reasons=[*context["blocking_reasons"], *(selection_blockers or [])],
+                preview_only=preview_unverified_metadata,
                 review_items=[outcome for outcome in context["outcomes"]
                               if outcome["state"] in {"unresolved", "out_of_catalog"}])
     view["plan"].update(course_codes=selected, suggested_credits=total)

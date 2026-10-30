@@ -64,10 +64,14 @@ Historical snapshots are retained; the publisher never overwrites their payloads
 Readiness checks migration head `hus_20261028_08`, exactly four active catalogs,
 identity, hashes and domain rules. There is no automatic legacy/JSON fallback.
 
-The catalogs remain **draft_unverified**. Missing/complex/conflicting prerequisite
-conditions block the affected courses. Default source difficulty `2` is preserved
-as raw provenance only; runtime advisory metadata stays unknown. No PDF review or
-academic-policy certification is implied by a successful import.
+The KHMTTT cohort-2022 catalog (`khmtt_7480113qtd_2022`, QD3568-2023) is now
+`verified` from the user's explicit full-catalog sign-off recorded in
+`database/data/hus_source.json`; the sign-off is bound to the source PDF SHA-256.
+The other three catalogs remain `draft_unverified`. This is a project review
+record, not an institutional certification or confirmation of class offerings.
+Missing, complex, or conflicting prerequisite conditions still block affected
+courses. Default source difficulty `2` is preserved as raw provenance only;
+runtime advisory metadata stays unknown.
 
 ## Rollback
 
