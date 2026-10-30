@@ -64,17 +64,17 @@ html[data-motion-paused="true"] .login-study-scene { --scene-play-state: paused;
 :root[data-login-scene-preview] body[data-auth-state="auth"] #system-auth {
   flex: 1;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1160px;
   min-height: 0;
   margin: 0 auto;
   padding-block: clamp(16px, 3vh, 36px);
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
   gap: clamp(32px, 4vw, 64px);
   align-items: center;
 }
-:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro { padding-top: 0; max-width: 560px; }
-:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro h2 { font-size: clamp(32px, 3.2vw, 46px); text-wrap: balance; }
-:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card { width: 100%; padding: 24px; box-shadow: 0 18px 60px #4630610a; }
+:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro { padding-top: 0; max-width: 580px; transform: translateY(-20px); }
+:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro h2 { font-size: clamp(34px, 3.4vw, 50px); text-wrap: balance; }
+:root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card { width: 100%; padding: 28px; box-shadow: 0 18px 60px #4630610a; }
 :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card h3 { margin: 14px 0; }
 :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card label { margin: 12px 0 6px; }
 :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card input { min-height: 44px; padding: 10px 12px; }
@@ -86,7 +86,7 @@ html[data-motion-paused="true"] .login-study-scene { --scene-play-state: paused;
 
 @media (max-width: 900px) {
   :root[data-login-scene-preview] body[data-auth-state="auth"] #system-auth { grid-template-columns: 1fr; justify-items: center; align-content: center; gap: 20px; }
-  :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro { width: 100%; max-width: 440px; }
+  :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro { width: 100%; max-width: 440px; transform: none; }
   :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro :is(.page-context, [data-auth-copy="description"]) { display: none; }
   :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-intro h2 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: -.8px; }
   :root[data-login-scene-preview] body[data-auth-state="auth"] .auth-card { max-width: 440px; }

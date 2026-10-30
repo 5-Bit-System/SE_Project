@@ -17,9 +17,10 @@ Chế độ tối dùng cùng hình dạng với bảng màu dịu hơn. Bố c�
 cao viewport thực, header gọn hơn và form được căn trong phần còn lại. Footer
 thông tin dự án được ẩn ở login preview; nội dung riêng tư về mật khẩu vẫn hiển thị.
 
-Hai cột được gom trong container tối đa 1120px và căn giữa màn hình. Cột chữ
-rộng tối đa 560px, form 440px, khoảng cách 32–64px theo chiều rộng. Tiêu đề
-giảm còn tối đa 46px và cân dòng để cả cụm có trọng lượng thị giác đồng đều.
+Hai cột được gom trong container tối đa 1160px và căn giữa màn hình. Cột chữ
+rộng tối đa 580px, form 460px, khoảng cách 32–64px theo chiều rộng. Tiêu đề
+tối đa 50px và cân dòng; khối chữ nâng 20px trên desktop. Form có padding 28px;
+các kích thước compact vẫn giữ cho mobile và màn hình thấp.
 
 Các trang trôi 24px và nghiêng nhẹ trong 12–15 giây; hai vệt sáng chạy dọc nhánh
 trong 8/11 giây, sách và bookmark chuyển động nhẹ. Cảnh dừng khi ẩn hoặc tab bị
@@ -58,3 +59,5 @@ khi bật mặc định hoặc mở rộng sang các màn hình khác.
 Lần cân bố cục hai cột có ảnh và QA riêng tại `backups/login_centered_20261031/`:
 13 viewport/VI-EN tiếp tục qua kiểm tra; desktop đo thêm khoảng cách ngang
 32–64px và tâm cụm nội dung trùng tâm viewport.
+Tinh chỉnh cỡ chữ/form và nâng khối chữ có ảnh/QA riêng tại
+`backups/login_scale_20261031/`; cùng 13 viewport/VI-EN tiếp tục qua kiểm tra.
