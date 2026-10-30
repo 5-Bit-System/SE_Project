@@ -100,7 +100,8 @@ def _catalog_context(program_id: str):
 
 
 async def resolve_context(request: Request, query: AcademicQuery, saved: dict | None = None,
-                          source_session: runtime.Session | None = None) -> tuple[Any, dict]:
+                          source_session: runtime.Session | None = None,
+                          preview_unverified_metadata: bool = False) -> tuple[Any, dict]:
     value = source_session or await session(request)
     owner_id = value.owner
     if saved is None:
@@ -118,7 +119,8 @@ async def resolve_context(request: Request, query: AcademicQuery, saved: dict | 
         binding = None
     policy = POLICIES.get(binding.get("policy_version")) if binding else None
     context = build_context(saved.get("snapshot"), owner_id=owner_id, catalog=catalog,
-                            catalog_revision=revision, binding=binding, policy=policy)
+                            catalog_revision=revision, binding=binding, policy=policy,
+                            preview_unverified_metadata=preview_unverified_metadata)
     # Track/path are part of the revision even if they do not change passed facts.
     context["revision"] = hashlib.sha256(json.dumps({
         "context": context["revision"], "track": query.selected_track_id,
@@ -241,32 +243,57 @@ async def course_status(request: Request):
         await auth_call(account_portal.check, value)
         return unavailable
     query = AcademicQuery(program_id=binding["program_id"], **options.model_dump(exclude={"max_credits"}))
-    catalog, context = await resolve_context(request, query, saved, source_session=value)
+    catalog, context = await resolve_context(
+        request, query, saved, source_session=value,
+        preview_unverified_metadata=True,
+    )
     selections = {
         "tracks": [track.model_dump() for track in catalog.program.track_selection.tracks],
         "paths": [path.model_dump() for path in catalog.program.graduation_selection.paths],
         "track_required": catalog.program.track_selection.mode == "exactly_one_track",
         "path_required": catalog.program.graduation_selection.mode == "exactly_one_path",
     }
-    reviewable = (context["status"] == "needs_policy_review" and context["blocking_reasons"]
-                  and set(context["blocking_reasons"]) <= {
-                      "course_outcomes_unresolved", "program_rules_review_required"})
-    if context["status"] != "ready" and not reviewable:
-        return {**unavailable, "status": context["status"],
-                "blocking_reasons": context["blocking_reasons"], "selections": selections}
+    board_context = dict(context)
+    preview_reasons = []
+    if catalog.program.catalog_status != "verified":
+        preview_reasons.append("catalog_unverified")
+    if any(course.source_status != "verified" for course in catalog.courses):
+        preview_reasons.append("course_source_unverified")
+    if any(course.prerequisite_status not in {
+        "verified", "unknown", "conflict", "source_conflict",
+    } for course in catalog.courses):
+        preview_reasons.append("prerequisite_unverified")
+    board_context["blocking_reasons"] = list(dict.fromkeys([
+        *context["blocking_reasons"], *preview_reasons,
+    ]))
+    if preview_reasons and context["status"] == "ready":
+        board_context["status"] = "needs_policy_review"
+    allowed_review_reasons = {
+        "catalog_unverified", "course_source_unverified", "prerequisite_unverified",
+        "course_outcomes_unresolved", "program_rules_review_required",
+    }
+    reviewable = (board_context["status"] == "needs_policy_review"
+                  and board_context["blocking_reasons"]
+                  and set(board_context["blocking_reasons"]) <= allowed_review_reasons)
+    if board_context["status"] != "ready" and not reviewable:
+        result = {**unavailable, "status": board_context["status"],
+                  "blocking_reasons": board_context["blocking_reasons"], "selections": selections}
+        if "program_binding_unverified" in board_context["blocking_reasons"]:
+            result["program_selection"] = await asyncio.to_thread(program_options, saved)
+        return result
     missing = []
     if selections["track_required"] and not query.selected_track_id:
         missing.append("track_selection_required")
     if selections["path_required"] and not query.selected_graduation_path_id:
         missing.append("graduation_selection_required")
     if missing:
-        result = reviewed_course_board(catalog, context, options.max_credits,
+        result = reviewed_course_board(catalog, board_context, options.max_credits,
             query.selected_track_id, query.selected_graduation_path_id, missing)
     elif reviewable:
-        result = reviewed_course_board(catalog, context, options.max_credits,
+        result = reviewed_course_board(catalog, board_context, options.max_credits,
             query.selected_track_id, query.selected_graduation_path_id)
     else:
-        result = course_board(catalog, context, options.max_credits,
+        result = course_board(catalog, board_context, options.max_credits,
                               query.selected_track_id, query.selected_graduation_path_id)
     if result["status"] == "partial":
         _, current = await resolve_context(request, query)
