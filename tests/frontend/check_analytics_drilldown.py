@@ -108,6 +108,9 @@ def main():
         assert "Vuốt ngang" in page.locator("#analytics-detail-hint").inner_text()
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}))")
         assert page.locator("#analytics-detail").is_hidden()
+        assert page.locator("#analytics-detail-table tr").count() == 0
+        assert page.locator("#analytics-detail-title").text_content() == ""
+        assert page.locator("#analytics-detail-meta").text_content() == ""
         assert not errors, errors
         browser.close()
     print("Analytics drilldown: 10/4 terms, A+ year filter, keyboard, language, mobile and source reset passed")

@@ -110,6 +110,9 @@ if (typeof document !== 'undefined') {
     const trigger = detailTrigger;
     detailSelection = null; detailTrigger = null;
     $('detail').hidden = true;
+    $('detail-table').replaceChildren();
+    $('detail-title').textContent = '';
+    $('detail-meta').textContent = '';
     $('detail').parentElement?.classList.remove('analytics-expanded');
     syncDetailControls();
     if (restoreFocus) (trigger?.isConnected ? trigger : $('year')).focus();
