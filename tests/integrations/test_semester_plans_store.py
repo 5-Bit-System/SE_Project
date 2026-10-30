@@ -6,11 +6,13 @@ import json
 import pytest
 from sqlalchemy import text
 
+from app.catalog_contracts import catalog_payload, catalog_revision
 from app.integrations.daotao import runtime
 from app.integrations.daotao.snapshot import snapshot
 from database.tools.publish_catalogs import SOURCE, publish_catalogs
 from tests.integrations.test_system_auth import runtime_engine, system  # noqa: F401
 from tests.integrations.test_vnu_signin import login
+from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
 
 pytestmark = pytest.mark.hus_postgres
 
@@ -23,6 +25,26 @@ def planner(system, monkeypatch):  # noqa: F811
     from app.api import academic
     from app.infrastructure.hus_repository import HusRepository
     catalog_repo = HusRepository(engine)
+    # This disposable revision models the future reviewed state for plan-storage tests.
+    reviewed = mark_catalog_reviewed_for_test(catalog_repo.load_catalog('khmtt'))
+    for course in reviewed.courses:
+        for field in ('code', 'name', 'credits', 'block', 'prerequisites'):
+            for evidence in course.field_evidence[field]:
+                evidence.update(source_ref='synthetic-plan-test', locator='disposable fixture',
+                    status='verified', reviewed_by='synthetic-test-fixture',
+                    reviewed_at='2026-10-29T00:00:00+00:00')
+    with engine.begin() as conn:
+        source = conn.execute(text('''SELECT curriculum_id, source_digest FROM hus_catalog_revisions
+            WHERE program_id=:program AND active'''), {'program': reviewed.program.program_id}).one()
+        revision = catalog_revision(reviewed, source.source_digest)
+        conn.execute(text('UPDATE hus_catalog_revisions SET active=false WHERE program_id=:program'),
+                     {'program': reviewed.program.program_id})
+        conn.execute(text('''INSERT INTO hus_catalog_revisions
+            (revision_id, curriculum_id, program_id, active, source_digest, payload)
+            VALUES (:revision, :curriculum, :program, true, :source, CAST(:payload AS jsonb))'''),
+            {'revision': revision, 'curriculum': source.curriculum_id,
+             'program': reviewed.program.program_id, 'source': source.source_digest,
+             'payload': json.dumps(catalog_payload(reviewed), ensure_ascii=False)})
     monkeypatch.setattr(academic, 'load_catalog', catalog_repo.load_catalog)
     monkeypatch.setattr(program_bindings, 'list_catalogs', catalog_repo.list_catalogs)
     proof = dict.fromkeys(('source_host_valid', 'source_path_valid', 'transcript_container_valid',

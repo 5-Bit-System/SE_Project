@@ -16,9 +16,19 @@
 .course-status-summary p { font-size: var(--text-sm); color: var(--text-muted); }
 .course-status-summary strong { display: block; font-size: 30px; font-weight: 600; letter-spacing: -.4px; margin-block: 8px; }
 .course-status-summary progress { width: 100%; height: 7px; accent-color: var(--state-green); }
+.course-status-progress-breakdown { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; margin: 0 0 20px; padding: 16px 20px; }
+.course-status-progress-breakdown h3 { font-size: var(--text-base); margin-bottom: 8px; }
+.course-status-progress-note { color: var(--text-muted); font-size: var(--text-xs); margin-bottom: 12px; }
+.course-status-progress-sections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.course-status-progress-sections h4 { font-size: var(--text-sm); }
+.course-status-progress-sections ul { display: grid; gap: 8px; list-style: none; margin: 8px 0 0; padding: 0; }
+.course-status-progress-sections li { border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; gap: 16px; padding-top: 8px; }
+.course-status-progress-sections li span:last-child { font-variant-numeric: tabular-nums; text-align: right; }
 .course-status-toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
 .course-status-toolbar label { display: grid; gap: 7px; font-size: var(--text-xs); color: var(--text-muted); min-width: 0; }
 .course-status-toolbar .course-status-search { flex: 1; min-width: 170px; }
+.course-status-search-results { color: var(--text-muted); font-size: var(--text-xs); margin: -8px 0 16px; }
+.course-status-search-results:empty { display: none; }
 .course-status input[type="search"], .course-status input[type="number"], .course-status select { border: 1px solid var(--border-medium); border-radius: var(--radius-control); background: var(--bg-input); color: var(--text-main); font: inherit; font-size: var(--text-base); min-height: 44px; padding: 10px 12px; width: 100%; min-width: 0; }
 .course-status input[type="number"] { max-width: 110px; }
 .course-status-notice { padding: 16px 20px; background: var(--info-bg); border: 1px solid var(--border-subtle); border-radius: 12px; font-size: var(--text-sm); margin: 16px 0; }
@@ -56,7 +66,7 @@
 .course-review-items ul { padding-left: 18px; }
 @media (max-width: 650px) { .course-program-controls { grid-template-columns: 1fr; } }
 @media (max-width: 1200px) { .course-status-columns { grid-template-columns: 1fr; } .course-status-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 650px) { .course-status-summary, .course-status-list { grid-template-columns: 1fr; } .course-status-heading { flex-direction: column; } .course-status-toolbar > label, .course-status-toolbar .course-status-search { flex: 1 1 100%; } .course-status input[type="number"] { max-width: none; } }
+@media (max-width: 650px) { .course-status-summary, .course-status-list, .course-status-progress-sections { grid-template-columns: 1fr; } .course-status-heading { flex-direction: column; } .course-status-toolbar > label, .course-status-toolbar .course-status-search { flex: 1 1 100%; } .course-status input[type="number"] { max-width: none; } }
 
 .course-mode-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
 .course-mode-controls button[aria-pressed="true"] { background: var(--selected-surface); color: var(--nav-active-text); border-color: var(--accent-primary); }

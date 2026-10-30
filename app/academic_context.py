@@ -153,6 +153,9 @@ def build_context(
         result["status"] = "needs_policy_review"
         return result
     groups: dict[str, list[dict]] = defaultdict(list)
+    if catalog.program.catalog_status != "verified":
+        reasons.append("catalog_unverified")
+        result["status"] = "needs_policy_review"
     if getattr(catalog.program, "planning_blockers", []):
         reasons.append("program_rules_review_required")
         result["status"] = "needs_policy_review"
@@ -162,6 +165,8 @@ def build_context(
     for code, rows in sorted(groups.items()):
         if code not in courses:
             state, reason = "out_of_catalog", "exact_mapping_unresolved"
+        elif courses[code].source_status != "verified":
+            state, reason = "unresolved", "course_source_unverified"
         else:
             state, reason = _outcome(rows, courses[code].credits, policy)
         result["outcomes"].append({"code": code, "state": state, "reason": reason,

@@ -244,3 +244,12 @@ def get_toy_catalog() -> Catalog:
             ),
         ],
     )
+
+
+def mark_catalog_reviewed_for_test(catalog: Catalog) -> Catalog:
+    """Model the post-review catalog state in a test that exercises downstream behavior."""
+    catalog.program.catalog_status = "verified"
+    for course in catalog.courses:
+        course.source_status = "verified"
+        course.prerequisite_status = "verified"
+    return catalog

@@ -57,6 +57,9 @@ def test_valid_academic_question_passes_guardrails():
 
 def test_heuristic_fallback_advisor_generates_valid_eligible_advice():
     cat = load_catalog("khdl")
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    mark_catalog_reviewed_for_test(cat)
     req = AdvisorRequest(
         program_id="khdl",
         message="Em muốn định hướng làm về Khoa học dữ liệu và Trí tuệ nhân tạo (AI), kỳ tới nên học gì?",
@@ -76,6 +79,9 @@ def test_heuristic_fallback_advisor_generates_valid_eligible_advice():
 
 def test_gemini_api_integration_with_mock():
     cat = load_catalog("khdl")
+    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
+
+    mark_catalog_reviewed_for_test(cat)
     req = AdvisorRequest(
         program_id="khdl",
         message="Em thích lập trình và phần mềm, nên học gì?",

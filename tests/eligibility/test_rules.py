@@ -1,4 +1,6 @@
 
+import pytest
+
 from app.catalog import load_catalog
 from app.models import Catalog, ChoiceGroup, Course, Program
 from app.rules import evaluate_eligibility
@@ -10,19 +12,19 @@ def sample_catalog() -> Catalog:
             program_id="demo",
             name="CTĐT thử nghiệm cho Rule Engine",
             total_credits=20,
-            catalog_status="draft_unverified",
+            catalog_status="verified",
             source_file="synthetic",
             source_pages="none",
             choice_groups=[ChoiceGroup(id="elective_group", name="Nhóm Tự chọn 1", required_credits=3)],
         ),
         courses=[
-            Course(code="A", name="Nhập môn A", credits=3, block="general"),
-            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]]),
-            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]]),
-            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]]),
-            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"]),
-            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"]),
-            Course(code="CONFLICT", name="Môn xung đột nguồn", credits=3, block="major", prerequisite_status="source_conflict"),
+            Course(code="A", name="Nhập môn A", credits=3, block="general", prerequisite_status="verified", source_status="verified"),
+            Course(code="B", name="Cơ sở B", credits=3, block="group", prerequisites=[["A"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="C", name="Môn C (A hoặc B)", credits=3, block="group", prerequisites=[["A", "B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="D", name="Môn D (A và B)", credits=4, block="major", prerequisites=[["A"], ["B"]], prerequisite_status="verified", source_status="verified"),
+            Course(code="E1", name="Tự chọn E1", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified", source_status="verified"),
+            Course(code="E2", name="Tự chọn E2", credits=3, block="major", choice_group_ids=["elective_group"], prerequisite_status="verified", source_status="verified"),
+            Course(code="CONFLICT", name="Môn xung đột nguồn", credits=3, block="major", prerequisite_status="source_conflict", source_status="verified"),
         ],
     )
 
@@ -48,6 +50,62 @@ def test_rule_engine_basic_prerequisites_and_blocked_reasons():
 
     assert "CONFLICT" in blocked_dict
     assert any(r.kind == "source_conflict" for r in blocked_dict["CONFLICT"].reasons)
+
+
+@pytest.mark.parametrize(
+    "status", ["draft_unverified", "unresolved_external", "transcribed"]
+)
+def test_unverified_prerequisites_never_make_a_course_eligible(status):
+    cat = sample_catalog()
+    course = next(course for course in cat.courses if course.code == "B")
+    course.prerequisite_status = status
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert "B" not in {course.code for course in result.eligible_courses}
+    blocked = next(course for course in result.blocked_courses if course.code == "B")
+    assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)
+
+
+@pytest.mark.parametrize("status", ["draft_unverified", "unresolved_external", "transcribed"])
+def test_course_without_prerequisites_still_requires_verified_status(status):
+    cat = sample_catalog()
+    course = next(course for course in cat.courses if course.code == "A")
+    course.prerequisite_status = status
+
+    result = evaluate_eligibility(cat, passed_codes=set())
+
+    assert "A" not in {course.code for course in result.eligible_courses}
+    blocked = next(course for course in result.blocked_courses if course.code == "A")
+    assert any(reason.kind == "prerequisite_unverified" for reason in blocked.reasons)
+
+
+def test_unverified_catalog_never_returns_eligible_courses():
+    cat = sample_catalog()
+    cat.program.catalog_status = "draft_unverified"
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert not result.eligible_courses
+    assert all(
+        any(reason.kind == "catalog_unverified" for reason in course.reasons)
+        for course in result.blocked_courses
+    )
+
+
+def test_unverified_course_source_cannot_complete_or_unlock_courses():
+    cat = sample_catalog()
+    for course in cat.courses:
+        course.source_status = "verified"
+    next(course for course in cat.courses if course.code == "A").source_status = "draft_unverified"
+
+    result = evaluate_eligibility(cat, passed_codes={"A"})
+
+    assert "A" not in result.completed_course_codes
+    assert "B" not in {course.code for course in result.eligible_courses}
+    blocked = {course.code: course for course in result.blocked_courses}
+    assert any(reason.kind == "course_source_unverified" for reason in blocked["A"].reasons)
+    assert any(reason.kind == "missing_prerequisites" for reason in blocked["B"].reasons)
 
 
 def test_rule_engine_or_and_clauses_and_choice_quota():
@@ -109,7 +167,7 @@ def test_zero_eligibility_violation_rate_on_fixture_catalog():
                 assert len(r.missing_prerequisites) > 0
 
 
-def test_eligibility_http_endpoint(verified_client):
+def test_eligibility_http_endpoint_blocks_unverified_catalog_facts(verified_client):
     client = verified_client
     resp = client.post(
         "/eligibility",
@@ -122,12 +180,10 @@ def test_eligibility_http_endpoint(verified_client):
     assert resp.status_code == 200
     data = resp.json()
     assert data["program_id"] == "khdl_7460108_2022"
-    assert data["total_eligible"] > 0
+    assert data["total_eligible"] == 0
     assert data["total_blocked"] > 0
-    assert "PHI1006" in data["completed_course_codes"]
-    assert "MAT2505" in data["completed_course_codes"]
-    # Kiểm tra định dạng cấu trúc blocked_courses
-    sample_blocked = data["blocked_courses"][0]
-    assert "code" in sample_blocked
-    assert "reasons" in sample_blocked
-    assert len(sample_blocked["reasons"]) > 0
+    assert data["completed_course_codes"] == []
+    reasons = {reason["kind"] for course in data["blocked_courses"]
+               for reason in course["reasons"]}
+    assert "catalog_unverified" in reasons
+    assert "course_source_unverified" in reasons

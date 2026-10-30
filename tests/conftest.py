@@ -11,6 +11,8 @@ os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
 os.environ['APP_ENV'] = 'test'
 os.environ['AUTH_TOKEN_PEPPER'] = 'synthetic-offline-server-secret-at-least-32-characters'
 os.environ['EMAIL_BACKEND'] = 'fake'
+os.environ['PUBLIC_BASE_URL'] = 'http://127.0.0.1:8000'
+os.environ['AUTH_ALLOWED_ORIGINS'] = 'http://127.0.0.1:8000'
 
 import httpx
 import pytest
@@ -45,6 +47,8 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setenv("GEMINI_API_KEY", "")
     monkeypatch.setenv("RECOMMENDATION_LLM_ENABLED", "false")
     get_settings.cache_clear()
+    from app.auth.settings import settings as get_auth_settings
+    get_auth_settings.cache_clear()
     network_attempts = []
 
     def blocked_network(*args, **kwargs):
@@ -59,6 +63,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setattr(httpx.AsyncHTTPTransport, "handle_async_request", blocked_async_network)
     yield
     get_settings.cache_clear()
+    get_auth_settings.cache_clear()
     assert not network_attempts, (
         "A test attempted outbound HTTP, even if fallback swallowed the error"
     )
