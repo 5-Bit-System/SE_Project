@@ -9,7 +9,10 @@
   let restoringSession = true;
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
   Object.assign(copy.vi, {
-    restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Sổ học tập dành cho sinh viên VNU', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian.',
+    restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
+    featureTranscript:'Bảng điểm theo học kỳ', featurePlans:'Kế hoạch học tập cá nhân', visualKicker:'MINH HỌA GIAO DIỆN', visualTitle:'Hồ sơ học tập của bạn', visualFoot:'Thông tin được sắp xếp theo từng học kỳ',
+    authKicker:'ĐĂNG NHẬP AN TOÀN', authWelcome:'Chào mừng bạn', authTypePrompt:'Chọn loại tài khoản để tiếp tục vào không gian học tập.', authFooter:'ĐHKHTN · Đại học Quốc gia Hà Nội', showPassword:'Hiện mật khẩu', hidePassword:'Ẩn mật khẩu',
+    vnuUsernamePlaceholder:'Nhập tài khoản VNU', adminUsernamePlaceholder:'Nhập tài khoản quản trị', passwordPlaceholder:'Nhập mật khẩu',
     studentTab:'Sinh viên VNU', adminTab:'Quản trị viên', studentTitle:'Đăng nhập bằng VNU',
     studentHint:'Nhập tài khoản bạn dùng tại cổng đào tạo VNU. Hồ sơ được tạo tự động sau khi xác thực thành công.',
     vnuUsername:'Tài khoản VNU', vnuPassword:'Mật khẩu VNU', vnuLogin:'Đăng nhập bằng VNU',
@@ -27,7 +30,10 @@
     admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.'
   });
   Object.assign(copy.en, {
-    eyebrow:'A study workspace for VNU students', description:'Your transcript and study information, together in one place.',
+    eyebrow:'A study space for VNU students', headline:'Every semester,\na clearer next step.', description:'Your transcript and study information, together in one place. Follow your progress and plan ahead for the next semester.',
+    featureTranscript:'Transcript by semester', featurePlans:'Personal study plans', visualKicker:'INTERFACE PREVIEW', visualTitle:'Your study profile', visualFoot:'Information organized by semester',
+    authKicker:'SECURE SIGN IN', authWelcome:'Welcome', authTypePrompt:'Choose an account type to continue to your study space.', authFooter:'VNU University of Science · Vietnam National University', showPassword:'Show password', hidePassword:'Hide password',
+    vnuUsernamePlaceholder:'Enter your VNU account', adminUsernamePlaceholder:'Enter your administrator account', passwordPlaceholder:'Enter your password',
     studentTab:'VNU student', adminTab:'Administrator', studentTitle:'Sign in with VNU',
     studentHint:'Use your VNU student portal credentials. Your profile is created after successful verification.',
     vnuUsername:'VNU account', vnuPassword:'VNU password', vnuLogin:'Sign in with VNU',
@@ -47,7 +53,16 @@
   copy.en.restoringSession = 'Restoring your session…';
   const t = key => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'][key] || copy.vi[key] || copy.vi.fallback;
   function notice(key = '', error = false) { noticeKey = key; noticeError = error; $('auth-notice').textContent = key ? t(key) : ''; $('auth-notice').classList.toggle('is-error', error); }
-  function clearSecrets() { document.querySelectorAll('#system-auth input[type=password]').forEach(input => { input.value = ''; }); }
+  function clearSecrets() {
+    document.querySelectorAll('#system-auth input[type=password], #system-auth input[data-secret]').forEach(input => {
+      input.value = '';
+      if (input.hasAttribute('data-secret')) input.type = 'password';
+    });
+    document.querySelectorAll('#system-auth [data-reveal-target]').forEach(button => {
+      button.setAttribute('aria-label', t('showPassword'));
+      button.title = t('showPassword');
+    });
+  }
   function emit() { document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: account})); }
   function expire(reason = '') { restoringSession = false; epoch++; account = null; csrfToken = ''; adminRows = []; adminTotal = 0; mode = 'student'; clearSecrets(); $('admin-users').replaceChildren(); notice(reason, Boolean(reason)); render(); emit(); }
   function lock(value) { busy = value; document.querySelectorAll('#system-auth button, #system-logout').forEach(node => { node.disabled = value; }); }
@@ -68,6 +83,11 @@
   }
   function render() {
     document.querySelectorAll('[data-auth-copy]').forEach(node => { node.textContent = t(node.dataset.authCopy); });
+    document.querySelectorAll('[data-auth-placeholder]').forEach(node => { node.placeholder = t(node.dataset.authPlaceholder); });
+    document.querySelectorAll('[data-reveal-target]').forEach(button => {
+      const input = $(button.dataset.revealTarget), key = input?.type === 'text' ? 'hidePassword' : 'showPassword';
+      button.setAttribute('aria-label', t(key)); button.title = t(key);
+    });
     $('system-session-loading').setAttribute('aria-busy', String(restoringSession));
     document.body.dataset.authState = restoringSession ? 'loading' : mode === 'admin' && account ? 'admin' : mode === 'workspace' && account ? 'workspace' : 'auth';
     $('system-account').hidden = !account; $('system-account-name').textContent = account ? (account.vnu_subject || account.email || account.display_name) + ' · ' + t(account.role === 'admin' ? 'adminRole':'studentRole') : '';
@@ -91,6 +111,12 @@
   }
   $('auth-login-tab').onclick = () => switchMode('login');
   $('auth-student-tab').onclick = () => switchMode('student');
+  document.querySelectorAll('[data-reveal-target]').forEach(button => { button.onclick = () => {
+    const input = $(button.dataset.revealTarget); if (!input || busy) return;
+    input.type = input.type === 'password' ? 'text' : 'password';
+    button.setAttribute('aria-label', t(input.type === 'text' ? 'hidePassword' : 'showPassword'));
+    button.title = t(input.type === 'text' ? 'hidePassword' : 'showPassword');
+  }; });
   $('auth-login-form').onsubmit = event => { event.preventDefault(); submit(event.target, async current => {
     const body = {username:$('auth-login-email').value,password:$('auth-login-password').value}; clearSecrets();
     try { await request('/auth/login','POST',body); if (current === epoch) { notice(); mode='admin'; await refresh(); if (account?.role==='admin' && !account.must_change_password) await loadAdmin(); } } finally { body.password=''; }
