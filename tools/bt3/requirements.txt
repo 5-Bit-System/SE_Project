@@ -1,0 +1,2 @@
+# Optional measurement tool only; no runtime dependency change.
+coverage==7.17.0

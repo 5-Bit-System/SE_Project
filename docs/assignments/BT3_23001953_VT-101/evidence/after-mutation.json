@@ -1,0 +1,22 @@
+{
+  "label": "after-mutation",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integrations/test_course_search_contract.py",
+    "tests/catalogs/test_course_search.py",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "started_utc": "2026-10-30T16:50:14.827915+00:00",
+  "head": "cb3b35d944364e74fec65af4b299a79fcb90df36",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/mutation.py",
+  "exit_code": 0,
+  "duration_seconds": 1.7077,
+  "finished_utc": "2026-10-30T16:50:16.636627+00:00",
+  "working_tree_after": "?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/mutation.py"
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "seed": 1,
+    "repeat": 1,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  {
+    "seed": 1,
+    "repeat": 2,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  {
+    "seed": 17,
+    "repeat": 1,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  {
+    "seed": 17,
+    "repeat": 2,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  {
+    "seed": 231953,
+    "repeat": 1,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  {
+    "seed": 231953,
+    "repeat": 2,
+    "exit_code": 0,
+    "command": [
+      "D:\\SE_Project\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/integrations/test_course_search_contract.py",
+      "tests/catalogs/test_course_search.py",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider"
+    ]
+  }
+]

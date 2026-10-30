@@ -1,0 +1,16 @@
+{
+  "label": "performance",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "tools.bt3.http_experiment"
+  ],
+  "started_utc": "2026-10-30T16:55:30.414791+00:00",
+  "head": "cb3b35d944364e74fec65af4b299a79fcb90df36",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/browser_smoke.py\n?? tools/bt3/fixture_server.py\n?? tools/bt3/flaky.py\n?? tools/bt3/http_experiment.py\n?? tools/bt3/http_fixture.py\n?? tools/bt3/mutation.py\n?? tools/bt3/requirements.txt",
+  "exit_code": 1,
+  "duration_seconds": 1.6059,
+  "finished_utc": "2026-10-30T16:55:32.112275+00:00",
+  "working_tree_after": "?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/browser_smoke.py\n?? tools/bt3/fixture_server.py\n?? tools/bt3/flaky.py\n?? tools/bt3/http_experiment.py\n?? tools/bt3/http_fixture.py\n?? tools/bt3/mutation.py\n?? tools/bt3/requirements.txt"
+}

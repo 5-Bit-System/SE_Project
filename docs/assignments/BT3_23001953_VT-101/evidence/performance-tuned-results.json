@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-10-30T17:05:30.266049+00:00",
+  "head": "cb3b35d944364e74fec65af4b299a79fcb90df36",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree": "?? docs/assignments/BT3_23001953_VT-101/AI_USAGE_LOG.md\n?? docs/assignments/BT3_23001953_VT-101/REFLECTION_DRAFT.md\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-report.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky-runs.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/flaky.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-bootstrap-failed.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-bootstrap-failed.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-by-case.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-cleanup-failed.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-cleanup-failed.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-probe.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-probe.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-ready-failed.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-ready-failed.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-requests.csv\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance-results.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/performance.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/profile.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/profile.log\n?? tools/bt3/browser_smoke.py\n?? tools/bt3/fixture_server.py\n?? tools/bt3/flaky.py\n?? tools/bt3/http_experiment.py\n?? tools/bt3/http_fixture.py\n?? tools/bt3/mutation.py\n?? tools/bt3/profile_search.py\n?? tools/bt3/requirements.txt",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "machine": "AMD64",
+  "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+  "logical_cpus": 12,
+  "python": "3.11.9",
+  "packages": {
+    "fastapi": "0.143.0",
+    "uvicorn": "0.54.0",
+    "httpx": "0.28.1",
+    "pydantic": "2.14.1"
+  },
+  "configuration": "1 Uvicorn process; AnyIO thread tokens=8; client separate process; loopback HTTP",
+  "fixture": "240 courses in measured program + 3 single-course catalogs; invented; no DB or VNU",
+  "cache": "No application result cache; JSON read/validated per request; warm OS file cache",
+  "percentile": "nearest rank: sorted latency[ceil(p*n)-1]; milliseconds; full client body decode and contract checks included",
+  "design": "3 fresh servers, each 50 warm-up then 100 workers x 20 requests; Event gate; 100 connection limit",
+  "runs": [
+    {
+      "run": 1,
+      "workers": 100,
+      "requests": 2000,
+      "warmup_requests": 50,
+      "server_thread_tokens": 8,
+      "peak_in_flight": 100,
+      "duration_seconds": 23.296,
+      "success_count": 2000,
+      "error_count": 0,
+      "p50_ms": 714.0449,
+      "p95_ms": 3293.9644,
+      "max_ms": 8556.463,
+      "passed": false
+    },
+    {
+      "run": 2,
+      "workers": 100,
+      "requests": 2000,
+      "warmup_requests": 50,
+      "server_thread_tokens": 8,
+      "peak_in_flight": 100,
+      "duration_seconds": 18.3326,
+      "success_count": 2000,
+      "error_count": 0,
+      "p50_ms": 539.5803,
+      "p95_ms": 2501.3872,
+      "max_ms": 8904.9381,
+      "passed": true
+    },
+    {
+      "run": 3,
+      "workers": 100,
+      "requests": 2000,
+      "warmup_requests": 50,
+      "server_thread_tokens": 8,
+      "peak_in_flight": 100,
+      "duration_seconds": 19.8545,
+      "success_count": 2000,
+      "error_count": 0,
+      "p50_ms": 565.802,
+      "p95_ms": 2742.9911,
+      "max_ms": 6002.0472,
+      "passed": true
+    }
+  ],
+  "total_measured_requests": 6000,
+  "passed": false
+}

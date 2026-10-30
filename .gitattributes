@@ -1,0 +1,4 @@
+# Preserve actual BT3 command output and standard unified-diff context bytes.
+# Source files keep the repository's usual whitespace checks.
+docs/assignments/BT3_23001953_VT-101/evidence/*.log -whitespace
+docs/assignments/BT3_23001953_VT-101/evidence/*.patch -whitespace

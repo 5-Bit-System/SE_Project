@@ -1,0 +1,18 @@
+{
+  "label": "coverage-report",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "coverage",
+    "report",
+    "-m"
+  ],
+  "started_utc": "2026-10-30T16:51:41.835207+00:00",
+  "head": "cb3b35d944364e74fec65af4b299a79fcb90df36",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/mutation.py",
+  "exit_code": 0,
+  "duration_seconds": 0.23,
+  "finished_utc": "2026-10-30T16:51:42.154363+00:00",
+  "working_tree_after": "?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/after-mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/coverage-tests.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.json\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.log\n?? docs/assignments/BT3_23001953_VT-101/evidence/mutation.patch\n?? tools/bt3/mutation.py"
+}

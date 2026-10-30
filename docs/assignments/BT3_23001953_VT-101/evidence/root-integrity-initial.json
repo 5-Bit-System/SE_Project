@@ -1,0 +1,31 @@
+{
+  "head": "7b387a394e334e217733a571ee76a573157a24f2",
+  "branch": "feat/dashboard-remove-summary-20261030",
+  "status": " M .agent/AGENTS.md\n M README.md\n M app/api/portal.py\n M app/auth/dependencies.py\n M app/integrations/daotao/runtime.py\n M app/integrations/daotao/worker.py\n M app/services/recommendation_service.py\n M app/static/analytics.css\n M app/static/analytics.js\n M app/static/auth.js\n M app/static/index.html\n M app/static/portal.js\n M docs/rag_normalization/CHATGPT_NEXT_TASK_HANDOFF_2026_10_27.md\n M tests/frontend/check_charts.py\n M tests/frontend/check_portal_session.py\n M tests/integrations/test_portal_api.py\n M tests/integrations/test_portal_worker.py\n M tests/integrations/test_vnu_signin.py\n?? .vscode/\n?? docs/BAO_CAO_DON_DEP_2026_10_29.md\n?? tests/integrations/test_local_startup.py\n?? tools/run_local.py\n",
+  "dirty_file_sha256": {
+    ".agent/AGENTS.md": "790d1fbeaf7144a75857836e2ca001b5268ebcd20ce6c1c27e1e74a505fd0816",
+    "README.md": "353a1ef7111da3af4a4f202e9c3a4abd38e99d9102620483339a3e010238bb9f",
+    "app/api/portal.py": "ab57cbd0ec8e2dee8ec68ff7eae9297460e1d88995b4403cbbe69c8cf1c96bb4",
+    "app/auth/dependencies.py": "25bd002191eb28995106e7e2b840f862d929c6176db0233d0aed1fe3a548810e",
+    "app/integrations/daotao/runtime.py": "40b8c933e7bce361628f69e934691a5940daf0dd95ce157f4d1d270a25919cd6",
+    "app/integrations/daotao/worker.py": "428b41c480cd648a18892729041de71414358e43cb5408bb0fab19a8ec984719",
+    "app/services/recommendation_service.py": "ad9689560726e742f2327c512e00244edc89f6b2b73a9c0b5f3e4caf77494529",
+    "app/static/analytics.css": "76df31337d03c943ae904fb986271f55e2d50b6a550c6f42cfdb99679f2ce15e",
+    "app/static/analytics.js": "435d4d1f4b9ffe42cc14476828d8665ba9bbd3be78d43562b994d99f4014d9af",
+    "app/static/auth.js": "bf384a75cb54f69d898e73fa694184a03565319e5d208d34bfbc0202b2aeb248",
+    "app/static/index.html": "b60ac7b56403780a2a6877358eee778278aed9df62953666b954a6d2fab99aaa",
+    "app/static/portal.js": "ab6c58a616c747346268773562528862f5b71cf67955ea4c63dcf7ad5f947044",
+    "docs/rag_normalization/CHATGPT_NEXT_TASK_HANDOFF_2026_10_27.md": "92d8ce400f0f4348d50c0a150b2b02363f42b46e5098c6ef17ff6a3562da6d19",
+    "tests/frontend/check_charts.py": "a81a29169bbdf970c90d36331a8d0bb50ae1a04d6564f51de838429854eb964e",
+    "tests/frontend/check_portal_session.py": "a029f37c38e22b2dc6dbf69b81f1624904fba43ba06a4b00b6b5bf7f7dae2405",
+    "tests/integrations/test_portal_api.py": "f5baa1e3516c04f91d10e5ee8b8ba8f39fc5d2ecab5421bc19b662f9ffa92eba",
+    "tests/integrations/test_portal_worker.py": "ca11252f8fd2f43cbd9bba0846836444d9d3b5eca1c89ed67ee7c32dcc496204",
+    "tests/integrations/test_vnu_signin.py": "4684727896190ee62fd7860ea3c6bdefbd9aa64ac21d05d092ffbc04ace1b03d",
+    ".vscode/settings.json": "bac6a76645c48064f198e711301492ace386110831d381f33ba68a3db6847bd4",
+    "docs/BAO_CAO_DON_DEP_2026_10_29.md": "f0d20921e2ff155cfae2a8d3ddd36cf801aa093c933b60b74e39f137ebb7c739",
+    "tests/integrations/test_local_startup.py": "6c16759cb1c9eed25ad934d47f27b18f85b77007bc21178dc3dbae4d5faf1c86",
+    "tools/run_local.py": "5414021d668dca608455569eb66a9055b91fd15307056b9db1adf8de99afc2a8"
+  },
+  "staged_names": "",
+  "matches_before": false
+}

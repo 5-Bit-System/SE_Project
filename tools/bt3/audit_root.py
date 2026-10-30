@@ -39,12 +39,22 @@ def main():
     args = parser.parse_args()
     result = snapshot(args.root.resolve())
     if args.compare:
-        result["matches_before"] = result == json.loads(args.compare.read_text(encoding="utf-8"))
+        before = json.loads(args.compare.read_text(encoding="utf-8"))
+        result["matches_before"] = result == before
+        original_hashes = before["dirty_file_sha256"]
+        current_hashes = result["dirty_file_sha256"]
+        result["changed_or_missing_original_paths"] = [
+            path for path, digest in original_hashes.items() if current_hashes.get(path) != digest]
+        result["added_dirty_paths"] = sorted(set(current_hashes) - set(original_hashes))
+        result["preexisting_files_preserved"] = not result["changed_or_missing_original_paths"]
+        result["root_refs_and_staging_preserved"] = all(
+            result[key] == before[key] for key in ("head", "branch", "staged_names"))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print({"files_hashed": len(result["dirty_file_sha256"]),
            "matches_before": result.get("matches_before"), "head": result["head"]})
-    if args.compare and not result["matches_before"]:
+    if args.compare and not (result["preexisting_files_preserved"]
+                             and result["root_refs_and_staging_preserved"]):
         raise SystemExit(1)
 
 

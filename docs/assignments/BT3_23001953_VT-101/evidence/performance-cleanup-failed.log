@@ -1,0 +1,43 @@
+{"run": 1, "workers": 100, "requests": 2000, "warmup_requests": 50, "peak_in_flight": 100, "duration_seconds": 20.2376, "success_count": 2000, "error_count": 0, "p50_ms": 589.9927, "p95_ms": 2674.1329, "max_ms": 9437.7773, "passed": true}
+Traceback (most recent call last):
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 79, in synthetic_server
+    subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"],
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskkill', '/PID', '27036', '/T', '/F']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 632, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\VIETCO~1\\AppData\\Local\\Temp\\bt3-synthetic-h7qwhe74\\server.log'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 188, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 161, in main
+    with synthetic_server() as base:
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 30, in synthetic_server
+    with tempfile.TemporaryDirectory(prefix="bt3-synthetic-") as temporary:
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 943, in __exit__
+    self.cleanup()
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 947, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 929, in _rmtree
+    _shutil.rmtree(name, onerror=onerror)
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 787, in rmtree
+    return _rmtree_unsafe(path, onerror)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 634, in _rmtree_unsafe
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 893, in onerror
+    _os.unlink(path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\VIETCO~1\\AppData\\Local\\Temp\\bt3-synthetic-h7qwhe74\\server.log'

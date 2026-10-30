@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 176, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 149, in main
+    with synthetic_server() as base:
+  File "C:\Users\viet cong\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\http_experiment.py", line 53, in synthetic_server
+    raise RuntimeError("Synthetic server exited: " +
+RuntimeError: Synthetic server exited: Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\fixture_server.py", line 47, in <module>
+    main()
+  File "D:\SE_Project\backups\bt3_23001953\tools\bt3\fixture_server.py", line 27, in main
+    app.catalog.DATA_ROOT = args.data
+    ^^^^^^^^^^^
+AttributeError: 'FastAPI' object has no attribute 'catalog'
+

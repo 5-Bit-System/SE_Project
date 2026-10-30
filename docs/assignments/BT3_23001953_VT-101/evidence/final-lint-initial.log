@@ -1,0 +1,42 @@
+F401 [*] `pathlib.Path` imported but unused
+ --> tools\bt3\final_review.py:7:21
+  |
+5 | import re
+6 | import subprocess
+7 | from pathlib import Path
+  |                     ^^^^
+8 |
+9 | from tools.bt3.run_evidence import EVIDENCE, ROOT, git
+  |
+help: Remove unused import: `pathlib.Path`
+  |
+6 | import subprocess
+  - from pathlib import Path
+7 |
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tools\bt3\fixture_server.py:26:5
+   |
+24 |       if os.environ.get("APP_ENV") != "test" or os.environ.get("STORAGE_BACKEND") != "json":
+25 |           parser.error("Explicit test JSON environment required")
+26 | /     from app import catalog as catalog_module
+27 | |     from fastapi import HTTPException
+28 | |
+29 | |     from app.main import app, check_auth_ready, check_storage_ready
+   | |___________________________________________________________________^
+30 |
+31 |       catalog_module.DATA_ROOT = args.data
+   |
+help: Organize imports
+   |
+25 |         parser.error("Explicit test JSON environment required")
+   -     from app import catalog as catalog_module
+26 |     from fastapi import HTTPException
+27 |
+28 +     from app import catalog as catalog_module
+29 |     from app.main import app, check_auth_ready, check_storage_ready
+   |
+
+Found 2 errors.
+[*] 2 fixable with `--fix`.

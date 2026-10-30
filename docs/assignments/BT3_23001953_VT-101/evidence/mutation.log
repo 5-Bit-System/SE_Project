@@ -1,0 +1,30 @@
+....................................F.F..F                               [100%]
+================================== FAILURES ===================================
+_ test_failure_contract_never_returns_default_success[error0-503-Synthetic storage unavailable-/courses/search] _
+tests\integrations\test_course_search_contract.py:200: in test_failure_contract_never_returns_default_success
+    assert response.status_code == status, "Dependency failure must not become empty success"
+E   AssertionError: Dependency failure must not become empty success
+E   assert 200 == 503
+E    +  where 200 = <Response [200 OK]>.status_code
+_ test_failure_contract_never_returns_default_success[error1-500-D\u1eef li\u1ec7u m\xe1y ch\u1ee7 ch\u01b0a h\u1ee3p l\u1ec7; ki\u1ec3m tra migration/seed-/courses/search] _
+tests\integrations\test_course_search_contract.py:200: in test_failure_contract_never_returns_default_success
+    assert response.status_code == status, "Dependency failure must not become empty success"
+E   AssertionError: Dependency failure must not become empty success
+E   assert 200 == 500
+E    +  where 200 = <Response [200 OK]>.status_code
+_____________ test_unexpected_exception_is_500_not_empty_success ______________
+tests\integrations\test_course_search_contract.py:211: in test_unexpected_exception_is_500_not_empty_success
+    assert response.status_code == 500
+E   assert 200 == 500
+E    +  where 200 = <Response [200 OK]>.status_code
+============================== warnings summary ===============================
+..\..\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integrations/test_course_search_contract.py::test_failure_contract_never_returns_default_success[error0-503-Synthetic storage unavailable-/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_failure_contract_never_returns_default_success[error1-500-D\u1eef li\u1ec7u m\xe1y ch\u1ee7 ch\u01b0a h\u1ee3p l\u1ec7; ki\u1ec3m tra migration/seed-/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_unexpected_exception_is_500_not_empty_success
+3 failed, 39 passed, 1 warning in 1.26s
