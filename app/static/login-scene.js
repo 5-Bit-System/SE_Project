@@ -1,9 +1,11 @@
-/* A local-only visual experiment. No account data, storage or network calls. */
+/* Shared decorative study background; preview query only enables login layout tweaks. */
 (() => {
-  if (new URLSearchParams(window.location.search).get('preview') !== 'study-login') return;
   const scene = document.querySelector('.login-study-scene');
   if (!scene) return;
-  document.documentElement.dataset.loginScenePreview = 'true';
+  document.documentElement.dataset.studyScene = 'true';
+  if (new URLSearchParams(window.location.search).get('preview') === 'study-login') {
+    document.documentElement.dataset.loginScenePreview = 'true';
+  }
   document.body.append(scene);
   scene.hidden = false;
   const observer = new IntersectionObserver(entries => {

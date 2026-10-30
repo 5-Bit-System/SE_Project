@@ -1,8 +1,7 @@
 # Bản thử nền login — 31/10/2026
 
-Xem tại `http://127.0.0.1:8000/?preview=study-login` khi chưa đăng nhập.
-Đây là bản local để người dùng duyệt; chưa bật mặc định và chưa publish.
-URL không có tham số này tiếp tục dùng màn hình đăng nhập hiện có.
+Nền minh họa được dùng chung cho trang đăng nhập và các mục trong workspace.
+Tham số `?preview=study-login` tiếp tục bật riêng bố cục đăng nhập phóng lớn.
 
 ## Thiết kế
 
@@ -17,10 +16,12 @@ Chế độ tối dùng cùng hình dạng với bảng màu dịu hơn. Bố c�
 cao viewport thực, header gọn hơn và form được căn trong phần còn lại. Footer
 thông tin dự án được ẩn ở login preview; nội dung riêng tư về mật khẩu vẫn hiển thị.
 
-Hai cột được gom trong container tối đa 1160px và căn giữa màn hình. Cột chữ
-rộng tối đa 580px, form 460px, khoảng cách 32–64px theo chiều rộng. Tiêu đề
-tối đa 50px và cân dòng; khối chữ nâng 20px trên desktop. Form có padding 28px;
-các kích thước compact vẫn giữ cho mobile và màn hình thấp.
+Hai cột được gom trong container tối đa 1740px và căn giữa màn hình. Khung form
+rộng tối đa 690px, tăng 1,5 lần; chữ giới thiệu, mô tả và các điều khiển form
+cũng lớn hơn trên desktop. Tiêu đề đạt tối đa 75px trên màn hình rộng, tự thu
+theo chiều rộng để cân dòng. Khoảng cách giữa hai cột vẫn là 32–64px. Cửa sổ
+thấp dùng kích thước điều khiển gọn hơn để nút đăng nhập luôn trong màn hình;
+mobile giữ bố cục một cột.
 
 Các trang trôi 24px và nghiêng nhẹ trong 12–15 giây; hai vệt sáng chạy dọc nhánh
 trong 8/11 giây, sách và bookmark chuyển động nhẹ. Cảnh dừng khi ẩn hoặc tab bị
@@ -33,11 +34,12 @@ giới thiệu trùng; điện thoại nằm ngang đặt hai ô nhập trên c�
 overflow hidden để cắt nội dung form; thông báo phát sinh vẫn có thể mở rộng trang.
 
 SVG, CSS và script nằm trong repository, không cần thư viện hoặc ảnh ngoài.
-Script chỉ bật bản thử từ URL, đưa nền ra ngoài luồng nội dung và dừng cảnh khi
-ẩn; không đọc account, lưu trạng thái hay gửi request. Hành vi gửi form VNU/admin
-và khôi phục phiên được giữ nguyên.
+Script đưa nền ra ngoài luồng nội dung trên mọi trang và chỉ bật bố cục đăng nhập
+phóng lớn khi URL có tham số preview; không đọc account, lưu trạng thái hay gửi
+request. Nền nằm dưới nội dung và không nhận focus hoặc chuột. Hành vi gửi form
+VNU/admin và khôi phục phiên được giữ nguyên.
 
-## Kiểm chứng local
+## Kiểm chứng local trước khi dùng nền chung
 
 - Chrome tổng hợp: 13 viewport, mỗi viewport kiểm tra VI/EN. Chiều rộng 320–1920px,
   gồm laptop 1366×768, 1280×720 và điện thoại nằm ngang 844×390.
@@ -46,15 +48,15 @@ và khôi phục phiên được giữ nguyên.
 - Sáng/tối, chuyển tab sinh viên/admin; ảnh desktop/mobile được xem trực tiếp.
 - Đo cả transform trang giấy và strokeDashoffset vệt sáng sau 1,2 giây để xác
   nhận chuyển động thực; giảm chuyển động dùng hình tĩnh.
-- Cảnh ẩn ở URL thường và khi vào workspace. Không có page error/request ngoài.
+- Ở bản preview ban đầu, cảnh bị ẩn ở URL thường và trong workspace.
 - `check_session_restore` passed; JavaScript syntax và whitespace passed.
 - Ảnh desktop/mobile sáng/tối được xem để chỉnh bố cục.
 
 Script QA, ảnh và `verification.json` được Git bỏ qua tại
 `backups/login_background_v2_20261031/`. Bằng chứng bản cũ nằm riêng ở
 `backups/login_scene_preview_20261031/`. Đây là kiểm tra với phiên giả lập,
-không đăng nhập VNU thật hay đọc dữ liệu cá nhân. Chờ người dùng duyệt trước
-khi bật mặc định hoặc mở rộng sang các màn hình khác.
+không đăng nhập VNU thật hay đọc dữ liệu cá nhân. Theo yêu cầu tiếp theo, nền
+đã được bật trên toàn ứng dụng; thay đổi phạm vi này chưa được chụp ảnh QA lại.
 
 Lần cân bố cục hai cột có ảnh và QA riêng tại `backups/login_centered_20261031/`:
 13 viewport/VI-EN tiếp tục qua kiểm tra; desktop đo thêm khoảng cách ngang
