@@ -1,0 +1,31 @@
+{
+  "label": "draft-red",
+  "head_before_capture": "7b387a394e334e217733a571ee76a573157a24f2",
+  "baseline": "7b387a394e334e217733a571ee76a573157a24f2",
+  "command": [
+    "C:\\Users\\dtai168\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments/vt098",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 1,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "sqlite": "3.45.1",
+  "pydantic": "2.12.5",
+  "sha256": {
+    "harness.py": "7100e822f16aa410dc654d607b33ae1e3e1007079c072fe2c2b750a35dfdfe53",
+    "schema.py": "434e9fb5f3ae9eabbe003fcea1d50bd17d62f9c577834debfd416a9951f3946e",
+    "test_harness.py": "10dda8d9ceb0c062865e238b145e94c6584cc8b0b904e6f1625a11f146127a9a"
+  },
+  "stdout": "",
+  "stderr": "test_ai_draft_duplicate_happy_path (test_harness.HarnessTests.test_ai_draft_duplicate_happy_path) ... ok\ntest_ai_draft_retry_status_only (test_harness.HarnessTests.test_ai_draft_retry_status_only) ... ok\ntest_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result) ... FAIL\n\n======================================================================\nFAIL: test_retry_after_reopen_preserves_result (test_harness.HarnessTests.test_retry_after_reopen_preserves_result)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dtai168\\VScode\\SE\\vt098-work\\experiments\\vt098\\test_harness.py\", line 44, in test_retry_after_reopen_preserves_result\n    self.assertEqual(first.body, replay.body)\nAssertionError: {'tit[275 chars]ne, 'id': '6808a0ce-2a54-40ce-af10-0a609024a601', 'version': 1} != {'tit[275 chars]ne, 'id': '3435eff0-20dc-457d-9b9f-db36bd9e5f2c', 'version': 1}\n  {'academic_year_start': 2026,\n   'course_codes': [],\n   'expected_basis': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',\n   'expected_version': None,\n-  'id': '6808a0ce-2a54-40ce-af10-0a609024a601',\n+  'id': '3435eff0-20dc-457d-9b9f-db36bd9e5f2c',\n   'max_credits': 20,\n   'selected_graduation_path_id': None,\n   'selected_track_id': None,\n   'semester': 1,\n   'title': 'VT098-Draft',\n   'version': 1}\n\n----------------------------------------------------------------------\nRan 3 tests in 0.043s\n\nFAILED (failures=1)\n",
+  "scope": "SQLite harness; not production HTTP, authentication or PostgreSQL"
+}
