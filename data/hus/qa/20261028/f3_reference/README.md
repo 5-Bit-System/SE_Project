@@ -60,8 +60,9 @@ Trong `release/`:
 `weights_percent` và `official_exam_format` cũng null. Không có lịch học, giáo trình,
 giảng viên, chuẩn đầu ra hoặc tỷ lệ điểm chính thức được bịa thêm.
 
-Mỗi chunk tự chứa cảnh báo AI sinh và thông tin ngành/mã/phiên bản để không mất nhãn khi
-truy xuất riêng lẻ. `citation_label` ghi “F3 do AI sinh”, không giả citation nguồn chính thức.
+Mỗi chunk giữ metadata nguồn gốc AI sinh và thông tin ngành/mã/phiên bản khi
+truy xuất riêng lẻ. Hai file RAG không xuất trường `warning` hoặc câu cảnh báo đầu `text`;
+`citation_label` chỉ ghi mã học phần và ngành, theo yêu cầu cập nhật của người dùng.
 
 ## Hợp đồng tích hợp RAG
 

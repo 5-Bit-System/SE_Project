@@ -10,17 +10,17 @@
     "objectives": 290,
     "suggested_assessment": 290
   },
-  "implementation_sha256": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+  "implementation_sha256": "258c609afe6b70f79f3b88f9739f83c490c3b0d2c64997b039dbb8b3d4eb0db5",
   "method": "codex_authored_concept_blueprints_v1",
   "official_F3_verified": 0,
   "official_corpus_modified": false,
   "outputs": {
-    "acceptance_questions.jsonl": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac",
+    "acceptance_questions.jsonl": "24a4064f01a34e0e681084b35f30b124afa4bb9b15a70dca192c6bfc268d57a1",
     "coverage.jsonl": "8458c0e227cdcb4efe5dc2416de2fc0b6ccb9d07e51003a9cbfdd96a2d0932cb",
-    "rag_chunks.jsonl": "f0e60548e28ec438c0fd0ef69ed04fb4863d9a18e7984e2582c634aa2cec651c",
-    "rag_documents.jsonl": "cf829aead81aa738ad9fb3c5fb423b9060bd880926ecaab61d2dc898e7113f2a",
+    "rag_chunks.jsonl": "793b79f573c24762da24dbd1062478b34a893e97aa9b9580e3ff74a067084c9a",
+    "rag_documents.jsonl": "e0be97682166e67ea2b1520eb6d1ddc2be2531275251c6933a5382a058aa22fc",
     "records.jsonl": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45",
-    "source_map.jsonl": "f988fcf8e484f64127093b17116072bcbb2a820dd57f9bd9140a3b889d63dd46"
+    "source_map.jsonl": "b616ae1e8181319c08771769649287b0c6c632b070d06e5fb4fda89d46403aad"
   },
   "program_counts": {
     "khdl_7460108_2022": 65,

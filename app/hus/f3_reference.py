@@ -195,26 +195,26 @@ def export_records(records: list[dict]) -> tuple[list[dict], list[dict], list[di
     for record in records:
         validate_record(record)
         texts = section_texts(record)
-        context = (f"{WARNING}\nHọc phần: {record['course_code']} — {record['course_name']}.\n"
+        context = (f"Học phần: {record['course_code']} — {record['course_name']}.\n"
                    f"Ngành: {record['major_name']}; phiên bản F2: {record['curriculum_version']}; khóa: 2022.\n"
                    f"Số tín chỉ theo bản chép F2 chưa thẩm định: {record['f2']['credits_transcribed']}.\n")
         metadata = {key: record[key] for key in (
             "record_id", "program_id", "major", "major_name", "course_code", "course_name",
             "curriculum_version", "cohort_year", "dataset_kind", "content_origin", "usage_scope",
-            "academic_verified", "review_status", "disclosure_required", "warning",
+            "academic_verified", "review_status", "disclosure_required",
         )}
         full_text = context + "\n" + "\n\n".join(texts.values())
         documents.append({**metadata, "text": full_text, "provenance": record["provenance"],
                           "document_sha256": sha256(full_text.encode())})
         for field, text in texts.items():
-            # Every standalone part repeats the disclosure and major/version identity.
+            # Every standalone part retains generation metadata and major/version identity.
             for pos, (start, end) in enumerate(split_chunks(text, 4000)):
                 chunk_text = context + text[start:end]
                 chunk_id = sha256((record["record_id"] + ":" + field + ":" + str(pos) + "\n" + chunk_text).encode())[:24]
                 locator = {"record_id": record["record_id"], "field": field, "start_char": start,
                            "end_char": end, "offset_scope": "rendered_field_text_excluding_repeated_context"}
                 chunks.append({**metadata, "chunk_id": chunk_id, "field": field, "text": chunk_text,
-                               "citation_label": f"F3 do AI sinh — {record['course_code']} — {record['major_name']}",
+                               "citation_label": f"{record['course_code']} — {record['major_name']}",
                                "provenance": record["provenance"], "locator": locator})
                 mapping.append({"chunk_id": chunk_id, "locator": locator, "content_origin": "generated",
                                 "is_official_F3_citation": False,

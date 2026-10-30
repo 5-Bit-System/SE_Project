@@ -98,7 +98,7 @@
       "bytes": 8848,
       "origin": "data/hus/qa/20261028/f3_reference/release/acceptance_questions.jsonl",
       "path": "f3/acceptance_questions.jsonl",
-      "sha256": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac"
+      "sha256": "24a4064f01a34e0e681084b35f30b124afa4bb9b15a70dca192c6bfc268d57a1"
     },
     {
       "bytes": 87039,
@@ -116,19 +116,19 @@
       "bytes": 1890,
       "origin": "data/hus/qa/20261028/f3_reference/release/manifest.json",
       "path": "f3/manifest.json",
-      "sha256": "df4e4ed077d4b9631603c6df768acd119e748db2e8b4fa3e6a2722c8a1772103"
+      "sha256": "99a9e396bfd93313960b61eb9765aa4d87b30be6554a22313835538216a520f7"
     },
     {
-      "bytes": 2108762,
+      "bytes": 1831232,
       "origin": "data/hus/qa/20261028/f3_reference/release/rag_chunks.jsonl",
       "path": "f3/rag_chunks.jsonl",
-      "sha256": "f0e60548e28ec438c0fd0ef69ed04fb4863d9a18e7984e2582c634aa2cec651c"
+      "sha256": "793b79f573c24762da24dbd1062478b34a893e97aa9b9580e3ff74a067084c9a"
     },
     {
-      "bytes": 814052,
+      "bytes": 726762,
       "origin": "data/hus/qa/20261028/f3_reference/release/rag_documents.jsonl",
       "path": "f3/rag_documents.jsonl",
-      "sha256": "cf829aead81aa738ad9fb3c5fb423b9060bd880926ecaab61d2dc898e7113f2a"
+      "sha256": "e0be97682166e67ea2b1520eb6d1ddc2be2531275251c6933a5382a058aa22fc"
     },
     {
       "bytes": 1055068,
@@ -140,7 +140,7 @@
       "bytes": 271172,
       "origin": "data/hus/qa/20261028/f3_reference/release/source_map.jsonl",
       "path": "f3/source_map.jsonl",
-      "sha256": "f988fcf8e484f64127093b17116072bcbb2a820dd57f9bd9140a3b889d63dd46"
+      "sha256": "b616ae1e8181319c08771769649287b0c6c632b070d06e5fb4fda89d46403aad"
     }
   ],
   "originals_preserved": true,

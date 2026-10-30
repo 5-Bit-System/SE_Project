@@ -9,7 +9,7 @@ import pytest
 
 from app.hus.corpus import verify_artifacts
 from app.hus.f3_reference import (
-    DATASET_KIND, PROGRAMS, WARNING, build_reference, load_inputs, section_texts, validate_record,
+    DATASET_KIND, PROGRAMS, build_reference, load_inputs, section_texts, validate_record,
 )
 
 ROOT = Path("data/hus/qa/20261028/f3_reference")
@@ -69,7 +69,9 @@ def test_every_standalone_RAG_chunk_discloses_generation_and_scope(built):
     assert Counter(c["field"] for c in chunks) == {"content": 290, "objectives": 290, "suggested_assessment": 290}
     records = {r["record_id"]: r for r in rows(built, "records.jsonl")}
     for c in chunks:
-        assert c["text"].startswith(WARNING)
+        assert c["text"].startswith("Học phần: ")
+        assert "warning" not in c
+        assert c["citation_label"] == f"{c['course_code']} — {c['major_name']}"
         assert c["content_origin"] == "generated" and c["dataset_kind"] == DATASET_KIND
         assert c["usage_scope"] == "reference_only" and c["disclosure_required"]
         assert not c["academic_verified"]
