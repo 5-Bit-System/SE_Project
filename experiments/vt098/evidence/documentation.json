@@ -1,0 +1,19 @@
+{
+  "scope": "requirement 5 documentation review only",
+  "baseline": "7b387a394e334e217733a571ee76a573157a24f2",
+  "head_before_capture": "cf167febb52899baae8d63ffc128dadab62e939e",
+  "reflection_word_count_whitespace": 286,
+  "reflection_body_sha256": "0a5a8fba133be82b122569ad4d60a6f6eac57e1c66f0aad7d5f73212c3bc5ca3",
+  "same_reflection_in_tex": true,
+  "pinned_method_line_links_checked": 18,
+  "all_pinned_method_line_links_valid": true,
+  "runtime_test_runner_hashes_unchanged": true,
+  "pending_production_cases": [
+    "TC12",
+    "TC13",
+    "TC19",
+    "TC20"
+  ],
+  "independent_human_review_observed": false,
+  "historical_experiment_logs_overwritten": false
+}

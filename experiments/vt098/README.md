@@ -91,6 +91,14 @@ Chỉ dùng tài khoản/basis và dữ liệu tự tạo, không dùng test dat
 Chi tiết plan và assumptions: [PLAN_REVIEW.md](PLAN_REVIEW.md).
 Khai báo AI và trách nhiệm review: [AI_USAGE.md](AI_USAGE.md).
 
+## Engineering evidence và reflection (yêu cầu 5)
+
+[ENGINEERING_EVIDENCE.md](ENGINEERING_EVIDENCE.md) nối AC/risk → TC → file/method
+→ commit → kết quả, phân biệt pass trong harness với API/E2E chưa triển khai.
+[AI_USAGE.md](AI_USAGE.md) tổng hợp công cụ, prompt, output, sửa/bác bỏ và evidence
+cho cả 5 phần. [REFLECTION.md](REFLECTION.md) có 286 từ theo whitespace token,
+được AI hỗ trợ soạn từ log thực tế và chưa phải xác nhận review độc lập của sinh viên.
+
 ## Chạy lại yêu cầu 4
 
 Dùng môi trường riêng (coverage 7.17.0); các lệnh quality ghi đè artifact cùng

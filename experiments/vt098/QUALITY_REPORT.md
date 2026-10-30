@@ -121,4 +121,5 @@ AI tự sinh runner/test body boundary và đọc kết quả; agent review th�
 AST làm raw coverage có thêm file API nên báo scope riêng, và thấy peak thực tế
 149 ở hai burst nên không khai nhận peak 150 mọi vòng. Chưa có independent human
 review. Prompt thực tế là yêu cầu 4 người dùng cung cấp trong phiên; không dùng
-prompt/test data/mutation/reflection của thành viên khác. Yêu cầu 5 còn chờ.
+prompt/test data/mutation/reflection của thành viên khác. Yêu cầu 5 được bổ sung
+trong ENGINEERING_EVIDENCE.md, AI_USAGE.md và REFLECTION.md.
