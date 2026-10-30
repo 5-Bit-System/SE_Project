@@ -6,6 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import common_route
 
 
 def main():
@@ -26,13 +27,20 @@ def main():
         url = route.request.url
         if '/auth/session' in url:
             route.fulfill(json=session_payload())
+        elif url == 'http://127.0.0.1:8000/me/semester-plans':
+            route.fulfill(json={'plans': []})
+        elif '/me/course-status?' in url:
+            route.fulfill(json={
+                'status': 'needs_program_binding', 'can_plan': False,
+                'blocking_reasons': ['source_incomplete', 'program_binding_unverified'],
+                'courses': None, 'progress': None, 'plan': None})
         elif "/me/" in url or "/auth/" in url:
             requests.append(url)
             route.fulfill(content_type="application/json", body=json.dumps(sample))
         elif not url.startswith("http://127.0.0.1:8000/"):
             route.abort()
         else:
-            route.continue_()
+            assert common_route(route), url
 
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="chrome", headless=True)
