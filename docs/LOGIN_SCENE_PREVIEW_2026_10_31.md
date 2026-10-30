@@ -1,7 +1,8 @@
-# Bản thử nền login — 31/10/2026
+# Giao diện login với nền học tập — 31/10/2026
 
 Nền minh họa được dùng chung cho trang đăng nhập và các mục trong workspace.
-Tham số `?preview=study-login` tiếp tục bật riêng bố cục đăng nhập phóng lớn.
+Bố cục đăng nhập phóng lớn hiện được bật mặc định; URL có `?preview=study-login`
+vẫn mở cùng giao diện để tương thích với các liên kết thử trước đây.
 
 ## Thiết kế
 
@@ -12,9 +13,9 @@ thông tin sinh viên hoặc học phần thật.
 
 Giữ Be Vietnam Pro và nền hiện có. Bảng màu sáng gồm trắng giấy `#FFFDF8`, nét
 lavender `#A08ABF`, bìa sách `#B5A1D3`, bìa nhạt `#D0C1E3` và tím `#9371CD`.
-Chế độ tối dùng cùng hình dạng với bảng màu dịu hơn. Bố cục preview dùng chiều
+Chế độ tối dùng cùng hình dạng với bảng màu dịu hơn. Bố cục đăng nhập dùng chiều
 cao viewport thực, header gọn hơn và form được căn trong phần còn lại. Footer
-thông tin dự án được ẩn ở login preview; nội dung riêng tư về mật khẩu vẫn hiển thị.
+thông tin dự án được ẩn ở login; nội dung riêng tư về mật khẩu vẫn hiển thị.
 
 Hai cột được gom trong container tối đa 1740px và căn giữa màn hình. Khung form
 rộng tối đa 690px, tăng 1,5 lần; chữ giới thiệu, mô tả và các điều khiển form
@@ -34,9 +35,9 @@ giới thiệu trùng; điện thoại nằm ngang đặt hai ô nhập trên c�
 overflow hidden để cắt nội dung form; thông báo phát sinh vẫn có thể mở rộng trang.
 
 SVG, CSS và script nằm trong repository, không cần thư viện hoặc ảnh ngoài.
-Script đưa nền ra ngoài luồng nội dung trên mọi trang và chỉ bật bố cục đăng nhập
-phóng lớn khi URL có tham số preview; không đọc account, lưu trạng thái hay gửi
-request. Nền nằm dưới nội dung và không nhận focus hoặc chuột. Hành vi gửi form
+Script đưa nền ra ngoài luồng nội dung trên mọi trang và áp dụng bố cục phóng lớn
+cho màn đăng nhập; không đọc account, lưu trạng thái hay gửi request. Nền nằm
+dưới nội dung và không nhận focus hoặc chuột. Hành vi gửi form
 VNU/admin và khôi phục phiên được giữ nguyên.
 
 ## Kiểm chứng local trước khi dùng nền chung

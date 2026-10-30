@@ -1,11 +1,9 @@
-/* Shared decorative study background; preview query only enables login layout tweaks. */
+/* Shared study background and default enlarged login layout. */
 (() => {
   const scene = document.querySelector('.login-study-scene');
   if (!scene) return;
   document.documentElement.dataset.studyScene = 'true';
-  if (new URLSearchParams(window.location.search).get('preview') === 'study-login') {
-    document.documentElement.dataset.loginScenePreview = 'true';
-  }
+  document.documentElement.dataset.loginScene = 'true';
   document.body.append(scene);
   scene.hidden = false;
   const observer = new IntersectionObserver(entries => {
