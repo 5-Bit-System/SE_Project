@@ -109,32 +109,26 @@ if (typeof document !== 'undefined') {
   function closeDetail(restoreFocus = false) {
     const trigger = detailTrigger;
     detailSelection = null; detailTrigger = null;
-    $('detail').hidden = true;
+    if ($('detail').open) $('detail').close();
+    document.documentElement.style.removeProperty('--analytics-scrollbar-width');
     $('detail-table').replaceChildren();
     $('detail-title').textContent = '';
     $('detail-meta').textContent = '';
-    $('detail').parentElement?.classList.remove('analytics-expanded');
+    $('detail-hint').textContent = '';
     syncDetailControls();
-    if (restoreFocus) (trigger?.isConnected ? trigger : $('year')).focus();
+    if (restoreFocus) (trigger?.isConnected ? trigger : $('year')).focus({preventScroll: true});
   }
   function renderDetail() {
     if (!detailSelection || !source?.snapshot?.attempts) { closeDetail(); return; }
     const selection = detailSelection, year = $('year').value;
     const rows = filterDrilldownAttempts(source.snapshot.attempts, selection, year);
-    const target = $(selection.kind === 'grade' ? 'distribution' : selection.scale === 4 ? 'trend4' : 'trend').closest('section');
-    const detail = $('detail');
-    if (detail.parentElement !== target) {
-      detail.parentElement?.classList.remove('analytics-expanded');
-      target.append(detail);
-    }
-    target.classList.add('analytics-expanded'); detail.hidden = false;
     const match = selection.kind === 'term' ? selection.term.match(/(\d{4})\s*[-–]\s*(\d{4})/) : null;
     const label = selection.kind === 'term'
       ? termLabel({term: selection.term, year: match ? `${match[1]}–${match[2]}` : ''})
       : selection.letter || t('Chưa có điểm chữ', 'No letter grade');
     const title = `${t('Bảng điểm', 'Transcript')} · ${label}`;
     $('detail-title').textContent = title;
-    $('detail-close').textContent = t('Đóng bảng', 'Close table');
+    $('detail-close').setAttribute('aria-label', t('Đóng bảng điểm', 'Close transcript'));
     $('detail-hint').textContent = t('Vuốt ngang trong bảng để xem đầy đủ các cột.', 'Swipe across the table to see all columns.');
     $('detail-meta').textContent = selection.kind === 'term'
       ? `${t('Hệ', 'Scale')} ${selection.scale} · ${rows.length} ${t('lượt học', 'attempts')} · ${t('Gồm cả lượt chưa có điểm', 'Includes ungraded attempts')}`
@@ -164,6 +158,10 @@ if (typeof document !== 'undefined') {
       cell.textContent = t('Không có lượt học phù hợp.', 'No matching attempts.');
     }
     syncDetailControls();
+    if (!$('detail').open) {
+      document.documentElement.style.setProperty('--analytics-scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`);
+      $('detail').showModal();
+    }
   }
   function openDetail(selection, trigger) {
     if (detailSelection?.kind === selection.kind && detailSelection?.term === selection.term
@@ -171,7 +169,7 @@ if (typeof document !== 'undefined') {
       closeDetail(true); return;
     }
     detailSelection = selection; detailTrigger = trigger;
-    renderDetail(); $('detail-title').focus();
+    renderDetail(); $('detail-title').focus({preventScroll: true});
   }
   function trend(stats, scale) {
     const four = scale === 4, meanKey = four ? 'mean4' : 'mean', gradesKey = four ? 'grades4' : 'grades';
@@ -209,7 +207,7 @@ if (typeof document !== 'undefined') {
       if (group[meanKey] === null) return;
       const x = xAt(index), y = 218 - group[meanKey] * 180 / scale;
       const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: group.term ? 0 : -1,
-        ...(group.term ? {role: 'button', 'aria-controls': 'analytics-detail', 'aria-expanded': false,
+        ...(group.term ? {role: 'button', 'aria-controls': 'analytics-detail', 'aria-haspopup': 'dialog', 'aria-expanded': false,
           'data-detail-term': group.term, 'data-detail-scale': scale} : {}), class: 'chart-point',
         'aria-label': `${termLabel(group)}: ${number(group[meanKey])} / ${scale}; ${group[gradesKey].length} ${t('lượt có điểm', 'graded attempts')}${group.term ? `; ${t('Xem bảng điểm tại Dashboard', 'Show transcript on dashboard')}` : ''}`});
       if (group.term) {
@@ -258,7 +256,7 @@ if (typeof document !== 'undefined') {
         'stroke-width': 22, 'stroke-dasharray': `${length} ${circumference - length}`,
         'stroke-dashoffset': -offset, transform: 'rotate(-90 100 100)', class: 'chart-grade-segment',
         'data-grade-letter': letter, 'data-detail-letter': letter, role: 'button', tabindex: 0,
-        'aria-controls': 'analytics-detail', 'aria-expanded': false});
+        'aria-controls': 'analytics-detail', 'aria-haspopup': 'dialog', 'aria-expanded': false});
       offset += length;
       const label = letter || t('Chưa có điểm chữ', 'No letter grade');
       const title = svgElement('title'); title.textContent = `${label}: ${count}`;
@@ -274,6 +272,7 @@ if (typeof document !== 'undefined') {
       const button = element('button', '', 'distribution-grade-button');
       button.type = 'button'; button.dataset.gradeLetter = letter; button.dataset.detailLetter = letter;
       button.setAttribute('aria-controls', 'analytics-detail'); button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-haspopup', 'dialog');
       button.setAttribute('aria-label', `${t('Xem bảng điểm theo điểm chữ tại Dashboard', 'Show dashboard transcript for letter grade')}: ${label}, ${count}`);
       const swatch = element('span', '', 'legend-swatch'); swatch.style.backgroundColor = color;
       button.append(swatch, element('span', label), element('strong', `${count} · ${number(count / stats.count * 100)}%`));
@@ -325,6 +324,32 @@ if (typeof document !== 'undefined') {
   document.addEventListener('workspace:language-change', render);
   $('year').addEventListener('change', render);
   $('detail-close').addEventListener('click', () => closeDetail(true));
+  $('detail').addEventListener('cancel', event => { event.preventDefault(); closeDetail(true); });
+  $('detail').addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const stops = [...$('detail').querySelectorAll('button, [tabindex="0"]')];
+    const active = document.activeElement;
+    if (event.shiftKey && (active === stops[0] || !stops.includes(active))) {
+      event.preventDefault(); stops.at(-1).focus({preventScroll: true});
+    } else if (!event.shiftKey && active === stops.at(-1)) {
+      event.preventDefault(); stops[0].focus({preventScroll: true});
+    }
+  });
+  document.addEventListener('workspace:navigate', event => {
+    if (event.detail !== 'tab-dashboard') closeDetail();
+  });
+  const outsideDetail = event => {
+    const rect = $('detail').getBoundingClientRect();
+    return event.target === $('detail')
+      && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom);
+  };
+  let backdropPointerDown = false;
+  $('detail').addEventListener('pointerdown', event => { backdropPointerDown = outsideDetail(event); });
+  $('detail').addEventListener('click', event => {
+    if (backdropPointerDown && outsideDetail(event)) closeDetail(true);
+    backdropPointerDown = false;
+  });
+  $('detail').addEventListener('pointercancel', () => { backdropPointerDown = false; });
   render();
   const refresh = () => document.dispatchEvent(new CustomEvent('workspace:portal-refresh'));
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh, {once: true}); else refresh();

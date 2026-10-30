@@ -153,19 +153,19 @@
           <section class="workspace-surface analytics-distribution"><div class="section-title"><h3>Phân bố điểm chữ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.</p><div id="analytics-distribution" class="chart-region"></div></section>
           <section class="workspace-surface analytics-credits"><div class="section-title"><h3>Tín chỉ theo học kỳ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.</p><div id="analytics-credits" class="chart-region"></div></section>
         </div>
-        <div id="analytics-detail" class="analytics-detail" hidden>
+        <dialog id="analytics-detail" class="analytics-detail" aria-labelledby="analytics-detail-title" aria-describedby="analytics-detail-meta" aria-modal="true">
           <div class="analytics-detail-head">
             <div>
               <h4 id="analytics-detail-title" tabindex="-1">Bảng điểm theo lựa chọn</h4>
               <p id="analytics-detail-meta" aria-live="polite"></p>
             </div>
-            <button type="button" id="analytics-detail-close" class="text-action">Đóng</button>
+            <button type="button" id="analytics-detail-close" class="analytics-detail-close" aria-label="Đóng bảng điểm"><span aria-hidden="true">×</span></button>
           </div>
           <p id="analytics-detail-hint" class="analytics-detail-hint"></p>
           <div class="table-scroll analytics-detail-scroll" role="region" tabindex="0" aria-labelledby="analytics-detail-title">
             <table id="analytics-detail-table" class="transcript-table"></table>
           </div>
-        </div>
+        </dialog>
         <details class="analytics-data-table"><summary>Xem số liệu và cách tính</summary><p id="analytics-method" class="muted-copy"></p><div class="table-scroll"><table id="analytics-table" class="transcript-table"></table></div></details>
       </section>
     </section>
