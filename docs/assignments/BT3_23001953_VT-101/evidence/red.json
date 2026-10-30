@@ -1,0 +1,21 @@
+{
+  "label": "red",
+  "command": [
+    "D:/SE_Project/.venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integrations/test_course_search_contract.py",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "started_utc": "2026-10-30T16:47:17.045673+00:00",
+  "head": "7b387a394e334e217733a571ee76a573157a24f2",
+  "branch": "bt3/23001953-VT-101-search-contract",
+  "working_tree_before": "?? docs/assignments/\n?? tests/integrations/test_course_search_contract.py\n?? tests/support/search_data.py\n?? tools/bt3/",
+  "exit_code": 1,
+  "duration_seconds": 1.9958,
+  "finished_utc": "2026-10-30T16:47:19.591825+00:00",
+  "working_tree_after": "?? docs/assignments/\n?? tests/integrations/test_course_search_contract.py\n?? tests/support/search_data.py\n?? tools/bt3/"
+}

@@ -1,0 +1,261 @@
+.FFFFFFFFFFFFFFFFFFFFFFFFFFFFF.FFFF.F.F.FF                               [100%]
+================================== FAILURES ===================================
+___________ test_new_provider_envelope_defaults_and_course_metadata ___________
+tests\integrations\test_course_search_contract.py:68: in test_new_provider_envelope_defaults_and_course_metadata
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params0-expected0] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params1-expected1] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params2-expected2] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params3-expected3] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params4-expected4] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params5-expected5] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params6-expected6] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params7-expected7] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params8-expected8] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________ test_literal_search_and_combined_filters[params9-expected9] _________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+________ test_literal_search_and_combined_filters[params10-expected10] ________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+________ test_literal_search_and_combined_filters[params11-expected11] ________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+________ test_literal_search_and_combined_filters[params12-expected12] ________
+tests\integrations\test_course_search_contract.py:99: in test_literal_search_and_combined_filters
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+____________ test_pagination_total_no_duplicate_or_missing_results ____________
+tests\integrations\test_course_search_contract.py:106: in test_pagination_total_no_duplicate_or_missing_results
+    assert [len(page["items"]) for page in pages] == [3, 3, 2]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integrations\test_course_search_contract.py:106: in <listcomp>
+    assert [len(page["items"]) for page in pages] == [3, 3, 2]
+                ^^^^^^^^^^^^^
+E   KeyError: 'items'
+_________ test_stable_sort_ties_and_repository_order[code-expected0] __________
+tests\integrations\test_course_search_contract.py:120: in test_stable_sort_ties_and_repository_order
+    assert codes(first) == expected
+           ^^^^^^^^^^^^
+tests\integrations\test_course_search_contract.py:44: in codes
+    return [item["code"] for item in data["items"]]
+                                     ^^^^^^^^^^^^^
+E   KeyError: 'items'
+________ test_stable_sort_ties_and_repository_order[credits-expected1] ________
+tests\integrations\test_course_search_contract.py:120: in test_stable_sort_ties_and_repository_order
+    assert codes(first) == expected
+           ^^^^^^^^^^^^
+tests\integrations\test_course_search_contract.py:44: in codes
+    return [item["code"] for item in data["items"]]
+                                     ^^^^^^^^^^^^^
+E   KeyError: 'items'
+_________ test_stable_sort_ties_and_repository_order[name-expected2] __________
+tests\integrations\test_course_search_contract.py:120: in test_stable_sort_ties_and_repository_order
+    assert codes(first) == expected
+           ^^^^^^^^^^^^
+tests\integrations\test_course_search_contract.py:44: in codes
+    return [item["code"] for item in data["items"]]
+                                     ^^^^^^^^^^^^^
+E   KeyError: 'items'
+_________________ test_empty_result_is_valid_success[params0] _________________
+tests\integrations\test_course_search_contract.py:131: in test_empty_result_is_valid_success
+    assert response.status_code == 200
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________________ test_empty_result_is_valid_success[params1] _________________
+tests\integrations\test_course_search_contract.py:131: in test_empty_result_is_valid_success
+    assert response.status_code == 200
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_________________ test_empty_result_is_valid_success[params2] _________________
+tests\integrations\test_course_search_contract.py:131: in test_empty_result_is_valid_success
+    assert response.status_code == 200
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_query_validation_error_contract[params0-page] ______________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_query_validation_error_contract[params1-page] ______________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_query_validation_error_contract[params2-page] ______________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+___________ test_query_validation_error_contract[params3-page_size] ___________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+___________ test_query_validation_error_contract[params4-page_size] ___________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_query_validation_error_contract[params5-sort] ______________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_______ test_query_validation_error_contract[params6-requirement_type] ________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_______________ test_query_validation_error_contract[params7-q] _______________
+tests\integrations\test_course_search_contract.py:144: in test_query_validation_error_contract
+    assert response.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____ test_required_program_and_unknown_program_contract[/courses/search] _____
+tests\integrations\test_course_search_contract.py:154: in test_required_program_and_unknown_program_contract
+    assert missing.status_code == 422
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+________________________ test_pagination_boundaries[1] ________________________
+tests\integrations\test_course_search_contract.py:164: in test_pagination_boundaries
+    assert data["page_size"] == size and data["total"] == 8
+           ^^^^^^^^^^^^^^^^^
+E   KeyError: 'page_size'
+_______________________ test_pagination_boundaries[100] _______________________
+tests\integrations\test_course_search_contract.py:164: in test_pagination_boundaries
+    assert data["page_size"] == size and data["total"] == 8
+           ^^^^^^^^^^^^^^^^^
+E   KeyError: 'page_size'
+_______________ test_program_isolation_and_single_snapshot_load _______________
+tests\integrations\test_course_search_contract.py:171: in test_program_isolation_and_single_snapshot_load
+    assert result.status_code == 200
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_failure_contract_never_returns_default_success[error0-503-Synthetic storage unavailable-/courses/search] _
+tests\integrations\test_course_search_contract.py:200: in test_failure_contract_never_returns_default_success
+    assert response.status_code == status, "Dependency failure must not become empty success"
+E   AssertionError: Dependency failure must not become empty success
+E   assert 404 == 503
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_failure_contract_never_returns_default_success[error1-500-D\u1eef li\u1ec7u m\xe1y ch\u1ee7 ch\u01b0a h\u1ee3p l\u1ec7; ki\u1ec3m tra migration/seed-/courses/search] _
+tests\integrations\test_course_search_contract.py:200: in test_failure_contract_never_returns_default_success
+    assert response.status_code == status, "Dependency failure must not become empty success"
+E   AssertionError: Dependency failure must not become empty success
+E   assert 404 == 500
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_failure_contract_never_returns_default_success[error2-422-Synthetic domain error-/courses/search] _
+tests\integrations\test_course_search_contract.py:200: in test_failure_contract_never_returns_default_success
+    assert response.status_code == status, "Dependency failure must not become empty success"
+E   AssertionError: Dependency failure must not become empty success
+E   assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_unexpected_exception_is_500_not_empty_success ______________
+tests\integrations\test_course_search_contract.py:211: in test_unexpected_exception_is_500_not_empty_success
+    assert response.status_code == 500
+E   assert 404 == 500
+E    +  where 404 = <Response [404 Not Found]>.status_code
+============================== warnings summary ===============================
+..\..\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integrations/test_course_search_contract.py::test_new_provider_envelope_defaults_and_course_metadata
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params0-expected0]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params1-expected1]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params2-expected2]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params3-expected3]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params4-expected4]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params5-expected5]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params6-expected6]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params7-expected7]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params8-expected8]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params9-expected9]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params10-expected10]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params11-expected11]
+FAILED tests/integrations/test_course_search_contract.py::test_literal_search_and_combined_filters[params12-expected12]
+FAILED tests/integrations/test_course_search_contract.py::test_pagination_total_no_duplicate_or_missing_results
+FAILED tests/integrations/test_course_search_contract.py::test_stable_sort_ties_and_repository_order[code-expected0]
+FAILED tests/integrations/test_course_search_contract.py::test_stable_sort_ties_and_repository_order[credits-expected1]
+FAILED tests/integrations/test_course_search_contract.py::test_stable_sort_ties_and_repository_order[name-expected2]
+FAILED tests/integrations/test_course_search_contract.py::test_empty_result_is_valid_success[params0]
+FAILED tests/integrations/test_course_search_contract.py::test_empty_result_is_valid_success[params1]
+FAILED tests/integrations/test_course_search_contract.py::test_empty_result_is_valid_success[params2]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params0-page]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params1-page]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params2-page]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params3-page_size]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params4-page_size]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params5-sort]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params6-requirement_type]
+FAILED tests/integrations/test_course_search_contract.py::test_query_validation_error_contract[params7-q]
+FAILED tests/integrations/test_course_search_contract.py::test_required_program_and_unknown_program_contract[/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_pagination_boundaries[1]
+FAILED tests/integrations/test_course_search_contract.py::test_pagination_boundaries[100]
+FAILED tests/integrations/test_course_search_contract.py::test_program_isolation_and_single_snapshot_load
+FAILED tests/integrations/test_course_search_contract.py::test_failure_contract_never_returns_default_success[error0-503-Synthetic storage unavailable-/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_failure_contract_never_returns_default_success[error1-500-D\u1eef li\u1ec7u m\xe1y ch\u1ee7 ch\u01b0a h\u1ee3p l\u1ec7; ki\u1ec3m tra migration/seed-/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_failure_contract_never_returns_default_success[error2-422-Synthetic domain error-/courses/search]
+FAILED tests/integrations/test_course_search_contract.py::test_unexpected_exception_is_500_not_empty_success
+37 failed, 5 passed, 1 warning in 1.09s
