@@ -1,5 +1,153 @@
 # Project Memory and Contributor Guidelines
 
+## GitHub main integrated into local system — 2026-10-29
+
+User explicitly requested checking teammates' GitHub PRs on main and merging
+that work into this local system. GitHub main was fetched at
+`7bde36e482af3c16e5b31761ee7575f5d6e2ba1b`. Newly merged PRs by 23172c43:
+#9 recovers missing migration history and fixes sidebar scrolling; #10
+standardizes local setup; #11 adds persistent account-owned semester plans,
+session drafts and session restoration. Crawler PR #6 remains open and was not
+integrated; retirement PR #8 is closed without merge. No GitHub write occurred.
+
+Root workspace is now on `integration/sync-main-20261029` at local merge commit
+`5d7a4df27d855ca4606c75932dd39bcff176062e`, with parents original local
+`65d981f` and GitHub main `7bde36e`. Both original histories/authors are retained.
+Original branch and local main refs are preserved. Existing retired crawl
+Markdown/catalog stay retired. No new commit includes the preceding dirty work.
+Do not push this integration branch or merge a GitHub PR without a new request.
+
+All 18 preceding dirty/untracked files were separately backed up and restored
+through a tested overlay; README and memory keep both local and main updates.
+Existing VNU network fixes, cleanup changes, RAG handoff and .vscode are retained.
+Three test compatibility fixes remain uncommitted: Windows-safe screenshot path,
+explicit UTF-8 catalog reading in the new plan PG fixture, and the exact new
+GET /me/semester-plans fixture in the existing session browser regression.
+The original stash is deliberately retained as an additional backup only;
+do not pop it onto the already restored files.
+
+Verification: 555 offline tests passed with explicit HUS PDF root; all 80
+PostgreSQL cases ultimately passed on a separate disposable container, with no
+skips. The first PG run passed 66; 14 cases needed a prepared test-only catalog
+or the UTF-8 fixture fix and then passed on rerun. Seven synthetic Chrome scripts
+passed: semester plans, session restoration, course board, portal session/auth,
+resume and profile source. Ruff, all static JS syntax, analytics assertions,
+four synthetic builders and the 65-course sample passed. Existing Starlette/httpx
+warning remains. These tests do not establish real-account academic acceptance.
+
+Docker Desktop was initially stopped; starting it resumed existing se_hus_db
+with its original volume. Runtime ai07 was backed up, restored in isolation and
+migrated there first. Runtime then upgraded transactionally from
+hus_20261025_06 to hus_20261028_08: all 24 original table count/content
+fingerprints, projecting original columns, matched before/after; semester_plans
+starts empty. No seed, catalog publication, source/grade edit, password or SMTP
+change. .env, .env.auth, database/.env.docker and .vscode hashes are unchanged.
+The exact disposable test container has been removed; se_hus_db remains running.
+
+No app process was initially running. Public VNU form check passed in normal
+approved execution context without credentials. App now runs from D through
+tools.run_local at http://127.0.0.1:8000, launcher PID 14264; verify process
+identity before any later stop. /health and /ready are OK with PostgreSQL, all
+15 served assets match disk, and anonymous profile/admin/semester-plan routes
+reject with 401. No real VNU login, personal transcript inspection or email.
+
+Evidence is ignored under `backups/sync_main_20261029/`: RESULT.md,
+verification.json, baseline.json, originals/, before_runtime.dump,
+runtime_before.json, backup_restore_verified.json, runtime_after.json,
+offline.xml, postgres.xml and postgres-rerun.xml, plus runtime logs. The
+459-file/20-overlay integrity receipt predates this memory-only addition.
+Catalogs remain draft_unverified; RAG is inactive. Earlier stop/no-merge notes
+are historical scope restrictions superseded only by this explicit local merge.
+
+## Session close — 2026-10-29: systematic cleanup completed locally
+
+User explicitly requests closing the session and updating memory. This close-out
+changes only this memory file; do not resume implementation, cleanup, tests,
+runtime/database work or publication. No commit, push, PR or merge requested.
+
+Actual root HEAD is `65d981f` (`chore: retire old HUS crawl markdown`) on
+`chore/remove-old-crawl-markdown-20261026`; that commit predates this cleanup.
+Its remote-tracking branch is marked gone. Older entries recording root HEAD
+`7650c12` or 107 pending crawl deletions are historical; the retirement is already
+in this local HEAD. Do not recreate those files or infer remote publication.
+
+The user requested project-toolkit and a five-stage project audit/cleanup.
+Completed the safely verifiable scope: inventory, classification, small cleanup,
+verification and a report at
+[`docs/BAO_CAO_DON_DEP_2026_10_29.md`](../docs/BAO_CAO_DON_DEP_2026_10_29.md).
+Removed 360 untracked generated cache files: 353 Python bytecode files, two
+pytest cache files and five Ruff cache files, totaling 5,403,157 bytes (~5.15 MiB).
+This is gross removed payload, not net free-space gain; the audit evidence also
+uses disk. Cache README and two cache .gitignore files were retained. No tracked
+source file, dependency, PDF, SQL, academic source or configuration was deleted.
+
+Only two source files were changed by cleanup: removed the unused `require_admin`
+helper from `app/auth/dependencies.py`, and combined identical KeywordRanker/
+LLMRanker call branches in `app/services/recommendation_service.py`. Existing
+admin route/repository guards, custom-ranker behavior and fallback remain.
+Diff: one insertion, 15 deletions (14 fewer lines). Changes remain uncommitted.
+
+Before/after offline pytest both passed: 537 passed, 76 PostgreSQL cases
+deselected, no skipped cases, using explicit HUS PDF acceptance root. Whole-root
+Ruff, Python syntax for 168 files, Node syntax for 11 JS/MJS files, local import
+module/resource checks, all 15 HTML assets, four synthetic catalog builders,
+the 65-course metadata sample, analytics assertions and pip check passed. Three
+synthetic Chrome scripts passed: portal auth, resume and profile-source capture.
+One existing Starlette/httpx deprecation warning remains. No PostgreSQL tests,
+real VNU login/grade inspection, email delivery, app restart or Docker action.
+
+At cleanup completion, hash checks covered 3,406 unique protected files; only
+the two intended source changes differed. Pre-existing dirty files/untracked
+work and both nested checkout Git statuses were preserved. That integrity
+snapshot predates this explicitly requested memory addition. Keep the existing
+VNU network edits, README, RAG handoff, untracked local launcher/startup test and
+.vscode work; do not overwrite, bundle into a commit or reset them implicitly.
+
+Full local evidence is ignored under `backups/cleanup_20261029/`: start with
+`deleted-files.csv`, `verification.json`, `baseline-offline.xml` and
+`final-offline.xml`. Inventory/import/definition and duplicate-candidate files
+are audit data, not deletion instructions. `originals/app/` holds the exact
+pre-cleanup copies of the two edited source files. No credentials were printed.
+
+Keep unresolved candidates: dormant app.js/dashboard.js and their styles,
+legacy CDP language test, retired email helpers/SMTP configuration and associated
+test setup, demo-profile validation, old RAG preparation reference code, all HUS
+delivery/source/PDF/OCR/manifest evidence, and the two unpublished feature
+checkouts. 815 baseline duplicate-hash groups were retained because equal bytes
+do not prove equal lifecycle/provenance. Further retirement needs its own scope;
+do not delete these merely because the active UI does not load them. RAG remains
+inactive and catalogs remain draft_unverified; cleanup does not change acceptance.
+
+## Local VNU launch — 2026-10-28
+
+VNU login 502 was reproduced as Chrome `net::ERR_NETWORK_ACCESS_DENIED` when the
+app inherited the agent's restricted execution session. The identical public
+login-form probe returned HTTP 200 outside that session. Restarting the verified
+D-workspace app in an approved normal execution context restored login; the user
+explicitly confirmed success. A worker restart inside the blocked parent context
+does not remove the restriction. Do not retry credentials automatically.
+
+Before future VNU app launches, use `.venv/Scripts/python.exe -m tools.run_local`
+from the repository root in a context with network access. `--check-only` probes
+the public form without credentials or another server. An agent must request the
+appropriate approved execution context when its sandbox blocks networking.
+`/health` and `/ready` do not prove VNU access. Keep the existing host/port
+`127.0.0.1:8000`, local configuration, volumes and account data.
+
+The local preventive change classifies this failure as `network_access_denied`
+(503) with safe UI text and a startup check. Verification: 224 offline integration
+tests passed, 41 database cases deselected; three synthetic Chrome scripts passed.
+The startup check rejects the restricted context and succeeds outside it. No
+agent real-account login or personal transcript inspection was performed.
+
+Feature source is uncommitted on `fix/vnu-login-network-20261028` in
+`backups/vnu_login_network_20261028/source`, based on main `7650c12`; the verified
+changes are also applied locally to the root runtime checkout. No commit, push,
+PR or merge. Existing RAG handoff edits and `.vscode/` are preserved. The restored
+running app was not restarted again after user acceptance; the added API/runtime
+diagnostics load at its next planned restart. Evidence and caveats are in
+`backups/vnu_login_network_20261028/RESULT.md`.
+
 ## Semester plans — 2026-10-28, local implementation
 
 User explicitly requests durable multiple semester plan alternatives. Branch

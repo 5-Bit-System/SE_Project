@@ -40,13 +40,6 @@ async def require_account(request, *, allow_password_change=False):
     return principal
 
 
-async def require_admin(request):
-    principal = await require_account(request)
-    if principal['role'] != 'admin':
-        raise HTTPException(403, 'forbidden')
-    return principal
-
-
 async def verified_account(request: Request):
     return await require_account(request)
 

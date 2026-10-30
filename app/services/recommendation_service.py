@@ -70,14 +70,7 @@ def recommend(
     backend_name = "deterministic-keyword-v1"
     try:
         active_ranker = ranker or llm_ranker or KeywordRanker()
-        if isinstance(active_ranker, KeywordRanker):
-            ranking = active_ranker.rank(
-                candidates,
-                request.goal,
-                preference=preference,
-                weights=ranking_weights,
-            )
-        elif isinstance(active_ranker, LLMRanker):
+        if isinstance(active_ranker, (KeywordRanker, LLMRanker)):
             ranking = active_ranker.rank(
                 candidates,
                 request.goal,
