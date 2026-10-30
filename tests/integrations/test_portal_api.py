@@ -110,6 +110,7 @@ def test_sync_is_bound_to_session_subject(client):
 @pytest.mark.parametrize("code,status", [("worker_failed", 502), ("worker_output_invalid", 502),
                                         ("timeout", 504), ("busy", 429),
                                         ("browser_unavailable", 503), ("portal_unavailable", 502),
+                                        ("network_access_denied", 503),
                                         ("structure_changed", 502),
                                         ("interaction_required", 409)])
 def test_worker_failure_is_technical_not_bad_password(client, monkeypatch, code, status):
@@ -123,6 +124,29 @@ def test_worker_failure_is_technical_not_bad_password(client, monkeypatch, code,
     assert response.status_code == status
     assert response.json() == {"detail": code}
     assert "secret-test" not in response.text
+
+
+def test_student_login_network_block_never_creates_an_account_or_retries(client, monkeypatch):
+    from app.api.portal import account_portal
+    from app.integrations.daotao.snapshot import PortalFailure
+
+    submissions = []
+
+    async def fail(value):
+        submissions.append(value)
+        raise PortalFailure("network_access_denied")
+
+    def forbid_signin(*args):
+        pytest.fail("A network failure must never create an identity or session")
+
+    monkeypatch.setattr(runtime, "collect", fail)
+    monkeypatch.setattr(account_portal, "signin", forbid_signin)
+    response = client.post('/auth/vnu', json={'username': 'synthetic', 'password': 'never-log'})
+    assert response.status_code == 503
+    assert response.json() == {'detail': 'network_access_denied'}
+    assert 'set-cookie' not in response.headers
+    assert submissions == [{}], "Credentials must be cleared, without automatic resubmission"
+    assert client.get('/auth/session').json() == {'authenticated': False}
 
 
 def test_cancelled_and_finished_jobs_are_safe(client):

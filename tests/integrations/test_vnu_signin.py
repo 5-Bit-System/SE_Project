@@ -93,7 +93,8 @@ def test_student_cannot_escalate_or_change_local_password(system):
 
 
 @pytest.mark.parametrize('code,status', [('identity_unverified', 401), ('interaction_required', 409),
-                                       ('timeout', 504), ('browser_unavailable', 503)])
+                                       ('timeout', 504), ('browser_unavailable', 503),
+                                       ('network_access_denied', 503)])
 def test_no_identity_or_session_when_vnu_authentication_fails(system, monkeypatch, code, status):
     client, engine, _ = system
 

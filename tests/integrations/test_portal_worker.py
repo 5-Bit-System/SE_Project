@@ -163,11 +163,14 @@ def test_timeout_and_cancellation_terminate_process_tree(monkeypatch, cancelled)
         assert commands[-1] == ("taskkill", "/PID", "123456", "/T", "/F")
 
 
-@pytest.mark.parametrize("stage,expected_code", [
-    ("browser_start", "browser_unavailable"), ("login", "portal_unavailable"),
-    ("profile", "portal_unavailable"), ("transcript", "portal_unavailable"),
+@pytest.mark.parametrize("stage,expected_code,network_error", [
+    ("browser_start", "browser_unavailable", False), ("login", "portal_unavailable", False),
+    ("profile", "portal_unavailable", False), ("transcript", "portal_unavailable", False),
+    ("login", "network_access_denied", True), ("profile", "network_access_denied", True),
+    ("browser_start", "browser_unavailable", True),
 ])
-def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, stage, expected_code):
+def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, stage, expected_code,
+                                                              network_error):
     class BrowserError(Exception):
         pass
 
@@ -177,7 +180,8 @@ def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, sta
     private = "synthetic-private-password-cookie-and-grade"
 
     def fail():
-        raise BrowserError(private)
+        raise BrowserError(("Page.goto: net::ERR_NETWORK_ACCESS_DENIED " if network_error else "")
+                           + private)
 
     class Client:
         def __init__(self, context):
@@ -231,9 +235,10 @@ def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, sta
 
 
 @pytest.mark.parametrize("hostile", [False, True])
-def test_runtime_logs_only_allowlisted_worker_diagnostics(monkeypatch, caplog, hostile):
+@pytest.mark.parametrize("code", ["portal_unavailable", "network_access_denied"])
+def test_runtime_logs_only_allowlisted_worker_diagnostics(monkeypatch, caplog, hostile, code):
     private = "synthetic-private-provider-response"
-    result = {"error": "portal_unavailable", "stage": "profile", "kind": "browser_error",
+    result = {"error": code, "stage": "profile", "kind": "browser_error",
               "raw": private}
     if hostile:
         result.update(error=private, stage=[private], kind={"secret": private})
@@ -248,7 +253,8 @@ def test_runtime_logs_only_allowlisted_worker_diagnostics(monkeypatch, caplog, h
         return Process()
 
     monkeypatch.setattr(asyncio, "create_subprocess_exec", spawn)
-    with pytest.raises(PortalFailure, match="^portal_unavailable$"):
+    expected = "portal_unavailable" if hostile else code
+    with pytest.raises(PortalFailure, match=f"^{expected}$"):
         asyncio.run(runtime.collect({"username": "synthetic", "password": private}))
     assert f"stage={'unknown' if hostile else 'profile'}" in caplog.text
     assert private not in caplog.text

@@ -11,6 +11,7 @@ from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
 def main():
     root = Path(__file__).resolve().parents[2] / 'app' / 'static'
     state = {'authenticated':False, 'connected':False, 'fail_login':True,
+             'login_error':'portal_unavailable',
              'hold_session':False, 'hold_profile':False}
     requests, pending, errors = [], [], []
     sample = {'subject':'synthetic-only', 'expires_in':7200,
@@ -27,7 +28,8 @@ def main():
                 route.fulfill(json=session_payload(state['authenticated']))
         elif path == '/auth/vnu':
             if state['fail_login']:
-                route.fulfill(status=502,json={'detail':'portal_unavailable'})
+                route.fulfill(status=503 if state['login_error'] == 'network_access_denied' else 502,
+                              json={'detail':state['login_error']})
             else:
                 state['authenticated'] = True
                 state['connected'] = True
@@ -84,6 +86,15 @@ def main():
             assert '/me/profile' not in requests
             assert page.locator('#auth-vnu-password').input_value() == ''
             assert page.locator('.main-content').is_hidden()
+            state['login_error'] = 'network_access_denied'
+            system_login(False)
+            page.wait_for_function("document.getElementById('auth-notice').textContent.includes('bị chặn')")
+            assert page.locator('#auth-vnu-password').input_value() == ''
+            assert '/me/profile' not in requests
+            page.locator('[data-language-choice="en"]').click()
+            assert 'blocked' in page.locator('#auth-notice').inner_text()
+            page.locator('[data-language-choice="vi"]').click()
+            assert requests.count('/auth/vnu') == 2
             state['fail_login'] = False
             system_login()
             for _ in range(3):
