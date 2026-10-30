@@ -1,0 +1,2 @@
+# Harness only; stdlib unittest/sqlite3 do not require installation.
+pydantic==2.12.5

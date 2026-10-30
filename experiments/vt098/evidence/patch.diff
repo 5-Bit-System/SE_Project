@@ -1,0 +1,63 @@
+diff --git a/experiments/vt098/harness.py b/experiments/vt098/harness.py
+index a274b75..6ae76ef 100644
+--- a/experiments/vt098/harness.py
++++ b/experiments/vt098/harness.py
+@@ -2,7 +2,7 @@
+ 
+ Only empty synthetic drafts and the fixture basis are supported. `account_id`
+ represents an already verified principal supplied by the test, never user input.
+-The initial version deliberately models the existing create-on-every-call flow.
++The receipt and all business writes commit together in this isolated experiment.
+ """
+ 
+ import hashlib
+@@ -89,23 +89,42 @@ class PlanHarness:
+                fault: Callable[[str], None] = no_fault) -> Response:
+         if not account_id:
+             raise HarnessError(401, 'account_required')
+-        validate_key(key)
++        key_digest = validate_key(key)
+         normalized = normalize(body)
+-        if normalized['course_codes']:
+-            raise HarnessError(422, 'nonempty_courses_outside_harness')
+-        if normalized['expected_basis'] != BASIS:
+-            raise HarnessError(409, 'context_changed')
+-        response = {**normalized, 'id': str(uuid.uuid4()), 'version': 1}
+-        encoded = json.dumps(response, ensure_ascii=False, sort_keys=True)
++        request_fingerprint = fingerprint(normalized)
+         with closing(self.connect()) as conn:
++            # SQLite serializes writers; PostgreSQL account-row locking is untested.
+             conn.execute('BEGIN IMMEDIATE')
+             try:
++                receipt = conn.execute('''SELECT fingerprint, status, response_json FROM receipts
++                    WHERE account_id=? AND operation=? AND key_digest=?''',
++                    (account_id, OPERATION, key_digest)).fetchone()
++                if receipt is not None:
++                    if receipt[0] != request_fingerprint:
++                        raise HarnessError(409, 'idempotency_conflict')
++                    conn.commit()
++                    return Response(receipt[1], json.loads(receipt[2]))
++                # A replay describes the original commit, not current academic facts.
++                if normalized['course_codes']:
++                    raise HarnessError(422, 'nonempty_courses_outside_harness')
++                if normalized['expected_basis'] != BASIS:
++                    raise HarnessError(409, 'context_changed')
++                count = conn.execute('SELECT count(*) FROM plans WHERE account_id=?',
++                                     (account_id,)).fetchone()[0]
++                if count >= 100:
++                    raise HarnessError(409, 'semester_plan_limit')
++                response = {**normalized, 'id': str(uuid.uuid4()), 'version': 1}
++                encoded = json.dumps(response, ensure_ascii=False, sort_keys=True)
+                 conn.execute('INSERT INTO plans VALUES (?, ?, ?)',
+                              (response['id'], account_id, encoded))
+                 fault('after_plan')
+                 conn.execute('INSERT INTO audits VALUES (?, ?, ?)',
+                              (account_id, response['id'], 'save_semester_plan'))
+                 fault('after_audit')
++                conn.execute('INSERT INTO receipts VALUES (?, ?, ?, ?, ?, ?, ?)',
++                             (account_id, OPERATION, key_digest, request_fingerprint,
++                              response['id'], 201, encoded))
++                fault('after_receipt')
+                 conn.commit()
+             except Exception:
+                 conn.rollback()
