@@ -55,7 +55,7 @@
     book.dataset.visible = 'false'; book.dataset.paused = 'true';
     if (innerWidth <= 800 || !panel || bookSettling) return;
     const protectedRects = [];
-    const surfaces = 'button,input,select,textarea,table,progress,.workspace-surface,.dashboard-basis,.profile-login-layout,.profile-identity-strip,.profile-source-notice,.profile-facts,.portal-table-scroll,.academic-readiness,.course-status-summary,.course-status-columns,.course-status-toolbar,.semester-plans,.course-status-notice,.course-program-confirmation,.course-review-items,.reference-program-grid,.reference-selectors,.reference-facts,.reference-plan,.reference-source-issues,.reference-scope,.reference-error';
+    const surfaces = 'button,input,select,textarea,table,progress,.workspace-surface,.profile-login-layout,.profile-identity-strip,.profile-facts,.portal-table-scroll,.academic-readiness,.course-status-summary,.course-status-columns,.course-status-toolbar,.semester-plans,.course-status-notice,.course-program-confirmation,.course-review-items,.reference-program-grid,.reference-selectors,.reference-facts,.reference-plan,.reference-source-issues,.reference-scope,.reference-error';
     panel.querySelectorAll(surfaces).forEach(node => {
       if (node.getClientRects().length) protectedRects.push(node.getBoundingClientRect());
     });

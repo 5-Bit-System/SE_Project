@@ -12,10 +12,11 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
 .auth-card form > button[type="submit"] { width: 100%; margin-top: 24px; }
 .auth-card p { color: var(--text-muted); font-size: 13px; line-height: 1.8; }
 .auth-hint { margin-top: 12px; }
-.auth-switch { display: flex; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; }
+.auth-controls { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; }
+.auth-switch { display: flex; flex: 0 0 auto; gap: 8px; border-bottom: 0; padding-bottom: 0; }
 .auth-switch button, .system-account-actions button { font: inherit; cursor: pointer; border: 1px solid var(--border-subtle); border-radius: 7px; padding: 8px 12px; background: var(--soft-surface); color: var(--text-main); font-size: 12px; }
 .auth-switch button[aria-pressed="true"] { background: var(--selected-surface); border-color: var(--border-focus); }
-#auth-notice:not(:empty) { padding: 12px; margin-top: 16px; border-radius: 8px; background: var(--info-bg); }
+#auth-notice:not(:empty) { flex: 0 1 auto; max-width: 60%; padding: 8px 12px; margin: 0 0 0 auto; border-radius: 8px; background: var(--info-bg); text-align: right; }
 #auth-notice.is-error { background: var(--warning-bg); }
 #system-account { max-width: 340px; font-size: 11px; text-align: right; overflow-wrap: anywhere; }
 .system-account-actions { display: flex; justify-content: end; flex-wrap: wrap; gap: 5px; margin-top: 7px; }

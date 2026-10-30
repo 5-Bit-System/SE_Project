@@ -152,8 +152,10 @@
       </div>
     </div>
     <div class="auth-card workspace-surface">
-      <nav class="auth-switch" aria-label="Đăng nhập"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
-      <p id="auth-notice" role="status" aria-live="polite"></p>
+      <div class="auth-controls">
+        <nav class="auth-switch" aria-label="Đăng nhập"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
+        <p id="auth-notice" role="status" aria-live="polite"></p>
+      </div>
       <form id="auth-student-form"><h3 data-auth-copy="studentTitle"></h3><p class="auth-hint" data-auth-copy="studentHint"></p><label for="auth-vnu-username" data-auth-copy="vnuUsername"></label><input id="auth-vnu-username" autocomplete="username" required maxlength="128" autocapitalize="none" spellcheck="false"><label for="auth-vnu-password" data-auth-copy="vnuPassword"></label><input id="auth-vnu-password" type="password" autocomplete="current-password" required maxlength="512"><button class="portal-button primary-action" type="submit" data-auth-copy="vnuLogin"></button><p class="auth-hint" data-auth-copy="privacyHint"></p></form>
       <form id="auth-login-form" hidden><h3 data-auth-copy="loginTitle"></h3><label for="auth-login-email" data-auth-copy="adminUsername"></label><input id="auth-login-email" autocomplete="username" required maxlength="254" autocapitalize="none" spellcheck="false"><label for="auth-login-password" data-auth-copy="password"></label><input id="auth-login-password" type="password" autocomplete="current-password" required maxlength="128"><button class="portal-button primary-action" type="submit" data-auth-copy="login"></button></form>
       <form id="auth-password-form" hidden><h3 data-auth-copy="changePassword"></h3><p data-auth-copy="changeHint"></p><label for="auth-current-password" data-auth-copy="currentPassword"></label><input id="auth-current-password" type="password" autocomplete="current-password" maxlength="128" required><label for="auth-new-password" data-auth-copy="newPassword"></label><input id="auth-new-password" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><label for="auth-new-confirm" data-auth-copy="confirmPassword"></label><input id="auth-new-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><button class="portal-button primary-action" type="submit" data-auth-copy="savePassword"></button></form>
@@ -202,7 +204,6 @@
         <div><p class="page-context">Không gian học tập</p><h2>Dashboard học tập</h2><p>Kết quả đã ghi nhận, những lựa chọn phía trước.</p></div>
         <button type="button" class="portal-button primary-action" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
       </div>
-      <div class="dashboard-basis"><span class="basis-dot" aria-hidden="true"></span><p>Thống kê từ bảng điểm VNU đã lưu. Mỗi lần học được giữ thành một lượt riêng.</p><button type="button" class="text-action" data-navigate="portal-dialog">Xem hồ sơ VNU</button></div>
       <section id="dashboard-analytics" aria-label="Thống kê bảng điểm VNU">
         <div id="analytics-status" class="analytics-status" role="status"></div>
         <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label></div>
@@ -259,7 +260,6 @@
     </form>
     <section id="portal-profile" hidden>
       <div class="profile-identity-strip"><div class="profile-emblem" aria-hidden="true">◎</div><div><p class="page-context" data-portal-copy="account"></p><h3 id="portal-identity"></h3><p id="portal-updated"></p></div><span class="subtle-tag" data-portal-copy="source"></span></div>
-      <div class="profile-source-notice"><p data-portal-copy="unknown"></p><p data-portal-copy="separate"></p></div>
       <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div><div><span data-portal-copy="earnedCredits"></span><strong id="portal-earned-credits"></strong></div><div><span data-portal-copy="gpa4"></span><strong id="portal-gpa4"></strong></div></div>
       <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag" role="status" aria-live="polite" aria-atomic="true"></span></div>
       <div id="portal-summary" class="portal-source"></div>

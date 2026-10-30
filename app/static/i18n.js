@@ -11,7 +11,6 @@
     "Bản xem trước từ tệp. Điểm được giữ nguyên theo nguồn; chưa áp dụng vào tiến độ hoặc gợi ý môn. Dữ liệu chỉ ở trong phiên này.": "File preview. Source grades are preserved and have not been applied to progress or recommendations. Data stays in this session.",
     "Chưa có bảng điểm nhập tay. Tạo học kỳ rồi thêm môn, hoặc mở tệp bảng điểm của bạn.": "No manual transcript. Create a semester and add courses, or open your transcript file.",
     "Không gian học tập": "Study workspace",
-    "Thống kê từ bảng điểm VNU đã lưu. Mỗi lần học được giữ thành một lượt riêng.": "Statistics from your saved VNU transcript. Each course attempt is retained separately.",
     "Thống kê bảng điểm VNU": "VNU transcript statistics",
     "Năm học": "Academic year",
     "Điểm qua từng học kỳ": "Grades across semesters",
