@@ -1,5 +1,128 @@
 # Project Memory and Contributor Guidelines
 
+## Course map publication authorized — 2026-10-31
+
+User explicitly requests committing/pushing current map work to a NEW branch
+in 10–15 separate commits. Target: feat/vinh-course-map-improvements-20261031,
+based on current main ancestor 94b7d05988d4118df283ad09a12ff75cef3161fc.
+Plan 12 non-empty focused commits: display filtering; prerequisite reachability;
+review-gate seeds; plan validation/unit coverage; API/name contracts; frontend;
+obsolete checkbox CSS; board browser checks; saved-plan browser checks; motion
+browser compatibility; product documentation; contributor checkpoint.
+This authorization supersedes the preceding local/uncommitted/no-publication
+notes for these 11 reviewed files. Do not force-push, rewrite teammate history,
+or publish main, feat/vnu-curriculum-planning or feat/vinh-database-tests.
+
+Fresh publication preflight: 609 offline tests passed, 90 deselected, one existing
+Starlette/httpx warning. Whole-repo Ruff, affected JS syntax, Node analytics,
+both catalog builder checks and two synthetic Chrome regressions (course board,
+saved plans) passed. Earlier study-desk Chrome validation remains applicable.
+No PostgreSQL/full-source acceptance rerun, real VNU login or data migration in
+this publication. AD-102, .env/.env.auth, DB backups, logs and screenshots remain
+ignored/local. Preserve disk content while staging focused backend increments.
+Only the new branch ref may be pushed. Verify exactly 12 commits against the
+base, final tree equality, remote head and clean worktree after push. This note
+records authorization/preparation; use Git to establish the publication outcome.
+
+## Prerequisite labels include names — 2026-10-31
+
+User requests code: course name inside prerequisite parentheses. Both yellow
+follow-up explanations and red missing-prerequisite reasons now use shared DOM
+formatting, preserving AND/OR and bolding only the course name. /me/course-status
+adds prerequisite_courses with code -> name/name_en from the same catalog;
+lookup includes referenced courses hidden from the columns. UI falls back to
+all unfiltered board rows for older responses, and retains bare code for unknown
+external references rather than inventing names. Names use textContent, never
+HTML; EN prefers name_en with Vietnamese fallback. No classification/GPA/plan
+rule, source record or catalog state changed. MAT3533 was read from current
+KHMTTT catalog as Hoc may (Vietnamese accents retained in product).
+
+35 focused academic API tests and synthetic Chrome board regression passed,
+covering both groups, bold literal HTML-like names, hidden/unknown references,
+search, VI/EN, mobile/themes and logout. Ruff/JS syntax/diff passed. Local server
+restarted through tools.run_local, launcher PID 20212; verify identity before
+stopping. Health/ready 200 and all 20 assets match disk. No reload, real VNU
+credentials, personal-record inspection, database writes or publication.
+All preceding uncommitted map changes are preserved and remain uncommitted.
+
+## Follow-up availability regression fixed — 2026-10-31
+
+User clarifies again: if prerequisite A can be in the available column, dependent
+B must be there too, including longer chains. Found a concrete bug in the prior
+display projection: reviewed_course_board moves otherwise rule-eligible courses
+to academic_review_required when planning pauses or their own outcome is pending.
+The projection restored missing-prerequisite rows only, so those seed courses
+stayed red and broke the entire chain. Reproduced with invented A completed,
+B requires A, C requires B: a planning-only pause left both B/C red.
+
+course_board_display now restores ONLY academic_review_required-only rows before
+following missing-prerequisite clauses to a fixed point. They already passed
+the underlying source/prerequisite/track/quota engine. Restored rows have
+eligibility_basis=completed_prerequisites; dependent rows remain
+available_prerequisites. Both get planning_eligible=false, suggested=false;
+validators and saved-plan validity honor the flag. Completed results, progress,
+strict eligibility/recommendations, source evidence and global planning gates
+remain unchanged. Continue omitting excluded credits from all three columns
+and showing no plan checkbox. Do not reinstate either removed UI behavior.
+
+Five new regression cases prove planning selection, outside-code, program-rule,
+metadata-preview and own-result review cannot shrink the displayed available
+sequence for the same completed facts. 609 offline tests passed, 90 deselected,
+existing Starlette/httpx warning only. Course-board and saved-plan synthetic
+Chrome scripts passed; Ruff/JS syntax/diff passed. Read-only current KHMTTT
+catalog with invented completed MAT1202/MAT3507 also verified MAT3374/MAT1207
+available and no reachable prerequisite-only row left red. No real student
+profile/grades, VNU credentials, DB writes, catalog publication or Git publication.
+Updated local runtime restarted through tools.run_local, launcher PID 19568;
+verify identity before stopping. /health and /ready 200, all 20 served assets
+match disk, and anonymous course status remains 401. No reload mode.
+All source/tests/docs edits from this and the preceding map task stay uncommitted.
+
+## Course map display changed by user — 2026-10-31
+
+Current root is feat/vnu-curriculum-planning at 94b7d05 after the user's explicit
+pull from origin/main (fast-forward, clean before this task). Older branch/PID
+claims below describe other sessions. This task is local only; no publication.
+
+User supersedes the earlier excluded-course default: remove per-course next-term
+checkboxes; omit courses excluded from earned program credits from ALL THREE
+map columns; show follow-up courses as available when each missing prerequisite
+AND/OR clause has an alternative already in the available column, transitively.
+Keep actual completed facts, GPA/earned credits and source records unchanged.
+Explain on follow-up cards that prerequisites must still be completed first.
+
+Implemented course_board_display as a read-only projection at /me/course-status.
+Excluded rows do not seed reachability or enter new suggested bundles. Only
+missing-prerequisite blockers can be promoted; other source/unknown/conflict,
+track/path/quota constraints and global planning gates remain. No unseeded cycle
+self-unlocks. Conditional rows use eligibility_basis=available_prerequisites,
+prerequisite_clauses and suggested=false. Strict academic APIs and plan assembly
+retain real passed prerequisites; validation rejects conditional rows even if a
+display board is accidentally supplied. Saved-plan UI remains, with automatic
+suggestions and removal of courses; no replacement per-card selection control.
+Frontend column counts/search also filter excluded rows; VI/EN copy updated.
+Docs: docs/COURSE_STATUS_BOARD.md, latest section supersedes historical defaults.
+
+Verification: 604 offline tests passed, 90 DB/full-acceptance deselected; existing
+Starlette/httpx warning only. Three synthetic Chrome scripts passed: course board,
+saved semester plans, study desk/motion (including real observed book turns).
+Reviewed synthetic desktop screenshot; scripts cover mobile/themes, VI/EN,
+search, no checkboxes, excluded rows, conditional messaging and logout races.
+Whole-repo Ruff, JS syntax and diff checks passed. No real student data, VNU
+credentials, sync or personal-account acceptance test was used.
+
+Local updated server restarted through tools.run_local, launcher PID 18720;
+verify process identity before stopping it. No reload. /health and /ready 200;
+all 20 served assets match disk; anonymous map/plans remain 401. Before this
+task, starting the pulled main required installing its new core dependencies,
+creating a missing ignored .env.auth (random secret never printed), and upgrading
+local DB hus_20261023_03 to hus_20261028_08. Backup was restored and migrated in
+an isolated DB first; original-column hashes of all 17 original data tables
+matched before/after. Restore-check DB removed; recovery evidence retained at
+backups/local_runtime/restart_main_20261031_ccfaf22d67/. Existing .env and volume
+were preserved; no seed or catalog publication. Current map task needs no schema
+or data changes. Code, tests, docs and this checkpoint remain UNCOMMITTED.
+
 ## GitHub main integrated into local system — 2026-10-29
 
 User explicitly requested checking teammates' GitHub PRs on main and merging
