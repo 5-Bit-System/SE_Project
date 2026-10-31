@@ -232,7 +232,9 @@ def validate_plan_courses(board: dict, codes: list[str], budget: int) -> list[di
         raise AcademicContextError('semester_plan_not_ready')
     if len(codes) != len(set(codes)):
         raise AcademicContextError('semester_plan_duplicate_course')
-    available = {row['code']: row for row in board['courses']['eligible']}
+    available = {row['code']: row for row in board['courses']['eligible']
+                 if row.get('planning_eligible', True)
+                 and row.get('eligibility_basis') != 'available_prerequisites'}
     if set(codes) - available.keys():
         raise AcademicContextError('semester_plan_course_unavailable')
     selected, used = [], {}
