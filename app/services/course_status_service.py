@@ -32,11 +32,37 @@ def course_board(
 
 
 def course_board_display(board: dict) -> dict:
-    """Hide excluded-credit rows without changing completed facts."""
+    """Follow available prerequisite chains without changing completed facts."""
     if not board.get("courses"):
         return board
     rows = {state: [row for row in courses if row["counted_in_total"]]
             for state, courses in board["courses"].items()}
+    available = {row["code"] for row in rows["eligible"]}
+    pending = {item["code"] for item in board.get("review_items", [])
+               if item["state"] == "unresolved"}
+    while True:
+        remaining, promoted = [], []
+        for row in rows["blocked"]:
+            reasons = row["reasons"]
+            clauses = [clause for reason in reasons
+                       for clause in reason.get("missing_prerequisites", [])]
+            if (reasons and all(reason["kind"] == "missing_prerequisites" for reason in reasons)
+                    and clauses and all(any(code in available for code in clause)
+                                        for clause in clauses)):
+                promoted.append({**row, "reasons": [], "suggested": False,
+                                 "eligibility_basis": "available_prerequisites",
+                                 "planning_eligible": False,
+                                 "result_pending": row["code"] in pending,
+                                 "prerequisite_clauses": clauses})
+            else:
+                remaining.append(row)
+        if not promoted:
+            break
+        rows["eligible"].extend(promoted)
+        rows["blocked"] = remaining
+        available.update(row["code"] for row in promoted)
+    rows["eligible"].sort(key=lambda row: (
+        row["requirement_type"] not in {"required", "required_excluded"}, row["code"]))
     result = {**board, "courses": rows}
     if board.get("plan"):
         visible = {row["code"]: row for row in rows["eligible"]
