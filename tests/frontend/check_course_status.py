@@ -29,22 +29,30 @@ def main():
             "paths": [{"id": "synthetic-path", "name": "Synthetic path",
                        "allowed_track_ids": ["synthetic-track"]}],
         },
+        "prerequisite_courses": {"TEST-AND": {"name": "Synthetic prerequisite outside columns",
+                                             "name_en": "Prerequisite outside columns EN"}},
         "courses": {
-            "completed": [course("TEST-A", "Synthetic completed")],
+            "completed": [course("TEST-A", "Synthetic completed"),
+                          course("HIDDEN-DONE", "Excluded completed", counted_in_total=False)],
             "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True,
+                                name_en="Synthetic required EN",
                                 counted_in_total=False, eligibility_basis="excluded_from_total"),
                          course("TEST-E1", "<img src=x onerror=alert(1)>",
                                 requirement_type="elective", groups=[group], suggested=True,
                                 eligibility_basis="requested_default"),
                          course("TEST-E2", "Synthetic alternative", requirement_type="elective",
                                 groups=[group], eligibility_basis="no_prerequisites",
-                                result_pending=True)],
+                                result_pending=True),
+                         course("TEST-F", "Synthetic follow-up",
+                                eligibility_basis="available_prerequisites",
+                                prerequisite_clauses=[["TEST-E1"]])],
             "blocked": [course("TEST-C", "Synthetic blocked", reasons=[{
                 "kind": "missing_prerequisites", "missing_prerequisites": [
                     ["TEST-B", "TEST-OR"], ["TEST-AND"]]}]),
                         course("TEST-D", "Synthetic unknown", reasons=[
                             {"kind": "prerequisite_unknown", "missing_prerequisites": []},
-                            {"kind": "course_source_unverified", "missing_prerequisites": []}])],
+                            {"kind": "course_source_unverified", "missing_prerequisites": []}]),
+                        course("HIDDEN-BLOCKED", "Excluded blocked", counted_in_total=False)],
         },
         "progress": {
             "total": {"earned_credits": 3, "required_credits": 120,
@@ -59,8 +67,8 @@ def main():
                                "earned_credits": 0, "required_credits": 3,
                                "remaining_credits": 3}],
         },
-        "plan": {"max_credits": 20, "suggested_credits": 7,
-                 "course_codes": ["TEST-B", "TEST-E1"], "offering_status": "unknown"},
+        "plan": {"max_credits": 20, "suggested_credits": 3,
+                 "course_codes": ["TEST-E1"], "offering_status": "unknown"},
     }
     source = {"profile": {"program": "Synthetic program", "cohort": "79"},
               "snapshot": {"completeness": "complete", "attempts": []}}
@@ -85,7 +93,7 @@ def main():
             result = copy.deepcopy(data)
             budget = int(parse_qs(parsed.query)['max_credits'][0])
             if budget == 6:
-                result['plan'].update(course_codes=['TEST-B'], suggested_credits=4, max_credits=6)
+                result['plan'].update(course_codes=['TEST-E1'], suggested_credits=3, max_credits=6)
             if mode == 'unready':
                 result.update(status='needs_program_binding', courses=None, progress=None, plan=None,
                               blocking_reasons=['source_incomplete', 'program_binding_unverified'])
@@ -130,8 +138,13 @@ def main():
         assert root.locator('.course-state-completed .course-status-card').count() == 1
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
         assert root.locator('.course-state-blocked .course-status-card').count() == 2
-        assert root.locator('.course-state-eligible h3').inner_text().startswith('Đủ điều kiện theo chương trình')
-        assert page.get_by_role('checkbox', name='Chọn TEST-B - Synthetic required cho kế hoạch kỳ tới').count() == 1
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể học')
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
+        for code in ('TEST-B', 'HIDDEN-DONE', 'HIDDEN-BLOCKED'):
+            assert root.locator(f'[data-course-code="{code}"]').count() == 0
+        assert 'Tiên quyết nằm trong nhóm Có thể học: (TEST-E1: <img src=x onerror=alert(1)>)' in root.locator('[data-course-code="TEST-F"]').inner_text()
+        assert root.locator('[data-course-code="TEST-F"] .course-status-reasons strong').inner_text() == '<img src=x onerror=alert(1)>'
+        assert 'Cần hoàn thành các môn tiên quyết trước' in root.locator('[data-course-code="TEST-F"]').inner_text()
         progress_detail = root.locator('.course-status-progress-breakdown')
         assert progress_detail.count() == 1
         assert progress_detail.get_by_role('heading', name='Tiến độ theo khối và nhóm tín chỉ').count() == 1
@@ -142,35 +155,25 @@ def main():
         assert 'Nhóm tự chọn' in progress_detail.inner_text()
         assert 'khối/nhóm có thể chồng lấp' in progress_detail.inner_text()
         assert page.locator('#course-credit-budget').input_value() == '20'
-        assert 'TEST-B hoặc TEST-OR' in root.inner_text() and 'và (TEST-AND)' in root.inner_text()
+        assert '(TEST-B: Synthetic required hoặc TEST-OR) và (TEST-AND: Synthetic prerequisite outside columns)' in root.inner_text()
         assert 'Thông tin mã môn, tên, tín chỉ hoặc khối chưa được xác minh.' in root.locator('[data-course-code="TEST-D"]').inner_text()
         assert root.locator('img').count() == 0
         assert '<img src=x' in root.inner_text()
-        assert 'môn không tính vào tín chỉ tích lũy' in root.locator('[data-course-code="TEST-B"]').inner_text()
         assert 'mặc định đã chọn; điều kiện tiên quyết đã thỏa' in root.locator('[data-course-code="TEST-E1"]').inner_text()
         assert 'môn không có điều kiện tiên quyết' in root.locator('[data-course-code="TEST-E2"]').inner_text()
         assert 'chưa tính là đã hoàn thành' in root.locator('[data-course-code="TEST-E2"]').inner_text()
-        assert '7 / 20 TC' in root.inner_text()
-        page.locator('[data-plan-code="TEST-E2"]').click()
-        assert not page.locator('[data-plan-code="TEST-E2"]').is_checked()
-        assert 'đủ yêu cầu' in root.locator('.course-plan-error').inner_text()
-        page.locator('[data-plan-code="TEST-E1"]').uncheck()
-        page.locator('[data-plan-code="TEST-E2"]').check()
-        assert page.locator('[data-plan-code="TEST-E2"]').is_checked()
+        assert '3 / 20 TC' in root.inner_text()
         assert root.locator('[data-course-code="TEST-C"]').count() == 1
         assert root.locator('.course-state-completed [data-course-code="TEST-B"]').count() == 0
         page.locator('#course-credit-budget').fill('6')
         root.get_by_role('button', name='Áp dụng', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('7 / 6 TC')")
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('3 / 6 TC')")
         assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'budget'
-        assert page.locator('[data-plan-code="TEST-E2"]').is_checked()
-        assert 'vượt ngân sách mới' in root.locator('.course-plan-error').inner_text()
-        page.locator('[data-plan-code="TEST-E2"]').uncheck()
-        page.locator('[data-plan-code="TEST-E1"]').click()
-        assert not page.locator('[data-plan-code="TEST-E1"]').is_checked()
-        assert 'vượt mức tín chỉ' in root.locator('.course-plan-error').inner_text()
+        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert root.locator('[data-plan-course="TEST-F"]').count() == 0
         root.locator('input[type=search]').fill('TEST-C')
         assert root.locator('.course-status-card').count() == 1
+        assert 'TEST-B: Synthetic required' in root.locator('[data-course-code="TEST-C"]').inner_text()
         search_status = root.locator('.course-status-search-results')
         assert search_status.get_attribute('role') == 'status'
         assert search_status.get_attribute('aria-live') == 'polite'
@@ -185,14 +188,15 @@ def main():
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
         page.locator('[data-language-choice="en"]').click()
         assert 'Your course map' in root.inner_text()
-        assert page.get_by_role('checkbox', name='Select TEST-B - Synthetic required for the next-term plan').count() == 1
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
+        assert 'Available to study' in root.locator('.course-state-eligible h3').inner_text()
+        assert 'Complete those prerequisites before taking this course.' in root.locator('[data-course-code="TEST-F"]').inner_text()
         assert 'Progress by blocks and credit groups' in root.locator('.course-status-progress-breakdown').inner_text()
         assert 'Blocks and groups can overlap' in root.locator('.course-status-progress-breakdown').inner_text()
-        assert '(TEST-B or TEST-OR) and (TEST-AND)' in root.inner_text()
+        assert '(TEST-B: Synthetic required EN or TEST-OR) and (TEST-AND: Prerequisite outside columns EN)' in root.inner_text()
         assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
         assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()
-        assert 'excluded from earned program credits' in root.locator('[data-course-code="TEST-B"]').inner_text()
-        assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+        assert root.locator('[data-course-code="TEST-B"]').count() == 0
         root.locator('input[type=search]').fill('TEST-C')
         assert root.locator('.course-status-search-results').inner_text() == '1 matching courses.'
         root.locator('input[type=search]').fill('')
@@ -202,22 +206,20 @@ def main():
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chọn nhánh tốt nghiệp')")
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
-        assert root.locator('.course-state-eligible h3').inner_text().startswith('Đủ điều kiện theo chương trình')
-        assert root.locator('.course-state-eligible input[data-plan-code]').first.is_disabled()
-        for plan_input in root.locator('input[data-plan-code]').all():
-            assert plan_input.is_disabled()
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể học')
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
         # Existing edited drafts survive a pause, but no action can persist them.
-        assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
         assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('4 / 6 TC')")
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('3 / 6 TC')")
         mode = 'failed'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa tải được kết quả')")
         assert root.locator('.course-status-card').count() == 6
-        assert page.locator('[data-plan-code="TEST-B"]').is_checked()
-        assert page.locator('[data-plan-code="TEST-B"]').is_disabled()
+        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
         assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'refresh'
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
