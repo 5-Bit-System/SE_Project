@@ -1,5 +1,30 @@
 # Project Memory and Contributor Guidelines
 
+## Publication target corrected by user — 2026-10-31
+
+User explicitly requests removing the just-created course-map branch and
+publishing the same work to feat/vnu-curriculum-planning instead. This overrides
+the new-branch-only restriction in the checkpoint below. Preserve all 12 original
+commits/hashes/authors ending at 962b8617bbfe081bacb3201eb3e97039453e2402;
+do not recreate, squash, rebase or force-push them. The target fast-forwards from
+local main baseline 94b7d05, preserving the previously pulled team history.
+This contributor-note correction adds one documentation commit, making 13
+course-map commits relative to main, still within the requested 10–15 range.
+
+GitHub's temporary branch currently has the name
+feat/course-map-improvements-20261031 at the exact original tip 962b861;
+the earlier feat/vinh-course-map-improvements-20261031 remote name is absent.
+Push and verify the requested target first, then remove the temporary remote
+branch only while its head still matches that original tip, and remove the
+local temporary branch after confirming its history is retained on the target.
+Do not change main or feat/vinh-database-tests. Existing untracked
+.vscode/settings.json is user-local and must stay unstaged and unchanged;
+credentials, AD-102 and ignored backups remain local. Application/test sources
+are byte-identical to the verified 12-commit publication, so the 609-test and
+Chrome evidence below remains applicable. No runtime/DB work or test rerun is
+needed for moving refs and this note. Verify the outcome from Git; this is the
+authorization/preparation checkpoint, not a claim that the push already finished.
+
 ## Course map publication authorized — 2026-10-31
 
 User explicitly requests committing/pushing current map work to a NEW branch
