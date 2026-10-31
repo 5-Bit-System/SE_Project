@@ -32,7 +32,13 @@ def course_board(
 
 
 def course_board_display(board: dict) -> dict:
-    """Follow available prerequisite chains without changing completed facts."""
+    """Project the map without changing completed facts or plan eligibility.
+
+    Excluded credits are omitted from all three columns. Planning-only review
+    gates do not turn an otherwise eligible course red. Missing prerequisite
+    AND/OR clauses are then followed through the available column. Display-only
+    rows never become completed facts or permission to save a same-term bundle.
+    """
     if not board.get("courses"):
         return board
     rows = {state: [row for row in courses if row["counted_in_total"]]
@@ -40,6 +46,21 @@ def course_board_display(board: dict) -> dict:
     available = {row["code"] for row in rows["eligible"]}
     pending = {item["code"] for item in board.get("review_items", [])
                if item["state"] == "unresolved"}
+    kept = []
+    for row in rows["blocked"]:
+        # These rows passed the source/prerequisite/track/quota rule engine and
+        # were moved only by reviewed_course_board's planning/outcome gate.
+        # Restore them BEFORE walking the graph so dependents can use them.
+        if row["reasons"] and all(reason["kind"] == "academic_review_required"
+                                  for reason in row["reasons"]):
+            rows["eligible"].append({**row, "reasons": [], "suggested": False,
+                                     "eligibility_basis": "completed_prerequisites",
+                                     "planning_eligible": False,
+                                     "result_pending": row["code"] in pending})
+            available.add(row["code"])
+        else:
+            kept.append(row)
+    rows["blocked"] = kept
     while True:
         remaining, promoted = [], []
         for row in rows["blocked"]:
