@@ -36,7 +36,11 @@ from app.rules import _prepare_selection_context, evaluate_eligibility
 from app.schemas.advisor import AdvisorMessage, AdvisorRequest
 from app.services import semester_plan_service as plans
 from app.services.advisor_service import chat_advisor
-from app.services.course_status_service import course_board, reviewed_course_board
+from app.services.course_status_service import (
+    course_board,
+    course_board_display,
+    reviewed_course_board,
+)
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
@@ -301,7 +305,11 @@ async def course_status(request: Request):
             raise HTTPException(409, "context_changed")
     else:
         await ensure_current(request, query, context)
-    return {**result, "selections": selections,
+    prerequisite_codes = {code for course in catalog.courses
+                          for clause in course.prerequisites for code in clause}
+    return {**course_board_display(result), "selections": selections,
+            "prerequisite_courses": {course.code: {"name": course.name, "name_en": course.name_en}
+                                     for course in catalog.courses if course.code in prerequisite_codes},
             "plan_basis": digest(plans.basis_for(saved, catalog,
                 query.selected_track_id, query.selected_graduation_path_id))}
 
