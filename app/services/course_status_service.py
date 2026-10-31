@@ -31,6 +31,22 @@ def course_board(
                            selected_track_id, selected_graduation_path_id)
 
 
+def course_board_display(board: dict) -> dict:
+    """Hide excluded-credit rows without changing completed facts."""
+    if not board.get("courses"):
+        return board
+    rows = {state: [row for row in courses if row["counted_in_total"]]
+            for state, courses in board["courses"].items()}
+    result = {**board, "courses": rows}
+    if board.get("plan"):
+        visible = {row["code"]: row for row in rows["eligible"]
+                   if row.get("planning_eligible", True)}
+        codes = [code for code in board["plan"]["course_codes"] if code in visible]
+        result["plan"] = {**board["plan"], "course_codes": codes,
+                          "suggested_credits": sum(visible[code]["credits"] for code in codes)}
+    return result
+
+
 def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
                     max_credits: int, selected_track_id: str | None,
                     selected_graduation_path_id: str | None,
