@@ -1,5 +1,20 @@
 # Dữ liệu F1, F2, F3 dùng chung
 
+**Bản chuẩn bị mới nhất — 31/10/2026:** đọc `CURRENT.json` và
+`releases/hus-data-20261031-v3/`. Bản này có schema thống nhất: **65 F1 + 336 F2 +
+870 F3 = 1.271 chunks**, F2 đồng bộ main 94b7d05 và giữ sign-off KHMTTT. Cả 15 nguồn
+F1 có original khả dụng; 24 phần từ 10 nguồn Markdown khớp prose của bản tải mới.
+Mã đọc ở `app.hus.release_reader`, kiểm tra ở `tools.prepare_hus_data_release` và
+`tools.check_hus_data`. Chi tiết tại [bàn giao](../../../docs/HUS_DATA_HANDOFF_2026_10_31.md).
+
+Chỉ index `chunks.jsonl` trong release mới, hoặc chọn các file family tương đương;
+không index cả hai cách hoặc thêm bản lịch sử. F3 vẫn là AI tham khảo có opt-in.
+`CURRENT` là pointer tới bộ **đã chuẩn bị**, chưa kích hoạt runtime.
+
+Phần phía dưới mô tả cấu trúc bàn giao trước để giữ khả năng tái tạo. `f2/` đã được
+đồng bộ canonical input mới; F1/F3 bên dưới là bản xuất lịch sử, không phải entrypoint
+được khuyến nghị cho bước tích hợp mới.
+
 Đây là thư mục bàn giao chung hiện tại để quản lý dữ liệu hỏi đáp. Các đầu ra gốc dưới
 `data/hus/qa/20261028/` được giữ nguyên để bảo toàn review, provenance và quy trình tái tạo.
 

@@ -1,0 +1,61 @@
+{
+  "academic_issues_resolved_by_explicit_policy": 120,
+  "active_runtime_release": false,
+  "all_official_academic_facts_verified": false,
+  "canonical_f2_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+  "display_repair_chunks": 6,
+  "f1_sources": 15,
+  "f2_memberships": 290,
+  "f3_records": 290,
+  "family_counts": {
+    "F1": 65,
+    "F2": 336,
+    "F3": 870
+  },
+  "historical_originals_missing_outside_default_F1": 37,
+  "independent_pdf_code_page_occurrences_checked": 297,
+  "inventory_source_count": 106,
+  "prerequisite_states": {
+    "catalog_verified": 63,
+    "conflict": 1,
+    "transcribed_unverified": 107,
+    "unknown": 78,
+    "unresolved_external": 41
+  },
+  "program_counts": {
+    "khdl_7460108_2022": 65,
+    "khmtt_7480113qtd_2022": 67,
+    "toan_hoc_7460101_2022": 90,
+    "toan_tin_7460117_2022": 68
+  },
+  "readiness": "data_ready_for_descriptive_and_disclosed_reference_retrieval",
+  "recovered_source_pages": 749,
+  "recovered_sources": 15,
+  "release_id": "hus-data-20261031-v3",
+  "schema_version": "2.0",
+  "search_alias_codes": 174,
+  "selected_F1_originals_available": 15,
+  "selected_F1_recovered_sections_matched": 24,
+  "source_syllabus_candidates": {
+    "candidate_records": 106,
+    "exact_identity_candidates": 84,
+    "fields_found": {
+      "assessment": 60,
+      "content": 105,
+      "objectives": 102
+    },
+    "identity_issue_counts": {
+      "code_not_in_canonical_major": 18,
+      "duplicate_code_in_syllabus_source": 2,
+      "source_code_missing_prefix": 1,
+      "source_code_title_disagrees_with_canonical": 3
+    },
+    "missing_or_conflicting_source_does_not_override_F2": true,
+    "official_academic_verification_granted": 0,
+    "sources": 2
+  },
+  "technical_blockers": [],
+  "total_chunks": 1271,
+  "unknown_fields_are_not_generated_official_facts": true,
+  "verified_catalog_memberships": 67
+}

@@ -7,6 +7,9 @@ os.environ["STORAGE_BACKEND"] = "json"
 os.environ["DATABASE_URL"] = ""
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
+# Keep native subprocess output consistent with UTF-8 parent test runners on Windows.
+os.environ.setdefault("PYTHONUTF8", "1")
+os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 import httpx
 import pytest

@@ -14,11 +14,15 @@
       "source_documents": 15
     },
     "f2": {
+      "canonical_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
       "entrypoint": "f2/hus_source.json",
-      "kind": "structured_curriculum_source_draft_unverified",
+      "kind": "structured_curriculum_source_mixed_review_status",
       "memberships": 290,
       "programs": 4,
-      "source_rows": 297
+      "source_rows": 297,
+      "verified_programs": [
+        "khmtt_7480113qtd_2022"
+      ]
     },
     "f3": {
       "entrypoint": "f3/rag_chunks.jsonl",
@@ -83,16 +87,16 @@
       "sha256": "0dd000ea8c4c08c431864ab6ee04fefd7793ad7816028ab4573dcaea9a911ce5"
     },
     {
-      "bytes": 621587,
-      "origin": "data/hus/qa/20261028/f3_reference/inputs/hus_source.json",
+      "bytes": 622644,
+      "origin": "data/hus/rag/inputs/canonical_f2.json",
       "path": "f2/hus_source.json",
-      "sha256": "6cd94644f6df4a6bfd75f3354cc78c287a6fe161662e2b2729d01390c9edc15a"
+      "sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c"
     },
     {
-      "bytes": 24646,
-      "origin": "data/hus/qa/20261028/main_f2_comparison.json",
+      "bytes": 1348,
+      "origin": "data/hus/rag/inputs/canonical_f2_comparison.json",
       "path": "f2/source_comparison.json",
-      "sha256": "5c71de26f4e3ba0cc364b4cb264891280e0532e2074d0b094f22822b8bb3f69e"
+      "sha256": "bd1e979f9e62a985a82cea6dc2325fcabe45d32b15664f25c6b1b4184fedca69"
     },
     {
       "bytes": 8848,
@@ -146,5 +150,5 @@
   "originals_preserved": true,
   "purpose": "F1_F2_F3_management_handoff",
   "schema_version": "1.0",
-  "source_date": "2026-10-28"
+  "source_date": "2026-10-31"
 }

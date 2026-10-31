@@ -1,0 +1,18 @@
+{
+  "candidate_records": 106,
+  "exact_identity_candidates": 84,
+  "fields_found": {
+    "assessment": 60,
+    "content": 105,
+    "objectives": 102
+  },
+  "identity_issue_counts": {
+    "code_not_in_canonical_major": 18,
+    "duplicate_code_in_syllabus_source": 2,
+    "source_code_missing_prefix": 1,
+    "source_code_title_disagrees_with_canonical": 3
+  },
+  "missing_or_conflicting_source_does_not_override_F2": true,
+  "official_academic_verification_granted": 0,
+  "sources": 2
+}

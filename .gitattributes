@@ -8,3 +8,9 @@ data/hus/rag/**/*.json text eol=lf
 data/hus/rag/**/*.jsonl text eol=lf
 data/hus/rag/**/*.md text eol=lf
 data/hus/rag/**/*.psv text eol=lf
+# Logical text inputs are LF-pinned; immutable artifacts/captured originals keep bytes.
+data/hus/rag/inputs/*.csv text eol=lf
+data/hus/recovery/20261031/*.json text eol=lf
+data/hus/recovery/20261031/*.jsonl text eol=lf
+data/hus/recovery/20261031/files/** -text
+data/hus/rag/releases/** -text

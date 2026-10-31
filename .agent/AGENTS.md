@@ -1,5 +1,49 @@
 # Project Memory and Contributor Guidelines
 
+## Publication authorized — 2026-10-31
+
+The user explicitly requested committing and pushing the completed HUS data work
+to GitHub. Publish on feat/hus-data-ready-20261031, preserving crawldata 312a6e1
+ancestry and the configured author identity. Scope includes the v3 prepared release,
+its canonical/recovery inputs, source PDFs, adapter/build/review tools, tests and
+handoff documentation. Internal v1/v2 builds and delivery ZIPs stay local.
+There is no main merge or runtime/database change in this publication. Use Git and
+remote records for the resulting commit/push/CI status; this note records the
+authorization, not an assertion that a future push has already succeeded.
+
+## Data handoff — 2026-10-31
+
+User authorized planning, implementation, data review and generated supplementation
+for the complete next-step HUS data handoff. Work is local on
+feat/hus-data-ready-20261031, based on crawldata 312a6e1. Canonical F2 is main
+94b7d05 (blob 38be5742a07e47de2ca868c4d570393828d0738e); preserve the existing
+67-course KHMTTT user sign-off and all other draft/unknown/conflict states.
+
+Start with docs/HUS_DATA_HANDOFF_2026_10_31.md and data/hus/rag/CURRENT.json.
+Prepared release hus-data-20261031-v3 has 1,271 unified chunks: 65 F1, 336 F2,
+870 generated F3. All 15 selected F1 sources have originals available; 24 selected
+Markdown prose spans match newly captured text. Fifteen sources were recovered
+with existing robots/allowlist/fallback policy, yielding 749 text pages. Keep
+capture/historical-equality/academic-review states distinct. Source-syllabus
+candidates (106, 84 exact code/title matches) are excluded from default retrieval.
+Unknown official assessment, current validity and source conflicts stay unknown.
+The 37 missing historical originals are outside default F1 dependencies, not
+fabricated or silently declared recovered.
+
+Read/validate via the stdlib data adapter; generated F3 requires explicit opt-in.
+Do not index the unified and family files, old QA releases and inventory together.
+New coverage includes 174 generated search-alias records, PDF code/page comparison
+for 297 occurrences, 1,466 lookup cases, 24 negative checks and 5 critical cases.
+Offline suite: 581 passed / 26 deselected without warnings, including 40 new
+adversarial release cases. Ruff and historical F1/F3 reproductions passed.
+These are data checks, not LLM/vector, runtime or official academic acceptance.
+
+No commit/push/PR/merge, main integration, runtime/DB change, VNU login or app restart
+was requested/performed. Original branch ancestry is retained; future main work
+still needs a PR and merge commit. The older 69-chunk F1 and all-draft F2 notes
+below describe prior artifacts. Do not replace the main app with this older app
+checkout when integrating the new data adapter.
+
 ## Current Handoff — 2026-10-28
 
 - Active data-preparation branch: `crawldata`. Base before this work was `38a5ddbd604469754e8e4de0c423a08e8976cdb6`. The user explicitly requested publication as **exactly 30 new commits**; inspect Git/remote history for the final publication state, never infer it from this note.

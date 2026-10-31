@@ -1,0 +1,27 @@
+{
+  "canonical_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+  "canonical_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+  "canonical_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+  "catalog_reviews": [
+    {
+      "basis": "explicit_user_attestation",
+      "cohort_year": 2022,
+      "decision": "QD3568-2023",
+      "program_id": "khmtt_7480113qtd_2022",
+      "reviewed_at": "2026-10-30T20:15:35Z",
+      "reviewer": "user",
+      "scope": "Complete supplied KHMTTT curriculum export for cohort 2022, including course rows, credits, teaching hours, names, prerequisites, groups, quotas, and graduation rules.",
+      "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "statement": "The user explicitly stated that this curriculum had been fully verified and requested activation of the study eligibility flow. This records the user's sign-off and is not an institutional certification.",
+      "status": "verified"
+    }
+  ],
+  "memberships": 290,
+  "previous_comparison": "data/hus/qa/20261028/main_f2_comparison.json",
+  "programs": 4,
+  "runtime_publication": false,
+  "schema_version": "2.0",
+  "scope": "source_transcription_preserving_unsigned_catalogs_and_unresolved_prerequisites",
+  "source_rows": 297,
+  "tables_equal_to_previous_snapshot": true
+}

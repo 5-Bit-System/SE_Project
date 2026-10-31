@@ -1,5 +1,10 @@
 # Dữ liệu HUS (crawl)
 
+**Cập nhật 31/10/2026:** bản dữ liệu chuẩn bị để tích hợp tiếp theo được ghim ở
+`rag/CURRENT.json`, schema 2.0 với 1.271 chunks. Xem
+[bàn giao mới](../../docs/HUS_DATA_HANDOFF_2026_10_31.md) và `rag/README.md`.
+Các baseline/release cũ dưới đây là lịch sử, không phản ánh số chunks mới.
+
 **Thư mục quản lý chung F1/F2/F3 hiện tại: [rag/](rag/README.md).**
 Ba tệp chính là `rag/f1/rag_chunks.jsonl`, `rag/f2/hus_source.json` và
 `rag/f3/rag_chunks.jsonl`. Các nguồn/raw và release gốc vẫn ở vị trí cũ để giữ provenance.

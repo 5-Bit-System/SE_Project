@@ -1,0 +1,12 @@
+{
+  "academic_review_completed": false,
+  "captures": 15,
+  "extracted_pages": 749,
+  "f1_comparisons": {
+    "normalized_prose_match": 24
+  },
+  "f1_originals_captured": 10,
+  "f1_originals_expected": 10,
+  "policy": "Capture and selected-prose comparison do not certify historical versions or academic applicability",
+  "schema_version": "1.0"
+}

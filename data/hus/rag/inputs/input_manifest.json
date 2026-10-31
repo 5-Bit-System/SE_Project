@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "canonical_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+  "canonical_path": "database/data/hus_source.json",
+  "canonical_f2_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+  "crawl_commit": "312a6e16fee4c5deb427fd224c20e8a1092989a5",
+  "pdfs": [
+    {
+      "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+      "path": "docs/pdf/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+      "bytes": 18438317,
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+      "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+      "origin": "user_supplied_archive_on_main",
+      "remote_original_equality": "unknown",
+      "path_scope": "repository_root"
+    },
+    {
+      "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+      "path": "docs/pdf/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+      "bytes": 19334830,
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+      "origin": "user_supplied_archive_on_main",
+      "remote_original_equality": "unknown",
+      "path_scope": "repository_root"
+    },
+    {
+      "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+      "path": "docs/pdf/104.-KHMTTT-chuẩn final QD 3568 Scan final (1).pdf",
+      "bytes": 19361810,
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+      "origin": "user_supplied_archive_on_main",
+      "remote_original_equality": "unknown",
+      "path_scope": "repository_root"
+    },
+    {
+      "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+      "path": "docs/pdf/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+      "bytes": 21509533,
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+      "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+      "origin": "user_supplied_archive_on_main",
+      "remote_original_equality": "unknown",
+      "path_scope": "repository_root"
+    },
+    {
+      "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+      "path": "docs/pdf/102. Toán học-tài năng final QD 3566 Scan.pdf",
+      "bytes": 21292430,
+      "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744",
+      "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+      "origin": "user_supplied_archive_on_main",
+      "remote_original_equality": "unknown",
+      "path_scope": "repository_root"
+    }
+  ],
+  "pinned_inputs": {
+    "data/hus/rag/f1/manifest.json": "87a953f3d180ce1792e54515ee625255191b8612dde87350622f875cac41dbe3",
+    "data/hus/rag/f1/f1_units.jsonl": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8",
+    "data/hus/rag/f1/documents.jsonl": "297a27a6179d3ec529b1217014a918022fecc9a876d3e8654fde51c7ff4911bc",
+    "data/hus/processed/catalog.json": "d74ce592c71e303e09bbc0f48cd4bdb04a184068e4232aa3cab46c24e1164352",
+    "data/hus/rag/f3/records.jsonl": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45",
+    "data/hus/rag/inputs/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+    "data/hus/recovery/20261031/captures.jsonl": "72c80430f81f538a21965b0bdb3a7dd19b7faa8ba60b6297c13c1d3226ae9105",
+    "data/hus/recovery/20261031/source_texts.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+    "data/hus/recovery/20261031/f1_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+    "data/hus/rag/inputs/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+    "data/hus/rag/f3/inputs/blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec"
+  },
+  "canonical_f2_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+  "pinned_inputs_encoding": "utf8-lf"
+}
