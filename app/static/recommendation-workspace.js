@@ -347,3 +347,112 @@ function yearSelect(id, labelText, value, update) {
   for (let start = year; start <= year + 5; start++) select.append(new Option(`${start}–${start + 1}`, start));
   select.value = value; select.onchange = () => { update(Number(select.value)); updateRoadmap(); }; label.append(select); return label;
 }
+
+function renderRoadmap(mobile = false) {
+  const aside = node('aside', undefined, 'rec-roadmap');
+  if (!mobile) aside.id = 'rec-roadmap';
+  aside.setAttribute('aria-label', copy('Lộ trình của bạn', 'Your study path'));
+  const header = node('div', undefined, 'rec-roadmap-heading');
+  header.append(icon('branch'), node('h3', copy('Lộ trình của bạn', 'Your study path')));
+  aside.append(header, node('p', copy('Từng lựa chọn, một hướng đi rõ hơn.', 'Each choice brings your path into focus.'), 'rec-roadmap-caption'));
+  const summary = node('div', undefined, 'rec-profile-summary');
+  const definitions = [
+    ['direction', copy('Định hướng', 'Direction'), answers.directionLabel || copy('Cùng khám phá', 'Let’s explore')],
+    ['workload', copy('Tải học', 'Study load'), `${workloadLabel()} · ${answers.credits} ${copy('TC', 'credits')}`],
+    ['deadline', copy('Mục tiêu', 'Goal'), answers.confirmedDeadline
+      ? `${copy('HK', 'Sem ')}${answers.targetSemester} · ${answers.targetYear}–${answers.targetYear + 1}` : copy('Chọn mốc của bạn', 'Choose your milestone')],
+  ];
+  definitions.forEach(([key, label, value]) => {
+    const row = button('', () => {
+      if (dialog.open) dialog.close(); step = Math.max(0, steps().indexOf(key)); reviewMode = false; clearResults(); render(true);
+    }, 'rec-summary-choice');
+    row.dataset.recAnswer = key; row.append(node('span', label), node('strong', value)); summary.append(row);
+  }); aside.append(summary);
+  const timeline = node('div', undefined, 'rec-timeline');
+  const start = node('div', undefined, 'rec-milestone rec-milestone-start');
+  start.append(node('span', '', 'rec-milestone-dot'), node('span', copy('Từ quá trình học của bạn', 'From your studies so far')));
+  const total = live.board?.progress?.total;
+  if (total) start.append(node('strong', `${total.earned_credits}/${total.required_credits} ${copy('TC', 'credits')}`),
+    node('small', live.board.preview_only ? copy('Tạm tính, chờ xác minh', 'Estimate awaiting verification') : copy('Theo dữ liệu đã đối chiếu', 'From reviewed academic data')));
+  timeline.append(start);
+  const upcoming = node('div', undefined, 'rec-milestone rec-milestone-next');
+  upcoming.append(node('span', '', 'rec-milestone-dot'), node('span', copy('Học kỳ sắp tới', 'Your next semester')));
+  const plan = results[selected];
+  if (plan?.status === 'done' && plan.rows.length) {
+    upcoming.append(node('strong', `${plan.credits} ${copy('tín chỉ', 'credits')} · ${titleFor(selected)}`));
+    plan.rows.slice(0, 3).forEach(course => {
+      const row = button('', () => openCourse(course), 'rec-timeline-course');
+      row.append(node('span', course.code), node('strong', courseName(course))); upcoming.append(row);
+    });
+    if (plan.rows.length > 3) upcoming.append(node('small', copy(`Và ${plan.rows.length - 3} môn khác`, `And ${plan.rows.length - 3} more courses`)));
+  } else {
+    const sketch = node('div', undefined, 'rec-paper-sketch'); sketch.setAttribute('aria-hidden', 'true');
+    for (let index = 0; index < 3; index++) sketch.append(node('i'));
+    upcoming.append(sketch, node('small', busy ? copy('Đang tìm các lựa chọn phù hợp…', 'Finding suitable choices…') : copy('Phương án của bạn sẽ hiện ở đây', 'Your course plan will appear here')));
+  }
+  timeline.append(upcoming);
+  const end = node('div', undefined, 'rec-milestone rec-milestone-goal');
+  end.append(node('span', '', 'rec-milestone-dot'), icon('spark'),
+    node('strong', copy('Mốc tốt nghiệp mong muốn', 'Your graduation goal')),
+    node('small', answers.confirmedDeadline ? `${copy('HK', 'Sem ')}${answers.targetSemester} · ${answers.targetYear}–${answers.targetYear + 1}`
+      : copy('Cùng đặt một mục tiêu', 'Set a milestone together')));
+  timeline.append(end); aside.append(timeline);
+  aside.append(node('p', copy('Mốc tương lai là mong muốn của bạn. Lịch mở lớp và tiến độ tốt nghiệp cần được đối chiếu với nhà trường.', 'Future milestones reflect your goals. Confirm course offerings and graduation progress with the university.'), 'rec-roadmap-note'));
+  return aside;
+}
+function updateRoadmap() {
+  const previous = root.querySelector('#rec-roadmap');
+  if (previous) previous.replaceWith(renderRoadmap());
+}
+function modal(title, cls = '') {
+  if (dialog.open) dialog.close();
+  dialog.className = `rec-dialog ${cls}`;
+  const header = node('header', undefined, 'rec-dialog-heading');
+  const heading = node('h2', title); heading.id = 'rec-dialog-title';
+  const close = button('', () => { if (!pendingSave) dialog.close(); }, 'rec-icon-button');
+  close.append(icon('close')); close.setAttribute('aria-label', copy('Đóng', 'Close'));
+  header.append(heading, close); dialog.append(header); dialog.setAttribute('aria-labelledby', heading.id);
+  const content = node('div', undefined, 'rec-dialog-content'); dialog.append(content);
+  return content;
+}
+function openMobileRoadmap() {
+  const content = modal(copy('Lộ trình của bạn', 'Your study path'), 'rec-roadmap-sheet');
+  content.append(renderRoadmap(true)); dialog.showModal();
+}
+function openCourse(course) {
+  const content = modal(`${course.code} · ${courseName(course)}`, 'rec-course-dialog');
+  content.append(node('p', `${course.credits} ${copy('tín chỉ', 'credits')} · ${copy('Thuộc phương án', 'In alternative')} ${titleFor(selected)}`, 'rec-dialog-meta'));
+  const why = node('section'); why.append(node('h3', copy('Vì sao gợi ý môn này?', 'Why this course?')),
+    node('p', course.reason || copy('Chưa có giải thích chi tiết từ hệ thống.', 'No detailed explanation was returned.')));
+  if (course.fit_reason) why.append(node('p', course.fit_reason)); content.append(why);
+  const entry = catalog.get(course.code);
+  const prerequisites = node('section'); prerequisites.append(node('h3', copy('Điều kiện tiên quyết', 'Prerequisites')));
+  if (!entry) prerequisites.append(node('p', copy('Chưa đọc được chi tiết tiên quyết từ catalog. Kết quả gợi ý vẫn được xét điều kiện ở server.', 'Detailed catalog prerequisites are unavailable. Server eligibility checks still apply.')));
+  else if (!entry.prerequisites?.length) prerequisites.append(node('p', copy('Không ghi nhận môn tiên quyết trong khung.', 'No prerequisites are recorded in the curriculum.')));
+  else {
+    const graph = node('div', undefined, 'rec-prerequisite-graph');
+    entry.prerequisites.forEach(group => {
+      const row = node('div', undefined, 'rec-prerequisite-clause');
+      group.forEach((code, index) => {
+        if (index) row.append(node('span', copy('hoặc', 'or'), 'rec-prerequisite-or'));
+        const prerequisite = catalog.get(code) || live.board?.prerequisite_courses?.[code];
+        const label = node('span', undefined, 'rec-prerequisite-node');
+        const completed = generationPassed.has(code); label.classList.toggle('is-completed', completed);
+        label.append(icon(completed ? 'check' : 'clock'), node('span', `${code}${prerequisite ? ': ' + courseName(prerequisite) : ''}`));
+        label.setAttribute('title', completed ? copy('Đã hoàn thành', 'Completed') : copy('Không ghi nhận hoàn thành', 'Not recorded as completed')); row.append(label);
+      }); graph.append(row);
+    });
+    const connector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    connector.setAttribute('viewBox', '0 0 300 36'); connector.setAttribute('aria-hidden', 'true');
+    const path = document.createElementNS(connector.namespaceURI, 'path');
+    path.setAttribute('d', 'M150 0v32m-5-5 5 5 5-5');
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke', 'currentColor');
+    path.setAttribute('stroke-width', '1.5'); path.setAttribute('pathLength', '1'); connector.append(path);
+    const target = node('strong', `${course.code}: ${courseName(course)}`, 'rec-prerequisite-target');
+    graph.append(connector, target); prerequisites.append(graph,
+      node('p', copy('Các dòng là điều kiện “và”; các mã trong cùng một dòng là lựa chọn “hoặc”.', 'Rows are AND conditions; alternatives in the same row are OR conditions.'), 'rec-question-hint'));
+    animate(path, [{strokeDasharray: 1, strokeDashoffset: 1}, {strokeDasharray: 1, strokeDashoffset: 0}], {duration: 700});
+  }
+  content.append(prerequisites, node('p', copy('Môn đủ điều kiện theo dữ liệu đang xét. Chưa xác nhận môn sẽ mở ở kỳ tới.', 'Eligible under the current academic data. Next-term availability is not confirmed.'), 'rec-dialog-meta'));
+  dialog.showModal();
+}
