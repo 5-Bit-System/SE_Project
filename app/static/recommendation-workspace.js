@@ -456,3 +456,135 @@ function openCourse(course) {
   content.append(prerequisites, node('p', copy('Môn đủ điều kiện theo dữ liệu đang xét. Chưa xác nhận môn sẽ mở ở kỳ tới.', 'Eligible under the current academic data. Next-term availability is not confirmed.'), 'rec-dialog-meta'));
   dialog.showModal();
 }
+
+function renderResults() {
+  const area = root.querySelector('#rec-results'); if (!area) return;
+  area.replaceChildren();
+  if (error) {
+    const notice = node('div', undefined, 'rec-error'); notice.setAttribute('role', 'alert');
+    notice.append(node('p', error), button(copy('Kiểm tra dữ liệu học vụ', 'Review academic data'), openTools)); area.append(notice);
+  }
+  if (!Object.keys(results).length) return;
+  const header = node('div', undefined, 'rec-results-heading');
+  const intro = node('div'); intro.append(node('h3', copy('Ba góc nhìn cho một học kỳ.', 'Three ways to shape your semester.')),
+    node('p', copy('Cùng điều kiện học vụ, khác cách ưu tiên. Bạn chọn phương án phù hợp với mình.', 'The same academic requirements, with different priorities. Choose what fits you.')));
+  const compare = button(copy('So sánh phương án', 'Compare alternatives'), () => openComparison(), 'rec-button rec-secondary');
+  compare.id = 'rec-compare'; compare.disabled = Object.values(results).filter(plan => plan.status === 'done').length < 2;
+  header.append(intro, compare); area.append(header);
+  const tabs = node('div', undefined, 'rec-variant-tabs'); tabs.setAttribute('role', 'tablist');
+  tabs.setAttribute('aria-label', copy('Các phương án gợi ý', 'Study alternatives'));
+  VARIANTS.forEach((id, index) => {
+    const plan = results[id];
+    const tab = button('', () => selectVariant(id), 'rec-variant-tab');
+    tab.id = `rec-tab-${id}`; tab.dataset.recVariant = id; tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', String(selected === id)); tab.tabIndex = selected === id ? 0 : -1;
+    tab.setAttribute('aria-controls', 'rec-plan-content');
+    tab.append(node('span', `0${index + 1}`, 'rec-variant-number'), node('strong', titleFor(id)),
+      node('small', plan?.status === 'done' ? `${plan.rows.length} ${copy('môn', 'courses')} · ${plan.credits} ${copy('TC', 'credits')}`
+        : plan?.status === 'error' ? copy('Chưa tạo được', 'Unavailable') : copy('Đang đối chiếu…', 'Checking…')));
+    tab.addEventListener('keydown', event => {
+      const offset = {ArrowRight: 1, ArrowLeft: -1}[event.key];
+      if (!offset) return; event.preventDefault();
+      const next = VARIANTS[(index + offset + VARIANTS.length) % VARIANTS.length]; selectVariant(next);
+      root.querySelector(`#rec-tab-${next}`)?.focus();
+    }); tabs.append(tab);
+  }); area.append(tabs);
+  const panel = node('div', undefined, 'rec-plan-content'); panel.id = 'rec-plan-content';
+  panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', `rec-tab-${selected}`);
+  const plan = results[selected];
+  if (!plan || plan.status === 'loading') {
+    panel.setAttribute('aria-busy', 'true');
+    const loading = node('div', undefined, 'rec-loading'); loading.setAttribute('role', 'status');
+    const papers = node('div', undefined, 'rec-loading-papers'); papers.setAttribute('aria-hidden', 'true');
+    for (let index = 0; index < 3; index++) papers.append(node('i'));
+    loading.append(papers, node('strong', copy('Đang ghép một học kỳ phù hợp…', 'Putting your semester together…')),
+      node('p', copy('Đối chiếu điều kiện môn học, mục tiêu và ngân sách tín chỉ.', 'Checking eligibility, interests and your credit budget.')));
+    panel.append(loading);
+  } else if (plan.status === 'error') panel.append(node('p', plan.error, 'rec-error'));
+  else if (!plan.rows.length) panel.append(node('div', copy('Chưa tìm được môn phù hợp với điều kiện hiện tại. Kiểm tra dữ liệu hoặc điều chỉnh lựa chọn rồi tạo lại.', 'No suitable courses were found under the current requirements. Review your data or preferences and try again.'), 'rec-empty'));
+  else {
+    const caption = node('div', undefined, 'rec-plan-caption');
+    caption.append(node('p', hintFor(selected)), node('strong', `${plan.credits} / ${answers.credits} ${copy('tín chỉ', 'credits')}`)); panel.append(caption);
+    const grid = node('div', undefined, 'rec-course-grid');
+    plan.rows.forEach(course => {
+      const card = node('article', undefined, 'rec-course'); card.dataset.recCourse = course.code;
+      const meta = node('div', undefined, 'rec-course-meta');
+      meta.append(node('span', course.code), node('span', `${course.credits} ${copy('TC', 'credits')}`));
+      const title = button(courseName(course), () => openCourse(course), 'rec-course-title');
+      const reason = node('p', course.fit_reason || course.reason || '', 'rec-course-reason');
+      const footer = node('div', undefined, 'rec-course-footer');
+      footer.append(node('span', course.requirement_type === 'elective' ? copy('Tự chọn', 'Elective') : copy('Bắt buộc', 'Required')),
+        button(copy('Vì sao môn này?', 'Why this course?'), () => openCourse(course), 'rec-text-button'));
+      card.append(meta, title, reason, footer); grid.append(card);
+    }); panel.append(grid);
+    const actions = node('div', undefined, 'rec-plan-actions');
+    const save = button('', () => openSave(), 'rec-button rec-primary'); save.id = 'rec-save';
+    save.append(icon(saved.has(selected) ? 'check' : 'layers'), node('span', saved.has(selected) ? copy('Đã lưu phương án', 'Alternative saved')
+      : uncertainSaves.has(selected) ? copy('Kiểm tra kết quả lưu', 'Check save outcome') : copy('Lưu phương án này', 'Save this alternative')));
+    save.disabled = saved.has(selected) || pendingSave || live.loading || busy;
+    const edit = button(copy('Chỉnh sửa phương án', 'Edit alternative'), () => {
+      const adopted = window.workspacePlanning?.useDraft({codes: plan.rows.map(row => row.code),
+        title: titleFor(selected), year: answers.year, semester: answers.semester});
+      if (adopted) openTools(); else { error = copy('Dữ liệu đã đổi. Hãy tạo lại gợi ý trước khi chỉnh sửa.', 'Academic data changed. Generate new suggestions before editing.'); renderResults(); }
+    }, 'rec-button rec-secondary');
+    actions.append(save, edit); panel.append(actions);
+    if (plan.omitted.length) panel.append(node('p', copy('Đã giữ lại các môn phù hợp với ngân sách, nhóm tín chỉ và điều kiện lập kế hoạch hiện tại.', 'Only courses within the current credit budget, group quotas and planning requirements are retained.'), 'rec-question-hint'));
+    if (plan.warnings.length) {
+      const warnings = node('details', undefined, 'rec-result-warnings');
+      warnings.append(node('summary', copy('Thông tin cần đối chiếu', 'Information to confirm')));
+      const list = node('ul'); plan.warnings.forEach(warning => list.append(node('li', warning))); warnings.append(list); panel.append(warnings);
+    }
+    const successful = Object.values(results).filter(value => value.status === 'done');
+    if (successful.length > 1 && successful.every(value => {
+      const difference = comparePlans(successful[0], value);
+      return !difference.leftOnly.length && !difference.rightOnly.length;
+    })) panel.append(node('p', copy('Các cách ưu tiên hiện cho cùng một tập môn. Hệ thống giữ nguyên kết quả, không tạo khác biệt giả.', 'These priorities currently produce the same course set. The results are kept as returned.'), 'rec-identical-note'));
+  }
+  area.append(panel);
+}
+function selectVariant(id) {
+  const previous = new Map([...root.querySelectorAll('[data-rec-course]')].map(element => [element.dataset.recCourse, element.getBoundingClientRect()]));
+  selected = id; renderResults(); updateRoadmap();
+  root.querySelectorAll('[data-rec-course]').forEach((element, index) => {
+    const old = previous.get(element.dataset.recCourse), next = element.getBoundingClientRect();
+    animate(element, old ? [{transform: `translate(${old.left - next.left}px,${old.top - next.top}px)`}, {transform: 'translate(0,0)'}]
+      : [{opacity: 0, transform: 'translateY(14px) rotateX(-5deg)'}, {opacity: 1, transform: 'translateY(0) rotateX(0)'}], {duration: 420, delay: Math.min(index * 55, 220)});
+  });
+}
+
+function openComparison() {
+  const available = VARIANTS.filter(id => results[id]?.status === 'done'); if (available.length < 2) return;
+  const content = modal(copy('Đặt hai phương án cạnh nhau', 'Compare two alternatives'), 'rec-compare-dialog');
+  let left = available[0], right = available[1];
+  const controls = node('div', undefined, 'rec-compare-controls');
+  [0, 1].forEach(index => {
+    const label = node('label', index ? copy('Phương án bên phải', 'Right alternative') : copy('Phương án bên trái', 'Left alternative'));
+    const select = node('select'); select.id = `rec-compare-${index}`;
+    available.forEach(id => select.append(new Option(titleFor(id), id))); select.value = index ? right : left;
+    select.onchange = () => { if (index) right = select.value; else left = select.value; draw(); }; label.append(select); controls.append(label);
+  });
+  const output = node('div', undefined, 'rec-comparison-output'); content.append(controls, output);
+  function draw() {
+    output.replaceChildren(); const diff = comparePlans(results[left], results[right]);
+    const summary = node('p', copy(`${diff.shared.length} môn chung · ${diff.leftOnly.length + diff.rightOnly.length} môn khác biệt`, `${diff.shared.length} shared courses · ${diff.leftOnly.length + diff.rightOnly.length} different courses`));
+    summary.setAttribute('role', 'status'); output.append(summary);
+    const scroll = node('div', undefined, 'rec-compare-scroll'); scroll.tabIndex = 0;
+    scroll.setAttribute('role', 'region'); scroll.setAttribute('aria-label', copy('Bảng so sánh học phần', 'Course comparison table'));
+    const table = node('table'); const header = table.createTHead().insertRow();
+    [copy('Học phần', 'Course'), titleFor(left), titleFor(right)].forEach(text => { const th = node('th', text); th.scope = 'col'; header.append(th); });
+    const body = table.createTBody();
+    const rows = new Map([...results[left].rows, ...results[right].rows].map(row => [row.code, row]));
+    rows.forEach(course => {
+      const tr = body.insertRow(); tr.insertCell().textContent = `${course.code} · ${courseName(course)}`;
+      [left, right].forEach(id => {
+        const cell = tr.insertCell(); const has = results[id].rows.some(row => row.code === course.code);
+        cell.textContent = has ? `${course.credits} ${copy('TC', 'credits')}` : '—';
+        cell.classList.toggle('rec-compare-included', has);
+      });
+    });
+    const footer = table.createTFoot().insertRow(); footer.insertCell().textContent = copy('Tổng tín chỉ', 'Total credits');
+    footer.insertCell().textContent = results[left].credits; footer.insertCell().textContent = results[right].credits;
+    scroll.append(table); output.append(scroll); animate(output, [{opacity: .4}, {opacity: 1}], {duration: 250});
+  }
+  draw(); dialog.showModal();
+}
