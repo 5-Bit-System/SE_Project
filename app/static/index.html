@@ -14,6 +14,7 @@
   <script src="/static/i18n.js" defer></script>
   <link rel="stylesheet" href="/static/auth.css">
   <script src="/static/auth.js" defer></script>
+  <script src="/static/admin.js" defer></script>
   <script src="/static/workspace.js" defer></script>
   <link rel="stylesheet" href="/static/portal.css">
   <script src="/static/portal.js" defer></script>
@@ -228,11 +229,18 @@
 
     <!-- 1. Overview Panel -->
     <section id="admin-panel-overview" class="admin-tab-panel active" role="tabpanel" aria-labelledby="admin-tab-overview">
-      <div class="admin-panel-header">
+      <div class="admin-panel-header admin-panel-header-actions">
         <div>
           <h3 class="admin-panel-title" data-auth-copy="adminOverviewHeading">Chỉ số và trạng thái hệ thống</h3>
           <p class="admin-panel-subtitle" data-auth-copy="adminOverviewSubheading">Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.</p>
         </div>
+        <button type="button" id="admin-overview-refresh" class="portal-button admin-refresh-btn" aria-label="Làm mới chỉ số">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-auth-copy="adminRefresh">Làm mới</span>
+        </button>
       </div>
       <div id="admin-overview-grid" class="admin-overview-grid" aria-live="polite">
         <div class="admin-card-skeleton admin-kpi-card">

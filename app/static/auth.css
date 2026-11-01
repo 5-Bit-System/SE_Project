@@ -303,12 +303,222 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   margin-top: 16px;
 }
 
-/* Skeleton Loading */
+/* Skeleton & Overview KPI Cards */
+.admin-panel-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-refresh-btn {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
 .admin-overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.admin-kpi-card {
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 160px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-color: var(--border-medium);
+}
+
+.admin-kpi-card.is-warning {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.04) 100%);
+}
+
+.admin-kpi-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-kpi-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--soft-surface);
+  color: var(--accent-primary, #4361ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.admin-kpi-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+}
+
+.admin-kpi-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.admin-kpi-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-kpi-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.admin-metric-number {
+  font-size: clamp(26px, 2.5vw, 34px);
+  font-weight: 700;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.admin-metric-unavailable {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--soft-surface);
+  border: 1px dashed var(--border-medium);
+}
+
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-status-badge .badge-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.admin-status-badge.badge-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.admin-status-badge.badge-success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+:root[data-theme="dark"] .admin-status-badge.badge-warning {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+:root[data-theme="dark"] .admin-status-badge.badge-success {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.admin-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  display: inline-block;
+  animation: admin-pulse 2s infinite;
+}
+
+.admin-kpi-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+.admin-kpi-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 11px;
+  color: var(--text-muted);
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.admin-source-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.admin-time-tag {
+  font-size: 11px;
+}
+
+.admin-error-banner {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  color: var(--text-main);
+}
+
+.admin-error-icon {
+  width: 24px;
+  height: 24px;
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.admin-error-text {
+  flex: 1;
+}
+
+.admin-error-text p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.admin-error-sub {
+  color: var(--text-muted);
+  margin-top: 4px !important;
+  font-size: 12px !important;
 }
 
 .admin-card-skeleton {
