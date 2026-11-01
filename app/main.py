@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.academic import router as academic_router
+from app.api.admin import router as admin_router
 from app.api.auth import router as auth_router
 from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
@@ -68,6 +69,7 @@ app.include_router(api_router)
 app.include_router(auth_router)
 app.include_router(portal_router)
 app.include_router(academic_router)
+app.include_router(admin_router)
 
 
 @app.middleware("http")

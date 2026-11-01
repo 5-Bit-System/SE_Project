@@ -264,3 +264,8 @@ def update_user(principal, target, changes):
                      {'role': role, 'active': active, 'id': target})
         conn.execute(text('UPDATE auth_sessions SET revoked_at=now() WHERE account_id=:id'), {'id': target})
         audit(conn, actor['account_id'], target, 'update_user')
+
+def count_accounts() -> int:
+    with engine().connect() as conn:
+        return conn.execute(text('SELECT count(*) FROM accounts')).scalar_one()
+
