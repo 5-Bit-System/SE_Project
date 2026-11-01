@@ -1,3 +1,18 @@
+:root {
+  --surface-card: var(--bg-card, #ffffff);
+  --surface-subtle: var(--soft-surface, #f6f6f9);
+  --border-light: var(--border-subtle, #e5e7eb);
+  --primary: var(--accent-primary, #6d4aff);
+  --radius-sm: 8px;
+  --radius-lg: 14px;
+}
+:root[data-theme="dark"] {
+  --surface-card: var(--bg-card, #202026);
+  --surface-subtle: var(--soft-surface, #27272f);
+  --border-light: var(--border-subtle, #373740);
+  --primary: var(--accent-primary, #bba7ff);
+}
+
 body:not([data-auth-state="workspace"]) .main-content, body:not([data-auth-state="workspace"]) .sub-header-bar { display: none; }
 body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #system-auth { display: none; }
 [hidden] { display: none !important; }

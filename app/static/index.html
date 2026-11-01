@@ -574,6 +574,81 @@
           </form>
         </div>
       </dialog>
+
+      <!-- Publication Provenance Manifest Modal -->
+      <dialog id="admin-provenance-modal" class="admin-modal" style="max-width: 860px; width: 95vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 class="admin-modal-title">Chứng thực Xuất bản & Hồ sơ Nguồn gốc</h4>
+              <span id="admin-prov-subtitle" class="admin-sub-text">Publication Provenance Manifest</span>
+            </div>
+            <button type="button" id="admin-prov-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <div id="admin-prov-loading" style="padding: 24px; text-align: center; color: var(--text-muted);">
+            Đang tải hồ sơ chứng thực…
+          </div>
+
+          <div id="admin-prov-content" style="display: none; flex-direction: column; gap: 14px;">
+            <!-- Manifest Integrity Bar -->
+            <div style="background: var(--surface-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">CHỮ KÝ BẢO TOÀN DỮ LIỆU (MANIFEST CHECKSUM - SHA-256)</label>
+                <span id="admin-prov-version" class="admin-meta-tag">v1.0</span>
+              </div>
+              <div id="admin-prov-checksum" class="admin-code-snippet" style="font-family: monospace; font-size: 0.85rem; word-break: break-all; color: var(--primary); font-weight: 600;"></div>
+            </div>
+
+            <!-- Meta Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Thời điểm ban hành</span>
+                <div id="admin-prov-published-at" style="font-size: 0.95rem; font-weight: 600; margin-top: 4px;"></div>
+              </div>
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Mã băm Payload CTĐT</span>
+                <div id="admin-prov-payload-hash" style="font-family: monospace; font-size: 0.8rem; margin-top: 4px; overflow: hidden; text-overflow: ellipsis;"></div>
+              </div>
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Người ký duyệt</span>
+                <div id="admin-prov-publisher" style="font-size: 0.95rem; font-weight: 600; margin-top: 4px;"></div>
+              </div>
+            </div>
+
+            <!-- Publication Reason -->
+            <div style="background: var(--surface-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">CĂN CỨ & QUYẾT ĐỊNH BAN HÀNH</label>
+              <div id="admin-prov-reason" style="font-size: 0.9rem; font-weight: 500;"></div>
+            </div>
+
+            <!-- Linked Source Documents Table -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted);">TÀI LIỆU CĂN CỨ ĐÃ KIỂM DUYỆT (LINKED SOURCES)</label>
+                <span id="admin-prov-docs-count" class="admin-meta-tag">0 tài liệu</span>
+              </div>
+              <div class="table-scroll admin-table-container" style="max-height: 220px;">
+                <table class="admin-data-table" id="admin-prov-docs-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Mã tài liệu</th>
+                      <th scope="col">Tiêu đề & Nguồn URL</th>
+                      <th scope="col">Mã băm nguồn (SHA-256)</th>
+                      <th scope="col">Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-prov-docs-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-modal-actions" style="margin-top: 14px;">
+            <button type="button" id="admin-prov-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
+        </div>
+      </dialog>
     </section>
 
     <!-- Crawler Governance Panel -->

@@ -737,6 +737,10 @@
   diffCloseBtn?.addEventListener('click', () => diffModal?.close());
   diffDismissBtn?.addEventListener('click', () => diffModal?.close());
 
+  const provModal = $('admin-provenance-modal');
+  $('admin-prov-close-btn')?.addEventListener('click', () => provModal?.close());
+  $('admin-prov-dismiss-btn')?.addEventListener('click', () => provModal?.close());
+
   async function loadRevisions() {
     try {
       if (!window.systemAuth?.request) return;
@@ -873,7 +877,83 @@
         rbBtn.onclick = () => handleRollbackRevision(rev.revision_id);
         tdAction.appendChild(rbBtn);
       }
+
+      // Provenance button (if published or active)
+      if (rev.status === 'published' || rev.is_active) {
+        const provBtn = document.createElement('button');
+        provBtn.type = 'button';
+        provBtn.className = 'admin-action-btn-sm btn-diff';
+        provBtn.style.color = 'var(--primary)';
+        provBtn.textContent = 'Chứng thực';
+        provBtn.title = 'Xem chứng thực và hồ sơ nguồn gốc của phiên bản đã ban hành';
+        provBtn.onclick = () => openProvenanceModal(rev.revision_id);
+        tdAction.appendChild(provBtn);
+      }
     });
+  }
+
+  async function openProvenanceModal(revisionId) {
+    const modal = $('admin-provenance-modal');
+    if (!modal) return;
+    modal.showModal();
+
+    const loading = $('admin-prov-loading');
+    const content = $('admin-prov-content');
+    if (loading) loading.style.display = 'block';
+    if (content) content.style.display = 'none';
+
+    try {
+      const data = await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/provenance`);
+      const manifest = data.provenance_manifest;
+      if (!manifest) throw new Error('Không tìm thấy dữ liệu chứng thực');
+
+      const subTitle = $('admin-prov-subtitle');
+      if (subTitle) subTitle.textContent = `Mã phiên bản: ${manifest.revision_id} | Ngành: ${manifest.program_id}`;
+      const chk = $('admin-prov-checksum');
+      if (chk) chk.textContent = manifest.manifest_checksum || 'N/A';
+      const pubAt = $('admin-prov-published-at');
+      if (pubAt) pubAt.textContent = manifest.published_at ? new Date(manifest.published_at).toLocaleString('vi-VN') : 'N/A';
+      const pHash = $('admin-prov-payload-hash');
+      if (pHash) {
+        pHash.textContent = manifest.payload_hash || 'N/A';
+        pHash.title = manifest.payload_hash || '';
+      }
+      const pubBy = $('admin-prov-publisher');
+      if (pubBy) pubBy.textContent = manifest.publisher_id ? `UUID: ${manifest.publisher_id.slice(0, 8)}…` : 'Hệ thống';
+      const reasonEl = $('admin-prov-reason');
+      if (reasonEl) reasonEl.textContent = manifest.publication_reason || 'Ban hành áp dụng đào tạo';
+      const countEl = $('admin-prov-docs-count');
+      if (countEl) countEl.textContent = `${manifest.documents_count || 0} tài liệu`;
+
+      const tbody = $('admin-prov-docs-tbody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        if (!manifest.source_documents || manifest.source_documents.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 12px;">Không có tài liệu căn cứ thu thập đính kèm trực tiếp.</td></tr>';
+        } else {
+          manifest.source_documents.forEach(doc => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><code>${escapeHtml(doc.document_id)}</code></td>
+              <td>
+                <strong>${escapeHtml(doc.title || doc.document_id)}</strong>
+                ${doc.url ? `<br><a href="${escapeHtml(doc.url)}" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem; color: var(--primary);">Mở URL gốc ↗</a>` : ''}
+              </td>
+              <td><code style="font-size: 0.78rem;">${escapeHtml(doc.content_hash ? doc.content_hash.slice(0, 16) + '…' : 'N/A')}</code></td>
+              <td><span class="admin-status-badge badge-active">${escapeHtml(doc.review_status || 'approved')}</span></td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      if (loading) loading.style.display = 'none';
+      if (content) content.style.display = 'flex';
+    } catch (err) {
+      if (loading) loading.style.display = 'none';
+      alert(`Không tải được chứng thực xuất bản: ${err.message}`);
+      modal.close();
+    }
   }
 
   async function openDiffModal(revisionId) {

@@ -218,48 +218,17 @@ def publish_revision(
     revision_id: str,
     publisher_id: str | uuid.UUID | None,
     reason: str,
+    linked_document_ids: list[str] | None = None,
 ) -> dict:
-    target = get_revision(conn, revision_id)
-    if not target:
-        raise ValueError(f"Revision {revision_id} not found")
-    if target["status"] != "approved":
-        raise ValueError(
-            f"Cannot publish revision with status '{target['status']}'. Must be 'approved'."
-        )
+    from app.curriculum.publication_gate import publish_revision_with_gate
 
-    program_id = target["program_id"]
-
-    # Deactivate current active revision for this program atomically
-    conn.execute(
-        text("""
-            UPDATE curriculum_revisions
-            SET is_active = false
-            WHERE program_id = :program_id AND is_active = true
-        """),
-        {"program_id": program_id},
-    )
-
-    # Set new active revision
-    conn.execute(
-        text("""
-            UPDATE curriculum_revisions
-            SET is_active = true,
-                status = 'published',
-                published_at = now()
-            WHERE revision_id = :rev_id
-        """),
-        {"rev_id": revision_id},
-    )
-
-    record_review(
+    return publish_revision_with_gate(
         conn,
         revision_id=revision_id,
-        reviewer_id=publisher_id,
-        action="published",
+        publisher_id=publisher_id,
         reason=reason,
-        details={"program_id": program_id},
+        linked_document_ids=linked_document_ids,
     )
-    return get_revision(conn, revision_id)
 
 
 def rollback_revision(

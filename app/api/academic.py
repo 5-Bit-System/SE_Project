@@ -50,6 +50,17 @@ def policy_source():
                         content_disposition_type="inline")
 
 
+@router.get("/academic/documents/published")
+def get_published_academic_documents(major: str | None = None) -> list[dict]:
+    """Return only approved and published academic documents for user-facing readers."""
+    from app.api.admin import engine
+    from app.curriculum.publication_gate import get_published_documents
+
+    with engine().connect() as conn:
+        return get_published_documents(conn, major=major)
+
+
+
 class AcademicQuery(BaseModel):
     model_config = ConfigDict(extra="forbid")
     program_id: str = Field(min_length=1, max_length=100)

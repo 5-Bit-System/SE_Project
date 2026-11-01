@@ -91,6 +91,12 @@ class RevisionActionRequest(BaseModel):
     notes: str | None = None
 
 
+class RevisionPublishRequest(BaseModel):
+    reason: str = Field(min_length=3)
+    notes: str | None = None
+    linked_document_ids: list[str] = Field(default_factory=list)
+
+
 class RevisionDiffResponse(BaseModel):
     revision_id: str
     program_id: str
@@ -427,9 +433,9 @@ async def approve_catalog_revision(
 
 @router.post("/catalog-revisions/{revision_id}/publish")
 async def publish_catalog_revision(
-    request: Request, revision_id: str, body: RevisionActionRequest
+    request: Request, revision_id: str, body: RevisionPublishRequest
 ) -> dict:
-    """Publish an approved revision, atomically deactivating previous active revision."""
+    """Publish an approved revision, atomically deactivating previous active revision and creating provenance manifest."""
     principal = await require_account(request)
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
@@ -441,6 +447,7 @@ async def publish_catalog_revision(
                 revision_id=revision_id,
                 publisher_id=principal.get("account_id"),
                 reason=body.reason,
+                linked_document_ids=body.linked_document_ids,
             )
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
@@ -450,7 +457,29 @@ async def publish_catalog_revision(
         "revision_id": rev["revision_id"],
         "is_active": rev["is_active"],
         "published_at": rev.get("published_at"),
+        "provenance_manifest": rev.get("provenance_manifest"),
     }
+
+
+@router.get("/catalog-revisions/{revision_id}/provenance")
+async def get_revision_provenance_api(
+    request: Request, revision_id: str
+) -> dict:
+    """Get the publication provenance manifest for a published revision."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    from app.curriculum.publication_gate import get_publication_provenance
+
+    with engine().connect() as conn:
+        manifest = get_publication_provenance(conn, revision_id)
+        if not manifest:
+            raise HTTPException(404, detail=f"No provenance manifest found for revision {revision_id}")
+        return {
+            "revision_id": revision_id,
+            "provenance_manifest": manifest,
+        }
 
 
 @router.post("/catalog-revisions/{revision_id}/rollback")
