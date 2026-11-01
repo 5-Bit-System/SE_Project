@@ -1,4 +1,7 @@
+
 """Admin console API endpoints with strict role-based authorization."""
+
+from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
@@ -53,6 +56,7 @@ from app.curriculum.rule_service import (
 )
 from app.integrations.daotao.store import engine
 from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
+from app.services.operational_metrics import get_operational_health
 
 
 class CatalogImportRequest(BaseModel):
@@ -191,6 +195,18 @@ async def overview(request: Request) -> AdminOverviewResponse:
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
     return await get_admin_overview()
+
+@router.get("/metrics/health")
+async def get_metrics_health(request: Request, window: str = "24h") -> dict[str, Any]:
+    """Return truthful operational and consultation health metrics for administrators."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+    if window not in {"1h", "24h", "7d", "all"}:
+        window = "24h"
+    return get_operational_health(window=window)
+
+
 
 
 @router.get("/programs", response_model=list[AdminProgramSummary])

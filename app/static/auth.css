@@ -339,7 +339,7 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   margin-bottom: 24px;
 }
 
-.admin-kpi-card {
+.admin-kpi-card, .admin-health-kpi-card {
   padding: 22px;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -352,13 +352,13 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.admin-kpi-card:hover {
+.admin-kpi-card:hover, .admin-health-kpi-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   border-color: var(--border-medium);
 }
 
-.admin-kpi-card.is-warning {
+.admin-kpi-card.is-warning, .admin-health-kpi-card.is-warning {
   border-color: rgba(245, 158, 11, 0.4);
   background: linear-gradient(180deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.04) 100%);
 }
@@ -399,7 +399,7 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   justify-content: center;
 }
 
-.admin-kpi-value-row {
+.admin-kpi-value-row, .admin-health-value-row {
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -1218,3 +1218,159 @@ body[data-auth-state="loading"] #system-session-loading {
 
 
 
+
+/* --- Operational Health & Consultation Monitoring Styles --- */
+.admin-health-window-selector {
+  display: flex;
+  gap: 4px;
+  background: var(--soft-surface);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.admin-window-btn {
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-window-btn:hover {
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme="dark"] .admin-window-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-window-btn.active {
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.admin-health-detail-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 960px) {
+  .admin-health-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-health-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-health-table th {
+  padding: 10px 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-medium);
+  font-size: 12px;
+}
+
+.admin-health-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.admin-health-table td.num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-weight: 500;
+}
+
+.admin-rate-bar-wrap {
+  width: 50px;
+  height: 6px;
+  background: var(--soft-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  overflow: hidden;
+}
+
+.admin-rate-bar-fill {
+  height: 100%;
+  background: #10b981;
+  border-radius: 3px;
+}
+
+.admin-consult-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+}
+
+.admin-consult-stat-label {
+  color: var(--text-muted);
+}
+
+.admin-consult-stat-val {
+  font-weight: 600;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-reason-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--soft-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--text-main);
+}
+
+.admin-health-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+.table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-health-detail-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .admin-health-window-selector {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .admin-window-btn {
+    flex: 1;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}

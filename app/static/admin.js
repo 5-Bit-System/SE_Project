@@ -254,6 +254,7 @@
       const data = await window.systemAuth.request('/admin/overview');
       overviewData = data;
       renderOverview(data);
+      loadOperationalHealth();
     } catch (err) {
       renderError(err.message || 'Error loading overview');
     } finally {
@@ -2247,4 +2248,259 @@
       loadAuditLogs();
     },
   };
+
+  // ==========================================================================
+  // Operational & Consultation Health Monitoring
+  // ==========================================================================
+  let currentHealthWindow = '24h';
+  let healthMetricsData = null;
+
+  const ROUTE_LABELS = {
+    academic: 'Học thuật & CTĐT',
+    portal: 'Cổng đào tạo VNU',
+    auth: 'Xác thực & Phiên',
+    consultation: 'Cố vấn & Khuyến nghị',
+    admin: 'Quản trị hệ thống',
+    other: 'Khác'
+  };
+
+  async function loadOperationalHealth(win = currentHealthWindow) {
+    currentHealthWindow = win;
+    try {
+      if (!window.systemAuth?.request) return;
+      const data = await window.systemAuth.request(`/admin/metrics/health?window=${encodeURIComponent(win)}`);
+      healthMetricsData = data;
+      renderOperationalHealth(data);
+    } catch (err) {
+      console.warn('Failed to load operational health:', err);
+    }
+  }
+
+  
+  function createHealthCard(title, iconSvg, valueHtml, noteHtml, sourceText, isWarning = false) {
+    const card = document.createElement('article');
+    card.className = 'admin-health-kpi-card admin-kpi-card-base' + (isWarning ? ' is-warning' : '');
+
+    card.innerHTML = `
+      <div class="admin-kpi-head">
+        <div class="admin-kpi-icon-wrap" aria-hidden="true">${iconSvg}</div>
+        <h4 class="admin-kpi-title">${title}</h4>
+      </div>
+      <div class="admin-kpi-body">
+        <div class="admin-health-value-row">${valueHtml}</div>
+        ${noteHtml ? `<p class="admin-kpi-note">${noteHtml}</p>` : ''}
+      </div>
+      <div class="admin-kpi-foot">
+        <span class="admin-source-tag">${getCopy('adminSourcePrefix')}${sourceText}</span>
+        <span class="admin-time-tag">${getCopy('adminJustNow')}</span>
+      </div>
+    `;
+    return card;
+  }
+
+  function renderOperationalHealth(data) {
+    if (!data) return;
+
+    // 1. Health KPI cards
+    const kpiGrid = $('admin-health-kpi-grid');
+    if (kpiGrid) {
+      kpiGrid.replaceChildren();
+      const oh = data.overall_health || {};
+      const ch = data.consultation_health || {};
+      const fb = data.feedback_signals || {};
+
+      // Card 1: Traffic & Success Rate
+      let successValHtml = '';
+      if (oh.status === 'available' && oh.total_requests !== null) {
+        successValHtml = `
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <span class="admin-metric-number" data-metric="overall-success">${oh.success_rate_pct}%</span>
+            <span style="font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums;">(${Number(oh.total_requests).toLocaleString()} reqs)</span>
+          </div>
+        `;
+      } else {
+        successValHtml = `<span class="admin-metric-unavailable" data-health-unavailable="true">${getCopy('adminUnavailable')}</span>`;
+      }
+      const trafficCard = createHealthCard(
+        'Lưu lượng & Tỉ lệ Thành công',
+        `<svg viewBox="0 0 20 20" fill="none"><path d="M3 13.5l4-4 3.5 3.5L17 6.5M13.5 6.5H17V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        successValHtml,
+        oh.status === 'available' ? `Lỗi hệ thống (5xx): ${oh.server_error_rate_pct || 0}%` : 'Chưa có yêu cầu ghi nhận',
+        `telemetry:${data.window}`
+      );
+      kpiGrid.append(trafficCard);
+
+      // Card 2: Latency p50 / p95
+      let latencyValHtml = '';
+      if (oh.status === 'available' && oh.p50_latency_ms !== null) {
+        latencyValHtml = `
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <span class="admin-metric-number" data-metric="p50-latency">${oh.p50_latency_ms}<small style="font-size: 14px; font-weight: normal; margin-left: 2px;">ms</small></span>
+            <span style="font-size: 12px; color: var(--text-muted); font-variant-numeric: tabular-nums;">p95: ${oh.p95_latency_ms}ms</span>
+          </div>
+        `;
+      } else {
+        latencyValHtml = `<span class="admin-metric-unavailable" data-health-unavailable="true">${getCopy('adminUnavailable')}</span>`;
+      }
+      const latencyCard = createHealthCard(
+        'Độ trễ Phản hồi (p50 / p95)',
+        `<svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6.5v4l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+        latencyValHtml,
+        oh.status === 'available' ? 'Độ trễ trung vị qua các API endpoints' : 'Chưa có mẫu thời gian',
+        'runtime:timings'
+      );
+      kpiGrid.append(latencyCard);
+
+      // Card 3: Consultation Health
+      let consultValHtml = '';
+      let isConsultWarn = false;
+      if (ch.status === 'available' && ch.total_consultations !== null) {
+        const failRate = ch.failure_rate_pct || 0;
+        if (failRate > 10) isConsultWarn = true;
+        consultValHtml = `
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <span class="admin-metric-number" data-metric="consultation-failures" style="${failRate > 0 ? 'color: #f59e0b;' : ''}">${failRate}%</span>
+            <span style="font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums;">lỗi (${ch.total_consultations} lượt)</span>
+          </div>
+        `;
+      } else {
+        consultValHtml = `<span class="admin-metric-unavailable" data-health-unavailable="true">${getCopy('adminUnavailable')}</span>`;
+      }
+      const consultCard = createHealthCard(
+        'Sức khỏe Cố vấn & Khuyến nghị',
+        `<svg viewBox="0 0 20 20" fill="none"><path d="M4 4h12v9a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h6M7 11h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+        consultValHtml,
+        ch.status === 'available' ? `Thời gian xử lý TB: ${ch.avg_duration_ms || 0}ms` : 'Không có phiên tư vấn',
+        'domain:consultation',
+        isConsultWarn
+      );
+      kpiGrid.append(consultCard);
+
+      // Card 4: Quality & Feedback Signals
+      let fbValHtml = '';
+      if (fb.status === 'available' && fb.total_feedbacks !== null) {
+        fbValHtml = `
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <span class="admin-metric-number" data-metric="feedback-positive">${fb.positive_rate_pct}%</span>
+            <span style="font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums;">hài lòng (${fb.total_feedbacks} mẫu)</span>
+          </div>
+        `;
+      } else {
+        fbValHtml = `<span class="admin-metric-unavailable" data-health-unavailable="true">Chưa ghi nhận</span>`;
+      }
+      const fbCard = createHealthCard(
+        'Tín hiệu Chất lượng Người dùng',
+        `<svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5l2.3 4.7 5.2.8-3.7 3.6.9 5.2-4.7-2.5-4.7 2.5.9-5.2-3.7-3.6 5.2-.8L10 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        fbValHtml,
+        fb.status === 'available' ? 'Đánh giá hữu ích từ sinh viên' : 'Chưa có khảo sát phản hồi',
+        'user:feedback'
+      );
+      kpiGrid.append(fbCard);
+    }
+
+    // 2. Route Groups Table
+    const tbody = $('admin-route-groups-tbody');
+    if (tbody && data.route_groups) {
+      tbody.replaceChildren();
+      const groups = ['academic', 'portal', 'auth', 'consultation', 'admin', 'other'];
+      groups.forEach(grp => {
+        const row = document.createElement('tr');
+        const gdata = data.route_groups[grp];
+        const label = ROUTE_LABELS[grp] || grp;
+
+        if (!gdata || gdata.status === 'unavailable' || gdata.total_requests === null) {
+          row.innerHTML = `
+            <td><strong>${label}</strong></td>
+            <td class="num" style="color: var(--text-muted);">-</td>
+            <td class="num" style="color: var(--text-muted);">-</td>
+            <td class="num" style="color: var(--text-muted);">-</td>
+            <td class="num" style="color: var(--text-muted);">-</td>
+            <td class="num" style="color: var(--text-muted);">-</td>
+            <td style="text-align: center;"><span class="admin-status-badge" style="background: var(--soft-surface); color: var(--text-muted); font-size: 11px;">Chưa có request</span></td>
+          `;
+        } else {
+          const successPct = gdata.success_rate_pct ?? 0;
+          const errorPct = gdata.error_rate_pct ?? 0;
+          let badgeStatus = '<span class="admin-status-badge badge-success" style="font-size: 11px;">Ổn định</span>';
+          if (errorPct > 20) {
+            badgeStatus = '<span class="admin-status-badge badge-danger" style="font-size: 11px;">Báo động</span>';
+          } else if (errorPct > 5) {
+            badgeStatus = '<span class="admin-status-badge badge-warning" style="font-size: 11px;">Cảnh báo</span>';
+          }
+
+          row.innerHTML = `
+            <td><strong>${label}</strong></td>
+            <td class="num">${Number(gdata.total_requests).toLocaleString()}</td>
+            <td class="num">
+              <span>${successPct}%</span>
+              <span class="admin-rate-bar-wrap" aria-hidden="true"><span class="admin-rate-bar-fill" style="width: ${Math.min(100, successPct)}%;"></span></span>
+            </td>
+            <td class="num" style="${errorPct > 0 ? 'color: #ef4444; font-weight: 600;' : ''}">${errorPct}%</td>
+            <td class="num">${gdata.p50_latency_ms}</td>
+            <td class="num">${gdata.p95_latency_ms}</td>
+            <td style="text-align: center;">${badgeStatus}</td>
+          `;
+        }
+        tbody.append(row);
+      });
+    }
+
+    // 3. Consultation Breakdown details
+    const consultBox = $('admin-consultation-health-details');
+    if (consultBox) {
+      consultBox.replaceChildren();
+      const ch = data.consultation_health || {};
+      const fb = data.feedback_signals || {};
+
+      let reasonsHtml = '';
+      if (ch.top_failure_reasons && ch.top_failure_reasons.length > 0) {
+        reasonsHtml = ch.top_failure_reasons.map(r => `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span class="admin-reason-tag">${r.reason}</span>
+            <span style="font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums;">${r.count} sự cố</span>
+          </div>
+        `).join('');
+      } else {
+        reasonsHtml = `<div style="font-size: 12px; color: var(--text-muted); font-style: italic;">Không có sự cố nào được ghi nhận.</div>`;
+      }
+
+      consultBox.innerHTML = `
+        <div class="admin-consult-stat-row">
+          <span class="admin-consult-stat-label">Tổng lượt phân tích & cố vấn</span>
+          <span class="admin-consult-stat-val">${ch.total_consultations !== null ? Number(ch.total_consultations).toLocaleString() : 'Chưa có'}</span>
+        </div>
+        <div class="admin-consult-stat-row">
+          <span class="admin-consult-stat-label">Lượt thực hiện thành công</span>
+          <span class="admin-consult-stat-val" style="color: #10b981;">${ch.successful_consultations !== null ? Number(ch.successful_consultations).toLocaleString() : '-'}</span>
+        </div>
+        <div class="admin-consult-stat-row">
+          <span class="admin-consult-stat-label">Lượt gặp sự cố / chặn điều kiện</span>
+          <span class="admin-consult-stat-val" style="${(ch.failed_consultations || 0) > 0 ? 'color: #f59e0b;' : ''}">${ch.failed_consultations !== null ? Number(ch.failed_consultations).toLocaleString() : '-'}</span>
+        </div>
+        <div style="margin-top: 14px;">
+          <h6 style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.04em;">Nguyên nhân sự cố phổ biến</h6>
+          ${reasonsHtml}
+        </div>
+        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border-medium);">
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+            <span style="color: var(--text-muted);">Khung mẫu phân tích:</span>
+            <span style="font-weight: 600;">${data.sample_count || 0} telemetry points</span>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Hook window selector pills
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.admin-window-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.admin-window-btn').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        const win = e.currentTarget.dataset.window || '24h';
+        loadOperationalHealth(win);
+      });
+    });
+  });
+
 })();

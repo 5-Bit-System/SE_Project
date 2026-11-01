@@ -278,6 +278,69 @@
           <div class="admin-skeleton-line"></div>
         </div>
       </div>
+      <!-- Operational Health & Consultation Section -->
+      <div class="admin-health-section" style="margin-top: 2rem;">
+        <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1rem; align-items: center;">
+          <div>
+            <h4 class="admin-section-heading" style="font-size: 1.15rem; font-weight: 700; margin: 0 0 4px 0; color: var(--text-main);">Giám sát Dịch vụ & Sức khỏe Cố vấn</h4>
+            <p class="admin-panel-subtitle" style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Chỉ số thời gian thực: lưu lượng theo nhóm route, độ trễ p50/p95, sự cố tư vấn và tín hiệu người dùng.</p>
+          </div>
+          <!-- Time Window Selector Pills -->
+          <div class="admin-health-window-selector" role="group" aria-label="Khung thời gian phân tích">
+            <button type="button" class="admin-window-btn" data-window="1h">1 giờ qua</button>
+            <button type="button" class="admin-window-btn active" data-window="24h">24 giờ qua</button>
+            <button type="button" class="admin-window-btn" data-window="7d">7 ngày qua</button>
+          </div>
+        </div>
+
+        <!-- Health Summary Cards Grid -->
+        <div id="admin-health-kpi-grid" class="admin-overview-grid" style="margin-bottom: 1.5rem;">
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+        </div>
+
+        <!-- Route Groups Performance & Incidents Grid -->
+        <div class="admin-health-detail-grid">
+          <!-- Route Groups Table Card -->
+          <div class="admin-card" style="padding: 1.25rem;">
+            <div class="admin-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h5 class="admin-card-title" style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">Hiệu năng theo Nhóm Route</h5>
+              <span id="admin-health-sample-tag" class="admin-source-tag">Nguồn: runtime telemetry</span>
+            </div>
+            <div class="admin-table-container table-responsive">
+              <table class="admin-table admin-health-table" id="admin-route-groups-table" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Nhóm dịch vụ</th>
+                    <th style="text-align: right;">Số Request</th>
+                    <th style="text-align: right;">Thành công</th>
+                    <th style="text-align: right;">Lỗi (%)</th>
+                    <th style="text-align: right;">p50 (ms)</th>
+                    <th style="text-align: right;">p95 (ms)</th>
+                    <th style="text-align: center;">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-route-groups-tbody">
+                  <!-- Dynamic rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Consultation & Feedback Breakdown Card -->
+          <div class="admin-card" style="padding: 1.25rem;">
+            <div class="admin-card-header" style="margin-bottom: 1rem;">
+              <h5 class="admin-card-title" style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">Sức khỏe Cố vấn & Tín hiệu Chất lượng</h5>
+            </div>
+            <div id="admin-consultation-health-details" class="admin-health-consultation-body">
+              <!-- Consultation stats, failure reasons, feedback bar -->
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- 2. Curriculum Panel -->
