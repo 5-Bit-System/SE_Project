@@ -588,3 +588,196 @@ function openComparison() {
   }
   draw(); dialog.showModal();
 }
+
+function errorMessage(failure) {
+  const planErrors = {
+    semester_plan_budget_exceeded: copy('Phương án vượt ngân sách tín chỉ. Điều chỉnh tín chỉ hoặc bỏ bớt môn trước khi lưu.', 'This alternative exceeds the credit budget. Adjust the budget or remove courses before saving.'),
+    semester_plan_group_full: copy('Lựa chọn đã vượt yêu cầu nhóm tự chọn. Kiểm tra lại các môn trong phương án.', 'The elective group requirement is already filled. Review the selected courses.'),
+    semester_plan_course_unavailable: copy('Có môn không còn đủ điều kiện lập kế hoạch. Hãy tạo lại gợi ý.', 'A course is no longer eligible for planning. Generate new suggestions.'),
+    semester_plan_limit: copy('Đã đạt giới hạn phương án. Xóa phương án không cần dùng trước khi lưu thêm.', 'The saved-plan limit was reached. Remove an unused alternative before saving another.'),
+  };
+  if (planErrors[failure?.message]) return planErrors[failure.message];
+  if (failure?.status === 401) return copy('Phiên đăng nhập đã hết. Đăng nhập lại để tiếp tục.', 'Your session expired. Sign in again to continue.');
+  if (failure?.message === 'academic_context_not_ready') return copy('Dữ liệu học vụ chưa đủ xác minh để tạo gợi ý. Mở phần kiểm tra dữ liệu để xem điều kiện cần hoàn tất.', 'Academic data needs review before suggestions can be generated. Open the data review for details.');
+  if (failure?.status === 409) return copy('Bảng điểm hoặc lựa chọn chương trình đã thay đổi. Kiểm tra dữ liệu rồi tạo lại phương án.', 'Your transcript or curriculum selections changed. Review the data and generate again.');
+  if (failure?.status === 403) return copy('Chưa xác minh được phiên thao tác. Tải lại trang và thử lại.', 'This request could not be verified. Reload the page and try again.');
+  if (failure?.status === 429) return copy('Hệ thống đang bận. Giữ lại lựa chọn và thử lại sau.', 'The system is busy. Your preferences are retained; try again shortly.');
+  if (failure?.name === 'AbortError') return copy('Yêu cầu chưa hoàn tất trong thời gian chờ. Bạn có thể thử tạo lại.', 'The request timed out. Try generating again.');
+  return copy('Chưa tạo được phương án. Lựa chọn của bạn vẫn được giữ; hãy thử lại.', 'The alternative could not be generated. Your preferences are retained; please try again.');
+}
+async function request(url, {method = 'GET', body, signal} = {}) {
+  const response = await fetch(url, {method, signal, credentials: 'same-origin', cache: 'no-store',
+    headers: {...(body ? {'Content-Type': 'application/json'} : {}),
+      ...(method !== 'GET' ? {'X-CSRF-Token': window.systemAuth?.csrf || ''} : {})},
+    body: body ? JSON.stringify(body) : undefined});
+  const result = await response.json();
+  if (!response.ok) {
+    if (response.status === 401 && url.startsWith('/me/')) document.dispatchEvent(new Event('workspace:session-expired'));
+    const code = typeof result.detail === 'string' ? result.detail : result.detail?.code || 'recommendation_failed';
+    throw Object.assign(new Error(code), {status: response.status});
+  }
+  return result;
+}
+async function generate() {
+  if (busy || !readyToGenerate() || !live.sourceAvailable) return;
+  clearResults(); const current = requestEpoch, owner = live.identity;
+  busy = true; requestController = new AbortController(); const signal = requestController.signal;
+  const timeout = setTimeout(() => { if (current === requestEpoch) requestController.abort(); }, 60000);
+  render();
+  try {
+    const configured = await window.workspacePlanning.configure({credits: Number(answers.credits), trackId: answers.track, pathId: answers.path});
+    if (current !== requestEpoch || owner !== live.identity) return;
+    if (!configured.board?.program_id || configured.failed) throw new Error('academic_context_not_ready');
+    const board = configured.board;
+    if ((board.selections?.track_required && !answers.track) || (board.selections?.path_required && !answers.path)) {
+      throw new Error('academic_context_not_ready');
+    }
+    const query = new URLSearchParams({program_id: board.program_id});
+    if (answers.track) query.set('selected_track_id', answers.track);
+    if (answers.path) query.set('selected_graduation_path_id', answers.path);
+    const context = await request(`/me/academic-context?${query}`, {signal});
+    if (current !== requestEpoch || owner !== live.identity) return;
+    if (context.status !== 'ready') throw new Error('academic_context_not_ready');
+    if (context.revision !== board.context_revision) throw Object.assign(new Error('context_changed'), {status: 409});
+    generationRevision = context.revision;
+    generationPassed = new Set(context.completed_course_codes || []);
+    results = Object.fromEntries(VARIANTS.map(id => [id, {status: 'loading'}])); renderResults();
+    await Promise.allSettled(VARIANTS.map(async id => {
+      try {
+        const response = await request('/me/recommendations', {method: 'POST', signal,
+          body: recommendationPayload(board, answers, id, context.revision)});
+        if (current !== requestEpoch || owner !== live.identity) return;
+        if (response.context_revision !== context.revision) throw Object.assign(new Error('context_changed'), {status: 409});
+        results[id] = {...constrainRecommendations(response, board, Number(answers.credits)), status: 'done'};
+      } catch (failure) {
+        if (current !== requestEpoch || owner !== live.identity) return;
+        results[id] = {status: 'error', error: errorMessage(failure)};
+      }
+      if (current === requestEpoch) { renderResults(); updateRoadmap(); if (id === selected) selectVariant(id); }
+    }));
+  } catch (failure) {
+    if (current === requestEpoch && owner === live.identity) error = errorMessage(failure);
+  } finally {
+    clearTimeout(timeout);
+    if (current === requestEpoch) {
+      busy = false; render();
+      root.querySelectorAll('[data-rec-course]').forEach((element, index) =>
+        animate(element, [{opacity: 0, transform: 'translateY(14px) rotateX(-4deg)'}, {opacity: 1, transform: 'translateY(0) rotateX(0)'}],
+          {duration: 500, delay: Math.min(index * 70, 280)}));
+    }
+  }
+}
+
+function openSave() {
+  const plan = results[selected]; if (plan?.status !== 'done' || !plan.rows.length || pendingSave) return;
+  if (uncertainSaves.has(selected)) { document.dispatchEvent(new Event('workspace:plans-changed')); openTools(); return; }
+  const variant = selected, epoch = requestEpoch, owner = live.identity;
+  const content = modal(copy('Giữ lại phương án của bạn', 'Save your study alternative'), 'rec-save-dialog');
+  const form = node('form', undefined, 'rec-save-form');
+  const label = node('label', copy('Tên phương án', 'Alternative name')); label.htmlFor = 'rec-plan-name';
+  const title = node('input'); title.id = 'rec-plan-name'; title.required = true; title.maxLength = 100;
+  title.value = titleFor(variant); label.append(title); form.append(label);
+  form.append(termSelect('rec-save-semester', copy('Lưu cho học kỳ', 'Save for semester'), answers.semester, value => { answers.semester = value; }),
+    yearSelect('rec-save-year', copy('Năm học bắt đầu', 'Academic year starts'), answers.year, value => { answers.year = value; }));
+  form.append(node('p', copy('Đây là phương án cá nhân, không phải đăng ký môn VNU.', 'This saves a personal alternative, not a VNU course registration.'), 'rec-question-hint'));
+  const status = node('p'); status.id = 'rec-save-status'; status.setAttribute('role', 'status');
+  const submit = node('button', copy('Xác nhận lưu', 'Confirm save'), 'rec-button rec-primary'); submit.type = 'submit';
+  form.append(status, submit); content.append(form);
+  form.onsubmit = async event => {
+    event.preventDefault(); if (pendingSave || !form.reportValidity()) return;
+    if (epoch !== requestEpoch || owner !== live.identity || live.board?.context_revision !== generationRevision) {
+      status.textContent = copy('Dữ liệu đã đổi. Đóng cửa sổ và tạo lại phương án.', 'Academic data changed. Close this window and generate again.'); return;
+    }
+    pendingSave = true; submit.disabled = true; status.textContent = copy('Đang lưu phương án…', 'Saving your alternative…');
+    dialog.querySelector('.rec-icon-button').disabled = true;
+    try {
+      await request('/me/semester-plans', {method: 'POST', signal: AbortSignal.timeout(60000), body: {
+        title: title.value.trim(), academic_year_start: Number(answers.year), semester: Number(answers.semester),
+        max_credits: Number(answers.credits), selected_track_id: answers.track || null,
+        selected_graduation_path_id: answers.path || null, course_codes: plan.rows.map(row => row.code),
+        expected_basis: live.board.plan_basis,
+      }});
+      if (epoch !== requestEpoch || owner !== live.identity) return;
+      saved.add(variant); status.replaceChildren(icon('check'), node('span', copy('Đã lưu phương án.', 'Alternative saved.')));
+      status.className = 'rec-save-success'; submit.remove();
+      content.append(button(copy('Xem phương án đã lưu', 'View saved alternatives'), () => { dialog.close(); openTools(); }, 'rec-button rec-secondary'));
+      animate(status, [{opacity: 0, transform: 'scale(.94)'}, {opacity: 1, transform: 'scale(1)'}], {duration: 420});
+      document.dispatchEvent(new Event('workspace:plans-changed')); renderResults();
+    } catch (failure) {
+      if (epoch === requestEpoch && owner === live.identity) {
+        status.textContent = failure.status ? errorMessage(failure) : copy('Chưa xác nhận được kết quả lưu. Kiểm tra danh sách phương án trước khi thử lại.', 'The save outcome could not be confirmed. Check saved alternatives before retrying.');
+        if (!failure.status) {
+          uncertainSaves.add(variant); document.dispatchEvent(new Event('workspace:plans-changed')); renderResults();
+          content.append(button(copy('Kiểm tra phương án đã lưu', 'Check saved alternatives'), () => { dialog.close(); openTools(); }));
+        }
+        submit.disabled = !failure.status;
+      }
+    } finally {
+      if (epoch === requestEpoch && owner === live.identity) {
+        pendingSave = false; const close = dialog.querySelector('.rec-icon-button'); if (close) close.disabled = false;
+        renderResults();
+      }
+    }
+  };
+  dialog.showModal(); title.focus();
+}
+
+async function loadCatalog(program) {
+  if (!program || catalogProgram === program) return;
+  const current = ++catalogSequence; catalogProgram = program; catalog.clear();
+  try {
+    const rows = await request(`/courses?${new URLSearchParams({program_id: program})}`);
+    if (current === catalogSequence && Array.isArray(rows)) catalog = new Map(rows.map(course => [course.code, course]));
+  } catch { /* Detailed catalog labels are optional; server checks are mandatory. */ }
+}
+function resetSession() {
+  clearResults(); cancelMotion(); catalogSequence++; catalogProgram = ''; catalog.clear();
+  if (dialog.open) dialog.close(); pendingSave = false;
+  step = 0; draftText = ''; reviewMode = false; answers = initialAnswers();
+}
+document.addEventListener('workspace:planning-state', event => {
+  const next = event.detail;
+  const stateKey = JSON.stringify([next.identity, next.sourceAvailable, next.loading, next.failed,
+    next.budget, next.track, next.path, next.profile, next.board?.context_revision,
+    next.board?.plan_basis, next.board?.status, next.board?.blocking_reasons]);
+  if (stateKey === planningStateKey) { live = next; return; }
+  planningStateKey = stateKey;
+  const changedOwner = identity !== (next.identity || '');
+  const changedProgram = next.board?.program_id && catalogProgram && next.board.program_id !== catalogProgram;
+  const changedSelection = !busy && (live.track !== next.track || live.path !== next.path);
+  live = next;
+  if (changedOwner) { identity = next.identity || ''; resetSession(); }
+  else if (!next.sourceAvailable || (generationRevision && (!next.board || next.board.context_revision !== generationRevision))) {
+    clearResults(); if (dialog.open) dialog.close();
+  }
+  if (!changedOwner && changedProgram) {
+    answers.direction = ''; answers.directionLabel = ''; answers.track = next.track || ''; answers.path = next.path || '';
+    step = 0; reviewMode = false; clearResults();
+  } else if (!changedOwner && changedSelection) {
+    answers.track = next.track || ''; answers.path = next.path || '';
+    if (next.track) {
+      const track = next.board?.selections?.tracks?.find(track => track.id === next.track);
+      if (track) { answers.direction = track.id; answers.directionLabel = track.name; }
+    }
+  }
+  if (next.board?.program_id) loadCatalog(next.board.program_id);
+  render();
+});
+document.addEventListener('workspace:session-expired', () => { live = {}; identity = ''; planningStateKey = ''; resetSession(); render(); });
+document.addEventListener('workspace:language-change', () => { if (dialog.open && !pendingSave) dialog.close(); render(); });
+function syncMotionVisibility() {
+  const paused = document.hidden || document.documentElement.dataset.view !== 'tab-recommend';
+  root.dataset.paused = String(paused);
+  for (const animation of animations) { if (paused) animation.pause(); else animation.play(); }
+}
+document.addEventListener('workspace:navigate', event => {
+  syncMotionVisibility();
+  if (event.detail === 'tab-recommend') reveal();
+  else { cancelMotion(); if (dialog.open && !pendingSave) dialog.close(); }
+});
+document.addEventListener('visibilitychange', () => {
+  syncMotionVisibility();
+});
+reduced.addEventListener('change', () => { if (reduced.matches) cancelMotion(); });
+window.addEventListener('pagehide', () => { requestController?.abort(); cancelMotion(); });
+render(); syncMotionVisibility(); if (live.board?.program_id) loadCatalog(live.board.program_id);
