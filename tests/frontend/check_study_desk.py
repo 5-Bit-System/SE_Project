@@ -158,7 +158,7 @@ def main():
                     page.wait_for_timeout(80)
         page.set_viewport_size({"width": 1440, "height": 900})
         page.locator('[data-theme-choice="light"]').click()
-        page.locator("#tab-btn-rules").click()
+        page.locator("#tab-btn-recommend").click()
         page.wait_for_selector('[data-plan-course="TEST-A"]')
         assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
         page.wait_for_selector('[data-plan-course="TEST-B"]')
@@ -169,6 +169,7 @@ def main():
         assert "4 / 20" in page.locator('.course-status-summary > div:nth-child(2) strong').inner_text()
         page.wait_for_timeout(300)
         assert page.locator('.plan-exit-ghost').count() == 0
+        page.locator("#tab-btn-rules").click()
         search = page.locator('#course-status-board input[type=search]')
         search.fill('NO-MATCH-SYNTHETIC')
         assert page.locator('.course-status-card').count() == 0
