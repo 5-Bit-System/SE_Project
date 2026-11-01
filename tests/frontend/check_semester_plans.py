@@ -70,7 +70,7 @@ def main():
             page = browser.new_page(viewport={'width': 1440, 'height': 1000})
             page.route('**/*', intercept)
             page.on('pageerror', lambda error: errors.append(str(error)))
-            page.goto('http://127.0.0.1:8000/#rules')
+            page.goto('http://127.0.0.1:8000/#recommend')
             page.wait_for_selector('#semester-plan-form')
             page.locator('#semester-plan-title').fill('HK1 — Phương án A')
             assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
@@ -90,6 +90,8 @@ def main():
             reads = len(board_reads)
             page.evaluate("window.workspaceNavigate('tab-dashboard')")
             page.evaluate("window.workspaceNavigate('tab-rules')")
+            assert page.locator('#course-status-board #semester-plans').count() == 0
+            page.evaluate("window.workspaceNavigate('tab-recommend')")
             page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: value}))", source)
             page.wait_for_timeout(150)
             assert len(board_reads) == reads
@@ -115,7 +117,7 @@ def main():
             page.wait_for_selector('#semester-plan-picker option[value="1"]', state='attached')
             page.locator('#semester-plan-picker').select_option('1')
             page.wait_for_function("document.querySelector('#semester-plans').textContent.includes('Bảng điểm, chương trình hoặc quy chế đã thay đổi')")
-            page.wait_for_selector('[data-course-code="TEST-B"]')
+            page.wait_for_selector('#course-planning-panel .course-status-summary')
             assert 'Hướng/nhánh cũ không còn phù hợp' in page.locator('#semester-plans').inner_text()
             page.set_viewport_size({'width': 390, 'height': 844})
             assert page.locator('#semester-plan-form').is_visible()
