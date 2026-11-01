@@ -9,7 +9,7 @@
   let restoringSession = true;
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
   let adminCurrentTab = 'overview';
-  const adminTabs = ['overview', 'curriculum', 'users'];
+  const adminTabs = ['overview', 'curriculum', 'crawler', 'users'];
 
   Object.assign(copy.vi, {
     restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
@@ -31,7 +31,7 @@
     invalid_credentials:'Vui lòng nhập tài khoản và mật khẩu VNU hợp lệ.', invalid_login:'Tài khoản hoặc mật khẩu quản trị chưa đúng.',
     vnu_already_linked:'Danh tính VNU đang có liên kết khác. Vui lòng liên hệ quản trị viên.',
     admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.',
-    adminConsoleKicker:'QUẢN TRỊ HỆ THỐNG', adminConsoleHeader:'Bảng điều khiển quản trị', adminConsoleDesc:'Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.', adminSystemReady:'Hệ thống sẵn sàng', adminBackToWorkspace:'Về Sổ học tập', adminTabOverview:'Tổng quan', adminTabCurriculum:'Chương trình đào tạo', adminTabUsers:'Tài khoản', adminOverviewHeading:'Chỉ số và trạng thái hệ thống', adminOverviewSubheading:'Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.', adminCurriculumHeading:'Danh mục chương trình và học phần', adminCurriculumSubheading:'Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.', adminCurriculumPlaceholder:'Đang tải danh mục chương trình đào tạo…', adminUsersHeading:'Quản lý tài khoản', adminUsersSubheading:'Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.', searchUsersPlaceholder:'Tìm tài khoản VNU, email hoặc tên…',
+    adminConsoleKicker:'QUẢN TRỊ HỆ THỐNG', adminConsoleHeader:'Bảng điều khiển quản trị', adminConsoleDesc:'Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.', adminSystemReady:'Hệ thống sẵn sàng', adminBackToWorkspace:'Về Sổ học tập', adminTabOverview:'Tổng quan', adminTabCurriculum:'Chương trình đào tạo', adminTabCrawler:'Thu thập & Crawler', adminTabUsers:'Tài khoản', adminOverviewHeading:'Chỉ số và trạng thái hệ thống', adminOverviewSubheading:'Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.', adminCurriculumHeading:'Danh mục chương trình và học phần', adminCurriculumSubheading:'Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.', adminCurriculumPlaceholder:'Đang tải danh mục chương trình đào tạo…', adminUsersHeading:'Quản lý tài khoản', adminUsersSubheading:'Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.', searchUsersPlaceholder:'Tìm tài khoản VNU, email hoặc tên…',
     confirmDisableAccount:'Bạn có chắc chắn muốn khóa tài khoản', confirmDisableSessionWarning:'Lưu ý: Mọi phiên đăng nhập hiện tại của tài khoản này sẽ bị thu hồi ngay lập tức.', confirmEnableAccount:'Bạn có muốn mở khóa tài khoản', confirmRoleChange:'Bạn có muốn thay đổi vai trò của tài khoản'
   });
   Object.assign(copy.en, {
@@ -112,6 +112,8 @@
       if (window.adminOverview?.load) window.adminOverview.load();
     } else if (tabName === 'curriculum') {
       if (window.adminCurriculum?.load) window.adminCurriculum.load();
+    } else if (tabName === 'crawler') {
+      if (window.adminCrawler?.load) window.adminCrawler.load();
     }
   }
   function render() {

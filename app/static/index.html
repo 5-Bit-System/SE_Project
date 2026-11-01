@@ -216,6 +216,13 @@
         </svg>
         <span class="admin-tab-text" data-auth-copy="adminTabCurriculum">Chương trình đào tạo</span>
       </button>
+      <button id="admin-tab-crawler" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-crawler" tabindex="-1" data-admin-tab="crawler">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10 3v4M10 13v4M3 10h4M13 10h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabCrawler">Thu thập & Crawler</span>
+      </button>
       <button id="admin-tab-users" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-users" tabindex="-1" data-admin-tab="users">
         <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
           <circle cx="10" cy="6.5" r="3.2" stroke="currentColor" stroke-width="1.6"/>
@@ -563,6 +570,221 @@
             <div class="admin-modal-actions">
               <button type="button" id="admin-prereq-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
               <button type="submit" id="admin-prereq-save-btn" class="portal-button admin-primary-btn">Lưu quy tắc vào bản thảo</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- Crawler Governance Panel -->
+    <section id="admin-panel-crawler" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-crawler" hidden>
+      <div class="admin-panel-header admin-panel-header-actions">
+        <div>
+          <h3 class="admin-panel-title">Giám sát & Điều phối Crawler</h3>
+          <p class="admin-panel-subtitle">Quản lý nguồn thu thập và theo dõi vòng đời các tiến trình cào dữ liệu học thuật.</p>
+        </div>
+        <button type="button" id="admin-crawler-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới trạng thái crawler">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Làm mới</span>
+        </button>
+      </div>
+
+      <!-- Crawler KPI Grid -->
+      <div id="admin-crawler-kpi-grid" class="admin-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 20px;">
+        <div class="admin-kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Nguồn thu thập</span>
+            <div class="kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+          <div id="crawler-kpi-sources-count" class="kpi-value tabular-nums">—</div>
+          <div id="crawler-kpi-sources-sub" class="kpi-desc">0 nguồn đang bật</div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Tiến trình đang chạy</span>
+            <div class="kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+          <div id="crawler-kpi-running-jobs" class="kpi-value tabular-nums">—</div>
+          <div class="kpi-desc">Tiến trình hoạt động</div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Trang đã quét</span>
+            <div class="kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+          <div id="crawler-kpi-pages-crawled" class="kpi-value tabular-nums">—</div>
+          <div class="kpi-desc">Trang HTML / PDF</div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Tài liệu trích xuất</span>
+            <div class="kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+          <div id="crawler-kpi-docs-found" class="kpi-value tabular-nums">—</div>
+          <div class="kpi-desc">Tài liệu học thuật</div>
+        </div>
+      </div>
+
+      <!-- Crawler Subtabs -->
+      <div class="admin-curriculum-subtabs" role="tablist" aria-label="Phân hệ Crawler" style="margin-bottom: 16px;">
+        <button type="button" id="admin-crawler-subtab-jobs" class="admin-subtab-btn active" role="tab" aria-selected="true">
+          Lịch sử tiến trình (Jobs)
+        </button>
+        <button type="button" id="admin-crawler-subtab-sources" class="admin-subtab-btn" role="tab" aria-selected="false">
+          Cấu hình nguồn (Sources)
+        </button>
+      </div>
+
+      <!-- Subtab 1: Jobs View -->
+      <div id="admin-crawler-jobs-view">
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-toolbar-filter">
+            <select id="admin-jobs-source-filter" class="modern-select">
+              <option value="all">Tất cả nguồn thu thập</option>
+            </select>
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-jobs-status-filter" class="modern-select">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="running">Đang chạy (running)</option>
+              <option value="paused">Tạm dừng (paused)</option>
+              <option value="completed">Hoàn thành (completed)</option>
+              <option value="failed">Lỗi (failed)</option>
+              <option value="cancelled">Đã hủy (cancelled)</option>
+            </select>
+          </div>
+          <button type="button" id="admin-crawler-trigger-btn" class="portal-button primary-action">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M6 4l10 6-10 6V4z" fill="currentColor"/>
+            </svg>
+            <span>+ Khởi chạy thu thập</span>
+          </button>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-crawler-jobs-table" class="admin-data-table">
+            <caption class="sr-only">Danh sách tiến trình thu thập dữ liệu</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã tiến trình</th>
+                <th scope="col">Nguồn</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Trang quét / Phát hiện</th>
+                <th scope="col">Tài liệu</th>
+                <th scope="col">Bắt đầu lúc</th>
+                <th scope="col">Hoàn thành lúc</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="admin-crawler-jobs-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Subtab 2: Sources View -->
+      <div id="admin-crawler-sources-view" hidden>
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-sources-search" type="search" placeholder="Tìm tên nguồn hoặc tên miền…" aria-label="Tìm kiếm nguồn">
+          </div>
+          <button type="button" id="admin-crawler-add-source-btn" class="portal-button primary-action">
+            + Thêm nguồn mới
+          </button>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-crawler-sources-table" class="admin-data-table">
+            <caption class="sr-only">Danh sách nguồn thu thập tài liệu</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã nguồn</th>
+                <th scope="col">Tên nguồn</th>
+                <th scope="col">Địa chỉ gốc (Base URL)</th>
+                <th scope="col">Lịch quét</th>
+                <th scope="col">Độ sâu</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="admin-crawler-sources-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal Thêm Nguồn Thu Thập -->
+      <dialog id="admin-crawler-source-modal" class="admin-modal">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Cấu hình Nguồn thu thập dữ liệu</h4>
+            <button type="button" id="admin-crawler-source-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div class="admin-disclaimer">
+            <div>
+              <strong>Chính sách URL:</strong> Chỉ chấp nhận các tên miền thuộc Đại học Quốc gia Hà Nội (<code>*.hus.vnu.edu.vn</code>, <code>*.vnu.edu.vn</code>). Không được phép thu thập máy chủ nội bộ hoặc địa chỉ ngoài danh sách.
+            </div>
+          </div>
+          <form id="admin-crawler-source-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label for="admin-source-name">Tên nguồn thu thập</label>
+              <input id="admin-source-name" type="text" placeholder="VD: Cổng đào tạo Khoa Toán - Cơ - Tin học" required minlength="2">
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-source-url">Địa chỉ gốc (Base URL)</label>
+              <input id="admin-source-url" type="url" placeholder="https://mim.hus.vnu.edu.vn/vi/cacctrdaotao" required>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="admin-form-group">
+                <label for="admin-source-schedule">Lịch chạy (Cron / Manual)</label>
+                <input id="admin-source-schedule" type="text" value="manual" placeholder="0 2 * * * hoặc manual">
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-source-depth">Giới hạn độ sâu (1 - 10)</label>
+                <input id="admin-source-depth" type="number" min="1" max="10" value="3" required>
+              </div>
+            </div>
+            <div id="admin-source-error-alert" class="admin-prereq-error-alert" hidden></div>
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-crawler-source-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-crawler-source-save-btn" class="portal-button admin-primary-btn">Lưu nguồn thu thập</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <!-- Modal Khởi Chạy Thu Thập -->
+      <dialog id="admin-crawler-trigger-modal" class="admin-modal" style="max-width: 520px;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Khởi chạy tiến trình thu thập mới</h4>
+            <button type="button" id="admin-crawler-trigger-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <form id="admin-crawler-trigger-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label for="admin-trigger-source-select">Chọn nguồn thu thập mục tiêu</label>
+              <select id="admin-trigger-source-select" class="modern-select" required></select>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">
+              Tiến trình thu thập sẽ chạy độc lập, tự động phân tích trang và lưu các tài liệu mới thành bản nháp chờ kiểm duyệt. Hệ thống ngăn chặn việc khởi chạy trùng lặp trên cùng một nguồn đang chạy.
+            </p>
+            <div id="admin-trigger-error-alert" class="admin-prereq-error-alert" hidden></div>
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-crawler-trigger-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-crawler-trigger-submit-btn" class="portal-button admin-primary-btn">Bắt đầu thu thập</button>
             </div>
           </form>
         </div>

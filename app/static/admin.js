@@ -1279,6 +1279,426 @@
   }
   bindPrereqEditorModal();
 
+  // ==========================================================================
+  // Crawler Governance & Monitoring
+  // ==========================================================================
+  let crawlerSources = [];
+  let crawlerJobs = [];
+
+  const subtabCrawlerJobs = $('admin-crawler-subtab-jobs');
+  const subtabCrawlerSources = $('admin-crawler-subtab-sources');
+  const crawlerJobsView = $('admin-crawler-jobs-view');
+  const crawlerSourcesView = $('admin-crawler-sources-view');
+
+  function switchCrawlerSubtab(tab) {
+    if (tab === 'jobs') {
+      subtabCrawlerJobs?.classList.add('active');
+      subtabCrawlerJobs?.setAttribute('aria-selected', 'true');
+      subtabCrawlerSources?.classList.remove('active');
+      subtabCrawlerSources?.setAttribute('aria-selected', 'false');
+      if (crawlerJobsView) crawlerJobsView.hidden = false;
+      if (crawlerSourcesView) crawlerSourcesView.hidden = true;
+    } else {
+      subtabCrawlerJobs?.classList.remove('active');
+      subtabCrawlerJobs?.setAttribute('aria-selected', 'false');
+      subtabCrawlerSources?.classList.add('active');
+      subtabCrawlerSources?.setAttribute('aria-selected', 'true');
+      if (crawlerJobsView) crawlerJobsView.hidden = true;
+      if (crawlerSourcesView) crawlerSourcesView.hidden = false;
+    }
+  }
+
+  subtabCrawlerJobs?.addEventListener('click', () => switchCrawlerSubtab('jobs'));
+  subtabCrawlerSources?.addEventListener('click', () => switchCrawlerSubtab('sources'));
+  $('admin-crawler-refresh-btn')?.addEventListener('click', () => loadCrawler());
+  $('admin-jobs-source-filter')?.addEventListener('change', renderCrawlerJobs);
+  $('admin-jobs-status-filter')?.addEventListener('change', renderCrawlerJobs);
+  $('admin-sources-search')?.addEventListener('input', renderCrawlerSources);
+
+  async function loadCrawler() {
+    try {
+      if (!window.systemAuth?.request) return;
+      const [sources, jobs] = await Promise.all([
+        window.systemAuth.request('/admin/crawler/sources'),
+        window.systemAuth.request('/admin/crawler/jobs'),
+      ]);
+      crawlerSources = sources || [];
+      crawlerJobs = jobs || [];
+
+      renderCrawlerKpi();
+      populateCrawlerFilters();
+      renderCrawlerJobs();
+      renderCrawlerSources();
+    } catch (err) {
+      console.error('Failed to load crawler data:', err);
+    }
+  }
+
+  function renderCrawlerKpi() {
+    const totalSources = crawlerSources.length;
+    const activeSources = crawlerSources.filter(s => s.is_active).length;
+    const runningJobs = crawlerJobs.filter(j => j.status === 'running').length;
+    const totalPages = crawlerJobs.reduce((acc, j) => acc + (j.pages_crawled || 0), 0);
+    const totalDocs = crawlerJobs.reduce((acc, j) => acc + (j.documents_found || 0), 0);
+
+    if ($('crawler-kpi-sources-count')) $('crawler-kpi-sources-count').textContent = totalSources;
+    if ($('crawler-kpi-sources-sub')) $('crawler-kpi-sources-sub').textContent = `${activeSources} nguồn đang bật`;
+    if ($('crawler-kpi-running-jobs')) $('crawler-kpi-running-jobs').textContent = runningJobs;
+    if ($('crawler-kpi-pages-crawled')) $('crawler-kpi-pages-crawled').textContent = totalPages.toLocaleString();
+    if ($('crawler-kpi-docs-found')) $('crawler-kpi-docs-found').textContent = totalDocs.toLocaleString();
+  }
+
+  function populateCrawlerFilters() {
+    const jobFilter = $('admin-jobs-source-filter');
+    const triggerSelect = $('admin-trigger-source-select');
+
+    if (jobFilter) {
+      const cur = jobFilter.value;
+      jobFilter.replaceChildren();
+      jobFilter.add(new Option('Tất cả nguồn thu thập', 'all'));
+      crawlerSources.forEach(s => {
+        jobFilter.add(new Option(`${s.name} (${s.id})`, s.id));
+      });
+      if (cur) jobFilter.value = cur;
+    }
+
+    if (triggerSelect) {
+      triggerSelect.replaceChildren();
+      triggerSelect.add(new Option('-- Chọn nguồn thu thập mục tiêu --', ''));
+      crawlerSources.forEach(s => {
+        if (s.is_active) {
+          triggerSelect.add(new Option(`${s.name} (${s.base_url})`, s.id));
+        }
+      });
+    }
+  }
+
+  function renderCrawlerJobs() {
+    const tbody = $('admin-crawler-jobs-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const srcFilter = $('admin-jobs-source-filter')?.value || 'all';
+    const statusFilter = $('admin-jobs-status-filter')?.value || 'all';
+
+    const filtered = crawlerJobs.filter(j => {
+      const matchSrc = srcFilter === 'all' || j.source_id === srcFilter;
+      const matchStatus = statusFilter === 'all' || j.status === statusFilter;
+      return matchSrc && matchStatus;
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 8;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Chưa có tiến trình thu thập nào phù hợp.';
+      return;
+    }
+
+    filtered.forEach(job => {
+      const tr = tbody.insertRow();
+      tr.dataset.jobId = job.id;
+
+      // 1. Job ID
+      const tdId = tr.insertCell();
+      tdId.innerHTML = `<code class="admin-course-code">${job.id}</code>`;
+
+      // 2. Source Name
+      const tdSrc = tr.insertCell();
+      const s = crawlerSources.find(x => x.id === job.source_id);
+      tdSrc.innerHTML = `<strong>${s ? s.name : job.source_id}</strong>`;
+
+      // 3. Status Badge
+      const tdStatus = tr.insertCell();
+      let badge = '';
+      if (job.status === 'running') {
+        badge = '<span class="admin-status-badge badge-success"><span class="admin-pulse-dot"></span> Đang chạy</span>';
+      } else if (job.status === 'paused') {
+        badge = '<span class="admin-status-badge badge-warning">Tạm dừng</span>';
+      } else if (job.status === 'completed') {
+        badge = '<span class="admin-status-badge badge-success">Hoàn thành</span>';
+      } else if (job.status === 'failed') {
+        badge = `<span class="admin-status-badge badge-danger" title="${job.error_message || ''}">Thất bại</span>`;
+      } else {
+        badge = '<span class="admin-status-badge badge-danger" style="background: rgba(107, 114, 128, 0.15); color: var(--text-muted);">Đã hủy</span>';
+      }
+      tdStatus.innerHTML = badge;
+
+      // 4. Pages Discovered / Crawled
+      const tdPages = tr.insertCell();
+      tdPages.className = 'tabular-nums';
+      tdPages.textContent = `${job.pages_crawled} / ${job.pages_discovered}`;
+
+      // 5. Documents Found
+      const tdDocs = tr.insertCell();
+      tdDocs.className = 'tabular-nums';
+      tdDocs.innerHTML = `<strong>${job.documents_found}</strong>`;
+
+      // 6. Started At
+      const tdStart = tr.insertCell();
+      tdStart.className = 'admin-sub-text tabular-nums';
+      tdStart.textContent = job.started_at ? new Date(job.started_at).toLocaleString('vi-VN') : '—';
+
+      // 7. Completed At
+      const tdComp = tr.insertCell();
+      tdComp.className = 'admin-sub-text tabular-nums';
+      tdComp.textContent = job.completed_at ? new Date(job.completed_at).toLocaleString('vi-VN') : '—';
+
+      // 8. Actions
+      const tdAction = tr.insertCell();
+      const actionGroup = document.createElement('div');
+      actionGroup.className = 'crawler-action-group';
+
+      if (job.status === 'running') {
+        const pauseBtn = document.createElement('button');
+        pauseBtn.type = 'button';
+        pauseBtn.className = 'admin-action-btn-sm btn-pause-job';
+        pauseBtn.textContent = 'Tạm dừng';
+        pauseBtn.onclick = () => handlePauseJob(job.id);
+        actionGroup.appendChild(pauseBtn);
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.type = 'button';
+        cancelBtn.className = 'admin-action-btn-sm btn-cancel-job';
+        cancelBtn.textContent = 'Hủy';
+        cancelBtn.onclick = () => handleCancelJob(job.id);
+        actionGroup.appendChild(cancelBtn);
+      } else if (job.status === 'paused') {
+        const resumeBtn = document.createElement('button');
+        resumeBtn.type = 'button';
+        resumeBtn.className = 'admin-action-btn-sm btn-resume-job';
+        resumeBtn.textContent = 'Tiếp tục';
+        resumeBtn.onclick = () => handleResumeJob(job.id);
+        actionGroup.appendChild(resumeBtn);
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.type = 'button';
+        cancelBtn.className = 'admin-action-btn-sm btn-cancel-job';
+        cancelBtn.textContent = 'Hủy';
+        cancelBtn.onclick = () => handleCancelJob(job.id);
+        actionGroup.appendChild(cancelBtn);
+      } else {
+        const infoSpan = document.createElement('span');
+        infoSpan.className = 'admin-sub-text';
+        infoSpan.textContent = '—';
+        actionGroup.appendChild(infoSpan);
+      }
+
+      tdAction.appendChild(actionGroup);
+    });
+  }
+
+  function renderCrawlerSources() {
+    const tbody = $('admin-crawler-sources-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const query = ($('admin-sources-search')?.value || '').trim().toLowerCase();
+    const filtered = crawlerSources.filter(s => {
+      return !query || s.name.toLowerCase().includes(query) || s.base_url.toLowerCase().includes(query) || s.id.toLowerCase().includes(query);
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 7;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Không tìm thấy nguồn thu thập nào.';
+      return;
+    }
+
+    filtered.forEach(src => {
+      const tr = tbody.insertRow();
+      tr.dataset.sourceId = src.id;
+
+      // 1. ID
+      const tdId = tr.insertCell();
+      tdId.innerHTML = `<code class="admin-course-code">${src.id}</code>`;
+
+      // 2. Name
+      const tdName = tr.insertCell();
+      tdName.innerHTML = `<strong>${src.name}</strong>`;
+
+      // 3. Base URL
+      const tdUrl = tr.insertCell();
+      tdUrl.innerHTML = `<code style="font-size: 0.8rem;">${src.base_url}</code>`;
+
+      // 4. Schedule
+      const tdSched = tr.insertCell();
+      tdSched.innerHTML = `<span class="admin-meta-tag">${src.schedule}</span>`;
+
+      // 5. Depth
+      const tdDepth = tr.insertCell();
+      tdDepth.className = 'tabular-nums';
+      tdDepth.textContent = src.depth_limit;
+
+      // 6. Status
+      const tdStatus = tr.insertCell();
+      if (src.is_active) {
+        tdStatus.innerHTML = '<span class="admin-status-badge badge-success">Đang bật</span>';
+      } else {
+        tdStatus.innerHTML = '<span class="admin-status-badge badge-danger">Đã tắt</span>';
+      }
+
+      // 7. Actions
+      const tdAction = tr.insertCell();
+      const grp = document.createElement('div');
+      grp.className = 'crawler-action-group';
+
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'admin-action-btn-sm';
+      toggleBtn.textContent = src.is_active ? 'Tắt' : 'Bật';
+      toggleBtn.onclick = () => handleToggleSource(src.id, !src.is_active);
+      grp.appendChild(toggleBtn);
+
+      if (src.is_active) {
+        const runBtn = document.createElement('button');
+        runBtn.type = 'button';
+        runBtn.className = 'admin-action-btn-sm';
+        runBtn.style.color = 'var(--primary)';
+        runBtn.textContent = 'Khởi chạy';
+        runBtn.onclick = () => handleQuickTrigger(src.id);
+        grp.appendChild(runBtn);
+      }
+
+      tdAction.appendChild(grp);
+    });
+  }
+
+  async function handleToggleSource(sourceId, newStatus) {
+    try {
+      await window.systemAuth.request(`/admin/crawler/sources/${sourceId}/toggle`, 'POST', { is_active: newStatus });
+      await loadCrawler();
+    } catch (err) {
+      alert(`Lỗi đổi trạng thái nguồn: ${err.message}`);
+    }
+  }
+
+  async function handlePauseJob(jobId) {
+    try {
+      await window.systemAuth.request(`/admin/crawler/jobs/${jobId}/pause`, 'POST');
+      await loadCrawler();
+    } catch (err) {
+      alert(`Lỗi tạm dừng: ${err.message}`);
+    }
+  }
+
+  async function handleResumeJob(jobId) {
+    try {
+      await window.systemAuth.request(`/admin/crawler/jobs/${jobId}/resume`, 'POST');
+      await loadCrawler();
+    } catch (err) {
+      alert(`Lỗi tiếp tục: ${err.message}`);
+    }
+  }
+
+  async function handleCancelJob(jobId) {
+    const confirmed = window.confirm(`Bạn có chắc chắn muốn hủy tiến trình thu thập [${jobId}]?`);
+    if (!confirmed) return;
+    try {
+      await window.systemAuth.request(`/admin/crawler/jobs/${jobId}/cancel`, 'POST');
+      await loadCrawler();
+    } catch (err) {
+      alert(`Lỗi hủy tiến trình: ${err.message}`);
+    }
+  }
+
+  async function handleQuickTrigger(sourceId) {
+    try {
+      await window.systemAuth.request('/admin/crawler/jobs', 'POST', { source_id: sourceId });
+      switchCrawlerSubtab('jobs');
+      await loadCrawler();
+    } catch (err) {
+      alert(`Lỗi khởi chạy: ${err.message}`);
+    }
+  }
+
+  function bindCrawlerModals() {
+    const srcModal = $('admin-crawler-source-modal');
+    const triggerModal = $('admin-crawler-trigger-modal');
+
+    // Source modal
+    $('admin-crawler-add-source-btn')?.addEventListener('click', () => {
+      $('admin-crawler-source-form')?.reset();
+      const err = $('admin-source-error-alert');
+      if (err) err.hidden = true;
+      srcModal?.showModal();
+    });
+    $('admin-crawler-source-close-btn')?.addEventListener('click', () => srcModal?.close());
+    $('admin-crawler-source-cancel-btn')?.addEventListener('click', () => srcModal?.close());
+
+    $('admin-crawler-source-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errAlert = $('admin-source-error-alert');
+      const saveBtn = $('admin-crawler-source-save-btn');
+      if (errAlert) errAlert.hidden = true;
+      if (saveBtn) saveBtn.disabled = true;
+
+      const payload = {
+        name: $('admin-source-name')?.value?.trim(),
+        base_url: $('admin-source-url')?.value?.trim(),
+        schedule: $('admin-source-schedule')?.value?.trim() || 'manual',
+        depth_limit: parseInt($('admin-source-depth')?.value || '3', 10),
+      };
+
+      try {
+        await window.systemAuth.request('/admin/crawler/sources', 'POST', payload);
+        srcModal?.close();
+        await loadCrawler();
+      } catch (err) {
+        if (errAlert) {
+          errAlert.hidden = false;
+          errAlert.textContent = err.message;
+        }
+      } finally {
+        if (saveBtn) saveBtn.disabled = false;
+      }
+    });
+
+    // Trigger modal
+    $('admin-crawler-trigger-btn')?.addEventListener('click', () => {
+      const err = $('admin-trigger-error-alert');
+      if (err) err.hidden = true;
+      triggerModal?.showModal();
+    });
+    $('admin-crawler-trigger-close-btn')?.addEventListener('click', () => triggerModal?.close());
+    $('admin-crawler-trigger-cancel-btn')?.addEventListener('click', () => triggerModal?.close());
+
+    $('admin-crawler-trigger-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errAlert = $('admin-trigger-error-alert');
+      const submitBtn = $('admin-crawler-trigger-submit-btn');
+      const sourceId = $('admin-trigger-source-select')?.value;
+
+      if (!sourceId) {
+        if (errAlert) {
+          errAlert.hidden = false;
+          errAlert.textContent = 'Vui lòng chọn nguồn thu thập.';
+        }
+        return;
+      }
+
+      if (errAlert) errAlert.hidden = true;
+      if (submitBtn) submitBtn.disabled = false;
+
+      try {
+        await window.systemAuth.request('/admin/crawler/jobs', 'POST', { source_id: sourceId });
+        triggerModal?.close();
+        await loadCrawler();
+      } catch (err) {
+        if (errAlert) {
+          errAlert.hidden = false;
+          errAlert.textContent = err.message;
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+  bindCrawlerModals();
+
   // Expose module APIs
   window.adminOverview = {
     load: loadOverview,
@@ -1293,5 +1713,12 @@
     openProgramCourses,
     renderCourses,
     openPrereqEditor
+  };
+
+  window.adminCrawler = {
+    load: loadCrawler,
+    renderCrawlerJobs,
+    renderCrawlerSources,
+    switchCrawlerSubtab
   };
 })();

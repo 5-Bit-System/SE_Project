@@ -1172,5 +1172,34 @@ body[data-auth-state="loading"] #system-session-loading {
   font-size: 0.84rem;
 }
 
+/* Crawler Monitoring & Controls */
+.btn-pause-job {
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #f59e0b !important;
+}
+.btn-pause-job:hover {
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+.btn-resume-job {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #3b82f6 !important;
+}
+.btn-resume-job:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+.btn-cancel-job {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #ef4444 !important;
+}
+.btn-cancel-job:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+.crawler-action-group {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+
 
 
