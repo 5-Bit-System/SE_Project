@@ -49,7 +49,7 @@ def main():
         "courses": {"completed": [], "blocked": [], "eligible": [
             course("TEST-A", "Synthetic A", 3), course("TEST-B", "Synthetic B", 4)]},
         "progress": {"total": {"earned_credits": 0, "required_credits": 120, "remaining_credits": 120}},
-        "plan": {"course_codes": [], "max_credits": 20, "suggested_credits": 0}}
+        "plan": {"course_codes": ["TEST-A", "TEST-B"], "max_credits": 20, "suggested_credits": 7}}
     requests, errors, outside, clearance = [], [], [], []
 
     def intercept(route):
@@ -159,15 +159,13 @@ def main():
         page.set_viewport_size({"width": 1440, "height": 900})
         page.locator('[data-theme-choice="light"]').click()
         page.locator("#tab-btn-rules").click()
-        page.wait_for_selector('[data-plan-code="TEST-A"]')
-        page.locator('[data-plan-code="TEST-A"]').check()
         page.wait_for_selector('[data-plan-course="TEST-A"]')
-        assert page.evaluate("studyCalls.some(x=>x.course==='TEST-A' && x.duration===220)")
-        page.locator('[data-plan-code="TEST-B"]').check()
+        assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
         page.wait_for_selector('[data-plan-course="TEST-B"]')
         page.locator('[data-plan-course="TEST-A"] button').click()
         page.wait_for_selector('.plan-exit-ghost')
         assert page.locator('.plan-exit-ghost').first.evaluate("n=>n.inert && n.getAttribute('aria-hidden')==='true'")
+        assert page.evaluate("studyCalls.some(x=>x.course==='TEST-B' && x.duration===220)")
         assert "4 / 20" in page.locator('.course-status-summary > div:nth-child(2) strong').inner_text()
         page.wait_for_timeout(300)
         assert page.locator('.plan-exit-ghost').count() == 0

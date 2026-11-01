@@ -3,7 +3,41 @@
 Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
 `feat/vnu-curriculum-planning`, trên cơ chế tài khoản/phiên hiện hành của main.
 
-## Mặc định môn có thể học — 28/10/2026
+## Cập nhật bản đồ — 31/10/2026
+
+Theo yêu cầu mới của người dùng, quy tắc hiển thị bên dưới thay thế mặc định
+ngày 28/10 cho ba cột trên bản đồ:
+
+- Bỏ checkbox “Chọn cho kế hoạch kỳ tới” trên các thẻ học phần.
+- Ẩn mọi môn không tính vào tín chỉ tích lũy khỏi cả ba cột và số đếm/tìm kiếm.
+  Áp dụng cả cờ của môn và danh sách loại trừ của chương trình. Bảng điểm nguồn
+  và cách tính tín chỉ đã hoàn thành giữ nguyên.
+- Nếu mọi mệnh đề tiên quyết còn thiếu đều có một lựa chọn trong nhóm **Có thể
+  học**, đưa môn nối tiếp vào cùng nhóm, lặp đến khi không còn môn mới. Điều
+  kiện AND/OR được giữ nguyên; vòng lặp không có môn đầu vào không tự mở khóa.
+  Thẻ ghi rõ tiên quyết cần hoàn thành trước, không coi các môn đó là đã đạt.
+- Tiên quyết hiển thị dạng **mã môn: tên môn**, tên được in đậm, trong cả nhóm
+  Có thể học và Chưa thể học. Tra tên theo đúng catalog hiện tại kể cả khi môn
+  đó không hiện trong ba cột/tìm kiếm; hỗ trợ tên tiếng Anh nếu có. Mã ngoài
+  catalog chưa có tên vẫn giữ nguyên mã, không suy đoán hoặc tạo tên giả.
+- Các lý do chặn khác (nguồn/tiên quyết chưa rõ, hướng/nhánh, nhóm tự chọn đã
+  đủ tín chỉ) vẫn được giữ. Khóa kế hoạch toàn cục vẫn có hiệu lực.
+- Việc tạm dừng kế hoạch hoặc kết quả của chính môn còn chờ đối chiếu không
+  được đẩy môn đã thỏa tiên quyết sang nhóm đỏ. Khôi phục những môn này vào
+  nhóm vàng trước, rồi mới lan truyền sang các môn được chúng làm tiên quyết.
+  Chỉ khóa thao tác lập/lưu kế hoạch tương ứng; không coi môn là đã hoàn thành.
+
+`course_board_display()` chỉ chiếu kết quả cho `/me/course-status`; bộ phân loại
+gốc và các API eligibility/progress/recommendation vẫn dùng điểm đạt thực tế.
+Môn nối tiếp được đánh dấu `eligibility_basis=available_prerequisites`, có
+`prerequisite_clauses`. Môn chỉ bị chặn bởi đối chiếu kế hoạch có
+`eligibility_basis=completed_prerequisites`. Cả hai loại hiển thị bổ sung có
+`planning_eligible=false`, không tự được gợi ý hay chấp nhận lưu cùng kỳ khi
+điều kiện lập kế hoạch chưa đủ. Gợi ý mặc định 20 tín chỉ vẫn điều chỉnh được;
+phương án lưu sẵn tiếp tục mở, bỏ môn, lưu và xóa như trước. Môn bị ẩn không
+còn nằm trong gợi ý mới của bản đồ; không xóa nội dung phương án cũ trong DB.
+
+## Mặc định môn có thể học — 28/10/2026 (lịch sử)
 
 Theo yêu cầu người dùng, môn không có tiên quyết hoặc không tính vào tổng tín
 chỉ tích lũy/GPA được giữ ở nhóm **Có thể học kỳ tới** khi chưa xác định hoàn

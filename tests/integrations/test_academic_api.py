@@ -230,11 +230,21 @@ def test_course_board_returns_disjoint_states_from_verified_server_context(clien
             for key in ('completed', 'eligible', 'blocked')]
     assert sets[0] == {'PHI1006'}
     assert not sets[0] & sets[1] and not sets[0] & sets[2] and not sets[1] & sets[2]
-    assert len(set.union(*sets)) == 14
+    assert len(set.union(*sets)) == 13
+    assert all(course['counted_in_total'] for rows in data['courses'].values() for course in rows)
+    assert 'CME1000' not in set.union(*sets)
+    assert data['prerequisite_courses']['MAT2505'] == {
+        'name': 'Synthetic MAT2505', 'name_en': None}
     assert data['plan']['max_credits'] == 20
     assert data['plan']['suggested_credits'] <= 20
     assert set(data['plan']['course_codes']) <= sets[1]
     assert data['plan']['offering_status'] == 'unknown'
+    conditional = {course['code'] for course in data['courses']['eligible']
+                   if course['eligibility_basis'] == 'available_prerequisites'}
+    assert 'THESIS101' in conditional
+    assert not conditional & set(data['plan']['course_codes'])
+    strict = client.get('/me/eligibility?program_id=khdl&' + selections).json()
+    assert not conditional & {course['code'] for course in strict['eligible_courses']}
 
 
 def test_course_board_does_not_expose_colors_when_source_becomes_unready(client, ready_context):
@@ -273,7 +283,8 @@ def test_course_board_requires_track_and_path_before_suggesting_a_bundle(client,
     assert data['status'] == 'partial'
     assert data['can_plan'] is False
     assert {row['code'] for row in data['courses']['eligible']} == {
-        'MAT2505', 'PEC1008', 'MAT2400', 'CME1000', 'ELECT101', 'ELECT102'}
+        'MAT2505', 'PEC1008', 'MAT2400', 'ELECT101', 'ELECT102',
+        'AND101', 'MAT3399', 'THESIS101', 'THESIS102', 'OR101', 'CONFLICT101'}
     assert data['plan']['course_codes'] == []
     assert [course['code'] for course in data['courses']['completed']] == ['PHI1006']
     assert set(data['blocking_reasons']) == {
@@ -281,11 +292,11 @@ def test_course_board_requires_track_and_path_before_suggesting_a_bundle(client,
     assert data['selections']['tracks'][0]['id'] == 'synthetic_track'
 
 
-@pytest.mark.parametrize('code, available', [
-    ('MAT2505', True), ('CME1000', True), ('OR101', False),
+@pytest.mark.parametrize('code, available, plannable', [
+    ('MAT2505', True, True), ('CME1000', False, False), ('OR101', True, False),
 ])
-def test_pending_result_defaults_do_not_promote_completion_or_unlock_dependents(
-        client, ready_context, code, available):
+def test_pending_results_and_map_sequences_do_not_promote_completed_facts(
+        client, ready_context, code, available, plannable):
     from app.catalog import load_catalog
 
     course = next(course for course in load_catalog('khdl').courses if course.code == code)
@@ -298,9 +309,17 @@ def test_pending_result_defaults_do_not_promote_completion_or_unlock_dependents(
     assert result['can_plan'] is True
     assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
     assert (course.code in {row['code'] for row in result['courses']['eligible']}) is available
-    assert (course.code in result['plan']['course_codes']) is available
+    assert (course.code in result['plan']['course_codes']) is plannable
+    if code == 'OR101':
+        row = next(row for row in result['courses']['eligible'] if row['code'] == code)
+        assert row['eligibility_basis'] == 'completed_prerequisites'
+        assert row['result_pending'] is True
+        assert row['planning_eligible'] is False
     if code == 'MAT2505':
-        assert 'THESIS101' not in {row['code'] for row in result['courses']['eligible']}
+        following = next(row for row in result['courses']['eligible'] if row['code'] == 'THESIS101')
+        assert following['eligibility_basis'] == 'available_prerequisites'
+        assert following['prerequisite_clauses'] == [['MAT2505']]
+        assert 'THESIS101' not in result['plan']['course_codes']
     strict = client.get('/me/academic-context?program_id=khdl').json()
     assert strict['status'] == 'needs_policy_review'
     assert strict['completed_course_codes'] == []
@@ -319,6 +338,7 @@ def test_unmapped_result_pauses_bundle_but_preserves_independently_resolved_cour
     assert result['can_plan'] is False
     assert [row['code'] for row in result['courses']['completed']] == ['PHI1006']
     assert {row['code'] for row in result['courses']['eligible']} == {
-        'MAT2505', 'PEC1008', 'MAT2400', 'CME1000', 'ELECT101', 'ELECT102'}
+        'MAT2505', 'PEC1008', 'MAT2400', 'ELECT101', 'ELECT102',
+        'AND101', 'MAT3399', 'THESIS101', 'OR101', 'CONFLICT101'}
     assert result['plan']['course_codes'] == []
     assert result['review_items'][0]['code'] == 'UNMAPPED001'

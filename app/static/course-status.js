@@ -181,7 +181,9 @@
     chosen.forEach(code => {
       const course = known.get(code), row = el('li');
       row.dataset.planCourse = code;
-      const valid = board?.courses?.eligible?.some(item => item.code === code);
+      const valid = board?.courses?.eligible?.some(item => item.code === code
+        && item.planning_eligible !== false
+        && item.eligibility_basis !== 'available_prerequisites');
       row.append(el('span', `${code} · ${course?.name || ''} · ${credits(course?.credits || 0)}${valid ? '' : copy(' — Cần kiểm tra', ' — Needs review')}`));
       const remove = el('button', copy('Bỏ môn', 'Remove'), 'text-action'); remove.type = 'button'; remove.disabled = planBusy;
       remove.setAttribute('aria-label', `${copy('Bỏ', 'Remove')} ${code}`);
@@ -190,7 +192,7 @@
         chosen.delete(code); planDirty = true; render(); finishMotion?.();
       }; row.append(remove); selected.append(row);
     });
-    if (!chosen.size) selected.append(el('li', copy('Chưa chọn môn. Chọn môn đủ điều kiện ở phía dưới.', 'No courses selected. Choose eligible courses below.')));
+    if (!chosen.size) selected.append(el('li', copy('Chưa có môn trong phương án. Các môn được gợi ý theo mức tín chỉ và điều kiện đã hoàn thành.', 'No courses in this alternative. Suggestions use the credit budget and completed prerequisites.')));
     form.append(selected);
     const actions = el('div', undefined, 'portal-actions');
     const save = el('button', planBusy ? copy('Đang lưu…', 'Saving…') : copy('Kiểm tra và lưu phương án', 'Validate and save'), 'portal-button');
@@ -206,8 +208,8 @@
     return section;
   }
   const states = ['completed', 'eligible', 'blocked'];
-  const titles = () => [copy('Đã hoàn thành', 'Completed'), copy('Đủ điều kiện theo chương trình', 'Eligible under curriculum'), copy('Chưa thể học', 'Blocked')];
-  const subtitles = () => [copy('Đã đạt / được công nhận tín chỉ', 'Passed / credits recognized'), copy('Các điều kiện ghi nhận đã được đáp ứng', 'Recorded requirements are met'), copy('Xem điều kiện cần hoàn thành', 'See the requirements still unmet')];
+  const titles = () => [copy('Đã hoàn thành', 'Completed'), copy('Có thể học', 'Available to study'), copy('Chưa thể học', 'Blocked')];
+  const subtitles = () => [copy('Đã đạt / được công nhận tín chỉ', 'Passed / credits recognized'), copy('Môn có thể học và các môn nối tiếp theo tiên quyết', 'Available courses and their prerequisite sequences'), copy('Xem điều kiện cần hoàn thành', 'See the requirements still unmet')];
   const el = (tag, text, cls) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -233,10 +235,6 @@
   })[reason] || copy('Dữ liệu bảng điểm cần được kiểm tra thêm.', 'Transcript data needs further review.');
 
   function blockedReason(reason) {
-    if (reason.kind === 'missing_prerequisites') {
-      const clauses = reason.missing_prerequisites.map(group => group.join(copy(' hoặc ', ' or ')));
-      return copy('Chưa đạt môn tiên quyết: ', 'Missing prerequisite: ') + clauses.map(value => `(${value})`).join(copy(' và ', ' and '));
-    }
     return ({
       choice_group_full: copy('Nhóm tự chọn đã đủ tín chỉ yêu cầu.', 'The elective group credit requirement is already fulfilled.'),
       prerequisite_unknown: copy('Chưa xác minh được điều kiện tiên quyết.', 'Prerequisites have not been verified.'),
@@ -249,31 +247,29 @@
     })[reason.kind] || copy('Cần kiểm tra điều kiện môn học.', 'Course requirements need review.');
   }
 
+  function prerequisiteLabels(clauses, courseLookup) {
+    const fragment = document.createDocumentFragment();
+    clauses.forEach((group, clauseIndex) => {
+      if (clauseIndex) fragment.append(copy(' và ', ' and '));
+      fragment.append('(');
+      group.forEach((code, index) => {
+        if (index) fragment.append(copy(' hoặc ', ' or '));
+        const course = courseLookup.get(code);
+        const name = window.workspaceI18n.language === 'en' && course?.name_en
+          ? course.name_en : course?.name;
+        if (name) fragment.append(`${code}: `, el('strong', name));
+        else fragment.append(code);
+      });
+      fragment.append(')');
+    });
+    return fragment;
+  }
+
   function planCredits() {
     return (board?.courses?.eligible || []).filter(course => chosen.has(course.code)).reduce((sum, course) => sum + course.credits, 0);
   }
 
-  function updatePlan(course, checked) {
-    if (board?.can_plan === false || planBusy || loading || failed) return;
-    const finishMotion = window.workspaceMotion?.capturePlan(root);
-    planError = ''; planDirty = true;
-    if (!checked) chosen.delete(course.code);
-    else {
-      const courses = board.courses.eligible.filter(item => chosen.has(item.code));
-      const remaining = course.groups.filter(group => group.required_credits !== null);
-      if (planCredits() + course.credits > budget) planError = copy('Lựa chọn này vượt mức tín chỉ kỳ tới. Hãy bỏ bớt môn hoặc tăng mức tín chỉ.', 'This selection exceeds the term budget. Remove a course or increase the credit budget.');
-      else if (remaining.length && remaining.every(group => group.earned_credits + courses.filter(item => item.groups.some(value => value.id === group.id)).reduce((sum, item) => sum + item.credits, 0) >= group.required_credits)) {
-        planError = copy('Các môn đã chọn đủ yêu cầu của nhóm tự chọn này.', 'Your selected courses already fulfill this elective group requirement.');
-      } else chosen.add(course.code);
-    }
-    render();
-    finishMotion?.();
-    root.querySelectorAll('input[data-plan-code]').forEach(input => {
-      if (input.dataset.planCode === course.code) input.focus();
-    });
-  }
-
-  function card(course, state) {
+  function card(course, state, courseLookup) {
     const node = el('article', undefined, 'course-status-card');
     node.dataset.courseCode = course.code;
     const courseName = window.workspaceI18n.language === 'en' && course.name_en ? course.name_en : course.name;
@@ -283,29 +279,34 @@
     meta.append(el('span', credits(course.credits), 'course-status-badge'), el('span', labels[course.requirement_type] || '', 'course-status-badge'));
     node.append(meta);
     const reasons = el('ul', undefined, 'course-status-reasons');
-    if (!course.counted_in_total) reasons.append(el('li', copy('Không tính vào tổng tín chỉ tích lũy của chương trình.', 'Excluded from the program credit total.')));
-    if (state === 'blocked') course.reasons.forEach(reason => reasons.append(el('li', blockedReason(reason))));
+    if (state === 'blocked') course.reasons.forEach(reason => {
+      const item = el('li');
+      if (reason.kind === 'missing_prerequisites') {
+        item.append(copy('Chưa đạt môn tiên quyết: ', 'Missing prerequisite: '),
+          prerequisiteLabels(reason.missing_prerequisites, courseLookup));
+      } else item.textContent = blockedReason(reason);
+      reasons.append(item);
+    });
     if (state === 'eligible') {
       const basis = course.eligibility_basis;
-      reasons.append(el('li', basis === 'excluded_from_total'
-        ? copy('Có thể học theo mặc định: môn không tính vào tín chỉ tích lũy.', 'Available by default: excluded from earned program credits.')
-        : basis === 'no_prerequisites'
+      const availability = el('li');
+      if (basis === 'available_prerequisites') {
+        availability.append(copy('Tiên quyết nằm trong nhóm Có thể học: ', 'Prerequisites are in Available to study: '),
+          prerequisiteLabels(course.prerequisite_clauses || [], courseLookup),
+          copy('. Cần hoàn thành các môn tiên quyết trước khi học môn này.', '. Complete those prerequisites before taking this course.'));
+      } else availability.textContent = basis === 'no_prerequisites'
           ? copy('Có thể học theo mặc định: môn không có điều kiện tiên quyết.', 'Available by default: this course has no prerequisites.')
           : basis === 'requested_default'
             ? copy('Có thể học theo mặc định đã chọn; điều kiện tiên quyết đã thỏa.', 'Available under the selected default; prerequisites are satisfied.')
-          : copy('Đã thỏa điều kiện tiên quyết trong chương trình.', 'Catalog prerequisites are satisfied.')));
+          : copy('Đã thỏa điều kiện tiên quyết trong chương trình.', 'Catalog prerequisites are satisfied.');
+      reasons.append(availability);
       if (course.result_pending) reasons.append(el('li', copy('Kết quả môn này còn chờ đối chiếu; chưa tính là đã hoàn thành.', 'This result still needs review; the course is not counted as completed.')));
       course.groups.filter(group => group.remaining_credits > 0).forEach(group => {
         const item = el('li');
         item.append(el('span', group.name, 'source-profile-value'), document.createTextNode(`: ${copy('còn thiếu', 'remaining')} ${credits(group.remaining_credits)}`));
         reasons.append(item);
       });
-      const label = el('label', undefined, 'course-status-check');
-      const input = el('input'); input.type = 'checkbox'; input.disabled = planBusy || loading || failed || board?.can_plan === false; input.checked = chosen.has(course.code); input.dataset.planCode = course.code;
-      input.setAttribute('aria-label', copy(`Chọn ${course.code} - ${course.name} cho kế hoạch kỳ tới`, `Select ${course.code} - ${courseName} for the next-term plan`));
-      input.addEventListener('change', () => updatePlan(course, input.checked));
-      label.append(input, el('span', copy('Chọn cho kế hoạch kỳ tới', 'Select for next term')));
-      node.append(reasons, label);
+      node.append(reasons);
     } else if (reasons.childElementCount) node.append(reasons);
     return node;
   }
@@ -315,22 +316,30 @@
       .toLocaleLowerCase().includes(search.toLocaleLowerCase());
   }
 
+  function visibleCourses(state) {
+    return board?.courses?.[state]?.filter(course => course.counted_in_total !== false);
+  }
+
   function searchResultCount() {
-    return states.reduce((total, state) => total + (board?.courses?.[state] || []).filter(matchesSearch).length, 0);
+    return states.reduce((total, state) => total + (visibleCourses(state) || []).filter(matchesSearch).length, 0);
   }
 
   function renderColumns() {
     const columns = el('div', undefined, 'course-status-columns');
+    const courseLookup = new Map(Object.entries(board?.prerequisite_courses || {}));
+    states.forEach(state => (board?.courses?.[state] || []).forEach(course => {
+      if (!courseLookup.has(course.code)) courseLookup.set(course.code, course);
+    }));
     states.forEach((state, index) => {
       const section = el('section', undefined, `course-status-column course-state-${state}`);
       const header = el('header');
       const heading = el('h3', titles()[index]);
-      const courses = board?.courses?.[state];
+      const courses = visibleCourses(state);
       heading.append(el('span', courses ? String(courses.length) : '—'));
       header.append(heading, el('p', subtitles()[index]));
       const list = el('div', undefined, 'course-status-list');
       const matching = (courses || []).filter(matchesSearch);
-      matching.forEach(course => list.append(card(course, state)));
+      matching.forEach(course => list.append(card(course, state, courseLookup)));
       if (!matching.length) {
         const pending = board?.blocking_reasons?.includes('source_incomplete')
           ? copy('Chưa phân loại: lần lấy bảng điểm chưa được xác minh đầy đủ.', 'Not classified: transcript collection is not verified complete.')
@@ -457,7 +466,7 @@
     const ready = !failed && (board?.status === 'ready' || (board?.status === 'partial' && board.can_plan));
     if (!ready || loading || failed || board?.status === 'partial') {
       const notice = el('div', undefined, 'course-status-notice'); notice.setAttribute('role', 'status');
-      notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.preview_only ? copy('Đây là bản xem trước theo bảng điểm và khung hiện có. Thông tin khung hoặc môn học chưa xác minh nên chưa thể lập kế hoạch; kết quả đang chờ đối chiếu không mở khóa môn khác.', 'This preview uses the current transcript and curriculum data. Unverified curriculum or course details prevent planning; unresolved outcomes do not unlock other courses.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Môn không có tiên quyết hoặc không tính tín chỉ tích lũy được hiển thị có thể học theo mặc định. Kết quả chưa rõ chưa được tính là hoàn thành để mở khóa môn khác.', 'Reviewed results are shown. Courses without prerequisites or excluded from earned credits remain available by default. Unresolved results do not count as completed or unlock other courses.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
+      notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.preview_only ? copy('Đây là bản xem trước theo bảng điểm và khung hiện có. Thông tin khung hoặc môn học chưa xác minh nên chưa thể lập kế hoạch. Môn nối tiếp vẫn cần hoàn thành tiên quyết trước khi học.', 'This preview uses the current transcript and curriculum data. Unverified curriculum or course details prevent planning. Complete prerequisites before taking follow-up courses.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Chỉ hiển thị môn tính tín chỉ tích lũy. Các môn nối tiếp trong nhóm Có thể học vẫn cần hoàn thành tiên quyết trước; kết quả chưa rõ không được tính là đã hoàn thành.', 'Reviewed results are shown. Only courses counting toward earned credits are shown. Available prerequisite sequences still require completing prerequisites first; unresolved results do not count as completed.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
       if (source && !loading) {
         const reasons = board?.blocking_reasons || ['program_binding_unverified', ...(source.snapshot?.completeness !== 'complete' ? ['source_incomplete'] : [])];
         const list = el('ul'); [...new Set(reasons.map(reasonText))].forEach(text => list.append(el('li', text))); notice.append(list);
@@ -526,14 +535,14 @@
       const progress = board.progress.total;
       const done = el('div'); done.append(el('p', board.preview_only ? copy('Tín chỉ tạm tính theo dữ liệu chưa xác minh', 'Estimated credits from unverified data') : board.progress_is_lower_bound ? copy('Tín chỉ đạt đã đối chiếu (tối thiểu)', 'Reviewed earned credits (minimum)') : copy('Tín chỉ tích lũy trong chương trình', 'Earned program credits')), el('strong', `${progress.earned_credits} / ${progress.required_credits} ${copy('TC', 'credits')}`));
       const bar = el('progress'); bar.max = progress.required_credits; bar.value = Math.min(progress.earned_credits, bar.max); bar.setAttribute('aria-label', copy('Tiến độ tín chỉ', 'Credit progress')); done.append(bar, el('p', `${copy('Còn thiếu', 'Remaining')}: ${credits(progress.remaining_credits)}`));
-      const plan = el('div'); plan.append(el('p', board.preview_only ? copy('Kế hoạch kỳ tới đang tạm dừng', 'Next-term planning is paused') : copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', board.preview_only ? copy('Mở lại kế hoạch sau khi khung và thông tin môn học được xác minh.', 'Planning will resume after the curriculum and course details are verified.') : copy('Ưu tiên môn bắt buộc; tự chọn theo nhóm tín chỉ còn thiếu. Bạn có thể thay đổi các môn đã chọn.', 'Required courses come first, then electives in unfulfilled credit groups. You can change the selected courses.')));
+      const plan = el('div'); plan.append(el('p', board.preview_only ? copy('Kế hoạch kỳ tới đang tạm dừng', 'Next-term planning is paused') : copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', board.preview_only ? copy('Mở lại kế hoạch sau khi khung và thông tin môn học được xác minh.', 'Planning will resume after the curriculum and course details are verified.') : copy('Ưu tiên môn bắt buộc và nhóm tín chỉ còn thiếu; chỉ gợi ý môn có tiên quyết đã hoàn thành. Có thể bỏ bớt môn trong phương án bên dưới.', 'Required courses and unfulfilled credit groups come first; suggestions require completed prerequisites. Remove courses from the alternative below.')));
       summary.append(done, plan); root.append(summary);
       const breakdown = renderProgressBreakdown(board.progress);
       if (breakdown) root.append(breakdown);
     }
     if (source) root.append(renderSavedPlans(ready));
     const error = el('p', planError, 'course-plan-error'); error.setAttribute('role', 'status'); root.append(error, renderColumns());
-    root.append(el('p', board?.preview_only ? copy('Màu trong bản xem trước phản ánh dữ liệu hiện có, chưa xác nhận điều kiện học chính thức. Không dùng kết quả này để đăng ký môn; hãy xác nhận khung và quy định với nhà trường.', 'Preview colors reflect the available data and do not confirm official eligibility. Do not use this result to register; confirm the curriculum and rules with the university.') : copy('Màu vàng cho biết có thể học theo điều kiện chương trình hoặc quy tắc mặc định ghi trên môn; chưa xác nhận môn sẽ mở kỳ tới. Tổng tín chỉ và lựa chọn là kế hoạch tham khảo; cần đối chiếu quy định của nhà trường.', 'Yellow means availability under catalog requirements or the default rule shown on the course; it does not confirm next-term course availability. Credit totals and selections are an advisory plan; confirm official requirements with the university.'), 'course-status-note'));
+    root.append(el('p', board?.preview_only ? copy('Màu trong bản xem trước phản ánh dữ liệu hiện có, chưa xác nhận điều kiện học chính thức. Không dùng kết quả này để đăng ký môn; hãy xác nhận khung và quy định với nhà trường.', 'Preview colors reflect the available data and do not confirm official eligibility. Do not use this result to register; confirm the curriculum and rules with the university.') : copy('Màu vàng gồm môn có thể học và các môn nối tiếp khi tiên quyết nằm trong cùng nhóm. Vẫn cần hoàn thành tiên quyết trước khi học môn nối tiếp; chưa xác nhận lịch mở lớp.', 'Yellow includes available courses and sequences whose prerequisites are in this group. Complete prerequisites before taking follow-up courses; course offerings are not confirmed.'), 'course-status-note'));
   }
 
   async function load(focusKey = null) {

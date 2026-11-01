@@ -6,7 +6,12 @@ import pytest
 
 from app.academic_context import AcademicContextError
 from app.models import Catalog, ChoiceGroup, Course, Program
-from app.services.course_status_service import course_board, reviewed_course_board
+from app.services.course_status_service import (
+    course_board,
+    course_board_display,
+    reviewed_course_board,
+    validate_plan_courses,
+)
 
 
 @pytest.fixture
@@ -176,3 +181,148 @@ def test_explicit_internship_default_still_requires_completed_prerequisites(
     else:
         assert row["reasons"][0]["missing_prerequisites"] == [["B"]]
     assert board["progress"]["total"]["earned_credits"] == 3
+
+
+@pytest.mark.parametrize("state", ["completed", "eligible", "blocked"])
+@pytest.mark.parametrize("exclusion", ["course", "program"])
+def test_map_hides_excluded_courses_from_every_column(curriculum, state, exclusion):
+    excluded = next(course for course in curriculum.courses if course.code == "X")
+    if exclusion == "program":
+        excluded.counted_in_total = True
+        curriculum.program.excluded_from_total = ["X"]
+    if state == "blocked":
+        excluded.prerequisites = [["D"]]
+    board = course_board(curriculum, context("A", *(["X"] if state == "completed" else [])))
+    assert "X" in {row["code"] for row in board["courses"][state]}
+    before = copy.deepcopy(board)
+    view = course_board_display(board)
+    assert all(row["counted_in_total"] and row["code"] != "X"
+               for courses in view["courses"].values() for row in courses)
+    assert "X" not in view["plan"]["course_codes"]
+    assert view["progress"] == board["progress"]
+    assert view["progress"]["total"]["earned_credits"] == 3
+    assert board == before
+
+
+def test_map_follows_available_prerequisite_chains_without_completing_or_planning_them(curriculum):
+    curriculum.courses.append(Course(
+        code="CHAIN", name="Synthetic follow-up", credits=3, block="major",
+        prerequisites=[["C"]], prerequisite_status="verified", source_status="verified"))
+    board = course_board(curriculum, context("A"))
+    before = copy.deepcopy(board)
+    view = course_board_display(board)
+    available = {row["code"]: row for row in view["courses"]["eligible"]}
+    assert {"B", "C", "CHAIN"} <= available.keys()
+    assert available["C"]["eligibility_basis"] == "available_prerequisites"
+    assert available["C"]["prerequisite_clauses"] == [["B"]]
+    assert available["CHAIN"]["prerequisite_clauses"] == [["C"]]
+    assert available["C"]["suggested"] is False
+    assert [row["code"] for row in view["courses"]["completed"]] == ["A"]
+    assert view["progress"]["total"]["earned_credits"] == 3
+    assert view["plan"]["course_codes"] == ["B", "E1"]
+    assert view["plan"]["suggested_credits"] == 6
+    for candidate in (board, view):
+        with pytest.raises(AcademicContextError, match="course_unavailable"):
+            validate_plan_courses(candidate, ["B", "C"], 20)
+    assert board == before
+    assert course_board_display(view) == view
+
+
+def test_map_requires_every_and_clause_but_accepts_either_or_alternative(curriculum):
+    for code, prerequisites in (
+        ("OR", [["D", "B"]]), ("AND", [["B"], ["D"]]),
+        ("FOREIGN", [["OUTSIDE"]]), ("LOOP1", [["LOOP2"]]),
+        ("LOOP2", [["LOOP1"]]), ("SELF", [["SELF"]]),
+    ):
+        curriculum.courses.append(Course(
+            code=code, name=code, credits=3, block="major", prerequisites=prerequisites,
+            prerequisite_status="verified", source_status="verified"))
+    view = course_board_display(course_board(curriculum, context("A")))
+    assert "OR" in {row["code"] for row in view["courses"]["eligible"]}
+    assert {"AND", "FOREIGN", "LOOP1", "LOOP2", "SELF", "D"} <= {
+        row["code"] for row in view["courses"]["blocked"]}
+
+
+@pytest.mark.parametrize("blocker", ["source", "unknown", "conflict", "quota", "catalog"])
+def test_map_does_not_override_other_blocking_rules(curriculum, blocker):
+    dependent = next(course for course in curriculum.courses if course.code == "C")
+    passed = ["A"]
+    if blocker == "source":
+        dependent.source_status = "draft_unverified"
+    elif blocker in {"unknown", "conflict"}:
+        dependent.prerequisite_status = blocker
+    elif blocker == "quota":
+        dependent.choice_group_ids = ["choice"]
+        passed.append("E1")
+    else:
+        curriculum.program.catalog_status = "draft_unverified"
+    view = course_board_display(course_board(curriculum, context(*passed)))
+    assert "C" in {row["code"] for row in view["courses"]["blocked"]}
+
+
+def test_map_hiding_excluded_default_does_not_seed_its_dependents(curriculum):
+    curriculum.courses.append(Course(
+        code="FOLLOWX", name="After excluded course", credits=3, block="major",
+        prerequisites=[["X"]], prerequisite_status="verified", source_status="verified"))
+    view = course_board_display(course_board(curriculum, context("A")))
+    assert "FOLLOWX" in {row["code"] for row in view["courses"]["blocked"]}
+    completed = course_board_display(course_board(curriculum, context("A", "X")))
+    assert "FOLLOWX" in {row["code"] for row in completed["courses"]["eligible"]}
+
+
+def test_map_pending_results_and_global_pause_remain_separate_from_reachability(curriculum):
+    curriculum.courses.append(Course(
+        code="FOLLOW", name="After available elective", credits=3, block="major",
+        prerequisites=[["E1"]], prerequisite_status="verified", source_status="verified"))
+    pending = pending_context()
+    pending["outcomes"].append({"code": "FOLLOW", "state": "unresolved"})
+    before = copy.deepcopy(pending)
+    board = reviewed_course_board(curriculum, pending,
+                                 selection_blockers=["graduation_selection_required"])
+    view = course_board_display(board)
+    available = {row["code"]: row for row in view["courses"]["eligible"]}
+    assert available["FOLLOW"]["eligibility_basis"] == "available_prerequisites"
+    assert available["FOLLOW"]["result_pending"] is True
+    assert available["B"]["eligibility_basis"] == "completed_prerequisites"
+    assert available["B"]["result_pending"] is True
+    assert available["C"]["eligibility_basis"] == "available_prerequisites"
+    assert view["can_plan"] is False
+    assert view["plan"]["course_codes"] == []
+    assert not any(row["suggested"] for row in available.values())
+    assert pending == before
+
+
+@pytest.mark.parametrize("gate", ["selection", "outside", "program", "metadata", "pending"])
+def test_planning_review_never_shrinks_the_available_prerequisite_sequence(curriculum, gate):
+    ready = course_board_display(course_board(curriculum, context("A")))
+    pending = pending_context(outside=gate == "outside")
+    if gate == "program":
+        curriculum.program.planning_blockers = ["synthetic-rule-review"]
+    elif gate == "metadata":
+        curriculum.program.catalog_status = "draft_unverified"
+        pending["blocking_reasons"].append("catalog_unverified")
+    before = copy.deepcopy(pending)
+    board = reviewed_course_board(curriculum, pending,
+        selection_blockers=["graduation_selection_required"] if gate == "selection" else None)
+    view = course_board_display(board)
+    available = {row["code"]: row for row in view["courses"]["eligible"]}
+    assert set(available) == {row["code"] for row in ready["courses"]["eligible"]}
+    assert {"B", "C"} <= available.keys()
+    assert available["B"]["eligibility_basis"] == "completed_prerequisites"
+    assert available["B"]["planning_eligible"] is False
+    assert available["C"]["prerequisite_clauses"] == [["B"]]
+    assert available["C"]["planning_eligible"] is False
+    assert {row["code"] for row in view["courses"]["blocked"]} == {"D"}
+    assert view["courses"]["completed"] == ready["courses"]["completed"]
+    assert view["progress"]["total"]["earned_credits"] == 3
+    assert not {"B", "C", "X"} & set(view["plan"]["course_codes"])
+    assert course_board_display(view) == view
+    if gate == "pending":
+        assert view["can_plan"] is True
+        for code in ("B", "C"):
+            with pytest.raises(AcademicContextError, match="course_unavailable"):
+                validate_plan_courses(view, [code], 20)
+    else:
+        assert view["can_plan"] is False
+        assert view["plan"]["course_codes"] == []
+    assert pending == before
