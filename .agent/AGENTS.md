@@ -1,5 +1,90 @@
 # Project Memory and Contributor Guidelines
 
+## Publication authorized — 2026-11-01: current course map and planning UI
+
+User explicitly requests many meaningful commits and publishing the current
+version into main. This authorizes the existing scoped source/tests/docs/memory
+edits, superseding their local-only notes below for this publication. Use the
+current integration branch, GitHub PR and Create a merge commit; retain original
+source/team ancestry. Do not include .vscode, previews, backups or configuration.
+
+Current UI keeps completed/available/blocked columns and search in Điều kiện học;
+planning controls, progress and saved alternatives are in Gợi ý kỳ tới. Removed
+the generic unresolved-results map sentence because a planning-only pause also
+set progress_is_lower_bound. Actual course facts and validation are unchanged.
+
+Publication preflight: 621 offline/PDF cases passed, 80 DB cases deselected;
+three current Chrome regressions passed (map, saved plans, VNU-only). Previous
+80-case disposable PostgreSQL and study-desk evidence is recorded below; no new
+runtime DB changes or restart requested. Ruff, JS syntax and diff checks passed.
+Remote main was fetched at 94b7d05; no divergence requiring conflict resolution.
+This is an authorization/preparation note. Verify PR, CI, merge and final remote
+hashes from Git/GitHub and the ignored publication receipt, not this checkpoint.
+
+## Local UI refinement — 2026-11-01: map and planning tabs separated
+
+User tested the local integration and requested that Điều kiện học contain
+only completed/available/blocked courses and search. Moved saved semester plans,
+track/graduation-path and credit-budget controls, progress summaries and source
+review/confirmation panels into Gợi ý kỳ tới. Removed the framed transcript and
+planning notices from the course map; retain short source/error/preview status
+when necessary. Both views share the existing source, draft and validated APIs.
+Direct #recommend loading, navigation/focus, plan motion, logout cleanup and
+sessionStorage remain functional. Existing source data and catalog rules unchanged.
+
+Updated course-status.js, index.html and the affected docs/browser regressions.
+Four synthetic Chrome suites passed: course status, saved plans, VNU-only UI and
+study desk. Ruff, JS syntax and diff checks passed. Static files are served live
+on port 8000 with content-based script versioning; no restart, VNU credentials,
+personal-record inspection, DB operation or new commit/push in this UI refinement.
+Keep the source/docs/test edits and prior dirty files local. Prior integration
+HEAD remains b13181b. Refresh the page to see the new layout.
+
+## Local integration completed — 2026-11-01: VNU curriculum planning
+
+User requested reviewing feat/vnu-curriculum-planning, integrating it into the
+current local system if sound, making meaningful commits and reporting percent
+progress. Reviewed fetched source fba94de5893a108246555a48d8b8ea767767fc08;
+preserved all 13 original source commits/authors and the previous local HEAD
+5d60a38. Root now runs integration/vnu-curriculum-planning-20261101 at b13181b.
+Seven new local commits cover two ancestry-preserving merges, three scoped
+fixes/features and two documentation changes. No push, GitHub PR/main update,
+squash, rebase, source-branch change or manufactured authorship occurred.
+
+Fixed a reproduced budget bug: hidden excluded-credit courses consumed the
+suggestion budget before filtering. Recompute suggestions from visible,
+planning-eligible rows, retaining quota, budget and global gates. Added Restore
+suggestions for the draft after per-card checkboxes were removed; it does not
+write saved plans. Semantic merge of the older local academic commit re-added
+review lookup before identity validation; removed that duplicate to retain
+PR #22's repaired builder behavior. View-only prerequisite chains remain barred
+from same-term plan selection; no academic facts or catalog approvals changed.
+
+Verification: source baseline 609 offline passed/90 deselected. Integrated
+offline including existing PDF acceptance: 621 passed/80 deselected. All 80
+PostgreSQL tests passed on a separate disposable PostgreSQL 16 container at
+127.0.0.1:55441, which was then stopped/removed. Three synthetic Chrome suites,
+Ruff, JS syntax, analytics and both catalog builder checks passed. Root board
+and saved-plan Chrome suites passed again after activation. Existing Starlette/
+httpx warning remains; use PYTHONUTF8=1 for subprocess encoding on Windows.
+
+Existing index.html notice edit is restored byte-for-byte; .vscode and previews
+remain unchanged/untracked. This memory retains both source notes and the entire
+preceding local memory. Config and HUS v3 payload hashes are unchanged. Original
+tracked edits are also retained in stash 7ea5214e1233e08cc7c0a01e7448df05234ca1fa;
+do not pop it onto the already restored workspace. Do not commit old dirty work
+implicitly. Report: docs/VNU_CURRICULUM_PLANNING_REVIEW_2026_11_01.md.
+
+Docker/app were initially stopped. Started Docker Desktop and existing se_hus_db
+with its volume; no runtime migration, seed or catalog publication. Started root
+tools.run_local hidden after successful public VNU form probe without credentials.
+Launcher PID 28328, server PID 26772 are launch-time records; verify identity
+before stopping. App remains at http://127.0.0.1:8000. Homepage/health/ready pass
+with PostgreSQL; all 20 served assets match disk; anonymous map/plans return 401.
+No real VNU login, personal-record inspection or model call. Detailed receipts,
+JUnit, original files and runtime logs: backups/curriculum_planning_review_20261101/.
+HUS v3/RAG remains separately prepared and is not integrated by this work.
+
 ## Publication target corrected by user — 2026-10-31
 
 User explicitly requests removing the just-created course-map branch and
@@ -147,6 +232,308 @@ matched before/after. Restore-check DB removed; recovery evidence retained at
 backups/local_runtime/restart_main_20261031_ccfaf22d67/. Existing .env and volume
 were preserved; no seed or catalog publication. Current map task needs no schema
 or data changes. Code, tests, docs and this checkpoint remain UNCOMMITTED.
+
+## Session close - 2026-10-31: team assignments and local system relaunched
+
+The user now requests session close and memory update only. This close-out
+changes only this already-dirty root memory file locally. Do not resume backend,
+RAG, admin, UI, algorithm work, tests, runtime operations or publication as part
+of closing. No commit/push/PR/merge is requested.
+
+The user clarified two target product flows: (1) LLM extracts structured features,
+an algorithm scores/ranks eligible courses, then LLM explains the calculated
+result; (2) RAG retrieves existing HUS evidence and LLM produces grounded answers
+with citations and generated-content disclosure. Eligibility remains deterministic
+and precedes ranking. A normalized fit score is not a calibrated probability.
+This clarification describes the intended architecture, not completed delivery.
+
+Final team assignments explicitly confirmed by the user and their screenshots:
+- Vinh: recommendation chat UI and guided collection of student preferences,
+  including direction, desired load, graduation path and target completion term.
+- Trung: LLM extraction of structured features from student messages.
+- Tai: HUS RAG retrieval/answering, citations to PDF/web sources and clear labels
+  for AI-generated references. The screenshots confirm assignment; no teammate
+  RAG implementation, deployed index or end-to-end delivery was verified here.
+- Thang: complete the admin flow. The user explicitly chose this assignment;
+  do not redirect him to tester work or the user's ranking/explanation tasks.
+- The user: ranking/scoring algorithm and recommendation explanations.
+
+A backend task for academic goals/effective constraints was proposed but NOT
+assigned or implemented. It would reconcile form selections with extracted
+preferences, expose validation/conflicts, reuse existing academic context,
+progress and eligibility, and pass versioned inputs to the user's algorithm.
+Treat a target graduation term as a goal, not a supported promise of completion.
+No inferred assignment or permission to implement follows from that suggestion.
+
+Read-only code audit found these current gaps: recommendation_service can use
+LLMRanker directly; scoring.py provides a deterministic weighted keyword baseline;
+explanation.py currently produces templates rather than an LLM prose step.
+Extracted target_credits/target_course_count do not drive selection limits yet;
+selection uses request.max_credits/request.limit. AcademicOperation has no target
+graduation-term fields. The active recommendation tab only shows readiness and
+a link to the VNU profile. /me/recommendations/what-if explicitly returns 409
+academic_baseline_not_available. Existing semester-plan CRUD, source/binding,
+progress and eligibility should be reused rather than assigned as missing work.
+Plan comparison was another proposed extension, not a delivered feature.
+The 17/10 checklist and many module/spec status sections are stale; prefer latest
+memory plus code evidence. This audit did not run tests or change source code.
+
+Earlier in this session the user explicitly requested running the local system.
+Docker Desktop was stopped; started it in an approved execution context, then
+started the existing se_hus_db container with its existing volume. PostgreSQL
+ai07 on 127.0.0.1:5433 accepted connections. The public VNU form probe succeeded
+outside the sandbox without credentials. Started the root venv with
+python -X utf8 -m tools.run_local as a hidden background process at
+http://127.0.0.1:8000. Launcher PID 25588; server PID 24320. Verify current
+process identity before any later stop; these are launch-time records.
+Homepage returned HTTP 200; /health and /ready returned ok, storage postgres.
+Logs: backups/runtime_launch_20261031/app-5220ead6.stdout.log and .stderr.log.
+No migration, seed/catalog publication, config/credential change, real VNU login
+or personal-record inspection occurred. The app was left running; no further
+restart or live checks were performed during this memory-only close-out.
+
+Root remains feat/login-redesign-20261031 at 5d60a38, one commit ahead of its
+remote-tracking branch. Preserve modified app/static/index.html, the existing
+memory changes, and untracked .vscode/ and previews/. No branch/main update or
+GitHub operation occurred. HUS v3 remains the separately published data release
+recorded below; do not describe it or the teammate's RAG as integrated here.
+Keep this memory update local until publication is explicitly requested.
+
+## Session close — 2026-10-31: HUS data v3 published; RAG is the next phase
+
+The user requests session close and a memory update only. This close-out changes
+only this already-dirty root memory file locally; no further implementation,
+tests, commit/push, PR/merge, runtime/database work or app restart is requested.
+
+The completed data work is published as a543cf8d1fac273db41a65a14fb7ae0a05b2d965 on
+origin/feat/hus-data-ready-20261031. Source clone:
+`D:/SE_Project/backups/hus_data_ready_20261031/source`. No PR was created and no
+merge into main occurred. The publication receipt records remote verification;
+remote CI after this push has not been verified. Do not describe the feature
+branch's old app as integrated into the current VNU/auth/UI runtime.
+
+For the next session, start with
+`backups/hus_data_ready_20261031/START_HERE.md` and the published
+`data/hus/rag/CURRENT.json`, pointing to releases/hus-data-20261031-v3.
+The user's IDE currently has this release's chunks.jsonl open. It contains
+1,271 chunks: F1 65, F2 336, F3 870; index the unified file once, not alongside
+its family copies or historical releases. The v3 data/reader kit and source ZIPs
+remain under backups; GitHub contains the actual v3 files and supporting code.
+
+The user asked whether this is sufficient for RAG. Answered yes for building and
+testing descriptive/source-cited HUS Q&A with optional disclosed generated F3.
+This is readiness for the next phase, not authorization to implement it during
+close-out and not evidence of a production chatbot. Next work is retrieval with
+major/program/cohort/version filters, grounding/citations and end-to-end answer
+evaluation; no embedding/index/LLM answering path has been deployed yet.
+F3 generation requires explicit opt-in; its official syllabus/assessment fields
+stay unknown. Keep the 67-course KHMTTT user sign-off, three unsigned catalogs,
+unresolved prerequisites/conflicts and 37 out-of-default-F1 historical source
+gaps distinct. Never fill official academic facts by generating them.
+
+Verified evidence remains 581 offline passed / 26 deselected without warnings,
+40 staged-snapshot release tests, byte-identical v3 and 19-file recovery replay,
+1,466 scoped lookups, 24 negatives and five critical cases. No new tests ran at
+session close. Root checkout remains on feat/login-redesign-20261031 at 5d60a38;
+its existing index.html edit and untracked .vscode/previews are preserved.
+Keep this close-out memory local until another publication request.
+
+## HUS data committed and pushed — 2026-10-31
+
+The user explicitly requested commit and GitHub push of the completed HUS data.
+Committed 100 scoped files in the isolated data clone as
+`a543cf8d1fac273db41a65a14fb7ae0a05b2d965`
+(`feat(hus): prepare reviewed portable data release v3`) using the existing
+configured author identity. Pushed and verified remote
+`feat/hus-data-ready-20261031` at that exact hash:
+https://github.com/5-Bit-System/SE_Project/tree/feat/hus-data-ready-20261031.
+The original crawldata 312a6e1 is its parent; remote crawldata remains 312a6e1
+and main remains 94b7d05. No main push, PR creation or merge occurred.
+
+Publication includes only release v3, its canonical/recovery inputs, source PDFs,
+data adapter/build/review tools, tests and documentation. Internal v1/v2 builds
+remain untracked locally; ZIPs/backups/configurations stay outside Git. The exact
+staged-tree export reproduced v3 and passed all 40 release tests before commit.
+Credential-pattern and size checks passed. Code/metadata diff checks passed with
+byte-preserved source HTML exempted from whitespace normalization. The prior
+581-pass offline result remains valid; no new remote CI success is claimed.
+
+Source clone tracks origin/feat/hus-data-ready-20261031 with no tracked changes;
+only its v1/v2 review releases are untracked. Root remains on the existing login
+branch with its prior dirty/untracked files; only this local memory is updated.
+Runtime/database/credentials were not changed. Publication receipt is in
+`backups/hus_data_ready_20261031/PUBLICATION_RESULT.json`. The older data handoff
+below records the pre-publication state and is superseded for Git delivery only.
+
+## HUS data prepared and reviewed — 2026-10-31
+
+The user explicitly requested planning, implementation, full data review and
+generated supplementation while they sleep, so they can start the next HUS step.
+Completed the technical data handoff for descriptive/source-cited and disclosed
+generated-reference retrieval. This does not certify all official academic facts.
+
+Start at `backups/hus_data_ready_20261031/START_HERE.md`. Work is in an isolated
+Git clone `backups/hus_data_ready_20261031/source`, branch
+`feat/hus-data-ready-20261031`, based on crawldata commit
+`312a6e16fee4c5deb427fd224c20e8a1092989a5`. Original branch ancestry is preserved;
+new changes are uncommitted, unpushed, with no PR or merge requested/performed.
+The clone origin now points to GitHub. Do not replace the main app/auth/UI with
+this older crawldata app when integrating the data adapter later.
+
+Final prepared pointer is `source/data/hus/rag/CURRENT.json`, pointing to
+`hus-data-20261031-v3`, release SHA-256
+`27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4`.
+It has 1,271 chunks: 65 F1, 336 F2 (290 memberships/42 groups/4 programs), and
+870 generated F3. Canonical F2 is main 94b7d05, with the existing 67-course KHMTTT
+user sign-off retained; other catalogs and unresolved prerequisites stay gated.
+There are 174 generated search-alias records, restricted to retrieval metadata.
+
+Recovered 15 public sources through existing robots/allowlist/HTTP-fallback policy,
+including all ten selected F1 attachments and two syllabus PDFs. All 24 selected
+F1 Markdown prose spans match recovered text under declared normalization. The
+15 F1 sources now have originals available. Captures yield 749 text pages; 106
+syllabus candidates include 84 exact code/title matches, with identity faults
+quarantined from default retrieval. There are still 37 missing historical originals
+outside default F1 dependencies. Keep source capture, historical-byte equality,
+selected-prose comparison and academic approval distinct. Generated F3 still
+does not supply verified official syllabus/assessment weights or current offerings.
+
+Independent review fixed lost raw-only MAT3402 references, retained MAT3325's
+conflicting rows, and corrected overly broad security aliases that matched defence/
+physical education. LF-normalized metadata pins are explicit; actual capture and
+release bytes are protected by gitattributes. Final verification: 581 offline
+passed / 26 deselected, no warnings, including 40 new release cases and a real
+CRLF-checkout rebuild. Ruff/diff, 1,466 scoped lookup cases, 24 negative cases,
+five critical cases, byte-identical release replay and 19-file recovery replay
+passed. Portable validation/lookup also passed using the root venv with stdlib
+only. These are data checks, not live LLM/vector or official academic acceptance.
+
+Final archives: `HUS_DATA_READY_20261031_v3.zip` and
+`HUS_SOURCES_20261031_v3.zip` under that backup directory; checksums are in
+`DELIVERY_RECEIPT.json`. Earlier v1/v2 files are internal review artifacts.
+Detailed scope/remaining academic unknowns: the clone's
+`docs/HUS_DATA_HANDOFF_2026_10_31.md`. Backups are ignored and absent from a fresh
+GitHub clone until separately authorized publication. No model API calls, personal
+VNU login/record inspection, DB change or app restart occurred. Root remains on
+feat/login-redesign-20261031 at 5d60a38; main/origin/main stay 94b7d05. Preexisting
+index.html, .vscode and previews work is preserved; this handoff adds memory only
+to the root checkout. Runtime has not been switched to the data feature branch.
+
+## Session close - 2026-10-31: PRs 21 and 22 merged; eligibility CI repaired
+
+The user authorized merging the pending work, then explicitly requested fixing
+PR #22's CI and merging it into main. PR #21 (redesigned sign-in portal) was
+merged with merge commit `626aa03ff4e182d58746b6b3da77e64b85953cdc`:
+https://github.com/5-Bit-System/SE_Project/pull/21. PR #22 (verified KHMTTT
+eligibility) was subsequently merged with merge commit
+`94b7d05988d4118df283ad09a12ff75cef3161fc`:
+https://github.com/5-Bit-System/SE_Project/pull/22. Both used GitHub's merge
+method, with all six PR checks successful before their respective merges.
+Earlier notes saying these PRs were absent or unmerged are historical.
+
+Local `main` and `origin/main` are synchronized at `94b7d05`. The PR #22 merge
+has parents `626aa03` and `bf0711c`. Original login commit `d08ff28`, academic
+commit `0412d03`, and CI repair commit `bf0711c` were verified as ancestors of
+main; original authors and commit history are retained. No direct push to main,
+squash, rebase, force push, or branch deletion occurred.
+
+PR #22 initially had three offline failures: two tests still expected all four
+catalogs to be drafts, and malformed curriculum identity caused a `KeyError`
+because review lookup ran before identity validation. Commit
+`bf0711c505e924d891743b74fefbdf90172b36f1`
+(`fix(catalog): align signed-off catalog checks and validate identities first`)
+moves review lookup after identity validation, updates the source and PDF
+acceptance expectations, and adds 12 regression cases for source/identity
+binding, complete sign-off, unsigned catalogs and unknown prerequisites.
+Only four files changed in this repair: `database/hus_db/catalog_builder.py`,
+`tests/catalogs/test_hus_catalog_builder.py`,
+`tests/catalogs/test_curriculum_data.py`, and
+`tests/database/source/test_four_majors.py`. The workflow was not weakened.
+PR #22's placeholder description was replaced with actual scope and checks.
+
+Local verification on the repaired branch: 589 offline tests passed, 90
+deselected; 10 PDF-backed acceptance cases passed, 669 deselected, using an
+explicit `tests` argument and the `--full-catalog-root` option pointing to
+`D:/SE_Project/docs/acceptance/hus_2022`. The prerequisite regression passed all
+four cases for each of PYTHONHASHSEED=1 and 2. Ruff, git diff --check, four
+synthetic catalog builders and the retained 65-course sample passed. The
+existing Starlette/httpx deprecation warning remains. GitHub's push and PR
+workflows passed all six offline/postgres/hus_postgres checks on `bf0711c`.
+Local PostgreSQL tests, runtime migration/publication, app restart, browser
+acceptance and real-account data inspection were not performed in this task.
+Account curriculum confirmation remains the user's action from prior handoff.
+
+The clean repair worktree is
+`D:/SE_Project/backups/pr22_merge_20261031/source`, on
+`feat/academic-eligibility-20261031` at `bf0711c`, synchronized with its remote.
+Ignored evidence is in `backups/pr22_merge_20261031/`: `offline.log`,
+`offline-fixed.xml`, `merge-result.json`, PR request bodies and `github.ps1`.
+The older temporary academic worktree at `0412d03` was preserved.
+
+Root working tree remains on `feat/login-redesign-20261031` at `5d60a38`, one
+commit ahead of its remote. Updating the local main ref did not switch this
+checkout or apply the four CI repair files to the running root checkout.
+Existing dirty `.agent/AGENTS.md` and `app/static/index.html` (notice moved to
+section bottoms), plus untracked `.vscode/` and `previews/`, were preserved.
+Do not assume the running app was restarted or now runs from main.
+
+Although gh and a connected GitHub plugin were unavailable, GitHub REST access
+worked in an approved network execution context using the existing Git
+Credential Manager credential in memory. The ignored helper supports that
+workflow without printing or persisting credential values. Earlier statements
+that a plugin connection was required to finish merging are superseded.
+
+The user now requests session close and memory update only. This close-out
+changes this already-dirty memory file locally; do not resume implementation,
+tests, runtime/database work or publication without a new request. No commit,
+push, PR or merge is requested for this memory addition.
+
+## Session close - 2026-10-31: redesigned login pushed to feature branch
+
+The user approved integrating the redesigned sign-in screen into the main
+portal. The standalone preview was refined to fit one viewport, use the main
+portal's animated gradient background, support light/dark themes, and enlarge
+the left-side copy and top controls. The design is now integrated in
+`app/static/index.html`, `app/static/auth.js`, and `app/static/login-scene.css`.
+The portal on `http://127.0.0.1:8000` served the updated design successfully.
+Visual review at 1536x732 and 1280x720 found no page overflow or JavaScript
+errors; student/admin tabs and light/dark switching worked. No credentials
+were entered and no automated test suite was run.
+
+Commit `d08ff28ca7e5007f7b57078f7c8ac1da7a42ed0a`
+(`feat(login): apply redesigned sign-in portal`) was pushed to
+`origin/feat/login-redesign-20261031`. `origin/main` remains at
+`c4f1e586a25532eadff8e0bea8da4f2088cd357f`. Repository instructions require
+all changes to `main` to go through a feature-branch pull request and a merge
+commit, so there was no direct push to `main`. The PR has not been created or
+merged: `gh` is unavailable and the GitHub connector is not connected. The
+feature branch PR page is
+https://github.com/5-Bit-System/SE_Project/pull/new/feat/login-redesign-20261031.
+
+Existing local changes were preserved and excluded from the feature commit:
+this memory file was already modified, while `.vscode/` and `previews/` are
+untracked. The standalone preview is at `previews/login-redesign/index.html`.
+This close-out only updates memory and remains local/uncommitted. No further
+implementation or publication was requested.
+
+## Session close - 2026-10-31: login intro copy finalized
+
+The user selected the Vietnamese login intro: “Bảng điểm và thông tin học tập
+của bạn, gọn trong một không gian.” Restored it below the left-side headline in
+`app/static/index.html`; `app/static/auth.js` supplies the selected Vietnamese
+copy and its English equivalent, “Your transcript and study information,
+together in one place.”
+
+The change was committed on `feat/login-intro-copy-20261031` as `19eda3c`
+(`style(login): restore intro description copy`) and merged through PR #20:
+https://github.com/5-Bit-System/SE_Project/pull/20. All six CI checks passed.
+Merge commit is `c4f1e586a25532eadff8e0bea8da4f2088cd357f`; local `main` and
+`origin/main` are synchronized there. `git diff --check` passed before commit;
+no local test suite was run. The existing untracked `.vscode/` directory was
+left untouched.
+
+This close-out changes only this memory file and remains local/uncommitted. No
+further implementation, tests, runtime/database work, or publication requested.
 
 ## GitHub main integrated into local system — 2026-10-29
 
@@ -2172,3 +2559,35 @@ Historical session details and prior validation counts remain in [the archived h
 ## Cleanup - 2026-10-22
 
 User requested project-toolkit cleanup. Removed unused `database/hus_db/schema.py` (no import/reference; actual HUS DDL remains in migrations), 33 disposable rendered PDF PNGs, the inactive cutover test Chrome profile, and 29 project cache directories: 524 generated files, about 54 MiB. Original PDFs, OCR TXT/TSV, CSV/JUnit evidence, database dumps, legacy migration snapshots and local toolkit were preserved. Fresh combined run after code/artifact deletion: 337 passed, no skipped cases, Ruff passed; JUnit `backups/catalog_acceptance_20261022/cleanup-regression.xml`. No commit/push or runtime publication.
+
+
+## Session close - 2026-10-31: KHMTTT eligibility sign-off and publication
+
+The user explicitly attested that the supplied KHMTTT cohort-2022 catalog under QD3568-2023 had been fully verified and requested enabling the eligibility flow. `database/data/hus_source.json` now records this as `explicit_user_attestation`, bound to PDF SHA-256 `bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab`. The builder validates program, cohort, decision, manifest status, timestamp, reviewer and source hash before promoting the catalog and evidence. KHMTTT has 67 verified courses and 67 verified prerequisite states; KHDL, Mathematics and Math-IT remain draft. This is the user's project-level sign-off, not an institutional certification.
+
+The HUS publisher activated all four snapshots in one transaction. Current revisions: KHDL `1e16f3026204940695f12fd980609f069f74d16292d0c9c2113fa63a4cf7d6df`; KHMTTT `c46163d1629819649f9bc8d54db59156d8a46ee40deec6c6d1fdb923c731e1da`; Mathematics `c3fd78deb82af8112bb293d73b70bc7155bf4d88949f13a9ecc0e2e0b459013e`; Math-IT `c91f63613772c7262164711be47a6614fe8ccf8390d35f7e1bb71f12566885ff`. Previous active revisions remain in history for rollback: KHDL `530723e8ba2d63f1e63d3bd3688249e5133ac05a56fafc897fb59b4e70928e87`; KHMTTT `b0ceec6056d5e7ca64be6d8de8a713fae90306e05f8ae3fd490facd836830481`; Mathematics `00ca88f12b446a07b2f4678351bc75ac955e626f4a7fcb654cfc64d5ae15b945`; Math-IT `3e764a62f3a4fb5a82a7b8a121dc157e334f6aeb2e63daa9b86167fd788eeeef`.
+
+Four KHMTTT courses still have prerequisite codes outside that catalog: MAT2407, MAT3452, MAT3533 and MAT3539. Such prerequisite fulfillment and unresolved VNU transcript rows are separate from catalog verification. No account transcript or grade data was inspected.
+
+After publication, the course board showed `program_binding_unverified`: the account-specific VNU binding must match the new catalog revision. The API now supplies program-selection options for this blocker, and the client falls back to GET `/me/academic-program` if older API output omits them. `index.html` uses a versioned `course-status.js` URL. The updated static asset was served successfully. The user has not yet completed the account confirmation; the browser form flow remains unverified. Do not bind the account or inspect transcript data for the user. The local app on port 8000 remained running (listener PID 26092, Python 3.11; `/ready` returned `ok`); it was not restarted to preserve in-memory VNU session state. User should refresh and confirm the displayed curriculum in the UI.
+
+Commit `5d60a38` (`feat(academic): enable verified KHMTTT eligibility`) was created on local `feat/login-redesign-20261031`, which is now one commit ahead of `origin/feat/login-redesign-20261031`. To keep the earlier login redesign commit out, the academic commit was cherry-picked onto main base as `0412d03` and pushed to `feat/academic-eligibility-20261031`. Direct push to `main` was rejected by automatic review because repository instructions require a feature branch and PR; do not retry or bypass. `main` remains `c4f1e586a25532eadff8e0bea8da4f2088cd357f`. No PR was created because `gh` and a GitHub connector were unavailable. PR creation URL: https://github.com/5-Bit-System/SE_Project/pull/new/feat/academic-eligibility-20261031.
+
+The isolated worktree remains at `C:/Users/viet cong/AppData/Local/Temp/se_project_academic_main_20261031` on local branch `codex/academic-main-20261031` at `0412d03`; it contains the pushed feature commit and is not the root working tree. Root `.agent/AGENTS.md` was already dirty before this close-out and now includes this note; `.vscode/` and `previews/` are untracked and were excluded from the commit. The scoped 12-file commit passed `git diff --check`; catalog publisher dry-run, `/ready`, `/programs`, Python compilation and JS syntax checks passed. No automated test suite was run.
+
+## Session close - 2026-10-31: eligibility notice moved to section bottoms
+
+The user asked to move “Dữ liệu điều kiện học có thể thay đổi; kết quả là
+thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.” from the top to
+the bottom of the relevant page content. In `app/static/index.html`, the notice
+now follows the course-status board in “Điều kiện học” and follows the readiness
+message and action button in “Gợi ý kỳ tới”. Its wording and styling are
+unchanged. No tests or browser visual check were run, and no app restart was
+performed.
+
+This session adds the `app/static/index.html` change to the existing dirty root
+workspace on `feat/login-redesign-20261031`; no commit, push, PR or merge was
+requested. `.agent/AGENTS.md` was already modified before this session, and the
+untracked `.vscode/` and `previews/` directories were left untouched. This
+close-out updates memory only; keep all workspace changes local unless the user
+requests publication.
