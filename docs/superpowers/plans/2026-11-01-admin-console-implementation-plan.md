@@ -195,9 +195,9 @@
 
 **Interfaces:** Paginated, filterable audit events include actor, action, target, timestamp, result, and safe summary. No passwords, tokens, credential payloads, or unrestricted document bodies.
 
-- [ ] Test authorization, pagination/filters, redaction, and audit creation for account/catalog/crawler/document actions.
-- [ ] Implement append-only audit listing and UI with clear event details.
-- [ ] Run focused tests; commit `feat(admin): add privileged action audit log`.
+- [x] Test authorization, pagination/filters, redaction, and audit creation for account/catalog/crawler/document actions.
+- [x] Implement append-only audit listing and UI with clear event details.
+- [x] Run focused tests; commit `feat(admin): add privileged action audit log`.
 
 ### Task 16: API and consultation health monitoring
 
@@ -205,9 +205,9 @@
 
 **Interfaces:** Expose only metrics the application actually records: request counts/latency/error rates by route group, consultation/recommendation failures, and user feedback counts/quality signals. Include time range, sample/window metadata, and unavailable status where instrumentation is missing. Avoid collecting student transcript content.
 
-- [ ] Test metric windows, empty periods, missing instrumentation, and data minimization.
-- [ ] Implement bounded aggregation and dashboard charts/tables with explicit time range and source.
-- [ ] Run focused tests; commit `feat(admin): monitor API and consultation health`.
+- [x] Test metric windows, empty periods, missing instrumentation, and data minimization.
+- [x] Implement bounded aggregation and dashboard charts/tables with explicit time range and source.
+- [x] Run focused tests; commit `feat(admin): monitor API and consultation health`.
 
 ### Task 17: Synthetic recommendation preview
 
@@ -215,9 +215,9 @@
 
 **Interfaces:** Accept synthetic profile inputs only, run the existing deterministic eligibility/recommendation path, and return eligible/blocked explanations plus catalog revision. Do not accept or persist real student identifiers/transcripts; do not allow preview to mutate catalog or eligibility state.
 
-- [ ] Test synthetic profiles, required major/cohort scope, unverified catalog warning, no persistence, and parity with the normal recommendation engine.
-- [ ] Implement preview against the existing domain services and visibly mark all inputs/results as simulated.
-- [ ] Run focused tests; commit `feat(admin): preview recommendations with synthetic profiles`.
+- [x] Test synthetic profiles, required major/cohort scope, unverified catalog warning, no persistence, and parity with the normal recommendation engine.
+- [x] Implement preview against the existing domain services and visibly mark all inputs/results as simulated.
+- [x] Run focused tests; commit `feat(admin): preview recommendations with synthetic profiles`.
 
 ### Task 18: Announcements and expiry management (optional follow-up)
 
@@ -225,9 +225,9 @@
 
 **Interfaces:** Draft/publish/expire announcement with source link, audience scope, effective/expiry dates, and audit trail. No announcement is displayed as official without an attributable source.
 
-- [ ] Confirm content/source fields in the product spec before implementation.
-- [ ] Test date boundaries, audience scoping, permissions, and safe link rendering.
-- [ ] Implement and verify the management UI; commit `feat(admin): manage sourced academic announcements`.
+- [x] Confirm content/source fields in the product spec before implementation.
+- [x] Test date boundaries, audience scoping, permissions, and safe link rendering.
+- [x] Implement and verify the management UI; commit `feat(admin): manage sourced academic announcements`.
 
 ## Acceptance Gate
 
