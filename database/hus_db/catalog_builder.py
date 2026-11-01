@@ -140,7 +140,6 @@ def build_catalogs(bundle: dict) -> list[Catalog]:
     )
     if any(not isinstance(tables.get(name), list) for name in required_tables):
         raise ValueError("Incomplete HUS source tables")
-    catalog_reviews = _verified_reviews(bundle)
     faculties = _unique(tables["faculties"], "faculty_code", "faculties")
     majors = _unique(tables["majors"], "major_code", "majors")
     curricula = _unique(tables["curricula"], "curriculum_id", "curricula")
