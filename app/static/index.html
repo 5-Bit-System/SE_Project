@@ -277,6 +277,12 @@
           </div>
         </div>
 
+        <!-- Curriculum Subtabs -->
+        <div class="admin-subtabs" role="tablist" aria-label="Chế độ xem chương trình đào tạo">
+          <button type="button" id="admin-curriculum-subtab-programs" class="admin-subtab-btn active" role="tab" aria-selected="true">Chương trình hiện hành</button>
+          <button type="button" id="admin-curriculum-subtab-revisions" class="admin-subtab-btn" role="tab" aria-selected="false">Bản thảo & Lịch sử phiên bản</button>
+        </div>
+
         <!-- Filter Toolbar -->
         <div class="admin-curriculum-toolbar">
           <div class="admin-search-input-wrap">
@@ -319,6 +325,56 @@
                 </tr>
               </thead>
               <tbody id="admin-programs-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Revisions and Audit History View -->
+        <div id="admin-curriculum-revisions-view" hidden>
+          <div class="admin-curriculum-toolbar">
+            <div class="admin-search-input-wrap">
+              <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+                <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <input id="admin-revisions-search" type="search" placeholder="Tìm mã bản thảo, tiêu đề hoặc khóa…" aria-label="Tìm kiếm bản thảo">
+            </div>
+            <div class="admin-toolbar-filter">
+              <label for="admin-revisions-status-filter" class="sr-only">Lọc trạng thái bản thảo</label>
+              <select id="admin-revisions-status-filter" class="modern-select">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="draft">Bản thảo (draft)</option>
+                <option value="validated">Đã kiểm tra (validated)</option>
+                <option value="approved">Đã phê duyệt (approved)</option>
+                <option value="published">Đã phát hành (published)</option>
+                <option value="rejected">Bị từ chối (rejected)</option>
+              </select>
+            </div>
+            <button type="button" id="admin-revisions-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới danh sách bản thảo">
+              <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+                <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Làm mới</span>
+            </button>
+          </div>
+
+          <div class="table-scroll admin-table-container">
+            <table id="admin-revisions-table" class="admin-data-table">
+              <caption class="sr-only">Danh sách bản thảo và lịch sử phiên bản chương trình đào tạo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Mã phiên bản</th>
+                  <th scope="col">Ngành</th>
+                  <th scope="col">Tiêu đề phiên bản</th>
+                  <th scope="col">Khóa</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Kích hoạt</th>
+                  <th scope="col">Ngày tạo</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-revisions-tbody"></tbody>
             </table>
           </div>
         </div>
@@ -443,6 +499,27 @@
               <button type="submit" id="admin-import-submit-btn" class="portal-button admin-primary-btn">Kiểm tra & Lưu bản thảo</button>
             </div>
           </form>
+        </div>
+      </dialog>
+
+      <!-- Curriculum Diff & Review Modal -->
+      <dialog id="admin-diff-modal" class="admin-modal" style="max-width: 800px;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">So sánh sai khác & Xem xét phiên bản</h4>
+            <button type="button" id="admin-diff-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div id="admin-diff-content" class="admin-diff-content">
+            <div class="admin-diff-summary-bar">
+              <span id="admin-diff-target-pill" class="admin-meta-tag"></span>
+              <span id="admin-diff-base-pill" class="admin-meta-tag"></span>
+            </div>
+            <div id="admin-diff-stats" class="admin-diff-stats-grid"></div>
+            <div id="admin-diff-details" class="admin-diff-details-container"></div>
+          </div>
+          <div class="admin-modal-actions">
+            <button type="button" id="admin-diff-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
         </div>
       </dialog>
     </section>

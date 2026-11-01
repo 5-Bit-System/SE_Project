@@ -928,3 +928,165 @@ body[data-auth-state="loading"] #system-session-loading {
   color: #d97706;
 }
 
+/* Curriculum Subtabs */
+.admin-subtabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 8px;
+}
+.admin-subtab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.admin-subtab-btn:hover {
+  color: var(--text-main);
+  background: var(--surface-hover);
+}
+.admin-subtab-btn.active {
+  color: var(--text-main);
+  background: var(--surface-card);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Revisions Table & Actions */
+.admin-action-btn-sm {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--surface-card);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-right: 4px;
+}
+.admin-action-btn-sm:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border-focus);
+}
+.admin-action-btn-sm:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.admin-action-btn-sm.btn-approve {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+.admin-action-btn-sm.btn-approve:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.12);
+}
+.admin-action-btn-sm.btn-publish {
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+.admin-action-btn-sm.btn-publish:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.12);
+}
+.admin-action-btn-sm.btn-rollback {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.admin-action-btn-sm.btn-rollback:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.12);
+}
+
+/* Diff Modal Styling */
+.admin-diff-summary-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.admin-diff-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.diff-stat-card {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+}
+.diff-stat-num {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.diff-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.diff-stat-card.added .diff-stat-num { color: #10b981; }
+.diff-stat-card.removed .diff-stat-num { color: #ef4444; }
+.diff-stat-card.modified .diff-stat-num { color: #f59e0b; }
+.diff-stat-card.unchanged .diff-stat-num { color: var(--text-muted); }
+
+.admin-diff-details-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.diff-section-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.diff-item-added {
+  color: #10b981;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 3px 6px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  margin: 3px;
+}
+.diff-item-removed {
+  color: #ef4444;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 3px 6px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  margin: 3px;
+}
+.diff-mod-table {
+  width: 100%;
+  font-size: 0.82rem;
+  border-collapse: collapse;
+}
+.diff-mod-table th, .diff-mod-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+}
+.diff-val-before {
+  color: #ef4444;
+  text-decoration: line-through;
+}
+.diff-val-after {
+  color: #10b981;
+  font-weight: 600;
+}
+
+

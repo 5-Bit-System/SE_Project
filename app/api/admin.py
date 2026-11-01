@@ -5,11 +5,16 @@ from pydantic import BaseModel, Field
 
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
+from app.curriculum.diff_service import compute_curriculum_diff
 from app.curriculum.import_service import validate_and_parse_csv
 from app.curriculum.repository import (
     create_revision,
+    get_active_revision,
     get_revision,
     list_revisions,
+    publish_revision,
+    review_revision,
+    rollback_revision,
     update_validation,
 )
 from app.integrations.daotao.store import engine
@@ -50,6 +55,19 @@ class CatalogRevisionSummary(BaseModel):
     is_active: bool
     created_at: str
     source_filename: str | None = None
+
+
+class RevisionActionRequest(BaseModel):
+    reason: str = Field(min_length=3)
+    notes: str | None = None
+
+
+class RevisionDiffResponse(BaseModel):
+    revision_id: str
+    program_id: str
+    base_revision_id: str | None = None
+    summary: dict
+    changes: dict
 
 
 class AdminProgramSummary(BaseModel):
@@ -259,3 +277,124 @@ async def list_catalog_revisions(
         )
         for r in rows
     ]
+
+
+@router.get("/catalog-revisions/{revision_id}/diff", response_model=RevisionDiffResponse)
+async def get_revision_diff(
+    request: Request, revision_id: str, base_revision_id: str | None = None
+) -> RevisionDiffResponse:
+    """Compare a revision against base (or active) revision."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        target_rev = get_revision(conn, revision_id)
+        if not target_rev:
+            raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+        base_rev = None
+        if base_revision_id:
+            base_rev = get_revision(conn, base_revision_id)
+        else:
+            base_rev = get_active_revision(conn, target_rev["program_id"])
+
+    target_courses = (target_rev.get("payload") or {}).get("courses", [])
+    base_courses = (base_rev.get("payload") or {}).get("courses", []) if base_rev else []
+
+    diff_result = compute_curriculum_diff(base_courses, target_courses)
+
+    return RevisionDiffResponse(
+        revision_id=revision_id,
+        program_id=target_rev["program_id"],
+        base_revision_id=base_rev.get("revision_id") if base_rev else None,
+        summary=diff_result["summary"],
+        changes=diff_result["changes"],
+    )
+
+
+@router.post("/catalog-revisions/{revision_id}/approve")
+async def approve_catalog_revision(
+    request: Request, revision_id: str, body: RevisionActionRequest
+) -> dict:
+    """Approve a validated curriculum revision with required reason."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    try:
+        with engine().begin() as conn:
+            rev = review_revision(
+                conn,
+                revision_id=revision_id,
+                reviewer_id=principal.get("account_id"),
+                decision="approved",
+                reason=body.reason,
+                notes=body.notes,
+            )
+    except ValueError as exc:
+        raise HTTPException(400, detail=str(exc)) from exc
+
+    return {"status": "approved", "revision_id": rev["revision_id"]}
+
+
+@router.post("/catalog-revisions/{revision_id}/publish")
+async def publish_catalog_revision(
+    request: Request, revision_id: str, body: RevisionActionRequest
+) -> dict:
+    """Publish an approved revision, atomically deactivating previous active revision."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    try:
+        with engine().begin() as conn:
+            rev = publish_revision(
+                conn,
+                revision_id=revision_id,
+                publisher_id=principal.get("account_id"),
+                reason=body.reason,
+            )
+    except ValueError as exc:
+        raise HTTPException(400, detail=str(exc)) from exc
+
+    return {
+        "status": "published",
+        "revision_id": rev["revision_id"],
+        "is_active": rev["is_active"],
+        "published_at": rev.get("published_at"),
+    }
+
+
+@router.post("/catalog-revisions/{revision_id}/rollback")
+async def rollback_catalog_revision(
+    request: Request, revision_id: str, body: RevisionActionRequest
+) -> dict:
+    """Roll back active pointer to this target revision."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        target = get_revision(conn, revision_id)
+
+    if not target:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    try:
+        with engine().begin() as conn:
+            rev = rollback_revision(
+                conn,
+                program_id=target["program_id"],
+                target_revision_id=revision_id,
+                user_id=principal.get("account_id"),
+                reason=body.reason,
+            )
+    except ValueError as exc:
+        raise HTTPException(400, detail=str(exc)) from exc
+
+    return {
+        "status": "published",
+        "revision_id": rev["revision_id"],
+        "is_active": rev["is_active"],
+    }

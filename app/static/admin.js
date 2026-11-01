@@ -683,6 +683,328 @@
   }
   bindImportModal();
 
+  // ==========================================================================
+  // Revisions & Review Workflow (Diff, Approve, Publish, Rollback)
+  // ==========================================================================
+  let curriculumRevisions = [];
+
+  const subtabPrograms = $('admin-curriculum-subtab-programs');
+  const subtabRevisions = $('admin-curriculum-subtab-revisions');
+  const programsView = $('admin-curriculum-container');
+  const programsToolbar = document.querySelector('.admin-curriculum-toolbar');
+  const revisionsView = $('admin-curriculum-revisions-view');
+  const diffModal = $('admin-diff-modal');
+  const diffCloseBtn = $('admin-diff-close-btn');
+  const diffDismissBtn = $('admin-diff-dismiss-btn');
+
+  function switchCurriculumSubtab(tab) {
+    if (tab === 'programs') {
+      subtabPrograms?.classList.add('active');
+      subtabPrograms?.setAttribute('aria-selected', 'true');
+      subtabRevisions?.classList.remove('active');
+      subtabRevisions?.setAttribute('aria-selected', 'false');
+      if (programsView) programsView.hidden = false;
+      if (programsToolbar) programsToolbar.hidden = false;
+      if (revisionsView) revisionsView.hidden = true;
+    } else {
+      subtabPrograms?.classList.remove('active');
+      subtabPrograms?.setAttribute('aria-selected', 'false');
+      subtabRevisions?.classList.add('active');
+      subtabRevisions?.setAttribute('aria-selected', 'true');
+      if (programsView) programsView.hidden = true;
+      if (programsToolbar) programsToolbar.hidden = true;
+      if (revisionsView) revisionsView.hidden = false;
+      loadRevisions();
+    }
+  }
+
+  subtabPrograms?.addEventListener('click', () => switchCurriculumSubtab('programs'));
+  subtabRevisions?.addEventListener('click', () => switchCurriculumSubtab('revisions'));
+  $('admin-revisions-refresh-btn')?.addEventListener('click', () => loadRevisions());
+  $('admin-revisions-search')?.addEventListener('input', renderRevisions);
+  $('admin-revisions-status-filter')?.addEventListener('change', renderRevisions);
+
+  diffCloseBtn?.addEventListener('click', () => diffModal?.close());
+  diffDismissBtn?.addEventListener('click', () => diffModal?.close());
+
+  async function loadRevisions() {
+    try {
+      if (!window.systemAuth?.request) return;
+      const data = await window.systemAuth.request('/admin/catalog-revisions');
+      curriculumRevisions = data || [];
+      renderRevisions();
+    } catch (err) {
+      console.error('Failed to load curriculum revisions:', err);
+    }
+  }
+
+  function renderRevisions() {
+    const tbody = $('admin-revisions-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const query = ($('admin-revisions-search')?.value || '').trim().toLowerCase();
+    const statusFilter = $('admin-revisions-status-filter')?.value || 'all';
+
+    const filtered = curriculumRevisions.filter(r => {
+      const matchQuery = !query ||
+        r.revision_id.toLowerCase().includes(query) ||
+        r.program_id.toLowerCase().includes(query) ||
+        r.version_title.toLowerCase().includes(query) ||
+        (r.cohort && r.cohort.toLowerCase().includes(query));
+      const matchStatus = statusFilter === 'all' || r.status === statusFilter;
+      return matchQuery && matchStatus;
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 8;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Không có bản thảo hoặc phiên bản nào phù hợp.';
+      return;
+    }
+
+    filtered.forEach(rev => {
+      const tr = tbody.insertRow();
+      tr.dataset.revisionId = rev.revision_id;
+
+      // 1. Revision ID
+      const tdId = tr.insertCell();
+      tdId.innerHTML = `<code class="admin-course-code">${rev.revision_id}</code>`;
+
+      // 2. Program ID
+      const tdProg = tr.insertCell();
+      tdProg.innerHTML = `<code>${rev.program_id}</code>`;
+
+      // 3. Title
+      const tdTitle = tr.insertCell();
+      tdTitle.innerHTML = `<strong>${rev.version_title}</strong>`;
+
+      // 4. Cohort
+      const tdCohort = tr.insertCell();
+      tdCohort.textContent = rev.cohort || '—';
+
+      // 5. Status
+      const tdStatus = tr.insertCell();
+      let statusBadge = '';
+      if (rev.status === 'published') {
+        statusBadge = '<span class="admin-status-badge badge-success">Đã phát hành</span>';
+      } else if (rev.status === 'approved') {
+        statusBadge = '<span class="admin-status-badge badge-success" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Đã duyệt</span>';
+      } else if (rev.status === 'validated') {
+        statusBadge = '<span class="admin-status-badge badge-warning" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Đã kiểm tra</span>';
+      } else if (rev.status === 'rejected') {
+        statusBadge = '<span class="admin-status-badge badge-danger">Từ chối</span>';
+      } else {
+        statusBadge = '<span class="admin-status-badge badge-warning">Bản thảo</span>';
+      }
+      tdStatus.innerHTML = statusBadge;
+
+      // 6. Active Pointer
+      const tdActive = tr.insertCell();
+      if (rev.is_active) {
+        tdActive.innerHTML = '<span class="admin-status-badge badge-success"><span class="admin-pulse-dot"></span> Đang chạy</span>';
+      } else {
+        tdActive.innerHTML = '<span style="color: var(--text-muted); font-size: 0.8rem;">Lưu trữ</span>';
+      }
+
+      // 7. Created At
+      const tdDate = tr.insertCell();
+      tdDate.className = 'admin-sub-text tabular-nums';
+      tdDate.textContent = rev.created_at ? new Date(rev.created_at).toLocaleString('vi-VN') : '—';
+
+      // 8. Actions
+      const tdAction = tr.insertCell();
+      tdAction.style.whiteSpace = 'nowrap';
+
+      // Diff button
+      const diffBtn = document.createElement('button');
+      diffBtn.type = 'button';
+      diffBtn.className = 'admin-action-btn-sm';
+      diffBtn.textContent = 'So sánh';
+      diffBtn.onclick = () => openDiffModal(rev.revision_id);
+      tdAction.appendChild(diffBtn);
+
+      // Approve button (if draft or validated)
+      if (['draft', 'validated'].includes(rev.status)) {
+        const appBtn = document.createElement('button');
+        appBtn.type = 'button';
+        appBtn.className = 'admin-action-btn-sm btn-approve';
+        appBtn.textContent = 'Duyệt';
+        appBtn.onclick = () => handleApproveRevision(rev.revision_id);
+        tdAction.appendChild(appBtn);
+      }
+
+      // Publish button (if approved and not active)
+      if (rev.status === 'approved' && !rev.is_active) {
+        const pubBtn = document.createElement('button');
+        pubBtn.type = 'button';
+        pubBtn.className = 'admin-action-btn-sm btn-publish';
+        pubBtn.textContent = 'Phát hành';
+        pubBtn.onclick = () => handlePublishRevision(rev.revision_id);
+        tdAction.appendChild(pubBtn);
+      }
+
+      // Rollback button (if published but not currently active)
+      if (rev.status === 'published' && !rev.is_active) {
+        const rbBtn = document.createElement('button');
+        rbBtn.type = 'button';
+        rbBtn.className = 'admin-action-btn-sm btn-rollback';
+        rbBtn.textContent = 'Khôi phục';
+        rbBtn.onclick = () => handleRollbackRevision(rev.revision_id);
+        tdAction.appendChild(rbBtn);
+      }
+    });
+  }
+
+  async function openDiffModal(revisionId) {
+    if (!diffModal) return;
+    const statsGrid = $('admin-diff-stats');
+    const detailsContainer = $('admin-diff-details');
+    const targetPill = $('admin-diff-target-pill');
+    const basePill = $('admin-diff-base-pill');
+
+    if (statsGrid) statsGrid.innerHTML = 'Đang tính toán sai khác…';
+    if (detailsContainer) detailsContainer.innerHTML = '';
+    diffModal.showModal();
+
+    try {
+      const data = await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/diff`);
+      if (targetPill) targetPill.textContent = `Bản thảo: ${data.revision_id}`;
+      if (basePill) basePill.textContent = `So với: ${data.base_revision_id || 'Chưa có bản phát hành'}`;
+
+      const sum = data.summary || {};
+      if (statsGrid) {
+        statsGrid.innerHTML = `
+          <div class="diff-stat-card added">
+            <span class="diff-stat-num">+${sum.added_count || 0}</span>
+            <span class="diff-stat-label">Học phần thêm mới</span>
+          </div>
+          <div class="diff-stat-card removed">
+            <span class="diff-stat-num">-${sum.removed_count || 0}</span>
+            <span class="diff-stat-label">Học phần lược bỏ</span>
+          </div>
+          <div class="diff-stat-card modified">
+            <span class="diff-stat-num">${sum.modified_count || 0}</span>
+            <span class="diff-stat-label">Học phần sửa đổi</span>
+          </div>
+          <div class="diff-stat-card unchanged">
+            <span class="diff-stat-num">${sum.unchanged_count || 0}</span>
+            <span class="diff-stat-label">Không thay đổi</span>
+          </div>
+        `;
+      }
+
+      const ch = data.changes || {};
+      let detailsHtml = '';
+
+      if (ch.added?.length > 0) {
+        detailsHtml += `
+          <div>
+            <div class="diff-section-title" style="color: #10b981;">Học phần mới thêm (${ch.added.length}):</div>
+            <div>
+              ${ch.added.map(c => `<span class="diff-item-added">+ [${c.code}] ${c.name} (${c.credits} tín chỉ)</span>`).join(' ')}
+            </div>
+          </div>
+        `;
+      }
+
+      if (ch.removed?.length > 0) {
+        detailsHtml += `
+          <div>
+            <div class="diff-section-title" style="color: #ef4444;">Học phần lược bỏ (${ch.removed.length}):</div>
+            <div>
+              ${ch.removed.map(c => `<span class="diff-item-removed">- [${c.code}] ${c.name} (${c.credits} tín chỉ)</span>`).join(' ')}
+            </div>
+          </div>
+        `;
+      }
+
+      if (ch.modified?.length > 0) {
+        detailsHtml += `
+          <div>
+            <div class="diff-section-title" style="color: #f59e0b;">Học phần có thay đổi chi tiết (${ch.modified.length}):</div>
+            <table class="diff-mod-table">
+              <thead>
+                <tr>
+                  <th>Mã môn</th>
+                  <th>Thuộc tính</th>
+                  <th>Trước (Base)</th>
+                  <th>Sau (Mới)</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${ch.modified.map(m => `
+                  ${m.field_changes.map(fc => `
+                    <tr>
+                      <td><code>${m.code}</code></td>
+                      <td>${fc.label}</td>
+                      <td class="diff-val-before">${JSON.stringify(fc.before)}</td>
+                      <td class="diff-val-after">${JSON.stringify(fc.after)}</td>
+                    </tr>
+                  `).join('')}
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      if (!detailsHtml) {
+        detailsHtml = '<p style="color: var(--text-muted); font-size: 0.88rem;">Hai phiên bản có cấu trúc và môn học hoàn toàn trùng khớp.</p>';
+      }
+
+      if (detailsContainer) detailsContainer.innerHTML = detailsHtml;
+    } catch (err) {
+      if (statsGrid) statsGrid.innerHTML = `<span class="err-msg">Lỗi so sánh: ${err.message}</span>`;
+    }
+  }
+
+  async function handleApproveRevision(revisionId) {
+    const reason = window.prompt('Nhập lý do phê duyệt bản thảo (Bắt buộc):', 'Đã đối chiếu theo quyết định đào tạo của Trường ĐHKHTN');
+    if (!reason || reason.trim().length < 3) return;
+
+    try {
+      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/approve`, 'POST', { reason: reason.trim() });
+      await loadRevisions();
+    } catch (err) {
+      alert(`Lỗi phê duyệt: ${err.message}`);
+    }
+  }
+
+  async function handlePublishRevision(revisionId) {
+    const confirmed = window.confirm(`XÁC NHẬN PHÁT HÀNH:\n\nBạn có chắc chắn muốn phát hành phiên bản [${revisionId}] thành chương trình đào tạo chính thức đang hoạt động?\nPhiên bản đang chạy trước đó sẽ được chuyển vào kho lưu trữ an toàn.`);
+    if (!confirmed) return;
+
+    const reason = window.prompt('Nhập quyết định / lý do phát hành (Bắt buộc):', 'Ban hành áp dụng từ năm học 2026-2027');
+    if (!reason || reason.trim().length < 3) return;
+
+    try {
+      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/publish`, 'POST', { reason: reason.trim() });
+      await loadRevisions();
+      if (window.adminCurriculum?.load) window.adminCurriculum.load();
+    } catch (err) {
+      alert(`Lỗi phát hành: ${err.message}`);
+    }
+  }
+
+  async function handleRollbackRevision(revisionId) {
+    const confirmed = window.confirm(`CẢNH BÁO KHÔI PHỤC:\n\nBạn có chắc chắn muốn khôi phục phiên bản [${revisionId}] thành bản chạy chính thức thay thế phiên bản hiện tại?`);
+    if (!confirmed) return;
+
+    const reason = window.prompt('Nhập lý do khôi phục phiên bản (Bắt buộc):', 'Khôi phục bản ổn định trước đó');
+    if (!reason || reason.trim().length < 3) return;
+
+    try {
+      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/rollback`, 'POST', { reason: reason.trim() });
+      await loadRevisions();
+      if (window.adminCurriculum?.load) window.adminCurriculum.load();
+    } catch (err) {
+      alert(`Lỗi khôi phục: ${err.message}`);
+    }
+  }
+
   // Expose module APIs
   window.adminOverview = {
     load: loadOverview,
