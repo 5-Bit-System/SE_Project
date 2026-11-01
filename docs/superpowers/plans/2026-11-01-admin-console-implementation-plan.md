@@ -100,9 +100,9 @@
 
 **Interfaces:** Introduce immutable revision identity, source manifest/checksum, creator/time, validation summary, review state, reviewer/time, and active revision pointer. State transitions are `draft -> validated -> approved -> published` or `rejected`; only one revision is active per catalog scope. Record privileged actions without secrets.
 
-- [ ] Test migration upgrade/downgrade policy, uniqueness, immutable revision behavior, reviewer attribution, and active-pointer constraints.
-- [ ] Implement schema/repositories using existing database/migration conventions; ensure the active catalog remains unchanged during draft creation.
-- [ ] Run database-focused tests against the configured local test database; commit `feat(admin): persist curriculum revisions and review history`.
+- [x] Test migration upgrade/downgrade policy, uniqueness, immutable revision behavior, reviewer attribution, and active-pointer constraints.
+- [x] Implement schema/repositories using existing database/migration conventions; ensure the active catalog remains unchanged during draft creation.
+- [x] Run database-focused tests against the configured local test database; commit `feat(admin): persist curriculum revisions and review history`.
 
 ### Task 7: Curriculum import and validation preview
 
@@ -110,9 +110,9 @@
 
 **Interfaces:** `POST /admin/catalog-revisions/import` accepts CSV/XLSX within documented size/row limits and returns a draft revision id. `GET /admin/catalog-revisions/{revision_id}/validation` returns row-level errors/warnings and aggregate checks. Validation covers duplicate codes, missing references, prerequisite cycles, invalid credits, malformed rows, and source manifest/checksum. No import operation publishes.
 
-- [ ] Test valid/invalid files, size/row limits, encoding, duplicate codes, dangling prerequisites, cycles, out-of-range credits, and formula-like cell content.
-- [ ] Implement parsing and validation into an isolated draft; reject unsupported formats and malformed inputs with actionable row/column errors.
-- [ ] Run focused tests and verify the active catalog is unchanged; commit `feat(admin): preview and validate catalog imports`.
+- [x] Test valid/invalid files, size/row limits, encoding, duplicate codes, dangling prerequisites, cycles, out-of-range credits, and formula-like cell content.
+- [x] Implement parsing and validation into an isolated draft; reject unsupported formats and malformed inputs with actionable row/column errors.
+- [x] Run focused tests and verify the active catalog is unchanged; commit `feat(admin): preview and validate catalog imports`.
 
 ### Task 8: Curriculum diff, approval, publish, and rollback
 
@@ -120,10 +120,10 @@
 
 **Interfaces:** `GET /admin/catalog-revisions/{revision_id}/diff`, `POST .../approve`, `POST .../publish`, and `POST /admin/catalog-revisions/{revision_id}/rollback` require admin authorization and a reason. Publish requires successful validation and explicit approval; approval and publication identities/timestamps are audited. Rollback atomically switches the active pointer to a prior immutable revision.
 
-- [ ] Test missing reason, unvalidated/unapproved revision, concurrent publication, transaction failure, rollback, and unchanged active pointer on failure.
-- [ ] Implement safe state transitions and atomic active-revision switch; preserve prior revisions.
-- [ ] Add frontend diff/review screens with clear before/after values and explicit confirmation; do not make review decisions on behalf of the admin.
-- [ ] Run relevant tests and verify readiness/catalog consumers read only the active published revision; commit `feat(admin): review and publish catalog revisions safely`.
+- [x] Test missing reason, unvalidated/unapproved revision, concurrent publication, transaction failure, rollback, and unchanged active pointer on failure.
+- [x] Implement safe state transitions and atomic active-revision switch; preserve prior revisions.
+- [x] Add frontend diff/review screens with clear before/after values and explicit confirmation; do not make review decisions on behalf of the admin.
+- [x] Run relevant tests and verify readiness/catalog consumers read only the active published revision; commit `feat(admin): review and publish catalog revisions safely`.
 
 ### Task 9: Prerequisite and study-condition editor
 
@@ -131,9 +131,9 @@
 
 **Interfaces:** Prerequisite/corequisite edits create a new draft revision. Validation reports cycles, missing courses, self-reference, invalid alternatives, and cross-program references. The UI shows graph/list representation, rule status, source evidence, and the revision currently being edited.
 
-- [ ] Test valid AND/OR conditions, missing targets, cycles, cross-program references, and inability to mutate the active revision directly.
-- [ ] Implement editor against draft revisions only; show validation results before review.
-- [ ] Run focused tests; commit `feat(admin): edit prerequisite rules in draft revisions`.
+- [x] Test valid AND/OR conditions, missing targets, cycles, cross-program references, and inability to mutate the active revision directly.
+- [x] Implement editor against draft revisions only; show validation results before review.
+- [x] Run focused tests; commit `feat(admin): edit prerequisite rules in draft revisions`.
 
 ## Phase 3 — Crawler and document governance
 
