@@ -1,5 +1,6 @@
 """Tests for admin catalog revision import and validation endpoints."""
 
+import os
 from pathlib import Path
 
 import pytest
@@ -9,16 +10,19 @@ from sqlalchemy import create_engine
 
 from app.main import app
 
+pytestmark = pytest.mark.hus_postgres
+
 ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
     config = dotenv_values(ENV_PATH)
-    url = config.get("DATABASE_URL")
-    if url:
-        eng = create_engine(url)
-        monkeypatch.setattr("app.api.admin.engine", lambda: eng)
+    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
+    if not url:
+        pytest.skip("PostgreSQL database URL not configured")
+    eng = create_engine(url)
+    monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
 def test_import_anonymous_rejected():

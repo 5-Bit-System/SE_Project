@@ -1,5 +1,6 @@
 """Database tests for versioned curriculum revisions and audit schema."""
 
+import os
 import uuid
 from pathlib import Path
 
@@ -18,15 +19,17 @@ from app.curriculum.repository import (
     update_validation,
 )
 
+pytestmark = pytest.mark.hus_postgres
+
 ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture
 def db_conn():
     config = dotenv_values(ENV_PATH)
-    url = config.get("DATABASE_URL")
+    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
     if not url:
-        pytest.skip("DATABASE_URL not found in .env")
+        pytest.skip("DATABASE_URL not found in environment or .env")
     engine = create_engine(url)
     with engine.begin() as conn:
         yield conn
