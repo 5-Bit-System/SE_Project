@@ -143,9 +143,9 @@
 
 **Interfaces:** Support source list/create/update/disable, validated allowlisted URLs and crawl policy, and job lifecycle `queued|running|paused|completed|failed|cancelled`. Operations are idempotent; retries retain attempt/error history. Crawler output is always a draft document/catalog revision. Do not execute arbitrary URLs or shell commands supplied by clients.
 
-- [ ] Test role enforcement, URL policy, schedule validation, duplicate start, pause/resume/cancel transitions, retry limits, and sanitized error persistence.
-- [ ] Implement source/job contracts and connect only to the project's existing crawler capability if present; document a clear unavailable state if execution integration is absent.
-- [ ] Run focused tests; commit `feat(admin): manage crawler sources and job state`.
+- [x] Test role enforcement, URL policy, schedule validation, duplicate start, pause/resume/cancel transitions, retry limits, and sanitized error persistence.
+- [x] Implement source/job contracts and connect only to the project's existing crawler capability if present; document a clear unavailable state if execution integration is absent.
+- [x] Run focused tests; commit `feat(admin): manage crawler sources and job state`.
 
 ### Task 11: Crawler monitoring UI
 
@@ -153,9 +153,9 @@
 
 **Interfaces:** Consume the crawler source/job APIs from Task 10. Show source status, last run, progress, counters, next scheduled run when configured, and actionable sanitized failure details.
 
-- [ ] Test empty, running, paused, failed, stale, and unavailable states; controls must reflect legal transitions.
-- [ ] Implement source/job tables, details, and guarded run/pause/retry actions with confirmation where needed.
-- [ ] Run focused tests and verify responsive accessibility; commit `feat(admin): monitor crawler jobs`.
+- [x] Test empty, running, paused, failed, stale, and unavailable states; controls must reflect legal transitions.
+- [x] Implement source/job tables, details, and guarded run/pause/retry actions with confirmation where needed.
+- [x] Run focused tests and verify responsive accessibility; commit `feat(admin): monitor crawler jobs`.
 
 ### Task 12: Document review and deduplication API
 
@@ -163,9 +163,9 @@
 
 **Interfaces:** Store source URL, content hash, metadata, crawl/revision identity, review state, reviewer/time, and version links. Provide paginated list, detail/preview data, metadata edits on a draft, approve/reject with reason, duplicate/version links, and sanitized Markdown rendering inputs. Rejected or pending content is not published into user-facing retrieval.
 
-- [ ] Test duplicate hashes, near-duplicate linking policy, version history, review transitions, unsafe markup, pagination, and exclusion from published content.
-- [ ] Implement review storage and API with strict ownership/scope validation and safe preview handling.
-- [ ] Run focused tests; commit `feat(admin): review crawled documents before publication`.
+- [x] Test duplicate hashes, near-duplicate linking policy, version history, review transitions, unsafe markup, pagination, and exclusion from published content.
+- [x] Implement review storage and API with strict ownership/scope validation and safe preview handling.
+- [x] Run focused tests; commit `feat(admin): review crawled documents before publication`.
 
 ### Task 13: Document review UI
 
@@ -173,9 +173,9 @@
 
 **Interfaces:** Consume document review API. Provide filters for source/status/major, preview, metadata editing on draft, duplicate/version context, and approve/reject actions with required reason.
 
-- [ ] Test accessible preview, escaped content, filters, review confirmation, and failed request recovery.
-- [ ] Implement review queue and detail panel; distinguish crawl extraction from reviewer approval.
-- [ ] Run focused tests; commit `feat(admin): add document review workspace`.
+- [x] Test accessible preview, escaped content, filters, review confirmation, and failed request recovery.
+- [x] Implement review queue and detail panel; distinguish crawl extraction from reviewer approval.
+- [x] Run focused tests; commit `feat(admin): add document review workspace`.
 
 ### Task 14: Catalog/document link and publication gate
 
@@ -183,9 +183,9 @@
 
 **Interfaces:** Publishing accepts only approved, validated revision inputs and creates a provenance manifest; user-facing catalog/RAG readers consume only the active published snapshot. Preserve the prior active snapshot on any failure.
 
-- [ ] Test end-to-end draft -> validation -> review -> publication, pending/rejected exclusion, failure rollback, and provenance/checksum verification.
-- [ ] Implement the narrowest integration with current catalog publication and document serving paths.
-- [ ] Run focused end-to-end tests; commit `feat(admin): gate publication on reviewed source data`.
+- [x] Test end-to-end draft -> validation -> review -> publication, pending/rejected exclusion, failure rollback, and provenance/checksum verification.
+- [x] Implement the narrowest integration with current catalog publication and document serving paths.
+- [x] Run focused end-to-end tests; commit `feat(admin): gate publication on reviewed source data`.
 
 ## Phase 4 — Phase 2 operations
 
