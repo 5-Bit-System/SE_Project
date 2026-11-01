@@ -9,7 +9,7 @@
   let restoringSession = true;
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
   let adminCurrentTab = 'overview';
-  const adminTabs = ['overview', 'curriculum', 'crawler', 'users', 'audit'];
+  const adminTabs = ['overview', 'curriculum', 'crawler', 'users', 'audit', 'announcements'];
 
   Object.assign(copy.vi, {
     restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
@@ -116,6 +116,8 @@
       if (window.adminCrawler?.load) window.adminCrawler.load();
     } else if (tabName === 'audit') {
       if (window.adminAudit?.load) window.adminAudit.load();
+    } else if (tabName === 'announcements') {
+      if (window.adminAnnouncements?.load) window.adminAnnouncements.load();
     }
   }
   function render() {

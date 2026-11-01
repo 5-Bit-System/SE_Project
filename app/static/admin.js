@@ -2499,7 +2499,185 @@
     switchCrawlerSubtab
   };
 
-  window.adminAudit = {
+
+  // ==========================================================================
+  // Academic Announcements Management
+  // ==========================================================================
+  let announcementsList = [];
+  let announcementsTotal = 0;
+
+  async function loadAnnouncements() {
+    loadAnnouncementsSummary();
+    fetchAnnouncements();
+  }
+
+  async function loadAnnouncementsSummary() {
+    try {
+      const summary = await window.systemAuth.request('/admin/announcements/summary');
+      if ($('admin-ann-kpi-total')) $('admin-ann-kpi-total').textContent = summary.total || 0;
+      if ($('admin-ann-kpi-published')) $('admin-ann-kpi-published').textContent = summary.published || 0;
+      if ($('admin-ann-kpi-other')) $('admin-ann-kpi-other').textContent = (summary.draft || 0) + (summary.expired || 0);
+    } catch (err) {
+      console.warn('Failed to load announcements summary:', err);
+    }
+  }
+
+  async function fetchAnnouncements() {
+    const status = $('admin-ann-status-filter')?.value || 'all';
+    const audience = $('admin-ann-audience-filter')?.value || 'all';
+    const q = $('admin-ann-search')?.value || '';
+
+    const params = new URLSearchParams();
+    if (status !== 'all') params.set('status', status);
+    if (audience !== 'all') params.set('audience', audience);
+    if (q.trim()) params.set('q', q.trim());
+
+    try {
+      const data = await window.systemAuth.request(`/admin/announcements?${params.toString()}`);
+      announcementsList = data.items || [];
+      announcementsTotal = data.total || 0;
+      renderAnnouncementsTable();
+    } catch (err) {
+      console.warn('Failed to fetch announcements:', err);
+    }
+  }
+
+  function renderAnnouncementsTable() {
+    const tbody = $('admin-ann-tbody');
+    if (!tbody) return;
+
+    if (!announcementsList.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 24px;">Chưa có thông báo học thuật nào phù hợp với bộ lọc.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = announcementsList.map(a => {
+      let statusBadge = '<span class="admin-status-badge badge-warning">Bản thảo</span>';
+      if (a.status === 'published') {
+        statusBadge = '<span class="admin-status-badge badge-success">Đang phát hành</span>';
+      } else if (a.status === 'expired') {
+        statusBadge = '<span class="admin-status-badge" style="background: var(--soft-surface); color: var(--text-muted);">Đã hết hạn</span>';
+      }
+
+      const audLabels = { all: 'Tất cả', students: 'Sinh viên', faculty: 'Giảng viên' };
+      const audText = audLabels[a.audience] || a.audience;
+
+      const effDate = a.effective_date ? new Date(a.effective_date).toLocaleDateString('vi-VN') : '-';
+      const expDate = a.expiry_date ? new Date(a.expiry_date).toLocaleDateString('vi-VN') : 'Không thời hạn';
+
+      let actionBtns = '';
+      if (a.status === 'draft') {
+        actionBtns += `<button type="button" class="portal-button admin-ann-btn-publish" data-id="${a.id}" style="font-size: 11px; padding: 4px 8px; margin-right: 4px; color: #10b981;">Phát hành</button>`;
+      } else if (a.status === 'published') {
+        actionBtns += `<button type="button" class="portal-button admin-ann-btn-expire" data-id="${a.id}" style="font-size: 11px; padding: 4px 8px; margin-right: 4px; color: #f59e0b;">Đóng / Hết hạn</button>`;
+      }
+      actionBtns += `<button type="button" class="portal-button admin-ann-btn-delete" data-id="${a.id}" style="font-size: 11px; padding: 4px 8px; color: #ef4444;">Xóa</button>`;
+
+      return `
+        <tr>
+          <td>
+            <strong>${a.title}</strong>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${a.content}</div>
+          </td>
+          <td>
+            <a href="${a.source_url}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary, #4361ee); text-decoration: underline; font-size: 12px; display: inline-flex; align-items: center; gap: 4px;">
+              <span>Văn bản nguồn</span>
+              <svg viewBox="0 0 16 16" fill="none" style="width: 12px; height: 12px;"><path d="M6 3h7v7M13 3 6.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+          <td><span class="admin-meta-tag">${audText}</span></td>
+          <td style="font-size: 12px; font-variant-numeric: tabular-nums;">${effDate}</td>
+          <td style="font-size: 12px; font-variant-numeric: tabular-nums;">${expDate}</td>
+          <td>${statusBadge}</td>
+          <td style="text-align: right; white-space: nowrap;">${actionBtns}</td>
+        </tr>
+      `;
+    }).join('');
+
+    // Bind action buttons
+    tbody.querySelectorAll('.admin-ann-btn-publish').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = e.currentTarget.dataset.id;
+        try {
+          await window.systemAuth.request(`/admin/announcements/${id}/publish`, 'POST');
+          loadAnnouncements();
+        } catch (err) {
+          alert('Không thể phát hành thông báo: ' + err.message);
+        }
+      });
+    });
+
+    tbody.querySelectorAll('.admin-ann-btn-expire').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = e.currentTarget.dataset.id;
+        try {
+          await window.systemAuth.request(`/admin/announcements/${id}/expire`, 'POST');
+          loadAnnouncements();
+        } catch (err) {
+          alert('Không thể chuyển trạng thái hết hạn: ' + err.message);
+        }
+      });
+    });
+
+    tbody.querySelectorAll('.admin-ann-btn-delete').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = e.currentTarget.dataset.id;
+        if (!confirm('Bạn có chắc chắn muốn xóa thông báo này?')) return;
+        try {
+          await window.systemAuth.request(`/admin/announcements/${id}`, 'DELETE');
+          loadAnnouncements();
+        } catch (err) {
+          alert('Không thể xóa thông báo: ' + err.message);
+        }
+      });
+    });
+  }
+
+  // Hook filters
+  $('admin-ann-status-filter')?.addEventListener('change', fetchAnnouncements);
+  $('admin-ann-audience-filter')?.addEventListener('change', fetchAnnouncements);
+  $('admin-ann-search')?.addEventListener('input', fetchAnnouncements);
+
+  // Hook modal dialog
+  const annModal = $('admin-ann-modal');
+  $('admin-ann-create-btn')?.addEventListener('click', () => {
+    $('admin-ann-form')?.reset();
+    annModal?.showModal();
+  });
+  $('admin-ann-modal-close')?.addEventListener('click', () => annModal?.close());
+  $('admin-ann-cancel-btn')?.addEventListener('click', () => annModal?.close());
+
+  // Form submit
+  $('admin-ann-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const title = $('admin-ann-input-title')?.value || '';
+    const sourceUrl = $('admin-ann-input-source')?.value || '';
+    const audience = $('admin-ann-input-audience')?.value || 'all';
+    const effective = $('admin-ann-input-effective')?.value || null;
+    const expiry = $('admin-ann-input-expiry')?.value || null;
+    const content = $('admin-ann-input-content')?.value || '';
+
+    try {
+      await window.systemAuth.request('/admin/announcements', 'POST', {
+        title,
+        source_url: sourceUrl,
+        audience,
+        effective_date: effective ? new Date(effective).toISOString() : null,
+        expiry_date: expiry ? new Date(expiry).toISOString() : null,
+        content,
+      });
+      annModal?.close();
+      loadAnnouncements();
+    } catch (err) {
+      alert('Không thể tạo thông báo: ' + err.message);
+    }
+  });
+
+  window.adminAnnouncements = {
+    load: loadAnnouncements,
+  };
+
+    window.adminAudit = {
     load() {
       loadAuditMetrics();
       loadAuditLogs();

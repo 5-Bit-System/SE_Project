@@ -6,6 +6,14 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
+from app.announcements.service import (
+    create_announcement,
+    delete_announcement,
+    expire_announcement,
+    get_announcements_summary,
+    list_announcements,
+    publish_announcement,
+)
 from app.audit.service import (
     get_audit_metrics,
     get_audit_trail,
@@ -1073,3 +1081,108 @@ async def get_audit_logs_metrics(request: Request) -> dict:
 
     with engine().connect() as conn:
         return get_audit_metrics(conn)
+
+
+class AnnouncementCreateRequest(BaseModel):
+    title: str = Field(..., min_length=1, max_length=255)
+    content: str = Field(..., min_length=1)
+    source_url: str = Field(..., min_length=5, max_length=500)
+    audience: str = Field(default="all", pattern="^(all|students|faculty)$")
+    effective_date: str | None = None
+    expiry_date: str | None = None
+
+
+@router.get("/announcements")
+async def get_admin_announcements(
+    request: Request,
+    status: str | None = None,
+    audience: str | None = None,
+    q: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    items, total = list_announcements(
+        status=status, audience=audience, q=q, limit=limit, offset=offset
+    )
+    return {"items": items, "total": total}
+
+
+@router.get("/announcements/summary")
+async def get_admin_announcements_summary(request: Request) -> dict[str, int]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    return get_announcements_summary()
+
+
+@router.post("/announcements", status_code=201)
+async def create_admin_announcement(
+    request: Request, payload: AnnouncementCreateRequest
+) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    actor_id = principal.get("account_id") or principal.get("username", "admin")
+    try:
+        return create_announcement(
+            title=payload.title,
+            content=payload.content,
+            source_url=payload.source_url,
+            audience=payload.audience,
+            effective_date=payload.effective_date,
+            expiry_date=payload.expiry_date,
+            created_by=actor_id,
+        )
+    except ValueError as exc:
+        raise HTTPException(400, str(exc))
+
+
+@router.post("/announcements/{announcement_id}/publish")
+async def publish_admin_announcement(
+    request: Request, announcement_id: str
+) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    actor_id = principal.get("account_id") or principal.get("username", "admin")
+    try:
+        return publish_announcement(announcement_id, actor_id=actor_id)
+    except ValueError as exc:
+        raise HTTPException(404, str(exc))
+
+
+@router.post("/announcements/{announcement_id}/expire")
+async def expire_admin_announcement(
+    request: Request, announcement_id: str
+) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    actor_id = principal.get("account_id") or principal.get("username", "admin")
+    try:
+        return expire_announcement(announcement_id, actor_id=actor_id)
+    except ValueError as exc:
+        raise HTTPException(404, str(exc))
+
+
+@router.delete("/announcements/{announcement_id}")
+async def delete_admin_announcement(
+    request: Request, announcement_id: str
+) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    actor_id = principal.get("account_id") or principal.get("username", "admin")
+    success = delete_announcement(announcement_id, actor_id=actor_id)
+    if not success:
+        raise HTTPException(404, "Announcement not found")
+    return {"deleted": True}

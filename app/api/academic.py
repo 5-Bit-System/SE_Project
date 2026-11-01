@@ -443,3 +443,10 @@ async def semester_plan_delete(plan_id: UUID, request: Request):
         raise HTTPException(422, 'semester_plan_version_required')
     await auth_call(plans.delete_plan, principal, plan_id, int(raw))
     return {'deleted': True}
+
+
+@router.get('/academic/announcements')
+async def list_active_announcements(audience: str = 'all') -> list[dict[str, Any]]:
+    """Return active published academic announcements with valid attributable source."""
+    from app.announcements.service import get_public_announcements
+    return get_public_announcements(audience=audience)

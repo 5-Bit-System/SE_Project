@@ -237,6 +237,13 @@
         </svg>
         <span class="admin-tab-text">Nhật ký kiểm toán</span>
       </button>
+      <button id="admin-tab-announcements" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-announcements" tabindex="-1" data-admin-tab="announcements">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M15 6.5A5.5 5.5 0 0 0 4 6.5v4L2.5 13h15L16 10.5v-4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 15a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text">Thông báo</span>
+      </button>
     </nav>
 
     <p id="admin-notice" class="admin-notice-bar" role="status" aria-live="polite"></p>
@@ -1386,6 +1393,168 @@
         </div>
       </dialog>
     </section>
+
+    <!-- 6. Academic Announcements Panel -->
+    <section id="admin-panel-announcements" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-announcements" hidden>
+      <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1.5rem;">
+        <div>
+          <h3 class="admin-panel-title">Quản lý Thông báo Học thuật</h3>
+          <p class="admin-panel-subtitle">Đăng tải và kiểm soát thông báo chính thức có căn cứ nguồn văn bản xác thực.</p>
+        </div>
+        <button type="button" id="admin-ann-create-btn" class="portal-button admin-primary-btn" aria-label="Tạo thông báo mới">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Tạo thông báo</span>
+        </button>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="admin-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 20px;">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M15 6.5A5.5 5.5 0 0 0 4 6.5v4L2.5 13h15L16 10.5v-4z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Tổng số thông báo</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-total" class="admin-metric-number" style="font-size: 28px;">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" style="color: #10b981;" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="m7.5 10 2 2 3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Đang phát hành (Published)</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-published" class="admin-metric-number" style="font-size: 28px; color: #10b981;">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" style="color: #f59e0b;" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Bản thảo & Hết hạn</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-other" class="admin-metric-number" style="font-size: 28px;">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="admin-curriculum-toolbar" style="margin-bottom: 1.25rem;">
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-ann-search" type="search" placeholder="Tìm theo tiêu đề hoặc nội dung thông báo…" aria-label="Tìm kiếm thông báo">
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-ann-status-filter" class="modern-select">
+            <option value="all">Tất cả trạng thái</option>
+            <option value="draft">Bản thảo (Draft)</option>
+            <option value="published">Đang phát hành</option>
+            <option value="expired">Đã hết hạn</option>
+          </select>
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-ann-audience-filter" class="modern-select">
+            <option value="all">Tất cả đối tượng</option>
+            <option value="students">Sinh viên</option>
+            <option value="faculty">Giảng viên</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Announcements Data Table -->
+      <div class="admin-table-container">
+        <table id="admin-ann-table" class="admin-data-table">
+          <thead>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Văn bản căn cứ (Nguồn)</th>
+              <th>Đối tượng</th>
+              <th>Hiệu lực từ</th>
+              <th>Hết hạn</th>
+              <th>Trạng thái</th>
+              <th style="text-align: right;">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="admin-ann-tbody">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Create Announcement Modal Dialog -->
+    <dialog id="admin-ann-modal" class="admin-modal">
+      <div class="admin-modal-card" style="max-width: 620px;">
+        <div class="admin-modal-header">
+          <h4 class="admin-modal-title">Tạo Thông báo Học thuật Mới</h4>
+          <button type="button" id="admin-ann-modal-close" class="admin-modal-close" aria-label="Đóng">✕</button>
+        </div>
+        <div class="admin-disclaimer admin-modal-disclaimer">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" aria-hidden="true">
+            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <strong>Quy tắc xuất bản:</strong> Mọi thông báo học thuật phải có đường dẫn nguồn văn bản xác thực (ĐHQGHN hoặc HUS) để bảo đảm căn cứ pháp lý và tính minh bạch.
+          </div>
+        </div>
+        <form id="admin-ann-form" class="admin-modal-form" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+          <div class="admin-form-group">
+            <label for="admin-ann-input-title" class="admin-label">Tiêu đề thông báo *</label>
+            <input type="text" id="admin-ann-input-title" class="admin-input" required placeholder="Ví dụ: Thông báo kế hoạch học tập Học kỳ 1 2026-2027" style="width: 100%;">
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-source" class="admin-label">Đường dẫn văn bản nguồn (URL) *</label>
+            <input type="url" id="admin-ann-input-source" class="admin-input" required placeholder="https://hus.vnu.edu.vn/dao-tao/thong-bao-so-..." style="width: 100%;">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="admin-form-group">
+              <label for="admin-ann-input-audience" class="admin-label">Đối tượng xem</label>
+              <select id="admin-ann-input-audience" class="modern-select" style="width: 100%;">
+                <option value="all">Tất cả đối tượng</option>
+                <option value="students">Sinh viên</option>
+                <option value="faculty">Giảng viên / Khoa</option>
+              </select>
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-ann-input-effective" class="admin-label">Ngày hiệu lực</label>
+              <input type="datetime-local" id="admin-ann-input-effective" class="admin-input" style="width: 100%;">
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-expiry" class="admin-label">Ngày hết hạn (tùy chọn)</label>
+            <input type="datetime-local" id="admin-ann-input-expiry" class="admin-input" style="width: 100%;">
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-content" class="admin-label">Nội dung chi tiết *</label>
+            <textarea id="admin-ann-input-content" class="admin-textarea" rows="4" required placeholder="Tóm tắt nội dung thông báo, các mốc thời gian và hướng dẫn cho sinh viên..." style="width: 100%; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main); padding: 8px; font-family: inherit;"></textarea>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 1rem;">
+            <button type="button" id="admin-ann-cancel-btn" class="portal-button">Hủy bỏ</button>
+            <button type="submit" id="admin-ann-submit-btn" class="portal-button primary-action">Lưu bản thảo</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
   </section>
 
 
