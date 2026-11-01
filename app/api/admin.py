@@ -15,7 +15,14 @@ from app.curriculum.repository import (
     publish_revision,
     review_revision,
     rollback_revision,
+    update_revision_payload,
     update_validation,
+)
+from app.curriculum.rule_service import (
+    build_prerequisite_graph,
+    normalize_prerequisites,
+    update_course_rules,
+    validate_prerequisite_rules,
 )
 from app.integrations.daotao.store import engine
 from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
@@ -68,6 +75,11 @@ class RevisionDiffResponse(BaseModel):
     base_revision_id: str | None = None
     summary: dict
     changes: dict
+
+
+class PrerequisiteUpdateRequest(BaseModel):
+    prerequisites: list[list[str]]
+    reason: str = Field(min_length=3)
 
 
 class AdminProgramSummary(BaseModel):
@@ -123,7 +135,9 @@ async def list_admin_programs(request: Request) -> list[AdminProgramSummary]:
     for cat in catalogs:
         prog = cat.program
         parts = prog.program_id.split("_")
-        cohort = parts[-1] if len(parts) > 1 and parts[-1].isdigit() and len(parts[-1]) == 4 else None
+        cohort = (
+            parts[-1] if len(parts) > 1 and parts[-1].isdigit() and len(parts[-1]) == 4 else None
+        )
         result.append(
             AdminProgramSummary(
                 program_id=prog.program_id,
@@ -228,9 +242,7 @@ async def import_catalog_revision(
 
 
 @router.get("/catalog-revisions/{revision_id}/validation", response_model=CatalogValidationResponse)
-async def get_revision_validation(
-    request: Request, revision_id: str
-) -> CatalogValidationResponse:
+async def get_revision_validation(request: Request, revision_id: str) -> CatalogValidationResponse:
     """Get row-level validation errors, warnings and aggregate checks for a draft revision."""
     principal = await require_account(request)
     if principal.get("role") != "admin":
@@ -250,6 +262,22 @@ async def get_revision_validation(
         source_digest=rev["source_digest"],
         source_filename=rev["source_filename"],
     )
+
+
+@router.get("/catalog-revisions/{revision_id}")
+async def get_catalog_revision(request: Request, revision_id: str) -> dict:
+    """Get single revision detail including payload and status."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rev = get_revision(conn, revision_id)
+
+    if not rev:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    return rev
 
 
 @router.get("/catalog-revisions", response_model=list[CatalogRevisionSummary])
@@ -397,4 +425,94 @@ async def rollback_catalog_revision(
         "status": "published",
         "revision_id": rev["revision_id"],
         "is_active": rev["is_active"],
+    }
+
+
+@router.get("/catalog-revisions/{revision_id}/prerequisite-graph")
+async def get_prerequisite_graph(request: Request, revision_id: str) -> dict:
+    """Return dependency graph nodes and edges for visual rendering."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rev = get_revision(conn, revision_id)
+
+    if not rev:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    courses = (rev.get("payload") or {}).get("courses", [])
+    return build_prerequisite_graph(courses)
+
+
+@router.put("/catalog-revisions/{revision_id}/courses/{course_code}/prerequisites")
+async def update_course_prerequisites(
+    request: Request,
+    revision_id: str,
+    course_code: str,
+    body: PrerequisiteUpdateRequest,
+) -> dict:
+    """Edit prerequisite conditions for a course in a draft revision (or branch if active)."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rev = get_revision(conn, revision_id)
+
+    if not rev:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    # If the revision is already published/active, we cannot mutate it directly!
+    # We must branch a new draft revision.
+    target_rev_id = revision_id
+    payload = rev.get("payload") or {}
+    courses = payload.get("courses", [])
+
+    norm_prereqs = normalize_prerequisites(body.prerequisites)
+
+    # Validate rules
+    is_valid, errors = validate_prerequisite_rules(
+        target_code=course_code,
+        new_prerequisites=norm_prereqs,
+        all_courses=courses,
+    )
+    if not is_valid:
+        raise HTTPException(400, detail="; ".join(errors))
+
+    # Update payload
+    try:
+        updated_payload = update_course_rules(payload, course_code, norm_prereqs)
+    except ValueError as exc:
+        raise HTTPException(404, detail=str(exc)) from exc
+
+    with engine().begin() as conn:
+        if rev["is_active"] or rev["status"] == "published":
+            # Branch a new draft revision
+            branch_title = f"[Bản thảo] {rev['version_title']} (Cập nhật môn {course_code})"
+            new_rev = create_revision(
+                conn,
+                program_id=rev["program_id"],
+                version_title=branch_title,
+                cohort=rev.get("cohort"),
+                source_filename=rev.get("source_filename"),
+                source_digest=rev["source_digest"],
+                payload=updated_payload,
+                created_by=principal.get("account_id"),
+            )
+            target_rev_id = new_rev["revision_id"]
+        else:
+            update_revision_payload(
+                conn,
+                revision_id=target_rev_id,
+                payload=updated_payload,
+                updated_by=principal.get("account_id"),
+                reason=body.reason,
+            )
+
+    return {
+        "revision_id": target_rev_id,
+        "course_code": course_code.upper(),
+        "prerequisites": norm_prereqs,
+        "branched": target_rev_id != revision_id,
     }

@@ -498,6 +498,16 @@
       } else {
         tdStatus.innerHTML = `<span class="admin-status-badge badge-success">Kiểm định</span>`;
       }
+
+      // 9. Actions
+      const tdAction = tr.insertCell();
+      const editBtn = document.createElement('button');
+      editBtn.type = 'button';
+      editBtn.className = 'admin-action-btn-sm btn-edit-rules';
+      editBtn.textContent = 'Sửa quy tắc';
+      editBtn.setAttribute('aria-label', `Sửa điều kiện tiên quyết môn ${c.code}`);
+      editBtn.onclick = () => openPrereqEditor(c);
+      tdAction.append(editBtn);
     });
   }
 
@@ -826,6 +836,14 @@
       diffBtn.onclick = () => openDiffModal(rev.revision_id);
       tdAction.appendChild(diffBtn);
 
+      // Rules button
+      const rulesBtn = document.createElement('button');
+      rulesBtn.type = 'button';
+      rulesBtn.className = 'admin-action-btn-sm btn-rev-rules';
+      rulesBtn.textContent = 'Sửa quy tắc';
+      rulesBtn.onclick = () => openRevisionRulesPicker(rev);
+      tdAction.appendChild(rulesBtn);
+
       // Approve button (if draft or validated)
       if (['draft', 'validated'].includes(rev.status)) {
         const appBtn = document.createElement('button');
@@ -1005,6 +1023,262 @@
     }
   }
 
+  // ==========================================================================
+  // Prerequisite Rule Editor
+  // ==========================================================================
+  let currentEditingCourse = null;
+  let currentEditingRevisionId = null;
+  let editingRuleGroups = [];
+
+  async function openRevisionRulesPicker(rev) {
+    try {
+      const data = await window.systemAuth.request(`/admin/catalog-revisions/${rev.revision_id}`);
+      const courses = (data.payload || {}).courses || [];
+      if (courses.length === 0) {
+        alert('Bản thảo này không có danh sách học phần.');
+        return;
+      }
+      const code = window.prompt(
+        `Chọn mã môn học cần sửa quy tắc trong bản [${rev.revision_id}]:\n(Các môn: ${courses.slice(0, 8).map(c => c.code).join(', ')}${courses.length > 8 ? '...' : ''})`,
+        courses[0].code
+      );
+      if (!code) return;
+      const targetCourse = courses.find(c => c.code.toUpperCase() === code.trim().toUpperCase());
+      if (!targetCourse) {
+        alert(`Không tìm thấy mã môn ${code} trong bản thảo này.`);
+        return;
+      }
+      openPrereqEditor(targetCourse, rev.revision_id);
+    } catch (err) {
+      alert(`Lỗi: ${err.message}`);
+    }
+  }
+
+  async function openPrereqEditor(course, revisionId) {
+    const modal = $('admin-prereq-modal');
+    if (!modal) return;
+
+    if (!revisionId) {
+      if (curriculumRevisions.length === 0 && window.systemAuth?.request) {
+        try {
+          curriculumRevisions = await window.systemAuth.request('/admin/catalog-revisions') || [];
+        } catch (_) {}
+      }
+      const targetRev = curriculumRevisions.find(r => r.program_id === activeProgram?.program_id && r.is_active)
+        || curriculumRevisions.find(r => r.program_id === activeProgram?.program_id);
+
+      if (!targetRev) {
+        alert('Chương trình đào tạo này chưa có bản ghi phiên bản/bản thảo trong hệ thống. Vui lòng bấm "Nhập bản thảo (CSV)" để khởi tạo trước khi sửa quy tắc.');
+        return;
+      }
+      revisionId = targetRev.revision_id;
+    }
+
+    currentEditingCourse = course;
+    currentEditingRevisionId = revisionId;
+
+    if ($('admin-prereq-course-code')) $('admin-prereq-course-code').textContent = course.code;
+    if ($('admin-prereq-course-name')) $('admin-prereq-course-name').textContent = course.name;
+
+    const rev = curriculumRevisions.find(r => r.revision_id === revisionId);
+    const badge = $('admin-prereq-rev-badge');
+    if (badge) {
+      if (rev && (rev.is_active || rev.status === 'published')) {
+        badge.textContent = `Phiên bản: ${revisionId} (Đang chạy - Sẽ tự rẽ nhánh bản thảo)`;
+        badge.style.color = '#f59e0b';
+      } else {
+        badge.textContent = `Bản thảo: ${revisionId}`;
+        badge.style.color = '';
+      }
+    }
+
+    editingRuleGroups = [];
+    if (Array.isArray(course.prerequisites)) {
+      editingRuleGroups = course.prerequisites.map(g => Array.isArray(g) ? [...g] : [g]);
+    }
+
+    const reasonInput = $('admin-prereq-reason');
+    if (reasonInput) reasonInput.value = '';
+
+    const errAlert = $('admin-prereq-error-alert');
+    if (errAlert) {
+      errAlert.hidden = true;
+      errAlert.textContent = '';
+    }
+
+    renderPrereqGroups();
+    modal.showModal();
+  }
+
+  function renderPrereqGroups() {
+    const builder = $('admin-prereq-builder');
+    if (!builder) return;
+    builder.replaceChildren();
+
+    if (editingRuleGroups.length === 0) {
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'admin-empty-state';
+      emptyDiv.style.padding = '12px';
+      emptyDiv.style.border = '1px dashed var(--border-light)';
+      emptyDiv.textContent = 'Học phần hiện không có điều kiện tiên quyết nào (tự do đăng ký).';
+      builder.appendChild(emptyDiv);
+      return;
+    }
+
+    editingRuleGroups.forEach((grp, gIdx) => {
+      const card = document.createElement('div');
+      card.className = 'prereq-group-card';
+      card.dataset.groupIndex = gIdx;
+
+      // Group Header
+      const header = document.createElement('div');
+      header.className = 'prereq-group-header';
+      header.innerHTML = `<span>Nhóm điều kiện ${gIdx + 1} (Học ít nhất 1 môn - OR)</span>`;
+
+      const delGroupBtn = document.createElement('button');
+      delGroupBtn.type = 'button';
+      delGroupBtn.className = 'admin-action-btn-sm';
+      delGroupBtn.style.color = '#ef4444';
+      delGroupBtn.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+      delGroupBtn.textContent = 'Xóa nhóm';
+      delGroupBtn.onclick = () => {
+        editingRuleGroups.splice(gIdx, 1);
+        renderPrereqGroups();
+      };
+      header.appendChild(delGroupBtn);
+      card.appendChild(header);
+
+      // Pill List
+      const pillList = document.createElement('div');
+      pillList.className = 'prereq-pill-list';
+
+      grp.forEach((code, cIdx) => {
+        const pill = document.createElement('span');
+        pill.className = 'prereq-code-pill';
+        pill.innerHTML = `<span>${code}</span>`;
+
+        const rmBtn = document.createElement('button');
+        rmBtn.type = 'button';
+        rmBtn.className = 'prereq-code-remove';
+        rmBtn.textContent = '×';
+        rmBtn.setAttribute('aria-label', `Xóa mã ${code}`);
+        rmBtn.onclick = () => {
+          grp.splice(cIdx, 1);
+          renderPrereqGroups();
+        };
+        pill.appendChild(rmBtn);
+        pillList.appendChild(pill);
+      });
+
+      // Inline Add input + button
+      const addContainer = document.createElement('div');
+      addContainer.className = 'prereq-inline-add';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'modern-input prereq-inline-input';
+      input.placeholder = 'Mã môn';
+      input.maxLength = 15;
+
+      const addBtn = document.createElement('button');
+      addBtn.type = 'button';
+      addBtn.className = 'admin-action-btn-sm';
+      addBtn.textContent = '+ Thêm';
+      const doAdd = () => {
+        const val = input.value.trim().toUpperCase();
+        if (val) {
+          if (!grp.includes(val)) {
+            grp.push(val);
+          }
+          renderPrereqGroups();
+        }
+      };
+      addBtn.onclick = doAdd;
+      input.onkeydown = (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          doAdd();
+        }
+      };
+
+      addContainer.appendChild(input);
+      addContainer.appendChild(addBtn);
+      pillList.appendChild(addContainer);
+
+      card.appendChild(pillList);
+      builder.appendChild(card);
+    });
+  }
+
+  function bindPrereqEditorModal() {
+    const modal = $('admin-prereq-modal');
+    if (!modal || modal.dataset.bound === 'true') return;
+    modal.dataset.bound = 'true';
+
+    $('admin-prereq-close-btn')?.addEventListener('click', () => modal.close());
+    $('admin-prereq-cancel-btn')?.addEventListener('click', () => modal.close());
+
+    $('admin-prereq-add-group-btn')?.addEventListener('click', () => {
+      editingRuleGroups.push([]);
+      renderPrereqGroups();
+    });
+
+    $('admin-prereq-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const saveBtn = $('admin-prereq-save-btn');
+      const errAlert = $('admin-prereq-error-alert');
+      if (saveBtn) saveBtn.disabled = true;
+      if (errAlert) {
+        errAlert.hidden = true;
+        errAlert.textContent = '';
+      }
+
+      const reason = $('admin-prereq-reason')?.value?.trim();
+      const cleaned = editingRuleGroups
+        .map(grp => grp.map(c => String(c).trim().toUpperCase()).filter(Boolean))
+        .filter(grp => grp.length > 0);
+
+      try {
+        const csrf = window.systemAuth?.csrf || '';
+        const res = await fetch(`/admin/catalog-revisions/${currentEditingRevisionId}/courses/${currentEditingCourse.code}/prerequisites`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(csrf ? { 'X-CSRF-Token': csrf } : {})
+          },
+          body: JSON.stringify({
+            prerequisites: cleaned,
+            reason: reason
+          })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || 'Lỗi khi lưu quy tắc tiên quyết');
+        }
+
+        currentEditingCourse.prerequisites = data.prerequisites;
+        modal.close();
+
+        await loadRevisions();
+        renderCourses();
+
+        const msg = data.branched
+          ? `Đã tạo bản thảo rẽ nhánh [${data.revision_id}] do phiên bản trước đã phát hành!`
+          : `Đã cập nhật quy tắc tiên quyết cho môn ${data.course_code}!`;
+        alert(msg);
+      } catch (err) {
+        if (errAlert) {
+          errAlert.hidden = false;
+          errAlert.textContent = err.message;
+        }
+      } finally {
+        if (saveBtn) saveBtn.disabled = false;
+      }
+    });
+  }
+  bindPrereqEditorModal();
+
   // Expose module APIs
   window.adminOverview = {
     load: loadOverview,
@@ -1017,6 +1291,7 @@
     load: loadCurriculum,
     renderPrograms,
     openProgramCourses,
-    renderCourses
+    renderCourses,
+    openPrereqEditor
   };
 })();

@@ -442,6 +442,7 @@
                 <th scope="col">Kỳ/Năm</th>
                 <th scope="col">Điều kiện tiên quyết</th>
                 <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
               </tr>
             </thead>
             <tbody id="admin-courses-tbody"></tbody>
@@ -520,6 +521,50 @@
           <div class="admin-modal-actions">
             <button type="button" id="admin-diff-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
           </div>
+        </div>
+      </dialog>
+
+      <!-- Prerequisite Rule Editor Modal -->
+      <dialog id="admin-prereq-modal" class="admin-modal" style="max-width: 680px;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Chỉnh sửa điều kiện học phần tiên quyết</h4>
+            <button type="button" id="admin-prereq-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div class="admin-disclaimer">
+            <div>
+              <strong>Lưu ý:</strong> Chỉnh sửa quy tắc tiên quyết sẽ được lưu vào <em>Bản thảo</em>. Nếu đang thao tác trên bản đã phát hành, hệ thống sẽ tự động rẽ nhánh một bản thảo mới an toàn.
+            </div>
+          </div>
+          <div class="admin-prereq-course-banner">
+            <div>
+              <span id="admin-prereq-course-code" class="admin-meta-tag" style="font-size: 1rem; font-weight: 700;"></span>
+              <strong id="admin-prereq-course-name" style="margin-left: 8px;"></strong>
+            </div>
+            <span id="admin-prereq-rev-badge" class="admin-meta-tag"></span>
+          </div>
+
+          <form id="admin-prereq-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label>Quy tắc tiên quyết (Dạng điều kiện logic: AND giữa các nhóm, OR giữa các môn trong nhóm)</label>
+              <div id="admin-prereq-builder" class="admin-prereq-builder">
+                <!-- Dynamic AND/OR Groups rendered here -->
+              </div>
+              <button type="button" id="admin-prereq-add-group-btn" class="admin-action-btn-sm" style="margin-top: 8px;">+ Thêm nhóm điều kiện (VÀ / AND)</button>
+            </div>
+
+            <div class="admin-form-group">
+              <label for="admin-prereq-reason">Lý do thay đổi quy tắc (Bắt buộc)</label>
+              <input id="admin-prereq-reason" type="text" placeholder="VD: Bổ sung môn thay thế theo quyết định đào tạo" required minlength="3">
+            </div>
+
+            <div id="admin-prereq-error-alert" class="admin-prereq-error-alert" hidden></div>
+
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-prereq-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-prereq-save-btn" class="portal-button admin-primary-btn">Lưu quy tắc vào bản thảo</button>
+            </div>
+          </form>
         </div>
       </dialog>
     </section>

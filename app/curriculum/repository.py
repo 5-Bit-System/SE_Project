@@ -2,6 +2,7 @@
 
 import json
 import uuid
+
 from sqlalchemy import text
 
 
@@ -81,10 +82,14 @@ def create_revision(
 
 
 def get_revision(conn, revision_id: str) -> dict | None:
-    row = conn.execute(
-        text("SELECT * FROM curriculum_revisions WHERE revision_id = :rev_id"),
-        {"rev_id": revision_id},
-    ).mappings().one_or_none()
+    row = (
+        conn.execute(
+            text("SELECT * FROM curriculum_revisions WHERE revision_id = :rev_id"),
+            {"rev_id": revision_id},
+        )
+        .mappings()
+        .one_or_none()
+    )
     return _row_to_dict(row)
 
 
@@ -134,6 +139,35 @@ def update_validation(
         action="validated",
         reason=f"Kiểm thử dữ liệu: {status}",
         details=validation_summary,
+    )
+    return get_revision(conn, revision_id)
+
+
+def update_revision_payload(
+    conn,
+    revision_id: str,
+    payload: dict,
+    updated_by: str | uuid.UUID | None = None,
+    reason: str = "Cập nhật nội dung bản thảo",
+) -> dict:
+    conn.execute(
+        text("""
+            UPDATE curriculum_revisions
+            SET payload = :payload
+            WHERE revision_id = :rev_id
+        """),
+        {
+            "rev_id": revision_id,
+            "payload": json.dumps(payload),
+        },
+    )
+    record_review(
+        conn,
+        revision_id=revision_id,
+        reviewer_id=updated_by,
+        action="validated",
+        reason=reason,
+        details={"event": "payload_updated"},
     )
     return get_revision(conn, revision_id)
 
@@ -189,7 +223,9 @@ def publish_revision(
     if not target:
         raise ValueError(f"Revision {revision_id} not found")
     if target["status"] != "approved":
-        raise ValueError(f"Cannot publish revision with status '{target['status']}'. Must be 'approved'.")
+        raise ValueError(
+            f"Cannot publish revision with status '{target['status']}'. Must be 'approved'."
+        )
 
     program_id = target["program_id"]
 
@@ -272,10 +308,16 @@ def rollback_revision(
 
 
 def get_active_revision(conn, program_id: str) -> dict | None:
-    row = conn.execute(
-        text("SELECT * FROM curriculum_revisions WHERE program_id = :program_id AND is_active = true"),
-        {"program_id": program_id},
-    ).mappings().one_or_none()
+    row = (
+        conn.execute(
+            text(
+                "SELECT * FROM curriculum_revisions WHERE program_id = :program_id AND is_active = true"
+            ),
+            {"program_id": program_id},
+        )
+        .mappings()
+        .one_or_none()
+    )
     return _row_to_dict(row)
 
 
@@ -308,8 +350,14 @@ def record_review(
 
 
 def list_reviews(conn, revision_id: str) -> list[dict]:
-    rows = conn.execute(
-        text("SELECT * FROM curriculum_reviews WHERE revision_id = :rev_id ORDER BY created_at ASC"),
-        {"rev_id": revision_id},
-    ).mappings().all()
+    rows = (
+        conn.execute(
+            text(
+                "SELECT * FROM curriculum_reviews WHERE revision_id = :rev_id ORDER BY created_at ASC"
+            ),
+            {"rev_id": revision_id},
+        )
+        .mappings()
+        .all()
+    )
     return [_row_to_dict(r) for r in rows]
