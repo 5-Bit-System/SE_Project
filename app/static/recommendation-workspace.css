@@ -200,3 +200,64 @@
 .rec-save-form > .rec-button { justify-self: start; }
 .rec-save-success { display: flex; align-items: center; gap: 10px; color: var(--accent-emerald) !important; }
 .rec-save-success svg { width: 22px; height: 22px; }
+@media (max-width: 1200px) {
+  .rec-shell { grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr); gap: 16px; }
+  .rec-question { padding: 24px; }
+  .rec-choice { padding: 15px; }
+  .rec-roadmap { padding: 23px 18px; }
+  .rec-live-label { display: none; }
+  .rec-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1000px) {
+  .rec-shell { grid-template-columns: minmax(0, 1fr); }
+  .rec-shell > .rec-roadmap { display: none; }
+  .rec-mobile-roadmap { display: flex; justify-content: center; align-items: center; gap: 10px; position: sticky; bottom: 14px; margin: 22px auto 0; border: 1px solid var(--border-subtle); border-radius: 50px; min-height: 46px; background: var(--bg-surface); color: var(--accent-primary); box-shadow: var(--shadow-overlay); padding: 10px 22px; font-size: 12px; font-weight: 600; cursor: pointer; z-index: 3; }
+  .rec-mobile-roadmap svg { width: 19px; height: 19px; }
+  .rec-roadmap-sheet { margin: auto 0 0; width: 100%; max-width: none; border-radius: 22px 22px 0 0; }
+  .rec-roadmap-sheet .rec-roadmap { border: 0; padding: 0; }
+}
+@media (max-width: 600px) {
+  .rec-heading { display: grid; gap: 10px; margin: 4px 0 20px; }
+  .rec-heading h2 { font-size: 31px; }
+  .rec-heading p { font-size: 12px; }
+  .rec-heading > .rec-button { justify-self: start; margin-top: 0; min-height: 38px; padding: 7px 12px; }
+  .rec-conversation { border-radius: 18px; }
+  .rec-conversation-top { padding: 18px; }
+  .rec-source-status { margin: 16px 16px 0; }
+  .rec-transcript { padding: 18px 16px 0; }
+  .rec-question { padding: 20px 18px 23px; min-height: 330px; }
+  .rec-question h3 { font-size: 25px; }
+  .rec-choice { padding: 14px 12px; }
+  .rec-choice > strong { font-size: 12px; }
+  .rec-choice > span:not(.rec-choice-icon) { font-size: 10px; }
+  .rec-choices { gap: 9px; }
+  .rec-composer { margin-inline: 16px; }
+  .rec-conversation-foot { padding-inline: 18px; }
+  .rec-budget { padding: 14px; gap: 9px; }
+  .rec-load-options { gap: 7px; }
+  .rec-load-choice { font-size: 10px; }
+  .rec-results-heading { display: grid; }
+  .rec-results-heading h3 { font-size: 23px; }
+  .rec-results-heading > button { justify-self: start; }
+  .rec-variant-tabs { gap: 6px; }
+  .rec-variant-tab { grid-template-columns: 1fr; padding: 12px 9px; min-height: 99px; }
+  .rec-variant-number { grid-row: auto; }
+  .rec-variant-tab strong { font-size: 10px; line-height: 1.7; }
+  .rec-variant-tab small { font-size: 9px; }
+  .rec-course-grid { grid-template-columns: minmax(0, 1fr); }
+  .rec-course-title { font-size: 16px; }
+  .rec-course-reason, .rec-course-footer > span { font-size: 12px; }
+  .rec-dialog-heading { padding: 18px; }
+  .rec-dialog-heading h2 { font-size: 16px; }
+  .rec-dialog-content { padding: 18px; }
+  .rec-compare-controls { grid-template-columns: 1fr; gap: 12px; }
+  .rec-existing-tools > #course-planning-panel { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rec-choice, .rec-button, .rec-load-choice, .rec-composer, .rec-step-dot::after { transition: none; }
+  .rec-choice:hover, .rec-load-choice:hover, .rec-button:active:not(:disabled) { transform: none; }
+  .rec-loading-papers i { animation: none; transform: rotate(-6deg); }
+  .rec-loading-papers i:nth-child(2) { transform: rotate(5deg) translateY(3px); }
+  .rec-loading-papers i:nth-child(3) { transform: translateY(7px); }
+}
+#recommendation-workspace[data-paused="true"] .rec-loading-papers i { animation-play-state: paused; }
