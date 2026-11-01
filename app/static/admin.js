@@ -511,6 +511,7 @@
     });
     $('admin-courses-search')?.addEventListener('input', renderCourses);
     $('admin-courses-block-filter')?.addEventListener('change', renderCourses);
+    bindImportModal();
   });
   $('admin-curriculum-search')?.addEventListener('input', renderPrograms);
   $('admin-curriculum-status-filter')?.addEventListener('change', renderPrograms);
@@ -520,6 +521,167 @@
   });
   $('admin-courses-search')?.addEventListener('input', renderCourses);
   $('admin-courses-block-filter')?.addEventListener('change', renderCourses);
+
+  function bindImportModal() {
+    const importBtn = $('admin-curriculum-import-btn');
+    const modal = $('admin-import-modal');
+    const closeBtn = $('admin-import-close-btn');
+    const cancelBtn = $('admin-import-cancel-btn');
+    const form = $('admin-import-form');
+    const fileInput = $('admin-import-file-input');
+    const csvTextArea = $('admin-import-csv-text');
+    const progSelect = $('admin-import-program-select');
+    const previewDiv = $('admin-import-preview');
+
+    if (!modal || modal.dataset.bound === 'true') return;
+    modal.dataset.bound = 'true';
+
+    importBtn?.addEventListener('click', async () => {
+      // Ensure programs are loaded
+      if (curriculumPrograms.length === 0 && window.systemAuth?.request) {
+        try {
+          const data = await window.systemAuth.request('/admin/programs');
+          curriculumPrograms = data || [];
+        } catch (_) {}
+      }
+
+      // Populate program select options
+      if (progSelect && curriculumPrograms.length > 0) {
+        progSelect.innerHTML = '<option value="">-- Chọn chương trình đào tạo --</option>';
+        curriculumPrograms.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.program_id;
+          opt.textContent = `${p.name} (${p.program_id})`;
+          progSelect.appendChild(opt);
+        });
+      }
+      form?.reset();
+      if (previewDiv) {
+        previewDiv.hidden = true;
+        previewDiv.innerHTML = '';
+      }
+      modal.showModal();
+    });
+
+    closeBtn?.addEventListener('click', () => modal.close());
+    cancelBtn?.addEventListener('click', () => modal.close());
+
+    fileInput?.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const titleInput = $('admin-import-version-title');
+      if (titleInput && !titleInput.value) {
+        titleInput.value = file.name.replace(/\.csv$/i, '');
+      }
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        if (csvTextArea) csvTextArea.value = evt.target.result;
+      };
+      reader.readAsText(file, 'utf-8');
+    });
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = $('admin-import-submit-btn');
+      if (submitBtn) submitBtn.disabled = true;
+
+      const payload = {
+        program_id: progSelect.value,
+        version_title: $('admin-import-version-title').value,
+        cohort: $('admin-import-cohort').value || null,
+        csv_content: csvTextArea.value,
+        filename: fileInput?.files?.[0]?.name || 'manual_entry.csv'
+      };
+
+      try {
+        const csrf = window.systemAuth?.csrf || '';
+        const res = await fetch('/admin/catalog-revisions/import', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(csrf ? { 'X-CSRF-Token': csrf } : {})
+          },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || 'Lỗi nhập dữ liệu bản thảo');
+        }
+
+        renderImportPreview(data);
+      } catch (err) {
+        if (previewDiv) {
+          previewDiv.hidden = false;
+          previewDiv.innerHTML = `
+            <div class="preview-header">
+              <span class="preview-status-pill danger">Lỗi hệ thống</span>
+            </div>
+            <p class="err-msg">${err.message}</p>
+          `;
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+
+  function renderImportPreview(data) {
+    const previewDiv = $('admin-import-preview');
+    if (!previewDiv) return;
+    const summary = data.validation_summary || {};
+    const isValid = summary.valid;
+    const stats = summary.stats || {};
+    const errors = summary.errors || [];
+    const warnings = summary.warnings || [];
+
+    previewDiv.hidden = false;
+    let html = `
+      <div class="preview-header">
+        <strong>Kết quả kiểm tra dữ liệu:</strong>
+        <span class="preview-status-pill ${isValid ? 'success' : 'danger'}">
+          ${isValid ? '✓ Hợp lệ (Đã tạo bản thảo)' : '⚠ Có lỗi cần chỉnh sửa'}
+        </span>
+      </div>
+      <div style="margin: 6px 0; color: var(--text-muted); font-size: 0.82rem;">
+        Mã bản thảo: <code style="font-family: 'JetBrains Mono', monospace;">${data.revision_id}</code> | 
+        Số học phần: <strong>${stats.course_count || 0}</strong> | 
+        Tổng tín chỉ: <strong>${stats.total_credits || 0}</strong>
+      </div>
+    `;
+
+    if (errors.length > 0) {
+      html += `
+        <div style="margin-top: 8px;">
+          <strong class="err-msg">Danh sách lỗi (${errors.length}):</strong>
+          <ul>
+            ${errors.map(err => `<li class="err-msg">Dòng ${err.row || '-'}: ${err.message}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    if (warnings.length > 0) {
+      html += `
+        <div style="margin-top: 8px;">
+          <strong class="warn-msg">Cảnh báo (${warnings.length}):</strong>
+          <ul>
+            ${warnings.map(w => `<li class="warn-msg">${w.message}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    if (isValid) {
+      html += `
+        <div style="margin-top: 10px; padding: 8px; border-radius: 4px; background: rgba(16, 185, 129, 0.1); color: #10b981;">
+          ✓ Bản thảo đã được lưu trữ an toàn trong hàng đợi kiểm duyệt. Không ảnh hưởng đến dữ liệu đang vận hành.
+        </div>
+      `;
+    }
+
+    previewDiv.innerHTML = html;
+  }
+  bindImportModal();
 
   // Expose module APIs
   window.adminOverview = {

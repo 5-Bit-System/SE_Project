@@ -5,7 +5,51 @@ from pydantic import BaseModel, Field
 
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
+from app.curriculum.import_service import validate_and_parse_csv
+from app.curriculum.repository import (
+    create_revision,
+    get_revision,
+    list_revisions,
+    update_validation,
+)
+from app.integrations.daotao.store import engine
 from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
+
+
+class CatalogImportRequest(BaseModel):
+    program_id: str
+    version_title: str
+    cohort: str | None = None
+    csv_content: str
+    filename: str | None = None
+
+
+class CatalogImportResponse(BaseModel):
+    revision_id: str
+    program_id: str
+    version_title: str
+    status: str
+    validation_summary: dict
+
+
+class CatalogValidationResponse(BaseModel):
+    revision_id: str
+    program_id: str
+    status: str
+    validation_summary: dict
+    source_digest: str
+    source_filename: str | None = None
+
+
+class CatalogRevisionSummary(BaseModel):
+    revision_id: str
+    program_id: str
+    cohort: str | None = None
+    version_title: str
+    status: str
+    is_active: bool
+    created_at: str
+    source_filename: str | None = None
 
 
 class AdminProgramSummary(BaseModel):
@@ -112,4 +156,106 @@ async def list_admin_courses(
             source_page=c.source_page,
         )
         for c in catalog.courses
+    ]
+
+
+@router.post("/catalog-revisions/import", response_model=CatalogImportResponse)
+async def import_catalog_revision(
+    request: Request, body: CatalogImportRequest
+) -> CatalogImportResponse:
+    """Import and validate a curriculum draft without touching active catalog."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    # Parse and validate CSV
+    val_result = validate_and_parse_csv(
+        content=body.csv_content,
+        program_id=body.program_id,
+        version_title=body.version_title,
+        cohort=body.cohort,
+    )
+
+    payload = {
+        "program_id": body.program_id,
+        "version_title": body.version_title,
+        "cohort": body.cohort,
+        "courses": val_result["courses"],
+        "stats": val_result["stats"],
+    }
+
+    status = "validated" if val_result["valid"] else "draft"
+
+    with engine().begin() as conn:
+        rev = create_revision(
+            conn,
+            program_id=body.program_id,
+            version_title=body.version_title,
+            cohort=body.cohort,
+            source_filename=body.filename,
+            source_digest=val_result["digest"],
+            payload=payload,
+            created_by=principal.get("account_id"),
+        )
+        if status == "validated":
+            rev = update_validation(conn, rev["revision_id"], status, val_result)
+
+    return CatalogImportResponse(
+        revision_id=rev["revision_id"],
+        program_id=body.program_id,
+        version_title=body.version_title,
+        status=rev["status"],
+        validation_summary=val_result,
+    )
+
+
+@router.get("/catalog-revisions/{revision_id}/validation", response_model=CatalogValidationResponse)
+async def get_revision_validation(
+    request: Request, revision_id: str
+) -> CatalogValidationResponse:
+    """Get row-level validation errors, warnings and aggregate checks for a draft revision."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rev = get_revision(conn, revision_id)
+
+    if not rev:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    return CatalogValidationResponse(
+        revision_id=rev["revision_id"],
+        program_id=rev["program_id"],
+        status=rev["status"],
+        validation_summary=rev["validation_summary"],
+        source_digest=rev["source_digest"],
+        source_filename=rev["source_filename"],
+    )
+
+
+@router.get("/catalog-revisions", response_model=list[CatalogRevisionSummary])
+async def list_catalog_revisions(
+    request: Request, program_id: str | None = None
+) -> list[CatalogRevisionSummary]:
+    """List versioned revisions for a program."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rows = list_revisions(conn, program_id=program_id)
+
+    return [
+        CatalogRevisionSummary(
+            revision_id=r["revision_id"],
+            program_id=r["program_id"],
+            cohort=r.get("cohort"),
+            version_title=r["version_title"],
+            status=r["status"],
+            is_active=r["is_active"],
+            created_at=r["created_at"],
+            source_filename=r.get("source_filename"),
+        )
+        for r in rows
     ]

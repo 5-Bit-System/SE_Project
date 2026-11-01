@@ -294,6 +294,12 @@
               <option value="verified">Đã kiểm định</option>
             </select>
           </div>
+          <button type="button" id="admin-curriculum-import-btn" class="portal-button admin-primary-btn" aria-label="Nhập danh mục mới">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M10 3v10m-4-4 4 4 4-4M4 17h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Nhập bản thảo (CSV)</span>
+          </button>
         </div>
 
         <div id="admin-curriculum-container">
@@ -386,6 +392,59 @@
           </table>
         </div>
       </div>
+
+      <!-- Import Curriculum Draft Modal -->
+      <dialog id="admin-import-modal" class="admin-modal">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Nhập bản thảo Chương trình đào tạo (CSV)</h4>
+            <button type="button" id="admin-import-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div class="admin-disclaimer admin-modal-disclaimer">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" aria-hidden="true">
+              <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <strong>Lưu ý quan trọng:</strong> Tệp CSV sẽ được kiểm tra và lưu thành một <em>Bản thảo (Draft)</em> độc lập. Thao tác này không ghi đè chương trình đào tạo đang hoạt động cho đến khi được phê duyệt và phát hành chính thức.
+            </div>
+          </div>
+          <form id="admin-import-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label for="admin-import-program-select">Chương trình đào tạo mục tiêu</label>
+              <select id="admin-import-program-select" class="modern-select" required>
+                <option value="">-- Chọn chương trình --</option>
+              </select>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group">
+                <label for="admin-import-version-title">Tên bản thảo / Tiêu đề phiên bản</label>
+                <input id="admin-import-version-title" type="text" placeholder="VD: Khóa 2026 Cập nhật môn Tin học" required>
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-import-cohort">Khóa / Năm tuyển sinh (tùy chọn)</label>
+                <input id="admin-import-cohort" type="text" placeholder="VD: 2026">
+              </div>
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-import-file-input">Chọn tệp CSV hoặc dán nội dung</label>
+              <input id="admin-import-file-input" type="file" accept=".csv,text/csv">
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-import-csv-text">Nội dung CSV (code, name, credits, prerequisites, block, suggested_term)</label>
+              <textarea id="admin-import-csv-text" rows="6" placeholder="code,name,credits,prerequisites,block,suggested_term&#10;MAT1001,Giải tích 1,3,,Khối chung,1&#10;MAT1002,Giải tích 2,3,MAT1001,Khối chung,2" required></textarea>
+            </div>
+
+            <!-- Validation Preview Container -->
+            <div id="admin-import-preview" class="admin-import-preview" hidden></div>
+
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-import-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-import-submit-btn" class="portal-button admin-primary-btn">Kiểm tra & Lưu bản thảo</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </section>
 
     <!-- 3. Users Panel -->

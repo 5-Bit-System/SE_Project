@@ -5,6 +5,15 @@ import uuid
 from sqlalchemy import text
 
 
+def _safe_uuid(val):
+    if not val:
+        return None
+    try:
+        return str(uuid.UUID(str(val)))
+    except (ValueError, AttributeError):
+        return None
+
+
 def _row_to_dict(row):
     if row is None:
         return None
@@ -54,7 +63,7 @@ def create_revision(
             "filename": source_filename,
             "digest": source_digest,
             "payload": json.dumps(payload),
-            "created_by": str(created_by) if created_by else None,
+            "created_by": _safe_uuid(created_by),
         },
     )
 
@@ -154,7 +163,7 @@ def review_revision(
         {
             "rev_id": revision_id,
             "status": new_status,
-            "reviewer": str(reviewer_id) if reviewer_id else None,
+            "reviewer": _safe_uuid(reviewer_id),
             "decision": decision,
             "notes": notes,
         },
@@ -290,7 +299,7 @@ def record_review(
         {
             "id": review_id,
             "rev_id": revision_id,
-            "reviewer": str(reviewer_id) if reviewer_id else None,
+            "reviewer": _safe_uuid(reviewer_id),
             "action": action,
             "reason": reason,
             "details": json.dumps(details or {}),
