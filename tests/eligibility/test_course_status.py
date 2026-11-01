@@ -228,6 +228,21 @@ def test_map_follows_available_prerequisite_chains_without_completing_or_plannin
     assert course_board_display(view) == view
 
 
+@pytest.mark.parametrize("reviewed", [False, True])
+def test_map_refills_suggestions_after_excluded_courses_release_the_budget(curriculum, reviewed):
+    board = (reviewed_course_board(curriculum, pending_context(), max_credits=3)
+             if reviewed else course_board(curriculum, context("A"), max_credits=6))
+    before = copy.deepcopy(board)
+    view = course_board_display(board)
+    expected = ["E1"] if reviewed else ["B", "E1"]
+    assert view["plan"]["course_codes"] == expected
+    assert view["plan"]["suggested_credits"] == view["plan"]["max_credits"]
+    assert {row["code"] for row in view["courses"]["eligible"] if row["suggested"]} == set(expected)
+    assert "C" not in expected and "X" not in expected
+    assert board == before
+    assert course_board_display(view) == view
+
+
 def test_map_requires_every_and_clause_but_accepts_either_or_alternative(curriculum):
     for code, prerequisites in (
         ("OR", [["D", "B"]]), ("AND", [["B"], ["D"]]),

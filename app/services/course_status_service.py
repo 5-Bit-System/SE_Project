@@ -41,7 +41,7 @@ def course_board_display(board: dict) -> dict:
     """
     if not board.get("courses"):
         return board
-    rows = {state: [row for row in courses if row["counted_in_total"]]
+    rows = {state: [{**row} for row in courses if row["counted_in_total"]]
             for state, courses in board["courses"].items()}
     available = {row["code"] for row in rows["eligible"]}
     pending = {item["code"] for item in board.get("review_items", [])
@@ -86,11 +86,25 @@ def course_board_display(board: dict) -> dict:
         row["requirement_type"] not in {"required", "required_excluded"}, row["code"]))
     result = {**board, "courses": rows}
     if board.get("plan"):
-        visible = {row["code"]: row for row in rows["eligible"]
-                   if row.get("planning_eligible", True)}
-        codes = [code for code in board["plan"]["course_codes"] if code in visible]
+        # Hidden courses must not consume the budget or elective quota before
+        # visible courses are considered. Reachable follow-ups remain view-only.
+        codes, total, used = [], 0, {}
+        for row in rows["eligible"]:
+            groups = [group for group in row["groups"] if group["required_credits"] is not None]
+            row["suggested"] = False
+            if (board.get("can_plan") is False or not row.get("planning_eligible", True)
+                    or row.get("eligibility_basis") == "available_prerequisites"
+                    or total + row["credits"] > board["plan"]["max_credits"]
+                    or (groups and all(group["earned_credits"] + used.get(group["id"], 0)
+                                       >= group["required_credits"] for group in groups))):
+                continue
+            row["suggested"] = True
+            codes.append(row["code"])
+            total += row["credits"]
+            for group in groups:
+                used[group["id"]] = used.get(group["id"], 0) + row["credits"]
         result["plan"] = {**board["plan"], "course_codes": codes,
-                          "suggested_credits": sum(visible[code]["credits"] for code in codes)}
+                          "suggested_credits": total}
     return result
 
 
