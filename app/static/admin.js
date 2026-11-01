@@ -701,36 +701,46 @@
 
   const subtabPrograms = $('admin-curriculum-subtab-programs');
   const subtabRevisions = $('admin-curriculum-subtab-revisions');
+  const subtabPreview = $('admin-curriculum-subtab-preview');
   const programsView = $('admin-curriculum-container');
   const programsToolbar = document.querySelector('.admin-curriculum-toolbar');
   const revisionsView = $('admin-curriculum-revisions-view');
+  const previewView = $('admin-curriculum-preview-view');
   const diffModal = $('admin-diff-modal');
   const diffCloseBtn = $('admin-diff-close-btn');
   const diffDismissBtn = $('admin-diff-dismiss-btn');
 
   function switchCurriculumSubtab(tab) {
+    [subtabPrograms, subtabRevisions, subtabPreview].forEach(btn => {
+      btn?.classList.remove('active');
+      btn?.setAttribute('aria-selected', 'false');
+    });
+    if (programsView) programsView.hidden = true;
+    if (programsToolbar) programsToolbar.hidden = true;
+    if (revisionsView) revisionsView.hidden = true;
+    if (previewView) previewView.hidden = true;
+
     if (tab === 'programs') {
       subtabPrograms?.classList.add('active');
       subtabPrograms?.setAttribute('aria-selected', 'true');
-      subtabRevisions?.classList.remove('active');
-      subtabRevisions?.setAttribute('aria-selected', 'false');
       if (programsView) programsView.hidden = false;
       if (programsToolbar) programsToolbar.hidden = false;
-      if (revisionsView) revisionsView.hidden = true;
-    } else {
-      subtabPrograms?.classList.remove('active');
-      subtabPrograms?.setAttribute('aria-selected', 'false');
+    } else if (tab === 'revisions') {
       subtabRevisions?.classList.add('active');
       subtabRevisions?.setAttribute('aria-selected', 'true');
-      if (programsView) programsView.hidden = true;
-      if (programsToolbar) programsToolbar.hidden = true;
       if (revisionsView) revisionsView.hidden = false;
       loadRevisions();
+    } else if (tab === 'preview') {
+      subtabPreview?.classList.add('active');
+      subtabPreview?.setAttribute('aria-selected', 'true');
+      if (previewView) previewView.hidden = false;
+      initSyntheticPreview();
     }
   }
 
   subtabPrograms?.addEventListener('click', () => switchCurriculumSubtab('programs'));
   subtabRevisions?.addEventListener('click', () => switchCurriculumSubtab('revisions'));
+  subtabPreview?.addEventListener('click', () => switchCurriculumSubtab('preview'));
   $('admin-revisions-refresh-btn')?.addEventListener('click', () => loadRevisions());
   $('admin-revisions-search')?.addEventListener('input', renderRevisions);
   $('admin-revisions-status-filter')?.addEventListener('change', renderRevisions);
@@ -2227,7 +2237,254 @@
     get data() { return overviewData; }
   };
 
-  window.adminCurriculum = {
+
+  // ==========================================================================
+  // Synthetic Recommendation Preview Logic
+  // ==========================================================================
+  let previewProgramsLoaded = false;
+  let currentPreviewCourses = [];
+
+  async function initSyntheticPreview() {
+    const progSelect = $('admin-preview-prog-select');
+    if (!progSelect) return;
+
+    if (!previewProgramsLoaded) {
+      try {
+        const progs = await window.systemAuth.request('/admin/programs');
+        progSelect.innerHTML = progs.map(p => `
+          <option value="${p.program_id}">${p.name} (${p.program_id})</option>
+        `).join('');
+        previewProgramsLoaded = true;
+        if (progs.length > 0) {
+          loadPreviewCourses(progs[0].program_id);
+        }
+      } catch (err) {
+        console.warn('Failed to load programs for preview:', err);
+      }
+    }
+  }
+
+  async function loadPreviewCourses(programId) {
+    const picker = $('admin-preview-courses-picker');
+    if (!picker) return;
+    picker.innerHTML = '<div style="color: var(--text-muted); font-size: 12px; padding: 8px;">Đang tải danh sách học phần...</div>';
+
+    try {
+      const data = await window.systemAuth.request(`/admin/courses?program_id=${encodeURIComponent(programId)}`);
+      currentPreviewCourses = Array.isArray(data) ? data : (data.courses || []);
+      renderPreviewCheckboxes(currentPreviewCourses);
+    } catch (err) {
+      picker.innerHTML = '<div style="color: #ef4444; font-size: 12px; padding: 8px;">Không thể tải danh sách học phần.</div>';
+    }
+  }
+
+  function renderPreviewCheckboxes(courses) {
+    const picker = $('admin-preview-courses-picker');
+    if (!picker) return;
+
+    if (!courses.length) {
+      picker.innerHTML = '<div style="color: var(--text-muted); font-size: 12px; padding: 8px;">Không có học phần nào.</div>';
+      return;
+    }
+
+    picker.innerHTML = courses.map(c => `
+      <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 8px; border-radius: 6px; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-subtle);">
+        <input type="checkbox" value="${c.code}" class="admin-preview-chk" style="cursor: pointer;">
+        <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><strong>${c.code}</strong>: ${c.name}</span>
+      </label>
+    `).join('');
+
+    picker.querySelectorAll('.admin-preview-chk').forEach(chk => {
+      chk.addEventListener('change', updateSelectedPreviewCount);
+    });
+    updateSelectedPreviewCount();
+  }
+
+  function updateSelectedPreviewCount() {
+    const countEl = $('admin-preview-selected-num');
+    const checked = document.querySelectorAll('.admin-preview-chk:checked');
+    if (countEl) countEl.textContent = checked.length;
+  }
+
+  // Hook program selector change
+  $('admin-preview-prog-select')?.addEventListener('change', (e) => {
+    loadPreviewCourses(e.target.value);
+  });
+
+  // Hook Presets
+  document.querySelectorAll('.admin-preset-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const preset = e.currentTarget.dataset.preset;
+      const chks = document.querySelectorAll('.admin-preview-chk');
+      chks.forEach(c => c.checked = false);
+
+      if (preset === 'year1') {
+        Array.from(chks).slice(0, 6).forEach(c => c.checked = true);
+      } else if (preset === 'core') {
+        Array.from(chks).slice(0, 12).forEach(c => c.checked = true);
+      }
+      updateSelectedPreviewCount();
+    });
+  });
+
+  // Hook Run Simulation Button
+  $('admin-preview-run-btn')?.addEventListener('click', async () => {
+    const progId = $('admin-preview-prog-select')?.value;
+    if (!progId) return;
+
+    const runBtn = $('admin-preview-run-btn');
+    if (runBtn) {
+      runBtn.disabled = true;
+      runBtn.innerHTML = '<span>Đang chạy mô phỏng...</span>';
+    }
+
+    const checkedCodes = Array.from(document.querySelectorAll('.admin-preview-chk:checked')).map(c => c.value);
+    const maxCredits = parseInt($('admin-preview-credits-input')?.value || '18', 10);
+    const goal = $('admin-preview-goal-input')?.value || '';
+
+    try {
+      const res = await window.systemAuth.request('/admin/recommendations/preview', 'POST', {
+        program_id: progId,
+        passed_course_codes: checkedCodes,
+        max_credits: maxCredits,
+        goal: goal,
+      });
+      renderPreviewResults(res);
+    } catch (err) {
+      alert('Lỗi mô phỏng: ' + (err.message || 'Không thể thực hiện mô phỏng'));
+    } finally {
+      if (runBtn) {
+        runBtn.disabled = false;
+        runBtn.innerHTML = `
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true" style="width: 16px; height: 16px; margin-right: 6px;">
+            <path d="M7 2h6M10 2v5l-5 8.5A2 2 0 0 0 6.7 18h6.6a2 2 0 0 0 1.7-2.5L10 7V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Chạy Mô phỏng Cố vấn</span>
+        `;
+      }
+    }
+  });
+
+  function renderPreviewResults(data) {
+    const area = $('admin-preview-results-area');
+    if (!area) return;
+    area.hidden = false;
+
+    // 1. Banner
+    let bannerHtml = `
+      <div style="background: rgba(67, 97, 238, 0.08); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+        <span class="admin-status-badge badge-success" style="font-size: 11px;">MÔ PHỎNG GIẢ ĐỊNH</span>
+        <span style="font-size: 13px; color: var(--text-main);">${data.simulation_disclaimer}</span>
+      </div>
+    `;
+    if (data.catalog?.is_unverified) {
+      bannerHtml += `
+        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #b45309; display: flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 16 16" fill="none" class="badge-icon" style="width: 16px; height: 16px; flex-shrink: 0;"><path d="M8 2.5 14 13H2L8 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>${data.catalog.warning}</span>
+        </div>
+      `;
+    }
+    $('admin-preview-banner').innerHTML = bannerHtml;
+
+    // 2. Counts
+    $('admin-res-count-rec').textContent = data.recommendations?.length || 0;
+    $('admin-res-count-eli').textContent = data.eligible_courses?.length || 0;
+    $('admin-res-count-blk').textContent = data.blocked_courses?.length || 0;
+
+    // 3. Recommended Table
+    const tbodyRec = $('admin-tbody-rec');
+    if (tbodyRec) {
+      const recs = data.recommendations || [];
+      if (!recs.length) {
+        tbodyRec.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 16px;">Không có học phần nào được đề xuất cho hồ sơ này.</td></tr>';
+      } else {
+        tbodyRec.innerHTML = recs.map(r => `
+          <tr>
+            <td style="text-align: center;"><span class="admin-source-tag" style="font-weight: 700;">#${r.rank}</span></td>
+            <td><strong>${r.code}</strong></td>
+            <td>${r.name}</td>
+            <td style="text-align: right; font-variant-numeric: tabular-nums;">${r.credits}</td>
+            <td>
+              <span class="admin-status-badge badge-success" style="font-size: 11px;">Điểm: ${Math.round(r.score * 100)}%</span>
+            </td>
+            <td style="font-size: 12px;">${r.reason || r.fit_reason || '-'}</td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    // 4. Eligible Table
+    const tbodyEli = $('admin-tbody-eli');
+    if (tbodyEli) {
+      const elis = data.eligible_courses || [];
+      if (!elis.length) {
+        tbodyEli.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 16px;">Không có học phần nào đủ điều kiện.</td></tr>';
+      } else {
+        tbodyEli.innerHTML = elis.map(c => `
+          <tr>
+            <td><strong>${c.code}</strong></td>
+            <td>${c.name}</td>
+            <td style="text-align: right; font-variant-numeric: tabular-nums;">${c.credits}</td>
+            <td><span class="admin-meta-tag">${c.block || '-'}</span></td>
+            <td>${c.term || '-'}</td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    // 5. Blocked Table
+    const tbodyBlk = $('admin-tbody-blk');
+    if (tbodyBlk) {
+      const blks = data.blocked_courses || [];
+      if (!blks.length) {
+        tbodyBlk.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 16px;">Không có học phần nào bị chặn.</td></tr>';
+      } else {
+        tbodyBlk.innerHTML = blks.map(b => {
+          const reasonsText = (b.reasons || []).map(rs => {
+            const prereqs = (rs.missing_prerequisites || []).flat().join(', ');
+            return `<div>• ${rs.message}${prereqs ? ` (Thiếu: <span class="admin-reason-tag">${prereqs}</span>)` : ''}</div>`;
+          }).join('');
+          return `
+            <tr>
+              <td><strong>${b.code}</strong></td>
+              <td>${b.name}</td>
+              <td style="text-align: right; font-variant-numeric: tabular-nums;">${b.credits}</td>
+              <td><span class="admin-meta-tag">${b.block || '-'}</span></td>
+              <td style="font-size: 12px; color: #dc2626;">${reasonsText || 'Bị chặn'}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+    }
+
+    // Switch to Recommended panel by default
+    switchPreviewResultsTab('recommended');
+  }
+
+  function switchPreviewResultsTab(tab) {
+    const tabs = {
+      recommended: { btn: $('admin-res-tab-recommended'), panel: $('admin-res-panel-recommended') },
+      eligible: { btn: $('admin-res-tab-eligible'), panel: $('admin-res-panel-eligible') },
+      blocked: { btn: $('admin-res-tab-blocked'), panel: $('admin-res-panel-blocked') },
+    };
+
+    Object.entries(tabs).forEach(([k, item]) => {
+      if (k === tab) {
+        item.btn?.classList.add('active');
+        if (item.panel) item.panel.hidden = false;
+      } else {
+        item.btn?.classList.remove('active');
+        if (item.panel) item.panel.hidden = true;
+      }
+    });
+  }
+
+  $('admin-res-tab-recommended')?.addEventListener('click', () => switchPreviewResultsTab('recommended'));
+  $('admin-res-tab-eligible')?.addEventListener('click', () => switchPreviewResultsTab('eligible'));
+  $('admin-res-tab-blocked')?.addEventListener('click', () => switchPreviewResultsTab('blocked'));
+
+    window.adminCurriculum = {
     load: loadCurriculum,
     renderPrograms,
     openProgramCourses,

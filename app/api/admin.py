@@ -57,6 +57,10 @@ from app.curriculum.rule_service import (
 from app.integrations.daotao.store import engine
 from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
 from app.services.operational_metrics import get_operational_health
+from app.services.synthetic_preview import (
+    SyntheticPreviewRequest,
+    run_synthetic_recommendation_preview,
+)
 
 
 class CatalogImportRequest(BaseModel):
@@ -205,6 +209,38 @@ async def get_metrics_health(request: Request, window: str = "24h") -> dict[str,
     if window not in {"1h", "24h", "7d", "all"}:
         window = "24h"
     return get_operational_health(window=window)
+
+
+@router.post("/recommendations/preview")
+async def preview_recommendations(
+    request: Request,
+    payload: SyntheticPreviewRequest,
+) -> dict[str, Any]:
+    """Execute synthetic recommendation preview without persisting data or touching real student records."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    try:
+        result = run_synthetic_recommendation_preview(payload)
+    except CatalogError as exc:
+        raise HTTPException(404, str(exc))
+    except ValueError as exc:
+        raise HTTPException(400, str(exc))
+
+    try:
+        actor_id = principal.get("account_id") or principal.get("username", "admin")
+        log_admin_action(
+            actor_id=actor_id,
+            action="admin:recommendation:preview",
+            target_type="program",
+            target_id=payload.program_id,
+            details={"passed_count": len(payload.passed_course_codes), "is_simulated": True},
+        )
+    except Exception:
+        pass
+
+    return result
 
 
 

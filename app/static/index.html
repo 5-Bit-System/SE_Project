@@ -358,6 +358,7 @@
         <div class="admin-subtabs" role="tablist" aria-label="Chế độ xem chương trình đào tạo">
           <button type="button" id="admin-curriculum-subtab-programs" class="admin-subtab-btn active" role="tab" aria-selected="true">Chương trình hiện hành</button>
           <button type="button" id="admin-curriculum-subtab-revisions" class="admin-subtab-btn" role="tab" aria-selected="false">Bản thảo & Lịch sử phiên bản</button>
+          <button type="button" id="admin-curriculum-subtab-preview" class="admin-subtab-btn" role="tab" aria-selected="false">Thử nghiệm Cố vấn Giả lập</button>
         </div>
 
         <!-- Filter Toolbar -->
@@ -456,6 +457,128 @@
           </div>
         </div>
       </div>
+
+        <!-- Synthetic Preview Subtab View -->
+        <div id="admin-curriculum-preview-view" hidden>
+          <div class="admin-panel-header" style="margin-bottom: 1rem;">
+            <div>
+              <h4 class="admin-panel-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Thử nghiệm Cố vấn & Khuyến nghị Giả lập</h4>
+              <p class="admin-panel-subtitle" style="font-size: 0.85rem; color: var(--text-muted);">
+                Mô phỏng giải thuật gợi ý học phần và kiểm tra điều kiện tiên quyết bằng hồ sơ sinh viên giả định.
+                <span class="admin-source-tag" style="background: rgba(16, 185, 129, 0.1); color: #047857; margin-left: 6px;">Không ghi nhận vào học bạ thực tế</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Configuration Card -->
+          <div class="admin-card" style="padding: 1.25rem; margin-bottom: 1.5rem;">
+            <h5 style="margin: 0 0 1rem 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">1. Thiết lập Hồ sơ Giả định</h5>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+              <div class="admin-form-group">
+                <label for="admin-preview-prog-select" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Chương trình đào tạo mục tiêu</label>
+                <select id="admin-preview-prog-select" class="modern-select" style="width: 100%;"></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-preview-credits-input" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Số tín chỉ đăng ký tối đa</label>
+                <input type="number" id="admin-preview-credits-input" class="admin-input" value="18" min="1" max="30" style="width: 100%; padding: 7px 10px; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main);">
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-preview-goal-input" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Mục tiêu / Nguyện vọng học tập</label>
+                <input type="text" id="admin-preview-goal-input" class="admin-input" placeholder="Ví dụ: Tối ưu điểm số, định hướng chuyên sâu..." style="width: 100%; padding: 7px 10px; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main);">
+              </div>
+            </div>
+
+            <!-- Quick Presets -->
+            <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Mẫu hồ sơ nhanh:</span>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="freshman" style="font-size: 11px; padding: 4px 10px;">Sinh viên Mới (0 môn)</button>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="year1" style="font-size: 11px; padding: 4px 10px;">Đã học 1 năm</button>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="core" style="font-size: 11px; padding: 4px 10px;">Đã xong Đại cương</button>
+            </div>
+
+            <!-- Course Checkboxes Picker -->
+            <div class="admin-form-group">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                <label class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Môn học giả định đã tích lũy (Passed Courses)</label>
+                <span style="font-size: 12px; color: var(--text-muted);">Đã chọn: <strong id="admin-preview-selected-num" style="color: var(--accent-primary, #4361ee);">0</strong> môn</span>
+              </div>
+              <div id="admin-preview-courses-picker" style="max-height: 180px; overflow-y: auto; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px; background: var(--soft-surface); display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px;"></div>
+            </div>
+
+            <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end;">
+              <button type="button" id="admin-preview-run-btn" class="portal-button primary-action">
+                <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true" style="width: 16px; height: 16px; margin-right: 6px;">
+                  <path d="M7 2h6M10 2v5l-5 8.5A2 2 0 0 0 6.7 18h6.6a2 2 0 0 0 1.7-2.5L10 7V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Chạy Mô phỏng Cố vấn</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulation Results Area -->
+          <div id="admin-preview-results-area" hidden>
+            <div id="admin-preview-banner" style="margin-bottom: 1.25rem;"></div>
+
+            <div class="admin-subtabs" role="tablist" style="margin-bottom: 1rem;">
+              <button type="button" id="admin-res-tab-recommended" class="admin-subtab-btn active" role="tab">Gợi ý hàng đầu (<span id="admin-res-count-rec">0</span>)</button>
+              <button type="button" id="admin-res-tab-eligible" class="admin-subtab-btn" role="tab">Đủ điều kiện đăng ký (<span id="admin-res-count-eli">0</span>)</button>
+              <button type="button" id="admin-res-tab-blocked" class="admin-subtab-btn" role="tab">Bị chặn bởi tiên quyết (<span id="admin-res-count-blk">0</span>)</button>
+            </div>
+
+            <div id="admin-res-panel-recommended" class="admin-preview-res-panel">
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-rec">
+                  <thead>
+                    <tr>
+                      <th style="width: 50px;">Hạng</th>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Điểm số & Khối</th>
+                      <th>Lý do gợi ý</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-rec"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="admin-res-panel-eligible" class="admin-preview-res-panel" hidden>
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-eli">
+                  <thead>
+                    <tr>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Khối kiến thức</th>
+                      <th>Kỳ đề xuất</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-eli"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="admin-res-panel-blocked" class="admin-preview-res-panel" hidden>
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-blk">
+                  <thead>
+                    <tr>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Khối kiến thức</th>
+                      <th>Lý do chặn & Môn tiên quyết còn thiếu</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-blk"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       <!-- Course Detail View (Initially hidden) -->
       <div id="admin-curriculum-detail-view" hidden>
