@@ -26,6 +26,12 @@ def main():
         elif path.startswith('/me/academic-context?'):
             result, code = {"status": "needs_program_binding", "blocking_reasons": [
                 "source_incomplete", "program_binding_unverified"]}, 200
+        elif path.startswith('/me/course-status?'):
+            result, code = {"status": "needs_program_binding", "courses": None,
+                            "blocking_reasons": ["source_incomplete", "program_binding_unverified"],
+                            "program_selection": {"programs": [], "cohorts": []}}, 200
+        elif path == '/me/semester-plans':
+            result, code = {"plans": []}, 200
         elif path == '/me/portal-connection':
             logged_in = True
             result, code = {}, 200
@@ -67,10 +73,11 @@ def main():
         assert page.locator('#workspace-cohort').inner_text() == '79'
         assert page.locator('#catalog-name-text').inner_text() == sample['profile']['program']
         page.locator('#tab-btn-rules').click()
-        page.wait_for_function("document.getElementById('tab-rules').textContent.includes('Chưa xác minh chương trình')")
-        assert 'Chưa xác minh bảng điểm' in page.locator('#tab-rules').inner_text()
+        page.wait_for_function("document.getElementById('tab-rules').textContent.includes('Chưa đủ dữ liệu để phân loại')")
+        assert page.locator('#tab-rules #semester-plans, #tab-rules select, #tab-rules input[type=number]').count() == 0
         page.locator('#tab-btn-recommend').click()
         page.wait_for_function("document.getElementById('tab-recommend').textContent.includes('Chưa xác minh chương trình')")
+        assert 'Chưa xác minh bảng điểm' in page.locator('#tab-recommend').inner_text()
         page.locator('[data-language-choice="en"]').focus()
         page.locator('[data-language-choice="en"]').press('Enter')
         assert page.locator('[data-language-choice="en"]').get_attribute('aria-pressed') == 'true'
