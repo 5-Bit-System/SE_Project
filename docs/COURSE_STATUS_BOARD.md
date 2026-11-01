@@ -1,5 +1,17 @@
 # Điều kiện học theo bảng điểm VNU
 
+## Bố cục hiện tại — 01/11/2026
+
+Tab **Điều kiện học** chỉ giữ bản đồ ba nhóm môn đã hoàn thành / có thể học /
+chưa thể học, tìm kiếm và chú thích điều kiện. Các cảnh báo nguồn chưa đủ được
+hiển thị ngắn gọn; không đặt khung bảng điểm hoặc yêu cầu chọn nhánh tại đây.
+
+Tab **Gợi ý kỳ tới** chứa chọn hướng/nhánh tốt nghiệp, ngân sách tín chỉ,
+tổng hợp tiến độ và các phương án học kỳ đã lưu. Các bước xác nhận chương trình,
+đối chiếu dữ liệu và thao tác mở/cập nhật bảng điểm khi cần cũng nằm ở phần này.
+Hai tab dùng chung context đã kiểm tra; đổi tab không xóa bản nháp hay tự lưu.
+Các phần mô tả bố cục cũ bên dưới được thay thế bởi quy tắc này.
+
 Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
 `feat/vnu-curriculum-planning`, trên cơ chế tài khoản/phiên hiện hành của main.
 
@@ -95,9 +107,9 @@ ngoại khóa đã chọn; các môn bị loại trừ vẫn không cộng vào 
 2. Nếu nguồn chưa đủ bằng chứng, chọn **Cập nhật bảng điểm VNU**. Luồng dùng lại
    phiên nguồn hiện có; chỉ yêu cầu xác thực lại khi phiên VNU không còn hiệu lực.
 3. Đối chiếu và xác nhận ngành/khóa từ hồ sơ VNU cho tài khoản hiện tại.
-4. Chọn hướng/nhánh tốt nghiệp nếu chương trình yêu cầu, rồi xem ba nhóm môn:
-   đã hoàn thành, đủ điều kiện và bị chặn cùng lý do.
-5. Lập kế hoạch mặc định 20 tín chỉ, điều chỉnh 1–30. Chọn môn không làm môn
+4. Xem ba nhóm môn đã hoàn thành, có thể học và chưa thể học cùng lý do.
+5. Mở **Gợi ý kỳ tới**, chọn hướng/nhánh nếu chương trình yêu cầu và lập kế hoạch
+   mặc định 20 tín chỉ, điều chỉnh 1–30. Chọn môn không làm môn
    đó trở thành đã đạt để mở tiên quyết khác trong cùng kỳ.
 
 Ngân sách chỉ giới hạn bộ môn dự kiến, không thay đổi tập môn đủ điều kiện.
