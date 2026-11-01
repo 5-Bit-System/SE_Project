@@ -1,6 +1,5 @@
 """API tests for admin curriculum and courses inspection endpoints."""
 
-import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app

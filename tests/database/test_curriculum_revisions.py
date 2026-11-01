@@ -1,25 +1,25 @@
 """Database tests for versioned curriculum revisions and audit schema."""
 
-import os
-from pathlib import Path
 import uuid
-from dotenv import dotenv_values
-import pytest
-from sqlalchemy import create_engine, text
+from pathlib import Path
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+import pytest
+from dotenv import dotenv_values
+from sqlalchemy import create_engine
 
 from app.curriculum.repository import (
     create_revision,
-    get_revision,
-    list_revisions,
-    update_validation,
-    review_revision,
-    publish_revision,
-    rollback_revision,
     get_active_revision,
+    get_revision,
     list_reviews,
+    publish_revision,
+    review_revision,
+    rollback_revision,
+    update_validation,
 )
+
+ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+
 
 @pytest.fixture
 def db_conn():

@@ -10,10 +10,10 @@ Tests:
 
 Run: .venv/Scripts/python.exe -m tests.frontend.check_admin_shell
 """
-import json
 import os
 import urllib.request
 from pathlib import Path
+
 from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get('TEST_BASE_URL', 'http://127.0.0.1:8000')

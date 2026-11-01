@@ -1,6 +1,5 @@
 """Unit tests for curriculum diff computation."""
 
-import pytest
 from app.curriculum.diff_service import compute_curriculum_diff
 
 

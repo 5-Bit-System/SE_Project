@@ -1,9 +1,10 @@
 """Unit tests for truthful admin overview metrics service."""
 
-import pytest
 from unittest.mock import patch
 
-from app.services.admin_overview import get_admin_overview, AdminOverviewResponse
+import pytest
+
+from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
 
 
 @pytest.mark.anyio

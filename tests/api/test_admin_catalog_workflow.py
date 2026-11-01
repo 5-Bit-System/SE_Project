@@ -1,12 +1,10 @@
 """API workflow tests for curriculum diff, approval, publish and rollback."""
 
 from pathlib import Path
-from dotenv import dotenv_values
-import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
 
-from app.main import app
+import pytest
+from dotenv import dotenv_values
+from sqlalchemy import create_engine
 
 ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 

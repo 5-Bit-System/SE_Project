@@ -6,6 +6,7 @@ rather than a misleading zero.
 """
 from datetime import datetime, timezone
 from typing import Any, Literal
+
 from anyio import to_thread
 from pydantic import BaseModel, Field
 

@@ -1,7 +1,6 @@
 """Unit tests for curriculum import parsing and validation logic."""
 
-import pytest
-from app.curriculum.import_service import validate_and_parse_csv, detect_prerequisite_cycles
+from app.curriculum.import_service import detect_prerequisite_cycles, validate_and_parse_csv
 
 
 def test_valid_csv_parsing():

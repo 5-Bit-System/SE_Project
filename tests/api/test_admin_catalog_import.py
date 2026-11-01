@@ -1,8 +1,9 @@
 """Tests for admin catalog revision import and validation endpoints."""
 
 from pathlib import Path
-from dotenv import dotenv_values
+
 import pytest
+from dotenv import dotenv_values
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 
