@@ -5,7 +5,7 @@ import mimetypes
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
 from tests.frontend.check_course_status import course
@@ -21,7 +21,7 @@ def main():
             'courses': {'completed': [], 'blocked': [], 'eligible': [
                 course('TEST-A', 'Môn giả lập A', 3), course('TEST-B', 'Môn giả lập B', 4)]},
             'progress': {'total': {'earned_credits': 3, 'required_credits': 120, 'remaining_credits': 117}},
-            'plan': {'course_codes': ['TEST-A'], 'max_credits': 20, 'suggested_credits': 3}}
+            'plan': {'course_codes': ['TEST-A', 'TEST-B'], 'max_credits': 20, 'suggested_credits': 7}}
     source = {'subject': 'synthetic-only', 'profile': {'program': 'Synthetic', 'cohort': '79'},
               'snapshot': {'completeness': 'complete', 'attempts': []}}
 
@@ -70,32 +70,43 @@ def main():
             page = browser.new_page(viewport={'width': 1440, 'height': 1000})
             page.route('**/*', intercept)
             page.on('pageerror', lambda error: errors.append(str(error)))
-            page.goto('http://127.0.0.1:8000/#rules')
+            page.goto('http://127.0.0.1:8000/#recommend')
             page.wait_for_selector('#semester-plan-form')
             page.locator('#semester-plan-title').fill('HK1 — Phương án A')
-            page.locator('[data-plan-code="TEST-B"]').check()
+            assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
+            page.locator('[data-plan-course="TEST-A"] button').click()
+            restore = page.get_by_role('button', name='Lấy lại gợi ý', exact=True)
+            restore.click()
+            expect(page.locator('[data-plan-course="TEST-A"]')).to_have_count(1)
+            assert page.locator('[data-plan-course="TEST-B"]').count() == 1
+            assert page.locator('#semester-plan-title').input_value() == 'HK1 — Phương án A'
+            assert saved == [], 'Restoring suggestions must not write a saved plan'
+            page.locator('[data-plan-course="TEST-A"] button').click()
             page.reload()
             page.wait_for_selector('#semester-plan-form')
-            page.wait_for_function("document.querySelector('[data-plan-code=\"TEST-B\"]')?.checked")
+            page.wait_for_selector('[data-plan-course="TEST-B"]')
+            assert page.locator('#semester-plan-form [data-plan-course="TEST-A"]').count() == 0
             assert page.locator('#semester-plan-title').input_value() == 'HK1 — Phương án A'
             reads = len(board_reads)
             page.evaluate("window.workspaceNavigate('tab-dashboard')")
             page.evaluate("window.workspaceNavigate('tab-rules')")
+            assert page.locator('#course-status-board #semester-plans').count() == 0
+            page.evaluate("window.workspaceNavigate('tab-recommend')")
             page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: value}))", source)
             page.wait_for_timeout(150)
             assert len(board_reads) == reads
-            assert page.locator('[data-plan-code="TEST-B"]').is_checked()
+            assert page.locator('[data-plan-course="TEST-B"]').count() == 1
             assert page.locator('#semester-plan-title').input_value() == 'HK1 — Phương án A'
             stored = page.evaluate("JSON.parse(sessionStorage.getItem('study-workspace-semester-draft-v1'))")
-            assert stored['codes'] == ['TEST-A', 'TEST-B']
+            assert stored['codes'] == ['TEST-B']
             assert not {'snapshot', 'cookies', 'password', 'csrf', 'grades'} & stored.keys()
             page.locator('#semester-plan-form button[type=submit]').click()
             page.wait_for_function("document.querySelector('#semester-plans').textContent.includes('Đã lưu kế hoạch')")
-            assert saved[0]['total_credits'] == 7
+            assert saved[0]['total_credits'] == 4
             page.reload()
             page.wait_for_selector('#semester-plan-picker option[value="1"]', state='attached')
             page.locator('#semester-plan-picker').select_option('1')
-            page.wait_for_function("document.querySelector('[data-plan-code=\"TEST-B\"]')?.checked")
+            page.wait_for_selector('[data-plan-course="TEST-B"]')
             page.locator('#semester-plan-picker').select_option('')
             page.locator('#semester-plan-title').fill('HK1 — Phương án B')
             page.locator('#semester-plan-form button[type=submit]').click()
@@ -106,7 +117,7 @@ def main():
             page.wait_for_selector('#semester-plan-picker option[value="1"]', state='attached')
             page.locator('#semester-plan-picker').select_option('1')
             page.wait_for_function("document.querySelector('#semester-plans').textContent.includes('Bảng điểm, chương trình hoặc quy chế đã thay đổi')")
-            page.wait_for_selector('[data-plan-code="TEST-B"]')
+            page.wait_for_selector('#course-planning-panel .course-status-summary')
             assert 'Hướng/nhánh cũ không còn phù hợp' in page.locator('#semester-plans').inner_text()
             page.set_viewport_size({'width': 390, 'height': 844})
             assert page.locator('#semester-plan-form').is_visible()

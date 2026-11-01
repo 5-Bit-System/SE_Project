@@ -1,9 +1,71 @@
 # Điều kiện học theo bảng điểm VNU
 
+## Bố cục hiện tại — 01/11/2026
+
+Tab **Điều kiện học** chỉ giữ bản đồ ba nhóm môn đã hoàn thành / có thể học /
+chưa thể học, tìm kiếm và chú thích điều kiện. Các cảnh báo nguồn chưa đủ được
+hiển thị ngắn gọn; không đặt khung bảng điểm hoặc yêu cầu chọn nhánh tại đây.
+
+Tab **Gợi ý kỳ tới** chứa chọn hướng/nhánh tốt nghiệp, ngân sách tín chỉ,
+tổng hợp tiến độ và các phương án học kỳ đã lưu. Các bước xác nhận chương trình,
+đối chiếu dữ liệu và thao tác mở/cập nhật bảng điểm khi cần cũng nằm ở phần này.
+Hai tab dùng chung context đã kiểm tra; đổi tab không xóa bản nháp hay tự lưu.
+Các phần mô tả bố cục cũ bên dưới được thay thế bởi quy tắc này.
+
 Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
 `feat/vnu-curriculum-planning`, trên cơ chế tài khoản/phiên hiện hành của main.
 
-## Mặc định môn có thể học — 28/10/2026
+## Cập nhật bản đồ — 31/10/2026
+
+### Rà soát tích hợp local — 01/11/2026
+
+Sau khi ẩn môn không tính tín chỉ, bộ gợi ý được tính lại trên các môn còn hiển
+thị và thực sự được phép lập kế hoạch. Ví dụ ngân sách 6 TC có hai môn phù hợp
+mỗi môn 3 TC sẽ gợi ý cả hai, kể cả khi trước đó một môn bị ẩn đã chiếm ngân sách.
+Vẫn giữ hạn mức nhóm tự chọn, trạng thái tạm dừng và điều kiện tiên quyết đã đạt;
+môn nối tiếp chỉ để xem không được đưa vào phương án cùng kỳ.
+
+Nút **Lấy lại gợi ý / Restore suggestions** thay danh sách môn trong bản nháp
+bằng gợi ý hiện tại, giúp lấy lại môn đã bỏ mà không cần checkbox trên từng thẻ.
+Tên, học kỳ và phương án đang mở được giữ. Thao tác này chưa lưu vào database;
+người dùng vẫn bấm **Kiểm tra và lưu phương án** để xác thực và lưu riêng.
+Nút bị khóa khi đang tải, mất kết nối hoặc chưa đủ điều kiện lập kế hoạch.
+
+### Quy tắc hiển thị
+
+Theo yêu cầu mới của người dùng, quy tắc hiển thị bên dưới thay thế mặc định
+ngày 28/10 cho ba cột trên bản đồ:
+
+- Bỏ checkbox “Chọn cho kế hoạch kỳ tới” trên các thẻ học phần.
+- Ẩn mọi môn không tính vào tín chỉ tích lũy khỏi cả ba cột và số đếm/tìm kiếm.
+  Áp dụng cả cờ của môn và danh sách loại trừ của chương trình. Bảng điểm nguồn
+  và cách tính tín chỉ đã hoàn thành giữ nguyên.
+- Nếu mọi mệnh đề tiên quyết còn thiếu đều có một lựa chọn trong nhóm **Có thể
+  học**, đưa môn nối tiếp vào cùng nhóm, lặp đến khi không còn môn mới. Điều
+  kiện AND/OR được giữ nguyên; vòng lặp không có môn đầu vào không tự mở khóa.
+  Thẻ ghi rõ tiên quyết cần hoàn thành trước, không coi các môn đó là đã đạt.
+- Tiên quyết hiển thị dạng **mã môn: tên môn**, tên được in đậm, trong cả nhóm
+  Có thể học và Chưa thể học. Tra tên theo đúng catalog hiện tại kể cả khi môn
+  đó không hiện trong ba cột/tìm kiếm; hỗ trợ tên tiếng Anh nếu có. Mã ngoài
+  catalog chưa có tên vẫn giữ nguyên mã, không suy đoán hoặc tạo tên giả.
+- Các lý do chặn khác (nguồn/tiên quyết chưa rõ, hướng/nhánh, nhóm tự chọn đã
+  đủ tín chỉ) vẫn được giữ. Khóa kế hoạch toàn cục vẫn có hiệu lực.
+- Việc tạm dừng kế hoạch hoặc kết quả của chính môn còn chờ đối chiếu không
+  được đẩy môn đã thỏa tiên quyết sang nhóm đỏ. Khôi phục những môn này vào
+  nhóm vàng trước, rồi mới lan truyền sang các môn được chúng làm tiên quyết.
+  Chỉ khóa thao tác lập/lưu kế hoạch tương ứng; không coi môn là đã hoàn thành.
+
+`course_board_display()` chỉ chiếu kết quả cho `/me/course-status`; bộ phân loại
+gốc và các API eligibility/progress/recommendation vẫn dùng điểm đạt thực tế.
+Môn nối tiếp được đánh dấu `eligibility_basis=available_prerequisites`, có
+`prerequisite_clauses`. Môn chỉ bị chặn bởi đối chiếu kế hoạch có
+`eligibility_basis=completed_prerequisites`. Cả hai loại hiển thị bổ sung có
+`planning_eligible=false`, không tự được gợi ý hay chấp nhận lưu cùng kỳ khi
+điều kiện lập kế hoạch chưa đủ. Gợi ý mặc định 20 tín chỉ vẫn điều chỉnh được;
+phương án lưu sẵn tiếp tục mở, bỏ môn, lưu và xóa như trước. Môn bị ẩn không
+còn nằm trong gợi ý mới của bản đồ; không xóa nội dung phương án cũ trong DB.
+
+## Mặc định môn có thể học — 28/10/2026 (lịch sử)
 
 Theo yêu cầu người dùng, môn không có tiên quyết hoặc không tính vào tổng tín
 chỉ tích lũy/GPA được giữ ở nhóm **Có thể học kỳ tới** khi chưa xác định hoàn
@@ -45,9 +107,9 @@ ngoại khóa đã chọn; các môn bị loại trừ vẫn không cộng vào 
 2. Nếu nguồn chưa đủ bằng chứng, chọn **Cập nhật bảng điểm VNU**. Luồng dùng lại
    phiên nguồn hiện có; chỉ yêu cầu xác thực lại khi phiên VNU không còn hiệu lực.
 3. Đối chiếu và xác nhận ngành/khóa từ hồ sơ VNU cho tài khoản hiện tại.
-4. Chọn hướng/nhánh tốt nghiệp nếu chương trình yêu cầu, rồi xem ba nhóm môn:
-   đã hoàn thành, đủ điều kiện và bị chặn cùng lý do.
-5. Lập kế hoạch mặc định 20 tín chỉ, điều chỉnh 1–30. Chọn môn không làm môn
+4. Xem ba nhóm môn đã hoàn thành, có thể học và chưa thể học cùng lý do.
+5. Mở **Gợi ý kỳ tới**, chọn hướng/nhánh nếu chương trình yêu cầu và lập kế hoạch
+   mặc định 20 tín chỉ, điều chỉnh 1–30. Chọn môn không làm môn
    đó trở thành đã đạt để mở tiên quyết khác trong cùng kỳ.
 
 Ngân sách chỉ giới hạn bộ môn dự kiến, không thay đổi tập môn đủ điều kiện.

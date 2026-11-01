@@ -31,6 +31,83 @@ def course_board(
                            selected_track_id, selected_graduation_path_id)
 
 
+def course_board_display(board: dict) -> dict:
+    """Project the map without changing completed facts or plan eligibility.
+
+    Excluded credits are omitted from all three columns. Planning-only review
+    gates do not turn an otherwise eligible course red. Missing prerequisite
+    AND/OR clauses are then followed through the available column. Display-only
+    rows never become completed facts or permission to save a same-term bundle.
+    """
+    if not board.get("courses"):
+        return board
+    rows = {state: [{**row} for row in courses if row["counted_in_total"]]
+            for state, courses in board["courses"].items()}
+    available = {row["code"] for row in rows["eligible"]}
+    pending = {item["code"] for item in board.get("review_items", [])
+               if item["state"] == "unresolved"}
+    kept = []
+    for row in rows["blocked"]:
+        # These rows passed the source/prerequisite/track/quota rule engine and
+        # were moved only by reviewed_course_board's planning/outcome gate.
+        # Restore them BEFORE walking the graph so dependents can use them.
+        if row["reasons"] and all(reason["kind"] == "academic_review_required"
+                                  for reason in row["reasons"]):
+            rows["eligible"].append({**row, "reasons": [], "suggested": False,
+                                     "eligibility_basis": "completed_prerequisites",
+                                     "planning_eligible": False,
+                                     "result_pending": row["code"] in pending})
+            available.add(row["code"])
+        else:
+            kept.append(row)
+    rows["blocked"] = kept
+    while True:
+        remaining, promoted = [], []
+        for row in rows["blocked"]:
+            reasons = row["reasons"]
+            clauses = [clause for reason in reasons
+                       for clause in reason.get("missing_prerequisites", [])]
+            if (reasons and all(reason["kind"] == "missing_prerequisites" for reason in reasons)
+                    and clauses and all(any(code in available for code in clause)
+                                        for clause in clauses)):
+                promoted.append({**row, "reasons": [], "suggested": False,
+                                 "eligibility_basis": "available_prerequisites",
+                                 "planning_eligible": False,
+                                 "result_pending": row["code"] in pending,
+                                 "prerequisite_clauses": clauses})
+            else:
+                remaining.append(row)
+        if not promoted:
+            break
+        rows["eligible"].extend(promoted)
+        rows["blocked"] = remaining
+        available.update(row["code"] for row in promoted)
+    rows["eligible"].sort(key=lambda row: (
+        row["requirement_type"] not in {"required", "required_excluded"}, row["code"]))
+    result = {**board, "courses": rows}
+    if board.get("plan"):
+        # Hidden courses must not consume the budget or elective quota before
+        # visible courses are considered. Reachable follow-ups remain view-only.
+        codes, total, used = [], 0, {}
+        for row in rows["eligible"]:
+            groups = [group for group in row["groups"] if group["required_credits"] is not None]
+            row["suggested"] = False
+            if (board.get("can_plan") is False or not row.get("planning_eligible", True)
+                    or row.get("eligibility_basis") == "available_prerequisites"
+                    or total + row["credits"] > board["plan"]["max_credits"]
+                    or (groups and all(group["earned_credits"] + used.get(group["id"], 0)
+                                       >= group["required_credits"] for group in groups))):
+                continue
+            row["suggested"] = True
+            codes.append(row["code"])
+            total += row["credits"]
+            for group in groups:
+                used[group["id"]] = used.get(group["id"], 0) + row["credits"]
+        result["plan"] = {**board["plan"], "course_codes": codes,
+                          "suggested_credits": total}
+    return result
+
+
 def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
                     max_credits: int, selected_track_id: str | None,
                     selected_graduation_path_id: str | None,
@@ -169,7 +246,9 @@ def validate_plan_courses(board: dict, codes: list[str], budget: int) -> list[di
         raise AcademicContextError('semester_plan_not_ready')
     if len(codes) != len(set(codes)):
         raise AcademicContextError('semester_plan_duplicate_course')
-    available = {row['code']: row for row in board['courses']['eligible']}
+    available = {row['code']: row for row in board['courses']['eligible']
+                 if row.get('planning_eligible', True)
+                 and row.get('eligibility_basis') != 'available_prerequisites'}
     if set(codes) - available.keys():
         raise AcademicContextError('semester_plan_course_unavailable')
     selected, used = [], {}

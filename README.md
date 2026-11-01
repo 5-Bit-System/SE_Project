@@ -27,7 +27,7 @@ Các gợi ý không xác nhận môn có được mở trong một học kỳ c
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
 - Không có tự động fallback sang JSON khi PostgreSQL lỗi. Muốn dùng JSON phải chọn rõ backend và cung cấp bộ catalog phù hợp.
 
-Xem [lưu nhiều kế hoạch học kỳ](docs/SEMESTER_PLANS.md) trong tab Điều kiện học.
+Xem [lưu nhiều kế hoạch học kỳ](docs/SEMESTER_PLANS.md) trong tab Gợi ý kỳ tới.
 
 ## Cấu trúc repository
 

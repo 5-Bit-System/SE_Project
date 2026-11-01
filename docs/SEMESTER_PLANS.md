@@ -1,17 +1,20 @@
 # Kế hoạch học kỳ — 28/10/2026
 
-Tính năng lưu nhiều phương án theo tài khoản trong tab **Điều kiện học**.
+Từ 01/11/2026, tính năng lưu nhiều phương án theo tài khoản nằm trong tab
+**Gợi ý kỳ tới**. Tab **Điều kiện học** chỉ hiển thị bản đồ và tìm kiếm môn.
 Đây là bản nháp cá nhân, không đăng ký môn trên VNU hoặc xác nhận lịch mở lớp.
 
 ## Sử dụng
 
 1. Đăng nhập VNU, cập nhật nguồn và xác nhận CTĐT/hướng/nhánh theo luồng hiện có.
-2. Chọn môn đủ điều kiện và ngân sách 1–30 tín chỉ. Các môn dự kiến không được
+2. Mở **Gợi ý kỳ tới**, chọn hướng/nhánh nếu cần và ngân sách 1–30 tín chỉ.
+   Hệ thống gợi ý các môn đủ điều kiện. Các môn dự kiến không được
    coi là đã hoàn thành để mở tiên quyết khác trong cùng kỳ.
 3. Đặt tên phương án, năm bắt đầu (2026 nghĩa là 2026–2027), chọn học kỳ 1/2/3.
 4. Chọn **Kiểm tra và lưu phương án**. Có thể lưu bản nháp chưa chọn môn.
-5. Chọn **Phương án mới** để lưu thêm lựa chọn; mở phương án cũ để thêm/bỏ môn
-   bằng checkbox hoặc nút Bỏ môn, sửa ngân sách và lưu lại. F5 không xóa bản đã lưu.
+5. Chọn **Phương án mới** để lưu thêm lựa chọn; mở phương án cũ để bỏ môn bằng
+   nút **Bỏ môn**, sửa ngân sách hoặc **Lấy lại gợi ý**, rồi lưu lại.
+   F5 không xóa bản đã lưu.
 6. Xóa phương án có bước xác nhận. Đổi phương án khi có chỉnh sửa chưa lưu cũng
    cần xác nhận. Bản đã bấm Lưu được ghi vào database; chỉnh sửa chưa bấm Lưu
    được giữ tạm trong `sessionStorage` của tab, gắn với account và app session.

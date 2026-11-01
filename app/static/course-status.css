@@ -43,7 +43,6 @@
 .course-status-list { display: grid; gap: 0; padding: 0; }
 .course-status-card { padding: 20px 16px; border: 0; border-bottom: 1px solid var(--border-subtle); border-left: 2px solid var(--state-color); border-radius: 0; min-width: 0; overflow-wrap: anywhere; }
 .course-status-card:last-child { border-bottom: 0; }
-.course-status-card:has(.course-status-check input:checked) { background: var(--selected-surface); }
 .course-status-card .course-code-name { display: block; font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 5px; }
 .course-status-card h4 { font-size: var(--text-base); line-height: 1.7; font-weight: 600; }
 .course-status-card h4.source-course-name { font-size: var(--text-base); color: var(--text-main); margin-bottom: 0; }
@@ -51,9 +50,6 @@
 .course-status-badge { font-size: var(--text-xs); color: var(--state-color); background: var(--state-bg); border-radius: 6px; padding: 4px 7px; }
 .course-status-reasons { font-size: var(--text-xs); padding-left: 16px; color: var(--text-muted); line-height: 1.8; }
 .course-status-reasons li + li { margin-top: 6px; }
-.course-status-check { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-block: 8px; min-height: 44px; font-size: var(--text-sm); cursor: pointer; line-height: 1.65; }
-.course-status-check input { margin: 0; accent-color: var(--accent-primary); width: 17px; height: 17px; flex: 0 0 auto; }
-.course-status-check:has(input:disabled) { cursor: not-allowed; color: var(--text-muted); }
 .course-status-empty { padding: 18px 8px; font-size: var(--text-sm); color: var(--text-muted); text-align: center; }
 .course-plan-error { font-size: var(--text-sm); color: var(--state-red); margin-bottom: 14px; }
 .course-program-confirmation, .course-review-items { padding: 20px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-card); margin: 18px 0; font-size: var(--text-sm); line-height: 1.9; }
