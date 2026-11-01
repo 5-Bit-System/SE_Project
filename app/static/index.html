@@ -644,6 +644,9 @@
         <button type="button" id="admin-crawler-subtab-sources" class="admin-subtab-btn" role="tab" aria-selected="false">
           Cấu hình nguồn (Sources)
         </button>
+        <button type="button" id="admin-crawler-subtab-documents" class="admin-subtab-btn" role="tab" aria-selected="false">
+          Kiểm duyệt tài liệu (Documents)
+        </button>
       </div>
 
       <!-- Subtab 1: Jobs View -->
@@ -725,6 +728,131 @@
           </table>
         </div>
       </div>
+
+      <!-- Subtab 3: Documents Review View -->
+      <div id="admin-crawler-docs-view" hidden>
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-docs-search" type="search" placeholder="Tìm tiêu đề tài liệu hoặc URL…" aria-label="Tìm kiếm tài liệu">
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-docs-major-filter" class="modern-select">
+              <option value="all">Tất cả chuyên ngành</option>
+              <option value="computer_science">Khoa học máy tính</option>
+              <option value="data_science">Khoa học dữ liệu</option>
+              <option value="mathematics">Toán học</option>
+              <option value="mathematics_informatics">Toán tin</option>
+              <option value="general">Thông tin chung</option>
+            </select>
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-docs-status-filter" class="modern-select">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="pending">Chờ kiểm duyệt (pending)</option>
+              <option value="approved">Đã phê duyệt (approved)</option>
+              <option value="rejected">Bị từ chối (rejected)</option>
+            </select>
+          </div>
+          <button type="button" id="admin-docs-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới danh sách tài liệu">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Làm mới</span>
+          </button>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-crawler-docs-table" class="admin-data-table">
+            <caption class="sr-only">Hàng đợi kiểm duyệt tài liệu thu thập</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã tài liệu</th>
+                <th scope="col">Tiêu đề & Nguồn URL</th>
+                <th scope="col">Ngành / Loại</th>
+                <th scope="col">Kích thước</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="admin-crawler-docs-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal Kiểm Duyệt Tài Liệu (Document Review Workspace) -->
+      <dialog id="admin-doc-review-modal" class="admin-modal" style="max-width: 960px; width: 95vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 id="admin-doc-modal-title" class="admin-modal-title">Chi tiết & Kiểm duyệt tài liệu</h4>
+              <span id="admin-doc-modal-id" class="admin-sub-text"></span>
+            </div>
+            <button type="button" id="admin-doc-review-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <!-- Document Meta Bar & Duplicate Warning -->
+          <div id="admin-doc-duplicate-alert" class="admin-disclaimer" style="display: none; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" style="color: #f59e0b;"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <strong style="color: #f59e0b;">Cảnh báo trùng lặp nội dung:</strong> Phát hiện tài liệu có mã băm SHA-256 trùng khớp với <span id="admin-doc-dup-count"></span> tài liệu khác trong hệ thống.
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-top: 12px;">
+            <!-- Left: Document Preview -->
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">NỘI DUNG TÀI LIỆU (MARKDOWN BẢN THẢO)</label>
+                <a id="admin-doc-source-link" href="#" target="_blank" rel="noopener noreferrer" style="font-size: 0.82rem; color: var(--primary);">Mở URL gốc ↗</a>
+              </div>
+              <div id="admin-doc-preview-pane" class="admin-doc-preview-pane" style="max-height: 440px; overflow-y: auto; padding: 14px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--surface-subtle); font-size: 0.86rem; line-height: 1.6;"></div>
+            </div>
+
+            <!-- Right: Metadata & Decision -->
+            <div style="display: flex; flex-direction: column; gap: 14px; background: var(--surface-card); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+              <div>
+                <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 6px;">TRẠNG THÁI KIỂM DUYỆT</label>
+                <div id="admin-doc-status-badge"></div>
+                <div id="admin-doc-decision-meta" class="admin-sub-text" style="margin-top: 6px;"></div>
+              </div>
+
+              <!-- Metadata Edit Form -->
+              <form id="admin-doc-meta-form" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="admin-form-group" style="margin-bottom: 0;">
+                  <label for="admin-doc-edit-title" style="font-size: 0.8rem;">Tiêu đề tài liệu</label>
+                  <input id="admin-doc-edit-title" type="text" class="modern-input" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div class="admin-form-group" style="margin-bottom: 0;">
+                    <label for="admin-doc-edit-major" style="font-size: 0.8rem;">Chuyên ngành</label>
+                    <input id="admin-doc-edit-major" type="text" class="modern-input" required>
+                  </div>
+                  <div class="admin-form-group" style="margin-bottom: 0;">
+                    <label for="admin-doc-edit-type" style="font-size: 0.8rem;">Loại tài liệu</label>
+                    <input id="admin-doc-edit-type" type="text" class="modern-input" required>
+                  </div>
+                </div>
+                <button type="submit" id="admin-doc-meta-save-btn" class="admin-action-btn-sm" style="align-self: flex-start; margin-top: 4px;">Lưu chỉnh sửa Metadata</button>
+              </form>
+
+              <!-- Decision Action Form -->
+              <div style="border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: auto;">
+                <label for="admin-doc-decision-reason" style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 6px;">QUYẾT ĐỊNH PHÊ DUYỆT / TỪ CHỐI</label>
+                <input id="admin-doc-decision-reason" type="text" class="modern-input" placeholder="Nhập lý do kiểm duyệt (bắt buộc, tối thiểu 3 ký tự)" minlength="3" style="width: 100%; margin-bottom: 10px;">
+                <div style="display: flex; gap: 8px;">
+                  <button type="button" id="admin-doc-approve-btn" class="portal-button admin-primary-btn" style="flex: 1; padding: 6px 10px;">✓ Phê duyệt</button>
+                  <button type="button" id="admin-doc-reject-btn" class="portal-button" style="flex: 1; padding: 6px 10px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">✕ Từ chối</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
 
       <!-- Modal Thêm Nguồn Thu Thập -->
       <dialog id="admin-crawler-source-modal" class="admin-modal">

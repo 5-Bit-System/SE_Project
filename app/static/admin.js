@@ -1287,33 +1287,39 @@
 
   const subtabCrawlerJobs = $('admin-crawler-subtab-jobs');
   const subtabCrawlerSources = $('admin-crawler-subtab-sources');
+  const subtabCrawlerDocs = $('admin-crawler-subtab-documents');
   const crawlerJobsView = $('admin-crawler-jobs-view');
   const crawlerSourcesView = $('admin-crawler-sources-view');
+  const crawlerDocsView = $('admin-crawler-docs-view');
 
   function switchCrawlerSubtab(tab) {
-    if (tab === 'jobs') {
-      subtabCrawlerJobs?.classList.add('active');
-      subtabCrawlerJobs?.setAttribute('aria-selected', 'true');
-      subtabCrawlerSources?.classList.remove('active');
-      subtabCrawlerSources?.setAttribute('aria-selected', 'false');
-      if (crawlerJobsView) crawlerJobsView.hidden = false;
-      if (crawlerSourcesView) crawlerSourcesView.hidden = true;
-    } else {
-      subtabCrawlerJobs?.classList.remove('active');
-      subtabCrawlerJobs?.setAttribute('aria-selected', 'false');
-      subtabCrawlerSources?.classList.add('active');
-      subtabCrawlerSources?.setAttribute('aria-selected', 'true');
-      if (crawlerJobsView) crawlerJobsView.hidden = true;
-      if (crawlerSourcesView) crawlerSourcesView.hidden = false;
+    subtabCrawlerJobs?.classList.toggle('active', tab === 'jobs');
+    subtabCrawlerJobs?.setAttribute('aria-selected', String(tab === 'jobs'));
+    subtabCrawlerSources?.classList.toggle('active', tab === 'sources');
+    subtabCrawlerSources?.setAttribute('aria-selected', String(tab === 'sources'));
+    subtabCrawlerDocs?.classList.toggle('active', tab === 'documents');
+    subtabCrawlerDocs?.setAttribute('aria-selected', String(tab === 'documents'));
+
+    if (crawlerJobsView) crawlerJobsView.hidden = tab !== 'jobs';
+    if (crawlerSourcesView) crawlerSourcesView.hidden = tab !== 'sources';
+    if (crawlerDocsView) crawlerDocsView.hidden = tab !== 'documents';
+
+    if (tab === 'documents') {
+      loadDocuments();
     }
   }
 
   subtabCrawlerJobs?.addEventListener('click', () => switchCrawlerSubtab('jobs'));
   subtabCrawlerSources?.addEventListener('click', () => switchCrawlerSubtab('sources'));
+  subtabCrawlerDocs?.addEventListener('click', () => switchCrawlerSubtab('documents'));
   $('admin-crawler-refresh-btn')?.addEventListener('click', () => loadCrawler());
   $('admin-jobs-source-filter')?.addEventListener('change', renderCrawlerJobs);
   $('admin-jobs-status-filter')?.addEventListener('change', renderCrawlerJobs);
   $('admin-sources-search')?.addEventListener('input', renderCrawlerSources);
+  $('admin-docs-search')?.addEventListener('input', renderCrawlerDocuments);
+  $('admin-docs-major-filter')?.addEventListener('change', renderCrawlerDocuments);
+  $('admin-docs-status-filter')?.addEventListener('change', renderCrawlerDocuments);
+  $('admin-docs-refresh-btn')?.addEventListener('click', () => loadDocuments());
 
   async function loadCrawler() {
     try {
@@ -1698,6 +1704,266 @@
     });
   }
   bindCrawlerModals();
+
+  // ==========================================================================
+  // Document Review Workspace (Task 12 & 13)
+  // ==========================================================================
+  let crawledDocuments = [];
+  let currentReviewDoc = null;
+
+  async function loadDocuments() {
+    try {
+      if (!window.systemAuth?.request) return;
+      const major = $('admin-docs-major-filter')?.value || 'all';
+      const status = $('admin-docs-status-filter')?.value || 'all';
+      const search = ($('admin-docs-search')?.value || '').trim();
+
+      let url = '/admin/crawler/documents?limit=100';
+      if (major !== 'all') url += `&major=${encodeURIComponent(major)}`;
+      if (status !== 'all') url += `&status=${encodeURIComponent(status)}`;
+      if (search) url += `&search=${encodeURIComponent(search)}`;
+
+      const data = await window.systemAuth.request(url);
+      crawledDocuments = data.documents || [];
+      renderCrawlerDocuments();
+    } catch (err) {
+      console.error('Failed to load crawled documents:', err);
+    }
+  }
+
+  function renderCrawlerDocuments() {
+    const tbody = $('admin-crawler-docs-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const query = ($('admin-docs-search')?.value || '').trim().toLowerCase();
+    const majorFilter = $('admin-docs-major-filter')?.value || 'all';
+    const statusFilter = $('admin-docs-status-filter')?.value || 'all';
+
+    const filtered = crawledDocuments.filter(d => {
+      const matchQuery = !query || d.title.toLowerCase().includes(query) || d.url.toLowerCase().includes(query) || d.id.toLowerCase().includes(query);
+      const matchMajor = majorFilter === 'all' || d.major === majorFilter;
+      const matchStatus = statusFilter === 'all' || d.review_status === statusFilter;
+      return matchQuery && matchMajor && matchStatus;
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 6;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Không có tài liệu nào trong hàng đợi kiểm duyệt.';
+      return;
+    }
+
+    filtered.forEach(doc => {
+      const tr = tbody.insertRow();
+      tr.dataset.docId = doc.id;
+
+      // 1. Doc ID
+      const tdId = tr.insertCell();
+      tdId.innerHTML = `<code class="admin-course-code">${doc.id}</code>`;
+
+      // 2. Title & URL
+      const tdTitle = tr.insertCell();
+      tdTitle.innerHTML = `<strong>${doc.title}</strong><div class="admin-sub-text" style="max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${doc.url}</div>`;
+
+      // 3. Major / Type
+      const tdMajor = tr.insertCell();
+      tdMajor.innerHTML = `<span class="admin-meta-tag">${doc.major}</span> <div class="admin-sub-text">${doc.doc_type}</div>`;
+
+      // 4. Size
+      const tdSize = tr.insertCell();
+      tdSize.className = 'tabular-nums';
+      tdSize.textContent = doc.content_length ? `${doc.content_length.toLocaleString()} B` : '—';
+
+      // 5. Review Status Badge
+      const tdStatus = tr.insertCell();
+      let badge = '';
+      if (doc.review_status === 'approved') {
+        badge = '<span class="admin-status-badge badge-success">Đã duyệt</span>';
+      } else if (doc.review_status === 'rejected') {
+        badge = '<span class="admin-status-badge badge-danger">Từ chối</span>';
+      } else {
+        badge = '<span class="admin-status-badge badge-warning">Chờ duyệt</span>';
+      }
+      tdStatus.innerHTML = badge;
+
+      // 6. Action
+      const tdAction = tr.insertCell();
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'admin-action-btn-sm btn-review-doc';
+      btn.textContent = 'Kiểm duyệt';
+      btn.setAttribute('aria-label', `Kiểm duyệt tài liệu ${doc.title}`);
+      btn.onclick = () => openDocumentReviewModal(doc.id);
+      tdAction.appendChild(btn);
+    });
+  }
+
+  async function openDocumentReviewModal(docId) {
+    const modal = $('admin-doc-review-modal');
+    if (!modal) return;
+
+    try {
+      const doc = await window.systemAuth.request(`/admin/crawler/documents/${docId}`);
+      currentReviewDoc = doc;
+
+      if ($('admin-doc-modal-title')) $('admin-doc-modal-title').textContent = doc.title;
+      if ($('admin-doc-modal-id')) $('admin-doc-modal-id').textContent = `Mã: ${doc.id} · Băm: ${doc.content_hash.slice(0, 12)}…`;
+
+      const sourceLink = $('admin-doc-source-link');
+      if (sourceLink) {
+        sourceLink.href = doc.url;
+        sourceLink.textContent = doc.url;
+      }
+
+      // Duplicate warning
+      const dupAlert = $('admin-doc-duplicate-alert');
+      if (dupAlert) {
+        if (doc.duplicate_count > 0) {
+          dupAlert.style.display = 'flex';
+          const countEl = $('admin-doc-dup-count');
+          if (countEl) countEl.textContent = `${doc.duplicate_count}`;
+        } else {
+          dupAlert.style.display = 'none';
+        }
+      }
+
+      // Safe Preview Pane (Formatted paragraphs)
+      const previewPane = $('admin-doc-preview-pane');
+      if (previewPane) {
+        previewPane.innerHTML = formatMarkdownToSafeHtml(doc.safe_markdown || doc.markdown_content || '');
+      }
+
+      // Status Badge
+      const statusBadge = $('admin-doc-status-badge');
+      if (statusBadge) {
+        if (doc.review_status === 'approved') {
+          statusBadge.innerHTML = '<span class="admin-status-badge badge-success">✓ Đã phê duyệt</span>';
+        } else if (doc.review_status === 'rejected') {
+          statusBadge.innerHTML = '<span class="admin-status-badge badge-danger">✕ Bị từ chối</span>';
+        } else {
+          statusBadge.innerHTML = '<span class="admin-status-badge badge-warning">⏳ Chờ kiểm duyệt</span>';
+        }
+      }
+
+      const decMeta = $('admin-doc-decision-meta');
+      if (decMeta) {
+        if (doc.reviewed_at) {
+          decMeta.textContent = `Duyệt lúc: ${new Date(doc.reviewed_at).toLocaleString('vi-VN')} · Lý do: ${doc.review_reason || '—'}`;
+        } else {
+          decMeta.textContent = 'Chưa có quyết định kiểm duyệt.';
+        }
+      }
+
+      // Form values
+      if ($('admin-doc-edit-title')) $('admin-doc-edit-title').value = doc.title || '';
+      if ($('admin-doc-edit-major')) $('admin-doc-edit-major').value = doc.major || '';
+      if ($('admin-doc-edit-type')) $('admin-doc-edit-type').value = doc.doc_type || '';
+      if ($('admin-doc-decision-reason')) $('admin-doc-decision-reason').value = '';
+
+      modal.showModal();
+    } catch (err) {
+      alert(`Lỗi tải chi tiết tài liệu: ${err.message}`);
+    }
+  }
+
+  function formatMarkdownToSafeHtml(md) {
+    if (!md) return '<p style="color: var(--text-muted);">Tài liệu không có nội dung văn bản.</p>';
+    const lines = md.split('\n');
+    let html = '';
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      if (line.startsWith('# ')) {
+        html += `<h3 style="font-size: 1.1rem; margin: 12px 0 6px 0; color: var(--text-main); font-weight: 700;">${escapeHtml(line.slice(2))}</h3>`;
+      } else if (line.startsWith('## ')) {
+        html += `<h4 style="font-size: 0.95rem; margin: 10px 0 4px 0; color: var(--text-main); font-weight: 700;">${escapeHtml(line.slice(3))}</h4>`;
+      } else if (line.startsWith('- ')) {
+        html += `<li style="margin-left: 18px; margin-bottom: 3px;">${escapeHtml(line.slice(2))}</li>`;
+      } else {
+        html += `<p style="margin-bottom: 8px;">${escapeHtml(line)}</p>`;
+      }
+    }
+    return html;
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function bindDocReviewModal() {
+    const modal = $('admin-doc-review-modal');
+    $('admin-doc-review-close-btn')?.addEventListener('click', () => modal?.close());
+
+    // Save metadata
+    $('admin-doc-meta-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!currentReviewDoc) return;
+      const btn = $('admin-doc-meta-save-btn');
+      if (btn) btn.disabled = true;
+
+      const payload = {
+        title: $('admin-doc-edit-title')?.value?.trim(),
+        major: $('admin-doc-edit-major')?.value?.trim(),
+        doc_type: $('admin-doc-edit-type')?.value?.trim(),
+      };
+
+      try {
+        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/metadata`, 'PUT', payload);
+        alert('Đã cập nhật metadata thành công!');
+        await loadDocuments();
+      } catch (err) {
+        alert(`Lỗi cập nhật metadata: ${err.message}`);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+
+    // Approve button
+    $('admin-doc-approve-btn')?.addEventListener('click', async () => {
+      if (!currentReviewDoc) return;
+      const reason = $('admin-doc-decision-reason')?.value?.trim();
+      if (!reason || reason.length < 3) {
+        alert('Vui lòng nhập lý do phê duyệt (tối thiểu 3 ký tự).');
+        $('admin-doc-decision-reason')?.focus();
+        return;
+      }
+
+      try {
+        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/approve`, 'POST', { reason });
+        modal?.close();
+        await loadDocuments();
+        alert(`Đã phê duyệt tài liệu [${currentReviewDoc.id}]!`);
+      } catch (err) {
+        alert(`Lỗi phê duyệt: ${err.message}`);
+      }
+    });
+
+    // Reject button
+    $('admin-doc-reject-btn')?.addEventListener('click', async () => {
+      if (!currentReviewDoc) return;
+      const reason = $('admin-doc-decision-reason')?.value?.trim();
+      if (!reason || reason.length < 3) {
+        alert('Vui lòng nhập lý do từ chối (tối thiểu 3 ký tự).');
+        $('admin-doc-decision-reason')?.focus();
+        return;
+      }
+
+      try {
+        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/reject`, 'POST', { reason });
+        modal?.close();
+        await loadDocuments();
+        alert(`Đã từ chối tài liệu [${currentReviewDoc.id}].`);
+      } catch (err) {
+        alert(`Lỗi từ chối: ${err.message}`);
+      }
+    });
+  }
+  bindDocReviewModal();
 
   // Expose module APIs
   window.adminOverview = {
