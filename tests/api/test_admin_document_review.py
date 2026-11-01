@@ -26,6 +26,22 @@ def test_admin_document_review_api(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
 
+    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or dotenv_values(ENV_PATH).get("DATABASE_URL")
+    eng = create_engine(url)
+    from app.crawler.document_review_service import create_document, get_document
+    with eng.begin() as conn:
+        if not get_document(conn, "doc_test_review"):
+            create_document(
+                conn,
+                url="https://hus.vnu.edu.vn/test-review-doc",
+                title="Tài liệu kiểm thử kiểm duyệt",
+                markdown_content="# Nội dung tài liệu kiểm thử",
+                major="toan_hoc",
+                doc_type="curriculum",
+                source_id="src_hus_main",
+                doc_id="doc_test_review",
+            )
+
     # 1. List documents (triggers disk seeding if empty)
     resp = verified_client.get("/admin/crawler/documents")
     assert resp.status_code == 200
