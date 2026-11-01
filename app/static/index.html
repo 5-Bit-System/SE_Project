@@ -175,7 +175,135 @@
       <form id="auth-password-form" hidden><h3 data-auth-copy="changePassword"></h3><p data-auth-copy="changeHint"></p><label for="auth-current-password" data-auth-copy="currentPassword"></label><input id="auth-current-password" type="password" autocomplete="current-password" maxlength="128" required><label for="auth-new-password" data-auth-copy="newPassword"></label><input id="auth-new-password" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><label for="auth-new-confirm" data-auth-copy="confirmPassword"></label><input id="auth-new-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><button class="portal-button primary-action" type="submit" data-auth-copy="savePassword"></button></form>
     </div>
   </section>
-  <section id="system-admin" class="container" hidden><div class="dashboard-heading"><h2 data-auth-copy="adminTitle"></h2><button type="button" class="portal-button" id="admin-back" data-auth-copy="workspace"></button></div><p id="admin-notice" role="status"></p><form id="admin-search-form"><label for="admin-query" data-auth-copy="searchUsers"></label><input id="admin-query" type="search" maxlength="100"><button class="portal-button" data-auth-copy="search"></button></form><p id="admin-total"></p><div class="table-scroll"><table id="admin-users"></table></div><div class="portal-actions"><button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous"></button><button type="button" id="admin-next" class="portal-button" data-auth-copy="next"></button></div></section>
+  <section id="system-admin" class="container admin-shell" hidden>
+    <header class="admin-header">
+      <div class="admin-header-title-group">
+        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
+        <div class="admin-title-row">
+          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader">Bảng điều khiển quản trị</h2>
+          <span class="admin-status-pill">
+            <span class="admin-status-dot" aria-hidden="true"></span>
+            <span data-auth-copy="adminSystemReady">Hệ thống sẵn sàng</span>
+          </span>
+        </div>
+        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
+      </div>
+      <div class="admin-header-actions">
+        <button type="button" class="portal-button" id="admin-back" data-auth-copy="workspace">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M12.5 15 7.5 10l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-auth-copy="adminBackToWorkspace">Về Sổ học tập</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="admin-nav-tabs" role="tablist" aria-label="Các phân hệ quản trị" aria-orientation="horizontal">
+      <button id="admin-tab-overview" class="admin-tab-btn active" role="tab" aria-selected="true" aria-controls="admin-panel-overview" tabindex="0" data-admin-tab="overview">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <rect x="3" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="3" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabOverview">Tổng quan</span>
+      </button>
+      <button id="admin-tab-curriculum" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-curriculum" tabindex="-1" data-admin-tab="curriculum">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M4 3.5h9a2.5 2.5 0 0 1 2.5 2.5v10.5H5.5A2.5 2.5 0 0 1 3 14V5.5A2 2 0 0 1 5 3.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 7.5h6M6 10.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabCurriculum">Chương trình đào tạo</span>
+      </button>
+      <button id="admin-tab-users" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-users" tabindex="-1" data-admin-tab="users">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <circle cx="10" cy="6.5" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4 16.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabUsers">Tài khoản</span>
+      </button>
+    </nav>
+
+    <p id="admin-notice" class="admin-notice-bar" role="status" aria-live="polite"></p>
+
+    <!-- 1. Overview Panel -->
+    <section id="admin-panel-overview" class="admin-tab-panel active" role="tabpanel" aria-labelledby="admin-tab-overview">
+      <div class="admin-panel-header">
+        <div>
+          <h3 class="admin-panel-title" data-auth-copy="adminOverviewHeading">Chỉ số và trạng thái hệ thống</h3>
+          <p class="admin-panel-subtitle" data-auth-copy="adminOverviewSubheading">Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.</p>
+        </div>
+      </div>
+      <div id="admin-overview-grid" class="admin-overview-grid" aria-live="polite">
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Curriculum Panel -->
+    <section id="admin-panel-curriculum" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-curriculum" hidden>
+      <div class="admin-panel-header">
+        <div>
+          <h3 class="admin-panel-title" data-auth-copy="adminCurriculumHeading">Danh mục chương trình và học phần</h3>
+          <p class="admin-panel-subtitle" data-auth-copy="adminCurriculumSubheading">Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.</p>
+        </div>
+      </div>
+      <div id="admin-curriculum-container">
+        <div class="admin-empty-state">
+          <p data-auth-copy="adminCurriculumPlaceholder">Đang tải danh mục chương trình đào tạo…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Users Panel -->
+    <section id="admin-panel-users" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-users" hidden>
+      <div class="admin-panel-header">
+        <div>
+          <h3 class="admin-panel-title" data-auth-copy="adminUsersHeading">Quản lý tài khoản</h3>
+          <p class="admin-panel-subtitle" data-auth-copy="adminUsersSubheading">Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.</p>
+        </div>
+      </div>
+      <form id="admin-search-form" class="admin-search-bar" role="search">
+        <label for="admin-query" class="sr-only" data-auth-copy="searchUsers">Tìm kiếm tài khoản</label>
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-query" type="search" maxlength="100" placeholder="Tìm tài khoản VNU, email hoặc tên…" data-auth-placeholder="searchUsersPlaceholder">
+        </div>
+        <button type="submit" class="portal-button primary-action" data-auth-copy="search">Tìm kiếm</button>
+      </form>
+      <div class="admin-table-meta-row">
+        <p id="admin-total" class="admin-total-badge"></p>
+      </div>
+      <div class="table-scroll admin-table-container">
+        <table id="admin-users" class="admin-data-table"></table>
+      </div>
+      <div class="portal-actions admin-pagination-actions">
+        <button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous">Trước</button>
+        <button type="button" id="admin-next" class="portal-button" data-auth-copy="next">Tiếp</button>
+      </div>
+    </section>
+  </section>
 
 
   <div class="sub-header-bar">

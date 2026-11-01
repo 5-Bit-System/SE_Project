@@ -8,6 +8,9 @@
   };
   let restoringSession = true;
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
+  let adminCurrentTab = 'overview';
+  const adminTabs = ['overview', 'curriculum', 'users'];
+
   Object.assign(copy.vi, {
     restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
     featureTranscript:'Bảng điểm theo học kỳ', featurePlans:'Kế hoạch học tập cá nhân', visualKicker:'MINH HỌA GIAO DIỆN', visualTitle:'Hồ sơ học tập của bạn', visualFoot:'Thông tin được sắp xếp theo từng học kỳ',
@@ -27,7 +30,8 @@
     worker_failed:'Kết nối VNU gặp lỗi xử lý. Vui lòng thử lại.', worker_output_invalid:'Chưa xác minh được phản hồi VNU. Vui lòng thử lại.',
     invalid_credentials:'Vui lòng nhập tài khoản và mật khẩu VNU hợp lệ.', invalid_login:'Tài khoản hoặc mật khẩu quản trị chưa đúng.',
     vnu_already_linked:'Danh tính VNU đang có liên kết khác. Vui lòng liên hệ quản trị viên.',
-    admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.'
+    admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.',
+    adminConsoleKicker:'QUẢN TRỊ HỆ THỐNG', adminConsoleHeader:'Bảng điều khiển quản trị', adminConsoleDesc:'Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.', adminSystemReady:'Hệ thống sẵn sàng', adminBackToWorkspace:'Về Sổ học tập', adminTabOverview:'Tổng quan', adminTabCurriculum:'Chương trình đào tạo', adminTabUsers:'Tài khoản', adminOverviewHeading:'Chỉ số và trạng thái hệ thống', adminOverviewSubheading:'Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.', adminCurriculumHeading:'Danh mục chương trình và học phần', adminCurriculumSubheading:'Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.', adminCurriculumPlaceholder:'Đang tải danh mục chương trình đào tạo…', adminUsersHeading:'Quản lý tài khoản', adminUsersSubheading:'Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.', searchUsersPlaceholder:'Tìm tài khoản VNU, email hoặc tên…'
   });
   Object.assign(copy.en, {
     eyebrow:'A study space for VNU students', headline:'Every semester,\na clearer next step.', description:'Your transcript and study information, together in one place. Follow your progress and plan ahead for the next semester.',
@@ -48,7 +52,8 @@
     worker_failed:'The VNU connection could not be processed. Please try again.', worker_output_invalid:'The VNU response could not be verified. Please try again.',
     invalid_credentials:'Enter valid VNU credentials.', invalid_login:'The administrator account or password is incorrect.',
     vnu_already_linked:'This VNU identity has a conflicting account link. Please contact an administrator.',
-    admin_credentials_required:'This account does not have separate administrator credentials.', use_vnu_password:'Your VNU password is managed by VNU.'
+    admin_credentials_required:'This account does not have separate administrator credentials.', use_vnu_password:'Your VNU password is managed by VNU.',
+    adminConsoleKicker:'SYSTEM ADMINISTRATION', adminConsoleHeader:'Admin Console', adminConsoleDesc:'System overview, curriculum management, and user access control.', adminSystemReady:'System operational', adminBackToWorkspace:'Back to workspace', adminTabOverview:'Overview', adminTabCurriculum:'Curriculum', adminTabUsers:'Accounts', adminOverviewHeading:'System Metrics & Health', adminOverviewSubheading:'Sourced operational data, updated in real time.', adminCurriculumHeading:'Programs & Course Catalog', adminCurriculumSubheading:'Browse curricula, prerequisite conditions, and audit verification states.', adminCurriculumPlaceholder:'Loading curriculum catalog…', adminUsersHeading:'Account Management', adminUsersSubheading:'Manage registered student and administrator accounts.', searchUsersPlaceholder:'Search VNU account, email or name…'
   });
   copy.en.restoringSession = 'Restoring your session…';
   const t = key => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'][key] || copy.vi[key] || copy.vi.fallback;
@@ -81,6 +86,32 @@
     else { if(account && account.session_id !== result.account.session_id) epoch++; account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password ? 'password' : ['password','admin'].includes(mode) ? mode : 'workspace'; if (mode === 'admin' && account.role !== 'admin') mode = 'workspace'; render(); emit(); }
     return account;
   }
+  function switchAdminTab(tabName, focus = false) {
+    if (!adminTabs.includes(tabName)) return;
+    adminCurrentTab = tabName;
+    adminTabs.forEach(name => {
+      const btn = $(`admin-tab-${name}`);
+      const panel = $(`admin-panel-${name}`);
+      const active = name === tabName;
+      if (btn) {
+        btn.setAttribute('aria-selected', String(active));
+        btn.setAttribute('tabindex', active ? '0' : '-1');
+        btn.classList.toggle('active', active);
+        if (active && focus) btn.focus();
+      }
+      if (panel) {
+        panel.hidden = !active;
+        panel.classList.toggle('active', active);
+      }
+    });
+    if (tabName === 'users') {
+      loadAdmin();
+    } else if (tabName === 'overview') {
+      if (window.adminOverview?.load) window.adminOverview.load();
+    } else if (tabName === 'curriculum') {
+      if (window.adminCurriculum?.load) window.adminCurriculum.load();
+    }
+  }
   function render() {
     document.querySelectorAll('[data-auth-copy]').forEach(node => { node.textContent = t(node.dataset.authCopy); });
     document.querySelectorAll('[data-auth-placeholder]').forEach(node => { node.placeholder = t(node.dataset.authPlaceholder); });
@@ -99,7 +130,10 @@
     $('auth-login-tab').hidden = Boolean(account); $('auth-student-tab').hidden = Boolean(account);
     $('auth-login-tab').setAttribute('aria-pressed', String(mode === 'login')); $('auth-student-tab').setAttribute('aria-pressed', String(mode === 'student'));
     notice(noticeKey, noticeError);
-    if (mode === 'admin') renderAdmin();
+    if (mode === 'admin') {
+      switchAdminTab(adminCurrentTab);
+      if (adminCurrentTab === 'users') renderAdmin();
+    }
   }
   function switchMode(value) { mode = value; clearSecrets(); notice(); render(); }
   async function submit(form, action) {
@@ -119,7 +153,7 @@
   }; });
   $('auth-login-form').onsubmit = event => { event.preventDefault(); submit(event.target, async current => {
     const body = {username:$('auth-login-email').value,password:$('auth-login-password').value}; clearSecrets();
-    try { await request('/auth/login','POST',body); if (current === epoch) { notice(); mode='admin'; await refresh(); if (account?.role==='admin' && !account.must_change_password) await loadAdmin(); } } finally { body.password=''; }
+    try { await request('/auth/login','POST',body); if (current === epoch) { notice(); mode='admin'; await refresh(); if (account?.role==='admin' && !account.must_change_password) { switchAdminTab('overview'); } } } finally { body.password=''; }
   }); };
   $('auth-student-form').onsubmit = event => { event.preventDefault(); submit(event.target, async current => {
     const body = {username:$('auth-vnu-username').value,password:$('auth-vnu-password').value}; clearSecrets();
@@ -141,9 +175,39 @@
       const update=async changes=>{if(!confirm(t('confirmChange'))) {renderAdmin();return;} try {await request('/admin/users/'+encodeURIComponent(user.id),'PATCH',changes);await loadAdmin();} catch(error){$('admin-notice').textContent=t(error.message);renderAdmin();}};select.onchange=()=>update({role:select.value});button.onclick=()=>update({is_active:!user.is_active});
     }); $('admin-total').textContent=`${adminTotal} · ${adminPage}`; $('admin-prev').disabled=adminPage<=1;$('admin-next').disabled=adminPage*25>=adminTotal;
   }
-  $('system-admin-open').onclick=()=>{mode='admin';adminPage=1;render();loadAdmin();}; $('admin-search-form').onsubmit=event=>{event.preventDefault();adminPage=1;loadAdmin();};$('admin-prev').onclick=()=>{adminPage--;loadAdmin();};$('admin-next').onclick=()=>{adminPage++;loadAdmin();};
+  $('system-admin-open').onclick=()=>{mode='admin';adminPage=1;render();switchAdminTab('overview');};
+  $('admin-search-form').onsubmit=event=>{event.preventDefault();adminPage=1;loadAdmin();};
+  $('admin-prev').onclick=()=>{adminPage--;loadAdmin();};
+  $('admin-next').onclick=()=>{adminPage++;loadAdmin();};
+
+  adminTabs.forEach(name => {
+    const btn = $(`admin-tab-${name}`);
+    if (btn) btn.onclick = () => switchAdminTab(name);
+  });
+  const adminNav = document.querySelector('.admin-nav-tabs');
+  if (adminNav) {
+    adminNav.addEventListener('keydown', event => {
+      const currentIndex = adminTabs.indexOf(adminCurrentTab);
+      if (currentIndex === -1) return;
+      let nextIndex = -1;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        nextIndex = (currentIndex + 1) % adminTabs.length;
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        nextIndex = (currentIndex - 1 + adminTabs.length) % adminTabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = adminTabs.length - 1;
+      }
+      if (nextIndex !== -1) {
+        event.preventDefault();
+        switchAdminTab(adminTabs[nextIndex], true);
+      }
+    });
+  }
+
   document.addEventListener('workspace:language-change',render);
   document.addEventListener('visibilitychange',()=>{if(!document.hidden && account && !busy) refresh().catch(error=>notice(error.message,true));});
-  window.systemAuth={get account(){return account;},get csrf(){return csrfToken;},request,refresh,expire};
+  window.systemAuth={get account(){return account;},get csrf(){return csrfToken;},request,refresh,expire,switchAdminTab};
   render(); window.systemAuth.ready=refresh().catch(error=>{restoringSession=false;notice(error.message,true);render();});
 })();
