@@ -31,3 +31,35 @@ export function recommendationPayload(board, answers, variant, revision) {
     ranking_weights: {...WEIGHTS[variant], orientation: 0, difficulty: 0},
   };
 }
+
+export function constrainRecommendations(response, board, budget) {
+  const available = new Map((board?.courses?.eligible || [])
+    .filter(course => course.counted_in_total !== false && course.planning_eligible !== false
+      && course.eligibility_basis !== 'available_prerequisites')
+    .map(course => [course.code, course]));
+  const seen = new Set(), used = new Map(), rows = [], omitted = [];
+  let credits = 0;
+  for (const recommendation of response?.recommendations || []) {
+    const course = available.get(recommendation.code);
+    if (!course || seen.has(course.code)) { omitted.push(recommendation.code); continue; }
+    seen.add(course.code);
+    const groups = (course.groups || []).filter(group => Number.isFinite(group.required_credits));
+    if (credits + course.credits > budget || (groups.length && groups.every(group =>
+      group.earned_credits + (used.get(group.id) || 0) >= group.required_credits))) {
+      omitted.push(course.code); continue;
+    }
+    rows.push({...recommendation, name: course.name, name_en: course.name_en,
+      credits: course.credits, requirement_type: course.requirement_type});
+    credits += course.credits;
+    groups.forEach(group => used.set(group.id, (used.get(group.id) || 0) + course.credits));
+  }
+  return {rows, credits, omitted, warnings: response?.warnings || []};
+}
+
+export function comparePlans(left, right) {
+  const leftCodes = new Set((left?.rows || []).map(row => row.code));
+  const rightCodes = new Set((right?.rows || []).map(row => row.code));
+  return {shared: [...leftCodes].filter(code => rightCodes.has(code)),
+    leftOnly: [...leftCodes].filter(code => !rightCodes.has(code)),
+    rightOnly: [...rightCodes].filter(code => !leftCodes.has(code))};
+}
