@@ -7,6 +7,21 @@ from urllib.parse import urlsplit
 from tests.frontend.auth_fixture import session_payload
 
 
+def open_plan_tools(page):
+    """Open the retained academic/saved-plan tools through their visible control."""
+    summary = page.locator('#academic-plan-tools > summary')
+    summary.wait_for(state='visible')
+    if page.locator('#academic-plan-tools').get_attribute('open') is None:
+        summary.click()
+        page.wait_for_function("""() => {
+            const element = document.querySelector('#academic-plan-tools');
+            if (!element.open) return false;
+            if (!CSS.supports('interpolate-size: allow-keywords')) return true;
+            const content = getComputedStyle(element, '::details-content');
+            return content.contentVisibility !== 'hidden' && Number(content.opacity) >= .99;
+        }""")
+
+
 def common_route(route, *, authenticated=True):
     path = urlsplit(route.request.url).path
     if path == '/auth/session':
