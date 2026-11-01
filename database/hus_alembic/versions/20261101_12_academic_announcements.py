@@ -4,8 +4,8 @@ Revision ID: hus_20261101_12
 Revises: hus_20261101_11
 Create Date: 2026-11-01 14:45:00
 """
+
 from alembic import op
-import sqlalchemy as sa
 
 revision = "hus_20261101_12"
 down_revision = "hus_20261101_11"
