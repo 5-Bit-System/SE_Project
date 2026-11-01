@@ -5,6 +5,22 @@ Tích hợp 26/10/2026 từ commit `5e1a9bf` của nhánh
 
 ## Cập nhật bản đồ — 31/10/2026
 
+### Rà soát tích hợp local — 01/11/2026
+
+Sau khi ẩn môn không tính tín chỉ, bộ gợi ý được tính lại trên các môn còn hiển
+thị và thực sự được phép lập kế hoạch. Ví dụ ngân sách 6 TC có hai môn phù hợp
+mỗi môn 3 TC sẽ gợi ý cả hai, kể cả khi trước đó một môn bị ẩn đã chiếm ngân sách.
+Vẫn giữ hạn mức nhóm tự chọn, trạng thái tạm dừng và điều kiện tiên quyết đã đạt;
+môn nối tiếp chỉ để xem không được đưa vào phương án cùng kỳ.
+
+Nút **Lấy lại gợi ý / Restore suggestions** thay danh sách môn trong bản nháp
+bằng gợi ý hiện tại, giúp lấy lại môn đã bỏ mà không cần checkbox trên từng thẻ.
+Tên, học kỳ và phương án đang mở được giữ. Thao tác này chưa lưu vào database;
+người dùng vẫn bấm **Kiểm tra và lưu phương án** để xác thực và lưu riêng.
+Nút bị khóa khi đang tải, mất kết nối hoặc chưa đủ điều kiện lập kế hoạch.
+
+### Quy tắc hiển thị
+
 Theo yêu cầu mới của người dùng, quy tắc hiển thị bên dưới thay thế mặc định
 ngày 28/10 cho ba cột trên bản đồ:
 
