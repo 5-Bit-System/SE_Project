@@ -211,6 +211,7 @@ def main():
         # Existing edited drafts survive a pause, but no action can persist them.
         assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
         assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert root.get_by_role('button', name='Lấy lại gợi ý', exact=True).is_disabled()
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('3 / 6 TC')")
@@ -220,6 +221,7 @@ def main():
         assert root.locator('.course-status-card').count() == 6
         assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
         assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert root.get_by_role('button', name='Lấy lại gợi ý', exact=True).is_disabled()
         assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'refresh'
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()

@@ -195,6 +195,17 @@
     if (!chosen.size) selected.append(el('li', copy('Chưa có môn trong phương án. Các môn được gợi ý theo mức tín chỉ và điều kiện đã hoàn thành.', 'No courses in this alternative. Suggestions use the credit budget and completed prerequisites.')));
     form.append(selected);
     const actions = el('div', undefined, 'portal-actions');
+    const restore = el('button', copy('Lấy lại gợi ý', 'Restore suggestions'), 'portal-button');
+    restore.type = 'button';
+    restore.disabled = planBusy || loading || !ready || !board?.plan;
+    restore.onclick = () => {
+      const allowed = new Set((board?.courses?.eligible || [])
+        .filter(course => course.counted_in_total !== false && course.planning_eligible !== false
+          && course.eligibility_basis !== 'available_prerequisites').map(course => course.code));
+      chosen = new Set((board?.plan?.course_codes || []).filter(code => allowed.has(code)));
+      planDirty = true; planError = ''; render();
+    };
+    actions.append(restore);
     const save = el('button', planBusy ? copy('Đang lưu…', 'Saving…') : copy('Kiểm tra và lưu phương án', 'Validate and save'), 'portal-button');
     save.type = 'submit'; save.disabled = planBusy || loading || !ready || !board?.plan_basis || planCredits() > budget;
     actions.append(save);

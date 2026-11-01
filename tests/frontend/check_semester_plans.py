@@ -5,7 +5,7 @@ import mimetypes
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
 from tests.frontend.check_course_status import course
@@ -74,6 +74,13 @@ def main():
             page.wait_for_selector('#semester-plan-form')
             page.locator('#semester-plan-title').fill('HK1 — Phương án A')
             assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
+            page.locator('[data-plan-course="TEST-A"] button').click()
+            restore = page.get_by_role('button', name='Lấy lại gợi ý', exact=True)
+            restore.click()
+            expect(page.locator('[data-plan-course="TEST-A"]')).to_have_count(1)
+            assert page.locator('[data-plan-course="TEST-B"]').count() == 1
+            assert page.locator('#semester-plan-title').input_value() == 'HK1 — Phương án A'
+            assert saved == [], 'Restoring suggestions must not write a saved plan'
             page.locator('[data-plan-course="TEST-A"] button').click()
             page.reload()
             page.wait_for_selector('#semester-plan-form')
