@@ -569,6 +569,147 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   background: var(--bg-card);
 }
 
+/* ==========================================================================
+   Admin Curriculum & Cohort Views
+   ========================================================================== */
+.admin-curriculum-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-toolbar-filter select {
+  background: var(--bg-input);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-medium);
+  font: inherit;
+  font-size: 13px;
+  min-width: 180px;
+}
+
+.admin-view-courses-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.admin-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.admin-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.admin-detail-title-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-detail-title {
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.admin-detail-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--soft-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.admin-curriculum-provenance-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.provenance-item {
+  font-size: 13px;
+  color: var(--text-main);
+}
+.provenance-item strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.provenance-disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  font-size: 12px;
+  color: #b45309;
+  line-height: 1.5;
+}
+:root[data-theme="dark"] .provenance-disclaimer {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.admin-course-code {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  background: var(--soft-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.admin-sub-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.prereq-pill {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--soft-surface);
+  font-size: 11px;
+  border: 1px solid var(--border-subtle);
+  margin: 2px;
+}
+
 @media(max-width: 850px) {
   .system-auth-page { grid-template-columns: 1fr; gap: 24px; padding-block: 24px; }
   .auth-intro { padding-top: 0; }

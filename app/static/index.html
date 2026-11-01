@@ -268,15 +268,122 @@
 
     <!-- 2. Curriculum Panel -->
     <section id="admin-panel-curriculum" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-curriculum" hidden>
-      <div class="admin-panel-header">
-        <div>
-          <h3 class="admin-panel-title" data-auth-copy="adminCurriculumHeading">Danh mục chương trình và học phần</h3>
-          <p class="admin-panel-subtitle" data-auth-copy="adminCurriculumSubheading">Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.</p>
+      <!-- List View -->
+      <div id="admin-curriculum-list-view">
+        <div class="admin-panel-header">
+          <div>
+            <h3 class="admin-panel-title" data-auth-copy="adminCurriculumHeading">Danh mục chương trình và học phần</h3>
+            <p class="admin-panel-subtitle" data-auth-copy="adminCurriculumSubheading">Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.</p>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-curriculum-search" type="search" placeholder="Tìm tên ngành, mã CTĐT hoặc khóa…" aria-label="Tìm kiếm chương trình đào tạo">
+          </div>
+          <div class="admin-toolbar-filter">
+            <label for="admin-curriculum-status-filter" class="sr-only">Lọc theo trạng thái kiểm định</label>
+            <select id="admin-curriculum-status-filter" class="modern-select">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="draft_unverified">Bản thảo chưa kiểm định</option>
+              <option value="verified">Đã kiểm định</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="admin-curriculum-container">
+          <div class="table-scroll admin-table-container">
+            <table id="admin-programs-table" class="admin-data-table">
+              <caption class="sr-only">Danh sách chương trình đào tạo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Mã CTĐT</th>
+                  <th scope="col">Tên chương trình</th>
+                  <th scope="col">Khóa / Năm</th>
+                  <th scope="col">Tín chỉ</th>
+                  <th scope="col">Học phần</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Nguồn</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-programs-tbody"></tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div id="admin-curriculum-container">
-        <div class="admin-empty-state">
-          <p data-auth-copy="adminCurriculumPlaceholder">Đang tải danh mục chương trình đào tạo…</p>
+
+      <!-- Course Detail View (Initially hidden) -->
+      <div id="admin-curriculum-detail-view" hidden>
+        <div class="admin-detail-header">
+          <button type="button" id="admin-curriculum-detail-back" class="portal-button admin-back-btn">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M12.5 15 7.5 10l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Quay lại danh mục</span>
+          </button>
+          <div class="admin-detail-title-group">
+            <h3 id="admin-detail-program-name" class="admin-detail-title"></h3>
+            <div class="admin-detail-meta-row">
+              <span id="admin-detail-program-id" class="admin-meta-tag"></span>
+              <span id="admin-detail-program-credits" class="admin-meta-tag"></span>
+              <span id="admin-detail-program-courses" class="admin-meta-tag"></span>
+              <span id="admin-detail-status-badge" class="admin-status-badge badge-warning"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-curriculum-provenance-box">
+          <div class="provenance-item">
+            <strong>Tài liệu nguồn:</strong> <span id="admin-detail-source-file"></span>
+          </div>
+          <div class="provenance-item">
+            <strong>Trang nguồn:</strong> <span id="admin-detail-source-pages"></span>
+          </div>
+          <p class="provenance-disclaimer">
+            <svg viewBox="0 0 16 16" fill="none" class="badge-icon"><path d="M8 2.5 14 13H2L8 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Dữ liệu học phần và điều kiện tiên quyết đang ở trạng thái bản thảo chưa kiểm định. Chỉ dùng cho mục đích đối chiếu kỹ thuật.
+          </p>
+        </div>
+
+        <!-- Course Search / Filter -->
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-courses-search" type="search" placeholder="Tìm theo mã học phần, tên học phần…" aria-label="Tìm kiếm học phần">
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-courses-block-filter" class="modern-select">
+              <option value="all">Tất cả khối kiến thức</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-courses-table" class="admin-data-table">
+            <caption class="sr-only">Danh sách học phần thuộc chương trình đào tạo</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã môn</th>
+                <th scope="col">Tên học phần</th>
+                <th scope="col">Tín chỉ</th>
+                <th scope="col">Khối</th>
+                <th scope="col">Loại</th>
+                <th scope="col">Kỳ/Năm</th>
+                <th scope="col">Điều kiện tiên quyết</th>
+                <th scope="col">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="admin-courses-tbody"></tbody>
+          </table>
         </div>
       </div>
     </section>

@@ -3,7 +3,6 @@
   'use strict';
 
   const $ = id => document.getElementById(id);
-  const t = key => (window.workspaceI18n ? window.workspaceI18n.t(key) : null) || key;
 
   let overviewData = null;
   let isFetching = false;
@@ -271,11 +270,269 @@
   const refreshBtn = $('admin-overview-refresh');
   if (refreshBtn) refreshBtn.onclick = () => loadOverview(true);
 
-  // Expose module API
+  // ==========================================================================
+  // Curriculum Catalog Views
+  // ==========================================================================
+  let curriculumPrograms = [];
+  let currentProgramCourses = [];
+  let activeProgram = null;
+
+  async function loadCurriculum() {
+    try {
+      if (!window.systemAuth?.request) return;
+      const data = await window.systemAuth.request('/admin/programs');
+      curriculumPrograms = data || [];
+      renderPrograms();
+    } catch (err) {
+      console.error('Failed to load curriculum programs:', err);
+    }
+  }
+
+  function renderPrograms() {
+    const tbody = $('admin-programs-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const searchQuery = ($('admin-curriculum-search')?.value || '').trim().toLowerCase();
+    const statusFilter = $('admin-curriculum-status-filter')?.value || 'all';
+
+    const filtered = curriculumPrograms.filter(prog => {
+      const matchSearch = !searchQuery ||
+        prog.name.toLowerCase().includes(searchQuery) ||
+        prog.program_id.toLowerCase().includes(searchQuery) ||
+        (prog.cohort && prog.cohort.toLowerCase().includes(searchQuery));
+      const matchStatus = statusFilter === 'all' || prog.catalog_status === statusFilter;
+      return matchSearch && matchStatus;
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 8;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Không tìm thấy chương trình đào tạo phù hợp.';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const tr = tbody.insertRow();
+      tr.dataset.programId = p.program_id;
+
+      // 1. Program ID
+      const tdId = tr.insertCell();
+      tdId.innerHTML = `<code class="admin-course-code">${p.program_id}</code>`;
+
+      // 2. Name
+      const tdName = tr.insertCell();
+      tdName.innerHTML = `<strong>${p.name}</strong>`;
+
+      // 3. Cohort / Year
+      const tdCohort = tr.insertCell();
+      tdCohort.textContent = p.cohort || '—';
+
+      // 4. Credits
+      const tdCredits = tr.insertCell();
+      tdCredits.className = 'tabular-nums';
+      tdCredits.textContent = p.total_credits;
+
+      // 5. Courses count
+      const tdCourses = tr.insertCell();
+      tdCourses.className = 'tabular-nums';
+      tdCourses.textContent = p.course_count;
+
+      // 6. Status
+      const tdStatus = tr.insertCell();
+      if (p.catalog_status === 'draft_unverified') {
+        tdStatus.innerHTML = `<span class="admin-status-badge badge-warning">${getCopy('adminDraftUnverified')}</span>`;
+      } else {
+        tdStatus.innerHTML = `<span class="admin-status-badge badge-success">${getCopy('adminVerified')}</span>`;
+      }
+
+      // 7. Source
+      const tdSource = tr.insertCell();
+      tdSource.className = 'admin-sub-text';
+      tdSource.title = p.source_file;
+      tdSource.textContent = p.source_file ? (p.source_file.split('/').pop() || p.source_file) : '—';
+
+      // 8. Actions
+      const tdAction = tr.insertCell();
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'portal-button admin-view-courses-btn';
+      btn.textContent = 'Xem học phần';
+      btn.setAttribute('aria-label', `Xem học phần chương trình ${p.name}`);
+      btn.onclick = () => openProgramCourses(p);
+      tdAction.append(btn);
+    });
+  }
+
+  async function openProgramCourses(prog) {
+    activeProgram = prog;
+    $('admin-curriculum-list-view').hidden = true;
+    $('admin-curriculum-detail-view').hidden = false;
+
+    // Header info
+    $('admin-detail-program-name').textContent = prog.name;
+    $('admin-detail-program-id').textContent = `Mã: ${prog.program_id}`;
+    $('admin-detail-program-credits').textContent = `Tổng tín chỉ: ${prog.total_credits}`;
+    $('admin-detail-program-courses').textContent = `${prog.course_count} học phần`;
+    $('admin-detail-source-file').textContent = prog.source_file || '—';
+    $('admin-detail-source-pages').textContent = prog.source_pages || '—';
+
+    const badge = $('admin-detail-status-badge');
+    if (badge) {
+      if (prog.catalog_status === 'draft_unverified') {
+        badge.className = 'admin-status-badge badge-warning';
+        badge.textContent = getCopy('adminDraftUnverified');
+      } else {
+        badge.className = 'admin-status-badge badge-success';
+        badge.textContent = getCopy('adminVerified');
+      }
+    }
+
+    const tbody = $('admin-courses-tbody');
+    if (tbody) {
+      tbody.innerHTML = `<tr><td colspan="8" class="admin-empty-state">Đang tải danh sách học phần…</td></tr>`;
+    }
+
+    try {
+      const data = await window.systemAuth.request('/admin/courses?program_id=' + encodeURIComponent(prog.program_id));
+      currentProgramCourses = data || [];
+      populateBlockFilter();
+      renderCourses();
+    } catch (err) {
+      if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="8" class="admin-empty-state">Lỗi tải học phần: ${err.message}</td></tr>`;
+      }
+    }
+  }
+
+  function populateBlockFilter() {
+    const select = $('admin-courses-block-filter');
+    if (!select) return;
+    select.replaceChildren();
+    select.add(new Option('Tất cả khối kiến thức', 'all'));
+
+    const blocks = Array.from(new Set(currentProgramCourses.map(c => c.block).filter(Boolean)));
+    blocks.forEach(b => {
+      select.add(new Option(b, b));
+    });
+  }
+
+  function renderCourses() {
+    const tbody = $('admin-courses-tbody');
+    if (!tbody) return;
+    tbody.replaceChildren();
+
+    const searchQuery = ($('admin-courses-search')?.value || '').trim().toLowerCase();
+    const blockFilter = $('admin-courses-block-filter')?.value || 'all';
+
+    const filtered = currentProgramCourses.filter(c => {
+      const matchSearch = !searchQuery ||
+        c.code.toLowerCase().includes(searchQuery) ||
+        c.name.toLowerCase().includes(searchQuery) ||
+        (c.name_en && c.name_en.toLowerCase().includes(searchQuery));
+      const matchBlock = blockFilter === 'all' || c.block === blockFilter;
+      return matchSearch && matchBlock;
+    });
+
+    if (filtered.length === 0) {
+      const tr = tbody.insertRow();
+      const td = tr.insertCell();
+      td.colSpan = 8;
+      td.className = 'admin-empty-state';
+      td.textContent = 'Không có học phần nào phù hợp bộ lọc.';
+      return;
+    }
+
+    filtered.forEach(c => {
+      const tr = tbody.insertRow();
+
+      // 1. Code
+      const tdCode = tr.insertCell();
+      tdCode.innerHTML = `<code class="admin-course-code">${c.code}</code>`;
+
+      // 2. Name
+      const tdName = tr.insertCell();
+      tdName.innerHTML = `<strong>${c.name}</strong>${c.name_en ? `<div class="admin-sub-text">${c.name_en}</div>` : ''}`;
+
+      // 3. Credits
+      const tdCredits = tr.insertCell();
+      tdCredits.className = 'tabular-nums';
+      tdCredits.textContent = c.credits;
+
+      // 4. Block
+      const tdBlock = tr.insertCell();
+      tdBlock.innerHTML = `<span class="admin-meta-tag">${c.block || 'Chưa phân khối'}</span>`;
+
+      // 5. Requirement Type
+      const tdReq = tr.insertCell();
+      tdReq.textContent = c.requirement_type === 'required' ? 'Bắt buộc' : 'Tự chọn';
+
+      // 6. Term / Year
+      const tdTerm = tr.insertCell();
+      if (c.suggested_term) {
+        tdTerm.textContent = `Kỳ ${c.suggested_term}`;
+      } else if (c.year) {
+        tdTerm.textContent = `Năm ${c.year}`;
+      } else {
+        tdTerm.textContent = '—';
+      }
+
+      // 7. Prerequisites
+      const tdPrereq = tr.insertCell();
+      if (c.prerequisites && c.prerequisites.length > 0) {
+        const parts = c.prerequisites.map(andGroup => {
+          if (andGroup.length === 1) return `<span class="prereq-pill">${andGroup[0]}</span>`;
+          return `<span class="prereq-pill">(${andGroup.join(' | ')})</span>`;
+        });
+        tdPrereq.innerHTML = parts.join(' & ');
+      } else {
+        tdPrereq.textContent = 'Không';
+      }
+
+      // 8. Status
+      const tdStatus = tr.insertCell();
+      if (c.prerequisite_status === 'draft_unverified') {
+        tdStatus.innerHTML = `<span class="admin-status-badge badge-warning">Bản thảo</span>`;
+      } else {
+        tdStatus.innerHTML = `<span class="admin-status-badge badge-success">Kiểm định</span>`;
+      }
+    });
+  }
+
+  // Bind Curriculum filter events
+  document.addEventListener('DOMContentLoaded', () => {
+    $('admin-curriculum-search')?.addEventListener('input', renderPrograms);
+    $('admin-curriculum-status-filter')?.addEventListener('change', renderPrograms);
+    $('admin-curriculum-detail-back')?.addEventListener('click', () => {
+      $('admin-curriculum-detail-view').hidden = true;
+      $('admin-curriculum-list-view').hidden = false;
+    });
+    $('admin-courses-search')?.addEventListener('input', renderCourses);
+    $('admin-courses-block-filter')?.addEventListener('change', renderCourses);
+  });
+  $('admin-curriculum-search')?.addEventListener('input', renderPrograms);
+  $('admin-curriculum-status-filter')?.addEventListener('change', renderPrograms);
+  $('admin-curriculum-detail-back')?.addEventListener('click', () => {
+    $('admin-curriculum-detail-view').hidden = true;
+    $('admin-curriculum-list-view').hidden = false;
+  });
+  $('admin-courses-search')?.addEventListener('input', renderCourses);
+  $('admin-courses-block-filter')?.addEventListener('change', renderCourses);
+
+  // Expose module APIs
   window.adminOverview = {
     load: loadOverview,
     render: renderOverview,
     renderError,
     get data() { return overviewData; }
+  };
+
+  window.adminCurriculum = {
+    load: loadCurriculum,
+    renderPrograms,
+    openProgramCourses,
+    renderCourses
   };
 })();
