@@ -128,6 +128,7 @@ def main():
         page.route('**/*', intercept)
         page.goto('http://127.0.0.1:8000/#rules')
         root = page.locator('#course-status-board')
+        planner = page.locator('#course-planning-panel')
         page.wait_for_selector('[data-course-code="TEST-A"]')
 
         def emit_source():
@@ -145,7 +146,10 @@ def main():
         assert 'Tiên quyết nằm trong nhóm Có thể học: (TEST-E1: <img src=x onerror=alert(1)>)' in root.locator('[data-course-code="TEST-F"]').inner_text()
         assert root.locator('[data-course-code="TEST-F"] .course-status-reasons strong').inner_text() == '<img src=x onerror=alert(1)>'
         assert 'Cần hoàn thành các môn tiên quyết trước' in root.locator('[data-course-code="TEST-F"]').inner_text()
-        progress_detail = root.locator('.course-status-progress-breakdown')
+        assert root.locator('#semester-plans, select, input[type=number], .course-status-summary, .course-status-progress-breakdown, .course-status-notice').count() == 0
+        assert 'Xem bảng điểm VNU' not in root.inner_text()
+        page.locator('#tab-btn-recommend').click()
+        progress_detail = planner.locator('.course-status-progress-breakdown')
         assert progress_detail.count() == 1
         assert progress_detail.get_by_role('heading', name='Tiến độ theo khối và nhóm tín chỉ').count() == 1
         assert 'Khối nền tảng' in progress_detail.inner_text()
@@ -155,6 +159,7 @@ def main():
         assert 'Nhóm tự chọn' in progress_detail.inner_text()
         assert 'khối/nhóm có thể chồng lấp' in progress_detail.inner_text()
         assert page.locator('#course-credit-budget').input_value() == '20'
+        page.locator('#tab-btn-rules').click()
         assert '(TEST-B: Synthetic required hoặc TEST-OR) và (TEST-AND: Synthetic prerequisite outside columns)' in root.inner_text()
         assert 'Thông tin mã môn, tên, tín chỉ hoặc khối chưa được xác minh.' in root.locator('[data-course-code="TEST-D"]').inner_text()
         assert root.locator('img').count() == 0
@@ -162,15 +167,17 @@ def main():
         assert 'mặc định đã chọn; điều kiện tiên quyết đã thỏa' in root.locator('[data-course-code="TEST-E1"]').inner_text()
         assert 'môn không có điều kiện tiên quyết' in root.locator('[data-course-code="TEST-E2"]').inner_text()
         assert 'chưa tính là đã hoàn thành' in root.locator('[data-course-code="TEST-E2"]').inner_text()
-        assert '3 / 20 TC' in root.inner_text()
+        assert '3 / 20 TC' in planner.inner_text()
         assert root.locator('[data-course-code="TEST-C"]').count() == 1
         assert root.locator('.course-state-completed [data-course-code="TEST-B"]').count() == 0
+        page.locator('#tab-btn-recommend').click()
         page.locator('#course-credit-budget').fill('6')
-        root.get_by_role('button', name='Áp dụng', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('3 / 6 TC')")
+        planner.get_by_role('button', name='Áp dụng', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('3 / 6 TC')")
         assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'budget'
-        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
-        assert root.locator('[data-plan-course="TEST-F"]').count() == 0
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('[data-plan-course="TEST-F"]').count() == 0
+        page.locator('#tab-btn-rules').click()
         root.locator('input[type=search]').fill('TEST-C')
         assert root.locator('.course-status-card').count() == 1
         assert 'TEST-B: Synthetic required' in root.locator('[data-course-code="TEST-C"]').inner_text()
@@ -182,17 +189,19 @@ def main():
         assert search_status.inner_text() == 'Không có môn phù hợp.'
         root.locator('input[type=search]').fill('')
         assert search_status.inner_text() == 'Đã xóa tìm kiếm. Hiện 6 môn.'
-        root.locator('.course-status-toolbar select').nth(0).select_option('synthetic-track')
+        page.locator('#tab-btn-recommend').click()
+        planner.locator('.course-status-toolbar select').nth(0).select_option('synthetic-track')
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'track'")
-        root.locator('.course-status-toolbar select').nth(1).select_option('synthetic-path')
+        planner.locator('.course-status-toolbar select').nth(1).select_option('synthetic-path')
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
+        page.locator('#tab-btn-rules').click()
         page.locator('[data-language-choice="en"]').click()
         assert 'Your course map' in root.inner_text()
         assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
         assert 'Available to study' in root.locator('.course-state-eligible h3').inner_text()
         assert 'Complete those prerequisites before taking this course.' in root.locator('[data-course-code="TEST-F"]').inner_text()
-        assert 'Progress by blocks and credit groups' in root.locator('.course-status-progress-breakdown').inner_text()
-        assert 'Blocks and groups can overlap' in root.locator('.course-status-progress-breakdown').inner_text()
+        assert 'Progress by blocks and credit groups' in planner.locator('.course-status-progress-breakdown').inner_text()
+        assert 'Blocks and groups can overlap' in planner.locator('.course-status-progress-breakdown').inner_text()
         assert '(TEST-B: Synthetic required EN or TEST-OR) and (TEST-AND: Prerequisite outside columns EN)' in root.inner_text()
         assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
         assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()
@@ -204,24 +213,25 @@ def main():
         page.locator('[data-language-choice="vi"]').click()
         mode = 'paused'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chọn nhánh tốt nghiệp')")
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Chọn nhánh tốt nghiệp')")
         assert root.locator('.course-state-eligible .course-status-card').count() == 3
         assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể học')
         assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
         # Existing edited drafts survive a pause, but no action can persist them.
-        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
-        assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
-        assert root.get_by_role('button', name='Lấy lại gợi ý', exact=True).is_disabled()
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert planner.get_by_role('button', name='Lấy lại gợi ý', exact=True, include_hidden=True).is_disabled()
+        assert 'Chọn nhánh tốt nghiệp' not in root.inner_text()
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('3 / 6 TC')")
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('3 / 6 TC')")
         mode = 'failed'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
         page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa tải được kết quả')")
         assert root.locator('.course-status-card').count() == 6
-        assert root.locator('[data-plan-course="TEST-E1"]').count() == 1
-        assert root.locator('#semester-plan-form button[type=submit]').is_disabled()
-        assert root.get_by_role('button', name='Lấy lại gợi ý', exact=True).is_disabled()
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert planner.get_by_role('button', name='Lấy lại gợi ý', exact=True, include_hidden=True).is_disabled()
         assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'refresh'
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
@@ -237,12 +247,12 @@ def main():
         page.set_viewport_size({"width": 1440, "height": 1050})
         mode = 'unready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa xác minh chương trình')")
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Chưa xác minh chương trình')")
         assert root.locator('.course-status-card').count() == 0
         assert root.locator('.course-status-column').count() == 3
         mode = 'catalog_unverified'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Khung chương trình chưa được xác minh')")
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Khung chương trình chưa được xác minh')")
         assert root.locator('.course-status-card').count() == 0
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
