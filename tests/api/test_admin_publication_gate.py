@@ -28,7 +28,8 @@ def test_publication_gate_full_lifecycle(verified_client, fake_accounts):
         session["role"] = "admin"
 
     config = dotenv_values(ENV_PATH)
-    eng = create_engine(config.get("DATABASE_URL"))
+    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
+    eng = create_engine(url)
 
     # 1. Insert test crawled document directly in pending status
     doc_id = f"doc_gate_{uuid.uuid4().hex[:8]}"

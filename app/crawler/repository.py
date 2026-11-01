@@ -157,9 +157,6 @@ def toggle_source(conn, source_id: str, is_active: bool) -> dict[str, Any] | Non
 
 
 def seed_default_sources_if_empty(conn) -> list[dict[str, Any]]:
-    existing = list_sources(conn)
-    if existing:
-        return existing
 
     defaults = [
         {
@@ -192,7 +189,8 @@ def seed_default_sources_if_empty(conn) -> list[dict[str, Any]]:
     ]
 
     for d in defaults:
-        create_source(conn, **d)
+        if not get_source(conn, d["source_id"]):
+            create_source(conn, **d)
 
     return list_sources(conn)
 
