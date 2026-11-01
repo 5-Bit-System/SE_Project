@@ -438,6 +438,44 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.admin-status-badge.badge-danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+:root[data-theme="dark"] .admin-status-badge.badge-danger {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.admin-action-disable {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+.admin-action-disable:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: #dc2626;
+}
+:root[data-theme="dark"] .admin-action-disable {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+:root[data-theme="dark"] .admin-action-disable:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #f87171;
+}
+
+.admin-role-select {
+  background: var(--bg-input);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-medium);
+  font: inherit;
+  font-size: 12px;
+}
+
 :root[data-theme="dark"] .admin-status-badge.badge-warning {
   color: #fbbf24;
   background: rgba(245, 158, 11, 0.2);

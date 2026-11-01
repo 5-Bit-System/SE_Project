@@ -31,7 +31,8 @@
     invalid_credentials:'Vui lòng nhập tài khoản và mật khẩu VNU hợp lệ.', invalid_login:'Tài khoản hoặc mật khẩu quản trị chưa đúng.',
     vnu_already_linked:'Danh tính VNU đang có liên kết khác. Vui lòng liên hệ quản trị viên.',
     admin_credentials_required:'Tài khoản này chưa có thông tin đăng nhập quản trị riêng.', use_vnu_password:'Mật khẩu VNU được quản lý tại VNU.',
-    adminConsoleKicker:'QUẢN TRỊ HỆ THỐNG', adminConsoleHeader:'Bảng điều khiển quản trị', adminConsoleDesc:'Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.', adminSystemReady:'Hệ thống sẵn sàng', adminBackToWorkspace:'Về Sổ học tập', adminTabOverview:'Tổng quan', adminTabCurriculum:'Chương trình đào tạo', adminTabUsers:'Tài khoản', adminOverviewHeading:'Chỉ số và trạng thái hệ thống', adminOverviewSubheading:'Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.', adminCurriculumHeading:'Danh mục chương trình và học phần', adminCurriculumSubheading:'Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.', adminCurriculumPlaceholder:'Đang tải danh mục chương trình đào tạo…', adminUsersHeading:'Quản lý tài khoản', adminUsersSubheading:'Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.', searchUsersPlaceholder:'Tìm tài khoản VNU, email hoặc tên…'
+    adminConsoleKicker:'QUẢN TRỊ HỆ THỐNG', adminConsoleHeader:'Bảng điều khiển quản trị', adminConsoleDesc:'Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.', adminSystemReady:'Hệ thống sẵn sàng', adminBackToWorkspace:'Về Sổ học tập', adminTabOverview:'Tổng quan', adminTabCurriculum:'Chương trình đào tạo', adminTabUsers:'Tài khoản', adminOverviewHeading:'Chỉ số và trạng thái hệ thống', adminOverviewSubheading:'Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.', adminCurriculumHeading:'Danh mục chương trình và học phần', adminCurriculumSubheading:'Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.', adminCurriculumPlaceholder:'Đang tải danh mục chương trình đào tạo…', adminUsersHeading:'Quản lý tài khoản', adminUsersSubheading:'Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.', searchUsersPlaceholder:'Tìm tài khoản VNU, email hoặc tên…',
+    confirmDisableAccount:'Bạn có chắc chắn muốn khóa tài khoản', confirmDisableSessionWarning:'Lưu ý: Mọi phiên đăng nhập hiện tại của tài khoản này sẽ bị thu hồi ngay lập tức.', confirmEnableAccount:'Bạn có muốn mở khóa tài khoản', confirmRoleChange:'Bạn có muốn thay đổi vai trò của tài khoản'
   });
   Object.assign(copy.en, {
     eyebrow:'A study space for VNU students', headline:'Every semester,\na clearer next step.', description:'Your transcript and study information, together in one place. Follow your progress and plan ahead for the next semester.',
@@ -53,7 +54,8 @@
     invalid_credentials:'Enter valid VNU credentials.', invalid_login:'The administrator account or password is incorrect.',
     vnu_already_linked:'This VNU identity has a conflicting account link. Please contact an administrator.',
     admin_credentials_required:'This account does not have separate administrator credentials.', use_vnu_password:'Your VNU password is managed by VNU.',
-    adminConsoleKicker:'SYSTEM ADMINISTRATION', adminConsoleHeader:'Admin Console', adminConsoleDesc:'System overview, curriculum management, and user access control.', adminSystemReady:'System operational', adminBackToWorkspace:'Back to workspace', adminTabOverview:'Overview', adminTabCurriculum:'Curriculum', adminTabUsers:'Accounts', adminOverviewHeading:'System Metrics & Health', adminOverviewSubheading:'Sourced operational data, updated in real time.', adminCurriculumHeading:'Programs & Course Catalog', adminCurriculumSubheading:'Browse curricula, prerequisite conditions, and audit verification states.', adminCurriculumPlaceholder:'Loading curriculum catalog…', adminUsersHeading:'Account Management', adminUsersSubheading:'Manage registered student and administrator accounts.', searchUsersPlaceholder:'Search VNU account, email or name…'
+    adminConsoleKicker:'SYSTEM ADMINISTRATION', adminConsoleHeader:'Admin Console', adminConsoleDesc:'System overview, curriculum management, and user access control.', adminSystemReady:'System operational', adminBackToWorkspace:'Back to workspace', adminTabOverview:'Overview', adminTabCurriculum:'Curriculum', adminTabUsers:'Accounts', adminOverviewHeading:'System Metrics & Health', adminOverviewSubheading:'Sourced operational data, updated in real time.', adminCurriculumHeading:'Programs & Course Catalog', adminCurriculumSubheading:'Browse curricula, prerequisite conditions, and audit verification states.', adminCurriculumPlaceholder:'Loading curriculum catalog…', adminUsersHeading:'Account Management', adminUsersSubheading:'Manage registered student and administrator accounts.', searchUsersPlaceholder:'Search VNU account, email or name…',
+    confirmDisableAccount:'Are you sure you want to disable account', confirmDisableSessionWarning:'Warning: All active login sessions for this account will be revoked immediately.', confirmEnableAccount:'Do you want to enable account', confirmRoleChange:'Do you want to change the role of account'
   });
   copy.en.restoringSession = 'Restoring your session…';
   const t = key => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'][key] || copy.vi[key] || copy.vi.fallback;
@@ -166,14 +168,47 @@
   $('system-logout').onclick = async () => { if(busy) return; const pending = request('/auth/logout','POST'); expire(); lock(true); try { await pending; } catch(error) { notice(error.message,true); } finally { lock(false); } };
   $('system-home').onclick = $('admin-back').onclick = () => { mode='workspace'; render(); };
   $('system-password').onclick = () => { mode='password'; notice(); render(); };
+  let lastActionTarget = null;
   async function loadAdmin() { const current=epoch; try { const result=await request(`/admin/users?page=${adminPage}&q=${encodeURIComponent($('admin-query').value)}`); if(current!==epoch || account?.role!=='admin') return; adminRows=result.items; adminTotal=result.total; renderAdmin(); } catch(error) { if(current===epoch) $('admin-notice').textContent=t(error.message); } }
   function renderAdmin() {
     const table=$('admin-users'); table.replaceChildren(); const head=table.createTHead().insertRow(); [t('email'),t('name'),t('role'),t('status'),t('actions')].forEach(label=>{const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}); const body=table.createTBody();
-    adminRows.forEach(user=>{const row=body.insertRow();row.insertCell().textContent=user.vnu_subject || user.email || '';row.insertCell().textContent=user.display_name;
-      const select=document.createElement('select'); select.setAttribute('aria-label',t('role')+' '+(user.vnu_subject || user.email || '')); for(const role of ['student','admin']) select.add(new Option(t(role==='admin'?'adminRole':'studentRole'),role));select.value=user.role;select.disabled=user.id===account.account_id || (user.role==='student' && !user.email_verified_at); row.insertCell().append(select);
-      row.insertCell().textContent=!user.is_active?t('disabled'):!user.email_verified_at && !user.vnu_subject?t('pending'):t('active'); const button=document.createElement('button');button.className='portal-button';button.textContent=t(user.is_active?'disable':'enable');button.disabled=user.id===account.account_id; row.insertCell().append(button);
-      const update=async changes=>{if(!confirm(t('confirmChange'))) {renderAdmin();return;} try {await request('/admin/users/'+encodeURIComponent(user.id),'PATCH',changes);await loadAdmin();} catch(error){$('admin-notice').textContent=t(error.message);renderAdmin();}};select.onchange=()=>update({role:select.value});button.onclick=()=>update({is_active:!user.is_active});
-    }); $('admin-total').textContent=`${adminTotal} · ${adminPage}`; $('admin-prev').disabled=adminPage<=1;$('admin-next').disabled=adminPage*25>=adminTotal;
+    let elementToFocus = null;
+    adminRows.forEach(user=>{const row=body.insertRow(); row.dataset.userId=user.id;
+      const tdSubject=row.insertCell(); const subjectText=user.vnu_subject || user.email || '';
+      if (user.vnu_subject) tdSubject.innerHTML=`<code class="admin-course-code">${user.vnu_subject}</code>`; else tdSubject.textContent=subjectText;
+      row.insertCell().textContent=user.display_name || '—';
+      const select=document.createElement('select'); select.setAttribute('aria-label',t('role')+' '+subjectText); select.className='admin-role-select';
+      for(const role of ['student','admin']) select.add(new Option(t(role==='admin'?'adminRole':'studentRole'),role)); select.value=user.role; select.disabled=user.id===account?.account_id || (user.role==='student' && !user.email_verified_at && !user.vnu_subject); row.insertCell().append(select);
+      const tdStatus=row.insertCell();
+      if (!user.is_active) tdStatus.innerHTML=`<span class="admin-status-badge badge-danger">${t('disabled')}</span>`;
+      else if (!user.email_verified_at && !user.vnu_subject) tdStatus.innerHTML=`<span class="admin-status-badge badge-warning">${t('pending')}</span>`;
+      else tdStatus.innerHTML=`<span class="admin-status-badge badge-success"><span class="admin-pulse-dot" aria-hidden="true"></span> ${t('active')}</span>`;
+      const tdAction=row.insertCell(); const button=document.createElement('button');
+      button.type='button'; button.className='portal-button '+(user.is_active?'admin-action-disable':'primary-action'); button.textContent=t(user.is_active?'disable':'enable'); button.disabled=user.id===account?.account_id; button.setAttribute('aria-label',(user.is_active?t('disable'):t('enable'))+' '+subjectText); tdAction.append(button);
+
+      if (lastActionTarget && lastActionTarget.id === user.id) {
+        if (lastActionTarget.type === 'button') elementToFocus = button;
+        else if (lastActionTarget.type === 'select') elementToFocus = select;
+      }
+
+      const update=async (changes, type)=>{
+        const targetIdentifier=user.vnu_subject || user.email || user.display_name || user.id;
+        let confirmMsg='';
+        if (changes.is_active === false) confirmMsg=`${t('confirmDisableAccount')} "${targetIdentifier}"?\n${t('confirmDisableSessionWarning')}`;
+        else if (changes.is_active === true) confirmMsg=`${t('confirmEnableAccount')} "${targetIdentifier}"?`;
+        else if (changes.role) confirmMsg=`${t('confirmRoleChange')} "${targetIdentifier}" -> ${t(changes.role==='admin'?'adminRole':'studentRole')}?`;
+        else confirmMsg=t('confirmChange');
+
+        if(!confirm(confirmMsg)) {renderAdmin();return;}
+        lastActionTarget={id:user.id, type};
+        try {await request('/admin/users/'+encodeURIComponent(user.id),'PATCH',changes);await loadAdmin();}
+        catch(error){$('admin-notice').textContent=t(error.message);renderAdmin();}
+      };
+      select.onchange=()=>update({role:select.value}, 'select');
+      button.onclick=()=>update({is_active:!user.is_active}, 'button');
+    });
+    $('admin-total').textContent=`${adminTotal} · ${adminPage}`; $('admin-prev').disabled=adminPage<=1;$('admin-next').disabled=adminPage*25>=adminTotal;
+    if (elementToFocus) elementToFocus.focus();
   }
   $('system-admin-open').onclick=()=>{mode='admin';adminPage=1;render();switchAdminTab('overview');};
   $('admin-search-form').onsubmit=event=>{event.preventDefault();adminPage=1;loadAdmin();};
