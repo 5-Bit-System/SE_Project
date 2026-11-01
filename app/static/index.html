@@ -230,6 +230,13 @@
         </svg>
         <span class="admin-tab-text" data-auth-copy="adminTabUsers">Tài khoản</span>
       </button>
+      <button id="admin-tab-audit" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-audit" tabindex="-1" data-admin-tab="audit">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M7 3.5h6a2 2 0 0 1 2 2v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-11a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M8 8h4M8 11h4M8 14h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text">Nhật ký kiểm toán</span>
+      </button>
     </nav>
 
     <p id="admin-notice" class="admin-notice-bar" role="status" aria-live="polite"></p>
@@ -1023,6 +1030,175 @@
         <button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous">Trước</button>
         <button type="button" id="admin-next" class="portal-button" data-auth-copy="next">Tiếp</button>
       </div>
+    </section>
+
+    <!-- 4. Audit Log Panel -->
+    <section id="admin-panel-audit" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-audit" hidden>
+      <div class="admin-panel-header admin-panel-header-actions">
+        <div>
+          <h3 class="admin-panel-title">Nhật ký Kiểm toán Hoạt động Quản trị</h3>
+          <p class="admin-panel-subtitle">Hồ sơ bất biến ghi nhận mọi thao tác đặc quyền trên tài khoản, CTĐT, crawler và dữ liệu học thuật.</p>
+        </div>
+        <button type="button" id="admin-audit-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới nhật ký kiểm toán">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Làm mới</span>
+        </button>
+      </div>
+
+      <!-- Audit KPI Metrics Bar -->
+      <div class="admin-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 20px;">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Tổng số sự kiện</span>
+            <div class="admin-kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7 3.5h6a2 2 0 0 1 2 2v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-11a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-total" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Sự kiện kiểm toán ghi nhận</span>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Trong 24 giờ qua</span>
+            <div class="admin-kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-24h" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Thao tác quản trị gần đây</span>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Cảnh báo / Lỗi</span>
+            <div class="admin-kpi-icon-wrap" style="color: #ef4444;">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 6v5M10 14h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-warn" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Thao tác thất bại hoặc bị chặn</span>
+        </div>
+      </div>
+
+      <!-- Audit Toolbar -->
+      <div class="admin-curriculum-toolbar">
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-audit-search" type="search" placeholder="Tìm theo ID, hành động, email hoặc tóm tắt…" aria-label="Tìm kiếm nhật ký">
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-audit-action-filter" class="modern-select">
+            <option value="all">Tất cả nhóm hành động</option>
+            <option value="catalog">Chương trình đào tạo (catalog)</option>
+            <option value="crawler">Thu thập dữ liệu (crawler)</option>
+            <option value="document">Kiểm duyệt tài liệu (document)</option>
+            <option value="account">Quản lý tài khoản (account)</option>
+          </select>
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-audit-target-filter" class="modern-select">
+            <option value="all">Tất cả loại đối tượng</option>
+            <option value="catalog_revision">Phiên bản CTĐT</option>
+            <option value="course">Học phần</option>
+            <option value="crawler_source">Nguồn Crawler</option>
+            <option value="crawler_job">Tiến trình Job</option>
+            <option value="document">Tài liệu</option>
+            <option value="account">Tài khoản</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Audit Table -->
+      <div class="table-scroll admin-table-container">
+        <table id="admin-audit-table" class="admin-data-table">
+          <caption class="sr-only">Nhật ký kiểm toán hoạt động quản trị viên</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="width: 140px;">Thời gian</th>
+              <th scope="col">Người thực hiện</th>
+              <th scope="col">Hành động</th>
+              <th scope="col">Đối tượng</th>
+              <th scope="col">Tóm tắt an toàn</th>
+              <th scope="col" style="width: 90px;">Kết quả</th>
+              <th scope="col" style="width: 80px;">Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody id="admin-audit-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
+        <span id="admin-audit-page-info" class="admin-sub-text">Đang tải nhật ký…</span>
+        <div class="portal-actions" style="margin: 0; display: flex; gap: 8px;">
+          <button type="button" id="admin-audit-prev-btn" class="portal-button admin-secondary-btn" disabled>Trước</button>
+          <button type="button" id="admin-audit-next-btn" class="portal-button admin-secondary-btn" disabled>Tiếp</button>
+        </div>
+      </div>
+
+      <!-- Audit Detail Modal -->
+      <dialog id="admin-audit-detail-modal" class="admin-modal" style="max-width: 680px; width: 90vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 id="admin-audit-detail-title" class="admin-modal-title">Chi tiết Bản ghi Kiểm toán</h4>
+              <span id="admin-audit-detail-id" class="admin-sub-text"></span>
+            </div>
+            <button type="button" id="admin-audit-detail-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Người thực hiện (Actor)</span>
+              <div id="admin-audit-detail-actor" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Thời điểm (Timestamp)</span>
+              <div id="admin-audit-detail-time" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Hành động & Kết quả</span>
+              <div id="admin-audit-detail-action" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Mục tiêu (Target)</span>
+              <div id="admin-audit-detail-target" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px; font-family: monospace;"></div>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">TÓM TẮT THAO TÁC</label>
+            <div id="admin-audit-detail-summary" style="font-size: 0.9rem; line-height: 1.5;"></div>
+          </div>
+
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">DỮ LIỆU ĐÃ LÀM SẠCH (REDACTED DETAILS JSON)</label>
+            <pre id="admin-audit-detail-json" class="admin-code-snippet" style="max-height: 200px; overflow-y: auto; font-family: monospace; font-size: 0.82rem; padding: 10px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--surface-subtle);"></pre>
+          </div>
+
+          <div class="admin-modal-actions">
+            <button type="button" id="admin-audit-detail-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
+        </div>
+      </dialog>
     </section>
   </section>
 

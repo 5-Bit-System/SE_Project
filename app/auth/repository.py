@@ -264,6 +264,21 @@ def update_user(principal, target, changes):
                      {'role': role, 'active': active, 'id': target})
         conn.execute(text('UPDATE auth_sessions SET revoked_at=now() WHERE account_id=:id'), {'id': target})
         audit(conn, actor['account_id'], target, 'update_user')
+        try:
+            from app.audit.service import log_admin_action
+
+            log_admin_action(
+                conn,
+                actor_id=actor['account_id'],
+                actor_email=actor.get('email'),
+                action="account.update_user",
+                target_type="account",
+                target_id=str(target),
+                summary=f"Updated account {row.get('email') or target} (role={role}, is_active={active})",
+                details={"changes": changes, "target_email": row.get('email')},
+            )
+        except Exception:
+            pass
 
 def count_accounts() -> int:
     with engine().connect() as conn:

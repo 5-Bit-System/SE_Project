@@ -3,6 +3,11 @@
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
+from app.audit.service import (
+    get_audit_metrics,
+    get_audit_trail,
+    log_admin_action,
+)
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
 from app.crawler.document_review_service import (
@@ -296,6 +301,16 @@ async def import_catalog_revision(
         )
         if status == "validated":
             rev = update_validation(conn, rev["revision_id"], status, val_result)
+        log_admin_action(
+            conn,
+            actor_id=principal.get("account_id"),
+            actor_email=principal.get("email"),
+            action="catalog.import",
+            target_type="catalog_revision",
+            target_id=rev["revision_id"],
+            summary=f"Imported revision '{body.version_title}' ({rev['revision_id']}) for {body.program_id}",
+            details={"program_id": body.program_id, "stats": val_result.get("stats")},
+        )
 
     return CatalogImportResponse(
         revision_id=rev["revision_id"],
@@ -425,6 +440,16 @@ async def approve_catalog_revision(
                 reason=body.reason,
                 notes=body.notes,
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="catalog.approve",
+                target_type="catalog_revision",
+                target_id=revision_id,
+                summary=f"Approved curriculum revision {revision_id} with reason: {body.reason}",
+                details={"reason": body.reason, "notes": body.notes},
+            )
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
 
@@ -449,6 +474,16 @@ async def publish_catalog_revision(
                 reason=body.reason,
                 linked_document_ids=body.linked_document_ids,
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="catalog.publish",
+                target_type="catalog_revision",
+                target_id=revision_id,
+                summary=f"Published revision {revision_id} for program {rev.get('program_id')}",
+                details={"reason": body.reason, "linked_documents": body.linked_document_ids},
+            )
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
 
@@ -462,9 +497,7 @@ async def publish_catalog_revision(
 
 
 @router.get("/catalog-revisions/{revision_id}/provenance")
-async def get_revision_provenance_api(
-    request: Request, revision_id: str
-) -> dict:
+async def get_revision_provenance_api(request: Request, revision_id: str) -> dict:
     """Get the publication provenance manifest for a published revision."""
     principal = await require_account(request)
     if principal.get("role") != "admin":
@@ -475,7 +508,9 @@ async def get_revision_provenance_api(
     with engine().connect() as conn:
         manifest = get_publication_provenance(conn, revision_id)
         if not manifest:
-            raise HTTPException(404, detail=f"No provenance manifest found for revision {revision_id}")
+            raise HTTPException(
+                404, detail=f"No provenance manifest found for revision {revision_id}"
+            )
         return {
             "revision_id": revision_id,
             "provenance_manifest": manifest,
@@ -505,6 +540,16 @@ async def rollback_catalog_revision(
                 target_revision_id=revision_id,
                 user_id=principal.get("account_id"),
                 reason=body.reason,
+            )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="catalog.rollback",
+                target_type="catalog_revision",
+                target_id=revision_id,
+                summary=f"Rolled back active revision to {revision_id} with reason: {body.reason}",
+                details={"reason": body.reason, "program_id": target["program_id"]},
             )
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
@@ -597,6 +642,16 @@ async def update_course_prerequisites(
                 updated_by=principal.get("account_id"),
                 reason=body.reason,
             )
+        log_admin_action(
+            conn,
+            actor_id=principal.get("account_id"),
+            actor_email=principal.get("email"),
+            action="catalog.edit_prerequisites",
+            target_type="course",
+            target_id=course_code,
+            summary=f"Updated prerequisite rules for course {course_code} in revision {target_rev_id}",
+            details={"reason": body.reason, "rules": norm_prereqs, "revision_id": target_rev_id},
+        )
 
     return {
         "revision_id": target_rev_id,
@@ -633,7 +688,7 @@ async def create_crawler_source(request: Request, body: CrawlerSourceCreateReque
         raise HTTPException(400, detail=err_msg)
 
     with engine().begin() as conn:
-        return create_source(
+        src = create_source(
             conn,
             name=body.name,
             base_url=body.base_url,
@@ -642,6 +697,17 @@ async def create_crawler_source(request: Request, body: CrawlerSourceCreateReque
             allow_patterns=body.allow_patterns,
             deny_patterns=body.deny_patterns,
         )
+        log_admin_action(
+            conn,
+            actor_id=principal.get("account_id"),
+            actor_email=principal.get("email"),
+            action="crawler.create_source",
+            target_type="crawler_source",
+            target_id=src["id"],
+            summary=f"Created crawler source '{src['name']}' ({src['base_url']})",
+            details={"name": src["name"], "base_url": src["base_url"]},
+        )
+        return src
 
 
 @router.put("/crawler/sources/{source_id}")
@@ -683,6 +749,16 @@ async def toggle_crawler_source(
 
     with engine().begin() as conn:
         src = toggle_source(conn, source_id, is_active=body.is_active)
+        log_admin_action(
+            conn,
+            actor_id=principal.get("account_id"),
+            actor_email=principal.get("email"),
+            action="crawler.toggle_source",
+            target_type="crawler_source",
+            target_id=source_id,
+            summary=f"Toggled crawler source {source_id} to is_active={body.is_active}",
+            details={"is_active": body.is_active},
+        )
     if not src:
         raise HTTPException(404, detail=f"Source {source_id} not found")
     return src
@@ -711,11 +787,22 @@ async def trigger_new_crawl_job(request: Request, body: CrawlerJobCreateRequest)
 
     with engine().begin() as conn:
         try:
-            return trigger_crawl_job(
+            job = trigger_crawl_job(
                 conn,
                 source_id=body.source_id,
                 created_by=principal.get("account_id"),
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="crawler.trigger_job",
+                target_type="crawler_job",
+                target_id=job["id"],
+                summary=f"Triggered crawler job {job['id']} for source {body.source_id}",
+                details={"source_id": body.source_id},
+            )
+            return job
         except ValueError as exc:
             raise HTTPException(400, detail=str(exc)) from exc
 
@@ -837,13 +924,24 @@ async def approve_crawled_document(
 
     with engine().begin() as conn:
         try:
-            return review_document(
+            reviewed = review_document(
                 conn,
                 doc_id=doc_id,
                 decision="approved",
                 reason=body.reason,
                 reviewer_id=principal.get("account_id"),
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="document.approve",
+                target_type="document",
+                target_id=doc_id,
+                summary=f"Approved document {doc_id} with reason: {body.reason}",
+                details={"reason": body.reason},
+            )
+            return reviewed
         except ValueError as exc:
             raise HTTPException(400, detail=str(exc)) from exc
 
@@ -858,12 +956,68 @@ async def reject_crawled_document(
 
     with engine().begin() as conn:
         try:
-            return review_document(
+            reviewed = review_document(
                 conn,
                 doc_id=doc_id,
                 decision="rejected",
                 reason=body.reason,
                 reviewer_id=principal.get("account_id"),
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="document.reject",
+                target_type="document",
+                target_id=doc_id,
+                summary=f"Rejected document {doc_id} with reason: {body.reason}",
+                details={"reason": body.reason},
+            )
+            return reviewed
         except ValueError as exc:
             raise HTTPException(400, detail=str(exc)) from exc
+
+
+@router.get("/audit-logs")
+async def get_audit_logs(
+    request: Request,
+    action: str | None = None,
+    target_type: str | None = None,
+    actor_id: str | None = None,
+    q: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> dict:
+    """Retrieve filterable, paginated admin action audit logs."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        items, total = get_audit_trail(
+            conn,
+            action_group=action,
+            target_type=target_type,
+            actor_id=actor_id,
+            query=q,
+            limit=limit,
+            offset=offset,
+        )
+
+    return {
+        "items": items,
+        "total": total,
+        "limit": limit,
+        "offset": offset,
+    }
+
+
+@router.get("/audit-logs/metrics")
+async def get_audit_logs_metrics(request: Request) -> dict:
+    """Retrieve summary metrics for admin audit logs."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        return get_audit_metrics(conn)
