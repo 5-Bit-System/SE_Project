@@ -5,6 +5,13 @@ from pydantic import BaseModel, Field
 
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
+from app.crawler.document_review_service import (
+    get_document,
+    list_documents,
+    review_document,
+    seed_crawled_documents_from_disk,
+    update_document_metadata,
+)
 from app.crawler.repository import (
     create_source,
     list_jobs,
@@ -150,6 +157,17 @@ class AdminCourseItem(BaseModel):
     year: int | None = None
     source_status: str
     source_page: int | None = None
+
+
+class DocumentMetadataUpdateRequest(BaseModel):
+    title: str | None = None
+    major: str | None = None
+    doc_type: str | None = None
+    metadata_json: dict | None = None
+
+
+class DocumentReviewActionRequest(BaseModel):
+    reason: str = Field(min_length=3)
 
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -708,5 +726,115 @@ async def cancel_active_crawl_job(request: Request, job_id: str) -> dict:
     with engine().begin() as conn:
         try:
             return cancel_crawl_job(conn, job_id)
+        except ValueError as exc:
+            raise HTTPException(400, detail=str(exc)) from exc
+
+
+# ---------------------------------------------------------------------------
+# Document Review and Deduplication Endpoints
+# ---------------------------------------------------------------------------
+
+
+@router.get("/crawler/documents")
+async def list_crawled_documents(
+    request: Request,
+    status: str | None = None,
+    major: str | None = None,
+    source_id: str | None = None,
+    search: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> dict:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().begin() as conn:
+        seed_crawled_documents_from_disk(conn)
+        docs, total = list_documents(
+            conn,
+            status=status,
+            major=major,
+            source_id=source_id,
+            search=search,
+            limit=limit,
+            offset=offset,
+        )
+        return {"documents": docs, "total": total, "limit": limit, "offset": offset}
+
+
+@router.get("/crawler/documents/{doc_id}")
+async def get_crawled_document_detail(request: Request, doc_id: str) -> dict:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        doc = get_document(conn, doc_id)
+    if not doc:
+        raise HTTPException(404, detail=f"Document {doc_id} not found")
+    return doc
+
+
+@router.put("/crawler/documents/{doc_id}/metadata")
+async def update_crawled_document_metadata(
+    request: Request, doc_id: str, body: DocumentMetadataUpdateRequest
+) -> dict:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().begin() as conn:
+        try:
+            return update_document_metadata(
+                conn,
+                doc_id=doc_id,
+                title=body.title,
+                major=body.major,
+                doc_type=body.doc_type,
+                metadata=body.metadata_json,
+            )
+        except ValueError as exc:
+            raise HTTPException(404, detail=str(exc)) from exc
+
+
+@router.post("/crawler/documents/{doc_id}/approve")
+async def approve_crawled_document(
+    request: Request, doc_id: str, body: DocumentReviewActionRequest
+) -> dict:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().begin() as conn:
+        try:
+            return review_document(
+                conn,
+                doc_id=doc_id,
+                decision="approved",
+                reason=body.reason,
+                reviewer_id=principal.get("account_id"),
+            )
+        except ValueError as exc:
+            raise HTTPException(400, detail=str(exc)) from exc
+
+
+@router.post("/crawler/documents/{doc_id}/reject")
+async def reject_crawled_document(
+    request: Request, doc_id: str, body: DocumentReviewActionRequest
+) -> dict:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().begin() as conn:
+        try:
+            return review_document(
+                conn,
+                doc_id=doc_id,
+                decision="rejected",
+                reason=body.reason,
+                reviewer_id=principal.get("account_id"),
+            )
         except ValueError as exc:
             raise HTTPException(400, detail=str(exc)) from exc
