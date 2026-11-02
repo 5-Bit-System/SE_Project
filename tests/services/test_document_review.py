@@ -1,5 +1,6 @@
 """Unit tests for document review service, sanitization, and deduplication."""
 
+import os
 from pathlib import Path
 
 import pytest
@@ -20,10 +21,15 @@ ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 @pytest.fixture(scope="module")
 def db_engine():
     config = dotenv_values(ENV_PATH)
-    url = config.get("DATABASE_URL")
+    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
     if not url:
         pytest.skip("DATABASE_URL not configured")
     eng = create_engine(url)
+    try:
+        with eng.connect():
+            pass
+    except Exception:
+        pytest.skip("PostgreSQL database not reachable")
     return eng
 
 
@@ -44,6 +50,7 @@ def test_markdown_sanitization():
     assert "Nội dung an toàn." in clean
 
 
+@pytest.mark.hus_postgres
 def test_document_review_lifecycle_and_duplicates(db_engine):
     with db_engine.begin() as conn:
         content_1 = "# Khung chương trình chuẩn CNTT 2022"

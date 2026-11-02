@@ -9,7 +9,27 @@ from typing import Any
 
 from sqlalchemy import text
 
-from app.crawler.repository import _row_to_dict, _safe_uuid
+
+def _safe_uuid(val: Any) -> str | None:
+    if not val:
+        return None
+    try:
+        return str(uuid.UUID(str(val)))
+    except (ValueError, AttributeError):
+        return None
+
+
+def _row_to_dict(row: Any) -> dict[str, Any] | None:
+    if row is None:
+        return None
+    d = dict(row._mapping) if hasattr(row, "_mapping") else dict(row)
+    for k in ("created_by", "reviewer_id"):
+        if k in d and d[k] is not None:
+            d[k] = str(d[k])
+    for k in ("created_at", "updated_at", "started_at", "completed_at", "reviewed_at"):
+        if k in d and d[k] is not None:
+            d[k] = d[k].isoformat()
+    return d
 
 
 def parse_frontmatter(text_content: str) -> tuple[dict[str, Any], str]:
