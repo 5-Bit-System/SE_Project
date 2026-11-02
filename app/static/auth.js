@@ -181,7 +181,7 @@
     let elementToFocus = null;
     adminRows.forEach(user=>{const row=body.insertRow(); row.dataset.userId=user.id;
       const tdSubject=row.insertCell(); const subjectText=user.vnu_subject || user.email || '';
-      if (user.vnu_subject) tdSubject.innerHTML=`<code class="admin-course-code">${user.vnu_subject}</code>`; else tdSubject.textContent=subjectText;
+      if (user.vnu_subject) { const c=document.createElement('code'); c.className='admin-course-code'; c.textContent=user.vnu_subject; tdSubject.replaceChildren(c); } else tdSubject.textContent=subjectText;
       row.insertCell().textContent=user.display_name || '—';
       const select=document.createElement('select'); select.setAttribute('aria-label',t('role')+' '+subjectText); select.className='admin-role-select';
       for(const role of ['student','admin']) select.add(new Option(t(role==='admin'?'adminRole':'studentRole'),role)); select.value=user.role; select.disabled=user.id===account?.account_id || (user.role==='student' && !user.email_verified_at && !user.vnu_subject); row.insertCell().append(select);

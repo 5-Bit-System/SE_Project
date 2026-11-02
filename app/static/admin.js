@@ -51,6 +51,29 @@
     return copy[lang][key] || copy.vi[key] || key;
   }
 
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function sanitizeUrl(rawUrl) {
+    if (!rawUrl || typeof rawUrl !== 'string') return '';
+    const trimmed = rawUrl.trim();
+    try {
+      const parsed = new URL(trimmed, window.location.origin);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+        return trimmed;
+      }
+    } catch (e) {
+      if (trimmed.startsWith('/') && !trimmed.startsWith('//')) {
+        return trimmed;
+      }
+    }
+    return '';
+  }
+
   function renderSkeletons() {
     const grid = $('admin-overview-grid');
     if (!grid) return;
@@ -321,11 +344,16 @@
 
       // 1. Program ID
       const tdId = tr.insertCell();
-      tdId.innerHTML = `<code class="admin-course-code">${p.program_id}</code>`;
+      const codeId = document.createElement('code');
+      codeId.className = 'admin-course-code';
+      codeId.textContent = p.program_id;
+      tdId.appendChild(codeId);
 
       // 2. Name
       const tdName = tr.insertCell();
-      tdName.innerHTML = `<strong>${p.name}</strong>`;
+      const strongName = document.createElement('strong');
+      strongName.textContent = p.name;
+      tdName.appendChild(strongName);
 
       // 3. Cohort / Year
       const tdCohort = tr.insertCell();
@@ -451,11 +479,22 @@
 
       // 1. Code
       const tdCode = tr.insertCell();
-      tdCode.innerHTML = `<code class="admin-course-code">${c.code}</code>`;
+      const codeEl = document.createElement('code');
+      codeEl.className = 'admin-course-code';
+      codeEl.textContent = c.code;
+      tdCode.appendChild(codeEl);
 
       // 2. Name
       const tdName = tr.insertCell();
-      tdName.innerHTML = `<strong>${c.name}</strong>${c.name_en ? `<div class="admin-sub-text">${c.name_en}</div>` : ''}`;
+      const strongName = document.createElement('strong');
+      strongName.textContent = c.name;
+      tdName.appendChild(strongName);
+      if (c.name_en) {
+        const divEn = document.createElement('div');
+        divEn.className = 'admin-sub-text';
+        divEn.textContent = c.name_en;
+        tdName.appendChild(divEn);
+      }
 
       // 3. Credits
       const tdCredits = tr.insertCell();
@@ -464,7 +503,10 @@
 
       // 4. Block
       const tdBlock = tr.insertCell();
-      tdBlock.innerHTML = `<span class="admin-meta-tag">${c.block || 'Chưa phân khối'}</span>`;
+      const spanBlock = document.createElement('span');
+      spanBlock.className = 'admin-meta-tag';
+      spanBlock.textContent = c.block || 'Chưa phân khối';
+      tdBlock.appendChild(spanBlock);
 
       // 5. Requirement Type
       const tdReq = tr.insertCell();
@@ -840,15 +882,22 @@
 
       // 1. Revision ID
       const tdId = tr.insertCell();
-      tdId.innerHTML = `<code class="admin-course-code">${rev.revision_id}</code>`;
+      const codeId = document.createElement('code');
+      codeId.className = 'admin-course-code';
+      codeId.textContent = rev.revision_id;
+      tdId.appendChild(codeId);
 
       // 2. Program ID
       const tdProg = tr.insertCell();
-      tdProg.innerHTML = `<code>${rev.program_id}</code>`;
+      const codeProg = document.createElement('code');
+      codeProg.textContent = rev.program_id;
+      tdProg.appendChild(codeProg);
 
       // 3. Title
       const tdTitle = tr.insertCell();
-      tdTitle.innerHTML = `<strong>${rev.version_title}</strong>`;
+      const strongTitle = document.createElement('strong');
+      strongTitle.textContent = rev.version_title;
+      tdTitle.appendChild(strongTitle);
 
       // 4. Cohort
       const tdCohort = tr.insertCell();
@@ -988,15 +1037,50 @@
         } else {
           manifest.source_documents.forEach(doc => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td><code>${escapeHtml(doc.document_id)}</code></td>
-              <td>
-                <strong>${escapeHtml(doc.title || doc.document_id)}</strong>
-                ${doc.url ? `<br><a href="${escapeHtml(doc.url)}" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem; color: var(--primary);">Mở URL gốc ↗</a>` : ''}
-              </td>
-              <td><code style="font-size: 0.78rem;">${escapeHtml(doc.content_hash ? doc.content_hash.slice(0, 16) + '…' : 'N/A')}</code></td>
-              <td><span class="admin-status-badge badge-active">${escapeHtml(doc.review_status || 'approved')}</span></td>
-            `;
+            const td1 = document.createElement('td');
+            const c1 = document.createElement('code');
+            c1.textContent = doc.document_id;
+            td1.appendChild(c1);
+
+            const td2 = document.createElement('td');
+            const s2 = document.createElement('strong');
+            s2.textContent = doc.title || doc.document_id;
+            td2.appendChild(s2);
+            if (doc.url) {
+              td2.appendChild(document.createElement('br'));
+              const safeUrl = sanitizeUrl(doc.url);
+              if (safeUrl) {
+                const a2 = document.createElement('a');
+                a2.href = safeUrl;
+                a2.target = '_blank';
+                a2.rel = 'noopener noreferrer';
+                a2.style.cssText = 'font-size: 0.78rem; color: var(--primary);';
+                a2.textContent = 'Mở URL gốc ↗';
+                td2.appendChild(a2);
+              } else {
+                const spWarn = document.createElement('span');
+                spWarn.style.cssText = 'font-size: 0.78rem; color: var(--text-muted);';
+                spWarn.textContent = `${doc.url} (không an toàn)`;
+                td2.appendChild(spWarn);
+              }
+            }
+
+            const td3 = document.createElement('td');
+            const c3 = document.createElement('code');
+            c3.style.fontSize = '0.78rem';
+            c3.textContent = doc.content_hash ? doc.content_hash.slice(0, 16) + '…' : 'N/A';
+            td3.appendChild(c3);
+
+            const td4 = document.createElement('td');
+            const sp4 = document.createElement('span');
+            sp4.className = 'admin-status-badge badge-active';
+            sp4.textContent = doc.review_status || 'approved';
+            td4.appendChild(sp4);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
             tbody.appendChild(tr);
           });
         }
@@ -1480,15 +1564,32 @@
 
       // 1. Doc ID
       const tdId = tr.insertCell();
-      tdId.innerHTML = `<code class="admin-course-code">${doc.id}</code>`;
+      const codeId = document.createElement('code');
+      codeId.className = 'admin-course-code';
+      codeId.textContent = doc.id;
+      tdId.appendChild(codeId);
 
       // 2. Title & URL
       const tdTitle = tr.insertCell();
-      tdTitle.innerHTML = `<strong>${doc.title}</strong><div class="admin-sub-text" style="max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${doc.url}</div>`;
+      const strongTitle = document.createElement('strong');
+      strongTitle.textContent = doc.title;
+      const divUrl = document.createElement('div');
+      divUrl.className = 'admin-sub-text';
+      divUrl.style.cssText = 'max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;';
+      divUrl.textContent = doc.url;
+      tdTitle.appendChild(strongTitle);
+      tdTitle.appendChild(divUrl);
 
       // 3. Major / Type
       const tdMajor = tr.insertCell();
-      tdMajor.innerHTML = `<span class="admin-meta-tag">${doc.major}</span> <div class="admin-sub-text">${doc.doc_type}</div>`;
+      const spanMajor = document.createElement('span');
+      spanMajor.className = 'admin-meta-tag';
+      spanMajor.textContent = doc.major;
+      const divType = document.createElement('div');
+      divType.className = 'admin-sub-text';
+      divType.textContent = doc.doc_type;
+      tdMajor.appendChild(spanMajor);
+      tdMajor.appendChild(divType);
 
       // 4. Size
       const tdSize = tr.insertCell();
@@ -1532,8 +1633,14 @@
 
       const sourceLink = $('admin-doc-source-link');
       if (sourceLink) {
-        sourceLink.href = doc.url;
-        sourceLink.textContent = doc.url;
+        const safeUrl = sanitizeUrl(doc.url);
+        if (safeUrl) {
+          sourceLink.href = safeUrl;
+          sourceLink.textContent = doc.url;
+        } else {
+          sourceLink.removeAttribute('href');
+          sourceLink.textContent = `${doc.url} (URL không an toàn)`;
+        }
       }
 
       // Duplicate warning

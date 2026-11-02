@@ -28,8 +28,32 @@ BASE_URL = os.environ.get("TEST_BASE_URL", "http://127.0.0.1:8000")
 EVIDENCE_DIR = Path("backups/admin_documents_20261101")
 
 
+def seed_security_test_document():
+    from dotenv import dotenv_values
+    from sqlalchemy import create_engine
+
+    from app.crawler.document_review_service import create_document, get_document
+
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    db_url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or dotenv_values(env_path).get("DATABASE_URL")
+    if db_url:
+        eng = create_engine(db_url)
+        with eng.begin() as conn:
+            if not get_document(conn, "doc_xss_test"):
+                create_document(
+                    conn,
+                    url="javascript:alert('xss')",
+                    title="Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>",
+                    markdown_content="# Nội dung an toàn",
+                    major="toan_hoc",
+                    doc_type="curriculum",
+                    doc_id="doc_xss_test",
+                )
+
+
 def main():
     EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
+    seed_security_test_document()
 
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="chrome", headless=True)
@@ -69,6 +93,22 @@ def main():
             doc_rows = page.locator("#admin-crawler-docs-tbody tr")
             count = doc_rows.count()
             print(f"  [PASS] Rendered {count} documents in review queue")
+
+            # 4b. Security Check: Assert hostile document fields render as inert text without executing
+            page.evaluate("window.__doc_xss = false")
+            xss_row = page.locator("tr[data-doc-id='doc_xss_test']")
+            if xss_row.count() > 0:
+                assert page.evaluate("window.__doc_xss") is False
+                assert xss_row.locator("img").count() == 0, "img tag rendered in document row!"
+                xss_row.locator(".btn-review-doc").click()
+                xss_modal = page.locator("#admin-doc-review-modal")
+                xss_modal.wait_for(state="visible")
+                src_link = page.locator("#admin-doc-source-link")
+                href = src_link.get_attribute("href")
+                assert href is None or not href.startswith("javascript:"), f"Dangerous href permitted: {href}"
+                page.locator("#admin-doc-review-close-btn").click()
+                page.wait_for_timeout(300)
+                print("  [PASS] Malicious document title and URL rendered safely as inert text")
 
             # 5. Open Review Modal on first document
             first_review_btn = page.locator("#admin-crawler-docs-tbody tr .btn-review-doc").first
