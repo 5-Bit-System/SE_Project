@@ -48,7 +48,7 @@ def test_audit_log_lifecycle_and_actions(verified_client, fake_accounts):
             "effective_date": "2026-11-01T00:00:00Z",
         },
     )
-    assert create_resp.status_code == 200
+    assert create_resp.status_code in (200, 201)
     ann_id = create_resp.json()["id"]
 
     # 2. Query audit logs

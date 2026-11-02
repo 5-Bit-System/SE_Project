@@ -158,6 +158,25 @@ def create_document(
 ) -> dict[str, Any]:
     did = doc_id or f"doc_{uuid.uuid4().hex[:12]}"
     h = compute_content_hash(markdown_content)
+
+    valid_source_id = None
+    if source_id:
+        exists_src = conn.execute(
+            text("SELECT 1 FROM crawler_sources WHERE id = :sid"),
+            {"sid": source_id},
+        ).scalar()
+        if exists_src:
+            valid_source_id = source_id
+
+    valid_job_id = None
+    if job_id:
+        exists_job = conn.execute(
+            text("SELECT 1 FROM crawler_jobs WHERE id = :jid"),
+            {"jid": job_id},
+        ).scalar()
+        if exists_job:
+            valid_job_id = job_id
+
     conn.execute(
         text("""
             INSERT INTO crawled_documents (
@@ -170,8 +189,8 @@ def create_document(
         """),
         {
             "id": did,
-            "source_id": source_id,
-            "job_id": job_id,
+            "source_id": valid_source_id,
+            "job_id": valid_job_id,
             "url": url,
             "hash": h,
             "title": title,
