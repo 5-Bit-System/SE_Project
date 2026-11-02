@@ -1,0 +1,523 @@
+{
+  "started_at": "2026-11-01T20:42:14.689256+00:00",
+  "status": "pass",
+  "scope": "local acceptance; real HUS package; synthetic UI catalogs; no academic certification",
+  "browser": {
+    "cases": [
+      {
+        "major": "data_science",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "web-click-original-url-intercepted",
+        "major": "data_science",
+        "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "remote_health_verified": false,
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3533?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "data_science",
+        "open_url": "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=11#page=11",
+        "physical_page": 11,
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3533?",
+        "status": "needs_clarification",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3533?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nên học MAT3533 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3533 của ngành khmtt?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "web-click-original-url-intercepted",
+        "major": "computer_science",
+        "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "remote_health_verified": false,
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3507?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "computer_science",
+        "open_url": "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=11#page=11",
+        "physical_page": 11,
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3507?",
+        "status": "needs_clarification",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3507?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nên học MAT3507 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3507 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "web-click-original-url-intercepted",
+        "major": "mathematics_informatics",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+        "remote_health_verified": false,
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3539?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "mathematics_informatics",
+        "open_url": "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=11#page=11",
+        "physical_page": 11,
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3539?",
+        "status": "needs_clarification",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3539?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nên học MAT3539 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3539 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "web-click-original-url-intercepted",
+        "major": "mathematics",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "remote_health_verified": false,
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3300?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "mathematics",
+        "open_url": "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=10#page=10",
+        "physical_page": 10,
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3300?",
+        "status": "needs_clarification",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3300?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nên học MAT3300 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3300 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "case": "docx-click-download-ui-fixture",
+        "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "same-document-first",
+        "open_url": "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=10#page=10",
+        "physical_page": 10,
+        "result": "pass"
+      },
+      {
+        "case": "click-real-pdf-viewer",
+        "source": "same-document-second",
+        "open_url": "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=11#page=11",
+        "physical_page": 11,
+        "result": "pass"
+      },
+      {
+        "case": "two-pages-and-missing-source-ui-fixture",
+        "result": "pass"
+      },
+      {
+        "case": "late-old-major-response-discarded",
+        "result": "pass"
+      }
+    ],
+    "page_errors": [],
+    "external_requests": "blocked; source-web navigation intercepted locally; built-in PDF resources allowed"
+  },
+  "product_database_modified": false,
+  "llm_used": false,
+  "selected_release": {
+    "schema_version": "2.0",
+    "state": "prepared_not_runtime_activated",
+    "release_id": "hus-data-20261031-v3",
+    "release_path": "releases/hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "index_entrypoint": "chunks.jsonl",
+    "generated_reference_requires_opt_in": true
+  },
+  "input_sha256": {
+    "data/hus/rag/CURRENT.json": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+    "data/hus/rag/releases/hus-data-20261031-v3/academic_issues.jsonl": "4d690d783c0e7d26df6453b851b180037757e22f28b1195b3038678121e7ac0a",
+    "data/hus/rag/releases/hus-data-20261031-v3/chunks.jsonl": "6a5ea606f174693263b048a100202a02cedb84a6b16ff71b854248106bd266d1",
+    "data/hus/rag/releases/hus-data-20261031-v3/display_edits.jsonl": "94345e079c7ce6780a238c4c872e331dc5bb248b601569508e15dad687c497e0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evaluation/questions.jsonl": "88609df9c8986bfda440aed2844479ce3629ff5b2bf06dad06ecd1d357a55125",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/canonical_f2.json": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/055c47bf412172c0.txt": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/0dd9aaaeefcbd7d7.txt": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1b525683101bf943.txt": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1c16ddf8a6f1f409.txt": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1e3ad5f9915aa051.txt": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/23a0c1df14a5708a.txt": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/31b55b4ee6f451a6.txt": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/89d4b39494d72217.txt": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/8afffd3cada3d048.txt": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d006f60211246633.txt": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d4fae066858f0b94.txt": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f7f470e712738589.txt": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f8672cafba05d016.txt": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1_recovery_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/generated_blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/055c47bf412172c0.html": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/1b525683101bf943.html": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/d6370261338de29f.html": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/f8672cafba05d016.html": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_text.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_chunks.jsonl": "0fddecc891449d44dfb9071b2605faca5d67b912c731ed9de527bb1fd5bcef9b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf",
+    "data/hus/rag/releases/hus-data-20261031-v3/groups.jsonl": "cc7a8e5e77663151365a0fdb72d602e3b11609231b0d39f80e062a129d4ff8d5",
+    "data/hus/rag/releases/hus-data-20261031-v3/input_manifest.json": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994",
+    "data/hus/rag/releases/hus-data-20261031-v3/programs.jsonl": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a",
+    "data/hus/rag/releases/hus-data-20261031-v3/quality_report.json": "49af0d5170927b689e75e9b21362a3f5c8d3f4b0de92860d387a625bfcb717b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/search_aliases.jsonl": "00ddc3b915cc80d9370641ed92d3bc6c0ddb23cfe4bd0647e0f8f3c022746958",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_inventory.jsonl": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi_report.json": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+    "data/hus/rag/releases/hus-data-20261031-v3/syllabus_links.jsonl": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832",
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/citation_assets/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+    "data/hus/citation_assets/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+    "data/hus/citation_assets/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+    "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+    "data/hus/citation_assets/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+    "data/hus/citation_assets/files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+    "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+    "data/hus/citation_assets/files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+    "data/hus/citation_assets/files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+    "data/hus/citation_assets/files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+    "data/hus/citation_assets/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+    "data/hus/citation_assets/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+    "data/hus/citation_assets/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f"
+  },
+  "implementation_sha256": {
+    "app/hus/allowlist.py": "f19265b5b873333bb1bae6fa260c91fe9cf5f3f27a870c1a14de7cb15bc0a629",
+    "app/hus/answering.py": "c43d0c33e9cf09e88678bdf5cc1cd42e49a43173a8db597782a295a0b6a77e12",
+    "app/hus/citations.py": "02dfbb2ad1390ef9dac219ddeb9561fa7ad87e3e056c0bade26a3a039e242283",
+    "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+    "app/hus/cleaning.py": "bb94454448e858e97f28dd9ef28b52aae43b190b6e2206faf8671ddd46c7b8f3",
+    "app/hus/corpus.py": "68a3f50030b7f2a4daebd37d72818f2b43ff7adcfa15e918f9b666e0c8bc44d9",
+    "app/hus/crawler.py": "25c84190fb500b88a50942b72975a6e9c01ff2c0985c627d6d1de2138cd2eccf",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/index.py": "aad7b1e499a11c5b172d5d24dae973270b26164a14c85619ae2b70ac5b559993",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "0c0c4036abeac41b4f7f301f4978cfdd96fe95b7c2975b0cde2be5365b8345e2",
+    "app/hus/pipeline.py": "5bed85e0db170bc2e529b34ebfd0f8aec885d85d20805ffdec9e1266e980eade",
+    "app/hus/portable_adapter.py": "28666f28b4bf60735bc92eccbec69f72e69cdf303e1c0059192edabcd310768e",
+    "app/hus/provenance.py": "d1912286ccc6429b41dac887ba4c0568d0a573e73bc91adaa1d8b4714621c6d0",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/rag_loader.py": "cac4201907172af51cee990d60075c629c56f13139fa6f9ee0a925e70d807047",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+    "app/hus/state.py": "e90e1cd0e1eae08567331ff7e0abad8f9c0bedaea1aa4f598e1651b88d1431a1",
+    "app/hus/storage.py": "0c2f9fb0d5df87485154ae385e2d51622dc05365161ab4f0bb1a043c57509bf6",
+    "app/hus/urls.py": "d60169400c99306714a2deabd3ea6dc28c42902ca7ce865f1939c6cffaf66ea8",
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/api/routes.py": "78b53ce45f104e8ab2f243340430abe03a3b60c6db6f13addfeae40dceaf6bed",
+    "app/advisor.py": "cab57236758d5efdc5beb82a39a220e2e7163ec32c88a823c0ab2dff78094ff1",
+    "app/static/app.js": "0c0e7d48b1ea20d2e2699fd9de81901358af5a72defb16c65324350bdbc8626d",
+    "app/static/index.html": "f800b3f1813b67b1233bbc4c203426f22709c9582b5947c141487d100b52be3d",
+    "app/schemas/hus.py": "44b509c550acda14c5f3c7d286518b39514b5490a769088839ad1300c290d733",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19",
+    "tools/verify_hus_e2e.py": "af59e57a7acca8f44ec1a2be2fe54fd895d624aec2f3490eaa717bb9bb584bde"
+  },
+  "api": {
+    "f1": 16,
+    "f2": 290,
+    "f3": 870,
+    "official_assessment_refused": 290,
+    "cross_major_refused": 812,
+    "wrong_version_refused": 8,
+    "major_alias": 8,
+    "generated_opt_in": 8,
+    "chatbot": 16
+  },
+  "binaries": {
+    "files": [
+      {
+        "sha256": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+        "kind": "pdf",
+        "bytes": 1159213,
+        "pages": 62,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+        "kind": "pdf",
+        "bytes": 465781,
+        "pages": 18,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+        "kind": "pdf",
+        "bytes": 164856,
+        "pages": 2,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "kind": "docx",
+        "bytes": 404363,
+        "pages": null,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+        "kind": "pdf",
+        "bytes": 990545,
+        "pages": 29,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+        "kind": "pdf",
+        "bytes": 18438317,
+        "pages": 12,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+        "kind": "docx",
+        "bytes": 26348,
+        "pages": null,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+        "kind": "pdf",
+        "bytes": 19334830,
+        "pages": 13,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+        "kind": "pdf",
+        "bytes": 19361810,
+        "pages": 13,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+        "kind": "pdf",
+        "bytes": 460939,
+        "pages": 15,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+        "kind": "pdf",
+        "bytes": 21509533,
+        "pages": 14,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+        "kind": "pdf",
+        "bytes": 483700,
+        "pages": 15,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+        "kind": "pdf",
+        "bytes": 525031,
+        "pages": 18,
+        "GET_HEAD_range": "pass"
+      },
+      {
+        "sha256": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+        "kind": "pdf",
+        "bytes": 351613,
+        "pages": 25,
+        "GET_HEAD_range": "pass"
+      }
+    ],
+    "emitted_page_urls_checked": 28,
+    "external_web_health_checked": false,
+    "academic_or_visual_page_review_added": false
+  },
+  "finished_at": "2026-11-01T20:43:04.849088+00:00"
+}
