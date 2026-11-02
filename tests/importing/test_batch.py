@@ -49,7 +49,7 @@ def test_header_only_batch_is_completed_with_no_rows():
     assert calls == []
 
 
-@pytest.mark.parametrize("payload", ["\nA\n", "code,code\nA,B\n"])
+@pytest.mark.parametrize("payload", ["", "\nA\n", "code,code\nA,B\n"])
 def test_blank_or_duplicate_headers_fail_before_any_side_effect(payload):
     calls = []
     with pytest.raises(BatchImportError):
