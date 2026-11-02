@@ -93,17 +93,20 @@ def test_validate_publication_gate_status_and_errors(monkeypatch):
             "validation_summary": {"valid": False, "errors": [{"message": "Cycle detected"}]},
         },
     )
-    with pytest.raises(ValueError, match="has validation errors and cannot be published"):
+    with pytest.raises(ValueError, match="cannot be published"):
         validate_publication_gate(mock_conn, "r2")
 
 
 def test_validate_publication_gate_linked_documents(monkeypatch):
+    from app.curriculum.publication_gate import compute_payload_digest
+
     mock_conn = MagicMock()
 
+    digest_val = compute_payload_digest({})
     rev = {
         "revision_id": "r_ok",
         "status": "approved",
-        "validation_summary": {"valid": True, "errors": []},
+        "validation_summary": {"valid": True, "errors": [], "payload_digest": digest_val},
         "payload": {},
     }
     monkeypatch.setattr(

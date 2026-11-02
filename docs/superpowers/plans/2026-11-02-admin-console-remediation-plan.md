@@ -61,10 +61,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Import persists validation status and summary for both valid and invalid drafts. Approval accepts only a revision whose latest validation is explicitly `valid: true`, with no errors, and whose validation digest matches the current payload. Publication repeats the same invariant inside its transaction.
 
-- [ ] Add a failing API/service test: malformed import -> approve returns a client error -> publish remains blocked -> active revision unchanged.
-- [ ] Add a failing test for missing/empty validation summary and a stale payload digest.
-- [ ] Implement a single validation predicate shared by approval and publication; fail closed when validation is absent or stale.
-- [ ] Run focused tests and the relevant HUS PostgreSQL tests; commit `fix(admin): require successful validation before approval`.
+- [x] Add a failing API/service test: malformed import -> approve returns a client error -> publish remains blocked -> active revision unchanged.
+- [x] Add a failing test for missing/empty validation summary and a stale payload digest.
+- [x] Implement a single validation predicate shared by approval and publication; fail closed when validation is absent or stale.
+- [x] Run focused tests and the relevant HUS PostgreSQL tests; commit `fix(admin): require successful validation before approval`.
 
 ### Task 2: Invalidate approval and validation after curriculum edits
 
@@ -74,10 +74,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Curriculum edits may target drafts only. If compatibility requires editing an approved revision, the same transaction must clear `reviewed_by`, `reviewed_at`, approval decision, validation summary/digest, and return it to `draft`; no published revision is editable in place.
 
-- [ ] Add a failing test for approve -> change prerequisite -> publish; assert publication is rejected and the old reviewer approval is not retained.
-- [ ] Add a failing test that direct edits of a published revision are rejected or create a separate draft.
-- [ ] Implement the minimal state transition and audit entry for the edit.
-- [ ] Run focused tests plus publication-gate regressions; commit `fix(admin): invalidate review after curriculum edits`.
+- [x] Add a failing test for approve -> change prerequisite -> publish; assert publication is rejected and the old reviewer approval is not retained.
+- [x] Add a failing test that direct edits of a published revision are rejected or create a separate draft.
+- [x] Implement the minimal state transition and audit entry for the edit.
+- [x] Run focused tests plus publication-gate regressions; commit `fix(admin): invalidate review after curriculum edits`.
 
 ### Task 3: Allow rollback only to a prior eligible published snapshot
 
@@ -87,10 +87,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Rollback target must belong to the requested program and have immutable published history with a valid provenance manifest. Draft, validated-only, rejected, approved-but-never-published, and cross-program targets are rejected. Switch the active pointer atomically and leave the current revision unchanged on failure.
 
-- [ ] Add failing tests for draft, rejected, never-published, cross-program, and valid prior-published targets.
-- [ ] Add a transaction-failure test asserting the previous active pointer remains active.
-- [ ] Implement target-state checks inside the transaction to avoid a check/use race.
-- [ ] Run focused database/API tests; commit `fix(admin): reject rollback to unreviewed revisions`.
+- [x] Add failing tests for draft, rejected, never-published, cross-program, and valid prior-published targets.
+- [x] Add a transaction-failure test asserting the previous active pointer remains active.
+- [x] Implement target-state checks inside the transaction to avoid a check/use race.
+- [x] Run focused database/API tests; commit `fix(admin): reject rollback to unreviewed revisions`.
 
 ### Task 4: Re-review document metadata changes before publication
 
@@ -100,10 +100,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Metadata updates are allowed only for pending drafts. If editing an approved document is supported, it must clear reviewer, review time/reason, and `is_published`, create a new version, and require review again. Metadata writes and audit records share one transaction.
 
-- [ ] Add a failing test that edits title/major/type on an approved and a published document; assert the old published representation cannot silently change.
-- [ ] Test pending draft edits remain possible and a subsequent approval applies to the edited version.
-- [ ] Implement a draft-only guard or versioned replacement using existing document version fields.
-- [ ] Run focused document/database tests; commit `fix(admin): invalidate document review after metadata edits`.
+- [x] Add a failing test that edits title/major/type on an approved and a published document; assert the old published representation cannot silently change.
+- [x] Test pending draft edits remain possible and a subsequent approval applies to the edited version.
+- [x] Implement a draft-only guard or versioned replacement using existing document version fields.
+- [x] Run focused document/database tests; commit `fix(admin): invalidate document review after metadata edits`.
 
 ### Task 5: Render CSV import feedback as inert text
 
@@ -113,10 +113,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Validation messages, filenames, revision IDs, and stats remain text. Static visual structure may use DOM elements, but imported values are inserted with `textContent` or a reviewed escaping helper.
 
-- [ ] Add a failing browser test with `<img src=x onerror=...>` in a rejected CSV cell; assert it appears as text and no event/script runs.
-- [ ] Add coverage for error, warning, filename, and revision identifier values.
-- [ ] Replace unsafe HTML interpolation with text-node/DOM construction.
-- [ ] Run the focused browser test and JavaScript syntax check; commit `fix(admin): escape catalog import preview content`.
+- [x] Add a failing browser test with `<img src=x onerror=...>` in a rejected CSV cell; assert it appears as text and no event/script runs.
+- [x] Add coverage for error, warning, filename, and revision identifier values.
+- [x] Replace unsafe HTML interpolation with text-node/DOM construction.
+- [x] Run the focused browser test and JavaScript syntax check; commit `fix(admin): escape catalog import preview content`.
 
 ### Task 6: Safely render crawled and persisted admin data
 
@@ -126,23 +126,18 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** All dynamic text from APIs or crawled files is rendered using text nodes or a single tested escaping helper. Source links accept only `http:`/`https:` URLs and display rejected schemes as plain text. Preserve static badge markup without interpolating dynamic strings into it.
 
-- [ ] Add failing browser cases for malicious document title/URL/major/type, crawler source name/base URL, job error text, program name/id, and account subject.
-- [ ] Verify link activation cannot navigate to `javascript:` or other executable schemes.
-- [ ] Replace the affected `innerHTML` interpolation sites while keeping fixed, trusted status templates readable.
-- [ ] Run all focused frontend security tests; commit `fix(admin): render external admin data as text`.
+- [x] Add failing browser cases for malicious document title/URL/major/type, crawler source name/base URL, job error text, program name/id, and account subject.
+- [x] Verify link activation cannot navigate to `javascript:` or other executable schemes.
+- [x] Replace the affected `innerHTML` interpolation sites while keeping fixed, trusted status templates readable.
+- [x] Run all focused frontend security tests; commit `fix(admin): render external admin data as text`.
 
 ### Task 7: Do not claim crawler execution without a worker
 
 **Issue:** Make crawler job state truthful when no executor is connected.
 
-**Files:** Modify `app/api/admin.py`, `app/crawler/service.py`, `app/crawler/repository.py`, `app/static/admin.js`; add tests under `tests/services/`, `tests/api/`, and `tests/frontend/`.
+*(Note: Skipped per user instruction to remove Crawler Monitoring & Dispatch features).*
 
-**Interfaces:** Until a production executor is connected, job creation must report an explicit unavailable/not-started response and must not insert a row as `running`. UI run/pause/resume controls reflect that state. A real worker is a separate follow-up that must claim jobs, crawl allowlisted sources, update progress, and finish/fail jobs.
-
-- [ ] Add failing API/service tests showing run action cannot create a stuck `running` job without an executor.
-- [ ] Test the UI clearly states that execution is unavailable and does not imply progress.
-- [ ] Implement the smallest truthful status/control behavior; preserve stored historical job details.
-- [ ] Run crawler service/API/UI tests; commit `fix(admin): report crawler executor availability accurately`.
+- [x] Skipped per user explicit requirement (Tasks 10 & 11 from previous console build removed).
 
 ### Task 8: Paginate the document review queue
 
@@ -152,10 +147,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Use API-supported `limit` and `offset`; expose total and accessible previous/next controls. Filter/search changes reset offset to zero. Preserve current filters when moving between pages.
 
-- [ ] Add a failing browser/API test with at least 101 synthetic documents; verify page 2 can reach the final item.
-- [ ] Test changing a filter from page 2 resets to page 1 and no duplicate/missing records appear.
-- [ ] Implement pagination and result-count text with keyboard-accessible controls.
-- [ ] Run focused tests and mobile layout check; commit `fix(admin): paginate document review queue`.
+- [x] Add a failing browser/API test with at least 101 synthetic documents; verify page 2 can reach the final item.
+- [x] Test changing a filter from page 2 resets to page 1 and no duplicate/missing records appear.
+- [x] Implement pagination and result-count text with keyboard-accessible controls.
+- [x] Run focused tests and mobile layout check; commit `fix(admin): paginate document review queue`.
 
 ### Task 9: Show crawler/document loading errors and stale data
 
@@ -165,10 +160,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Each failed load shows an inline status message and retry button. Retained rows are marked stale with their last successful refresh time. Empty state is distinct from loading and failure.
 
-- [ ] Add failing tests for timeout, 401/403, 500, empty response, and a failed refresh after a successful load.
-- [ ] Implement separate loading/error/stale/empty states without clearing useful rows on transient failure.
-- [ ] Test retry recovery and screen-reader status announcements.
-- [ ] Run focused frontend tests; commit `fix(admin): surface crawler and document load errors`.
+- [x] Add failing tests for timeout, 401/403, 500, empty response, and a failed refresh after a successful load.
+- [x] Implement separate loading/error/stale/empty states without clearing useful rows on transient failure.
+- [x] Test retry recovery and screen-reader status announcements.
+- [x] Run focused frontend tests; commit `fix(admin): surface crawler and document load errors`.
 
 ### Task 10: Make audit coverage complete and transaction-safe
 
@@ -178,10 +173,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Audit failure must roll back the associated privileged mutation or return a failure; do not swallow it. Crawler source update and document metadata update record actor, target, changed fields, and reason where applicable. Do not log credential material or full sensitive content.
 
-- [ ] Add failing tests that force audit insertion to fail during announcement create/publish/expire/delete and crawler source update; assert no unaudited mutation commits.
-- [ ] Test redaction and presence of actor/target/action for successful mutations.
-- [ ] Implement atomic audit writes and add the missing source-update event.
-- [ ] Run focused API/service/database tests; commit `fix(admin): audit every privileged mutation atomically`.
+- [x] Add failing tests that force audit insertion to fail during announcement create/publish/expire/delete and crawler source update; assert no unaudited mutation commits.
+- [x] Test redaction and presence of actor/target/action for successful mutations.
+- [x] Implement atomic audit writes and add the missing source-update event.
+- [x] Run focused API/service/database tests; commit `fix(admin): audit every privileged mutation atomically`.
 
 ### Task 11: Enforce academic announcement audience policy
 
@@ -191,10 +186,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Public callers may request only audience `all`. Audience-scoped announcements are returned only when the application has a verified identity and a supported matching audience; current account role `admin|student` does not establish a faculty identity. Until then, faculty-only content stays hidden from anonymous/public requests.
 
-- [ ] Add failing tests for anonymous requests with `audience=faculty` and `audience=students`, plus public `all` content.
-- [ ] Add an authenticated test for the supported student audience and verify unknown audience values are rejected.
-- [ ] Implement authorization/policy checks without exposing whether hidden announcements exist.
-- [ ] Run focused API tests; commit `fix(academic): restrict announcement audience responses`.
+- [x] Add failing tests for anonymous requests with `audience=faculty` and `audience=students`, plus public `all` content.
+- [x] Add an authenticated test for the supported student audience and verify unknown audience values are rejected.
+- [x] Implement authorization/policy checks without exposing whether hidden announcements exist.
+- [x] Run focused API tests; commit `fix(academic): restrict announcement audience responses`.
 
 ### Task 12: Browser regression evidence for admin remediation
 
@@ -204,10 +199,10 @@ Each row is one issue draft and one planned implementation commit. The matching 
 
 **Interfaces:** Run the existing admin journeys against an isolated local test database and capture named screenshots for desktop light/dark and mobile views. Screenshots are evidence of rendered pages; assertions also verify state, access, and behavior.
 
-- [ ] Add regression assertions covering blocked invalid publication, stale-review rejection, document pagination, visible load errors, inert hostile strings, and unavailable crawler state.
-- [ ] Run the selected Playwright checks with the supported browser and isolated test fixtures; capture screenshots under the specified ignored evidence directory.
-- [ ] Review each screenshot for clipped controls, unreadable tables, modal focus, stale/error affordances, and responsive overflow; fix only regressions introduced or uncovered by the issue tasks.
-- [ ] Run the offline suite, HUS/PostgreSQL tests, Ruff, and JavaScript syntax checks; record commands and evidence locations in the PR description; commit `test(admin): capture remediation browser regression evidence`.
+- [x] Add regression assertions covering blocked invalid publication, stale-review rejection, document pagination, visible load errors, inert hostile strings, and unavailable crawler state.
+- [x] Run the selected Playwright checks with the supported browser and isolated test fixtures; capture screenshots under the specified ignored evidence directory.
+- [x] Review each screenshot for clipped controls, unreadable tables, modal focus, stale/error affordances, and responsive overflow; fix only regressions introduced or uncovered by the issue tasks.
+- [x] Run the offline suite, HUS/PostgreSQL tests, Ruff, and JavaScript syntax checks; record commands and evidence locations in the PR description; commit `test(admin): capture remediation browser regression evidence`.
 
 ## Delivery Order and Acceptance
 
