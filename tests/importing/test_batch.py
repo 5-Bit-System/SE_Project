@@ -3,8 +3,8 @@ import pytest
 from app.importing.batch import (
     BatchImportError,
     BatchStatus,
-    RowStatus,
     RowImportError,
+    RowStatus,
     import_csv,
 )
 
@@ -94,15 +94,16 @@ def test_handler_system_failure_is_not_misreported_as_bad_data():
 
 def test_summary_status_and_count_invariants_across_transitions():
     scenarios = [
-        ("A\nB\n", BatchStatus.COMPLETED, 2, 0),
-        ("A\n", BatchStatus.FAILED, 0, 1),
-        ("A\nB\n", BatchStatus.PARTIAL, 1, 1),
+        ("A\nB\n", {"A", "B"}, BatchStatus.COMPLETED, 2, 0),
+        ("A\n", set(), BatchStatus.FAILED, 0, 1),
+        ("A\nB\n", {"A"}, BatchStatus.PARTIAL, 1, 1),
     ]
-    for codes, expected_status, imported, rejected in scenarios:
-        result = import_csv("code\n" + codes, lambda row: (
-            None if row["code"] == "A" and expected_status is not BatchStatus.FAILED
-            else (_ for _ in ()).throw(RowImportError("invalid"))
-        ))
+    for codes, accepted, expected_status, imported, rejected in scenarios:
+        def persist(row):
+            if row["code"] not in accepted:
+                raise RowImportError("invalid")
+
+        result = import_csv("code\n" + codes, persist)
         assert result.status is expected_status
         assert result.imported_count == imported
         assert result.rejected_count == rejected

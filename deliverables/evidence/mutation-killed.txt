@@ -1,0 +1,22 @@
+Mutation: PARTIAL if imported and rejected → PARTIAL if imported or rejected
+Expected non-zero pytest exit; observed exit=1.
+
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_all_valid_rows_reach_handler_once_and_complete ______________
+
+    def test_all_valid_rows_reach_handler_once_and_complete():
+        saved = []
+        result = import_csv("code,name\nA,Alpha\nB,Beta\n", saved.append)
+        assert [row["code"] for row in saved] == ["A", "B"]
+        assert [row.line_number for row in result.rows] == [2, 3]
+        assert all(row.status is RowStatus.IMPORTED for row in result.rows)
+>       assert result.status is BatchStatus.COMPLETED
+E       AssertionError: assert <BatchStatus.PARTIAL: 'partial'> is <BatchStatus.COMPLETED: 'completed'>
+E        +  where <BatchStatus.PARTIAL: 'partial'> = BatchResult(status=<BatchStatus.PARTIAL: 'partial'>, rows=(RowOutcome(line_number=2, status=<RowStatus.IMPORTED: 'imported'>, error_code=None), RowOutcome(line_number=3, status=<RowStatus.IMPORTED: 'imported'>, error_code=None))).status
+E        +  and   <BatchStatus.COMPLETED: 'completed'> = BatchStatus.COMPLETED
+
+tests/importing/test_batch.py:18: AssertionError
+=========================== short test summary info ============================
+FAILED tests/importing/test_batch.py::test_all_valid_rows_reach_handler_once_and_complete
+1 failed, 1 passed in 0.10s
