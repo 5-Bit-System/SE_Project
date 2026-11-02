@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 
 from app.schemas.advisor import AdvisorRequest, AdvisorResponse
 from app.schemas.catalog import Course, ProgramCatalogMetadata
@@ -7,7 +7,13 @@ from app.schemas.recommendation import RecommendationRequest, RecommendationResp
 from app.recommendation.llm import configured_adapters
 from app.progress import calculate_progress
 from app.schemas.profile import ProfileDetail, ProfileSummary, TranscriptSummary
-from app.services.advisor_service import chat_advisor
+from app.schemas.hus import HUSAnswer, HUSQuestion
+from app.hus.answering import HUSAnswerer, is_hus_question, question_intent
+from app.hus.rag_loader import RAGDataError
+from app.hus.source_response import source_response
+from app.services.hus_service import get_hus_answerer
+from app.transcript import resolve_program_id
+from app.services.advisor_service import chat_advisor, check_scope_guardrails
 from app.services.catalog_service import CatalogError, list_catalogs, load_catalog
 from app.services.eligibility_service import evaluate_eligibility
 from app.services.profile_service import ProfileError, list_profiles, load_profile
@@ -238,11 +244,47 @@ def check_eligibility(request: EligibilityRequest) -> EligibilityResult:
         _raise_domain_error(exc)
 
 
+def hus_answerer() -> HUSAnswerer:
+    try:
+        return get_hus_answerer()
+    except RAGDataError as exc:
+        raise HTTPException(status_code=503, detail="Dữ liệu hỏi đáp HUS chưa sẵn sàng.") from exc
+
+
+@router.api_route("/hus/sources/{source_id}", methods=["GET", "HEAD"])
+def hus_source_endpoint(request: Request, source_id: str, page: int | None = Query(default=None, ge=1),
+                        answerer: HUSAnswerer = Depends(hus_answerer)) -> Response:
+    return source_response(request, answerer.citation_resolver.assets, source_id, page)
+
+
+@router.post("/hus/chat", response_model=HUSAnswer)
+def hus_chat_endpoint(request: HUSQuestion, answerer: HUSAnswerer = Depends(hus_answerer)) -> HUSAnswer:
+    try:
+        return answerer.answer(request)
+    except RAGDataError as exc:
+        raise HTTPException(status_code=503, detail="Dữ liệu hỏi đáp HUS chưa sẵn sàng.") from exc
+
+
 @router.post("/advisor/chat", response_model=AdvisorResponse)
 def advisor_chat_endpoint(request: AdvisorRequest) -> AdvisorResponse:
     try:
+        triggered, _, _ = check_scope_guardrails(request.message)
+        if not triggered and is_hus_question(request.message):
+            answerer = hus_answerer()
+            scope = answerer.programs.get(resolve_program_id(request.program_id))
+            if scope is None:
+                raise HTTPException(status_code=404, detail="Không có dữ liệu HUS cho chương trình đã chọn.")
+            major, version = scope
+            # F1 source edition labels are independent of the F2 decision version.
+            dataset, _ = question_intent(request.message)
+            answer = answerer.answer(HUSQuestion(question=request.message, major=major,
+                                                 version=None if dataset == "f1" else version,
+                                                 allow_generated_reference=request.allow_generated_reference))
+            return AdvisorResponse(reply=answer.reply, mode="hus_rag", hus_answer=answer)
         catalog = load_catalog(request.program_id)
         return chat_advisor(catalog, request)
+    except RAGDataError as exc:
+        raise HTTPException(status_code=503, detail="Dữ liệu hỏi đáp HUS chưa sẵn sàng.") from exc
     except CatalogError as exc:
         _raise_domain_error(exc)
     except ValueError as exc:

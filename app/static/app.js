@@ -15,6 +15,7 @@ const state = {
   eligibleCourses: [],
   blockedCourses: [],
   chatHistory: [],
+  chatContextId: 0,
   recommendationRequestId: 0,
 };
 
@@ -76,6 +77,7 @@ const dom = {
   advisorChatForm: document.querySelector("#advisor-chat-form"),
   advisorInputText: document.querySelector("#advisor-input-text"),
   btnSendChat: document.querySelector("#btn-send-chat"),
+  husGeneratedOptIn: document.querySelector("#hus-generated-opt-in"),
 
 };
 
@@ -161,7 +163,7 @@ async function onProgramChanged() {
 
   // RÀNG BUỘC MAJOR ISOLATION: Xóa sạch dữ liệu môn đã chọn khi đổi ngành
   state.transcript.clear();
-  state.chatHistory = [];
+  resetChatContext();
   state.currentProfileId = null;
   state.selectedTrackId = null;
   state.selectedGraduationPathId = null;
@@ -264,7 +266,7 @@ async function loadProfilesForProgram(programId) {
 async function loadSelectedProfile() {
   const profileId = dom.profileSelect?.value;
   state.transcript.clear();
-  state.chatHistory = [];
+  resetChatContext();
   state.currentProfileId = profileId || null;
   state.selectedTrackId = null;
   if (dom.trackSelect) dom.trackSelect.value = "";
@@ -881,6 +883,8 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = dom.advisorInputText.value.trim();
   if (!text) return;
+  const chatContextId = state.chatContextId;
+  const programId = state.currentProgramId;
 
   // Render user message
   appendChatMessage("user", text);
@@ -901,16 +905,18 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        program_id: state.currentProgramId,
+        program_id: programId,
         message: text,
         passed_course_codes: passedCodes,
         history: advisorHistory,
+        allow_generated_reference: dom.husGeneratedOptIn?.checked === true,
         selected_track_id: state.selectedTrackId,
         selected_graduation_path_id: state.selectedGraduationPathId,
       }),
     });
 
     typingEl.remove();
+    if (chatContextId !== state.chatContextId) return;
 
     let prefix = "";
     if (data.mode === "guardrail_rejected") {
@@ -919,18 +925,28 @@ dom.advisorChatForm.addEventListener("submit", async (e) => {
       prefix = "⚙️ **[Heuristic Advisor Mode]**\n\n";
     }
 
-    appendChatMessage("advisor", prefix + data.reply, data.is_guardrail_triggered);
+    appendChatMessage("advisor", prefix + data.reply, data.is_guardrail_triggered,
+                      data.hus_answer?.citations || []);
     state.chatHistory.push({ role: "assistant", content: data.reply });
 
   } catch (error) {
     typingEl.remove();
+    if (chatContextId !== state.chatContextId) return;
     appendChatMessage("advisor", "⚠️ Lỗi kết nối: " + error.message, true);
   } finally {
-    dom.btnSendChat.disabled = false;
+    if (chatContextId === state.chatContextId) dom.btnSendChat.disabled = false;
   }
 });
 
-function appendChatMessage(role, content, isGuardrail = false) {
+function resetChatContext() {
+  state.chatHistory = [];
+  state.chatContextId += 1;
+  if (dom.husGeneratedOptIn) dom.husGeneratedOptIn.checked = false;
+  dom.chatMessagesContainer?.replaceChildren();
+  if (dom.btnSendChat) dom.btnSendChat.disabled = false;
+}
+
+function appendChatMessage(role, content, isGuardrail = false, citations = []) {
   const msgEl = document.createElement("div");
   msgEl.className = `chat-message message-${role}`;
   if (isGuardrail) msgEl.classList.add("is-guardrail");
@@ -938,6 +954,43 @@ function appendChatMessage(role, content, isGuardrail = false) {
   const bubble = document.createElement("div");
   bubble.className = "message-content";
   bubble.textContent = content;
+  const seen = new Set();
+  const sources = document.createElement("ul");
+  sources.className = "chat-sources";
+  for (const citation of citations) {
+    const isAI = citation.content_origin === "generated" || citation.evidence_kind === "ai";
+    const pages = citation.evidence_kind === "pdf" && citation.pdf_pages?.length
+      ? `; trang PDF ${citation.pdf_pages.join(", ")}` : "";
+    const label = isAI ? `kiến thức AI${citation.metadata?.course_code ? " — " + citation.metadata.course_code : ""}`
+      : `${citation.evidence_kind === "file" ? "Tệp DOCX — " : ""}${citation.display_label || citation.label}${pages}`;
+    let url = null;
+    if (!isAI && citation.open_url) {
+      try {
+        const candidate = new URL(citation.open_url, document.baseURI);
+        const origin = new URL(document.baseURI).origin;
+        const file = ["pdf", "file"].includes(citation.evidence_kind);
+        const allowed = ["http:", "https:"].includes(candidate.protocol) && !candidate.username && !candidate.password;
+        if (allowed && (file
+          ? candidate.origin === origin && citation.availability === "available" &&
+            candidate.pathname === `/hus/sources/${citation.document_sha256}` && /^[0-9a-f]{64}$/.test(citation.document_sha256)
+          : citation.evidence_kind === "web" && citation.open_url === citation.source_url)) url = candidate;
+      } catch { /* Keep unavailable/unsafe evidence as plain text. */ }
+    }
+    const key = `${isAI ? "ai" : citation.source_id || citation.label}|${url?.href || ""}|${pages}|${citation.availability}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const item = document.createElement("li");
+    const link = document.createElement(url ? "a" : "span");
+    if (url) {
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+    link.textContent = `Nguồn [${citation.citation_id}]: ${label}${citation.review_status ? "; review: " + citation.review_status : ""}${!isAI && citation.availability_note ? "; " + citation.availability_note : ""}`;
+    item.appendChild(link);
+    sources.appendChild(item);
+  }
+  if (sources.childElementCount) bubble.appendChild(sources);
 
   msgEl.appendChild(bubble);
   dom.chatMessagesContainer.appendChild(msgEl);

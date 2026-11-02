@@ -14,6 +14,7 @@ from typing import Any, Literal
 import httpx
 from pydantic import BaseModel, ConfigDict, Field
 from app.config import get_settings
+from app.schemas.hus import HUSAnswer
 
 from app.models import BlockedCourse, Catalog, Course, EligibilityResult, StructuredPreference
 from app.recommendation.explanation import build_grounded_explanation
@@ -39,14 +40,16 @@ class AdvisorRequest(BaseModel):
     history: list[AdvisorMessage] = Field(default_factory=list)
     selected_track_id: str | None = None
     selected_graduation_path_id: str | None = None
+    allow_generated_reference: bool = Field(default=False, strict=True)
 
 
 class AdvisorResponse(BaseModel):
     reply: str
-    mode: Literal["gemini_llm", "heuristic_fallback", "guardrail_rejected"]
+    mode: Literal["gemini_llm", "heuristic_fallback", "guardrail_rejected", "hus_rag"]
     is_guardrail_triggered: bool = False
     guardrail_reason: str | None = None
     suggested_courses: list[str] = Field(default_factory=list)
+    hus_answer: HUSAnswer | None = None
 
 
 MAX_HISTORY_MESSAGES = 8
