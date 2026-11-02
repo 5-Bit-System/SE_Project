@@ -6,7 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
-from tests.frontend.presentation_fixture import open_plan_tools
+from tests.frontend.presentation_fixture import common_route, open_plan_tools
 
 
 def main():
@@ -41,8 +41,7 @@ def main():
             result, code = {}, 200
         elif path == '/me/profile':
             result, code = (sample, 200) if logged_in else (EMPTY_PROFILE, 200)
-        elif path.startswith('/static/') or path == '/' or path.startswith('/?'):
-            route.continue_()
+        elif common_route(route):
             return
         else:
             route.abort()

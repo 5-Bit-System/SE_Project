@@ -1,5 +1,31 @@
 # Project Memory and Contributor Guidelines
 
+## Recommendation UI integration preflight — 2026-11-02
+
+User explicitly requests integrating feat/recommendation-conversation-ui into
+the current system, with regular progress, commits, a GitHub PR and an issue.
+Issue #67 tracks this integration. Use a PR and Create a merge commit; preserve
+all 19 original source commits/authors at c823aa5 and the current main 5239b73.
+Local integration branch integration/recommendation-conversation-ui-20261102
+contains merge 93167bd, with no conflict and an identical source application tree.
+
+Fixed only a browser-test isolation issue: check_vnu_only now serves HTML/static
+through common_route rather than requiring a real server on port 8000. Existing
+assertions and intercepted API behavior are retained. Added frontend test commands
+and integration evidence in docs/RECOMMENDATION_UI_INTEGRATION_2026_11_02.md.
+
+Validation: 621 offline/PDF passed, 80 PostgreSQL deselected; seven synthetic Chrome
+suites, Node model/analytics, Ruff, JS syntax, catalog builders and diff checks pass.
+One existing Starlette/httpx warning remains. No backend/schema/catalog change,
+new LLM extraction/ranker, RAG, real VNU login, personal-record read or paid model.
+Main integration and runtime activation are pending publication at this checkpoint;
+verify their eventual outcome from Git/GitHub and the ignored integration receipts.
+
+Root had a separate uncommitted 2026-11-02 admin/issues memory note; its original
+bytes and patch are saved in backups/recommendation_integration_20261102. Keep that
+unrelated note local and restore it when updating root. Preserve .vscode, previews,
+configuration and HUS v3. Do not merge the admin branch or activate HUS v3 here.
+
 ## Recommendation UI publication authorized — 2026-11-01
 
 User now explicitly requests a NEW branch without a personal name and 15–20

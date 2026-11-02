@@ -5,6 +5,9 @@ Các lệnh dưới đây dùng Google Chrome đã cài và Playwright trong
 request và cung cấp tài khoản, bảng điểm, API và tài nguyên tĩnh ngay trong test;
 không cần khởi động app hoặc đăng nhập VNU.
 
+`check_recommendation_workspace` quay video kiểm thử nên cần cài binary FFmpeg
+của Playwright bằng `python -m playwright install ffmpeg` trước lần chạy đầu.
+
 ```powershell
 $env:PYTHONUTF8 = '1'
 $env:PYTHONIOENCODING = 'utf-8'
@@ -14,12 +17,15 @@ python -m tests.frontend.check_workspace
 python -m tests.frontend.check_course_status
 python -m tests.frontend.check_program_binding
 python -m tests.frontend.check_semester_plans
+python -m tests.frontend.check_recommendation_workspace
+python -m tests.frontend.check_vnu_only
 python -m tests.frontend.check_session_restore
 python -m tests.frontend.check_portal_session
 python -m tests.frontend.check_presentation
 python -m tests.frontend.check_study_desk
 python -m tests.frontend.check_motion
 node tests/frontend/check_analytics.mjs
+node tests/frontend/check_recommendation_model.mjs
 ```
 
 `check_analytics_drilldown` kiểm tra popup chỉ chứa bảng điểm, chọn kỳ từ hệ 10/4,
