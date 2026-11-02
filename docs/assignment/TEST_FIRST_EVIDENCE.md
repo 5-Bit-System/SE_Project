@@ -22,14 +22,14 @@ Added after implementation. Record exact test command, output, coverage tool/lim
 - Mutated rule: `if imported and rejected` → `if imported or rejected` when selecting `PARTIAL`.
 - Command: pytest on `test_middle_row_failure_does_not_lose_valid_rows_before_or_after` and `test_all_valid_rows_reach_handler_once_and_complete`.
 - Result: **1 failed, 1 passed**, exit 1. The all-valid case expected `COMPLETED` but mutation returned `PARTIAL`. The original file was restored in a `finally` block; evidence: `deliverables/evidence/mutation-killed.txt`.
-- After restoration, import unit/performance suite: **12 passed**. The mixed valid-invalid-valid test asserts that both valid callbacks ran and the failed row alone is rejected.
+- After restoration, import unit/performance suite: **13 passed**. The mixed valid-invalid-valid test asserts that both valid callbacks ran and the failed row alone is rejected.
 
 ## Green and regression result
 
-- Import tests: `conda run --no-capture-output -n SE_Project python -m pytest -q tests/importing/test_batch.py tests/importing/test_batch_performance.py -s` → **12 passed**; synthetic p95 **0.317 ms** for 200 concurrent tasks × 100 rows/task, target 5,000 ms.
-- Existing offline regression: `conda run --no-capture-output -n SE_Project python -m pytest -q tests -m 'not postgres and not hus_postgres and not full_catalog_acceptance'` → **623 passed, 90 deselected**, one existing Starlette/httpx deprecation warning.
+- Import tests: `conda run --no-capture-output -n SE_Project python -m pytest -q tests/importing/test_batch.py tests/importing/test_batch_performance.py -s` → **13 passed**; synthetic p95 **0.286 ms** for 200 concurrent tasks × 100 rows/task, target 5,000 ms.
+- Existing offline regression: `conda run --no-capture-output -n SE_Project python -m pytest -q tests -m 'not postgres and not hus_postgres and not full_catalog_acceptance'` → **624 passed, 90 deselected**, one existing Starlette/httpx deprecation warning.
 - Order/shared state check: two import transition tests run in both CLI orders → 2 passed each run (0.08 s, 0.09 s).
-- `ruff check app/importing tests/importing` passes. No coverage plugin/module is installed in Conda `SE_Project`; no numeric line/branch coverage is claimed. By reviewed control-flow branches, tests execute empty and valid input; blank/duplicate headers; malformed CSV; byte and row limits; width mismatch; imported/rejected/partial/failed states; typed row errors; and propagated systemic errors. Residual unmeasured branches include invalid Unicode and field-width mismatch are both covered (invalid Unicode isn't directly triggered); exceptionally large multiline fields are size-bounded before parsing.
+- `ruff check app/importing tests/importing` passes. No coverage plugin/module is installed in Conda `SE_Project`; no numeric line/branch coverage is claimed. By reviewed control-flow branches, tests execute empty and valid input; blank/duplicate headers; malformed CSV; byte and row limits; width mismatch; imported/rejected/partial/failed states; typed row errors; and propagated systemic errors. Field-width mismatch is covered; invalid Unicode is not directly triggered. Exceptionally large multiline fields are size-bounded before parsing.
 
 ## Traceability
 

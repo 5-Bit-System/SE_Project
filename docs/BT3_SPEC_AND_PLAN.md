@@ -35,7 +35,9 @@ The application has no bulk-import endpoint or domain-specific CSV import servic
 
 **Planned files:** `app/importing/batch.py` (bounded parser, row state/result, summary), `tests/importing/test_batch.py`, `tests/importing/test_batch_performance.py`, `docs/assignment/` evidence and `deliverables/BT3_23001946_VT-100.pdf`. No route, database migration, course eligibility, catalog, auth or existing import behavior will be changed.
 
-**Review corrections from repository evidence (agent review; student reflection/rejection should be personalized before submission):** searched `app/`, `database/`, `tests/`; only metadata reports/acceptance helpers use CSV. No product importer or domain row schema exists. Therefore do not invent a route/table/authorization scheme. Use an injectable row handler as a runnable characterization/harness, label it non-production, and retain an explicit follow-up requirement to define entity/schema/auth/transaction ownership before integration. The current main is `5239b73` and has the HUS source/catalog constraints; importing academic rows without a reviewed schema would create unsupported facts.
+**Student challenge of AI assumption (confirmed by the student):** “Repo có sẵn CSV importer” is rejected: searching the repository shows no API/domain importer. This is why the patch is an executable harness, not a production feature.
+
+**Review corrections from repository evidence:** searched `app/`, `database/`, `tests/`; only metadata reports/acceptance helpers use CSV. No product importer or domain row schema exists. Therefore do not invent a route/table/authorization scheme. Use an injectable row handler as a runnable characterization/harness, label it non-production, and retain an explicit follow-up requirement to define entity/schema/auth/transaction ownership before integration. The current main is `5239b73` and has the HUS source/catalog constraints; importing academic rows without a reviewed schema would create unsupported facts.
 
 ## Review boundary
 
