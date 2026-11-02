@@ -143,8 +143,9 @@ def delete_announcement_record(conn, announcement_id: str) -> bool:
 def get_active_announcements_record(conn, audience: str = "all") -> list[dict[str, Any]]:
     now = datetime.now(timezone.utc)
     params: dict[str, Any] = {"now": now}
-    aud_clause = ""
-    if audience != "all":
+    if audience == "all":
+        aud_clause = "AND audience = 'all'"
+    else:
         aud_clause = "AND (audience = 'all' OR audience = :audience)"
         params["audience"] = audience
 

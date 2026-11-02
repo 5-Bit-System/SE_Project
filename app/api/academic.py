@@ -21,7 +21,7 @@ from app.academic_context import AcademicContextError, build_context, require_re
 from app.academic_policies import POLICIES
 from app.api.portal import safe_call, session
 from app.auth import portal as account_portal
-from app.auth.dependencies import COOKIE, require_account
+from app.auth.dependencies import COOKIE, optional_account, require_account
 from app.auth.dependencies import call as auth_call
 from app.catalog import load_catalog
 from app.catalog_contracts import digest
@@ -446,7 +446,34 @@ async def semester_plan_delete(plan_id: UUID, request: Request):
 
 
 @router.get('/academic/announcements')
-async def list_active_announcements(audience: str = 'all') -> list[dict[str, Any]]:
+async def list_active_announcements(
+    request: Request,
+    audience: str | None = None,
+) -> list[dict[str, Any]]:
     """Return active published academic announcements with valid attributable source."""
-    from app.announcements.service import get_public_announcements
-    return get_public_announcements(audience=audience)
+    principal = await optional_account(request)
+
+    if audience is not None and audience not in {'all', 'students', 'faculty'}:
+        raise HTTPException(400, 'invalid_audience')
+
+    if audience is None:
+        effective_audience = 'students' if (principal and principal.get('role') in {'student', 'admin'}) else 'all'
+    else:
+        effective_audience = audience
+
+    if effective_audience == 'all':
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='all')
+
+    if not principal:
+        raise HTTPException(401, 'authentication_required')
+
+    role = principal.get('role')
+    if effective_audience == 'students' and role in {'student', 'admin'}:
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='students')
+
+    if effective_audience == 'faculty':
+        raise HTTPException(403, 'faculty_audience_forbidden')
+
+    raise HTTPException(403, 'audience_forbidden')

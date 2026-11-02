@@ -354,8 +354,12 @@ def get_public_announcements(audience: str = "all", conn=None) -> list[dict[str,
         for a in _mem_announcements.values():
             if a.get("status") == "published" and a.get("effective_date", "") <= now:
                 if not a.get("expiry_date") or a.get("expiry_date") > now:
-                    if audience == "all" or a.get("audience") in ("all", audience):
-                        res.append(a)
+                    if audience == "all":
+                        if a.get("audience") == "all":
+                            res.append(a)
+                    else:
+                        if a.get("audience") in ("all", audience):
+                            res.append(a)
         return res
 
 
