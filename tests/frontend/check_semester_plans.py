@@ -9,6 +9,7 @@ from playwright.sync_api import expect, sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
 from tests.frontend.check_course_status import course
+from tests.frontend.presentation_fixture import open_plan_tools
 
 
 def main():
@@ -71,6 +72,7 @@ def main():
             page.route('**/*', intercept)
             page.on('pageerror', lambda error: errors.append(str(error)))
             page.goto('http://127.0.0.1:8000/#recommend')
+            open_plan_tools(page)
             page.wait_for_selector('#semester-plan-form')
             page.locator('#semester-plan-title').fill('HK1 — Phương án A')
             assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
@@ -83,6 +85,7 @@ def main():
             assert saved == [], 'Restoring suggestions must not write a saved plan'
             page.locator('[data-plan-course="TEST-A"] button').click()
             page.reload()
+            open_plan_tools(page)
             page.wait_for_selector('#semester-plan-form')
             page.wait_for_selector('[data-plan-course="TEST-B"]')
             assert page.locator('#semester-plan-form [data-plan-course="TEST-A"]').count() == 0
@@ -104,6 +107,7 @@ def main():
             page.wait_for_function("document.querySelector('#semester-plans').textContent.includes('Đã lưu kế hoạch')")
             assert saved[0]['total_credits'] == 4
             page.reload()
+            open_plan_tools(page)
             page.wait_for_selector('#semester-plan-picker option[value="1"]', state='attached')
             page.locator('#semester-plan-picker').select_option('1')
             page.wait_for_selector('[data-plan-course="TEST-B"]')
@@ -114,6 +118,7 @@ def main():
             saved[0]['needs_review'] = True
             saved[0]['selected_track_id'] = 'retired-track'
             page.reload()
+            open_plan_tools(page)
             page.wait_for_selector('#semester-plan-picker option[value="1"]', state='attached')
             page.locator('#semester-plan-picker').select_option('1')
             page.wait_for_function("document.querySelector('#semester-plans').textContent.includes('Bảng điểm, chương trình hoặc quy chế đã thay đổi')")

@@ -62,6 +62,11 @@
     } catch { clearDraft(); }
   });
   document.addEventListener('workspace:session-expired', clearDraft);
+  function planningSnapshot() {
+    return {board: board ? structuredClone(board) : null, loading, failed,
+      sourceAvailable: Boolean(source), identity: sessionIdentity(), budget, track, path,
+      profile: {program: source?.profile?.program || null, cohort: source?.profile?.cohort || null}};
+  }
   const planErrors = code => ({
     context_changed: copy('Bảng điểm hoặc CTĐT đã đổi. Hãy tải lại trước khi lưu.', 'Source data changed. Refresh before saving.'),
     semester_plan_conflict: copy('Phương án đã được sửa ở tab khác. Hãy mở lại phương án.', 'This plan changed in another tab. Reopen it before editing.'),
@@ -567,6 +572,7 @@
     const error = el('p', planError, 'course-plan-error'); error.setAttribute('role', 'status'); planningRoot.append(error);
     root.append(renderColumns());
     root.append(el('p', board?.preview_only ? copy('Màu trong bản xem trước phản ánh dữ liệu hiện có, chưa xác nhận điều kiện học chính thức. Không dùng kết quả này để đăng ký môn; hãy xác nhận khung và quy định với nhà trường.', 'Preview colors reflect the available data and do not confirm official eligibility. Do not use this result to register; confirm the curriculum and rules with the university.') : copy('Màu vàng gồm môn có thể học và các môn nối tiếp khi tiên quyết nằm trong cùng nhóm. Vẫn cần hoàn thành tiên quyết trước khi học môn nối tiếp; chưa xác nhận lịch mở lớp.', 'Yellow includes available courses and sequences whose prerequisites are in this group. Complete prerequisites before taking follow-up courses; course offerings are not confirmed.'), 'course-status-note'));
+    document.dispatchEvent(new CustomEvent('workspace:planning-state', {detail: planningSnapshot()}));
   }
 
   async function load(focusKey = null) {
@@ -641,5 +647,27 @@
   document.addEventListener('workspace:navigate', event => { if (['tab-rules', 'tab-recommend'].includes(event.detail) && source && !board && !loading) load(); });
   document.addEventListener('workspace:course-mode', event => { if (event.detail === 'personal' && source && !board && !loading) load(); });
   document.addEventListener('workspace:language-change', render);
+  document.addEventListener('workspace:plans-changed', () => { if (source) fetchPlans(); });
+  window.workspacePlanning = {
+    snapshot: planningSnapshot,
+    async configure({credits = budget, trackId = track, pathId = path} = {}) {
+      if (!source || !Number.isInteger(credits) || credits < 1 || credits > 30) throw new Error('planning_source_required');
+      if (budget !== credits || track !== trackId || path !== pathId || !board || failed) {
+        budget = credits; track = trackId || ''; path = pathId || ''; planDirty = true;
+        await load();
+      }
+      return planningSnapshot();
+    },
+    useDraft({codes, title, year, semester}) {
+      if (!source || !board || loading || !Array.isArray(codes)) return false;
+      const valid = new Set((board.courses?.eligible || [])
+        .filter(course => course.planning_eligible !== false && course.counted_in_total !== false)
+        .map(course => course.code));
+      if (codes.some(code => !valid.has(code))) return false;
+      activePlan = null; chosen = new Set(codes); planTitle = title.slice(0, 100);
+      planYear = year; planSemester = semester; planDirty = true; render();
+      return true;
+    },
+  };
   render();
 })();

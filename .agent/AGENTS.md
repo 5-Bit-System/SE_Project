@@ -1,5 +1,109 @@
 # Project Memory and Contributor Guidelines
 
+## Recommendation UI integration preflight — 2026-11-02
+
+User explicitly requests integrating feat/recommendation-conversation-ui into
+the current system, with regular progress, commits, a GitHub PR and an issue.
+Issue #67 tracks this integration. Use a PR and Create a merge commit; preserve
+all 19 original source commits/authors at c823aa5 and the current main 5239b73.
+Local integration branch integration/recommendation-conversation-ui-20261102
+contains merge 93167bd, with no conflict and an identical source application tree.
+
+Fixed only a browser-test isolation issue: check_vnu_only now serves HTML/static
+through common_route rather than requiring a real server on port 8000. Existing
+assertions and intercepted API behavior are retained. Added frontend test commands
+and integration evidence in docs/RECOMMENDATION_UI_INTEGRATION_2026_11_02.md.
+
+Validation: 621 offline/PDF passed, 80 PostgreSQL deselected; seven synthetic Chrome
+suites, Node model/analytics, Ruff, JS syntax, catalog builders and diff checks pass.
+One existing Starlette/httpx warning remains. No backend/schema/catalog change,
+new LLM extraction/ranker, RAG, real VNU login, personal-record read or paid model.
+Main integration and runtime activation are pending publication at this checkpoint;
+verify their eventual outcome from Git/GitHub and the ignored integration receipts.
+
+Root had a separate uncommitted 2026-11-02 admin/issues memory note; its original
+bytes and patch are saved in backups/recommendation_integration_20261102. Keep that
+unrelated note local and restore it when updating root. Preserve .vscode, previews,
+configuration and HUS v3. Do not merge the admin branch or activate HUS v3 here.
+
+## Recommendation UI publication authorized — 2026-11-01
+
+User now explicitly requests a NEW branch without a personal name and 15–20
+meaningful commits, followed by a GitHub push. This supersedes the local-only
+restriction for the recommendation UI source/tests/docs/memory immediately below.
+Target feat/recommendation-conversation-ui, base 5239b73 from origin/main;
+19 non-empty commits separate request/model rules, model tests, planning bridge,
+conversation, roadmap/details, comparison, API/save lifecycle, desktop/responsive
+styles, HTML integration, book clearance, existing browser regressions, new
+browser coverage, implementation report and this contributor checkpoint.
+
+Preserve working files while staging logical increments; leave the full UI
+unmounted until its JS/CSS dependencies have been added. Keep source ancestry
+and configured author identity. Push only the new ref, without force; do not
+change main or the earlier feature branch. Do not include .vscode/settings.json,
+credentials/configuration, AD-102, logs, previews, videos or other backups.
+
+The implementation/tests are the verified local version described below. No
+backend, data or application restart is required for publication. Verify the
+final tree against the pre-publication snapshot, exactly 19 non-empty commits,
+remote head and tracking state. This is authorization/preparation; actual commit
+and push results must be established from Git and the ignored publication receipt.
+
+## Local recommendation conversation UI — 2026-11-01
+
+User accepted the proposed full recommendation UI and requested pulling GitHub
+first. Root feat/vnu-curriculum-planning fast-forwarded from fba94de to fetched
+origin/main 5239b73, preserving team ancestry. This task has no new Git commit,
+push, PR or deployment. Existing untracked .vscode/settings.json and ignored
+credentials, AD-102 and backups remain local. Prior publication notes below
+describe historical work, not publication authorization for these new UI edits.
+
+Implemented recommendation-workspace.js/css and pure recommendation-model.mjs;
+index.html mounts them in #recommend. course-status.js provides a small shared
+planning-state/configure/draft bridge without changing academic rules or data.
+Retained source review, planning controls and saved alternatives inside
+#academic-plan-tools; browser fixtures open the real summary before using them.
+motion.js keeps the existing background book clear of the new conversation,
+roadmap and headings. No new dependencies, backend/schema/catalog edits.
+
+Guided preferences cover direction, workload, editable default 20 credits,
+graduation goal and real applicable track/path choices. Desktop has a live
+roadmap, mobile a native dialog sheet. Three alternatives use the verified
+/me/academic-context revision and /me/recommendations, with explicit required
+course preference and differing topic/type/workload weights. Real catalog
+metadata only; no claimed future offerings, graduation ETA or fabricated
+differences. Strict planning/source gates still apply. Details show actual
+AND/OR prerequisites; compare/save use real codes and existing server APIs.
+
+Saving is explicit, CSRF-protected and basis-checked. A lost response/60-second
+timeout does not show false success or permit an immediate duplicate POST;
+the UI directs the user to check saved alternatives. This is not server-side
+idempotency. Session/revision changes discard stale results and private dialog
+content; conversation is not persisted in browser storage. Motion uses WAAPI/
+CSS, pauses while hidden and honors reduced motion. See implementation report
+docs/RECOMMENDATION_WORKSPACE_2026_11_01.md for contracts, timings and limitations.
+
+Verification: 611 offline passed, 90 deselected, existing Starlette/httpx warning.
+Node model checks plus frontend-payload-to-real-backend-scoring smoke passed.
+Seven synthetic Chrome suites passed: recommendation workspace, course map,
+saved plans, VNU-only, presentation, study desk and motion. New checks include
+three variants, quota/budget gates, details/compare, save success/409/lost response,
+logout race, VI/EN, 1440/1024/390, themes and reduced motion. Presentation contrast
+now samples the actual existing login gradient; the former helper treated its
+transparent backgroundColor as white. The 4.5 threshold is unchanged. Ruff,
+affected JS syntax and diff checks pass. No real VNU credentials, personal-record
+inspection, model call, DB acceptance/load/FPS benchmark or Firefox/Safari test.
+
+Started Docker Desktop and existing se_hus_db; storage/auth preflight succeeded,
+no migration/seed/catalog publication. Local tools.run_local runs hidden without
+reload at http://127.0.0.1:8000/#recommend. Launcher PID 20012/server PID 14416
+are observed launch/session records; verify identity before stopping. Health,
+ready and homepage 200; 22 HTML assets and imported model match disk, JS module
+MIME correct; anonymous course-status/plans remain 401. Screenshots/video/JUnit
+are ignored under backups/recommendation_workspace_20261101 and local_runtime.
+Keep the app running for review. New uncommitted frontend/tests/docs/memory must
+remain local until the user authorizes publication for this work.
+
 ## Publication authorized — 2026-11-01: current course map and planning UI
 
 User explicitly requests many meaningful commits and publishing the current
