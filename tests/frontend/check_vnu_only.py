@@ -6,6 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
+from tests.frontend.presentation_fixture import open_plan_tools
 
 
 def main():
@@ -76,6 +77,7 @@ def main():
         page.wait_for_function("document.getElementById('tab-rules').textContent.includes('Chưa đủ dữ liệu để phân loại')")
         assert page.locator('#tab-rules #semester-plans, #tab-rules select, #tab-rules input[type=number]').count() == 0
         page.locator('#tab-btn-recommend').click()
+        open_plan_tools(page)
         page.wait_for_function("document.getElementById('tab-recommend').textContent.includes('Chưa xác minh chương trình')")
         assert 'Chưa xác minh bảng điểm' in page.locator('#tab-recommend').inner_text()
         page.locator('[data-language-choice="en"]').focus()

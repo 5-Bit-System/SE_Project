@@ -1,5 +1,6 @@
 """Presentation audit with invented records; real auth and personal I/O are blocked."""
 
+import base64
 import json
 from pathlib import Path
 from urllib.parse import urlparse
@@ -29,6 +30,33 @@ def contrast(page, selector, property_name="color", pseudo=None):
       const a = luminance(foreground), b = luminance(background);
       return Math.round(((Math.max(a,b)+.05)/(Math.min(a,b)+.05))*100)/100;
     }""", {"property": property_name, "pseudo": pseudo})
+
+
+def rendered_button_contrast(page, selector):
+    """Sample the rendered gradient rather than its transparent backgroundColor."""
+    button = page.locator(selector)
+    original = button.get_attribute("style")
+    foreground = button.evaluate("n => getComputedStyle(n).color")
+    try:
+        button.evaluate("n => n.style.setProperty('color', 'transparent', 'important')")
+        png = base64.b64encode(button.screenshot(animations="disabled")).decode()
+    finally:
+        button.evaluate("(n, style) => style === null ? n.removeAttribute('style') : n.setAttribute('style', style)", original)
+    return page.evaluate("""async ({png,foreground}) => {
+      const image = new Image(); image.src = 'data:image/png;base64,' + png; await image.decode();
+      const canvas = document.createElement('canvas'); canvas.width = image.width; canvas.height = image.height;
+      const context = canvas.getContext('2d'); context.drawImage(image, 0, 0);
+      const luminance = rgb => rgb.slice(0,3).map(value => {
+        value /= 255; return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+      }).reduce((sum, value, i) => sum + value * [.2126,.7152,.0722][i], 0);
+      const text = luminance(foreground.match(/[\\d.]+/g).map(Number)); let minimum = 100;
+      // Stay inside the rounded border; text was hidden without hiding the button fill.
+      for (let x=10; x<image.width-10; x+=4) for (let y=10; y<image.height-10; y+=4) {
+        const background = luminance([...context.getImageData(x,y,1,1).data]);
+        minimum = Math.min(minimum, (Math.max(text,background)+.05)/(Math.min(text,background)+.05));
+      }
+      return Math.round(minimum * 100) / 100;
+    }""", {"png": png, "foreground": foreground})
 
 
 def main():
@@ -152,7 +180,7 @@ def main():
                     heading_selector = ".course-status-heading h2" if name == "courses" else ".tab-panel.active h2"
                     heading_size = page.locator(heading_selector).first.evaluate(
                         "n => parseFloat(getComputedStyle(n).fontSize)")
-                    assert 24 <= heading_size <= 36, (theme, width, name, heading_size)
+                    assert 24 <= heading_size <= (42 if name == 'recommend' else 36), (theme, width, name, heading_size)
                     selectors = [".tab-btn.active", ".sidebar-profile strong"]
                     if name in ("courses", "recommend"):
                         selectors.append(".tab-panel.active .source-notice p")
@@ -204,7 +232,7 @@ def main():
         for theme in ("light", "dark"):
             page.locator(f'[data-theme-choice="{theme}"]').click()
             page.screenshot(path=str(evidence / f"login-{theme}-390.png"), full_page=True, animations="disabled")
-            assert contrast(page, "#auth-student-form button[type=submit]") >= 4.5
+            assert rendered_button_contrast(page, "#auth-student-form button[type=submit]") >= 4.5
             assert contrast(page, "#auth-vnu-username", "borderTopColor") >= 3
         page.locator("#auth-vnu-username").fill("synthetic-only")
         page.locator("#auth-vnu-password").fill("synthetic-password")

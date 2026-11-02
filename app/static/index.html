@@ -19,6 +19,8 @@
   <script src="/static/portal.js" defer></script>
   <link rel="stylesheet" href="/static/course-status.css">
   <script src="/static/course-status.js" defer></script>
+  <link rel="stylesheet" href="/static/recommendation-workspace.css">
+  <script src="/static/recommendation-workspace.js" type="module"></script>
   <link rel="stylesheet" href="/static/workspace.css">
   <link rel="stylesheet" href="/static/analytics.css">
   <script src="/static/analytics.js" type="module"></script>
@@ -300,8 +302,11 @@
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
     </section>
     <section id="tab-recommend" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-recommend">
-      <h2>Gợi ý kỳ tới</h2>
-      <div id="course-planning-panel" class="course-status"></div>
+      <div id="recommendation-workspace"></div>
+      <details id="academic-plan-tools" class="rec-existing-tools">
+        <summary><span data-rec-tools-label>Dữ liệu học vụ & phương án đã lưu</span><span aria-hidden="true">↗</span></summary>
+        <div id="course-planning-panel" class="course-status"></div>
+      </details>
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
     </section>
     </div>

@@ -9,6 +9,7 @@ from urllib.parse import parse_qs, urlparse
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import open_plan_tools
 
 
 def course(code, name, credits=3, **changes):
@@ -149,6 +150,7 @@ def main():
         assert root.locator('#semester-plans, select, input[type=number], .course-status-summary, .course-status-progress-breakdown, .course-status-notice').count() == 0
         assert 'Xem bảng điểm VNU' not in root.inner_text()
         page.locator('#tab-btn-recommend').click()
+        open_plan_tools(page)
         progress_detail = planner.locator('.course-status-progress-breakdown')
         assert progress_detail.count() == 1
         assert progress_detail.get_by_role('heading', name='Tiến độ theo khối và nhóm tín chỉ').count() == 1
