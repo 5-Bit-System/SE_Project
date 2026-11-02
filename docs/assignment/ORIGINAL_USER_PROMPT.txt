@@ -1,0 +1,114 @@
+Chào em,
+
+Đây là Bài tập cá nhân 3 dành cho mã sinh viên 23001946, dựa trên Lecture 06 – AI-assisted Software Development & Vibe Coding và Lecture 07 – Software Testing & Quality Engineering.
+
+Em hãy đọc kỹ biến thể cá nhân, đối chiếu repository của nhóm và thực hiện theo vòng lặp Spec → Test → AI-assisted Change → Verify → Review.
+
+BT cá nhân 3 – AI-07 – VT-100
+BỐI CẢNH CÁ NHÂN HÓA (VT-100)
+Sinh viên: Thái Việt Trung — 23001946. Nhóm: SE2026-T25. Vai trò: Thành viên.
+Dự án: “AI-07 – Explainable Course Recommender”.
+Repository chính thức: https://github.com/5-Bit-System/SE_Project
+
+Change request riêng: Thêm chức năng import dữ liệu hàng loạt; bản ghi lỗi không được làm mất các bản ghi hợp lệ.
+Risk trọng tâm: thay đổi nhỏ làm hỏng một behavior cũ không liên quan.
+Kỹ thuật thiết kế test bắt buộc: state transition testing.
+Mutation/deliberate bug bắt buộc: đảo điều kiện true/false trong một business rule.
+Mức tải kiểm chứng: 200 người dùng/tác vụ đồng thời; mục tiêu p95 không quá 5.0 giây.
+Ràng buộc làm việc với AI: AI phải lập kế hoạch và nêu assumptions trước khi sinh code; bạn phải bác bỏ ít nhất một assumption sai.
+
+YÊU CẦU THỰC HIỆN
+
+1. Specification và AI-assisted plan (15 điểm)
+- Chuyển change request thành: 01 problem statement, 3–5 acceptance criteria và ít nhất 2 non-functional constraints.
+- Chỉ ra invariant/contract quan trọng nhất cần được bảo vệ.
+- Dùng coding agent tạo implementation plan trước khi code. Ghi prompt, assumptions và các file agent dự định thay đổi.
+- Review plan bằng repository thật; sửa hoặc bác bỏ ít nhất 2 điểm bằng evidence.
+
+2. Test strategy dựa trên risk (20 điểm)
+- Lập test strategy gồm unit, integration/API và E2E; nêu rõ test nào không cần thiết.
+- Lập bảng tối thiểu 10 test cases: ID, risk/requirement, test level, precondition/input, expected result, priority.
+- Bắt buộc áp dụng kỹ thuật “state transition testing”; giải thích cách chọn test data.
+- Có ít nhất 2 negative tests và 1 failure-path test gắn với risk riêng.
+
+3. Test-first AI-assisted implementation (25 điểm)
+- Chọn một vertical slice nhỏ nhưng chạy được của change request.
+- Tạo nhánh Git riêng; ghi commit ban đầu được dùng làm baseline.
+- Viết hoặc sinh test để test thất bại đúng lý do trước khi sửa code; lưu evidence của lần fail.
+- Dùng AI hỗ trợ tạo patch nhỏ; review diff trước khi chấp nhận. Không merge code không hiểu.
+- Sau patch, chạy lại test và ghi evidence pass; nêu file/commit/PR liên quan.
+- Nếu repository chưa đủ điều kiện triển khai change request, tạo executable test harness hoặc characterization test trên module gần nhất và giải thích giới hạn.
+
+4. Đánh giá chất lượng test — “Who tests the tests?” (25 điểm)
+- Đưa deliberate bug/mutation “đảo điều kiện true/false trong một business rule” vào một nhánh hoặc commit tạm thời, không để lại trong nhánh nộp bài.
+- Chứng minh ít nhất một test phát hiện mutation. Nếu mutation sống sót, bổ sung/sửa test rồi chạy lại.
+- Phân tích coverage: line/branch coverage nếu công cụ hỗ trợ, và risk coverage theo acceptance criteria. Không dùng tỷ lệ coverage đơn độc để kết luận chất lượng.
+- Kiểm tra ít nhất 2 nguy cơ flaky test: time, order/shared state, network, concurrency hoặc random data.
+- Thực hiện kiểm chứng tải ở mức 200 tác vụ đồng thời và so sánh với mục tiêu p95 5.0 giây; nếu không thể chạy tải thật, trình bày harness, dữ liệu giả lập và giới hạn kết luận.
+
+5. Engineering evidence và reflection (15 điểm)
+- Tạo traceability: Acceptance criterion/Risk → Test case → Test file → Commit/PR → Kết quả.
+- Lập AI Usage Log: công cụ, prompt chính, output được dùng, thay đổi/bác bỏ và evidence.
+- Chỉ ra 2 điểm AI-generated code/tests có vẻ hợp lý nhưng không đáng tin ngay.
+- Viết reflection 250–350 từ: điều gì khiến confidence tăng lên, điều gì vẫn chưa được chứng minh và test tiếp theo có giá trị cao nhất.
+
+ĐẦU RA
+- 01 file PDF tối đa 8 trang nội dung chính; phụ lục AI Usage Log và ảnh/log thực thi không tính vào giới hạn.
+- 01 link GitHub branch hoặc PR; có README ngắn hướng dẫn chạy test. Không merge nếu nhóm chưa review.
+- Tên file: BT3_23001946_VT-100.pdf
+- Bài phải sử dụng đúng dự án, change request, risk, test technique, mutation, mức tải và ràng buộc AI của VT-100.
+- Đây là bài cá nhân. Không sao chép test plan, test data, mutation experiment, prompt hoặc reflection của thành viên khác, kể cả cùng nhóm.
+HƯỚNG DẪN NỘP BÀI
+
+1. Nơi nộp
+Nộp bài cá nhân trực tiếp vào Assignment “Bài tập cá nhân 3” trên Google Classroom. Không gửi bài qua email.
+
+2. Thành phần phải nộp
+• 01 file PDF duy nhất, tối đa 8 trang nội dung chính.
+• 01 link GitHub branch hoặc Pull Request chứa test và patch nhỏ.
+• Tên file: BT3_23001946_<Mã biến thể>.pdf
+Ví dụ: BT3_23001898_VT-001.pdf.
+• Phụ lục AI Usage Log và ảnh/log thực thi không tính vào giới hạn trang.
+
+3. Thông tin bắt buộc ở trang đầu
+• Họ và tên; mã sinh viên 23001946.
+• Mã biến thể ghi trong tên bài.
+• Team ID, mã đề tài, repository và baseline commit hash.
+• Link branch/PR.
+• Cam kết: “Tôi chịu trách nhiệm về toàn bộ code, test và nội dung bài làm; tôi đã khai báo việc sử dụng AI.”
+
+4. Cấu trúc bài làm
+• Specification, acceptance criteria và invariant.
+• AI-assisted implementation plan và phần review.
+• Risk-based test strategy và bảng test cases.
+• Evidence test fail → patch → test pass.
+• Mutation/deliberate-bug experiment.
+• Coverage, flaky-test review và performance/risk experiment.
+• Traceability, AI Usage Log và reflection.
+
+5. Evidence từ GitHub
+Ghi rõ đường dẫn file, commit/PR và lệnh chạy test. Không nộp ảnh chụp thay cho code hoặc test có thể chạy. Không merge nếu nhóm chưa review.
+
+6. Quy tắc dùng AI
+Được phép dùng AI để lập kế hoạch, sinh code và test, nhưng phải review diff, kiểm tra assumptions và chứng minh correctness bằng evidence. Không được dùng “AI nói đúng” làm bằng chứng.
+
+7. Lưu ý
+• Phải dùng đúng change request, risk, test technique, mutation, tải/p95 và ràng buộc AI của biến thể cá nhân.
+• Đây là bài cá nhân, kể cả khi cùng làm trên repository của nhóm.
+• Deadline và chính sách nộp lại theo Assignment trên Google Classroom.
+• Giảng viên có thể yêu cầu chạy test hoặc giải thích bất kỳ dòng code/test nào trong buổi vấn đáp.
+
+Khung chấm điểm
+Tiêu chí	Điểm	Yêu cầu
+Specification và AI-assisted plan	15	Problem statement rõ; 3–5 acceptance criteria kiểm thử được; có constraints, invariant/contract; review và sửa/bác bỏ ≥2 điểm trong plan của AI bằng evidence.
+Risk-based test strategy và test design	20	Phân bổ hợp lý unit/integration/API/E2E; ≥10 cases có traceability, priority, negative/failure paths; dùng đúng kỹ thuật test của biến thể.
+Test-first implementation và review AI patch	25	Có baseline; test fail đúng lý do trước patch; patch nhỏ, hiểu được; evidence fail→pass; file/commit/PR và cách chạy tái lập được.
+Đánh giá sức mạnh của test suite	20	Mutation/deliberate bug được test phát hiện; nếu sống sót có sửa test; phân tích coverage trong context; kiểm tra flaky risks.
+Performance/risk experiment	5	Có harness và dữ liệu; so sánh với tải/p95 riêng; nêu giới hạn kết luận trung thực.
+Engineering evidence, traceability và reflection	15	Traceability đầy đủ; AI Usage Log; chỉ ra ≥2 điểm AI chưa đáng tin; reflection 250–350 từ có evidence và residual risk.
+Email này được tạo tự động. Hãy kiểm tra đúng mã sinh viên, Team ID, mã đề tài, repository và mã biến thể trước khi làm bài.
+
+Trân trọng,
+Software Engineering 2026
+GV: Bùi Sỹ Nguyên
+

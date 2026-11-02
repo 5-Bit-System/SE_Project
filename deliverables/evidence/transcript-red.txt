@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_invalid_grade_between_valid_rows_preserves_both_and_original _______
+
+toy_catalog = Catalog(program=Program(program_id='toy', name='Toy Program', total_credits=12, catalog_status='draft_unverified', cat...offering_status='unknown', field_evidence={})], metadata_schema_version=None, vocabulary_version=None, vocabulary=None)
+
+    def test_invalid_grade_between_valid_rows_preserves_both_and_original(toy_catalog):
+        original = StudentTranscript(program_id="toy")
+        result = import_transcript_csv(
+            HEADER + "toy101,8,1\nTOY102,12,2\nTOY102,6,2\n", original, toy_catalog,
+        )
+>       assert result.batch.imported_count == 2
+E       AssertionError: assert 0 == 2
+E        +  where 0 = BatchResult(status=<BatchStatus.COMPLETED: 'completed'>, rows=()).imported_count
+E        +    where BatchResult(status=<BatchStatus.COMPLETED: 'completed'>, rows=()) = TranscriptImportResult(batch=BatchResult(status=<BatchStatus.COMPLETED: 'completed'>, rows=()), transcript=StudentTranscript(program_id='toy', selected_track_id=None, selected_graduation_path_id=None, records=[])).batch
+
+tests/importing/test_transcript_import.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/importing/test_transcript_import.py::test_invalid_grade_between_valid_rows_preserves_both_and_original
+1 failed in 0.13s
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest -q tests/importing/test_transcript_import.py::test_invalid_grade_between_valid_rows_preserves_both_and_original` failed. (See above for error)
