@@ -2,6 +2,139 @@
 
 ## Current Handoff — 2026-10-28
 
+- Publication authorized (2026-11-02): user explicitly requests committing/pushing
+  current RAG changes to GitHub in fewer than20 new commits. Publish on crawldata;
+  seven scoped commits planned from be76f50b, normal fast-forward push. This overrides
+  older local-only/no-commit notes for this publication only. Main integration,
+  production activation and merging other histories remain outside this request.
+  Keep imported v3/validator provenance pinned to original a543cf8d (Viet Nguyen);
+  import commits describe byte-exact vendoring, never claim copied work was authored
+  by the integrator. Preserve local diagnostic HTML and HUS_MANUAL_TEST.md outside
+  publication; backups/config/toolkit stay local. Verify Git/remote for actual outcome.
+
+- Latest RAG scope correction (2026-11-02): user explicitly limits this branch to
+  F1/F2/F3 and basic conversation, no course ranking/explanation. New app.hus.demo:app
+  and app.hus.chat isolate execution/imports from the product academic stack. New
+  hus-rag-demo UI selects real release majors/versions; no transcript, fake catalogs,
+  account, eligibility or provider needed in local demo. Tracked command:
+  python -m tools.run_hus_rag_demo; old ignored open_hus_rag_demo.py now aliases it.
+  Basics use fixed greetings/thanks/help/goodbye; out-of-scope requests abstain.
+  Academic citations/review/AI opt-in/source bytes unchanged. P04/P05 worktrees and
+  receipts remain historical; their mixed advisor router is not the new RAG path.
+  Before main publication, integrate a dedicated HUS endpoint with existing verified
+  account/CSRF/Origin/binding/revision and obtain new commit/CI/acceptance evidence.
+  No commit/push/production activation authorized here. See docs/HUS_RAG_MANUAL_DEMO.md,
+  scope design/plan dated2026-11-02 and docs/acceptance/hus_rag_scope_report.json.
+  Final local checks:18 scope tests (also newer FastAPI0.143), full crawldata717 pass/
+  26 skip in crawler-complete p04 venv,5 Node legacy,50 Chromium questions4 majors,
+  stale scope/PDF13+12 pass. First full attempt in p05 runtime venv lacked python-docx;
+  complete rerun passed; no runtime venv/dependency mutation. P04/P05 outputs34/43,
+  shared inputs77 each and63 data hashes verified unchanged. No commit/push.
+
+- Historical manual RAG demo before scope correction (local 2026-11-02): ignored launcher
+  backups/hus_integration/open_hus_rag_demo.py opens frozen p05-main in visible
+  Chromium with synthetic in-memory account/context and real HUS RAG data. Uses
+  p05-ci-venv, defaults data_science; --major selects other programs, --smoke checks
+  real F2 answer/citation headlessly. No product auth/DB/VNU or frozen source changes.
+  See docs/HUS_RAG_MANUAL_DEMO.md; keep terminal running, close app tab/Ctrl+C to stop.
+  Follow-up fixed non-HUS prompts causing the harness's forbidden-provider500:
+  launcher-only scoped fallback preserves scope guards and gives honest demo help,
+  no synthetic-course recommendations.48 mixed Chromium cases across4 majors pass;
+  fresh product regression672 Python/9 Node pass; frozen source/test hashes unchanged.
+  Existing demo processes must restart; receipt docs/acceptance/hus_manual_demo_report.json.
+
+- P0-5 preparation (local 2026-11-02): isolated p05-main worktree on main5239b733,
+  branch integration/hus-rag-p05-20261102; root stays crawldata. Reviewable bundle
+  integration/hus-rag-p05 has77 shared inputs/43 outputs; replay61 backend/9 Node pass.
+  CI workflow/locked deps, build/data/test identity receipts and guarded activation/
+  rollback implemented. Clean locked venv:672 Python/10 skips/80 DB deselected,
+  9 Node,43 HTTP/14 Chromium pass;20 lifecycle cases and copied-selector drill pass.
+  Canonical selector remains prepared/byte-identical. Dirty receipts are ineligible;
+  strict rejects uncommitted code. Preserve genuine source authors/ancestry and main
+  feature-branch PR/Create a merge commit. No commit/push/PR/merge, remote CI or real
+  production activation: user explicitly requires a separate commit/push request.
+  See docs/RAG_P05_RELEASE_PREPARATION.md and docs/acceptance/hus_p05_* reports.
+
+- P0-4 (local 2026-11-02): main5239b733 fetched and integrated in isolated worktree
+  backups/hus_integration/p04-main, branch integration/hus-rag-p04-20261102. Root
+  remains crawldata with prior WIP. Adapter runs in /me/advisor/chat after existing
+  operation/ready and rechecks ensure_current; strict AI opt-in, server-bound major.
+  Keep verified account, CSRF/Origin/host, source/binding/session revision. Legacy
+  HUS chat409, no public /hus/chat; source binaries account-protected. Active UI adds
+  separate hus-chat module with generation/refresh race guards, no stored history.
+  652 Python/10 skipped/80 DB deselected,9 Node,43 live HTTP/14 Chromium pass using
+  synthetic auth stores/policies/catalogs and real HUS data; no product DB/VNU/provider.
+  Reviewable replay package in integration/hus-rag-p04 plus prepare_hus_main_integration
+  tool;77 shared inputs/34 source outputs verified, replay41 backend/9 Node pass.
+  See docs/RAG_P04_MAIN_INTEGRATION.md and hus_p04_authenticated_report.json.
+  Ready gate/review/source bytes unchanged. No commit/push/PR/merge or production
+  activation; P0-5 owns publication, must retain feature-branch PR and team ancestry.
+
+- P0-3 (local 2026-11-02): independent character-to-page ownership oracle for F1
+  quotes; F2 oracle requires every source occurrence exactly once and PDF locators,
+  never JSON as open target.29 new regression/API tests, including21 intentional
+  citation corruptions. Node explicitly tests null-link AI responses. Chromium tests
+  actual MAT3325 answer with two same-PDF sources at13/12 and opens both viewer pages.
+  Receipt schema2.0 additionally pins24 test/fixture files and10 screenshots;2318 HTTP,
+  47 Chromium pass;699 Python/26 skipped,5 Node. PDF viewer readiness waits for
+  load success, physical page, zero unacked remote scrolls and matching inner-frame
+  scroll, then two animation frames. See docs/RAG_P03_CITATION_TESTS.md and receipt.
+  Runtime/data/review unchanged in P0-3; next scope is main API/UI/auth integration.
+
+- P0-2 (local 2026-11-02): citations now have evidence kind/display label/open URL,
+  expected document hash, physical page/span and availability. Generated F3 renders
+  "kiến thức AI" without links, retains warnings/opt-in/review. Web opens original URL.
+  data/hus/citation_assets contains12 PDFs+2 DOCX imported byte-exact from a543cf8d,
+  registry bound to selected v3. /hus/sources/{sha256} GET/HEAD/range verifies actual
+  bytes/hash/format/page; PDF inline, DOCX attachment; missing or changed files fail
+  honestly. F1 page locations match quotes in hash-bound recovered text, not new
+  academic/visual review. v3/legacy payloads and review unchanged. See
+  docs/RAG_P02_CITATIONS.md; acceptance receipt hus_p02_citations_report.json.
+  Verification:670 Python passed/26 skipped,4 Node,2318 HTTP,41 Chromium;14 binaries
+  and28 emitted page URLs checked. Full Chromium channel is needed for PDF viewer;
+  external web destinations are intercepted in browser tests, not health-certified.
+
+- P0-1 (local 2026-11-02): runtime now strictly selects CURRENT -> portable
+  hus-data-20261031-v3 (sha256 27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4).
+  Imported exact release/validator bytes from a543cf8d; legacy 19 payloads retained.
+  F1 69->65 is four resplits with the same63 units/source spans/edition/review; F2 tables
+  unchanged, canonical source imports existing67 KHMTTT user sign-offs and223 draft,
+  never institutional certification or F3 approval. API and retriever pin one snapshot;
+  missing/corrupt CURRENT is503, no legacy fallback. Generated opt-in defaults false
+  (allow_generated_reference in API, checkbox in legacy chat); each response includes
+  release identity. See docs/RAG_P01_DATA_SELECTION.md and machine-readable diff.
+  Older data/receipt statements below describe legacy snapshots, not current selection.
+- End-to-end acceptance (local): `tools/verify_hus_e2e.py` runs real loopback Uvicorn
+  and optional real Chromium with synthetic UI catalogs and the actual HUS handoff.
+  Latest receipt: docs/acceptance/hus_e2e_report.json; 2310 HTTP and 25 browser cases pass,
+  full membership/field and citation checks, cross-major/version refusals and stale-chat
+  isolation. See docs/HUS_E2E_ACCEPTANCE.md. Exam weight/format fact requests now route
+  to evidence checks before recommendation intent; major aliases consume specific names
+  before contextual Math aliases. No product DB/provider/remote deploy or academic review.
+- Answering addition (local work): `app/hus/answering.py` and `app/schemas/hus.py`
+  provide extractive F1/F2/F3 answers with explicit sources/review/generated labels.
+  `POST /hus/chat` exposes this; `/advisor/chat` routes clear HUS information intents
+  before runtime catalog/provider calls, keeps recommendation/guardrails on the old path,
+  and returns mode=hus_rag plus hus_answer. Unsupported/official-current/missing evidence
+  returns no_information, incomplete identity needs_clarification; corrupt packages are
+  503, not fabricated missing answers. The service lazy-caches one snapshot; reload after
+  package changes. UI links HTTP(S) citations and rejects old-context chat responses.
+  Raw-only unresolved prerequisite codes (MAT3423 -> MAT3402) now remain flagged without
+  creating parsed eligibility edges. No LLM, product DB, remote deploy or academic review.
+- Retrieval addition (2026-11-01, local work): `app/hus/retrieval.py` provides
+  `HUSRAGRetriever.search()` over the loader's F1/F3 chunks. Major/version/field/variant
+  and explicit/query course codes filter before BM25 scoring/top-k; no cross-scope
+  fallback or qa/origin directory scan. Vietnamese accent-insensitive lexical ranking
+  excludes repeated F3 warning/context from topic scoring but preserves output metadata.
+  Deduplicate identical slices only within the same scope/source. No embeddings,
+  generated answers or API integration; F2 remains the loader's structured lookup.
+- Loader addition (2026-11-01, local work): `app/hus/rag_loader.py` provides
+  `HUSRAGData.load()` for the shared package. It validates package files/checksums,
+  reads F1/F3 chunks separately and looks up F2 by exact code/major/version, retaining
+  reviews, provenance, generated warnings, raw prerequisites, duplicate source rows and
+  unresolved/conflicting states. Results are defensive copies. This is an offline
+  snapshot library, not retrieval/API integration, academic verification or a new raw
+  review gate. Reload after rebuilding the package; do not assume it was published.
 - Active data-preparation branch: `crawldata`. Base before this work was `38a5ddbd604469754e8e4de0c423a08e8976cdb6`. The user explicitly requested publication as **exactly 30 new commits**; inspect Git/remote history for the final publication state, never infer it from this note.
 - Current shared handoff is `data/hus/rag/{f1,f2,f3}` with checksums/origin paths in its manifest. Keep the source/release artifacts under `data/hus/qa/20261028/` for reproducibility; index only one copy of each dataset.
 - F1 currently has 15 sources / 69 chunks: 5 raw-HTML-compared sources plus 10 sources explicitly approved by the user for descriptive F1 from existing Markdown. The ten use `include_markdown`, selected-F1 scope and `raw_original_verified=false`; do not claim original PDF/DOCX or current academic validity was verified. The mixed Toan Co careers page was excluded by user request, pending is empty, and duplicate CLC narratives retain provenance without duplicate retrieval weight. The original raw review gate remains unchanged.

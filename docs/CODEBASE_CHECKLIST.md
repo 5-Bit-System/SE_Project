@@ -1,5 +1,136 @@
 ﻿# Checklist codebase
 
+## Sửa phạm vi RAG — local 2026-11-02
+
+- [x] Handler `app/hus/chat.py` và app `app/hus/demo.py` riêng: F1/F2/F3 + trò chuyện
+  cơ bản, không import/call stack recommendation/eligibility/profile/auth/provider.
+- [x] UI `hus-rag-demo.*` riêng, chọn ngành/phiên bản thực của release, reset opt-in/
+  hội thoại và loại response cũ; giữ dẫn chứng AI/PDF/web và review.
+- [x] Launcher tracked `python -m tools.run_hus_rag_demo`; lệnh local cũ tương thích.
+- [x] 50 ca browser và kiểm scope/hash/edition; receipt mới riêng tại
+  [hus_rag_scope_report.json](acceptance/hus_rag_scope_report.json).
+- [ ] Tích hợp lại main bằng endpoint HUS riêng, giữ bảo vệ tài khoản/revision;
+  nghiệm thu commit/CI mới sau thay đổi scope, không dùng lại receipt P04/P05.
+
+## P0-5 — Chuẩn bị CI/phát hành, local 2026-11-02 (trước sửa scope)
+
+- [x] Bundle `integration/hus-rag-p05/`:77 input/43 output, replay61 backend/9 Node đạt.
+- [x] Workflow CI theo lock; receipt ghim code/test/config/data/release, strict kiểm
+  clean checkout/expected commit. Receipt local dirty nên không đủ điều kiện phát hành.
+- [x] Selector snapshot/request, preflight13 asset bắt buộc, lock/CAS/thay nguyên tử,
+  history/rollback;20 ca lifecycle và diễn tập trên selector copy đạt, nguồn nguyên bytes.
+- [x] Venv sạch theo lock:672 Python passed/10 skipped/80 DB deselected,9 Node,
+  43 HTTP/14 Chromium. [Biên bản P0-5](RAG_P05_RELEASE_PREPARATION.md).
+- [ ] Theo yêu cầu commit/push riêng: giữ ancestry/author, chốt commit tích hợp,
+  nghiệm thu strict/CI đúng SHA và phát hành có kiểm soát. Chưa activate production.
+
+## P0-4 — UI/auth main, local 2026-11-02
+
+- [x] Worktree từ main5239b733, branch integration/hus-rag-p04-20261102; RAG vào
+  `/me/advisor/chat` sau operation/ready, recheck ensure_current trước trả lời.
+- [x] Giữ account, CSRF/Origin/host, revision/binding; chặn legacy HUS bypass; source
+  resolver cần verified account. Không mở `/hus/chat` công khai trên main.
+- [x] Module chat riêng trên UI active, lấy binding server; reset/drop đúng account/
+  session/source/selection/revision; AI null-link/PDF/web/DOCX/missing giữ contract.
+- [x] 652 Python passed/10 skipped/80 DB deselected,9 Node;43 HTTP/14 Chromium đạt.
+  Gói patch/manifest tái tạo đúng hash và chạy lại41 backend/9 Node đạt.
+- [x] Bản bàn giao trong crawldata: [P0-4](RAG_P04_MAIN_INTEGRATION.md); root/các module
+  legacy và nguồn/review giữ nguyên. Worktree main chưa commit/push/merge.
+- [ ] P0-5: chốt commit tích hợp, PR/CI và phát hành có kiểm soát.
+
+## P0-3 — Oracle/API/browser citation, local 2026-11-02
+
+- [x] Oracle đối chiếu PDF locator, trang F1 theo quote/capture độc lập và đủ source
+  occurrence F2; 29 ca hồi quy/API phát hiện sai trang/hash/JSON, mất/lặp nguồn, AI bị đổi.
+- [x] Ca thật MAT3325 giữ hai link cùng PDF trang13/12, cả hai API và Chromium viewer;
+  AI null-link vẫn có thẻ, duplicate nguyên citation không làm mất trang khác.
+- [x] 2.318 HTTP/47 Chromium, 14 binary và28 URL trang đạt; receipt ghim thêm test/
+  fixture và screenshot hash. [Biên bản P0-3](RAG_P03_CITATION_TESTS.md).
+- [x] Toàn repo699 Python passed/26 skipped,5 Node; PDF viewer chờ plugin xác nhận
+  cuộn và kiểm scroll thực trước khi ghi ảnh, không chỉ kiểm ô số trang.
+- [x] P0-4 đạt local trong worktree main riêng; P0-5 CI/phát hành còn phía trước.
+
+## P0-2 — Contract dẫn chứng, local 2026-11-02
+
+- [x] Phân loại AI/PDF/web/DOCX; AI hiện “kiến thức AI” dù không link; giữ warning,
+  review và opt-in. F2 không lấy JSON làm link mở PDF.
+- [x] Registry 12 PDF/2 DOCX từ Git đã ghim, kiểm hash/format/trang, resolver GET/HEAD/
+  single range và lỗi thiếu/sai bytes; DOCX tải attachment, không giả PDF.
+- [x] Nghiệm thu unit/HTTP/Chromium dùng dữ liệu thật, có kiểm PDF viewer/trang và
+  binary tải xuống; chi tiết và receipt tại [P0-2](RAG_P02_CITATIONS.md).
+- [x] P0-4 tích hợp local UI/auth active main, xem biên bản trên.
+- [ ] P0-5 CI và phát hành có commit/receipt tích hợp.
+
+## P0-1 — Chốt dữ liệu/adapter, local 2026-11-02
+
+- [x] Nhập portable v3 nguyên byte từ a543cf8d, giữ nguyên legacy 19 payload; CURRENT
+  ghim release hash, prepared state không đổi. F2 main đúng canonical blob38be5742.
+- [x] Receipt diff cho đủ ID/hash/quote/edition/review: F1 69→65 là bốn unit chia lại,
+  cùng63 unit và span/nguồn; bảng F2 không đổi, F3 generated fields giữ nguyên.
+- [x] Giữ67 KHMTTT sign-off cấp dự án và223 draft, F3 không được nâng review. Adapter
+  validate snapshot riêng, không trộn legacy/qa; CURRENT hỏng không fallback.
+- [x] API/retriever mặc định CURRENT; từng response có release ID/hash. Generated mặc
+  định tắt, yêu cầu boolean opt-in ở API và checkbox ở chat; reset khi đổi ngữ cảnh.
+- [x] 656 Python passed/26 skipped, 3/3 Node, Ruff/JS/diff đạt. 2.318 HTTP và29 Chromium
+  với v3/opt-in đạt; xem [P0-1](RAG_P01_DATA_SELECTION.md) và receipt mới.
+- [x] P0-2/P0-3: nhãn “kiến thức AI”, resolver/mở PDF và oracle/test mới; xem biên bản trên.
+
+## Luồng trả lời F1–F3 — nghiệm thu local (legacy)
+
+- [x] Thêm `HUSAnswerer`, schema hỏi/đáp/citation, service lazy-cache, `POST /hus/chat`;
+  `/advisor/chat` định tuyến HUS trước catalog/provider, giữ nhánh khuyến nghị cũ.
+- [x] F1 trích nguồn/URL/locator và giới hạn Markdown/hiệu lực; F2 trả dữ kiện có trạng
+  thái draft, nguồn PDF/trang/pointer, dòng xung đột và mã raw chưa giải quyết; F3 hiện
+  nhãn AI sinh/warning và giữ review. Không dùng F2 làm citation đề cương F3 chính thức.
+- [x] Thiếu bằng chứng/field/hiệu lực chính thức trả chưa có thông tin; thiếu định danh
+  cần thiết trả needs_clarification; sai package là 503, sai schema 422, không gọi LLM bù.
+- [x] Chat hiện link citation HTTP(S), giữ nhãn nguồn, reset khi đổi ngành/hồ sơ và bỏ
+  response chat thuộc ngữ cảnh cũ. Hai unit test Node đạt cho link an toàn và stale reply.
+- [x] 39 kiểm thử Python mới đạt cho câu trả lời F1/F2/F3, điều kiện thiếu/mâu thuẫn,
+  nguồn, API và tách nhánh advisor; network bị chặn trong test mặc định.
+- [x] Toàn bộ kiểm thử offline: **623 passed, 26 skipped**; **2/2 unit test Node** đạt,
+  Ruff, `node --check app/static/app.js` và kiểm tra diff đạt.
+- [x] Nghiệm thu đầu cuối local: **2.310 ca HTTP + 25 ca Chromium thực**; kiểm đủ
+  290 membership, 870 field F3, citation/nguồn, sai ngành/mã/phiên bản, không suy đoán
+  tỷ lệ thi và response chat đến sau đổi ngành. UI dùng fixture, HUS dùng gói thật.
+  Xem [biên bản và receipt](HUS_E2E_ACCEPTANCE.md).
+- [x] Sau sửa định tuyến tỷ lệ thi và alias ngành: **639 passed, 26 skipped** toàn bộ
+  suite Python; 2/2 test Node, Ruff, kiểm tra cú pháp JS và diff đều đạt.
+- [ ] Nghiệm thu database sản phẩm, provider/live demo và CI/deployment remote.
+
+## Truy xuất F1/F3 — 2026-11-01
+
+- [x] `HUSRAGRetriever.search()` lọc ngành/phiên bản/mã môn/field/variant trước BM25/top-k;
+  hỗ trợ từ khóa tiếng Việt có/không dấu, không mở rộng phạm vi khi không có khớp.
+- [x] Mã môn trong câu hỏi là bộ lọc cứng. F2 giữ tra cứu cấu trúc qua bộ nạp; warning,
+  review và quote/locator/provenance F1/F3 giữ nguyên trong kết quả.
+- [x] Không quét/nạp thêm `qa/`, origin hoặc rag_documents; bản trùng cùng nguồn/phạm vi
+  không được tăng trọng số. Cảnh báo/context lặp F3 không dùng làm chủ đề xếp hạng.
+- [x] 21 test retrieval đạt, gồm fixture tổng hợp và truy xuất evidence cho 16 contract F1
+  cùng 16 contract F3 trên gói thật. Không chứng nhận độ đúng câu trả lời LLM/học vụ.
+- [x] Toàn bộ kiểm thử offline: **584 passed, 26 skipped**; Ruff đạt. Không chạy
+  PostgreSQL, browser, provider LLM hoặc CI remote trong bước truy xuất.
+- [x] Nối truy xuất vào API/chatbot và kiểm tra hợp đồng câu trả lời/citation qua HTTP local;
+  nghiệm thu trình duyệt thực/remote vẫn còn riêng ở trên.
+
+## Bộ nạp dữ liệu F1–F3 — 2026-11-01
+
+- [x] `HUSRAGData.load()` kiểm manifest đủ file/kích thước/SHA-256; đọc F1/F3 từ chunks
+  và tra F2 theo mã môn–ngành–phiên bản, không fallback hoặc nạp lặp bản release.
+- [x] Giữ metadata nguồn/review và nhãn warning F3; F2 giữ mọi dòng/nhóm nguồn, raw tiên
+  quyết/group_no, metadata theo trường, mã chưa giải quyết và cờ xung đột.
+- [x] Kết quả là bản sao độc lập; báo lỗi rõ khi gói thiếu/sai hash, trùng identity,
+  F1 không còn được duyệt mô tả hoặc F3 sai nhãn/membership. Không đổi raw review gate.
+- [x] 22 kiểm thử mới đạt trên fixture tổng hợp và kiểm tra nạp gói thật
+  69 chunks F1 / 870 chunks F3 / đủ 290 membership F2. Xem
+  [hướng dẫn bộ nạp](../data/hus/rag/README.md#đọc-dữ-liệu-bằng-python).
+- [x] Toàn bộ kiểm thử offline: **563 passed, 26 skipped**; Ruff đạt. Không chạy lại
+  PostgreSQL, browser, provider LLM hoặc CI remote cho phần bộ nạp này.
+- [x] Triển khai tìm kiếm từ khóa/ranking và kiểm tra evidence metadata, xem phần truy xuất ở trên.
+- [x] Bộ nạp/truy xuất đã được lớp trả lời và API/chatbot HUS sử dụng; xem phần nghiệm thu trên.
+
+Các phần bên dưới lưu nghiệm thu theo thời điểm, không mô tả đầy đủ trạng thái mới nhất.
+
 Trạng thái ngày 2026-10-15, sau khi hoàn thiện phần A — metadata/runtime/kiểm thử.
 
 - [x] Có cấu hình PostgreSQL/Docker, SQLAlchemy, Alembic và seed theo định dạng runtime cũ.

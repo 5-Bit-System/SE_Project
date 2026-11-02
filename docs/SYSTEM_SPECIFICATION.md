@@ -1,5 +1,11 @@
 # Đặc tả hệ thống theo pipeline
 
+**Phạm vi nhánh crawldata, cập nhật 02/11/2026:** hỏi đáp F1/F2/F3 và trò chuyện cơ bản.
+Chat RAG không nối tới ranking/explanation, không lấy bảng điểm hoặc tính eligibility.
+Demo hiện hành là `app.hus.demo:app`, chạy bằng `tools.run_hus_rag_demo`, có giao diện
+riêng. Các phần recommendation bên dưới mô tả module khác của toàn dự án. Xem
+[phạm vi đã chỉnh](superpowers/specs/2026-11-02-hus-rag-scope-design.md).
+
 ## 1. Hệ thống này làm gì?
 
 Hệ thống giúp sinh viên:
@@ -28,9 +34,10 @@ flowchart TD
     REC --> RESULT[Kết quả và giải thích]
     RESULT --> UI
 
-    CHAT --> ROUTER[Phân loại câu hỏi]
-    ROUTER -->|Tư vấn môn học| REC
-    ROUTER -->|Hỏi thông tin HUS| HUS[RAG thông tin HUS]
+    CHAT --> ROUTER[Phân loại câu hỏi RAG]
+    ROUTER -->|Trò chuyện cơ bản| BASIC[Chào hỏi và hướng dẫn]
+    ROUTER -->|F1 F2 F3| HUS[RAG thông tin HUS]
+    BASIC --> CHAT
     HUS --> CHATRESULT[Câu trả lời và nguồn]
     CHATRESULT --> CHAT
 ```
@@ -43,11 +50,12 @@ Trang chính có ba khu vực chính:
 - Khu vực kiểm tra điều kiện: xem môn nào đủ điều kiện và môn nào bị chặn, kèm lý do.
 - Khu vực gợi ý môn: nhập mong muốn, xem các môn được xếp hạng và lý do.
 
-Ngoài ra, ở mọi trang có một **nút chatbot nổi**. Người dùng bấm nút này để hỏi về môn học hoặc hỏi thông tin HUS.
+Demo RAG của nhánh này dùng khung hỏi đáp riêng: chọn ngành/phiên bản rồi hỏi F1/F2/F3
+hoặc trò chuyện cơ bản. Giao diện bảng điểm/gợi ý môn của ứng dụng lớn là module riêng.
 
 ## 3. Quy tắc quan trọng nhất
 
-Hệ thống luôn làm theo thứ tự:
+Riêng module gợi ý môn của ứng dụng lớn làm theo thứ tự:
 
 **Chọn ngành → kiểm tra điều kiện → tạo danh sách môn hợp lệ → hiểu mong muốn → xếp hạng → giải thích → hiển thị.**
 
@@ -369,17 +377,23 @@ API key chỉ dùng để xác thực với nhà cung cấp LLM và cho phép g�
 
 ```mermaid
 flowchart TD
-    Q[Câu hỏi trong chatbot] --> I[Intent Router]
-    I -->|Gợi ý môn| R[Recommendation Pipeline]
-    I -->|Thông tin HUS| S[Kiểm tra phạm vi Khoa Toán – Cơ – Tin học]
-    S -->|Trong phạm vi| RET[Tìm tài liệu liên quan]
-    S -->|Ngoài phạm vi| REFUSE[Từ chối lịch sự]
-    RET --> GEN[LLM trả lời dựa trên tài liệu]
-    GEN --> CITE[Kiểm tra nguồn và citation]
-    CITE --> ANSWER[Câu trả lời HUS]
+    Q[Câu hỏi và ngành phiên bản] --> I[Phân loại trong phạm vi RAG]
+    I -->|Trò chuyện cơ bản| BASIC[Chào hỏi cảm ơn và hướng dẫn]
+    I -->|F1| RET[Tìm đoạn nguồn đúng phạm vi]
+    I -->|F2| LOOKUP[Tra mã môn ngành phiên bản]
+    I -->|F3| OPT{Cho phép kiến thức AI?}
+    OPT -->|Có| RET
+    OPT -->|Chưa| ASK[Yêu cầu bật nội dung tham khảo]
+    I -->|Ngoài phạm vi hoặc thiếu nguồn| MISSING[Chưa có thông tin đủ căn cứ]
+    RET --> EXTRACT[Trích nội dung và giữ review]
+    LOOKUP --> EXTRACT
+    EXTRACT --> CITE[PDF web hoặc kiến thức AI]
+    CITE --> ANSWER[Câu trả lời kèm dẫn chứng]
 ```
 
-Luồng này chỉ chạy trong khung chatbot, không tạo thêm trang FAQ bên ngoài.
+Luồng này không chuyển câu hỏi sang recommendation, eligibility, ranking hay explanation.
+Retriever dùng điểm liên quan để chọn đoạn bằng chứng. Trò chuyện cơ bản dùng câu đáp
+cố định; F1/F2/F3 hiện trả lời trích xuất, không gọi LLM/provider để điền facts.
 
 ### Giai đoạn A: Chuẩn bị dữ liệu HUS
 
@@ -417,6 +431,94 @@ text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xe
 [quy trình và nghiệm thu](HUS_CORPUS_PREPARATION.md) để tái tạo trên cùng snapshot.
 
 ### Giai đoạn B: Trả lời câu hỏi
+
+**Luồng RAG hiện hành sau khi sửa phạm vi:** `app/hus/chat.py` bọc answerer hiện có;
+`app/hus/demo.py` phục vụ riêng `/hus/chat`, `/hus/config` và nguồn binary. Giao diện
+`hus-rag-demo.*` chỉ chọn ngành/phiên bản và hỏi đáp, không phụ thuộc hồ sơ/bảng điểm.
+Demo local không có xác thực tài khoản; đây không phải thay đổi cổng auth production.
+Trước phát hành main, cần endpoint HUS riêng có verified account/CSRF/Origin/binding/
+revision tương đương, rồi chạy lại receipt/CI cho code mới. Các đoạn P0-4/P0-5 sau
+đây ghi lịch sử tích hợp cũ, chưa chứng nhận phạm vi đã chỉnh.
+
+P0-4 đã đưa service vào `/me/advisor/chat` và UI/auth active của main trong worktree
+riêng từ5239b733, giữ operation/ready/ensure_current, cookie/CSRF/Origin và binding
+server. Module hus-chat lấy revision hiện tại, reset/drop đúng account/source/context.
+Root crawldata giữ nguyên UI legacy; patch/manifest tái tạo ở `integration/hus-rag-p04/`.
+Xem [biên bản P0-4](RAG_P04_MAIN_INTEGRATION.md); chưa merge/push/phát hành production.
+
+P0-5 đã chuẩn bị bundle/CI và cơ chế chuyển release trong worktree `p05-main`:
+receipt ghim code/test/config/data, clean/expected commit; preflight/lock/CAS và
+rollback selector. Production chỉ phục vụ active có build identity, từ chối simulation;
+selector nguồn vẫn prepared.672 Python/9 Node,43 HTTP/14 Chromium đạt local theo lock.
+Commit tích hợp/CI remote/phát hành còn chờ yêu cầu riêng; xem
+[P0-5](RAG_P05_RELEASE_PREPARATION.md). Root crawldata không tự nhận code lifecycle này.
+
+P0-2 local bổ sung contract citation phân biệt AI/PDF/web/DOCX/missing, giữ provenance
+và trạng thái review. `open_url` là URL để UI mở; `source_url` giữ URL gốc. AI luôn hiện
+“kiến thức AI”, không gắn link PDF F2 cho nội dung AI. Registry binary riêng tại
+`data/hus/citation_assets/` ghim v3, gồm12 PDF/2 DOCX nguyên byte từ Git object nguồn.
+`GET/HEAD /hus/sources/{sha256}?page=N` chỉ phục vụ hash thuộc snapshot, kiểm chính bytes
+trả, format và trang vật lý; PDF inline, DOCX attachment, hỗ trợ single byte range.
+Missing/hash mismatch/invalid page trả lỗi rõ ràng; không fallback JSON/tài liệu khác.
+F1 xác định trang bằng quote trong capture gắn hash, không có vị trí chắc chắn thì
+mở toàn văn và ghi chưa rõ trang. UI giữ thẻ AI không link và hai trang cùng PDF.
+Web mở URL HTTP(S) gốc, chưa kiểm lại Internet. Xem [P0-2 và nghiệm thu](RAG_P02_CITATIONS.md).
+Các con số nghiệm thu cũ bên dưới là baseline lịch sử, không thay receipt mới.
+
+P0-1 chọn nguồn runtime local qua `CURRENT.json`: portable hus-data-20261031-v3, gồm
+65 F1,336 F2,870 F3 chunks và290 record F2. `portable_adapter.py` xác minh bytes/
+manifest/semantic trên snapshot riêng, map sang interface hiện có; F2 vẫn tra cấu trúc.
+Không ghép legacy/qa, không tự fallback khi CURRENT hỏng. Source sign-off được import
+nguyên trạng:67 KHMTTT cấp dự án,223 draft, F3 vẫn chưa xác minh. Generated phải opt-in
+từng request (`allow_generated_reference`), mặc định tắt; UI checkbox reset khi đổi ngữ
+cảnh. Response ghim release_id/hash. State prepared và raw review gate giữ nguyên.
+Chi tiết/diff/test tại [P0-1](RAG_P01_DATA_SELECTION.md); các số legacy phía sau là lịch sử.
+
+Luồng trả lời HUS có `app/hus/answering.py` và service lazy/cache snapshot riêng.
+`POST /hus/chat` nhận câu hỏi/ngành cùng các bộ lọc tùy chọn, trả lời bằng trích xuất dữ
+kiện, không gọi LLM để bù thông tin thiếu. F1 kèm URL/quote/locator và giới hạn review;
+F2 trả dữ kiện với trạng thái nguồn, PDF/trang/pointer JSON, giữ riêng các dòng xung đột
+và mã tiên quyết chưa giải quyết (không chuyển raw code thành quan hệ eligibility);
+F3 giữ nhãn AI sinh, warning, needs_review và academic_verified=false. Thiếu bằng chứng,
+yêu cầu hiệu lực/chính thức chưa xác minh hoặc field chưa có trả `no_information`;
+thiếu mã/phiên bản cần thiết trả `needs_clarification`. Không tạo citation cho phần không có.
+
+Router legacy `POST /advisor/chat` còn định tuyến câu hỏi thông tin HUS trước khi nạp catalog khuyến nghị,
+trả `mode=hus_rag` và `hus_answer`; câu hỏi khuyến nghị vẫn theo luồng cũ. Ngành lấy theo
+đúng program_id/alias được chọn; không suy phiên bản F1 từ quyết định F2. Giao diện chat
+hiển thị link citation an toàn HTTP(S), giữ reply có nhãn nguồn và bỏ phản hồi đến sau
+khi đổi ngành/hồ sơ. Package lỗi trả 503; schema sai trả 422. Snapshot service phải reload
+sau khi cập nhật gói; không tự nâng review/active_release, không gọi DB/provider cho HUS.
+API và ý định hỗ trợ tại [hướng dẫn trả lời](../data/hus/rag/README.md#luồng-trả-lời-và-api).
+
+Nghiệm thu đầu cuối local đã chạy qua server HTTP thật và Chromium thật: 2.310 ca HTTP,
+25 ca trình duyệt, dùng UI fixture độc lập và gói HUS thật. Citation đối chiếu quote/
+locator/pointer/checksum với artifact gốc trong repo; không chứng nhận lại học vụ/PDF.
+Yêu cầu xác nhận tỷ lệ/hình thức thi được ưu tiên kiểm chứng trước intent khuyến nghị,
+kể cả câu hỏi ghép; tên ngành cụ thể/viết tắt được nhận diện trước alias có tiền tố ngữ
+cảnh. Không vay dữ kiện khác ngành. [Biên bản, receipt và lệnh chạy lại](HUS_E2E_ACCEPTANCE.md).
+
+Theo yêu cầu triển khai bộ nạp thống nhất (2026-11-01), `app/hus/rag_loader.py` cung cấp
+`HUSRAGData.load()` cho gói `data/hus/rag/`. Bộ nạp kiểm tra toàn bộ manifest theo byte/
+SHA-256, đọc F1/F3 chunks trong hai namespace riêng và tra F2 trực tiếp theo khóa mã môn,
+ngành, phiên bản. F1 giữ `program_version`, F2/F3 giữ `curriculum_version`; không suy ra
+chúng tương đương, không fallback sang ngành/phiên bản khác hoặc coi `unknown` là khớp.
+Kết quả giữ metadata review/nguồn, quote/locator, nhãn AI sinh và các dòng/nhóm/tiên quyết
+F2 kể cả trùng/xung đột/chưa xác minh. Caller nhận bản sao độc lập. Đây là snapshot dữ liệu
+offline; phần truy xuất bổ sung được mô tả ngay sau đây. Không tự tái duyệt
+raw, không tự kích hoạt release hoặc sửa `ReviewDecision`/`HUSIndex`; phải nạp lại sau khi
+tái tạo gói. Xem [cách dùng bộ nạp](../data/hus/rag/README.md#đọc-dữ-liệu-bằng-python).
+
+`app/hus/retrieval.py` bổ sung `HUSRAGRetriever.search()` cho hai namespace F1/F3.
+Lọc ngành/phiên bản/mã môn/field/variant trước khi tính BM25 và top-k; các mã môn nhận
+diện trong câu hỏi cũng giới hạn membership, không fallback sang môn cùng chủ đề.
+Chuẩn hóa từ khóa tiếng Việt có/không dấu; xếp hạng nội dung nguồn cùng tên/nhãn field,
+không dùng cảnh báo/context lặp đầu F3 để tính chủ đề. Kết quả giữ nguyên chunk và metadata
+nguồn/review/warning. Chỉ đọc một snapshot từ bộ nạp, không quét/nạp thêm `qa/` hoặc
+documents ngoài chunks; loại bản trùng nguyên văn cùng phạm vi/nguồn trước khi tính điểm.
+Không có khớp trả tập rỗng; F2 tiếp tục tra cấu trúc trực tiếp. Đây là retrieval từ khóa
+offline, chưa có embeddings hoặc LLM trả lời; API dùng lớp trả lời trích xuất ở trên. Xem
+[cách truy xuất](../data/hus/rag/README.md#truy-xuất-tài-liệu).
 
 Theo yêu cầu mới của người dùng, adapter `app/hus/f1_markdown_review.py` cho phép duyệt
 tường minh các phần F1 trên Markdown đã crawl của đúng 10 tài liệu, giữ hash/locator và
@@ -494,12 +596,12 @@ trạng thái crawler chuyển sang pending_ocr. Lệnh index cũ chỉ cho empt
 crawl chưa duyệt trước HTTP. Crawler vẫn giữ mọi bằng chứng; corpus/index chỉ nhận phần đã
 qua cổng. Đây là kiểm tra contract và bằng chứng review, không tự chứng nhận học vụ.
 
-1. Người dùng hỏi trong chatbot.
-2. Router xác định đây là câu hỏi HUS hay câu hỏi gợi ý môn.
-3. Nếu là câu hỏi HUS, hệ thống tìm các đoạn tài liệu liên quan.
-4. LLM trả lời dựa trên các đoạn đã tìm được.
-5. Backend kiểm tra câu trả lời có nguồn hay không.
-6. Chatbot hiển thị câu trả lời cùng URL và tiêu đề nguồn.
+1. Người dùng chọn ngành/phiên bản có trong release và hỏi trong chatbot RAG riêng.
+2. Bộ xử lý nhận diện trò chuyện cơ bản hoặc thông tin F1/F2/F3.
+3. F1/F3 tìm đoạn đúng phạm vi; F2 tra cấu trúc theo mã môn/ngành/phiên bản.
+4. Trả lời trích xuất, giữ review/metadata; F3 chỉ dùng khi opt-in và hiện “kiến thức AI”.
+5. PDF mở đúng binary/hash/trang; web mở URL gốc; thiếu bằng chứng trả chưa có thông tin.
+6. Câu hỏi gợi ý chọn môn không được chuyển sang ranking/explanation hoặc provider.
 
 Nếu không tìm thấy thông tin, chatbot nói rõ chưa tìm thấy và không tự đoán. Nếu câu hỏi ngoài phạm vi khoa, chatbot từ chối lịch sự. Nếu tài liệu mâu thuẫn, chatbot nói rõ có mâu thuẫn và hướng dẫn người dùng xác nhận với đơn vị phụ trách.
 
@@ -510,12 +612,15 @@ flowchart LR
     WEB[Trang thông tin HUS được cho phép] --> CRAWL[Crawler]
     CRAWL --> CLEAN[Làm sạch nội dung]
     CLEAN --> CHUNK[Chia đoạn tài liệu]
-    CHUNK --> INDEX[Search index hoặc embedding index]
+    CHUNK --> INDEX[Đoạn F1 F3 đúng release]
     Q[Câu hỏi người dùng] --> SEARCH[Tìm đoạn liên quan]
     INDEX --> SEARCH
     SEARCH --> CONTEXT[Context có URL và tiêu đề]
-    CONTEXT --> LLM[LLM trả lời có căn cứ]
-    LLM --> OUT[Câu trả lời + nguồn]
+    F2[Bảng F2 cùng release] --> LOOKUP[Tra mã môn ngành phiên bản]
+    Q --> LOOKUP
+    CONTEXT --> EXTRACT[Trích nội dung có căn cứ]
+    LOOKUP --> EXTRACT
+    EXTRACT --> OUT[Câu trả lời + dẫn chứng]
 ```
 
 ## 10. What-if hoạt động thế nào?
