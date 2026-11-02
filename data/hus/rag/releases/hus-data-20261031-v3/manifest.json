@@ -1,0 +1,272 @@
+{
+  "files": {
+    "academic_issues.jsonl": {
+      "bytes": 145903,
+      "sha256": "4d690d783c0e7d26df6453b851b180037757e22f28b1195b3038678121e7ac0a"
+    },
+    "chunks.jsonl": {
+      "bytes": 2909263,
+      "sha256": "6a5ea606f174693263b048a100202a02cedb84a6b16ff71b854248106bd266d1"
+    },
+    "display_edits.jsonl": {
+      "bytes": 1283,
+      "sha256": "94345e079c7ce6780a238c4c872e331dc5bb248b601569508e15dad687c497e0"
+    },
+    "evaluation/questions.jsonl": {
+      "bytes": 672759,
+      "sha256": "88609df9c8986bfda440aed2844479ce3629ff5b2bf06dad06ecd1d357a55125"
+    },
+    "evidence/canonical_f2.json": {
+      "bytes": 622644,
+      "sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c"
+    },
+    "evidence/f1/055c47bf412172c0.txt": {
+      "bytes": 3805,
+      "sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec"
+    },
+    "evidence/f1/0dd9aaaeefcbd7d7.txt": {
+      "bytes": 4345,
+      "sha256": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee"
+    },
+    "evidence/f1/1b525683101bf943.txt": {
+      "bytes": 3325,
+      "sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059"
+    },
+    "evidence/f1/1c16ddf8a6f1f409.txt": {
+      "bytes": 51556,
+      "sha256": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0"
+    },
+    "evidence/f1/1e3ad5f9915aa051.txt": {
+      "bytes": 25594,
+      "sha256": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968"
+    },
+    "evidence/f1/23a0c1df14a5708a.txt": {
+      "bytes": 22852,
+      "sha256": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151"
+    },
+    "evidence/f1/31b55b4ee6f451a6.txt": {
+      "bytes": 5284,
+      "sha256": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb"
+    },
+    "evidence/f1/89d4b39494d72217.txt": {
+      "bytes": 22838,
+      "sha256": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147"
+    },
+    "evidence/f1/8afffd3cada3d048.txt": {
+      "bytes": 43742,
+      "sha256": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a"
+    },
+    "evidence/f1/ce8df97fe49665e9.txt": {
+      "bytes": 3530,
+      "sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6"
+    },
+    "evidence/f1/d006f60211246633.txt": {
+      "bytes": 129520,
+      "sha256": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d"
+    },
+    "evidence/f1/d4fae066858f0b94.txt": {
+      "bytes": 22415,
+      "sha256": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7"
+    },
+    "evidence/f1/d6370261338de29f.txt": {
+      "bytes": 3192,
+      "sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb"
+    },
+    "evidence/f1/f7f470e712738589.txt": {
+      "bytes": 177047,
+      "sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa"
+    },
+    "evidence/f1/f8672cafba05d016.txt": {
+      "bytes": 2583,
+      "sha256": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05"
+    },
+    "evidence/f1_recovery_comparisons.jsonl": {
+      "bytes": 15498,
+      "sha256": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d"
+    },
+    "evidence/generated_blueprints.psv": {
+      "bytes": 72167,
+      "sha256": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec"
+    },
+    "evidence/pdf_code_page_audit.csv": {
+      "bytes": 11669,
+      "sha256": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72"
+    },
+    "evidence/raw/055c47bf412172c0.html": {
+      "bytes": 20117,
+      "sha256": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394"
+    },
+    "evidence/raw/1b525683101bf943.html": {
+      "bytes": 19944,
+      "sha256": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001"
+    },
+    "evidence/raw/ce8df97fe49665e9.html": {
+      "bytes": 20077,
+      "sha256": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c"
+    },
+    "evidence/raw/d6370261338de29f.html": {
+      "bytes": 19819,
+      "sha256": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e"
+    },
+    "evidence/raw/f8672cafba05d016.html": {
+      "bytes": 19000,
+      "sha256": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914"
+    },
+    "evidence/recovered_sources.jsonl": {
+      "bytes": 12889,
+      "sha256": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8"
+    },
+    "evidence/recovered_text.jsonl": {
+      "bytes": 1575862,
+      "sha256": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3"
+    },
+    "evidence/search_glossary.json": {
+      "bytes": 4227,
+      "sha256": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0"
+    },
+    "f1_chunks.jsonl": {
+      "bytes": 159864,
+      "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+    },
+    "f2_chunks.jsonl": {
+      "bytes": 629288,
+      "sha256": "0fddecc891449d44dfb9071b2605faca5d67b912c731ed9de527bb1fd5bcef9b"
+    },
+    "f2_records.jsonl": {
+      "bytes": 723579,
+      "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+    },
+    "f3_chunks.jsonl": {
+      "bytes": 2120111,
+      "sha256": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b"
+    },
+    "f3_records.jsonl": {
+      "bytes": 1810868,
+      "sha256": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+    },
+    "groups.jsonl": {
+      "bytes": 52848,
+      "sha256": "cc7a8e5e77663151365a0fdb72d602e3b11609231b0d39f80e062a129d4ff8d5"
+    },
+    "input_manifest.json": {
+      "bytes": 4056,
+      "sha256": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994"
+    },
+    "programs.jsonl": {
+      "bytes": 5090,
+      "sha256": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a"
+    },
+    "quality_report.json": {
+      "bytes": 1864,
+      "sha256": "49af0d5170927b689e75e9b21362a3f5c8d3f4b0de92860d387a625bfcb717b0"
+    },
+    "search_aliases.jsonl": {
+      "bytes": 76980,
+      "sha256": "00ddc3b915cc80d9370641ed92d3bc6c0ddb23cfe4bd0647e0f8f3c022746958"
+    },
+    "source_inventory.jsonl": {
+      "bytes": 36146,
+      "sha256": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5"
+    },
+    "source_syllabi.jsonl": {
+      "bytes": 364501,
+      "sha256": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6"
+    },
+    "source_syllabi_report.json": {
+      "bytes": 486,
+      "sha256": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6"
+    },
+    "sources.jsonl": {
+      "bytes": 18136,
+      "sha256": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5"
+    },
+    "syllabus_links.jsonl": {
+      "bytes": 64611,
+      "sha256": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832"
+    }
+  },
+  "implementation": {
+    "data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "syllabus_extract.py": "38786b9f1eff7859173480c8cabf27ca3ed3d60983d8646e20f7f7f01d7583f2"
+  },
+  "input_identity": {
+    "canonical_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+    "canonical_f2_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+    "canonical_f2_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+    "canonical_path": "database/data/hus_source.json",
+    "crawl_commit": "312a6e16fee4c5deb427fd224c20e8a1092989a5",
+    "pdfs": [
+      {
+        "bytes": 18438317,
+        "origin": "user_supplied_archive_on_main",
+        "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+        "path": "docs/pdf/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+        "path_scope": "repository_root",
+        "remote_original_equality": "unknown",
+        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+        "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf"
+      },
+      {
+        "bytes": 19334830,
+        "origin": "user_supplied_archive_on_main",
+        "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+        "path": "docs/pdf/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+        "path_scope": "repository_root",
+        "remote_original_equality": "unknown",
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+        "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf"
+      },
+      {
+        "bytes": 19361810,
+        "origin": "user_supplied_archive_on_main",
+        "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+        "path": "docs/pdf/104.-KHMTTT-chuẩn final QD 3568 Scan final (1).pdf",
+        "path_scope": "repository_root",
+        "remote_original_equality": "unknown",
+        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf"
+      },
+      {
+        "bytes": 21509533,
+        "origin": "user_supplied_archive_on_main",
+        "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+        "path": "docs/pdf/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+        "path_scope": "repository_root",
+        "remote_original_equality": "unknown",
+        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+        "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf"
+      },
+      {
+        "bytes": 21292430,
+        "origin": "user_supplied_archive_on_main",
+        "origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+        "path": "docs/pdf/102. Toán học-tài năng final QD 3566 Scan.pdf",
+        "path_scope": "repository_root",
+        "remote_original_equality": "unknown",
+        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744",
+        "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf"
+      }
+    ],
+    "pinned_inputs": {
+      "data/hus/processed/catalog.json": "d74ce592c71e303e09bbc0f48cd4bdb04a184068e4232aa3cab46c24e1164352",
+      "data/hus/rag/f1/documents.jsonl": "297a27a6179d3ec529b1217014a918022fecc9a876d3e8654fde51c7ff4911bc",
+      "data/hus/rag/f1/f1_units.jsonl": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8",
+      "data/hus/rag/f1/manifest.json": "87a953f3d180ce1792e54515ee625255191b8612dde87350622f875cac41dbe3",
+      "data/hus/rag/f3/inputs/blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+      "data/hus/rag/f3/records.jsonl": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45",
+      "data/hus/rag/inputs/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+      "data/hus/rag/inputs/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+      "data/hus/recovery/20261031/captures.jsonl": "72c80430f81f538a21965b0bdb3a7dd19b7faa8ba60b6297c13c1d3226ae9105",
+      "data/hus/recovery/20261031/f1_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+      "data/hus/recovery/20261031/source_texts.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3"
+    },
+    "pinned_inputs_encoding": "utf8-lf",
+    "schema_version": "1.0"
+  },
+  "release_id": "hus-data-20261031-v3",
+  "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "schema_version": "2.0"
+}
