@@ -6,8 +6,8 @@ An empty data/hus/allowlist.json crawls nothing.
 """
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:

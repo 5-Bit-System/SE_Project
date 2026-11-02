@@ -1,8 +1,8 @@
 """Build/verify program F1 evidence from whole-document reviewed crawl sources, offline."""
 
 import argparse
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from app.hus.corpus import verify_artifacts
 from app.hus.f1_corpus import build_f1

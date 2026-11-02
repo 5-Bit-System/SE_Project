@@ -7,7 +7,12 @@ import pytest
 
 from app.hus.models import HUSDocument
 from app.hus.scope_audit import (
-    audit, catalog_inventory, classify, evidence_lines, syllabus_courses, table_courses,
+    audit,
+    catalog_inventory,
+    classify,
+    evidence_lines,
+    syllabus_courses,
+    table_courses,
     validate_experimental,
 )
 
@@ -106,8 +111,8 @@ def test_toc_link_is_not_source_field_evidence():
 
 
 def test_real_scoped_artifacts_only_use_hash_bound_includes_and_reproduce():
-    from app.hus.scope_audit import read_jsonl_bytes
     from app.hus.corpus import verify_artifacts
+    from app.hus.scope_audit import read_jsonl_bytes
 
     out = Path("data/hus/qa/20261028/audit")
     expected = audit(Path("data/hus"), Path("data/hus/qa/20261028/contract/build_config.json"),
@@ -157,10 +162,12 @@ def test_generated_examples_reject_verified_official_and_stale_inputs(tmp_path, 
 
 
 def test_targeted_fetch_fails_closed_when_robots_unreachable(tmp_path, monkeypatch):
-    import httpx
     import json
-    from tools.fetch_hus_gaps import fetch
+
+    import httpx
+
     from app.hus.crawler import Robots
+    from tools.fetch_hus_gaps import fetch
 
     original_client = httpx.Client
     def handle(request):

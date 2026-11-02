@@ -1,340 +1,321 @@
 <!doctype html>
-<html lang="vi">
+<html lang="vi" data-ui-revision="20261029-study-desk">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-07 · Explainable Course Recommender</title>
+  <meta name="theme-color" content="#f7f5ff">
+  <script src="/static/theme.js"></script>
+  <title>Sổ học tập | Kế hoạch học tập cá nhân</title>
   <meta name="description" content="Hệ thống gợi ý môn học cá nhân hóa và giải thích minh bạch theo chuẩn CTĐT ĐHKHTN - ĐHQGHN với Rule Engine và AI Advisor.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <link rel="stylesheet" href="/static/fonts.css">
+  <link rel="icon" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/styles.css">
-  <script src="/static/app.js" defer></script>
+  <link rel="stylesheet" href="/static/themes.css">
+  <script src="/static/i18n.js" defer></script>
+  <link rel="stylesheet" href="/static/auth.css">
+  <script src="/static/auth.js" defer></script>
+  <script src="/static/workspace.js" defer></script>
+  <link rel="stylesheet" href="/static/portal.css">
+  <script src="/static/portal.js" defer></script>
+  <link rel="stylesheet" href="/static/course-status.css">
+  <script src="/static/course-status.js" defer></script>
+  <link rel="stylesheet" href="/static/recommendation-workspace.css">
+  <script src="/static/recommendation-workspace.js" type="module"></script>
+  <link rel="stylesheet" href="/static/workspace.css">
+  <link rel="stylesheet" href="/static/analytics.css">
+  <script src="/static/analytics.js" type="module"></script>
+  <link rel="stylesheet" href="/static/motion.css">
+  <script src="/static/motion.js" defer></script>
+  <link rel="stylesheet" href="/static/login-scene.css">
+  <script src="/static/login-scene.js" defer></script>
 </head>
-<body>
+<body data-auth-state="loading">
+  <div class="ambient-background" aria-hidden="true" inert>
+    <span class="ambient-orb ambient-violet"></span>
+    <span class="ambient-orb ambient-cyan"></span>
+    <span class="ambient-orb ambient-rose"></span>
+    <span class="ambient-texture"></span>
+  </div>
+  <div class="study-desk-decoration" aria-hidden="true" inert>
+  <div class="study-book" aria-hidden="true" inert hidden>
+    <svg class="study-symbols" width="0" height="0"><defs><symbol id="study-page-ink" viewBox="0 0 72 88"><path d="M12 15h28M12 25h47M12 33h42M12 41h47M12 54h20M12 64h47M12 72h38" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol></defs></svg>
+    <div class="study-book-art">
+      <div class="book-ground-shadow"></div>
+      <svg class="study-paper" viewBox="0 0 30 38" fill="none"><path d="M5 3h16l5 6v25H5z" fill="var(--book-paper)" stroke="currentColor"/><path d="M20 3v7h6M10 17h11M10 22h9M10 27h11" stroke="currentColor" stroke-linecap="round"/></svg>
+      <svg class="study-mark" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="study-book-float"><div class="book-spread">
+        <div class="book-cover"></div><div class="book-bookmark"></div>
+        <div class="book-page-stack book-left-page"><svg class="book-ink" viewBox="0 0 72 88"><use href="#study-page-ink"/></svg></div>
+        <div class="book-page-stack book-right-page"><svg class="book-ink" viewBox="0 0 72 88"><use href="#study-page-ink"/></svg></div>
+        <div class="book-spine"></div>
+        <div class="book-turning-leaf">
+          <div class="book-leaf-face book-front"><svg class="book-ink" viewBox="0 0 72 88"><use href="#study-page-ink"/></svg></div>
+          <div class="book-leaf-face book-back"><svg class="book-ink" viewBox="0 0 72 88"><use href="#study-page-ink"/></svg></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  </div>
+  <a class="skip-link" href="#workspace-heading">Đi tới nội dung chính</a>
   <!-- Top Navigation & Header -->
   <header class="app-header">
     <div class="header-container">
       <div class="brand">
         <div class="brand-logo">
-          <span class="logo-icon">🎓</span>
+          <svg aria-hidden="true" viewBox="0 0 40 40" fill="none"><path d="M7 9h11l2 3 2-3h11v23H22l-2 3-2-3H7V9Z" stroke="currentColor" stroke-width="2"/><path d="M20 13v18M11 16h5m-5 6h5m8-6h5m-5 6h5" stroke="currentColor" stroke-width="2"/></svg>
         </div>
         <div class="brand-text">
-          <span class="badge-eyebrow">AI-07 · VNU-HUS Academic Recommender</span>
-          <h1 class="app-title">Hệ Thống Gợi Ý Học Phần Cá Nhân Hóa</h1>
+          <span class="badge-eyebrow">ĐHKHTN · ĐHQG Hà Nội</span>
+          <h1 class="app-title">Sổ học tập</h1>
         </div>
       </div>
 
       <div class="header-right-actions">
-        <div class="program-selector-wrapper">
-          <label for="program-select" class="selector-label">Ngành học đang chọn:</label>
-          <div class="select-container">
-            <select id="program-select" class="modern-select" required></select>
-            <span class="select-arrow">▾</span>
+        <div id="system-account" hidden><span id="system-account-name"></span><div class="system-account-actions"><button type="button" id="system-home" data-auth-copy="workspace"></button><button type="button" id="system-password" data-auth-copy="changePassword"></button><button type="button" id="system-admin-open" hidden data-auth-copy="admin"></button><button type="button" id="system-logout" data-auth-copy="logout"></button></div></div>
+        <div class="appearance-control language-control">
+          <span id="language-label" class="selector-label">Ngôn ngữ</span>
+          <div class="theme-switcher" role="group" aria-labelledby="language-label">
+            <button type="button" data-language-choice="vi" aria-label="Tiếng Việt" aria-pressed="true">VI</button>
+            <button type="button" data-language-choice="en" aria-label="English" aria-pressed="false">EN</button>
           </div>
         </div>
-        <div class="program-selector-wrapper">
-          <label for="profile-select" class="selector-label">Hồ sơ demo:</label>
-          <div class="select-container">
-            <select id="profile-select" class="modern-select">
-              <option value="">Không dùng profile demo</option>
-            </select>
-            <span class="select-arrow">▾</span>
+        <div class="appearance-control">
+          <span class="selector-label" id="appearance-label">Giao diện</span>
+          <div class="theme-switcher" role="group" aria-labelledby="appearance-label">
+            <button type="button" data-theme-choice="light" aria-label="Giao diện sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
+            <button type="button" data-theme-choice="dark" aria-label="Giao diện tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
           </div>
         </div>
       </div>
     </div>
   </header>
 
+  <div id="system-session-loading" role="status" aria-live="polite" aria-busy="true">
+    <span class="session-spinner" aria-hidden="true"></span>
+    <p data-auth-copy="restoringSession">Đang khôi phục phiên đăng nhập…</p>
+  </div>
+  <section id="system-auth" class="container system-auth-page">
+    <div class="auth-intro">
+      <p class="page-context" data-auth-copy="eyebrow"></p><h2 data-auth-copy="headline"></h2>
+      <p class="auth-intro-copy" data-auth-copy="description"></p>
+      <ul class="auth-feature-list" aria-label="Tính năng">
+        <li><span class="auth-feature-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="m2.5 6 2.2 2.2L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-auth-copy="featureTranscript"></span></li>
+        <li><span class="auth-feature-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="m2.5 6 2.2 2.2L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-auth-copy="featurePlans"></span></li>
+      </ul>
+      <div class="auth-study-preview" aria-hidden="true">
+        <div class="auth-preview-heading"><div><p class="auth-preview-kicker" data-auth-copy="visualKicker"></p><p class="auth-preview-caption" data-auth-copy="visualTitle"></p></div><span class="auth-preview-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 3.5h5.2A2.8 2.8 0 0 1 11 6.3v10.2a2.8 2.8 0 0 0-2.8-2.8H3V3.5Zm14 0h-3.2A2.8 2.8 0 0 0 11 6.3v10.2a2.8 2.8 0 0 1 2.8-2.8H17V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span></div>
+        <div class="auth-preview-body"><div class="auth-term-lines"><span class="auth-term-line"><i></i><b></b></span><span class="auth-term-line"><i></i><b></b></span><span class="auth-term-line"><i></i><b></b></span></div><div class="auth-preview-chart"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="auth-preview-foot"><span data-auth-copy="visualFoot"></span><span>01 — 03</span></div>
+      </div>
+      <div class="login-study-scene" aria-hidden="true" inert hidden>
+        <svg class="login-scene-network" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" focusable="false">
+          <g class="login-course-map">
+            <path d="M-40 440H180Q210 440 210 410V250Q210 220 240 220H680Q710 220 710 190V-20M210 440H500Q530 440 530 470V720Q530 750 560 750H900Q930 750 930 720V570Q930 540 960 540H1660M710 220H1160Q1190 220 1190 250V350Q1190 380 1220 380H1660M530 750V1060"/>
+            <path d="M-40 440H180Q210 440 210 410V250Q210 220 240 220H680Q710 220 710 190V-20" class="login-map-pulse login-scene-motion" pathLength="1"/>
+            <path d="M210 440H500Q530 440 530 470V720Q530 750 560 750H900Q930 750 930 720V570Q930 540 960 540H1660" class="login-map-pulse login-map-pulse-two login-scene-motion" pathLength="1"/>
+            <rect x="185" y="415" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="m199 440 8 8 15-18"/>
+            <rect x="685" y="195" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="M698 220h24m-12-12v24"/>
+            <rect x="505" y="725" width="50" height="50" rx="12" class="login-map-node"/>
+            <path d="m518 755 8-12 8 6 9-11"/>
+            <circle cx="1190" cy="290" r="5" class="login-map-dot"/>
+            <circle cx="930" cy="630" r="5" class="login-map-dot"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-one login-scene-motion" viewBox="0 0 150 165" fill="none" focusable="false">
+          <rect x="5" y="8" width="136" height="148" rx="9" class="login-paper"/>
+          <path d="M5 36h136M34 36v120" class="login-paper-rule"/>
+          <rect x="22" y="3" width="38" height="13" rx="3" class="login-paper-tape"/>
+          <g class="login-paper-ink">
+            <path d="M48 57h65M48 76h53M48 95h62M48 114h44M48 133h57"/>
+            <path d="m17 57 4 4 6-8m-10 23 4 4 6-8m-10 23 4 4 6-8"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-two login-scene-motion" viewBox="0 0 126 140" fill="none" focusable="false">
+          <path d="M13 5h82l26 26v95a8 8 0 0 1-8 8H13a8 8 0 0 1-8-8V13a8 8 0 0 1 8-8Z" class="login-paper"/>
+          <path d="M95 5v20a6 6 0 0 0 6 6h20" class="login-paper-fold"/>
+          <g class="login-paper-ink">
+            <path d="M25 102V49m0 53h76M34 87l16-12 16 5 26-28"/>
+            <circle cx="50" cy="75" r="3"/><circle cx="66" cy="80" r="3"/>
+            <path d="M27 118h40"/>
+          </g>
+        </svg>
+        <svg class="login-bg-note login-note-three login-scene-motion" viewBox="0 0 130 140" fill="none" focusable="false">
+          <rect x="5" y="5" width="120" height="130" rx="10" class="login-paper"/>
+          <g class="login-paper-ink">
+            <path d="M24 28h80M24 48h40M44 75h44m-22-8v16M38 103h56"/>
+            <circle cx="28" cy="75" r="10"/><circle cx="104" cy="75" r="10"/>
+          </g>
+        </svg>
+        <svg class="login-bg-books login-scene-motion" viewBox="0 0 360 180" fill="none" focusable="false">
+          <g stroke-linejoin="round">
+            <path d="M26 134h140v22H26a11 11 0 0 1 0-22Z" class="login-book-cover"/>
+            <path d="M32 139h134v12H32a6 6 0 0 1 0-12Z" class="login-book-pages"/>
+            <path d="M40 113h141v21H40a10.5 10.5 0 0 1 0-21Z" class="login-book-cover-light"/>
+            <path d="M45 118h136v11H45a5.5 5.5 0 0 1 0-11Z" class="login-book-pages"/>
+            <path d="M136 117v25l7-5 7 5v-25" class="login-bookmark login-scene-motion"/>
+            <path d="M140 34h88q10 0 10 9v77q-9-6-21-6h-77ZM336 34h-88q-10 0-10 9v77q9-6 21-6h77Z" class="login-book-cover"/>
+            <path d="M144 29h84q10 0 10 9v77q-9-6-21-6h-73ZM332 29h-84q-10 0-10 9v77q9-6 21-6h73Z" class="login-paper"/>
+            <path d="M238 39v68M155 46h58M155 62h50M155 78h58M260 46h55M260 62h47M260 78h55" class="login-paper-rule"/>
+            <path d="m300 143 34-14 3 7-34 14-14 1Z" class="login-pencil"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="auth-card workspace-surface">
+      <p class="auth-card-kicker" data-auth-copy="authKicker"></p>
+      <h3 class="auth-card-title" id="auth-card-title" data-auth-copy="authWelcome"></h3>
+      <p class="auth-card-description" data-auth-copy="authTypePrompt"></p>
+      <div class="auth-controls">
+        <nav class="auth-switch" aria-label="Loại tài khoản"><button type="button" id="auth-student-tab" data-auth-copy="studentTab"></button><button type="button" id="auth-login-tab" data-auth-copy="adminTab"></button></nav>
+        <p id="auth-notice" role="status" aria-live="polite"></p>
+      </div>
+      <form id="auth-student-form"><h3 class="sr-only" data-auth-copy="studentTitle"></h3><p class="auth-hint auth-student-hint" data-auth-copy="studentHint"></p><label for="auth-vnu-username" data-auth-copy="vnuUsername"></label><div class="auth-input-wrap"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="6.2" r="3.1" stroke="currentColor" stroke-width="1.4"/><path d="M3.8 17v-1.2a6.2 6.2 0 0 1 12.4 0V17H3.8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg><input id="auth-vnu-username" data-auth-placeholder="vnuUsernamePlaceholder" autocomplete="username" required maxlength="128" autocapitalize="none" spellcheck="false"></div><label for="auth-vnu-password" data-auth-copy="vnuPassword"></label><div class="auth-input-wrap"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3.7" y="8.4" width="12.6" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6.4 8.3V6.2a3.6 3.6 0 0 1 7.2 0v2.1m-3.6 3v2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><input id="auth-vnu-password" data-secret data-auth-placeholder="passwordPlaceholder" type="password" autocomplete="current-password" required maxlength="512"><button class="auth-reveal-password" type="button" data-reveal-target="auth-vnu-password" aria-label="Hiện mật khẩu"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.3 10s2.7-4.5 7.7-4.5 7.7 4.5 7.7 4.5-2.7 4.5-7.7 4.5S2.3 10 2.3 10Z" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="10" r="2.1" stroke="currentColor" stroke-width="1.4"/></svg></button></div><button class="portal-button primary-action" type="submit" data-auth-copy="vnuLogin"></button><div class="auth-privacy-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 16 5v4.6c0 3.7-2.5 6.6-6 7.9-3.5-1.3-6-4.2-6-7.9V5l6-2.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m7.3 9.8 1.8 1.8 3.7-3.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><p data-auth-copy="privacyHint"></p></div></form>
+      <form id="auth-login-form" hidden><h3 class="sr-only" data-auth-copy="loginTitle"></h3><label for="auth-login-email" data-auth-copy="adminUsername"></label><div class="auth-input-wrap"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="6.2" r="3.1" stroke="currentColor" stroke-width="1.4"/><path d="M3.8 17v-1.2a6.2 6.2 0 0 1 12.4 0V17H3.8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg><input id="auth-login-email" data-auth-placeholder="adminUsernamePlaceholder" autocomplete="username" required maxlength="254" autocapitalize="none" spellcheck="false"></div><label for="auth-login-password" data-auth-copy="password"></label><div class="auth-input-wrap"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3.7" y="8.4" width="12.6" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6.4 8.3V6.2a3.6 3.6 0 0 1 7.2 0v2.1m-3.6 3v2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><input id="auth-login-password" data-secret data-auth-placeholder="passwordPlaceholder" type="password" autocomplete="current-password" required maxlength="128"><button class="auth-reveal-password" type="button" data-reveal-target="auth-login-password" aria-label="Hiện mật khẩu"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.3 10s2.7-4.5 7.7-4.5 7.7 4.5 7.7 4.5-2.7 4.5-7.7 4.5S2.3 10 2.3 10Z" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="10" r="2.1" stroke="currentColor" stroke-width="1.4"/></svg></button></div><button class="portal-button primary-action" type="submit" data-auth-copy="login"></button></form>
+      <div class="auth-card-footer"><span class="auth-footer-mark" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1.4 9.5 3v2.7A4.3 4.3 0 0 1 6 10a4.3 4.3 0 0 1-3.5-4.3V3L6 1.4Z" stroke="currentColor" stroke-width="1.1"/></svg></span><span data-auth-copy="authFooter"></span></div>
+      <form id="auth-password-form" hidden><h3 data-auth-copy="changePassword"></h3><p data-auth-copy="changeHint"></p><label for="auth-current-password" data-auth-copy="currentPassword"></label><input id="auth-current-password" type="password" autocomplete="current-password" maxlength="128" required><label for="auth-new-password" data-auth-copy="newPassword"></label><input id="auth-new-password" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><label for="auth-new-confirm" data-auth-copy="confirmPassword"></label><input id="auth-new-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><button class="portal-button primary-action" type="submit" data-auth-copy="savePassword"></button></form>
+    </div>
+  </section>
+  <section id="system-admin" class="container" hidden><div class="dashboard-heading"><h2 data-auth-copy="adminTitle"></h2><button type="button" class="portal-button" id="admin-back" data-auth-copy="workspace"></button></div><p id="admin-notice" role="status"></p><form id="admin-search-form"><label for="admin-query" data-auth-copy="searchUsers"></label><input id="admin-query" type="search" maxlength="100"><button class="portal-button" data-auth-copy="search"></button></form><p id="admin-total"></p><div class="table-scroll"><table id="admin-users"></table></div><div class="portal-actions"><button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous"></button><button type="button" id="admin-next" class="portal-button" data-auth-copy="next"></button></div></section>
+
+
   <div class="sub-header-bar">
     <div class="container sub-header-content">
       <div id="catalog-info" class="catalog-info-chip">
         <span class="pulse-dot"></span>
-        <span id="catalog-name-text">Đang tải dữ liệu CTĐT...</span>
+        <span id="catalog-name-text">Hồ sơ học tập VNU</span>
       </div>
       <div class="isolation-notice">
-        <span>🔒 <strong>Major Isolation:</strong> Dữ liệu môn học và bảng điểm luôn được cô lập 100% trong ngành đã chọn.</span>
+        <span>Bảng điểm được lấy từ VNU và lưu theo tài khoản của bạn.</span>
       </div>
     </div>
   </div>
 
   <!-- Main Workspace Tabs -->
   <main class="container main-content">
-    <!-- Navigation Tabs (4 Core Steps) -->
-    <nav class="nav-tabs" role="tablist">
-      <button id="tab-btn-transcript" class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-transcript">
-        <span class="tab-icon">📝</span>
-        <span class="tab-label">1. Bảng Điểm & Ngành</span>
-      </button>
-      <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-rules">
-        <span class="tab-icon">⚖️</span>
-        <span class="tab-label">2. Kiểm Tra Điều Kiện</span>
-      </button>
-      <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" data-tab="tab-recommend">
-        <span class="tab-icon">⭐</span>
-        <span class="tab-label">3. Gợi Ý Kỳ Tới</span>
-      </button>
-    </nav>
-
-    <!-- Tab 1: Transcript & Major Ingestion -->
-    <section id="tab-transcript" class="tab-panel active" role="tabpanel">
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <span class="kpi-title">Môn Đã Hoàn Thành</span>
-          <span id="kpi-passed-count" class="kpi-value text-emerald">0</span>
-          <span class="kpi-sub">Điểm ≥ 5.0</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Tín Chỉ Tích Lũy</span>
-          <span id="kpi-credits" class="kpi-value text-blue">0</span>
-          <span id="kpi-total-credits-sub" class="kpi-sub">/ 127 Tín chỉ</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Điểm Trung Bình (GPA hệ 4)</span>
-          <span id="kpi-gpa" class="kpi-value text-purple">--</span>
-          <span class="kpi-sub">Quy đổi từ điểm hệ 10</span>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Môn Đủ Đ/K Kỳ Tới</span>
-          <span id="kpi-eligible-count" class="kpi-value text-amber">0</span>
-          <span class="kpi-sub">Rule Engine xác nhận</span>
-        </div>
+    <aside class="workspace-sidebar">
+      <p class="sidebar-caption">Hồ sơ VNU</p>
+      <div class="sidebar-profile">
+        <div><span id="workspace-program-label">Ngành học</span><strong id="workspace-program" class="source-profile-value"></strong></div>
+        <div><span id="workspace-cohort-label">Khóa học</span><strong id="workspace-cohort" class="source-profile-value"></strong></div>
       </div>
-
-      <div class="panel-card mt-4">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">Nhập dữ liệu bảng điểm sinh viên</h2>
-            <p class="card-subtitle">Tích chọn các môn đã đạt hoặc nhập điểm số thang 10. Điểm ≥ 5.0 được tính là hoàn thành.</p>
-          </div>
-          <div class="quick-actions">
-            <button id="btn-sample-freshman" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 1</button>
-            <button id="btn-sample-sophomore" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 2</button>
-            <button id="btn-sample-junior" class="btn-ghost btn-sm" type="button">Hồ sơ Năm 3</button>
-            <button id="btn-clear-transcript" class="btn-danger-ghost btn-sm" type="button">Xóa trắng</button>
-          </div>
-        </div>
-
-        <div class="search-filter-bar">
-          <input id="course-search-input" type="search" class="modern-input" placeholder="🔍 Tìm kiếm môn học theo mã hoặc tên (ví dụ: MAT1093, Giải tích...)" />
-          <select id="course-block-filter" class="modern-select filter-select">
-            <option value="all">Tất cả khối kiến thức</option>
-            <option value="general">Khối kiến thức chung</option>
-            <option value="field">Khối theo lĩnh vực</option>
-            <option value="discipline">Khối theo khối ngành</option>
-            <option value="group">Khối theo nhóm ngành</option>
-            <option value="major">Khối kiến thức ngành</option>
-          </select>
-        </div>
-
-        <div id="course-checklist-container" class="course-checklist-wrapper">
-          <div class="loading-spinner">Đang nạp danh sách học phần...</div>
-        </div>
-
+      <nav class="nav-tabs" role="tablist" aria-label="Các bước lập kế hoạch học tập" aria-orientation="vertical">
+        <button id="tab-btn-dashboard" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-dashboard" data-tab="tab-dashboard"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="tab-label">Dashboard<small>Tổng quan học tập</small></span></button>
+        <button id="tab-btn-profile" class="tab-btn" role="tab" aria-selected="false" aria-controls="portal-dialog" tabindex="-1" data-tab="portal-dialog"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></span><span class="tab-label">Hồ sơ của tôi<small>Tài khoản và bảng điểm VNU</small></span></button>
+        <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rules" tabindex="-1" data-tab="tab-rules"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h11M9 12h11M9 19h11M2.5 5l1 1 2-2M2.5 12l1 1 2-2M2.5 19l1 1 2-2"/></svg></span><span class="tab-label">Điều kiện học<small>Xem môn có thể học tiếp</small></span></button>
+        <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM20 2v4M18 4h4"/></svg></span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
+      </nav>
+      <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Đăng nhập VNU để xem hồ sơ và bảng điểm qua từng học kỳ.</small></div>
+      <div class="sidebar-bottom">Sổ học tập <span>Đồng hành qua từng học kỳ</span></div>
+    </aside>
+    <div class="workspace-body">
+      <h2 id="workspace-heading" tabindex="-1" class="sr-only">Dashboard</h2>
+      <section class="transcript-refresh-bar" aria-labelledby="portal-refresh-title" hidden>
+        <div><h2 id="portal-refresh-title"></h2><p id="portal-refresh-message" role="status" aria-live="polite"></p><p id="portal-refresh-time"></p></div>
+        <div class="transcript-refresh-actions"><button type="button" id="portal-sync" class="portal-button primary-action" data-portal-copy="sync"></button><button type="button" id="portal-cancel" class="portal-button" hidden data-portal-copy="cancel"></button></div>
+      </section>
+    <section id="tab-dashboard" class="tab-panel active" role="tabpanel" aria-labelledby="tab-btn-dashboard">
+      <div id="dashboard-content" class="dashboard-heading">
+        <div><p class="page-context">Không gian học tập</p><h2>Dashboard học tập</h2><p>Kết quả đã ghi nhận, những lựa chọn phía trước.</p></div>
+        <button type="button" class="portal-button primary-action" data-navigate="portal-dialog">Xem bảng điểm VNU</button>
       </div>
-    </section>
-
-    <!-- Tab 2: Rule Engine (Eligibility vs Blocked) -->
-    <section id="tab-rules" class="tab-panel" role="tabpanel">
-      <div class="rule-engine-header">
-        <div>
-          <h2 class="card-title">Kết quả Đánh giá Điều kiện Học vụ Kỳ Tới</h2>
-          <p class="card-subtitle">Rule Engine kiểm tra tiên quyết AND/OR, giới hạn tín chỉ và hạn mức tự chọn. <strong>Zero Violation Rate</strong>.</p>
+      <section id="dashboard-analytics" aria-label="Thống kê bảng điểm VNU">
+        <div id="analytics-status" class="analytics-status" role="status"></div>
+        <div class="analytics-toolbar"><label for="analytics-year">Năm học<select id="analytics-year" class="modern-select"></select></label></div>
+        <div class="analytics-grid">
+          <section class="workspace-surface analytics-trend"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 10</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 10 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-trend analytics-trend-four"><div class="section-title"><h3>Điểm qua từng học kỳ</h3><span class="subtle-tag">Hệ 4</span></div><p class="muted-copy">Trung bình gia quyền theo tín chỉ của các lượt có điểm hệ 4 và tín chỉ hợp lệ; không phải GPA tích lũy chính thức.</p><div id="analytics-trend4" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-distribution"><div class="section-title"><h3>Phân bố điểm chữ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Giữ nguyên ký hiệu điểm từ nguồn, kể cả trạng thái chưa có điểm.</p><div id="analytics-distribution" class="chart-region"></div></section>
+          <section class="workspace-surface analytics-credits"><div class="section-title"><h3>Tín chỉ theo học kỳ</h3><span class="subtle-tag">Theo lượt học</span></div><p class="muted-copy">Tổng tín chỉ ghi trên các lượt học, có thể gồm học lại; không phải tín chỉ tích lũy.</p><div id="analytics-credits" class="chart-region"></div></section>
         </div>
-        <div class="rule-stats-summary">
-          <span class="badge badge-success"><span id="rules-stat-eligible">0</span> Môn Đủ điều kiện</span>
-          <span class="badge badge-warning"><span id="rules-stat-blocked">0</span> Môn Bị chặn</span>
-          <span class="badge badge-info"><span id="rules-stat-completed">0</span> Môn Đã học</span>
-        </div>
-      </div>
-
-      <div class="rules-two-columns mt-3">
-        <!-- Column 1: Eligible Courses -->
-        <div class="rules-col panel-card">
-          <div class="col-title-bar eligible-bar">
-            <h3>🟢 Môn ĐỦ ĐIỀU KIỆN ĐĂNG KÝ</h3>
-            <span class="col-sub">Thỏa mãn 100% điều kiện tiên quyết</span>
-          </div>
-          <div id="rules-eligible-list" class="rules-cards-list"></div>
-        </div>
-
-        <!-- Column 2: Blocked Courses -->
-        <div class="rules-col panel-card">
-          <div class="col-title-bar blocked-bar">
-            <h3>🔴 Môn BỊ CHẶN (Kèm Lý Do Cụ Thể)</h3>
-            <span class="col-sub">Chưa đủ điều kiện tiên quyết hoặc hạn mức</span>
-          </div>
-          <div id="rules-blocked-list" class="rules-cards-list"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tab 3: Course Recommendations & What-if -->
-    <section id="tab-recommend" class="tab-panel" role="tabpanel">
-      <div class="grid-2-col">
-        <!-- Controls Column -->
-        <div class="panel-card">
-          <h2 class="card-title">Thiết lập mục tiêu đề xuất</h2>
-          <form id="recommend-form" class="mt-3">
-            <div class="form-group">
-              <label for="rec-goal" class="form-label">Mục tiêu học tập & định hướng chuyên môn:</label>
-              <textarea id="rec-goal" class="modern-textarea" rows="3" placeholder="Ví dụ: Em muốn theo hướng AI Engineer, tập trung vào học máy và xử lý dữ liệu lớn..."></textarea>
-            </div>
-
-            <div class="form-group mt-3">
-              <div class="slider-header">
-                <label for="rec-credits" class="form-label">Tín chỉ tối đa kỳ này:</label>
-                <span id="credits-val-display" class="slider-val">18 TC</span>
-              </div>
-              <input id="rec-credits" type="range" min="3" max="30" step="1" value="18" class="modern-slider" />
-            </div>
-
-            <div class="form-group mt-3">
-              <div class="slider-header">
-                <label for="rec-limit" class="form-label">Số môn đề xuất tối đa:</label>
-                <span id="limit-val-display" class="slider-val">5 môn</span>
-              </div>
-              <input id="rec-limit" type="range" min="1" max="10" step="1" value="5" class="modern-slider" />
-            </div>
-
-            <details class="what-if-controls mt-3">
-              <summary>What-if: điều chỉnh trọng số xếp hạng</summary>
-              <p class="form-help">Giữ nguyên eligibility, chỉ xếp hạng lại các môn đủ điều kiện.</p>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-topic-weight">Chủ đề</label><span id="whatif-topic-value" class="slider-val">60%</span></div>
-                <input id="whatif-topic-weight" type="range" min="0" max="100" step="5" value="60" class="modern-slider" />
-              </div>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-keyword-weight">Từ khóa mục tiêu</label><span id="whatif-keyword-value" class="slider-val">25%</span></div>
-                <input id="whatif-keyword-weight" type="range" min="0" max="100" step="5" value="25" class="modern-slider" />
-              </div>
-              <div class="weight-control">
-                <div class="slider-header"><label for="whatif-type-weight">Loại môn</label><span id="whatif-type-value" class="slider-val">15%</span></div>
-                <input id="whatif-type-weight" type="range" min="0" max="100" step="5" value="15" class="modern-slider" />
-              </div>
-              <button type="button" id="btn-run-what-if" class="btn-ghost w-full mt-2">Chạy what-if</button>
-            </details>
-
-            <button type="submit" id="btn-run-recommend" class="btn-primary w-full mt-4">
-              <span>🚀 Phân Tích & Gợi Ý Môn Học</span>
-            </button>
-          </form>
-        </div>
-
-        <!-- Results Column -->
-        <div class="panel-card">
-          <div class="card-header">
+        <dialog id="analytics-detail" class="analytics-detail" aria-labelledby="analytics-detail-title" aria-describedby="analytics-detail-meta" aria-modal="true">
+          <div class="analytics-detail-head">
             <div>
-              <h2 class="card-title">Kết quả Đề Xuất Kỳ Tới</h2>
-              <p class="card-subtitle">Xếp hạng bám sát mục tiêu cá nhân và giải thích minh bạch.</p>
+              <h4 id="analytics-detail-title" tabindex="-1">Bảng điểm theo lựa chọn</h4>
+              <p id="analytics-detail-meta" aria-live="polite"></p>
             </div>
-            <span id="rec-badge-count" class="badge badge-info">0 Đề xuất</span>
+            <button type="button" id="analytics-detail-close" class="analytics-detail-close" aria-label="Đóng bảng điểm"><span aria-hidden="true">×</span></button>
           </div>
-          <div id="recommendation-summary" class="recommendation-summary" hidden></div>
-          <div id="recommendations-result-container" class="recommendations-container mt-3">
-            <div class="empty-state">
-              <span class="empty-icon">🎯</span>
-              <p>Chọn các môn đã học ở Tab 1, nhập mục tiêu và nhấn "Phân Tích & Gợi Ý Môn Học".</p>
-            </div>
+          <p id="analytics-detail-hint" class="analytics-detail-hint"></p>
+          <div class="table-scroll analytics-detail-scroll" role="region" tabindex="0" aria-labelledby="analytics-detail-title">
+            <table id="analytics-detail-table" class="transcript-table"></table>
           </div>
-        </div>
+        </dialog>
+        <details class="analytics-data-table"><summary>Xem số liệu và cách tính</summary><p id="analytics-method" class="muted-copy"></p><div class="table-scroll"><table id="analytics-table" class="transcript-table"></table></div></details>
+      </section>
+    </section>
+  <section id="portal-dialog" class="tab-panel profile-page" role="tabpanel" aria-labelledby="tab-btn-profile">
+    <div class="portal-top">
+      <h2 id="portal-heading" tabindex="-1">Hồ sơ học tập</h2>
+      <button type="button" id="portal-close" class="text-action">Về Dashboard</button>
+    </div>
+    <div id="portal-collection-review" class="source-notice" role="status" hidden></div>
+    <p id="portal-status" role="status" aria-live="polite"></p>
+    <div class="profile-login-layout">
+    <aside id="portal-welcome" class="profile-welcome"><span class="profile-emblem" aria-hidden="true">◎</span><h3 data-portal-copy="welcomeTitle"></h3><p data-portal-copy="welcomeDescription"></p><ul><li data-portal-copy="welcomeSource"></li><li data-portal-copy="welcomeSync"></li><li data-portal-copy="welcomeOwner"></li></ul></aside>
+    <form id="portal-login" class="workspace-surface">
+      <p data-portal-copy="intro"></p>
+      <label for="portal-username" data-portal-copy="username"></label>
+      <input id="portal-username" name="username" autocomplete="username" maxlength="128" required>
+      <label for="portal-password" data-portal-copy="password"></label>
+      <div class="portal-password-row">
+        <input id="portal-password" name="password" type="password" autocomplete="current-password" maxlength="512" required>
+        <button type="button" id="portal-show" class="portal-button" aria-pressed="false" data-portal-copy="show"></button>
+      </div>
+      <button type="submit" id="portal-submit" class="portal-button" data-portal-copy="login"></button>
+    </form>
+    </div>
+    <form id="portal-reauth" class="workspace-surface" hidden>
+      <p data-portal-copy="reauthIntro"></p>
+      <label for="portal-reauth-account" data-portal-copy="username"></label>
+      <input id="portal-reauth-account" readonly autocomplete="off">
+      <label for="portal-reauth-password" data-portal-copy="password"></label>
+      <input id="portal-reauth-password" type="password" autocomplete="current-password" maxlength="512" required>
+      <div class="portal-actions"><button type="submit" id="portal-reauth-submit" class="portal-button primary-action" data-portal-copy="reauthSubmit"></button><button type="button" id="portal-reauth-dismiss" class="portal-button" data-portal-copy="reauthDismiss"></button></div>
+    </form>
+    <section id="portal-profile" hidden>
+      <div class="profile-identity-strip"><div class="profile-emblem" aria-hidden="true">◎</div><div><p class="page-context" data-portal-copy="account"></p><h3 id="portal-identity"></h3><p id="portal-updated"></p></div><span class="subtle-tag" data-portal-copy="source"></span></div>
+      <div class="profile-facts"><div><span data-portal-copy="name"></span><strong id="portal-name"></strong></div><div><span data-portal-copy="program"></span><strong id="portal-program"></strong></div><div><span data-portal-copy="cohort"></span><strong id="portal-cohort"></strong></div><div><span data-portal-copy="earnedCredits"></span><strong id="portal-earned-credits"></strong></div><div><span data-portal-copy="gpa4"></span><strong id="portal-gpa4"></strong></div></div>
+      <div class="profile-transcript-heading"><div><h3 data-portal-copy="transcript"></h3><p data-portal-copy="newest"></p></div><span id="portal-row-count" class="subtle-tag" role="status" aria-live="polite" aria-atomic="true"></span></div>
+      <div id="portal-summary" class="portal-source"></div>
+      <div class="profile-table-tools"><label for="portal-search"><span data-portal-copy="search"></span><input id="portal-search" type="search" autocomplete="off"></label><label for="portal-term"><span data-portal-copy="term"></span><select id="portal-term"></select></label></div>
+      <div id="portal-grade-filter" class="portal-grade-filter" hidden><span id="portal-grade-filter-label"></span><button type="button" id="portal-grade-filter-clear" class="portal-button" data-portal-copy="clearGradeFilter"></button></div>
+      <div class="portal-table-scroll" tabindex="0" role="region" aria-label="Bảng điểm nguồn">
+        <table class="portal-transcript-table" id="portal-table"></table>
+      </div>
+      <details id="portal-unparsed" hidden><summary data-portal-copy="unparsed"></summary><pre class="portal-source"></pre></details>
+      <div class="portal-actions">
+        <button type="button" id="portal-logout" class="portal-button" data-portal-copy="logout"></button>
+        <button type="button" id="portal-delete" class="portal-button portal-delete" data-portal-copy="delete"></button>
       </div>
     </section>
-  </main>
-
-  <!-- =====================================================================
-       FLOATING AI ADVISOR CHAT BUBBLE & POPUP WINDOW
-       Hiển thị cố định trên TẤT CẢ các tab, mở ra khoảng 1/4 màn hình,
-       có nút phóng to / thu nhỏ linh hoạt.
-       ===================================================================== -->
-  <div id="floating-advisor-widget" class="floating-advisor-widget">
-    <!-- Chat Bubble Trigger Button -->
-    <button id="advisor-bubble-btn" class="advisor-bubble-btn" type="button" aria-label="Mở khung tư vấn AI Advisor" title="Mở khung tư vấn AI Advisor">
-      <span class="bubble-pulse-ring"></span>
-      <span class="bubble-icon">💬</span>
-      <span class="bubble-badge">AI</span>
-    </button>
-
-    <!-- Floating Chat Window (1/4 screen popup with Maximize/Minimize) -->
-    <div id="advisor-chat-window" class="advisor-chat-window hidden" aria-hidden="true">
-      <!-- Window Header -->
-      <div class="chat-window-header">
-        <div class="advisor-title-group">
-          <div class="advisor-avatar-small">🤖</div>
-          <div>
-            <h3 class="advisor-window-title">AI Advisor</h3>
-            <span class="advisor-status-text"><span class="status-dot"></span> Sẵn sàng tư vấn học vụ</span>
-          </div>
-        </div>
-        <div class="chat-window-controls">
-          <button id="btn-maximize-chat" class="control-btn" type="button" title="Phóng to / Thu nhỏ" aria-label="Phóng to">⛶</button>
-          <button id="btn-close-chat" class="control-btn" type="button" title="Thu gọn" aria-label="Đóng">✕</button>
-        </div>
-      </div>
-
-      <!-- Scope Guardrail Notice Bar -->
-      <div class="chat-guardrail-banner">
-        <span>🛡️ <strong>Chính sách tư vấn:</strong> Định hướng môn học & CTĐT. Không xếp lịch học hoặc chấm điểm giảng viên.</span>
-      </div>
-
-      <label class="chat-guardrail-banner" for="hus-generated-opt-in">
-        <input id="hus-generated-opt-in" type="checkbox">
-        Cho phép kiến thức AI tham khảo (chưa được xác minh)
-      </label>
-
-      <div class="chat-study-direction">
-        <div class="chat-direction-heading">Chọn hướng học cùng AI Advisor</div>
-        <div class="chat-direction-grid">
-          <label class="chat-direction-field">
-            <span>Nhánh chuyên sâu</span>
-            <select id="track-select" class="modern-select">
-              <option value="">Không chọn nhánh</option>
-            </select>
-          </label>
-          <label class="chat-direction-field">
-            <span>Hướng tốt nghiệp</span>
-            <select id="graduation-path-select" class="modern-select">
-              <option value="">Không chọn hướng</option>
-            </select>
-          </label>
-        </div>
-        <small>AI Advisor sẽ dùng lựa chọn này để giải thích điều kiện và gợi ý môn học.</small>
-      </div>
-
-      <!-- Chat Messages Scroll Area -->
-      <div id="chat-messages-container" class="chat-messages">
-        <div class="chat-message message-advisor">
-          <div class="message-content">
-            <p>Xin chào! Tôi là <strong>AI Advisor</strong> hỗ trợ học vụ cho bạn.</p>
-            <p>Tôi có thể giúp bạn giải đáp định hướng nghề nghiệp, gợi ý môn học phù hợp theo từng track và giải thích lộ trình học tập dựa trên bảng điểm thực tế của bạn.</p>
-            <p class="note-text"><small>(Tôi chỉ tư vấn môn học & CTĐT; không xếp lịch học hay đánh giá giảng viên).</small></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Suggested Prompt Chips -->
-      <div class="quick-prompt-chips">
-        <button class="chip-btn" type="button" data-prompt="Em muốn theo hướng Trí tuệ nhân tạo (AI), kỳ tới nên học những môn gì?">🤖 Hướng AI</button>
-        <button class="chip-btn" type="button" data-prompt="Em muốn làm Data Analyst, lộ trình học môn nào quan trọng nhất?">📊 Data Analyst</button>
-        <button class="chip-btn" type="button" data-prompt="Kỳ tới em có đủ điều kiện học các môn chuyên ngành bắt buộc nào?">📚 Môn kỳ tới</button>
-        <button class="chip-btn" type="button" data-prompt="Tại sao có môn của em đang bị chặn?">🔒 Môn bị chặn</button>
-      </div>
-
-      <!-- Chat Input Form -->
-      <form id="advisor-chat-form" class="chat-input-row">
-        <input id="advisor-input-text" type="text" class="modern-input" placeholder="Hỏi AI Advisor về môn học, định hướng..." autocomplete="off" required />
-        <button type="submit" id="btn-send-chat" class="btn-primary btn-send">
-          <span>Gửi</span>
-        </button>
-      </form>
+    <form id="portal-confirm" hidden>
+      <p data-portal-copy="confirm"></p>
+      <button type="submit" class="portal-button portal-delete" data-portal-copy="delete"></button>
+      <button type="button" id="portal-keep" class="portal-button" data-portal-copy="keep"></button>
+    </form>
+  </section>
+    <section id="tab-rules" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-rules">
+      <h2>Điều kiện học</h2>
+      <div id="course-status-board" class="course-status"></div>
+      <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
+    </section>
+    <section id="tab-recommend" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-recommend">
+      <div id="recommendation-workspace"></div>
+      <details id="academic-plan-tools" class="rec-existing-tools">
+        <summary><span data-rec-tools-label>Dữ liệu học vụ & phương án đã lưu</span><span aria-hidden="true">↗</span></summary>
+        <div id="course-planning-panel" class="course-status"></div>
+      </details>
+      <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
+    </section>
     </div>
-  </div>
+  </main>
 
   <footer class="app-footer">
     <div class="container footer-content">
-      <p>Hệ thống Explainable Course Recommender (AI-07) · Dữ liệu trích xuất từ 4 khung CTĐT ĐHKHTN - ĐHQG Hà Nội (Khóa 2022).</p>
-      <p class="footer-sub">Catalog nguồn ở trạng thái tham khảo học vụ · Đảm bảo tỷ lệ vi phạm quy tắc tiên quyết = 0%.</p>
+      <p>Sổ học tập · Gợi ý học phần có giải thích · Chương trình ĐHKHTN - ĐHQG Hà Nội, khóa 2022.</p>
+      <p class="footer-sub">Hồ sơ và bảng điểm VNU được lưu theo tài khoản. Bạn có thể cập nhật hoặc xóa trong Hồ sơ của tôi.</p>
     </div>
   </footer>
 </body>

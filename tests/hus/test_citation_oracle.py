@@ -6,9 +6,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.hus.answering import HUSAnswerer
+from app.hus.demo import app
 from app.hus.rag_loader import HUSRAGData
 from app.hus.retrieval import _body
-from app.main import app
 from app.schemas.hus import HUSQuestion
 from tools.verify_hus_e2e import EvidenceOracle
 
@@ -128,15 +128,15 @@ def test_oracle_rejects_hidden_ai_warning(oracle, answers, location):
         _check(oracle, answer)
 
 
-@pytest.mark.parametrize("endpoint", ["/hus/chat", "/advisor/chat"])
+@pytest.mark.parametrize("endpoint", ["/hus/chat"])
 def test_real_api_preserves_same_pdf_distinct_pages_and_opens_the_binary(answerer, oracle, monkeypatch, endpoint):
-    monkeypatch.setattr("app.api.routes.get_hus_answerer", lambda: answerer)
+    monkeypatch.setattr("app.hus.demo.get_hus_answerer", lambda: answerer)
     payload = ({"question": "Tiên quyết MAT3325?", "major": "mathematics", "version": "QD3565-2023"}
                if endpoint == "/hus/chat" else {"message": "Tiên quyết MAT3325?", "program_id": "toan_hoc_7460101_2022"})
     client = TestClient(app)
     response = client.post(endpoint, json=payload)
     assert response.status_code == 200
-    answer = response.json() if endpoint == "/hus/chat" else response.json()["hus_answer"]
+    answer = response.json()["hus_answer"]
     _check(oracle, answer)
     citations = answer["citations"]
     assert len(citations) == 2 and {c["pdf_page"] for c in citations} == {12, 13}
@@ -148,14 +148,14 @@ def test_real_api_preserves_same_pdf_distinct_pages_and_opens_the_binary(answere
         assert binary.headers["content-type"] == "application/pdf"
 
 
-@pytest.mark.parametrize("endpoint", ["/hus/chat", "/advisor/chat"])
+@pytest.mark.parametrize("endpoint", ["/hus/chat"])
 def test_real_api_ai_citation_has_null_links_without_hiding_evidence(answerer, oracle, monkeypatch, endpoint):
-    monkeypatch.setattr("app.api.routes.get_hus_answerer", lambda: answerer)
+    monkeypatch.setattr("app.hus.demo.get_hus_answerer", lambda: answerer)
     payload = ({"question": "Nội dung MAT3533?", "major": "data_science", "version": "QD3569-2023"}
                if endpoint == "/hus/chat" else {"message": "Nội dung MAT3533?", "program_id": "khdl_7460108_2022"})
     response = TestClient(app).post(endpoint, json={**payload, "allow_generated_reference": True})
     assert response.status_code == 200
-    answer = response.json() if endpoint == "/hus/chat" else response.json()["hus_answer"]
+    answer = response.json()["hus_answer"]
     _check(oracle, answer)
     assert answer["citations"]
     assert all(c["display_label"] == "kiến thức AI" and c["open_url"] is None for c in answer["citations"])

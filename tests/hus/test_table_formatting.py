@@ -5,13 +5,11 @@ from __future__ import annotations
 import io
 import json
 from pathlib import Path
-from unittest.mock import MagicMock
 
 import docx
 import openpyxl
-import pytest
 
-from app.hus.cleaning import clean_table_cell, format_markdown_table, normalize_vertical_text
+from app.hus.cleaning import clean_table_cell, format_markdown_table
 from app.hus.extractors.docx import extract_docx
 from app.hus.extractors.excel import extract_excel
 from app.hus.extractors.pdf import _format_table as format_pdf_table

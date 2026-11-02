@@ -4,9 +4,9 @@ import hashlib
 import io
 import json
 
-from docx import Document
 import httpx
 import pytest
+from docx import Document
 
 from app.hus.allowlist import Allowlist
 from app.hus.crawler import Robots, fetch_attachment, fetch_html

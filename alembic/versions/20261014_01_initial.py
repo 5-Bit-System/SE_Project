@@ -4,8 +4,8 @@ The schema snapshot is frozen alongside this migration, so future application
 schema edits cannot change the meaning of this migration.
 """
 
-from pathlib import Path
 import runpy
+from pathlib import Path
 
 from alembic import op
 

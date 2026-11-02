@@ -1,6 +1,8 @@
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--import-mode=importlib"
 markers = [
+    "hus_postgres: requires an explicit HUS_TEST_DATABASE_URL for local ai07",
     "postgres: requires an explicitly configured TEST_DATABASE_URL",
     "full_catalog_acceptance: requires an explicit external --full-catalog-root",
 ]
@@ -11,4 +13,37 @@ line-length = 100
 extend-exclude = ["myproject", "my_project", "backups"]
 
 [tool.ruff.lint]
-select = ["E9", "F63", "F7", "F82"]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# Captured HUS implementations: retain pinned import/replay/build identity.
+"app/hus/answering.py" = ["I"]
+"app/hus/citation_assets.py" = ["I"]
+"app/hus/citations.py" = ["I"]
+"app/hus/cleaning.py" = ["I"]
+"app/hus/corpus.py" = ["I"]
+"app/hus/crawler.py" = ["I", "F401"]
+"app/hus/data_release.py" = ["I"]
+"app/hus/extractors/docx.py" = ["I"]
+"app/hus/extractors/excel.py" = ["I"]
+"app/hus/extractors/html.py" = ["I"]
+"app/hus/extractors/pdf.py" = ["I"]
+"app/hus/f1_corpus.py" = ["I"]
+"app/hus/f1_markdown_review.py" = ["I"]
+"app/hus/f3_reference.py" = ["I"]
+"app/hus/metadata.py" = ["I"]
+"app/hus/models.py" = ["I"]
+"app/hus/portable_adapter.py" = ["I"]
+"app/hus/quality.py" = ["I"]
+"app/hus/quality_models.py" = ["I"]
+"app/hus/rag_loader.py" = ["I"]
+"app/hus/release_reader.py" = ["I"]
+"app/hus/release_text.py" = ["I"]
+"app/hus/release_validation.py" = ["I", "E731"]
+"app/hus/retrieval.py" = ["I"]
+"app/hus/review.py" = ["I"]
+"app/hus/scope_audit.py" = ["I", "F401"]
+"app/hus/source_response.py" = ["I"]
+"app/schemas/hus.py" = ["I"]
+"app/services/hus_service.py" = ["I"]
+"tools/prepare_hus_corpus.py" = ["I"]

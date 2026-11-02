@@ -155,7 +155,7 @@ def test_frontmatter_safely_quotes_titles_with_colons(tmp_path: Path):
         document_type=DocumentType.GENERAL_INFO,
         publisher=Publisher.MIM,
     )
-    doc_id = processed_storage.save_document(doc)
+    processed_storage.save_document(doc)
     md_files = list((tmp_path / "processed" / "documents").rglob("*.md"))
     assert len(md_files) == 1
     content = md_files[0].read_text(encoding="utf-8")

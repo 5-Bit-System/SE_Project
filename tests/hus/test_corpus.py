@@ -9,8 +9,16 @@ from pathlib import Path
 import pytest
 
 from app.hus.corpus import (
-    BuildConfig, CorpusError, build_artifacts, create_source_manifest,
-    initial_reviews, json_bytes, normalize, sha256, source_path, split_chunks,
+    BuildConfig,
+    CorpusError,
+    build_artifacts,
+    create_source_manifest,
+    initial_reviews,
+    json_bytes,
+    normalize,
+    sha256,
+    source_path,
+    split_chunks,
     verify_artifacts,
 )
 from tools.prepare_hus_corpus import main

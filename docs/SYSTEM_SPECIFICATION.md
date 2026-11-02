@@ -1,10 +1,19 @@
 # Đặc tả hệ thống theo pipeline
 
-**Phạm vi nhánh crawldata, cập nhật 02/11/2026:** hỏi đáp F1/F2/F3 và trò chuyện cơ bản.
-Chat RAG không nối tới ranking/explanation, không lấy bảng điểm hoặc tính eligibility.
-Demo hiện hành là `app.hus.demo:app`, chạy bằng `tools.run_hus_rag_demo`, có giao diện
-riêng. Các phần recommendation bên dưới mô tả module khác của toàn dự án. Xem
-[phạm vi đã chỉnh](superpowers/specs/2026-11-02-hus-rag-scope-design.md).
+## Trạng thái code sau xử lý PR #6 — 02/11/2026
+
+Hợp nhất `main` af8d4db vào `crawldata`, giữ auth/VNU, workspace, recommendation UI và
+API sản phẩm của main. RAG F1/F2/F3 + trò chuyện cơ bản chạy bằng app/demo riêng, không
+phụ thuộc bảng điểm/eligibility/ranking/explanation. Không mở endpoint demo vô danh
+trên app.main; chưa restart app, thay database hoặc kích hoạt production.
+Các checkpoint 2026-10-17 bên dưới là lịch sử; main hiện đã có auth và đồng bộ VNU.
+Xem [biên bản xử lý xung đột](HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md).
+
+
+## Historical runtime checkpoint - 2026-10-17
+
+FastAPI reads four draft versioned catalogs from HUS ai07 (DATABASE_MODEL=hus). Profiles are empty; manual transcript input is supported. Legacy database retained for rollback. Login/portal synchronization and new modules are deferred. See [acceptance evidence](../database/HUS_RUNTIME.md). Future module descriptions below are not evidence of completed implementation.
+
 
 ## 1. Hệ thống này làm gì?
 
@@ -24,22 +33,15 @@ Hệ thống hiện chỉ gợi ý **môn học**. Hệ thống chưa xếp th�
 
 ```mermaid
 flowchart TD
-    U[Người dùng] --> UI[Giao diện chính]
-    U --> CHAT[Nút chatbot nổi]
-
-    UI --> PROFILE[Hồ sơ và bảng điểm]
-    PROFILE --> ELIG[Kiểm tra điều kiện học]
-    ELIG --> CANDIDATES[Danh sách môn đủ điều kiện]
-    CANDIDATES --> REC[Xếp hạng môn học]
-    REC --> RESULT[Kết quả và giải thích]
-    RESULT --> UI
-
-    CHAT --> ROUTER[Phân loại câu hỏi RAG]
-    ROUTER -->|Trò chuyện cơ bản| BASIC[Chào hỏi và hướng dẫn]
-    ROUTER -->|F1 F2 F3| HUS[RAG thông tin HUS]
-    BASIC --> CHAT
-    HUS --> CHATRESULT[Câu trả lời và nguồn]
-    CHATRESULT --> CHAT
+    U[User] --> PRODUCT[Main product workspace]
+    PRODUCT --> PROFILE[Profile and transcript]
+    PROFILE --> ELIG[Eligibility]
+    ELIG --> REC[Course ranking]
+    REC --> EXPL[Explanation and plans]
+    EXPL --> PRODUCT
+    U --> RAGUI[Separate HUS RAG demo]
+    RAGUI --> RAG[F1 F2 F3 and basic chat]
+    RAG --> SOURCES[Answer and evidence]
 ```
 
 ## 2. Người dùng nhìn thấy gì?
@@ -50,12 +52,11 @@ Trang chính có ba khu vực chính:
 - Khu vực kiểm tra điều kiện: xem môn nào đủ điều kiện và môn nào bị chặn, kèm lý do.
 - Khu vực gợi ý môn: nhập mong muốn, xem các môn được xếp hạng và lý do.
 
-Demo RAG của nhánh này dùng khung hỏi đáp riêng: chọn ngành/phiên bản rồi hỏi F1/F2/F3
-hoặc trò chuyện cơ bản. Giao diện bảng điểm/gợi ý môn của ứng dụng lớn là module riêng.
+Ngoài ra, ở mọi trang có một **nút chatbot nổi**. Người dùng bấm nút này để hỏi về môn học hoặc hỏi thông tin HUS.
 
 ## 3. Quy tắc quan trọng nhất
 
-Riêng module gợi ý môn của ứng dụng lớn làm theo thứ tự:
+Hệ thống luôn làm theo thứ tự:
 
 **Chọn ngành → kiểm tra điều kiện → tạo danh sách môn hợp lệ → hiểu mong muốn → xếp hạng → giải thích → hiển thị.**
 
@@ -483,20 +484,11 @@ F3 giữ nhãn AI sinh, warning, needs_review và academic_verified=false. Thi�
 yêu cầu hiệu lực/chính thức chưa xác minh hoặc field chưa có trả `no_information`;
 thiếu mã/phiên bản cần thiết trả `needs_clarification`. Không tạo citation cho phần không có.
 
-Router legacy `POST /advisor/chat` còn định tuyến câu hỏi thông tin HUS trước khi nạp catalog khuyến nghị,
-trả `mode=hus_rag` và `hus_answer`; câu hỏi khuyến nghị vẫn theo luồng cũ. Ngành lấy theo
-đúng program_id/alias được chọn; không suy phiên bản F1 từ quyết định F2. Giao diện chat
-hiển thị link citation an toàn HTTP(S), giữ reply có nhãn nguồn và bỏ phản hồi đến sau
-khi đổi ngành/hồ sơ. Package lỗi trả 503; schema sai trả 422. Snapshot service phải reload
-sau khi cập nhật gói; không tự nâng review/active_release, không gọi DB/provider cho HUS.
-API và ý định hỗ trợ tại [hướng dẫn trả lời](../data/hus/rag/README.md#luồng-trả-lời-và-api).
+Sau khi giải quyết PR #6, `app.main` giữ nguyên các endpoint advisor có bảo vệ tài
+khoản của main. API RAG/basic chat nằm riêng trong `app.hus.demo`; không đưa router
+HUS công khai vào ứng dụng sản phẩm và không nối RAG sang recommendation. Các receipt
+P0-1 đến P0-5 ghi snapshot trước merge; nghiệm thu tích hợp mới có báo cáo riêng.
 
-Nghiệm thu đầu cuối local đã chạy qua server HTTP thật và Chromium thật: 2.310 ca HTTP,
-25 ca trình duyệt, dùng UI fixture độc lập và gói HUS thật. Citation đối chiếu quote/
-locator/pointer/checksum với artifact gốc trong repo; không chứng nhận lại học vụ/PDF.
-Yêu cầu xác nhận tỷ lệ/hình thức thi được ưu tiên kiểm chứng trước intent khuyến nghị,
-kể cả câu hỏi ghép; tên ngành cụ thể/viết tắt được nhận diện trước alias có tiền tố ngữ
-cảnh. Không vay dữ kiện khác ngành. [Biên bản, receipt và lệnh chạy lại](HUS_E2E_ACCEPTANCE.md).
 
 Theo yêu cầu triển khai bộ nạp thống nhất (2026-11-01), `app/hus/rag_loader.py` cung cấp
 `HUSRAGData.load()` cho gói `data/hus/rag/`. Bộ nạp kiểm tra toàn bộ manifest theo byte/
@@ -703,6 +695,8 @@ Hệ thống được coi là chạy đúng khi:
 
 ## 15. Persistence và nền tảng chạy
 
+Các đoạn ghi ngày 2026-10-14 và 2026-10-15 bên dưới là lịch sử thiết kế legacy. Runtime hiện tại dùng HUS `ai07` theo [ADR 0001](adr/0001-hus-runtime-and-rollback.md) và [HUS_RUNTIME](../database/HUS_RUNTIME.md). Các lệnh seed và điều kiện 12 profile bên dưới không áp dụng cho HUS.
+
 Quyết định ngày 2026-10-14: PostgreSQL được đưa vào phạm vi theo yêu cầu người dùng. JSON trong `data/curricula/` và `data/synthetic/` là nguồn versioned để validation/seed; runtime mặc định đọc PostgreSQL qua storage adapter. API và các hàm domain dùng catalog/profile entry points chung, vì vậy đổi storage không thay eligibility/ranking.
 
 `app/config.py` đọc `.env` tại một điểm, không nạp key khi import schema advisor. `app/db/schema.py` quy định relational keys; `alembic/` quản lý migration; `tools/seed_database.py` kiểm tra source và import toàn bộ bốn ngành trong một transaction. Content hash của curriculum, courses, source rows và profiles xác định revision. Seed giống nhau không tạo bản ghi mới; nguồn thay đổi tạo revision mới và đổi active revision trong transaction.
@@ -720,3 +714,9 @@ JSON và PostgreSQL đi qua cùng normalizer/validator cho envelope metadata 1.0
 Builder kiểm tra source rows và quota theo định nghĩa chương trình; `--check` không ghi file. Thay đổi mã môn/tiên quyết hoặc trường đã review cần review dữ liệu riêng, không âm thầm giữ bằng chứng cũ. API transcript summary bổ sung progress tổng/khối/nhóm và track/path nếu đã chọn; counted_in_total và loại trừ cấp chương trình dùng chung cho TC/GPA/progress. Transcript trùng mã bị từ chối đến khi có chính sách retake.
 
 Nguồn sản phẩm hiện vẫn chỉ có mẫu KHDL 65 môn, chưa thẩm định PDF. Readiness/seed sản phẩm tiếp tục yêu cầu đủ bốn catalog và 12 profile. Test nghiệp vụ dùng nguồn giả lập nhỏ riêng, kiểm kê nguồn đầy đủ nằm sau marker full_catalog_acceptance; kết quả test không chứng nhận nguồn bốn ngành hoàn chỉnh.
+
+## HUS runtime trên Docker — 2026-10-17
+
+`database/` có schema và migration history độc lập với legacy `app/db/`. Compose tại `database/docker-compose.yml` dựng PostgreSQL trong container `se_hus_db`, database `ai07`, volume `se_hus_pgdata`, mở loopback `127.0.0.1:5433`. Database mới được dựng bằng `database.tools.migrate upgrade`, rồi publish bốn CTĐT từ `database/data/hus_source.json` bằng `database.tools.publish_catalogs`. SQL khởi tạo cũ chỉ là lịch sử.
+
+FastAPI hiện đọc bốn catalog versioned HUS qua repository adapter khi `DATABASE_MODEL=hus`. HUS chưa có hồ sơ hoặc bảng điểm sinh viên; người dùng nhập bảng điểm thủ công trong phiên. Legacy storage có thể được chọn lại bằng cấu hình. Chưa có đăng nhập, đồng bộ cổng đào tạo hoặc HUS document Q&A/RAG. Cách chạy và rollback: [HUS_RUNTIME](../database/HUS_RUNTIME.md).

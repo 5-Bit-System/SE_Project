@@ -1,17 +1,17 @@
 """P0-1: one pinned release, exact source review and explicit generated opt-in."""
 
-from collections import Counter
 import json
-from pathlib import Path
 import shutil
+from collections import Counter
+from pathlib import Path
 
-from fastapi.testclient import TestClient
 import pytest
+from fastapi.testclient import TestClient
 
 from app.hus.answering import HUSAnswerer
+from app.hus.demo import app
 from app.hus.rag_loader import HUSRAGData, RAGDataError
 from app.hus.retrieval import HUSRAGRetriever
-from app.main import app
 from app.schemas.hus import HUSQuestion
 from app.services.hus_service import get_hus_answerer
 from tools.compare_hus_releases import compare
@@ -155,10 +155,10 @@ def test_http_uses_one_release_and_failed_reload_is_503(copied, monkeypatch):
         client = TestClient(app)
         body = {"question": "Số tín chỉ MAT3533?", "major": "data_science", "version": "QD3569-2023"}
         a = client.post("/hus/chat", json=body)
-        assert a.status_code == 200 and a.json()["release_id"] == RELEASE
+        assert a.status_code == 200 and a.json()["hus_answer"]["release_id"] == RELEASE
         (root / "CURRENT.json").write_text("{}", encoding="utf-8")
         cached = client.post("/hus/chat", json=body)
-        assert cached.status_code == 200 and cached.json()["release_sha256"] == DIGEST
+        assert cached.status_code == 200 and cached.json()["hus_answer"]["release_sha256"] == DIGEST
         get_hus_answerer.cache_clear()
         assert client.post("/hus/chat", json=body).status_code == 503
     finally:
@@ -171,5 +171,4 @@ def test_generated_consent_requires_a_json_boolean(value):
             "version": "QD3569-2023", "allow_generated_reference": value}
     client = TestClient(app)
     assert client.post("/hus/chat", json=body).status_code == 422
-    assert client.post("/advisor/chat", json={"message": body["question"], "program_id": "khdl",
-                                            "allow_generated_reference": value}).status_code == 422
+    assert client.post("/hus/chat", json={**body, "question": "Xin chào"}).status_code == 422

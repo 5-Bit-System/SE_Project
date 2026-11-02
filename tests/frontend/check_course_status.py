@@ -1,0 +1,285 @@
+"""Three-color board regression with intercepted synthetic data; no VNU access."""
+
+import copy
+import json
+import mimetypes
+from pathlib import Path
+from urllib.parse import parse_qs, urlparse
+
+from playwright.sync_api import sync_playwright
+
+from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import open_plan_tools
+
+
+def course(code, name, credits=3, **changes):
+    return {"code": code, "name": name, "name_en": None, "credits": credits,
+            "requirement_type": "required", "counted_in_total": True, "groups": [],
+            "reasons": [], "suggested": False, **changes}
+
+
+def main():
+    group = {"id": "choice", "name": "Synthetic elective group", "earned_credits": 0,
+             "required_credits": 3, "remaining_credits": 3}
+    data = {
+        "status": "ready", "context_revision": "synthetic-revision", "blocking_reasons": [],
+        "catalog_status": "verified", "selections": {
+            "track_required": True,
+            "tracks": [{"id": "synthetic-track", "name": "Synthetic track"}],
+            "path_required": True,
+            "paths": [{"id": "synthetic-path", "name": "Synthetic path",
+                       "allowed_track_ids": ["synthetic-track"]}],
+        },
+        "prerequisite_courses": {"TEST-AND": {"name": "Synthetic prerequisite outside columns",
+                                             "name_en": "Prerequisite outside columns EN"}},
+        "courses": {
+            "completed": [course("TEST-A", "Synthetic completed"),
+                          course("HIDDEN-DONE", "Excluded completed", counted_in_total=False)],
+            "eligible": [course("TEST-B", "Synthetic required", 4, suggested=True,
+                                name_en="Synthetic required EN",
+                                counted_in_total=False, eligibility_basis="excluded_from_total"),
+                         course("TEST-E1", "<img src=x onerror=alert(1)>",
+                                requirement_type="elective", groups=[group], suggested=True,
+                                eligibility_basis="requested_default"),
+                         course("TEST-E2", "Synthetic alternative", requirement_type="elective",
+                                groups=[group], eligibility_basis="no_prerequisites",
+                                result_pending=True),
+                         course("TEST-F", "Synthetic follow-up",
+                                eligibility_basis="available_prerequisites",
+                                prerequisite_clauses=[["TEST-E1"]])],
+            "blocked": [course("TEST-C", "Synthetic blocked", reasons=[{
+                "kind": "missing_prerequisites", "missing_prerequisites": [
+                    ["TEST-B", "TEST-OR"], ["TEST-AND"]]}]),
+                        course("TEST-D", "Synthetic unknown", reasons=[
+                            {"kind": "prerequisite_unknown", "missing_prerequisites": []},
+                            {"kind": "course_source_unverified", "missing_prerequisites": []}]),
+                        course("HIDDEN-BLOCKED", "Excluded blocked", counted_in_total=False)],
+        },
+        "progress": {
+            "total": {"earned_credits": 3, "required_credits": 120,
+                      "remaining_credits": 117},
+            "blocks": [
+                {"id": "field", "name": "Khối nền tảng", "earned_credits": 3,
+                 "required_credits": 9, "remaining_credits": 6},
+                {"id": "unresolved", "name": "Khối chưa rõ", "earned_credits": 0,
+                 "required_credits": None, "remaining_credits": None},
+            ],
+            "choice_groups": [{"id": "choice", "name": "Nhóm tự chọn",
+                               "earned_credits": 0, "required_credits": 3,
+                               "remaining_credits": 3}],
+        },
+        "plan": {"max_credits": 20, "suggested_credits": 3,
+                 "course_codes": ["TEST-E1"], "offering_status": "unknown"},
+    }
+    source = {"profile": {"program": "Synthetic program", "cohort": "79"},
+              "snapshot": {"completeness": "complete", "attempts": []}}
+    source.update(subject='synthetic-only', expires_in=7200)
+    requests, errors, pending = [], [], []
+    mode = "ready"
+
+    def intercept(route):
+        parsed = urlparse(route.request.url)
+        path = parsed.path
+        requests.append(path)
+        if path == '/me/course-status':
+            if mode == 'pending':
+                pending.append(route)
+                return
+            if mode == 'failed':
+                route.fulfill(status=503, content_type='application/json', body='{}')
+                return
+            if mode == 'expired':
+                route.fulfill(status=401, content_type='application/json', body='{}')
+                return
+            result = copy.deepcopy(data)
+            budget = int(parse_qs(parsed.query)['max_credits'][0])
+            if budget == 6:
+                result['plan'].update(course_codes=['TEST-E1'], suggested_credits=3, max_credits=6)
+            if mode == 'unready':
+                result.update(status='needs_program_binding', courses=None, progress=None, plan=None,
+                              blocking_reasons=['source_incomplete', 'program_binding_unverified'])
+            if mode == 'catalog_unverified':
+                result.update(status='needs_policy_review', courses=None, progress=None, plan=None,
+                              blocking_reasons=['catalog_unverified'])
+            if mode == 'paused':
+                result.update(status='partial', can_plan=False,
+                              blocking_reasons=['graduation_selection_required'])
+                result['plan'].update(course_codes=[], suggested_credits=0)
+            route.fulfill(content_type='application/json', body=json.dumps(result))
+        elif path == '/me/semester-plans':
+            route.fulfill(json={'plans': []})
+        elif path == '/auth/session':
+            route.fulfill(json=session_payload())
+        elif path == '/me/profile':
+            route.fulfill(json=source)
+        elif parsed.hostname == '127.0.0.1' and (path == '/' or path.startswith('/static/')):
+            static = Path(__file__).resolve().parents[2] / 'app/static'
+            file = static / ('index.html' if path == '/' else path.removeprefix('/static/'))
+            if file.is_file():
+                route.fulfill(body=file.read_bytes(), content_type=mimetypes.guess_type(file)[0] or 'text/plain')
+            else:
+                route.fulfill(status=404)
+        else:
+            route.abort()
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(channel='chrome', headless=True)
+        page = browser.new_page(viewport={"width": 1600, "height": 1050})
+        page.on('pageerror', lambda error: errors.append(str(error)))
+        page.route('**/*', intercept)
+        page.goto('http://127.0.0.1:8000/#rules')
+        root = page.locator('#course-status-board')
+        planner = page.locator('#course-planning-panel')
+        page.wait_for_selector('[data-course-code="TEST-A"]')
+
+        def emit_source():
+            page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: value}))", source)
+
+        emit_source()
+        page.wait_for_selector('[data-course-code="TEST-A"]')
+        assert root.locator('.course-state-completed .course-status-card').count() == 1
+        assert root.locator('.course-state-eligible .course-status-card').count() == 3
+        assert root.locator('.course-state-blocked .course-status-card').count() == 2
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể học')
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
+        for code in ('TEST-B', 'HIDDEN-DONE', 'HIDDEN-BLOCKED'):
+            assert root.locator(f'[data-course-code="{code}"]').count() == 0
+        assert 'Tiên quyết nằm trong nhóm Có thể học: (TEST-E1: <img src=x onerror=alert(1)>)' in root.locator('[data-course-code="TEST-F"]').inner_text()
+        assert root.locator('[data-course-code="TEST-F"] .course-status-reasons strong').inner_text() == '<img src=x onerror=alert(1)>'
+        assert 'Cần hoàn thành các môn tiên quyết trước' in root.locator('[data-course-code="TEST-F"]').inner_text()
+        assert root.locator('#semester-plans, select, input[type=number], .course-status-summary, .course-status-progress-breakdown, .course-status-notice').count() == 0
+        assert 'Xem bảng điểm VNU' not in root.inner_text()
+        page.locator('#tab-btn-recommend').click()
+        open_plan_tools(page)
+        progress_detail = planner.locator('.course-status-progress-breakdown')
+        assert progress_detail.count() == 1
+        assert progress_detail.get_by_role('heading', name='Tiến độ theo khối và nhóm tín chỉ').count() == 1
+        assert 'Khối nền tảng' in progress_detail.inner_text()
+        assert '3 / 9 TC · còn thiếu 6 TC' in progress_detail.inner_text()
+        assert 'Khối chưa rõ' in progress_detail.inner_text()
+        assert 'chưa xác định yêu cầu' in progress_detail.inner_text()
+        assert 'Nhóm tự chọn' in progress_detail.inner_text()
+        assert 'khối/nhóm có thể chồng lấp' in progress_detail.inner_text()
+        assert page.locator('#course-credit-budget').input_value() == '20'
+        page.locator('#tab-btn-rules').click()
+        assert '(TEST-B: Synthetic required hoặc TEST-OR) và (TEST-AND: Synthetic prerequisite outside columns)' in root.inner_text()
+        assert 'Thông tin mã môn, tên, tín chỉ hoặc khối chưa được xác minh.' in root.locator('[data-course-code="TEST-D"]').inner_text()
+        assert root.locator('img').count() == 0
+        assert '<img src=x' in root.inner_text()
+        assert 'mặc định đã chọn; điều kiện tiên quyết đã thỏa' in root.locator('[data-course-code="TEST-E1"]').inner_text()
+        assert 'môn không có điều kiện tiên quyết' in root.locator('[data-course-code="TEST-E2"]').inner_text()
+        assert 'chưa tính là đã hoàn thành' in root.locator('[data-course-code="TEST-E2"]').inner_text()
+        assert '3 / 20 TC' in planner.inner_text()
+        assert root.locator('[data-course-code="TEST-C"]').count() == 1
+        assert root.locator('.course-state-completed [data-course-code="TEST-B"]').count() == 0
+        page.locator('#tab-btn-recommend').click()
+        page.locator('#course-credit-budget').fill('6')
+        planner.get_by_role('button', name='Áp dụng', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('3 / 6 TC')")
+        assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'budget'
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('[data-plan-course="TEST-F"]').count() == 0
+        page.locator('#tab-btn-rules').click()
+        root.locator('input[type=search]').fill('TEST-C')
+        assert root.locator('.course-status-card').count() == 1
+        assert 'TEST-B: Synthetic required' in root.locator('[data-course-code="TEST-C"]').inner_text()
+        search_status = root.locator('.course-status-search-results')
+        assert search_status.get_attribute('role') == 'status'
+        assert search_status.get_attribute('aria-live') == 'polite'
+        assert search_status.inner_text() == 'Có 1 môn phù hợp.'
+        root.locator('input[type=search]').fill('NO-MATCH')
+        assert search_status.inner_text() == 'Không có môn phù hợp.'
+        root.locator('input[type=search]').fill('')
+        assert search_status.inner_text() == 'Đã xóa tìm kiếm. Hiện 6 môn.'
+        page.locator('#tab-btn-recommend').click()
+        planner.locator('.course-status-toolbar select').nth(0).select_option('synthetic-track')
+        page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'track'")
+        planner.locator('.course-status-toolbar select').nth(1).select_option('synthetic-path')
+        page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
+        page.locator('#tab-btn-rules').click()
+        page.locator('[data-language-choice="en"]').click()
+        assert 'Your course map' in root.inner_text()
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
+        assert 'Available to study' in root.locator('.course-state-eligible h3').inner_text()
+        assert 'Complete those prerequisites before taking this course.' in root.locator('[data-course-code="TEST-F"]').inner_text()
+        assert 'Progress by blocks and credit groups' in planner.locator('.course-status-progress-breakdown').inner_text()
+        assert 'Blocks and groups can overlap' in planner.locator('.course-status-progress-breakdown').inner_text()
+        assert '(TEST-B: Synthetic required EN or TEST-OR) and (TEST-AND: Prerequisite outside columns EN)' in root.inner_text()
+        assert root.locator('[data-course-code="TEST-E1"] h4').inner_text().startswith('<img')
+        assert 'this course has no prerequisites' in root.locator('[data-course-code="TEST-E2"]').inner_text()
+        assert root.locator('[data-course-code="TEST-B"]').count() == 0
+        root.locator('input[type=search]').fill('TEST-C')
+        assert root.locator('.course-status-search-results').inner_text() == '1 matching courses.'
+        root.locator('input[type=search]').fill('')
+        assert root.locator('.course-status-search-results').inner_text() == 'Search cleared. Showing 6 courses.'
+        page.locator('[data-language-choice="vi"]').click()
+        mode = 'paused'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Chọn nhánh tốt nghiệp')")
+        assert root.locator('.course-state-eligible .course-status-card').count() == 3
+        assert root.locator('.course-state-eligible h3').inner_text().startswith('Có thể học')
+        assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
+        # Existing edited drafts survive a pause, but no action can persist them.
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert planner.get_by_role('button', name='Lấy lại gợi ý', exact=True, include_hidden=True).is_disabled()
+        assert 'Chọn nhánh tốt nghiệp' not in root.inner_text()
+        mode = 'ready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('3 / 6 TC')")
+        mode = 'failed'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa tải được kết quả')")
+        assert root.locator('.course-status-card').count() == 6
+        assert planner.locator('[data-plan-course="TEST-E1"]').count() == 1
+        assert planner.locator('#semester-plan-form button[type=submit]').is_disabled()
+        assert planner.get_by_role('button', name='Lấy lại gợi ý', exact=True, include_hidden=True).is_disabled()
+        assert page.evaluate("document.activeElement?.dataset.courseStatusFocus") == 'refresh'
+        mode = 'ready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_selector('[data-course-code="TEST-A"]')
+        evidence = Path('backups/local_runtime/course-status')
+        evidence.mkdir(parents=True, exist_ok=True)
+        for theme in ('light', 'dark'):
+            page.locator(f'[data-theme-choice="{theme}"]').click()
+            for width in (1600, 390):
+                page.set_viewport_size({"width": width, "height": 1050})
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+                page.screenshot(path=str(evidence / f'{theme}-{width}.png'), full_page=True)
+        page.set_viewport_size({"width": 1440, "height": 1050})
+        mode = 'unready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Chưa xác minh chương trình')")
+        assert root.locator('.course-status-card').count() == 0
+        assert root.locator('.course-status-column').count() == 3
+        mode = 'catalog_unverified'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Khung chương trình chưa được xác minh')")
+        assert root.locator('.course-status-card').count() == 0
+        mode = 'ready'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_selector('[data-course-code="TEST-A"]')
+        mode = 'pending'
+        root.get_by_role('button', name='Cập nhật', exact=True).click()
+        page.wait_for_timeout(100)
+        assert pending
+        page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
+        assert 'Đăng nhập VNU' in root.inner_text()
+        for route in pending:
+            route.fulfill(content_type='application/json', body=json.dumps(data))
+        page.wait_for_timeout(100)
+        assert root.locator('.course-status-card').count() == 0
+        assert root.locator('input[type=search]').input_value() == ''
+        mode = 'expired'
+        emit_source()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Đăng nhập VNU')")
+        assert root.locator('.course-status-card').count() == 0
+        assert not errors, errors
+        assert not set(requests) & {'/eligibility', '/recommendations', '/transcript/summary', '/programs'}
+        assert page.evaluate("Object.keys(localStorage).every(key => key.startsWith('study-workspace-'))")
+        browser.close()
+    print('Course board: states, reasons, quotas, budget, search, VI/EN, themes/mobile and logout race passed')
+
+
+if __name__ == '__main__':
+    main()

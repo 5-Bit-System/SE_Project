@@ -8,8 +8,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Ensure repository root is on sys.path
 REPO_ROOT = Path(__file__).resolve().parents[1]

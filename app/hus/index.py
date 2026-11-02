@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import date
 import json
 import os
-from pathlib import Path
 import textwrap
+from datetime import date
+from pathlib import Path
 
-from app.hus.models import HUSChunk, HUSDocument, ReviewDecision
 from app.hus.metadata import metadata_for
+from app.hus.models import HUSChunk, HUSDocument, ReviewDecision
 from app.hus.review import ReviewGateError, require_review, source_digest
 from app.hus.urls import canonicalize_url
 

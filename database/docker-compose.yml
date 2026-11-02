@@ -1,0 +1,21 @@
+name: se_hus
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: se_hus_db
+    environment:
+      POSTGRES_USER: ${HUS_POSTGRES_USER:-ai07}
+      POSTGRES_PASSWORD: ${HUS_POSTGRES_PASSWORD:?Set HUS_POSTGRES_PASSWORD in database/.env.docker}
+      POSTGRES_DB: ai07
+    ports:
+      - "127.0.0.1:${HUS_POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - hus_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d ai07"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+volumes:
+  hus_pgdata:
+    name: se_hus_pgdata

@@ -1,5 +1,11 @@
 # Nghiệm thu hỏi đáp HUS đầu cuối
 
+**Tài liệu lịch sử.** Sau điều chỉnh phạm vi và xử lý xung đột PR #6, luồng đang
+dùng là app độc lập `app.hus.demo:app`. Test hiện tại:
+`python -X utf8 -m tools.run_hus_rag_demo --smoke`. CLI
+`tools.verify_hus_e2e` bên dưới thuộc UI/router cũ; không dùng làm nghiệm thu cho
+app hiện tại. Xem [biên bản merge](HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md).
+
 UI/auth active main đã được nghiệm thu riêng tại [P0-4](RAG_P04_MAIN_INTEGRATION.md):
 43 HTTP/14 Chromium, dùng gate/session/context thật với repository tài khoản giả lập.
 Worktree main riêng; receipt P0-3 bên dưới thuộc luồng crawldata legacy.

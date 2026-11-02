@@ -2,17 +2,15 @@
 
 from __future__ import annotations
 
-import hashlib
 import io
 import json
 from pathlib import Path
 
-from docx import Document
 import httpx
 import pytest
+from docx import Document
 
 from app.hus.allowlist import Allowlist
-from app.hus.models import DocumentStatus, DocumentType, Publisher
 from app.hus.pipeline import CrawlSummary, HUSPipeline, _clean_attachment_filename
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage

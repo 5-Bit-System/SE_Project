@@ -1,7 +1,7 @@
 """Invented source fixtures and adversarial checks for the page/cell evidence gate."""
 
-from datetime import date
 import io
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -305,6 +305,7 @@ def test_index_drops_record_if_report_cannot_be_recreated_after_gate(tmp_path, m
 
 def synthetic_snapshot(tmp_path, raw, url):
     import hashlib
+
     from app.hus.corpus import create_source_manifest, initial_reviews, json_bytes
 
     root = tmp_path / "sources"
@@ -338,6 +339,7 @@ def synthetic_snapshot(tmp_path, raw, url):
 
 def test_corpus_cannot_export_unchecked_cell_and_keeps_source_references(tmp_path):
     import json
+
     from app.hus.corpus import BuildConfig, CorpusError, build_artifacts
     from app.hus.review import source_digest
 
@@ -377,7 +379,9 @@ def test_corpus_cannot_export_unchecked_cell_and_keeps_source_references(tmp_pat
 
 def test_inspector_creates_page_ocr_queue_and_never_approves(tmp_path):
     import json
+
     import pypdfium2
+
     from app.hus.corpus import json_bytes
     from tools.inspect_hus_source_quality import inspect
 

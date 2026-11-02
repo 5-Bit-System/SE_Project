@@ -1,14 +1,14 @@
 """Retrieval contracts use invented data; real-package checks do not verify academics."""
 
-from copy import deepcopy
 import hashlib
 import json
-from pathlib import Path
 import unicodedata
+from copy import deepcopy
+from pathlib import Path
 
 import pytest
 
-from app.hus.rag_loader import HUSRAGData, MAJOR_CODES, RAGDataError
+from app.hus.rag_loader import MAJOR_CODES, HUSRAGData, RAGDataError
 from app.hus.retrieval import FIELD_LABELS, HUSRAGRetriever
 
 

@@ -1,6 +1,5 @@
-import pytest
-from pathlib import Path
 import hashlib
+from pathlib import Path
 
 from app.hus.extractors.html import extract_html
 from app.hus.models import Publisher

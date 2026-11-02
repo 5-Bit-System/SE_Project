@@ -19,7 +19,6 @@ from app.models import (
     Track,
 )
 
-
 # Stable input error codes. The API currently serializes these through the
 # HTTP 422 detail field, so keep the prefixes machine-readable.
 UNKNOWN_PASSED_CODES = "unknown_passed_course_codes"
@@ -137,8 +136,9 @@ def evaluate_eligibility(
     max_credits: int = 30,
     selected_track_id: str | None = None,
     selected_graduation_path_id: str | None = None,
+    preview_unverified_metadata: bool = False,
 ) -> EligibilityResult:
-    """Evaluate every course in one catalog against hard eligibility rules.
+    """Evaluate a catalog; metadata preview is reserved for the course board.
 
     ``max_credits`` is the total credit budget for the recommendation request.
     Eligibility does not greedily consume that budget across courses because
@@ -146,6 +146,10 @@ def evaluate_eligibility(
     blocks a single course whose own credits exceed the total budget; the
     recommendation service applies the same budget while selecting a set and
     sums the selected course credits.
+
+    ``preview_unverified_metadata`` is only used by the read-only course-board
+    preview. Recommendation, advisor, progress and plan-validation paths use
+    the strict default.
     """
 
     _validate_max_credits(max_credits)
@@ -153,6 +157,8 @@ def evaluate_eligibility(
     groups = {group.id: group for group in catalog.program.choice_groups}
     course_map = {course.code: course for course in catalog.courses}
     passed = _validate_passed_codes(passed_codes, set(course_map))
+    if not preview_unverified_metadata:
+        passed = {code for code in passed if course_map[code].source_status == "verified"}
     (
         _tracks_by_id,
         selected_track,
@@ -194,6 +200,20 @@ def evaluate_eligibility(
 
         # Reason order is deliberate and stable for UI/fallback consumers:
         # source -> prerequisites -> track/path -> group -> credit budget.
+        if catalog.program.catalog_status != "verified" and not preview_unverified_metadata:
+            reasons.append(
+                BlockedReason(
+                    kind="catalog_unverified",
+                    message="Khung chương trình chưa được xác minh.",
+                )
+            )
+        if course.source_status != "verified" and not preview_unverified_metadata:
+            reasons.append(
+                BlockedReason(
+                    kind="course_source_unverified",
+                    message="Thông tin mã, tên, tín chỉ hoặc khối của môn học chưa được xác minh.",
+                )
+            )
         if course.prerequisite_status in ("source_conflict", "conflict"):
             reasons.append(
                 BlockedReason(
@@ -209,6 +229,13 @@ def evaluate_eligibility(
                 BlockedReason(
                     kind="prerequisite_unknown",
                     message="Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.",
+                )
+            )
+        elif course.prerequisite_status != "verified" and not preview_unverified_metadata:
+            reasons.append(
+                BlockedReason(
+                    kind="prerequisite_unverified",
+                    message="Điều kiện tiên quyết của môn học chưa được xác minh.",
                 )
             )
 

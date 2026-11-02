@@ -1,8 +1,8 @@
 """Build or verify an isolated generated F3 reference corpus; no HTTP, LLM or database."""
 
 import argparse
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from app.hus.corpus import verify_artifacts
 from app.hus.f3_reference import build_reference

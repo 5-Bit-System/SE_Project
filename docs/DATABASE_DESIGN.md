@@ -1,5 +1,10 @@
 # Thiết kế database cho pipeline hiện hành
 
+## Current schema - 2026-10-17
+
+The app now uses extended HUS ai07 with versioned catalog snapshots. See [HUS schema, ERD, migrations and rollback](../database/HUS_RUNTIME.md). Sections below describe legacy/historical designs; never run legacy migrations on ai07.
+
+
 Quyết định cập nhật ngày 2026-10-14: PostgreSQL là storage runtime mặc định theo yêu cầu người dùng. **Phần 8 mô tả schema đã triển khai và kiểm chứng.** Các phần 3–6 giữ mô hình mở rộng tham khảo, bao gồm audit recommendation chưa triển khai trong đợt nền tảng này.
 
 ## 1. Kết luận

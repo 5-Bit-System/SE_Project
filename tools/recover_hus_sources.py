@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 import difflib
 import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pdfplumber

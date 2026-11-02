@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 import argparse
-from contextlib import contextmanager
-from datetime import datetime
 import hashlib
 import json
-from pathlib import Path
 import socket
 import threading
 import time
+from contextlib import contextmanager
+from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROGRAMS = {

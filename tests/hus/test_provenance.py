@@ -17,7 +17,6 @@ from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError
 from tools.recover_hus_sources import recover
 
-
 HOST = "https://mim.hus.vnu.edu.vn"
 
 

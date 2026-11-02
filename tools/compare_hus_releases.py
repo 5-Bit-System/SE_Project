@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from collections import Counter, defaultdict
 import argparse
 import hashlib
 import json
-from pathlib import Path
 import re
+from collections import Counter, defaultdict
+from pathlib import Path
 
 from app.hus.data_release import checked_path, encoded
 from app.hus.release_validation import validate_release
@@ -52,7 +52,8 @@ def compare(root: Path) -> dict:
         assert all(text[c["locator"]["start_char"]:c["locator"]["end_char"]] == c["source_quote"] for c in old), key
         assert all(text[c["citation"]["start_char"]:c["citation"]["end_char"]] == c["source_quote"] for c in new), key
         # Old fixed-size splitting can skip whitespace at cut points, never prose.
-        compact = lambda value: re.sub(r"\s+", "", value)
+        def compact(value):
+            return re.sub(r"\s+", "", value)
         assert compact("".join(c["source_quote"] for c in old)) == compact(text[first:last]), key
         assert compact("".join(c["source_quote"] for c in new)) == compact(text[first:last]), key
         assert old[0]["review_status"] == new[0]["citation"]["review_status"], key

@@ -198,6 +198,9 @@ class BlockedReason(BaseModel):
         "track_mismatch",
         "graduation_path_mismatch",
         "prerequisite_unknown",
+        "prerequisite_unverified",
+        "catalog_unverified",
+        "course_source_unverified",
     ]
     message: str
     missing_prerequisites: list[list[str]] = Field(default_factory=list)

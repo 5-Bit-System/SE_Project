@@ -1,5 +1,6 @@
 import io
 from pathlib import Path
+
 import pypdfium2
 import pytest
 

@@ -1,7 +1,8 @@
 from logging.config import fileConfig
 
-from alembic import context
+from sqlalchemy import inspect
 
+from alembic import context
 from app.config import get_settings
 from app.db.schema import metadata
 from app.db.session import get_engine
@@ -31,6 +32,8 @@ else:
             version_table_schema=version_schema,
         )
         with context.begin_transaction():
+            if inspect(connection).has_table("curricula", schema=version_schema):
+                raise RuntimeError("Refusing legacy migrations on HUS; use python -m database.tools.migrate upgrade")
             context.run_migrations()
 
     supplied_connection = context.config.attributes.get("connection")

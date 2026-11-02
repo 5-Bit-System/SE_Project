@@ -1,0 +1,178 @@
+{
+  "after": {
+    "catalogs": 4,
+    "memberships": 290,
+    "source_occurrences": 297,
+    "non_missing": {
+      "name_en": 290,
+      "hours": 282,
+      "instruction_language": 0,
+      "year": 0,
+      "suggested_term": 0,
+      "topics": 0,
+      "orientation": 0,
+      "difficulty": 0,
+      "workload": 0,
+      "description": 0,
+      "career_paths": 0
+    },
+    "programs": {
+      "khdl_7460108_2022": {
+        "courses": 65,
+        "required_credits": 127,
+        "non_missing": {
+          "name_en": 65,
+          "hours": 63,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "khmtt_7480113qtd_2022": {
+        "courses": 67,
+        "required_credits": 129,
+        "non_missing": {
+          "name_en": 67,
+          "hours": 65,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "toan_hoc_7460101_2022": {
+        "courses": 90,
+        "required_credits": 135,
+        "non_missing": {
+          "name_en": 90,
+          "hours": 88,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "toan_tin_7460117_2022": {
+        "courses": 68,
+        "required_credits": 132,
+        "non_missing": {
+          "name_en": 68,
+          "hours": 66,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      }
+    }
+  },
+  "before": {
+    "catalogs": 4,
+    "memberships": 290,
+    "source_occurrences": 297,
+    "non_missing": {
+      "name_en": 0,
+      "hours": 0,
+      "instruction_language": 0,
+      "year": 0,
+      "suggested_term": 0,
+      "topics": 0,
+      "orientation": 0,
+      "difficulty": 0,
+      "workload": 0,
+      "description": 0,
+      "career_paths": 0
+    },
+    "programs": {
+      "khdl_7460108_2022": {
+        "courses": 65,
+        "required_credits": 127,
+        "non_missing": {
+          "name_en": 0,
+          "hours": 0,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "khmtt_7480113qtd_2022": {
+        "courses": 67,
+        "required_credits": 129,
+        "non_missing": {
+          "name_en": 0,
+          "hours": 0,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "toan_hoc_7460101_2022": {
+        "courses": 90,
+        "required_credits": 135,
+        "non_missing": {
+          "name_en": 0,
+          "hours": 0,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      },
+      "toan_tin_7460117_2022": {
+        "courses": 68,
+        "required_credits": 132,
+        "non_missing": {
+          "name_en": 0,
+          "hours": 0,
+          "instruction_language": 0,
+          "year": 0,
+          "suggested_term": 0,
+          "topics": 0,
+          "orientation": 0,
+          "difficulty": 0,
+          "workload": 0,
+          "description": 0,
+          "career_paths": 0
+        }
+      }
+    }
+  }
+}

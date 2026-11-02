@@ -1,0 +1,207 @@
+{
+  "schema_version": "rag-normalization-proposal-v1",
+  "record_id": "8afffd3cada3d048:c135289b2186:F2:MAT2502",
+  "record_kind": "curriculum_course",
+  "features": [
+    "F2"
+  ],
+  "status": "needs_review",
+  "eligible_for_rag": false,
+  "source": {
+    "git_commit": "28d61c4bc13ff32592c48ef890a087166494cc59",
+    "document_id": "8afffd3cada3d048",
+    "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf",
+    "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-0-pdf--8afffd3c.md",
+    "content_sha256": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+    "markdown_sha256_utf8_lf": "b4296100ae52dfafc713a294dc4663b524f91d807fe6da00fc80463e7f8291f0",
+    "raw_path": null,
+    "raw_sha256": null,
+    "markdown_page_marker_observed": 11,
+    "verified_pdf_page_number": null,
+    "section": "Phần III / 2. Khung chương trình / IV.1 / dòng 21"
+  },
+  "applicability": {
+    "academic_year": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "admission_cohort": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "content_hash": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+    "education_level": {
+      "evidence": [],
+      "proposal_evidence": [
+        {
+          "field": "content_markdown",
+          "start": 172,
+          "end": 188,
+          "quote": "TRÌNH ĐỘ ĐẠI HỌC"
+        }
+      ],
+      "proposal_method": "example_only_explicit_content",
+      "proposed": "undergraduate",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "effective_from": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "effective_to": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "major": {
+      "evidence": [],
+      "proposal_evidence": [
+        {
+          "end": 91,
+          "field": "source_url",
+          "quote": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf",
+          "start": 0
+        },
+        {
+          "end": 53,
+          "field": "title",
+          "quote": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020_0.pdf",
+          "start": 0
+        }
+      ],
+      "proposal_method": "classification_rules_v2",
+      "proposed": "computer_science",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "program": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "program_variant": {
+      "evidence": [],
+      "proposal_evidence": [
+        {
+          "field": "content_markdown",
+          "start": 136,
+          "end": 171,
+          "quote": "CHƯƠNG TRÌNH ĐÀO TẠO CHẤT LƯỢNG CAO"
+        }
+      ],
+      "proposal_method": "example_only_explicit_content",
+      "proposed": "high_quality",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    },
+    "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf",
+    "validity_status": {
+      "evidence": [],
+      "proposal_evidence": [],
+      "proposal_method": "unknown",
+      "proposed": "unknown",
+      "reviewed_at": null,
+      "reviewer": null,
+      "verified": "unknown"
+    }
+  },
+  "document_issuance_observed": {
+    "decision_number": "3340/QĐ-ĐHKHTN",
+    "issued_on": "2019-10-25",
+    "verified_against_raw": false
+  },
+  "facts_observed": {
+    "course_code": "MAT2502",
+    "name_vi": "Giải tích 2",
+    "name_en": "Calculus 2",
+    "credits": 4,
+    "hours": {
+      "theory": 40,
+      "practice": 20,
+      "self_study": 0
+    },
+    "prerequisites": {
+      "raw_cell": "MAT2501<br>MAT2400",
+      "listed_codes": [
+        "MAT2501",
+        "MAT2400"
+      ],
+      "logic": "unknown",
+      "verification_status": "needs_review"
+    },
+    "verified_against_raw": false
+  },
+  "text": "Trong chương trình chất lượng cao ngành Máy tính và khoa học thông tin theo Quyết định 3340/QĐ-ĐHKHTN ngày 25/10/2019, học phần Giải tích 2 (MAT2502) có 4 tín chỉ. Cột học phần tiên quyết ghi MAT2501 và MAT2400.",
+  "normalized_text_sha256": "d2915adc64332e5822fdf15f71145ce7742fc14bf196d054dae1ec94a9e9064d",
+  "source_locators": [
+    {
+      "label": "course_row",
+      "field": "content_markdown",
+      "start_char": 16019,
+      "end_char": 16102,
+      "quote": "| 21 | MAT2502 | Giải tích 2<br>Calculus 2 | 4 | 40 | 20 | 0 | MAT2501<br>MAT2400 |"
+    },
+    {
+      "label": "column_headers",
+      "field": "content_markdown",
+      "start_char": 14901,
+      "end_char": 15106,
+      "quote": "| STT | Mã<br>học phần | Học phần | Số tín chỉ | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n|  |  |  |  | Lý thuyết | Thực hành | Tự học |  |"
+    },
+    {
+      "label": "issuance_line",
+      "field": "content_markdown",
+      "start_char": 257,
+      "end_char": 327,
+      "quote": "(Ban hành theo Quyết định số 3340/QĐ-ĐHKHTN, ngày 25 tháng 10 năm 2019"
+    },
+    {
+      "label": "program_scope",
+      "field": "content_markdown",
+      "start_char": 136,
+      "end_char": 226,
+      "quote": "CHƯƠNG TRÌNH ĐÀO TẠO CHẤT LƯỢNG CAO\nTRÌNH ĐỘ ĐẠI HỌC\nNGÀNH: MÁY TÍNH VÀ KHOA HỌC THÔNG TIN"
+    }
+  ],
+  "reviewer": null,
+  "reviewed_at": null,
+  "blockers": [
+    "original_attachment_missing",
+    "raw_quality_review_missing",
+    "applicability_unverified",
+    "prerequisite_logic_unverified"
+  ],
+  "notes": [
+    "Schema illustration only; not accepted directly by existing corpus models.",
+    "Nested applicability reuses the existing ApplicabilityMetadata contract; added proposals exist only in this example, not in the source snapshot.",
+    "Scope proposals and extracted facts are not verified metadata.",
+    "The Markdown page marker is not a verified physical PDF page number."
+  ]
+}

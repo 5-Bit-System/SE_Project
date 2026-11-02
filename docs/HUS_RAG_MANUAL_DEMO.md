@@ -1,5 +1,9 @@
 # Mở demo hỏi đáp RAG trên máy hiện tại
 
+Sau lần hợp nhất main để xử lý PR #6, lệnh mở và phạm vi demo vẫn như dưới đây.
+Môi trường mới nên cài `requirements-dev.txt` với constraint `requirements-lock.txt`
+và chạy `python -m playwright install chromium` trước khi mở demo.
+
 Demo độc lập dùng `app.hus.demo:app`, giao diện hỏi đáp riêng và dữ liệu HUS thật.
 Phạm vi gồm **F1/F2/F3 và trò chuyện cơ bản**. Ứng dụng chạy trên loopback, không cần
 đăng nhập, tài khoản/ngữ cảnh giả lập, catalog, bảng điểm, database hoặc model provider.

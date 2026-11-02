@@ -12,15 +12,15 @@ import argparse
 import glob
 import hashlib
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Ensure repository root is on sys.path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from app.hus.cleaning import _VERTICAL_REVERSED_TERMS, normalize_vertical_text
+from app.hus.cleaning import _VERTICAL_REVERSED_TERMS, normalize_vertical_text  # noqa: E402
 
 
 def build_parser() -> argparse.ArgumentParser:

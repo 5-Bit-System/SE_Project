@@ -9,11 +9,11 @@ import argparse
 import hashlib
 import io
 import json
-from pathlib import Path
 import subprocess
+import zipfile
+from pathlib import Path
 from tempfile import TemporaryDirectory
 from urllib.parse import unquote, urlsplit
-import zipfile
 
 import pdfplumber
 

@@ -4,9 +4,15 @@ import os
 
 # Set before collection, including imports of app.main and settings consumers.
 os.environ["STORAGE_BACKEND"] = "json"
+os.environ["DATABASE_MODEL"] = "hus"
 os.environ["DATABASE_URL"] = ""
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
+os.environ['APP_ENV'] = 'test'
+os.environ['AUTH_TOKEN_PEPPER'] = 'synthetic-offline-server-secret-at-least-32-characters'
+os.environ['EMAIL_BACKEND'] = 'fake'
+os.environ['PUBLIC_BASE_URL'] = 'http://127.0.0.1:8000'
+os.environ['AUTH_ALLOWED_ORIGINS'] = 'http://127.0.0.1:8000'
 
 import httpx
 import pytest
@@ -14,15 +20,35 @@ import pytest
 from app.config import get_settings
 
 
+@pytest.fixture
+def fake_accounts(monkeypatch):
+    from tests.support.system_auth import SyntheticAccounts
+    return SyntheticAccounts(monkeypatch)
+
+
+@pytest.fixture
+def verified_client(fake_accounts):
+    from fastapi.testclient import TestClient
+
+    from app.main import app
+    with TestClient(app, base_url='http://127.0.0.1:8000') as client:
+        client.headers['origin'] = 'http://127.0.0.1:8000'
+        fake_accounts.issue(client)
+        yield client
+
+
 @pytest.fixture(autouse=True)
 def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setattr("app.catalog.DATA_ROOT", catalog_root)
     monkeypatch.setattr("app.profiles.PROFILES_PATH", profiles_path)
     monkeypatch.setenv("STORAGE_BACKEND", "json")
+    monkeypatch.setenv("DATABASE_MODEL", "hus")
     monkeypatch.setenv("DATABASE_URL", "")
     monkeypatch.setenv("GEMINI_API_KEY", "")
     monkeypatch.setenv("RECOMMENDATION_LLM_ENABLED", "false")
     get_settings.cache_clear()
+    from app.auth.settings import settings as get_auth_settings
+    get_auth_settings.cache_clear()
     network_attempts = []
 
     def blocked_network(*args, **kwargs):
@@ -37,6 +63,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setattr(httpx.AsyncHTTPTransport, "handle_async_request", blocked_async_network)
     yield
     get_settings.cache_clear()
+    get_auth_settings.cache_clear()
     assert not network_attempts, (
         "A test attempted outbound HTTP, even if fallback swallowed the error"
     )
@@ -44,7 +71,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
 
 @pytest.fixture(scope="session")
 def catalog_root(tmp_path_factory):
-    from tests.catalog_fixtures import create_catalog_fixture
+    from tests.support.catalog_fixtures import create_catalog_fixture
 
     root, _ = create_catalog_fixture(tmp_path_factory.mktemp("offline_catalogs"))
     return root
@@ -57,7 +84,7 @@ def profiles_path(catalog_root):
 
 @pytest.fixture
 def toy_catalog():
-    from tests.catalog_fixtures import get_toy_catalog
+    from tests.support.catalog_fixtures import get_toy_catalog
 
     return get_toy_catalog()
 
@@ -67,7 +94,7 @@ def pytest_addoption(parser):
         "--full-catalog-root",
         type=str,
         default=None,
-        help="Explicit external root for four-catalog source acceptance",
+        help="Explicit root for legacy four-catalog files or HUS PDF expectations",
     )
 
 

@@ -4,9 +4,9 @@ This creates acquisition evidence; it never alters a pinned snapshot or grants r
 """
 
 import argparse
+import time
 from datetime import datetime, timezone
 from pathlib import Path
-import time
 from urllib.parse import urlsplit
 
 import httpx

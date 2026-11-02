@@ -1,0 +1,20 @@
+{
+  "pdf": "C:\\Users\\viet cong\\Downloads\\104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+  "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+  "method": "Visual transcription of rendered PDF pages 9-13; independent comparison with catalogs rebuilt from local JSON source",
+  "matched": 66,
+  "total": 67,
+  "mismatches": [
+    {
+      "code": "MAT2407",
+      "name": "Tối ưu hóa",
+      "pdf_page": 10,
+      "printed_page": 8,
+      "pdf_prerequisites": "[[\"MAT2301\", \"MAT2321\", \"MAT2400\"], [\"MAT2303\", \"MAT2502\"]]",
+      "catalog_prerequisites": "[]",
+      "match": false,
+      "status": "unknown",
+      "external_in_pdf": "MAT2301,MAT2303,MAT2321"
+    }
+  ]
+}

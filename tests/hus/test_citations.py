@@ -2,18 +2,17 @@
 
 import hashlib
 import io
+import zipfile
 from dataclasses import replace
 from types import SimpleNamespace
-import zipfile
 
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
 import pytest
+from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
-from app.api.routes import hus_answerer, router
+from app.hus import demo
 from app.hus.answering import HUSAnswerer
-from app.hus.citation_assets import CitationAssetError, CitationAssets, DOCX_TYPE, PDF_TYPE
+from app.hus.citation_assets import DOCX_TYPE, PDF_TYPE, CitationAssetError, CitationAssets
 from app.hus.citations import CitationResolver
 from app.hus.data_release import encoded
 from app.hus.rag_loader import HUSRAGData
@@ -144,17 +143,15 @@ def test_invalid_pdf_missing_and_unknown_assets(tmp_path):
         tampered.read(sha)
 
 
-def _client(assets):
-    application = FastAPI()
-    application.include_router(router)
-    application.dependency_overrides[hus_answerer] = lambda: SimpleNamespace(
-        citation_resolver=SimpleNamespace(assets=assets))
-    return TestClient(application)
+def _client(assets, monkeypatch):
+    monkeypatch.setattr(demo, "get_hus_answerer", lambda: SimpleNamespace(
+        citation_resolver=SimpleNamespace(assets=assets)))
+    return TestClient(demo.app)
 
 
-def test_http_pdf_binary_ranges_head_and_integrity_failure(tmp_path):
+def test_http_pdf_binary_ranges_head_and_integrity_failure(tmp_path, monkeypatch):
     assets, sha = _registry(tmp_path)
-    client, url = _client(assets), f"/hus/sources/{sha}?page=2"
+    client, url = _client(assets, monkeypatch), f"/hus/sources/{sha}?page=2"
     response = client.get(url)
     assert response.status_code == 200 and response.content == _pdf()
     assert response.headers["content-type"] == PDF_TYPE
@@ -174,12 +171,12 @@ def test_http_pdf_binary_ranges_head_and_integrity_failure(tmp_path):
     assert client.get(url).status_code == 409
 
 
-def test_docx_is_attachment_without_pdf_page(tmp_path):
+def test_docx_is_attachment_without_pdf_page(tmp_path, monkeypatch):
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w") as archive:
         archive.writestr("word/document.xml", "<document/>")
     assets, sha = _registry(tmp_path, stream.getvalue(), "docx")
-    client = _client(assets)
+    client = _client(assets, monkeypatch)
     response = client.get(f"/hus/sources/{sha}")
     assert response.status_code == 200 and response.headers["content-type"] == DOCX_TYPE
     assert response.headers["content-disposition"].startswith("attachment;")

@@ -2,13 +2,12 @@
 
 import json
 
-from fastapi.testclient import TestClient
 import pytest
+from fastapi.testclient import TestClient
 
-from app.advisor import AdvisorResponse
 from app.hus.answering import HUSAnswerer
+from app.hus.demo import app
 from app.hus.rag_loader import HUSRAGData, RAGDataError
-from app.main import app
 from app.schemas.hus import HUSQuestion
 
 
@@ -125,45 +124,45 @@ def test_direct_hus_http_answer_does_not_require_runtime_catalog_or_provider(mon
     response = TestClient(app).post("/hus/chat", json={
         "question": "MAT3533 có bao nhiêu tín chỉ?", "major": "data_science", "version": "QD3569-2023"})
     assert response.status_code == 200
-    assert response.json()["facts"]["value"] == 3
+    assert response.json()["hus_answer"]["facts"]["value"] == 3
 
 
 @pytest.mark.parametrize("question,dataset", [("Giới thiệu ngành", "f1"),
                                             ("MAT3533 có bao nhiêu tín chỉ?", "f2"),
                                             ("Nội dung MAT3533 học gì?", "f3"),
                                             ("MAT3533 thi cuối kỳ bao nhiêu phần trăm?", "f3")])
-def test_existing_advisor_routes_hus_without_loading_recommendation_catalog(monkeypatch, question, dataset):
+def test_standalone_rag_routes_hus_without_loading_recommendation_catalog(monkeypatch, question, dataset):
     def forbidden(*args, **kwargs):
         raise AssertionError("HUS branch must not reach recommendation/catalog")
     monkeypatch.setattr("app.api.routes.load_catalog", forbidden)
     monkeypatch.setattr("app.api.routes.chat_advisor", forbidden)
-    response = TestClient(app).post("/advisor/chat", json={"program_id": "khdl", "message": question, "allow_generated_reference": True})
+    response = TestClient(app).post("/hus/chat", json={"major": "data_science", "version": "QD3569-2023", "question": question, "allow_generated_reference": True})
     assert response.status_code == 200
     data = response.json()
     assert data["mode"] == "hus_rag" and data["hus_answer"]["dataset"] == dataset
-    assert data["reply"] == data["hus_answer"]["reply"] and not data["suggested_courses"]
+    assert data["reply"] == data["hus_answer"]["reply"] and "suggested_courses" not in data
     if "phần trăm" in question:
         assert data["hus_answer"]["status"] == "no_information"
     else:
         assert data["hus_answer"]["status"] == "answered"
 
 
-def test_recommendation_question_retains_old_path_without_loading_hus(monkeypatch):
-    def forbidden():
-        raise AssertionError("Recommendation should not depend on the HUS package")
-    monkeypatch.setattr("app.api.routes.get_hus_answerer", forbidden)
-    monkeypatch.setattr("app.api.routes.chat_advisor", lambda *args: AdvisorResponse(reply="existing advisor", mode="heuristic_fallback"))
-    response = TestClient(app).post("/advisor/chat", json={"program_id": "khdl",
-                                    "message": "Kỳ tới nên học môn nào cho đủ 18 tín chỉ?"})
-    assert response.status_code == 200 and response.json()["reply"] == "existing advisor"
+def test_standalone_recommendation_request_is_not_forwarded(monkeypatch):
+    def forbidden(*args, **kwargs):
+        raise AssertionError("RAG must not reach the product recommendation handler")
+    monkeypatch.setattr("app.api.routes.chat_advisor", forbidden)
+    response = TestClient(app).post("/hus/chat", json={"major": "data_science", "version": "QD3569-2023",
+                                    "question": "Ky toi nen hoc mon nao cho du 18 tin chi?"})
+    assert response.status_code == 200
+    answer = response.json()["hus_answer"]
+    assert answer["status"] == "no_information" and not answer["facts"] and not answer["citations"]
 
 
-@pytest.mark.parametrize("path,body", [("/hus/chat", {"question": "Giới thiệu ngành", "major": "data_science"}),
-                                      ("/advisor/chat", {"message": "Giới thiệu ngành", "program_id": "khdl"})])
+@pytest.mark.parametrize("path,body", [("/hus/chat", {"question": "Giới thiệu ngành", "major": "data_science"})])
 def test_invalid_package_is_service_failure_not_fabricated_no_information(monkeypatch, path, body):
     def broken():
         raise RAGDataError("private local path and bad checksum")
-    monkeypatch.setattr("app.api.routes.get_hus_answerer", broken)
+    monkeypatch.setattr("app.hus.demo.get_hus_answerer", broken)
     response = TestClient(app).post(path, json=body)
     assert response.status_code == 503
     assert "private local path" not in response.text
@@ -176,9 +175,9 @@ def test_hus_request_validation_is_422(overrides):
     assert TestClient(app).post("/hus/chat", json=payload).status_code == 422
 
 
-def test_unknown_program_cannot_borrow_another_majors_evidence():
-    response = TestClient(app).post("/advisor/chat", json={"program_id": "unknown", "message": "Giới thiệu ngành"})
-    assert response.status_code == 404
+def test_unknown_major_cannot_borrow_another_majors_evidence():
+    response = TestClient(app).post("/hus/chat", json={"major": "unknown", "question": "Giới thiệu ngành"})
+    assert response.status_code == 422
 
 
 @pytest.mark.parametrize("message", [
@@ -194,7 +193,7 @@ def test_exam_fact_requests_cannot_bypass_evidence_via_recommendation_intent(mon
         raise AssertionError("Unverified exam facts must not reach a recommendation provider")
     monkeypatch.setattr("app.api.routes.chat_advisor", forbidden)
     monkeypatch.setattr("app.api.routes.load_catalog", forbidden)
-    response = TestClient(app).post("/advisor/chat", json={"program_id": "khdl", "message": message})
+    response = TestClient(app).post("/hus/chat", json={"major": "data_science", "version": "QD3569-2023", "question": message})
     assert response.status_code == 200
     answer = response.json()
     assert answer["mode"] == "hus_rag"

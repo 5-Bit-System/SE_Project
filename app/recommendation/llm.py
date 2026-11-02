@@ -6,14 +6,14 @@ de service tiep tuc validate; loi mang, loi schema hoac output la se fallback
 ve deterministic ranking.
 """
 
-from collections.abc import Callable
 import json
+from collections.abc import Callable
 from typing import Any
 
 import httpx
 
-from app.models import Course, RankingWeights, StructuredPreference
 from app.config import get_settings
+from app.models import Course, RankingWeights, StructuredPreference
 
 
 class LLMPreferenceExtractor:

@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+import hashlib
+import time
 from collections import deque
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-import hashlib
 from pathlib import Path
-import time
 from urllib.parse import unquote, urlsplit
 
 import httpx
@@ -17,10 +17,10 @@ from app.hus.cleaning import infer_attachment_major, infer_document_type
 from app.hus.crawler import Robots, fetch_attachment, fetch_html
 from app.hus.extractors import extract_attachment
 from app.hus.extractors.html import extract_html
-from app.hus.models import DocumentStatus, HUSDocument, RawSourceReference
 from app.hus.metadata import assign_proposal
-from app.hus.quality import analyze_source
+from app.hus.models import DocumentStatus, HUSDocument, RawSourceReference
 from app.hus.provenance import document_id_for
+from app.hus.quality import analyze_source
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError, canonicalize_url

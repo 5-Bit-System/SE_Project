@@ -1,15 +1,21 @@
 """Full F2 membership coverage and explicit separation of generated/official F3."""
 
-from collections import Counter
 import copy
 import json
+from collections import Counter
 from pathlib import Path
 
 import pytest
 
 from app.hus.corpus import verify_artifacts
 from app.hus.f3_reference import (
-    DATASET_KIND, PROGRAMS, WARNING, build_reference, load_inputs, section_texts, validate_record,
+    DATASET_KIND,
+    PROGRAMS,
+    WARNING,
+    build_reference,
+    load_inputs,
+    section_texts,
+    validate_record,
 )
 
 ROOT = Path("data/hus/qa/20261028/f3_reference")

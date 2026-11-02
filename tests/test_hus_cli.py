@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import sys
 
 import httpx
-import pytest
 
 from tools.run_hus_crawler import main
 

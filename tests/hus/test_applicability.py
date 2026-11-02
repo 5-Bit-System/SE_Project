@@ -1,8 +1,8 @@
 """Proposals do not grant scope; verified applicability must be tied to real source spans."""
 
-from datetime import date
 import hashlib
 import json
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -12,7 +12,12 @@ from app.hus.cleaning import infer_major
 from app.hus.corpus import BuildConfig, ReviewFile, SourceManifest, build_artifacts, read_json
 from app.hus.index import HUSIndex, chunk_document
 from app.hus.metadata import (
-    ApplicabilityFile, assign_proposal, locator, metadata_for, propose_metadata, validate_metadata,
+    ApplicabilityFile,
+    assign_proposal,
+    locator,
+    metadata_for,
+    propose_metadata,
+    validate_metadata,
 )
 from app.hus.models import HUSDocument, MajorCategory, MetadataField
 from tests.hus_review_fixtures import approved_review

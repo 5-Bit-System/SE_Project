@@ -1,9 +1,9 @@
 """Offline quality/OCR/table reports from pinned sources plus explicit recovery candidates."""
 
 import argparse
-from collections import Counter
 import hashlib
 import json
+from collections import Counter
 from pathlib import Path
 
 from app.hus.corpus import (

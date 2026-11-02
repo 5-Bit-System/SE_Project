@@ -15,6 +15,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 @dataclass(frozen=True, repr=False)
 class Settings:
     storage_backend: str
+    database_model: str
     database_url: str
     gemini_api_key: str
     gemini_base_url: str
@@ -28,6 +29,9 @@ def get_settings() -> Settings:
     backend = os.getenv("STORAGE_BACKEND", "postgres").strip().lower()
     if backend not in {"postgres", "json"}:
         raise ValueError("STORAGE_BACKEND must be postgres or json")
+    database_model = os.getenv("DATABASE_MODEL", "hus").strip().lower()
+    if database_model not in {"hus", "legacy"}:
+        raise ValueError("DATABASE_MODEL must be hus or legacy")
     database_url = os.getenv("DATABASE_URL", "").strip()
     if backend == "postgres":
         try:
@@ -39,6 +43,7 @@ def get_settings() -> Settings:
             raise ValueError("DATABASE_URL must identify a PostgreSQL database")
     return Settings(
         storage_backend=backend,
+        database_model=database_model,
         database_url=database_url,
         gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
         gemini_base_url=os.getenv("GEMINI_BASE_URL", "").strip(),

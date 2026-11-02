@@ -1,5 +1,11 @@
 # Tiến độ RAG, kế hoạch tiếp theo và hướng dẫn kiểm thử
 
+**Cập nhật giải quyết PR #6, 02/11/2026:** main `af8d4db` được hợp nhất vào
+crawldata `642706c` để xử lý xung đột; giữ nguyên API/auth/UI của main và app RAG
+độc lập. Xem [quyết định và hướng dẫn test](HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md)
+và [receipt mới](acceptance/hus_pr6_merge_report.json). Các SHA, số test và ghi chú
+chưa merge/push bên dưới mô tả các snapshot trước lần xử lý này.
+
 Ngày rà soát: **02/11/2026**. Nhánh đang làm việc: **`crawldata`**, HEAD
 `be76f50b16948b4831c20d53cc1976bc3f6c89bb`.
 

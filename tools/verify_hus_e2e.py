@@ -8,21 +8,20 @@ UI catalogs/profiles are invented fixtures; HUS evidence is the real packaged ha
 from __future__ import annotations
 
 import argparse
-from contextlib import contextmanager
-from datetime import datetime, timezone
 import hashlib
 import io
 import json
 import os
-from pathlib import Path
 import re
 import socket
 import threading
 import time
-from urllib.request import Request, urlopen
-from urllib.parse import urljoin
 import zipfile
-
+from contextlib import contextmanager
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import urljoin
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 PROGRAMS = {
@@ -210,11 +209,12 @@ def isolated_server(out):
                       RECOMMENDATION_LLM_ENABLED="false")
     import httpx
     import uvicorn
+    from tests.catalog_fixtures import create_catalog_fixture
+
     import app.catalog as catalog_module
     import app.profiles as profile_module
     from app.config import get_settings
     from app.main import app
-    from tests.catalog_fixtures import create_catalog_fixture
 
     catalogs, profiles = create_catalog_fixture(out / "synthetic_ui")
     catalog_module.DATA_ROOT, profile_module.PROFILES_PATH = catalogs, profiles
@@ -352,7 +352,7 @@ def binary_acceptance(base, oracle):
 
 
 def browser_acceptance(base, out, oracle):
-    from playwright.sync_api import sync_playwright, expect
+    from playwright.sync_api import expect, sync_playwright
 
     results, errors = [], []
     with sync_playwright() as p:

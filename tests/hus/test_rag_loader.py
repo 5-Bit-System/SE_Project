@@ -1,8 +1,8 @@
 """Synthetic loader contracts: identities, provenance, isolation and package integrity."""
 
-from copy import deepcopy
 import hashlib
 import json
+from copy import deepcopy
 from pathlib import Path
 
 import pytest

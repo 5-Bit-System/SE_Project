@@ -1,8 +1,8 @@
 """Build/verify a scoped HUS data audit through the existing corpus review gate."""
 
 import argparse
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from app.hus.corpus import verify_artifacts
 from app.hus.scope_audit import audit
