@@ -108,3 +108,25 @@ def test_summary_status_and_count_invariants_across_transitions():
         assert result.imported_count == imported
         assert result.rejected_count == rejected
         assert result.imported_count + result.rejected_count == len(result.rows)
+
+
+def test_whitespace_header_cell_is_rejected_before_side_effects():
+    calls = []
+    with pytest.raises(BatchImportError, match="csv_header_blank"):
+        import_csv("code, ,name\nA,x,Alpha\n", calls.append)
+    assert calls == []
+
+
+@pytest.mark.parametrize("bad_row", ["B", "B,Beta,extra"])
+def test_row_width_mismatch_after_valid_row_has_zero_side_effects(bad_row):
+    calls = []
+    with pytest.raises(BatchImportError, match="csv_row_width_mismatch"):
+        import_csv(f"code,name\nA,Alpha\n{bad_row}\n", calls.append)
+    assert calls == []
+
+
+def test_invalid_unicode_is_rejected_before_side_effects():
+    calls = []
+    with pytest.raises(BatchImportError, match="invalid_unicode"):
+        import_csv("code\n\ud800\n", calls.append)
+    assert calls == []

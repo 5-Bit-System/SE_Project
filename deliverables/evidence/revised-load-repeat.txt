@@ -1,0 +1,6 @@
+.synthetic_tasks=200 rows_per_task=100 peak_inflight=200 e2e_p95_ms=64.690 service_p95_ms=49.273 target_ms=5000
+.
+2 passed in 0.16s
+.synthetic_tasks=200 rows_per_task=100 peak_inflight=200 e2e_p95_ms=58.773 service_p95_ms=47.798 target_ms=5000
+.
+2 passed in 0.16s

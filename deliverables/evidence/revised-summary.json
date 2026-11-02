@@ -1,0 +1,19 @@
+{
+  "revision_baseline": "e54f4bc095c056cd24c6af3f4ec38928ceb63390",
+  "red_commit": "a1afd93",
+  "focused_passed": 36,
+  "focused_duration_seconds": 0.18,
+  "offline_passed": 647,
+  "offline_deselected": 90,
+  "offline_duration_seconds": 4.65,
+  "canonical_load": {
+    "tasks": 200, "rows_per_task": 100, "peak_inflight": 200,
+    "e2e_p95_ms": 45.781, "service_p95_ms": 0.260,
+    "target_ms": 5000, "nearest_rank_index": 189
+  },
+  "repeat_load_e2e_p95_ms": [64.690, 58.773],
+  "line_trace_percent": {"batch": 93.5, "transcript": 94.6},
+  "line_trace_limit": "stdlib trace heuristic; multiline signatures appear as missing; branch coverage not measured; timing run excluded",
+  "mutation": "not(imported and rejected): 3 failed; exact source restored",
+  "scope": "Synthetic in-memory transcript/model/eligibility integration; no HTTP import endpoint, database persistence or production-load claim. Peak includes barrier waiters."
+}

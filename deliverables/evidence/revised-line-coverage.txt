@@ -1,0 +1,7 @@
+..................................                                       [100%]
+34 passed in 0.50s
+lines   cov%   module   (path)
+   93   93.5%   app.importing.batch   (/tmp/SE_Project_BT3_23001946/app/importing/batch.py)
+   37   94.6%   app.importing.transcript   (/tmp/SE_Project_BT3_23001946/app/importing/transcript.py)
+Branch coverage: not measured by stdlib trace. Load timing excluded.
+Annotated files: /tmp/vt100-line-coverage-45jz809q

@@ -1,0 +1,130 @@
+    1: """Small CSV import harness with explicit batch and row outcomes.
+       
+       The caller owns persistence and must commit each row independently. This module
+       validates the complete CSV shape before invoking the handler so malformed batch
+       structure cannot produce partial side effects.
+       """
+       
+    1: import csv
+    1: import io
+    1: from dataclasses import dataclass
+    1: from enum import StrEnum
+    1: from typing import Callable
+       
+    1: MAX_CSV_BYTES = 1024 * 1024
+    1: MAX_ROWS = 5000
+       
+       
+    2: class BatchImportError(ValueError):
+    1:     """The batch cannot safely be parsed; no row handler has run."""
+       
+       
+    2: class RowImportError(ValueError):
+    1:     """Expected row-level validation or persistence rejection."""
+       
+    1:     def __init__(self, code: str = "invalid_row"):
+   17:         self.code = code[:64]
+   17:         super().__init__(self.code)
+       
+       
+    2: class RowStatus(StrEnum):
+    1:     IMPORTED = "imported"
+    1:     REJECTED = "rejected"
+       
+       
+    2: class BatchStatus(StrEnum):
+    1:     COMPLETED = "completed"
+    1:     PARTIAL = "partial"
+    1:     FAILED = "failed"
+       
+       
+    8: @dataclass(frozen=True)
+    2: class RowOutcome:
+    1:     line_number: int
+    1:     status: RowStatus
+    2:     error_code: str | None = None
+       
+       
+    7: @dataclass(frozen=True)
+    2: class BatchResult:
+    1:     status: BatchStatus
+    1:     rows: tuple[RowOutcome, ...]
+       
+    2:     @property
+    2:     def imported_count(self) -> int:
+   52:         return sum(row.status is RowStatus.IMPORTED for row in self.rows)
+       
+    2:     @property
+    2:     def rejected_count(self) -> int:
+   54:         return sum(row.status is RowStatus.REJECTED for row in self.rows)
+       
+       
+    1: def _parse_records(
+>>>>>>     content: str, expected_columns: tuple[str, ...] | None = None,
+>>>>>> ) -> list[tuple[int, dict[str, str]]]:
+   36:     if not isinstance(content, str):
+>>>>>>         raise BatchImportError("content_must_be_text")
+   36:     try:
+   36:         size = len(content.encode("utf-8-sig"))
+    1:     except UnicodeEncodeError:
+    1:         raise BatchImportError("invalid_unicode") from None
+   35:     if size > MAX_CSV_BYTES:
+    1:         raise BatchImportError("csv_size_limit_exceeded")
+   34:     if not content:
+    1:         raise BatchImportError("csv_empty")
+       
+   33:     try:
+   33:         reader = csv.reader(io.StringIO(content, newline=""), strict=True)
+   33:         header = next(reader, None)
+   33:         if not header:
+    1:             raise BatchImportError("csv_header_missing")
+  109:         normalized = [item.strip() for item in header]
+  214:         if any(not item for item in normalized):
+    1:             raise BatchImportError("csv_header_blank")
+  105:         if len({item.casefold() for item in normalized}) != len(normalized):
+    1:             raise BatchImportError("csv_header_duplicate")
+   30:         if expected_columns is not None and tuple(normalized) != expected_columns:
+    2:             raise BatchImportError("csv_header_schema")
+       
+   28:         records = []
+ 5065:         for values in reader:
+ 5040:             if not values:
+>>>>>>                 continue
+ 5040:             if len(values) != len(normalized):
+    2:                 raise BatchImportError("csv_row_width_mismatch")
+ 5038:             records.append((reader.line_num, dict(zip(normalized, values, strict=True))))
+ 5038:             if len(records) > MAX_ROWS:
+    1:                 raise BatchImportError("csv_row_limit_exceeded")
+    9:     except csv.Error:
+    1:         raise BatchImportError("csv_malformed") from None
+   24:     return records
+       
+       
+    2: def import_csv(
+>>>>>>     content: str, handler: Callable[[dict[str, str]], object], *,
+    1:     expected_columns: tuple[str, ...] | None = None,
+>>>>>> ) -> BatchResult:
+           """Parse a bounded CSV, then process rows independently in source order.
+       
+           `handler` should raise RowImportError for an expected record failure. Other
+           exceptions indicate a systemic failure and propagate, while earlier
+           independently committed rows remain committed by the caller.
+           """
+   36:     records = _parse_records(content, expected_columns)
+   24:     outcomes = []
+   57:     for line_number, record in records:
+   34:         try:
+   34:             handler(record)
+   18:         except RowImportError as error:
+   17:             outcomes.append(RowOutcome(line_number, RowStatus.REJECTED, error.code))
+               else:
+   16:             outcomes.append(RowOutcome(line_number, RowStatus.IMPORTED))
+       
+   78:     imported = sum(row.status is RowStatus.IMPORTED for row in outcomes)
+   23:     rejected = len(outcomes) - imported
+   23:     status = (
+   23:         BatchStatus.PARTIAL if imported and rejected
+   19:         else BatchStatus.FAILED if rejected
+    8:         else BatchStatus.COMPLETED
+           )
+   23:     return BatchResult(status, tuple(outcomes))

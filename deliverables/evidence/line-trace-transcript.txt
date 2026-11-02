@@ -1,0 +1,55 @@
+    1: """In-memory CSV adapter to existing transcript models; no persistence or API."""
+       
+    1: from dataclasses import dataclass
+       
+    1: from pydantic import ValidationError
+       
+    1: from app.importing.batch import BatchImportError, BatchResult, RowImportError, import_csv
+    1: from app.models import Catalog
+    1: from app.transcript import StudentTranscript, TranscriptRecord, resolve_program_id
+       
+    1: TRANSCRIPT_COLUMNS = ("course_code", "grade", "term")
+       
+       
+    6: @dataclass(frozen=True)
+    2: class TranscriptImportResult:
+    1:     batch: BatchResult
+    1:     transcript: StudentTranscript
+       
+       
+    1: def import_transcript_csv(
+>>>>>>     content: str, transcript: StudentTranscript, catalog: Catalog,
+>>>>>> ) -> TranscriptImportResult:
+           """Return a new transcript; never overwrite existing courses or mutate input.
+       
+           CSV requires numeric grade (0..10); empty term means unknown. Reuse real
+           model validators/passing rules. Catalog membership is not source approval.
+           Duplicate courses are row rejections, consistent with unsupported retakes.
+           """
+   20:     if transcript.program_id != resolve_program_id(catalog.program.program_id):
+    1:         raise BatchImportError("transcript_program_mismatch")
+   57:     allowed = {course.code for course in catalog.courses}
+   19:     if transcript.all_course_codes - allowed:
+    1:         raise BatchImportError("existing_transcript_foreign_course")
+   18:     updated = transcript.model_copy(deep=True)
+   18:     seen = updated.all_course_codes
+       
+   18:     def accept(row: dict[str, str]) -> None:
+   20:         try:
+   40:             record = TranscriptRecord(
+   20:                 course_code=row["course_code"], grade=row["grade"],
+   20:                 term=row["term"].strip() or None,
+                   )
+    9:         except ValidationError:
+    9:             raise RowImportError("invalid_transcript_record") from None
+   11:         if record.course_code not in allowed:
+    1:             raise RowImportError("foreign_course_code")
+   10:         if record.course_code in seen:
+    2:             raise RowImportError("duplicate_course_code")
+    8:         updated.records.append(record)
+    8:         seen.add(record.course_code)
+       
+   18:     batch = import_csv(content, accept, expected_columns=TRANSCRIPT_COLUMNS)
+   32:     return TranscriptImportResult(
+   16:         batch, StudentTranscript.model_validate(updated.model_dump()),
+           )

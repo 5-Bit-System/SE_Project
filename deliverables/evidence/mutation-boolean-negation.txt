@@ -1,0 +1,57 @@
+Mutation: bool(imported and rejected) -> not (imported and rejected)
+Command: /home/Trung/anaconda3/envs/SE_Project/bin/python -m pytest -q tests/importing/test_batch.py::test_all_valid_rows_reach_handler_once_and_complete tests/importing/test_batch.py::test_all_record_errors_produce_failed_batch_summary tests/importing/test_batch.py::test_middle_row_failure_does_not_lose_valid_rows_before_or_after
+Original SHA256: f3401c9e649f5d0f16bda59aea8ac1f08cad371ac1d7ba21a45a8f6288e65791
+Restored exact source bytes: True
+Observed pytest exit: 1; mutation killed: True
+
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_____________ test_all_valid_rows_reach_handler_once_and_complete ______________
+
+    def test_all_valid_rows_reach_handler_once_and_complete():
+        saved = []
+        result = import_csv("code,name\nA,Alpha\nB,Beta\n", saved.append)
+        assert [row["code"] for row in saved] == ["A", "B"]
+        assert [row.line_number for row in result.rows] == [2, 3]
+        assert all(row.status is RowStatus.IMPORTED for row in result.rows)
+>       assert result.status is BatchStatus.COMPLETED
+E       AssertionError: assert <BatchStatus.PARTIAL: 'partial'> is <BatchStatus.COMPLETED: 'completed'>
+E        +  where <BatchStatus.PARTIAL: 'partial'> = BatchResult(status=<BatchStatus.PARTIAL: 'partial'>, rows=(RowOutcome(line_number=2, status=<RowStatus.IMPORTED: 'imported'>, error_code=None), RowOutcome(line_number=3, status=<RowStatus.IMPORTED: 'imported'>, error_code=None))).status
+E        +  and   <BatchStatus.COMPLETED: 'completed'> = BatchStatus.COMPLETED
+
+tests/importing/test_batch.py:18: AssertionError
+_____________ test_all_record_errors_produce_failed_batch_summary ______________
+
+    def test_all_record_errors_produce_failed_batch_summary():
+        result = import_csv("code\nA\nB\n", lambda _: (_ for _ in ()).throw(RowImportError("bad")))
+>       assert result.status is BatchStatus.FAILED
+E       AssertionError: assert <BatchStatus.PARTIAL: 'partial'> is <BatchStatus.FAILED: 'failed'>
+E        +  where <BatchStatus.PARTIAL: 'partial'> = BatchResult(status=<BatchStatus.PARTIAL: 'partial'>, rows=(RowOutcome(line_number=2, status=<RowStatus.REJECTED: 'rejected'>, error_code='bad'), RowOutcome(line_number=3, status=<RowStatus.REJECTED: 'rejected'>, error_code='bad'))).status
+E        +  and   <BatchStatus.FAILED: 'failed'> = BatchStatus.FAILED
+
+tests/importing/test_batch.py:40: AssertionError
+_______ test_middle_row_failure_does_not_lose_valid_rows_before_or_after _______
+
+    def test_middle_row_failure_does_not_lose_valid_rows_before_or_after():
+        saved = []
+    
+        def persist(row):
+            if row["code"] == "BAD":
+                raise RowImportError("invalid record")
+            saved.append(row["code"])
+    
+        result = import_csv("code\nGOOD1\nBAD\nGOOD2\n", persist)
+        assert saved == ["GOOD1", "GOOD2"]
+        assert [row.status for row in result.rows] == [RowStatus.IMPORTED, RowStatus.REJECTED, RowStatus.IMPORTED]
+        assert result.rows[1].line_number == 3
+>       assert result.status is BatchStatus.PARTIAL
+E       AssertionError: assert <BatchStatus.FAILED: 'failed'> is <BatchStatus.PARTIAL: 'partial'>
+E        +  where <BatchStatus.FAILED: 'failed'> = BatchResult(status=<BatchStatus.FAILED: 'failed'>, rows=(RowOutcome(line_number=2, status=<RowStatus.IMPORTED: 'import...'>, error_code='invalid record'), RowOutcome(line_number=4, status=<RowStatus.IMPORTED: 'imported'>, error_code=None))).status
+E        +  and   <BatchStatus.PARTIAL: 'partial'> = BatchStatus.PARTIAL
+
+tests/importing/test_batch.py:34: AssertionError
+=========================== short test summary info ============================
+FAILED tests/importing/test_batch.py::test_all_valid_rows_reach_handler_once_and_complete
+FAILED tests/importing/test_batch.py::test_all_record_errors_produce_failed_batch_summary
+FAILED tests/importing/test_batch.py::test_middle_row_failure_does_not_lose_valid_rows_before_or_after
+3 failed in 0.11s

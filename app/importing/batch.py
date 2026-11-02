@@ -59,7 +59,9 @@ class BatchResult:
         return sum(row.status is RowStatus.REJECTED for row in self.rows)
 
 
-def _parse_records(content: str) -> list[tuple[int, dict[str, str]]]:
+def _parse_records(
+    content: str, expected_columns: tuple[str, ...] | None = None,
+) -> list[tuple[int, dict[str, str]]]:
     if not isinstance(content, str):
         raise BatchImportError("content_must_be_text")
     try:
@@ -81,6 +83,8 @@ def _parse_records(content: str) -> list[tuple[int, dict[str, str]]]:
             raise BatchImportError("csv_header_blank")
         if len({item.casefold() for item in normalized}) != len(normalized):
             raise BatchImportError("csv_header_duplicate")
+        if expected_columns is not None and tuple(normalized) != expected_columns:
+            raise BatchImportError("csv_header_schema")
 
         records = []
         for values in reader:
@@ -96,14 +100,17 @@ def _parse_records(content: str) -> list[tuple[int, dict[str, str]]]:
     return records
 
 
-def import_csv(content: str, handler: Callable[[dict[str, str]], object]) -> BatchResult:
+def import_csv(
+    content: str, handler: Callable[[dict[str, str]], object], *,
+    expected_columns: tuple[str, ...] | None = None,
+) -> BatchResult:
     """Parse a bounded CSV, then process rows independently in source order.
 
     `handler` should raise RowImportError for an expected record failure. Other
     exceptions indicate a systemic failure and propagate, while earlier
     independently committed rows remain committed by the caller.
     """
-    records = _parse_records(content)
+    records = _parse_records(content, expected_columns)
     outcomes = []
     for line_number, record in records:
         try:
