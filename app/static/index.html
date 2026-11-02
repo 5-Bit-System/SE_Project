@@ -869,6 +869,18 @@
 
       <!-- Documents Review View -->
       <div id="admin-crawler-docs-view">
+        <!-- Error & Stale Data Banners -->
+        <div id="admin-docs-error-banner" class="admin-disclaimer" style="display: none; border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); margin-bottom: 12px;" role="alert" aria-live="assertive">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" style="color: #ef4444;"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div style="flex: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span id="admin-docs-error-msg" style="color: #ef4444; font-size: 0.85rem;">Không thể tải danh sách tài liệu.</span>
+            <button type="button" id="admin-docs-retry-btn" class="admin-action-btn-sm" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Thử lại</button>
+          </div>
+        </div>
+        <div id="admin-docs-stale-banner" class="admin-disclaimer" style="display: none; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); margin-bottom: 12px;" role="status">
+          <span id="admin-docs-stale-msg" style="color: #f59e0b; font-size: 0.82rem;">Dữ liệu cũ (Lần làm mới gần nhất gặp lỗi)</span>
+        </div>
+
         <div class="admin-curriculum-toolbar">
           <div class="admin-search-input-wrap">
             <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">

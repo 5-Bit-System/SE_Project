@@ -1506,12 +1506,15 @@
   let docsLimit = 20;
   let docsOffset = 0;
   let docsTotal = 0;
+  let docsLastSuccessTime = null;
+  let isDocsLoading = false;
 
   $('admin-crawler-refresh-btn')?.addEventListener('click', () => { docsOffset = 0; loadDocuments(); });
   $('admin-docs-search')?.addEventListener('input', () => { docsOffset = 0; loadDocuments(); });
   $('admin-docs-major-filter')?.addEventListener('change', () => { docsOffset = 0; loadDocuments(); });
   $('admin-docs-status-filter')?.addEventListener('change', () => { docsOffset = 0; loadDocuments(); });
   $('admin-docs-refresh-btn')?.addEventListener('click', () => loadDocuments());
+  $('admin-docs-retry-btn')?.addEventListener('click', () => loadDocuments());
 
   $('admin-docs-prev-btn')?.addEventListener('click', () => {
     if (docsOffset > 0) {
@@ -1546,6 +1549,24 @@
   }
 
   async function loadDocuments() {
+    if (isDocsLoading) return;
+    isDocsLoading = true;
+    const errorBanner = $('admin-docs-error-banner');
+    if (errorBanner) errorBanner.style.display = 'none';
+
+    // If initial load or queue empty, show loading state
+    if (crawledDocuments.length === 0) {
+      const tbody = $('admin-crawler-docs-tbody');
+      if (tbody) {
+        tbody.replaceChildren();
+        const tr = tbody.insertRow();
+        const td = tr.insertCell();
+        td.colSpan = 6;
+        td.className = 'admin-empty-state';
+        td.textContent = 'Đang tải danh sách tài liệu…';
+      }
+    }
+
     try {
       if (!window.systemAuth?.request) return;
       const major = $('admin-docs-major-filter')?.value || 'all';
@@ -1560,10 +1581,40 @@
       const data = await window.systemAuth.request(url);
       crawledDocuments = data.documents || [];
       docsTotal = data.total || 0;
+      docsLastSuccessTime = new Date();
+
+      const staleBanner = $('admin-docs-stale-banner');
+      if (staleBanner) staleBanner.style.display = 'none';
+
       renderCrawlerDocuments();
       updateDocsPagination();
     } catch (err) {
       console.error('Failed to load crawled documents:', err);
+      const errorMsg = $('admin-docs-error-msg');
+      if (errorBanner) errorBanner.style.display = 'flex';
+      if (errorMsg) errorMsg.textContent = `Không thể tải danh sách tài liệu: ${err.message || 'Lỗi kết nối'}`;
+
+      if (crawledDocuments.length > 0 && docsLastSuccessTime) {
+        const staleBanner = $('admin-docs-stale-banner');
+        const staleMsg = $('admin-docs-stale-msg');
+        if (staleBanner) staleBanner.style.display = 'flex';
+        if (staleMsg) {
+          staleMsg.textContent = `Dữ liệu hiển thị từ ${docsLastSuccessTime.toLocaleTimeString('vi-VN')} (Lần làm mới gần nhất gặp lỗi: ${err.message || 'Lỗi kết nối'})`;
+        }
+      } else {
+        const tbody = $('admin-crawler-docs-tbody');
+        if (tbody) {
+          tbody.replaceChildren();
+          const tr = tbody.insertRow();
+          const td = tr.insertCell();
+          td.colSpan = 6;
+          td.className = 'admin-empty-state';
+          td.style.color = '#ef4444';
+          td.textContent = `Lỗi tải tài liệu: ${err.message || 'Không thể kết nối đến máy chủ.'}`;
+        }
+      }
+    } finally {
+      isDocsLoading = false;
     }
   }
 

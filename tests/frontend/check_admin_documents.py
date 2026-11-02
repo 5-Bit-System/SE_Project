@@ -138,6 +138,29 @@ def main():
                 page.wait_for_timeout(500)
                 print("  [PASS] Changing filter resets pagination to Page 1")
 
+            # 4d. Test Error and Stale Data Affordance (Task 9)
+            def simulate_server_error(route):
+                route.fulfill(status=500, body='{"detail": "Lỗi máy chủ thử nghiệm"}', headers={"content-type": "application/json"})
+
+            page.route("**/admin/crawler/documents*", simulate_server_error)
+            page.locator("#admin-docs-refresh-btn").click()
+            page.wait_for_timeout(500)
+
+            error_banner = page.locator("#admin-docs-error-banner")
+            stale_banner = page.locator("#admin-docs-stale-banner")
+            assert error_banner.is_visible(), "Error banner did not appear on fetch failure!"
+            assert stale_banner.is_visible(), "Stale banner did not appear on refresh failure!"
+            assert page.locator("#admin-crawler-docs-tbody tr").count() > 0, "Useful rows were cleared on failure!"
+            print("  [PASS] Document load failure surfaces error banner and marks data as stale")
+
+            # Unroute and click retry button to verify recovery
+            page.unroute("**/admin/crawler/documents*", simulate_server_error)
+            page.locator("#admin-docs-retry-btn").click()
+            page.wait_for_timeout(500)
+            assert not error_banner.is_visible()
+            assert not stale_banner.is_visible()
+            print("  [PASS] Retry successfully recovered document queue")
+
             # 5. Open Review Modal on first document
             first_review_btn = page.locator("#admin-crawler-docs-tbody tr .btn-review-doc").first
             first_review_btn.wait_for(state="visible")
