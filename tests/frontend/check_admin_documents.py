@@ -55,19 +55,14 @@ def main():
             page.locator("#system-admin-open").click()
             page.locator("#system-admin").wait_for(state="visible")
 
-            # 2. Switch to Crawler Tab
+            # 2. Switch to Document Review Tab
             tab_crawler = page.locator("#admin-tab-crawler")
             tab_crawler.wait_for(state="visible")
             tab_crawler.click()
 
-            # 3. Switch to Documents subtab
-            tab_docs = page.locator("#admin-crawler-subtab-documents")
-            tab_docs.wait_for(state="visible")
-            tab_docs.click()
-
             docs_view = page.locator("#admin-crawler-docs-view")
             docs_view.wait_for(state="visible")
-            print("  [PASS] Switched to Document Review subtab")
+            print("  [PASS] Switched to Document Review tab")
 
             # 4. Wait for documents to load and render
             page.locator("#admin-crawler-docs-tbody tr").first.wait_for(state="visible")
@@ -130,7 +125,7 @@ def main():
             mobile_page.locator("#system-admin").wait_for(state="visible")
 
             mobile_page.locator("#admin-tab-crawler").click()
-            mobile_page.locator("#admin-crawler-subtab-documents").click()
+            mobile_page.locator("#admin-crawler-docs-view").wait_for(state="visible")
             mobile_page.locator("#admin-crawler-docs-tbody tr .btn-review-doc").first.click()
             mobile_modal = mobile_page.locator("#admin-doc-review-modal")
             mobile_modal.wait_for(state="visible")

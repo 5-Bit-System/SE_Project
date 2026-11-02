@@ -1209,11 +1209,7 @@ body[data-auth-state="loading"] #system-session-loading {
 .btn-cancel-job:hover {
   background: rgba(239, 68, 68, 0.1) !important;
 }
-.crawler-action-group {
-  display: inline-flex;
-  gap: 6px;
-  align-items: center;
-}
+
 
 
 
