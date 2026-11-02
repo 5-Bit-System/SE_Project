@@ -71,22 +71,24 @@ def create_announcement(
             expiry_date=exp,
             created_by=created_by,
         )
-        try:
-            log_admin_action(
-                conn=conn,
-                actor_id=created_by,
-                actor_email=None,
-                action="admin:announcement:create",
-                target_type="announcement",
-                target_id=rec["id"],
-                details={"title": title_clean, "source_url": url_clean, "audience": audience},
-            )
-        except Exception:
-            pass
+        log_admin_action(
+            conn=conn,
+            actor_id=created_by,
+            actor_email=None,
+            action="admin:announcement:create",
+            target_type="announcement",
+            target_id=rec["id"],
+            details={"title": title_clean, "source_url": url_clean, "audience": audience},
+        )
         return rec
 
     try:
-        with engine().begin() as c:
+        eng = engine()
+    except Exception:
+        eng = None
+
+    if eng is not None:
+        with eng.begin() as c:
             rec = create_announcement_record(
                 c,
                 title=title_clean,
@@ -97,37 +99,43 @@ def create_announcement(
                 expiry_date=exp,
                 created_by=created_by,
             )
-            try:
-                log_admin_action(
-                    conn=c,
-                    actor_id=created_by,
-                    actor_email=None,
-                    action="admin:announcement:create",
-                    target_type="announcement",
-                    target_id=rec["id"],
-                    details={"title": title_clean, "source_url": url_clean, "audience": audience},
-                )
-            except Exception:
-                pass
+            log_admin_action(
+                conn=c,
+                actor_id=created_by,
+                actor_email=None,
+                action="admin:announcement:create",
+                target_type="announcement",
+                target_id=rec["id"],
+                details={"title": title_clean, "source_url": url_clean, "audience": audience},
+            )
             return rec
-    except Exception:
-        # In-memory fallback
-        ann_id = str(uuid.uuid4())
-        rec = {
-            "id": ann_id,
-            "title": title_clean,
-            "content": content_clean,
-            "source_url": url_clean,
-            "audience": audience,
-            "status": "draft",
-            "effective_date": eff.isoformat(),
-            "expiry_date": exp.isoformat() if exp else None,
-            "created_by": created_by,
-            "created_at": now.isoformat(),
-            "published_at": None,
-        }
-        _mem_announcements[ann_id] = rec
-        return rec
+
+    # In-memory fallback
+    ann_id = str(uuid.uuid4())
+    rec = {
+        "id": ann_id,
+        "title": title_clean,
+        "content": content_clean,
+        "source_url": url_clean,
+        "audience": audience,
+        "status": "draft",
+        "effective_date": eff.isoformat(),
+        "expiry_date": exp.isoformat() if exp else None,
+        "created_by": created_by,
+        "created_at": now.isoformat(),
+        "published_at": None,
+    }
+    log_admin_action(
+        conn=None,
+        actor_id=created_by,
+        actor_email=None,
+        action="admin:announcement:create",
+        target_type="announcement",
+        target_id=rec["id"],
+        details={"title": title_clean, "source_url": url_clean, "audience": audience},
+    )
+    _mem_announcements[ann_id] = rec
+    return rec
 
 
 def get_announcement(announcement_id: str, conn=None) -> dict[str, Any] | None:
@@ -175,9 +183,30 @@ def publish_announcement(announcement_id: str, actor_id: str = "admin", conn=Non
         if not existing:
             raise ValueError(f"Announcement {announcement_id} not found.")
         updated = update_announcement_status_record(conn, announcement_id, "published", actor_id)
-        try:
+        log_admin_action(
+            conn=conn,
+            actor_id=actor_id,
+            actor_email=None,
+            action="admin:announcement:publish",
+            target_type="announcement",
+            target_id=announcement_id,
+            details={"title": existing["title"]},
+        )
+        return updated  # type: ignore
+
+    try:
+        eng = engine()
+    except Exception:
+        eng = None
+
+    if eng is not None:
+        with eng.begin() as c:
+            existing = get_announcement_record(c, announcement_id)
+            if not existing:
+                raise ValueError(f"Announcement {announcement_id} not found.")
+            updated = update_announcement_status_record(c, announcement_id, "published", actor_id)
             log_admin_action(
-                conn=conn,
+                conn=c,
                 actor_id=actor_id,
                 actor_email=None,
                 action="admin:announcement:publish",
@@ -185,36 +214,24 @@ def publish_announcement(announcement_id: str, actor_id: str = "admin", conn=Non
                 target_id=announcement_id,
                 details={"title": existing["title"]},
             )
-        except Exception:
-            pass
-        return updated  # type: ignore
-
-    try:
-        with engine().begin() as c:
-            existing = get_announcement_record(c, announcement_id)
-            if not existing:
-                raise ValueError(f"Announcement {announcement_id} not found.")
-            updated = update_announcement_status_record(c, announcement_id, "published", actor_id)
-            try:
-                log_admin_action(
-                    conn=c,
-                    actor_id=actor_id,
-                    actor_email=None,
-                    action="admin:announcement:publish",
-                    target_type="announcement",
-                    target_id=announcement_id,
-                    details={"title": existing["title"]},
-                )
-            except Exception:
-                pass
             return updated  # type: ignore
-    except Exception:
-        if announcement_id not in _mem_announcements:
-            raise ValueError(f"Announcement {announcement_id} not found.")
-        now = datetime.now(timezone.utc)
-        _mem_announcements[announcement_id]["status"] = "published"
-        _mem_announcements[announcement_id]["published_at"] = now.isoformat()
-        return _mem_announcements[announcement_id]
+
+    if announcement_id not in _mem_announcements:
+        raise ValueError(f"Announcement {announcement_id} not found.")
+    existing = _mem_announcements[announcement_id]
+    log_admin_action(
+        conn=None,
+        actor_id=actor_id,
+        actor_email=None,
+        action="admin:announcement:publish",
+        target_type="announcement",
+        target_id=announcement_id,
+        details={"title": existing["title"]},
+    )
+    now = datetime.now(timezone.utc)
+    _mem_announcements[announcement_id]["status"] = "published"
+    _mem_announcements[announcement_id]["published_at"] = now.isoformat()
+    return _mem_announcements[announcement_id]
 
 
 def expire_announcement(announcement_id: str, actor_id: str = "admin", conn=None) -> dict[str, Any]:
@@ -223,9 +240,30 @@ def expire_announcement(announcement_id: str, actor_id: str = "admin", conn=None
         if not existing:
             raise ValueError(f"Announcement {announcement_id} not found.")
         updated = update_announcement_status_record(conn, announcement_id, "expired", actor_id)
-        try:
+        log_admin_action(
+            conn=conn,
+            actor_id=actor_id,
+            actor_email=None,
+            action="admin:announcement:expire",
+            target_type="announcement",
+            target_id=announcement_id,
+            details={"title": existing["title"]},
+        )
+        return updated  # type: ignore
+
+    try:
+        eng = engine()
+    except Exception:
+        eng = None
+
+    if eng is not None:
+        with eng.begin() as c:
+            existing = get_announcement_record(c, announcement_id)
+            if not existing:
+                raise ValueError(f"Announcement {announcement_id} not found.")
+            updated = update_announcement_status_record(c, announcement_id, "expired", actor_id)
             log_admin_action(
-                conn=conn,
+                conn=c,
                 actor_id=actor_id,
                 actor_email=None,
                 action="admin:announcement:expire",
@@ -233,34 +271,22 @@ def expire_announcement(announcement_id: str, actor_id: str = "admin", conn=None
                 target_id=announcement_id,
                 details={"title": existing["title"]},
             )
-        except Exception:
-            pass
-        return updated  # type: ignore
-
-    try:
-        with engine().begin() as c:
-            existing = get_announcement_record(c, announcement_id)
-            if not existing:
-                raise ValueError(f"Announcement {announcement_id} not found.")
-            updated = update_announcement_status_record(c, announcement_id, "expired", actor_id)
-            try:
-                log_admin_action(
-                    conn=c,
-                    actor_id=actor_id,
-                    actor_email=None,
-                    action="admin:announcement:expire",
-                    target_type="announcement",
-                    target_id=announcement_id,
-                    details={"title": existing["title"]},
-                )
-            except Exception:
-                pass
             return updated  # type: ignore
-    except Exception:
-        if announcement_id not in _mem_announcements:
-            raise ValueError(f"Announcement {announcement_id} not found.")
-        _mem_announcements[announcement_id]["status"] = "expired"
-        return _mem_announcements[announcement_id]
+
+    if announcement_id not in _mem_announcements:
+        raise ValueError(f"Announcement {announcement_id} not found.")
+    existing = _mem_announcements[announcement_id]
+    log_admin_action(
+        conn=None,
+        actor_id=actor_id,
+        actor_email=None,
+        action="admin:announcement:expire",
+        target_type="announcement",
+        target_id=announcement_id,
+        details={"title": existing["title"]},
+    )
+    _mem_announcements[announcement_id]["status"] = "expired"
+    return _mem_announcements[announcement_id]
 
 
 def delete_announcement(announcement_id: str, actor_id: str = "admin", conn=None) -> bool:
@@ -268,10 +294,29 @@ def delete_announcement(announcement_id: str, actor_id: str = "admin", conn=None
         existing = get_announcement_record(conn, announcement_id)
         if not existing:
             return False
-        res = delete_announcement_record(conn, announcement_id)
-        try:
+        log_admin_action(
+            conn=conn,
+            actor_id=actor_id,
+            actor_email=None,
+            action="admin:announcement:delete",
+            target_type="announcement",
+            target_id=announcement_id,
+            details={"title": existing["title"]},
+        )
+        return delete_announcement_record(conn, announcement_id)
+
+    try:
+        eng = engine()
+    except Exception:
+        eng = None
+
+    if eng is not None:
+        with eng.begin() as c:
+            existing = get_announcement_record(c, announcement_id)
+            if not existing:
+                return False
             log_admin_action(
-                conn=conn,
+                conn=c,
                 actor_id=actor_id,
                 actor_email=None,
                 action="admin:announcement:delete",
@@ -279,34 +324,22 @@ def delete_announcement(announcement_id: str, actor_id: str = "admin", conn=None
                 target_id=announcement_id,
                 details={"title": existing["title"]},
             )
-        except Exception:
-            pass
-        return res
+            return delete_announcement_record(c, announcement_id)
 
-    try:
-        with engine().begin() as c:
-            existing = get_announcement_record(c, announcement_id)
-            if not existing:
-                return False
-            res = delete_announcement_record(c, announcement_id)
-            try:
-                log_admin_action(
-                    conn=c,
-                    actor_id=actor_id,
-                    actor_email=None,
-                    action="admin:announcement:delete",
-                    target_type="announcement",
-                    target_id=announcement_id,
-                    details={"title": existing["title"]},
-                )
-            except Exception:
-                pass
-            return res
-    except Exception:
-        if announcement_id in _mem_announcements:
-            del _mem_announcements[announcement_id]
-            return True
-        return False
+    if announcement_id in _mem_announcements:
+        existing = _mem_announcements[announcement_id]
+        log_admin_action(
+            conn=None,
+            actor_id=actor_id,
+            actor_email=None,
+            action="admin:announcement:delete",
+            target_type="announcement",
+            target_id=announcement_id,
+            details={"title": existing["title"]},
+        )
+        del _mem_announcements[announcement_id]
+        return True
+    return False
 
 
 def get_public_announcements(audience: str = "all", conn=None) -> list[dict[str, Any]]:

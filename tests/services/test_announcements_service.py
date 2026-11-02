@@ -85,3 +85,103 @@ def test_announcement_validation_rules():
             expiry_date=past.isoformat(),
             created_by="admin",
         )
+
+
+
+def test_announcement_audit_failure_rolls_back_mutation(monkeypatch):
+    import app.announcements.service as ann_svc
+
+    # Normal create first to have a valid baseline record
+    now = datetime.now(timezone.utc)
+    future = now + timedelta(days=30)
+
+    base_ann = ann_svc.create_announcement(
+        title="Thông báo chuẩn bị kiểm tra audit",
+        content="Nội dung kiểm tra",
+        source_url="https://hus.vnu.edu.vn/tb-audit.html",
+        audience="students",
+        effective_date=now.isoformat(),
+        expiry_date=future.isoformat(),
+        created_by="admin",
+    )
+    base_id = base_ann["id"]
+    assert ann_svc.get_announcement(base_id)["status"] == "draft"
+
+    # Now simulate audit failure
+    def failing_audit(*args, **kwargs):
+        raise RuntimeError("Simulated audit disk failure")
+
+    monkeypatch.setattr(ann_svc, "log_admin_action", failing_audit)
+
+    # 1. Audit failure during create must fail and rollback creation
+    with pytest.raises(RuntimeError, match="Simulated audit disk failure"):
+        ann_svc.create_announcement(
+            title="Thông báo không thể ghi log kiểm toán",
+            content="Nội dung sẽ bị hoàn tác",
+            source_url="https://hus.vnu.edu.vn/tb-audit-fail.html",
+            audience="students",
+            effective_date=now.isoformat(),
+            expiry_date=future.isoformat(),
+            created_by="admin",
+        )
+
+    # 2. Audit failure during publish must fail and retain draft status
+    with pytest.raises(RuntimeError, match="Simulated audit disk failure"):
+        ann_svc.publish_announcement(base_id, actor_id="admin")
+    assert ann_svc.get_announcement(base_id)["status"] == "draft"
+
+    # Unpatch audit temporarily to publish legitimately
+    monkeypatch.undo()
+    ann_svc.publish_announcement(base_id, actor_id="admin")
+    assert ann_svc.get_announcement(base_id)["status"] == "published"
+
+    # Re-apply failing audit
+    monkeypatch.setattr(ann_svc, "log_admin_action", failing_audit)
+
+    # 3. Audit failure during expire must fail and retain published status
+    with pytest.raises(RuntimeError, match="Simulated audit disk failure"):
+        ann_svc.expire_announcement(base_id, actor_id="admin")
+    assert ann_svc.get_announcement(base_id)["status"] == "published"
+
+    # 4. Audit failure during delete must fail and retain record
+    with pytest.raises(RuntimeError, match="Simulated audit disk failure"):
+        ann_svc.delete_announcement(base_id, actor_id="admin")
+    assert ann_svc.get_announcement(base_id) is not None
+
+
+def test_audit_redaction_and_attribution():
+    from app.audit.service import log_admin_action, redact_sensitive_payload
+
+    # Sensitive patterns are redacted
+    payload = {
+        "title": "Học phí",
+        "secret_token": "super-secret-token",
+        "password": "plain-password",
+        "cookie": "session=abc",
+        "nested": {"access_token": "jwt.token.here", "normal": "safe_value"},
+    }
+    redacted = redact_sensitive_payload(payload)
+    assert redacted["secret_token"] == "[REDACTED]"
+    assert redacted["password"] == "[REDACTED]"
+    assert redacted["cookie"] == "[REDACTED]"
+    assert redacted["nested"]["access_token"] == "[REDACTED]"
+    assert redacted["nested"]["normal"] == "safe_value"
+    assert redacted["title"] == "Học phí"
+
+    # log_admin_action records attribution
+    entry = log_admin_action(
+        conn=None,
+        actor_id="admin-user-uuid",
+        actor_email="admin@hus.edu.vn",
+        action="admin:announcement:create",
+        target_type="announcement",
+        target_id="ann-1234",
+        details=payload,
+    )
+    assert entry["actor_id"] == "admin-user-uuid"
+    assert entry["actor_email"] == "admin@hus.edu.vn"
+    assert entry["action"] == "admin:announcement:create"
+    assert entry["target_type"] == "announcement"
+    assert entry["target_id"] == "ann-1234"
+    assert entry["details"]["password"] == "[REDACTED]"
+

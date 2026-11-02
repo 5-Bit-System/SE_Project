@@ -63,12 +63,12 @@ def redact_sensitive_payload(data: Any, depth: int = 0) -> Any:
 
 
 def log_admin_action(
-    conn,
-    actor_id: str | uuid.UUID | None,
-    actor_email: str | None,
-    action: str,
-    target_type: str,
-    target_id: str,
+    conn=None,
+    actor_id: str | uuid.UUID | None = None,
+    actor_email: str | None = None,
+    action: str = "",
+    target_type: str = "",
+    target_id: str = "",
     result: str = "ok",
     summary: str = "",
     details: dict[str, Any] | None = None,
@@ -76,6 +76,19 @@ def log_admin_action(
 ) -> dict[str, Any]:
     """Sanitize details, enforce append-only audit invariant, and record action."""
     safe_details = redact_sensitive_payload(copy.deepcopy(details or {}))
+    if conn is None:
+        return {
+            "id": str(uuid.uuid4()),
+            "actor_id": str(actor_id) if actor_id else None,
+            "actor_email": actor_email,
+            "action": action,
+            "target_type": target_type,
+            "target_id": target_id,
+            "result": result,
+            "summary": summary,
+            "details": safe_details,
+            "ip_address": ip_address,
+        }
     return insert_audit_log(
         conn=conn,
         actor_id=actor_id,
