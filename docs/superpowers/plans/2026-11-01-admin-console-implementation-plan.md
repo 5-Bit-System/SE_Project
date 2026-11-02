@@ -137,7 +137,9 @@
 
 ## Phase 3 — Crawler and document governance
 
-### Task 10: Crawler source configuration and job lifecycle API
+### Task 10: Crawler source configuration and job lifecycle API (Retired by request)
+
+> Note: Retired per user request; crawler source/job lifecycle removed in favor of direct academic document review (Tasks 12 & 13).
 
 **Files:** Add crawler admin service/API and job/source persistence through additive migrations/repositories; tests under `tests/api/`, `tests/services/`, and `tests/database/`.
 
@@ -147,7 +149,9 @@
 - [x] Implement source/job contracts and connect only to the project's existing crawler capability if present; document a clear unavailable state if execution integration is absent.
 - [x] Run focused tests; commit `feat(admin): manage crawler sources and job state`.
 
-### Task 11: Crawler monitoring UI
+### Task 11: Crawler monitoring UI (Retired by request)
+
+> Note: Retired per user request; crawler jobs/sources UI removed. The panel now focuses directly on the Document Review workspace (Task 13).
 
 **Files:** Modify admin frontend and styles; frontend tests.
 
