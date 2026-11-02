@@ -622,13 +622,19 @@
         renderImportPreview(data);
       } catch (err) {
         if (previewDiv) {
+          previewDiv.replaceChildren();
           previewDiv.hidden = false;
-          previewDiv.innerHTML = `
-            <div class="preview-header">
-              <span class="preview-status-pill danger">Lỗi hệ thống</span>
-            </div>
-            <p class="err-msg">${err.message}</p>
-          `;
+          const header = document.createElement('div');
+          header.className = 'preview-header';
+          const pill = document.createElement('span');
+          pill.className = 'preview-status-pill danger';
+          pill.textContent = 'Lỗi hệ thống';
+          header.appendChild(pill);
+          const p = document.createElement('p');
+          p.className = 'err-msg';
+          p.textContent = err.message || 'Đã có lỗi xảy ra';
+          previewDiv.appendChild(header);
+          previewDiv.appendChild(p);
         }
       } finally {
         if (submitBtn) submitBtn.disabled = false;
@@ -639,58 +645,96 @@
   function renderImportPreview(data) {
     const previewDiv = $('admin-import-preview');
     if (!previewDiv) return;
+    previewDiv.replaceChildren();
+    previewDiv.hidden = false;
+
     const summary = data.validation_summary || {};
-    const isValid = summary.valid;
+    const isValid = summary.valid === true;
     const stats = summary.stats || {};
     const errors = summary.errors || [];
     const warnings = summary.warnings || [];
 
-    previewDiv.hidden = false;
-    let html = `
-      <div class="preview-header">
-        <strong>Kết quả kiểm tra dữ liệu:</strong>
-        <span class="preview-status-pill ${isValid ? 'success' : 'danger'}">
-          ${isValid ? '✓ Hợp lệ (Đã tạo bản thảo)' : '⚠ Có lỗi cần chỉnh sửa'}
-        </span>
-      </div>
-      <div style="margin: 6px 0; color: var(--text-muted); font-size: 0.82rem;">
-        Mã bản thảo: <code style="font-family: 'JetBrains Mono', monospace;">${data.revision_id}</code> | 
-        Số học phần: <strong>${stats.course_count || 0}</strong> | 
-        Tổng tín chỉ: <strong>${stats.total_credits || 0}</strong>
-      </div>
-    `;
+    // Header
+    const header = document.createElement('div');
+    header.className = 'preview-header';
+    const headerTitle = document.createElement('strong');
+    headerTitle.textContent = 'Kết quả kiểm tra dữ liệu: ';
+    const statusPill = document.createElement('span');
+    statusPill.className = `preview-status-pill ${isValid ? 'success' : 'danger'}`;
+    statusPill.textContent = isValid ? '✓ Hợp lệ (Đã tạo bản thảo)' : '⚠ Có lỗi cần chỉnh sửa';
+    header.appendChild(headerTitle);
+    header.appendChild(statusPill);
+    previewDiv.appendChild(header);
 
+    // Meta stats info
+    const metaDiv = document.createElement('div');
+    metaDiv.style.cssText = "margin: 6px 0; color: var(--text-muted); font-size: 0.82rem;";
+
+    metaDiv.appendChild(document.createTextNode('Mã bản thảo: '));
+    const revCode = document.createElement('code');
+    revCode.style.fontFamily = "'JetBrains Mono', monospace";
+    revCode.textContent = String(data.revision_id || 'N/A');
+    metaDiv.appendChild(revCode);
+
+    metaDiv.appendChild(document.createTextNode(' | Số học phần: '));
+    const countStrong = document.createElement('strong');
+    countStrong.textContent = String(stats.course_count ?? 0);
+    metaDiv.appendChild(countStrong);
+
+    metaDiv.appendChild(document.createTextNode(' | Tổng tín chỉ: '));
+    const credStrong = document.createElement('strong');
+    credStrong.textContent = String(stats.total_credits ?? 0);
+    metaDiv.appendChild(credStrong);
+    previewDiv.appendChild(metaDiv);
+
+    // Errors list (inert text)
     if (errors.length > 0) {
-      html += `
-        <div style="margin-top: 8px;">
-          <strong class="err-msg">Danh sách lỗi (${errors.length}):</strong>
-          <ul>
-            ${errors.map(err => `<li class="err-msg">Dòng ${err.row || '-'}: ${err.message}</li>`).join('')}
-          </ul>
-        </div>
-      `;
+      const errBox = document.createElement('div');
+      errBox.style.marginTop = '8px';
+      const errTitle = document.createElement('strong');
+      errTitle.className = 'err-msg';
+      errTitle.textContent = `Danh sách lỗi (${errors.length}):`;
+      errBox.appendChild(errTitle);
+
+      const ul = document.createElement('ul');
+      errors.forEach(err => {
+        const li = document.createElement('li');
+        li.className = 'err-msg';
+        const rowPrefix = err.row != null ? `Dòng ${err.row}: ` : '';
+        li.textContent = `${rowPrefix}${err.message || 'Lỗi không xác định'}`;
+        ul.appendChild(li);
+      });
+      errBox.appendChild(ul);
+      previewDiv.appendChild(errBox);
     }
 
+    // Warnings list (inert text)
     if (warnings.length > 0) {
-      html += `
-        <div style="margin-top: 8px;">
-          <strong class="warn-msg">Cảnh báo (${warnings.length}):</strong>
-          <ul>
-            ${warnings.map(w => `<li class="warn-msg">${w.message}</li>`).join('')}
-          </ul>
-        </div>
-      `;
+      const warnBox = document.createElement('div');
+      warnBox.style.marginTop = '8px';
+      const warnTitle = document.createElement('strong');
+      warnTitle.className = 'warn-msg';
+      warnTitle.textContent = `Cảnh báo (${warnings.length}):`;
+      warnBox.appendChild(warnTitle);
+
+      const ul = document.createElement('ul');
+      warnings.forEach(w => {
+        const li = document.createElement('li');
+        li.className = 'warn-msg';
+        li.textContent = w.message || '';
+        ul.appendChild(li);
+      });
+      warnBox.appendChild(ul);
+      previewDiv.appendChild(warnBox);
     }
 
+    // Success notice
     if (isValid) {
-      html += `
-        <div style="margin-top: 10px; padding: 8px; border-radius: 4px; background: rgba(16, 185, 129, 0.1); color: #10b981;">
-          ✓ Bản thảo đã được lưu trữ an toàn trong hàng đợi kiểm duyệt. Không ảnh hưởng đến dữ liệu đang vận hành.
-        </div>
-      `;
+      const successDiv = document.createElement('div');
+      successDiv.style.cssText = 'margin-top: 10px; padding: 8px; border-radius: 4px; background: rgba(16, 185, 129, 0.1); color: #10b981;';
+      successDiv.textContent = '✓ Bản thảo đã được lưu trữ an toàn trong hàng đợi kiểm duyệt. Không ảnh hưởng đến dữ liệu đang vận hành.';
+      previewDiv.appendChild(successDiv);
     }
-
-    previewDiv.innerHTML = html;
   }
   bindImportModal();
 

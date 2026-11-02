@@ -86,6 +86,23 @@ MAT1001,Giải tích 1 trùng lặp,3,,Khối chung
             page.screenshot(path=str(EVIDENCE_DIR / 'import_validation_error_dark.png'))
             print('  [PASS] Captured validation error screenshots in light & dark')
 
+            # 4b. Test malicious HTML payload in CSV cells: assert inert text and no execution
+            page.evaluate("window.__xss_probe = false")
+            malicious_csv = """code,name,credits,prerequisites,block
+MAT1001,<img src=x onerror=window.__xss_probe=true>,3,,Khối chung
+MAT1001,<script>window.__xss_probe=true</script>,3,,Khối chung
+"""
+            page.locator('#admin-import-csv-text').fill(malicious_csv)
+            page.locator('#admin-import-submit-btn').click()
+            preview.wait_for(state='visible')
+            page.locator('.preview-status-pill.danger').wait_for(state='visible')
+
+            xss_fired = page.evaluate("window.__xss_probe")
+            assert xss_fired is False, "XSS execution detected in CSV import feedback!"
+            img_count = preview.locator("img").count()
+            assert img_count == 0, "HTML tag was rendered into DOM in import preview!"
+            print('  [PASS] Malicious CSV payload rendered as inert text without script execution')
+
             # 5. Correct the CSV to valid content
             page.evaluate("document.documentElement.setAttribute('data-theme', 'light')")
             valid_csv = """code,name,credits,prerequisites,block,suggested_term
