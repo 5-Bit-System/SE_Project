@@ -183,6 +183,17 @@ def review_revision(
     if decision not in ("approved", "rejected"):
         raise ValueError(f"Invalid review decision: {decision}")
 
+    target = get_revision(conn, revision_id)
+    if not target:
+        raise ValueError(f"Revision {revision_id} not found")
+
+    if decision == "approved":
+        from app.curriculum.publication_gate import check_revision_validation
+
+        is_valid, reason_invalid = check_revision_validation(target)
+        if not is_valid:
+            raise ValueError(f"Cannot approve revision: {reason_invalid}")
+
     new_status = "approved" if decision == "approved" else "rejected"
     conn.execute(
         text("""

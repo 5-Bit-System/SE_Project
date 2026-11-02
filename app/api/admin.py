@@ -318,8 +318,10 @@ async def import_catalog_revision(
             payload=payload,
             created_by=principal.get("account_id"),
         )
-        if status == "validated":
-            rev = update_validation(conn, rev["revision_id"], status, val_result)
+        from app.curriculum.publication_gate import compute_payload_digest
+
+        val_result["payload_digest"] = compute_payload_digest(payload)
+        rev = update_validation(conn, rev["revision_id"], status, val_result)
         log_admin_action(
             conn,
             actor_id=principal.get("account_id"),

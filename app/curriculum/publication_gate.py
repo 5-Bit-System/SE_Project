@@ -24,6 +24,48 @@ from sqlalchemy import text
 from app.curriculum.repository import get_revision, record_review
 
 
+def compute_payload_digest(payload: dict | None) -> str:
+    """Compute deterministic SHA-256 hex digest of a revision payload."""
+    serialized = json.dumps(payload or {}, sort_keys=True)
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def check_revision_validation(revision: dict[str, Any]) -> tuple[bool, str]:
+    """Check whether a revision has an explicit, successful, non-stale validation record.
+
+    Returns (is_valid, error_message).
+    """
+    if not revision:
+        return False, "Revision not found"
+
+    val_summary = revision.get("validation_summary")
+    if not val_summary or not isinstance(val_summary, dict) or not bool(val_summary):
+        return False, "Revision has not been validated"
+
+    if val_summary.get("valid") is not True:
+        return False, "Revision validation status is not valid"
+
+    errors = val_summary.get("errors") or []
+    if len(errors) > 0:
+        return False, f"Revision has {len(errors)} validation error(s)"
+
+    # Verify digest against current payload or source
+    current_payload_digest = compute_payload_digest(revision.get("payload"))
+    val_payload_digest = val_summary.get("payload_digest")
+    val_digest = val_summary.get("digest")
+
+    if val_payload_digest:
+        if val_payload_digest != current_payload_digest:
+            return False, "Revision payload has been modified since last validation (stale validation digest)"
+    elif val_digest and revision.get("source_digest"):
+        if val_digest != revision.get("source_digest"):
+            return False, "Revision source digest does not match validation digest"
+    else:
+        return False, "Validation summary is missing validation digest"
+
+    return True, ""
+
+
 def validate_publication_gate(
     conn,
     revision_id: str,
@@ -43,9 +85,9 @@ def validate_publication_gate(
             f"Cannot publish revision with status '{target.get('status')}'. Must be 'approved'."
         )
 
-    val_summary = target.get("validation_summary") or {}
-    if val_summary.get("valid") is False or len(val_summary.get("errors", [])) > 0:
-        raise ValueError(f"Revision {revision_id} has validation errors and cannot be published.")
+    is_valid, reason = check_revision_validation(target)
+    if not is_valid:
+        raise ValueError(f"Revision {revision_id} cannot be published: {reason}")
 
     # Collect candidate document IDs
     doc_ids_to_check: list[str] = []

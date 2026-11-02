@@ -8,6 +8,7 @@ import pytest
 from dotenv import dotenv_values
 from sqlalchemy import create_engine
 
+from app.curriculum.publication_gate import compute_payload_digest
 from app.curriculum.repository import (
     create_revision,
     get_active_revision,
@@ -72,7 +73,15 @@ def test_status_transitions_and_review_audit(db_conn):
     rev_id = rev["revision_id"]
 
     # 1. Update validation
-    summary = {"errors": [], "warnings": ["Missing prereq for MAT1002"], "course_count": 10}
+    from app.curriculum.publication_gate import compute_payload_digest
+
+    summary = {
+        "valid": True,
+        "errors": [],
+        "warnings": ["Missing prereq for MAT1002"],
+        "course_count": 10,
+        "payload_digest": compute_payload_digest(rev["payload"]),
+    }
     validated = update_validation(db_conn, rev_id, status="validated", validation_summary=summary)
     assert validated["status"] == "validated"
     assert validated["validation_summary"]["course_count"] == 10
@@ -117,6 +126,12 @@ def test_only_one_active_revision_and_rollback(db_conn):
     rev1 = create_revision(db_conn, program_id=program_id, version_title="v1", source_digest="d1", payload={"v": 1})
     rev2 = create_revision(db_conn, program_id=program_id, version_title="v2", source_digest="d2", payload={"v": 2})
 
+    # Validate both before approval
+    val1 = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(rev1["payload"])}
+    val2 = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(rev2["payload"])}
+    update_validation(db_conn, rev1["revision_id"], status="validated", validation_summary=val1)
+    update_validation(db_conn, rev2["revision_id"], status="validated", validation_summary=val2)
+
     # Approve both
     review_revision(db_conn, rev1["revision_id"], reviewer_id=None, decision="approved", reason="OK v1")
     review_revision(db_conn, rev2["revision_id"], reviewer_id=None, decision="approved", reason="OK v2")
@@ -137,3 +152,31 @@ def test_only_one_active_revision_and_rollback(db_conn):
     active_now = get_active_revision(db_conn, program_id)
     assert active_now["revision_id"] == rev1["revision_id"]
     assert active_now["is_active"] is True
+
+
+def test_approval_rejects_missing_or_stale_validation(db_conn):
+    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
+    rev = create_revision(
+        db_conn,
+        program_id=program_id,
+        version_title="Dự thảo chưa kiểm thử",
+        source_digest="digest_raw",
+        payload={"courses": [{"code": "MAT1001", "name": "Giải tích 1", "credits": 3}]},
+    )
+    rev_id = rev["revision_id"]
+
+    # 1. Unvalidated revision cannot be approved
+    with pytest.raises(ValueError, match=r"validate|validation"):
+        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt mù")
+
+    # 2. Validation with errors cannot be approved
+    bad_summary = {"valid": False, "errors": [{"message": "Lỗi dữ liệu"}], "warnings": []}
+    update_validation(db_conn, rev_id, status="draft", validation_summary=bad_summary)
+    with pytest.raises(ValueError, match=r"validate|validation"):
+        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt khi có lỗi")
+
+    # 3. Validation with stale digest cannot be approved
+    stale_summary = {"valid": True, "errors": [], "payload_digest": "stale_hash_12345"}
+    update_validation(db_conn, rev_id, status="validated", validation_summary=stale_summary)
+    with pytest.raises(ValueError, match="stale|digest"):
+        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt với digest cũ")
