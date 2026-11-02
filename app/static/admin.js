@@ -1499,19 +1499,51 @@
   bindPrereqEditorModal();
 
   // ==========================================================================
-  // Document Review Workspace
-  // ==========================================================================
-  $('admin-crawler-refresh-btn')?.addEventListener('click', () => loadDocuments());
-  $('admin-docs-search')?.addEventListener('input', renderCrawlerDocuments);
-  $('admin-docs-major-filter')?.addEventListener('change', renderCrawlerDocuments);
-  $('admin-docs-status-filter')?.addEventListener('change', renderCrawlerDocuments);
-  $('admin-docs-refresh-btn')?.addEventListener('click', () => loadDocuments());
-
-  // ==========================================================================
-  // Document Review Workspace (Task 12 & 13)
+  // Document Review Workspace (Task 12 & 13, Paginated Queue)
   // ==========================================================================
   let crawledDocuments = [];
   let currentReviewDoc = null;
+  let docsLimit = 20;
+  let docsOffset = 0;
+  let docsTotal = 0;
+
+  $('admin-crawler-refresh-btn')?.addEventListener('click', () => { docsOffset = 0; loadDocuments(); });
+  $('admin-docs-search')?.addEventListener('input', () => { docsOffset = 0; loadDocuments(); });
+  $('admin-docs-major-filter')?.addEventListener('change', () => { docsOffset = 0; loadDocuments(); });
+  $('admin-docs-status-filter')?.addEventListener('change', () => { docsOffset = 0; loadDocuments(); });
+  $('admin-docs-refresh-btn')?.addEventListener('click', () => loadDocuments());
+
+  $('admin-docs-prev-btn')?.addEventListener('click', () => {
+    if (docsOffset > 0) {
+      docsOffset = Math.max(0, docsOffset - docsLimit);
+      loadDocuments();
+    }
+  });
+
+  $('admin-docs-next-btn')?.addEventListener('click', () => {
+    if (docsOffset + docsLimit < docsTotal) {
+      docsOffset += docsLimit;
+      loadDocuments();
+    }
+  });
+
+  function updateDocsPagination() {
+    const pageInfo = $('admin-docs-page-info');
+    const pageCur = $('admin-docs-current-page');
+    const prevBtn = $('admin-docs-prev-btn');
+    const nextBtn = $('admin-docs-next-btn');
+
+    const start = docsTotal === 0 ? 0 : docsOffset + 1;
+    const end = Math.min(docsOffset + crawledDocuments.length, docsTotal);
+    if (pageInfo) pageInfo.textContent = `Hiển thị ${start}–${end} trên tổng số ${docsTotal} tài liệu`;
+
+    const currentPage = Math.floor(docsOffset / docsLimit) + 1;
+    const totalPages = Math.ceil(docsTotal / docsLimit) || 1;
+    if (pageCur) pageCur.textContent = `Trang ${currentPage} / ${totalPages}`;
+
+    if (prevBtn) prevBtn.disabled = docsOffset <= 0;
+    if (nextBtn) nextBtn.disabled = docsOffset + docsLimit >= docsTotal;
+  }
 
   async function loadDocuments() {
     try {
@@ -1520,14 +1552,16 @@
       const status = $('admin-docs-status-filter')?.value || 'all';
       const search = ($('admin-docs-search')?.value || '').trim();
 
-      let url = '/admin/crawler/documents?limit=100';
+      let url = `/admin/crawler/documents?limit=${docsLimit}&offset=${docsOffset}`;
       if (major !== 'all') url += `&major=${encodeURIComponent(major)}`;
       if (status !== 'all') url += `&status=${encodeURIComponent(status)}`;
       if (search) url += `&search=${encodeURIComponent(search)}`;
 
       const data = await window.systemAuth.request(url);
       crawledDocuments = data.documents || [];
+      docsTotal = data.total || 0;
       renderCrawlerDocuments();
+      updateDocsPagination();
     } catch (err) {
       console.error('Failed to load crawled documents:', err);
     }
@@ -1538,18 +1572,7 @@
     if (!tbody) return;
     tbody.replaceChildren();
 
-    const query = ($('admin-docs-search')?.value || '').trim().toLowerCase();
-    const majorFilter = $('admin-docs-major-filter')?.value || 'all';
-    const statusFilter = $('admin-docs-status-filter')?.value || 'all';
-
-    const filtered = crawledDocuments.filter(d => {
-      const matchQuery = !query || d.title.toLowerCase().includes(query) || d.url.toLowerCase().includes(query) || d.id.toLowerCase().includes(query);
-      const matchMajor = majorFilter === 'all' || d.major === majorFilter;
-      const matchStatus = statusFilter === 'all' || d.review_status === statusFilter;
-      return matchQuery && matchMajor && matchStatus;
-    });
-
-    if (filtered.length === 0) {
+    if (crawledDocuments.length === 0) {
       const tr = tbody.insertRow();
       const td = tr.insertCell();
       td.colSpan = 6;
@@ -1558,7 +1581,7 @@
       return;
     }
 
-    filtered.forEach(doc => {
+    crawledDocuments.forEach(doc => {
       const tr = tbody.insertRow();
       tr.dataset.docId = doc.id;
 

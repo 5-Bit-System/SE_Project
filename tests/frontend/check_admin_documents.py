@@ -110,6 +110,34 @@ def main():
                 page.wait_for_timeout(300)
                 print("  [PASS] Malicious document title and URL rendered safely as inert text")
 
+            # 4c. Verify Pagination Controls and Page Navigation (Task 8)
+            pagination_bar = page.locator("#admin-docs-pagination")
+            assert pagination_bar.is_visible()
+            prev_btn = page.locator("#admin-docs-prev-btn")
+            next_btn = page.locator("#admin-docs-next-btn")
+            page_info = page.locator("#admin-docs-page-info")
+            page_cur = page.locator("#admin-docs-current-page")
+
+            assert page_info.is_visible()
+            assert prev_btn.is_disabled()
+            assert "Trang 1" in page_cur.inner_text()
+            print("  [PASS] Verified initial pagination state (Page 1, prev disabled)")
+
+            if not next_btn.is_disabled():
+                next_btn.click()
+                page.wait_for_timeout(500)
+                assert "Trang 2" in page_cur.inner_text()
+                assert not prev_btn.is_disabled()
+                print("  [PASS] Navigated to Page 2, prev button enabled")
+
+                # Changing filter while on Page 2 must reset offset to Page 1
+                page.locator("#admin-docs-status-filter").select_option("pending")
+                page.wait_for_timeout(500)
+                assert "Trang 1" in page_cur.inner_text()
+                page.locator("#admin-docs-status-filter").select_option("all")
+                page.wait_for_timeout(500)
+                print("  [PASS] Changing filter resets pagination to Page 1")
+
             # 5. Open Review Modal on first document
             first_review_btn = page.locator("#admin-crawler-docs-tbody tr .btn-review-doc").first
             first_review_btn.wait_for(state="visible")

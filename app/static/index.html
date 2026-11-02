@@ -920,6 +920,16 @@
             <tbody id="admin-crawler-docs-tbody"></tbody>
           </table>
         </div>
+
+        <!-- Pagination Controls -->
+        <div id="admin-docs-pagination" class="admin-pagination-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-top: 1px solid var(--border-light); font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+          <div id="admin-docs-page-info">Đang hiển thị 0 / 0 tài liệu</div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button type="button" id="admin-docs-prev-btn" class="admin-action-btn-sm" aria-label="Trang trước" disabled>← Trang trước</button>
+            <span id="admin-docs-current-page" style="font-weight: 600; padding: 0 4px;">Trang 1 / 1</span>
+            <button type="button" id="admin-docs-next-btn" class="admin-action-btn-sm" aria-label="Trang sau" disabled>Trang sau →</button>
+          </div>
+        </div>
       </div>
 
       <!-- Modal Kiểm Duyệt Tài Liệu (Document Review Workspace) -->
