@@ -260,6 +260,17 @@ def rollback_revision(
         raise ValueError(f"Target revision {target_revision_id} not found")
     if target["program_id"] != program_id:
         raise ValueError(f"Revision belongs to {target['program_id']}, not {program_id}")
+    if target.get("is_active"):
+        raise ValueError(f"Revision {target_revision_id} is already the active revision")
+
+    from app.curriculum.publication_gate import get_publication_provenance
+
+    provenance = get_publication_provenance(conn, target_revision_id)
+    if not provenance or not target.get("published_at"):
+        raise ValueError(
+            f"Cannot rollback to revision {target_revision_id} with status '{target.get('status')}'. "
+            "Target must be a previously published revision with valid provenance manifest."
+        )
 
     # Deactivate current active
     conn.execute(

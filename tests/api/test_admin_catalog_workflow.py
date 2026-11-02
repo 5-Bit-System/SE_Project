@@ -129,3 +129,26 @@ MAT9999,Giải tích lỗi,,Đại cương
     )
     assert pub_resp.status_code == 400
     assert ("validation" in pub_resp.json()["detail"].lower() or "approved" in pub_resp.json()["detail"].lower())
+
+
+def test_rollback_api_rejects_unreviewed_or_draft_revision(verified_client, fake_accounts):
+    for session in fake_accounts.sessions.values():
+        session["role"] = "admin"
+
+    csv_draft = """code,name,credits,prerequisites,block
+MAT1001,Giải tích 1,3,,Đại cương
+"""
+    imp_resp = verified_client.post(
+        "/admin/catalog-revisions/import",
+        json={"program_id": "khdl_7460108_2022", "version_title": "Bản nháp chưa xuất bản", "csv_content": csv_draft},
+    )
+    assert imp_resp.status_code == 200
+    draft_id = imp_resp.json()["revision_id"]
+
+    # Rollback to this never-published draft must be rejected with 400
+    rb_resp = verified_client.post(
+        f"/admin/catalog-revisions/{draft_id}/rollback",
+        json={"reason": "Thử rollback về bản nháp"},
+    )
+    assert rb_resp.status_code == 400
+    assert "previously published" in rb_resp.json()["detail"].lower()
