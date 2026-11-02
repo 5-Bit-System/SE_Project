@@ -4,7 +4,8 @@
 
 - Publication authorized (2026-11-02): user explicitly requests committing/pushing
   current RAG changes to GitHub in fewer than20 new commits. Publish on crawldata;
-  seven scoped commits planned from be76f50b, normal fast-forward push. This overrides
+  seven content commits plus one byte-preservation fix (8 total) from be76f50b,
+  normal fast-forward push. This overrides
   older local-only/no-commit notes for this publication only. Main integration,
   production activation and merging other histories remain outside this request.
   Keep imported v3/validator provenance pinned to original a543cf8d (Viet Nguyen);

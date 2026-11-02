@@ -15,10 +15,8 @@ app/hus/release_validation.py text eol=lf
 app/hus/release_text.py text eol=lf
 data/hus/citation_assets/*.json text eol=lf
 data/hus/citation_assets/files/** binary
-integration/hus-rag-p04/*.patch text eol=lf
-integration/hus-rag-p04/*.json text eol=lf
-integration/hus-rag-p05/*.patch text eol=lf
-integration/hus-rag-p05/*.json text eol=lf
+# Integration manifests, patches and receipts retain their captured byte checksums.
+integration/** -text
 
 # Acceptance receipts and derived audit artifacts retain the exact captured bytes.
 docs/acceptance/** -text
