@@ -1,44 +1,75 @@
-# BT cá nhân 3 — Specification and AI-assisted plan
+# VT-100 — revised specification and AI plan
 
-**Student:** Thái Việt Trung · 23001946 · **Variant:** VT-100  
-**Team/project:** SE2026-T25 · AI-07 Explainable Course Recommender  
-**Repository:** https://github.com/5-Bit-System/SE_Project  
-**Baseline:** `5239b7333a8f8cdf0f919e6b0505af0def99fe23` (origin/main, 2026-11-02)  
-**Branch:** `bt3/23001946-vt100`
+Student: Thái Việt Trung, 23001946; SE2026-T25; AI-07.
+Repository: https://github.com/5-Bit-System/SE_Project
+Branch: `bt3/23001946-vt100`. Original baseline: `5239b7333a8f8cdf0f919e6b0505af0def99fe23`.
+Revision baseline: `e54f4bc095c056cd24c6af3f4ec38928ceb63390`.
+This specification supersedes the generic-only version; original plans and logs remain in Git.
 
-## Problem statement
+## Problem and scope
 
-The application has no bulk-import endpoint or domain-specific CSV import service. This exercise implements and evaluates a small executable import boundary: process a batch of CSV records independently and report row-level failures without discarding successful records. It is a testable vertical slice, not a deployed student/course import feature; the target entity, authorization policy, persistence contract and CSV schema were not specified by the change request.
+Bulk import of synthetic student grades should accept valid records despite an
+invalid row, preserve an existing transcript and feed the existing eligibility
+module correctly. The repository lacks a domain CSV importer, but DOES contain
+`TranscriptRecord`, `StudentTranscript` and `evaluate_eligibility`. Reuse these
+models through a small in-memory adapter; no new institutional grade rule,
+production endpoint, persistence schema or authorization flow is introduced.
 
-## Acceptance criteria
+## Five acceptance criteria
 
-- **AC1 — Per-row outcome:** each well-formed data row is passed to the supplied row handler once and produces an imported or rejected result with its source line number.
-- **AC2 — Partial success:** a row validation/save exception is isolated to that row; later valid rows are still attempted and their successes remain in the result.
-- **AC3 — Batch-level input failures:** empty input, malformed CSV, duplicate/blank headers, oversized input and too many rows are rejected before any handler is called.
-- **AC4 — Honest summary:** batch status is `completed` when all rows import, `partial` when imported and rejected rows coexist, and `failed` when no row imports; counts equal the row outcomes.
+- **AC1:** CSV columns are exactly `course_code,grade,term`, in that order. Each
+  valid row becomes one real `TranscriptRecord`; existing normalization, numeric
+  grade 0..10, term 1..12 and passing rules apply. Blank term means None; grade is
+  required. This schema is the adapter contract, not the university export format.
+- **AC2:** Invalid row data only rejects that row; later valid rows are accepted.
+  Existing and accepted rows are never overwritten by duplicate course codes.
+  Return a deep-copied `StudentTranscript`; original input and selections remain
+  unchanged even if the returned model is later mutated. Retakes remain unsupported.
+- **AC3:** Malformed/empty/over-limit CSV, blank/duplicate/wrong headers and row
+  width mismatch are batch errors before callbacks. Program mismatch or foreign
+  courses already in the transcript also reject the batch. Input cap: 1 MiB
+  as measured by the existing UTF-8-sig encoding; 5,000 data rows.
+- **AC4:** `PARTIAL` iff imported > 0 AND rejected > 0; `FAILED` iff rejected > 0
+  AND imported == 0; otherwise `COMPLETED`, including a header-only 0/0 batch.
+  Counts sum to the number of outcomes; source line numbers are retained.
+- **AC5:** Output is accepted by the existing eligibility consumer. Imported grade
+  4.9 does not unlock a prerequisite; 5.0 does, on a synthetic reviewed catalog.
+  Import does not promote unreviewed catalog metadata or alter the original
+  transcript's eligibility result.
 
-## Non-functional constraints
+## Constraints and invariant
 
-- **NFR1:** standard library only; cap UTF-8 CSV input at 1 MiB and rows at 5,000 before processing to bound memory and work.
-- **NFR2:** no batch-wide rollback is implied. The row handler must commit each row transaction independently; unexpected `BaseException`/process failure is not swallowed. The harness itself keeps no shared mutable state and makes no network calls.
-- **NFR3:** benchmark only the deterministic in-process harness with synthetic row handlers; do not infer API/DB/production latency from it.
+1. No new dependencies: generic parser uses stdlib; adapter reuses installed
+   Pydantic and project models. No network, real student data or database writes.
+2. Expected row validation errors are isolated. Unexpected OSError/system errors
+   propagate; process crashes and DB durability are not guaranteed by this adapter.
+3. Measure 200 overlapping synthetic tasks with barrier and locked counters;
+   nearest-rank p95 of submit-to-completion must be compared with 5,000 ms.
+   Overlap includes barrier wait, not simultaneous CPU execution or HTTP users.
 
-## Invariant / contract
+Invariant: a rejected data row never deletes prior valid input or prevents a later
+valid row from being accepted. Batch structural errors occur before row effects.
+A real persistence adapter must implement per-row transaction and retry semantics.
 
-**A failure while handling row N must not cancel or roll back a previously successful row, and must not prevent later valid rows from being handled.** Each row has one terminal outcome. Batch-level parse/shape failures happen before side effects.
+## Plan and AI review evidence
 
-## AI-assisted plan (written before code)
+The first generic plan preceded commit `91d4cd8`; its collection RED remains
+`deliverables/evidence/test-first-red.txt`. Student-confirmed challenge:
+“Repo có sẵn CSV importer — tôi bác bỏ: tìm kiếm không thấy API/domain importer”.
 
-**Prompt summary recorded by the agent (not a verbatim user prompt):** read the VT-100 request, Lecture 06/07, repository guidance and current import-related code; plan a test-first partial-success CSV slice; identify assumptions, files/interfaces, state transitions, negative/failure tests, mutation, flaky risks and 200-concurrent synthetic p95; do not invent a production API or schema. The exact user change request and required workflow are reproduced in the submitted assignment; this summary describes how the agent scoped its plan.
+The earlier conclusion that this prevented ALL domain integration was too broad:
+`app/transcript.py` already has reusable models. The revision plan was recorded
+before code in `docs/assignment/REVISION_PLAN.md`, followed by assertion RED in
+`a1afd93` and GREEN in `68b99df`. Other rejected assumptions: catch every
+Exception (can hide outage); 200 queued jobs prove overlap (barrier needed);
+local parser latency proves service NFR (no HTTP/storage in the harness).
 
-**Initial assumptions to challenge:** (A) a student-data import endpoint exists; (B) a row callback failure can be caught and the request can safely continue; (C) local 200-thread latency represents service performance. Repository search disproved A. B requires one transaction per callback and cannot be guaranteed by an in-memory harness. C is not a production measurement.
+Original user request is preserved verbatim in `docs/assignment/ORIGINAL_USER_PROMPT.txt`.
+The exact NEW revision instruction is quoted in `REVISION_PLAN.md`; it is not a
+reconstruction of a missing original internal prompt. Initial internal plan text
+was recorded only as a summary and remains labelled accordingly.
 
-**Planned files:** `app/importing/batch.py` (bounded parser, row state/result, summary), `tests/importing/test_batch.py`, `tests/importing/test_batch_performance.py`, `docs/assignment/` evidence and `deliverables/BT3_23001946_VT-100.pdf`. No route, database migration, course eligibility, catalog, auth or existing import behavior will be changed.
-
-**Student challenge of AI assumption (confirmed by the student):** “Repo có sẵn CSV importer” is rejected: searching the repository shows no API/domain importer. This is why the patch is an executable harness, not a production feature.
-
-**Review corrections from repository evidence:** searched `app/`, `database/`, `tests/`; only metadata reports/acceptance helpers use CSV. No product importer or domain row schema exists. Therefore do not invent a route/table/authorization scheme. Use an injectable row handler as a runnable characterization/harness, label it non-production, and retain an explicit follow-up requirement to define entity/schema/auth/transaction ownership before integration. The current main is `5239b73` and has the HUS source/catalog constraints; importing academic rows without a reviewed schema would create unsupported facts.
-
-## Review boundary
-
-This plan follows Lecture 06's spec → plan → small diff → verify → review loop, and Lecture 07's contract, state, risk and independent test evidence. AI output remains a proposal; acceptance is based on observed test runs and inspected diff. No merge is authorized by the assignment; submit a branch/PR link for team review.
+Files: `app/importing/{batch,transcript}.py`, three files in `tests/importing/`,
+`tools/check_vt100_mutation.py`, `tools/measure_vt100_lines.py`, docs/evidence/PDF.
+Existing transcript/rules source, APIs, DB, auth and catalog data are unchanged.
+Do not merge before team review.

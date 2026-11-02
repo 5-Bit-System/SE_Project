@@ -1,43 +1,78 @@
-# VT-100 risk-based test strategy
+# VT-100 — risk-based strategy, revised
 
-**Highest risk:** partial success is accidentally converted into all-or-nothing behavior, losing valid records. Secondary risk: malformed batch input causes side effects before rejection. Protect unchanged product behavior because the repository has no import feature to extend: scope the code to a new isolated harness and run the pre-existing offline suite.
+Main risk: partial import loses valid records or a small change corrupts an
+unrelated behavior. The slice now connects CSV to real transcript models and
+the existing eligibility consumer; all data/catalog fixtures are synthetic.
 
-## Levels
+## Levels and state model
 
-- **Unit (primary):** CSV shape/limits, state outcomes, counts and independent row handling. Fast and deterministic.
-- **Integration/API:** an API test is deliberately not applicable: no import endpoint, target entity, auth contract or persistence schema was specified. Adding one would manufacture a product contract. If a real importer is later specified, test per-row DB transaction boundaries and response contract with the real test database.
-- **E2E:** not applicable to this backend-only harness; there is no user workflow or import UI. Do not create a UI solely for this assignment.
-- **Regression:** existing offline suite checks unrelated behavior after adding an isolated package.
-- **Load:** synthetic in-process 200 concurrent import tasks; records p95 but does not model HTTP, DB, real payload/network or deployment resources.
+- Unit: parser, shape/limits, expected vs systemic error policy, counts/state.
+- In-process integration: real TranscriptRecord/StudentTranscript and
+  evaluate_eligibility; grade boundary, duplicates, preservation, major isolation
+  and source-review gate. This does not prove API, DB commit or persistence.
+- Existing offline regressions protect unrelated app behavior. Separate verified
+  CI includes existing PostgreSQL suites; these are not import persistence tests.
+- E2E/browser import test is inapplicable: no import UI/API has been added.
+- Load: 200 worker tasks rendezvous at a shared barrier; peak inflight includes
+  waiting. E2E timings start just before submit and include queue/start/barrier.
 
-## State-transition model and data selection
+Row model: pending -> imported OR rejected; terminal once. Batch validation
+failure -> rejected batch before effects. Otherwise processing -> completed,
+partial or failed. Header-only 0/0 is completed; failed requires rejected > 0.
+Only typed data rejection continues. Unexpected infrastructure failure aborts
+processing; no false success is returned. This is distinct from T02 partial data
+failure. Choose data for all terminal states, bad row between good rows,
+normalization/duplicates, 4.9/5.0 grade boundary, unknown metadata and unsafe batch
+structure after an initially valid row.
 
-Per row: `PENDING → IMPORTED` or `PENDING → REJECTED`; terminal outcomes cannot transition again. Batch: `VALIDATING → REJECTED_BATCH` on malformed/over-limit structure before a handler call; otherwise `PROCESSING → COMPLETED` (all imports), `PROCESSING → PARTIAL` (mixed outcomes), or `PROCESSING → FAILED` (zero imports). Test data explicitly covers every terminal batch state, a valid row before and after a rejected row, zero rows, and a malformed batch with a handler spy. This checks ordering and side effects as well as values. Invalid row payload and handler error are separate rejection causes.
+## Cases (logical cases, not pytest invocation count)
 
-## Test cases
+File keys: B=`tests/importing/test_batch.py`, D=`tests/importing/test_transcript_import.py`,
+P=`tests/importing/test_batch_performance.py`; R=existing offline suite.
 
-| ID | Risk / criterion | Level | Precondition / input | Expected | Priority |
+| ID | Requirement/risk | Level/file | Precondition/input | Expected | Priority |
 |---|---|---|---|---|---|
-| T01 | AC1 all valid | Unit | Two valid CSV rows | Both handler calls once, `completed`, 2 imported | P1 |
-| T02 | AC2 partial success | Unit | Valid, handler-rejected, valid | First/last persist; middle rejected; `partial` | P0 |
-| T03 | AC4 no successes | Unit | Every handler call rejects | `failed`, rejected count exact | P1 |
-| T04 | State boundary | Unit | Empty CSV | `REJECTED_BATCH`, no calls | P1 |
-| T05 | State boundary | Unit | Header-only CSV | Completed with 0 rows; no false failures | P2 |
-| T06 | Negative: ambiguous schema | Unit | Duplicate or blank header | Reject before first handler call | P0 |
-| T07 | Negative: malformed CSV | Unit | Parser-detectable malformed quoting | Reject before handler calls | P1 |
-| T08 | Failure path: oversized | Unit | >1 MiB UTF-8 input | Reject before row processing | P1 |
-| T09 | Failure path: row limit | Unit | 5,001 data rows | Reject before handler processing | P1 |
-| T10 | AC2 order/duplicate safety | Unit | One row with validation failure between successes | No duplicate call; later valid row attempted | P0 |
-| T11 | AC4 summary invariant | Unit | Mixed result set | Counts sum to rows; status agrees with counts | P1 |
-| T12 | NFR3 load target | Synthetic load | 200 independent tasks, 100 rows/task, deterministic handler | Record p95; compare to 5.0s, qualify scope | P1 |
-| T13 | Unrelated behavior risk | Regression | Existing offline suite | No unrelated regressions | P0 |
+| T01 | AC1 per-row | Unit B | Two valid rows | Handler once each, source lines 2/3; completed 2/0 | P1 |
+| T02 | AC2 data rejection | Unit B | GOOD1, BAD, GOOD2; RowImportError on BAD | Both valid accepted; partial 2/1 | P0 |
+| T03 | AC4 failed | Unit B | Every handler rejects | Failed 0/2 | P1 |
+| T04 | AC3 empty input | Negative B | Empty text | Batch error, zero calls | P1 |
+| T05 | AC4 empty data | Unit B | Header only | Completed 0/0 | P2 |
+| T06 | AC3 schema | Negative B | Duplicate header, absent header, explicit `code, ,name` | Batch error before effects | P0 |
+| T07 | AC3 malformed | Failure B | Unclosed quote | Batch error before effects | P1 |
+| T08 | NFR cap | Boundary B | UTF-8 payload >1 MiB | Size error, zero calls | P1 |
+| T09 | NFR cap | Boundary B | 5,001 rows | Row limit error, zero calls | P1 |
+| T10 | Systemic error policy | Failure B | OK, DB_DOWN, LATER; OSError | OSError escapes; LATER not run; do not hide outage | P0 |
+| T11 | AC4 state/count | Unit B | All-valid, all-rejected, mixed | States and counts agree | P1 |
+| T12 | Load method | Load P | 200 tasks x100 rows; known percentile vector | peak=200; E2E p95<5s; rank190/index189 | P1 |
+| T13 | Unrelated behavior | Regression R | Existing offline suite | All selected tests pass; markers reported | P0 |
+| T14 | AC3 width | Negative B | Good first row then short/long row | Batch width error; no early side effect | P0 |
+| T15 | AC3 Unicode | Negative B | Lone surrogate | invalid_unicode before effects | P1 |
+| T16 | AC1/2 domain | Integration D | TOY101 grade8, TOY102 grade12, TOY102 grade6 | Two real model records; middle invalid; original empty | P0 |
+| T17 | AC2 preservation | Integration D | Existing grade7, duplicate9, new8, duplicate9 | Existing7/new8 retained; rejects2; deep copy and selections preserved | P0 |
+| T18 | AC1 validation | Integration D | -1,12,nan,inf,bad,blank grade; blank code, term13, foreign course | Rejected row; no record | P1 |
+| T19 | AC3 program/schema | Integration D | Different program, old foreign record; wrong headers including header-only | Batch rejection, input unchanged | P0 |
+| T20 | AC5 downstream | Integration D | Real model grade4.9 vs5.0; synthetic reviewed catalog | Prerequisite unlocked iff5.0; original result unchanged | P0 |
+| T21 | AC5 review gate | Integration D | Grade9; unreviewed fixture | Import succeeds; eligibility remains blocked | P0 |
+| T22 | AC1/4 boundaries | Integration D | Header-only; grades0/10, blank term/term12 | Empty completed; model boundary values kept | P1 |
 
-## Not needed
+T06 maps to `test_whitespace_header_cell_is_rejected_before_side_effects`
+in addition to parametrized legacy header tests. T14 maps to
+`test_row_width_mismatch_after_valid_row_has_zero_side_effects` (two cases).
+T10 maps exclusively to `test_handler_system_failure_is_not_misreported_as_bad_data`;
+it is NOT a recoverable row-validation error.
+Domain tests' descriptive function names are in D; exact runnable commands and
+results are in TEST_FIRST_EVIDENCE.md. 22 logical cases produce 36 pytest cases
+because parameterizations/functions and the external regression case differ.
 
-No external network/API mocks (the harness has no network dependency); no browser test or DB integration until a production import contract exists; no random/fuzz seed in the required suite because it would weaken repeatability. A future property-based parser test may add value after a real format contract is agreed.
+## Flaky risks and residual risk
 
-## Flaky-test review
-
-1. **Clock/performance:** load test uses `perf_counter`, avoids sleep and asserts completion/collected p95 with a tolerance only against the stated target; host contention can vary latency, so report machine/env and treat a near-threshold result as inconclusive.
-2. **Shared state/order:** each task receives its own batch, rows and outcome list; no global counters, database or fixture mutation. Repeat serial test in reversed test order to detect leakage.
-3. **Network/randomness:** no outbound requests or random test data; deterministic IDs/rows. Thus network and random flake risks are removed for this harness, not for a future HTTP/DB importer.
+- Time/concurrency: bounded barrier, Lock counters, no sleeps/randomness. Report
+  E2E/service separately; three observed E2E p95 values vary with scheduling.
+  Peak includes barrier waiters; CPU-bound parser execution remains GIL-limited.
+- Shared state/order: deep-copy output; local batch/task state; two preservation
+  tests run in both CLI orders (2 pass each). Test never mutates live fixtures.
+- Network: blocked by default fixtures; no external services/model calls.
+- Missing: production import endpoint, per-row DB transactions, retry/idempotency,
+  crash recovery, actual university CSV/authorization and 200 HTTP clients.
+  Exact cap boundary and broader multiline/BOM format acceptance need separate
+  product requirements. Numeric line trace is informative, not proof of oracles.

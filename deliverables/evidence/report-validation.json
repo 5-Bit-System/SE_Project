@@ -1,0 +1,14 @@
+{
+  "pdf": "BT3_23001946_VT-100.pdf",
+  "total_pages": 7,
+  "main_pages": 5,
+  "appendix_pages": 2,
+  "reflection_source_whitespace_words": 305,
+  "reflection_extracted_pdf_whitespace_words": 305,
+  "code_commit": "68b99dfa8c221af453721c2f08806fc569a86ce8",
+  "verified_code_ci_run": 41472036185,
+  "focused_cases_passed": 36,
+  "offline_cases_passed": 647,
+  "offline_deselected": 90,
+  "inspection": "All seven rendered pages visually inspected; main text flows continuously; table headers repeat; no nearly-empty spill page."
+}

@@ -1,171 +1,164 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><title>BT3 23001946 VT-100</title>
-<style>
-@page { size: A4; margin: 11mm 13mm 11mm 13mm; }
-body { font-family: 'Liberation Sans', sans-serif; color:#152238; font-size:11.2pt; line-height:1.38; }
-h1 {font-size:26pt;color:#113b63;margin:0 0 4mm} h2{font-size:17pt;color:#145b87;margin:0 0 2mm} h3{font-size:12.5pt;color:#145b87;margin:2mm 0 1mm} h1,h2,h3{break-after:avoid-page; page-break-after:avoid}
-p{margin:1mm 0; orphans:3; widows:3; break-inside:avoid; page-break-inside:avoid} ul,ol{margin:1mm 0 1mm 5mm;padding-left:4mm} li{margin:.7mm 0}
-.page{break-after:auto; page-break-after:auto; position:relative} .appendix{page-break-before:always; break-before:page; page-break-after:auto; break-after:auto; font-size:12pt; line-height:1.45} .appendix table{font-size:9.4pt} .appendix td,.appendix th{padding:1.3mm 1.5mm} .appendix:last-of-type table{font-size:9pt} .appendix:last-of-type td,.appendix:last-of-type th{padding:.9mm 1mm} .appendix:last-of-type .small{font-size:9.2pt}
-.footer{position:static;border-top:.3pt solid #9aa9b8;padding-top:1.5mm;margin-top:3mm;color:#586a7c;font-size:8pt}
-.box{background:#eef5fa;border-left:3pt solid #2476a6;padding:2.5mm 3mm;margin:2mm 0}
-table{border-collapse:collapse;width:100%;font-size:9pt;margin:2mm 0 2.5mm} th{background:#16476d;color:white;text-align:left}td,th{border:.4pt solid #aab7c4;padding:1.15mm 1.35mm;vertical-align:top} tr{break-inside:avoid;page-break-inside:avoid} .small{font-size:8.7pt}.tiny{font-size:7pt}.muted{color:#526273}.mono{font-family:'Liberation Mono',monospace;font-size:7.5pt;word-break:break-all}.green{color:#126342}.red{color:#a23030}.pill{color:#12496e;font-weight:bold}
-table.trace{table-layout:fixed;font-size:8.6pt}table.testgrid{font-size:8.4pt}table.testgrid td,table.testgrid th{padding:.8mm .9mm}table.trace th:nth-child(1),table.trace td:nth-child(1){width:16%}table.trace th:nth-child(2),table.trace td:nth-child(2){width:25%}table.trace th:nth-child(3),table.trace td:nth-child(3){width:21%}table.trace th:nth-child(4),table.trace td:nth-child(4){width:11%;white-space:nowrap}table.trace th:nth-child(5),table.trace td:nth-child(5){width:27%}
-</style></head><body>
-<div class="page">
-<h1>BÀI TẬP CÁ NHÂN 3</h1><h2>AI-07 · VT-100 · Test-first batch import</h2>
-<p><b>Sinh viên:</b> Thái Việt Trung · <b>Mã SV:</b> 23001946 · <b>Nhóm:</b> SE2026-T25</p>
-<p><b>Repository:</b> 5-Bit-System/SE_Project · <b>Baseline:</b> <span class="mono">5239b7333a8f8cdf0f919e6b0505af0def99fe23</span></p>
-<p><b>Branch:</b> bt3/23001946-vt100 (<a href="https://github.com/5-Bit-System/SE_Project/tree/bt3/23001946-vt100">GitHub branch</a>) · <b>Change:</b> batch CSV import với partial success</p>
-<p><b>Risk:</b> thay đổi nhỏ làm hỏng behavior cũ không liên quan. <b>Test bắt buộc:</b> state transition. <b>Mutation:</b> đảo điều kiện true/false. <b>Tải:</b> 200 đồng thời, p95 ≤ 5 giây.</p>
-<h2>1. Specification</h2>
-<p><b>Problem statement.</b> Repository không có API hay domain service import CSV cho sinh viên/học phần. Xây một vertical slice chạy được để chứng minh từng hàng lỗi không ngăn các hàng hợp lệ khác được xử lý. Đây là harness độc lập; chưa phải tính năng production vì entity, schema CSV, quyền truy cập và hợp đồng lưu trữ chưa được chỉ định.</p>
-<h3>Acceptance criteria</h3>
-<ol><li><b>AC1:</b> mỗi hàng CSV hợp lệ được handler xử lý đúng một lần, có số dòng nguồn và outcome.</li><li><b>AC2:</b> lỗi dữ liệu một hàng chỉ đánh dấu hàng đó rejected; các hàng trước/sau vẫn được xử lý.</li><li><b>AC3:</b> CSV malformed, header rỗng/trùng, vượt 1 MiB hoặc 5.000 hàng bị từ chối trước khi handler chạy.</li><li><b>AC4:</b> trạng thái/count phản ánh completed (mọi hàng thành công), partial (trộn thành công/lỗi), failed (không có hàng thành công).</li></ol>
-<h3>Constraints and invariant</h3>
-<p><b>NFR:</b> standard library; giới hạn byte/hàng; không gọi mạng; handler production phải transaction riêng cho từng hàng. Harness không nuốt lỗi hệ thống. Không suy luận hiệu năng API/DB từ benchmark trong tiến trình.</p>
-<div class="box"><b>Invariant trọng yếu:</b> lỗi khi xử lý hàng N không rollback hàng hợp lệ đã commit và không chặn hàng hợp lệ tiếp theo. Batch-level parsing/shape lỗi trước mọi side effect.</div>
-<h3>Hợp đồng xử lý và assumptions giới hạn</h3>
-<p>Đầu vào là văn bản CSV UTF-8 có header. Parser chỉ xác nhận cấu trúc; business validation và lưu bản ghi thuộc callback. Hàng được xử lý theo thứ tự nguồn. `RowImportError` biểu diễn lỗi dự kiến của một hàng; lỗi hệ thống được truyền lên để báo outage.</p>
-<p>Giới hạn 1 MiB/5.000 hàng và chính sách header là lựa chọn cho harness để giới hạn tài nguyên, không phải yêu cầu đã được product owner phê duyệt. Khi tích hợp thật phải xác nhận lại theo kích thước file, schema và quota sản phẩm.</p>
-<div class="box"><b>Luồng:</b> CSV → parse/validate toàn batch → PROCESSING → mỗi hàng IMPORTED hoặc REJECTED → COMPLETED / PARTIAL / FAILED.</div>
-<p class="small"><b>Cam kết:</b> “Tôi chịu trách nhiệm về toàn bộ code, test và nội dung bài làm; tôi đã khai báo việc sử dụng AI.”</p>
-</div>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>BT3_23001946_VT-100</title><style>@page{size:A4;margin:12mm 14mm}body{font-family:"Liberation Sans",Arial,sans-serif;font-size:10.7pt;line-height:1.34;color:#17283b}h1{font-size:25pt;margin:0 0 3mm;color:#12436a}h2{font-size:16pt;margin:3mm 0 1.5mm;color:#165a84}h3{font-size:12pt;margin:2mm 0 1mm;color:#165a84}h1,h2,h3{break-after:avoid;page-break-after:avoid}p{margin:1.3mm 0;orphans:3;widows:3}table{border-collapse:collapse;width:100%;font-size:8.4pt;line-height:1.28;margin:2mm 0}td,th{border:.45pt solid #a4b5c6;padding:1.1mm 1.2mm;vertical-align:top}th{background:#194d70;color:#fff;text-align:left}thead{display:table-header-group}tr{break-inside:avoid;page-break-inside:avoid}p,.box{break-inside:avoid;page-break-inside:avoid}.cases{font-size:7.9pt}.cases td,.cases th{padding:.8mm .9mm}.box{background:#edf4f9;border-left:3pt solid #287ba9;padding:2mm 3mm;margin:2mm 0}code,pre{font-family:"Liberation Mono",monospace;font-size:8.2pt;overflow-wrap:anywhere;word-break:break-word}pre{background:#f4f6f8;border:.4pt solid #d6dfe7;padding:2mm 2.5mm;white-space:pre-wrap;line-height:1.35;break-inside:avoid}a{color:#145f9b}.small{font-size:9pt}.appendices{break-before:page;page-break-before:always}.appendices p{font-size:11.2pt;line-height:1.38}.appendices table{font-size:9pt}.appendices code,.appendices pre{font-size:8.6pt}</style></head><body><main><h1>BÀI TẬP CÁ NHÂN 3</h1>
+<h2>AI-07 · VT-100 · Import bảng điểm với partial success</h2>
+<p class=""><b>Thái Việt Trung · MSSV 23001946 · Nhóm SE2026-T25 · Vai trò: Thành viên</b></p>
+<p class="">Dự án: Explainable Course Recommender · Repository: <a href="https://github.com/5-Bit-System/SE_Project">5-Bit-System/SE_Project</a>. Baseline gốc: <code>5239b7333a8f8cdf0f919e6b0505af0def99fe23</code>. Nhánh nộp: <a href="https://github.com/5-Bit-System/SE_Project/tree/bt3/23001946-vt100">bt3/23001946-vt100</a>.</p>
+<p class=""><b>Cam kết:</b> “Tôi chịu trách nhiệm về toàn bộ code, test và nội dung bài làm; tôi đã khai báo việc sử dụng AI.”</p>
+<p class=""><b>Biến thể:</b> import hàng loạt, hàng lỗi không làm mất hàng hợp lệ; risk trọng tâm là làm hỏng behavior cũ. Kỹ thuật: state transition; mutation: phủ định Boolean; tải: 200 tác vụ, p95 ≤ 5 giây.</p>
+<h2>1. Specification và ranh giới của vertical slice</h2>
+<p class=""><b>Vấn đề.</b> Khi nhập nhiều kết quả học phần, một điểm sai không được xóa điểm cũ hoặc ngăn các dòng hợp lệ tiếp theo. Bản đầu chỉ có CSV harness tổng quát. Sau review, slice được nối với <code>TranscriptRecord</code>, <code>StudentTranscript</code> và rule <code>evaluate_eligibility</code> sẵn trong AI-07, qua một adapter trong bộ nhớ. Như vậy test kiểm tra cả chuẩn hóa điểm và tác động lên điều kiện học, thay vì chỉ kiểm tra callback bất kỳ.</p>
+<p class=""><b>Schema thử nghiệm:</b> header đúng thứ tự <code>course_code,grade,term</code>. Điểm số bắt buộc; học kỳ rỗng được hiểu là chưa biết. Đây là hợp đồng của adapter synthetic, chưa phải định dạng xuất chính thức của VNU. Catalog và transcript được truyền tường minh; không thêm route, quyền import hoặc bảng database.</p>
+<table class=""><thead><tr><th>AC</th><th>Điều kiện chấp nhận có thể kiểm thử</th></tr></thead><tbody>
+<tr><td>AC1</td><td>Mỗi dòng hợp lệ tạo một TranscriptRecord thật; dùng validator hiện có: mã môn chuẩn hóa, grade 0..10, term 1..12. Chỉ nhận mã thuộc catalog của transcript.</td></tr>
+<tr><td>AC2</td><td>Dòng lỗi dữ liệu chỉ bị từ chối riêng; dòng tốt trước/sau vẫn được nhận. Không ghi đè môn đã có hoặc đã nhận trong batch. Trả StudentTranscript được deep-copy; input và lựa chọn ngành/nhánh giữ nguyên.</td></tr>
+<tr><td>AC3</td><td>CSV rỗng, malformed, header thiếu/trống/trùng/sai schema, sai số cột hoặc quá giới hạn bị chặn trước callback. Program không khớp hay transcript cũ chứa môn ngoài catalog cũng là batch error.</td></tr>
+<tr><td>AC4</td><td>PARTIAL khi imported&gt;0 và rejected&gt;0; FAILED khi rejected&gt;0 và imported=0; còn lại COMPLETED, kể cả header-only 0/0. Tổng counts bằng số outcomes; giữ line number nguồn.</td></tr>
+<tr><td>AC5</td><td>Model đầu ra dùng được với eligibility thật. Điểm 4.9 không mở tiên quyết, 5.0 mở trên fixture đã review. Import không phê duyệt metadata chưa xác minh và không đổi eligibility của input cũ.</td></tr>
+</tbody></table>
+<p class=""><b>NFR1:</b> parser dùng stdlib; adapter tái sử dụng Pydantic đã có, không thêm dependency. Chặn input trên 1 MiB theo cách đo UTF-8-sig hiện có và trên 5.000 data rows để giới hạn bộ nhớ/công việc. <b>NFR2:</b> không network, dữ liệu thật hoặc ghi DB trong slice. Chỉ lỗi dữ liệu dự kiến được cô lập; lỗi hệ thống phải nổi lên. <b>NFR3:</b> báo cáo riêng p95 end-to-end của 200 tác vụ synthetic và giới hạn kết luận.</p>
+<div class="box"><b>Invariant:</b> từ chối một dòng dữ liệu không xóa các bản ghi hợp lệ đã có hoặc đã nhận, và không chặn dòng hợp lệ tiếp theo. Cấu trúc batch phải được xác thực trước mọi callback. Trong adapter này, tính bảo toàn được chứng minh trong bộ nhớ; durability/transaction database vẫn cần kiểm thử riêng.</div>
+<p class="">Chính sách duplicate giữ đúng model hiện tại: retake chưa được hỗ trợ, nên duplicate bị reject thay vì tự đoán điểm nào thay thế. Grade rỗng bị reject để không biến một dòng chưa có điểm thành môn đã đạt do giá trị mặc định của model. Catalog membership cũng không đồng nghĩa nguồn đã được trường xác minh.</p>
+<h2>2. AI-assisted plan và challenge bằng repository</h2>
+<p class="">Kế hoạch gốc ở <code>18e75fb</code> có trước test/implementation; baseline gốc vẫn được giữ. Review bổ sung bắt đầu từ <code>e54f4bc</code>. File <code>REVISION_PLAN.md</code> ghi exact instruction mới và assumptions trước khi viết adapter. Commit <code>a1afd93</code> chứa plan, test, stub RED; commit <code>68b99df</code> thay stub bằng adapter GREEN. Không viết lại lịch sử để làm đẹp vòng test-first.</p>
+<div class="box"><b>Challenge sinh viên đã xác nhận:</b> “Repo có sẵn CSV importer — tôi bác bỏ: tìm kiếm không thấy API/domain importer”. Bằng chứng này đúng về importer, nhưng không có nghĩa repository thiếu model bảng điểm. Review code cho thấy <code>app/transcript.py</code> đã có các model có thể tái sử dụng; quyết định cũ chỉ làm harness tổng quát là quá hạn chế.</div>
+<table class=""><thead><tr><th>Assumption / đề xuất AI</th><th>Review và điều chỉnh</th></tr></thead><tbody>
+<tr><td>Không có importer nên không thể nối nghiệp vụ</td><td>Sai ở kết luận: adapter vẫn dùng được TranscriptRecord/StudentTranscript và eligibility thật. Thêm integration trong tiến trình, không tự tạo schema DB hay endpoint.</td></tr>
+<tr><td>Bắt mọi Exception để luôn tiếp tục</td><td>Có thể che DB outage. Chỉ RowImportError trở thành row rejection; OSError và lỗi hệ thống truyền ra. T10 kiểm tra riêng chính sách dừng.</td></tr>
+<tr><td>200 job được gửi là 200 tác vụ cùng hoạt động</td><td>Job quá ngắn có thể chạy lần lượt. Dùng barrier, counter dưới Lock và E2E timestamps; peak ghi cả tác vụ đang chờ, không nhận là 200 CPU parser chạy song song.</td></tr>
+<tr><td>Test AI sinh có oracle đáng tin mặc định</td><td>Fixture cũ từng reject một hàng nhưng expected COMPLETED. Phải đối chiếu setup/expected và dùng mutation kiểm tra oracle, không xem test xanh là bằng chứng duy nhất.</td></tr>
+</tbody></table>
+<p class=""><b>Phạm vi patch:</b> <code>app/importing/batch.py</code> thêm expected-columns tùy chọn; <code>app/importing/transcript.py</code> là adapter nhỏ; ba file test trong <code>tests/importing/</code>; hai công cụ đo/mutation cùng tài liệu và logs. Các model và rule engine đang có được gọi trực tiếp, không sửa quy tắc trường hoặc catalog. AI Usage Log phân biệt lời sinh viên với review kỹ thuật của agent; prompt gốc được lưu nguyên văn, không tái dựng prompt nội bộ cũ.</p>
+<h2>3. Risk-based strategy và state transition testing</h2>
+<p class=""><b>Unit</b> kiểm tra parser, giới hạn, callback, lỗi dự kiến/hệ thống, state/counts. <b>Integration trong tiến trình</b> dùng model bảng điểm và eligibility thật với catalog synthetic, không mock các validator. <b>Regression</b> chạy toàn bộ tập offline hiện có; CI còn chạy các DB suite cũ. <b>API/E2E import</b> chưa có luồng sản phẩm tương ứng, nên chưa tạo test browser hoặc HTTP giả để gọi đó là integration persistence.</p>
+<p class=""><b>Mô hình state:</b> mỗi hàng pending → imported hoặc rejected, terminal đúng một lần. Batch validating → rejected-batch nếu cấu trúc sai, trước callback; còn lại processing → completed/partial/failed theo counts. Header-only 0/0 là completed; failed phải có ít nhất một rejected. Khi gặp lỗi hệ thống, hàm raise và không trả summary thành công giả.</p>
+<p class=""><b>Chọn data:</b> bao phủ mọi terminal state; một dòng lỗi nằm giữa hai dòng tốt; 0/0; malformed sau dòng đầu hợp lệ; duplicate có chuẩn hóa mã; điểm 4.9/5.0; điểm ngoài miền; program/courses ngoài phạm vi; metadata chưa review. T02 là lỗi dữ liệu có thể tiếp tục, T10 là OSError cần dừng—hai loại lỗi có chính sách khác nhau.</p>
+<p class="small">File key: <b>B</b> = test_batch.py; <b>D</b> = test_transcript_import.py; <b>P</b> = test_batch_performance.py, đều trong tests/importing. <b>R</b> = suite offline hiện có. Bảng gồm 22 logical cases, không đồng nhất với số pytest invocations do parameterization và regression suite.</p>
+<table class="cases"><thead><tr><th>ID</th><th>Risk/req</th><th>Level/file</th><th>Precondition/input</th><th>Expected</th><th>Pri</th></tr></thead><tbody>
+<tr><td>T01</td><td>AC1</td><td>Unit B</td><td>Hai dòng tốt</td><td>Callback một lần; line2/3; completed2/0</td><td>P1</td></tr>
+<tr><td>T02</td><td>AC2</td><td>Unit B</td><td>GOOD1, BAD, GOOD2</td><td>Hai tốt được nhận; partial2/1</td><td>P0</td></tr>
+<tr><td>T03</td><td>AC4</td><td>Unit B</td><td>Tất cả callback reject</td><td>Failed0/2</td><td>P1</td></tr>
+<tr><td>T04</td><td>AC3</td><td>Negative B</td><td>CSV rỗng</td><td>Batch error; zero calls</td><td>P1</td></tr>
+<tr><td>T05</td><td>AC4</td><td>Unit B</td><td>Header-only</td><td>Completed0/0</td><td>P2</td></tr>
+<tr><td>T06</td><td>AC3</td><td>Negative B</td><td>Trùng/thiếu header; code, ,name</td><td>Batch error trước effects</td><td>P0</td></tr>
+<tr><td>T07</td><td>AC3</td><td>Failure B</td><td>Unclosed quote</td><td>Batch error; zero calls</td><td>P1</td></tr>
+<tr><td>T08</td><td>NFR1</td><td>Boundary B</td><td>UTF-8 &gt;1MiB</td><td>Size error trước callback</td><td>P1</td></tr>
+<tr><td>T09</td><td>NFR1</td><td>Boundary B</td><td>5.001 data rows</td><td>Row-limit error trước callback</td><td>P1</td></tr>
+<tr><td>T10</td><td>System failure</td><td>Failure B</td><td>OK, DB_DOWN, LATER; OSError</td><td>Raise; LATER không chạy; không che outage</td><td>P0</td></tr>
+<tr><td>T11</td><td>AC4</td><td>Unit B</td><td>All-valid/all-reject/mixed</td><td>Counts và states nhất quán</td><td>P1</td></tr>
+<tr><td>T12</td><td>NFR3</td><td>Load P</td><td>200×100 rows; vector1..200</td><td>Peak200; p95 rank190/index189; E2E&lt;5s</td><td>P1</td></tr>
+<tr><td>T13</td><td>Regression</td><td>Suite R</td><td>Tập offline hiện có</td><td>647 pass; 90 deselected</td><td>P0</td></tr>
+<tr><td>T14</td><td>AC3</td><td>Negative B</td><td>Good row rồi short/long row</td><td>Width error; zero early effects</td><td>P0</td></tr>
+<tr><td>T15</td><td>AC3</td><td>Negative B</td><td>Lone Unicode surrogate</td><td>invalid_unicode trước effects</td><td>P1</td></tr>
+<tr><td>T16</td><td>AC1/2</td><td>Integration D</td><td>TOY101=8, TOY102=12, TOY102=6</td><td>Nhận 2 model; reject giữa; input nguyên</td><td>P0</td></tr>
+<tr><td>T17</td><td>AC2</td><td>Integration D</td><td>Điểm cũ7; duplicate9; mới8; duplicate9</td><td>Giữ cũ7/mới8; reject2; deep copy</td><td>P0</td></tr>
+<tr><td>T18</td><td>AC1</td><td>Integration D</td><td>-1/12/nan/inf/bad/blank; term13, blank code, foreign</td><td>Reject row; không tạo record sai</td><td>P1</td></tr>
+<tr><td>T19</td><td>AC3</td><td>Integration D</td><td>Program sai, old foreign course; wrong schema/header-only</td><td>Batch error; input giữ nguyên</td><td>P0</td></tr>
+<tr><td>T20</td><td>AC5</td><td>Integration D</td><td>Grade4.9 vs5.0; fixture reviewed</td><td>Chỉ 5.0 mở tiên quyết; input result nguyên</td><td>P0</td></tr>
+<tr><td>T21</td><td>AC5</td><td>Integration D</td><td>Grade9; unreviewed metadata</td><td>Import được; eligibility vẫn chặn</td><td>P0</td></tr>
+<tr><td>T22</td><td>AC1/4</td><td>Integration D</td><td>0/10; term blank/12; header-only</td><td>Biên model đúng; empty completed</td><td>P1</td></tr>
+</tbody></table>
+<p class="">T06 hiện có test trực tiếp header chứa ô trống; T14 có cả thiếu và thừa cột sau một dòng tốt. Đây là các nhánh trước kia tài liệu nói đã cover nhưng code test chưa chứng minh. Priority P0 tập trung vào mất dữ liệu, che lỗi và regression; P1 là biên/state chính; P2 là trạng thái batch không có data.</p>
+<h2>4. Test-first: assertion RED → patch → GREEN</h2>
+<p class="">Log cũ <code>test-first-red.txt</code> vẫn chứng minh module chưa tồn tại ở baseline, nhưng là collection error. Vòng revision tạo stub có thể chạy, cố ý trả zero imports, rồi gọi test T16 với ba dòng điểm. RED mới thất bại vì output sai, không vì thiếu module:</p>
+<pre>Commit a1afd93 — explicit test-first stub
+pytest ...::test_invalid_grade_between_valid_rows_preserves_both_and_original
+assert result.batch.imported_count == 2
+E AssertionError: assert 0 == 2
+1 failed in 0.13s</pre>
+<p class=""><b>Patch GREEN 68b99df:</b> kiểm tra program/membership đầu vào; deep-copy transcript; yêu cầu đúng header; parse toàn bộ shape trước handler; mỗi dòng qua TranscriptRecord. ValidationError thành RowImportError; mã lạ/duplicate bị từ chối; chỉ record hợp lệ mới được append vào bản sao. Output được dựng lại bằng StudentTranscript để giữ contract duplicate của model. Lỗi dữ liệu không giữ chỗ trong seen-set, nên dòng tốt sau một dòng điểm sai cùng mã vẫn được nhận.</p>
+<pre>Conda SE_Project / Python 3.15.0 / Linux x86_64
+pytest -q tests/importing -s
+36 passed in 0.18s
+pytest -q tests -m &quot;not postgres and not hus_postgres and not full_catalog_acceptance&quot;
+647 passed, 90 deselected, 1 existing warning in 4.65s
+python -m ruff check . — All checks passed!</pre>
+<p class="">Riêng parser+adapter có 34 pytest cases; cộng test percentile và load thành 36. Full offline tăng từ 624 ở bản trước lên 647 do 23 cases mới; số cũ chỉ còn trong log lịch sử. Lần sandbox bị kẹt ở TestClient đã được dừng; kết quả trên là lần rerun hoàn tất ngoài sandbox. Không truy cập dữ liệu sinh viên hoặc production database.</p>
+<div class="box"><b>Regression ở module cũ:</b> T20 gọi eligibility thật trước/sau import: output mới có thể mở môn khi điểm đạt; transcript cũ vẫn cho đúng kết quả cũ. T21 giữ source-review gate. T17 còn sửa model trả về rồi xác nhận input cũ không bị alias. Các test này nối change request với risk của AI-07; chúng không chứng minh adapter đã commit PostgreSQL.</div>
+<h2>5. Who tests the tests? Mutation và coverage</h2>
+<p class="">Thực hiện thêm mutation sát câu chữ VT-100: phủ định trực tiếp điều kiện Boolean xác định PARTIAL. Thử nghiệm and→or cũ được giữ làm lịch sử, không dùng làm bằng chứng duy nhất cho yêu cầu bắt buộc.</p>
+<pre># Correct
+PARTIAL if imported and rejected else ...
+# Temporary mutation
+PARTIAL if not (imported and rejected) else ...
+3 failed: all-valid, all-rejected, mixed
+pytest exit=1; restored exact source bytes=True</pre>
+<p class="">Công cụ <code>python -m tools.check_vt100_mutation</code> thay đúng một rule, chạy ba test, khôi phục bytes trong finally và kiểm tra SHA256. Mutation phải tạo ba assertion FAIL thì mới được coi là killed; collection error không đủ. Sau restore, focused suite GREEN. Không commit source có mutation; raw log lưu ở mutation-boolean-negation.txt.</p>
+<p class=""><b>Phân tích line/risk coverage.</b> Không có coverage/pytest-cov trong Conda, nên dùng stdlib trace cho 34 cases không đo thời gian. Tool báo batch <b>87/93 line entries = 93,5%</b>, adapter <b>35/37 = 94,6%</b>. Đây là số đo heuristic của trace: signature nhiều dòng có thể bị đánh dấu missing dù hàm đã chạy. Không báo phần trăm branch coverage. Hai nhánh hành vi batch còn chưa kích hoạt trực tiếp là guard input không phải text và skip physical row rỗng.</p>
+<p class="">Risk mapping: AC1→T01/T16/T18/T22; AC2→T02/T17; AC3→T04/T06–09/T14–15/T19; AC4→T03/T05/T11/T22; AC5→T20/T21. T10 bảo vệ chính sách lỗi hệ thống, T13 kiểm tra behavior cũ. Coverage cao chỉ cho biết các dòng đã chạy; mutation và assert về dữ liệu cũ/input mới kiểm tra oracle có đủ mạnh hay không. Exact size boundary, BOM/multiline acceptance và retry/crash recovery vẫn là follow-up.</p>
+<p class=""><b>Hai output AI chưa đáng tin ngay:</b> fixture từng có callback reject nhưng expected COMPLETED; và đề xuất catch mọi Exception trông phù hợp partial success nhưng có thể che storage outage. Review phải đọc setup, oracle và exception taxonomy trước khi chấp nhận patch, kể cả khi một số test đang xanh.</p>
+<h2>6. Flaky review và 200 tác vụ đồng thời</h2>
+<p class="">Harness dùng ThreadPoolExecutor(200), Barrier(201) gồm main thread, và counter dưới Lock. Từng worker tăng inflight rồi chờ barrier; main chỉ giải phóng khi tất cả đã tới. Peak phải bằng 200 và cuối cùng về0. Peak này chứng minh 200 task cùng tồn tại trong cửa sổ thử nghiệm, <b>tính cả đang chờ</b>; không chứng minh 200 parser thực thi CPU đồng thời dưới GIL.</p>
+<p class="">Timestamp E2E lấy ngay trước pool.submit, kết thúc khi worker hoàn tất; bao gồm submit/queue/thread startup/barrier. Service interval lấy sau barrier và vẫn chịu preemption/GIL. Nearest-rank p95 dùng <code>ceil(.95*n)-1</code>; n=200 cho index189, phần tử thứ190. Test vector 1..200ms kỳ vọng190ms ngăn lệch vị trí như bản trước. Barrier timeout20s giúp lỗi không treo vô hạn.</p>
+<table class=""><thead><tr><th>Run synthetic</th><th>Peak inflight</th><th>E2E p95 (ms)</th><th>Service p95 (ms)</th><th>So với target5000ms</th></tr></thead><tbody>
+<tr><td>Canonical focused run</td><td>200</td><td>45.781</td><td>0.260</td><td>Đạt trong harness</td></tr>
+<tr><td>Repeat1</td><td>200</td><td>64.690</td><td>49.273</td><td>Đạt trong harness</td></tr>
+<tr><td>Repeat2</td><td>200</td><td>58.773</td><td>47.798</td><td>Đạt trong harness</td></tr>
+</tbody></table>
+<p class="">Mỗi run có 200 task ×100 dòng và callback no-op; mọi result/count đều được assert. Ba p95 thuộc ba lần riêng, không phải p95 gộp. Biến động service latency cho thấy host scheduling quan trọng; không dùng số thấp nhất để bảo đảm SLA. Ngưỡng được so sánh trên E2E, không thay bằng thời gian parser tối thiểu.</p>
+<table class=""><thead><tr><th>Flaky risk</th><th>Kiểm soát/quan sát</th><th>Giới hạn</th></tr></thead><tbody>
+<tr><td>Time/concurrency</td><td>perf_counter; barrier có timeout; Lock; không sleep/random. Ba lần tải đều pass.</td><td>Độ bận host/GIL vẫn làm đổi p95; không có phân phối dài hạn.</td></tr>
+<tr><td>Order/shared state</td><td>Deep copy; task/batch local. Hai domain preservation tests chạy đảo thứ tự: 2 pass mỗi lượt, 0.09s/0.08s.</td><td>Không thử process crash, DB lock hay isolation.</td></tr>
+<tr><td>Network/random</td><td>Fixtures chặn external HTTP; deterministic data; không model/provider call.</td><td>Chưa đo đường mạng, auth, HTTP clients hoặc storage thực.</td></tr>
+</tbody></table>
+<div class="box"><b>Giới hạn kết luận:</b> đây là kiểm chứng synthetic có overlap, không là benchmark 200 người dùng production. Cần endpoint và persistence adapter đã thống nhất, payload đại diện, transaction mỗi hàng, fault injection và nhiều vòng HTTP-load trước khi kết luận NFR hệ thống.</div>
+<h2>7. Traceability, CI và bàn giao</h2>
+<table class=""><thead><tr><th>AC/risk</th><th>Cases → test file</th><th>Code/commit</th><th>Evidence/result</th></tr></thead><tbody>
+<tr><td>AC1/2 domain</td><td>T16–18/T22 → D</td><td>a1afd93 RED →68b99df GREEN; transcript adapter</td><td>Assertion0→2; model, old grades/deep copy pass</td></tr>
+<tr><td>AC3 safe batch</td><td>T06/T14–15/T19 →B/D</td><td>68b99df; parser/schema/program guards</td><td>Blank header, width, Unicode và major pass</td></tr>
+<tr><td>AC4 states</td><td>T01–05/T11/T22 →B/D</td><td>3443231 gốc;68b99df revision</td><td>Direct-negation killed bởi3 tests</td></tr>
+<tr><td>AC5 old rules</td><td>T20/T21 →D</td><td>68b99df gọi transcript/rules sẵn có</td><td>4.9/5.0, old result và source gate pass</td></tr>
+<tr><td>NFR/load</td><td>T12 →P</td><td>68b99df; barrier/E2E/rank189</td><td>Peak200; E2E45.781ms canonical</td></tr>
+<tr><td>Unrelated risk</td><td>T13 →suite R</td><td>68b99df</td><td>647 offline pass; verified CI3 jobs success</td></tr>
+</tbody></table>
+<p class=""><b>CI được xác minh theo SHA:</b> run lịch sử <a href="https://github.com/5-Bit-System/SE_Project/actions/runs/41469379892">41469379892</a> tại e54f4bc có ba job xanh. Quan trọng hơn, run revision <a href="https://github.com/5-Bit-System/SE_Project/actions/runs/41472036185">41472036185</a> tại <b>68b99df</b> cũng có <b>offline, postgres, hus_postgres đều success</b>. Receipt JSON đã lưu. Hai DB jobs kiểm tra persistence hiện có, chưa phải test ghi database cho adapter mới.</p>
+<p class="">README chạy lại nằm ở docs/assignment/README.md; traceability đầy đủ và raw-log paths ở TEST_FIRST_EVIDENCE.md. Source/feature branch đã push để nhóm review; chưa merge. Vòng kế tiếp cần nhóm chốt CSV sản phẩm, authorization, per-row persistence, retry/idempotency và quy tắc retake; các lựa chọn harness không tự trở thành quy định chính thức của trường.</p>
+<h2>8. Reflection — 305 từ theo whitespace</h2>
+<p class="">Confidence của tôi tăng nhờ bằng chứng chạy được. Bản đầu chỉ có CSV harness tổng quát; review cho thấy tôi đã bỏ qua TranscriptRecord và StudentTranscript có sẵn. Tôi bổ sung adapter dùng model thật, thay vì tự viết lại quy tắc điểm. Test điểm 12 nằm giữa hai điểm hợp lệ thất bại ở assertion 0 thay vì 2 bản ghi, rồi chuyển xanh sau patch. Bảng điểm đầu vào vẫn giữ nguyên; điểm cũ không bị ghi đè.</p>
+<p class="">Mutation phủ định trực tiếp điều kiện phân loại PARTIAL bị ba test phát hiện. Tôi khôi phục đúng source trước khi chạy 36 test tập trung và 647 test offline. Kiểm tra điểm 4.9/5.0 qua eligibility cũng giúp thấy thay đổi mới tôn trọng behavior cũ. CI của commit GREEN có ba job thành công, nhưng điều đó không chứng minh adapter đã ghi database.</p>
+<p class="">Tôi vẫn thiếu bằng chứng persistence, retry và tải hệ thống thật. Benchmark có 200 tác vụ cùng chờ barrier; peak tính cả tác vụ đang chờ, không phải 200 parser chạy CPU cùng lúc. p95 end-to-end gồm thời gian submit, hàng đợi và barrier. Ba lần chạy đều dưới ngưỡng, nhưng dữ liệu nhỏ và callback rỗng khác xa HTTP/PostgreSQL. Line trace có giới hạn với signature nhiều dòng; phần trăm coverage không thay thế kiểm tra oracle hoặc risk coverage.</p>
+<p class="">Test tiếp theo đáng làm nhất là integration với persistence adapter được nhóm thống nhất: import hàng tốt, hàng sai, hàng tốt sau đó; đọc lại từ database sau request và xác nhận điểm cũ còn nguyên. Tôi cũng muốn thử outage giữa batch và retry cùng import ID để kiểm tra duplicate, transaction và khả năng phục hồi. Chỉ sau đó mới đo 200 HTTP clients với dữ liệu đại diện và nhiều lần lặp.</p></main><section class="appendices"><h2>Phụ lục A — AI Usage Log và prompt gốc</h2>
+<p class=""><b>Công cụ:</b> OpenAI Codex. Bài có hai vòng hỗ trợ: harness ban đầu, rồi revision theo bản chấm thử. Đây là bản thảo có AI hỗ trợ; sinh viên cần đọc và điều chỉnh reflection theo trải nghiệm trước khi nộp. Không quy các review kỹ thuật của agent thành lời sinh viên.</p>
+<table class=""><thead><tr><th>Giai đoạn</th><th>Input/output được dùng</th><th>Review/evidence</th></tr></thead><tbody>
+<tr><td>Spec/plan gốc</td><td>Đề VT-100, Lecture06/07, repo guidelines; plan harness trước code.</td><td>18e75fb; initial internal instruction chỉ còn summary, không gọi đó là prompt nguyên văn.</td></tr>
+<tr><td>Student challenge</td><td>Sinh viên bác bỏ assumption có CSV importer qua phản hồi trong cuộc trò chuyện.</td><td>Giữ nguyên câu trả lời; không suy ra rằng domain models cũng vắng mặt.</td></tr>
+<tr><td>Revision plan</td><td>Exact new work instruction trong REVISION_PLAN.md; reuse models, assertion RED, negation mutation, overlap/E2E.</td><td>Plan ghi trước adapter; a1afd93 có test/stub RED; 68b99df có GREEN.</td></tr>
+<tr><td>Tests/patch</td><td>Adapter dùng model thật, integration eligibility, guards blank/width/Unicode, p95 vector.</td><td>34 parser/domain pass;36 focused;647 offline; Ruff pass. Source/rules gốc được tái dùng.</td></tr>
+<tr><td>Verify/report</td><td>Temporary mutation, stdlib line trace,3 load runs, CI API receipt, report draft.</td><td>3 test kill negation; bytes restored; counts/limitations đối chiếu raw log; không tự chấm điểm giảng viên.</td></tr>
+</tbody></table>
+<h3>Prompt người dùng — nguyên văn phần ràng buộc chính</h3>
+<div class="box">Change request riêng: Thêm chức năng import dữ liệu hàng loạt; bản ghi lỗi không được làm mất các bản ghi hợp lệ.<br>Risk trọng tâm: thay đổi nhỏ làm hỏng một behavior cũ không liên quan.<br>Kỹ thuật thiết kế test bắt buộc: state transition testing.<br>Mutation/deliberate bug bắt buộc: đảo điều kiện true/false trong một business rule.<br>Mức tải kiểm chứng: 200 người dùng/tác vụ đồng thời; mục tiêu p95 không quá 5.0 giây.<br>Ràng buộc làm việc với AI: AI phải lập kế hoạch và nêu assumptions trước khi sinh code; bạn phải bác bỏ ít nhất một assumption sai.</div>
+<p class="">Toàn bộ đề/prompt người dùng được giữ nguyên ở <code>docs/assignment/ORIGINAL_USER_PROMPT.txt</code>. Đoạn trên là trích nguyên văn, không phải prompt nội bộ do agent suy đoán.</p>
+<h3>Exact instruction của vòng revision — ghi trước code</h3>
+<div class="box">Đối chiếu bản chấm thử BT3 với repository. Thêm adapter CSV nhỏ dùng TranscriptRecord và StudentTranscript hiện có; định nghĩa schema synthetic rõ ràng, bảo toàn input và valid rows; không thêm API/DB hay quy tắc trường mới. Viết test trước, chạy một stub trả zero imports để có RED ở assertion, rồi triển khai GREEN. Bổ sung blank-header/row-width tests. Mutation phải phủ định trực tiếp Boolean, chạy test và khôi phục source trong finally. Sửa benchmark: 200 workers chờ chung barrier, đo submitted-to-completed, ghi peak active, nearest-rank p95 bằng ceil(.95*n)-1. Cập nhật spec/test/docs/PDF, reflection 250–350 whitespace words; giữ dàn trang liên tục. Không giả prompt cũ hoặc claim production/database performance. Không merge.</div>
+<p class="">Đây là instruction làm việc mới do agent ghi lại cho vòng sửa, không giả là prompt gốc của sinh viên. Assumptions bị điều chỉnh: không importer vẫn có thể reuse transcript model; không catch mọi Exception; không suy ra overlap chỉ từ max_workers; không dùng parser timing làm production SLA. Sinh viên chỉ xác nhận challenge đã được trích ở phần2.</p>
+<h2>Phụ lục B — Reproduction và raw evidence</h2>
+<p class="">Dùng Conda SE_Project từ repository root. Test dùng synthetic fixtures, chặn external HTTP; không cần VNU credentials hay database thật. Mutation tool sửa tạm đúng rule và tự restore; GREEN sau đó vẫn phải pass.</p>
+<pre>conda activate SE_Project
+python -m pytest -q tests/importing -s
+python -m tools.check_vt100_mutation
+python -m pytest -q tests/importing
+python -m tools.measure_vt100_lines
+python -m pytest -q tests -m &quot;not postgres and not hus_postgres and not full_catalog_acceptance&quot;
+python -m ruff check .</pre>
+<table class=""><thead><tr><th>Artifact trong deliverables/evidence/</th><th>Nội dung quan sát được</th></tr></thead><tbody>
+<tr><td>transcript-red.txt</td><td>a1afd93: assertion expected2, actual0;1 failed. Stub explicit, chưa có behavior.</td></tr>
+<tr><td>transcript-green.txt / revised-import-green.txt</td><td>34 parser/domain pass;36 focused pass in0.18s. Canonical peak200/E2E45.781ms/service0.260ms.</td></tr>
+<tr><td>mutation-boolean-negation.txt</td><td>3 failed; exit1; exact bytes restored=True; SHA256 gốc ghi trong log.</td></tr>
+<tr><td>revised-offline-regression.txt</td><td>647 pass;90 deselected;1 existing Starlette/httpx warning;4.65s.</td></tr>
+<tr><td>revised-line-coverage.txt / line-trace-*.txt</td><td>Stdlib trace93.5%/94.6%; annotation output cho từng dòng; branch chưa đo.</td></tr>
+<tr><td>revised-load-repeat.txt / revised-order.txt</td><td>Hai repeat peak200, E2E64.690/58.773ms; order2pass mỗi lượt.</td></tr>
+<tr><td>verified-revision-ci.json</td><td>Run41472036185; head68b99df; offline/postgres/hus_postgres success.</td></tr>
+<tr><td>revised-summary.json / revised-ruff.txt</td><td>Tóm tắt machine-readable và lint all checks passed. Logs13pass/624 cũ chỉ là lịch sử.</td></tr>
+</tbody></table>
+<h3>Assertion và mutation excerpts</h3>
+<pre>RED: assert result.batch.imported_count == 2
+E AssertionError: assert 0 == 2
 
-<div class="page"><h2>2. AI-assisted plan và review</h2>
-<p><b>AI tool:</b> OpenAI Codex (GPT-6), đọc repo cục bộ. Prompt summary (không phải trích dẫn nguyên văn): đọc đề/slide/guidelines; lập kế hoạch test-first CSV partial-success; nêu assumptions, files, state, failure, mutation, flaky và tải; không tự tạo API/schema không được yêu cầu.</p>
-<p><b>Assumptions AI ban đầu:</b> (A) có endpoint import để nối; (B) mọi exception từ row handler đều là lỗi dữ liệu và có thể nuốt để tiếp tục; (C) 200 thread local đại diện production.</p>
-<div class="box"><b>Review của sinh viên:</b> “Repo có sẵn CSV importer — tôi bác bỏ: tìm kiếm không thấy API/domain importer”. Bằng chứng: tìm `app`, `database`, `tests` chỉ thấy công cụ báo cáo/kiểm tra metadata CSV; không có importer sản phẩm. Vì thế không thêm route, migration hoặc quy tắc học vụ tự nghĩ.</div>
-<p><b>Review kỹ thuật bổ sung:</b> B sai vì lỗi DB cần nổi lên; chỉ `RowImportError` có chủ đích được cô lập, lỗi hệ thống truyền ra ngoài. C sai vì không có HTTP/DB/network hay cấu hình production; benchmark chỉ đo harness.</p>
-<h3>Quyết định thiết kế sau khi challenge plan</h3>
-<table><tr><th>Quyết định/assumption</th><th>Bằng chứng và lựa chọn</th></tr>
-<tr><td>Import entity nào?</td><td>Không có domain importer. Không chọn bảng sinh viên/course và không tự đặt cột/unique key. Dùng handler injectable làm ranh giới thử nghiệm.</td></tr>
-<tr><td>Parse và lưu từng dòng cùng lúc?</td><td>Không. Parse toàn bộ cấu trúc trước để quote lỗi ở dòng cuối không tạo side effect cho dòng đầu; sau đó mới isolate lỗi record-level.</td></tr>
-<tr><td>Bắt mọi lỗi để tiếp tục?</td><td>Không. Dữ liệu từ chối qua `RowImportError`; OSError/DB/system error propagate, tránh báo partial thành công khi storage đang hỏng.</td></tr>
-<tr><td>Atomic cả batch?</td><td>Không phù hợp AC partial success. Contract tương lai cần transaction riêng từng row và quy định retry/idempotency.</td></tr>
-</table>
-<table><tr><th>File dự kiến / thực tế</th><th>Lý do và review phạm vi</th></tr>
-<tr><td><span class="mono">app/importing/batch.py</span></td><td>Pure parser/result contract, giới hạn tài nguyên; handler sở hữu persistence.</td></tr>
-<tr><td><span class="mono">tests/importing/test_batch.py</span></td><td>State, bounds, malformed, row failure và systemic failure.</td></tr>
-<tr><td><span class="mono">tests/importing/test_batch_performance.py</span></td><td>200 task/100 rows để thử ngưỡng của harness.</td></tr>
-<tr><td>Docs/evidence/PDF</td><td>Traceability, assumptions, raw logs và AI disclosure.</td></tr>
-<tr><td>Không sửa API/DB/auth/catalog/UI</td><td>Chưa có entity/schema/auth contract; sửa sẽ bịa scope và tăng regression risk.</td></tr></table>
-<p><b>Thứ tự:</b> `18e75fb` đặc tả → `91d4cd8` contract test/đỏ → `3443231` implementation và mutation evidence → `2189fdc` kiểm tra batch rỗng → `a93cee4` báo cáo ban đầu. Bản PDF này cập nhật evidence và trình bày lại. Mỗi bước tạo reviewable evidence.</p>
-</div>
+Mutation: bool(imported and rejected) -&gt; not (imported and rejected)
+Original SHA256: f3401c9e649f5d0f16bda59aea8ac1f08cad371ac1d7ba21a45a8f6288e65791
+Restored exact source bytes: True
+Observed pytest exit: 1; mutation killed: True
+3 failed in the selected terminal-state tests
 
-<div class="page"><h2>3. Risk-based strategy và state transitions</h2>
-<p><b>Unit:</b> lớp chính cho parser, per-row state/counts/limits. <b>Integration/API:</b> không phù hợp vì chưa có endpoint/entity/schema hay transaction adapter. Khi domain xác định, cần DB test xác nhận transaction độc lập mỗi hàng. <b>E2E:</b> không có UI/luồng người dùng cho harness. <b>Regression:</b> chạy toàn bộ offline suite hiện có để dò hỏng behavior cũ.</p>
-<p><b>Vì sao chọn unit test làm trọng tâm?</b> Rủi ro chính nằm ở chuyển trạng thái và ranh giới giữa lỗi dữ liệu một dòng với lỗi hệ thống. Unit tests quan sát được thứ tự gọi handler, số lần gọi, trạng thái cuối và side effect trước lỗi cấu trúc. Integration test sẽ cần một adapter và schema thật; hiện chưa có hợp đồng để viết test đó mà không tự bịa nghiệp vụ. Vì thế báo cáo đánh dấu rõ phần chưa được kiểm chứng thay vì giả lập DB rồi xem đó là bằng chứng persistence.</p>
-<p><b>State model:</b> một hàng `PENDING → IMPORTED | REJECTED`, terminal không chuyển lại. Batch `VALIDATING → REJECTED_BATCH` nếu cấu trúc lỗi (0 handler calls), nếu hợp lệ thì `PROCESSING → COMPLETED | PARTIAL | FAILED` theo outcome. Dữ liệu chọn gồm mọi terminal state, hàng lỗi ở giữa hai hàng tốt, batch rỗng/header-only và malformed trước side effect.</p>
-<table class="testgrid"><tr><th>ID</th><th>Req/risk</th><th>Level</th><th>Precondition / input</th><th>Expected result</th><th>Pri</th></tr>
-<tr><td>T01</td><td>AC1 valid import</td><td>Unit</td><td>`A,Alpha`; `B,Beta`, handler succeeds</td><td>Each row once; line 2/3; completed 2/0</td><td>P1</td></tr>
-<tr><td>T02</td><td>AC2 data error isolation</td><td>Unit</td><td>GOOD1, BAD, GOOD2; BAD raises RowImportError</td><td>Both GOOD saved; BAD rejected line 3; partial 2/1</td><td>P0</td></tr>
-<tr><td>T03</td><td>AC4 no success</td><td>Unit</td><td>Rows A/B; handler rejects each</td><td>failed; imported 0, rejected 2</td><td>P1</td></tr>
-<tr><td>T04</td><td>AC3 empty batch</td><td>Negative</td><td>Empty string; spy handler</td><td>BatchImportError before calls</td><td>P1</td></tr>
-<tr><td>T05</td><td>AC4 empty data state</td><td>Unit</td><td>Header-only `code,name`</td><td>completed 0/0; no calls</td><td>P2</td></tr>
-<tr><td>T06</td><td>AC3 ambiguous schema</td><td>Negative</td><td>Blank or duplicate case-insensitive headers</td><td>BatchImportError; no side effect</td><td>P0</td></tr>
-<tr><td>T07</td><td>AC3 malformed CSV</td><td>Failure</td><td>Unclosed quoted field</td><td>BatchImportError before first row handler</td><td>P1</td></tr>
-<tr><td>T08</td><td>NFR1 byte cap</td><td>Failure</td><td>UTF-8 payload exceeds 1 MiB (`é`)</td><td>Size error before handler</td><td>P1</td></tr>
-<tr><td>T09</td><td>NFR1 row cap</td><td>Failure</td><td>5,001 data rows</td><td>Row-limit error before handler</td><td>P1</td></tr>
-<tr><td>T10</td><td>AC2 order / systemic risk</td><td>Unit</td><td>OK, DB_DOWN, LATER; DB_DOWN raises OSError</td><td>OSError propagates; OK occurred; LATER not hidden/attempted</td><td>P0</td></tr>
-<tr><td>T11</td><td>AC4 state/count invariant</td><td>Unit</td><td>All success, all reject, mixed scenarios</td><td>Completed/failed/partial; counts sum to rows</td><td>P1</td></tr>
-<tr><td>T12</td><td>VT-100 load</td><td>Load</td><td>200 simultaneous tasks × 100 synthetic rows</td><td>Record p95, compare with 5s; qualify harness scope</td><td>P1</td></tr>
-<tr><td>T13</td><td>Unrelated change risk</td><td>Regression</td><td>Existing offline suite on new branch</td><td>All selected regressions pass; DB/source markers reported separately</td><td>P0</td></tr></table>
-<p class="small"><b>Không cần:</b> browser test, API mock/network, DB migration/integration trước khi có product contract. Không dùng random/fuzz trong suite bắt buộc để giữ repeatability.</p>
-</div>
-
-<div class="page"><h2>4. Test-first → patch → verify</h2>
-<h3>Baseline/test đỏ</h3><p>Baseline `5239b7333a8f8cdf0f919e6b0505af0def99fe23`; nhánh riêng `bt3/23001946-vt100`.</p>
-<pre class="mono">conda run --no-capture-output -n SE_Project python -m pytest -q tests/importing/test_batch.py
-ERROR collecting tests/importing/test_batch.py
-ModuleNotFoundError: No module named 'app.importing.batch'
-1 error in 0.07s · exit 2</pre>
-<p>Đỏ ở collection vì feature module không tồn tại. Đây là bằng chứng baseline chưa có slice cần xây, không phải assertion trên một implementation sai. Sau khi thêm code, suite chạy trên API mới và xác nhận contract; log baseline được giữ nguyên để không viết lại lịch sử test-first.</p><div class="box"><b>Cách đọc chuỗi test-first:</b> baseline đỏ chứng minh test nhắm vào phần chưa tồn tại; test mới xanh chứng minh các input và trạng thái đã đặc tả; mutation bị giết chứng minh ít nhất một oracle phân biệt được kết quả đúng/sai; regression xanh cho thấy tập kiểm tra offline hiện tại không phát hiện hỏng chức năng khác. Bốn bằng chứng trả lời các câu hỏi khác nhau, không thay thế lẫn nhau.</div>
-<h3>Patch được review</h3><p><span class="mono">app/importing/batch.py</span> parse/validate toàn bộ CSV trước side effect; size ≤1 MiB, rows ≤5.000, header unique/nonblank, row width khớp. Handler thành công tạo IMPORTED; chỉ `RowImportError` tạo REJECTED và xử lý tiếp. Lỗi hệ thống khác propagate để không giả thành lỗi dữ liệu. Kết quả immutable có số dòng, counts, summary. Persistence transaction độc lập là trách nhiệm handler tương lai.</p>
-<h3>Test xanh / regression</h3>
-<pre class="mono">pytest -q tests/importing/test_batch.py tests/importing/test_batch_performance.py -s
-13 passed in 0.17s
-synthetic_tasks=200 rows_per_task=100 p95_ms=0.286 target_ms=5000</pre>
-<pre class="mono">pytest -q tests -m 'not postgres and not hus_postgres and not full_catalog_acceptance'
-624 passed, 90 deselected, 1 existing Starlette/httpx warning · 5.17s
-ruff check app/importing tests/importing · All checks passed</pre>
-<p>Offline default chặn external network. 90 DB/source tests bị loại bởi marker; không có DB thật/Neon được dùng. Vì vậy kết quả 624 pass chỉ mô tả tập offline đã chọn, không đại diện toàn bộ test suite hoặc xác nhận tương thích với PostgreSQL.</p>
-<h3>Commit trail</h3><p><span class="mono">18e75fb</span> spec/plan → <span class="mono">91d4cd8</span> tests + đỏ → <span class="mono">3443231</span> implementation/evidence. Nhánh chưa merge.</p><p><b>Giới hạn của bằng chứng:</b> test unit gọi callback đồng bộ trong tiến trình. Nó kiểm tra contract xử lý CSV, nhưng không xác nhận callback ghi đúng DB, commit/rollback hoạt động, dữ liệu sống sót sau restart hay API trả lỗi đúng định dạng. Các kiểm chứng đó cần adapter và hợp đồng sản phẩm riêng.</p>
-</div>
-
-<div class="page"><h2>5. “Who tests the tests?” — mutation</h2>
-<p>Đảo rule tổng hợp từ `if imported and rejected` sang `if imported or rejected` khi xác định PARTIAL. Mutation được áp dụng tạm bằng script có `finally` khôi phục file.</p>
-<pre class="mono">pytest -q test_middle_row_failure... test_all_valid_rows...
-.F
-FAILED test_all_valid_rows_reach_handler_once_and_complete
-Expected COMPLETED; mutated result was PARTIAL
-1 failed, 1 passed in 0.10s
-MUTATION KILLED; original source restored</pre>
-<p><b>Kết luận:</b> mutation bị test phát hiện. T02 bắt partial-success; test all-valid bắt sai phân loại completed. Evidence nguyên văn ở `deliverables/evidence/mutation-killed.txt`; không có mutation trong commit.</p>
-<h3>Test oracle tự kiểm tra</h3><p>Lần chạy đầu sau patch có 1 test fail do chính fixture test ghi expected COMPLETED nhưng callback lại reject hàng B. Đây là lỗi oracle, không phải bug production. Sửa fixture thành tập mã accepted tường minh; suite chạy lại 13 passed. Ghi nhận vì test do AI hỗ trợ vẫn cần người đọc expected và setup.</p>
-<h3>Coverage và risk evidence</h3><p>Package `coverage`/pytest-cov không có trong Conda `SE_Project`, do đó không báo tỷ lệ line/branch giả. Review nhánh cho thấy test chạy: input/header hợp lệ/rỗng/blank/duplicate; malformed; giới hạn byte và rows; handler success/row reject/system exception; completed/partial/failed; counts; concurrency. Invalid Unicode chưa được kích hoạt trực tiếp. T13 mở rộng regression sang 624 test offline (90 test cần DB/source được deselect).</p>
-<p>Risk coverage: AC1 T01; AC2 T02/T10; AC3 T04/T06–09; AC4 T03/T05/T11; NFR1 T08–09; NFR3 T12; nguy cơ behavior cũ T13. Coverage nói test có chạy qua nhánh nào, không chứng minh mọi assert có oracle đủ mạnh.</p>
-</div>
-
-<div class="page"><h2>6. Flaky tests và kiểm chứng tải</h2>
-<table><tr><th>Nguy cơ</th><th>Kiểm soát/quan sát</th><th>Giới hạn còn lại</th></tr>
-<tr><td>Time / môi trường</td><td>`perf_counter`, không sleep; test in p95; import suite chạy 0.17s.</td><td>Máy bận có thể làm thay đổi p95; run đơn lẻ không mô tả phân phối dài hạn.</td></tr>
-<tr><td>Order/shared state</td><td>Hàm stateless, batch/list riêng. T02 và T01 chạy đảo thứ tự: mỗi thứ tự 2 passed (0.08s/0.09s).</td><td>Không kiểm tra process crash hay DB isolation.</td></tr>
-<tr><td>Network/random</td><td>Không network và không random data; Python CSV + synthetic rows.</td><td>Tương lai importer endpoint/DB cần fault injection/retry/idempotency tests.</td></tr></table>
-<h3>Load experiment</h3>
-<p>Harness: 200 worker tasks đồng thời, mỗi task parse 100 hàng CSV tổng hợp, handler no-op, đo từ trước gọi parser đến nhận result. Python 3.15.0, Linux x86_64, Conda `SE_Project`. Kết quả run ghi nhận: 200/200 task completed, 100 hàng/task, p95 = <b>0.286 ms</b>, dưới ngưỡng số học 5.000 ms.</p>
-<div class="box"><b>Giới hạn kết luận:</b> đây chỉ là throughput/latency của parser trong tiến trình, payload nhỏ và callback no-op. Không có HTTP, auth, DB, transaction, network, persistence contention hay production hardware. Vì vậy không chứng minh hệ thống đáp ứng 200 user và p95 5s. Trước release cần benchmark endpoint/import storage thật với dữ liệu đại diện và transaction mỗi hàng.</div>
-<h3>Business failure policy</h3><p>Dữ liệu sai có thể tiếp tục khi handler ném `RowImportError`. Lỗi `OSError`/DB/system không bị nuốt; hàng trước đã được handler commit độc lập vẫn tồn tại, nhưng batch dừng và hàng sau chưa xử lý. Đây là lựa chọn rõ ràng để tránh che outage; retry/resume cần import ID và idempotency contract riêng.</p>
-</div>
-
-<div class="page"><h2>7. Traceability và Git evidence</h2>
-<table class="trace"><tr><th>AC / risk</th><th>Cases / file</th><th>Code</th><th>Commit</th><th>Kết quả</th></tr>
-<tr><td>AC1 per-row</td><td>T01 · <span class="mono">test_batch.py</span></td><td><span class="mono">import_csv</span>, RowOutcome</td><td>3443231</td><td>pass</td></tr>
-<tr><td>AC2 partial success / giữ valid</td><td>T02,T10 · test_batch.py</td><td>RowImportError loop</td><td>3443231</td><td>pass; mutation killed</td></tr>
-<tr><td>AC3 unsafe batch</td><td>T04,T06–09 · test_batch.py</td><td><span class="mono">_parse_records</span></td><td>3443231</td><td>pass, 0 side effects</td></tr>
-<tr><td>AC4 transitions/count</td><td>T03,T05,T11 · test_batch.py</td><td>BatchStatus/BatchResult</td><td>3443231</td><td>pass; mutation killed</td></tr>
-<tr><td>NFR1 bounded</td><td>T08,T09 · test_batch.py</td><td>MAX_CSV_BYTES/MAX_ROWS</td><td>3443231</td><td>pass</td></tr>
-<tr><td>NFR3 target trial</td><td>T12 · test_batch_performance.py</td><td>ThreadPoolExecutor harness</td><td>3443231</td><td>p95 .286ms synthetic</td></tr>
-<tr><td>Regression risk</td><td>T13 · repository offline suite</td><td>package isolated</td><td>3443231</td><td>624 pass / 90 deselected</td></tr></table>
-<h3>Đọc kết quả truy vết</h3><p>AC2 có hai kiểu lỗi cần phân biệt: T02 kiểm tra từ chối dữ liệu ở một hàng nhưng vẫn xử lý các hàng khác; T10 kiểm tra lỗi hạ tầng phải dừng để không che outage. AC3 xác minh batch sai cấu trúc bị chặn trước side effect. AC4 kiểm tra trạng thái tổng hợp và counts thay đổi nhất quán. T12 chỉ là phép đo harness; T13 là hồi quy offline với marker bị loại được nêu rõ.</p><p>Ưu tiên P0 dành cho các điểm có thể làm mất dữ liệu hợp lệ hoặc che lỗi hệ thống, cùng nguy cơ hỏng chức năng cũ. P1 kiểm tra giới hạn đầu vào và các chuyển trạng thái chính; P2 là batch chỉ có header, một biên ít ảnh hưởng nhưng cần kết quả xác định. Mức ưu tiên này phục vụ phạm vi bài tập, chưa thay thế phân tích rủi ro khi thiết kế importer production.</p><h3>Reproduction</h3><pre class="mono">git checkout bt3/23001946-vt100
-conda activate SE_Project
-python -m pytest -q tests/importing/test_batch.py tests/importing/test_batch_performance.py -s
-python -m pytest -q tests -m 'not postgres and not hus_postgres and not full_catalog_acceptance'
-python -m ruff check app/importing tests/importing</pre>
-<p><b>Branch:</b> <a href="https://github.com/5-Bit-System/SE_Project/tree/bt3/23001946-vt100">github.com/5-Bit-System/SE_Project/tree/bt3/23001946-vt100</a>. Đã push; chưa tạo PR hoặc merge. Đề yêu cầu branch hoặc PR; nhóm cần review trước khi tích hợp.</p>
-<h3>Review boundary</h3><p>Thay đổi được đóng gói ở module mới và hai file test. Không sửa luồng đăng nhập, advisor, recommendation, catalog hay migration. Điều này giới hạn blast radius cho regression. Branch đã push để nhóm review; bài làm không merge vào main. Các commit giữ thứ tự đặc tả → test → implementation → regression → report để reviewer theo được bằng chứng.</p>
-<p><b>Limits/open questions:</b> cần chủ sản phẩm chỉ rõ entity, CSV columns/encoding, uniqueness, authorization, per-row DB transaction, duplicate/retry semantics, error response, audit/privacy policy. Harness chưa chứng minh behavior nghiệp vụ ngoài partial success abstraction.</p><div class="box"><b>Handoff để tích hợp:</b> (1) chốt schema CSV và quy tắc validate với product owner; (2) xây adapter lưu một hàng trong transaction riêng; (3) thêm API integration trên PostgreSQL test và xác minh các hàng hợp lệ đọc lại được sau request; (4) định nghĩa import ID, retry và idempotency; (5) đo 200 HTTP clients với payload và storage đại diện, lặp đủ để báo p95 ổn định; (6) yêu cầu nhóm review branch trước merge.</div>
-</div>
-
-<div class="page"><h2>8. Reflection (250–350 từ)</h2>
-<p>Confidence của tôi tăng từ bằng chứng lặp lại, không phải lời AI khẳng định patch đúng. Repository không có API hay domain importer; tôi bác bỏ assumption này thay vì để agent tự chọn bảng sinh viên hoặc schema. Vì vậy slice chỉ chứng minh cô lập lỗi từng dòng, chưa phải tính năng production.</p>
-<p>Test đỏ cho thấy module chưa có; test state sau patch bao phủ thành công, lỗi, hỗn hợp, malformed và giới hạn kích thước. Mutation đảo `and` thành `or` bị test all-valid bắt. Tôi cũng phát hiện expected của một test mâu thuẫn với callback; sửa fixture nhắc tôi rằng test AI viết vẫn có thể sai. Regression offline và lint kiểm tra nguy cơ hỏng behavior cũ.</p>
-<p>Những điều chưa được chứng minh vẫn đáng kể. Benchmark 200 task đo parser trong tiến trình với callback rỗng; nó không đo API, DB transaction, lock contention, mạng hay máy chủ triển khai. 90 test DB/source bị loại khỏi offline run. Coverage tool không có trong môi trường nên tôi không có phần trăm line/branch; risk matrix và đọc nhánh không thay thế coverage instrumentation. Chưa có CSV domain schema, quyền import, retry/idempotency hoặc persistence adapter để kiểm tra rằng bản ghi hợp lệ thật sự đã commit.</p>
-<p>Test có giá trị cao nhất tiếp theo là một API integration trên importer được product owner đặc tả, dùng PostgreSQL test thật và hai transaction độc lập: một hàng hợp lệ, một hàng lỗi dữ liệu, một hàng hợp lệ sau đó; xác minh hai hàng tốt vẫn đọc lại được sau request, lỗi DB hệ thống dừng rõ ràng, và retry không tạo duplicate. Sau đó mới benchmark 200 HTTP clients với database và payload đại diện, lặp đủ lần để báo phân phối p95.</p><p>Việc dừng ở harness là lựa chọn về độ tin cậy của bài làm: nếu tự chọn bảng, cột hoặc unique key, test có thể xanh trên một quy tắc do AI tưởng tượng ra mà không giải quyết đúng nhu cầu của nhóm. Tôi sẽ dùng các câu hỏi bàn giao ở trang trước để biến phần chưa biết thành tiêu chí cụ thể trước khi mở rộng code.</p>
-
-</div>
-
-<div class="appendix"><h2>Phụ lục A — AI Usage Log</h2>
-<table><tr><th>Giai đoạn</th><th>Công cụ / prompt summary</th><th>Output dùng</th><th>Review / evidence</th></tr>
-<tr><td>Spec/plan</td><td>Codex GPT-6; đọc đề, slide 06/07, AGENTS/repo; đề nghị plan test-first, assumptions/files/risk/state/mutation/load trước code.</td><td>Proposed bounded per-row CSV harness, no route/schema.</td><td>Repository search bác bỏ assumption có importer; student xác nhận bác bỏ bằng UI phản hồi. Plan commit 18e75fb.</td></tr>
-<tr><td>Tests</td><td>Codex tạo contract tests từ AC, state transitions, negative/failure/load cases.</td><td>T01–T13, test harness.</td><td>Run đỏ vì module thiếu. Sau implementation phát hiện oracle fixture mâu thuẫn, sửa tập accepted rõ ràng; 13 passed.</td></tr>
-<tr><td>Patch/review</td><td>Codex triển khai parser bounded và result states.</td><td>Module 2 file, synthetic load test.</td><td>Review catch only RowImportError; unexpected OSError propagates. Ruff and full offline tests pass.</td></tr>
-<tr><td>Test the tests</td><td>Codex đảo điều kiện `and` thành `or` tạm thời.</td><td>Temporary mutation.</td><td>Test all-valid fail (1 failed/1 pass), source restored, mutation evidence saved.</td></tr>
-<tr><td>Report</td><td>Codex tổng hợp logs thành traceability/reflection draft.</td><td>HTML/PDF source.</td><td>Sinh viên cần đọc, sửa reflection theo trải nghiệm và giải thích code trong vấn đáp.</td></tr></table>
-<h3>Assumption bị giữ lại và bị loại sau review</h3><table><tr><th>Đề xuất / giả định ban đầu</th><th>Quyết định sau kiểm tra</th><th>Lý do</th></tr><tr><td>Đã có CSV importer để tích hợp</td><td>Loại bỏ; sinh viên trực tiếp bác bỏ assumption này.</td><td>Repository search không tìm thấy API/domain importer; không được tự chọn bảng hay quy tắc học vụ.</td></tr><tr><td>Bắt mọi Exception để batch tiếp tục</td><td>Loại bỏ; chỉ bắt <span class="mono">RowImportError</span>.</td><td>Lỗi OSError/DB phải lộ rõ để không báo thành lỗi dữ liệu và che outage.</td></tr><tr><td>200 thread local chứng minh NFR production</td><td>Giữ làm phép đo harness, giới hạn kết luận.</td><td>Không có HTTP, DB, transaction hay máy triển khai trong thử nghiệm.</td></tr></table><h3>Hai output AI không tin ngay</h3><ol><li>Test oracle lúc đầu nói COMPLETED dù fixture reject một hàng; test fail chứng minh setup/expected phải được người đọc đối chiếu.</li><li>Ý tưởng bắt mọi `Exception` rồi tiếp tục có vẻ làm partial success “mạnh hơn”, nhưng có thể nuốt database outage; code chỉ bắt exception đánh dấu row-data rejection, systemic exception lan ra.</li></ol>
-<p><b>Review protocol:</b> đối chiếu test với AC/state; đọc diff để giữ đúng phạm vi; chạy mutation rồi xác nhận source đã khôi phục; đối chiếu số liệu PDF với raw log và nêu rõ phần DB/source cùng production benchmark chưa được thử.</p><p>Không dùng LLM API ngoài trong test, không gửi dữ liệu sinh viên, không thêm dependency. AI log này công khai phần được hỗ trợ và giới hạn; người nộp chịu trách nhiệm xác minh nội dung.</p>
-</div>
-
-<div class="appendix"><h2>Phụ lục B — Execution evidence</h2>
-<h3>Test-first red (baseline)</h3><pre class="mono">ModuleNotFoundError: No module named 'app.importing.batch'
-pytest exit 2; 1 collection error</pre>
-<h3>Mutation killed</h3><pre class="mono">Mutation: PARTIAL if imported and rejected → PARTIAL if imported or rejected
-FAILED test_all_valid_rows_reach_handler_once_and_complete
-Expected COMPLETED; got PARTIAL
-1 failed, 1 passed; source restored in finally block</pre>
-<h3>Post-patch</h3><pre class="mono">Import unit + synthetic load: 13 passed in 0.17s
-200 tasks × 100 rows; p95 0.286ms; target 5000ms
-Full offline regression: 624 passed, 90 deselected, 1 existing deprecation warning
-Ruff: all checks passed</pre>
-<h3>Test cases represented in the 13-pass run</h3><table><tr><th>Behavior</th><th>Test function / parameterized case</th><th>Evidence intent</th></tr><tr><td>All rows valid</td><td><span class="mono">test_all_valid_rows_reach_handler_once_and_complete</span></td><td>Each callback once; source line numbers; COMPLETED.</td></tr><tr><td>Middle row rejected</td><td><span class="mono">test_middle_row_failure_does_not_lose_valid_rows_before_or_after</span></td><td>Valid rows before/after remain imported; PARTIAL.</td></tr><tr><td>All data rows invalid</td><td><span class="mono">test_all_record_errors_produce_failed_batch_summary</span></td><td>FAILED summary and rejection count.</td></tr><tr><td>Header-only / bad headers</td><td><span class="mono">test_header_only_batch_is_completed_with_no_rows</span>; <span class="mono">test_blank_or_duplicate_headers_fail_before_any_side_effect</span> (2 cases)</td><td>Empty success is defined; ambiguous structure causes zero handler calls.</td></tr><tr><td>Malformed / limits</td><td><span class="mono">test_malformed_csv_fails_before_any_side_effect</span>; byte and row limit tests</td><td>Reject structural/boundary failures before persistence callback.</td></tr><tr><td>System error</td><td><span class="mono">test_handler_system_failure_is_not_misreported_as_bad_data</span></td><td>Unexpected OSError propagates rather than becoming REJECTED.</td></tr><tr><td>Summary invariant</td><td><span class="mono">test_summary_status_and_count_invariants_across_transitions</span></td><td>Counts and final state agree across transitions.</td></tr><tr><td>Synthetic concurrency</td><td><span class="mono">test_200_concurrent_synthetic_import_tasks_report_p95</span></td><td>200 tasks × 100 rows; reports p95 for this harness only.</td></tr></table><h3>Scope and evidence file index</h3><ul><li><span class="mono">test-first-red.txt</span>: baseline collection error because target module was absent, not a failing assertion.</li><li><span class="mono">mutation-killed.txt</span>: temporary <span class="mono">and → or</span> mutation; all-valid test distinguishes COMPLETED from PARTIAL; source restored.</li><li><span class="mono">test-import-pass.txt</span>: 13 pass and synthetic p95 0.286 ms; in-process callback only.</li><li><span class="mono">test-offline-regression.txt</span>: 624 pass, 90 DB/source tests deselected, one existing warning.</li><li><span class="mono">ruff.txt</span>: lint passed. Environment is Conda <span class="mono">SE_Project</span>, Python 3.15.0/Linux x86_64; no PostgreSQL integration or production system was tested, and no numeric coverage is claimed.</li></ul>
-</div>
-</body></html>
+GREEN: 36 passed in 0.18s
+REGRESSION: 647 passed, 90 deselected, 1 warning in 4.65s</pre>
+<p class="">Raw line trace không chạy performance test vì tracing làm sai thời gian. Barrier peak200 gồm waiter; E2E/service là hai interval khác nhau. Không dùng kết quả của DB jobs để khẳng định adapter đã lưu bản ghi; bài chưa thêm persistence adapter. Các giới hạn này được giữ nhất quán giữa specification, test strategy, evidence và PDF.</p></section></body></html>
