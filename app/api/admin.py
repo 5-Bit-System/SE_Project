@@ -783,7 +783,7 @@ async def update_crawled_document_metadata(
 
     with engine().begin() as conn:
         try:
-            return update_document_metadata(
+            doc = update_document_metadata(
                 conn,
                 doc_id=doc_id,
                 title=body.title,
@@ -791,6 +791,23 @@ async def update_crawled_document_metadata(
                 doc_type=body.doc_type,
                 metadata=body.metadata_json,
             )
+            log_admin_action(
+                conn,
+                actor_id=principal.get("account_id"),
+                actor_email=principal.get("email"),
+                action="document.metadata_update",
+                target_type="document",
+                target_id=doc_id,
+                summary=f"Updated metadata for document '{doc.get('title')}' ({doc_id})",
+                details={
+                    "title": body.title,
+                    "major": body.major,
+                    "doc_type": body.doc_type,
+                    "review_status": doc.get("review_status"),
+                    "is_published": doc.get("is_published"),
+                },
+            )
+            return doc
         except ValueError as exc:
             raise HTTPException(404, detail=str(exc)) from exc
 

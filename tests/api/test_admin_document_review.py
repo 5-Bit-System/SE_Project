@@ -91,3 +91,19 @@ def test_admin_document_review_api(verified_client, fake_accounts):
     )
     assert rej_resp.status_code == 200
     assert rej_resp.json()["review_status"] == "rejected"
+
+
+    # 7. Edit metadata on approved document resets review_status to pending
+    verified_client.post(
+        f"/admin/crawler/documents/{doc_id}/approve",
+        json={"reason": "Duyệt lại để kiểm tra sửa metadata"},
+    )
+    edit_after_app = verified_client.put(
+        f"/admin/crawler/documents/{doc_id}/metadata",
+        json={"title": "Tài liệu sau khi duyệt bị sửa lại tiêu đề"},
+    )
+    assert edit_after_app.status_code == 200
+    res_meta = edit_after_app.json()
+    assert res_meta["title"] == "Tài liệu sau khi duyệt bị sửa lại tiêu đề"
+    assert res_meta["review_status"] == "pending"
+    assert res_meta["is_published"] is False

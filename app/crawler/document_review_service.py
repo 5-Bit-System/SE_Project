@@ -211,7 +211,10 @@ def update_document_metadata(
     doc_type: str | None = None,
     metadata: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Edit metadata on a draft crawled document before approval."""
+    """Edit metadata on a draft crawled document. If document was approved or published,
+    its review status is invalidated (reset to pending, unpublished, clearing reviewer attribution)
+    so it requires re-review before publication.
+    """
     doc = get_document(conn, doc_id)
     if not doc:
         raise ValueError(f"Tài liệu '{doc_id}' không tồn tại.")
@@ -221,13 +224,20 @@ def update_document_metadata(
     new_type = doc_type if doc_type is not None else doc["doc_type"]
     new_meta = json.dumps(metadata) if metadata is not None else json.dumps(doc["metadata_json"])
 
+    was_approved_or_published = doc.get("review_status") == "approved" or bool(doc.get("is_published"))
+
     conn.execute(
         text("""
             UPDATE crawled_documents
             SET title = :title,
                 major = :major,
                 doc_type = :doc_type,
-                metadata_json = CAST(:meta AS jsonb)
+                metadata_json = CAST(:meta AS jsonb),
+                review_status = CASE WHEN :was_revoked THEN 'pending' ELSE review_status END,
+                is_published = CASE WHEN :was_revoked THEN false ELSE is_published END,
+                reviewer_id = CASE WHEN :was_revoked THEN NULL ELSE reviewer_id END,
+                review_reason = CASE WHEN :was_revoked THEN NULL ELSE review_reason END,
+                reviewed_at = CASE WHEN :was_revoked THEN NULL ELSE reviewed_at END
             WHERE id = :id
         """),
         {
@@ -236,6 +246,7 @@ def update_document_metadata(
             "major": new_major,
             "doc_type": new_type,
             "meta": new_meta,
+            "was_revoked": was_approved_or_published,
         },
     )
     return get_document(conn, doc_id)

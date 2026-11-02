@@ -106,3 +106,43 @@ def test_document_review_lifecycle_and_duplicates(db_engine):
         # 7. Validation: review without valid reason fails
         with pytest.raises(ValueError, match="ít nhất 3 ký tự"):
             review_document(conn, doc1["id"], decision="approved", reason=" ")
+
+
+
+@pytest.mark.hus_postgres
+def test_metadata_update_on_approved_or_published_document_revokes_approval(db_engine):
+    with db_engine.begin() as conn:
+        doc = create_document(
+            conn,
+            url="https://hus.vnu.edu.vn/approved-doc-test",
+            title="Tài liệu ban đầu",
+            markdown_content="# Nội dung",
+            major="computer_science",
+        )
+        doc_id = doc["id"]
+
+        # Approve and publish document
+        review_document(conn, doc_id, decision="approved", reason="Phê duyệt lần đầu")
+        from sqlalchemy import text
+        conn.execute(text("UPDATE crawled_documents SET is_published = true WHERE id = :id"), {"id": doc_id})
+
+        doc_approved = create_document.__globals__["get_document"](conn, doc_id)
+        assert doc_approved["review_status"] == "approved"
+        assert doc_approved["is_published"] is True
+
+        # Now update metadata on this approved/published document
+        upd = update_document_metadata(conn, doc_id, title="Tiêu đề đã sửa sau khi duyệt", major="data_science")
+        assert upd["title"] == "Tiêu đề đã sửa sau khi duyệt"
+        assert upd["major"] == "data_science"
+
+        # MUST be revoked to pending and unpublished
+        assert upd["review_status"] == "pending"
+        assert upd["is_published"] is False
+        assert upd["reviewer_id"] is None
+        assert upd["review_reason"] is None
+        assert upd["reviewed_at"] is None
+
+        # Subsequent re-approval applies to the edited document
+        re_app = review_document(conn, doc_id, decision="approved", reason="Duyệt lại bản sửa đổi")
+        assert re_app["review_status"] == "approved"
+        assert re_app["title"] == "Tiêu đề đã sửa sau khi duyệt"
