@@ -44,6 +44,10 @@ Các receipt P0-1…P0-5 và scope cũ giữ nguyên để đối chiếu lịch
 nhận commit merge mới. Receipt local mới ghi hai parent và hash tree đã kiểm;
 trạng thái remote CI phải đối chiếu trên SHA merge sau push.
 
+Lần CI đầu trên `21b1f98` cho thấy `ubuntu-latest` đã chuyển sang Ubuntu 26.04,
+trong khi Playwright 1.58 không hỗ trợ cài Chromium trên bản đó. Job `rag_demo`
+được ghim `ubuntu-24.04`; không đổi ba runner/job database/offline của main.
+
 ## Cách kiểm tra sau pull
 
 ```powershell

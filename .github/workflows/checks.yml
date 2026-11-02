@@ -109,7 +109,8 @@ jobs:
           path: reports/pytest-hus-postgres.xml
           if-no-files-found: warn
   rag_demo:
-    runs-on: ubuntu-latest
+    # Playwright 1.58 has browser dependencies for Ubuntu 24.04, not 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       PYTHONUTF8: "1"
