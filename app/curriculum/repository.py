@@ -153,7 +153,13 @@ def update_revision_payload(
     conn.execute(
         text("""
             UPDATE curriculum_revisions
-            SET payload = :payload
+            SET payload = :payload,
+                status = 'draft',
+                reviewed_by = NULL,
+                reviewed_at = NULL,
+                review_decision = NULL,
+                review_notes = NULL,
+                validation_summary = '{}'::jsonb
             WHERE revision_id = :rev_id
         """),
         {
@@ -165,9 +171,9 @@ def update_revision_payload(
         conn,
         revision_id=revision_id,
         reviewer_id=updated_by,
-        action="validated",
+        action="created",
         reason=reason,
-        details={"event": "payload_updated"},
+        details={"event": "payload_updated_review_revoked"},
     )
     return get_revision(conn, revision_id)
 

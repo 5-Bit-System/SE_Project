@@ -139,3 +139,47 @@ def update_course_rules(
 
     revision_payload["courses"] = courses
     return revision_payload
+
+
+
+def validate_full_revision_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Validate all courses and prerequisite graph for an entire revision payload."""
+    courses = payload.get("courses", [])
+    errors = []
+    warnings = []
+
+    seen_codes = set()
+    for c in courses:
+        code = (c.get("code") or "").strip().upper()
+        if not code:
+            errors.append({"row": 0, "column": "code", "message": "Mã môn học không được để trống"})
+        elif code in seen_codes:
+            errors.append({"row": 0, "column": "code", "message": f"Mã môn học trùng lặp: {code}"})
+        seen_codes.add(code)
+
+    graph: dict[str, list[str]] = {}
+    for c in courses:
+        code = (c.get("code") or "").strip().upper()
+        raw = c.get("prerequisites", [])
+        if isinstance(raw, list):
+            if raw and isinstance(raw[0], list):
+                graph[code] = extract_flat_prereqs(raw)
+            else:
+                graph[code] = [str(x).strip().upper() for x in raw if str(x).strip()]
+        else:
+            graph[code] = []
+
+    has_cycle, cycle_path = detect_prerequisite_cycles(graph)
+    if has_cycle:
+        errors.append({"row": 0, "column": "prerequisites", "message": f"Phát hiện chu trình tiên quyết: {' -> '.join(cycle_path)}"})
+
+    valid = len(errors) == 0
+    total_credits = sum(int(c.get("credits", 0) or 0) for c in courses if str(c.get("credits", "0")).isdigit())
+
+    return {
+        "valid": valid,
+        "errors": errors,
+        "warnings": warnings,
+        "stats": {"course_count": len(courses), "total_credits": total_credits},
+        "courses": courses,
+    }

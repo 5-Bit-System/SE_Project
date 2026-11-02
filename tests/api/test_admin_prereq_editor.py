@@ -84,13 +84,17 @@ MAT1003,Giải tích 3,3,,Đại cương
     assert any(e["from"] == "MAT1002" and e["to"] == "MAT1003" for e in g2["edges"])
 
     # 6. Test branching if revision is published/active
-    # Approve and publish revision
-    verified_client.post(
+    # Revalidate, approve and publish revision
+    val_resp = verified_client.post(f"/admin/catalog-revisions/{rev_id}/validate")
+    assert val_resp.status_code == 200
+    appr_resp = verified_client.post(
         f"/admin/catalog-revisions/{rev_id}/approve", json={"reason": "Phê duyệt để test publish"}
     )
-    verified_client.post(
+    assert appr_resp.status_code == 200
+    pub_resp = verified_client.post(
         f"/admin/catalog-revisions/{rev_id}/publish", json={"reason": "Phát hành chính thức"}
     )
+    assert pub_resp.status_code == 200
 
     # Now edit course rules on the published revision -> should branch into a new draft revision
     branch_resp = verified_client.put(
@@ -112,3 +116,51 @@ MAT1003,Giải tích 3,3,,Đại cương
     assert orig_rev["status"] == "published"
     c_orig = [c for c in orig_rev["payload"]["courses"] if c["code"] == "MAT1003"][0]
     assert c_orig["prerequisites"] == [["MAT1001"], ["MAT1002"]]
+
+
+def test_editing_approved_revision_revokes_approval_and_blocks_publish(verified_client, fake_accounts):
+    for session in fake_accounts.sessions.values():
+        session["role"] = "admin"
+
+    csv_data = """code,name,credits,prerequisites,block
+MAT1001,Giải tích 1,3,,Đại cương
+MAT1002,Giải tích 2,3,MAT1001,Đại cương
+"""
+    r = verified_client.post(
+        "/admin/catalog-revisions/import",
+        json={"program_id": "khdl_7460108_2022", "version_title": "Approval Revoke Test", "csv_content": csv_data},
+    ).json()
+    rev_id = r["revision_id"]
+
+    # Approve
+    appr_resp = verified_client.post(
+        f"/admin/catalog-revisions/{rev_id}/approve",
+        json={"reason": "Duyệt trước khi sửa luật"},
+    )
+    assert appr_resp.status_code == 200
+    rev_before = verified_client.get(f"/admin/catalog-revisions/{rev_id}").json()
+    assert rev_before["status"] == "approved"
+    assert rev_before["review_decision"] == "approved"
+
+    # Now edit course rules on the approved revision
+    edit_resp = verified_client.put(
+        f"/admin/catalog-revisions/{rev_id}/courses/MAT1002/prerequisites",
+        json={"prerequisites": [], "reason": "Xóa tiên quyết khi đã duyệt"},
+    )
+    assert edit_resp.status_code == 200
+
+    # Revision MUST have been returned to 'draft', with review and validation cleared
+    rev_after = verified_client.get(f"/admin/catalog-revisions/{rev_id}").json()
+    assert rev_after["status"] == "draft"
+    assert rev_after["reviewed_by"] is None
+    assert rev_after["reviewed_at"] is None
+    assert rev_after["review_decision"] is None
+    assert rev_after["validation_summary"] == {}
+
+    # Attempt to publish must be rejected
+    pub_resp = verified_client.post(
+        f"/admin/catalog-revisions/{rev_id}/publish",
+        json={"reason": "Cố tình xuất bản khi đã bị thu hồi duyệt"},
+    )
+    assert pub_resp.status_code == 400
+    assert "approved" in pub_resp.json()["detail"].lower()

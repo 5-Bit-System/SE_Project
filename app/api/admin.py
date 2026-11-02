@@ -365,6 +365,51 @@ async def get_revision_validation(request: Request, revision_id: str) -> Catalog
     )
 
 
+@router.post("/catalog-revisions/{revision_id}/validate", response_model=CatalogValidationResponse)
+async def validate_catalog_revision(request: Request, revision_id: str) -> CatalogValidationResponse:
+    """Re-validate a draft curriculum revision payload and update its validation status and digest."""
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+
+    with engine().connect() as conn:
+        rev = get_revision(conn, revision_id)
+
+    if not rev:
+        raise HTTPException(404, detail=f"Revision {revision_id} not found")
+
+    from app.curriculum.publication_gate import compute_payload_digest
+    from app.curriculum.rule_service import validate_full_revision_payload
+
+    payload = rev.get("payload") or {}
+    val_result = validate_full_revision_payload(payload)
+    val_result["payload_digest"] = compute_payload_digest(payload)
+    val_result["digest"] = rev.get("source_digest") or val_result["payload_digest"]
+    status = "validated" if val_result["valid"] else "draft"
+
+    with engine().begin() as conn:
+        updated_rev = update_validation(conn, revision_id, status, val_result)
+        log_admin_action(
+            conn,
+            actor_id=principal.get("account_id"),
+            actor_email=principal.get("email"),
+            action="catalog.validate",
+            target_type="catalog_revision",
+            target_id=revision_id,
+            summary=f"Validated revision {revision_id}: status={status}",
+            details={"valid": val_result["valid"], "errors_count": len(val_result.get("errors", []))},
+        )
+
+    return CatalogValidationResponse(
+        revision_id=updated_rev["revision_id"],
+        program_id=updated_rev["program_id"],
+        status=updated_rev["status"],
+        validation_summary=updated_rev["validation_summary"],
+        source_digest=updated_rev["source_digest"],
+        source_filename=updated_rev["source_filename"],
+    )
+
+
 @router.get("/catalog-revisions/{revision_id}")
 async def get_catalog_revision(request: Request, revision_id: str) -> dict:
     """Get single revision detail including payload and status."""
