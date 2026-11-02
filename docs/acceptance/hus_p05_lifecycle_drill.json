@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "scope": "copied-selector simulation only",
+  "production_activated": false,
+  "original_selection_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+  "receipt_sha256": "56b7313744a69cd1a71986ba62792064439099722215e019ad2aa13486db9aac",
+  "release_id": "hus-data-20261031-v3",
+  "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "activate": {
+    "action": "activate",
+    "previous_selection_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "selection_sha256": "c92a99be0217c95049b09fa3f347b99565787b3df42b6548de3ef2c0df2c18e4",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "simulation": true
+  },
+  "rollback": {
+    "action": "rollback",
+    "previous_selection_sha256": "c92a99be0217c95049b09fa3f347b99565787b3df42b6548de3ef2c0df2c18e4",
+    "selection_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "restored_state": "prepared_not_runtime_activated",
+    "simulation": true
+  },
+  "source_selector_unchanged": true,
+  "inflight_snapshot_kept": true
+}

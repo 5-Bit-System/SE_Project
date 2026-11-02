@@ -1,6 +1,16 @@
 # Đặc tả hệ thống theo pipeline
 
-## Current runtime - 2026-10-17
+## Trạng thái code sau xử lý PR #6 — 02/11/2026
+
+Hợp nhất `main` af8d4db vào `crawldata`, giữ auth/VNU, workspace, recommendation UI và
+API sản phẩm của main. RAG F1/F2/F3 + trò chuyện cơ bản chạy bằng app/demo riêng, không
+phụ thuộc bảng điểm/eligibility/ranking/explanation. Không mở endpoint demo vô danh
+trên app.main; chưa restart app, thay database hoặc kích hoạt production.
+Các checkpoint 2026-10-17 bên dưới là lịch sử; main hiện đã có auth và đồng bộ VNU.
+Xem [biên bản xử lý xung đột](HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md).
+
+
+## Historical runtime checkpoint - 2026-10-17
 
 FastAPI reads four draft versioned catalogs from HUS ai07 (DATABASE_MODEL=hus). Profiles are empty; manual transcript input is supported. Legacy database retained for rollback. Login/portal synchronization and new modules are deferred. See [acceptance evidence](../database/HUS_RUNTIME.md). Future module descriptions below are not evidence of completed implementation.
 
@@ -23,21 +33,15 @@ Hệ thống hiện chỉ gợi ý **môn học**. Hệ thống chưa xếp th�
 
 ```mermaid
 flowchart TD
-    U[Người dùng] --> UI[Giao diện chính]
-    U --> CHAT[Nút chatbot nổi]
-
-    UI --> PROFILE[Hồ sơ và bảng điểm]
-    PROFILE --> ELIG[Kiểm tra điều kiện học]
-    ELIG --> CANDIDATES[Danh sách môn đủ điều kiện]
-    CANDIDATES --> REC[Xếp hạng môn học]
-    REC --> RESULT[Kết quả và giải thích]
-    RESULT --> UI
-
-    CHAT --> ROUTER[Phân loại câu hỏi]
-    ROUTER -->|Tư vấn môn học| REC
-    ROUTER -->|Hỏi thông tin HUS| HUS[RAG thông tin HUS]
-    HUS --> CHATRESULT[Câu trả lời và nguồn]
-    CHATRESULT --> CHAT
+    U[User] --> PRODUCT[Main product workspace]
+    PRODUCT --> PROFILE[Profile and transcript]
+    PROFILE --> ELIG[Eligibility]
+    ELIG --> REC[Course ranking]
+    REC --> EXPL[Explanation and plans]
+    EXPL --> PRODUCT
+    U --> RAGUI[Separate HUS RAG demo]
+    RAGUI --> RAG[F1 F2 F3 and basic chat]
+    RAG --> SOURCES[Answer and evidence]
 ```
 
 ## 2. Người dùng nhìn thấy gì?
@@ -370,56 +374,246 @@ API key chỉ dùng để xác thực với nhà cung cấp LLM và cho phép g�
 
 ## 9. Pipeline chatbot hỏi đáp thông tin HUS
 
-**Hiện trạng:** đây là thiết kế mục tiêu. Candidate 106 tài liệu chỉ dùng để thử nghiệm; chưa có corpus/index active hoặc dịch vụ hỏi đáp HUS trong runtime. Luồng tra cứu sẽ được gọi từ chatbot hiện có, không tạo trang FAQ riêng.
-
-### A. Chuẩn bị và phát hành nguồn tra cứu
-
-```mermaid
-flowchart LR
-    A[Đợt crawl phát hành từ nguồn được phép] --> B[Snapshot nguồn bất biến]
-    B --> C[Kiểm kê URL, file, hash và phạm vi]
-    C --> D[Review: include, exclude, needs_review, pending_ocr]
-    D -->|Chỉ include| E[Làm sạch, trích xuất PDF và chuẩn hóa metadata]
-    E --> F[Chia đoạn, giữ trang hoặc mục và hash nguồn]
-    F --> G[Tạo index gắn release_id]
-    G --> H[Đánh giá truy xuất, câu trả lời và citation]
-    H -->|Được duyệt| I[Chuyển active release nguyên tử]
-```
-
-1. Chốt danh sách nguồn được phép, rồi crawl **một lần cho từng release**. Giữ snapshot gốc để kiểm tra và dựng lại; candidate hiện tại chưa phải bản v1 được duyệt.
-2. Review từng tài liệu về loại, bậc học, ngành/chương trình, khóa/năm và hiệu lực. Giữ nguồn thạc sĩ/tiến sĩ để phục vụ câu hỏi học tiếp sau đại học khi được duyệt; `unknown` không được tự coi là tài liệu chung, ngày crawl không chứng minh ngày áp dụng. Chỉ tài liệu `include` mới được lập chỉ mục phục vụ trả lời.
-3. Làm sạch HTML; trích xuất PDF theo trang và OCR PDF scan khi cần. Giữ nguyên bảng, đơn vị, điều kiện và ngoại lệ. Không đưa bảng điểm hoặc dữ liệu cá nhân của sinh viên vào corpus.
-4. Chia theo mục/điều/bảng; mỗi đoạn có document ID, release ID, URL/file nguồn, locator và hash. So sánh tìm kiếm từ khóa, vector và kết hợp trên bộ câu hỏi đã review trước khi chọn index.
-5. Đóng gói manifest, quyết định review, corpus, chunks, cấu hình index và báo cáo đánh giá. Chỉ chuyển con trỏ active sau khi cả release được duyệt; giữ bản cũ để rollback. Runtime chỉ đọc active release, không crawl lúc khởi động, theo request hoặc theo lịch.
-
-### B. Xử lý một câu hỏi trong chatbot
+### Sơ đồ phân nhánh chatbot
 
 ```mermaid
 flowchart TD
-    Q[Câu hỏi và context phiên] --> R[Phân loại ý định]
-    R -->|Tính tiến độ, điều kiện, gợi ý môn| N[Pipeline nghiệp vụ hiện có]
-    R -->|Tra cứu văn bản HUS| S[Kiểm tra bậc học, ngành, khóa, năm và phạm vi]
-    R -->|Câu hỏi hỗn hợp| M[Tách phần nghiệp vụ và phần tra cứu]
-    M --> N
-    M --> S
-    S -->|Thiếu thông tin quyết định đáp án| CL[Hỏi làm rõ]
-    S -->|Đủ phạm vi| P[Pin active release cho request]
-    P --> T[Truy xuất đoạn đã review đúng phạm vi]
-    T --> E[Kiểm tra bằng chứng, hiệu lực và mâu thuẫn]
-    E -->|Đủ căn cứ| A[Tạo câu trả lời trong phạm vi bằng chứng]
-    A --> C[Backend gắn citation từ chunk cùng release]
-    C --> O[Hiển thị câu trả lời và nguồn]
-    E -->|Thiếu hoặc mâu thuẫn chưa giải được| U[Nêu giới hạn hoặc chưa đủ căn cứ]
-    P -->|Index không khả dụng| V[Thông báo tra cứu không khả dụng]
+    Q[Câu hỏi và ngành phiên bản] --> I[Phân loại trong phạm vi RAG]
+    I -->|Trò chuyện cơ bản| BASIC[Chào hỏi cảm ơn và hướng dẫn]
+    I -->|F1| RET[Tìm đoạn nguồn đúng phạm vi]
+    I -->|F2| LOOKUP[Tra mã môn ngành phiên bản]
+    I -->|F3| OPT{Cho phép kiến thức AI?}
+    OPT -->|Có| RET
+    OPT -->|Chưa| ASK[Yêu cầu bật nội dung tham khảo]
+    I -->|Ngoài phạm vi hoặc thiếu nguồn| MISSING[Chưa có thông tin đủ căn cứ]
+    RET --> EXTRACT[Trích nội dung và giữ review]
+    LOOKUP --> EXTRACT
+    EXTRACT --> CITE[PDF web hoặc kiến thức AI]
+    CITE --> ANSWER[Câu trả lời kèm dẫn chứng]
 ```
 
-1. Router phân biệt câu hỏi tra cứu văn bản với câu hỏi cần tính GPA, xét điều kiện hoặc gợi ý môn. Phần tính toán luôn dùng catalog và pipeline nghiệp vụ; nội dung RAG không sửa eligibility, tiên quyết hay kết quả xếp hạng.
-2. Xác định bậc học, ngành/chương trình và khóa/năm khi chúng có thể làm thay đổi câu trả lời. Nếu thiếu thông tin quyết định đáp án thì hỏi lại. Với câu hỏi lịch sử, giữ đúng phạm vi thời gian của nguồn thay vì mặc định văn bản mới nhất là còn hiệu lực.
-3. Chọn active release **một lần** cho toàn request. Tìm trong các đoạn `include` đúng bậc học, ngành/chương trình và nguồn chung đã review; không trộn index của các release hoặc dùng nhãn phạm vi chưa xác minh làm kết luận. Câu hỏi về việc học tiếp cần bằng chứng tuyển sinh/chuyển tiếp riêng, không suy điều kiện từ khung chương trình sau đại học.
-4. Lấy đủ ngữ cảnh cho bảng, điều kiện và ngoại lệ. Nếu nguồn mâu thuẫn, đối chiếu phạm vi và hiệu lực; khi chưa thể phân xử thì trình bày điểm khác nhau và chưa kết luận. Nếu tài liệu khác catalog nghiệp vụ, ghi nhận để review nhưng giữ kết quả tính toán theo catalog đang dùng.
-5. Tạo câu trả lời chỉ từ bằng chứng tìm được. Backend ánh xạ citation tới đúng đoạn, URL và trang/mục; mô hình không tự tạo nguồn. Nếu thiếu chứng cứ, ngoài phạm vi hoặc index lỗi, trả trạng thái phù hợp và giải thích ngắn gọn thay vì suy đoán.
+Luồng này không chuyển câu hỏi sang recommendation, eligibility, ranking hay explanation.
+Retriever dùng điểm liên quan để chọn đoạn bằng chứng. Trò chuyện cơ bản dùng câu đáp
+cố định; F1/F2/F3 hiện trả lời trích xuất, không gọi LLM/provider để điền facts.
 
-Nội dung crawl là **dữ liệu tham khảo**, không phải chỉ dẫn để thay đổi quy tắc hệ thống hoặc gọi công cụ. Chatbot không gửi credentials, bảng điểm đầy đủ hay thông tin định danh không cần thiết vào luồng RAG. Chi tiết xử lý và tiêu chí nghiệm thu nằm trong [kế hoạch RAG](KE_HOACH_XU_LY_DATA_RAG_HUS.md), [module corpus](../modules/10-hus-corpus-release.md) và [module hỏi đáp](../modules/11-hus-rag-qa.md).
+### Giai đoạn A: Chuẩn bị dữ liệu HUS
+
+1. Xác định danh sách URL được phép crawl.
+2. Chỉ lấy các trang thuộc phạm vi thông tin đào tạo của Khoa Toán – Cơ – Tin học.
+3. Làm sạch nội dung, bỏ menu và phần không liên quan.
+4. Chia nội dung thành các đoạn nhỏ.
+5. Lưu nội dung cùng URL, tiêu đề và ngày cập nhật.
+6. Tạo chỉ mục tìm kiếm hoặc embedding.
+
+Crawler và script migration dùng chung quy tắc gắn nhãn ngành cho tệp đính kèm.
+Khi nội dung ghi rõ áp dụng cho sinh viên toàn trường, toàn khoa hoặc tất cả ngành,
+tài liệu giữ nhãn `general`, kể cả khi được liên kết từ một trang ngành cụ thể.
+Chỉ tệp chưa xác định được phạm vi mới kế thừa ngành của trang cha. Trạng thái
+chưa xác định được phân biệt trong logic suy luận; định dạng trường `major` trong
+catalog vẫn giữ nguyên. Script migration có thể sửa nhãn đã kế thừa sai trong
+catalog cũ; chế độ `--dry-run` chỉ tính thống kê và không ghi dữ liệu.
+Tiêu đề nhắc từ hai ngành khác nhau trở lên cũng được giữ ở `general` trước khi
+xét URL hoặc phần đầu nội dung, tránh thu hẹp thông báo dành cho nhiều ngành.
+Tên ngành ghép “Toán học và Tin học” được tính là một ngành Toán–Tin.
+
+### Chuẩn bị corpus ứng viên có thể tái lập — 2026-10-25
+
+`tools.prepare_hus_corpus` là pipeline offline riêng sau crawl. Đầu vào gồm snapshot được ghim
+theo commit/checksum, cấu hình versioned và quyết định review đủ document ID; lưu trong
+`data/hus/corpus/`. Công cụ kiểm tra hash/catalog/Markdown trước khi tạo inventory, bản chuẩn hóa,
+quyết định review và documents/chunks/source map ứng viên. Mỗi build có manifest hash mã công cụ,
+contract và output; `verify` dựng lại và so từng byte. Không ghi đè nguồn hoặc build cũ.
+
+Baseline mới có 106 ID, 100 `needs_review`, 6 `pending_ocr`, 0 `include`; không nhập quyết định
+build07 chưa có hồ sơ trong checkout. `active` của crawler không chứng nhận review. Chỉ quyết định
+`include` có raw hash-bound và bằng chứng review mới xuất corpus. Metadata thời gian/ngành vẫn
+cần thẩm định; locator chunk chỉ về bản chuẩn hóa, chưa xác nhận trang/ô bảng gốc. Không tự gộp
+text trùng, chạy OCR, chứng nhận hiệu lực hoặc kích hoạt RAG. Xem
+[quy trình và nghiệm thu](HUS_CORPUS_PREPARATION.md) để tái tạo trên cùng snapshot.
+
+### Giai đoạn B: Trả lời câu hỏi
+
+**Luồng RAG hiện hành sau khi sửa phạm vi:** `app/hus/chat.py` bọc answerer hiện có;
+`app/hus/demo.py` phục vụ riêng `/hus/chat`, `/hus/config` và nguồn binary. Giao diện
+`hus-rag-demo.*` chỉ chọn ngành/phiên bản và hỏi đáp, không phụ thuộc hồ sơ/bảng điểm.
+Demo local không có xác thực tài khoản; đây không phải thay đổi cổng auth production.
+Trước phát hành main, cần endpoint HUS riêng có verified account/CSRF/Origin/binding/
+revision tương đương, rồi chạy lại receipt/CI cho code mới. Các đoạn P0-4/P0-5 sau
+đây ghi lịch sử tích hợp cũ, chưa chứng nhận phạm vi đã chỉnh.
+
+P0-4 đã đưa service vào `/me/advisor/chat` và UI/auth active của main trong worktree
+riêng từ5239b733, giữ operation/ready/ensure_current, cookie/CSRF/Origin và binding
+server. Module hus-chat lấy revision hiện tại, reset/drop đúng account/source/context.
+Root crawldata giữ nguyên UI legacy; patch/manifest tái tạo ở `integration/hus-rag-p04/`.
+Xem [biên bản P0-4](RAG_P04_MAIN_INTEGRATION.md); chưa merge/push/phát hành production.
+
+P0-5 đã chuẩn bị bundle/CI và cơ chế chuyển release trong worktree `p05-main`:
+receipt ghim code/test/config/data, clean/expected commit; preflight/lock/CAS và
+rollback selector. Production chỉ phục vụ active có build identity, từ chối simulation;
+selector nguồn vẫn prepared.672 Python/9 Node,43 HTTP/14 Chromium đạt local theo lock.
+Commit tích hợp/CI remote/phát hành còn chờ yêu cầu riêng; xem
+[P0-5](RAG_P05_RELEASE_PREPARATION.md). Root crawldata không tự nhận code lifecycle này.
+
+P0-2 local bổ sung contract citation phân biệt AI/PDF/web/DOCX/missing, giữ provenance
+và trạng thái review. `open_url` là URL để UI mở; `source_url` giữ URL gốc. AI luôn hiện
+“kiến thức AI”, không gắn link PDF F2 cho nội dung AI. Registry binary riêng tại
+`data/hus/citation_assets/` ghim v3, gồm12 PDF/2 DOCX nguyên byte từ Git object nguồn.
+`GET/HEAD /hus/sources/{sha256}?page=N` chỉ phục vụ hash thuộc snapshot, kiểm chính bytes
+trả, format và trang vật lý; PDF inline, DOCX attachment, hỗ trợ single byte range.
+Missing/hash mismatch/invalid page trả lỗi rõ ràng; không fallback JSON/tài liệu khác.
+F1 xác định trang bằng quote trong capture gắn hash, không có vị trí chắc chắn thì
+mở toàn văn và ghi chưa rõ trang. UI giữ thẻ AI không link và hai trang cùng PDF.
+Web mở URL HTTP(S) gốc, chưa kiểm lại Internet. Xem [P0-2 và nghiệm thu](RAG_P02_CITATIONS.md).
+Các con số nghiệm thu cũ bên dưới là baseline lịch sử, không thay receipt mới.
+
+P0-1 chọn nguồn runtime local qua `CURRENT.json`: portable hus-data-20261031-v3, gồm
+65 F1,336 F2,870 F3 chunks và290 record F2. `portable_adapter.py` xác minh bytes/
+manifest/semantic trên snapshot riêng, map sang interface hiện có; F2 vẫn tra cấu trúc.
+Không ghép legacy/qa, không tự fallback khi CURRENT hỏng. Source sign-off được import
+nguyên trạng:67 KHMTTT cấp dự án,223 draft, F3 vẫn chưa xác minh. Generated phải opt-in
+từng request (`allow_generated_reference`), mặc định tắt; UI checkbox reset khi đổi ngữ
+cảnh. Response ghim release_id/hash. State prepared và raw review gate giữ nguyên.
+Chi tiết/diff/test tại [P0-1](RAG_P01_DATA_SELECTION.md); các số legacy phía sau là lịch sử.
+
+Luồng trả lời HUS có `app/hus/answering.py` và service lazy/cache snapshot riêng.
+`POST /hus/chat` nhận câu hỏi/ngành cùng các bộ lọc tùy chọn, trả lời bằng trích xuất dữ
+kiện, không gọi LLM để bù thông tin thiếu. F1 kèm URL/quote/locator và giới hạn review;
+F2 trả dữ kiện với trạng thái nguồn, PDF/trang/pointer JSON, giữ riêng các dòng xung đột
+và mã tiên quyết chưa giải quyết (không chuyển raw code thành quan hệ eligibility);
+F3 giữ nhãn AI sinh, warning, needs_review và academic_verified=false. Thiếu bằng chứng,
+yêu cầu hiệu lực/chính thức chưa xác minh hoặc field chưa có trả `no_information`;
+thiếu mã/phiên bản cần thiết trả `needs_clarification`. Không tạo citation cho phần không có.
+
+Sau khi giải quyết PR #6, `app.main` giữ nguyên các endpoint advisor có bảo vệ tài
+khoản của main. API RAG/basic chat nằm riêng trong `app.hus.demo`; không đưa router
+HUS công khai vào ứng dụng sản phẩm và không nối RAG sang recommendation. Các receipt
+P0-1 đến P0-5 ghi snapshot trước merge; nghiệm thu tích hợp mới có báo cáo riêng.
+
+
+Theo yêu cầu triển khai bộ nạp thống nhất (2026-11-01), `app/hus/rag_loader.py` cung cấp
+`HUSRAGData.load()` cho gói `data/hus/rag/`. Bộ nạp kiểm tra toàn bộ manifest theo byte/
+SHA-256, đọc F1/F3 chunks trong hai namespace riêng và tra F2 trực tiếp theo khóa mã môn,
+ngành, phiên bản. F1 giữ `program_version`, F2/F3 giữ `curriculum_version`; không suy ra
+chúng tương đương, không fallback sang ngành/phiên bản khác hoặc coi `unknown` là khớp.
+Kết quả giữ metadata review/nguồn, quote/locator, nhãn AI sinh và các dòng/nhóm/tiên quyết
+F2 kể cả trùng/xung đột/chưa xác minh. Caller nhận bản sao độc lập. Đây là snapshot dữ liệu
+offline; phần truy xuất bổ sung được mô tả ngay sau đây. Không tự tái duyệt
+raw, không tự kích hoạt release hoặc sửa `ReviewDecision`/`HUSIndex`; phải nạp lại sau khi
+tái tạo gói. Xem [cách dùng bộ nạp](../data/hus/rag/README.md#đọc-dữ-liệu-bằng-python).
+
+`app/hus/retrieval.py` bổ sung `HUSRAGRetriever.search()` cho hai namespace F1/F3.
+Lọc ngành/phiên bản/mã môn/field/variant trước khi tính BM25 và top-k; các mã môn nhận
+diện trong câu hỏi cũng giới hạn membership, không fallback sang môn cùng chủ đề.
+Chuẩn hóa từ khóa tiếng Việt có/không dấu; xếp hạng nội dung nguồn cùng tên/nhãn field,
+không dùng cảnh báo/context lặp đầu F3 để tính chủ đề. Kết quả giữ nguyên chunk và metadata
+nguồn/review/warning. Chỉ đọc một snapshot từ bộ nạp, không quét/nạp thêm `qa/` hoặc
+documents ngoài chunks; loại bản trùng nguyên văn cùng phạm vi/nguồn trước khi tính điểm.
+Không có khớp trả tập rỗng; F2 tiếp tục tra cấu trúc trực tiếp. Đây là retrieval từ khóa
+offline, chưa có embeddings hoặc LLM trả lời; API dùng lớp trả lời trích xuất ở trên. Xem
+[cách truy xuất](../data/hus/rag/README.md#truy-xuất-tài-liệu).
+
+Theo yêu cầu mới của người dùng, adapter `app/hus/f1_markdown_review.py` cho phép duyệt
+tường minh các phần F1 trên Markdown đã crawl của đúng 10 tài liệu, giữ hash/locator và
+nhãn `include_markdown`, không tự coi là đã đối chiếu PDF/DOCX. Không thay `require_review`
+hoặc review gate raw của corpus/index cũ. Trang nghề nghiệp trộn Toán Cơ bị loại khỏi
+phần bổ sung. `tools.prepare_hus_f1 --markdown-reviews ...` tạo F1 15 nguồn/69 chunks,
+ghi scope mô tả, original_verified=false cho 10 nguồn và giữ riêng edition/variant.
+Tập chung hiện tại tại `data/hus/rag/f1/`; release năm nguồn trước được giữ làm lịch sử.
+
+F1 mở rộng (2026-10-28) tại `data/hus/qa/20261028/f1_expanded/` dùng 5 tài liệu crawl
+đã duyệt toàn văn để tạo 42 đơn vị nguồn theo chủ đề F1. `tools.prepare_hus_f1` tái dùng
+gate corpus chuẩn, xuất exact quote/source offset và giữ riêng CLC/tài năng; không sửa
+review scope để xuất phần của nguồn chưa duyệt. Inventory đủ 106 nguồn, 27 đoạn ứng viên
+từ 11 tài liệu còn chờ raw/phạm vi không được đưa vào corpus trả lời. Tập 8 chunks trước
+được giữ làm lịch sử, không index cùng tập mới. Xem
+[contract F1](../data/hus/qa/20261028/f1_expanded/README.md).
+
+Chuẩn bị dữ liệu F1–F3 (2026-10-28) bổ sung `tools.audit_hus_scope` làm lớp kiểm kê/phân loại
+trên pipeline corpus hiện có, dùng contract riêng tại `data/hus/qa/20261028/contract`.
+Không thay baseline hoặc cổng review. Tập mô tả F1 có 4 bài/8 chunks với review đối chiếu
+của Codex, scope mô tả, chưa xác minh hiệu lực hiện tại. F2/F3 thiếu nguồn/đối chiếu được
+cách ly; F3 suy luận có kiểm tra hash/pointer F2 và nằm riêng ngoài corpus nguồn.
+`tools.fetch_hus_gaps` chỉ lấy URL thiếu tường minh qua policy robots/rate/provenance cũ.
+Ma trận trường/từng môn, dữ liệu xuất và giới hạn tại [báo cáo dữ liệu](HUS_QA_DATA_AUDIT.md).
+
+Theo yêu cầu bổ sung, `tools.prepare_hus_f3_reference` dựng riêng dữ liệu F3 AI sinh từ
+nguồn F2 main đã ghim và blueprint theo mã môn: 290 hồ sơ, 870 chunks cho nội dung/mục tiêu/
+gợi ý đánh giá. Dataset `generated_f3_reference` giữ cảnh báo và identity ngành/phiên bản
+trong từng chunk, không dùng `ReviewDecision.include`, không tự nạp `HUSIndex` hoặc corpus
+nguồn chính thức. Official F3/weights/exam format vẫn null. Tích hợp RAG phải chọn namespace
+riêng và công bố nhãn tham khảo; chi tiết tại
+[contract F3 tham khảo](../data/hus/qa/20261028/f3_reference/README.md).
+
+P1 chất lượng nguồn (2026-10-26, corpus 1.4): báo cáo và hàng đợi OCR theo từng trang PDF,
+không lấy trung bình toàn file. SourceTable giữ raw_rows riêng với display, định danh hàng/
+cột/ô, header/spans và locator PDF bbox, DOCX block, HTML DOM hoặc XLSX sheet/address.
+ReviewDecision.source_quality gắn hash report và hồ sơ đối chiếu từng trang/bảng/ô với reviewer,
+timestamp, locator và giá trị đã đọc. Gate trích xuất lại từ raw; thiếu hoặc sai một unit,
+grid chưa giải quyết hay nội dung hiển thị khác nguồn đều chặn toàn document khỏi corpus/index.
+Chunks dẫn report/unit ở phạm vi toàn tài liệu; chưa có ánh xạ chính xác từng chunk tới ô.
+Không tự chạy OCR, duyệt số liệu hoặc phát hành RAG; xem [HUS_SOURCE_QUALITY.md](HUS_SOURCE_QUALITY.md).
+
+P1 applicability (2026-10-26, corpus 1.3): unknown, general và out_of_scope là ba trạng thái
+khác nhau. Bộ suy luận bỏ tín hiệu link/menu/bảng và query URL; nhận diện hai chương trình
+Địa chất/Địa lý ngoài phạm vi trước tín hiệu Toán trong nội dung phụ. HUSDocument.major là
+proposal crawler; ApplicabilityMetadata tách proposed/verified cho ngành, bậc học, chương trình,
+biến thể, khóa/năm và hiệu lực. Verified khác unknown cần reviewer, thời gian có múi giờ và
+locator/quote khớp source có hash/URL đúng; không kế thừa xác minh từ trang cha.
+
+Lớp applicability.json versioned áp dụng lên snapshot bất biến theo đủ 106 ID; không viết lại
+source để sửa nhãn cũ. Corpus/index xuất major từ verified, giữ proposal/legacy riêng, chặn
+nguồn out_of_scope ngay tại cổng duyệt. Chưa có verified major trong baseline; unknown không
+được coi là general hoặc mở khóa học phần. Hướng dẫn tại
+[HUS_APPLICABILITY_METADATA.md](HUS_APPLICABILITY_METADATA.md).
+
+P1 provenance (2026-10-26): RawStorage lưu byte bất biến theo SHA-256, append-only acquisition
+ledger có URL/document ID/thời điểm/loại file và kết quả từng lần lấy. HUSDocument.raw_source
+trỏ capture cụ thể; attachment của trang cha trỏ raw_path. Thiếu raw hợp lệ thì không gửi
+validator; 304 không có cache/body phải tải lại không validator hoặc ghi blocker, không bỏ qua.
+Corpus 1.2 xuất raw_capture, kiểm tra reference với manifest và giữ nguyên cổng duyệt 1.1.
+Hai PDF local khớp text catalog đã được lưu như candidate chưa xác minh phiên bản byte gốc;
+49 URL còn queued. Không thay catalog, snapshot bất biến hoặc review vì tìm được file.
+Chi tiết phạm vi/bằng chứng tại [HUS_RAW_PROVENANCE.md](HUS_RAW_PROVENANCE.md).
+
+Cổng duyệt P0 (pipeline 1.1, 2026-10-26) dùng chung `ReviewDecision` và `require_review()` cho
+corpus, chunking và index Python. `include` cần URL/hash nguồn và nội dung khớp, reviewer,
+timestamp có múi giờ và locator. Review toàn tài liệu; chưa hỗ trợ xuất từng phần đã duyệt.
+Metadata hiệu lực giữ unknown khi chưa có căn cứ. Scope hiện hành cần current_verified,
+bằng chứng, ngày bắt đầu hiệu lực và as_of tường minh, nằm trong khoảng hiệu lực nếu có.
+Chunk/output lưu review và review_as_of. Không suy hiệu lực từ fetched_at hoặc ngày hệ thống.
+
+Index cần quyết định hiện tại do caller cung cấp, không tin approval lưu trong cache; kiểm tra
+lại khi nạp/lưu, bỏ chunk bị rút duyệt hoặc nguồn thay đổi, kể cả content_hash không đổi khi
+trạng thái crawler chuyển sang pending_ocr. Lệnh index cũ chỉ cho empty/dry-run, chặn xuất từ
+crawl chưa duyệt trước HTTP. Crawler vẫn giữ mọi bằng chứng; corpus/index chỉ nhận phần đã
+qua cổng. Đây là kiểm tra contract và bằng chứng review, không tự chứng nhận học vụ.
+
+1. Người dùng chọn ngành/phiên bản có trong release và hỏi trong chatbot RAG riêng.
+2. Bộ xử lý nhận diện trò chuyện cơ bản hoặc thông tin F1/F2/F3.
+3. F1/F3 tìm đoạn đúng phạm vi; F2 tra cấu trúc theo mã môn/ngành/phiên bản.
+4. Trả lời trích xuất, giữ review/metadata; F3 chỉ dùng khi opt-in và hiện “kiến thức AI”.
+5. PDF mở đúng binary/hash/trang; web mở URL gốc; thiếu bằng chứng trả chưa có thông tin.
+6. Câu hỏi gợi ý chọn môn không được chuyển sang ranking/explanation hoặc provider.
+
+Nếu không tìm thấy thông tin, chatbot nói rõ chưa tìm thấy và không tự đoán. Nếu câu hỏi ngoài phạm vi khoa, chatbot từ chối lịch sự. Nếu tài liệu mâu thuẫn, chatbot nói rõ có mâu thuẫn và hướng dẫn người dùng xác nhận với đơn vị phụ trách.
+
+### Sơ đồ dữ liệu của HUS RAG
+
+```mermaid
+flowchart LR
+    WEB[Trang thông tin HUS được cho phép] --> CRAWL[Crawler]
+    CRAWL --> CLEAN[Làm sạch nội dung]
+    CLEAN --> CHUNK[Chia đoạn tài liệu]
+    CHUNK --> INDEX[Đoạn F1 F3 đúng release]
+    Q[Câu hỏi người dùng] --> SEARCH[Tìm đoạn liên quan]
+    INDEX --> SEARCH
+    SEARCH --> CONTEXT[Context có URL và tiêu đề]
+    F2[Bảng F2 cùng release] --> LOOKUP[Tra mã môn ngành phiên bản]
+    Q --> LOOKUP
+    CONTEXT --> EXTRACT[Trích nội dung có căn cứ]
+    LOOKUP --> EXTRACT
+    EXTRACT --> OUT[Câu trả lời + dẫn chứng]
+```
 
 ## 10. What-if hoạt động thế nào?
 

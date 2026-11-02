@@ -1,0 +1,379 @@
+"""Text normalization, cleaning utilities, table formatting, and document type/major inference."""
+
+from __future__ import annotations
+
+import re
+from typing import Any
+import unicodedata
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
+
+from app.hus.models import DocumentType, MajorCategory
+
+_VERTICAL_SEP = r"(?:<br\s*/?>|\s)+"
+
+_VERTICAL_REVERSED_TERMS: list[tuple[re.Pattern[str], str]] = [
+    # ỉhc<br>nít<br>ốS or ỉhc nít ốS -> Số tín chỉ
+    (re.compile(rf"(?<!\w)ỉhc{_VERTICAL_SEP}nít{_VERTICAL_SEP}ốs(?!\w)", re.IGNORECASE), "Số tín chỉ"),
+    # tếyuht<br>íL or tếyuht íL -> Lý thuyết
+    (re.compile(rf"(?<!\w)tếyuht{_VERTICAL_SEP}íl(?!\w)", re.IGNORECASE), "Lý thuyết"),
+    # hnàh<br>cựhT or hnàh cựhT -> Thực hành
+    (re.compile(rf"(?<!\w)hnàh{_VERTICAL_SEP}cựht(?!\w)", re.IGNORECASE), "Thực hành"),
+    # cọh<br>ựT or cọh ựT -> Tự học
+    (re.compile(rf"(?<!\w)cọh{_VERTICAL_SEP}ựt(?!\w)", re.IGNORECASE), "Tự học"),
+]
+
+
+def normalize_vertical_text(text: str) -> str:
+    """Normalize vertically-rotated text extracted from PDF table cells.
+
+    Replaces reversed Vietnamese table header terms (e.g. 'ỉhc<br>nít<br>ốS' -> 'Số tín chỉ',
+    'tếyuht<br>íL' -> 'Lý thuyết', 'hnàh<br>cựhT' -> 'Thực hành', 'cọh<br>ựT' -> 'Tự học')
+    with standard Vietnamese terms.
+    """
+    if not text:
+        return ""
+    normalized = unicodedata.normalize("NFC", text)
+    for pattern, replacement in _VERTICAL_REVERSED_TERMS:
+        normalized = pattern.sub(replacement, normalized)
+    return normalized
+
+
+def clean_text(text: str) -> str:
+    """Normalize Unicode to NFC, strip zero-width characters, and collapse spaces."""
+    if not text:
+        return ""
+    for char in ("\u200b", "\u200c", "\u200d", "\u2060", "\ufeff"):
+        text = text.replace(char, "")
+    text = normalize_vertical_text(text)
+    return unicodedata.normalize("NFC", re.sub(r"[ \t]+", " ", text)).strip()
+
+
+def _strip_accents(text: str) -> str:
+    """Remove Vietnamese diacritics for robust URL slug matching."""
+    decomposed = unicodedata.normalize("NFKD", text.replace("đ", "d").replace("Đ", "d"))
+    return "".join(c for c in decomposed if not unicodedata.combining(c))
+
+
+def slugify(text: str, max_length: int = 60) -> str:
+    """Convert text into an ASCII-only URL/file-safe slug.
+
+    Removes Vietnamese diacritics, replaces non-alphanumeric characters with hyphens,
+    collapses multiple hyphens, trims leading/trailing hyphens, and truncates to max_length.
+    """
+    if not text:
+        return ""
+    stripped = _strip_accents(text)
+    slug = re.sub(r"[^a-zA-Z0-9]+", "-", stripped).strip("-").lower()
+    if max_length > 0 and len(slug) > max_length:
+        slug = slug[:max_length].rstrip("-")
+    return slug
+
+
+def infer_document_type(title: str, content: str = "") -> DocumentType:
+    """Infer DocumentType using keyword rules on title and content."""
+    for text in (title.lower(), content[:300].lower()):
+        if any(k in text for k in ("đơn", "biểu mẫu", "phiếu đăng ký")):
+            return DocumentType.FORM
+        if any(k in text for k in ("quy chế", "quy định", "hướng dẫn thực hiện", "điều lệ")):
+            return DocumentType.REGULATION
+        if any(k in text for k in ("thông báo", "kế hoạch", "lịch thi", "lịch học", "thời khóa biểu")):
+            return DocumentType.ANNOUNCEMENT
+        if any(k in text for k in ("chương trình đào tạo", "khung chương trình", "chuẩn đầu ra", "học phần")):
+            return DocumentType.CURRICULUM
+    return DocumentType.GENERAL_INFO
+
+
+_FACULTY_PATTERN = re.compile(
+    r"khoa\s+toán\s*(?:-\s*cơ\s*-\s*tin\s*học|-\s*cơ\s*-\s*tin|\s+cơ\s+tin\s+học|\s+cơ\s+tin|\b)",
+    re.IGNORECASE,
+)
+
+
+def _find_all_major_matches(text: str) -> set[MajorCategory]:
+    """Find all unique majors mentioned in normalized text with faculty names masked out."""
+    if not text:
+        return set()
+
+    masked = _FACULTY_PATTERN.sub(" ", text.lower())
+    matches: set[MajorCategory] = set()
+
+    # 1. Data Science
+    if any(k in masked for k in ("khoa học dữ liệu", "data science")) or re.search(r"\bkhdl\b", masked):
+        matches.add(MajorCategory.DATA_SCIENCE)
+
+    # 2. Computer Science
+    if (
+        any(
+            k in masked
+            for k in (
+                "máy tính và khoa học thông tin",
+                "khoa học máy tính",
+                "máy tính và thông tin",
+                "máy tính & khoa học thông tin",
+                "khmt-tt",
+            )
+        )
+        or re.search(r"\b(?:khmttt|mt&khtt|mtkhtt)\b", masked)
+    ):
+        matches.add(MajorCategory.COMPUTER_SCIENCE)
+
+    # 3. Mathematics - Informatics (includes foundation of math for CS / Cơ sở toán học cho tin học)
+    if (
+        any(
+            k in masked
+            for k in (
+                "toán - tin",
+                "toán tin",
+                "toán học và tin học",
+                "cơ sở toán học cho tin học",
+                "cơ sở toán cho tin học",
+            )
+        )
+        or re.search(r"\btoantin\b", masked)
+    ):
+        matches.add(MajorCategory.MATHEMATICS_INFORMATICS)
+
+    # 4. Mathematics (exclude compound math-info phrases, include applied math / Toán ứng dụng)
+    text_for_math = (
+        masked.replace("toán học và tin học", " ")
+        .replace("cơ sở toán học cho tin học", " ")
+        .replace("cơ sở toán cho tin học", " ")
+    )
+    if (
+        any(
+            k in text_for_math
+            for k in (
+                "cử nhân tài năng toán",
+                "toán cơ",
+                "toán học",
+                "toán ứng dụng",
+            )
+        )
+        or re.search(r"\b(?:cntn\s+toán|toanungdung)\b", text_for_math)
+    ):
+        matches.add(MajorCategory.MATHEMATICS)
+
+    return matches
+
+
+_SHARED_SCOPE_PATTERN = re.compile(
+    r"\b(?:áp dụng|dành)\s+(?:chung\s+)?cho\s+"
+    r"(?:"
+    r"(?:(?:tất cả|toàn bộ|mọi)\s+)?(?:các\s+)?"
+    r"(?:sinh viên|học viên|người học)\s+(?:trong\s+)?"
+    r"(?:toàn\s+(?:trường|khoa)|(?:tất cả\s+)?các\s+ngành(?:\s+học)?)"
+    r"|(?:tất cả|toàn bộ|mọi)\s+(?:các\s+)?ngành(?:\s+học)?"
+    r")\b",
+)
+_SHARED_TITLE_PATTERN = re.compile(
+    r"\b(?:quy chế|quy định|thông báo|hướng dẫn)\s+(?:chung\s+)?toàn\s+(?:trường|khoa)\b",
+)
+
+
+def _has_shared_scope(title: str, content: str) -> bool:
+    """Recognize explicit shared applicability, rather than mere regulation mentions."""
+    for text, patterns in (
+        (title, (_SHARED_SCOPE_PATTERN, _SHARED_TITLE_PATTERN)),
+        (content, (_SHARED_SCOPE_PATTERN,)),
+    ):
+        normalized = re.sub(r"\s+", " ", clean_text(text).lower())
+        for pattern in patterns:
+            for match in pattern.finditer(normalized):
+                # Negated applicability is not evidence that the document is shared.
+                if not re.search(r"(?:không|chưa)\s+(?:được\s+)?$", normalized[:match.start()]):
+                    return True
+    return False
+
+
+def _classify_major(title: str, url: str, content: str = "") -> MajorCategory | None:
+    """Return a known major/shared scope, or None if the scope is undetermined.
+
+    Priority order:
+    0. Shared scope or multiple majors in the title override narrower signals.
+    1. URL slug of Khoa Toán - Cơ - Tin học (MIM) & attachments.
+    2. Keywords in document title.
+    3. Keywords in initial content lead.
+    4. None when these signals do not identify a scope.
+    """
+    path = _strip_accents(unquote(urlsplit(url).path).lower())
+    title_normalized = _strip_accents(clean_text(title).lower())
+    if (re.search(r"/dao-tao/(?:bac-dai-hoc|dai-hoc)/(?:dia-chat|dia-ly)(?:/|$)", path)
+        or (not _find_all_major_matches(clean_text(title)) and (
+            title_normalized.startswith("dia ly") or "va dia chat" in title_normalized
+        ))):
+        return MajorCategory.OUT_OF_SCOPE
+    if _has_shared_scope(title, classification_content(content)):
+        return MajorCategory.GENERAL
+
+    title_matches = _find_all_major_matches(clean_text(title))
+    if len(title_matches) > 1:
+        # Known shared scope must not be narrowed by a URL or a single-major lead.
+        return MajorCategory.GENERAL
+
+    def _decode_url_path(raw: str) -> str:
+        dec = unquote(raw)
+        if "%" in dec:
+            dec = unquote(dec)
+        try:
+            fixed = dec.encode("latin1").decode("utf-8")
+            if fixed:
+                dec = fixed
+        except Exception:
+            pass
+        return dec
+
+    decoded_url = _decode_url_path(urlsplit(url).path)
+    unquoted_url = _strip_accents(decoded_url.lower())
+
+    # 1. Check URL slug patterns
+    if any(
+        k in unquoted_url
+        for k in (
+            "/category/khoa-hoc-du-lieu",
+            "/khoa-hoc-du-lieu",
+            "khoa-hoc-du-lieu",
+            "khoa hoc du lieu",
+            "data-science",
+            "data science",
+        )
+    ):
+        return MajorCategory.DATA_SCIENCE
+
+    if any(
+        k in unquoted_url
+        for k in (
+            "/category/khmt-tt",
+            "/khmt-tt",
+            "khmt-tt",
+            "khmttt",
+            "/mt-khtt",
+            "mt-khtt",
+            "mt&khtt",
+            "mtkhtt",
+        )
+    ):
+        return MajorCategory.COMPUTER_SCIENCE
+
+    # Match the full compound major before the shorter "toan-hoc" markers below.
+    if any(
+        k in unquoted_url
+        for k in (
+            "toan-hoc-va-tin-hoc",
+            "toan hoc va tin hoc",
+            "co-so-toan-hoc-cho-tin-hoc",
+            "co-so-toan-cho-tin-hoc",
+            "co so toan hoc cho tin hoc",
+            "/category/toantin",
+            "/toantin",
+            "toantin",
+            "toan-tin",
+            "toan tin",
+        )
+    ):
+        return MajorCategory.MATHEMATICS_INFORMATICS
+
+    if any(
+        k in unquoted_url
+        for k in (
+            "/category/toanhoc",
+            "/toanhoc",
+            "toanhoc",
+            "toan-hoc",
+            "toan hoc",
+            "toan-ung-dung",
+            "toanungdung",
+            "toan ung dung",
+            "kts.tud",
+        )
+    ):
+        return MajorCategory.MATHEMATICS
+
+    # 2. Check title
+    if len(title_matches) == 1:
+        return next(iter(title_matches))
+
+    # 3. Check lead content (up to 1000 characters)
+    if content:
+        lead_content = clean_text(classification_content(content)[:1000])
+        content_matches = _find_all_major_matches(lead_content)
+        if len(content_matches) == 1:
+            return next(iter(content_matches))
+
+    return None
+
+
+def infer_major(title: str, url: str, content: str = "") -> MajorCategory:
+    """Return an unverified proposal; unknown is never treated as shared scope."""
+    return _classify_major(title, url, content) or MajorCategory.UNKNOWN
+
+
+def infer_attachment_major(
+    url: str, content: str = "", *, parent_major: MajorCategory = MajorCategory.UNKNOWN,
+) -> MajorCategory:
+    """Inherit only when an attachment's scope is unknown; preserve shared scope.
+
+    Shared by live crawling and catalog migration so inherited labels survive
+    backfilling. Use the URL filename, as the crawler does, rather than the
+    catalog's generated display title.
+    """
+    filename = Path(urlsplit(url).path).name or "attachment"
+    major = _classify_major(filename, url, content)
+    return parent_major if major is None else major
+
+
+def classification_content(content: str) -> str:
+    """Use narrative applicability signals, not navigation/link inventories or table headers."""
+    lines = []
+    for line in content.splitlines():
+        if "](" in line or line.lstrip().startswith("|"):
+            continue
+        # A bare menu label is not evidence that a page applies to that major.
+        if re.search(r"\b(?:ngành|chương trình|sinh viên|học viên|áp dụng|dành cho)\b", line, re.I):
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def clean_table_cell(cell: Any) -> str:
+    """Clean a table cell: convert to string, clean text, escape pipe, and replace newlines with <br>."""
+    if cell is None:
+        return ""
+    text = clean_text(str(cell)).replace("|", "/")
+    text = re.sub(r"[\r\n]+", "<br>", text)
+    text = re.sub(r"\s*<br\s*/?>\s*", "<br>", text)
+    text = re.sub(r"^(?:<br>)+|(?:<br>)+$", "", text)
+    text = normalize_vertical_text(text)
+    return text.strip()
+
+
+def format_markdown_table(rows: list[list[Any]]) -> list[str]:
+    """Format 2D table grid to standard Markdown table with column alignment."""
+    if not rows:
+        return []
+
+    cleaned_rows = []
+    for row in rows:
+        cells = [clean_table_cell(c) for c in row]
+        if any(cells):
+            cleaned_rows.append(cells)
+
+    if not cleaned_rows:
+        return []
+
+    col_count = max(len(r) for r in cleaned_rows)
+    padded = [r + [""] * (col_count - len(r)) for r in cleaned_rows]
+
+    lines = ["| " + " | ".join(padded[0]) + " |", "|" + " --- |" * col_count]
+    for r in padded[1:]:
+        lines.append("| " + " | ".join(r) + " |")
+    return lines
+
+
+def extract_document(raw: bytes, url: str, fetched_at: str):
+    from app.hus.extractors.html import extract_html
+    from app.hus.metadata import assign_proposal
+
+    doc, _ = extract_html(raw, url, fetched_at)
+    doc.document_type = infer_document_type(doc.title, doc.content)
+    assign_proposal(doc)
+    return doc

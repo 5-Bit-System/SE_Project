@@ -1,0 +1,11 @@
+{
+  "applicability_metadata": "applicability.json",
+  "chunking": "utf8-lines-v1",
+  "max_chunk_bytes": 2400,
+  "normalization": "nfc-lf-trim-trailing-v1",
+  "overlap_bytes": 0,
+  "pipeline_version": "1.4",
+  "review_decisions": "review_decisions.json",
+  "schema_version": "1.0",
+  "source_manifest": "../../../corpus/source_manifest.json"
+}

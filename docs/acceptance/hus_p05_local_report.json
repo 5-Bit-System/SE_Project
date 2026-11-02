@@ -1,0 +1,816 @@
+{
+  "schema_version": "2.0",
+  "status": "pass",
+  "started_at": "2026-11-02T06:16:03.823807+00:00",
+  "acceptance_level": "http_and_browser",
+  "scope": "main live auth/context/UI with synthetic repository/policy/catalog fixtures and real HUS v3",
+  "product_database_modified": false,
+  "vnu_contacted": false,
+  "llm_used": false,
+  "auth_repository": "synthetic_in_memory_double_not_database_transaction_acceptance",
+  "catalog_policy_review": "synthetic_test_only_no_product_signoff_added",
+  "browser": {
+    "cases": [
+      {
+        "case": "chat-hidden-when-signed-out",
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f1",
+        "major": "data_science",
+        "course_code": null,
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f2",
+        "major": "data_science",
+        "course_code": "MAT3533",
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f3",
+        "major": "data_science",
+        "course_code": "MAT3533",
+        "result": "pass"
+      },
+      {
+        "case": "same-account-refresh-retains-chat",
+        "result": "pass"
+      },
+      {
+        "case": "late-completed-old-account-response-discarded",
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f2",
+        "major": "mathematics",
+        "course_code": "MAT3325",
+        "result": "pass"
+      },
+      {
+        "case": "authenticated-pdf-viewer",
+        "physical_page": 13,
+        "viewer_ready": {
+          "loaded": true,
+          "initial_load_complete": true,
+          "visible_page": 13,
+          "pending_scrolls": 0,
+          "viewport": {
+            "x": 0,
+            "y": 13644
+          }
+        },
+        "remote_scroll": {
+          "x": 0,
+          "y": 13644
+        },
+        "result": "pass"
+      },
+      {
+        "case": "authenticated-pdf-viewer",
+        "physical_page": 12,
+        "viewer_ready": {
+          "loaded": true,
+          "initial_load_complete": true,
+          "visible_page": 12,
+          "pending_scrolls": 0,
+          "viewport": {
+            "x": 0,
+            "y": 12507
+          }
+        },
+        "remote_scroll": {
+          "x": 0,
+          "y": 12507
+        },
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f2",
+        "major": "mathematics",
+        "course_code": "MAT3300",
+        "result": "pass"
+      },
+      {
+        "case": "changed-source-clears-chat-and-opt-in",
+        "result": "pass"
+      },
+      {
+        "case": "active-ui-question",
+        "dataset": "f2",
+        "major": "data_science",
+        "course_code": "MAT3533",
+        "result": "pass"
+      },
+      {
+        "case": "changed-bound-program-clears-chat-and-opt-in",
+        "result": "pass"
+      },
+      {
+        "case": "expired-session-hides-and-clears-chat",
+        "result": "pass"
+      }
+    ],
+    "page_errors": [],
+    "external_requests": "blocked except built-in PDF resources",
+    "web_source_health_verified": false
+  },
+  "artifact_directory": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_integration\\p05-main\\backups\\p05\\final-live",
+  "release_eligible": false,
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows",
+    "packages": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.1",
+      "pdfplumber": "0.11.9",
+      "playwright": "1.58.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "tested_commit": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "git_state": "dirty_worktree",
+  "uncommitted_paths": [
+    ".agent/AGENTS.md",
+    ".gitattributes",
+    ".github/workflows/hus-rag.yml",
+    ".gitignore",
+    "app/api/academic.py",
+    "app/api/hus.py",
+    "app/api/routes.py",
+    "app/hus/answering.py",
+    "app/hus/build_identity.py",
+    "app/hus/citation_assets.py",
+    "app/hus/citations.py",
+    "app/hus/data_release.py",
+    "app/hus/deployment.py",
+    "app/hus/portable_adapter.py",
+    "app/hus/rag_loader.py",
+    "app/hus/release_reader.py",
+    "app/hus/release_text.py",
+    "app/hus/release_validation.py",
+    "app/hus/retrieval.py",
+    "app/hus/source_response.py",
+    "app/main.py",
+    "app/schemas/advisor.py",
+    "app/schemas/hus.py",
+    "app/services/hus_advisor.py",
+    "app/services/hus_service.py",
+    "app/static/course-status.js",
+    "app/static/hus-chat.css",
+    "app/static/hus-chat.js",
+    "app/static/index.html",
+    "data/hus/citation_assets/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf",
+    "data/hus/citation_assets/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf",
+    "data/hus/citation_assets/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf",
+    "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+    "data/hus/citation_assets/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf",
+    "data/hus/citation_assets/files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf",
+    "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+    "data/hus/citation_assets/files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf",
+    "data/hus/citation_assets/files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf",
+    "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf",
+    "data/hus/citation_assets/files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf",
+    "data/hus/citation_assets/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf",
+    "data/hus/citation_assets/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf",
+    "data/hus/citation_assets/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf",
+    "data/hus/citation_assets/registry.json",
+    "data/hus/rag/CURRENT.json",
+    "data/hus/rag/PORTABLE_IMPORT.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/academic_issues.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/chunks.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/display_edits.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/evaluation/questions.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/canonical_f2.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/055c47bf412172c0.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/0dd9aaaeefcbd7d7.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1b525683101bf943.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1c16ddf8a6f1f409.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1e3ad5f9915aa051.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/23a0c1df14a5708a.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/31b55b4ee6f451a6.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/89d4b39494d72217.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/8afffd3cada3d048.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d006f60211246633.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d4fae066858f0b94.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f7f470e712738589.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f8672cafba05d016.txt",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1_recovery_comparisons.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/generated_blueprints.psv",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/pdf_code_page_audit.csv",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/055c47bf412172c0.html",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/1b525683101bf943.html",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/d6370261338de29f.html",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/f8672cafba05d016.html",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_text.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/search_glossary.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_chunks.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/groups.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/input_manifest.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/programs.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/quality_report.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/search_aliases.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_inventory.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi_report.json",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl",
+    "data/hus/rag/releases/hus-data-20261031-v3/syllabus_links.jsonl",
+    "docs/HUS_RAG_RUNTIME.md",
+    "docs/HUS_RELEASE_OPERATIONS.md",
+    "docs/SYSTEM_SPECIFICATION.md",
+    "pyproject.toml",
+    "requirements-dev.txt",
+    "requirements-lock.txt",
+    "requirements.txt",
+    "tests/frontend/hus-chat.test.cjs",
+    "tests/hus/test_release_lifecycle.py",
+    "tests/integrations/test_hus_academic_api.py",
+    "tools/drill_hus_release.py",
+    "tools/hus_evidence_oracle.py",
+    "tools/manage_hus_release.py",
+    "tools/verify_hus_authenticated_e2e.py"
+  ],
+  "integration_base_commit": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "integration_branch": "integration/hus-rag-p05-20261102",
+  "pinned_main_base": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "selected_release": {
+    "schema_version": "2.0",
+    "state": "prepared_not_runtime_activated",
+    "release_id": "hus-data-20261031-v3",
+    "release_path": "releases/hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "index_entrypoint": "chunks.jsonl",
+    "generated_reference_requires_opt_in": true
+  },
+  "input_sha256": {
+    "data/hus/citation_assets/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+    "data/hus/citation_assets/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+    "data/hus/citation_assets/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+    "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+    "data/hus/citation_assets/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+    "data/hus/citation_assets/files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+    "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+    "data/hus/citation_assets/files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+    "data/hus/citation_assets/files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+    "data/hus/citation_assets/files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+    "data/hus/citation_assets/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+    "data/hus/citation_assets/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+    "data/hus/citation_assets/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/rag/CURRENT.json": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "data/hus/rag/releases/hus-data-20261031-v3/academic_issues.jsonl": "4d690d783c0e7d26df6453b851b180037757e22f28b1195b3038678121e7ac0a",
+    "data/hus/rag/releases/hus-data-20261031-v3/chunks.jsonl": "6a5ea606f174693263b048a100202a02cedb84a6b16ff71b854248106bd266d1",
+    "data/hus/rag/releases/hus-data-20261031-v3/display_edits.jsonl": "94345e079c7ce6780a238c4c872e331dc5bb248b601569508e15dad687c497e0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evaluation/questions.jsonl": "88609df9c8986bfda440aed2844479ce3629ff5b2bf06dad06ecd1d357a55125",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/canonical_f2.json": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/055c47bf412172c0.txt": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/0dd9aaaeefcbd7d7.txt": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1b525683101bf943.txt": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1c16ddf8a6f1f409.txt": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1e3ad5f9915aa051.txt": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/23a0c1df14a5708a.txt": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/31b55b4ee6f451a6.txt": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/89d4b39494d72217.txt": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/8afffd3cada3d048.txt": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d006f60211246633.txt": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d4fae066858f0b94.txt": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f7f470e712738589.txt": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f8672cafba05d016.txt": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1_recovery_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/generated_blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/055c47bf412172c0.html": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/1b525683101bf943.html": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/d6370261338de29f.html": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/f8672cafba05d016.html": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_text.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_chunks.jsonl": "0fddecc891449d44dfb9071b2605faca5d67b912c731ed9de527bb1fd5bcef9b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf",
+    "data/hus/rag/releases/hus-data-20261031-v3/groups.jsonl": "cc7a8e5e77663151365a0fdb72d602e3b11609231b0d39f80e062a129d4ff8d5",
+    "data/hus/rag/releases/hus-data-20261031-v3/input_manifest.json": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+    "data/hus/rag/releases/hus-data-20261031-v3/programs.jsonl": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a",
+    "data/hus/rag/releases/hus-data-20261031-v3/quality_report.json": "49af0d5170927b689e75e9b21362a3f5c8d3f4b0de92860d387a625bfcb717b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/search_aliases.jsonl": "00ddc3b915cc80d9370641ed92d3bc6c0ddb23cfe4bd0647e0f8f3c022746958",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_inventory.jsonl": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi_report.json": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+    "data/hus/rag/releases/hus-data-20261031-v3/syllabus_links.jsonl": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832"
+  },
+  "implementation_sha256": {
+    ".gitattributes": "1e9ecc6d0d291752c7dd991d3be668982bcae97dc77c01138bed12c688ed8c90",
+    ".github/workflows/checks.yml": "de57c66a3b90bba4024d046aaa1698004679d803314620a3db4a547b99760c68",
+    ".github/workflows/hus-rag.yml": "aac4716bd2a4b991ec6729aa21c771dd2138670e0cddfd19f9033f389e32ade6",
+    ".gitignore": "3a6f6c3c07f0e9107d8fa46c886582d13521768b19c09b7aece53967ef2451d0",
+    "app/__init__.py": "dab4ad830b3b843282fdb36187d9f411b74a4f665b44300fceaecdebb8a6a19f",
+    "app/academic_context.py": "ef37b4cbe609d34e711b3433c69c01f173e2a9a8356022a8b129b44f15cd2e54",
+    "app/academic_policies.py": "9b2c403504be8186cf26ef38680f54f14a756fd305fb8f45b56d050a2d06102b",
+    "app/api/__init__.py": "3e1ed31b7edccc69f79362a9ca6cf3a2a936ca4f3038adccde069204e441d23b",
+    "app/api/academic.py": "8ce1ecfc51b725e324668968ef66b4f8cfe57950ca4068f134c01cd8f06d0ba0",
+    "app/api/auth.py": "7e7ea3427bc01bc00454b7e8d3386fe582e733807efd7d1a636d46d103b11bc3",
+    "app/api/hus.py": "e16b05094b40170ebb2e644c21f2e65c60a2076b25696d0b9eb68fab5b4c48fd",
+    "app/api/portal.py": "ab57cbd0ec8e2dee8ec68ff7eae9297460e1d88995b4403cbbe69c8cf1c96bb4",
+    "app/api/routes.py": "52c6e9d6e19b0d3da6ec9ca13549da6198f6d8946a3a5a47c561bf66fa7f6f2f",
+    "app/auth/__init__.py": "00c983fbf31b1f5648f4799ddd08c0e8d806361c57fa5e412985df40300b9d8e",
+    "app/auth/dependencies.py": "25bd002191eb28995106e7e2b840f862d929c6176db0233d0aed1fe3a548810e",
+    "app/auth/mail.py": "ff5b399a7f5448382f5e2b73e14ab337d712b6220563c9f0cf51f9ad3213e57e",
+    "app/auth/portal.py": "e2b990b049d459744650b7e259fd301988019dacbfdf99c1a6ce7a0f27ef0dd4",
+    "app/auth/repository.py": "5a0ec8a2129caaf8e59a735f4b6127961364636f77fa481d089f9aa6137c5249",
+    "app/auth/security.py": "90f4c4822a6d46dec55613933c0f74df05800c652862a4cc5312f215b3fb6ccf",
+    "app/auth/settings.py": "cf5083893616dfee6ffab8ec34c137103e3d2366bc22ac9c776abbf03514d5f9",
+    "app/catalog.py": "87fa4c1444d8e3872299e3ae23044f985a8bd2dba6880b1889b8bcb97dcc1141",
+    "app/catalog_contracts.py": "ffede20e506c28d44891ca5274646caa07e2417b47418f710733e3527bafeaa9",
+    "app/catalog_normalization.py": "7c127f9207a34e037054f408d4b4da34cffe8d7e1775e115be30bc5619eda069",
+    "app/catalog_validation.py": "67bd1432a61016720894e75ddb765f1f3cbf8d76d562fc98cee2978dc00d1afb",
+    "app/config.py": "d78cc18051ea356b8c6f5a248b30ffc6ebe796af21caaf3e2eb7e7584ea3845f",
+    "app/db/__init__.py": "ee4f4d43c3dd22dc02ddaa37a0084a8dae713edca1e1a60bef4b6a2431fb1553",
+    "app/db/schema.py": "51ba133308b3851777c3a261c77631e5eabc8fbac628cb12d6380840ecf24075",
+    "app/db/session.py": "5e66289df2a6f3ec6c8cc72812b8324a4e27d589a9779b3c04dcab2a41118cf6",
+    "app/errors.py": "8eb3364022891e4bfd8625a2c9f25231189e9895de4825296508993aacac0d95",
+    "app/hus/answering.py": "37f8f2ba476a9b3e18960d3b9da17d9c7bf2d2f6b4f9ca15aee3875e83f4006c",
+    "app/hus/build_identity.py": "bd2a3e08684168ff8bdff05dcec8ab8c292236d5e366ad2b2180578eea702476",
+    "app/hus/citation_assets.py": "7d82e42a7db6af72196894e95633eab2c93dcecf2e2ab0891949bb56661800de",
+    "app/hus/citations.py": "736902b2cf5364a8c66cec1cbf7d2fd01be879cde1cc4037fc71e728db2cd776",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/deployment.py": "2d56c5e189aaba97329047b9ff3bc0c7458355faef755aa4ccb391d29dd32cad",
+    "app/hus/portable_adapter.py": "5d915b2a1e25521b179fc3abc38c389924c433dd25f6549b6bd719954a3dfd72",
+    "app/hus/rag_loader.py": "d29fbbbec148e9176d1e6b6fc35afd513d30353c0690082b7fbd26eb31bb92a4",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "app/hus/retrieval.py": "760468f9d127f2905b24b86e29c9ee73881efa7ba2d198ee565e2777dfa0ae6c",
+    "app/hus/source_response.py": "a4e69f32b39781caf163958413052c393c0d683aaf1e5402754ea800e0f753dd",
+    "app/infrastructure/__init__.py": "2db4aab80fb0e3c0de90d5bd0663d1f788df0231af9fcf45cc0458d9baf476ce",
+    "app/infrastructure/hus_repository.py": "dc655e2f8e63b5e03655b1d8b8afb2206341e96b6d566844f01f2d03f77b210e",
+    "app/infrastructure/json_catalog_repository.py": "53864604d6501b28db46adfa44cc6cc77e14c82c69d4f4a7351938edf720fa25",
+    "app/infrastructure/postgres_repository.py": "88b64c140cd68658fce868bf36407d5e9d825b99c8063d9f93bafbde575d0b35",
+    "app/infrastructure/repositories.py": "e6a221f52b4d6b1a7aff4ed420c11d050e9655fed318261b5db2b9576bb89344",
+    "app/integrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app/integrations/daotao/__init__.py": "7f4a778b562fb2160e40659fd225336b252f9814d72fb7723488de5a6e3a0eb6",
+    "app/integrations/daotao/client.py": "0317ced8cfb269e248c3a6353169a21df2cd1d9897045ac26b16cf0dbf4a29bd",
+    "app/integrations/daotao/parser.py": "117438e51b332e454b53f51690d1a97bcc8aa8040c9e5b8311cddb4c9e365319",
+    "app/integrations/daotao/runtime.py": "40b8c933e7bce361628f69e934691a5940daf0dd95ce157f4d1d270a25919cd6",
+    "app/integrations/daotao/session_state.py": "017b313f3a30fc14907487eead6bcba5c26e83eb33baea506fd2535612b20ddd",
+    "app/integrations/daotao/snapshot.py": "8056f825f10f960a3617596bf075466fde9e764ec91148987565ae2ed8b66ac8",
+    "app/integrations/daotao/store.py": "325fa22e1d9db5eec8938cbe034c8ea0a4fb2d43fdc0dda46dd4773e1f689c5b",
+    "app/integrations/daotao/worker.py": "428b41c480cd648a18892729041de71414358e43cb5408bb0fab19a8ec984719",
+    "app/main.py": "22a4b75dd15e940860d0e09bebe2b8e9612453aef3e56d63b922aecc1ef5a419",
+    "app/models.py": "18c9d5b9a0db30833c117f4462d016856f5190ce1826d07937bc8bcb7d6dd7c2",
+    "app/profiles.py": "e6b1be12ad9bda1d860ddab6d47dd945dcc05ae25c8bc3a7a2329a1568bbcdd2",
+    "app/program_bindings.py": "e38770bb01ed6ab60d3a283e0ad104530c9fbbf730e66c5042912052ad34ad0c",
+    "app/progress.py": "1cefd94703ef887973704687c59eb4ec41ecb7d11851fc9957eccf57bd34c57b",
+    "app/recommendation/__init__.py": "bbe03ee0ae6d9147601e7691ba768d18f69229317ca48679e6b1d63417d7b468",
+    "app/recommendation/explanation.py": "19f1cdabd47b7036eaf05039aaee69d1a8d2bb933439d1b344aae5ce1120f10d",
+    "app/recommendation/llm.py": "0ba63b3e13f080c7a239d683fb9a46dbb163000f131f04e6cf20c63de1acaec3",
+    "app/recommendation/preference.py": "db8934d8a3394300ed8cc88e0194d733d43036b941bb78e0f18cea2f16647b47",
+    "app/recommendation/ranking.py": "6e241fb950ad7b891b9b2053e7713e376d750f86c7a55df7719183029a8512e6",
+    "app/recommendation/scoring.py": "4c6c355e4c559c83781b1332683475c07d0946ac9b5e377468b7064d13f09312",
+    "app/recommendation/validation.py": "f19ea56018069e90ad43146b786a112fc30f8a27053c33599981010693d75aa1",
+    "app/rules.py": "9f9d1b07d1d12bef612db6ae25605dc1b94d2cabe7d55999174da43fca69f43f",
+    "app/schemas/__init__.py": "4c1cf8fa9aa44b4eb4248ced3639991ea40510c0ed45af1938b6c4bdbdef277d",
+    "app/schemas/advisor.py": "750cec7b77866cd180f33a28d263eb1b23b8b879c75bf081c93594f797f2154d",
+    "app/schemas/catalog.py": "5f9fdeaba203705ebb3f56225ac95c21d1c6e362cb45fef8c702894af143bb29",
+    "app/schemas/eligibility.py": "d3b7316ee1cd5badc4143ffcad1e57b3e6e76cb092738827f77a47a733d11e8e",
+    "app/schemas/hus.py": "37ed7c37679d0e5e392e99552eafddfcfb6576a8c31ca1a5a8fa5a2d998d44c2",
+    "app/schemas/metadata.py": "b8d719d931aaddb4870342e06c4f33835d36613bcb8ab69ce8e52dda77136a24",
+    "app/schemas/profile.py": "8f696940b82afe01f637c26664794531d9f734a4b425d36faa65b6a407832724",
+    "app/schemas/recommendation.py": "df5aab56ee2a20a278715035aeaa4c96f72f52ac5f563ac0f2a68aba806e4588",
+    "app/services/__init__.py": "fba1110fec41802b320adf7f059b75761c829dd0641a2bef7aac8e90e53cbce3",
+    "app/services/advisor_service.py": "8d596eb1544f93d9da9d0c0a1aa4e26dfc4f9e21eb47f5befad3ec2af951f640",
+    "app/services/course_status_service.py": "2f7724e806b769750a7c044cf3b991fc039787bf5b799f2ac93d47105c8c7b79",
+    "app/services/hus_advisor.py": "b34b1fb2a655da93fbb2f687dc61f9dec87777108ae1ccf1970714b4ba5ef091",
+    "app/services/hus_service.py": "8fe8ea7876ccb1d060de727d3a1dfa573ca63dfe6e32a92a84b2025cb5db7b55",
+    "app/services/recommendation_service.py": "ad9689560726e742f2327c512e00244edc89f6b2b73a9c0b5f3e4caf77494529",
+    "app/services/semester_plan_service.py": "112c092a02fbea2e5ebe23a446938332600f3238ccdd74aa2d5de760d87f40ed",
+    "app/static/analytics.css": "c27251c0eb7f65fc5cdaf8c5cfd798bfbe483f69c972b2c3b57d630f69bfcda5",
+    "app/static/analytics.js": "1765351cb623834903d7e39f7f925c73df4b943497f4361fe1b91ad715f72b22",
+    "app/static/app.js": "170822b2c8bf2b0d5fa4d23ed63ba08869d334fe28f44d2ce9ad589267f251b5",
+    "app/static/auth.css": "ec0d7fe33c22aef453de5938a201fd6b2cc85101ce78df4a9b57813e5074027c",
+    "app/static/auth.js": "c53d84f0c83a775227c2134225ba5df9af5bd11b3cff3e8e57182d9fafcf4f52",
+    "app/static/course-status.css": "7e89e48a7aecf485436daf525c0789188a36ddffa16baa0fc94577bae46c97fb",
+    "app/static/course-status.js": "0c3b97f6a1e30a754061a3f7fec726cd035e0385db843c2aca9a51a5f35787b8",
+    "app/static/dashboard.js": "a534d69fac27dbed8d204f49e14e49088c0f04acd8a17c97741a135d008f2701",
+    "app/static/fonts/be-vietnam-pro-400-latin-ext.woff2": "f7a2811e471c2973a1179ce39da3ad6bb8082381aa8d1535ccfcbc3d6d78a052",
+    "app/static/fonts/be-vietnam-pro-400-latin.woff2": "03d1b589cff172e1a670b3573e731d3380bc326f80cf83b0d3504e3188e2e074",
+    "app/static/fonts/be-vietnam-pro-400-vietnamese.woff2": "dc085e2fba3414e5c5bf1e6172f921a9f81c5859946a4ed3d63c1e470d96a9e2",
+    "app/static/fonts/be-vietnam-pro-500-latin-ext.woff2": "947d592eb7676914507ff68fc11fcf2cfdecd6ebaf0fa2af6047f66a63ea7d0f",
+    "app/static/fonts/be-vietnam-pro-500-latin.woff2": "b621f77d35f777023aa11ca524462d511b4b28a813adbc0e9d15a10fc61dfe4e",
+    "app/static/fonts/be-vietnam-pro-500-vietnamese.woff2": "86341610cbe907eecf461c9159c168d5efb52bb1a33963813a08f520555d8e66",
+    "app/static/fonts/be-vietnam-pro-600-latin-ext.woff2": "20cc75daeaaaa0fa8af2b616b2de2b2900f0ce14ae8e9faa47d272cedd93827f",
+    "app/static/fonts/be-vietnam-pro-600-latin.woff2": "9503dec2a7c532c8331e9600bcafea287a4fd208573b8668d85ab8d8de1863c7",
+    "app/static/fonts/be-vietnam-pro-600-vietnamese.woff2": "97658c6f9a384f29a3005c3d96e2a0d1c810192cf68979071c290f5a377a9f99",
+    "app/static/fonts/be-vietnam-pro-700-latin-ext.woff2": "33d57e5bd840b03921568e08d2be1082d453e55f1ba55f421e41a1aa54e12601",
+    "app/static/fonts/be-vietnam-pro-700-latin.woff2": "a193dd87699bd2e18ddf72dc271493ea82a23dad9f5c334d9f2a257b1e05fc30",
+    "app/static/fonts/be-vietnam-pro-700-vietnamese.woff2": "4f58af2d1c3e28a9ba14c51c82db2751d78344b75bdcb34de24a1031ebe59da6",
+    "app/static/fonts/be-vietnam-pro-800-latin-ext.woff2": "85a2008e6d5f2381a076d36d38771957b118683d0fff3029844737aff6b96a10",
+    "app/static/fonts/be-vietnam-pro-800-latin.woff2": "7c5d0871188c09339a6eb46948420ed9b11f3d06ea3ff1c5d1cf41b06a3504e7",
+    "app/static/fonts/be-vietnam-pro-800-vietnamese.woff2": "26b241d1d5f489c8a65c1a3c4cdcdb48dd114a9ed7e0c0180182191f087cbe96",
+    "app/static/fonts/OFL-BeVietnamPro.txt": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85",
+    "app/static/fonts.css": "1e4d1d9f99fb6c61d9c148844629c256e325a132e78a3880320902d999eebb83",
+    "app/static/hus-chat.css": "0c68acaca176fbafdcded280b0849c95d221016e5b5e24804d2c0ccfb2d9de48",
+    "app/static/hus-chat.js": "ed9f957de1e89cdc723d78334cc9ffc8268682433e9e0f00948f6f6800b5c132",
+    "app/static/i18n.js": "d8fc847c7db305186d717106119d96e254d1653bedf48a6fffd922f52cd65759",
+    "app/static/index.html": "135eb769457c32da85cd15d155434b46154515c2519a5f1d8f07b7ee5f670cda",
+    "app/static/login-scene.css": "bd1f7392c623011766603578e457e4e9d578f6d56cc0b2593eb8cfeaa5a55b81",
+    "app/static/login-scene.js": "b3b4eec394300e9b6fe771e98d31fc1fd396e660034d83691df01c7e4b2be00a",
+    "app/static/motion.css": "07343329e6f6b473da1d2fd0cdc01262d1347149eced5aa00c97c4969363219c",
+    "app/static/motion.js": "405b0153c07a56e9365d9e9e7dcbbfe6485fb973664ffd0c5a2f448be1329f78",
+    "app/static/portal.css": "5264ccc715bf752778e1d8fc505bc85007cc4ddc4f316c982c8417dcbe71d2c0",
+    "app/static/portal.js": "8f70ac982a98f93cc26664a368fdfed5b1744f806e830d7d26bf5b245ac8c846",
+    "app/static/styles.css": "1abcc41e44b58753706973266f9ffcf34e232eea79eb7317601fbc9ec529b252",
+    "app/static/theme.js": "b9a5e1184b72ffeb2fc119f9dd6b66c2d7de5a8690920524ef84dc7c11ecc525",
+    "app/static/themes.css": "f731705a3794b194343f4ad2107d1c93db4650f21ccf6e0e4b8b131d2c428c94",
+    "app/static/workspace.css": "e5fc0418b13de1344260e15786f9414026e3147270bb3860a3ac92489931f73d",
+    "app/static/workspace.js": "cbdd0e64dcd1842c0a38f380a47609da88b454ee8b28a64a9677e361a67d5d9f",
+    "app/transcript.py": "dc7c8321833f56a105227887107860d9a02a4dae7464ce856661c8bc470ee509",
+    "pyproject.toml": "de978341e018997a7e581af393b64a87b59ebbaf4ec99879f31b5b4e1008c5bd",
+    "requirements-dev.txt": "4bd437785c92b6055206e4a892d416c1dfef1032bf846d4c8c9c5680625409f7",
+    "requirements-lock.txt": "574036e41d83db44865d7ac9eab4e48684a1a293733b92854315d80dbd391dbc",
+    "requirements.txt": "a685214eae42eb7352147b6e862dfb7fb9b4b6412de4186466ccf1b2fb39b686",
+    "tools/build_catalogs.py": "761bfd0aeee75bb5524f50bcffb0520ca1bf6213275db9260a935128f0ed9245",
+    "tools/drill_hus_release.py": "1f1ea2d021a9792baec22c4cdd5eaed9bd1c78efa0e842bc1bac7aade252a699",
+    "tools/hus_evidence_oracle.py": "c173336f551d9618fad83ed639d909485965eb4be1190be44f13c5215354f7ce",
+    "tools/manage_hus_release.py": "c6e9e172bed3d2c3e5dbcf517fbd45c2a5031110023a2b0ffdd3fcb290b28271",
+    "tools/prepare_hus_corpus.py": "be37c99e41c404b009d32411b79e6eafb6f2965869bcbe62593ccb71a92bd9b8",
+    "tools/run_local.py": "5414021d668dca608455569eb66a9055b91fd15307056b9db1adf8de99afc2a8",
+    "tools/seed_database.py": "855cdf66e712b7b296d64add4b7c14cef1e91eadb9813f34d82a97d7f26805ee",
+    "tools/try_daotao.py": "ee1bf80cff9d9f78642c530ff1d39d6e7d5245d2f9a062b3bcd84d88d1645279",
+    "tools/verify_hus_authenticated_e2e.py": "88465efaa23bb0a74e1d84c4f43ed480a0b8d096464a1bf799577d8a5cf50c19"
+  },
+  "verification_sha256": {
+    "tests/__init__.py": "d61dd108a89607064a9f0cdb2a30bd0a8c3d4e2d55aaef9fb621d1103636c30f",
+    "tests/advisor/test_advisor.py": "709160240baae7ad9398e5e3cac40806933e8e873a5b4676f19e3f576209ae01",
+    "tests/catalogs/test_catalog_fixtures.py": "104df5c83986b121fd4a82c17c6864a2f0c6a104e03ed68c5f7f948b40f6e11a",
+    "tests/catalogs/test_curriculum_data.py": "10ef6f9b7b9bb6434e858aa2e333fc5e5e267ade9a7c8a3fa8c515af6c6979df",
+    "tests/catalogs/test_hus_catalog_builder.py": "13da38f96df9be58c052d12868bbf8eb8b73215fcbd5cfa03eee3c65791fe0cf",
+    "tests/catalogs/test_hus_metadata_enrichment.py": "97f1d612aea8e74c398f33276b320733c3d586c66433b80cec53bef571b1661d",
+    "tests/catalogs/test_hus_preparation.py": "59a16f5fd19bd5aebb316d7a539d9a7c05d322b7f7749b00c7e9a005cdecd59f",
+    "tests/catalogs/test_metadata_builder.py": "225e5594a99e7bf1df7ded368307122ad7f881fedff3568fd0eb53ca46bc5475",
+    "tests/catalogs/test_metadata_compatibility.py": "5e9df8fa95f1f9a6c9b1f0c2c6d1e0bef64bde0862ced86e4a1981fe82ed3781",
+    "tests/catalogs/test_metadata_contract.py": "c9dfd7ea24c86ff1786ed63201be7740e56ce378d00dbb23e8f44375c6453d4d",
+    "tests/catalogs/test_metadata_validation.py": "1976ae38e8bda7cde7d26f6f1ffb6008aef8367f6f63c2daf7d7f20a7aff5714",
+    "tests/catalogs/test_seed_validation.py": "29fcfc1939a1c8df277be788f9be7609a42d9b29c86bf5cf0c3a188848ea412a",
+    "tests/conftest.py": "42e86d19aee947af20c42e65b97496e32ecb54178f784cf6afb0649588080084",
+    "tests/database/integrity/test_sql_checks.py": "c6a3ec6c10f3f7e9c6ac7e945b28dbba702246430cb59df71fbc34a9605f0d62",
+    "tests/database/source/conftest.py": "7712dc961a65c3af313de4990d80a4714c98b424774db0c3a3352a53e7914dea",
+    "tests/database/source/test_four_majors.py": "c3914d2b705b25d1cd4a85bc109096a8beb4dd978f048f92f490ff0a97c9cbad",
+    "tests/database/source/test_invalid_export.py": "01c909e2344e85e0cfffd6f6c4f09dc2d7853a52ffcb1b1e1acb2ba6b38b2830",
+    "tests/database/source/test_pdf_code_page_audit.py": "f75513f9d121a0341b774ea40395a090b2a6ba0bdb7f6a27dfa56accab69626c",
+    "tests/database/source/test_prerequisite_coverage.py": "b57f512366ca5c578c9070b01d59de3b2c7ec2a39bcf5ec67499439d31bab011",
+    "tests/database/source/test_reviewed_prerequisites.py": "63906a225113987f6c740af9d73e733fb3cdbf5aa6acc3d17eed199edc8cc228",
+    "tests/database/test_config_redaction.py": "eb6fd19b7d06d00b368f6b06cf2c783ec28efc4edb5e58a732d9f126d3127234",
+    "tests/database/test_database.py": "4bf9463ef6ea869858b65ab743087b5ef273c4d95da27ac2082e5a363008c9d8",
+    "tests/database/test_database_targets.py": "7d3531e343476b1dbe57c8c91393faf7c4ef9ed1d2bd92cad009b0b77843edf1",
+    "tests/database/test_hus_database.py": "4521312e6aa6cd597ae49e826873f346610640835f546e21af13b37193270d1b",
+    "tests/database/test_hus_migration_runtime.py": "4a8765dd60d0d7e8f978e1ddd31f32978d3d97f4d00b906d9a3f80fe59fd021b",
+    "tests/database/test_hus_persistence.py": "b6d3ae08b9fc7edf43b8ecc814e69dfa6ae5b68ef625d9839291ca51a7c3de77",
+    "tests/database/test_hus_postgres.py": "b3cf5938627445839bf795730c58a1ccf72196c9ba133d64737ea3404aca339c",
+    "tests/database/test_hus_revision_history.py": "a5755e8f11d9fd5cf7a09a9b760685fb614b51324c80827576fe4498473669e6",
+    "tests/database/test_hus_runtime.py": "23008ee45d8c686e0276b29d48475caa5d065efc78eb93d97b723872aae7e2aa",
+    "tests/eligibility/test_academic_context.py": "198ece6542ea14748b19d214436bab89f08b62984db11038dd8b4db8a2aea18b",
+    "tests/eligibility/test_course_status.py": "09f415dccfad5af81e24ed7fbe871bee12d8a238a14ce71b13e46afae9048c86",
+    "tests/eligibility/test_rules.py": "adef1af1a932ee69bfc57d85e4030b4a5370bc8519beb0ad9e2ef3232deeba02",
+    "tests/eligibility/test_semester_plan_validation.py": "28672e420df983cc16aa654ee350952357f7574667f5495a2879e20d457a9624",
+    "tests/frontend/auth_fixture.py": "285c3d201fb05ba11abe11ad7264f75d6252f64bd922d9d5805f6012144b1447",
+    "tests/frontend/check_analytics_drilldown.py": "4dfbf68012765e66af0f99ada85e45a00c541767641cc029e0537fa3bafd21ae",
+    "tests/frontend/check_charts.py": "0725a587fc4e9f10fe227ece53f22dc5b90a741fcd1ac6e0ee71b06acb8c97db",
+    "tests/frontend/check_course_status.py": "ec1dfafdf2ae0db6c77dd523ada6c3d916f53667ee98fffaec1ada6ed577e17b",
+    "tests/frontend/check_motion.py": "41da7dae333c65509183bfa5265697a02f2eb745b7b9a79681b2147819a2ba83",
+    "tests/frontend/check_portal.py": "e8b5401cbaba7128c1fbda399d8d7df86022346e061aa40db9a8c1cecf8ed340",
+    "tests/frontend/check_portal_auth.py": "3a56937e2b58fe56c07a8ed96fd854d93387362046baf37eabddf9beac6f3de0",
+    "tests/frontend/check_portal_collection.py": "6db2eefd2293f44c934b0e76a7a33282186678ec8a124128e911103f99643689",
+    "tests/frontend/check_portal_loading.py": "78142b79dd809744dad4063a3b861c1e8bfb5db14a40e42c3b4889b057064e92",
+    "tests/frontend/check_portal_profile_source.py": "32b734ae86b7957728e91c34ce56d13ade891039cd39dc1066cfedaf5e9bedaa",
+    "tests/frontend/check_portal_reauth.py": "4e704361f1c28f50781f11bbb47122301167e02b2f13e1474dbda7afe9d6cf26",
+    "tests/frontend/check_portal_reminder.py": "5d50f7c6960a75cfec0b6c3e3fdd3aa19ea818bdb7678da1e2885f5349bc7440",
+    "tests/frontend/check_portal_resume.py": "72bc0b5160d873a29000cb99a6d325da64ecef64816ca8a270c315673d4b148a",
+    "tests/frontend/check_portal_session.py": "a029f37c38e22b2dc6dbf69b81f1624904fba43ba06a4b00b6b5bf7f7dae2405",
+    "tests/frontend/check_portal_sync_feedback.py": "751fc819203d2a3cb1023a2aaaf41e173ca93c27dfe4f32d4bb761962b54a6e6",
+    "tests/frontend/check_presentation.py": "a8569490796836c29cb36fabae05f2c8cb5aaa771934c5a6c518b9a62e950e84",
+    "tests/frontend/check_program_binding.py": "6a5288ea4145a56e4f579d0c1c7d654676482f6d664af40f82ca6fdef4cc41a9",
+    "tests/frontend/check_semester_plans.py": "5fad83d1ea906d8a2272ad2e5348078ed49285bcca16192445c56630a2678630",
+    "tests/frontend/check_session_restore.py": "dd5e3eaabd3d7424e5843a29bfc84e398039621e4e76eb1bfb5759bb68b713c0",
+    "tests/frontend/check_study_desk.py": "bc745b99629ea122a26de5063280283532668905ac3bd5974ead3f62f9521aae",
+    "tests/frontend/check_system_auth.py": "19d770659e257f24db97aaf05500913809dbe5d15ac1fdb9c6f9e81452280fb8",
+    "tests/frontend/check_vnu_only.py": "b9e1115e31048944a791900f5d95f8b890b146f22c3b36740cf75163444abf08",
+    "tests/frontend/check_workspace.py": "4781dde70e2b1450d132e2e83ae75afd3ce65a5dec95c56b63a3c40d0ec83a38",
+    "tests/frontend/hus-chat.test.cjs": "d1c3ace4a159e3776a0a448f8a94f55e5a0d2c6b84ca034d9563a2b0582a27c8",
+    "tests/frontend/presentation_fixture.py": "fe5b8421f49109d385831761c108c649a91a2d880c51446c30e252e2535d0d88",
+    "tests/hus/test_release_lifecycle.py": "d7bd5142ebc115a9644690f4e1e765d7425f18492ff0e5174ee811ef07bb0e38",
+    "tests/integrations/test_academic_api.py": "85993cea51fcfe2166e3dc2a13d2f6b93d5d8960e30c90b71c1f5ab9fa2a0dc9",
+    "tests/integrations/test_academic_binding_store.py": "859cfde4958da4c5e81f7f98fbff43f433dbf654f15efbe8fec1249434eb52d5",
+    "tests/integrations/test_academic_context.py": "ae74c515f259524f334a1180663fd09904c7c97765c6b14590508a5cdd5bed18",
+    "tests/integrations/test_daotao_parser.py": "41511482bde56ee34610d3723f265db2807813529bc2e61a316dfdd49fa830e1",
+    "tests/integrations/test_frontend_delivery.py": "6b1d66bc2634b766e3cafe7329b1495d07297b9085ce88130dc07bb65c97c018",
+    "tests/integrations/test_hus_academic_api.py": "4ccb8b2c77b1b95fc3d68ca23c6a0aa801111e3034b664401464a47f72d45092",
+    "tests/integrations/test_local_startup.py": "6c16759cb1c9eed25ad934d47f27b18f85b77007bc21178dc3dbae4d5faf1c86",
+    "tests/integrations/test_portal_api.py": "f5baa1e3516c04f91d10e5ee8b8ba8f39fc5d2ecab5421bc19b662f9ffa92eba",
+    "tests/integrations/test_portal_jobs.py": "0405c80793b2721bc42ba6fecdc42d594ba3b606cb27dce7843df56517d04fab",
+    "tests/integrations/test_portal_sessions.py": "37ac04a5fa725812a4a83950b9824566017a27425ab711427b0313136abe7ade",
+    "tests/integrations/test_portal_snapshot.py": "3e018fe7ece350d7cafae1b503964a4616dfce97ac3e225121fc63e9f40c27db",
+    "tests/integrations/test_portal_store.py": "cb5b37feaf0bf595c37ab798232f5358ecdc8bac4ca862c409f4e70403f67489",
+    "tests/integrations/test_portal_worker.py": "ca11252f8fd2f43cbd9bba0846836444d9d3b5eca1c89ed67ee7c32dcc496204",
+    "tests/integrations/test_program_binding.py": "1bea5b470cbaf4b27d9585132a16820c500721988423535e047fc0bfdd355ae3",
+    "tests/integrations/test_semester_plans_api.py": "2c7585f9d7887fbf133ee25add8ab91145d6c6b8874aa51bd7203ba527bcc2cd",
+    "tests/integrations/test_semester_plans_store.py": "a8edb058ec18c9e53a0b5ea3365908f8892bfac47ae765f97e21e42226a11328",
+    "tests/integrations/test_system_auth.py": "fa518b6565c7d77b9dad3bab6c406a7b8c8817643b0a39a8ac65130f6bfa837a",
+    "tests/integrations/test_transcript_collection.py": "82013e11d15fdd3db1d76dfc28cbc41f909dbbada93eb003da0f2df6079aaecb",
+    "tests/integrations/test_vnu_policy.py": "983ce6cfacb1f7f17ffd6629180bfb44b97f452e79e84a7472645ecb5bcd7559",
+    "tests/integrations/test_vnu_signin.py": "4684727896190ee62fd7860ea3c6bdefbd9aa64ac21d05d092ffbc04ace1b03d",
+    "tests/progress/test_progress.py": "90cd6b49513909ffaa6917acdbbf96ae4f5d1016415bf0d7062def88d79c9d0a",
+    "tests/recommendations/test_recommendations.py": "03da3579e096d9b5677d1d2b30d95335d65d796e1d84e7a58fa353e0eb70cc6b",
+    "tests/storage/test_storage.py": "2fc49380336aea1718cd10cd139897ead8fc393610ec0c6c9ff41cf8124dea68",
+    "tests/support/__init__.py": "b8b3290f52a9b996ad9ec5609802c7fe79b15b1bfbccd022cfb849bc5c85e85b",
+    "tests/support/catalog_fixtures.py": "2c25dd304cf67479d3f69a90ba4f35ce127b875337d326fc52a54e0ffff5aeac",
+    "tests/support/fixtures/catalogs/khdl_7460108_2022/courses.json": "1d289ab6bf0ed4b62359102be624340d5ddcbeb6ea17a56a3d2fc7133a224f6b",
+    "tests/support/fixtures/catalogs/khdl_7460108_2022/curriculum.json": "a4ba336d281fb2d20e3993021da54d3758129c1dd2083f2104202f4b24fbdd4d",
+    "tests/support/fixtures/catalogs/khdl_7460108_2022/source_rows.json": "02bf5379179aa0e61e4ccc8698d0a197af3a8f6a5696c32790eb91535acad5f5",
+    "tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/courses.json": "80c47a7e10233d07c35d5654dd378ad4b7ea755cd2b235dbd831fae19e196ea4",
+    "tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/curriculum.json": "f7c9d8b622776b625a4032ca6d7b255261e3d1d5494b82d6fa143d8b7efbd924",
+    "tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/source_rows.json": "59cdc9dd8daa55f33cce8e5c65aafdb78831cf327eadf8a282bac821f2745fa4",
+    "tests/support/fixtures/catalogs/toan_hoc_7460101_2022/courses.json": "f2380b3c58facf9981342ed8cdc59e8fc172a82da43489a5e2c524ab067fa4fd",
+    "tests/support/fixtures/catalogs/toan_hoc_7460101_2022/curriculum.json": "5f9d951425a172052c111a3ffb390e060896e2b1051a1624aa6803f816e858a5",
+    "tests/support/fixtures/catalogs/toan_hoc_7460101_2022/source_rows.json": "6753ce04d1a178929d8bd90370487d2c8f0f38961bf2ec81bd9927c043d42374",
+    "tests/support/fixtures/catalogs/toan_tin_7460117_2022/courses.json": "040aed1383d070f71f258a25345a258627fd524c655b30d7100ca36fb07058c0",
+    "tests/support/fixtures/catalogs/toan_tin_7460117_2022/curriculum.json": "a9c177955d1e233807d28e28ae2685df41f4388e9ffe102809a00bf6427683a9",
+    "tests/support/fixtures/catalogs/toan_tin_7460117_2022/source_rows.json": "46601d901ef2a33384d699ec07a056bb6c10ada3c9a1de41c5c6e400db273ac0",
+    "tests/support/fixtures/demo_profiles.json": "b0d4858bfdc251b44712a0ae90759ed768d7432d54ae4481ffcab0dcd5385368",
+    "tests/support/hus_acceptance.py": "d16fd35ac8a29554ca98c858787b9f090df536276fcc65e988c4245f6d2464c3",
+    "tests/support/postgres_targets.py": "7f599fb4db26d20b865fb929609afac510551911094fc8841aa4d447fc8d1bcf",
+    "tests/support/system_auth.py": "519a87a7f912c3b47c348bf821a28394e1dd070e4456e9a9765ed77b83d8978a",
+    "tests/transcript/test_transcript.py": "12788418d67133e13c989ef67f49e850ee5336f0fa8e49da119bf4a91b083053"
+  },
+  "code_snapshot_sha256": "187ca8b8248dd62708b8ee0d3f9ea71e3519adfda477e05ea69acbc520cc2b4e",
+  "api": {
+    "cases": [
+      {
+        "case": "anonymous-chat",
+        "status": 401,
+        "result": "pass"
+      },
+      {
+        "case": "anonymous-pdf",
+        "status": 401,
+        "result": "pass"
+      },
+      {
+        "case": "data_science-f1",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "data_science-f2",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "data_science-f3",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "data_science-generated-default-off",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "computer_science-f1",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "computer_science-f2",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "computer_science-f3",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "computer_science-generated-default-off",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics_informatics-f1",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics_informatics-f2",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics_informatics-f3",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics_informatics-generated-default-off",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics-f1",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics-f2",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics-f3",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "mathematics-generated-default-off",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "csrf-empty",
+        "status": 403,
+        "result": "pass"
+      },
+      {
+        "case": "csrf-wrong",
+        "status": 403,
+        "result": "pass"
+      },
+      {
+        "case": "origin-foreign",
+        "status": 403,
+        "result": "pass"
+      },
+      {
+        "case": "host-foreign",
+        "status": 403,
+        "result": "pass"
+      },
+      {
+        "case": "revision-missing",
+        "status": 409,
+        "result": "pass"
+      },
+      {
+        "case": "revision-stale",
+        "status": 409,
+        "result": "pass"
+      },
+      {
+        "case": "foreign-program",
+        "status": 409,
+        "result": "pass"
+      },
+      {
+        "case": "foreign-owner",
+        "status": 422,
+        "result": "pass"
+      },
+      {
+        "case": "generated-not-bool",
+        "status": 422,
+        "result": "pass"
+      },
+      {
+        "case": "password-change-gate",
+        "status": 403,
+        "result": "pass"
+      },
+      {
+        "case": "unverified-binding",
+        "status": 409,
+        "result": "pass"
+      },
+      {
+        "case": "legacy-hus-bypass-denied",
+        "status": 409,
+        "result": "pass"
+      },
+      {
+        "case": "no-public-hus-chat",
+        "status": 404,
+        "result": "pass"
+      },
+      {
+        "case": "source-binary-b4b0289701a6",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-head-b4b0289701a6",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-range-b4b0289701a6",
+        "status": 206,
+        "result": "pass"
+      },
+      {
+        "case": "source-binary-bc070d7ae371",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-head-bc070d7ae371",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-range-bc070d7ae371",
+        "status": 206,
+        "result": "pass"
+      },
+      {
+        "case": "source-binary-6c19e390ba61",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-head-6c19e390ba61",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-range-6c19e390ba61",
+        "status": 206,
+        "result": "pass"
+      },
+      {
+        "case": "source-binary-e6e33a8a489f",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-head-e6e33a8a489f",
+        "status": 200,
+        "result": "pass"
+      },
+      {
+        "case": "source-range-e6e33a8a489f",
+        "status": 206,
+        "result": "pass"
+      }
+    ],
+    "source_binaries": [
+      {
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+        "bytes": 19334830,
+        "result": "pass"
+      },
+      {
+        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+        "bytes": 19361810,
+        "result": "pass"
+      },
+      {
+        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+        "bytes": 18438317,
+        "result": "pass"
+      },
+      {
+        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+        "bytes": 21509533,
+        "result": "pass"
+      }
+    ]
+  },
+  "artifacts_sha256": {
+    "chat-active-ai.png": "b77b272a33d0ee94bce5d03dee9e761ac3c0be5f6390fec6cfdc998d25206bff",
+    "chat-after-bound-program-change.png": "b2e6bb1c9710b72b779eace67cb254e57d0d7ff8d2cc46737805a5c8da032b6f",
+    "pdf-MAT3325-page-12.png": "382d6d8c348d2faed84046140a3162d7e3505027baeca84a99a553accc62891d",
+    "pdf-MAT3325-page-13.png": "dd4fcd0a0586e488f8710e6ca214d09be9dc02cdabc1334a897b6fd064b92fd5"
+  },
+  "finished_at": "2026-11-02T06:16:30.556706+00:00"
+}

@@ -1,0 +1,295 @@
+{
+  "academic_verification_added": false,
+  "assets": {
+    "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30": {
+      "bytes": 1159213,
+      "file_type": "pdf",
+      "filename": "KCT_TTToan_Final.pdf",
+      "origins": [
+        {
+          "binding": "f1:d006f60211246633",
+          "expected_pages": 62,
+          "filename": "KCT_TTToan_Final.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf",
+          "kind": "pdf",
+          "sha256": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30"
+        }
+      ],
+      "page_count": 62,
+      "path": "files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf",
+      "sha256": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30"
+    },
+    "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920": {
+      "bytes": 465781,
+      "file_type": "pdf",
+      "filename": "CTDT-Toanhoc-130815.pdf",
+      "origins": [
+        {
+          "binding": "f1:89d4b39494d72217",
+          "expected_pages": 18,
+          "filename": "CTDT-Toanhoc-130815.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf",
+          "kind": "pdf",
+          "sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920"
+        }
+      ],
+      "page_count": 18,
+      "path": "files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf",
+      "sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920"
+    },
+    "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4": {
+      "bytes": 164856,
+      "file_type": "pdf",
+      "filename": "ChuanDauRa.pdf",
+      "origins": [
+        {
+          "binding": "f1:0dd9aaaeefcbd7d7",
+          "expected_pages": 2,
+          "filename": "ChuanDauRa.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf",
+          "kind": "pdf",
+          "sha256": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4"
+        }
+      ],
+      "page_count": 2,
+      "path": "files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf",
+      "sha256": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4"
+    },
+    "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517": {
+      "bytes": 404363,
+      "file_type": "docx",
+      "filename": "104.-KHMTTT-chuẩn-04.11.2023.docx",
+      "origins": [
+        {
+          "binding": "f1:f7f470e712738589",
+          "expected_pages": null,
+          "filename": "104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+          "kind": "docx",
+          "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+        }
+      ],
+      "page_count": null,
+      "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+      "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+    },
+    "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6": {
+      "bytes": 990545,
+      "file_type": "pdf",
+      "filename": "4. KCTĐT-CLC MTKHTT 10082020.pdf",
+      "origins": [
+        {
+          "binding": "f1:1c16ddf8a6f1f409",
+          "expected_pages": 29,
+          "filename": "4. KCTĐT-CLC MTKHTT 10082020.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf",
+          "kind": "pdf",
+          "sha256": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6"
+        }
+      ],
+      "page_count": 29,
+      "path": "files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf",
+      "sha256": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6"
+    },
+    "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8": {
+      "bytes": 18438317,
+      "file_type": "pdf",
+      "filename": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+      "origins": [
+        {
+          "binding": "pdf:6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+          "declared_origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+          "expected_pages": null,
+          "filename": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "docs/pdf/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+          "kind": "pdf",
+          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+        }
+      ],
+      "page_count": 12,
+      "path": "files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c": {
+      "bytes": 26348,
+      "file_type": "docx",
+      "filename": "KHMTTT CĐR.docx",
+      "origins": [
+        {
+          "binding": "f1:31b55b4ee6f451a6",
+          "expected_pages": null,
+          "filename": "KHMTTT CĐR.docx",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+          "kind": "docx",
+          "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c"
+        }
+      ],
+      "page_count": null,
+      "path": "files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+      "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c"
+    },
+    "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2": {
+      "bytes": 19334830,
+      "file_type": "pdf",
+      "filename": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+      "origins": [
+        {
+          "binding": "pdf:b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+          "declared_origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+          "expected_pages": null,
+          "filename": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "docs/pdf/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+          "kind": "pdf",
+          "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+        }
+      ],
+      "page_count": 13,
+      "path": "files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab": {
+      "bytes": 19361810,
+      "file_type": "pdf",
+      "filename": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+      "origins": [
+        {
+          "binding": "pdf:bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+          "declared_origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+          "expected_pages": null,
+          "filename": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "docs/pdf/104.-KHMTTT-chuẩn final QD 3568 Scan final (1).pdf",
+          "kind": "pdf",
+          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+        }
+      ],
+      "page_count": 13,
+      "path": "files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1": {
+      "bytes": 460939,
+      "file_type": "pdf",
+      "filename": "CTDT-CNKHTN-Toanhoc-13815.pdf",
+      "origins": [
+        {
+          "binding": "f1:d4fae066858f0b94",
+          "expected_pages": 15,
+          "filename": "CTDT-CNKHTN-Toanhoc-13815.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf",
+          "kind": "pdf",
+          "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1"
+        }
+      ],
+      "page_count": 15,
+      "path": "files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf",
+      "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1"
+    },
+    "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0": {
+      "bytes": 21509533,
+      "file_type": "pdf",
+      "filename": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+      "origins": [
+        {
+          "binding": "pdf:e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+          "declared_origin_commit": "94b7d05988d4118df283ad09a12ff75cef3161fc",
+          "expected_pages": null,
+          "filename": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "docs/pdf/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "kind": "pdf",
+          "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+        }
+      ],
+      "page_count": 14,
+      "path": "files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    },
+    "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f": {
+      "bytes": 483700,
+      "file_type": "pdf",
+      "filename": "CTDT-TTUD-130815.pdf",
+      "origins": [
+        {
+          "binding": "f1:23a0c1df14a5708a",
+          "expected_pages": 15,
+          "filename": "CTDT-TTUD-130815.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf",
+          "kind": "pdf",
+          "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+        }
+      ],
+      "page_count": 15,
+      "path": "files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf",
+      "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+    },
+    "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212": {
+      "bytes": 525031,
+      "file_type": "pdf",
+      "filename": "CTDT-MT&KHTT-130815.pdf",
+      "origins": [
+        {
+          "binding": "f1:1e3ad5f9915aa051",
+          "expected_pages": 18,
+          "filename": "CTDT-MT&KHTT-130815.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf",
+          "kind": "pdf",
+          "sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212"
+        }
+      ],
+      "page_count": 18,
+      "path": "files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf",
+      "sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212"
+    },
+    "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f": {
+      "bytes": 351613,
+      "file_type": "pdf",
+      "filename": "4. KCTĐT-CLC MTKHTT 10082020_0.pdf",
+      "origins": [
+        {
+          "binding": "f1:8afffd3cada3d048",
+          "expected_pages": 25,
+          "filename": "4. KCTĐT-CLC MTKHTT 10082020_0.pdf",
+          "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+          "git_path": "data/hus/recovery/20261031/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf",
+          "kind": "pdf",
+          "sha256": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f"
+        }
+      ],
+      "page_count": 25,
+      "path": "files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf",
+      "sha256": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f"
+    }
+  },
+  "bindings": {
+    "f1:0dd9aaaeefcbd7d7": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+    "f1:1c16ddf8a6f1f409": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+    "f1:1e3ad5f9915aa051": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+    "f1:23a0c1df14a5708a": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+    "f1:31b55b4ee6f451a6": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+    "f1:89d4b39494d72217": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+    "f1:8afffd3cada3d048": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+    "f1:d006f60211246633": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+    "f1:d4fae066858f0b94": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+    "f1:f7f470e712738589": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+    "pdf:6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+    "pdf:b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+    "pdf:bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "pdf:e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+  },
+  "registry_sha256": "14cb9338def4da271636524c1ebfcc2b1db26da14864c129bcade478870bc889",
+  "release_id": "hus-data-20261031-v3",
+  "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "schema_version": "1.0"
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "status": "prepared_awaiting_separate_commit_request",
+  "prepared_at": "2026-11-02T06:21:24.857725+00:00",
+  "milestones_prepared": 4,
+  "milestones_total": 6,
+  "root_branch": "crawldata",
+  "root_head": "be76f50b16948b4831c20d53cc1976bc3f6c89bb",
+  "main_base": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "integration_branch": "integration/hus-rag-p05-20261102",
+  "integration_worktree": "backups/hus_integration/p05-main",
+  "tested_integration_commit": null,
+  "local_tested_head_is_base_only": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "git_state": "dirty_worktree",
+  "release_eligible": false,
+  "code_snapshot_sha256": "187ca8b8248dd62708b8ee0d3f9ea71e3519adfda477e05ea69acbc520cc2b4e",
+  "implementation_files": 138,
+  "verification_files": 101,
+  "data_files": 63,
+  "selected_release": {
+    "schema_version": "2.0",
+    "state": "prepared_not_runtime_activated",
+    "release_id": "hus-data-20261031-v3",
+    "release_path": "releases/hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "index_entrypoint": "chunks.jsonl",
+    "generated_reference_requires_opt_in": true
+  },
+  "bundle": {
+    "path": "integration/hus-rag-p05",
+    "inputs": 77,
+    "outputs": 43,
+    "patch_sha256": "d0316baf01a1c048913b9090c7c46b6fd8a427ff1fb73292bda554acf7e082b1",
+    "replay_path": "backups/hus_integration/p05-replay-final",
+    "replay_verified": true
+  },
+  "checks": {
+    "python": {
+      "passed": 672,
+      "skipped": 10,
+      "db_deselected": 80,
+      "lifecycle_included": 20,
+      "environment_encoding": "PYTHONUTF8=1; PYTHONIOENCODING=utf-8",
+      "warnings": [
+        "Starlette TestClient httpx deprecation"
+      ]
+    },
+    "node": {
+      "passed": 9
+    },
+    "http": {
+      "passed": 43
+    },
+    "chromium": {
+      "passed": 14
+    },
+    "replay": {
+      "python_passed": 61,
+      "node_passed": 9
+    },
+    "ruff": "pass",
+    "javascript_syntax": "pass",
+    "git_diff_check": "pass",
+    "pip_check": "pass",
+    "strict_uncommitted_rejection": "pass",
+    "copied_selector_active_rollback": "pass",
+    "canonical_selector_unchanged": true,
+    "source_code_test_data_hashes_match_receipt": true
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows",
+    "packages": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.1",
+      "pdfplumber": "0.11.9",
+      "playwright": "1.58.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "canonical_selector_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+  "remote_ci": "not_run",
+  "commits_created": false,
+  "pushed": false,
+  "pr_created": false,
+  "merged": false,
+  "production_activated": false,
+  "product_database_modified": false,
+  "vnu_contacted": false,
+  "llm_used": false,
+  "academic_review_added": false,
+  "publication_pending": [
+    "User explicitly requires a separate commit/push request.",
+    "Preserve genuine source authors and ancestry (crawldata be76f50b; portable source a543cf8d) before an integration commit.",
+    "Run strict HTTP/browser acceptance and remote CI on the actual final integration/deployment commit.",
+    "Choose a concrete deployment target, deploy immutable code/data assets and perform controlled activation/rollback."
+  ],
+  "proof_sha256": {
+    "docs/acceptance/hus_p05_artifacts/chat-active-ai.png": "b77b272a33d0ee94bce5d03dee9e761ac3c0be5f6390fec6cfdc998d25206bff",
+    "docs/acceptance/hus_p05_artifacts/chat-after-bound-program-change.png": "b2e6bb1c9710b72b779eace67cb254e57d0d7ff8d2cc46737805a5c8da032b6f",
+    "docs/acceptance/hus_p05_artifacts/node-replay.tap": "0ea8e1a0cd560fe1c7813d38aa5ad0306f773523707fc55ca38daf083ac988a5",
+    "docs/acceptance/hus_p05_artifacts/pdf-MAT3325-page-12.png": "382d6d8c348d2faed84046140a3162d7e3505027baeca84a99a553accc62891d",
+    "docs/acceptance/hus_p05_artifacts/pdf-MAT3325-page-13.png": "dd4fcd0a0586e488f8710e6ca214d09be9dc02cdabc1334a897b6fd064b92fd5",
+    "docs/acceptance/hus_p05_artifacts/pytest-main-offline.xml": "b43bc4c916276e67e49d2cc753ea356269de5cd319feeaceb826e230c58c7629",
+    "docs/acceptance/hus_p05_artifacts/pytest-replay.xml": "5f45c3970d6b4ff0f297774e5ee1d89417fbb389e6953cf44953f359a6af6425",
+    "docs/acceptance/hus_p05_lifecycle_drill.json": "6a1c56218ca38ba2382474d5797561a787a9e23fa38ea3ccc33e2448d7b30df2",
+    "docs/acceptance/hus_p05_local_report.json": "56b7313744a69cd1a71986ba62792064439099722215e019ad2aa13486db9aac",
+    "docs/acceptance/hus_p05_strict_rejection.json": "61066551aeaddfdc93893746e5c60818d7f75e296a26fafdf4bd51c57167031c",
+    "integration/hus-rag-p05/main.patch": "d0316baf01a1c048913b9090c7c46b6fd8a427ff1fb73292bda554acf7e082b1",
+    "integration/hus-rag-p05/manifest.json": "e458f7bcb42eff331707bc809d1f98ec84858041b82b7d233e4a32b223f4553c",
+    "integration/hus-rag-p05/PR_BODY.md": "9eebf253730d5387cb580a776629ff34d42f60d60e19f5836ee7705e28834201",
+    "integration/hus-rag-p05/README.md": "031108c3be17029e1facd989569fede997103fb329306ad8b1e11625d8fbcbfe"
+  }
+}

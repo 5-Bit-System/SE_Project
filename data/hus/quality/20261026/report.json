@@ -1,0 +1,50 @@
+{
+  "active_release": false,
+  "blocker_counts": {
+    "raw_source_missing": 49
+  },
+  "cell_presence_counts": {
+    "covered": 79,
+    "empty": 22,
+    "present": 2029
+  },
+  "content_mismatches": 0,
+  "document_count": 106,
+  "implementation_sha256": {
+    "app/hus/cleaning.py": "bb94454448e858e97f28dd9ef28b52aae43b190b6e2206faf8671ddd46c7b8f3",
+    "app/hus/corpus.py": "68a3f50030b7f2a4daebd37d72818f2b43ff7adcfa15e918f9b666e0c8bc44d9",
+    "app/hus/extractors/docx.py": "cd9196957e71a669186443ea1f74fe04acef4d720ae290bd763287e92a7e5e7d",
+    "app/hus/extractors/excel.py": "fd642225090a38a2576dd00119e202a9c30c937979d9496c532ab4a60c59c3f4",
+    "app/hus/extractors/html.py": "db9a98a411d14911d5a65476a517dbb61d3337442782e8fe6428c405e5a66f3d",
+    "app/hus/extractors/pdf.py": "21c12b18c5ff857f40c2b853e86345d143f4b79969d3d9eaa22e0cf53c319105",
+    "app/hus/models.py": "0c0c4036abeac41b4f7f301f4978cfdd96fe95b7c2975b0cde2be5365b8345e2",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "tools/inspect_hus_source_quality.py": "39340fbf664066f62dec8f375a7872f8d6ed83f8486dbb0a0180221bdae26958"
+  },
+  "inputs": {
+    "recovery_inventory_sha256": "78e1b5d0aa34b88a73456d68f37f709ff1bd8626d52f5cc0090b3fe413b4db4a",
+    "source_manifest_sha256": "069a00f313b6a09512b804a8b1d21602329ece99c09cd439f654d1115694e99b"
+  },
+  "ocr_pages": 0,
+  "outputs_sha256": {
+    "ocr_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "page_quality.jsonl": "337ea8f5cba6b828c3abb28d9dcfd889947cf57f9803e81ef5b33dae3ae9bd17",
+    "review_queue.jsonl": "0f5592f32110a312efa95ace066d0ba4b7d9e050843e6291399a532331e9c3b3",
+    "source_blockers.jsonl": "ac2d704341cfa48de754ef8155432187c8e9ece7b188852cb9afcb729de5c933",
+    "source_quality.jsonl": "82fd731776132a647050ba1a88741fccb7a09edfaa0240361e473e5c3a521876",
+    "tables.jsonl": "c0fbb3ca6c6f4bb582a34c89c59de11e9c750ffc8d2816a1ea4d7ec663df1169"
+  },
+  "pdf_pages": 17,
+  "pending_ocr_documents_without_raw": 6,
+  "quality_reports": 57,
+  "review_units": 2093,
+  "schema_version": "1.0",
+  "source_blockers": 49,
+  "source_snapshot_id": "hus-0404f37-20261026",
+  "tables": 25,
+  "tables_with_issues": 0,
+  "unverified_recovered_versions": 2,
+  "verified_cells": 0,
+  "verified_pages": 0
+}

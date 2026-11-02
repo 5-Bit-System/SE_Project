@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: uses authoritative binding and current revision, with opt-in off and bounded history
+ok 1 - uses authoritative binding and current revision, with opt-in off and bounded history
+  ---
+  duration_ms: 4.396
+  type: 'test'
+  ...
+# Subtest: changing account drops a late answer and cannot unlock a newer pending request
+ok 2 - changing account drops a late answer and cannot unlock a newer pending request
+  ---
+  duration_ms: 1.1917
+  type: 'test'
+  ...
+# Subtest: unchanged account/source refreshes preserve chat; source changes clear it and AI consent
+ok 3 - unchanged account/source refreshes preserve chat; source changes clear it and AI consent
+  ---
+  duration_ms: 0.6011
+  type: 'test'
+  ...
+# Subtest: an authoritative revision change clears the old question instead of sending it to a new context
+ok 4 - an authoritative revision change clears the old question instead of sending it to a new context
+  ---
+  duration_ms: 0.4766
+  type: 'test'
+  ...
+# Subtest: an older failed context refresh cannot clear a newer successful refresh
+ok 5 - an older failed context refresh cannot clear a newer successful refresh
+  ---
+  duration_ms: 0.4183
+  type: 'test'
+  ...
+# Subtest: track/path and binding notifications invalidate history and preserve selections in context requests
+ok 6 - track/path and binding notifications invalidate history and preserve selections in context requests
+  ---
+  duration_ms: 0.5837
+  type: 'test'
+  ...
+# Subtest: startup handshake restores selections emitted before the chat module was loaded
+ok 7 - startup handshake restores selections emitted before the chat module was loaded
+  ---
+  duration_ms: 0.2273
+  type: 'test'
+  ...
+# Subtest: unbound or blocked contexts never send requests; session expiration clears pending chat
+ok 8 - unbound or blocked contexts never send requests; session expiration clears pending chat
+  ---
+  duration_ms: 0.4299
+  type: 'test'
+  ...
+# Subtest: AI null-link evidence is visible and same-PDF distinct pages survive exact-duplicate removal
+ok 9 - AI null-link evidence is visible and same-PDF distinct pages survive exact-duplicate removal
+  ---
+  duration_ms: 0.6604
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 75.2562

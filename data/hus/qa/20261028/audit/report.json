@@ -1,0 +1,50 @@
+{
+  "active_release": false,
+  "answer_chunks": 8,
+  "answer_documents": 4,
+  "catalog_course_count": 65,
+  "classification_counts": {
+    "exclude": 79,
+    "quarantine": 11,
+    "retain_candidate": 16
+  },
+  "corpus_build_id": "dfb8e6794750276ed1742cad7af1f2595bdb85417329534831fa600e8216709e",
+  "document_count": 106,
+  "f2_extracted_rows": 643,
+  "f3_extracted_sections": 106,
+  "generated_in_answer_corpus": 0,
+  "implementation_sha256": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+  "inputs": {
+    "data/curricula/khdl_7460108_2022/courses.json": "4e0291c819e71b169417b3b6b08ba3a3ca28332f026f8ccab45f3338690d4390",
+    "data/curricula/khdl_7460108_2022/curriculum.json": "07275e14477ca2bf0a93518e854b58829f4160c16e24c63fe9f153a8fd0f681e",
+    "data/curricula/khdl_7460108_2022/source_rows.json": "cbb827f54cba1a7a33ec3ec1957c8b741062d73f18af1c76d65644cf09e28f2a",
+    "data/curricula/khdl_7460108_2022/vocabulary.json": "148b5c86b27d6c0f7450f6fb1906f3343cb0763d3825fd85acfbe2b8537918ab",
+    "data/hus/qa/20261028/experimental/f3_inferred.json": "238da02375bf01192cd00d1e9b4bc071a13933ce468ee4323c600b4a78375f79"
+  },
+  "outputs": {
+    "acceptance_questions.jsonl": "3d2a21384268410b5538d1243eed0abc5dc7d7f70dc3e080f56d2a76d19358c4",
+    "answer_chunks.jsonl": "855d13443cef4b187b9aaa311652b37bed2167a8dc0cfde9f89d45a345a42dcd",
+    "answer_documents.jsonl": "4a69ffc2b52755b372a7483e791094260df66075a498dede9862f43a366ca077",
+    "answer_source_map.jsonl": "a484aba6241669d4be1924d16a1463a267f551a6e67f27f0b00713ccb7c2ccd0",
+    "classification.jsonl": "2c4cd1ae9a1104773e7791f7257c8e54b2ea388aa02ede6c85c0a3b3d16b2d2f",
+    "coverage.jsonl": "4df7c3c88b1542d0f9a9803d3832117c59279fd0848a49c6f08ad5d7233b9f77",
+    "experimental_coverage.jsonl": "570a572c222c862b5741380b76ba96d6190c471f04e85a7d818d703e4cf5fb78",
+    "extraction_issues.jsonl": "6a07d319c04b76da17c6d6dabc0e2d2d1086a269f814da0348771eceeb61b40e",
+    "f2_catalog_records.jsonl": "5cfc8f62dfa9d33e3054fa37d724eb07746482bc01986ffbe63b9f25caf3985c",
+    "f2_course_checks.jsonl": "9d6989a07cb51c9e81d07969e180059cfe21ee52e4c356ebc9da6374d46aa2ac",
+    "f2_source_rows.jsonl": "6412c91d08882b7cdd1491044f9b05e5ee81f3b2f6b2a30a9a5e760f391a80b6",
+    "f3_course_coverage.jsonl": "4b81917e4fadfcaea54e239119c3a465a461033bd54428be553e8f1804d120aa",
+    "f3_source_fields.jsonl": "c20c3a46257724d49f36e016a42b990b1fa49bca2b1f1a63feca828fa680ce13",
+    "normalized/055c47bf412172c0.md": "f97b05e95be86d7e3f1b0d0f3f1dd8f572b371f4b7581cd4a805ef140e8bcd45",
+    "normalized/1b525683101bf943.md": "aca5b4f7debedde5e8b1c786e3f580ea6c3685a773802d7bb6edbe32924b84ec",
+    "normalized/ce8df97fe49665e9.md": "f4c7ae620af8f3907e266d77d83c87e294bdd2df725a22a459f21685291d0425",
+    "normalized/d6370261338de29f.md": "4931f1adba5830cf32a179967158a9faa2ee65b2b4b150fa9879aaab4cf7fb4b",
+    "source_gaps.jsonl": "e43a32f99c9441a056849b7f6d41b8da5a1d16ad0669f2ee0f9c488c7746209d"
+  },
+  "question_checks": {
+    "pass": 12
+  },
+  "schema_version": "1.0",
+  "source_location": "git+https://github.com/5-Bit-System/SE_Project.git@0404f37c1b6c3864b7fe2e9938a8a21f777663f0#data/hus",
+  "source_snapshot_id": "hus-0404f37-20261026"
+}

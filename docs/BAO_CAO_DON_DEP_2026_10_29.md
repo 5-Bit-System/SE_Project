@@ -79,7 +79,7 @@ liệu/cấu hình. Cache có thể được tạo lại khi chạy ứng dụng
 | `validate_demo_profiles()` và loader profile legacy | Không thấy caller trực tiếp cho helper tổng kiểm tra, nhưng là API validation/nguồn tham chiếu của luồng legacy | Đánh giá contract CLI/library và rollback cùng luồng profile; không suy là rác từ số caller |
 | 815 nhóm file có cùng hash trong tập file được bảo vệ ban đầu | Nhiều bản là cùng mã nguồn trong checkout riêng hoặc cùng payload gắn locator/manifest khác nhau | Kiểm tra vai trò, manifest và khả năng tái lập từng nhóm; chưa xóa bản nào chỉ vì trùng byte |
 | Các bản build/delivery/review HUS lớn trong `backups/` | Có output bàn giao, original attachment, provenance và công việc chưa push; memory yêu cầu giữ | Chỉ dọn thêm khi chứng minh bản thay thế đầy đủ và không phá receipt/handoff |
-| `tools/prepare_hus_corpus.py` và test đi kèm | Pipeline thử cũ đã ngừng, nhưng memory giữ source/test làm tham chiếu | Chờ quyết định retirement; không tự chạy lại trial hay tạo corpus mới |
+| `tools/hus_snapshot_preparation.py` và test đi kèm | Pipeline thử cũ đã ngừng, nhưng memory giữ source/test làm tham chiếu | Chờ quyết định retirement; không tự chạy lại trial hay tạo corpus mới |
 
 ### Nhóm 3 — Cần giữ
 

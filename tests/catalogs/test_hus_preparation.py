@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from tools.prepare_hus_corpus import chunk_spans, digest, prepare
+from tools.hus_snapshot_preparation import chunk_spans, digest, prepare
 
 
 def fixture_files(root: Path) -> tuple[Path, Path]:

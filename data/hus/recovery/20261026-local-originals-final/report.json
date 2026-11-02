@@ -1,0 +1,18 @@
+{
+  "academic_review_completed": 0,
+  "attachment_count": 51,
+  "candidate_manifest": "state/p2-attachments-live-20261021/validation.json",
+  "candidate_manifest_sha256": "4f2884be8c439a3bce25d0b9e71ca609ed7a9a636786b544c848b7d02d5d78e1",
+  "catalog_modified": false,
+  "catalog_sha256_utf8_lf": "d74ce592c71e303e09bbc0f48cd4bdb04a184068e4232aa3cab46c24e1164352",
+  "comparison_implementation_sha256": {
+    "app/hus/cleaning.py": "6821a826193fc58c33f9edf244b5af7c55b96f374c9709c61dd4f9fe7b1e328b",
+    "app/hus/extractors/pdf.py": "da413d9452ec5817d2d491b0a6c11036974871c959c383726f0b1cf398f92f85",
+    "tools/recover_hus_sources.py": "a0ac88005199fa4003eee6ecddbaa7a73111a7e134fc23c8fe5aa79728ea29bc"
+  },
+  "observed_at": "2026-10-25T18:32:15.246729+00:00",
+  "queued_missing_sources": 49,
+  "recovered_candidates": 2,
+  "schema_version": "1.0",
+  "verified_original_versions": 0
+}
