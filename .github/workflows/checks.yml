@@ -143,3 +143,45 @@ jobs:
           path: backups/hus_rag_demo/
           if-no-files-found: warn
           retention-days: 14
+  admin_console:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: ci_test_only
+          POSTGRES_DB: ai07
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U test_user -d ai07"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      HUS_DATABASE_URL: postgresql+psycopg2://test_user:ci_test_only@127.0.0.1:5432/ai07?sslmode=disable
+      HUS_TEST_DATABASE_URL: postgresql+psycopg2://test_user:ci_test_only@127.0.0.1:5432/ai07?sslmode=disable
+      TEST_BASE_URL: http://127.0.0.1:8031
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
+          python -m playwright install --with-deps chromium chrome
+      - run: |
+          python -m database.tools.migrate upgrade
+          python -m database.tools.publish_catalogs
+          python -m tools.verify_admin_console --reset-fixtures
+      - name: Keep isolated Admin browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-console-${{ github.sha }}
+          path: backups/
+          if-no-files-found: warn
+          retention-days: 14

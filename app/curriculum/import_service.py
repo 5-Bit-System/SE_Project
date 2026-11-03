@@ -59,120 +59,41 @@ def detect_prerequisite_cycles(graph: dict[str, list[str]]) -> tuple[bool, list[
     return False, []
 
 
-def validate_and_parse_csv(
-    content: str,
-    program_id: str,
-    version_title: str,
-    cohort: str | None = None,
-) -> dict[str, Any]:
-    """Parse CSV text, enforce rules, and return structured validation summary and courses."""
-    errors = []
-    warnings = []
-    courses = []
-    seen_codes = set()
-    prereq_graph = {}
-
-    # Calculate SHA-256
+def validate_and_parse_csv(content: str, program_id: str, version_title: str,
+                           cohort: str | None = None) -> dict[str, Any]:
+    from app.curriculum.validation import validate_payload
     digest = hashlib.sha256(content.encode("utf-8")).hexdigest()
-
+    courses, parse_errors = [], []
     reader = csv.DictReader(io.StringIO(content))
-    if not reader.fieldnames:
-        return {
-            "valid": False,
-            "errors": [{"row": 0, "column": "header", "message": "Tệp CSV rỗng hoặc thiếu tiêu đề cột"}],
-            "warnings": [],
-            "stats": {"course_count": 0, "total_credits": 0},
-            "courses": [],
-            "digest": digest,
-        }
-
-    # Normalize header fieldnames
-    clean_fieldnames = [f.strip().lower() for f in reader.fieldnames if f]
-    required = {"code", "name", "credits"}
-    if not required.issubset(set(clean_fieldnames)):
-        return {
-            "valid": False,
-            "errors": [{"row": 0, "column": "header", "message": f"Thiếu các cột bắt buộc: {required - set(clean_fieldnames)}"}],
-            "warnings": [],
-            "stats": {"course_count": 0, "total_credits": 0},
-            "courses": [],
-            "digest": digest,
-        }
-
-    total_credits = 0
-
-    for idx, raw_row in enumerate(reader, start=2):
-        row = {k.strip().lower(): v for k, v in raw_row.items() if k}
-        code = sanitize_cell(row.get("code", "")).upper()
-        name = sanitize_cell(row.get("name", ""))
-        credits_str = sanitize_cell(row.get("credits", "0"))
-        prereqs_raw = sanitize_cell(row.get("prerequisites", ""))
-        block = sanitize_cell(row.get("block", "Chưa phân loại"))
-        suggested_term = sanitize_cell(row.get("suggested_term", ""))
-
-        if not code:
-            errors.append({"row": idx, "column": "code", "message": "Mã học phần không được để trống"})
-            continue
-
-        if code in seen_codes:
-            errors.append({"row": idx, "column": "code", "message": f"Trùng mã học phần: {code}"})
-        else:
-            seen_codes.add(code)
-
-        if not name:
-            errors.append({"row": idx, "column": "name", "message": f"Tên học phần không được để trống (Mã: {code})"})
-
-        # Validate credits
+    headers = [f.strip().lower() for f in reader.fieldnames or []]
+    if len(content.encode("utf-8")) > 1_000_000:
+        parse_errors.append({"column": "file", "message": "Tệp vượt giới hạn 1 MB"})
+    if not {"code", "name", "credits"} <= set(headers) or len(headers) != len(set(headers)):
+        parse_errors.append({"column": "header", "message": "Thiếu cột bắt buộc hoặc trùng tiêu đề cột"})
+    if not parse_errors:
         try:
-            credits_val = float(credits_str)
-            if credits_val < 0 or credits_val > 20:
-                errors.append({"row": idx, "column": "credits", "message": f"Tín chỉ không hợp lệ ({credits_val}) cho môn {code}. Phải từ 0 đến 20."})
-            else:
-                total_credits += int(credits_val) if credits_val.is_integer() else credits_val
-        except ValueError:
-            errors.append({"row": idx, "column": "credits", "message": f"Giá trị tín chỉ '{credits_str}' không phải là số hợp lệ cho môn {code}."})
-            credits_val = 0
-
-        # Parse prerequisites (comma, semicolon, or space-separated)
-        prereq_list = [p.strip().upper() for p in re.split(r"[,;|\s]+", prereqs_raw) if p.strip()]
-        prereq_graph[code] = prereq_list
-
-        courses.append({
-            "code": code,
-            "name": name,
-            "credits": credits_val,
-            "prerequisites": prereq_list,
-            "block": block,
-            "suggested_term": int(suggested_term) if suggested_term.isdigit() else None,
-        })
-
-    # Check for dangling prerequisites (prereq code not defined in curriculum)
-    for code, prereqs in prereq_graph.items():
-        for p in prereqs:
-            if p not in seen_codes:
-                warnings.append({
-                    "column": "prerequisites",
-                    "message": f"Môn '{code}' yêu cầu môn tiên quyết '{p}' chưa có trong danh mục của chương trình này.",
-                })
-
-    # Check for prerequisite cycles
-    has_cycle, cycle_path = detect_prerequisite_cycles(prereq_graph)
-    if has_cycle:
-        errors.append({
-            "column": "prerequisites",
-            "message": f"Phát hiện Chu trình tiên quyết (vòng lặp vô tận): {' -> '.join(cycle_path)}",
-        })
-
-    is_valid = len(errors) == 0
-
-    return {
-        "valid": is_valid,
-        "errors": errors,
-        "warnings": warnings,
-        "stats": {
-            "course_count": len(courses),
-            "total_credits": total_credits,
-        },
-        "courses": courses,
-        "digest": digest,
-    }
+            for index, row in enumerate(reader):
+                if index >= 1000:
+                    parse_errors.append({"column": "file", "message": "Tệp vượt giới hạn 1000 dòng"})
+                    break
+                row = {k.strip().lower(): v for k, v in row.items() if k}
+                def cell(key, default=""):
+                    return sanitize_cell(row.get(key) or default)
+                raw_credits = cell("credits")
+                try:
+                    credits = float(raw_credits)
+                    if not __import__('math').isfinite(credits):
+                        credits = raw_credits
+                except ValueError:
+                    credits = raw_credits
+                # Comma/semicolon-separated prerequisites are AND; explicit | is OR.
+                prereqs = [[p.strip().upper() for p in group.split('|') if p.strip()]
+                           for group in re.split(r"[,;\s]+", cell("prerequisites")) if group.strip()]
+                courses.append({"code": cell("code").upper(), "name": cell("name"),
+                    "credits": credits, "prerequisites": prereqs, "block": cell("block", "general"),
+                    "suggested_term": int(cell("suggested_term")) if cell("suggested_term").isdigit() else None})
+        except csv.Error:
+            parse_errors.append({"column": "file", "message": "Cấu trúc CSV không hợp lệ"})
+    result = validate_payload({"courses": courses, "import_errors": parse_errors})
+    result.update(digest=digest, parse_errors=parse_errors)
+    return result

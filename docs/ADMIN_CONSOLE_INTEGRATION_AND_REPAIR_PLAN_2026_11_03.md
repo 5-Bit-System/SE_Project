@@ -1,5 +1,59 @@
 # Tích hợp local và kế hoạch hoàn thiện luồng Admin — 03/11/2026
 
+## Cập nhật: các sửa lỗi đã triển khai local
+
+Sau khi xem bản tích hợp, người dùng yêu cầu sửa toàn bộ các mục còn lại. Phần
+review/kế hoạch bên dưới được giữ làm lịch sử; trạng thái hiện tại là bảng này.
+Mã sửa thuộc nhánh `integration/admin-console-20261103`. Người dùng đã yêu cầu
+commit và bàn giao qua issue GitHub riêng cho các lỗi luồng Admin; trạng thái
+commit và CI được ghi trong issue bàn giao. Không cập nhật GitHub main, không
+thay cấu hình hoặc công bố catalog thật.
+
+| Mục | Kết quả sửa và kiểm chứng |
+|---|---|
+| P0.1 Publish runtime | Tạo snapshot bất biến trong `hus_catalog_revisions` cùng transaction với trạng thái Admin và audit. CSV cập nhật các mã đã có trên một base revision cố định; mã mới cần gói nguồn HUS JSON đầy đủ qua builder hiện hành. Kiểm tra base cũ, schema, groups, quota, AND/OR và identity trước đổi active pointer. |
+| P0.2 Validation | Một validator dùng cho import/revalidate/approve/publish; chặn tín chỉ âm, không hữu hạn, ngoài miền, không nguyên, tên rỗng, mã trùng, điều kiện sai và payload digest cũ. Không dùng source digest để thay cho payload digest. |
+| P0.3 Bất biến/rollback | Dùng cùng advisory transaction lock với publisher HUS; published không được revalidate/review/sửa tại chỗ. Editor tạo draft mới. Rollback kiểm checksum manifest v2, payload, snapshot runtime và tài liệu nguồn trước đổi hai pointer. |
+| P0.4 Nguồn mẫu | GET hàng đợi chỉ đọc. Thiếu tệp không sinh dữ liệu mẫu hay URL HUS giả. Explicit import chỉ nhận tài liệu có URL/title/hash thật; chặn mẫu legacy/synthetic khỏi publication và public retrieval. |
+| P1.5 Document version | Sửa metadata đã duyệt/xuất bản tạo document ID mới, giữ lineage trong metadata. Bản cũ và manifest không đổi; published source không được đổi review tại chỗ. UI theo ID mới để duyệt lại. |
+| P1.6 Test isolation | Test Admin chỉ nhận `HUS_TEST_DATABASE_URL` tường minh, dùng savepoint trong transaction rollback. Không đọc `.env` để chọn DB test. Có runner tracked và fixtures đủ 105 tài liệu; XSS/pagination không còn bỏ qua khi fixture thiếu. |
+| P1.7 Phiên/giao diện/metrics | Bỏ response cũ theo session và lượt tải; xóa state khi logout/đổi tài khoản/quyền; test đảo thứ tự response và logout. Ghi metric từ `/me/recommendations`, chỉ lưu mã lỗi, có mốc bắt đầu và ghi rõ số liệu của phiên chạy hiện tại. |
+
+Approval là quyết định xuất bản trong ứng dụng. Catalog nhập qua Admin vẫn là
+`draft_unverified`; không tự cấp chứng nhận học vụ. Tệp CSV là tập thay đổi cho
+mã đã có, không được dùng để xóa ngầm phần catalog còn lại. Gói JSON đầy đủ dùng
+cùng định dạng nguồn với `database/data/hus_source.json`; builder kiểm định đầy đủ
+trước tạo candidate. Bản nháp dựa trên snapshot đã cũ cần nhập/duyệt lại.
+
+Nghiệm thu lần sửa:
+
+- Full offline/PDF: **1.303 passed**, 106 DB deselected; thêm **2 test bảo vệ
+  target DB** chạy riêng đạt. Chỉ còn cảnh báo Starlette/httpx đã tồn tại.
+- Full PostgreSQL trên DB mới riêng: **106 passed**. Có test hai publisher đồng
+  thời, audit failure, stale base, manifest/payload bị sửa, rollback và full-source.
+- **14 suite Admin** đạt tổng hợp, gồm suite session/filter race mới; các ca lỗi
+  ở lượt đầu đã được sửa và chạy lại. Runner tracked cũng chạy shell/race đạt.
+- **7 suite sinh viên**, **50 ca RAG Chromium**, Node citation/model/analytics,
+  Ruff, pip check, JS syntax, diff và hai catalog builders đạt.
+- Bổ sung job `admin_console` trên CI với PostgreSQL và Chrome/Chromium riêng.
+  YAML kiểm tra local đạt; kết quả ở đây là lần kiểm thử trước khi bàn giao.
+  Trạng thái CI remote sau khi push được theo dõi riêng trong issue GitHub.
+- Đã nạp mã sửa vào server local: `/health`, `/ready` 200, 23 static asset khớp
+  disk; truy cập Admin/course-status vô danh vẫn 401. Không đăng nhập tài khoản
+  thật, đọc bảng điểm, gọi model hay gửi email trong quá trình sửa/kiểm thử.
+
+Chạy lại browser trên checkout sạch bằng [runner](../tools/verify_admin_console.py):
+chuẩn bị DB PostgreSQL **tạm riêng** tên `ai07`, migrate/publish chỉ vào target đó,
+đặt `HUS_TEST_DATABASE_URL`, `TEST_BASE_URL=http://127.0.0.1:8031`, rồi chạy
+`python -m tools.verify_admin_console --reset-fixtures`. Cờ reset cho phép thay
+fixture của DB tạm; runner từ chối target DB cấu hình của ứng dụng và cổng 8000.
+Không chạy lệnh reset đối với DB thật. CI job tự cấp DB tạm từ checkout sạch.
+
+Log/JUnit/probe lần sửa: `backups/admin_repair_20261103/`. Đây là bằng chứng local
+ignored, không phải kết quả CI remote hay chứng nhận độ đúng học vụ của nguồn.
+Hai database test tạm được dọn; database runtime, cấu hình và release HUS giữ
+nguyên. Server được khởi động lại để nạp backend mới; phiên VNU RAM cũ không còn.
+
 ## Phạm vi và trạng thái
 
 Yêu cầu: tích hợp nhánh Admin vào checkout local hiện tại, giữ đầy đủ các commit
@@ -179,5 +233,6 @@ là lỗi đã tái hiện đầy đủ trong lần tích hợp này.
    lên 12 trên DB tạm trước; tạo PR, chờ CI đúng commit, Create a merge commit.
    Việc migration thật/restart cần bàn giao rõ vì restart làm mất VNU cookies RAM.
 
-Chưa triển khai các sửa P0/P1 trong kế hoạch này. Không công bố toàn bộ Admin đã
-hoàn chỉnh hoặc sẵn sàng xuất bản dữ liệu học vụ thật chỉ dựa vào số test đạt.
+Các mục P0/P1 trên đã được triển khai và kiểm chứng local theo cập nhật đầu tài
+liệu. Việc review nguồn học vụ, CI remote và quy trình PR/phát hành vẫn là các
+bước riêng; không suy chứng nhận dữ liệu học vụ từ số test đạt.

@@ -1,27 +1,18 @@
 """Tests for admin catalog revision import and validation endpoints."""
 
-import os
-from pathlib import Path
-
 import pytest
-from dotenv import dotenv_values
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
 
 from app.main import app
+from tests.support.admin_database import admin_test_engine
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("PostgreSQL database URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 

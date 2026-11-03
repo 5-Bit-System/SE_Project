@@ -9,6 +9,8 @@ from typing import Any
 
 from sqlalchemy import text
 
+from app.curriculum.transactions import publication_lock
+
 
 def _safe_uuid(val: Any) -> str | None:
     if not val:
@@ -215,6 +217,8 @@ def update_document_metadata(
     its review status is invalidated (reset to pending, unpublished, clearing reviewer attribution)
     so it requires re-review before publication.
     """
+    publication_lock(conn)
+    conn.execute(text('SELECT id FROM crawled_documents WHERE id=:id FOR UPDATE'), {'id': doc_id})
     doc = get_document(conn, doc_id)
     if not doc:
         raise ValueError(f"Tài liệu '{doc_id}' không tồn tại.")
@@ -225,6 +229,16 @@ def update_document_metadata(
     new_meta = json.dumps(metadata) if metadata is not None else json.dumps(doc["metadata_json"])
 
     was_approved_or_published = doc.get("review_status") == "approved" or bool(doc.get("is_published"))
+    if was_approved_or_published:
+        meta = json.loads(new_meta)
+        meta['previous_document_id'] = doc_id
+        previous_version = (doc.get('metadata_json') or {}).get('version', 1)
+        meta['version'] = (previous_version if type(previous_version) is int else 1) + 1
+        replacement = create_document(conn, url=doc['url'], title=new_title,
+            markdown_content=doc['markdown_content'], major=new_major, doc_type=new_type,
+            source_id=doc.get('source_id'), job_id=doc.get('job_id'), metadata_json=meta)
+        replacement['branched_from'] = doc_id
+        return replacement
 
     conn.execute(
         text("""
@@ -265,9 +279,13 @@ def review_document(
     if not reason or len(reason.strip()) < 3:
         raise ValueError("Lý do kiểm duyệt bắt buộc phải có ít nhất 3 ký tự.")
 
+    publication_lock(conn)
+    conn.execute(text('SELECT id FROM crawled_documents WHERE id=:id FOR UPDATE'), {'id': doc_id})
     doc = get_document(conn, doc_id)
     if not doc:
         raise ValueError(f"Tài liệu '{doc_id}' không tồn tại.")
+    if doc.get('is_published'):
+        raise ValueError('Published source versions are immutable; create a draft replacement')
 
     conn.execute(
         text("""
@@ -289,69 +307,22 @@ def review_document(
 
 
 def seed_crawled_documents_from_disk(conn, base_dir: Path | None = None) -> int:
-    """Scan processed markdown files on disk and index into crawled_documents if empty."""
-    existing_count = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
-    if existing_count > 0:
-        return existing_count
-
-    root = base_dir or (
-        Path(__file__).resolve().parents[2] / "data" / "hus" / "processed" / "documents"
-    )
-    if not root.exists():
-        if existing_count == 0:
-            create_document(
-                conn,
-                url="https://hus.vnu.edu.vn/dao-tao/kctdt-chuan-toan-hoc",
-                title="Khung chương trình đào tạo chuẩn ngành Toán học K67",
-                markdown_content="# Khung chương trình đào tạo chuẩn ngành Toán học\n\nNội dung chương trình đào tạo.",
-                major="toan_hoc",
-                doc_type="curriculum",
-                source_id="src_hus_main",
-                metadata_json={"title": "Khung chương trình đào tạo chuẩn ngành Toán học", "cohort": "K67"},
-                doc_id="doc_default_sample",
-            )
-            return 1
+    """Explicit file import only; missing evidence never creates synthetic documents."""
+    if base_dir is None or not base_dir.is_dir():
         return 0
-
-    inserted = 0
-    for md_file in root.glob("**/*.md"):
-        try:
-            raw_text = md_file.read_text(encoding="utf-8")
-        except Exception:
+    from urllib.parse import urlsplit
+    count = 0
+    for path in sorted(base_dir.rglob('*.md')):
+        raw = path.read_text(encoding='utf-8')
+        metadata, content = parse_frontmatter(raw)
+        url = str(metadata.get('url') or '')
+        if urlsplit(url).scheme not in {'http', 'https'} or not metadata.get('title'):
             continue
-
-        frontmatter, content_body = parse_frontmatter(raw_text)
-
-        title = frontmatter.get("title") or md_file.stem
-        url = frontmatter.get("url") or f"https://hus.vnu.edu.vn/processed/{md_file.name}"
-        major = frontmatter.get("major") or md_file.parent.name
-        doc_type = frontmatter.get("type") or "curriculum"
-
-        create_document(
-            conn,
-            url=str(url),
-            title=str(title),
-            markdown_content=content_body,
-            major=str(major),
-            doc_type=str(doc_type),
-            source_id="src_hus_main",
-            metadata_json=frontmatter,
-            doc_id=f"doc_{md_file.stem[-8:]}" if len(md_file.stem) >= 8 else None,
-        )
-        inserted += 1
-
-    if inserted == 0 and existing_count == 0:
-        create_document(
-            conn,
-            url="https://hus.vnu.edu.vn/dao-tao/kctdt-chuan-toan-hoc",
-            title="Khung chương trình đào tạo chuẩn ngành Toán học K67",
-            markdown_content="# Khung chương trình đào tạo chuẩn ngành Toán học\n\nNội dung chương trình đào tạo.",
-            major="toan_hoc",
-            doc_type="curriculum",
-            source_id="src_hus_main",
-            metadata_json={"title": "Khung chương trình đào tạo chuẩn ngành Toán học", "cohort": "K67"},
-            doc_id="doc_default_sample",
-        )
-        inserted = 1
-
-    return inserted
+        if find_duplicates(conn, compute_content_hash(content)):
+            continue
+        metadata['original_file_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        create_document(conn, url=url, title=metadata['title'], markdown_content=content,
+            major=metadata.get('major', 'general'), doc_type=metadata.get('type', 'general_info'),
+            metadata_json=metadata)
+        count += 1
+    return count

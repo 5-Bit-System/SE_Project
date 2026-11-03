@@ -77,6 +77,9 @@
     const current = epoch;
     const response = await fetch(path, {method, credentials:'same-origin', cache:'no-store', headers:{...(body ? {'Content-Type':'application/json'} : {}), ...(method !== 'GET' && csrfToken ? {'X-CSRF-Token':csrfToken} : {})}, body:body ? JSON.stringify(body) : undefined});
     const result = await response.json();
+    if (path.startsWith('/admin/') && (current !== epoch || account?.role !== 'admin')) {
+      throw new DOMException('Admin session changed', 'AbortError');
+    }
     if (!response.ok) { if (current === epoch && response.status === 401 && !['/auth/login','/auth/vnu','/me/password'].includes(path)) expire('session_expired'); throw new Error(result.detail || 'fallback'); }
     return result;
   }

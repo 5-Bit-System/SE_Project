@@ -41,6 +41,7 @@ from app.services.course_status_service import (
     course_board_display,
     reviewed_course_board,
 )
+from app.services.operational_metrics import measured_consultation
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
@@ -360,6 +361,7 @@ async def operation(request: Request):
 
 
 @router.post("/me/recommendations")
+@measured_consultation('recommendation')
 async def recommendations(request: Request):
     query, catalog, context, passed = await operation(request)
     internal = RecommendationRequest(**query.model_dump(include={

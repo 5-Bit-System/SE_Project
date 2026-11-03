@@ -1,24 +1,16 @@
 """API workflow tests for curriculum diff, approval, publish and rollback."""
 
-import os
-from pathlib import Path
-
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine
+
+from tests.support.admin_database import admin_test_engine
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("PostgreSQL database URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
@@ -28,8 +20,8 @@ def test_workflow_full_lifecycle(verified_client, fake_accounts):
 
     # 1. Create two revisions
     csv1 = """code,name,credits,prerequisites,block
-MAT1001,Giải tích 1,3,,Đại cương
-MAT1002,Giải tích 2,3,MAT1001,Đại cương
+CME1000,Giải tích 1,3,,Đại cương
+FLF1107,Giải tích 2,3,CME1000,Đại cương
 """
     r1 = verified_client.post(
         "/admin/catalog-revisions/import",
@@ -38,8 +30,8 @@ MAT1002,Giải tích 2,3,MAT1001,Đại cương
     rev1_id = r1["revision_id"]
 
     csv2 = """code,name,credits,prerequisites,block
-MAT1001,Giải tích 1 (Mới),4,,Đại cương
-DAT2001,Nhập môn KHDL,3,,Cơ sở ngành
+CME1000,Giải tích 1 (Mới),4,,Đại cương
+FLF1307,Nhập môn KHDL,3,,Cơ sở ngành
 """
     r2 = verified_client.post(
         "/admin/catalog-revisions/import",
@@ -51,9 +43,9 @@ DAT2001,Nhập môn KHDL,3,,Cơ sở ngành
     diff_resp = verified_client.get(f"/admin/catalog-revisions/{rev2_id}/diff?base_revision_id={rev1_id}")
     assert diff_resp.status_code == 200
     diff = diff_resp.json()
-    assert diff["summary"]["added_count"] == 1  # DAT2001 added
-    assert diff["summary"]["removed_count"] == 1  # MAT1002 removed
-    assert diff["summary"]["modified_count"] == 1  # MAT1001 modified (name + credits)
+    assert diff["summary"]["added_count"] == 1  # FLF1307 added
+    assert diff["summary"]["removed_count"] == 1  # FLF1107 removed
+    assert diff["summary"]["modified_count"] == 1  # CME1000 modified (name + credits)
 
     # 3. Test publish before approval fails
     pub_fail = verified_client.post(f"/admin/catalog-revisions/{rev1_id}/publish", json={"reason": "Vội vàng"})
@@ -80,6 +72,10 @@ DAT2001,Nhập môn KHDL,3,,Cơ sở ngành
     assert pub_ok.json()["is_active"] is True
 
     # 6. Approve and Publish rev2 -> rev1 deactivated atomically
+    # A draft prepared before v1 publication has a stale canonical base.
+    verified_client.post(f"/admin/catalog-revisions/{rev2_id}/approve", json={"reason": "Duyệt bản cũ"})
+    assert verified_client.post(f"/admin/catalog-revisions/{rev2_id}/publish", json={"reason": "Bản cũ"}).status_code == 400
+    rev2_id = verified_client.post("/admin/catalog-revisions/import", json={"program_id": "khdl_7460108_2022", "version_title": "v2 reviewed against v1", "csv_content": csv2}).json()["revision_id"]
     verified_client.post(f"/admin/catalog-revisions/{rev2_id}/approve", json={"reason": "Duyệt v2"})
     pub2_ok = verified_client.post(f"/admin/catalog-revisions/{rev2_id}/publish", json={"reason": "Ban hành v2"})
     assert pub2_ok.status_code == 200
@@ -136,7 +132,7 @@ def test_rollback_api_rejects_unreviewed_or_draft_revision(verified_client, fake
         session["role"] = "admin"
 
     csv_draft = """code,name,credits,prerequisites,block
-MAT1001,Giải tích 1,3,,Đại cương
+CME1000,Giải tích 1,3,,Đại cương
 """
     imp_resp = verified_client.post(
         "/admin/catalog-revisions/import",

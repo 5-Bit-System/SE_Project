@@ -4,6 +4,46 @@
 
   const $ = id => document.getElementById(id);
 
+  let adminEpoch = 0;
+  let adminIdentity = '';
+  const readVersions = new Map();
+  async function adminRequest(path, method = 'GET', body) {
+    if (window.systemAuth?.account?.role !== 'admin') throw new DOMException('Admin session changed', 'AbortError');
+    const epoch = adminEpoch;
+    const key = method === 'GET' ? path.split('?')[0] : null;
+    const version = key ? (readVersions.get(key) || 0) + 1 : 0;
+    if (key) readVersions.set(key, version);
+    const result = await window.systemAuth.request(path, method, body);
+    if (epoch !== adminEpoch || (key && readVersions.get(key) !== version)) {
+      throw new DOMException('Superseded admin response', 'AbortError');
+    }
+    return result;
+  }
+  document.addEventListener('workspace:account-change', event => {
+    const account = event.detail;
+    const identity = account ? JSON.stringify([account.account_id, account.session_id, account.role, account.auth_version]) : '';
+    if (identity === adminIdentity) return;
+    adminIdentity = identity; adminEpoch++; readVersions.clear();
+    overviewData = null; isFetching = false;
+    curriculumPrograms = []; currentProgramCourses = []; curriculumRevisions = []; activeProgram = null;
+    currentEditingCourse = null; currentEditingRevisionId = null; editingRuleGroups = [];
+    crawledDocuments = []; currentReviewDoc = null; docsTotal = 0; docsOffset = 0; docsLastSuccessTime = null; isDocsLoading = false;
+    auditLogs = []; auditTotal = 0; auditOffset = 0;
+    announcementsList = []; announcementsTotal = 0;
+    currentPreviewCourses = []; previewProgramsLoaded = false; healthMetricsData = null;
+    document.querySelectorAll('#system-admin dialog').forEach(dialog => dialog.close());
+    document.querySelectorAll('#system-admin tbody, #admin-overview-grid, #admin-doc-preview-pane, #admin-audit-detail-json, #admin-prov-checksum, #admin-prov-publisher, #admin-prov-reason').forEach(node => node.replaceChildren());
+    document.querySelectorAll('#system-admin input, #system-admin textarea').forEach(node => {
+      if (node.type === 'checkbox') node.checked = false;
+      else if (!['button', 'submit'].includes(node.type)) node.value = node.defaultValue;
+    });
+    if (account?.role === 'admin') {
+      const selected = document.querySelector('#system-admin .admin-tab-btn[aria-selected="true"]')?.dataset.adminTab || 'overview';
+      queueMicrotask(() => window.systemAuth?.switchAdminTab(selected));
+    }
+  });
+
+
   let overviewData = null;
   let isFetching = false;
 
@@ -274,11 +314,12 @@
 
     try {
       if (!window.systemAuth?.request) throw new Error('systemAuth not available');
-      const data = await window.systemAuth.request('/admin/overview');
+      const data = await adminRequest('/admin/overview');
       overviewData = data;
       renderOverview(data);
       loadOperationalHealth();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       renderError(err.message || 'Error loading overview');
     } finally {
       isFetching = false;
@@ -304,10 +345,11 @@
   async function loadCurriculum() {
     try {
       if (!window.systemAuth?.request) return;
-      const data = await window.systemAuth.request('/admin/programs');
+      const data = await adminRequest('/admin/programs');
       curriculumPrograms = data || [];
       renderPrograms();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.error('Failed to load curriculum programs:', err);
     }
   }
@@ -425,11 +467,12 @@
     }
 
     try {
-      const data = await window.systemAuth.request('/admin/courses?program_id=' + encodeURIComponent(prog.program_id));
+      const data = await adminRequest('/admin/courses?program_id=' + encodeURIComponent(prog.program_id));
       currentProgramCourses = data || [];
       populateBlockFilter();
       renderCourses();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       if (tbody) {
         tbody.innerHTML = `<tr><td colspan="8" class="admin-empty-state">Lỗi tải học phần: ${err.message}</td></tr>`;
       }
@@ -593,7 +636,7 @@
       // Ensure programs are loaded
       if (curriculumPrograms.length === 0 && window.systemAuth?.request) {
         try {
-          const data = await window.systemAuth.request('/admin/programs');
+          const data = await adminRequest('/admin/programs');
           curriculumPrograms = data || [];
         } catch (_) {}
       }
@@ -647,22 +690,15 @@
       };
 
       try {
-        const csrf = window.systemAuth?.csrf || '';
-        const res = await fetch('/admin/catalog-revisions/import', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(csrf ? { 'X-CSRF-Token': csrf } : {})
-          },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.detail || 'Lỗi nhập dữ liệu bản thảo');
+        if (payload.csv_content.trim().startsWith('{')) {
+          payload.source_bundle = JSON.parse(payload.csv_content);
+          payload.csv_content = '';
         }
+        const data = await adminRequest('/admin/catalog-revisions/import', 'POST', payload);
 
         renderImportPreview(data);
       } catch (err) {
+        if (err.name === 'AbortError') return;
         if (previewDiv) {
           previewDiv.replaceChildren();
           previewDiv.hidden = false;
@@ -841,10 +877,11 @@
   async function loadRevisions() {
     try {
       if (!window.systemAuth?.request) return;
-      const data = await window.systemAuth.request('/admin/catalog-revisions');
+      const data = await adminRequest('/admin/catalog-revisions');
       curriculumRevisions = data || [];
       renderRevisions();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.error('Failed to load curriculum revisions:', err);
     }
   }
@@ -1007,7 +1044,7 @@
     if (content) content.style.display = 'none';
 
     try {
-      const data = await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/provenance`);
+      const data = await adminRequest(`/admin/catalog-revisions/${revisionId}/provenance`);
       const manifest = data.provenance_manifest;
       if (!manifest) throw new Error('Không tìm thấy dữ liệu chứng thực');
 
@@ -1089,6 +1126,7 @@
       if (loading) loading.style.display = 'none';
       if (content) content.style.display = 'flex';
     } catch (err) {
+        if (err.name === 'AbortError') return;
       if (loading) loading.style.display = 'none';
       alert(`Không tải được chứng thực xuất bản: ${err.message}`);
       modal.close();
@@ -1107,7 +1145,7 @@
     diffModal.showModal();
 
     try {
-      const data = await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/diff`);
+      const data = await adminRequest(`/admin/catalog-revisions/${revisionId}/diff`);
       if (targetPill) targetPill.textContent = `Bản thảo: ${data.revision_id}`;
       if (basePill) basePill.textContent = `So với: ${data.base_revision_id || 'Chưa có bản phát hành'}`;
 
@@ -1194,6 +1232,7 @@
 
       if (detailsContainer) detailsContainer.innerHTML = detailsHtml;
     } catch (err) {
+        if (err.name === 'AbortError') return;
       if (statsGrid) statsGrid.innerHTML = `<span class="err-msg">Lỗi so sánh: ${err.message}</span>`;
     }
   }
@@ -1203,25 +1242,27 @@
     if (!reason || reason.trim().length < 3) return;
 
     try {
-      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/approve`, 'POST', { reason: reason.trim() });
+      await adminRequest(`/admin/catalog-revisions/${revisionId}/approve`, 'POST', { reason: reason.trim() });
       await loadRevisions();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert(`Lỗi phê duyệt: ${err.message}`);
     }
   }
 
   async function handlePublishRevision(revisionId) {
-    const confirmed = window.confirm(`XÁC NHẬN PHÁT HÀNH:\n\nBạn có chắc chắn muốn phát hành phiên bản [${revisionId}] thành chương trình đào tạo chính thức đang hoạt động?\nPhiên bản đang chạy trước đó sẽ được chuyển vào kho lưu trữ an toàn.`);
+    const confirmed = window.confirm(`XÁC NHẬN PHÁT HÀNH:\n\nSử dụng phiên bản [${revisionId}] làm catalog hiện tại?\nĐây là quyết định xuất bản trong ứng dụng, không xác nhận học vụ chính thức. Bản trước được giữ để khôi phục.`);
     if (!confirmed) return;
 
     const reason = window.prompt('Nhập quyết định / lý do phát hành (Bắt buộc):', 'Ban hành áp dụng từ năm học 2026-2027');
     if (!reason || reason.trim().length < 3) return;
 
     try {
-      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/publish`, 'POST', { reason: reason.trim() });
+      await adminRequest(`/admin/catalog-revisions/${revisionId}/publish`, 'POST', { reason: reason.trim() });
       await loadRevisions();
       if (window.adminCurriculum?.load) window.adminCurriculum.load();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert(`Lỗi phát hành: ${err.message}`);
     }
   }
@@ -1234,10 +1275,11 @@
     if (!reason || reason.trim().length < 3) return;
 
     try {
-      await window.systemAuth.request(`/admin/catalog-revisions/${revisionId}/rollback`, 'POST', { reason: reason.trim() });
+      await adminRequest(`/admin/catalog-revisions/${revisionId}/rollback`, 'POST', { reason: reason.trim() });
       await loadRevisions();
       if (window.adminCurriculum?.load) window.adminCurriculum.load();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert(`Lỗi khôi phục: ${err.message}`);
     }
   }
@@ -1251,7 +1293,7 @@
 
   async function openRevisionRulesPicker(rev) {
     try {
-      const data = await window.systemAuth.request(`/admin/catalog-revisions/${rev.revision_id}`);
+      const data = await adminRequest(`/admin/catalog-revisions/${rev.revision_id}`);
       const courses = (data.payload || {}).courses || [];
       if (courses.length === 0) {
         alert('Bản thảo này không có danh sách học phần.');
@@ -1269,6 +1311,7 @@
       }
       openPrereqEditor(targetCourse, rev.revision_id);
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert(`Lỗi: ${err.message}`);
     }
   }
@@ -1280,7 +1323,7 @@
     if (!revisionId) {
       if (curriculumRevisions.length === 0 && window.systemAuth?.request) {
         try {
-          curriculumRevisions = await window.systemAuth.request('/admin/catalog-revisions') || [];
+          curriculumRevisions = await adminRequest('/admin/catalog-revisions') || [];
         } catch (_) {}
       }
       const targetRev = curriculumRevisions.find(r => r.program_id === activeProgram?.program_id && r.is_active)
@@ -1458,23 +1501,8 @@
         .filter(grp => grp.length > 0);
 
       try {
-        const csrf = window.systemAuth?.csrf || '';
-        const res = await fetch(`/admin/catalog-revisions/${currentEditingRevisionId}/courses/${currentEditingCourse.code}/prerequisites`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(csrf ? { 'X-CSRF-Token': csrf } : {})
-          },
-          body: JSON.stringify({
-            prerequisites: cleaned,
-            reason: reason
-          })
-        });
-
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.detail || 'Lỗi khi lưu quy tắc tiên quyết');
-        }
+        const data = await adminRequest(`/admin/catalog-revisions/${currentEditingRevisionId}/courses/${currentEditingCourse.code}/prerequisites`,
+          'PUT', {prerequisites: cleaned, reason});
 
         currentEditingCourse.prerequisites = data.prerequisites;
         modal.close();
@@ -1487,6 +1515,7 @@
           : `Đã cập nhật quy tắc tiên quyết cho môn ${data.course_code}!`;
         alert(msg);
       } catch (err) {
+        if (err.name === 'AbortError') return;
         if (errAlert) {
           errAlert.hidden = false;
           errAlert.textContent = err.message;
@@ -1549,7 +1578,6 @@
   }
 
   async function loadDocuments() {
-    if (isDocsLoading) return;
     isDocsLoading = true;
     const errorBanner = $('admin-docs-error-banner');
     if (errorBanner) errorBanner.style.display = 'none';
@@ -1578,7 +1606,7 @@
       if (status !== 'all') url += `&status=${encodeURIComponent(status)}`;
       if (search) url += `&search=${encodeURIComponent(search)}`;
 
-      const data = await window.systemAuth.request(url);
+      const data = await adminRequest(url);
       crawledDocuments = data.documents || [];
       docsTotal = data.total || 0;
       docsLastSuccessTime = new Date();
@@ -1589,6 +1617,7 @@
       renderCrawlerDocuments();
       updateDocsPagination();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.error('Failed to load crawled documents:', err);
       const errorMsg = $('admin-docs-error-msg');
       if (errorBanner) errorBanner.style.display = 'flex';
@@ -1699,7 +1728,7 @@
     if (!modal) return;
 
     try {
-      const doc = await window.systemAuth.request(`/admin/crawler/documents/${docId}`);
+      const doc = await adminRequest(`/admin/crawler/documents/${docId}`);
       currentReviewDoc = doc;
 
       if ($('admin-doc-modal-title')) $('admin-doc-modal-title').textContent = doc.title;
@@ -1764,6 +1793,7 @@
 
       modal.showModal();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert(`Lỗi tải chi tiết tài liệu: ${err.message}`);
     }
   }
@@ -1812,10 +1842,12 @@
       };
 
       try {
-        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/metadata`, 'PUT', payload);
+        const updated = await adminRequest(`/admin/crawler/documents/${currentReviewDoc.id}/metadata`, 'PUT', payload);
+        await openDocumentReviewModal(updated.id);
         alert('Đã cập nhật metadata thành công!');
         await loadDocuments();
       } catch (err) {
+        if (err.name === 'AbortError') return;
         alert(`Lỗi cập nhật metadata: ${err.message}`);
       } finally {
         if (btn) btn.disabled = false;
@@ -1833,11 +1865,12 @@
       }
 
       try {
-        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/approve`, 'POST', { reason });
+        await adminRequest(`/admin/crawler/documents/${currentReviewDoc.id}/approve`, 'POST', { reason });
         modal?.close();
         await loadDocuments();
         alert(`Đã phê duyệt tài liệu [${currentReviewDoc.id}]!`);
       } catch (err) {
+        if (err.name === 'AbortError') return;
         alert(`Lỗi phê duyệt: ${err.message}`);
       }
     });
@@ -1853,11 +1886,12 @@
       }
 
       try {
-        await window.systemAuth.request(`/admin/crawler/documents/${currentReviewDoc.id}/reject`, 'POST', { reason });
+        await adminRequest(`/admin/crawler/documents/${currentReviewDoc.id}/reject`, 'POST', { reason });
         modal?.close();
         await loadDocuments();
         alert(`Đã từ chối tài liệu [${currentReviewDoc.id}].`);
       } catch (err) {
+        if (err.name === 'AbortError') return;
         alert(`Lỗi từ chối: ${err.message}`);
       }
     });
@@ -1876,7 +1910,7 @@
   async function loadAuditMetrics() {
     try {
       if (!window.systemAuth?.request) return;
-      const metrics = await window.systemAuth.request('/admin/audit-logs/metrics');
+      const metrics = await adminRequest('/admin/audit-logs/metrics');
       if (metrics) {
         const kpiTot = $('admin-audit-kpi-total');
         if (kpiTot) kpiTot.textContent = metrics.total_events ?? 0;
@@ -1886,6 +1920,7 @@
         if (kpiWarn) kpiWarn.textContent = metrics.failed_or_warn_count ?? 0;
       }
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.warn('Could not load audit metrics:', err);
     }
   }
@@ -1908,12 +1943,13 @@
 
     try {
       if (!window.systemAuth?.request) return;
-      const data = await window.systemAuth.request(`/admin/audit-logs?${params.toString()}`);
+      const data = await adminRequest(`/admin/audit-logs?${params.toString()}`);
       auditLogs = data.items || [];
       auditTotal = data.total || 0;
       renderAuditTable();
       renderAuditPagination();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       if (tbody) tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #ef4444; padding: 18px;">Lỗi tải nhật ký: ${escapeHtml(err.message)}</td></tr>`;
     }
   }
@@ -2058,7 +2094,7 @@
 
     if (!previewProgramsLoaded) {
       try {
-        const progs = await window.systemAuth.request('/admin/programs');
+        const progs = await adminRequest('/admin/programs');
         progSelect.innerHTML = progs.map(p => `
           <option value="${p.program_id}">${p.name} (${p.program_id})</option>
         `).join('');
@@ -2067,6 +2103,7 @@
           loadPreviewCourses(progs[0].program_id);
         }
       } catch (err) {
+        if (err.name === 'AbortError') return;
         console.warn('Failed to load programs for preview:', err);
       }
     }
@@ -2078,10 +2115,11 @@
     picker.innerHTML = '<div style="color: var(--text-muted); font-size: 12px; padding: 8px;">Đang tải danh sách học phần...</div>';
 
     try {
-      const data = await window.systemAuth.request(`/admin/courses?program_id=${encodeURIComponent(programId)}`);
+      const data = await adminRequest(`/admin/courses?program_id=${encodeURIComponent(programId)}`);
       currentPreviewCourses = Array.isArray(data) ? data : (data.courses || []);
       renderPreviewCheckboxes(currentPreviewCourses);
     } catch (err) {
+        if (err.name === 'AbortError') return;
       picker.innerHTML = '<div style="color: #ef4444; font-size: 12px; padding: 8px;">Không thể tải danh sách học phần.</div>';
     }
   }
@@ -2151,7 +2189,7 @@
     const goal = $('admin-preview-goal-input')?.value || '';
 
     try {
-      const res = await window.systemAuth.request('/admin/recommendations/preview', 'POST', {
+      const res = await adminRequest('/admin/recommendations/preview', 'POST', {
         program_id: progId,
         passed_course_codes: checkedCodes,
         max_credits: maxCredits,
@@ -2159,6 +2197,7 @@
       });
       renderPreviewResults(res);
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert('Lỗi mô phỏng: ' + (err.message || 'Không thể thực hiện mô phỏng'));
     } finally {
       if (runBtn) {
@@ -2319,11 +2358,12 @@
 
   async function loadAnnouncementsSummary() {
     try {
-      const summary = await window.systemAuth.request('/admin/announcements/summary');
+      const summary = await adminRequest('/admin/announcements/summary');
       if ($('admin-ann-kpi-total')) $('admin-ann-kpi-total').textContent = summary.total || 0;
       if ($('admin-ann-kpi-published')) $('admin-ann-kpi-published').textContent = summary.published || 0;
       if ($('admin-ann-kpi-other')) $('admin-ann-kpi-other').textContent = (summary.draft || 0) + (summary.expired || 0);
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.warn('Failed to load announcements summary:', err);
     }
   }
@@ -2339,11 +2379,12 @@
     if (q.trim()) params.set('q', q.trim());
 
     try {
-      const data = await window.systemAuth.request(`/admin/announcements?${params.toString()}`);
+      const data = await adminRequest(`/admin/announcements?${params.toString()}`);
       announcementsList = data.items || [];
       announcementsTotal = data.total || 0;
       renderAnnouncementsTable();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.warn('Failed to fetch announcements:', err);
     }
   }
@@ -2405,9 +2446,10 @@
       btn.addEventListener('click', async (e) => {
         const id = e.currentTarget.dataset.id;
         try {
-          await window.systemAuth.request(`/admin/announcements/${id}/publish`, 'POST');
+          await adminRequest(`/admin/announcements/${id}/publish`, 'POST');
           loadAnnouncements();
         } catch (err) {
+        if (err.name === 'AbortError') return;
           alert('Không thể phát hành thông báo: ' + err.message);
         }
       });
@@ -2417,9 +2459,10 @@
       btn.addEventListener('click', async (e) => {
         const id = e.currentTarget.dataset.id;
         try {
-          await window.systemAuth.request(`/admin/announcements/${id}/expire`, 'POST');
+          await adminRequest(`/admin/announcements/${id}/expire`, 'POST');
           loadAnnouncements();
         } catch (err) {
+        if (err.name === 'AbortError') return;
           alert('Không thể chuyển trạng thái hết hạn: ' + err.message);
         }
       });
@@ -2430,9 +2473,10 @@
         const id = e.currentTarget.dataset.id;
         if (!confirm('Bạn có chắc chắn muốn xóa thông báo này?')) return;
         try {
-          await window.systemAuth.request(`/admin/announcements/${id}`, 'DELETE');
+          await adminRequest(`/admin/announcements/${id}`, 'DELETE');
           loadAnnouncements();
         } catch (err) {
+        if (err.name === 'AbortError') return;
           alert('Không thể xóa thông báo: ' + err.message);
         }
       });
@@ -2464,7 +2508,7 @@
     const content = $('admin-ann-input-content')?.value || '';
 
     try {
-      await window.systemAuth.request('/admin/announcements', 'POST', {
+      await adminRequest('/admin/announcements', 'POST', {
         title,
         source_url: sourceUrl,
         audience,
@@ -2475,6 +2519,7 @@
       annModal?.close();
       loadAnnouncements();
     } catch (err) {
+        if (err.name === 'AbortError') return;
       alert('Không thể tạo thông báo: ' + err.message);
     }
   });
@@ -2509,10 +2554,11 @@
     currentHealthWindow = win;
     try {
       if (!window.systemAuth?.request) return;
-      const data = await window.systemAuth.request(`/admin/metrics/health?window=${encodeURIComponent(win)}`);
+      const data = await adminRequest(`/admin/metrics/health?window=${encodeURIComponent(win)}`);
       healthMetricsData = data;
       renderOperationalHealth(data);
     } catch (err) {
+        if (err.name === 'AbortError') return;
       console.warn('Failed to load operational health:', err);
     }
   }
@@ -2541,6 +2587,14 @@
 
   function renderOperationalHealth(data) {
     if (!data) return;
+    let scopeNote = $('admin-health-scope');
+    if (!scopeNote) {
+      scopeNote = document.createElement('p');
+      scopeNote.id = 'admin-health-scope';
+      scopeNote.className = 'muted-copy';
+      $('admin-health-kpi-grid')?.before(scopeNote);
+    }
+    scopeNote.textContent = data.note || 'Số liệu phiên chạy hiện tại; được đặt lại khi ứng dụng khởi động lại.';
 
     // 1. Health KPI cards
     const kpiGrid = $('admin-health-kpi-grid');

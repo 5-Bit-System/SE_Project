@@ -1,25 +1,18 @@
 """API and integration tests for admin action audit logs."""
 
-import os
 import uuid
-from pathlib import Path
 
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine
+
+from tests.support.admin_database import admin_test_engine, admin_test_url
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("PostgreSQL database URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
@@ -38,9 +31,8 @@ def test_audit_log_lifecycle_and_actions(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
 
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    eng = create_engine(url)
+    admin_test_url()
+    eng = admin_test_engine()
 
     # 1. Trigger an administrative action: approve a document
     doc_id = f"doc_audit_{uuid.uuid4().hex[:6]}"

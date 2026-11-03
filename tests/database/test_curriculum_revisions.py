@@ -1,12 +1,5 @@
-"""Database tests for versioned curriculum revisions and audit schema."""
-
-import os
-import uuid
-from pathlib import Path
-
+"""Runtime-backed revision lifecycles on rollback-only test transactions."""
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine
 
 from app.curriculum.publication_gate import compute_payload_digest
 from app.curriculum.repository import (
@@ -19,209 +12,70 @@ from app.curriculum.repository import (
     rollback_revision,
     update_validation,
 )
+from tests.support.admin_catalog import PROGRAM, complete_draft
+from tests.support.admin_database import admin_test_engine
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
-
-
 @pytest.fixture
 def db_conn():
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("DATABASE_URL not found in environment or .env")
-    engine = create_engine(url)
-    with engine.begin() as conn:
+    with admin_test_engine().begin() as conn:
         yield conn
-    engine.dispose()
 
+def approve_publish(conn, rev):
+    review_revision(conn, rev['revision_id'], None, 'approved', 'Synthetic review')
+    return publish_revision(conn, rev['revision_id'], None, 'Synthetic publish')
 
 def test_create_curriculum_revision(db_conn):
-    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
-    revision = create_revision(
-        db_conn,
-        program_id=program_id,
-        version_title="K2026 Chuẩn dự thảo",
-        cohort="K2026",
-        source_filename="k2026_test.csv",
-        source_digest="abc123sha256fake",
-        payload={"courses": [{"code": "MAT1001", "name": "Giải tích 1", "credits": 3}]},
-        created_by=None,
-    )
-
-    assert revision["revision_id"] is not None
-    assert revision["program_id"] == program_id
-    assert revision["status"] == "draft"
-    assert revision["is_active"] is False
-    assert revision["payload"]["courses"][0]["code"] == "MAT1001"
-
-    fetched = get_revision(db_conn, revision["revision_id"])
-    assert fetched is not None
-    assert fetched["revision_id"] == revision["revision_id"]
-
+    rev = complete_draft(db_conn)
+    assert rev['status'] == 'validated' and not rev['is_active']
+    assert get_revision(db_conn, rev['revision_id'])['payload'] == rev['payload']
+    assert rev['payload']['runtime_catalog']['program']['program_id'] == PROGRAM
 
 def test_status_transitions_and_review_audit(db_conn):
-    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
-    rev = create_revision(
-        db_conn,
-        program_id=program_id,
-        version_title="K2026 v1",
-        source_digest="digest_test_123",
-        payload={"courses": []},
-    )
-    rev_id = rev["revision_id"]
-
-    # 1. Update validation
-    from app.curriculum.publication_gate import compute_payload_digest
-
-    summary = {
-        "valid": True,
-        "errors": [],
-        "warnings": ["Missing prereq for MAT1002"],
-        "course_count": 10,
-        "payload_digest": compute_payload_digest(rev["payload"]),
-    }
-    validated = update_validation(db_conn, rev_id, status="validated", validation_summary=summary)
-    assert validated["status"] == "validated"
-    assert validated["validation_summary"]["course_count"] == 10
-
-    # 2. Review and approve
-    reviewed = review_revision(
-        db_conn,
-        rev_id,
-        reviewer_id=None,
-        decision="approved",
-        reason="Đã đối chiếu với bản in gốc",
-        notes="Cho phép xuất bản",
-    )
-    assert reviewed["status"] == "approved"
-    assert reviewed["review_decision"] == "approved"
-
-    # 3. Publish
-    published = publish_revision(
-        db_conn,
-        rev_id,
-        publisher_id=None,
-        reason="Ban hành kỳ 1 năm học 2026-2027",
-    )
-    assert published["status"] == "published"
-    assert published["is_active"] is True
-
-    # Check active pointer
-    active = get_active_revision(db_conn, program_id)
-    assert active["revision_id"] == rev_id
-
-    # Check review history audit
-    reviews = list_reviews(db_conn, rev_id)
-    actions = [r["action"] for r in reviews]
-    assert "created" in actions
-    assert "validated" in actions
-    assert "approved" in actions
-    assert "published" in actions
-
+    rev = complete_draft(db_conn)
+    published = approve_publish(db_conn, rev)
+    assert published['status'] == 'published' and published['is_active']
+    assert get_active_revision(db_conn, PROGRAM)['revision_id'] == rev['revision_id']
+    assert {'created','validated','approved','published'} <= {r['action'] for r in list_reviews(db_conn, rev['revision_id'])}
 
 def test_only_one_active_revision_and_rollback(db_conn):
-    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
-    rev1 = create_revision(db_conn, program_id=program_id, version_title="v1", source_digest="d1", payload={"v": 1})
-    rev2 = create_revision(db_conn, program_id=program_id, version_title="v2", source_digest="d2", payload={"v": 2})
-
-    # Validate both before approval
-    val1 = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(rev1["payload"])}
-    val2 = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(rev2["payload"])}
-    update_validation(db_conn, rev1["revision_id"], status="validated", validation_summary=val1)
-    update_validation(db_conn, rev2["revision_id"], status="validated", validation_summary=val2)
-
-    # Approve both
-    review_revision(db_conn, rev1["revision_id"], reviewer_id=None, decision="approved", reason="OK v1")
-    review_revision(db_conn, rev2["revision_id"], reviewer_id=None, decision="approved", reason="OK v2")
-
-    # Publish v1
-    publish_revision(db_conn, rev1["revision_id"], publisher_id=None, reason="Publish v1")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == rev1["revision_id"]
-
-    # Publish v2 -> v1 is deactivated atomically
-    publish_revision(db_conn, rev2["revision_id"], publisher_id=None, reason="Publish v2")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == rev2["revision_id"]
-
-    v1_rechecked = get_revision(db_conn, rev1["revision_id"])
-    assert v1_rechecked["is_active"] is False
-
-    # Rollback to v1
-    rollback_revision(db_conn, program_id, rev1["revision_id"], user_id=None, reason="Phát hiện lỗi ở v2")
-    active_now = get_active_revision(db_conn, program_id)
-    assert active_now["revision_id"] == rev1["revision_id"]
-    assert active_now["is_active"] is True
-
+    a = complete_draft(db_conn, 'A')
+    approve_publish(db_conn, a)
+    b = complete_draft(db_conn, 'B')
+    approve_publish(db_conn, b)
+    assert not get_revision(db_conn, a['revision_id'])['is_active']
+    assert get_active_revision(db_conn, PROGRAM)['revision_id'] == b['revision_id']
+    rollback_revision(db_conn, PROGRAM, a['revision_id'], None, 'Synthetic rollback')
+    assert get_active_revision(db_conn, PROGRAM)['revision_id'] == a['revision_id']
 
 def test_approval_rejects_missing_or_stale_validation(db_conn):
-    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
-    rev = create_revision(
-        db_conn,
-        program_id=program_id,
-        version_title="Dự thảo chưa kiểm thử",
-        source_digest="digest_raw",
-        payload={"courses": [{"code": "MAT1001", "name": "Giải tích 1", "credits": 3}]},
-    )
-    rev_id = rev["revision_id"]
-
-    # 1. Unvalidated revision cannot be approved
-    with pytest.raises(ValueError, match=r"validate|validation"):
-        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt mù")
-
-    # 2. Validation with errors cannot be approved
-    bad_summary = {"valid": False, "errors": [{"message": "Lỗi dữ liệu"}], "warnings": []}
-    update_validation(db_conn, rev_id, status="draft", validation_summary=bad_summary)
-    with pytest.raises(ValueError, match=r"validate|validation"):
-        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt khi có lỗi")
-
-    # 3. Validation with stale digest cannot be approved
-    stale_summary = {"valid": True, "errors": [], "payload_digest": "stale_hash_12345"}
-    update_validation(db_conn, rev_id, status="validated", validation_summary=stale_summary)
-    with pytest.raises(ValueError, match="stale|digest"):
-        review_revision(db_conn, rev_id, reviewer_id=None, decision="approved", reason="Duyệt với digest cũ")
-
+    payload = {'courses': [{'code': 'A', 'name': 'A', 'credits': 3}]}
+    rev = create_revision(db_conn, PROGRAM, 'Invalid review', payload, 'synthetic')
+    with pytest.raises(ValueError, match='validat'):
+        review_revision(db_conn, rev['revision_id'], None, 'approved', 'Synthetic review')
+    bad = {'valid': False, 'errors': ['invalid'], 'payload_digest': compute_payload_digest(payload)}
+    update_validation(db_conn, rev['revision_id'], 'draft', bad)
+    with pytest.raises(ValueError, match='validat'):
+        review_revision(db_conn, rev['revision_id'], None, 'approved', 'Synthetic review')
+    with pytest.raises(ValueError, match='Stale'):
+        update_validation(db_conn, rev['revision_id'], 'validated', {'valid': True, 'payload_digest': 'stale'})
 
 def test_rollback_restrictions_fail_closed(db_conn):
-    program_id = f"test_prog_{uuid.uuid4().hex[:6]}"
-    other_prog = f"test_other_{uuid.uuid4().hex[:6]}"
-
-    # Published initial revision (active)
-    v1 = create_revision(db_conn, program_id=program_id, version_title="v1 Đã xuất bản", source_digest="d1", payload={"v": 1})
-    val1 = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(v1["payload"])}
-    update_validation(db_conn, v1["revision_id"], status="validated", validation_summary=val1)
-    review_revision(db_conn, v1["revision_id"], reviewer_id=None, decision="approved", reason="Duyệt v1")
-    publish_revision(db_conn, v1["revision_id"], publisher_id=None, reason="Xuất bản v1")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == v1["revision_id"]
-
-    # 1. Reject rollback to a draft revision
-    draft_rev = create_revision(db_conn, program_id=program_id, version_title="Bản nháp", source_digest="d_draft", payload={"v": "draft"})
-    with pytest.raises(ValueError, match="previously published|status"):
-        rollback_revision(db_conn, program_id, draft_rev["revision_id"], user_id=None, reason="Thử lùi về nháp")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == v1["revision_id"]
-
-    # 2. Reject rollback to a rejected revision
-    rej_rev = create_revision(db_conn, program_id=program_id, version_title="Bản từ chối", source_digest="d_rej", payload={"v": "rej"})
-    review_revision(db_conn, rej_rev["revision_id"], reviewer_id=None, decision="rejected", reason="Từ chối")
-    with pytest.raises(ValueError, match="previously published|status"):
-        rollback_revision(db_conn, program_id, rej_rev["revision_id"], user_id=None, reason="Thử lùi về bị từ chối")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == v1["revision_id"]
-
-    # 3. Reject rollback to an approved-but-never-published revision
-    appr_rev = create_revision(db_conn, program_id=program_id, version_title="Bản duyệt chưa xuất bản", source_digest="d_appr", payload={"v": "appr"})
-    val_appr = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(appr_rev["payload"])}
-    update_validation(db_conn, appr_rev["revision_id"], status="validated", validation_summary=val_appr)
-    review_revision(db_conn, appr_rev["revision_id"], reviewer_id=None, decision="approved", reason="Đã duyệt")
-    with pytest.raises(ValueError, match="previously published|status"):
-        rollback_revision(db_conn, program_id, appr_rev["revision_id"], user_id=None, reason="Thử lùi về duyệt nhưng chưa xuất bản")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == v1["revision_id"]
-
-    # 4. Reject rollback to another program's published revision
-    other_rev = create_revision(db_conn, program_id=other_prog, version_title="v1 Ngành khác", source_digest="d_other", payload={"v": "other"})
-    val_other = {"valid": True, "errors": [], "payload_digest": compute_payload_digest(other_rev["payload"])}
-    update_validation(db_conn, other_rev["revision_id"], status="validated", validation_summary=val_other)
-    review_revision(db_conn, other_rev["revision_id"], reviewer_id=None, decision="approved", reason="Duyệt ngành khác")
-    publish_revision(db_conn, other_rev["revision_id"], publisher_id=None, reason="Xuất bản ngành khác")
-    with pytest.raises(ValueError, match="belongs to|not"):
-        rollback_revision(db_conn, program_id, other_rev["revision_id"], user_id=None, reason="Thử lùi về ngành khác")
-    assert get_active_revision(db_conn, program_id)["revision_id"] == v1["revision_id"]
+    active = complete_draft(db_conn, 'Active')
+    approve_publish(db_conn, active)
+    draft = complete_draft(db_conn, 'Draft')
+    with pytest.raises(ValueError, match='previously published'):
+        rollback_revision(db_conn, PROGRAM, draft['revision_id'], None, 'Invalid rollback')
+    review_revision(db_conn, draft['revision_id'], None, 'rejected', 'Synthetic rejection')
+    with pytest.raises(ValueError, match='previously published'):
+        rollback_revision(db_conn, PROGRAM, draft['revision_id'], None, 'Invalid rollback')
+    approved = complete_draft(db_conn, 'Approved')
+    review_revision(db_conn, approved['revision_id'], None, 'approved', 'Synthetic review')
+    with pytest.raises(ValueError, match='previously published'):
+        rollback_revision(db_conn, PROGRAM, approved['revision_id'], None, 'Invalid rollback')
+    other = complete_draft(db_conn, 'Other', 'toan_tin_7460117_2022')
+    approve_publish(db_conn, other)
+    with pytest.raises(ValueError, match='belongs to'):
+        rollback_revision(db_conn, PROGRAM, other['revision_id'], None, 'Invalid rollback')
+    assert get_active_revision(db_conn, PROGRAM)['revision_id'] == active['revision_id']

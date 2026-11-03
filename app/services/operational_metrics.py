@@ -6,12 +6,15 @@ Never collects or retains student transcripts, grade details, passwords, or toke
 Truthfully returns status 'unavailable' and value None when data is not recorded.
 """
 
+import inspect
 import math
 import re
 import threading
+import time
 from collections import Counter, deque
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from functools import wraps
 from typing import Any
 
 
@@ -85,6 +88,7 @@ class OperationalMetricsRecorder:
         self._requests: deque[RequestMetric] = deque(maxlen=max_requests)
         self._consultations: deque[ConsultationEvent] = deque(maxlen=max_consultations)
         self._feedbacks: deque[FeedbackSignal] = deque(maxlen=max_feedbacks)
+        self.started_at = datetime.now(timezone.utc)
 
     def clear(self) -> None:
         """Clear all in-memory buffers (primarily for tests)."""
@@ -300,6 +304,9 @@ class OperationalMetricsRecorder:
             "window_end": now.isoformat(),
             "sample_count": total_requests + len(consultations) + len(feedbacks),
             "source": "runtime:operational_metrics",
+            "scope": "current_process",
+            "started_at": self.started_at.isoformat(),
+            "note": "Số liệu giới hạn trong phiên chạy hiện tại, được đặt lại khi khởi động ứng dụng.",
             "overall_health": overall_health,
             "route_groups": route_groups_data,
             "consultation_health": consultation_health,
@@ -313,3 +320,21 @@ metrics_recorder = OperationalMetricsRecorder()
 def get_operational_health(window: str = "24h") -> dict[str, Any]:
     """Helper entry point for retrieving operational health metrics."""
     return metrics_recorder.get_health(window=window)
+
+
+def measured_consultation(kind):
+    def decorate(function):
+        @wraps(function)
+        async def measured(*args, **kwargs):
+            started = time.perf_counter()
+            try:
+                result = await function(*args, **kwargs)
+            except Exception as exc:
+                metrics_recorder.record_consultation(kind, False, (time.perf_counter()-started)*1000,
+                    failure_reason=f'HTTP_{exc.status_code}' if hasattr(exc, 'status_code') else type(exc).__name__)
+                raise
+            metrics_recorder.record_consultation(kind, True, (time.perf_counter()-started)*1000)
+            return result
+        measured.__signature__ = inspect.signature(function, eval_str=True)
+        return measured
+    return decorate

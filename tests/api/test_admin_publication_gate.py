@@ -1,25 +1,19 @@
 """End-to-end API tests for curriculum publication gate and provenance manifest."""
 
-import os
 import uuid
-from pathlib import Path
 
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
+
+from tests.support.admin_database import admin_test_engine, admin_test_url
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("PostgreSQL database URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
@@ -27,9 +21,8 @@ def test_publication_gate_full_lifecycle(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
 
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    eng = create_engine(url)
+    admin_test_url()
+    eng = admin_test_engine()
 
     # 1. Insert test crawled document directly in pending status
     doc_id = f"doc_gate_{uuid.uuid4().hex[:8]}"
@@ -47,7 +40,7 @@ def test_publication_gate_full_lifecycle(verified_client, fake_accounts):
             {
                 "id": doc_id,
                 "url": "https://hus.vnu.edu.vn/ctdt-khdl-gate.pdf",
-                "hash": "abc123hash",
+                "hash": __import__('hashlib').sha256('# Nội dung CTĐT KHDL'.encode()).hexdigest(),
                 "title": "Chương trình chuẩn KHDL 2022",
                 "major": "data_science",
                 "doc_type": "curriculum",
@@ -58,8 +51,8 @@ def test_publication_gate_full_lifecycle(verified_client, fake_accounts):
 
     # 2. Import a curriculum revision and approve it
     csv_data = """code,name,credits,prerequisites,block
-DAT1001,Nhập môn KHDL,3,,Cơ sở ngành
-DAT1002,Lập trình Python,3,,Cơ sở ngành
+CME1000,Nhập môn KHDL,3,,Cơ sở ngành
+FLF1107,Lập trình Python,3,,Cơ sở ngành
 """
     import_resp = verified_client.post(
         "/admin/catalog-revisions/import",

@@ -45,7 +45,7 @@ def test_build_provenance_manifest():
         reason="Ban hành kỳ 1",
     )
 
-    assert manifest["manifest_version"] == "1.0"
+    assert manifest["manifest_version"] == "2.0"
     assert manifest["revision_id"] == "rev_test_123"
     assert manifest["program_id"] == "khdl_7460108_2022"
     assert manifest["documents_count"] == 1
@@ -70,7 +70,7 @@ def test_validate_publication_gate_status_and_errors(monkeypatch):
 
     # Case 1: Target revision not found
     monkeypatch.setattr(
-        "app.curriculum.publication_gate.get_revision",
+        "app.curriculum.publication_gate.locked_revision",
         lambda conn, rev_id: None,
     )
     with pytest.raises(ValueError, match="not found"):
@@ -78,7 +78,7 @@ def test_validate_publication_gate_status_and_errors(monkeypatch):
 
     # Case 2: Status is draft, not approved
     monkeypatch.setattr(
-        "app.curriculum.publication_gate.get_revision",
+        "app.curriculum.publication_gate.locked_revision",
         lambda conn, rev_id: {"revision_id": "r1", "status": "draft", "validation_summary": {}},
     )
     with pytest.raises(ValueError, match="Must be 'approved'"):
@@ -86,7 +86,7 @@ def test_validate_publication_gate_status_and_errors(monkeypatch):
 
     # Case 3: Validation summary contains errors
     monkeypatch.setattr(
-        "app.curriculum.publication_gate.get_revision",
+        "app.curriculum.publication_gate.locked_revision",
         lambda conn, rev_id: {
             "revision_id": "r2",
             "status": "approved",
@@ -102,15 +102,16 @@ def test_validate_publication_gate_linked_documents(monkeypatch):
 
     mock_conn = MagicMock()
 
-    digest_val = compute_payload_digest({})
+    payload = {"courses": [{"code": "A", "name": "A", "credits": 3}]}
+    digest_val = compute_payload_digest(payload)
     rev = {
         "revision_id": "r_ok",
         "status": "approved",
         "validation_summary": {"valid": True, "errors": [], "payload_digest": digest_val},
-        "payload": {},
+        "payload": payload,
     }
     monkeypatch.setattr(
-        "app.curriculum.publication_gate.get_revision",
+        "app.curriculum.publication_gate.locked_revision",
         lambda conn, rev_id: rev,
     )
 
@@ -146,7 +147,9 @@ def test_validate_publication_gate_linked_documents(monkeypatch):
         "id": "doc_appr",
         "title": "Chương trình chuẩn",
         "review_status": "approved",
-        "content_hash": "hash_appr",
+        "content_hash": hashlib.sha256(b'Synthetic').hexdigest(),
+        "markdown_content": "Synthetic",
+        "url": "https://example.invalid/source",
     }
     mock_conn.execute.return_value.mappings.return_value.one_or_none.return_value = approved_doc
     target, approved_list = validate_publication_gate(

@@ -1,11 +1,6 @@
 """Unit tests for document review service, sanitization, and deduplication."""
 
-import os
-from pathlib import Path
-
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine
 
 from app.crawler.document_review_service import (
     create_document,
@@ -14,17 +9,12 @@ from app.crawler.document_review_service import (
     sanitize_markdown_for_preview,
     update_document_metadata,
 )
-
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+from tests.support.admin_database import admin_test_engine
 
 
 @pytest.fixture(scope="module")
 def db_engine():
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("DATABASE_URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     try:
         with eng.connect():
             pass
@@ -143,6 +133,10 @@ def test_metadata_update_on_approved_or_published_document_revokes_approval(db_e
         assert upd["reviewed_at"] is None
 
         # Subsequent re-approval applies to the edited document
-        re_app = review_document(conn, doc_id, decision="approved", reason="Duyệt lại bản sửa đổi")
+        assert upd["id"] != doc_id
+        preserved = create_document.__globals__["get_document"](conn, doc_id)
+        assert preserved["title"] == doc_approved["title"]
+        assert preserved["is_published"] is True
+        re_app = review_document(conn, upd["id"], decision="approved", reason="Duyệt lại bản sửa đổi")
         assert re_app["review_status"] == "approved"
         assert re_app["title"] == "Tiêu đề đã sửa sau khi duyệt"

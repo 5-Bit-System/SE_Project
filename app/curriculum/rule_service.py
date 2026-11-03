@@ -1,5 +1,6 @@
 """Service for editing prerequisite rules and constructing dependency graphs."""
 
+import copy
 from typing import Any
 
 from app.curriculum.import_service import detect_prerequisite_cycles
@@ -124,6 +125,7 @@ def update_course_rules(
     new_prerequisites: list[list[str]],
 ) -> dict[str, Any]:
     """Update a course's prerequisites in the revision payload."""
+    revision_payload = copy.deepcopy(revision_payload)
     courses = revision_payload.get("courses", [])
     target_code = target_code.upper()
     found = False
@@ -138,48 +140,25 @@ def update_course_rules(
         raise ValueError(f"Course {target_code} not found in revision payload")
 
     revision_payload["courses"] = courses
+    if revision_payload.get('runtime_catalog'):
+        from app.catalog_contracts import digest
+        # Update only the matching course, preserving all other catalog structure.
+        candidate = revision_payload['runtime_catalog']
+        for course in candidate['courses']:
+            if course['code'] == target_code:
+                course.update(prerequisites=new_prerequisites, prerequisite_variants=[],
+                              external_prerequisite_codes=[], prerequisite_status='draft_unverified',
+                              source_status='draft_unverified', prerequisites_raw=str(new_prerequisites))
+                course['field_evidence']['prerequisites'] = [{
+                    'source_ref': 'admin-draft:' + digest(new_prerequisites), 'locator': target_code,
+                    'method': 'transcription', 'status': 'draft_unverified',
+                }]
+        candidate['program']['catalog_revision'] = None
+        candidate['program']['catalog_revision'] = digest(candidate)
     return revision_payload
 
 
 
 def validate_full_revision_payload(payload: dict[str, Any]) -> dict[str, Any]:
-    """Validate all courses and prerequisite graph for an entire revision payload."""
-    courses = payload.get("courses", [])
-    errors = []
-    warnings = []
-
-    seen_codes = set()
-    for c in courses:
-        code = (c.get("code") or "").strip().upper()
-        if not code:
-            errors.append({"row": 0, "column": "code", "message": "Mã môn học không được để trống"})
-        elif code in seen_codes:
-            errors.append({"row": 0, "column": "code", "message": f"Mã môn học trùng lặp: {code}"})
-        seen_codes.add(code)
-
-    graph: dict[str, list[str]] = {}
-    for c in courses:
-        code = (c.get("code") or "").strip().upper()
-        raw = c.get("prerequisites", [])
-        if isinstance(raw, list):
-            if raw and isinstance(raw[0], list):
-                graph[code] = extract_flat_prereqs(raw)
-            else:
-                graph[code] = [str(x).strip().upper() for x in raw if str(x).strip()]
-        else:
-            graph[code] = []
-
-    has_cycle, cycle_path = detect_prerequisite_cycles(graph)
-    if has_cycle:
-        errors.append({"row": 0, "column": "prerequisites", "message": f"Phát hiện chu trình tiên quyết: {' -> '.join(cycle_path)}"})
-
-    valid = len(errors) == 0
-    total_credits = sum(int(c.get("credits", 0) or 0) for c in courses if str(c.get("credits", "0")).isdigit())
-
-    return {
-        "valid": valid,
-        "errors": errors,
-        "warnings": warnings,
-        "stats": {"course_count": len(courses), "total_credits": total_credits},
-        "courses": courses,
-    }
+    from app.curriculum.validation import validate_payload
+    return validate_payload(payload)

@@ -1,24 +1,16 @@
 """Tests for admin crawled documents list, preview, and review approval API."""
 
-import os
-from pathlib import Path
-
 import pytest
-from dotenv import dotenv_values
-from sqlalchemy import create_engine
+
+from tests.support.admin_database import admin_test_engine, admin_test_url
 
 pytestmark = pytest.mark.hus_postgres
 
-ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
 
 
 @pytest.fixture(autouse=True)
 def setup_engine(monkeypatch):
-    config = dotenv_values(ENV_PATH)
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or config.get("DATABASE_URL")
-    if not url:
-        pytest.skip("PostgreSQL database URL not configured")
-    eng = create_engine(url)
+    eng = admin_test_engine()
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
@@ -26,8 +18,8 @@ def test_admin_document_review_api(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
 
-    url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or dotenv_values(ENV_PATH).get("DATABASE_URL")
-    eng = create_engine(url)
+    admin_test_url()
+    eng = admin_test_engine()
     from app.crawler.document_review_service import create_document, get_document
     with eng.begin() as conn:
         if not get_document(conn, "doc_test_review"):

@@ -25,7 +25,6 @@ from app.crawler.document_review_service import (
     get_document,
     list_documents,
     review_document,
-    seed_crawled_documents_from_disk,
     update_document_metadata,
 )
 from app.curriculum.diff_service import compute_curriculum_diff
@@ -35,6 +34,7 @@ from app.curriculum.repository import (
     get_active_revision,
     get_revision,
     list_revisions,
+    locked_revision,
     publish_revision,
     review_revision,
     rollback_revision,
@@ -57,10 +57,11 @@ from app.services.synthetic_preview import (
 
 
 class CatalogImportRequest(BaseModel):
-    program_id: str
-    version_title: str
-    cohort: str | None = None
-    csv_content: str
+    program_id: str = Field(min_length=1, max_length=100, pattern=r'\S')
+    version_title: str = Field(min_length=1, max_length=200, pattern=r'\S')
+    cohort: str | None = Field(default=None, max_length=50)
+    csv_content: str = Field(default='', max_length=1_000_000)
+    source_bundle: dict | None = None
     filename: str | None = None
 
 
@@ -303,11 +304,36 @@ async def import_catalog_revision(
         "cohort": body.cohort,
         "courses": val_result["courses"],
         "stats": val_result["stats"],
+        "import_errors": val_result.get('parse_errors', []),
     }
 
     status = "validated" if val_result["valid"] else "draft"
 
     with engine().begin() as conn:
+        from app.curriculum.runtime_publication import prepare_catalog
+        if body.source_bundle is not None:
+            try:
+                import json
+                if len(json.dumps(body.source_bundle).encode('utf-8')) > 8_000_000:
+                    raise ValueError('Source bundle exceeds 8 MB')
+                from database.hus_db.catalog_builder import build_catalogs
+                built = next(c for c in build_catalogs(body.source_bundle) if c.program.program_id == body.program_id)
+                payload['courses'] = [c.model_dump(mode='json') for c in built.courses]
+                payload['import_errors'] = []
+                from app.curriculum.validation import validate_payload
+                val_result = validate_payload(payload)
+                from app.catalog_contracts import digest
+                val_result['digest'] = digest(body.source_bundle)
+            except (ValueError, StopIteration) as exc:
+                raise HTTPException(400, 'Invalid HUS source bundle') from exc
+        if val_result['valid']:
+            try:
+                payload.update(prepare_catalog(conn, body.program_id, payload['courses'], val_result['digest'], body.source_bundle))
+            except ValueError as exc:
+                # Preserve the draft for correction, but never claim it can be published.
+                payload['runtime_error'] = str(exc)
+                val_result.setdefault('warnings', []).append({'column': 'runtime', 'message': str(exc)})
+        status = 'validated' if val_result['valid'] else 'draft'
         rev = create_revision(
             conn,
             program_id=body.program_id,
@@ -367,47 +393,26 @@ async def get_revision_validation(request: Request, revision_id: str) -> Catalog
 
 @router.post("/catalog-revisions/{revision_id}/validate", response_model=CatalogValidationResponse)
 async def validate_catalog_revision(request: Request, revision_id: str) -> CatalogValidationResponse:
-    """Re-validate a draft curriculum revision payload and update its validation status and digest."""
     principal = await require_account(request)
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
-
-    with engine().connect() as conn:
-        rev = get_revision(conn, revision_id)
-
-    if not rev:
-        raise HTTPException(404, detail=f"Revision {revision_id} not found")
-
     from app.curriculum.publication_gate import compute_payload_digest
     from app.curriculum.rule_service import validate_full_revision_payload
-
-    payload = rev.get("payload") or {}
-    val_result = validate_full_revision_payload(payload)
-    val_result["payload_digest"] = compute_payload_digest(payload)
-    val_result["digest"] = rev.get("source_digest") or val_result["payload_digest"]
-    status = "validated" if val_result["valid"] else "draft"
-
-    with engine().begin() as conn:
-        updated_rev = update_validation(conn, revision_id, status, val_result)
-        log_admin_action(
-            conn,
-            actor_id=principal.get("account_id"),
-            actor_email=principal.get("email"),
-            action="catalog.validate",
-            target_type="catalog_revision",
-            target_id=revision_id,
-            summary=f"Validated revision {revision_id}: status={status}",
-            details={"valid": val_result["valid"], "errors_count": len(val_result.get("errors", []))},
-        )
-
-    return CatalogValidationResponse(
-        revision_id=updated_rev["revision_id"],
-        program_id=updated_rev["program_id"],
-        status=updated_rev["status"],
-        validation_summary=updated_rev["validation_summary"],
-        source_digest=updated_rev["source_digest"],
-        source_filename=updated_rev["source_filename"],
-    )
+    try:
+        with engine().begin() as conn:
+            rev = locked_revision(conn, revision_id)
+            result = validate_full_revision_payload(rev['payload'])
+            result['payload_digest'] = compute_payload_digest(rev['payload'])
+            result['digest'] = rev['source_digest']
+            updated = update_validation(conn, revision_id, 'validated' if result['valid'] else 'draft', result)
+            log_admin_action(conn, actor_id=principal.get('account_id'), actor_email=principal.get('email'),
+                action='catalog.validate', target_type='catalog_revision', target_id=revision_id,
+                summary='Validated current draft', details={'valid': result['valid']})
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return CatalogValidationResponse(revision_id=revision_id, program_id=updated['program_id'],
+        status=updated['status'], validation_summary=updated['validation_summary'],
+        source_digest=updated['source_digest'], source_filename=updated.get('source_filename'))
 
 
 @router.get("/catalog-revisions/{revision_id}")
@@ -686,7 +691,15 @@ async def update_course_prerequisites(
         raise HTTPException(404, detail=str(exc)) from exc
 
     with engine().begin() as conn:
-        if rev["is_active"] or rev["status"] == "published":
+        current = locked_revision(conn, revision_id)
+        from app.curriculum.publication_gate import compute_payload_digest
+        if compute_payload_digest(current['payload']) != compute_payload_digest(rev['payload']):
+            raise HTTPException(409, 'Revision changed; reload before editing')
+        if current.get('published_at') or current["is_active"] or current["status"] == "published":
+            from sqlalchemy import text
+            base = conn.execute(text('SELECT revision_id FROM hus_catalog_revisions WHERE program_id=:p AND active'),
+                                {'p': rev['program_id']}).scalar_one_or_none()
+            updated_payload['runtime_base_revision'] = base
             # Branch a new draft revision
             branch_title = f"[Bản thảo] {rev['version_title']} (Cập nhật môn {course_code})"
             new_rev = create_revision(
@@ -746,8 +759,7 @@ async def list_crawled_documents(
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
 
-    with engine().begin() as conn:
-        seed_crawled_documents_from_disk(conn)
+    with engine().connect() as conn:
         docs, total = list_documents(
             conn,
             status=status,
@@ -805,6 +817,7 @@ async def update_crawled_document_metadata(
                     "doc_type": body.doc_type,
                     "review_status": doc.get("review_status"),
                     "is_published": doc.get("is_published"),
+                    "replacement_document_id": doc['id'] if doc['id'] != doc_id else None,
                 },
             )
             return doc

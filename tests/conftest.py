@@ -38,6 +38,27 @@ def verified_client(fake_accounts):
 
 
 @pytest.fixture(autouse=True)
+def admin_database_isolation(request):
+    from tests.support import admin_database
+    name = request.path.name
+    selected = name.startswith('test_admin_') or name in {'test_document_review.py', 'test_curriculum_revisions.py'}
+    if not selected or not request.node.get_closest_marker('hus_postgres'):
+        yield
+        return
+    from sqlalchemy import create_engine
+    engine = create_engine(admin_database.admin_test_url())
+    with engine.connect() as conn:
+        transaction = conn.begin()
+        admin_database._active = admin_database.TransactionEngine(conn)
+        try:
+            yield
+        finally:
+            admin_database._active = None
+            transaction.rollback()
+    engine.dispose()
+
+
+@pytest.fixture(autouse=True)
 def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setattr("app.catalog.DATA_ROOT", catalog_root)
     monkeypatch.setattr("app.profiles.PROFILES_PATH", profiles_path)

@@ -18,10 +18,12 @@ import json
 import uuid
 from datetime import datetime, timezone
 from typing import Any
+from urllib.parse import urlsplit
 
 from sqlalchemy import text
 
-from app.curriculum.repository import get_revision, record_review
+from app.catalog_contracts import digest
+from app.curriculum.repository import get_revision, locked_revision, record_review
 
 
 def compute_payload_digest(payload: dict | None) -> str:
@@ -52,17 +54,15 @@ def check_revision_validation(revision: dict[str, Any]) -> tuple[bool, str]:
     # Verify digest against current payload or source
     current_payload_digest = compute_payload_digest(revision.get("payload"))
     val_payload_digest = val_summary.get("payload_digest")
-    val_digest = val_summary.get("digest")
 
     if val_payload_digest:
         if val_payload_digest != current_payload_digest:
             return False, "Revision payload has been modified since last validation (stale validation digest)"
-    elif val_digest and revision.get("source_digest"):
-        if val_digest != revision.get("source_digest"):
-            return False, "Revision source digest does not match validation digest"
     else:
         return False, "Validation summary is missing validation digest"
-
+    from app.curriculum.validation import validate_payload
+    if not validate_payload(revision.get('payload') or {})['valid']:
+        return False, 'Revision content fails validation'
     return True, ""
 
 
@@ -76,9 +76,9 @@ def validate_publication_gate(
     Raises ValueError if revision is missing, unapproved, has validation errors,
     or contains any unapproved (pending or rejected) linked source documents.
     """
-    target = get_revision(conn, revision_id)
+    target = locked_revision(conn, revision_id)
     if not target:
-        raise ValueError(f"Revision {revision_id} not found")
+        raise ValueError(f'Revision {revision_id} not found')
 
     if target.get("status") != "approved":
         raise ValueError(
@@ -108,10 +108,10 @@ def validate_publication_gate(
         row = (
             conn.execute(
                 text("""
-                    SELECT id, source_id, job_id, url, content_hash, title, major, doc_type,
+                    SELECT id, source_id, job_id, url, content_hash, title, major, doc_type, metadata_json, markdown_content,
                            review_status, reviewer_id, review_reason, reviewed_at, is_published, created_at
                     FROM crawled_documents
-                    WHERE id = :id
+                    WHERE id = :id FOR UPDATE
                 """),
                 {"id": doc_id},
             )
@@ -138,6 +138,12 @@ def validate_publication_gate(
             raise ValueError(
                 f"Cannot publish revision: Linked source document '{title}' ({doc_id}) is not approved ({status})."
             )
+
+        from app.crawler.document_review_service import compute_content_hash
+        if (doc_id == 'doc_default_sample' or (doc.get('metadata_json') or {}).get('synthetic')
+                or urlsplit(doc.get('url', '')).scheme not in {'http', 'https'}
+                or doc['content_hash'] != compute_content_hash(doc.get('markdown_content', ''))):
+            raise ValueError('Linked document has invalid original source evidence')
 
         approved_docs.append(doc)
 
@@ -168,6 +174,8 @@ def build_publication_manifest(
             "url": doc["url"],
             "title": doc["title"],
             "major": doc["major"],
+            "doc_type": doc.get('doc_type'),
+            "metadata_json": doc.get('metadata_json') or {},
             "content_hash": doc["content_hash"],
             "review_status": doc["review_status"],
             "reviewed_at": reviewed_at.isoformat()
@@ -180,17 +188,8 @@ def build_publication_manifest(
 
     published_at = datetime.now(timezone.utc).isoformat()
 
-    hasher = hashlib.sha256()
-    hasher.update(rev_id.encode("utf-8"))
-    hasher.update(program_id.encode("utf-8"))
-    hasher.update(source_digest.encode("utf-8"))
-    hasher.update(payload_hash.encode("utf-8"))
-    for h in doc_hashes:
-        hasher.update(h.encode("utf-8"))
-    manifest_checksum = hasher.hexdigest()
-
-    return {
-        "manifest_version": "1.0",
+    manifest = {
+        "manifest_version": "2.0",
         "revision_id": rev_id,
         "program_id": program_id,
         "version_title": revision.get("version_title"),
@@ -201,8 +200,9 @@ def build_publication_manifest(
         "publication_reason": reason,
         "documents_count": len(docs_manifest),
         "source_documents": docs_manifest,
-        "manifest_checksum": manifest_checksum,
     }
+    manifest['manifest_checksum'] = digest(manifest)
+    return manifest
 
 
 def publish_revision_with_gate(
@@ -219,7 +219,11 @@ def publish_revision_with_gate(
     and records audit history.
     """
     target, approved_docs = validate_publication_gate(conn, revision_id, linked_document_ids)
+    from app.curriculum.runtime_publication import publish_runtime
+    runtime_id = publish_runtime(conn, target)
     manifest = build_publication_manifest(target, approved_docs, publisher_id, reason)
+    manifest['runtime_revision_id'] = runtime_id
+    manifest['manifest_checksum'] = digest({k: v for k, v in manifest.items() if k != 'manifest_checksum'})
     program_id = target["program_id"]
 
     # Mark linked approved documents as published
@@ -270,6 +274,26 @@ def publish_revision_with_gate(
     return published_rev or {}
 
 
+def verify_manifest(revision, manifest):
+    if (manifest.get('manifest_version') != '2.0'
+            or manifest.get('revision_id') != revision['revision_id']
+            or manifest.get('program_id') != revision['program_id']
+            or manifest.get('payload_hash') != compute_payload_digest(revision['payload'])
+            or manifest.get('manifest_checksum') != digest({k: v for k, v in manifest.items() if k != 'manifest_checksum'})):
+        raise ValueError('Published manifest or payload integrity mismatch')
+
+
+def verify_source_documents(conn, manifest):
+    from app.crawler.document_review_service import compute_content_hash
+    for source in manifest.get('source_documents', []):
+        doc = conn.execute(text('SELECT * FROM crawled_documents WHERE id=:id FOR UPDATE'),
+                           {'id': source['document_id']}).mappings().one_or_none()
+        if (not doc or doc['review_status'] != 'approved' or not doc['is_published']
+                or any(doc.get(key) != source.get(key) for key in ('url','title','major','doc_type','content_hash','metadata_json'))
+                or doc['content_hash'] != compute_content_hash(doc['markdown_content'])):
+            raise ValueError('Published source snapshot integrity mismatch')
+
+
 def get_publication_provenance(conn, revision_id: str) -> dict[str, Any] | None:
     """Retrieve the provenance manifest for a published revision."""
     row = (
@@ -304,6 +328,7 @@ def get_published_documents(conn, major: str | None = None) -> list[dict[str, An
                review_status, reviewed_at, is_published, created_at
         FROM crawled_documents
         WHERE is_published = true AND review_status = 'approved'
+          AND id <> 'doc_default_sample' AND COALESCE(metadata_json->>'synthetic', 'false') = 'false'
     """
     params: dict[str, Any] = {}
     if major:

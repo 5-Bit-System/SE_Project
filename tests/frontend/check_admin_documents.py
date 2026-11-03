@@ -29,26 +29,15 @@ EVIDENCE_DIR = Path("backups/admin_documents_20261101")
 
 
 def seed_security_test_document():
-    from dotenv import dotenv_values
-    from sqlalchemy import create_engine
-
     from app.crawler.document_review_service import create_document, get_document
-
-    env_path = Path(__file__).resolve().parents[2] / ".env"
-    db_url = os.environ.get("HUS_TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or dotenv_values(env_path).get("DATABASE_URL")
-    if db_url:
-        eng = create_engine(db_url)
-        with eng.begin() as conn:
-            if not get_document(conn, "doc_xss_test"):
-                create_document(
-                    conn,
-                    url="javascript:alert('xss')",
-                    title="Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>",
-                    markdown_content="# Nội dung an toàn",
-                    major="toan_hoc",
-                    doc_type="curriculum",
-                    doc_id="doc_xss_test",
-                )
+    from tests.support.admin_database import admin_test_engine
+    eng = admin_test_engine()
+    with eng.begin() as conn:
+        if not get_document(conn, 'doc_xss_test'):
+            create_document(conn, url="javascript:alert('xss')",
+                title="Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>",
+                markdown_content="# Nội dung an toàn", major="toan_hoc", doc_type="curriculum", doc_id="doc_xss_test")
+    eng.dispose()
 
 
 def main():
@@ -89,7 +78,7 @@ def main():
             print("  [PASS] Switched to Document Review tab")
 
             # 4. Wait for documents to load and render
-            page.locator("#admin-crawler-docs-tbody tr").first.wait_for(state="visible")
+            page.locator("#admin-crawler-docs-tbody tr[data-doc-id='doc_xss_test']").wait_for(state="visible")
             doc_rows = page.locator("#admin-crawler-docs-tbody tr")
             count = doc_rows.count()
             print(f"  [PASS] Rendered {count} documents in review queue")
@@ -97,6 +86,7 @@ def main():
             # 4b. Security Check: Assert hostile document fields render as inert text without executing
             page.evaluate("window.__doc_xss = false")
             xss_row = page.locator("tr[data-doc-id='doc_xss_test']")
+            assert xss_row.count() == 1, "Security fixture must be present"
             if xss_row.count() > 0:
                 assert page.evaluate("window.__doc_xss") is False
                 assert xss_row.locator("img").count() == 0, "img tag rendered in document row!"
@@ -123,6 +113,7 @@ def main():
             assert "Trang 1" in page_cur.inner_text()
             print("  [PASS] Verified initial pagination state (Page 1, prev disabled)")
 
+            assert not next_btn.is_disabled(), "Pagination fixture must contain at least 101 documents"
             if not next_btn.is_disabled():
                 next_btn.click()
                 page.wait_for_timeout(500)

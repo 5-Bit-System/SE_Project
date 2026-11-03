@@ -5,6 +5,8 @@ import uuid
 
 from sqlalchemy import text
 
+from app.curriculum.transactions import publication_lock
+
 
 def _safe_uuid(val):
     if not val:
@@ -93,6 +95,20 @@ def get_revision(conn, revision_id: str) -> dict | None:
     return _row_to_dict(row)
 
 
+def locked_revision(conn, revision_id: str) -> dict:
+    publication_lock(conn)
+    row = conn.execute(text('SELECT * FROM curriculum_revisions WHERE revision_id=:id FOR UPDATE'),
+                       {'id': revision_id}).mappings().one_or_none()
+    if row is None:
+        raise ValueError(f'Revision {revision_id} not found')
+    return _row_to_dict(row)
+
+
+def require_mutable(revision):
+    if revision.get('published_at') or revision.get('is_active') or revision.get('status') == 'published':
+        raise ValueError('Published revisions are immutable; create a new draft')
+
+
 def list_revisions(
     conn,
     program_id: str | None = None,
@@ -119,11 +135,17 @@ def update_validation(
     status: str,
     validation_summary: dict,
 ) -> dict:
+    target = locked_revision(conn, revision_id)
+    require_mutable(target)
+    from app.curriculum.publication_gate import compute_payload_digest
+    if validation_summary.get('payload_digest') != compute_payload_digest(target['payload']):
+        raise ValueError('Stale validation payload digest')
     conn.execute(
         text("""
             UPDATE curriculum_revisions
             SET status = :status,
-                validation_summary = :summary
+                validation_summary = :summary,
+                reviewed_by=NULL, reviewed_at=NULL, review_decision=NULL, review_notes=NULL
             WHERE revision_id = :rev_id
         """),
         {
@@ -150,6 +172,7 @@ def update_revision_payload(
     updated_by: str | uuid.UUID | None = None,
     reason: str = "Cập nhật nội dung bản thảo",
 ) -> dict:
+    require_mutable(locked_revision(conn, revision_id))
     conn.execute(
         text("""
             UPDATE curriculum_revisions
@@ -189,9 +212,8 @@ def review_revision(
     if decision not in ("approved", "rejected"):
         raise ValueError(f"Invalid review decision: {decision}")
 
-    target = get_revision(conn, revision_id)
-    if not target:
-        raise ValueError(f"Revision {revision_id} not found")
+    target = locked_revision(conn, revision_id)
+    require_mutable(target)
 
     if decision == "approved":
         from app.curriculum.publication_gate import check_revision_validation
@@ -255,9 +277,7 @@ def rollback_revision(
     user_id: str | uuid.UUID | None,
     reason: str,
 ) -> dict:
-    target = get_revision(conn, target_revision_id)
-    if not target:
-        raise ValueError(f"Target revision {target_revision_id} not found")
+    target = locked_revision(conn, target_revision_id)
     if target["program_id"] != program_id:
         raise ValueError(f"Revision belongs to {target['program_id']}, not {program_id}")
     if target.get("is_active"):
@@ -266,11 +286,17 @@ def rollback_revision(
     from app.curriculum.publication_gate import get_publication_provenance
 
     provenance = get_publication_provenance(conn, target_revision_id)
-    if not provenance or not target.get("published_at"):
+    if not provenance or not target.get("published_at") or target.get('status') != 'published':
         raise ValueError(
             f"Cannot rollback to revision {target_revision_id} with status '{target.get('status')}'. "
             "Target must be a previously published revision with valid provenance manifest."
         )
+
+    from app.curriculum.publication_gate import verify_manifest, verify_source_documents
+    from app.curriculum.runtime_publication import activate_runtime
+    verify_manifest(target, provenance)
+    verify_source_documents(conn, provenance)
+    activate_runtime(conn, target, provenance)
 
     # Deactivate current active
     conn.execute(
