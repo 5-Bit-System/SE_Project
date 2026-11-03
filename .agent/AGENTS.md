@@ -1,5 +1,49 @@
 # Project Memory and Contributor Guidelines
 
+## Publication authorized — 2026-11-03: LLM feature extraction
+
+User explicitly requests returning to the unfinished branch, creating exactly
+15 meaningful commits and pushing feat/llm-feature-extraction. This supersedes
+the local-only/no-commit notes below for this scoped change set. Baseline is
+5239b7333a8f8cdf0f919e6b0505af0def99fe23. Keep the separate BT3 assignment
+branch/worktree out of this publication; do not change main or merge a PR.
+
+Commit groups: preference/ranking models; safe keyword fallback; catalog-scoped
+extractor; metadata scoring; runtime adapter factory; recommendation limits;
+advisor response schema; shared advisor integration; compatibility API routes;
+authenticated academic API; extractor/validation tests; service integration
+tests; feature documentation; README navigation; contributor checkpoint.
+No empty commits or invented authorship. Preserve the reviewed final code/test
+bytes while staging these groups; use Git to verify exactly 15 new commits.
+
+Publication preflight in Conda SE_Project: 17 focused cases passed; 628 offline
+passed, 90 DB/source deselected in 3.56s; Ruff and diff checks passed. Existing
+Starlette/httpx warning remains. Synthetic/fake-provider tests do not establish
+real-provider language accuracy. No paid API, runtime restart, DB/catalog write,
+new chat UI or metadata publication is included. Publication outcome must be
+verified from Git/GitHub, not inferred from this preparation checkpoint.
+
+## Local implementation — 2026-11-02: shared LLM feature extraction
+
+User explicitly selects full integration into advisor and recommendation from
+an attached extraction proposal. Work is on feat/llm-feature-extraction; no
+commit/push, API spending, production DB/catalog writes or runtime restart.
+CatalogFeatureExtractor validates strict StructuredPreference fields against
+selected catalog vocabulary and falls back to current-message keywords on
+provider/schema/label failure. Advisor uses bounded user-only history, exposes
+preference JSON and rejects suggested bundles over extracted limits. Current
+intent overrides old topics via prompt rather than unconditional history union.
+No-provider fallback intentionally uses current message without guessing history.
+Recommendation takes min(request limits, extracted limits); topic IDs and career
+IDs match directly, and default soft-feature weights are positive. Existing
+eligibility/auth/context/source checks and ranker interfaces remain in place.
+HUS builder vocabulary is still empty; this does not publish topics/careers or
+invent course metadata. No active chat UI or new ranking algorithm is claimed.
+Conda SE_Project: 628 offline passed, 90 DB/source cases deselected; 17 new
+synthetic extraction/integration tests; Ruff and diff checks pass. Existing
+Starlette/httpx warning remains. Tests use fake providers, not real language
+accuracy/paid-API acceptance. See docs/LLM_FEATURE_EXTRACTION.md.
+
 ## Publication authorized — 2026-11-01: current course map and planning UI
 
 User explicitly requests many meaningful commits and publishing the current
