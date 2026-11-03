@@ -9,7 +9,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - run: python -m ruff check .
       - name: Validate independent synthetic fixtures
         run: python -X utf8 tools/build_catalogs.py --check --root tests/support/fixtures/catalogs
@@ -60,7 +62,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - name: PostgreSQL round trips in isolated schemas using synthetic fixtures
         run: python -m pytest -q -m postgres --junitxml=reports/pytest-postgres.xml
       - name: Upload PostgreSQL test report
@@ -92,7 +96,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - name: Migrate fresh HUS database
         run: python -m database.tools.migrate upgrade
       - name: Validate and publish checked-in source
@@ -109,7 +115,7 @@ jobs:
           path: reports/pytest-hus-postgres.xml
           if-no-files-found: warn
   rag_demo:
-    # Playwright 1.58 has browser dependencies for Ubuntu 24.04, not 26.04.
+    # Keep the browser runner on the explicitly supported Ubuntu LTS image.
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -123,7 +129,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - run: python -m playwright install --with-deps chromium
       - run: node --test tests/frontend/chat.test.cjs
       - run: python -X utf8 -m tools.run_hus_rag_demo --smoke
