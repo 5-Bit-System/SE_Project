@@ -368,7 +368,7 @@ async def recommendations(request: Request):
         "goal", "max_credits", "limit", "selected_track_id", "selected_graduation_path_id",
         "preference", "ranking_weights"}), program_id=catalog.program.program_id,
         passed_course_codes=sorted(passed))
-    extractor, ranker = configured_adapters()
+    extractor, ranker = configured_adapters(catalog)
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)

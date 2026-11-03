@@ -4,6 +4,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from app.models import StructuredPreference
+
 
 class AdvisorMessage(BaseModel):
     model_config = ConfigDict(extra="allow")
@@ -25,4 +27,5 @@ class AdvisorResponse(BaseModel):
     mode: Literal["gemini_llm", "heuristic_fallback", "guardrail_rejected"]
     is_guardrail_triggered: bool = False
     guardrail_reason: str | None = None
+    preference: StructuredPreference | None = None
     suggested_courses: list[str] = Field(default_factory=list)

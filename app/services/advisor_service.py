@@ -34,42 +34,18 @@ MAX_BLOCKED_IN_PROMPT = 15
 COURSE_CODE_PATTERN = re.compile(r"\b[A-Z]{3,4}\d{4}\b")
 
 
-def _extract_session_preference(request: AdvisorRequest) -> StructuredPreference:
-    """Trích xuất preference với câu hiện tại là nguồn ưu tiên.
+def _extract_session_preference(request: AdvisorRequest, catalog: Catalog) -> StructuredPreference:
+    """Use bounded user-only history with current intent taking precedence."""
+    from app.recommendation.feature_extractor import fallback_preference
+    from app.recommendation.llm import configured_adapters
 
-    Extractor dùng chung chỉ nhận một chuỗi tối đa 500 ký tự. Tách hai lượt
-    extraction giúp history bổ sung ngữ cảnh mà không che mất yêu cầu mới nhất.
-    """
-    current = extract_structured_preference(request.message)
-    previous_user_messages = "\n".join(
-        message.content[:MAX_HISTORY_MESSAGE_CHARS]
-        for message in request.history[-MAX_HISTORY_MESSAGES:]
-        if message.role == "user" and message.content.strip()
-    )
-    if not previous_user_messages:
-        return current
-
-    previous = extract_structured_preference(previous_user_messages[-2000:])
-    updates: dict[str, Any] = {}
-    for field_name in (
-        "workload",
-        "difficulty",
-        "orientation",
-        "career_goal",
-        "target_credits",
-        "target_course_count",
-        "course_type",
-        "prerequisite_tolerance",
-    ):
-        if getattr(current, field_name) is None:
-            previous_value = getattr(previous, field_name)
-            if previous_value is not None:
-                updates[field_name] = previous_value
-
-    topics = list(dict.fromkeys(current.interest_topics + previous.interest_topics))
-    if topics != current.interest_topics:
-        updates["interest_topics"] = topics[:20]
-    return current.model_copy(update=updates)
+    extractor, _ = configured_adapters(catalog)
+    if extractor is not None:
+        return extractor.extract_conversation(request.message, [
+            message.content for message in request.history[-MAX_HISTORY_MESSAGES:]
+            if message.role == "user"
+        ])
+    return fallback_preference(request.message, catalog)
 
 
 def _build_recommendation_facts(
@@ -272,7 +248,15 @@ def heuristic_advisor(
         eligible_reasons=eligible_reasons,
     )
     facts = _build_recommendation_facts(catalog, synthetic_eligibility, preference)
-    top_facts = facts[:4]
+    top_facts = []
+    total = 0
+    for fact in facts:
+        if preference.target_credits and total + fact["credits"] > preference.target_credits:
+            continue
+        top_facts.append(fact)
+        total += fact["credits"]
+        if len(top_facts) >= min(4, preference.target_course_count or 4):
+            break
     suggested_codes = [fact["code"] for fact in top_facts]
 
     # Xây dựng câu trả lời có cấu trúc
@@ -497,7 +481,7 @@ def chat_advisor(
     catalog_codes = {course.code for course in catalog.courses}
 
     # 3. Dùng chung structured preference và facts với recommendation pipeline.
-    preference = _extract_session_preference(request)
+    preference = _extract_session_preference(request, catalog)
     recommendation_facts = _build_recommendation_facts(catalog, eligibility, preference)
 
     settings = get_settings()
@@ -532,11 +516,17 @@ def chat_advisor(
                 gemini_reply,
                 eligible_codes_set,
             )
+            selected = [course for course in eligible_courses if course.code in valid_suggested]
+            if preference.target_credits and sum(course.credits for course in selected) > preference.target_credits:
+                raise ValueError("Advisor exceeded requested credit budget")
+            if preference.target_course_count and len(selected) > preference.target_course_count:
+                raise ValueError("Advisor exceeded requested course count")
             safe_reply = _redact_unknown_course_codes(gemini_reply, catalog_codes)
 
             return AdvisorResponse(
                 reply=safe_reply,
                 mode="gemini_llm",
+                preference=preference,
                 is_guardrail_triggered=False,
                 suggested_courses=valid_suggested,
             )
@@ -558,6 +548,7 @@ def chat_advisor(
     return AdvisorResponse(
         reply=fallback_text,
         mode="heuristic_fallback",
+        preference=preference,
         is_guardrail_triggered=False,
         suggested_courses=suggested_codes,
     )

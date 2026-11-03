@@ -111,6 +111,7 @@ Test mặc định dùng fixture tổng hợp và không gọi dịch vụ AI ha
 - [Kiến trúc và hành vi sản phẩm](docs/SYSTEM_SPECIFICATION.md)
 - [Thiết kế database](docs/DATABASE_DESIGN.md)
 - [Đặc tả metadata catalog](docs/COURSE_METADATA_SPECIFICATION.md)
+- [LLM trích xuất sở thích cho advisor và recommendation](docs/LLM_FEATURE_EXTRACTION.md)
 - [Checklist nền tảng](docs/CODEBASE_CHECKLIST.md)
 - [Quyết định kiến trúc HUS/legacy](docs/adr/0001-hus-runtime-and-rollback.md)
 - [Hướng dẫn cộng tác](docs/CONTRIBUTING.md)
