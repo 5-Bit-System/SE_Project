@@ -1,0 +1,71 @@
+{
+  "user_agent": "HUSCrawler/0.1",
+  "max_pages": 200,
+  "max_depth": 3,
+  "delay_seconds": 2.0,
+  "retry_attempts": 3,
+  "sources": [
+    {
+      "host": "mim.hus.vnu.edu.vn",
+      "path_prefixes": [
+        "/vi/",
+        "/sites/default/files/"
+      ],
+      "exclude_prefixes": [
+        "/vi/album",
+        "/vi/gallery"
+      ],
+      "seeds": [
+        "https://mim.hus.vnu.edu.vn/vi/cacctrdaotao",
+        "https://mim.hus.vnu.edu.vn/vi/tuyensinh",
+        "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "https://mim.hus.vnu.edu.vn/vi/toantin",
+        "https://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "https://mim.hus.vnu.edu.vn/vi/toanhoc"
+      ]
+    },
+    {
+      "host": "hus.vnu.edu.vn",
+      "path_prefixes": [
+        "/dao-tao/gioi-thieu-chung",
+        "/dao-tao/dai-hoc",
+        "/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc",
+        "/dao-tao/sau-dai-hoc/toan-co-tin-hoc",
+        "/sinh-vien",
+        "/DATA/",
+        "/data/"
+      ],
+      "exclude_prefixes": [
+        "/dao-tao/khoa-hoa-hoc",
+        "/dao-tao/khoa-sinh-hoc",
+        "/dao-tao/khoa-vat-ly",
+        "/dao-tao/khoa-dia-ly",
+        "/dao-tao/khoa-dia-chat",
+        "/dao-tao/khoa-moi-truong"
+      ],
+      "seeds": [
+        "https://hus.vnu.edu.vn/dao-tao/dai-hoc"
+      ]
+    },
+    {
+      "host": "tuyensinh.hus.vnu.edu.vn",
+      "path_prefixes": [
+        "/dai-hoc",
+        "/thong-tin-tuyen-sinh",
+        "/DATA/TUYENSINH/"
+      ],
+      "exclude_prefixes": [],
+      "seeds": [
+        "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"
+      ]
+    }
+  ],
+  "excluded_hosts": [
+    "chem.hus.vnu.edu.vn",
+    "phys.hus.vnu.edu.vn",
+    "bio.hus.vnu.edu.vn",
+    "geo.hus.vnu.edu.vn",
+    "fal.hus.vnu.edu.vn",
+    "fes.hus.vnu.edu.vn"
+  ]
+}

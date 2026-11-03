@@ -1,3 +1,7 @@
--r requirements.txt
+-r requirements-portal.txt
 pytest>=8,<10
 ruff>=0.9,<1
+beautifulsoup4>=4.12,<5
+python-docx>=1.1,<2
+openpyxl>=3.1,<4
+PyYAML>=6,<7

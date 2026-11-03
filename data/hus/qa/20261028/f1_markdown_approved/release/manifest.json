@@ -1,0 +1,52 @@
+{
+  "active_release": false,
+  "approval_policy": "user_authorized_descriptive_F1_from_markdown",
+  "corpus_build_id": "87f278b74b36f63723c3d73e923dafe85f2e426dfa2a6f073cf1e3eeb0e3b371",
+  "deduplicated_markdown_units": 3,
+  "excluded_document_ids": [
+    "1f6ad01008734152"
+  ],
+  "generated_F1_units": 0,
+  "implementation_sha256": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+  "inventory_counts": {
+    "answer_eligible": 15,
+    "excluded_from_F1": 91
+  },
+  "markdown_extension_implementation_sha256": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+  "markdown_reviews_sha256": "a76e38b48a575363fcb451e242db97d8366a2e42591fb09f698c62c73bcf951a",
+  "outputs": {
+    "acceptance_questions.jsonl": "edc8a764a18f42e6a0beb4b93c51ec6b98df79e09944ed5c220099b1b723aedb",
+    "documents.jsonl": "297a27a6179d3ec529b1217014a918022fecc9a876d3e8654fde51c7ff4911bc",
+    "f1_units.jsonl": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8",
+    "markdown_review_decisions.json": "a76e38b48a575363fcb451e242db97d8366a2e42591fb09f698c62c73bcf951a",
+    "pending_F1_sections.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rag_chunks.jsonl": "fc9239e5c223331533770e8b2066b87cb7c9d57d50c0e3377100d5d137df5f9f",
+    "source_inventory.jsonl": "8dc08cba6dcd552eb47a714964c7d3b4c5bfa0b8db0384978d28a02d87fe9d52",
+    "source_map.jsonl": "0dd000ea8c4c08c431864ab6ee04fefd7793ad7816028ab4573dcaea9a911ce5"
+  },
+  "pending_sections": 0,
+  "pending_source_documents": 0,
+  "question_contracts": {
+    "pass": 16
+  },
+  "rag_chunks": 69,
+  "schema_version": "1.1",
+  "selection_plan_sha256": "8ee7344b10558e766821cca0e9389db8a5c7a48b8467bb890a2775f65628afac",
+  "semantic_units": 66,
+  "source_documents": 15,
+  "source_documents_markdown_reviewed": 10,
+  "source_documents_raw_compared": 5,
+  "source_snapshot_id": "hus-0404f37-20261026",
+  "unit_counts_by_field": {
+    "careers": 22,
+    "further_study": 13,
+    "introduction": 7,
+    "objectives": 24
+  },
+  "unit_counts_by_major": {
+    "computer_science": 30,
+    "data_science": 10,
+    "mathematics": 16,
+    "mathematics_informatics": 10
+  }
+}

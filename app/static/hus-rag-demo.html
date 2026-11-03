@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Hỏi đáp HUS · Demo RAG</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/hus-rag-demo.css">
+  <script src="/static/hus-rag-demo.js" defer></script>
+</head>
+<body>
+  <main class="rag-shell">
+    <header class="rag-header">
+      <a class="rag-brand" href="/" aria-label="Hỏi đáp HUS, trang đầu">
+        <span class="rag-mark" aria-hidden="true">H</span>
+        <span>HUS <span class="rag-brand-secondary">/ Hỏi đáp</span></span>
+      </a>
+      <span class="rag-demo-badge"><span aria-hidden="true"></span> DEMO LOCAL</span>
+    </header>
+
+    <section class="rag-introduction" aria-labelledby="rag-title">
+      <p class="rag-eyebrow">KHOA TOÁN – CƠ – TIN HỌC</p>
+      <h1 id="rag-title">Hỏi để hiểu rõ hơn.</h1>
+      <p class="rag-lead">Tra thông tin ngành học, khung chương trình và nội dung học phần từ dữ liệu HUS đã lưu.</p>
+      <p class="rag-demo-note">Demo chạy trên máy này, dùng dữ liệu HUS thật. Chỉ tra cứu các phiên bản có trong gói dữ liệu; thông tin chưa được xác minh hiện hành sẽ được ghi rõ.</p>
+      <div class="rag-families" aria-label="Phạm vi hỏi đáp">
+        <span><strong>F1</strong> Thông tin ngành</span>
+        <span><strong>F2</strong> Khung chương trình</span>
+        <span><strong>F3</strong> Kiến thức AI tham khảo</span>
+      </div>
+    </section>
+
+    <section class="rag-workspace" aria-label="Khung hỏi đáp HUS">
+      <div class="rag-context">
+        <div class="rag-major-field">
+          <label for="rag-major">Ngành đang tra cứu</label>
+          <select id="rag-major" disabled><option>Đang tải danh sách ngành…</option></select>
+        </div>
+        <div class="rag-version-field">
+          <span class="rag-field-label">Phiên bản dữ liệu</span>
+          <output id="rag-version" for="rag-major">Đang tải…</output>
+        </div>
+      </div>
+
+      <div id="rag-messages" class="rag-messages" role="log" aria-label="Hội thoại" aria-live="polite" aria-relevant="additions text"></div>
+
+      <form id="rag-form" class="rag-composer">
+        <label class="rag-question-label" for="rag-question">Câu hỏi của bạn</label>
+        <div class="rag-input-row">
+          <textarea id="rag-question" rows="2" maxlength="1000" placeholder="Ví dụ: MAT3533 có bao nhiêu tín chỉ?" required disabled></textarea>
+          <button id="rag-send" type="submit" disabled>Gửi <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="rag-composer-footer">
+          <label class="rag-generated-label" for="rag-generated">
+            <input id="rag-generated" type="checkbox" disabled>
+            <span>Cho phép kiến thức AI tham khảo</span>
+          </label>
+          <span class="rag-keyboard-hint">Enter để gửi · Shift + Enter để xuống dòng</span>
+        </div>
+        <p class="rag-ai-note">F3 là nội dung tham khảo do AI sinh, không phải đề cương hay quy định đánh giá chính thức.</p>
+        <p id="rag-status" class="rag-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>
+      </form>
+    </section>
+
+    <footer class="rag-footer">
+      <span>Thông tin có căn cứ. Nguồn dẫn rõ ràng.</span>
+      <span>Hội thoại chỉ giữ trong bộ nhớ của tab.</span>
+    </footer>
+  </main>
+</body>
+</html>

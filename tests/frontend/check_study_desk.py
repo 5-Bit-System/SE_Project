@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.check_course_status import course
-from tests.frontend.presentation_fixture import common_route
+from tests.frontend.presentation_fixture import common_route, open_plan_tools
 
 
 def book_clearance(page):
@@ -159,6 +159,7 @@ def main():
         page.set_viewport_size({"width": 1440, "height": 900})
         page.locator('[data-theme-choice="light"]').click()
         page.locator("#tab-btn-recommend").click()
+        open_plan_tools(page)
         page.wait_for_selector('[data-plan-course="TEST-A"]')
         assert page.locator('.course-status-columns input[type=checkbox]').count() == 0
         page.wait_for_selector('[data-plan-course="TEST-B"]')

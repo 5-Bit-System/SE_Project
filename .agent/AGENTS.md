@@ -1,5 +1,24 @@
 # Project Memory and Contributor Guidelines
 
+## PR #97 merge authorized — 2026-11-03
+
+User now explicitly requests creating a PR and merging LLM feature extraction
+into main. This supersedes the preceding branch-only/no-merge restriction for
+this feature. PR #97 retains the 15 original commits at 519ab38. Main advanced
+to 05ffe0f with the team's recommendation UI and standalone HUS RAG changes.
+Merge main into the feature branch, preserve both contributor note blocks and
+all team/source ancestry, validate the combined tree, then use Create a merge
+commit on GitHub after CI passes. Do not squash or rebase. No production DB,
+metadata publication, provider call, runtime restart or BT3 merge is requested.
+
+Integrated verification: Conda SE_Project dependencies were synchronized with
+requirements-dev/requirements-lock after the newly merged HUS modules exposed
+missing PDF/DOCX dependencies. Completed rerun: 1237 offline passed,90 deselected
+in39.22s; Ruff, both catalog checks and recommendation-model/chat Node checks
+passed. First collection attempt failed for missing dependencies; it is not
+success evidence. Only contributor notes conflicted; retained both sides.
+HUS/UI/data/dependency/workflow files match origin/main byte-for-byte.
+
 ## Publication authorized — 2026-11-03: LLM feature extraction
 
 User explicitly requests returning to the unfinished branch, creating exactly
@@ -43,6 +62,272 @@ Conda SE_Project: 628 offline passed, 90 DB/source cases deselected; 17 new
 synthetic extraction/integration tests; Ruff and diff checks pass. Existing
 Starlette/httpx warning remains. Tests use fake providers, not real language
 accuracy/paid-API acceptance. See docs/LLM_FEATURE_EXTRACTION.md.
+
+## PR #6 conflict resolution - 2026-11-02
+
+User explicitly requests fixing conflicts of crawldata -> main PR #6. This authorizes
+merging current main into crawldata, scoped fixes/tests, a merge commit and push to
+update the PR; it does not authorize merging the PR into main or production activation.
+Main baseline af8d4db and crawldata642706c. Preserve main API/auth/UI exactly and retain
+HUS data/pinned validator bytes. Standalone app.hus.demo owns RAG/basic chat; main does
+not register public HUS demo endpoints. Legacy HUS HTTP/Node tests target the active
+standalone contract after merge. The old snapshot preparation helper from main lives
+in tools/hus_snapshot_preparation.py; reviewed tools.prepare_hus_corpus retains its
+original bytes and build identity. Main database jobs retained, separate RAG browser CI
+added. Keep original local diagnostic HTML/HUS_MANUAL_TEST and frozen P04/P05 worktrees.
+No product DB/VNU/provider access. See docs/HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md.
+
+
+## Current Handoff — 2026-10-28
+
+- Publication authorized (2026-11-02): user explicitly requests committing/pushing
+  current RAG changes to GitHub in fewer than20 new commits. Publish on crawldata;
+  seven content commits plus one byte-preservation fix (8 total) from be76f50b,
+  normal fast-forward push. This overrides
+  older local-only/no-commit notes for this publication only. Main integration,
+  production activation and merging other histories remain outside this request.
+  Keep imported v3/validator provenance pinned to original a543cf8d (Viet Nguyen);
+  import commits describe byte-exact vendoring, never claim copied work was authored
+  by the integrator. Preserve local diagnostic HTML and HUS_MANUAL_TEST.md outside
+  publication; backups/config/toolkit stay local. Verify Git/remote for actual outcome.
+
+- Latest RAG scope correction (2026-11-02): user explicitly limits this branch to
+  F1/F2/F3 and basic conversation, no course ranking/explanation. New app.hus.demo:app
+  and app.hus.chat isolate execution/imports from the product academic stack. New
+  hus-rag-demo UI selects real release majors/versions; no transcript, fake catalogs,
+  account, eligibility or provider needed in local demo. Tracked command:
+  python -m tools.run_hus_rag_demo; old ignored open_hus_rag_demo.py now aliases it.
+  Basics use fixed greetings/thanks/help/goodbye; out-of-scope requests abstain.
+  Academic citations/review/AI opt-in/source bytes unchanged. P04/P05 worktrees and
+  receipts remain historical; their mixed advisor router is not the new RAG path.
+  Before main publication, integrate a dedicated HUS endpoint with existing verified
+  account/CSRF/Origin/binding/revision and obtain new commit/CI/acceptance evidence.
+  No commit/push/production activation authorized here. See docs/HUS_RAG_MANUAL_DEMO.md,
+  scope design/plan dated2026-11-02 and docs/acceptance/hus_rag_scope_report.json.
+  Final local checks:18 scope tests (also newer FastAPI0.143), full crawldata717 pass/
+  26 skip in crawler-complete p04 venv,5 Node legacy,50 Chromium questions4 majors,
+  stale scope/PDF13+12 pass. First full attempt in p05 runtime venv lacked python-docx;
+  complete rerun passed; no runtime venv/dependency mutation. P04/P05 outputs34/43,
+  shared inputs77 each and63 data hashes verified unchanged. No commit/push.
+
+- Historical manual RAG demo before scope correction (local 2026-11-02): ignored launcher
+  backups/hus_integration/open_hus_rag_demo.py opens frozen p05-main in visible
+  Chromium with synthetic in-memory account/context and real HUS RAG data. Uses
+  p05-ci-venv, defaults data_science; --major selects other programs, --smoke checks
+  real F2 answer/citation headlessly. No product auth/DB/VNU or frozen source changes.
+  See docs/HUS_RAG_MANUAL_DEMO.md; keep terminal running, close app tab/Ctrl+C to stop.
+  Follow-up fixed non-HUS prompts causing the harness's forbidden-provider500:
+  launcher-only scoped fallback preserves scope guards and gives honest demo help,
+  no synthetic-course recommendations.48 mixed Chromium cases across4 majors pass;
+  fresh product regression672 Python/9 Node pass; frozen source/test hashes unchanged.
+  Existing demo processes must restart; receipt docs/acceptance/hus_manual_demo_report.json.
+
+- P0-5 preparation (local 2026-11-02): isolated p05-main worktree on main5239b733,
+  branch integration/hus-rag-p05-20261102; root stays crawldata. Reviewable bundle
+  integration/hus-rag-p05 has77 shared inputs/43 outputs; replay61 backend/9 Node pass.
+  CI workflow/locked deps, build/data/test identity receipts and guarded activation/
+  rollback implemented. Clean locked venv:672 Python/10 skips/80 DB deselected,
+  9 Node,43 HTTP/14 Chromium pass;20 lifecycle cases and copied-selector drill pass.
+  Canonical selector remains prepared/byte-identical. Dirty receipts are ineligible;
+  strict rejects uncommitted code. Preserve genuine source authors/ancestry and main
+  feature-branch PR/Create a merge commit. No commit/push/PR/merge, remote CI or real
+  production activation: user explicitly requires a separate commit/push request.
+  See docs/RAG_P05_RELEASE_PREPARATION.md and docs/acceptance/hus_p05_* reports.
+
+- P0-4 (local 2026-11-02): main5239b733 fetched and integrated in isolated worktree
+  backups/hus_integration/p04-main, branch integration/hus-rag-p04-20261102. Root
+  remains crawldata with prior WIP. Adapter runs in /me/advisor/chat after existing
+  operation/ready and rechecks ensure_current; strict AI opt-in, server-bound major.
+  Keep verified account, CSRF/Origin/host, source/binding/session revision. Legacy
+  HUS chat409, no public /hus/chat; source binaries account-protected. Active UI adds
+  separate hus-chat module with generation/refresh race guards, no stored history.
+  652 Python/10 skipped/80 DB deselected,9 Node,43 live HTTP/14 Chromium pass using
+  synthetic auth stores/policies/catalogs and real HUS data; no product DB/VNU/provider.
+  Reviewable replay package in integration/hus-rag-p04 plus prepare_hus_main_integration
+  tool;77 shared inputs/34 source outputs verified, replay41 backend/9 Node pass.
+  See docs/RAG_P04_MAIN_INTEGRATION.md and hus_p04_authenticated_report.json.
+  Ready gate/review/source bytes unchanged. No commit/push/PR/merge or production
+  activation; P0-5 owns publication, must retain feature-branch PR and team ancestry.
+
+- P0-3 (local 2026-11-02): independent character-to-page ownership oracle for F1
+  quotes; F2 oracle requires every source occurrence exactly once and PDF locators,
+  never JSON as open target.29 new regression/API tests, including21 intentional
+  citation corruptions. Node explicitly tests null-link AI responses. Chromium tests
+  actual MAT3325 answer with two same-PDF sources at13/12 and opens both viewer pages.
+  Receipt schema2.0 additionally pins24 test/fixture files and10 screenshots;2318 HTTP,
+  47 Chromium pass;699 Python/26 skipped,5 Node. PDF viewer readiness waits for
+  load success, physical page, zero unacked remote scrolls and matching inner-frame
+  scroll, then two animation frames. See docs/RAG_P03_CITATION_TESTS.md and receipt.
+  Runtime/data/review unchanged in P0-3; next scope is main API/UI/auth integration.
+
+- P0-2 (local 2026-11-02): citations now have evidence kind/display label/open URL,
+  expected document hash, physical page/span and availability. Generated F3 renders
+  "kiến thức AI" without links, retains warnings/opt-in/review. Web opens original URL.
+  data/hus/citation_assets contains12 PDFs+2 DOCX imported byte-exact from a543cf8d,
+  registry bound to selected v3. /hus/sources/{sha256} GET/HEAD/range verifies actual
+  bytes/hash/format/page; PDF inline, DOCX attachment; missing or changed files fail
+  honestly. F1 page locations match quotes in hash-bound recovered text, not new
+  academic/visual review. v3/legacy payloads and review unchanged. See
+  docs/RAG_P02_CITATIONS.md; acceptance receipt hus_p02_citations_report.json.
+  Verification:670 Python passed/26 skipped,4 Node,2318 HTTP,41 Chromium;14 binaries
+  and28 emitted page URLs checked. Full Chromium channel is needed for PDF viewer;
+  external web destinations are intercepted in browser tests, not health-certified.
+
+- P0-1 (local 2026-11-02): runtime now strictly selects CURRENT -> portable
+  hus-data-20261031-v3 (sha256 27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4).
+  Imported exact release/validator bytes from a543cf8d; legacy 19 payloads retained.
+  F1 69->65 is four resplits with the same63 units/source spans/edition/review; F2 tables
+  unchanged, canonical source imports existing67 KHMTTT user sign-offs and223 draft,
+  never institutional certification or F3 approval. API and retriever pin one snapshot;
+  missing/corrupt CURRENT is503, no legacy fallback. Generated opt-in defaults false
+  (allow_generated_reference in API, checkbox in legacy chat); each response includes
+  release identity. See docs/RAG_P01_DATA_SELECTION.md and machine-readable diff.
+  Older data/receipt statements below describe legacy snapshots, not current selection.
+- End-to-end acceptance (local): `tools/verify_hus_e2e.py` runs real loopback Uvicorn
+  and optional real Chromium with synthetic UI catalogs and the actual HUS handoff.
+  Latest receipt: docs/acceptance/hus_e2e_report.json; 2310 HTTP and 25 browser cases pass,
+  full membership/field and citation checks, cross-major/version refusals and stale-chat
+  isolation. See docs/HUS_E2E_ACCEPTANCE.md. Exam weight/format fact requests now route
+  to evidence checks before recommendation intent; major aliases consume specific names
+  before contextual Math aliases. No product DB/provider/remote deploy or academic review.
+- Answering addition (local work): `app/hus/answering.py` and `app/schemas/hus.py`
+  provide extractive F1/F2/F3 answers with explicit sources/review/generated labels.
+  `POST /hus/chat` exposes this; `/advisor/chat` routes clear HUS information intents
+  before runtime catalog/provider calls, keeps recommendation/guardrails on the old path,
+  and returns mode=hus_rag plus hus_answer. Unsupported/official-current/missing evidence
+  returns no_information, incomplete identity needs_clarification; corrupt packages are
+  503, not fabricated missing answers. The service lazy-caches one snapshot; reload after
+  package changes. UI links HTTP(S) citations and rejects old-context chat responses.
+  Raw-only unresolved prerequisite codes (MAT3423 -> MAT3402) now remain flagged without
+  creating parsed eligibility edges. No LLM, product DB, remote deploy or academic review.
+- Retrieval addition (2026-11-01, local work): `app/hus/retrieval.py` provides
+  `HUSRAGRetriever.search()` over the loader's F1/F3 chunks. Major/version/field/variant
+  and explicit/query course codes filter before BM25 scoring/top-k; no cross-scope
+  fallback or qa/origin directory scan. Vietnamese accent-insensitive lexical ranking
+  excludes repeated F3 warning/context from topic scoring but preserves output metadata.
+  Deduplicate identical slices only within the same scope/source. No embeddings,
+  generated answers or API integration; F2 remains the loader's structured lookup.
+- Loader addition (2026-11-01, local work): `app/hus/rag_loader.py` provides
+  `HUSRAGData.load()` for the shared package. It validates package files/checksums,
+  reads F1/F3 chunks separately and looks up F2 by exact code/major/version, retaining
+  reviews, provenance, generated warnings, raw prerequisites, duplicate source rows and
+  unresolved/conflicting states. Results are defensive copies. This is an offline
+  snapshot library, not retrieval/API integration, academic verification or a new raw
+  review gate. Reload after rebuilding the package; do not assume it was published.
+- Active data-preparation branch: `crawldata`. Base before this work was `38a5ddbd604469754e8e4de0c423a08e8976cdb6`. The user explicitly requested publication as **exactly 30 new commits**; inspect Git/remote history for the final publication state, never infer it from this note.
+- Current shared handoff is `data/hus/rag/{f1,f2,f3}` with checksums/origin paths in its manifest. Keep the source/release artifacts under `data/hus/qa/20261028/` for reproducibility; index only one copy of each dataset.
+- F1 currently has 15 sources / 69 chunks: 5 raw-HTML-compared sources plus 10 sources explicitly approved by the user for descriptive F1 from existing Markdown. The ten use `include_markdown`, selected-F1 scope and `raw_original_verified=false`; do not claim original PDF/DOCX or current academic validity was verified. The mixed Toan Co careers page was excluded by user request, pending is empty, and duplicate CLC narratives retain provenance without duplicate retrieval weight. The original raw review gate remains unchanged.
+- F2 exists for all four majors on remote main at `cfb2ec4c7f3f8e80428abc3db535dad0cc5db41d`: `database/data/hus_source.json`, 290 course/program memberships and 297 source occurrences. A byte-identical pinned copy is retained in the F3 inputs and shared `rag/f2`. The local crawldata curriculum sample alone is not the complete repository-wide F2 inventory. Preserve source draft/unresolved/conflict states.
+- F3 is a separate AI-generated reference dataset explicitly requested by the user: 290 records / 870 chunks, 174 in-scope codes, 154 authored concept blueprints. Keep disclosure labels, edition/major filters, and official syllabus/assessment/weight fields null. Do not insert generated F3 through the official-source review gate or present it as an official HUS syllabus.
+- Latest local verification before publication preparation: **541 passed, 26 skipped**; Ruff, diff checks, all applicable release reproductions and shared payload checks passed. No embeddings/vector index, live chatbot/LLM, database publication, or remote CI verification is implied. Two diagnostic HTML files and `docs/HUS_MANUAL_TEST.md` were untracked before this task and remain outside its commits.
+- Older statements below about missing product data/PDFs apply to the historical local foundation checkout. Current source limitations and the Markdown-only F1 exception are documented in `docs/HUS_QA_DATA_AUDIT.md` and the current dataset READMEs.
+
+
+## Main contributor context preserved during PR #6 resolution
+
+## Recommendation UI integration preflight — 2026-11-02
+
+User explicitly requests integrating feat/recommendation-conversation-ui into
+the current system, with regular progress, commits, a GitHub PR and an issue.
+Issue #67 tracks this integration. Use a PR and Create a merge commit; preserve
+all 19 original source commits/authors at c823aa5 and the current main 5239b73.
+Local integration branch integration/recommendation-conversation-ui-20261102
+contains merge 93167bd, with no conflict and an identical source application tree.
+
+Fixed only a browser-test isolation issue: check_vnu_only now serves HTML/static
+through common_route rather than requiring a real server on port 8000. Existing
+assertions and intercepted API behavior are retained. Added frontend test commands
+and integration evidence in docs/RECOMMENDATION_UI_INTEGRATION_2026_11_02.md.
+
+Validation: 621 offline/PDF passed, 80 PostgreSQL deselected; seven synthetic Chrome
+suites, Node model/analytics, Ruff, JS syntax, catalog builders and diff checks pass.
+One existing Starlette/httpx warning remains. No backend/schema/catalog change,
+new LLM extraction/ranker, RAG, real VNU login, personal-record read or paid model.
+Main integration and runtime activation are pending publication at this checkpoint;
+verify their eventual outcome from Git/GitHub and the ignored integration receipts.
+
+Root had a separate uncommitted 2026-11-02 admin/issues memory note; its original
+bytes and patch are saved in backups/recommendation_integration_20261102. Keep that
+unrelated note local and restore it when updating root. Preserve .vscode, previews,
+configuration and HUS v3. Do not merge the admin branch or activate HUS v3 here.
+
+## Recommendation UI publication authorized — 2026-11-01
+
+User now explicitly requests a NEW branch without a personal name and 15–20
+meaningful commits, followed by a GitHub push. This supersedes the local-only
+restriction for the recommendation UI source/tests/docs/memory immediately below.
+Target feat/recommendation-conversation-ui, base 5239b73 from origin/main;
+19 non-empty commits separate request/model rules, model tests, planning bridge,
+conversation, roadmap/details, comparison, API/save lifecycle, desktop/responsive
+styles, HTML integration, book clearance, existing browser regressions, new
+browser coverage, implementation report and this contributor checkpoint.
+
+Preserve working files while staging logical increments; leave the full UI
+unmounted until its JS/CSS dependencies have been added. Keep source ancestry
+and configured author identity. Push only the new ref, without force; do not
+change main or the earlier feature branch. Do not include .vscode/settings.json,
+credentials/configuration, AD-102, logs, previews, videos or other backups.
+
+The implementation/tests are the verified local version described below. No
+backend, data or application restart is required for publication. Verify the
+final tree against the pre-publication snapshot, exactly 19 non-empty commits,
+remote head and tracking state. This is authorization/preparation; actual commit
+and push results must be established from Git and the ignored publication receipt.
+
+## Local recommendation conversation UI — 2026-11-01
+
+User accepted the proposed full recommendation UI and requested pulling GitHub
+first. Root feat/vnu-curriculum-planning fast-forwarded from fba94de to fetched
+origin/main 5239b73, preserving team ancestry. This task has no new Git commit,
+push, PR or deployment. Existing untracked .vscode/settings.json and ignored
+credentials, AD-102 and backups remain local. Prior publication notes below
+describe historical work, not publication authorization for these new UI edits.
+
+Implemented recommendation-workspace.js/css and pure recommendation-model.mjs;
+index.html mounts them in #recommend. course-status.js provides a small shared
+planning-state/configure/draft bridge without changing academic rules or data.
+Retained source review, planning controls and saved alternatives inside
+#academic-plan-tools; browser fixtures open the real summary before using them.
+motion.js keeps the existing background book clear of the new conversation,
+roadmap and headings. No new dependencies, backend/schema/catalog edits.
+
+Guided preferences cover direction, workload, editable default 20 credits,
+graduation goal and real applicable track/path choices. Desktop has a live
+roadmap, mobile a native dialog sheet. Three alternatives use the verified
+/me/academic-context revision and /me/recommendations, with explicit required
+course preference and differing topic/type/workload weights. Real catalog
+metadata only; no claimed future offerings, graduation ETA or fabricated
+differences. Strict planning/source gates still apply. Details show actual
+AND/OR prerequisites; compare/save use real codes and existing server APIs.
+
+Saving is explicit, CSRF-protected and basis-checked. A lost response/60-second
+timeout does not show false success or permit an immediate duplicate POST;
+the UI directs the user to check saved alternatives. This is not server-side
+idempotency. Session/revision changes discard stale results and private dialog
+content; conversation is not persisted in browser storage. Motion uses WAAPI/
+CSS, pauses while hidden and honors reduced motion. See implementation report
+docs/RECOMMENDATION_WORKSPACE_2026_11_01.md for contracts, timings and limitations.
+
+Verification: 611 offline passed, 90 deselected, existing Starlette/httpx warning.
+Node model checks plus frontend-payload-to-real-backend-scoring smoke passed.
+Seven synthetic Chrome suites passed: recommendation workspace, course map,
+saved plans, VNU-only, presentation, study desk and motion. New checks include
+three variants, quota/budget gates, details/compare, save success/409/lost response,
+logout race, VI/EN, 1440/1024/390, themes and reduced motion. Presentation contrast
+now samples the actual existing login gradient; the former helper treated its
+transparent backgroundColor as white. The 4.5 threshold is unchanged. Ruff,
+affected JS syntax and diff checks pass. No real VNU credentials, personal-record
+inspection, model call, DB acceptance/load/FPS benchmark or Firefox/Safari test.
+
+Started Docker Desktop and existing se_hus_db; storage/auth preflight succeeded,
+no migration/seed/catalog publication. Local tools.run_local runs hidden without
+reload at http://127.0.0.1:8000/#recommend. Launcher PID 20012/server PID 14416
+are observed launch/session records; verify identity before stopping. Health,
+ready and homepage 200; 22 HTML assets and imported model match disk, JS module
+MIME correct; anonymous course-status/plans remain 401. Screenshots/video/JUnit
+are ignored under backups/recommendation_workspace_20261101 and local_runtime.
+Keep the app running for review. New uncommitted frontend/tests/docs/memory must
+remain local until the user authorizes publication for this work.
 
 ## Publication authorized — 2026-11-01: current course map and planning UI
 

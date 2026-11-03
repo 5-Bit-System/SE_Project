@@ -1,0 +1,312 @@
+{
+  "status": "pass",
+  "scope": "standalone RAG/basic chat only",
+  "cases": [
+    {
+      "major": "data_science",
+      "question": "Xin chào",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Cảm ơn bạn",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Tạm biệt",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Bạn có thể làm gì?",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Kỳ tới nên học môn gì?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Xếp thời khóa biểu cho tôi",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Thầy nào dễ tính?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Giới thiệu ngành",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Số tín chỉ MAT3533?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Nội dung MAT3533?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Nội dung MAT3533?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "MAT3533 thi cuối kỳ bao nhiêu phần trăm?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Xin chào",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Cảm ơn bạn",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Tạm biệt",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Bạn có thể làm gì?",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Kỳ tới nên học môn gì?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Xếp thời khóa biểu cho tôi",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Thầy nào dễ tính?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Giới thiệu ngành",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Số tín chỉ MAT3300?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Nội dung MAT3300?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Nội dung MAT3300?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "MAT3300 thi cuối kỳ bao nhiêu phần trăm?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Xin chào",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Cảm ơn bạn",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Tạm biệt",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Bạn có thể làm gì?",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Kỳ tới nên học môn gì?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Xếp thời khóa biểu cho tôi",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Thầy nào dễ tính?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Giới thiệu ngành",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Số tín chỉ MAT3539?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Nội dung MAT3539?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Nội dung MAT3539?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "MAT3539 thi cuối kỳ bao nhiêu phần trăm?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Xin chào",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Cảm ơn bạn",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Tạm biệt",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Bạn có thể làm gì?",
+      "mode": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Kỳ tới nên học môn gì?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Xếp thời khóa biểu cho tôi",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Thầy nào dễ tính?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Giới thiệu ngành",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Số tín chỉ MAT3507?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Nội dung MAT3507?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "Nội dung MAT3507?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "computer_science",
+      "question": "MAT3507 thi cuối kỳ bao nhiêu phần trăm?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "mathematics",
+      "question": "Tiên quyết MAT3325?",
+      "mode": "hus_rag",
+      "status": "pass"
+    },
+    {
+      "major": "data_science",
+      "question": "Tín chỉ MAT3533?",
+      "mode": "hus_rag",
+      "status": "pass"
+    }
+  ],
+  "late_response_scope_isolation": "pass",
+  "same_pdf_distinct_pages": "pass",
+  "browser_page_errors": [],
+  "recommendation_requests": 0,
+  "product_database_modified": false,
+  "llm_used": false
+}

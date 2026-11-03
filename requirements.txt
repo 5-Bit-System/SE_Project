@@ -8,3 +8,4 @@ psycopg2-binary>=2.9.9,<3
 python-dotenv>=1.0,<2
 argon2-cffi>=25.1,<27
 email-validator>=2.3,<3
+pdfplumber>=0.11,<1

@@ -1,0 +1,150 @@
+{
+  "active_release": false,
+  "datasets": {
+    "f1": {
+      "entrypoint": "f1/rag_chunks.jsonl",
+      "excluded_document_ids": [
+        "1f6ad01008734152"
+      ],
+      "kind": "crawled_source_quotes",
+      "markdown_reviewed_sources": 10,
+      "pending_sections": 0,
+      "rag_chunks": 69,
+      "raw_compared_sources": 5,
+      "source_documents": 15
+    },
+    "f2": {
+      "entrypoint": "f2/hus_source.json",
+      "kind": "structured_curriculum_source_draft_unverified",
+      "memberships": 290,
+      "programs": 4,
+      "source_rows": 297
+    },
+    "f3": {
+      "entrypoint": "f3/rag_chunks.jsonl",
+      "kind": "generated_reference_not_official_syllabus",
+      "rag_chunks": 870,
+      "records": 290
+    }
+  },
+  "files": [
+    {
+      "bytes": 5636,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/acceptance_questions.jsonl",
+      "path": "f1/acceptance_questions.jsonl",
+      "sha256": "edc8a764a18f42e6a0beb4b93c51ec6b98df79e09944ed5c220099b1b723aedb"
+    },
+    {
+      "bytes": 105350,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/documents.jsonl",
+      "path": "f1/documents.jsonl",
+      "sha256": "297a27a6179d3ec529b1217014a918022fecc9a876d3e8654fde51c7ff4911bc"
+    },
+    {
+      "bytes": 237065,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/f1_units.jsonl",
+      "path": "f1/f1_units.jsonl",
+      "sha256": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8"
+    },
+    {
+      "bytes": 2177,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/manifest.json",
+      "path": "f1/manifest.json",
+      "sha256": "87a953f3d180ce1792e54515ee625255191b8612dde87350622f875cac41dbe3"
+    },
+    {
+      "bytes": 20825,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/markdown_review_decisions.json",
+      "path": "f1/markdown_review_decisions.json",
+      "sha256": "a76e38b48a575363fcb451e242db97d8366a2e42591fb09f698c62c73bcf951a"
+    },
+    {
+      "bytes": 0,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/pending_F1_sections.jsonl",
+      "path": "f1/pending_F1_sections.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 277758,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/rag_chunks.jsonl",
+      "path": "f1/rag_chunks.jsonl",
+      "sha256": "fc9239e5c223331533770e8b2066b87cb7c9d57d50c0e3377100d5d137df5f9f"
+    },
+    {
+      "bytes": 68548,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/source_inventory.jsonl",
+      "path": "f1/source_inventory.jsonl",
+      "sha256": "8dc08cba6dcd552eb47a714964c7d3b4c5bfa0b8db0384978d28a02d87fe9d52"
+    },
+    {
+      "bytes": 34829,
+      "origin": "data/hus/qa/20261028/f1_markdown_approved/release/source_map.jsonl",
+      "path": "f1/source_map.jsonl",
+      "sha256": "0dd000ea8c4c08c431864ab6ee04fefd7793ad7816028ab4573dcaea9a911ce5"
+    },
+    {
+      "bytes": 621587,
+      "origin": "data/hus/qa/20261028/f3_reference/inputs/hus_source.json",
+      "path": "f2/hus_source.json",
+      "sha256": "6cd94644f6df4a6bfd75f3354cc78c287a6fe161662e2b2729d01390c9edc15a"
+    },
+    {
+      "bytes": 24646,
+      "origin": "data/hus/qa/20261028/main_f2_comparison.json",
+      "path": "f2/source_comparison.json",
+      "sha256": "5c71de26f4e3ba0cc364b4cb264891280e0532e2074d0b094f22822b8bb3f69e"
+    },
+    {
+      "bytes": 8848,
+      "origin": "data/hus/qa/20261028/f3_reference/release/acceptance_questions.jsonl",
+      "path": "f3/acceptance_questions.jsonl",
+      "sha256": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac"
+    },
+    {
+      "bytes": 87039,
+      "origin": "data/hus/qa/20261028/f3_reference/release/coverage.jsonl",
+      "path": "f3/coverage.jsonl",
+      "sha256": "8458c0e227cdcb4efe5dc2416de2fc0b6ccb9d07e51003a9cbfdd96a2d0932cb"
+    },
+    {
+      "bytes": 72167,
+      "origin": "data/hus/qa/20261028/f3_reference/inputs/blueprints.psv",
+      "path": "f3/inputs/blueprints.psv",
+      "sha256": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec"
+    },
+    {
+      "bytes": 1890,
+      "origin": "data/hus/qa/20261028/f3_reference/release/manifest.json",
+      "path": "f3/manifest.json",
+      "sha256": "df4e4ed077d4b9631603c6df768acd119e748db2e8b4fa3e6a2722c8a1772103"
+    },
+    {
+      "bytes": 2108762,
+      "origin": "data/hus/qa/20261028/f3_reference/release/rag_chunks.jsonl",
+      "path": "f3/rag_chunks.jsonl",
+      "sha256": "f0e60548e28ec438c0fd0ef69ed04fb4863d9a18e7984e2582c634aa2cec651c"
+    },
+    {
+      "bytes": 814052,
+      "origin": "data/hus/qa/20261028/f3_reference/release/rag_documents.jsonl",
+      "path": "f3/rag_documents.jsonl",
+      "sha256": "cf829aead81aa738ad9fb3c5fb423b9060bd880926ecaab61d2dc898e7113f2a"
+    },
+    {
+      "bytes": 1055068,
+      "origin": "data/hus/qa/20261028/f3_reference/release/records.jsonl",
+      "path": "f3/records.jsonl",
+      "sha256": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45"
+    },
+    {
+      "bytes": 271172,
+      "origin": "data/hus/qa/20261028/f3_reference/release/source_map.jsonl",
+      "path": "f3/source_map.jsonl",
+      "sha256": "f988fcf8e484f64127093b17116072bcbb2a820dd57f9bd9140a3b889d63dd46"
+    }
+  ],
+  "originals_preserved": true,
+  "purpose": "F1_F2_F3_management_handoff",
+  "schema_version": "1.0",
+  "source_date": "2026-10-28"
+}
