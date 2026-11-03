@@ -146,7 +146,7 @@ def profile_transcript_summary(profile_id: str) -> TranscriptSummary:
 def recommendations(request: RecommendationRequest) -> RecommendationResponse:
     try:
         catalog = load_catalog(request.program_id)
-        preference_extractor, llm_ranker = configured_adapters()
+        preference_extractor, llm_ranker = configured_adapters(catalog)
         # Validate the enriched response at the API boundary so legacy callers
         # and newer recommendation backends share one response contract.
         return RecommendationResponse.model_validate(
@@ -175,7 +175,7 @@ def recommendations_what_if(request: WhatIfRequest) -> RecommendationResponse:
             selected_track_id=request.selected_track_id,
             selected_graduation_path_id=request.selected_graduation_path_id,
         )
-        preference_extractor, llm_ranker = configured_adapters()
+        preference_extractor, llm_ranker = configured_adapters(catalog)
         return RecommendationResponse.model_validate(
             recommend(
                 catalog,
