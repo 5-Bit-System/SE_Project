@@ -120,6 +120,7 @@ class StructuredPreference(BaseModel):
     difficulty: Literal["easy", "moderate", "advanced"] | None = None
     orientation: Literal["theory", "practice", "research"] | None = None
     interest_topics: list[str] = Field(default_factory=list, max_length=20)
+    career_paths: list[str] = Field(default_factory=list, max_length=20)
     career_goal: str | None = Field(default=None, max_length=200)
     target_credits: int | None = Field(default=None, ge=1, le=30)
     target_course_count: int | None = Field(default=None, ge=1, le=20)
@@ -131,11 +132,12 @@ class RankingWeights(BaseModel):
     """Trọng số xếp hạng; tổng trọng số được chuẩn hóa khi chấm điểm."""
 
     topic: float = Field(default=0.6, ge=0, le=1)
+    career: float = Field(default=0.1, ge=0, le=1)
     keyword: float = Field(default=0.25, ge=0, le=1)
     course_type: float = Field(default=0.15, ge=0, le=1)
-    orientation: float = Field(default=0.0, ge=0, le=1)
-    difficulty: float = Field(default=0.0, ge=0, le=1)
-    workload: float = Field(default=0.0, ge=0, le=1)
+    orientation: float = Field(default=0.1, ge=0, le=1)
+    difficulty: float = Field(default=0.1, ge=0, le=1)
+    workload: float = Field(default=0.1, ge=0, le=1)
 
     @model_validator(mode="after")
     def require_positive_total(self) -> "RankingWeights":
