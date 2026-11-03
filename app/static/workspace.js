@@ -47,6 +47,7 @@
   }
 
   window.workspaceNavigate = target => {
+    if (window.systemAuth?.account?.role === 'admin') return;
     if (target === 'tab-transcript') target = 'portal-dialog';
     const selected = buttons.find(button => button.dataset.tab === target) || buttons[0];
     buttons.forEach(button => {

@@ -1,0 +1,1 @@
+"""Academic announcements governance package."""

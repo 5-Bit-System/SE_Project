@@ -14,6 +14,7 @@
   <script src="/static/i18n.js" defer></script>
   <link rel="stylesheet" href="/static/auth.css">
   <script src="/static/auth.js" defer></script>
+  <script src="/static/admin.js" defer></script>
   <script src="/static/workspace.js" defer></script>
   <link rel="stylesheet" href="/static/portal.css">
   <script src="/static/portal.js" defer></script>
@@ -177,7 +178,1199 @@
       <form id="auth-password-form" hidden><h3 data-auth-copy="changePassword"></h3><p data-auth-copy="changeHint"></p><label for="auth-current-password" data-auth-copy="currentPassword"></label><input id="auth-current-password" type="password" autocomplete="current-password" maxlength="128" required><label for="auth-new-password" data-auth-copy="newPassword"></label><input id="auth-new-password" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><label for="auth-new-confirm" data-auth-copy="confirmPassword"></label><input id="auth-new-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="128" required><button class="portal-button primary-action" type="submit" data-auth-copy="savePassword"></button></form>
     </div>
   </section>
-  <section id="system-admin" class="container" hidden><div class="dashboard-heading"><h2 data-auth-copy="adminTitle"></h2><button type="button" class="portal-button" id="admin-back" data-auth-copy="workspace"></button></div><p id="admin-notice" role="status"></p><form id="admin-search-form"><label for="admin-query" data-auth-copy="searchUsers"></label><input id="admin-query" type="search" maxlength="100"><button class="portal-button" data-auth-copy="search"></button></form><p id="admin-total"></p><div class="table-scroll"><table id="admin-users"></table></div><div class="portal-actions"><button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous"></button><button type="button" id="admin-next" class="portal-button" data-auth-copy="next"></button></div></section>
+  <section id="system-admin" class="container admin-shell" hidden>
+    <header class="admin-header">
+      <div class="admin-header-title-group">
+        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
+        <div class="admin-title-row">
+          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader">Bảng điều khiển quản trị</h2>
+          <span class="admin-status-pill">
+            <span class="admin-status-dot" aria-hidden="true"></span>
+            <span data-auth-copy="adminSystemReady">Hệ thống sẵn sàng</span>
+          </span>
+        </div>
+        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
+      </div>
+    </header>
+
+    <nav class="admin-nav-tabs" role="tablist" aria-label="Các phân hệ quản trị" aria-orientation="horizontal">
+      <button id="admin-tab-overview" class="admin-tab-btn active" role="tab" aria-selected="true" aria-controls="admin-panel-overview" tabindex="0" data-admin-tab="overview">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <rect x="3" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="3" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabOverview">Tổng quan</span>
+      </button>
+      <button id="admin-tab-curriculum" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-curriculum" tabindex="-1" data-admin-tab="curriculum">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M4 3.5h9a2.5 2.5 0 0 1 2.5 2.5v10.5H5.5A2.5 2.5 0 0 1 3 14V5.5A2 2 0 0 1 5 3.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 7.5h6M6 10.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabCurriculum">Chương trình đào tạo</span>
+      </button>
+      <button id="admin-tab-crawler" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-crawler" tabindex="-1" data-admin-tab="crawler">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10 3v4M10 13v4M3 10h4M13 10h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabCrawler">Kiểm duyệt tài liệu</span>
+      </button>
+      <button id="admin-tab-users" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-users" tabindex="-1" data-admin-tab="users">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <circle cx="10" cy="6.5" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4 16.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text" data-auth-copy="adminTabUsers">Tài khoản</span>
+      </button>
+      <button id="admin-tab-audit" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-audit" tabindex="-1" data-admin-tab="audit">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M7 3.5h6a2 2 0 0 1 2 2v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-11a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M8 8h4M8 11h4M8 14h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text">Nhật ký kiểm toán</span>
+      </button>
+      <button id="admin-tab-announcements" class="admin-tab-btn" role="tab" aria-selected="false" aria-controls="admin-panel-announcements" tabindex="-1" data-admin-tab="announcements">
+        <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
+          <path d="M15 6.5A5.5 5.5 0 0 0 4 6.5v4L2.5 13h15L16 10.5v-4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 15a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="admin-tab-text">Thông báo</span>
+      </button>
+    </nav>
+
+    <p id="admin-notice" class="admin-notice-bar" role="status" aria-live="polite"></p>
+
+    <!-- 1. Overview Panel -->
+    <section id="admin-panel-overview" class="admin-tab-panel active" role="tabpanel" aria-labelledby="admin-tab-overview">
+      <div class="admin-panel-header admin-panel-header-actions">
+        <div>
+          <h3 class="admin-panel-title" data-auth-copy="adminOverviewHeading">Chỉ số và trạng thái hệ thống</h3>
+          <p class="admin-panel-subtitle" data-auth-copy="adminOverviewSubheading">Dữ liệu nguồn xác thực, cập nhật theo thời gian thực.</p>
+        </div>
+        <button type="button" id="admin-overview-refresh" class="portal-button admin-refresh-btn" aria-label="Làm mới chỉ số">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-auth-copy="adminRefresh">Làm mới</span>
+        </button>
+      </div>
+      <div id="admin-overview-grid" class="admin-overview-grid" aria-live="polite">
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+      </div>
+      <!-- Operational Health & Consultation Section -->
+      <div class="admin-health-section" style="margin-top: 2rem;">
+        <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1rem; align-items: center;">
+          <div>
+            <h4 class="admin-section-heading" style="font-size: 1.15rem; font-weight: 700; margin: 0 0 4px 0; color: var(--text-main);">Giám sát Dịch vụ & Sức khỏe Cố vấn</h4>
+            <p class="admin-panel-subtitle" style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Chỉ số thời gian thực: lưu lượng theo nhóm route, độ trễ p50/p95, sự cố tư vấn và tín hiệu người dùng.</p>
+          </div>
+          <!-- Time Window Selector Pills -->
+          <div class="admin-health-window-selector" role="group" aria-label="Khung thời gian phân tích">
+            <button type="button" class="admin-window-btn" data-window="1h">1 giờ qua</button>
+            <button type="button" class="admin-window-btn active" data-window="24h">24 giờ qua</button>
+            <button type="button" class="admin-window-btn" data-window="7d">7 ngày qua</button>
+          </div>
+        </div>
+
+        <!-- Health Summary Cards Grid -->
+        <div id="admin-health-kpi-grid" class="admin-overview-grid" style="margin-bottom: 1.5rem;">
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+          <div class="admin-card-skeleton admin-kpi-card"><div class="admin-skeleton-line short"></div><div class="admin-skeleton-num"></div></div>
+        </div>
+
+        <!-- Route Groups Performance & Incidents Grid -->
+        <div class="admin-health-detail-grid">
+          <!-- Route Groups Table Card -->
+          <div class="admin-card" style="padding: 1.25rem;">
+            <div class="admin-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h5 class="admin-card-title" style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">Hiệu năng theo Nhóm Route</h5>
+              <span id="admin-health-sample-tag" class="admin-source-tag">Nguồn: runtime telemetry</span>
+            </div>
+            <div class="admin-table-container table-responsive">
+              <table class="admin-table admin-health-table" id="admin-route-groups-table" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Nhóm dịch vụ</th>
+                    <th style="text-align: right;">Số Request</th>
+                    <th style="text-align: right;">Thành công</th>
+                    <th style="text-align: right;">Lỗi (%)</th>
+                    <th style="text-align: right;">p50 (ms)</th>
+                    <th style="text-align: right;">p95 (ms)</th>
+                    <th style="text-align: center;">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-route-groups-tbody">
+                  <!-- Dynamic rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Consultation & Feedback Breakdown Card -->
+          <div class="admin-card" style="padding: 1.25rem;">
+            <div class="admin-card-header" style="margin-bottom: 1rem;">
+              <h5 class="admin-card-title" style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">Sức khỏe Cố vấn & Tín hiệu Chất lượng</h5>
+            </div>
+            <div id="admin-consultation-health-details" class="admin-health-consultation-body">
+              <!-- Consultation stats, failure reasons, feedback bar -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2. Curriculum Panel -->
+    <section id="admin-panel-curriculum" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-curriculum" hidden>
+      <!-- List View -->
+      <div id="admin-curriculum-list-view">
+        <div class="admin-panel-header">
+          <div>
+            <h3 class="admin-panel-title" data-auth-copy="adminCurriculumHeading">Danh mục chương trình và học phần</h3>
+            <p class="admin-panel-subtitle" data-auth-copy="adminCurriculumSubheading">Duyệt chương trình đào tạo, điều kiện tiên quyết và trạng thái kiểm định.</p>
+          </div>
+        </div>
+
+        <!-- Curriculum Subtabs -->
+        <div class="admin-subtabs" role="tablist" aria-label="Chế độ xem chương trình đào tạo">
+          <button type="button" id="admin-curriculum-subtab-programs" class="admin-subtab-btn active" role="tab" aria-selected="true">Chương trình hiện hành</button>
+          <button type="button" id="admin-curriculum-subtab-revisions" class="admin-subtab-btn" role="tab" aria-selected="false">Bản thảo & Lịch sử phiên bản</button>
+          <button type="button" id="admin-curriculum-subtab-preview" class="admin-subtab-btn" role="tab" aria-selected="false">Thử nghiệm Cố vấn Giả lập</button>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-curriculum-search" type="search" placeholder="Tìm tên ngành, mã CTĐT hoặc khóa…" aria-label="Tìm kiếm chương trình đào tạo">
+          </div>
+          <div class="admin-toolbar-filter">
+            <label for="admin-curriculum-status-filter" class="sr-only">Lọc theo trạng thái kiểm định</label>
+            <select id="admin-curriculum-status-filter" class="modern-select">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="draft_unverified">Bản thảo chưa kiểm định</option>
+              <option value="verified">Đã kiểm định</option>
+            </select>
+          </div>
+          <button type="button" id="admin-curriculum-import-btn" class="portal-button admin-primary-btn" aria-label="Nhập danh mục mới">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M10 3v10m-4-4 4 4 4-4M4 17h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Nhập bản thảo (CSV)</span>
+          </button>
+        </div>
+
+        <div id="admin-curriculum-container">
+          <div class="table-scroll admin-table-container">
+            <table id="admin-programs-table" class="admin-data-table">
+              <caption class="sr-only">Danh sách chương trình đào tạo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Mã CTĐT</th>
+                  <th scope="col">Tên chương trình</th>
+                  <th scope="col">Khóa / Năm</th>
+                  <th scope="col">Tín chỉ</th>
+                  <th scope="col">Học phần</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Nguồn</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-programs-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Revisions and Audit History View -->
+        <div id="admin-curriculum-revisions-view" hidden>
+          <div class="admin-curriculum-toolbar">
+            <div class="admin-search-input-wrap">
+              <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+                <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <input id="admin-revisions-search" type="search" placeholder="Tìm mã bản thảo, tiêu đề hoặc khóa…" aria-label="Tìm kiếm bản thảo">
+            </div>
+            <div class="admin-toolbar-filter">
+              <label for="admin-revisions-status-filter" class="sr-only">Lọc trạng thái bản thảo</label>
+              <select id="admin-revisions-status-filter" class="modern-select">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="draft">Bản thảo (draft)</option>
+                <option value="validated">Đã kiểm tra (validated)</option>
+                <option value="approved">Đã phê duyệt (approved)</option>
+                <option value="published">Đã phát hành (published)</option>
+                <option value="rejected">Bị từ chối (rejected)</option>
+              </select>
+            </div>
+            <button type="button" id="admin-revisions-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới danh sách bản thảo">
+              <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+                <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Làm mới</span>
+            </button>
+          </div>
+
+          <div class="table-scroll admin-table-container">
+            <table id="admin-revisions-table" class="admin-data-table">
+              <caption class="sr-only">Danh sách bản thảo và lịch sử phiên bản chương trình đào tạo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Mã phiên bản</th>
+                  <th scope="col">Ngành</th>
+                  <th scope="col">Tiêu đề phiên bản</th>
+                  <th scope="col">Khóa</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Kích hoạt</th>
+                  <th scope="col">Ngày tạo</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-revisions-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+        <!-- Synthetic Preview Subtab View -->
+        <div id="admin-curriculum-preview-view" hidden>
+          <div class="admin-panel-header" style="margin-bottom: 1rem;">
+            <div>
+              <h4 class="admin-panel-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Thử nghiệm Cố vấn & Khuyến nghị Giả lập</h4>
+              <p class="admin-panel-subtitle" style="font-size: 0.85rem; color: var(--text-muted);">
+                Mô phỏng giải thuật gợi ý học phần và kiểm tra điều kiện tiên quyết bằng hồ sơ sinh viên giả định.
+                <span class="admin-source-tag" style="background: rgba(16, 185, 129, 0.1); color: #047857; margin-left: 6px;">Không ghi nhận vào học bạ thực tế</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Configuration Card -->
+          <div class="admin-card" style="padding: 1.25rem; margin-bottom: 1.5rem;">
+            <h5 style="margin: 0 0 1rem 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">1. Thiết lập Hồ sơ Giả định</h5>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+              <div class="admin-form-group">
+                <label for="admin-preview-prog-select" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Chương trình đào tạo mục tiêu</label>
+                <select id="admin-preview-prog-select" class="modern-select" style="width: 100%;"></select>
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-preview-credits-input" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Số tín chỉ đăng ký tối đa</label>
+                <input type="number" id="admin-preview-credits-input" class="admin-input" value="18" min="1" max="30" style="width: 100%; padding: 7px 10px; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main);">
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-preview-goal-input" class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 4px;">Mục tiêu / Nguyện vọng học tập</label>
+                <input type="text" id="admin-preview-goal-input" class="admin-input" placeholder="Ví dụ: Tối ưu điểm số, định hướng chuyên sâu..." style="width: 100%; padding: 7px 10px; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main);">
+              </div>
+            </div>
+
+            <!-- Quick Presets -->
+            <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Mẫu hồ sơ nhanh:</span>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="freshman" style="font-size: 11px; padding: 4px 10px;">Sinh viên Mới (0 môn)</button>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="year1" style="font-size: 11px; padding: 4px 10px;">Đã học 1 năm</button>
+              <button type="button" class="portal-button admin-preset-btn" data-preset="core" style="font-size: 11px; padding: 4px 10px;">Đã xong Đại cương</button>
+            </div>
+
+            <!-- Course Checkboxes Picker -->
+            <div class="admin-form-group">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                <label class="admin-label" style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Môn học giả định đã tích lũy (Passed Courses)</label>
+                <span style="font-size: 12px; color: var(--text-muted);">Đã chọn: <strong id="admin-preview-selected-num" style="color: var(--accent-primary, #4361ee);">0</strong> môn</span>
+              </div>
+              <div id="admin-preview-courses-picker" style="max-height: 180px; overflow-y: auto; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px; background: var(--soft-surface); display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px;"></div>
+            </div>
+
+            <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end;">
+              <button type="button" id="admin-preview-run-btn" class="portal-button primary-action">
+                <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true" style="width: 16px; height: 16px; margin-right: 6px;">
+                  <path d="M7 2h6M10 2v5l-5 8.5A2 2 0 0 0 6.7 18h6.6a2 2 0 0 0 1.7-2.5L10 7V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Chạy Mô phỏng Cố vấn</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulation Results Area -->
+          <div id="admin-preview-results-area" hidden>
+            <div id="admin-preview-banner" style="margin-bottom: 1.25rem;"></div>
+
+            <div class="admin-subtabs" role="tablist" style="margin-bottom: 1rem;">
+              <button type="button" id="admin-res-tab-recommended" class="admin-subtab-btn active" role="tab">Gợi ý hàng đầu (<span id="admin-res-count-rec">0</span>)</button>
+              <button type="button" id="admin-res-tab-eligible" class="admin-subtab-btn" role="tab">Đủ điều kiện đăng ký (<span id="admin-res-count-eli">0</span>)</button>
+              <button type="button" id="admin-res-tab-blocked" class="admin-subtab-btn" role="tab">Bị chặn bởi tiên quyết (<span id="admin-res-count-blk">0</span>)</button>
+            </div>
+
+            <div id="admin-res-panel-recommended" class="admin-preview-res-panel">
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-rec">
+                  <thead>
+                    <tr>
+                      <th style="width: 50px;">Hạng</th>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Điểm số & Khối</th>
+                      <th>Lý do gợi ý</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-rec"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="admin-res-panel-eligible" class="admin-preview-res-panel" hidden>
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-eli">
+                  <thead>
+                    <tr>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Khối kiến thức</th>
+                      <th>Kỳ đề xuất</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-eli"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="admin-res-panel-blocked" class="admin-preview-res-panel" hidden>
+              <div class="admin-table-container">
+                <table class="admin-data-table" id="admin-table-blk">
+                  <thead>
+                    <tr>
+                      <th>Mã môn</th>
+                      <th>Tên học phần</th>
+                      <th style="text-align: right;">Tín chỉ</th>
+                      <th>Khối kiến thức</th>
+                      <th>Lý do chặn & Môn tiên quyết còn thiếu</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-tbody-blk"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- Course Detail View (Initially hidden) -->
+      <div id="admin-curriculum-detail-view" hidden>
+        <div class="admin-detail-header">
+          <button type="button" id="admin-curriculum-detail-back" class="portal-button admin-back-btn">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M12.5 15 7.5 10l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Quay lại danh mục</span>
+          </button>
+          <div class="admin-detail-title-group">
+            <h3 id="admin-detail-program-name" class="admin-detail-title"></h3>
+            <div class="admin-detail-meta-row">
+              <span id="admin-detail-program-id" class="admin-meta-tag"></span>
+              <span id="admin-detail-program-credits" class="admin-meta-tag"></span>
+              <span id="admin-detail-program-courses" class="admin-meta-tag"></span>
+              <span id="admin-detail-status-badge" class="admin-status-badge badge-warning"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-curriculum-provenance-box">
+          <div class="provenance-item">
+            <strong>Tài liệu nguồn:</strong> <span id="admin-detail-source-file"></span>
+          </div>
+          <div class="provenance-item">
+            <strong>Trang nguồn:</strong> <span id="admin-detail-source-pages"></span>
+          </div>
+          <p class="provenance-disclaimer">
+            <svg viewBox="0 0 16 16" fill="none" class="badge-icon"><path d="M8 2.5 14 13H2L8 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Dữ liệu học phần và điều kiện tiên quyết đang ở trạng thái bản thảo chưa kiểm định. Chỉ dùng cho mục đích đối chiếu kỹ thuật.
+          </p>
+        </div>
+
+        <!-- Course Search / Filter -->
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-courses-search" type="search" placeholder="Tìm theo mã học phần, tên học phần…" aria-label="Tìm kiếm học phần">
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-courses-block-filter" class="modern-select">
+              <option value="all">Tất cả khối kiến thức</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-courses-table" class="admin-data-table">
+            <caption class="sr-only">Danh sách học phần thuộc chương trình đào tạo</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã môn</th>
+                <th scope="col">Tên học phần</th>
+                <th scope="col">Tín chỉ</th>
+                <th scope="col">Khối</th>
+                <th scope="col">Loại</th>
+                <th scope="col">Kỳ/Năm</th>
+                <th scope="col">Điều kiện tiên quyết</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="admin-courses-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Import Curriculum Draft Modal -->
+      <dialog id="admin-import-modal" class="admin-modal">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Nhập bản thảo Chương trình đào tạo (CSV)</h4>
+            <button type="button" id="admin-import-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div class="admin-disclaimer admin-modal-disclaimer">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" aria-hidden="true">
+              <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <strong>Lưu ý quan trọng:</strong> Tệp CSV sẽ được kiểm tra và lưu thành một <em>Bản thảo (Draft)</em> độc lập. Thao tác này không ghi đè chương trình đào tạo đang hoạt động cho đến khi được phê duyệt và phát hành chính thức.
+            </div>
+          </div>
+          <form id="admin-import-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label for="admin-import-program-select">Chương trình đào tạo mục tiêu</label>
+              <select id="admin-import-program-select" class="modern-select" required>
+                <option value="">-- Chọn chương trình --</option>
+              </select>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group">
+                <label for="admin-import-version-title">Tên bản thảo / Tiêu đề phiên bản</label>
+                <input id="admin-import-version-title" type="text" placeholder="VD: Khóa 2026 Cập nhật môn Tin học" required>
+              </div>
+              <div class="admin-form-group">
+                <label for="admin-import-cohort">Khóa / Năm tuyển sinh (tùy chọn)</label>
+                <input id="admin-import-cohort" type="text" placeholder="VD: 2026">
+              </div>
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-import-file-input">Chọn CSV thay đổi môn hiện có hoặc gói nguồn HUS JSON</label>
+              <input id="admin-import-file-input" type="file" accept=".csv,.json,text/csv,application/json">
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-import-csv-text">CSV: code, name, credits, prerequisites (AND: ; — OR: |), suggested_term; hoặc gói nguồn HUS JSON đầy đủ</label>
+              <textarea id="admin-import-csv-text" rows="6" placeholder="code,name,credits,prerequisites,block,suggested_term&#10;MAT1001,Giải tích 1,3,,Khối chung,1&#10;MAT1002,Giải tích 2,3,MAT1001,Khối chung,2" required></textarea>
+            </div>
+
+            <!-- Validation Preview Container -->
+            <div id="admin-import-preview" class="admin-import-preview" hidden></div>
+
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-import-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-import-submit-btn" class="portal-button admin-primary-btn">Kiểm tra & Lưu bản thảo</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <!-- Curriculum Diff & Review Modal -->
+      <dialog id="admin-diff-modal" class="admin-modal" style="max-width: 800px;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">So sánh sai khác & Xem xét phiên bản</h4>
+            <button type="button" id="admin-diff-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div id="admin-diff-content" class="admin-diff-content">
+            <div class="admin-diff-summary-bar">
+              <span id="admin-diff-target-pill" class="admin-meta-tag"></span>
+              <span id="admin-diff-base-pill" class="admin-meta-tag"></span>
+            </div>
+            <div id="admin-diff-stats" class="admin-diff-stats-grid"></div>
+            <div id="admin-diff-details" class="admin-diff-details-container"></div>
+          </div>
+          <div class="admin-modal-actions">
+            <button type="button" id="admin-diff-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- Prerequisite Rule Editor Modal -->
+      <dialog id="admin-prereq-modal" class="admin-modal" style="max-width: 680px;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 class="admin-modal-title">Chỉnh sửa điều kiện học phần tiên quyết</h4>
+            <button type="button" id="admin-prereq-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+          <div class="admin-disclaimer">
+            <div>
+              <strong>Lưu ý:</strong> Chỉnh sửa quy tắc tiên quyết sẽ được lưu vào <em>Bản thảo</em>. Nếu đang thao tác trên bản đã phát hành, hệ thống sẽ tự động rẽ nhánh một bản thảo mới an toàn.
+            </div>
+          </div>
+          <div class="admin-prereq-course-banner">
+            <div>
+              <span id="admin-prereq-course-code" class="admin-meta-tag" style="font-size: 1rem; font-weight: 700;"></span>
+              <strong id="admin-prereq-course-name" style="margin-left: 8px;"></strong>
+            </div>
+            <span id="admin-prereq-rev-badge" class="admin-meta-tag"></span>
+          </div>
+
+          <form id="admin-prereq-form" class="admin-modal-form">
+            <div class="admin-form-group">
+              <label>Quy tắc tiên quyết (Dạng điều kiện logic: AND giữa các nhóm, OR giữa các môn trong nhóm)</label>
+              <div id="admin-prereq-builder" class="admin-prereq-builder">
+                <!-- Dynamic AND/OR Groups rendered here -->
+              </div>
+              <button type="button" id="admin-prereq-add-group-btn" class="admin-action-btn-sm" style="margin-top: 8px;">+ Thêm nhóm điều kiện (VÀ / AND)</button>
+            </div>
+
+            <div class="admin-form-group">
+              <label for="admin-prereq-reason">Lý do thay đổi quy tắc (Bắt buộc)</label>
+              <input id="admin-prereq-reason" type="text" placeholder="VD: Bổ sung môn thay thế theo quyết định đào tạo" required minlength="3">
+            </div>
+
+            <div id="admin-prereq-error-alert" class="admin-prereq-error-alert" hidden></div>
+
+            <div class="admin-modal-actions">
+              <button type="button" id="admin-prereq-cancel-btn" class="portal-button admin-secondary-btn">Hủy</button>
+              <button type="submit" id="admin-prereq-save-btn" class="portal-button admin-primary-btn">Lưu quy tắc vào bản thảo</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <!-- Publication Provenance Manifest Modal -->
+      <dialog id="admin-provenance-modal" class="admin-modal" style="max-width: 860px; width: 95vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 class="admin-modal-title">Chứng thực Xuất bản & Hồ sơ Nguồn gốc</h4>
+              <span id="admin-prov-subtitle" class="admin-sub-text">Publication Provenance Manifest</span>
+            </div>
+            <button type="button" id="admin-prov-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <div id="admin-prov-loading" style="padding: 24px; text-align: center; color: var(--text-muted);">
+            Đang tải hồ sơ chứng thực…
+          </div>
+
+          <div id="admin-prov-content" style="display: none; flex-direction: column; gap: 14px;">
+            <!-- Manifest Integrity Bar -->
+            <div style="background: var(--surface-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">CHỮ KÝ BẢO TOÀN DỮ LIỆU (MANIFEST CHECKSUM - SHA-256)</label>
+                <span id="admin-prov-version" class="admin-meta-tag">v1.0</span>
+              </div>
+              <div id="admin-prov-checksum" class="admin-code-snippet" style="font-family: monospace; font-size: 0.85rem; word-break: break-all; color: var(--primary); font-weight: 600;"></div>
+            </div>
+
+            <!-- Meta Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Thời điểm ban hành</span>
+                <div id="admin-prov-published-at" style="font-size: 0.95rem; font-weight: 600; margin-top: 4px;"></div>
+              </div>
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Mã băm Payload CTĐT</span>
+                <div id="admin-prov-payload-hash" style="font-family: monospace; font-size: 0.8rem; margin-top: 4px; overflow: hidden; text-overflow: ellipsis;"></div>
+              </div>
+              <div class="admin-overview-card" style="padding: 10px;">
+                <span class="kpi-title" style="font-size: 0.78rem;">Người ký duyệt</span>
+                <div id="admin-prov-publisher" style="font-size: 0.95rem; font-weight: 600; margin-top: 4px;"></div>
+              </div>
+            </div>
+
+            <!-- Publication Reason -->
+            <div style="background: var(--surface-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">CĂN CỨ & QUYẾT ĐỊNH BAN HÀNH</label>
+              <div id="admin-prov-reason" style="font-size: 0.9rem; font-weight: 500;"></div>
+            </div>
+
+            <!-- Linked Source Documents Table -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted);">TÀI LIỆU CĂN CỨ ĐÃ KIỂM DUYỆT (LINKED SOURCES)</label>
+                <span id="admin-prov-docs-count" class="admin-meta-tag">0 tài liệu</span>
+              </div>
+              <div class="table-scroll admin-table-container" style="max-height: 220px;">
+                <table class="admin-data-table" id="admin-prov-docs-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Mã tài liệu</th>
+                      <th scope="col">Tiêu đề & Nguồn URL</th>
+                      <th scope="col">Mã băm nguồn (SHA-256)</th>
+                      <th scope="col">Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-prov-docs-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-modal-actions" style="margin-top: 14px;">
+            <button type="button" id="admin-prov-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
+        </div>
+      </dialog>
+    </section>
+
+        <!-- Document Review Governance Panel -->
+    <section id="admin-panel-crawler" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-crawler" hidden>
+      <div class="admin-panel-header admin-panel-header-actions">
+        <div>
+          <h3 class="admin-panel-title">Kiểm duyệt Tài liệu Học thuật</h3>
+          <p class="admin-panel-subtitle">Xem xét, chỉnh sửa metadata và phê duyệt hoặc từ chối các tài liệu học thuật trước khi công bố.</p>
+        </div>
+        <button type="button" id="admin-crawler-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới danh sách tài liệu">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Làm mới</span>
+        </button>
+      </div>
+
+      <!-- Documents Review View -->
+      <div id="admin-crawler-docs-view">
+        <!-- Error & Stale Data Banners -->
+        <div id="admin-docs-error-banner" class="admin-disclaimer" style="display: none; border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); margin-bottom: 12px;" role="alert" aria-live="assertive">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" style="color: #ef4444;"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div style="flex: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span id="admin-docs-error-msg" style="color: #ef4444; font-size: 0.85rem;">Không thể tải danh sách tài liệu.</span>
+            <button type="button" id="admin-docs-retry-btn" class="admin-action-btn-sm" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Thử lại</button>
+          </div>
+        </div>
+        <div id="admin-docs-stale-banner" class="admin-disclaimer" style="display: none; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); margin-bottom: 12px;" role="status">
+          <span id="admin-docs-stale-msg" style="color: #f59e0b; font-size: 0.82rem;">Dữ liệu cũ (Lần làm mới gần nhất gặp lỗi)</span>
+        </div>
+
+        <div class="admin-curriculum-toolbar">
+          <div class="admin-search-input-wrap">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input id="admin-docs-search" type="search" placeholder="Tìm tiêu đề tài liệu hoặc URL…" aria-label="Tìm kiếm tài liệu">
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-docs-major-filter" class="modern-select">
+              <option value="all">Tất cả chuyên ngành</option>
+              <option value="computer_science">Khoa học máy tính</option>
+              <option value="data_science">Khoa học dữ liệu</option>
+              <option value="mathematics">Toán học</option>
+              <option value="mathematics_informatics">Toán tin</option>
+              <option value="general">Thông tin chung</option>
+            </select>
+          </div>
+          <div class="admin-toolbar-filter">
+            <select id="admin-docs-status-filter" class="modern-select">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="pending">Chờ kiểm duyệt (pending)</option>
+              <option value="approved">Đã phê duyệt (approved)</option>
+              <option value="rejected">Bị từ chối (rejected)</option>
+            </select>
+          </div>
+          <button type="button" id="admin-docs-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới danh sách tài liệu">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+              <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Làm mới</span>
+          </button>
+        </div>
+
+        <div class="table-scroll admin-table-container">
+          <table id="admin-crawler-docs-table" class="admin-data-table">
+            <caption class="sr-only">Hàng đợi kiểm duyệt tài liệu thu thập</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mã tài liệu</th>
+                <th scope="col">Tiêu đề & Nguồn URL</th>
+                <th scope="col">Ngành / Loại</th>
+                <th scope="col">Kích thước</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="admin-crawler-docs-tbody"></tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div id="admin-docs-pagination" class="admin-pagination-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-top: 1px solid var(--border-light); font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+          <div id="admin-docs-page-info">Đang hiển thị 0 / 0 tài liệu</div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button type="button" id="admin-docs-prev-btn" class="admin-action-btn-sm" aria-label="Trang trước" disabled>← Trang trước</button>
+            <span id="admin-docs-current-page" style="font-weight: 600; padding: 0 4px;">Trang 1 / 1</span>
+            <button type="button" id="admin-docs-next-btn" class="admin-action-btn-sm" aria-label="Trang sau" disabled>Trang sau →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Kiểm Duyệt Tài Liệu (Document Review Workspace) -->
+      <dialog id="admin-doc-review-modal" class="admin-modal" style="max-width: 960px; width: 95vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 id="admin-doc-modal-title" class="admin-modal-title">Chi tiết & Kiểm duyệt tài liệu</h4>
+              <span id="admin-doc-modal-id" class="admin-sub-text"></span>
+            </div>
+            <button type="button" id="admin-doc-review-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <!-- Document Meta Bar & Duplicate Warning -->
+          <div id="admin-doc-duplicate-alert" class="admin-disclaimer" style="display: none; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+            <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" style="color: #f59e0b;"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <strong style="color: #f59e0b;">Cảnh báo trùng lặp nội dung:</strong> Phát hiện tài liệu có mã băm SHA-256 trùng khớp với <span id="admin-doc-dup-count"></span> tài liệu khác trong hệ thống.
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-top: 12px;">
+            <!-- Left: Document Preview -->
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">NỘI DUNG TÀI LIỆU (MARKDOWN BẢN THẢO)</label>
+                <a id="admin-doc-source-link" href="#" target="_blank" rel="noopener noreferrer" style="font-size: 0.82rem; color: var(--primary);">Mở URL gốc ↗</a>
+              </div>
+              <div id="admin-doc-preview-pane" class="admin-doc-preview-pane" style="max-height: 440px; overflow-y: auto; padding: 14px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--surface-subtle); font-size: 0.86rem; line-height: 1.6;"></div>
+            </div>
+
+            <!-- Right: Metadata & Decision -->
+            <div style="display: flex; flex-direction: column; gap: 14px; background: var(--surface-card); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+              <div>
+                <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 6px;">TRẠNG THÁI KIỂM DUYỆT</label>
+                <div id="admin-doc-status-badge"></div>
+                <div id="admin-doc-decision-meta" class="admin-sub-text" style="margin-top: 6px;"></div>
+              </div>
+
+              <!-- Metadata Edit Form -->
+              <form id="admin-doc-meta-form" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="admin-form-group" style="margin-bottom: 0;">
+                  <label for="admin-doc-edit-title" style="font-size: 0.8rem;">Tiêu đề tài liệu</label>
+                  <input id="admin-doc-edit-title" type="text" class="modern-input" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div class="admin-form-group" style="margin-bottom: 0;">
+                    <label for="admin-doc-edit-major" style="font-size: 0.8rem;">Chuyên ngành</label>
+                    <input id="admin-doc-edit-major" type="text" class="modern-input" required>
+                  </div>
+                  <div class="admin-form-group" style="margin-bottom: 0;">
+                    <label for="admin-doc-edit-type" style="font-size: 0.8rem;">Loại tài liệu</label>
+                    <input id="admin-doc-edit-type" type="text" class="modern-input" required>
+                  </div>
+                </div>
+                <button type="submit" id="admin-doc-meta-save-btn" class="admin-action-btn-sm" style="align-self: flex-start; margin-top: 4px;">Lưu chỉnh sửa Metadata</button>
+              </form>
+
+              <!-- Decision Action Form -->
+              <div style="border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: auto;">
+                <label for="admin-doc-decision-reason" style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 6px;">QUYẾT ĐỊNH PHÊ DUYỆT / TỪ CHỐI</label>
+                <input id="admin-doc-decision-reason" type="text" class="modern-input" placeholder="Nhập lý do kiểm duyệt (bắt buộc, tối thiểu 3 ký tự)" minlength="3" style="width: 100%; margin-bottom: 10px;">
+                <div style="display: flex; gap: 8px;">
+                  <button type="button" id="admin-doc-approve-btn" class="portal-button admin-primary-btn" style="flex: 1; padding: 6px 10px;">✓ Phê duyệt</button>
+                  <button type="button" id="admin-doc-reject-btn" class="portal-button" style="flex: 1; padding: 6px 10px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">✕ Từ chối</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- 3. Users Panel -->
+    <section id="admin-panel-users" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-users" hidden>
+      <div class="admin-panel-header">
+        <div>
+          <h3 class="admin-panel-title" data-auth-copy="adminUsersHeading">Quản lý tài khoản</h3>
+          <p class="admin-panel-subtitle" data-auth-copy="adminUsersSubheading">Danh sách tài khoản sinh viên và quản trị viên trong hệ thống.</p>
+        </div>
+      </div>
+      <form id="admin-search-form" class="admin-search-bar" role="search">
+        <label for="admin-query" class="sr-only" data-auth-copy="searchUsers">Tìm kiếm tài khoản</label>
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-query" type="search" maxlength="100" placeholder="Tìm tài khoản VNU, email hoặc tên…" data-auth-placeholder="searchUsersPlaceholder">
+        </div>
+        <button type="submit" class="portal-button primary-action" data-auth-copy="search">Tìm kiếm</button>
+      </form>
+      <div class="admin-table-meta-row">
+        <p id="admin-total" class="admin-total-badge"></p>
+      </div>
+      <div class="table-scroll admin-table-container">
+        <table id="admin-users" class="admin-data-table"></table>
+      </div>
+      <div class="portal-actions admin-pagination-actions">
+        <button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous">Trước</button>
+        <button type="button" id="admin-next" class="portal-button" data-auth-copy="next">Tiếp</button>
+      </div>
+    </section>
+
+    <!-- 4. Audit Log Panel -->
+    <section id="admin-panel-audit" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-audit" hidden>
+      <div class="admin-panel-header admin-panel-header-actions">
+        <div>
+          <h3 class="admin-panel-title">Nhật ký Kiểm toán Hoạt động Quản trị</h3>
+          <p class="admin-panel-subtitle">Hồ sơ bất biến ghi nhận mọi thao tác đặc quyền trên tài khoản, CTĐT, crawler và dữ liệu học thuật.</p>
+        </div>
+        <button type="button" id="admin-audit-refresh-btn" class="portal-button admin-refresh-btn" aria-label="Làm mới nhật ký kiểm toán">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M3.5 10a6.5 6.5 0 0 1 11.8-3.9M16.5 10a6.5 6.5 0 0 1-11.8 3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15.5 3.5v3h-3M4.5 16.5v-3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Làm mới</span>
+        </button>
+      </div>
+
+      <!-- Audit KPI Metrics Bar -->
+      <div class="admin-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 20px;">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Tổng số sự kiện</span>
+            <div class="admin-kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7 3.5h6a2 2 0 0 1 2 2v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-11a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-total" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Sự kiện kiểm toán ghi nhận</span>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Trong 24 giờ qua</span>
+            <div class="admin-kpi-icon-wrap">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-24h" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Thao tác quản trị gần đây</span>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-header">
+            <span class="admin-kpi-title">Cảnh báo / Lỗi</span>
+            <div class="admin-kpi-icon-wrap" style="color: #ef4444;">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 6v5M10 14h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div id="admin-audit-kpi-warn" class="admin-kpi-value">0</div>
+          <span class="admin-kpi-meta">Thao tác thất bại hoặc bị chặn</span>
+        </div>
+      </div>
+
+      <!-- Audit Toolbar -->
+      <div class="admin-curriculum-toolbar">
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-audit-search" type="search" placeholder="Tìm theo ID, hành động, email hoặc tóm tắt…" aria-label="Tìm kiếm nhật ký">
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-audit-action-filter" class="modern-select">
+            <option value="all">Tất cả nhóm hành động</option>
+            <option value="catalog">Chương trình đào tạo (catalog)</option>
+            <option value="crawler">Thu thập dữ liệu (crawler)</option>
+            <option value="document">Kiểm duyệt tài liệu (document)</option>
+            <option value="account">Quản lý tài khoản (account)</option>
+          </select>
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-audit-target-filter" class="modern-select">
+            <option value="all">Tất cả loại đối tượng</option>
+            <option value="catalog_revision">Phiên bản CTĐT</option>
+            <option value="course">Học phần</option>
+            <option value="crawler_source">Nguồn Crawler</option>
+            <option value="crawler_job">Tiến trình Job</option>
+            <option value="document">Tài liệu</option>
+            <option value="account">Tài khoản</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Audit Table -->
+      <div class="table-scroll admin-table-container">
+        <table id="admin-audit-table" class="admin-data-table">
+          <caption class="sr-only">Nhật ký kiểm toán hoạt động quản trị viên</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="width: 140px;">Thời gian</th>
+              <th scope="col">Người thực hiện</th>
+              <th scope="col">Hành động</th>
+              <th scope="col">Đối tượng</th>
+              <th scope="col">Tóm tắt an toàn</th>
+              <th scope="col" style="width: 90px;">Kết quả</th>
+              <th scope="col" style="width: 80px;">Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody id="admin-audit-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
+        <span id="admin-audit-page-info" class="admin-sub-text">Đang tải nhật ký…</span>
+        <div class="portal-actions" style="margin: 0; display: flex; gap: 8px;">
+          <button type="button" id="admin-audit-prev-btn" class="portal-button admin-secondary-btn" disabled>Trước</button>
+          <button type="button" id="admin-audit-next-btn" class="portal-button admin-secondary-btn" disabled>Tiếp</button>
+        </div>
+      </div>
+
+      <!-- Audit Detail Modal -->
+      <dialog id="admin-audit-detail-modal" class="admin-modal" style="max-width: 680px; width: 90vw;">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <h4 id="admin-audit-detail-title" class="admin-modal-title">Chi tiết Bản ghi Kiểm toán</h4>
+              <span id="admin-audit-detail-id" class="admin-sub-text"></span>
+            </div>
+            <button type="button" id="admin-audit-detail-close-btn" class="admin-modal-close" aria-label="Đóng hộp thoại">✕</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Người thực hiện (Actor)</span>
+              <div id="admin-audit-detail-actor" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Thời điểm (Timestamp)</span>
+              <div id="admin-audit-detail-time" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Hành động & Kết quả</span>
+              <div id="admin-audit-detail-action" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px;"></div>
+            </div>
+            <div class="admin-overview-card" style="padding: 10px;">
+              <span class="kpi-title" style="font-size: 0.78rem;">Mục tiêu (Target)</span>
+              <div id="admin-audit-detail-target" style="font-weight: 600; font-size: 0.88rem; margin-top: 4px; font-family: monospace;"></div>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">TÓM TẮT THAO TÁC</label>
+            <div id="admin-audit-detail-summary" style="font-size: 0.9rem; line-height: 1.5;"></div>
+          </div>
+
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">DỮ LIỆU ĐÃ LÀM SẠCH (REDACTED DETAILS JSON)</label>
+            <pre id="admin-audit-detail-json" class="admin-code-snippet" style="max-height: 200px; overflow-y: auto; font-family: monospace; font-size: 0.82rem; padding: 10px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--surface-subtle);"></pre>
+          </div>
+
+          <div class="admin-modal-actions">
+            <button type="button" id="admin-audit-detail-dismiss-btn" class="portal-button admin-secondary-btn">Đóng</button>
+          </div>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- 6. Academic Announcements Panel -->
+    <section id="admin-panel-announcements" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-announcements" hidden>
+      <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1.5rem;">
+        <div>
+          <h3 class="admin-panel-title">Quản lý Thông báo Học thuật</h3>
+          <p class="admin-panel-subtitle">Đăng tải và kiểm soát thông báo chính thức có căn cứ nguồn văn bản xác thực.</p>
+        </div>
+        <button type="button" id="admin-ann-create-btn" class="portal-button admin-primary-btn" aria-label="Tạo thông báo mới">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-btn-icon" aria-hidden="true">
+            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Tạo thông báo</span>
+        </button>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="admin-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 20px;">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M15 6.5A5.5 5.5 0 0 0 4 6.5v4L2.5 13h15L16 10.5v-4z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Tổng số thông báo</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-total" class="admin-metric-number" style="font-size: 28px;">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" style="color: #10b981;" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="m7.5 10 2 2 3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Đang phát hành (Published)</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-published" class="admin-metric-number" style="font-size: 28px; color: #10b981;">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-head">
+            <div class="admin-kpi-icon-wrap" style="color: #f59e0b;" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4 class="admin-kpi-title">Bản thảo & Hết hạn</h4>
+          </div>
+          <div class="admin-kpi-body">
+            <div class="admin-kpi-value-row">
+              <span id="admin-ann-kpi-other" class="admin-metric-number" style="font-size: 28px;">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="admin-curriculum-toolbar" style="margin-bottom: 1.25rem;">
+        <div class="admin-search-input-wrap">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-search-icon" aria-hidden="true">
+            <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="admin-ann-search" type="search" placeholder="Tìm theo tiêu đề hoặc nội dung thông báo…" aria-label="Tìm kiếm thông báo">
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-ann-status-filter" class="modern-select">
+            <option value="all">Tất cả trạng thái</option>
+            <option value="draft">Bản thảo (Draft)</option>
+            <option value="published">Đang phát hành</option>
+            <option value="expired">Đã hết hạn</option>
+          </select>
+        </div>
+        <div class="admin-toolbar-filter">
+          <select id="admin-ann-audience-filter" class="modern-select">
+            <option value="all">Tất cả đối tượng</option>
+            <option value="students">Sinh viên</option>
+            <option value="faculty">Giảng viên</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Announcements Data Table -->
+      <div class="admin-table-container">
+        <table id="admin-ann-table" class="admin-data-table">
+          <thead>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Văn bản căn cứ (Nguồn)</th>
+              <th>Đối tượng</th>
+              <th>Hiệu lực từ</th>
+              <th>Hết hạn</th>
+              <th>Trạng thái</th>
+              <th style="text-align: right;">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="admin-ann-tbody">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Create Announcement Modal Dialog -->
+    <dialog id="admin-ann-modal" class="admin-modal">
+      <div class="admin-modal-card" style="max-width: 620px;">
+        <div class="admin-modal-header">
+          <h4 class="admin-modal-title">Tạo Thông báo Học thuật Mới</h4>
+          <button type="button" id="admin-ann-modal-close" class="admin-modal-close" aria-label="Đóng">✕</button>
+        </div>
+        <div class="admin-disclaimer admin-modal-disclaimer">
+          <svg viewBox="0 0 20 20" fill="none" class="admin-disclaimer-icon" aria-hidden="true">
+            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M10 6.5v4M10 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <strong>Quy tắc xuất bản:</strong> Mọi thông báo học thuật phải có đường dẫn nguồn văn bản xác thực (ĐHQGHN hoặc HUS) để bảo đảm căn cứ pháp lý và tính minh bạch.
+          </div>
+        </div>
+        <form id="admin-ann-form" class="admin-modal-form" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+          <div class="admin-form-group">
+            <label for="admin-ann-input-title" class="admin-label">Tiêu đề thông báo *</label>
+            <input type="text" id="admin-ann-input-title" class="admin-input" required placeholder="Ví dụ: Thông báo kế hoạch học tập Học kỳ 1 2026-2027" style="width: 100%;">
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-source" class="admin-label">Đường dẫn văn bản nguồn (URL) *</label>
+            <input type="url" id="admin-ann-input-source" class="admin-input" required placeholder="https://hus.vnu.edu.vn/dao-tao/thong-bao-so-..." style="width: 100%;">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="admin-form-group">
+              <label for="admin-ann-input-audience" class="admin-label">Đối tượng xem</label>
+              <select id="admin-ann-input-audience" class="modern-select" style="width: 100%;">
+                <option value="all">Tất cả đối tượng</option>
+                <option value="students">Sinh viên</option>
+                <option value="faculty">Giảng viên / Khoa</option>
+              </select>
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-ann-input-effective" class="admin-label">Ngày hiệu lực</label>
+              <input type="datetime-local" id="admin-ann-input-effective" class="admin-input" style="width: 100%;">
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-expiry" class="admin-label">Ngày hết hạn (tùy chọn)</label>
+            <input type="datetime-local" id="admin-ann-input-expiry" class="admin-input" style="width: 100%;">
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-ann-input-content" class="admin-label">Nội dung chi tiết *</label>
+            <textarea id="admin-ann-input-content" class="admin-textarea" rows="4" required placeholder="Tóm tắt nội dung thông báo, các mốc thời gian và hướng dẫn cho sinh viên..." style="width: 100%; border-radius: 6px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main); padding: 8px; font-family: inherit;"></textarea>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 1rem;">
+            <button type="button" id="admin-ann-cancel-btn" class="portal-button">Hủy bỏ</button>
+            <button type="submit" id="admin-ann-submit-btn" class="portal-button primary-action">Lưu bản thảo</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </section>
 
 
   <div class="sub-header-bar">
