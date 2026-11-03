@@ -9,6 +9,7 @@ Verifies:
 6. Captures Desktop Light, Desktop Dark, and Mobile 390px screenshots.
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -17,20 +18,14 @@ from playwright.sync_api import sync_playwright
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = os.environ.get('TEST_BASE_URL', 'http://127.0.0.1:8000')
 SCREENSHOT_DIR = Path("backups/admin_audit_20261101")
 SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
-BRAIN_SCREENSHOT_DIR = Path(
-    r"C:\Users\5560\.gemini\antigravity\brain\90387ac5-567a-4705-9f70-45d94f72deb5\screenshots"
-)
-BRAIN_SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def save_screenshot(page, name: str):
     local_p = SCREENSHOT_DIR / f"{name}.png"
-    brain_p = BRAIN_SCREENSHOT_DIR / f"{name}.png"
     page.screenshot(path=str(local_p), full_page=False)
-    page.screenshot(path=str(brain_p), full_page=False)
     print(f"Captured {name} to {local_p}")
 
 

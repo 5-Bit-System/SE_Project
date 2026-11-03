@@ -8,15 +8,11 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get('TEST_BASE_URL', 'http://127.0.0.1:8000')
 SCREENSHOTS_DIR = Path("backups/admin_announcements_20261101")
 SCREENSHOTS_DIR.mkdir(parents=True, exist_ok=True)
-ARTIFACTS_DIR = Path(r"C:\Users\5560\.gemini\antigravity\brain\90387ac5-567a-4705-9f70-45d94f72deb5\screenshots")
-ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def save_screenshot(page, name: str):
     path1 = SCREENSHOTS_DIR / name
-    path2 = ARTIFACTS_DIR / name
     page.screenshot(path=str(path1), full_page=True)
-    page.screenshot(path=str(path2), full_page=True)
     print(f"  [SAVED] Screenshot {name}")
 
 

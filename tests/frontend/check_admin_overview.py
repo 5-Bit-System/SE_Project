@@ -106,7 +106,7 @@ def main():
             }
             page.evaluate(f"window.adminOverview.render({json.dumps(unavailable_payload)})")
             # Assert no '0' is shown in any metric value
-            metric_values = page.locator('.admin-kpi-value-row').all_inner_texts()
+            metric_values = page.locator('#admin-overview-grid .admin-kpi-value-row').all_inner_texts()
             for val in metric_values:
                 assert '0' not in val, f"Misleading '0' detected in unavailable metric: {val}"
             unavailable_badges = page.locator('[data-unavailable="true"]')

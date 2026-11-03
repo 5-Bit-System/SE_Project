@@ -104,17 +104,18 @@ def main():
             assert tab_curriculum.get_attribute('aria-selected') == 'true'
             assert panel_curriculum.is_visible()
 
-            page.keyboard.press('ArrowRight')
-            assert tab_users.get_attribute('aria-selected') == 'true'
-            assert panel_users.is_visible()
+            for name in ('crawler', 'users', 'audit', 'announcements'):
+                page.keyboard.press('ArrowRight')
+                assert page.locator(f'#admin-tab-{name}').get_attribute('aria-selected') == 'true'
+                assert page.locator(f'#admin-panel-{name}').is_visible()
 
             page.keyboard.press('Home')
             assert tab_overview.get_attribute('aria-selected') == 'true'
             assert panel_overview.is_visible()
 
             page.keyboard.press('End')
-            assert tab_users.get_attribute('aria-selected') == 'true'
-            assert panel_users.is_visible()
+            assert page.locator('#admin-tab-announcements').get_attribute('aria-selected') == 'true'
+            assert page.locator('#admin-panel-announcements').is_visible()
             print('  [PASS] Keyboard navigation (ArrowRight, Home, End) verified')
 
             # 9. Test Back to Workspace

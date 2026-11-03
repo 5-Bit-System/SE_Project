@@ -56,7 +56,11 @@ def main():
         page.goto('http://127.0.0.1:8000/#transcript')
         page.wait_for_function("location.hash === '#profile'")
         assert page.locator('#tab-btn-transcript, #tab-transcript, #dashboard-manual-plan').count() == 0
-        assert page.locator('input[type=file], #recommend-form, #advisor-chat-form').count() == 0
+        assert page.locator('#recommend-form, #advisor-chat-form').count() == 0
+        assert page.locator('input[type=file]').evaluate_all(
+            "inputs => inputs.every(input => input.closest('#system-admin'))"
+        ), 'File imports must stay inside the protected admin console'
+        assert page.locator('#system-admin').is_hidden()
         assert page.locator('#program-select').count() == 0
         assert page.locator('#course-language-select').count() == 0
         assert page.locator('[data-language-choice="vi"]').get_attribute('aria-pressed') == 'true'
