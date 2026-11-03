@@ -1,12 +1,15 @@
 # Kiểm tra giao diện bằng Chrome
 
 Các lệnh dưới đây dùng Google Chrome đã cài và Playwright trong
-`requirements-portal.txt`. Chạy từ thư mục gốc repository. Các fixture chặn
+`requirements-portal.txt` (đã được bộ dev nạp). Chạy từ thư mục gốc repository bằng
+Python của cùng môi trường đã cài dependency. Các fixture chặn
 request và cung cấp tài khoản, bảng điểm, API và tài nguyên tĩnh ngay trong test;
 không cần khởi động app hoặc đăng nhập VNU.
 
-`check_recommendation_workspace` quay video kiểm thử nên cần cài binary FFmpeg
-của Playwright bằng `python -m playwright install ffmpeg` trước lần chạy đầu.
+Demo RAG dùng Chromium, còn các kiểm tra giao diện sản phẩm dùng Chrome.
+`check_recommendation_workspace` quay video nên cần FFmpeg. Sau khi cài hoặc
+đổi phiên bản Playwright, chạy `python -m playwright install chromium ffmpeg`
+để có đúng binary; VNU và kiểm tra sản phẩm vẫn cần Google Chrome đã cài.
 
 ```powershell
 $env:PYTHONUTF8 = '1'
