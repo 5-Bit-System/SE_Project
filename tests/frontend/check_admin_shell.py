@@ -118,14 +118,11 @@ def main():
             assert page.locator('#admin-panel-announcements').is_visible()
             print('  [PASS] Keyboard navigation (ArrowRight, Home, End) verified')
 
-            # 9. Test Back to Workspace
-            page.locator('#admin-back').click()
-            assert page.locator('#system-admin').is_hidden()
-            print('  [PASS] Back button returns to student workspace (#system-admin hidden)')
-
-            # Re-enter admin console for visual & responsive checks
-            page.locator('#system-admin-open').click()
-            page.locator('#system-admin').wait_for(state='visible')
+            # Admin accounts stay in the console; student navigation is absent.
+            assert page.locator('#admin-back').count() == 0
+            assert page.locator('#system-home').is_hidden()
+            assert page.locator('.main-content').is_hidden()
+            print('  [PASS] Admin console has no student workspace navigation')
 
             # 10. Desktop Light screenshot
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_desktop_light.png'), full_page=True)

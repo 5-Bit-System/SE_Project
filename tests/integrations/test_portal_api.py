@@ -51,6 +51,18 @@ def test_authentication_expiry_rotation_and_logout(client):
     assert client.get("/me/profile").status_code == 401
 
 
+def test_admin_connection_preserves_account_role_and_app_session(client):
+    principal = client.fake_accounts.issue(client)
+    principal['role'] = 'admin'
+    token = client.cookies.get('study_app_session')
+    response = login(client)
+    assert response.status_code == 200
+    assert 'set-cookie' not in response.headers
+    assert client.cookies.get('study_app_session') == token
+    assert principal['role'] == 'admin'
+    assert client.get('/me/portal-connection').json()['linked'] is True
+
+
 def test_session_status_is_public_but_profile_remains_protected(client, monkeypatch):
     def forbidden_read(*args):
         pytest.fail("Session status must never read stored personal data")

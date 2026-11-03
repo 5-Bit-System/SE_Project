@@ -88,7 +88,7 @@
     if (current !== epoch) return;
     restoringSession = false;
     if (!result.authenticated) { if (account) expire('session_expired'); else { account = null; csrfToken = ''; render(); } }
-    else { if(account && account.session_id !== result.account.session_id) epoch++; account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password ? 'password' : ['password','admin'].includes(mode) ? mode : 'workspace'; if (mode === 'admin' && account.role !== 'admin') mode = 'workspace'; render(); emit(); }
+    else { if(account && account.session_id !== result.account.session_id) epoch++; account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password || (account.role === 'admin' && mode === 'password') ? 'password' : account.role === 'admin' ? 'admin' : 'workspace'; render(); emit(); }
     return account;
   }
   function switchAdminTab(tabName, focus = false) {
@@ -124,6 +124,7 @@
     }
   }
   function render() {
+    if (account?.role === 'admin' && mode === 'workspace') mode = 'admin';
     document.querySelectorAll('[data-auth-copy]').forEach(node => { node.textContent = t(node.dataset.authCopy); });
     document.querySelectorAll('[data-auth-placeholder]').forEach(node => { node.placeholder = t(node.dataset.authPlaceholder); });
     document.querySelectorAll('[data-reveal-target]').forEach(button => {
@@ -135,7 +136,7 @@
     $('system-account').hidden = !account; $('system-account-name').textContent = account ? (account.vnu_subject || account.email || account.display_name) + ' · ' + t(account.role === 'admin' ? 'adminRole':'studentRole') : '';
     $('system-admin-open').hidden = !account || account.role !== 'admin' || account.must_change_password;
     $('system-password').hidden = !account || account.role !== 'admin' || account.must_change_password;
-    $('system-home').hidden = !account || account.must_change_password;
+    $('system-home').hidden = account?.role !== 'student' || account.must_change_password;
     $('system-admin').hidden = mode !== 'admin' || !account || account.role !== 'admin';
     for (const key of ['student','login','password']) $(`auth-${key}-form`).hidden = mode !== key;
     $('auth-login-tab').hidden = Boolean(account); $('auth-student-tab').hidden = Boolean(account);
@@ -175,7 +176,7 @@
     try { await request('/me/password','POST',body); if(current===epoch) { mode='workspace'; notice('changed'); await refresh(); } } finally { body.current_password=''; body.new_password=''; }
   }); };
   $('system-logout').onclick = async () => { if(busy) return; const pending = request('/auth/logout','POST'); expire(); lock(true); try { await pending; } catch(error) { notice(error.message,true); } finally { lock(false); } };
-  $('system-home').onclick = $('admin-back').onclick = () => { mode='workspace'; render(); };
+  $('system-home').onclick = () => { if (account?.role !== 'student') return; mode='workspace'; render(); };
   $('system-password').onclick = () => { mode='password'; notice(); render(); };
   let lastActionTarget = null;
   async function loadAdmin() { const current=epoch; try { const result=await request(`/admin/users?page=${adminPage}&q=${encodeURIComponent($('admin-query').value)}`); if(current!==epoch || account?.role!=='admin') return; adminRows=result.items; adminTotal=result.total; renderAdmin(); } catch(error) { if(current===epoch) $('admin-notice').textContent=t(error.message); } }
