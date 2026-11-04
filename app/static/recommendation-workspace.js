@@ -1,4 +1,5 @@
-import {VARIANTS, comparePlans, constrainRecommendations, defaultTerm, recommendationPayload} from './recommendation-model.mjs';
+import {VARIANTS, comparePlans, constrainRecommendations, creditLimits, creditsForWorkload,
+  defaultTerm, recommendationPayload} from './recommendation-model.mjs';
 
 const root = document.getElementById('recommendation-workspace');
 const tools = document.getElementById('academic-plan-tools');
@@ -282,23 +283,28 @@ function renderQuestion() {
   } else if (key === 'workload') {
     const loads = node('div', undefined, 'rec-load-options');
     for (const [value, vi, en, image] of [['light', 'Nhẹ nhàng', 'Light', 'leaf'], ['moderate', 'Cân bằng', 'Moderate', 'waves'], ['heavy', 'Tập trung', 'Intensive', 'spark']]) {
-      const option = button('', () => { answers.workload = value; clearResults(); render(); }, 'rec-load-choice');
+      const option = button('', () => {
+        answers.workload = value; answers.credits = creditsForWorkload(value, answers.credits);
+        answers.confirmedWorkload = false; clearResults(); render();
+      }, 'rec-load-choice');
       option.setAttribute('aria-pressed', String(answers.workload === value)); option.dataset.recLoad = value;
       option.append(icon(image), node('span', copy(vi, en))); loads.append(option);
     }
     const budget = node('div', undefined, `rec-budget rec-load-${answers.workload}`);
+    const {min, max} = creditLimits(answers.workload);
     const label = node('label', copy('Tín chỉ kỳ tới', 'Next-term credits')); label.htmlFor = 'rec-credit-budget';
     const number = node('input'); number.id = 'rec-credit-budget'; number.type = 'number';
-    number.min = '1'; number.max = '30'; number.step = '1'; number.value = answers.credits;
-    const slider = node('input'); slider.type = 'range'; slider.min = '1'; slider.max = '30'; slider.step = '1'; slider.value = answers.credits;
+    number.min = String(min); number.max = String(max); number.step = '1'; number.value = answers.credits;
+    const slider = node('input'); slider.type = 'range'; slider.min = String(min); slider.max = String(max); slider.step = '1'; slider.value = answers.credits;
     slider.setAttribute('aria-label', copy('Điều chỉnh tín chỉ kỳ tới', 'Adjust next-term credits'));
     function update(value) {
-      const next = Number(value); if (!Number.isInteger(next) || next < 1 || next > 30) return;
+      const next = Number(value); if (!Number.isInteger(next) || next < min || next > max) return;
       answers.credits = next; number.value = next; slider.value = next; clearResults(); updateRoadmap(); renderResults();
     }
     number.addEventListener('input', () => update(number.value)); slider.addEventListener('input', () => update(slider.value));
-    budget.append(label, number, node('span', copy('tín chỉ', 'credits')), slider);
-    section.append(loads, budget, node('p', copy('Mặc định 20 tín chỉ. Mức tải là mong muốn của bạn; độ nặng từng môn còn phụ thuộc dữ liệu chương trình.', 'Default: 20 credits. Study load is your preference; course workload depends on available metadata.'), 'rec-question-hint'),
+    const bounds = node('div', undefined, 'rec-budget-bounds'); bounds.append(node('span', `${min} ${copy('tín chỉ', 'credits')}`), node('span', `${max} ${copy('tín chỉ', 'credits')}`));
+    budget.append(label, number, node('span', copy('tín chỉ', 'credits')), slider, bounds);
+    section.append(loads, budget, node('p', copy(`${workloadLabel()}: ${min}–${max} tín chỉ. Mặc định là Cân bằng, 20 tín chỉ; đổi mức sẽ điều chỉnh tín chỉ về khoảng tương ứng.`, `${workloadLabel()}: ${min}–${max} credits. Default: Moderate, 20 credits. Switching pace adjusts the budget to its range.`), 'rec-question-hint'),
       button(copy('Đúng nhịp của mình', 'This pace works for me'), event => {
         if (!number.reportValidity()) return; choose('workload', answers.workload, event.currentTarget);
       }, 'rec-button rec-primary'));

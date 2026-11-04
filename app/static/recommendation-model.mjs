@@ -49,8 +49,9 @@ export function defaultTerm(date = new Date()) {
 
 export function recommendationPayload(board, answers, variant, revision) {
   const credits = Number(answers.credits);
+  const limits = creditLimits(answers.workload);
   if (!board?.program_id || !revision || !WEIGHTS[variant]
-      || !Number.isInteger(credits) || credits < 1 || credits > 30) {
+      || !Number.isInteger(credits) || credits < limits.min || credits > limits.max) {
     throw new Error('invalid_recommendation_preferences');
   }
   const milestone = answers.confirmedDeadline

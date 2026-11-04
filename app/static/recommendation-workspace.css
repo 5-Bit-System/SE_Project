@@ -79,6 +79,7 @@
 .rec-budget label, .rec-budget > span { color: var(--text-muted); font-size: 12px; }
 .rec-budget input[type=number] { width: 68px; min-height: 43px; background: var(--bg-input); border: 1px solid var(--border-medium); border-radius: 9px; padding: 8px; font-size: 20px; font-weight: 600; text-align: center; }
 .rec-budget input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent-primary); height: 24px; }
+.rec-budget-bounds { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 12px; margin-top: -6px; font-size: 11px; color: var(--text-muted); }
 .rec-load-light input[type=range] { accent-color: var(--rec-mint); }
 .rec-load-heavy input[type=range] { accent-color: var(--accent-amber); }
 .rec-deadline-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
