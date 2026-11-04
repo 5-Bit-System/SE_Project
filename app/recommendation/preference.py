@@ -77,11 +77,10 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         if _first_match(text, {phrase: topic}) and topic not in topics:
             topics.append(topic)
 
-    course_type = None
-    if "tu chon" in text or "elective" in text:
-        course_type = "elective"
-    elif "bat buoc" in text or "required" in text:
-        course_type = "required"
+    course_type = _first_match(text, {
+        "tu chon": "elective", "elective": "elective",
+        "bat buoc": "required", "required": "required",
+    })
 
     return StructuredPreference(
         raw_goal=raw_goal,
