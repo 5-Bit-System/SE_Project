@@ -3,6 +3,8 @@
 import argparse
 import json
 
+import httpx
+
 from app.catalog import load_catalog
 from app.config import get_settings
 from app.recommendation.feature_extractor import (
@@ -35,6 +37,19 @@ def main() -> None:
         def provider(prompt: str) -> str:
             try:
                 raw = _llm_text(prompt)
+            except httpx.HTTPStatusError as exc:
+                status = exc.response.status_code
+                hints = {
+                    400: "Kiểm tra cấu hình model và định dạng request.",
+                    401: "Kiểm tra API key và xác thực của nhà cung cấp.",
+                    403: "Kiểm tra quyền API key, model và project.",
+                    404: "Kiểm tra GEMINI_MODEL và GEMINI_BASE_URL.",
+                    429: "Kiểm tra quota, giới hạn tốc độ hoặc thanh toán.",
+                }
+                state["reason"] = f"HTTP {status}"
+                print(f"API LLM trả HTTP {status}. {hints.get(status, 'Kiểm tra dịch vụ nhà cung cấp.')}")
+                # Do not print the exception URL: Gemini includes the key in its query.
+                raise
             except Exception as exc:
                 state["reason"] = type(exc).__name__
                 raise
