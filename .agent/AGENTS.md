@@ -1,5 +1,91 @@
 # Project Memory and Contributor Guidelines
 
+## Intake refinement publication authorized — 2026-11-04
+
+User now explicitly requests commit/push of the changes immediately below on
+the CURRENT branch, with about ten commits. Use exactly ten non-empty commits
+on feat/recommendation-conversation-ui from c823aa5; remote branch was fetched
+and is at the same base. This supersedes the preceding local-only restriction
+for these seven scoped source/test/doc/memory files, not for configuration or
+ignored runtime records. Preserve all original 19 commits and configured author.
+
+Commit plan: workload range helpers; cohort window helpers; custom-direction UI
+and wrapping; final-only chat; bounded workload controls/payload; graduation UI,
+cohort invalidation and precise readiness; model boundary tests; browser intake
+regressions; source/runtime report; contributor checkpoint. Stage related file
+increments while preserving the verified working files and their runtime content.
+No empty commits, invented authors, squash/rebase or force-push. Publish only
+the existing feature ref; no main merge or database operation in this publication.
+
+The implementation already passed the 621-case suite including PDF acceptance,
+five Chrome suites, Node model checks and lint/syntax/diff checks in the immediately
+preceding task. No code changes are introduced just to obtain more commits.
+Verify final tree against the pre-publication file hashes, ten new commits,
+upstream equality and exclusion of .vscode/settings.json, credentials, AD-102,
+PDF copies, video/logs/backup data. Publication preparation is recorded here;
+Git and the ignored publication receipt establish the actual resulting hashes.
+
+## Recommendation intake refined and catalog restored — 2026-11-04
+
+User requests custom direction input, chat only at the end, workload budgets
+light 14–17/moderate 18–20/heavy 21–30, HK1/HK2 graduation goals within six years
+from enrollment cohort, and checking the supplied 2023/K67 ZIP for the curriculum
+notice. Edits remain LOCAL on feat/recommendation-conversation-ui at published
+c823aa5; no new commit/push authorized for this refinement. Preserve untracked
+.vscode/settings.json and all ignored configuration/credentials/AD-102/backups.
+
+recommendation-model.mjs now owns credit ranges/clamping and a cohort-based goal
+window. K68=2023 admission, last academic year 2028–2029; on 04/11/2026 choices
+are 2026/2027/2028 starts. The UI rolls academic years in August; it does not
+adjudicate exact legal deadlines. Unknown/future/expired cohort has no invented
+choices. Graduation semester 3 is rejected. The six-year cap is the user's
+requested selector constraint; source PDF104 states a normal four-year program.
+
+recommendation-workspace.js/css add Tự chọn with a dedicated nonempty 120-char
+input; official track selection remains mandatory where the catalog requires it.
+Chat appears only after all 3 intake stages plus any required graduation-path
+stage, and hides while editing earlier steps. Mode changes clamp budgets; both
+number/slider and generation payload enforce ranges. Cohort refresh invalidates
+old goals/results. Long directions wrap on mobile. Readiness distinguishes
+unresolved outcomes/rules from unverified metadata; no server gates bypassed.
+
+Opened the exact user ZIP and matched archive + all five PDF hashes against
+hus_source.json. Read PDF104 pages 1–3: QD3568 on decision page, application
+from 2022/K67 on page 2, nominal four years on page 3. Page 3's QD3569 caption
+differs from decision page; source scan unchanged. No claim to a fresh independent
+full-field review of all PDFs; existing user sign-off covers KHMTTT hash
+bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.
+
+Found local runtime still using old draft KHMTTT revision 7aafa016... despite
+that reviewed source in Git. After source/PDF preflight and diff, called existing
+publish_catalogs on the loopback APP database engine in its normal atomic four-
+catalog transaction. KHMTTT restored to verified revision
+c46163d1629819649f9bc8d54db59156d8a46ee40deec6c6d1fdb923c731e1da.
+All 67 source/prerequisite states verified under existing sign-off; three other
+programs remain draft. No code/name/credit/prerequisite/type changes. KHDL adds
+the already-curated parent V.2 source locator/28–63 discrepancy note only.
+No source JSON/review record/account binding/transcript edits. Old immutable
+revisions retained for rollback; backup contains public catalog before/after.
+If a real account binding points at the old fingerprint, its owner must confirm
+the current program/cohort through the existing review UI; do not auto-bind.
+
+Verification: 621 pytest passed/80 DB deselected including PDF acceptance;
+existing Starlette warning and two Windows stdout-decode warnings. Both affected
+builder cases rerun with PYTHONUTF8=1 passed without decode warnings. Node model
+checks and five synthetic Chrome suites passed: recommendation intake, saved
+plans, VNU-only, presentation, study desk. New browser coverage includes custom
+directions with/without required track, empty input, final-only chat in 3/4 stages,
+all credit-range boundaries, K68/K69/cohort refresh/missing cohort, long mobile
+text, existing compare/save/lost-response/logout, themes/VI-EN/reduced motion.
+Actual active catalog + invented transcript gives strict context/board ready,
+without preview. No real VNU credentials, personal-record inspection or model call.
+
+Report docs/RECOMMENDATION_INTAKE_2026_11_04.md; ignored evidence and publication
+receipt backups/recommendation_refinement_20261104/. App remains running without
+restart at http://127.0.0.1:8000/#recommend; listener PID 9328 observed, verify
+identity before stopping. Health/ready/homepage 200, 22 HTML assets + imported
+model match disk, personal anonymous routes 401. Ruff/JS syntax/diff pass.
+
 ## Recommendation UI publication authorized — 2026-11-01
 
 User now explicitly requests a NEW branch without a personal name and 15–20
