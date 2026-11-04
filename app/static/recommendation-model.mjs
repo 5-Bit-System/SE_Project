@@ -5,7 +5,6 @@ const WEIGHTS = {
   graduation: {topic: .15, keyword: .15, course_type: .65, workload: .05},
   direction: {topic: .65, keyword: .25, course_type: .05, workload: .05},
 };
-
 const CREDIT_LIMITS = {
   light: {min: 14, max: 17},
   moderate: {min: 18, max: 20},
@@ -51,7 +50,8 @@ export function recommendationPayload(board, answers, variant, revision) {
   const credits = Number(answers.credits);
   const limits = creditLimits(answers.workload);
   if (!board?.program_id || !revision || !WEIGHTS[variant]
-      || !Number.isInteger(credits) || credits < limits.min || credits > limits.max) {
+      || !Number.isInteger(credits) || credits < limits.min || credits > limits.max
+      || (answers.confirmedDeadline && !validGraduationGoal(answers.cohort, answers.targetYear, answers.targetSemester))) {
     throw new Error('invalid_recommendation_preferences');
   }
   const milestone = answers.confirmedDeadline
