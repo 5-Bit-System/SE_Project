@@ -13,6 +13,7 @@ from app.recommendation.feature_extractor import (
     validate_labels,
 )
 from app.recommendation.llm import _llm_text, _parse_json_response
+from app.recommendation.vocabulary import metadata_preferences, preference_vocabulary
 
 
 def main() -> None:
@@ -24,8 +25,9 @@ def main() -> None:
     if not settings.recommendation_llm_enabled or not settings.gemini_api_key:
         parser.exit(1, "Cần bật RECOMMENDATION_LLM_ENABLED và đặt GEMINI_API_KEY trong .env.\n")
     catalog = load_catalog(args.program)
-    print("Vocabulary của ngành:")
-    print(json.dumps(catalog.vocabulary or {}, ensure_ascii=False, indent=2))
+    print("Vocabulary trích xuất theo metadata project và nhãn bổ sung của ngành:")
+    print(json.dumps(preference_vocabulary(catalog), ensure_ascii=False, indent=2))
+    print("Nhãn sở thích không khẳng định môn học có metadata tương ứng.")
     print("Mỗi câu sẽ gọi API LLM thật theo cấu hình .env. Ctrl+C để thoát.")
 
     while True:
@@ -65,7 +67,11 @@ def main() -> None:
 
         result = CatalogFeatureExtractor(catalog, provider=provider).extract(message)
         print("Kết quả đã chuẩn hóa:")
-        print(json.dumps({**state, "preference": result.model_dump()}, ensure_ascii=False, indent=2))
+        print(json.dumps({
+            **state,
+            "preference": result.model_dump(),
+            "metadata_preferences": metadata_preferences(result),
+        }, ensure_ascii=False, indent=2))
         if args.message is not None:
             return
 
