@@ -9,6 +9,7 @@ from pydantic import ConfigDict
 from app.models import Catalog, StructuredPreference
 from app.recommendation.llm import _llm_text, _parse_json_response
 from app.recommendation.preference import extract_structured_preference
+from app.recommendation.vocabulary import preference_vocabulary
 
 logger = logging.getLogger(__name__)
 
@@ -18,8 +19,8 @@ class ChatFeatures(StructuredPreference):
 
 
 def validate_labels(preference: StructuredPreference, catalog: Catalog, *, reject=True):
-    """Only the selected catalog's declared vocabulary is authoritative."""
-    vocabulary = catalog.vocabulary or {}
+    """Validate user intent using metadata IDs and selected-catalog extensions."""
+    vocabulary = preference_vocabulary(catalog)
     updates = {}
     for field, key in (("interest_topics", "topics"), ("career_paths", "career_paths")):
         allowed = set(vocabulary.get(key) or [])
