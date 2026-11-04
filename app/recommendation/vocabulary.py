@@ -4,6 +4,8 @@ These describe user intent, not evidence that a course covers a topic.
 Catalog-specific extensions remain scoped to the selected catalog.
 """
 
+from app.models import Catalog
+
 VOCABULARY_VERSION = "1.0"
 TOPICS = (
     "artificial_intelligence", "machine_learning", "deep_learning", "computer_vision",
@@ -26,3 +28,14 @@ ALIASES = {
     "computer vision": "computer_vision",
     "kỹ sư phần mềm": "software_engineer",
 }
+
+
+def preference_vocabulary(catalog: Catalog) -> dict:
+    """Shared metadata IDs plus extensions explicitly declared by this catalog."""
+    declared = catalog.vocabulary or {}
+    return {
+        "vocabulary_version": VOCABULARY_VERSION,
+        "topics": list(dict.fromkeys([*TOPICS, *(declared.get("topics") or [])])),
+        "career_paths": list(dict.fromkeys([*CAREER_PATHS, *(declared.get("career_paths") or [])])),
+        "aliases": ALIASES.copy(),
+    }
