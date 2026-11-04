@@ -43,13 +43,13 @@ def test_invalid_provider_output_falls_back(output):
     assert result.interest_topics == []
 
 
-def test_timeout_and_empty_vocabulary_are_safe():
+def test_timeout_and_empty_catalog_use_shared_metadata_vocabulary():
     def timeout(_):
         raise TimeoutError()
     result = CatalogFeatureExtractor(sample_catalog(), timeout).extract("machine learning")
-    assert result.interest_topics == []
+    assert result.interest_topics == ["machine_learning"]
     result = CatalogFeatureExtractor(sample_catalog(), lambda _: '{"interest_topics":["machine_learning"]}').extract("học máy")
-    assert result.interest_topics == []
+    assert result.interest_topics == ["machine_learning"]
 
 
 def test_negation_and_invalid_numbers_in_fallback():

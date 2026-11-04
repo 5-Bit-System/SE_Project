@@ -11,7 +11,7 @@ này qua service. Quyền truy cập, xác nhận chương trình, context revis
 ```text
 Request + catalog của ngành đã chọn
   → eligibility deterministic (giữ nguyên)
-  → trích xuất preference theo vocabulary của catalog
+  → trích xuất preference theo từ điển metadata project + nhãn bổ sung của catalog
   → kiểm tra JSON/schema/nhãn
   → chấm điểm hoặc LLM xếp hạng trong tập eligible
   → kiểm tra mã môn + ngân sách
@@ -23,8 +23,17 @@ Request + catalog của ngành đã chọn
 provider hiện có được tái sử dụng; không thêm framework hoặc migration. Khi LLM
 bị tắt, lỗi mạng, trả JSON sai, sai enum, thừa trường, số không đúng kiểu hoặc
 nhãn ngoài vocabulary, hệ thống dùng keyword fallback theo câu hiện tại. Fallback
-không đoán việc kế thừa sở thích từ lịch sử; các nhãn không thuộc catalog bị loại.
+không đoán việc kế thừa sở thích từ lịch sử; nhãn ngoài từ điển sở thích bị loại.
 Không log nội dung chat hoặc khóa API khi fallback.
+
+Fallback xử lý phủ định loại môn; không suy “không muốn môn tự chọn” thành
+elective hoặc tự suy ngược thành required. Số tín chỉ/số môn bị phủ định được
+bỏ qua; “không quá” là giới hạn trên, “ít nhất” không được coi là giới hạn trên.
+Khi có nhiều giới hạn dương, chọn mức nhỏ nhất; cụm sửa ý rõ ràng như “đổi thành”
+thay thế mức trước. Đây là heuristic có giới hạn, không hiểu mọi cách diễn đạt.
+`career_goal` chỉ được giữ (tối đa 200 ký tự) khi nhận diện ý định nghề nghiệp
+rõ ràng với một số tên nghề hỗ trợ; yêu cầu học thực hành không thành mục tiêu nghề.
+Validation phản hồi LLM vẫn kiểm tra schema/nhãn, chưa chứng minh đúng ngữ nghĩa.
 
 ## Các file
 
@@ -52,15 +61,37 @@ Không log nội dung chat hoặc khóa API khi fallback.
 
 ## Vocabulary và dữ liệu
 
-Chỉ đọc `catalog.vocabulary.topics` và `catalog.vocabulary.career_paths` của
-catalog đang dùng. Không lấy vocabulary mẫu của ngành khác; không dùng LLM để
-viết metadata môn học, xác nhận nguồn hoặc gỡ chặn học vụ.
+`app/recommendation/vocabulary.py` khai báo bộ nhãn sở thích dùng chung theo
+mục 5 của `COURSE_METADATA_SPECIFICATION.md`, phiên bản 1.0. Nó kết hợp nhãn
+chuẩn với nhãn bổ sung của đúng catalog đang chọn; không đọc catalog ngành khác.
+Prompt, validation trong service và keyword fallback cùng dùng bộ nhãn này.
+Ví dụ “phát triển phần mềm” → `software_engineering`, không phải
+`software_development`. Nói về chủ đề không tự suy ra nghề `software_engineer`.
 
-Builder HUS hiện khai báo topics/career_paths rỗng. Khi runtime catalog không có
-vocabulary, hai danh sách preference tương ứng sẽ rỗng, dù người dùng nói về AI.
-Các trường enum và ngân sách vẫn được trích xuất. Muốn xếp hạng theo chủ đề/nghề
-nghiệp cần một thay đổi dữ liệu riêng: vocabulary và metadata môn có nguồn,
-kiểm tra, publication. Tích hợp này không tự công bố hoặc sửa catalog.
+Builder HUS vẫn khai báo topics/career_paths rỗng. Bộ từ điển sở thích độc lập
+cho phép hiểu mong muốn ngay cả khi metadata môn chưa được bổ sung. Đây không
+phải khẳng định môn của ngành có chủ đề đó. Không tự sửa catalog, revision,
+database hoặc bằng chứng môn học. Để chấm điểm theo metadata môn cần bổ sung
+dữ liệu có nguồn, kiểm tra và publication riêng. Eligibility không thay đổi.
+
+Contract API giữ `StructuredPreference` để tương thích: `interest_topics`
+đối chiếu với `CourseMetadata.topics`, `course_type` đối chiếu với
+`CourseMetadata.requirement_type` (hiện hỗ trợ required/elective), còn
+`career_paths`, `orientation`, `difficulty`, `workload` dùng cùng tên và enum.
+Các giới hạn tín chỉ/số môn là ràng buộc người dùng, không phải metadata môn.
+
+Thử API thật từ terminal (mỗi câu gọi provider đã cấu hình trong `.env`):
+
+```bash
+python -m tools.try_feature_extraction --program khmtt_7480113qtd_2022
+```
+
+Lệnh in phản hồi gốc, `source`/`reason`, preference và `metadata_preferences`
+chứa các trường đối chiếu nói trên. `metadata_preferences` không phải bản ghi
+CourseMetadata và không được dùng để ghi metadata vào môn học. Mỗi câu độc lập,
+chưa giữ lịch sử. API lỗi hoặc JSON/nhãn sai sẽ hiện fallback; không được xem
+đó là bằng chứng LLM hiểu câu. Test offline dùng provider giả, không đo độ chính
+xác của model thật.
 
 Ví dụ với vocabulary tổng hợp chứa `computer_vision`, `ai_engineer`:
 
