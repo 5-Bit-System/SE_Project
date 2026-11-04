@@ -4,7 +4,7 @@ These describe user intent, not evidence that a course covers a topic.
 Catalog-specific extensions remain scoped to the selected catalog.
 """
 
-from app.models import Catalog
+from app.models import Catalog, StructuredPreference
 
 VOCABULARY_VERSION = "1.0"
 TOPICS = (
@@ -38,4 +38,16 @@ def preference_vocabulary(catalog: Catalog) -> dict:
         "topics": list(dict.fromkeys([*TOPICS, *(declared.get("topics") or [])])),
         "career_paths": list(dict.fromkeys([*CAREER_PATHS, *(declared.get("career_paths") or [])])),
         "aliases": ALIASES.copy(),
+    }
+
+
+def metadata_preferences(preference: StructuredPreference) -> dict:
+    """Comparable preference fields, not a CourseMetadata record or inferred facts."""
+    return {
+        "topics": preference.interest_topics,
+        "career_paths": preference.career_paths,
+        "orientation": preference.orientation,
+        "difficulty": preference.difficulty,
+        "workload": preference.workload,
+        "requirement_type": preference.course_type,
     }
