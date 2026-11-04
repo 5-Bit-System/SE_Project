@@ -192,7 +192,8 @@ function render(transition = false) {
     status.append(node('p', notice), button(copy('Kiểm tra dữ liệu', 'Review data'), openTools, 'rec-text-button'));
     conversation.append(status);
   }
-  conversation.append(renderTranscript(), renderQuestion(), renderComposer());
+  conversation.append(renderTranscript(), renderQuestion());
+  if (readyToGenerate() && reviewMode) conversation.append(renderComposer());
   const footer = node('div', undefined, 'rec-conversation-foot');
   footer.append(node('span', copy('Bảng điểm của bạn là điểm bắt đầu.', 'Your transcript is the starting point.')),
     button(copy('Làm lại', 'Start over'), () => { clearResults(); answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; render(); }, 'rec-text-button'));
@@ -235,6 +236,8 @@ function renderTranscript() {
   });
   if (answers.goal) {
     const message = button('', () => {
+      if (!readyToGenerate()) return;
+      reviewMode = true; render();
       const input = root.querySelector('#rec-goal'); draftText = answers.goal; input.value = draftText; input.focus();
     }, 'rec-answer rec-free-goal');
     message.append(node('span', copy('Bạn nhắn', 'Your note')), node('strong', answers.goal)); transcript.append(message);
@@ -317,7 +320,7 @@ function renderQuestion() {
     }); section.append(grid);
     if (!paths.length) section.append(button(copy('Kiểm tra hướng chuyên ngành', 'Review study track'), openTools));
   }
-  if (readyToGenerate()) {
+  if (reviewing) {
     const action = button('', generate, 'rec-button rec-primary rec-generate'); action.id = 'rec-generate';
     action.disabled = busy || live.loading || !live.sourceAvailable;
     action.append(icon('spark'), node('span', busy ? copy('Đang đối chiếu…', 'Checking your options…') : copy('Tìm phương án cho mình', 'Find my study options')));
@@ -365,9 +368,6 @@ function renderComposer() {
   const send = node('button', undefined, 'rec-send'); send.type = 'submit'; send.append(icon('send')); send.setAttribute('aria-label', copy('Ghi nhận mong muốn', 'Add my preferences'));
   form.append(label, input, send); form.onsubmit = event => {
     event.preventDefault(); answers.goal = draftText.trim(); draftText = ''; clearResults();
-    if (answers.goal && !answers.direction && !live.board?.selections?.track_required) {
-      answers.direction = 'custom'; answers.directionLabel = copy('Định hướng của mình', 'My own direction'); step = 1;
-    }
     render(true);
   };
   input.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); form.requestSubmit(); } });
