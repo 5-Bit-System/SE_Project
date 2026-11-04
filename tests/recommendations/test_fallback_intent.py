@@ -22,3 +22,39 @@ def test_numeric_limits(message, credits, count):
     result = extract_structured_preference(message)
     assert result.target_credits == credits
     assert result.target_course_count == count
+
+
+@pytest.mark.parametrize(("message", "expected"), [
+    ("Tôi không muốn môn tự chọn", None),
+    ("Không chọn môn bắt buộc", None),
+    ("Avoid elective courses", None),
+    ("Tôi không muốn môn tự chọn, ưu tiên môn bắt buộc", "required"),
+    ("Tôi muốn môn tự chọn", "elective"),
+])
+def test_negated_course_type(message, expected):
+    assert extract_structured_preference(message).course_type == expected
+
+
+@pytest.mark.parametrize("message", [
+    "Tôi muốn học thực hành", "Tôi muốn làm bài tập", "Tôi không muốn làm kỹ sư phần mềm",
+])
+def test_study_request_is_not_a_career_goal(message):
+    assert extract_structured_preference(message).career_goal is None
+
+
+def test_explicit_career_intent_is_preserved_and_bounded():
+    message = "Tôi muốn trở thành kỹ sư phần mềm"
+    assert extract_structured_preference(message).career_goal == message
+    assert len(extract_structured_preference(message + " a" * 200).career_goal) <= 200
+
+
+def test_provider_failure_uses_corrected_fallback():
+    def timeout(_):
+        raise TimeoutError()
+
+    result = CatalogFeatureExtractor(sample_catalog(), timeout).extract(
+        "Tôi không muốn 12 tín chỉ, chỉ 9 tín chỉ thôi; không muốn môn tự chọn"
+    )
+    assert result.target_credits == 9
+    assert result.course_type is None
+    assert result.career_goal is None
