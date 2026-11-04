@@ -1,5 +1,53 @@
 # Project Memory and Contributor Guidelines
 
+## Publication authorized — 2026-11-04: metadata-aligned intent extraction
+
+User explicitly requests 20 content commits, push, PR and merge into main for
+the current shared preference vocabulary, real-provider terminal tool and
+fallback corrections. Use a feature branch and Create a merge commit, preserve
+all teammate commits. Main advanced to 1a5a79c (51 reachable commits since local
+86479f4); feature branch starts at origin/main with all local changes carried
+forward because none overlap. No teammate history is rewritten.
+Earlier local-only restrictions are superseded for this scoped publication.
+No provider spending, DB/catalog publication, secrets or runtime restart is
+included. Integrated validation on 1a5a79c plus local changes: 1347 offline
+passed/117 deselected, one existing warning in 50.56s; Ruff, four synthetic
+catalog checks, recommendation-model and chat Node checks passed.
+Remote PR/CI/merge outcomes must be verified, not inferred from this note.
+
+## Local fallback fixes — 2026-11-04
+
+User authorizes fixing reviewed fallback bugs. preference.py ignores negated
+numeric amounts and lower bounds, recognizes upper-bound phrases, conservatively
+takes the smallest remaining limit unless an explicit correction replaces it.
+Out-of-range numbers do not match valid trailing digits. Vietnamese đ folds to d
+so “đổi thành” is recognized. Course-type matching uses negation handling;
+career_goal remains null for study-only requests and is bounded to 200 characters
+for supported explicit career-intent patterns. These are bounded heuristics, not
+semantic validation of successful LLM responses. 19 regression cases added;
+41 focused cases pass, full SE_Project offline rerun 1261 passed/90 deselected,
+one existing warning in 47.65s; Ruff/diff checks pass. Sandbox run interrupted
+because internal HTTP tests stalled; completed outside-sandbox run is evidence.
+No model/provider call, DB write, commit, push or runtime restart performed.
+
+## Local preference vocabulary correction — 2026-11-04
+
+User requests extraction aligned with project metadata and explicitly confirms
+shared canonical labels, including software_engineering for software development.
+app/recommendation/vocabulary.py derives the version-1.0 intent label set from
+COURSE_METADATA_SPECIFICATION.md section 5, union selected-catalog extensions.
+Extractor, service validation and fallback use those intent labels; this does
+not change course metadata, catalog validation, HUS builder/revision or DB.
+Existing API preference field names remain compatible. Terminal tool additionally
+prints metadata_preferences mapping interest_topics→topics and
+course_type→requirement_type; it is not a CourseMetadata record. No real provider
+call, catalog publication, commit/push/PR/merge or runtime restart requested here.
+22 focused offline cases and Ruff pass; full Conda SE_Project offline regression
+1242 passed, 90 deselected, one existing Starlette/httpx warning in 42.73s.
+First sandbox run stalled and was interrupted; completed rerun outside sandbox
+is the regression evidence. Earlier empty-catalog-means-empty-intent
+notes describe the superseded behavior; course facts still require field evidence.
+
 ## PR #97 merge authorized — 2026-11-03
 
 User now explicitly requests creating a PR and merging LLM feature extraction
