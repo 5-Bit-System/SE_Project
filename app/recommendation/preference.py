@@ -18,7 +18,7 @@ class PreferenceExtractor(Protocol):
 
 def _fold(value: str) -> str:
     normalized = unicodedata.normalize("NFD", value.casefold())
-    return "".join(char for char in normalized if unicodedata.category(char) != "Mn")
+    return "".join(char for char in normalized if unicodedata.category(char) != "Mn").replace("đ", "d")
 
 
 def _first_match(text: str, values: dict[str, str]) -> str | None:
