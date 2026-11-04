@@ -49,7 +49,7 @@ let requestEpoch = 0, requestController, generationRevision = '', catalog = new 
 let catalogProgram = '', catalogSequence = 0, saved = new Set(), draftText = '';
 const uncertainSaves = new Set();
 let generationPassed = new Set();
-let pendingSave = false, introShown = false, reviewMode = false;
+let pendingSave = false, introShown = false, reviewMode = false, customDirectionOpen = false;
 let planningStateKey = '';
 const animations = new Set();
 const dialog = node('dialog', undefined, 'rec-dialog');
@@ -61,7 +61,7 @@ dialog.addEventListener('close', () => { if (!dialog.open) dialog.replaceChildre
 function initialAnswers() {
   const term = defaultTerm();
   return {direction: '', directionLabel: '', workload: 'moderate', credits: 20,
-    track: live.track || '', path: live.path || '', goal: '',
+    track: live.track || '', path: live.path || '', goal: '', customDirection: '',
     targetYear: new Date().getFullYear() + 1, targetSemester: 2,
     year: term.year, semester: term.semester, confirmedWorkload: false, confirmedDeadline: false};
 }
@@ -119,6 +119,7 @@ function choose(key, value, element) {
   const rect = element?.getBoundingClientRect(); clearResults();
   if (key === 'direction') {
     answers.direction = value.id; answers.directionLabel = value.label;
+    customDirectionOpen = false;
     if (value.track) { answers.track = value.track; answers.path = ''; }
   }
   if (key === 'workload') { answers.workload = value; answers.confirmedWorkload = true; }
@@ -131,9 +132,11 @@ function choose(key, value, element) {
 
 function directionOptions() {
   const tracks = live.board?.selections?.tracks || [];
+  const custom = {id: 'custom', label: copy('Tự chọn', 'Your own direction'),
+    hint: copy('Nhập định hướng bạn muốn theo đuổi', 'Describe the direction you want to pursue'), icon: 'waves'};
   if (live.board?.selections?.track_required && tracks.length) {
-    return tracks.map(track => ({id: track.id, track: track.id, label: track.name,
-      hint: copy('Hướng trong chương trình của bạn', 'A track in your curriculum'), icon: 'branch'}));
+    return [...tracks.map(track => ({id: track.id, track: track.id, label: track.name,
+      hint: copy('Hướng trong chương trình của bạn', 'A track in your curriculum'), icon: 'branch'})), custom];
   }
   const id = live.board?.program_id || '';
   const math = id.startsWith('toan_hoc');
@@ -141,12 +144,12 @@ function directionOptions() {
     {id: 'applied', label: copy('Toán ứng dụng', 'Applied mathematics'), hint: copy('Mô hình hóa và bài toán thực tế', 'Models and real-world problems'), icon: 'branch'},
     {id: 'research', label: copy('Nghiên cứu', 'Research'), hint: copy('Lý thuyết và nền tảng chuyên sâu', 'Theory and deeper foundations'), icon: 'spark'},
     {id: 'data', label: copy('Dữ liệu & thống kê', 'Data & statistics'), hint: copy('Xác suất và phân tích dữ liệu', 'Probability and data analysis'), icon: 'layers'},
-    {id: 'explore', label: copy('Mình chưa rõ', 'Still exploring'), hint: copy('Bắt đầu từ nền tảng còn thiếu', 'Start with remaining foundations'), icon: 'waves'},
+    custom,
   ] : [
     {id: 'ai', label: copy('Trí tuệ nhân tạo', 'Artificial intelligence'), hint: copy('Học máy, dữ liệu và ứng dụng AI', 'Machine learning, data and AI'), icon: 'spark'},
     {id: 'software', label: copy('Phát triển phần mềm', 'Software development'), hint: copy('Xây dựng sản phẩm và hệ thống', 'Build products and systems'), icon: 'branch'},
     {id: 'data', label: copy('Khoa học dữ liệu', 'Data science'), hint: copy('Phân tích, thống kê và mô hình', 'Analysis, statistics and models'), icon: 'layers'},
-    {id: 'explore', label: copy('Mình chưa rõ', 'Still exploring'), hint: copy('Cân bằng các lựa chọn phù hợp', 'Explore suitable options'), icon: 'waves'},
+    custom,
   ];
 }
 
@@ -192,7 +195,7 @@ function render(transition = false) {
   conversation.append(renderTranscript(), renderQuestion(), renderComposer());
   const footer = node('div', undefined, 'rec-conversation-foot');
   footer.append(node('span', copy('Bảng điểm của bạn là điểm bắt đầu.', 'Your transcript is the starting point.')),
-    button(copy('Làm lại', 'Start over'), () => { clearResults(); answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; render(); }, 'rec-text-button'));
+    button(copy('Làm lại', 'Start over'), () => { clearResults(); answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; render(); }, 'rec-text-button'));
   conversation.append(footer);
   shell.append(conversation, renderRoadmap()); root.append(shell);
   const resultsArea = node('section', undefined, 'rec-results'); resultsArea.id = 'rec-results'; root.append(resultsArea);
@@ -263,11 +266,16 @@ function renderQuestion() {
     section.append(node('p', copy('Chọn một hướng hoặc kể thêm điều bạn muốn thử.', 'Choose a direction or describe what you want to explore.'), 'rec-question-hint'));
     const grid = node('div', undefined, 'rec-choices');
     directionOptions().forEach(option => {
-      const card = button('', event => choose('direction', option, event.currentTarget), 'rec-choice');
+      const card = button('', event => {
+        if (option.id === 'custom') {
+          customDirectionOpen = true; render(true); root.querySelector('#rec-custom-direction')?.focus();
+        } else choose('direction', option, event.currentTarget);
+      }, 'rec-choice');
       card.dataset.recDirection = option.id; card.setAttribute('aria-pressed', String(answers.direction === option.id));
       const mark = node('span', undefined, 'rec-choice-icon'); mark.append(icon(option.icon));
       card.append(mark, node('strong', option.label), node('span', option.hint), icon('arrow')); grid.append(card);
     }); section.append(grid);
+    if (customDirectionOpen || answers.direction === 'custom') section.append(renderCustomDirection());
   } else if (key === 'workload') {
     const loads = node('div', undefined, 'rec-load-options');
     for (const [value, vi, en, image] of [['light', 'Nhẹ nhàng', 'Light', 'leaf'], ['moderate', 'Cân bằng', 'Moderate', 'waves'], ['heavy', 'Tập trung', 'Intensive', 'spark']]) {
@@ -316,6 +324,36 @@ function renderQuestion() {
     section.append(action);
   }
   return section;
+}
+
+function renderCustomDirection() {
+  const form = node('form', undefined, 'rec-custom-direction-form');
+  const label = node('label', copy('Định hướng bạn muốn theo đuổi', 'The direction you want to pursue'));
+  const input = node('input'); input.id = 'rec-custom-direction'; input.type = 'text';
+  input.required = true; input.maxLength = 120; input.value = answers.customDirection;
+  input.placeholder = copy('Ví dụ: an toàn thông tin, phát triển game…', 'For example: cybersecurity, game development…');
+  input.addEventListener('input', () => { answers.customDirection = input.value; input.setCustomValidity(''); });
+  label.htmlFor = input.id; label.append(input); form.append(label);
+  let trackSelect;
+  if (live.board?.selections?.track_required) {
+    const trackLabel = node('label', copy('Hướng trong chương trình', 'Curriculum track'));
+    trackSelect = node('select'); trackSelect.id = 'rec-custom-track'; trackSelect.required = true;
+    trackSelect.append(new Option(copy('Chọn hướng trong khung', 'Choose a curriculum track'), ''));
+    for (const track of live.board.selections.tracks || []) trackSelect.append(new Option(track.name, track.id));
+    trackSelect.value = answers.track; trackSelect.onchange = () => { answers.track = trackSelect.value; };
+    trackLabel.append(trackSelect); form.append(trackLabel);
+  }
+  const confirm = node('button', copy('Dùng định hướng này', 'Use this direction'), 'rec-button rec-primary'); confirm.type = 'submit';
+  form.append(confirm); form.onsubmit = event => {
+    event.preventDefault();
+    const value = input.value.trim();
+    input.setCustomValidity(value ? '' : copy('Nhập định hướng bạn muốn theo đuổi.', 'Enter the direction you want to pursue.'));
+    if (!form.reportValidity()) return;
+    if (trackSelect && !(live.board.selections.tracks || []).some(track => track.id === trackSelect.value)) return;
+    answers.customDirection = value;
+    choose('direction', {id: 'custom', label: value, track: trackSelect?.value || null}, confirm);
+  };
+  return form;
 }
 
 function renderComposer() {
@@ -733,7 +771,7 @@ async function loadCatalog(program) {
 function resetSession() {
   clearResults(); cancelMotion(); catalogSequence++; catalogProgram = ''; catalog.clear();
   if (dialog.open) dialog.close(); pendingSave = false;
-  step = 0; draftText = ''; reviewMode = false; answers = initialAnswers();
+  step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; answers = initialAnswers();
 }
 document.addEventListener('workspace:planning-state', event => {
   const next = event.detail;
@@ -752,12 +790,12 @@ document.addEventListener('workspace:planning-state', event => {
   }
   if (!changedOwner && changedProgram) {
     answers.direction = ''; answers.directionLabel = ''; answers.track = next.track || ''; answers.path = next.path || '';
-    step = 0; reviewMode = false; clearResults();
+    step = 0; reviewMode = false; customDirectionOpen = false; clearResults();
   } else if (!changedOwner && changedSelection) {
     answers.track = next.track || ''; answers.path = next.path || '';
     if (next.track) {
       const track = next.board?.selections?.tracks?.find(track => track.id === next.track);
-      if (track) { answers.direction = track.id; answers.directionLabel = track.name; }
+      if (track && answers.direction !== 'custom') { answers.direction = track.id; answers.directionLabel = track.name; }
     }
   }
   if (next.board?.program_id) loadCatalog(next.board.program_id);
