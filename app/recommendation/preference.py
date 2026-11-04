@@ -86,6 +86,12 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         "toan": "mathematics",
         "thong ke": "statistics",
         "co so du lieu": "databases",
+        "phat trien phan mem": "software_engineering",
+        "cong nghe phan mem": "software_engineering",
+        "software development": "software_engineering",
+        "software engineering": "software_engineering",
+        "phat trien web": "web_development",
+        "web development": "web_development",
     }
     for phrase, topic in topic_aliases.items():
         if _first_match(text, {phrase: topic}) and topic not in topics:
@@ -114,6 +120,7 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         career_paths=[value for phrase, value in {
             "ai engineer": "ai_engineer", "ky su ai": "ai_engineer",
             "data scientist": "data_scientist", "software engineer": "software_engineer",
+            "ky su phan mem": "software_engineer",
         }.items() if _first_match(text, {phrase: value})],
         career_goal=_career_goal(raw_goal),
         target_credits=_numeric_limit(text, r"tin chi|tc|credits?", 30),
