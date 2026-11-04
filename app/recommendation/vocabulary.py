@@ -17,3 +17,12 @@ CAREER_PATHS = (
     "ai_engineer", "computer_vision_engineer", "data_scientist", "data_analyst",
     "software_engineer", "quant_researcher",
 )
+ALIASES = {
+    "phát triển phần mềm": "software_engineering",
+    "công nghệ phần mềm": "software_engineering",
+    "software development": "software_engineering",
+    "software engineering": "software_engineering",
+    "thị giác máy tính": "computer_vision",
+    "computer vision": "computer_vision",
+    "kỹ sư phần mềm": "software_engineer",
+}
