@@ -49,16 +49,22 @@ class CatalogFeatureExtractor:
         return self.extract_conversation(goal)
 
     def extract_conversation(self, message: str, history: Sequence[str] = ()) -> StructuredPreference:
-        vocabulary = self.catalog.vocabulary or {}
+        vocabulary = preference_vocabulary(self.catalog)
         data = {
             "vocabulary": {key: vocabulary.get(key) or [] for key in ("topics", "career_paths")},
+            "aliases": vocabulary["aliases"],
             "previous_user_messages": [value[:500] for value in history[-8:]],
             "current_message": message[:1000],
         }
         prompt = (
             "Extract the student's CURRENT study preferences as one JSON object. "
             "The JSON schema below defines all fields and enum values. Use only topic/career IDs "
-            "from the supplied catalog vocabulary; empty vocabulary means empty labels. "
+            "from the supplied preference vocabulary, based on the project's course metadata. "
+            "interest_topics maps to CourseMetadata.topics; course_type maps to "
+            "CourseMetadata.requirement_type (only required/elective are supported here). "
+            "The labels express user intent, never facts about any course or its availability. "
+            "Use aliases for normalization. Mentioning a field of study does not imply a career. "
+            "A semester count is not a course count. "
             "Map Vietnamese/English synonyms. Unknown values: null or []. Do not invent facts. "
             "Handle negation: 'không thích môn khó' does not mean advanced. "
             "Current message overrides history; retain earlier preferences only if compatible. "
