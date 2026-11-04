@@ -31,6 +31,27 @@ def _first_match(text: str, values: dict[str, str]) -> str | None:
     return None
 
 
+def _numeric_limit(text: str, units: str, maximum: int) -> int | None:
+    """Read positive limits conservatively; ignore negated and lower-bound amounts."""
+    values: list[int] = []
+    for match in re.finditer(r"\b(\d+)\s*(?:" + units + r")\b", text):
+        prefix = re.split(r"[,;.!?]", text[:match.start()])[-1]
+        # 'không quá' / 'not more than' express an upper bound, not rejection.
+        upper_bound = re.search(r"(?:khong qua|khong vuot qua|not more than|no more than)\s*$", prefix)
+        negated = re.search(r"(?:khong|chua|tranh|not|avoid|don't)(?:\s+\w+){0,3}\s*$", prefix)
+        lower_bound = re.search(r"(?:it nhat|toi thieu|hon|at least|more than)\s*$", prefix)
+        if (negated and not upper_bound) or (lower_bound and not upper_bound):
+            continue
+        value = int(match.group(1))
+        corrected = re.search(r"(?:doi thanh|doi sang|sua thanh|thay bang|instead|actually)\s*$", prefix)
+        if corrected:
+            values.clear()
+        if not 1 <= value <= maximum:
+            return None
+        values.append(value)
+    return min(values) if values else None
+
+
 def extract_structured_preference(goal: str) -> StructuredPreference:
     """Chuyển câu tự nhiên thành preference có schema và giới hạn rõ ràng."""
     raw_goal = (goal or "").strip()[:500]
@@ -56,8 +77,6 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         if _first_match(text, {phrase: topic}) and topic not in topics:
             topics.append(topic)
 
-    credits_match = re.search(r"\b(\d{1,2})\s*(?:tin chi|tc|credits?)\b", text)
-    count_match = re.search(r"\b(\d{1,2})\s*(?:mon|course|courses)\b", text)
     course_type = None
     if "tu chon" in text or "elective" in text:
         course_type = "elective"
@@ -84,8 +103,8 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
             "data scientist": "data_scientist", "software engineer": "software_engineer",
         }.items() if _first_match(text, {phrase: value})],
         career_goal=raw_goal or None,
-        target_credits=int(credits_match.group(1)) if credits_match and 1 <= int(credits_match.group(1)) <= 30 else None,
-        target_course_count=int(count_match.group(1)) if count_match and 1 <= int(count_match.group(1)) <= 20 else None,
+        target_credits=_numeric_limit(text, r"tin chi|tc|credits?", 30),
+        target_course_count=_numeric_limit(text, r"mon|courses?", 20),
         course_type=course_type,
         prerequisite_tolerance=_first_match(
             text,
