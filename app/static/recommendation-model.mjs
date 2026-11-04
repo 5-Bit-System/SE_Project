@@ -6,6 +6,23 @@ const WEIGHTS = {
   direction: {topic: .65, keyword: .25, course_type: .05, workload: .05},
 };
 
+const CREDIT_LIMITS = {
+  light: {min: 14, max: 17},
+  moderate: {min: 18, max: 20},
+  heavy: {min: 21, max: 30},
+};
+
+export function creditLimits(workload) {
+  const limits = Object.hasOwn(CREDIT_LIMITS, workload) ? CREDIT_LIMITS[workload] : null;
+  if (!limits) throw new Error('invalid_workload');
+  return {...limits};
+}
+
+export function creditsForWorkload(workload, credits = 20) {
+  const {min, max} = creditLimits(workload);
+  return Math.min(max, Math.max(min, Number.isInteger(Number(credits)) ? Number(credits) : min));
+}
+
 export function defaultTerm(date = new Date()) {
   const autumn = date.getMonth() >= 7;
   return {year: date.getFullYear(), semester: autumn ? 2 : 1};
