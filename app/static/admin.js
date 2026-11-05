@@ -439,6 +439,12 @@
   let curriculumPrograms = [];
   let currentProgramCourses = [];
   let activeProgram = null;
+  const curriculumSourcePdfUrls = {
+    khdl_7460108_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf',
+    khmtt_7480113qtd_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final.pdf',
+    toan_hoc_7460101_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf',
+    toan_tin_7460117_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf',
+  };
 
   async function loadCurriculum() {
     try {
@@ -545,8 +551,13 @@
     $('admin-detail-program-id').textContent = `Mã: ${prog.program_id}`;
     $('admin-detail-program-credits').textContent = `Tổng tín chỉ: ${prog.total_credits}`;
     $('admin-detail-program-courses').textContent = `${prog.course_count} học phần`;
-    $('admin-detail-source-file').textContent = prog.source_file || '—';
-    $('admin-detail-source-pages').textContent = prog.source_pages || '—';
+    const sourceFile = $('admin-detail-source-file');
+    if (sourceFile) {
+      sourceFile.textContent = prog.source_file || '—';
+      const sourcePdfUrl = curriculumSourcePdfUrls[prog.program_id];
+      if (sourcePdfUrl) sourceFile.href = sourcePdfUrl;
+      else sourceFile.removeAttribute('href');
+    }
 
     const badge = $('admin-detail-status-badge');
     if (badge) {
