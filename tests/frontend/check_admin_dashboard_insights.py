@@ -12,13 +12,6 @@ from playwright.sync_api import sync_playwright
 BASE = os.environ.get('ADMIN_UI_TEST_URL', 'http://127.0.0.1:8765/static/index.html')
 EVIDENCE = Path('backups/admin_dashboard_insights_20261105')
 
-OVERVIEW = {
-    'accounts_total': {'value': 125, 'status': 'available', 'source': 'postgres:accounts'},
-    'programs_count': {'value': 4, 'status': 'available', 'source': 'catalog:active'},
-    'courses_count': {'value': 174, 'status': 'available', 'source': 'catalog:active'},
-    'catalog_status': {'value': 'draft_unverified', 'status': 'available', 'source': 'catalog:active'},
-    'system_readiness': {'value': 'operational', 'status': 'available', 'source': 'system:checks'},
-}
 INSIGHTS = {
     'students': {'status': 'available', 'data': {
         'students_total': 123, 'gpa4_average': 3.2, 'gpa4_sample_count': 60,
@@ -68,7 +61,7 @@ def main():
         page = browser.new_page(viewport={'width': 1440, 'height': 900}, device_scale_factor=1)
         page.goto(BASE)
         page.wait_for_function('window.adminOverview && window.systemAuth')
-        page.evaluate('''([overview, insights, health]) => {
+        page.evaluate('''([insights, health]) => {
             document.body.dataset.authState = 'authenticated';
             document.querySelector('#system-admin').hidden = false;
             document.querySelector('#admin-notice').style.display = 'none';
@@ -77,16 +70,18 @@ def main():
               account: {account_id: 'fixture-admin', role: 'admin'},
               switchAdminTab() {},
               async request(path) {
-                if (path === '/admin/overview') return overview;
+                (window.__dashboardRequests ||= []).push(path);
                 if (path === '/admin/insights') return insights;
                 if (path.startsWith('/admin/metrics/health')) return health;
                 throw Error('Unexpected dashboard request: ' + path);
               }
             };
             document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
-        }''', [OVERVIEW, INSIGHTS, HEALTH])
-        page.evaluate('window.adminOverview.load(true)')
+        }''', [INSIGHTS, HEALTH])
+        page.evaluate('window.adminOverview.load()')
         page.locator('#admin-feedback-insights .admin-dashboard-stat').first.wait_for()
+        assert page.locator('#admin-overview-grid').count() == 0
+        assert '/admin/overview' not in page.evaluate('window.__dashboardRequests')
         assert page.locator('#admin-overview-refresh').inner_text().strip() == 'Làm mới'
         for title in ('Tổng quan hệ thống', 'Quản lý sinh viên', 'Quản lý học phần',
                       'Phân tích gợi ý AI', 'Phản hồi sinh viên'):
@@ -107,7 +102,6 @@ def main():
         assert page.evaluate('location.hash') == '#admin-dashboard-feedback'
         page.evaluate('''() => {
             window.systemAuth.request = async path => {
-              if (path === '/admin/overview') return window.__overviewFixture;
               if (path === '/admin/insights') return {
                 students: {status: 'unavailable'}, courses: {status: 'unavailable'}
               };
@@ -119,8 +113,7 @@ def main():
               };
             };
         }''')
-        page.evaluate('(overview) => { window.__overviewFixture = overview; }', OVERVIEW)
-        page.evaluate('window.adminOverview.load(true)')
+        page.evaluate('window.adminOverview.load()')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === 'Chưa có dữ liệu'")
         assert 'Chưa có lượt gợi ý' in page.locator('#admin-recommendation-insights').inner_text()
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: null}))")
@@ -128,14 +121,13 @@ def main():
         page.evaluate('''([insights, health]) => {
             document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
             window.systemAuth.request = async path => {
-              if (path === '/admin/overview') throw Error('overview unavailable');
               if (path === '/admin/insights') return insights;
               if (path.startsWith('/admin/metrics/health')) return health;
             };
         }''', [INSIGHTS, HEALTH])
-        page.evaluate('window.adminOverview.load(true)')
+        page.evaluate('window.adminOverview.load()')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === '123'")
-        assert page.locator('#admin-overview-grid .admin-error-banner').is_visible()
+        assert page.locator('#admin-dashboard-students').is_visible()
 
         page.context.route('https://mim.hus.vnu.edu.vn/sites/default/files/**',
                            lambda route: route.fulfill(status=200, content_type='text/html',
