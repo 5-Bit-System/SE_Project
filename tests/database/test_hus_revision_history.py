@@ -3,7 +3,12 @@
 import pytest
 from alembic.script import ScriptDirectory
 
+from app.infrastructure.hus_repository import HEAD
 from database.tools.migrate import config
+
+
+def test_runtime_head_matches_migration_head():
+    assert HEAD == ScriptDirectory.from_config(config()).get_heads()[0]
 
 
 @pytest.mark.parametrize(
