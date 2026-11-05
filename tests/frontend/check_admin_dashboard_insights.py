@@ -54,7 +54,9 @@ HEALTH = {
     'recommendation_insights': {'status': 'available', 'total_runs': 40,
                                 'average_fit_pct': 75,
                                 'top_courses': [{'code': 'MAT1001', 'count': 15},
-                                                {'code': 'HUS1011', 'count': 9}]},
+                                                {'code': 'HUS1011', 'count': 9}],
+                                'reason_categories': [{'category': 'topic', 'count': 16},
+                                                      {'category': 'career', 'count': 8}]},
     'route_groups': {},
 }
 
@@ -85,6 +87,7 @@ def main():
         }''', [OVERVIEW, INSIGHTS, HEALTH])
         page.evaluate('window.adminOverview.load(true)')
         page.locator('#admin-feedback-insights .admin-dashboard-stat').first.wait_for()
+        assert page.locator('#admin-overview-refresh').inner_text().strip() == 'Làm mới'
         for title in ('Tổng quan hệ thống', 'Quản lý sinh viên', 'Quản lý học phần',
                       'Phân tích gợi ý AI', 'Phản hồi sinh viên'):
             assert title in page.locator('#admin-panel-overview').inner_text()
@@ -92,6 +95,7 @@ def main():
         assert page.locator('#admin-dashboard-monitoring').is_visible()
         assert page.locator('.admin-dashboard-nav a').count() == 6
         assert page.locator('#admin-highlight-success').inner_text() == '95%'
+        assert 'Khớp chủ đề' in page.locator('#admin-recommendation-insights').inner_text()
         assert 'recommendation' in page.locator('#admin-feedback-insights').inner_text()
         width = page.locator('#system-admin').evaluate('(node) => Math.round(node.getBoundingClientRect().width)')
         assert width > 1200, width
