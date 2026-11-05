@@ -115,9 +115,12 @@
     else { if(account && account.session_id !== result.account.session_id) { epoch++; closeAccountDetail(false); } account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password || (account.role === 'admin' && mode === 'password') ? 'password' : account.role === 'admin' ? 'admin' : 'workspace'; render(); emit(); }
     return account;
   }
-  function switchAdminTab(tabName, focus = false) {
+  function switchAdminTab(tabName, focus = false, historyMode = 'push') {
     if (!adminTabs.includes(tabName)) return;
     adminCurrentTab = tabName;
+    const route = `#admin/${tabName}`;
+    if (account?.role === 'admin' && mode === 'admin' && historyMode !== 'preserve' && location.hash !== route)
+      history[historyMode === 'replace' ? 'replaceState' : 'pushState'](null, '', route);
     adminTabs.forEach(name => {
       const btn = $(`admin-tab-${name}`);
       const panel = $(`admin-panel-${name}`);
@@ -167,7 +170,9 @@
     $('auth-login-tab').setAttribute('aria-pressed', String(mode === 'login')); $('auth-student-tab').setAttribute('aria-pressed', String(mode === 'student'));
     notice(noticeKey, noticeError);
     if (mode === 'admin') {
-      switchAdminTab(adminCurrentTab);
+      const dashboardAnchor = location.hash.startsWith('#admin-dashboard-');
+      const routeTab = location.hash.startsWith('#admin/') ? location.hash.slice(7) : '';
+      switchAdminTab(dashboardAnchor ? 'overview' : adminTabs.includes(routeTab) ? routeTab : 'overview', false, dashboardAnchor ? 'preserve' : 'replace');
       if (adminCurrentTab === 'users') renderAdmin();
     }
   }
@@ -327,6 +332,14 @@
     const btn = $(`admin-tab-${name}`);
     if (btn) btn.onclick = () => switchAdminTab(name);
   });
+  const restoreAdminRoute = () => {
+    if (account?.role !== 'admin' || mode !== 'admin') return;
+    const dashboardAnchor = location.hash.startsWith('#admin-dashboard-');
+    const routeTab = location.hash.startsWith('#admin/') ? location.hash.slice(7) : '';
+    switchAdminTab(dashboardAnchor ? 'overview' : adminTabs.includes(routeTab) ? routeTab : 'overview', false, dashboardAnchor ? 'preserve' : 'replace');
+  };
+  window.addEventListener('popstate', restoreAdminRoute);
+  window.addEventListener('hashchange', restoreAdminRoute);
   const adminNav = document.querySelector('.admin-nav-tabs');
   if (adminNav) {
     adminNav.addEventListener('keydown', event => {
