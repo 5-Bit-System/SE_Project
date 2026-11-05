@@ -61,6 +61,23 @@ def verified_login(client, messages, email='admin@sohoctap.test'):
     return state['account']
 
 
+def test_admin_account_detail_reads_login_and_consultation_metadata(system):
+    client, _, messages = system
+    principal = verified_login(client, messages)
+    account_id = principal['account_id']
+    repository.record_activity(account_id, 'advisor')
+    repository.record_activity(account_id, 'recommendation')
+
+    response = client.get(f'/admin/users/{account_id}')
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data['account']['id'] == account_id
+    assert {event['kind'] for event in data['events']} == {'login', 'advisor', 'recommendation'}
+    assert len(data['events']) == 3
+    assert 'password_hash' not in data['account']
+    assert all(set(event) == {'kind', 'created_at'} for event in data['events'])
+
+
 def test_password_change_rotates_and_revokes_old_session(system):
     client, _, messages = system
     verified_login(client, messages)

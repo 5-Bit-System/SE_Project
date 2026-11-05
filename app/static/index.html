@@ -1038,6 +1038,22 @@
         <button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous">Trước</button>
         <button type="button" id="admin-next" class="portal-button" data-auth-copy="next">Tiếp</button>
       </div>
+      <dialog id="admin-user-detail-modal" class="admin-modal" aria-labelledby="admin-user-detail-title">
+        <div class="admin-modal-card">
+          <div class="admin-modal-header">
+            <h4 id="admin-user-detail-title" class="admin-modal-title">Thông tin tài khoản</h4>
+            <button type="button" id="admin-user-detail-close" class="admin-modal-close" aria-label="Đóng chi tiết tài khoản">×</button>
+          </div>
+          <p id="admin-user-detail-state" role="status" aria-live="polite"></p>
+          <dl id="admin-user-detail-profile" class="admin-account-profile"></dl>
+          <div class="admin-account-history-heading">
+            <h5 id="admin-user-history-title">Lịch sử hoạt động</h5>
+            <span id="admin-user-history-limit">30 sự kiện gần nhất</span>
+          </div>
+          <ol id="admin-user-detail-events" class="admin-account-history"></ol>
+          <p id="admin-user-history-note" class="admin-account-history-note">Lượt hỏi đáp và tư vấn chỉ được ghi nhận kể từ khi tính năng này được triển khai; hệ thống không lưu nội dung trao đổi tại đây.</p>
+        </div>
+      </dialog>
     </section>
 
     <!-- 4. Audit Log Panel -->
