@@ -45,6 +45,13 @@ class FeedbackSignal:
     timestamp: datetime
 
 
+@dataclass(slots=True)
+class RecommendationSignal:
+    course_codes: tuple[str, ...]
+    scores: tuple[float, ...]
+    timestamp: datetime
+
+
 ROUTE_GROUP_PREFIXES = [
     ("academic", ("/academic", "/programs")),
     ("portal", ("/portal",)),
@@ -88,6 +95,7 @@ class OperationalMetricsRecorder:
         self._requests: deque[RequestMetric] = deque(maxlen=max_requests)
         self._consultations: deque[ConsultationEvent] = deque(maxlen=max_consultations)
         self._feedbacks: deque[FeedbackSignal] = deque(maxlen=max_feedbacks)
+        self._recommendations: deque[RecommendationSignal] = deque(maxlen=max_consultations)
         self.started_at = datetime.now(timezone.utc)
 
     def clear(self) -> None:
@@ -96,6 +104,7 @@ class OperationalMetricsRecorder:
             self._requests.clear()
             self._consultations.clear()
             self._feedbacks.clear()
+            self._recommendations.clear()
 
     @staticmethod
     def sanitize_path(raw_path: str) -> str:
@@ -168,6 +177,19 @@ class OperationalMetricsRecorder:
         with self._lock:
             self._feedbacks.append(signal)
 
+    def record_recommendation(
+        self, courses: list[tuple[str, float]], timestamp: datetime | None = None,
+    ) -> None:
+        """Keep bounded course codes and scores, never identity or preference text."""
+        valid = [(code, float(score)) for code, score in courses[:20]
+                 if re.fullmatch(r'[A-Za-z0-9_-]{2,30}', code) and math.isfinite(float(score))
+                 and 0 <= float(score) <= 1]
+        event = RecommendationSignal(tuple(code for code, _ in valid),
+                                     tuple(score for _, score in valid),
+                                     timestamp or datetime.now(timezone.utc))
+        with self._lock:
+            self._recommendations.append(event)
+
     def get_health(self, window: str = "24h") -> dict[str, Any]:
         """Aggregate truthful metrics for the specified sliding window."""
         now = datetime.now(timezone.utc)
@@ -185,6 +207,7 @@ class OperationalMetricsRecorder:
             requests = [r for r in self._requests if r.timestamp >= cutoff]
             consultations = [c for c in self._consultations if c.timestamp >= cutoff]
             feedbacks = [f for f in self._feedbacks if f.timestamp >= cutoff]
+            recommendations = [r for r in self._recommendations if r.timestamp >= cutoff]
 
         # 1. Overall & Route Groups
         total_requests = len(requests)
@@ -261,6 +284,8 @@ class OperationalMetricsRecorder:
                 "failure_rate_pct": None,
                 "top_failure_reasons": [],
                 "avg_duration_ms": None,
+                "recommendation_total": None,
+                "recommendation_success_rate_pct": None,
             }
         else:
             cons_n = len(consultations)
@@ -269,6 +294,7 @@ class OperationalMetricsRecorder:
             reasons = Counter(c.failure_reason for c in consultations if c.failure_reason)
             top_reasons = [{"reason": r, "count": count} for r, count in reasons.most_common(5)]
             avg_dur = sum(c.duration_ms for c in consultations) / cons_n
+            recommendation_events = [c for c in consultations if c.event_type == 'recommendation']
 
             consultation_health = {
                 "status": "available",
@@ -278,6 +304,11 @@ class OperationalMetricsRecorder:
                 "failure_rate_pct": round((cons_failed / cons_n) * 100, 1),
                 "top_failure_reasons": top_reasons,
                 "avg_duration_ms": round(avg_dur, 1),
+                "recommendation_total": len(recommendation_events),
+                "recommendation_success_rate_pct": (
+                    round(sum(c.success for c in recommendation_events) / len(recommendation_events) * 100, 1)
+                    if recommendation_events else None
+                ),
             }
 
         # 3. User Feedback Signals
@@ -287,6 +318,9 @@ class OperationalMetricsRecorder:
                 "total_feedbacks": None,
                 "positive_feedbacks": None,
                 "positive_rate_pct": None,
+                "average_rating": None,
+                "negative_count": None,
+                "by_category": [],
             }
         else:
             fb_n = len(feedbacks)
@@ -296,7 +330,20 @@ class OperationalMetricsRecorder:
                 "total_feedbacks": fb_n,
                 "positive_feedbacks": fb_pos,
                 "positive_rate_pct": round((fb_pos / fb_n) * 100, 1),
+                "average_rating": round(sum(f.rating for f in feedbacks) / fb_n, 1),
+                "negative_count": sum(f.rating <= 2 for f in feedbacks),
+                "by_category": [{"category": category, "count": count}
+                                for category, count in sorted(Counter(f.category for f in feedbacks).items())],
             }
+
+        codes = Counter(code for event in recommendations for code in event.course_codes)
+        scores = [score for event in recommendations for score in event.scores]
+        recommendation_insights = {
+            "status": "available" if recommendations else "unavailable",
+            "total_runs": len(recommendations) if recommendations else None,
+            "average_fit_pct": round(sum(scores) / len(scores) * 100, 1) if scores else None,
+            "top_courses": [{"code": code, "count": count} for code, count in codes.most_common(8)],
+        }
 
         return {
             "window": window,
@@ -311,6 +358,7 @@ class OperationalMetricsRecorder:
             "route_groups": route_groups_data,
             "consultation_health": consultation_health,
             "feedback_signals": feedback_signals,
+            "recommendation_insights": recommendation_insights,
         }
 
 

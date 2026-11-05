@@ -41,7 +41,7 @@ from app.services.course_status_service import (
     course_board_display,
     reviewed_course_board,
 )
-from app.services.operational_metrics import measured_consultation
+from app.services.operational_metrics import measured_consultation, metrics_recorder
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
@@ -372,6 +372,9 @@ async def recommendations(request: Request):
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
+    metrics_recorder.record_recommendation(
+        [(item.code, item.score) for item in result.recommendations],
+    )
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 

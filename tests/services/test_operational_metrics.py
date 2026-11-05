@@ -173,6 +173,8 @@ def test_consultation_events_and_reasons():
     assert len(cons["top_failure_reasons"]) == 1
     assert cons["top_failure_reasons"][0]["reason"] == "catalog_unverified"
     assert cons["top_failure_reasons"][0]["count"] == 2
+    assert cons["recommendation_total"] == 2
+    assert cons["recommendation_success_rate_pct"] == 50.0
 
 
 def test_feedback_signals():
@@ -196,3 +198,20 @@ def test_feedback_signals():
     assert fb["total_feedbacks"] == 2
     assert fb["positive_feedbacks"] == 1
     assert fb["positive_rate_pct"] == 50.0
+    assert fb["average_rating"] == 3.0
+    assert fb["negative_count"] == 1
+    assert fb["by_category"] == [{"category": "advisor", "count": 1}, {"category": "recommendation", "count": 1}]
+
+
+def test_recommendation_insights_use_only_course_codes_and_bounded_scores():
+    metrics_recorder.record_recommendation(
+        [("MAT1001", 0.9), ("MAT1002", 0.7)]
+    )
+    metrics_recorder.record_recommendation(
+        [("MAT1001", 0.5)]
+    )
+    data = get_operational_health("24h")["recommendation_insights"]
+    assert data["total_runs"] == 2
+    assert data["average_fit_pct"] == 70.0
+    assert data["top_courses"][0] == {"code": "MAT1001", "count": 2}
+    assert "math_2022" not in str(data)
