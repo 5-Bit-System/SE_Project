@@ -32,7 +32,7 @@
     announcementsList = []; announcementsTotal = 0;
     currentPreviewCourses = []; previewProgramsLoaded = false; healthMetricsData = null;
     document.querySelectorAll('#system-admin dialog').forEach(dialog => dialog.close());
-    document.querySelectorAll('#system-admin tbody, #admin-overview-grid, #admin-doc-preview-pane, #admin-audit-detail-json, #admin-prov-checksum, #admin-prov-publisher, #admin-prov-reason').forEach(node => node.replaceChildren());
+    document.querySelectorAll('#system-admin tbody, #admin-overview-grid, #admin-student-insights, #admin-course-insights, #admin-recommendation-insights, #admin-feedback-insights, .admin-system-highlights strong, #admin-doc-preview-pane, #admin-audit-detail-json, #admin-prov-checksum, #admin-prov-publisher, #admin-prov-reason').forEach(node => node.replaceChildren());
     document.querySelectorAll('#system-admin input, #system-admin textarea').forEach(node => {
       if (node.type === 'checkbox') node.checked = false;
       else if (!['button', 'submit'].includes(node.type)) node.value = node.defaultValue;
@@ -305,10 +305,14 @@
     if (isFetching) return;
     if (overviewData && !force) {
       renderOverview(overviewData);
+      loadAdminInsights();
+      loadOperationalHealth();
       return;
     }
     isFetching = true;
     renderSkeletons();
+    loadAdminInsights();
+    loadOperationalHealth();
     const refreshBtn = $('admin-overview-refresh');
     if (refreshBtn) refreshBtn.disabled = true;
 
@@ -317,13 +321,107 @@
       const data = await adminRequest('/admin/overview');
       overviewData = data;
       renderOverview(data);
-      loadOperationalHealth();
     } catch (err) {
         if (err.name === 'AbortError') return;
       renderError(err.message || 'Error loading overview');
     } finally {
       isFetching = false;
       if (refreshBtn) refreshBtn.disabled = false;
+    }
+  }
+
+  function dashboardStat(label, value, detail = '') {
+    const item = document.createElement('div');
+    item.className = 'admin-dashboard-stat';
+    const name = document.createElement('span');
+    name.textContent = label;
+    const number = document.createElement('strong');
+    number.textContent = value == null ? 'Chưa có dữ liệu' : String(value);
+    item.append(name, number);
+    if (detail) {
+      const note = document.createElement('small');
+      note.textContent = detail;
+      item.append(note);
+    }
+    return item;
+  }
+
+  function dashboardGroups(container, heading, groups, unit = 'mục') {
+    if (!groups?.length) return;
+    const title = document.createElement('h5');
+    title.className = 'admin-dashboard-subheading';
+    title.textContent = heading;
+    container.append(title);
+    const maximum = Math.max(1, ...groups.map(group => Number(group.count) || 0));
+    groups.slice(0, 8).forEach(group => {
+      const row = document.createElement('div');
+      row.className = 'admin-dashboard-bar-row';
+      const label = document.createElement('span');
+      label.textContent = group.label || group.code || group.category || 'Chưa rõ';
+      const value = document.createElement('strong');
+      value.textContent = `${Number(group.count) || 0} ${unit}`;
+      const track = document.createElement('div');
+      track.className = 'admin-dashboard-bar-track';
+      const fill = document.createElement('span');
+      fill.style.width = `${Math.max(0, Math.min(100, (Number(group.count) || 0) / maximum * 100))}%`;
+      track.append(fill);
+      row.append(label, value, track);
+      container.append(row);
+    });
+  }
+
+  function renderAdminInsights(data) {
+    const studentHighlight = $('admin-highlight-students');
+    if (studentHighlight) studentHighlight.textContent = data?.students?.status === 'available'
+      ? String(data.students.data.students_total) : 'Chưa có dữ liệu';
+    const students = $('admin-student-insights');
+    const courses = $('admin-course-insights');
+    if (students) {
+      students.replaceChildren();
+      const result = data?.students;
+      if (result?.status !== 'available') {
+        students.textContent = 'Chưa đọc được dữ liệu sinh viên từ cơ sở dữ liệu.';
+      } else {
+        const item = result.data;
+        const stats = document.createElement('div');
+        stats.className = 'admin-dashboard-stats';
+        stats.append(
+          dashboardStat('Tài khoản sinh viên', item.students_total),
+          dashboardStat('GPA hệ 4 trung bình', item.gpa4_average, `${item.gpa4_sample_count} bảng điểm đầy đủ`),
+          dashboardStat('Tín chỉ tích lũy TB', item.credits_average, `${item.credits_sample_count} bảng điểm đầy đủ`),
+          dashboardStat('Tiến độ TB', item.progress_average_pct == null ? null : `${item.progress_average_pct}%`, `${item.progress_sample_count} chương trình đã xác minh`)
+        );
+        students.append(stats);
+        dashboardGroups(students, 'Theo khóa', item.by_cohort, 'sinh viên');
+        dashboardGroups(students, 'Theo ngành', item.by_program, 'sinh viên');
+      }
+    }
+    if (courses) {
+      courses.replaceChildren();
+      const result = data?.courses;
+      if (result?.status !== 'available') {
+        courses.textContent = 'Chưa đọc được danh mục chương trình hiện hành.';
+      } else {
+        const item = result.data;
+        const stats = document.createElement('div');
+        stats.className = 'admin-dashboard-stats';
+        stats.append(
+          dashboardStat('Lượt học phần trong chương trình', item.course_memberships),
+          dashboardStat('Học phần tự chọn', item.elective_count),
+          dashboardStat('Có điều kiện tiên quyết', item.with_prerequisites)
+        );
+        courses.append(stats);
+        dashboardGroups(courses, 'Theo chương trình', item.by_program, 'học phần');
+        dashboardGroups(courses, 'Theo kỳ dự kiến', item.by_suggested_term, 'học phần');
+      }
+    }
+  }
+
+  async function loadAdminInsights() {
+    try {
+      renderAdminInsights(await adminRequest('/admin/insights'));
+    } catch (err) {
+      if (err.name !== 'AbortError') renderAdminInsights(null);
     }
   }
 
@@ -341,6 +439,12 @@
   let curriculumPrograms = [];
   let currentProgramCourses = [];
   let activeProgram = null;
+  const curriculumSourcePdfUrls = {
+    khdl_7460108_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf',
+    khmtt_7480113qtd_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final.pdf',
+    toan_hoc_7460101_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf',
+    toan_tin_7460117_2022: 'https://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf',
+  };
 
   async function loadCurriculum() {
     try {
@@ -447,8 +551,13 @@
     $('admin-detail-program-id').textContent = `Mã: ${prog.program_id}`;
     $('admin-detail-program-credits').textContent = `Tổng tín chỉ: ${prog.total_credits}`;
     $('admin-detail-program-courses').textContent = `${prog.course_count} học phần`;
-    $('admin-detail-source-file').textContent = prog.source_file || '—';
-    $('admin-detail-source-pages').textContent = prog.source_pages || '—';
+    const sourceFile = $('admin-detail-source-file');
+    if (sourceFile) {
+      sourceFile.textContent = prog.source_file || '—';
+      const sourcePdfUrl = curriculumSourcePdfUrls[prog.program_id];
+      if (sourcePdfUrl) sourceFile.href = sourcePdfUrl;
+      else sourceFile.removeAttribute('href');
+    }
 
     const badge = $('admin-detail-status-badge');
     if (badge) {
@@ -2560,6 +2669,72 @@
     } catch (err) {
         if (err.name === 'AbortError') return;
       console.warn('Failed to load operational health:', err);
+      renderDashboardTelemetry(null);
+    }
+  }
+
+  function renderDashboardTelemetry(data) {
+    const ch = data?.consultation_health;
+    const oh = data?.overall_health;
+    const highlights = {
+      'admin-highlight-consultations': ch?.total_consultations,
+      'admin-highlight-success': ch?.recommendation_success_rate_pct == null
+        ? null : `${ch.recommendation_success_rate_pct}%`,
+      'admin-highlight-warnings': oh?.server_error_rate_pct == null
+        ? null : `${oh.server_error_rate_pct}%`,
+    };
+    Object.entries(highlights).forEach(([id, value]) => {
+      const target = $(id);
+      if (target) target.textContent = value == null ? 'Chưa có dữ liệu' : String(value);
+    });
+    const recommendations = $('admin-recommendation-insights');
+    const feedback = $('admin-feedback-insights');
+    if (recommendations) {
+      recommendations.replaceChildren();
+      const result = data?.recommendation_insights;
+      if (result?.status !== 'available') {
+        recommendations.textContent = data
+          ? 'Chưa có lượt gợi ý được ghi nhận trong khung thời gian này.'
+          : 'Chưa tải được số liệu gợi ý. Hãy thử làm mới.';
+      } else {
+        const stats = document.createElement('div');
+        stats.className = 'admin-dashboard-stats';
+        stats.append(
+          dashboardStat('Lượt gợi ý', result.total_runs),
+          dashboardStat('Điểm xếp hạng TB', result.average_fit_pct == null ? null : `${result.average_fit_pct}%`, 'Không phải tỷ lệ gợi ý đúng')
+        );
+        recommendations.append(stats);
+        dashboardGroups(recommendations, 'Môn được gợi ý nhiều', result.top_courses, 'lượt');
+        const reasonLabels = {
+          topic: 'Khớp chủ đề', career: 'Khớp định hướng nghề nghiệp',
+          metadata: 'Khớp thuộc tính học phần', course_type: 'Khớp loại học phần',
+          keyword: 'Khớp từ khóa', insufficient_metadata: 'Thiếu metadata phù hợp',
+          other: 'Lý do khác'
+        };
+        dashboardGroups(recommendations, 'Nhóm lý do gợi ý',
+          result.reason_categories?.map(item => ({label: reasonLabels[item.category] || reasonLabels.other, count: item.count})),
+          'lượt');
+      }
+    }
+    if (feedback) {
+      feedback.replaceChildren();
+      const result = data?.feedback_signals;
+      if (result?.status !== 'available') {
+        feedback.textContent = data
+          ? 'Chưa có phản hồi trong khung thời gian này.'
+          : 'Chưa tải được số liệu phản hồi. Hãy thử làm mới.';
+      } else {
+        const stats = document.createElement('div');
+        stats.className = 'admin-dashboard-stats';
+        stats.append(
+          dashboardStat('Số phản hồi', result.total_feedbacks),
+          dashboardStat('Đánh giá hữu ích', `${result.positive_rate_pct}%`),
+          dashboardStat('Điểm đánh giá TB', result.average_rating == null ? null : `${result.average_rating}/5`),
+          dashboardStat('Đánh giá thấp (1–2)', result.negative_count)
+        );
+        feedback.append(stats);
+        dashboardGroups(feedback, 'Theo nhóm phản hồi', result.by_category, 'lượt');
+      }
     }
   }
 
@@ -2587,6 +2762,7 @@
 
   function renderOperationalHealth(data) {
     if (!data) return;
+    renderDashboardTelemetry(data);
     let scopeNote = $('admin-health-scope');
     if (!scopeNote) {
       scopeNote = document.createElement('p');

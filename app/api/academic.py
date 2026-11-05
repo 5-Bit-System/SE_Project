@@ -42,7 +42,7 @@ from app.services.course_status_service import (
     course_board_display,
     reviewed_course_board,
 )
-from app.services.operational_metrics import measured_consultation
+from app.services.operational_metrics import measured_consultation, metrics_recorder
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
@@ -375,6 +375,10 @@ async def recommendations(request: Request):
     await ensure_current(request, query, context)
     principal = await require_account(request)
     await auth_call(auth_repository.record_activity, principal['account_id'], 'recommendation')
+    metrics_recorder.record_recommendation(
+        [(item.code, item.score) for item in result.recommendations],
+        [item.fit_reason for item in result.recommendations],
+    )
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
