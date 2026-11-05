@@ -136,6 +136,39 @@ def main():
         page.evaluate('window.adminOverview.load(true)')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === '123'")
         assert page.locator('#admin-overview-grid .admin-error-banner').is_visible()
+
+        page.context.route('https://mim.hus.vnu.edu.vn/sites/default/files/**',
+                           lambda route: route.fulfill(status=200, content_type='text/html',
+                                                       body='<title>PDF destination</title>'))
+        page.evaluate('''() => {
+            window.systemAuth.request = async path => {
+              if (path.startsWith('/admin/courses?')) return [];
+              throw Error('Unexpected curriculum request: ' + path);
+            };
+        }''')
+        page.set_viewport_size({'width': 1440, 'height': 900})
+        page.locator('#admin-panel-curriculum').evaluate('node => node.hidden = false')
+        for program_id in ('khdl_7460108_2022', 'khmtt_7480113qtd_2022',
+                           'toan_hoc_7460101_2022', 'toan_tin_7460117_2022'):
+            page.evaluate('''programId => window.adminCurriculum.openProgramCourses({
+                program_id: programId, name: 'Synthetic program', total_credits: 120,
+                course_count: 0, catalog_status: 'draft_unverified',
+                source_file: 'Official curriculum.pdf'
+            })''', program_id)
+            link = page.locator('#admin-detail-source-file')
+            assert link.inner_text() == 'Official curriculum.pdf'
+            href = link.get_attribute('href')
+            assert href.startswith('https://mim.hus.vnu.edu.vn/sites/default/files/')
+            assert href.endswith('.pdf')
+            assert link.get_attribute('target') == '_blank'
+            assert 'Trang nguồn' not in page.locator('.admin-curriculum-provenance-box').inner_text()
+            with page.expect_popup() as opened:
+                link.click()
+            popup = opened.value
+            popup.wait_for_load_state()
+            assert popup.url == href
+            popup.close()
+        page.locator('#admin-curriculum-detail-view').screenshot(path=str(EVIDENCE / 'admin_pdf_link.png'))
         browser.close()
     print('Admin dashboard browser checks passed; screenshots:', EVIDENCE)
 
