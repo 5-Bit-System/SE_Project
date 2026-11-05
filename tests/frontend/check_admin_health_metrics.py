@@ -82,8 +82,7 @@ def main():
             page_mobile.locator("#system-admin-open").wait_for(state="visible")
             page_mobile.locator("#system-admin-open").click()
             page_mobile.locator("#system-admin").wait_for(state="visible")
-            page_mobile.wait_for_selector('[data-metric="accounts"]')
-            page_mobile.wait_for_selector("#admin-health-kpi-grid")
+            page_mobile.wait_for_selector("#admin-health-kpi-grid .admin-health-kpi-card")
             page_mobile.wait_for_timeout(1000)
 
             # Assert no horizontal overflow
