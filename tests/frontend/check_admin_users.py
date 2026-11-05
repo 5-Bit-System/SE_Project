@@ -47,7 +47,7 @@ def main():
             # 3. Check self-protection (admin row has disabled button & select)
             admin_row = page.locator('#admin-users tbody tr').filter(has_text='admin@sohoctap.local')
             assert admin_row.is_visible()
-            assert admin_row.locator('button').is_disabled()
+            assert admin_row.locator('.admin-action-disable').is_disabled()
             assert admin_row.locator('select').is_disabled()
             print('  [PASS] Self-account action button and role select are disabled')
 
@@ -64,7 +64,7 @@ def main():
             page.on('dialog', handle_dialog)
 
             # Click disable button on student
-            action_btn = student_row.locator('button')
+            action_btn = student_row.locator('.admin-action-disable')
             action_btn.click()
 
             # Verify dialog message content
@@ -82,12 +82,12 @@ def main():
 
             # 6. Verify Focus Retention: the action button on student row should still have focus!
             student_row = page.locator('#admin-users tbody tr').filter(has_text='23001939')
-            button_focused = student_row.locator('button').evaluate('el => el === document.activeElement')
+            button_focused = student_row.locator('.admin-action-disable').evaluate('el => el === document.activeElement')
             assert button_focused, 'Action button lost focus after rerender!'
             print('  [PASS] Focus retention verified: action button remains focused after rerender')
 
             # 7. Restore student to active
-            student_row.locator('button').click()
+            student_row.locator('.admin-action-disable').click()
             page.wait_for_function("document.querySelector('#admin-users tbody').textContent.includes('Hoạt động') || document.querySelector('#admin-users tbody').textContent.includes('Active')")
             print('  [PASS] Restored account to active')
 
