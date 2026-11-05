@@ -121,6 +121,17 @@ def main():
         assert 'Chưa có lượt gợi ý' in page.locator('#admin-recommendation-insights').inner_text()
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: null}))")
         assert page.locator('#admin-student-insights').inner_text() == ''
+        page.evaluate('''([insights, health]) => {
+            document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
+            window.systemAuth.request = async path => {
+              if (path === '/admin/overview') throw Error('overview unavailable');
+              if (path === '/admin/insights') return insights;
+              if (path.startsWith('/admin/metrics/health')) return health;
+            };
+        }''', [INSIGHTS, HEALTH])
+        page.evaluate('window.adminOverview.load(true)')
+        page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === '123'")
+        assert page.locator('#admin-overview-grid .admin-error-banner').is_visible()
         browser.close()
     print('Admin dashboard browser checks passed; screenshots:', EVIDENCE)
 

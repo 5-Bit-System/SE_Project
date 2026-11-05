@@ -311,6 +311,8 @@
     }
     isFetching = true;
     renderSkeletons();
+    loadAdminInsights();
+    loadOperationalHealth();
     const refreshBtn = $('admin-overview-refresh');
     if (refreshBtn) refreshBtn.disabled = true;
 
@@ -319,8 +321,6 @@
       const data = await adminRequest('/admin/overview');
       overviewData = data;
       renderOverview(data);
-      loadAdminInsights();
-      loadOperationalHealth();
     } catch (err) {
         if (err.name === 'AbortError') return;
       renderError(err.message || 'Error loading overview');
