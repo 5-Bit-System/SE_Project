@@ -205,7 +205,8 @@ def test_feedback_signals():
 
 def test_recommendation_insights_use_only_course_codes_and_bounded_scores():
     metrics_recorder.record_recommendation(
-        [("MAT1001", 0.9), ("MAT1002", 0.7)]
+        [("MAT1001", 0.9), ("MAT1002", 0.7)],
+        ["Metadata môn khớp định hướng nghề nghiệp: private", "Catalog hiện chưa có metadata đủ để xác định điểm phù hợp cụ thể cho preference này."]
     )
     metrics_recorder.record_recommendation(
         [("MAT1001", 0.5)]
@@ -214,4 +215,6 @@ def test_recommendation_insights_use_only_course_codes_and_bounded_scores():
     assert data["total_runs"] == 2
     assert data["average_fit_pct"] == 70.0
     assert data["top_courses"][0] == {"code": "MAT1001", "count": 2}
+    assert {item['category'] for item in data['reason_categories']} == {'career', 'insufficient_metadata', 'other'}
+    assert 'private' not in str(data)
     assert "math_2022" not in str(data)

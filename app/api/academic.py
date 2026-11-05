@@ -374,6 +374,7 @@ async def recommendations(request: Request):
     await ensure_current(request, query, context)
     metrics_recorder.record_recommendation(
         [(item.code, item.score) for item in result.recommendations],
+        [item.fit_reason for item in result.recommendations],
     )
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 

@@ -2694,6 +2694,15 @@
         );
         recommendations.append(stats);
         dashboardGroups(recommendations, 'Môn được gợi ý nhiều', result.top_courses, 'lượt');
+        const reasonLabels = {
+          topic: 'Khớp chủ đề', career: 'Khớp định hướng nghề nghiệp',
+          metadata: 'Khớp thuộc tính học phần', course_type: 'Khớp loại học phần',
+          keyword: 'Khớp từ khóa', insufficient_metadata: 'Thiếu metadata phù hợp',
+          other: 'Lý do khác'
+        };
+        dashboardGroups(recommendations, 'Nhóm lý do gợi ý',
+          result.reason_categories?.map(item => ({label: reasonLabels[item.category] || reasonLabels.other, count: item.count})),
+          'lượt');
       }
     }
     if (feedback) {

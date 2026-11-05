@@ -49,7 +49,24 @@ class FeedbackSignal:
 class RecommendationSignal:
     course_codes: tuple[str, ...]
     scores: tuple[float, ...]
+    reason_categories: tuple[str, ...]
     timestamp: datetime
+
+
+def _fit_category(reason: str) -> str:
+    if reason.startswith('Tên hoặc metadata môn có chứa chủ đề'):
+        return 'topic'
+    if reason.startswith('Metadata môn khớp định hướng nghề nghiệp'):
+        return 'career'
+    if reason.startswith('Metadata môn khớp '):
+        return 'metadata'
+    if reason.startswith('Môn có loại '):
+        return 'course_type'
+    if reason.startswith('Môn có một phần từ khóa'):
+        return 'keyword'
+    if reason.startswith('Catalog hiện chưa có metadata đủ'):
+        return 'insufficient_metadata'
+    return 'other'
 
 
 ROUTE_GROUP_PREFIXES = [
@@ -178,14 +195,18 @@ class OperationalMetricsRecorder:
             self._feedbacks.append(signal)
 
     def record_recommendation(
-        self, courses: list[tuple[str, float]], timestamp: datetime | None = None,
+        self, courses: list[tuple[str, float]], fit_reasons: list[str] | None = None,
+        timestamp: datetime | None = None,
     ) -> None:
         """Keep bounded course codes and scores, never identity or preference text."""
-        valid = [(code, float(score)) for code, score in courses[:20]
+        valid = [(index, code, float(score)) for index, (code, score) in enumerate(courses[:20])
                  if re.fullmatch(r'[A-Za-z0-9_-]{2,30}', code) and math.isfinite(float(score))
                  and 0 <= float(score) <= 1]
-        event = RecommendationSignal(tuple(code for code, _ in valid),
-                                     tuple(score for _, score in valid),
+        reasons = fit_reasons or []
+        event = RecommendationSignal(tuple(code for _, code, _ in valid),
+                                     tuple(score for _, _, score in valid),
+                                     tuple(_fit_category(reasons[index]) if index < len(reasons) else 'other'
+                                           for index, _, _ in valid),
                                      timestamp or datetime.now(timezone.utc))
         with self._lock:
             self._recommendations.append(event)
@@ -338,11 +359,15 @@ class OperationalMetricsRecorder:
 
         codes = Counter(code for event in recommendations for code in event.course_codes)
         scores = [score for event in recommendations for score in event.scores]
+        reason_counts = Counter(category for event in recommendations
+                                for category in event.reason_categories)
         recommendation_insights = {
             "status": "available" if recommendations else "unavailable",
             "total_runs": len(recommendations) if recommendations else None,
             "average_fit_pct": round(sum(scores) / len(scores) * 100, 1) if scores else None,
             "top_courses": [{"code": code, "count": count} for code, count in codes.most_common(8)],
+            "reason_categories": [{"category": category, "count": count}
+                                  for category, count in reason_counts.most_common()],
         }
 
         return {
