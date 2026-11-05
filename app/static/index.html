@@ -257,6 +257,15 @@
           <span data-auth-copy="adminRefresh">Làm mới</span>
         </button>
       </div>
+      <nav class="admin-dashboard-nav" aria-label="Các bảng điều khiển tổng quan">
+        <a href="#admin-dashboard-system">Hệ thống</a>
+        <a href="#admin-dashboard-students">Sinh viên</a>
+        <a href="#admin-dashboard-courses">Học phần</a>
+        <a href="#admin-dashboard-recommendations">Gợi ý AI</a>
+        <a href="#admin-dashboard-feedback">Phản hồi</a>
+        <a href="#admin-dashboard-monitoring">Giám sát</a>
+      </nav>
+      <h4 id="admin-dashboard-system" class="admin-dashboard-heading">Tổng quan hệ thống</h4>
       <div id="admin-overview-grid" class="admin-overview-grid" aria-live="polite">
         <div class="admin-card-skeleton admin-kpi-card">
           <div class="admin-skeleton-line short"></div>
@@ -279,8 +288,36 @@
           <div class="admin-skeleton-line"></div>
         </div>
       </div>
+      <div class="admin-system-highlights" aria-label="Chỉ số vận hành chính">
+        <div class="admin-dashboard-stat"><span>Sinh viên</span><strong id="admin-highlight-students">Đang tải…</strong></div>
+        <div class="admin-dashboard-stat"><span>Lượt tư vấn</span><strong id="admin-highlight-consultations">Đang tải…</strong></div>
+        <div class="admin-dashboard-stat"><span>Gợi ý thành công</span><strong id="admin-highlight-success">Đang tải…</strong></div>
+        <div class="admin-dashboard-stat"><span>Tỷ lệ lỗi máy chủ (5xx)</span><strong id="admin-highlight-warnings">Đang tải…</strong></div>
+      </div>
+      <div class="admin-dashboard-pair">
+        <section id="admin-dashboard-students" class="admin-dashboard-card" aria-labelledby="admin-students-heading">
+          <h4 id="admin-students-heading">Quản lý sinh viên</h4>
+          <p class="admin-dashboard-description">Theo khóa, ngành và kết quả tích lũy từ bảng điểm VNU đầy đủ.</p>
+          <div id="admin-student-insights" aria-live="polite">Đang tải số liệu…</div>
+        </section>
+        <section id="admin-dashboard-courses" class="admin-dashboard-card" aria-labelledby="admin-courses-heading">
+          <h4 id="admin-courses-heading">Quản lý học phần</h4>
+          <p class="admin-dashboard-description">Theo chương trình và kỳ dự kiến trong danh mục hiện hành.</p>
+          <div id="admin-course-insights" aria-live="polite">Đang tải số liệu…</div>
+        </section>
+        <section id="admin-dashboard-recommendations" class="admin-dashboard-card" aria-labelledby="admin-recommendations-heading">
+          <h4 id="admin-recommendations-heading">Phân tích gợi ý AI</h4>
+          <p class="admin-dashboard-description">Môn được gợi ý nhiều và điểm xếp hạng; kết quả chỉ tính trong phiên chạy hiện tại.</p>
+          <div id="admin-recommendation-insights" aria-live="polite">Đang tải số liệu…</div>
+        </section>
+        <section id="admin-dashboard-feedback" class="admin-dashboard-card" aria-labelledby="admin-feedback-heading">
+          <h4 id="admin-feedback-heading">Phản hồi sinh viên</h4>
+          <p class="admin-dashboard-description">Đánh giá hữu ích và mức hài lòng từ phản hồi đã gửi trong phiên chạy.</p>
+          <div id="admin-feedback-insights" aria-live="polite">Đang tải số liệu…</div>
+        </section>
+      </div>
       <!-- Operational Health & Consultation Section -->
-      <div class="admin-health-section" style="margin-top: 2rem;">
+      <div id="admin-dashboard-monitoring" class="admin-health-section" style="margin-top: 2rem;">
         <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1rem; align-items: center;">
           <div>
             <h4 class="admin-section-heading" style="font-size: 1.15rem; font-weight: 700; margin: 0 0 4px 0; color: var(--text-main);">Giám sát Dịch vụ & Sức khỏe Cố vấn</h4>
