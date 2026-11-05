@@ -21,6 +21,7 @@ from app.academic_context import AcademicContextError, build_context, require_re
 from app.academic_policies import POLICIES
 from app.api.portal import safe_call, session
 from app.auth import portal as account_portal
+from app.auth import repository as auth_repository
 from app.auth.dependencies import COOKIE, optional_account, require_account
 from app.auth.dependencies import call as auth_call
 from app.catalog import load_catalog
@@ -372,6 +373,8 @@ async def recommendations(request: Request):
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
+    principal = await require_account(request)
+    await auth_call(auth_repository.record_activity, principal['account_id'], 'recommendation')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
@@ -393,6 +396,8 @@ async def advisor(request: Request):
         selected_graduation_path_id=query.selected_graduation_path_id)
     result = await asyncio.to_thread(chat_advisor, catalog, internal)
     await ensure_current(request, query, context)
+    principal = await require_account(request)
+    await auth_call(auth_repository.record_activity, principal['account_id'], 'advisor')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 

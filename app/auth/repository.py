@@ -240,6 +240,36 @@ def list_users(principal, page, query):
         return {'items': [dict(row) for row in rows], 'total': total, 'page': page, 'page_size': 25}
 
 
+def record_activity(account_id: str, kind: str) -> None:
+    if kind not in {'advisor', 'recommendation'}:
+        raise ValueError('invalid_activity_kind')
+    with engine().begin() as conn:
+        conn.execute(text("""INSERT INTO account_activity_events(account_id,kind)
+            VALUES(:account_id,:kind)"""), {'account_id': account_id, 'kind': kind})
+
+
+def account_detail(principal, account_id: str) -> dict:
+    with engine().connect() as conn:
+        actor = current(conn, principal['session_id'])
+        if actor['role'] != 'admin':
+            raise AuthFailure('forbidden', 403)
+        account = conn.execute(text("""SELECT id::text,email,vnu_subject,display_name,
+            role,is_active,email_verified_at,created_at FROM accounts WHERE id=:account_id"""),
+            {'account_id': account_id}).mappings().one_or_none()
+        if account is None:
+            raise AuthFailure('account_not_found', 404)
+        events = conn.execute(text("""
+            SELECT kind,created_at FROM (
+                SELECT action AS kind,created_at FROM auth_audit_events
+                WHERE target_id=:account_id AND action IN ('login','login_vnu','logout')
+                UNION ALL
+                SELECT kind,created_at FROM account_activity_events
+                WHERE account_id=:account_id
+            ) activity ORDER BY created_at DESC,kind LIMIT 30
+        """), {'account_id': account_id}).mappings().all()
+        return {'account': dict(account), 'events': [dict(event) for event in events]}
+
+
 def update_user(principal, target, changes):
     with engine().begin() as conn:
         conn.execute(text('SELECT pg_advisory_xact_lock(18107025)'))

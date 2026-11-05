@@ -127,8 +127,10 @@ def test_ready_server_source_drives_eligibility_and_recommendations(client, read
     assert response.status_code == 200
     assert response.json()['context_revision'] == context['revision']
     assert 'PHI1006' not in [course['code'] for course in response.json()['recommendations']]
+    assert client.fake_accounts.activities[-1][1] == 'recommendation'
     client.profile_data['snapshot']['digest'] = 'newer-synthetic-source'
     assert client.post('/me/recommendations', json=body).status_code == 409
+    assert len(client.fake_accounts.activities) == 1
 
 
 @pytest.mark.parametrize('change,expected', [('source', 409), ('logout', 401)])
@@ -150,6 +152,7 @@ def test_slow_recommendation_never_returns_results_after_source_or_session_chang
         'program_id': 'khdl', 'expected_revision': ready_context['revision']})
     assert response.status_code == expected
     assert 'recommendations' not in response.json()
+    assert client.fake_accounts.activities == []
 
 
 def test_ready_progress_and_advisor_share_source_owned_completed_facts(client, ready_context):
@@ -162,6 +165,7 @@ def test_ready_progress_and_advisor_share_source_owned_completed_facts(client, r
         'message': 'Goi y mon hoc'})
     assert response.status_code == 200
     assert response.json()['context_revision'] == ready_context['revision']
+    assert client.fake_accounts.activities[-1][1] == 'advisor'
 
 
 def test_what_if_requires_a_server_baseline_even_when_context_is_ready(client, ready_context):
