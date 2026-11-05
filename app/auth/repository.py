@@ -253,11 +253,27 @@ def account_detail(principal, account_id: str) -> dict:
         actor = current(conn, principal['session_id'])
         if actor['role'] != 'admin':
             raise AuthFailure('forbidden', 403)
-        account = conn.execute(text("""SELECT id::text,email,vnu_subject,display_name,
-            role,is_active,email_verified_at,created_at FROM accounts WHERE id=:account_id"""),
+        account = conn.execute(text("""SELECT a.id::text,a.email,a.vnu_subject,a.display_name,
+            a.role,a.is_active,a.email_verified_at,a.created_at,
+            p.profile->>'name' AS profile_name,
+            p.profile->>'program' AS profile_program,
+            p.profile->>'cohort' AS profile_cohort
+            FROM accounts a
+            LEFT JOIN account_portal_links l ON l.account_id=a.id
+            LEFT JOIN portal_users p ON p.id=l.portal_owner_id
+            WHERE a.id=:account_id"""),
             {'account_id': account_id}).mappings().one_or_none()
         if account is None:
             raise AuthFailure('account_not_found', 404)
+        login_times = conn.execute(text("""
+            SELECT
+              (SELECT created_at FROM auth_audit_events
+               WHERE target_id=:account_id AND action IN ('login','login_vnu')
+               ORDER BY created_at DESC LIMIT 1) AS last_login_at,
+              (SELECT created_at FROM auth_audit_events
+               WHERE target_id=:account_id AND action='logout'
+               ORDER BY created_at DESC LIMIT 1) AS last_logout_at
+        """), {'account_id': account_id}).mappings().one()
         events = conn.execute(text("""
             SELECT kind,created_at FROM (
                 SELECT action AS kind,created_at FROM auth_audit_events
@@ -267,7 +283,8 @@ def account_detail(principal, account_id: str) -> dict:
                 WHERE account_id=:account_id
             ) activity ORDER BY created_at DESC,kind LIMIT 30
         """), {'account_id': account_id}).mappings().all()
-        return {'account': dict(account), 'events': [dict(event) for event in events]}
+        return {'account': {**dict(account), **dict(login_times)},
+                'events': [dict(event) for event in events]}
 
 
 def update_user(principal, target, changes):

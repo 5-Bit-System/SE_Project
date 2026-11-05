@@ -64,7 +64,9 @@
     accountDetailOpen:'Xem thông tin và lịch sử của', accountDetailClose:'Đóng chi tiết tài khoản',
     accountDetailLoading:'Đang tải thông tin tài khoản…', accountDetailEmpty:'Chưa có hoạt động được ghi nhận.',
     accountDetailError:'Không tải được thông tin tài khoản. Vui lòng thử lại.',
-    accountCreated:'Ngày tạo', accountEmail:'Email',
+    accountCreated:'Ngày tạo', accountEmail:'Email', accountIdentifier:'Tài khoản VNU', accountName:'Họ và tên',
+    accountProgram:'Ngành học', accountCohort:'Khóa học',
+    accountLastLogin:'Đăng nhập gần nhất', accountLastLogout:'Đăng xuất gần nhất',
     accountLogin:'Đăng nhập quản trị', accountLoginVnu:'Đăng nhập VNU', accountLogout:'Đăng xuất',
     accountAdvisor:'Hỏi đáp', accountRecommendation:'Tư vấn môn học'
   });
@@ -74,7 +76,9 @@
     accountDetailOpen:'View details and history for', accountDetailClose:'Close account details',
     accountDetailLoading:'Loading account details…', accountDetailEmpty:'No recorded activity yet.',
     accountDetailError:'Could not load account details. Please try again.',
-    accountCreated:'Created', accountEmail:'Email',
+    accountCreated:'Created', accountEmail:'Email', accountIdentifier:'VNU account', accountName:'Name',
+    accountProgram:'Program', accountCohort:'Cohort',
+    accountLastLogin:'Last sign-in', accountLastLogout:'Last sign-out',
     accountLogin:'Admin sign-in', accountLoginVnu:'VNU sign-in', accountLogout:'Sign-out',
     accountAdvisor:'Advisor question', accountRecommendation:'Course recommendation'
   });
@@ -211,6 +215,7 @@
     detailReturnFocus = null;
   }
   function detailDate(value) {
+    if (!value) return '—';
     const date = new Date(value);
     return Number.isNaN(date.getTime()) ? '—' : date.toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN');
   }
@@ -219,12 +224,16 @@
     const events = $('admin-user-detail-events');
     const user = data.account;
     const fields = [
-      [t('email'), user.vnu_subject || user.email || '—'],
-      [t('name'), user.display_name || '—'],
-      ...(user.email && user.vnu_subject ? [[t('accountEmail'), user.email]] : []),
+      [t('accountIdentifier'), user.vnu_subject || user.email || '—'],
+      [t('accountName'), user.profile_name || user.display_name || '—'],
+      [t('accountProgram'), user.profile_program || '—'],
+      [t('accountCohort'), user.profile_cohort || '—'],
+      [t('accountEmail'), user.email || '—'],
       [t('role'), t(user.role === 'admin' ? 'adminRole' : 'studentRole')],
       [t('status'), t(user.is_active ? 'active' : 'disabled')],
-      [t('accountCreated'), detailDate(user.created_at)]
+      [t('accountCreated'), detailDate(user.created_at)],
+      [t('accountLastLogin'), detailDate(user.last_login_at)],
+      [t('accountLastLogout'), detailDate(user.last_logout_at)]
     ];
     profile.replaceChildren();
     for (const [label, value] of fields) {

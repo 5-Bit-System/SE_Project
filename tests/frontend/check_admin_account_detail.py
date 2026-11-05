@@ -49,10 +49,14 @@ def main():
                                       body=json.dumps({"detail": "storage_unavailable"}))
                         return
                     payload = {"account": {"id": ACCOUNT_ID, "vnu_subject": "synthetic-student",
-                        "email": None, "display_name": "Synthetic Student", "role": "student",
+                        "email": "student@example.test", "display_name": "Synthetic Student", "role": "student",
+                        "profile_name": "Student from VNU", "profile_program": "Computer science",
+                        "profile_cohort": "K68", "last_login_at": "2026-11-05T01:00:00Z",
+                        "last_logout_at": "2026-11-05T03:00:00Z",
                         "is_active": True, "created_at": "2026-11-05T00:00:00Z"},
                         "events": [{"kind": "login_vnu", "created_at": "2026-11-05T01:00:00Z"},
-                                   {"kind": "advisor", "created_at": "2026-11-05T02:00:00Z"}]}
+                                   {"kind": "advisor", "created_at": "2026-11-05T02:00:00Z"},
+                                   {"kind": "logout", "created_at": "2026-11-05T03:00:00Z"}]}
                 elif path.startswith("admin/users?"):
                     payload = {"items": [{"id": ACCOUNT_ID, "vnu_subject": "synthetic-student",
                         "email": None, "display_name": "Synthetic Student", "role": "student",
@@ -69,8 +73,14 @@ def main():
             account_link.click()
             dialog = page.locator("#admin-user-detail-modal")
             assert dialog.is_visible()
-            assert "Synthetic Student" in dialog.inner_text()
+            assert "Student from VNU" in dialog.inner_text()
+            assert "Computer science" in dialog.inner_text()
+            assert "K68" in dialog.inner_text()
+            assert "student@example.test" in dialog.inner_text()
+            assert "Đăng nhập gần nhất" in dialog.inner_text()
+            assert "Đăng xuất gần nhất" in dialog.inner_text()
             assert "Đăng nhập VNU" in dialog.inner_text()
+            assert "Đăng xuất" in dialog.inner_text()
             assert "Hỏi đáp" in dialog.inner_text()
             page.screenshot(path=str(EVIDENCE / "desktop.png"))
             page.set_viewport_size({"width": 390, "height": 844})
