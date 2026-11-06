@@ -23,10 +23,7 @@ def _fold(value: str) -> str:
 
 def _first_match(text: str, values: dict[str, str]) -> str | None:
     for phrase, value in values.items():
-        for match in re.finditer(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", text):
-            prefix = text[max(0, match.start() - 35):match.start()]
-            if re.search(r"(?:khong|chua|tranh|not|avoid|don't)(?:\s+\w+){0,3}\s*$", prefix):
-                continue
+        if phrase in text:
             return value
     return None
 
@@ -44,7 +41,6 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         "deep learning": "deep_learning",
         "tri tue nhan tao": "artificial_intelligence",
         "artificial intelligence": "artificial_intelligence",
-        "ai": "artificial_intelligence",
         "du lieu": "data",
         "data": "data",
         "lap trinh": "programming",
@@ -53,7 +49,7 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
         "co so du lieu": "databases",
     }
     for phrase, topic in topic_aliases.items():
-        if _first_match(text, {phrase: topic}) and topic not in topics:
+        if phrase in text and topic not in topics:
             topics.append(topic)
 
     credits_match = re.search(r"\b(\d{1,2})\s*(?:tin chi|tc|credits?)\b", text)
@@ -79,13 +75,9 @@ def extract_structured_preference(goal: str) -> StructuredPreference:
             {"thuc hanh": "practice", "ung dung": "practice", "ly thuyet": "theory", "nghien cuu": "research"},
         ),
         interest_topics=topics,
-        career_paths=[value for phrase, value in {
-            "ai engineer": "ai_engineer", "ky su ai": "ai_engineer",
-            "data scientist": "data_scientist", "software engineer": "software_engineer",
-        }.items() if _first_match(text, {phrase: value})],
         career_goal=raw_goal or None,
-        target_credits=int(credits_match.group(1)) if credits_match and 1 <= int(credits_match.group(1)) <= 30 else None,
-        target_course_count=int(count_match.group(1)) if count_match and 1 <= int(count_match.group(1)) <= 20 else None,
+        target_credits=int(credits_match.group(1)) if credits_match else None,
+        target_course_count=int(count_match.group(1)) if count_match else None,
         course_type=course_type,
         prerequisite_tolerance=_first_match(
             text,

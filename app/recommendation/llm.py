@@ -135,7 +135,7 @@ def _llm_text(prompt: str) -> str:
     return content.strip()
 
 
-def configured_adapters(catalog=None) -> tuple[LLMPreferenceExtractor | None, LLMRanker | None]:
+def configured_adapters() -> tuple[LLMPreferenceExtractor | None, LLMRanker | None]:
     """Tao adapter tu cau hinh runtime, khong goi LLM khi ham duoc import."""
 
     settings = get_settings()
@@ -167,9 +167,6 @@ def configured_adapters(catalog=None) -> tuple[LLMPreferenceExtractor | None, LL
             return result.get("ranking", result.get("courses", result.get("recommendations", [])))
         return result
 
-    if catalog is not None:
-        from app.recommendation.feature_extractor import CatalogFeatureExtractor
-        return CatalogFeatureExtractor(catalog), LLMRanker(ranking_provider)
     return LLMPreferenceExtractor(preference_provider), LLMRanker(ranking_provider)
 
 
