@@ -19,6 +19,7 @@ OVERVIEW = {
     'catalog_status': {'value': 'draft_unverified', 'status': 'available', 'source': 'catalog:active'},
     'system_readiness': {'value': 'operational', 'status': 'available', 'source': 'system:checks'},
 }
+
 INSIGHTS = {
     'students': {'status': 'available', 'data': {
         'students_total': 123, 'gpa4_average': 3.2, 'gpa4_sample_count': 60,
@@ -69,7 +70,7 @@ def main():
         page.goto(BASE)
         page.wait_for_function('window.adminOverview && window.systemAuth')
         page.evaluate('''([overview, insights, health]) => {
-            document.body.dataset.authState = 'authenticated';
+            document.body.dataset.authState = 'admin';
             document.querySelector('#system-admin').hidden = false;
             document.querySelector('#admin-notice').style.display = 'none';
             document.querySelector('.skip-link').style.display = 'none';
@@ -77,7 +78,9 @@ def main():
               account: {account_id: 'fixture-admin', role: 'admin'},
               switchAdminTab() {},
               async request(path) {
+                (window.__dashboardRequests ||= []).push(path);
                 if (path === '/admin/overview') return overview;
+                if (path === '/admin/programs') return [];
                 if (path === '/admin/insights') return insights;
                 if (path.startsWith('/admin/metrics/health')) return health;
                 throw Error('Unexpected dashboard request: ' + path);
@@ -85,8 +88,10 @@ def main():
             };
             document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
         }''', [OVERVIEW, INSIGHTS, HEALTH])
-        page.evaluate('window.adminOverview.load(true)')
+        page.evaluate('window.adminOverview.load()')
         page.locator('#admin-feedback-insights .admin-dashboard-stat').first.wait_for()
+        assert page.locator('#admin-overview-grid .admin-kpi-card').count() == 4
+        assert '/admin/overview' in page.evaluate('window.__dashboardRequests')
         assert page.locator('#admin-overview-refresh').inner_text().strip() == 'Làm mới'
         for title in ('Tổng quan hệ thống', 'Quản lý sinh viên', 'Quản lý học phần',
                       'Phân tích gợi ý AI', 'Phản hồi sinh viên'):
@@ -107,7 +112,6 @@ def main():
         assert page.evaluate('location.hash') == '#admin-dashboard-feedback'
         page.evaluate('''() => {
             window.systemAuth.request = async path => {
-              if (path === '/admin/overview') return window.__overviewFixture;
               if (path === '/admin/insights') return {
                 students: {status: 'unavailable'}, courses: {status: 'unavailable'}
               };
@@ -119,7 +123,6 @@ def main():
               };
             };
         }''')
-        page.evaluate('(overview) => { window.__overviewFixture = overview; }', OVERVIEW)
         page.evaluate('window.adminOverview.load(true)')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === 'Chưa có dữ liệu'")
         assert 'Chưa có lượt gợi ý' in page.locator('#admin-recommendation-insights').inner_text()
@@ -128,14 +131,46 @@ def main():
         page.evaluate('''([insights, health]) => {
             document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
             window.systemAuth.request = async path => {
-              if (path === '/admin/overview') throw Error('overview unavailable');
               if (path === '/admin/insights') return insights;
               if (path.startsWith('/admin/metrics/health')) return health;
             };
         }''', [INSIGHTS, HEALTH])
         page.evaluate('window.adminOverview.load(true)')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === '123'")
-        assert page.locator('#admin-overview-grid .admin-error-banner').is_visible()
+        assert page.locator('#admin-dashboard-students').is_visible()
+
+        page.context.route('https://mim.hus.vnu.edu.vn/sites/default/files/**',
+                           lambda route: route.fulfill(status=200, content_type='text/html',
+                                                       body='<title>PDF destination</title>'))
+        page.evaluate('''() => {
+            window.systemAuth.request = async path => {
+              if (path.startsWith('/admin/courses?')) return [];
+              throw Error('Unexpected curriculum request: ' + path);
+            };
+        }''')
+        page.set_viewport_size({'width': 1440, 'height': 900})
+        page.locator('#admin-panel-curriculum').evaluate('node => node.hidden = false')
+        for program_id in ('khdl_7460108_2022', 'khmtt_7480113qtd_2022',
+                           'toan_hoc_7460101_2022', 'toan_tin_7460117_2022'):
+            page.evaluate('''programId => window.adminCurriculum.openProgramCourses({
+                program_id: programId, name: 'Synthetic program', total_credits: 120,
+                course_count: 0, catalog_status: 'draft_unverified',
+                source_file: 'Official curriculum.pdf'
+            })''', program_id)
+            link = page.locator('#admin-detail-source-file')
+            assert link.inner_text() == 'Official curriculum.pdf'
+            href = link.get_attribute('href')
+            assert href.startswith('https://mim.hus.vnu.edu.vn/sites/default/files/')
+            assert href.endswith('.pdf')
+            assert link.get_attribute('target') == '_blank'
+            assert 'Trang nguồn' not in page.locator('.admin-curriculum-provenance-box').inner_text()
+            with page.expect_popup() as opened:
+                link.click()
+            popup = opened.value
+            popup.wait_for_load_state()
+            assert popup.url == href
+            popup.close()
+        page.locator('#admin-curriculum-detail-view').screenshot(path=str(EVIDENCE / 'admin_pdf_link.png'))
         browser.close()
     print('Admin dashboard browser checks passed; screenshots:', EVIDENCE)
 

@@ -151,6 +151,7 @@ def main():
             mobile_page.locator("#system-admin-open").click()
             mobile_page.locator("#system-admin").wait_for(state="visible")
 
+            mobile_page.locator("#admin-sidebar-toggle").click()
             mobile_page.locator("#admin-tab-curriculum").click()
             mobile_page.locator("#admin-panel-curriculum").wait_for(state="visible")
             mobile_page.locator("#admin-curriculum-subtab-revisions").click()

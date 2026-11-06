@@ -50,19 +50,19 @@ def main():
             save_screenshot(page, "health_overview_light.png")
 
             # 5. Test Window Selector Tabs (1h, 7d, 24h)
-            page.locator('.admin-window-btn[data-window="1h"]').click()
+            page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="1h"]').click()
             page.wait_for_timeout(300)
-            assert "active" in (page.locator('.admin-window-btn[data-window="1h"]').get_attribute("class") or "")
+            assert "active" in (page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="1h"]').get_attribute("class") or "")
             print("  [PASS] Clicked 1h window selector")
 
-            page.locator('.admin-window-btn[data-window="7d"]').click()
+            page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="7d"]').click()
             page.wait_for_timeout(300)
-            assert "active" in (page.locator('.admin-window-btn[data-window="7d"]').get_attribute("class") or "")
+            assert "active" in (page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="7d"]').get_attribute("class") or "")
             print("  [PASS] Clicked 7d window selector")
 
-            page.locator('.admin-window-btn[data-window="24h"]').click()
+            page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="24h"]').click()
             page.wait_for_timeout(300)
-            assert "active" in (page.locator('.admin-window-btn[data-window="24h"]').get_attribute("class") or "")
+            assert "active" in (page.locator('#admin-dashboard-monitoring .admin-window-btn[data-window="24h"]').get_attribute("class") or "")
             print("  [PASS] Restored 24h window selector")
 
             # 6. Switch to Dark Theme & Capture Screenshot
@@ -82,8 +82,7 @@ def main():
             page_mobile.locator("#system-admin-open").wait_for(state="visible")
             page_mobile.locator("#system-admin-open").click()
             page_mobile.locator("#system-admin").wait_for(state="visible")
-            page_mobile.wait_for_selector('[data-metric="accounts"]')
-            page_mobile.wait_for_selector("#admin-health-kpi-grid")
+            page_mobile.wait_for_selector("#admin-health-kpi-grid .admin-health-kpi-card")
             page_mobile.wait_for_timeout(1000)
 
             # Assert no horizontal overflow

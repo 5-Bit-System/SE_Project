@@ -206,6 +206,7 @@ def main():
             mobile_page.locator("#system-admin-open").click()
             mobile_page.locator("#system-admin").wait_for(state="visible")
 
+            mobile_page.locator("#admin-sidebar-toggle").click()
             mobile_page.locator("#admin-tab-crawler").click()
             mobile_page.locator("#admin-crawler-docs-view").wait_for(state="visible")
             mobile_page.locator("#admin-crawler-docs-tbody tr .btn-review-doc").first.click()

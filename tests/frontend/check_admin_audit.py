@@ -105,6 +105,7 @@ def test_admin_audit_ui():
         page_m.locator("#system-admin-open").click()
         page_m.locator("#system-admin").wait_for(state="visible")
 
+        page_m.locator("#admin-sidebar-toggle").click()
         page_m.locator("#admin-tab-audit").click()
         page_m.locator("#admin-panel-audit").wait_for(state="visible")
         page_m.wait_for_timeout(1000)

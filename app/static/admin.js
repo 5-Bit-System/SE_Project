@@ -31,6 +31,7 @@
     auditLogs = []; auditTotal = 0; auditOffset = 0;
     announcementsList = []; announcementsTotal = 0;
     currentPreviewCourses = []; previewProgramsLoaded = false; healthMetricsData = null;
+    ['ad-status-cards', 'admin-health-kpi-grid', 'admin-consultation-health-details', 'admin-health-scope'].forEach(id => $(id)?.replaceChildren());
     document.querySelectorAll('#system-admin dialog').forEach(dialog => dialog.close());
     document.querySelectorAll('#system-admin tbody, #admin-overview-grid, #admin-student-insights, #admin-course-insights, #admin-recommendation-insights, #admin-feedback-insights, .admin-system-highlights strong, #admin-doc-preview-pane, #admin-audit-detail-json, #admin-prov-checksum, #admin-prov-publisher, #admin-prov-reason').forEach(node => node.replaceChildren());
     document.querySelectorAll('#system-admin input, #system-admin textarea').forEach(node => {
@@ -51,7 +52,7 @@
     vi: {
       adminAccounts: 'Tài khoản người dùng',
       adminPrograms: 'Chương trình đào tạo',
-      adminCourses: 'Học phần trong danh mục',
+      adminCourses: 'Mã học phần duy nhất',
       adminCatalogStatus: 'Trạng thái danh mục',
       adminReadiness: 'Vận hành hệ thống',
       adminDraftUnverified: 'Bản thảo chưa kiểm định',
@@ -69,7 +70,7 @@
     en: {
       adminAccounts: 'User Accounts',
       adminPrograms: 'Academic Programs',
-      adminCourses: 'Courses in Catalog',
+      adminCourses: 'Unique Course Codes',
       adminCatalogStatus: 'Catalog Status',
       adminReadiness: 'System Health',
       adminDraftUnverified: 'Draft (Unverified)',
@@ -171,6 +172,7 @@
     const grid = $('admin-overview-grid');
     if (!grid) return;
     grid.replaceChildren();
+    $('ad-status-cards')?.replaceChildren();
 
     // 1. Accounts card
     const acc = data.accounts_total;
@@ -246,7 +248,7 @@
       cat?.source || 'catalog:verification_state',
       isWarning
     );
-    grid.append(catCard);
+    ($('ad-status-cards') || grid).append(catCard);
 
     // 5. System Readiness card
     const rdy = data.system_readiness;
@@ -276,12 +278,15 @@
       rdy?.details?.storage_backend ? `Backend: ${rdy.details.storage_backend}` : null,
       rdy?.source || 'system:readiness_checks'
     );
-    grid.append(rdyCard);
+    ($('ad-status-cards') || grid).append(rdyCard);
+    window.adminDashboard?.update('overview', data);
   }
 
   function renderError(message) {
     const grid = $('admin-overview-grid');
     if (!grid) return;
+    $('ad-status-cards')?.replaceChildren();
+    window.adminDashboard?.update('overview', null);
     grid.innerHTML = `
       <div class="admin-error-banner" role="alert">
         <svg viewBox="0 0 20 20" fill="none" class="admin-error-icon" aria-hidden="true">
@@ -290,7 +295,7 @@
         </svg>
         <div class="admin-error-text">
           <p><strong>${getCopy('adminLoadError')}</strong></p>
-          <p class="admin-error-sub">${message || ''}</p>
+          <p class="admin-error-sub">${escapeHtml(message || '')}</p>
         </div>
         <button type="button" id="admin-overview-retry" class="portal-button primary-action">
           ${getCopy('adminRetry')}
@@ -307,12 +312,14 @@
       renderOverview(overviewData);
       loadAdminInsights();
       loadOperationalHealth();
+      loadDashboardPrograms();
       return;
     }
     isFetching = true;
     renderSkeletons();
     loadAdminInsights();
     loadOperationalHealth();
+    loadDashboardPrograms();
     const refreshBtn = $('admin-overview-refresh');
     if (refreshBtn) refreshBtn.disabled = true;
 
@@ -371,6 +378,7 @@
   }
 
   function renderAdminInsights(data) {
+    window.adminDashboard?.update('insights', data);
     const studentHighlight = $('admin-highlight-students');
     if (studentHighlight) studentHighlight.textContent = data?.students?.status === 'available'
       ? String(data.students.data.students_total) : 'Chưa có dữ liệu';
@@ -422,6 +430,16 @@
       renderAdminInsights(await adminRequest('/admin/insights'));
     } catch (err) {
       if (err.name !== 'AbortError') renderAdminInsights(null);
+    }
+  }
+
+  async function loadDashboardPrograms() {
+    window.adminDashboard?.update('programs', null);
+    try {
+      const data = await adminRequest('/admin/programs');
+      window.adminDashboard?.update('programs', Array.isArray(data) ? data : null);
+    } catch (err) {
+      if (err.name !== 'AbortError') window.adminDashboard?.update('programs', null);
     }
   }
 
@@ -2661,6 +2679,8 @@
 
   async function loadOperationalHealth(win = currentHealthWindow) {
     currentHealthWindow = win;
+    healthMetricsData = null;
+    window.adminDashboard?.update('health', null);
     try {
       if (!window.systemAuth?.request) return;
       const data = await adminRequest(`/admin/metrics/health?window=${encodeURIComponent(win)}`);
@@ -2669,11 +2689,12 @@
     } catch (err) {
         if (err.name === 'AbortError') return;
       console.warn('Failed to load operational health:', err);
-      renderDashboardTelemetry(null);
+      renderOperationalHealth(null);
     }
   }
 
   function renderDashboardTelemetry(data) {
+    window.adminDashboard?.update('health', data);
     const ch = data?.consultation_health;
     const oh = data?.overall_health;
     const highlights = {
@@ -2761,7 +2782,13 @@
   }
 
   function renderOperationalHealth(data) {
-    if (!data) return;
+    if (!data) {
+      renderDashboardTelemetry(null);
+      healthMetricsData = null;
+      ['admin-health-kpi-grid', 'admin-route-groups-tbody', 'admin-consultation-health-details'].forEach(id => $(id)?.replaceChildren());
+      if ($('admin-health-scope')) $('admin-health-scope').textContent = 'Chưa tải được số liệu giám sát. Hãy thử làm mới.';
+      return;
+    }
     renderDashboardTelemetry(data);
     let scopeNote = $('admin-health-scope');
     if (!scopeNote) {
@@ -2966,9 +2993,11 @@
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.admin-window-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.admin-window-btn').forEach(b => b.classList.remove('active'));
-        e.currentTarget.classList.add('active');
         const win = e.currentTarget.dataset.window || '24h';
+        document.querySelectorAll('.admin-window-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.window === win);
+          b.setAttribute('aria-pressed', String(b.dataset.window === win));
+        });
         loadOperationalHealth(win);
       });
     });

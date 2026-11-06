@@ -99,6 +99,7 @@ def test_provenance_modal_ui():
         page_m.locator("#system-admin-open").click()
         page_m.locator("#system-admin").wait_for(state="visible")
 
+        page_m.locator("#admin-sidebar-toggle").click()
         page_m.locator("#admin-tab-curriculum").click()
         page_m.locator("#admin-curriculum-subtab-revisions").click()
         page_m.locator("#admin-curriculum-revisions-view").wait_for(state="visible")

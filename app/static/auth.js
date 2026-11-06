@@ -58,6 +58,30 @@
     confirmDisableAccount:'Are you sure you want to disable account', confirmDisableSessionWarning:'Warning: All active login sessions for this account will be revoked immediately.', confirmEnableAccount:'Do you want to enable account', confirmRoleChange:'Do you want to change the role of account'
   });
   copy.en.restoringSession = 'Restoring your session…';
+  Object.assign(copy.vi, {
+    accountDetail:'Thông tin tài khoản', accountHistory:'Lịch sử hoạt động',
+    accountHistoryLimit:'30 sự kiện gần nhất', accountHistoryNote:'Lượt hỏi đáp và tư vấn chỉ được ghi nhận kể từ khi tính năng này được triển khai; hệ thống không lưu nội dung trao đổi tại đây.',
+    accountDetailOpen:'Xem thông tin và lịch sử của', accountDetailClose:'Đóng chi tiết tài khoản',
+    accountDetailLoading:'Đang tải thông tin tài khoản…', accountDetailEmpty:'Chưa có hoạt động được ghi nhận.',
+    accountDetailError:'Không tải được thông tin tài khoản. Vui lòng thử lại.',
+    accountCreated:'Ngày tạo', accountEmail:'Email', accountIdentifier:'Tài khoản VNU', accountName:'Họ và tên',
+    accountProgram:'Ngành học', accountCohort:'Khóa học',
+    accountLastLogin:'Đăng nhập gần nhất', accountLastLogout:'Đăng xuất gần nhất',
+    accountLogin:'Đăng nhập quản trị', accountLoginVnu:'Đăng nhập VNU', accountLogout:'Đăng xuất',
+    accountAdvisor:'Hỏi đáp', accountRecommendation:'Tư vấn môn học'
+  });
+  Object.assign(copy.en, {
+    accountDetail:'Account details', accountHistory:'Activity history',
+    accountHistoryLimit:'30 most recent events', accountHistoryNote:'Advisor and recommendation events are recorded only from this feature’s deployment; conversation content is not stored here.',
+    accountDetailOpen:'View details and history for', accountDetailClose:'Close account details',
+    accountDetailLoading:'Loading account details…', accountDetailEmpty:'No recorded activity yet.',
+    accountDetailError:'Could not load account details. Please try again.',
+    accountCreated:'Created', accountEmail:'Email', accountIdentifier:'VNU account', accountName:'Name',
+    accountProgram:'Program', accountCohort:'Cohort',
+    accountLastLogin:'Last sign-in', accountLastLogout:'Last sign-out',
+    accountLogin:'Admin sign-in', accountLoginVnu:'VNU sign-in', accountLogout:'Sign-out',
+    accountAdvisor:'Advisor question', accountRecommendation:'Course recommendation'
+  });
   const t = key => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'][key] || copy.vi[key] || copy.vi.fallback;
   function notice(key = '', error = false) { noticeKey = key; noticeError = error; $('auth-notice').textContent = key ? t(key) : ''; $('auth-notice').classList.toggle('is-error', error); }
   function clearSecrets() {
@@ -71,7 +95,7 @@
     });
   }
   function emit() { document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: account})); }
-  function expire(reason = '') { restoringSession = false; epoch++; account = null; csrfToken = ''; adminRows = []; adminTotal = 0; mode = 'student'; clearSecrets(); $('admin-users').replaceChildren(); notice(reason, Boolean(reason)); render(); emit(); }
+  function expire(reason = '') { restoringSession = false; epoch++; closeAccountDetail(false); account = null; csrfToken = ''; adminRows = []; adminTotal = 0; mode = 'student'; clearSecrets(); $('admin-users').replaceChildren(); notice(reason, Boolean(reason)); render(); emit(); }
   function lock(value) { busy = value; document.querySelectorAll('#system-auth button, #system-logout').forEach(node => { node.disabled = value; }); }
   async function request(path, method = 'GET', body) {
     const current = epoch;
@@ -88,12 +112,16 @@
     if (current !== epoch) return;
     restoringSession = false;
     if (!result.authenticated) { if (account) expire('session_expired'); else { account = null; csrfToken = ''; render(); } }
-    else { if(account && account.session_id !== result.account.session_id) epoch++; account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password || (account.role === 'admin' && mode === 'password') ? 'password' : account.role === 'admin' ? 'admin' : 'workspace'; render(); emit(); }
+    else { if(account && account.session_id !== result.account.session_id) { epoch++; closeAccountDetail(false); } account = result.account; csrfToken = result.csrf_token; mode = account.must_change_password || (account.role === 'admin' && mode === 'password') ? 'password' : account.role === 'admin' ? 'admin' : 'workspace'; render(); emit(); }
     return account;
   }
-  function switchAdminTab(tabName, focus = false) {
+  function switchAdminTab(tabName, focus = false, historyMode = 'push') {
     if (!adminTabs.includes(tabName)) return;
+    if (tabName !== adminCurrentTab && detailDialog?.open) closeAccountDetail(false);
     adminCurrentTab = tabName;
+    const route = `#admin/${tabName}`;
+    if (account?.role === 'admin' && mode === 'admin' && historyMode !== 'preserve' && location.hash !== route)
+      history[historyMode === 'replace' ? 'replaceState' : 'pushState'](null, '', route);
     adminTabs.forEach(name => {
       const btn = $(`admin-tab-${name}`);
       const panel = $(`admin-panel-${name}`);
@@ -143,7 +171,9 @@
     $('auth-login-tab').setAttribute('aria-pressed', String(mode === 'login')); $('auth-student-tab').setAttribute('aria-pressed', String(mode === 'student'));
     notice(noticeKey, noticeError);
     if (mode === 'admin') {
-      switchAdminTab(adminCurrentTab);
+      const dashboardAnchor = location.hash.startsWith('#admin-dashboard-');
+      const routeTab = location.hash.startsWith('#admin/') ? location.hash.slice(7) : '';
+      switchAdminTab(dashboardAnchor ? 'overview' : adminTabs.includes(routeTab) ? routeTab : 'overview', false, dashboardAnchor ? 'preserve' : 'replace');
       if (adminCurrentTab === 'users') renderAdmin();
     }
   }
@@ -179,13 +209,87 @@
   $('system-home').onclick = () => { if (account?.role !== 'student') return; mode='workspace'; render(); };
   $('system-password').onclick = () => { mode='password'; notice(); render(); };
   let lastActionTarget = null;
+  let detailRequestId = 0, detailReturnFocus = null;
+  const detailDialog = $('admin-user-detail-modal');
+  function closeAccountDetail(restoreFocus = true) {
+    detailRequestId++;
+    if (detailDialog.open) detailDialog.close();
+    $('admin-user-detail-profile').replaceChildren();
+    $('admin-user-detail-events').replaceChildren();
+    $('admin-user-detail-state').textContent = '';
+    if (restoreFocus && detailReturnFocus?.isConnected) detailReturnFocus.focus();
+    detailReturnFocus = null;
+  }
+  function detailDate(value) {
+    if (!value) return '—';
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? '—' : date.toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN');
+  }
+  function renderAccountDetail(data) {
+    const profile = $('admin-user-detail-profile');
+    const events = $('admin-user-detail-events');
+    const user = data.account;
+    const fields = [
+      [t('accountIdentifier'), user.vnu_subject || user.email || '—'],
+      [t('accountName'), user.profile_name || user.display_name || '—'],
+      [t('accountProgram'), user.profile_program || '—'],
+      [t('accountCohort'), user.profile_cohort || '—'],
+      [t('accountEmail'), user.email || '—'],
+      [t('role'), t(user.role === 'admin' ? 'adminRole' : 'studentRole')],
+      [t('status'), t(user.is_active ? 'active' : 'disabled')],
+      [t('accountCreated'), detailDate(user.created_at)],
+      [t('accountLastLogin'), detailDate(user.last_login_at)],
+      [t('accountLastLogout'), detailDate(user.last_logout_at)]
+    ];
+    profile.replaceChildren();
+    for (const [label, value] of fields) {
+      const item = document.createElement('div');
+      const term = document.createElement('dt'); term.textContent = label;
+      const description = document.createElement('dd'); description.textContent = value;
+      item.append(term, description); profile.append(item);
+    }
+    events.replaceChildren();
+    const labels = {login:'accountLogin', login_vnu:'accountLoginVnu', logout:'accountLogout', advisor:'accountAdvisor', recommendation:'accountRecommendation'};
+    for (const event of data.events || []) {
+      if (!labels[event.kind]) continue;
+      const item = document.createElement('li');
+      const title = document.createElement('strong'); title.textContent = t(labels[event.kind]);
+      const time = document.createElement('time'); time.textContent = detailDate(event.created_at);
+      item.append(title, time); events.append(item);
+    }
+    $('admin-user-detail-state').textContent = events.childElementCount ? '' : t('accountDetailEmpty');
+  }
+  async function openAccountDetail(user, trigger) {
+    const currentEpoch = epoch, currentRequest = ++detailRequestId;
+    detailReturnFocus = trigger;
+    $('admin-user-detail-title').textContent = t('accountDetail');
+    $('admin-user-history-title').textContent = t('accountHistory');
+    $('admin-user-history-limit').textContent = t('accountHistoryLimit');
+    $('admin-user-history-note').textContent = t('accountHistoryNote');
+    $('admin-user-detail-close').setAttribute('aria-label', t('accountDetailClose'));
+    $('admin-user-detail-profile').replaceChildren();
+    $('admin-user-detail-events').replaceChildren();
+    $('admin-user-detail-state').textContent = t('accountDetailLoading');
+    detailDialog.showModal();
+    try {
+      const data = await request('/admin/users/' + encodeURIComponent(user.id));
+      if (currentEpoch === epoch && currentRequest === detailRequestId && detailDialog.open) renderAccountDetail(data);
+    } catch (error) {
+      if (error.name !== 'AbortError' && currentEpoch === epoch && currentRequest === detailRequestId && detailDialog.open)
+        $('admin-user-detail-state').textContent = t('accountDetailError');
+    }
+  }
+  $('admin-user-detail-close').onclick = () => closeAccountDetail();
+  detailDialog.addEventListener('close', () => closeAccountDetail());
   async function loadAdmin() { const current=epoch; try { const result=await request(`/admin/users?page=${adminPage}&q=${encodeURIComponent($('admin-query').value)}`); if(current!==epoch || account?.role!=='admin') return; adminRows=result.items; adminTotal=result.total; renderAdmin(); } catch(error) { if(current===epoch) $('admin-notice').textContent=t(error.message); } }
   function renderAdmin() {
     const table=$('admin-users'); table.replaceChildren(); const head=table.createTHead().insertRow(); [t('email'),t('name'),t('role'),t('status'),t('actions')].forEach(label=>{const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}); const body=table.createTBody();
     let elementToFocus = null;
     adminRows.forEach(user=>{const row=body.insertRow(); row.dataset.userId=user.id;
       const tdSubject=row.insertCell(); const subjectText=user.vnu_subject || user.email || '';
-      if (user.vnu_subject) { const c=document.createElement('code'); c.className='admin-course-code'; c.textContent=user.vnu_subject; tdSubject.replaceChildren(c); } else tdSubject.textContent=subjectText;
+      const accountLink=document.createElement('button'); accountLink.type='button'; accountLink.className='admin-account-link';
+      accountLink.textContent=subjectText; accountLink.setAttribute('aria-label',t('accountDetailOpen')+' '+subjectText);
+      accountLink.onclick=()=>openAccountDetail(user,accountLink); tdSubject.append(accountLink);
       row.insertCell().textContent=user.display_name || '—';
       const select=document.createElement('select'); select.setAttribute('aria-label',t('role')+' '+subjectText); select.className='admin-role-select';
       for(const role of ['student','admin']) select.add(new Option(t(role==='admin'?'adminRole':'studentRole'),role)); select.value=user.role; select.disabled=user.id===account?.account_id || (user.role==='student' && !user.email_verified_at && !user.vnu_subject); row.insertCell().append(select);
@@ -229,6 +333,14 @@
     const btn = $(`admin-tab-${name}`);
     if (btn) btn.onclick = () => switchAdminTab(name);
   });
+  const restoreAdminRoute = () => {
+    if (account?.role !== 'admin' || mode !== 'admin') return;
+    const dashboardAnchor = location.hash.startsWith('#admin-dashboard-');
+    const routeTab = location.hash.startsWith('#admin/') ? location.hash.slice(7) : '';
+    switchAdminTab(dashboardAnchor ? 'overview' : adminTabs.includes(routeTab) ? routeTab : 'overview', false, dashboardAnchor ? 'preserve' : 'replace');
+  };
+  window.addEventListener('popstate', restoreAdminRoute);
+  window.addEventListener('hashchange', restoreAdminRoute);
   const adminNav = document.querySelector('.admin-nav-tabs');
   if (adminNav) {
     adminNav.addEventListener('keydown', event => {

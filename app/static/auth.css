@@ -810,6 +810,43 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   border-radius: 4px;
 }
 
+.admin-account-link {
+  border: 0;
+  padding: 3px 0;
+  background: transparent;
+  color: var(--accent-primary);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.admin-account-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+#admin-user-detail-modal { max-height: calc(100dvh - 32px); overflow-y: auto; }
+#admin-user-detail-state:empty { display: none; }
+.admin-account-profile {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+.admin-account-profile dt { color: var(--text-muted); font-size: .82rem; }
+.admin-account-profile dd { margin: 4px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+.admin-account-history-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid var(--border-light); padding-top: 15px; }
+.admin-account-history-heading h5 { margin: 0; font-size: 1rem; }
+.admin-account-history-heading span, .admin-account-history-note { color: var(--text-muted); font-size: .8rem; }
+.admin-account-history { display: grid; gap: 0; max-height: 270px; overflow: auto; margin: 0; padding-left: 23px; }
+.admin-account-history li { padding: 9px 3px; border-bottom: 1px solid var(--border-light); }
+.admin-account-history time { display: block; color: var(--text-muted); font-size: .8rem; margin-top: 2px; }
+.admin-account-history-note { margin: 0; line-height: 1.5; }
+@media (max-width: 600px) {
+  .admin-account-profile { grid-template-columns: 1fr; }
+}
+
 .admin-sub-text {
   font-size: 11px;
   color: var(--text-muted);

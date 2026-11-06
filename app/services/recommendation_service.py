@@ -10,9 +10,8 @@ from app.models import (
     StructuredPreference,
 )
 from app.recommendation.explanation import build_grounded_explanation
-from app.recommendation.feature_extractor import fallback_preference, validate_labels
 from app.recommendation.llm import LLMRanker
-from app.recommendation.preference import PreferenceExtractor
+from app.recommendation.preference import PreferenceExtractor, extract_structured_preference
 from app.recommendation.ranking import KeywordRanker, Ranker
 from app.recommendation.scoring import score_course
 from app.recommendation.validation import validate_ranking_output
@@ -54,7 +53,7 @@ def recommend(
     if preference is None:
         try:
             if preference_extractor is None:
-                preference = fallback_preference(request.goal, catalog)
+                preference = extract_structured_preference(request.goal)
             else:
                 preference = preference_extractor.extract(request.goal)
                 if isinstance(preference, dict):
@@ -63,14 +62,10 @@ def recommend(
                     raise ValueError("Preference extractor trả về sai schema")
         except Exception as exc:
             logger.warning("Preference fallback: %s", type(exc).__name__)
-            preference = fallback_preference(request.goal, catalog)
+            preference = extract_structured_preference(request.goal)
             warnings.append("Preference extractor gặp lỗi; đã dùng structured preference deterministic.")
     if not preference.raw_goal and request.goal:
         preference = preference.model_copy(update={"raw_goal": request.goal[:500]})
-
-    preference = validate_labels(preference, catalog, reject=False)
-    budget = min(request.max_credits, preference.target_credits or request.max_credits)
-    limit = min(request.limit, preference.target_course_count or request.limit)
 
     backend_name = "deterministic-keyword-v1"
     try:
@@ -109,7 +104,7 @@ def recommend(
     total = 0
     for code in ordered_codes:
         course = by_code[code]
-        if total + course.credits > budget:
+        if total + course.credits > request.max_credits:
             continue
         score = score_course(course, preference, ranking_weights)
         explanation, fit = build_grounded_explanation(
@@ -131,7 +126,7 @@ def recommend(
             offering_status="unknown",
         ))
         total += course.credits
-        if len(selected) >= limit:
+        if len(selected) >= request.limit:
             break
     blocked_summary: dict[str, int] = {}
     for blocked in eligibility.blocked_courses:

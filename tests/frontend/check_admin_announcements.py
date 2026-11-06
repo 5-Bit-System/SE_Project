@@ -98,6 +98,7 @@ def main():
             page_mobile.locator("#system-admin-open").click()
             page_mobile.locator("#system-admin").wait_for(state="visible")
 
+            page_mobile.locator("#admin-sidebar-toggle").click()
             page_mobile.locator('#admin-tab-announcements').click()
             page_mobile.wait_for_selector('#admin-panel-announcements:not([hidden])')
             page_mobile.wait_for_selector('#admin-ann-table')

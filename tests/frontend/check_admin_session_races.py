@@ -39,7 +39,7 @@ def main():
             page.wait_for_timeout(200)
             expect(page.locator('#admin-crawler-docs-tbody')).not_to_contain_text('STALE_RESULT')
             held = []
-            page.route('**/admin/overview', lambda route: held.append(route))
+            page.route('**/admin/insights', lambda route: held.append(route))
             page.locator('#admin-tab-overview').click()
             page.locator('#admin-overview-refresh').click()
             page.wait_for_timeout(150)
@@ -47,11 +47,12 @@ def main():
             page.locator('#system-logout').click()
             expect(page.locator('#system-admin')).to_be_hidden()
             held[0].fulfill(status=200, content_type='application/json', body=json.dumps({
-                key: {'value': 999999, 'status': 'available', 'source': 'PRIVATE_LATE_RESULT'}
-                for key in ['accounts_total','programs_count','courses_count','catalog_status','system_readiness']}))
+                'students': {'status': 'available', 'data': {'students_total': 999999}},
+                'courses': {'status': 'unavailable'},
+            }))
             page.wait_for_timeout(200)
-            expect(page.locator('#admin-overview-grid')).to_be_empty()
-            assert 'PRIVATE_LATE_RESULT' not in page.locator('#system-admin').inner_text()
+            expect(page.locator('#admin-student-insights')).to_be_empty()
+            assert '999999' not in page.locator('#system-admin').inner_text()
             print('Admin races: newest filter wins; logout clears private UI and drops late responses')
         finally:
             browser.close()
