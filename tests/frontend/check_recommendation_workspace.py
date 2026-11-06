@@ -3,6 +3,7 @@
 import copy
 import json
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
@@ -14,7 +15,7 @@ from tests.frontend.presentation_fixture import common_route
 
 
 def main():
-    evidence = Path('backups/recommendation_workspace_20261101')
+    evidence = Path('backups/recommendation_refinement_20261104/browser')
     evidence.mkdir(parents=True, exist_ok=True)
     auth = session_payload()
     group = {'id': 'ai-choice', 'name': 'Synthetic choice', 'required_credits': 3,
@@ -33,6 +34,7 @@ def main():
     plans, requests, errors, pending = [], [], [], []
     mode = 'ready'
     save_mode = 'saved'
+    required_track = required_path = True
 
     def revision(query):
         return 'synthetic-' + query.get('selected_track_id', ['none'])[0] + '-' + query.get('selected_graduation_path_id', ['none'])[0]
@@ -48,16 +50,17 @@ def main():
         elif path == '/me/profile':
             route.fulfill(json=source)
         elif path == '/me/course-status':
-            ready = bool(query.get('selected_track_id') and query.get('selected_graduation_path_id'))
+            ready = ((not required_track or bool(query.get('selected_track_id')))
+                     and (not required_path or bool(query.get('selected_graduation_path_id'))))
             route.fulfill(json={
                 'status': 'ready' if ready else 'partial', 'can_plan': ready,
                 'program_id': 'synthetic-program', 'program_name': 'Chương trình minh họa',
                 'catalog_status': 'verified', 'context_revision': revision(query), 'plan_basis': 'a' * 64,
                 'blocking_reasons': [] if ready else ['track_selection_required', 'graduation_selection_required'],
-                'selections': {'track_required': True, 'path_required': True,
+                'selections': {'track_required': required_track, 'path_required': required_path,
                     'tracks': [{'id': 'track-ai', 'name': 'Trí tuệ nhân tạo'}, {'id': 'track-software', 'name': 'Phần mềm'}],
                     'paths': [{'id': 'thesis', 'name': 'Khóa luận tốt nghiệp', 'allowed_track_ids': ['track-ai', 'track-software']},
-                              {'id': 'courses', 'name': 'Học phần thay thế', 'allowed_track_ids': ['track-ai', 'track-software']}]},
+                              {'id': 'courses', 'name': 'Học phần thay thế', 'allowed_track_ids': ['track-ai', 'track-software']}] if required_path else []},
                 'courses': {'completed': [metadata['A100']], 'eligible': copy.deepcopy(rows), 'blocked': []},
                 'progress': {'total': {'earned_credits': 3, 'required_credits': 120, 'remaining_credits': 117}},
                 'plan': {'course_codes': ['B200', 'C300'] if ready else [],
@@ -117,21 +120,71 @@ def main():
         context = browser.new_context(viewport={'width': 1440, 'height': 1000}, reduced_motion='no-preference',
             record_video_dir=str(evidence / 'recording'), record_video_size={'width': 1440, 'height': 1000})
         page = context.new_page()
+        page.clock.set_fixed_time(datetime(2026, 11, 4, 1, tzinfo=timezone.utc))
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.route('**/*', intercept)
         page.goto('http://127.0.0.1:8000/#recommend')
         expect(page.locator('[data-rec-direction="track-ai"]')).to_be_visible()
         page.screenshot(path=str(evidence / 'landing-light-1440.png'), full_page=True)
-        page.locator('[data-rec-direction="track-ai"]').click()
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        page.locator('[data-rec-direction="custom"]').click()
+        expect(page.locator('#rec-custom-direction')).to_be_focused()
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        page.locator('#rec-custom-direction').fill('An toàn thông tin')
+        page.get_by_role('button', name='Dùng định hướng này', exact=True).click()
+        expect(page.locator('#rec-custom-direction')).to_be_visible()  # Required curriculum track is still missing.
+        page.locator('#rec-custom-track').select_option('track-ai')
+        page.locator('#rec-custom-direction').fill('   ')
+        page.get_by_role('button', name='Dùng định hướng này', exact=True).click()
+        expect(page.locator('#rec-custom-direction')).to_be_visible()
+        page.locator('#rec-custom-direction').fill('An toàn thông tin')
+        page.get_by_role('button', name='Dùng định hướng này', exact=True).click()
         assert page.locator('.rec-flying-chip').count() == 1
+        expect(page.locator('.rec-answer').first).to_contain_text('An toàn thông tin')
+        expect(page.locator('#rec-goal')).to_have_count(0)
         expect(page.locator('#rec-credit-budget')).to_have_value('20')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('min', '18')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('max', '20')
         page.locator('#rec-credit-budget').fill('0')
         page.get_by_role('button', name='Đúng nhịp của mình', exact=True).click()
         expect(page.locator('#rec-credit-budget')).to_be_visible()
-        page.locator('#rec-credit-budget').fill('20')
+        page.locator('[data-rec-load="light"]').click()
+        expect(page.locator('#rec-credit-budget')).to_have_value('17')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('min', '14')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('max', '17')
+        slider = page.locator('.rec-budget input[type=range]')
+        slider.focus()
+        page.keyboard.press('Home')
+        expect(page.locator('#rec-credit-budget')).to_have_value('14')
+        page.locator('#rec-credit-budget').fill('13')
         page.get_by_role('button', name='Đúng nhịp của mình', exact=True).click()
+        expect(page.locator('#rec-credit-budget')).to_be_visible()
+        page.locator('[data-rec-load="heavy"]').click()
+        expect(page.locator('#rec-credit-budget')).to_have_value('21')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('min', '21')
+        expect(page.locator('#rec-credit-budget')).to_have_attribute('max', '30')
+        slider.focus()
+        page.keyboard.press('End')
+        expect(page.locator('#rec-credit-budget')).to_have_value('30')
+        page.locator('[data-rec-load="moderate"]').click()
+        expect(page.locator('#rec-credit-budget')).to_have_value('20')
+        slider.focus()
+        page.keyboard.press('Home')
+        expect(page.locator('#rec-credit-budget')).to_have_value('18')
+        slider.focus()
+        page.keyboard.press('End')
+        expect(page.locator('#rec-credit-budget')).to_have_value('20')
+        page.screenshot(path=str(evidence / 'credit-ranges.png'))
+        page.get_by_role('button', name='Đúng nhịp của mình', exact=True).click()
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        assert page.locator('#rec-target-semester option').evaluate_all('nodes => nodes.map(node => node.value)') == ['1', '2']
+        assert page.locator('#rec-target-year option').evaluate_all('nodes => nodes.map(node => node.value)') == ['2026', '2027', '2028']
+        expect(page.locator('.rec-question')).to_contain_text('K68 vào học năm 2023')
+        page.screenshot(path=str(evidence / 'cohort-window.png'))
         page.get_by_role('button', name='Ghi nhận mục tiêu', exact=True).click()
+        expect(page.locator('#rec-goal')).to_have_count(0)
         page.locator('[data-rec-path="thesis"]').click()
+        expect(page.locator('#rec-goal')).to_be_visible()
         assert plans == []
         page.locator('#rec-goal').fill('Mình muốn ưu tiên học máy.')
         page.locator('.rec-send').click()
@@ -203,6 +256,20 @@ def main():
         assert page.locator('.rec-flying-chip').count() == 0
         page.locator('[data-language-choice=vi]').click()
         page.set_viewport_size({'width': 1440, 'height': 1000})
+        # A cohort refresh in the same session must invalidate the old graduation goal.
+        page.evaluate("""() => {
+          const value = window.workspacePlanning.snapshot(); value.profile.cohort = '69';
+          document.dispatchEvent(new CustomEvent('workspace:planning-state', {detail: value}));
+        }""")
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        expect(page.locator('#rec-target-year option')).to_have_count(4)
+        assert page.locator('#rec-target-year option').last.get_attribute('value') == '2029'
+        page.evaluate("""() => {
+          const value = window.workspacePlanning.snapshot(); value.profile.cohort = '68';
+          document.dispatchEvent(new CustomEvent('workspace:planning-state', {detail: value}));
+        }""")
+        page.get_by_role('button', name='Ghi nhận mục tiêu', exact=True).click()
+        expect(page.locator('#rec-goal')).to_be_visible()
         mode = 'unready'
         page.locator('#rec-generate').click()
         expect(page.locator('.rec-error')).to_contain_text('chưa đủ xác minh')
@@ -242,6 +309,40 @@ def main():
         assert page.locator('.rec-course').count() == 0
         assert 'PRIVATE-OLD' not in page.locator('#recommendation-workspace').inner_text()
         assert page.locator('.rec-dialog').count() == 1
+        # Ordinary curricula have exactly the three requested intake stages.
+        mode = 'ready'
+        required_track = required_path = False
+        page.reload()
+        expect(page.locator('[data-rec-direction="custom"]')).to_be_visible()
+        expect(page.locator('[data-rec-direction]')).to_have_count(4)
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        page.locator('[data-rec-direction="custom"]').click()
+        expect(page.locator('#rec-custom-track')).to_have_count(0)
+        page.locator('#rec-custom-direction').fill('Thiết kế sản phẩm số')
+        page.get_by_role('button', name='Dùng định hướng này', exact=True).click()
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        page.get_by_role('button', name='Đúng nhịp của mình', exact=True).click()
+        expect(page.locator('#rec-goal')).to_have_count(0)
+        page.get_by_role('button', name='Ghi nhận mục tiêu', exact=True).click()
+        expect(page.locator('#rec-goal')).to_be_visible()
+        expect(page.locator('.rec-step-dot')).to_have_count(3)
+        page.screenshot(path=str(evidence / 'final-chat-three-stages.png'), full_page=True)
+        page.locator('#rec-roadmap [data-rec-answer="direction"]').click()
+        page.locator('#rec-custom-direction').fill('A' * 120)
+        page.get_by_role('button', name='Dùng định hướng này', exact=True).click()
+        page.set_viewport_size({'width': 390, 'height': 1000})
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        page.locator('.rec-mobile-roadmap').click()
+        expect(page.locator('.rec-roadmap-sheet')).to_be_visible()
+        assert page.locator('.rec-roadmap-sheet').evaluate('element => element.scrollWidth <= element.clientWidth')
+        page.keyboard.press('Escape')
+        source['profile']['cohort'] = ''
+        page.reload()
+        page.locator('[data-rec-direction="ai"]').click()
+        page.get_by_role('button', name='Đúng nhịp của mình', exact=True).click()
+        expect(page.get_by_role('button', name='Ghi nhận mục tiêu', exact=True)).to_be_disabled()
+        expect(page.locator('.rec-question')).to_contain_text('Chưa đọc được khóa tuyển sinh')
+        expect(page.locator('#rec-goal')).to_have_count(0)
         assert not errors, errors
         assert not {path for path, _ in requests} & {'/recommendations', '/advisor/chat', '/me/recommendations/what-if'}
         (evidence / 'verification.json').write_text(json.dumps({'passed': True, 'api_intercepted': True,

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import {comparePlans, constrainRecommendations, recommendationPayload} from '../../app/static/recommendation-model.mjs';
+import {comparePlans, constrainRecommendations, creditLimits, creditsForWorkload,
+  graduationWindow, recommendationPayload, validGraduationGoal} from '../../app/static/recommendation-model.mjs';
 
 const group = {id: 'elective', required_credits: 3, earned_credits: 0};
 const course = (code, credits = 3, extra = {}) => ({code, credits, name: `Catalog ${code}`, groups: [], counted_in_total: true, ...extra});
@@ -25,6 +26,28 @@ for (const variant of ['balanced', 'graduation', 'direction']) {
   assert.ok(Math.abs(Object.values(request.ranking_weights).reduce((sum, value) => sum + value, 0) - 1) < 1e-9);
 }
 for (const credits of [0, 31, 2.5, NaN]) assert.throws(() => recommendationPayload(board, {...answers, credits}, 'balanced', 'revision'));
+for (const [workload, min, max] of [['light', 14, 17], ['moderate', 18, 20], ['heavy', 21, 30]]) {
+  assert.deepEqual(creditLimits(workload), {min, max});
+  for (const credits of [min, max]) assert.equal(recommendationPayload(board, {...answers, workload, credits}, 'balanced', 'revision').max_credits, credits);
+  for (const credits of [min - 1, max + 1, min + .5]) assert.throws(() => recommendationPayload(board, {...answers, workload, credits}, 'balanced', 'revision'));
+}
+assert.equal(creditsForWorkload('light', 20), 17);
+assert.equal(creditsForWorkload('heavy', 17), 21);
+assert.equal(creditsForWorkload('moderate', 30), 20);
+assert.throws(() => creditLimits('unknown'));
+assert.throws(() => creditLimits('toString'));
+const now = new Date(2026, 10, 4);
+for (const cohort of ['K68', 'k 68', '68', 68, '2023']) {
+  assert.deepEqual(graduationWindow(cohort, now), {cohort: 68, admissionYear: 2023, lastYear: 2028, years: [2026, 2027, 2028]});
+}
+assert.deepEqual(graduationWindow('K67', now).years, [2026, 2027]);
+assert.deepEqual(graduationWindow('K69', now).years, [2026, 2027, 2028, 2029]);
+assert.deepEqual(graduationWindow('K68', new Date(2029, 8, 1)).years, []);
+assert.deepEqual(graduationWindow('K68', new Date(2027, 0, 1)).years, [2026, 2027, 2028]);
+for (const missing of ['', null, 'unknown', 'K66', 'K79', '2099']) assert.equal(graduationWindow(missing, now).admissionYear, null);
+assert.equal(validGraduationGoal('K68', 2028, 2, now), true);
+assert.equal(validGraduationGoal('K68', 2029, 2, now), false);
+assert.equal(validGraduationGoal('K68', 2028, 3, now), false);
 const response = {recommendations: ['EXCLUDED', 'FOREIGN', 'FOLLOW', 'A', 'A', 'B', 'C'].map(code => ({code, credits: 99, name: '<img>', reason: 'Synthetic reason'}))};
 const result = constrainRecommendations(response, board, 20);
 assert.deepEqual(result.rows.map(row => row.code), ['A', 'B']);
