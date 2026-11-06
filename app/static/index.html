@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/static/auth.css">
   <script src="/static/auth.js" defer></script>
   <script src="/static/admin.js" defer></script>
+  <script src="/static/admin-dashboard.js" defer></script>
   <script src="/static/workspace.js" defer></script>
   <link rel="stylesheet" href="/static/portal.css">
   <script src="/static/portal.js" defer></script>
@@ -29,6 +30,7 @@
   <script src="/static/motion.js" defer></script>
   <link rel="stylesheet" href="/static/login-scene.css">
   <script src="/static/login-scene.js" defer></script>
+  <link rel="stylesheet" href="/static/admin-dashboard.css">
 </head>
 <body data-auth-state="loading">
   <div class="ambient-background" aria-hidden="true" inert>
@@ -179,21 +181,12 @@
     </div>
   </section>
   <section id="system-admin" class="container admin-shell" hidden>
-    <header class="admin-header">
-      <div class="admin-header-title-group">
-        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
-        <div class="admin-title-row">
-          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader">Bảng điều khiển quản trị</h2>
-          <span class="admin-status-pill">
-            <span class="admin-status-dot" aria-hidden="true"></span>
-            <span data-auth-copy="adminSystemReady">Hệ thống sẵn sàng</span>
-          </span>
-        </div>
-        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
-      </div>
-    </header>
-
-    <nav class="admin-nav-tabs" role="tablist" aria-label="Các phân hệ quản trị" aria-orientation="horizontal">
+    <button type="button" id="admin-sidebar-shade" class="ad-sidebar-shade" aria-label="Đóng điều hướng quản trị" hidden></button>
+    <aside id="admin-sidebar" class="ad-sidebar" aria-label="Điều hướng quản trị">
+      <a class="ad-brand" href="#admin-dashboard-system"><span class="ad-brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3zM12 6v15M6 9h3m-3 4h3m6-4h3m-3 4h3" stroke="currentColor" stroke-width="1.5"/></svg></span><span>Sổ học tập<small>HUS · ADMIN CONSOLE</small></span></a>
+      <div class="ad-workspace"><span>H</span><div>Đại học Khoa học Tự nhiên<small>ĐHQG Hà Nội</small></div></div>
+      <p class="ad-nav-caption" data-ad-copy="navigation">KHÔNG GIAN QUẢN TRỊ</p>
+      <nav class="admin-nav-tabs" role="tablist" aria-label="Các phân hệ quản trị" aria-orientation="vertical">
       <button id="admin-tab-overview" class="admin-tab-btn active" role="tab" aria-selected="true" aria-controls="admin-panel-overview" tabindex="0" data-admin-tab="overview">
         <svg viewBox="0 0 20 20" fill="none" class="admin-tab-icon" aria-hidden="true">
           <rect x="3" y="3" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
@@ -238,7 +231,25 @@
         </svg>
         <span class="admin-tab-text">Thông báo</span>
       </button>
-    </nav>
+      </nav>
+      <div class="ad-sidebar-footer"><span class="ad-sidebar-footer-icon" aria-hidden="true">QT</span><div><strong data-ad-copy="administrator">Quản trị viên</strong><small data-ad-copy="adminOnly">Không gian quản trị hệ thống</small></div></div>
+    </aside>
+    <header class="admin-header">
+      <button type="button" id="admin-sidebar-toggle" class="ad-menu-toggle" aria-label="Mở điều hướng quản trị" aria-expanded="false" aria-controls="admin-sidebar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <div class="admin-header-title-group">
+        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
+        <div class="admin-title-row">
+          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader" tabindex="-1">Bảng điều khiển quản trị</h2>
+          <span class="admin-status-pill">
+            <span class="admin-status-dot" aria-hidden="true"></span>
+            <span id="ad-readiness-label">Đang kiểm tra hệ thống</span>
+          </span>
+        </div>
+        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
+      </div>
+    </header>
+
+
 
     <p id="admin-notice" class="admin-notice-bar" role="status" aria-live="polite"></p>
 
@@ -266,6 +277,35 @@
         <a href="#admin-dashboard-monitoring">Giám sát</a>
       </nav>
       <h4 id="admin-dashboard-system" class="admin-dashboard-heading">Tổng quan hệ thống</h4>
+      <div id="admin-overview-grid" class="admin-overview-grid" aria-live="polite">
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+        <div class="admin-card-skeleton admin-kpi-card">
+          <div class="admin-skeleton-line short"></div>
+          <div class="admin-skeleton-num"></div>
+          <div class="admin-skeleton-line"></div>
+        </div>
+      </div>
+      <div class="ad-hero-grid">
+        <section class="ad-card ad-activity-card" aria-labelledby="ad-activity-heading">
+          <div class="ad-card-heading"><div><p class="ad-eyebrow" data-ad-copy="operations">VẬN HÀNH</p><h4 id="ad-activity-heading" data-ad-copy="activity">Hoạt động hệ thống</h4><p class="ad-description" data-ad-copy="trafficScope">Lưu lượng API theo nhóm dịch vụ trong phiên chạy hiện tại.</p></div><div class="admin-health-window-selector" role="group" aria-label="Khung thời gian phân tích"><button type="button" class="admin-window-btn" data-window="1h" aria-pressed="false">1 giờ</button><button type="button" class="admin-window-btn active" data-window="24h" aria-pressed="true">24 giờ</button><button type="button" class="admin-window-btn" data-window="7d" aria-pressed="false">7 ngày</button></div></div>
+          <div id="ad-traffic-chart" class="ad-chart-region" aria-live="polite"></div>
+        </section>
+        <section class="ad-card" aria-labelledby="ad-catalog-heading"><div class="ad-card-heading"><div><p class="ad-eyebrow">CATALOG</p><h4 id="ad-catalog-heading" data-ad-copy="catalogStatus">Trạng thái catalog</h4><p class="ad-description" data-ad-copy="catalogSource">Theo chương trình đang hoạt động.</p></div><span class="ad-source-pill" data-ad-copy="activeSource">Nguồn hiện hành</span></div><div id="ad-catalog-chart" class="ad-chart-region" aria-live="polite"></div></section>
+      </div>
       <div class="admin-system-highlights" aria-label="Chỉ số vận hành chính">
         <div class="admin-dashboard-stat"><span>Sinh viên</span><strong id="admin-highlight-students">Đang tải…</strong></div>
         <div class="admin-dashboard-stat"><span>Lượt tư vấn</span><strong id="admin-highlight-consultations">Đang tải…</strong></div>
@@ -293,7 +333,9 @@
           <p class="admin-dashboard-description">Đánh giá hữu ích và mức hài lòng từ phản hồi đã gửi trong phiên chạy.</p>
           <div id="admin-feedback-insights" aria-live="polite">Đang tải số liệu…</div>
         </section>
+        <section class="admin-dashboard-card ad-service-card" aria-labelledby="ad-services-heading"><h4 id="ad-services-heading" data-ad-copy="serviceHealth">Trạng thái hệ thống</h4><p class="admin-dashboard-description" data-ad-copy="serviceSource">Kiểm tra sẵn sàng và trạng thái dữ liệu.</p><div id="ad-status-cards" aria-live="polite"></div></section>
       </div>
+      <section class="ad-card ad-program-card" aria-labelledby="ad-program-heading"><div class="ad-card-heading"><div><p class="ad-eyebrow" data-ad-copy="training">ĐÀO TẠO</p><h4 id="ad-program-heading" data-ad-copy="programs">Chương trình đào tạo</h4><p class="ad-description" data-ad-copy="programDescription">Danh mục hiện hành theo ngành và khóa tuyển sinh.</p></div><button type="button" class="ad-text-button" data-ad-tab="curriculum" data-ad-copy="managePrograms">Quản lý chương trình ↗</button></div><div class="ad-program-toolbar"><div role="group" aria-label="Lọc trạng thái chương trình"><button type="button" data-ad-filter="all" class="active" aria-pressed="true" data-ad-copy="all">Tất cả</button><button type="button" data-ad-filter="verified" aria-pressed="false" data-ad-copy="verified">Đã xác minh</button><button type="button" data-ad-filter="draft_unverified" aria-pressed="false" data-ad-copy="draft">Bản nháp</button></div><label><span class="sr-only" data-ad-copy="searchPrograms">Tìm chương trình</span><input id="ad-program-search" type="search" placeholder="Tìm chương trình, mã ngành, khóa…" aria-label="Tìm chương trình, mã ngành hoặc khóa"></label></div><div id="ad-program-table" aria-live="polite"></div></section>
       <!-- Operational Health & Consultation Section -->
       <div id="admin-dashboard-monitoring" class="admin-health-section" style="margin-top: 2rem;">
         <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1rem; align-items: center;">
@@ -1051,6 +1093,8 @@
         <button type="button" id="admin-prev" class="portal-button" data-auth-copy="previous">Trước</button>
         <button type="button" id="admin-next" class="portal-button" data-auth-copy="next">Tiếp</button>
       </div>
+    </section>
+
       <dialog id="admin-user-detail-modal" class="admin-modal" aria-labelledby="admin-user-detail-title">
         <div class="admin-modal-card">
           <div class="admin-modal-header">
@@ -1067,7 +1111,6 @@
           <p id="admin-user-history-note" class="admin-account-history-note">Lượt hỏi đáp và tư vấn chỉ được ghi nhận kể từ khi tính năng này được triển khai; hệ thống không lưu nội dung trao đổi tại đây.</p>
         </div>
       </dialog>
-    </section>
 
     <!-- 4. Audit Log Panel -->
     <section id="admin-panel-audit" class="admin-tab-panel" role="tabpanel" aria-labelledby="admin-tab-audit" hidden>

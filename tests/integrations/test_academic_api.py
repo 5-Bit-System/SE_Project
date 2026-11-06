@@ -35,6 +35,25 @@ def authenticated(client, owner="synthetic-owner"):
     client.fake_accounts.issue(client, owner, 'synthetic', linked=True)
 
 
+@pytest.mark.parametrize('path', ['/me/recommendations', '/me/advisor/chat'])
+def test_activity_storage_failure_does_not_discard_valid_answer(client, ready_context, monkeypatch, caplog, path):
+    from app.auth import repository
+
+    def unavailable(*_):
+        raise RuntimeError('private-database-message-must-not-leak')
+
+    monkeypatch.setattr(repository, 'record_activity', unavailable)
+    response = client.post(path, json={
+        'program_id': 'khdl', 'expected_revision': ready_context['revision'],
+        'message': 'Goi y mon hoc',
+    })
+    assert response.status_code == 200, response.text
+    assert response.json()['context_revision'] == ready_context['revision']
+    assert 'private-database-message-must-not-leak' not in response.text
+    assert 'private-database-message-must-not-leak' not in caplog.text
+    assert 'Account activity storage unavailable' in caplog.text
+
+
 def test_context_requires_authenticated_session(client):
     assert client.get('/me/academic-context?program_id=khdl').status_code == 401
     assert client.seen_owners == []

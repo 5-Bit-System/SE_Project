@@ -12,6 +12,14 @@ from playwright.sync_api import sync_playwright
 BASE = os.environ.get('ADMIN_UI_TEST_URL', 'http://127.0.0.1:8765/static/index.html')
 EVIDENCE = Path('backups/admin_dashboard_insights_20261105')
 
+OVERVIEW = {
+    'accounts_total': {'value': 125, 'status': 'available', 'source': 'postgres:accounts'},
+    'programs_count': {'value': 4, 'status': 'available', 'source': 'catalog:active'},
+    'courses_count': {'value': 174, 'status': 'available', 'source': 'catalog:active'},
+    'catalog_status': {'value': 'draft_unverified', 'status': 'available', 'source': 'catalog:active'},
+    'system_readiness': {'value': 'operational', 'status': 'available', 'source': 'system:checks'},
+}
+
 INSIGHTS = {
     'students': {'status': 'available', 'data': {
         'students_total': 123, 'gpa4_average': 3.2, 'gpa4_sample_count': 60,
@@ -61,8 +69,8 @@ def main():
         page = browser.new_page(viewport={'width': 1440, 'height': 900}, device_scale_factor=1)
         page.goto(BASE)
         page.wait_for_function('window.adminOverview && window.systemAuth')
-        page.evaluate('''([insights, health]) => {
-            document.body.dataset.authState = 'authenticated';
+        page.evaluate('''([overview, insights, health]) => {
+            document.body.dataset.authState = 'admin';
             document.querySelector('#system-admin').hidden = false;
             document.querySelector('#admin-notice').style.display = 'none';
             document.querySelector('.skip-link').style.display = 'none';
@@ -71,17 +79,19 @@ def main():
               switchAdminTab() {},
               async request(path) {
                 (window.__dashboardRequests ||= []).push(path);
+                if (path === '/admin/overview') return overview;
+                if (path === '/admin/programs') return [];
                 if (path === '/admin/insights') return insights;
                 if (path.startsWith('/admin/metrics/health')) return health;
                 throw Error('Unexpected dashboard request: ' + path);
               }
             };
             document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: window.systemAuth.account}));
-        }''', [INSIGHTS, HEALTH])
+        }''', [OVERVIEW, INSIGHTS, HEALTH])
         page.evaluate('window.adminOverview.load()')
         page.locator('#admin-feedback-insights .admin-dashboard-stat').first.wait_for()
-        assert page.locator('#admin-overview-grid').count() == 0
-        assert '/admin/overview' not in page.evaluate('window.__dashboardRequests')
+        assert page.locator('#admin-overview-grid .admin-kpi-card').count() == 4
+        assert '/admin/overview' in page.evaluate('window.__dashboardRequests')
         assert page.locator('#admin-overview-refresh').inner_text().strip() == 'Làm mới'
         for title in ('Tổng quan hệ thống', 'Quản lý sinh viên', 'Quản lý học phần',
                       'Phân tích gợi ý AI', 'Phản hồi sinh viên'):
@@ -113,7 +123,7 @@ def main():
               };
             };
         }''')
-        page.evaluate('window.adminOverview.load()')
+        page.evaluate('window.adminOverview.load(true)')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === 'Chưa có dữ liệu'")
         assert 'Chưa có lượt gợi ý' in page.locator('#admin-recommendation-insights').inner_text()
         page.evaluate("document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: null}))")
@@ -125,7 +135,7 @@ def main():
               if (path.startsWith('/admin/metrics/health')) return health;
             };
         }''', [INSIGHTS, HEALTH])
-        page.evaluate('window.adminOverview.load()')
+        page.evaluate('window.adminOverview.load(true)')
         page.wait_for_function("document.querySelector('#admin-highlight-students').textContent === '123'")
         assert page.locator('#admin-dashboard-students').is_visible()
 

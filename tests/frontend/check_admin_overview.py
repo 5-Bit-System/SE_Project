@@ -1,4 +1,4 @@
-"""Browser checks for the admin overview after removing the five legacy cards."""
+"""Browser checks retaining the approved blue dashboard and health details."""
 
 import os
 from pathlib import Path
@@ -28,8 +28,9 @@ def main():
             page.locator('#admin-panel-overview').wait_for(state='visible')
             page.locator('#admin-health-kpi-grid .admin-health-kpi-card').first.wait_for()
 
-            assert page.locator('#admin-overview-grid').count() == 0
-            assert page.locator('#admin-dashboard-system').is_visible()
+            assert page.locator('#admin-overview-grid .admin-kpi-card').count() == 4
+            assert page.locator('#ad-traffic-chart').is_visible()
+            assert page.locator('#ad-catalog-chart').is_visible()
             assert page.locator('.admin-system-highlights .admin-dashboard-stat').count() == 4
             assert page.locator('#admin-dashboard-students').is_visible()
             assert page.locator('#admin-dashboard-courses').is_visible()
@@ -40,7 +41,7 @@ def main():
 
             with page.expect_response(lambda response: '/admin/insights' in response.url):
                 page.locator('#admin-overview-refresh').click()
-            assert page.locator('#admin-overview-grid').count() == 0
+            assert page.locator('#admin-overview-grid .admin-kpi-card').count() == 4
             page.screenshot(path=str(EVIDENCE_DIR / 'overview_desktop_light.png'), full_page=True)
             page.set_viewport_size({'width': 390, 'height': 844})
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')

@@ -117,6 +117,7 @@
   }
   function switchAdminTab(tabName, focus = false, historyMode = 'push') {
     if (!adminTabs.includes(tabName)) return;
+    if (tabName !== adminCurrentTab && detailDialog?.open) closeAccountDetail(false);
     adminCurrentTab = tabName;
     const route = `#admin/${tabName}`;
     if (account?.role === 'admin' && mode === 'admin' && historyMode !== 'preserve' && location.hash !== route)

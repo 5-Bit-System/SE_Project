@@ -111,6 +111,10 @@ def main():
             page.locator('#auth-vnu-username').fill('synthetic-only')
             page.locator('#auth-vnu-password').fill('synthetic-vnu-password')
             page.locator('#auth-student-form button[type=submit]').click()
+            expect(page.locator('.main-content')).to_be_visible()
+            # Admin URLs now deliberately restore students to their dashboard.
+            # Open the profile explicitly instead of relying on the old admin hash.
+            page.locator('[data-tab="portal-dialog"]').click()
             expect(page.locator('#portal-profile')).to_be_visible()
             expect(page.locator('#system-home')).to_be_visible()
             expect(page.locator('#system-admin')).to_be_hidden()

@@ -93,6 +93,12 @@ def main():
             page.keyboard.press("Escape")
             assert not dialog.is_visible()
             assert account_link.evaluate("element => element === document.activeElement")
+            account_link.click()
+            assert dialog.is_visible()
+            page.evaluate("window.systemAuth.switchAdminTab('audit')")
+            assert not dialog.is_visible()
+            assert page.locator('#admin-user-detail-profile').inner_text() == ''
+            page.evaluate("window.systemAuth.switchAdminTab('users')")
             state["detail_error"] = True
             account_link.click()
             assert "Không tải được thông tin tài khoản" in dialog.inner_text()

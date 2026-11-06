@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+import logging
 from pathlib import Path
 from typing import Any
 from uuid import UUID
@@ -47,6 +48,19 @@ from app.services.recommendation_service import recommend
 
 router = APIRouter()
 # Server-reviewed policies only; no route accepts a policy or review flag from a student.
+
+logger = logging.getLogger(__name__)
+
+
+async def record_activity_safely(account_id: str, kind: str) -> None:
+    """A failed metadata write must not discard an already validated answer."""
+    try:
+        await auth_call(auth_repository.record_activity, account_id, kind)
+    except HTTPException as exc:
+        if exc.status_code != 503:
+            raise
+        # Do not include account IDs, message content, credentials or DB errors.
+        logger.warning("Account activity storage unavailable for %s", kind)
 
 
 @router.get("/academic-policy/vnu-3626-2022")
@@ -374,7 +388,7 @@ async def recommendations(request: Request):
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
     principal = await require_account(request)
-    await auth_call(auth_repository.record_activity, principal['account_id'], 'recommendation')
+    await record_activity_safely(principal['account_id'], 'recommendation')
     metrics_recorder.record_recommendation(
         [(item.code, item.score) for item in result.recommendations],
         [item.fit_reason for item in result.recommendations],
@@ -401,7 +415,7 @@ async def advisor(request: Request):
     result = await asyncio.to_thread(chat_advisor, catalog, internal)
     await ensure_current(request, query, context)
     principal = await require_account(request)
-    await auth_call(auth_repository.record_activity, principal['account_id'], 'advisor')
+    await record_activity_safely(principal['account_id'], 'advisor')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
