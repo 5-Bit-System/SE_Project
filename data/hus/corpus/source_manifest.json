@@ -1,0 +1,1457 @@
+{
+  "catalog_path": "processed/catalog.json",
+  "document_count": 106,
+  "documents": {
+    "0206eafb973dac3e": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-121-ts-toan-giai-tich-ctdt-4935-pdf--0206eafb.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/121.%20TS%20To%C3%A1n%20gi%E1%BA%A3i%20t%C3%ADch%20CTDT%204935.pdf"
+    },
+    "051e64151696c9c8": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-lythuyetxacsuatvathongke-pdf--051e6415.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.%20LyThuyetXacSuatVaThongKe.pdf"
+    },
+    "055c47bf412172c0": {
+      "markdown_path": "processed/documents/data_science/khoa-hoc-du-lieu--055c47bf.md",
+      "raw_path": "raw/html/data_science/khoa-hoc-du-lieu--f9206b852afd.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+    },
+    "05b2ffdd3e699b8c": {
+      "markdown_path": "processed/documents/general/bo-mon-phuong-trinh-vi-phan-va-he-dong-luc--05b2ffdd.md",
+      "raw_path": "raw/html/general/bo-mon-phuong-trinh-vi-phan-va-he-dong-luc--ea6a2c4a7053.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/ptvp-hdl"
+    },
+    "07a9ebfa5d941de0": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-1-hddkxt-dhcq-2026--07a9ebfa.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2026/05/20260531220816-3phu-luc-1-hddkxt-dhcq-2026.pdf"
+    },
+    "082c2b45d57b886f": {
+      "markdown_path": "processed/documents/mathematics/bo-mon-toan-hoc-tinh-toan-toan-ung-dung--082c2b45.md",
+      "raw_path": "raw/html/mathematics/bo-mon-toan-hoc-tinh-toan-toan-ung-dung--474fb2d4d8ca.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/thtt-tud"
+    },
+    "08fcc083300ecd6c": {
+      "markdown_path": "processed/documents/general/danh-sach-hoi-nghi-khoa-hoc--08fcc083.md",
+      "raw_path": "raw/html/general/danh-sach-hoi-nghi-khoa-hoc--7dc08ad1a647.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/nghiencuu/hnkh"
+    },
+    "098df9e79c1391af": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-de-cuong-ch--098df9e7.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568_%C4%90%E1%BB%81%20c%C6%B0%C6%A1ng%20chi%20ti%E1%BA%BFt.pdf"
+    },
+    "0a1802896fc10b69": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-exh01-02-06-ma-tran-cdr-2023-docx--0a180289.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/Exh01.02.06%20Ma%20tr%E1%BA%ADn%20C%C4%90R%202023.docx"
+    },
+    "0a54103138466ae3": {
+      "markdown_path": "processed/documents/mathematics/cac-linh-vuc-nghien-cuu-chinh--0a541031.md",
+      "raw_path": "raw/html/mathematics/cac-linh-vuc-nghien-cuu-chinh--285c6a4a22e9.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/nghiencuuchinh"
+    },
+    "0cb57443e87bfe92": {
+      "markdown_path": "processed/documents/computer_science/cac-de-tai-thuc-tap-cua-sinh-vien-nuoc-ngoai--0cb57443.md",
+      "raw_path": "raw/html/computer_science/cac-de-tai-thuc-tap-cua-sinh-vien-nuoc-ngoai--24503bd3b2f8.html",
+      "source_kind": "web",
+      "source_url": "https://mim.hus.vnu.edu.vn/vi/thuc-tap-sinh-nuoc-ngoai"
+    },
+    "0dd9aaaeefcbd7d7": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-chuandaura-pdf--0dd9aaae.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/ChuanDauRa.pdf"
+    },
+    "0e8984007f0912b8": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-113-ths-toan-ung-dung-ctdt-4931-pdf--0e898400.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/113.%20ThS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204931.pdf"
+    },
+    "187b469e45fdade5": {
+      "markdown_path": "processed/documents/general/so-tay-sau-dai-hoc--187b469e.md",
+      "raw_path": "raw/html/general/so-tay-sau-dai-hoc--4c1ef2d5d3d0.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/saudaihoc"
+    },
+    "1b525683101bf943": {
+      "markdown_path": "processed/documents/mathematics_informatics/nganh-toan-tin--1b525683.md",
+      "raw_path": "raw/html/mathematics_informatics/nganh-toan-tin--e56738f1794b.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+    },
+    "1c16ddf8a6f1f409": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-pdf--1c16ddf8.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf"
+    },
+    "1d3ade74035a503a": {
+      "markdown_path": "processed/documents/general/danh-sach-can-bo--1d3ade74.md",
+      "raw_path": "raw/html/general/danh-sach-can-bo--bddb2fd55ae0.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/canbo"
+    },
+    "1e3ad5f9915aa051": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-ctdt-mt-khtt-130815-pdf--1e3ad5f9.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf"
+    },
+    "1f6ad01008734152": {
+      "markdown_path": "processed/documents/general/co-hoi-viec-lam--1f6ad010.md",
+      "raw_path": "raw/html/general/co-hoi-viec-lam--8213ad3c45d4.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/cohoivieclam"
+    },
+    "20318d3bfcfca00a": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-116-ths-co-so-toan-hoc-cho-tin-hoc-ctdt-49--20318d3b.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/116.%20ThS%20C%C6%A1%20s%E1%BB%9F%20to%C3%A1n%20h%E1%BB%8Dc%20cho%20tin%20h%E1%BB%8Dc%20CTDT%204934.pdf"
+    },
+    "23a0c1df14a5708a": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-ctdt-ttud-130815-pdf--23a0c1df.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-TTUD-130815.pdf"
+    },
+    "23c80edd9e8bcc97": {
+      "markdown_path": "processed/documents/computer_science/doan-hoi--23c80edd.md",
+      "raw_path": "raw/html/computer_science/doan-hoi--8b4be74a17c5.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/doanTN-hoiSV"
+    },
+    "284bbbdc84b27e19": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-kctths-cohocvatran-pdf--284bbbdc.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.CohocVatRan.pdf"
+    },
+    "2f9c20da375cf17f": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-115-ths-co-hoc-ctdt-4933-pdf--2f9c20da.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/115.%20ThS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204933.pdf"
+    },
+    "31b55b4ee6f451a6": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-khmttt-cdr-docx--31b55b4e.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx"
+    },
+    "384cb52cd49380e8": {
+      "markdown_path": "processed/documents/general/thuc-tap-thuc-te--384cb52c.md",
+      "raw_path": "raw/html/general/thuc-tap-thuc-te--647103128c95.html",
+      "source_kind": "web",
+      "source_url": "https://mim.hus.vnu.edu.vn/vi/thuctap"
+    },
+    "3892b749fb0b11d6": {
+      "markdown_path": "processed/documents/general/bo-mon-giai-tich--3892b749.md",
+      "raw_path": "raw/html/general/bo-mon-giai-tich--192b3644aa5d.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/giaitich"
+    },
+    "38ce2810d49fb3c9": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-ptvptp-pdf--38ce2810.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.PTVPTP.pdf"
+    },
+    "38f98cf209765f9b": {
+      "markdown_path": "processed/documents/mathematics/doi-tac-nghien-cuu--38f98cf2.md",
+      "raw_path": "raw/html/mathematics/doi-tac-nghien-cuu--78a0838f997d.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/doitacnc"
+    },
+    "3ca5f5aadd344a87": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-125-ts-ly-thuyet-xac-suat-va-thong-ke-toan--3ca5f5aa.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/125.%20TS%20L%C3%BD%20thuy%E1%BA%BFt%20x%C3%A1c%20su%E1%BA%A5t%20v%C3%A0%20th%E1%BB%91ng%20k%C3%AA%20to%C3%A1n%20h%E1%BB%8Dc%20CTDT%204939.pdf"
+    },
+    "4009cff5d06f7268": {
+      "markdown_path": "processed/documents/general/chuong-trinh-dao-tao-thac-si--4009cff5.md",
+      "raw_path": "raw/html/general/chuong-trinh-dao-tao-thac-si--bf3a9b530085.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/ctdtthacsi"
+    },
+    "423df87637449b89": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-hhtp-pdf--423df876.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.HHTP.pdf"
+    },
+    "4c16f5ff330ac93e": {
+      "markdown_path": "processed/documents/general/bo-mon-dai-so-hinh-hoc-topo--4c16f5ff.md",
+      "raw_path": "raw/html/general/bo-mon-dai-so-hinh-hoc-topo--eb719fdf8a0f.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/ds-hh-tp"
+    },
+    "554827330988bff8": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-scan-final--55482733.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final.pdf"
+    },
+    "5b36725dd594e42b": {
+      "markdown_path": "processed/documents/general/nha--5b36725d.md",
+      "raw_path": "raw/html/general/nha--0e6c36457d66.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi"
+    },
+    "5b5e1407554764a5": {
+      "markdown_path": "processed/documents/general/lien-he-van-phong-khoa--5b5e1407.md",
+      "raw_path": "raw/html/general/lien-he-van-phong-khoa--0c116787e245.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/lienhe"
+    },
+    "602e28ba9076f0c7": {
+      "markdown_path": "processed/documents/computer_science/tin-tuc--602e28ba.md",
+      "raw_path": "raw/html/computer_science/tin-tuc--9873f9a1f505.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/news"
+    },
+    "66c1159a0a3e370b": {
+      "markdown_path": "processed/documents/mathematics/lien-ket--66c1159a.md",
+      "raw_path": "raw/html/mathematics/lien-ket--507f4b558102.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/lk"
+    },
+    "6ed7db5b54522bcf": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-127-ts-co-hoc-ctdt-4941-pdf--6ed7db5b.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/127.%20TS%20C%C6%A1%20h%E1%BB%8Dc%20CTDT%204941.pdf"
+    },
+    "7223a6222e38ab2b": {
+      "markdown_path": "processed/documents/general/seminar--7223a622.md",
+      "raw_path": "raw/html/general/seminar--d6b9ac3b692c.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/seminars"
+    },
+    "73498ccbd355f534": {
+      "markdown_path": "processed/documents/general/hoi-nghi--73498ccb.md",
+      "raw_path": "raw/html/general/hoi-nghi--3b9bf9663c5e.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/conference"
+    },
+    "741abe805f966790": {
+      "markdown_path": "processed/documents/mathematics/dia-ly-quan-ly-dat-dai-va-gisc--741abe80.md",
+      "raw_path": "raw/html/mathematics/dia-ly-quan-ly-dat-dai-va-gisc--ff653872af3d.html",
+      "source_kind": "web",
+      "source_url": "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-ly"
+    },
+    "7857b2819ef24d68": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-daisovalythuyetso-pdf--7857b281.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.DaiSoVaLyThuyetSo.pdf"
+    },
+    "7b0e9c679a8eb75a": {
+      "markdown_path": "processed/documents/data_science/tai-lieu-dinh-kem-105-khoa-hoc-du-lieu-chuan-final-qd-3569-s--7b0e9c67.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/105.-Khoa-h%C3%A1%C2%BB%C2%8Dc-d%C3%A1%C2%BB%C2%AF-li%C3%A1%C2%BB%C2%87u-chu%C3%A1%C2%BA%C2%A9n%20final%20Q%C3%84%C2%90%203569%20Scan.pdf"
+    },
+    "824f4fec1ad626d0": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-3-hddkxt-dhcq-2026--824f4fec.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2026/05/20260531220816-3phu-luc-3-hddkxt-dhcq-2026.pdf"
+    },
+    "82c727db983340f6": {
+      "markdown_path": "processed/documents/mathematics/cac-chuong-trinh-dao-tao--82c727db.md",
+      "raw_path": "raw/html/mathematics/cac-chuong-trinh-dao-tao--af50b86eaec5.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/cacctrdaotao"
+    },
+    "8356253bb1ba82f3": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-hinhhocvatopo-pdf--8356253b.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.HinhHocVaToPo.pdf"
+    },
+    "868580a71d669755": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-112-ths-phuong-phap-toan-so-cap-ctdt-4930--868580a7.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/112.%20ThS%20Ph%C6%B0%C6%A1ng%20ph%C3%A1p%20to%C3%A1n%20s%C6%A1%20c%E1%BA%A5p%20CTDT%204930.pdf"
+    },
+    "87a01b93d4cceb22": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-matrancdr-1-pdf--87a01b93.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/MaTranCDR%20%281%29.pdf"
+    },
+    "88b416f27e334aec": {
+      "markdown_path": "processed/documents/general/loi-chao-mung--88b416f2.md",
+      "raw_path": "raw/html/general/loi-chao-mung--eb58d7fc23a2.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/lcm"
+    },
+    "89d4b39494d72217": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-toanhoc-130815-pdf--89d4b394.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf"
+    },
+    "8afffd3cada3d048": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-0-pdf--8afffd3c.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf"
+    },
+    "8fe40f80d96200bd": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-tgt-pdf--8fe40f80.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.TGT.pdf"
+    },
+    "90519c64bdc39243": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-nguyen-ntt-ext-abstract-docx--90519c64.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/semianar/Nguyen_NTT-Ext_Abstract.docx"
+    },
+    "985f1229a084b88c": {
+      "markdown_path": "processed/documents/general/hoi-dong-khoa-hoc-va-dao-tao--985f1229.md",
+      "raw_path": "raw/html/general/hoi-dong-khoa-hoc-va-dao-tao--269cdb24a18c.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/hoidongkhoahoc"
+    },
+    "9ace3921b3e56619": {
+      "markdown_path": "processed/documents/general/chuong-trinh-dao-tao-tien-si--9ace3921.md",
+      "raw_path": "raw/html/general/chuong-trinh-dao-tao-tien-si--d90e52fce1bd.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/ctdttiensi"
+    },
+    "9c1d836db24c4a18": {
+      "markdown_path": "processed/documents/mathematics/thanh-tich-khen-thuong--9c1d836d.md",
+      "raw_path": "raw/html/mathematics/thanh-tich-khen-thuong--3f4845647770.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/sinhvien-thanhtich-khenthuong"
+    },
+    "9c33b54d607a0f77": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-2-hddkxt-dhcq-2026--9c33b54d.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2026/05/20260531220816-3phu-luc-2-hddkxt-dhcq-2026.pdf"
+    },
+    "9e6d4e504e563bf7": {
+      "markdown_path": "processed/documents/computer_science/tin-tuc-sinh-vien--9e6d4e50.md",
+      "raw_path": "raw/html/computer_science/tin-tuc-sinh-vien--46700e8cc67a.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/studentnews"
+    },
+    "a090bd625a439d9b": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-103-toan-tin-chuan-final-qd-3567-scan-pdf--a090bd62.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%83%C2%A1n%20tin-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203567%20Scan.pdf"
+    },
+    "a1d7f56eae2801a6": {
+      "markdown_path": "processed/documents/general/cac-nguon-tai-tro--a1d7f56e.md",
+      "raw_path": "raw/html/general/cac-nguon-tai-tro--c991d1e2faee.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/nguontaitro"
+    },
+    "a211ab8040a69821": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-2622-signed-signed-thong-bao-tuyen-sinh-ch--a211ab80.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2024/08/2622_signed.signed.thong-bao-tuyen-sinh-chuong-trinh-vnu-12-plus_hus_final.signed.pdf"
+    },
+    "a6ff3ba74dfbcf06": {
+      "markdown_path": "processed/documents/general/thong-tin-chung--a6ff3ba7.md",
+      "raw_path": "raw/html/general/thong-tin-chung--12992f2966a8.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/tuyensinh"
+    },
+    "a8f161744d0c9907": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-scan-final--a8f16174.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203568%20Scan%20final.pdf"
+    },
+    "a9fcdce2bed71e1f": {
+      "markdown_path": "processed/documents/mathematics/dao-tao--a9fcdce2.md",
+      "raw_path": "raw/html/mathematics/dao-tao--5d9e32a8965f.html",
+      "source_kind": "web",
+      "source_url": "https://hus.vnu.edu.vn/dao-tao/dai-hoc"
+    },
+    "ac3d4c08968d577f": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-9-1-26-chi-tiet-du-thao-dang-cong-tuyen-si--ac3d4c08.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "https://tuyensinh.hus.vnu.edu.vn/DATA/TUYENSINH/IMAGES/2026/03/9.1.26-chi-tiet-du-thao_dang-cong-tuyen-sinh-1-edit.pdf"
+    },
+    "af58241718a3d124": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-124-ts-toan-ung-dung-ctdt-4938-pdf--af582417.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/124.%20TS%20To%C3%A1n%20%E1%BB%A9ng%20d%E1%BB%A5ng%20CTDT%204938.pdf"
+    },
+    "b0d9a18c1d2d4d45": {
+      "markdown_path": "processed/documents/general/so-tay-sinh-vien--b0d9a18c.md",
+      "raw_path": "raw/html/general/so-tay-sinh-vien--f933499c9e7d.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/sotaysv"
+    },
+    "b643ce095e7e12a5": {
+      "markdown_path": "processed/documents/general/bo-mon-co-hoc--b643ce09.md",
+      "raw_path": "raw/html/general/bo-mon-co-hoc--c578a6dd3442.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/cohoc"
+    },
+    "bc0a1f59b7ab202c": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-04-de-cuong-chi-tiet-toantin-2021-pdf--bc0a1f59.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"
+    },
+    "be32a63f685f08ee": {
+      "markdown_path": "processed/documents/general/sinh-vien--be32a63f.md",
+      "raw_path": "raw/html/general/sinh-vien--9d81b234146c.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/sinhvien"
+    },
+    "bed553d5c5c7b67c": {
+      "markdown_path": "processed/documents/computer_science/tin-tuc-chung--bed553d5.md",
+      "raw_path": "raw/html/computer_science/tin-tuc-chung--5b19d89abf3a.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/generalnews"
+    },
+    "bfdd7fdd64fd7e10": {
+      "markdown_path": "processed/documents/mathematics/lich-su-phat-trien--bfdd7fdd.md",
+      "raw_path": "raw/html/mathematics/lich-su-phat-trien--aed30a00e79e.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/lichsupt"
+    },
+    "c017ffa58778e87f": {
+      "markdown_path": "processed/documents/general/bac-dao-tao--c017ffa5.md",
+      "raw_path": "raw/html/general/bac-dao-tao--40a6b3b0d13d.html",
+      "source_kind": "web",
+      "source_url": "https://tuyensinh.hus.vnu.edu.vn/dai-hoc"
+    },
+    "c16863443a1963b3": {
+      "markdown_path": "processed/documents/mathematics/dao-tao--c1686344.md",
+      "raw_path": "raw/html/mathematics/dao-tao--f87d435745ea.html",
+      "source_kind": "web",
+      "source_url": "https://hus.vnu.edu.vn/dao-tao"
+    },
+    "c1c50f5ba9094527": {
+      "markdown_path": "processed/documents/data_science/tai-lieu-dinh-kem-105-khoa-hoc-du-lieu-chuan-final-qd-3569-s--c1c50f5b.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf"
+    },
+    "c486149153e0578c": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-kctths-cohocchatlong-pdf--c4861491.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.CoHocChatLong.pdf"
+    },
+    "c5f783d3fc975177": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-tud-pdf--c5f783d3.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.TUD.pdf"
+    },
+    "c65f67529af88ab5": {
+      "markdown_path": "processed/documents/general/cong-bo-khoa-hoc--c65f6752.md",
+      "raw_path": "raw/html/general/cong-bo-khoa-hoc--778b5dc7f5a7.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/congtrinhkhcn"
+    },
+    "c6e4ea5514b8c3f4": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-curriculummap-vn-pdf--c6e4ea55.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CurriculumMap-vn.pdf"
+    },
+    "c865f2750e967790": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-dslts-pdf--c865f275.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.DSLTS.pdf"
+    },
+    "cc4a948adb689fd2": {
+      "markdown_path": "processed/documents/general/gioi-thieu--cc4a948a.md",
+      "raw_path": "raw/html/general/gioi-thieu--681ec8c80abb.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/gioi-thieu"
+    },
+    "cc62b89d0a6fa1e2": {
+      "markdown_path": "processed/documents/general/cuu-sinh-vien--cc62b89d.md",
+      "raw_path": "raw/html/general/cuu-sinh-vien--d2e171e2fd12.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/cuusinhvien"
+    },
+    "ce8df97fe49665e9": {
+      "markdown_path": "processed/documents/mathematics/nganh-toan-hoc--ce8df97f.md",
+      "raw_path": "raw/html/mathematics/nganh-toan-hoc--a80a4b0d8526.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+    },
+    "cec087aebf1d2db9": {
+      "markdown_path": "processed/documents/data_science/data-science-laboratory--cec087ae.md",
+      "raw_path": "raw/html/data_science/data-science-laboratory--bbc63d68cfc3.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/content/data-science-laboratory"
+    },
+    "d006f60211246633": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kct-tttoan-final-pdf--d006f602.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf"
+    },
+    "d36d82c967372433": {
+      "markdown_path": "processed/documents/general/bieu-mau--d36d82c9.md",
+      "raw_path": "raw/html/general/bieu-mau--7429b40385fc.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/cacloaibieumau"
+    },
+    "d4fae066858f0b94": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-cnkhtn-toanhoc-13815-pdf--d4fae066.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf"
+    },
+    "d6063db8edecd40a": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-122-ts-phuong-trinh-vi-phan-va-tich-phan-c--d6063db8.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/122.%20TS%20Ph%C6%B0%C6%A1ng%20tr%C3%ACnh%20vi%20ph%C3%A2n%20v%C3%A0%20t%C3%ADch%20ph%C3%A2n%20CTDT%204936.pdf"
+    },
+    "d6370261338de29f": {
+      "markdown_path": "processed/documents/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--d6370261.md",
+      "raw_path": "raw/html/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--355fefeb6658.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+    },
+    "d73edbb5ad3fc8e5": {
+      "markdown_path": "processed/documents/mathematics/quan-ly-cong-nghe-tai-nguyen-moi-truong-va-dia-chat--d73edbb5.md",
+      "raw_path": "raw/html/mathematics/quan-ly-cong-nghe-tai-nguyen-moi-truong-va-dia-chat--f9fa325c383a.html",
+      "source_kind": "web",
+      "source_url": "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/dia-chat"
+    },
+    "d75f0faafa5605a4": {
+      "markdown_path": "processed/documents/general/su-menh-tam-nhin--d75f0faa.md",
+      "raw_path": "raw/html/general/su-menh-tam-nhin--c0de29e65ac7.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/content/s%E1%BB%A9-m%E1%BB%87nh-t%E1%BA%A7m-nh%C3%ACn"
+    },
+    "d771d9ef92ec2244": {
+      "markdown_path": "processed/documents/general/triet-ly-giao-duc--d771d9ef.md",
+      "raw_path": "raw/html/general/triet-ly-giao-duc--3add1be61fba.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/content/tri%E1%BA%BFt-l%C3%BD-gi%C3%A1o-d%E1%BB%A5c"
+    },
+    "d988fffe2a509f23": {
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-103-toan-tin-chuan-final-qd-3567-scan-pdf--d988fffe.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+    },
+    "dbbfda3b3359a409": {
+      "markdown_path": "processed/documents/mathematics/danh-sach-de-tai-khoa-hoc-cong-nghe--dbbfda3b.md",
+      "raw_path": "raw/html/mathematics/danh-sach-de-tai-khoa-hoc-cong-nghe--e6011c6f9d7f.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/danhsachdetai"
+    },
+    "dfecf0d970131572": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-kts-chcl-pdf--dfecf0d9.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHCL.pdf"
+    },
+    "e14050f375a3c507": {
+      "markdown_path": "processed/documents/general/nhom-nghien-cuu-manh--e14050f3.md",
+      "raw_path": "raw/html/general/nhom-nghien-cuu-manh--cec431f91981.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/nhomncmanh"
+    },
+    "e8881a0a600e23a4": {
+      "markdown_path": "processed/documents/general/hop-tac-phat-trien--e8881a0a.md",
+      "raw_path": "raw/html/general/hop-tac-phat-trien--f8047c9497d5.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/htpt"
+    },
+    "e927a0802a8213ce": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-toangiaitich-pdf--e927a080.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.ToanGiaiTich.pdf"
+    },
+    "ea9ae2155132d1c4": {
+      "markdown_path": "processed/documents/mathematics/co-hoi-hoc-bong--ea9ae215.md",
+      "raw_path": "raw/html/mathematics/co-hoi-hoc-bong--3b433ec780c1.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/scholarships"
+    },
+    "eaa4fe1aa69d8b5f": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-toanungdung-pdf--eaa4fe1a.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCTThS.ToanUngDung.pdf"
+    },
+    "f37b9af449ed1186": {
+      "markdown_path": "processed/documents/general/tai-lieu-dinh-kem-kts-chvtr-pdf--f37b9af4.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KTS.CHVTR.pdf"
+    },
+    "f3ecfa6c47286744": {
+      "markdown_path": "processed/documents/general/nghien-cuu--f3ecfa6c.md",
+      "raw_path": "raw/html/general/nghien-cuu--a12f994e303b.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/nghiencuu"
+    },
+    "f5725256823d04c9": {
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-111-ths-toan-hoc-ctdt-4929-pdf--f5725256.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/111.%20ThS%20To%C3%A1n%20h%E1%BB%8Dc%20CTDT%204929.pdf"
+    },
+    "f7f470e712738589": {
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-04-11-2023-docx--f7f470e7.md",
+      "raw_path": null,
+      "source_kind": "attachment",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+    },
+    "f8672cafba05d016": {
+      "markdown_path": "processed/documents/computer_science/may-tinh-va-khoa-hoc-thong-tin-clc--f8672caf.md",
+      "raw_path": "raw/html/computer_science/may-tinh-va-khoa-hoc-thong-tin-clc--02190ce4bcc9.html",
+      "source_kind": "web",
+      "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc"
+    }
+  },
+  "files": [
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/catalog.json",
+      "sha256": "d74ce592c71e303e09bbc0f48cd4bdb04a184068e4232aa3cab46c24e1164352"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/cac-de-tai-thuc-tap-cua-sinh-vien-nuoc-ngoai--0cb57443.md",
+      "sha256": "3fd01ac7995fbb92e7a0ace1f86e763df07928ddd7b14772c9bff0dcd1c91820"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/doan-hoi--23c80edd.md",
+      "sha256": "e038df79804ee4e56e4d3f0081de587f192087613ad65c360f7a83c27ca3ab6f"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/may-tinh-va-khoa-hoc-thong-tin-clc--f8672caf.md",
+      "sha256": "f288dcfb78595f40e0973dda521992e104bf9ae71178367e645a3b815b6fc8fd"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--d6370261.md",
+      "sha256": "26c11609aeaad2f43c18d3d4e3adf3aa5095205aeab27e150658289418181f66"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-04-11-2023-docx--f7f470e7.md",
+      "sha256": "f4ead650103f6918cd603b4f26fc89e4c2409afee59cbbc2c47465cc9a90f011"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-de-cuong-ch--098df9e7.md",
+      "sha256": "d12d580ec25dda053dfdb14456681f638866410fdef43fbb485ca29d1001aa02"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-scan-final--55482733.md",
+      "sha256": "a20eee61c26f1f7304114dad1edaac21f0c8bcd5a4fe57002ba51175995611c5"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-final-qd-3568-scan-final--a8f16174.md",
+      "sha256": "fd55756a80af9d5343f84a4d7763de23e07d430a090e6951f2fbc5a9ca65a4d7"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-0-pdf--8afffd3c.md",
+      "sha256": "b4296100ae52dfafc713a294dc4663b524f91d807fe6da00fc80463e7f8291f0"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-pdf--1c16ddf8.md",
+      "sha256": "7b37063f0559275dc3e4f2a4fca8c99bf1572f11bbd96304ec9b81e4d69da508"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-ctdt-mt-khtt-130815-pdf--1e3ad5f9.md",
+      "sha256": "27374a416021f473e0f8a62e4fa1ff11141c872f5f0a7c95a52c7ee0f4f6abae"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-exh01-02-06-ma-tran-cdr-2023-docx--0a180289.md",
+      "sha256": "e3797c16b751a99330bbb162a3ddffc37049778e8094aa26f35381beb6bb67e1"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tai-lieu-dinh-kem-khmttt-cdr-docx--31b55b4e.md",
+      "sha256": "d4ac779c52c30ce919765b08e9025d8942cd63211521b7d49e2634dc63251e7e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tin-tuc--602e28ba.md",
+      "sha256": "ae6fa1b24a637918475a8421200d9cd4b527dc184fbf80cf6b63c12d1fcb0a38"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tin-tuc-chung--bed553d5.md",
+      "sha256": "c6a9c94d1b1b83f3db350d96e3604eaca499e0824bee7a1fe31f42529a3e8f46"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/computer_science/tin-tuc-sinh-vien--9e6d4e50.md",
+      "sha256": "dc0bcb3841e16e5b9e1e58bf7baeed68ddd57ec8e2397fe49fc881e20a25eac6"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/data_science/data-science-laboratory--cec087ae.md",
+      "sha256": "0550421beb47f9b551dc048bd718bb1a1fb2bd42b114824f055427dab4282eb0"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/data_science/khoa-hoc-du-lieu--055c47bf.md",
+      "sha256": "b4df92f5d87381a6d8816ff74a34b9159c19ff5f911fbb67bf0014f98eaddb14"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/data_science/tai-lieu-dinh-kem-105-khoa-hoc-du-lieu-chuan-final-qd-3569-s--7b0e9c67.md",
+      "sha256": "a3c1e9788093900826c4933e1cd4bd929dea131c319e34e48c375a76ee823522"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/data_science/tai-lieu-dinh-kem-105-khoa-hoc-du-lieu-chuan-final-qd-3569-s--c1c50f5b.md",
+      "sha256": "ef2405c31fa96c8c7cc99d3ef6d2de7525bc7dd14590584ab605fc339918fd07"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bac-dao-tao--c017ffa5.md",
+      "sha256": "e0c2af5a2f1a104ba0ded0d96c47903c50a4b2381fd3712e5bc093a8a11adaae"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bieu-mau--d36d82c9.md",
+      "sha256": "03a67c1cb4286679222bb3f9f6561b7a25108f26a295558f29734597aafcf4a6"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bo-mon-co-hoc--b643ce09.md",
+      "sha256": "85dd8c4dc8762e908fbadae90fc0d2bb548aa887dc8f9e952267c575ac2e1a72"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bo-mon-dai-so-hinh-hoc-topo--4c16f5ff.md",
+      "sha256": "60a34bf6127ba85dda33c6ca83f3e8d51f2d7f55f89590b142cc65f9156a4f5a"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bo-mon-giai-tich--3892b749.md",
+      "sha256": "2c72d8f7d3ebd8c28e27a50ce58326c04f9cba05cb1d7bdc7e8e8ae8a6a135f5"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/bo-mon-phuong-trinh-vi-phan-va-he-dong-luc--05b2ffdd.md",
+      "sha256": "2958319736a5a476b74ca8638fbe6b3b8f8f2a685cfd177c902dc66ba0d97597"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/cac-nguon-tai-tro--a1d7f56e.md",
+      "sha256": "b5ed98c2aee2f251c48b71f06659145abbb06664b3875059e8c7b6cbc0805f35"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/chuong-trinh-dao-tao-thac-si--4009cff5.md",
+      "sha256": "c37c1825c17d203491fe660ef84444993b01451da8507190f58239d2e3a75a51"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/chuong-trinh-dao-tao-tien-si--9ace3921.md",
+      "sha256": "2a0194ec4f2a3001e9a3bdd4d17b5b58acde8cfd64824617b00702da49a0e574"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/co-hoi-viec-lam--1f6ad010.md",
+      "sha256": "5c9c668c01a9f6d33937fae5ceb4cd3cce03f83698158878dbe0bc7ff4e02451"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/cong-bo-khoa-hoc--c65f6752.md",
+      "sha256": "8f6dbb224536b692caf72d848606844f85148f9649055082ac62d30849e837e3"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/cuu-sinh-vien--cc62b89d.md",
+      "sha256": "d6ceebc5111a5a40683fb42ee89348b2a2d73a3c013bc86c9909b83a07b0c1ec"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/danh-sach-can-bo--1d3ade74.md",
+      "sha256": "8b2af445a111e504516a219833f8550eda07df66ad9b7ba1da66fbe6cecdf3df"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/danh-sach-hoi-nghi-khoa-hoc--08fcc083.md",
+      "sha256": "7ab3da96ecc7c1dc8762a5eb0e682adb3b6326411d2a52b9d654a0e68a9b872b"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/gioi-thieu--cc4a948a.md",
+      "sha256": "fcd22cb9c751f9440ebad9d69d1273ebc52c7056991343d25c34a7e9f23170fd"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/hoi-dong-khoa-hoc-va-dao-tao--985f1229.md",
+      "sha256": "2e0a8cf31701b8b7930f9172a867532a45cc6cc595b54b2fdafc95ba131a02ef"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/hoi-nghi--73498ccb.md",
+      "sha256": "00f8b811778cb45e1f48d773a42c4d7246d1b239f5458dc4d3831a664ce352e4"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/hop-tac-phat-trien--e8881a0a.md",
+      "sha256": "ea453a2500c15771f097228f202237081b73b4305167d45a71ea2d0e882aa80f"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/lien-he-van-phong-khoa--5b5e1407.md",
+      "sha256": "be5ead203d9f109b0b88bad9b59577ca1818494b0b26b6ca35ef685aeb58339e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/loi-chao-mung--88b416f2.md",
+      "sha256": "dcee71ab0b60a067a2a07c62e14d13666298dff1cfb219cf6d97bd6d5df8df26"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/nghien-cuu--f3ecfa6c.md",
+      "sha256": "a69cb480bcc5dbc9c2189f9a0d52341cd1c7e170fa8885f5287bb44d276eb9d6"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/nha--5b36725d.md",
+      "sha256": "7e710296d86a6bc8d4232cfa78ad5c009c646d27575976d2ee348da7da8c0b65"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/nhom-nghien-cuu-manh--e14050f3.md",
+      "sha256": "47705cc629b57974f2a3d678fbec7b48c8bfce1da76dd03505c260e4d3dd6f4c"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/seminar--7223a622.md",
+      "sha256": "65834d00e436a3c2720406374dc9adeb8478dc07ea810c83c17afc71b23e1743"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/sinh-vien--be32a63f.md",
+      "sha256": "d39d9501b5dd64b554f335d347674ae9c7934646770e8a72c847b0dab80640ab"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/so-tay-sau-dai-hoc--187b469e.md",
+      "sha256": "e34c5221c537bd9d829fe90bc6a15f39e2f3179d563dee73a851aafb152b52cc"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/so-tay-sinh-vien--b0d9a18c.md",
+      "sha256": "9e38235cc43b54ced0fbd405aa18cd1f654b49177a7da36a235c2d72fb1106a6"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/su-menh-tam-nhin--d75f0faa.md",
+      "sha256": "ddf1bfebd04f81aa33798f60ecdd443aa8f4690aa8b790843aa80a025cfba0c1"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-115-ths-co-hoc-ctdt-4933-pdf--2f9c20da.md",
+      "sha256": "be1231fc5edb7b3894733aaf91313af753f91698fbf4350b7fb2668eb3466f73"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-127-ts-co-hoc-ctdt-4941-pdf--6ed7db5b.md",
+      "sha256": "6cc55da2ea6707c4c3f22a062ed6ed629e87fe9773fb27814776539961d804f1"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-1-hddkxt-dhcq-2026--07a9ebfa.md",
+      "sha256": "1be74220dd631378cb2ba4032b6eeec4e1f3f2f8f719dec718cfb83925a29b35"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-2-hddkxt-dhcq-2026--9c33b54d.md",
+      "sha256": "acd23bed8c522ddf96b1b66118ff66d84c0efccec8d947e3ed947bfe623db9c1"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-20260531220816-3phu-luc-3-hddkxt-dhcq-2026--824f4fec.md",
+      "sha256": "9a1b354ad267104857d9c4b401c82deae2d65af9bd9d68a6238b082e81115139"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-2622-signed-signed-thong-bao-tuyen-sinh-ch--a211ab80.md",
+      "sha256": "23e3ffeb984980cd8d1c8f69dc957860dc033442d0c26d2b9cafa5bf990fd93a"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-9-1-26-chi-tiet-du-thao-dang-cong-tuyen-si--ac3d4c08.md",
+      "sha256": "57e6a9e6dd9458da6a8e7d220891de4e67b50feae4539ccf36df6fe1f1930c52"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-kctths-cohocchatlong-pdf--c4861491.md",
+      "sha256": "b0dfa3706b7e001ba92bbf9ce37b49d15f3e55e9d4c9c57d81cc661b55c6d4a2"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-kctths-cohocvatran-pdf--284bbbdc.md",
+      "sha256": "eb36f104303328d39cee79f673595e94246138ea7ad698e4c704ba737e5ac0cc"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-kts-chcl-pdf--dfecf0d9.md",
+      "sha256": "135afabd11432939ad2e57ec0db895823bf9bdb798bbede8afa4d66a49e0c83d"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-kts-chvtr-pdf--f37b9af4.md",
+      "sha256": "ebf85ffe724410ce8bc23f5270bf6d7e74b840ca008b424880094fc80ac14570"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/tai-lieu-dinh-kem-nguyen-ntt-ext-abstract-docx--90519c64.md",
+      "sha256": "6f5f72b2dbf427ebbc62fd6e96b65a87b35c447a1b18fcc7c677825fb695217d"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/thong-tin-chung--a6ff3ba7.md",
+      "sha256": "6f6d0702144cfa74c2fff7e9f43a3a2793d7a78e349828254a4acd974606f510"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/thuc-tap-thuc-te--384cb52c.md",
+      "sha256": "6697bfd350560de9cc6bc4f8adb419cd77893bf61acc2dcbbc156099520310df"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/general/triet-ly-giao-duc--d771d9ef.md",
+      "sha256": "8c48f99d120bd1391afd169bb10d48d7df6e51f36e2123dee0d1c73aa60f0cdf"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/bo-mon-toan-hoc-tinh-toan-toan-ung-dung--082c2b45.md",
+      "sha256": "855943530261eaaefaba2db712d826e873be9301f0d0c719bdc314686ce3ef68"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/cac-chuong-trinh-dao-tao--82c727db.md",
+      "sha256": "70ded71dc000d9bce0c7ea5a364e8413f46e6a2b603f09b524d1ef9aefab1908"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/cac-linh-vuc-nghien-cuu-chinh--0a541031.md",
+      "sha256": "9d6c318409223e583ad5c61348b3e0e5c93d4639f28b7041b3e543029bdc35b4"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/co-hoi-hoc-bong--ea9ae215.md",
+      "sha256": "8c641912b7101ccfa32db34ade0b6033ee6a643b77c87bd886207a3e6e5eeb03"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/danh-sach-de-tai-khoa-hoc-cong-nghe--dbbfda3b.md",
+      "sha256": "eb67b5edda43db95d11e0bd7ab3891c1e79ef1c780d06d6e2a09de83bac95ab9"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/dao-tao--a9fcdce2.md",
+      "sha256": "cc51f75cc571b44bb865cf11c51635a9060eb01c157a6db670a7afa8712f2656"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/dao-tao--c1686344.md",
+      "sha256": "1cd5a5a3cd779d0fac6077ba9fc6c8f69bcb6fdea53f563971efcc6e13be4c67"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/dia-ly-quan-ly-dat-dai-va-gisc--741abe80.md",
+      "sha256": "25c92a422e13252161c6ae38cf60f297eed1091b06206bbd7c5e73e7bc7dc317"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/doi-tac-nghien-cuu--38f98cf2.md",
+      "sha256": "8c5a6f5092633babce044e56486ec791638e8a3a8ae6f162fcded364192b363f"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/lich-su-phat-trien--bfdd7fdd.md",
+      "sha256": "f88ef580677ac65ae11ec22f736fb7bea830ffe6bbbeaf3ae6b59aef8ff696fb"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/lien-ket--66c1159a.md",
+      "sha256": "1f6df161ca665371dcdfef2180a4e6e8558cd467ec627665e7f8ee53f3ec84f0"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/nganh-toan-hoc--ce8df97f.md",
+      "sha256": "2b842ba70121a5e4983031717a45fcb75ea4e5850ce423dc494143ed06a69b09"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/quan-ly-cong-nghe-tai-nguyen-moi-truong-va-dia-chat--d73edbb5.md",
+      "sha256": "9e1d1d9b3e858d8355c107e35236823142ab1a0ff03f7c90efc59647db5beb1d"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-111-ths-toan-hoc-ctdt-4929-pdf--f5725256.md",
+      "sha256": "28afac9e5a5470614a41983d498af85ff46ce8b70520257de1bd59ae27ec81df"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-112-ths-phuong-phap-toan-so-cap-ctdt-4930--868580a7.md",
+      "sha256": "364434730aaad83213d34fc93233fa1d80d822673aedc0c2b797daa79845fcba"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-113-ths-toan-ung-dung-ctdt-4931-pdf--0e898400.md",
+      "sha256": "0d76b70de45ed1a7eeb70185d66588afe4693efc035233ba6677a29b47f6b651"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-121-ts-toan-giai-tich-ctdt-4935-pdf--0206eafb.md",
+      "sha256": "958b1ac30f1d8ed8e9bccada80d190b6828c2d28ce43bf535d3596ecbab4515c"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-122-ts-phuong-trinh-vi-phan-va-tich-phan-c--d6063db8.md",
+      "sha256": "6e5bd812f2405ab13120c57908e7babe1f233746d4b525deef0a69c03e042889"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-124-ts-toan-ung-dung-ctdt-4938-pdf--af582417.md",
+      "sha256": "758171485d861d9a61e5aaf0c8d46bed39423420637a4a6e767a5d67272571ad"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-125-ts-ly-thuyet-xac-suat-va-thong-ke-toan--3ca5f5aa.md",
+      "sha256": "a155687a375e8b1610a17ce87fed631a3c79e040ed5d91a8157ef71c65f08150"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-cnkhtn-toanhoc-13815-pdf--d4fae066.md",
+      "sha256": "cfdd34f6961852a295a6795f694b945f042106795b388b8f9628d63778fc2637"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-toanhoc-130815-pdf--89d4b394.md",
+      "sha256": "8faac98efe54c796c4af95ed2dbca263e3d104d60af47a28ef406ede288b3bc0"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kct-tttoan-final-pdf--d006f602.md",
+      "sha256": "177d7544a355372c9f211ce9e5922603730b39411cd0ca1ee353ed9e3b55b76a"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-daisovalythuyetso-pdf--7857b281.md",
+      "sha256": "ab51916f50d2abe9a49efa10ab4f7f4b9deb36abd8085c2bc701de372e2510c4"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-hinhhocvatopo-pdf--8356253b.md",
+      "sha256": "daa5d81a70b82b576d029f1e02b126dcdafe4ff52f2a863f9ca52ad06a788295"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-lythuyetxacsuatvathongke-pdf--051e6415.md",
+      "sha256": "d54def7c589c6801b6cd8b2415ed10e6b9845bb33927bad3ab26bbed10ef2c08"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-toangiaitich-pdf--e927a080.md",
+      "sha256": "e08f309658ec6cc4c95e06a573a984abfacc94ea4ad1089f31e7e3de2deeba78"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kctths-toanungdung-pdf--eaa4fe1a.md",
+      "sha256": "f215cfff98164ac7042a92d6cd262c94bb3d6bb0afe11de72d5d7d18bf21d948"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-dslts-pdf--c865f275.md",
+      "sha256": "e96e6cca23a445d1325f9504567e118fa9c180c793f04c337bf4395ed0c8293d"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-hhtp-pdf--423df876.md",
+      "sha256": "e9785ff4d10477cea423429107b851cd578b087b169a97103dc42b49866c40ea"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-ptvptp-pdf--38ce2810.md",
+      "sha256": "4e60378bf7cd0f4902bbfc867d1af816a784182cca94d36f290a6388e704c20f"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-tgt-pdf--8fe40f80.md",
+      "sha256": "3012a113fdef3386d524f143e714bbf618c01231c9872e634e8b07dfb77108d8"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/tai-lieu-dinh-kem-kts-tud-pdf--c5f783d3.md",
+      "sha256": "a908f596c769fa4d797c5435c27fbbd5592118f0599048807b1c84e1427ef21e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics/thanh-tich-khen-thuong--9c1d836d.md",
+      "sha256": "9a879618293877f59e68c4b56f74ae53454fc9517989f4afa05b731401ff5297"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/nganh-toan-tin--1b525683.md",
+      "sha256": "5e93e1ca6b8c518f4d3cf10c5c1920c0ff90d699965a34385e153ab95e3aed29"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-04-de-cuong-chi-tiet-toantin-2021-pdf--bc0a1f59.md",
+      "sha256": "9b3051b8eab33821913d68372d16b27db12291219b8792d1f0239d882ee73398"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-103-toan-tin-chuan-final-qd-3567-scan-pdf--a090bd62.md",
+      "sha256": "5232a6c376d5940c4a2f18158c12bee243b4f34187404778956261c9af598d49"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-103-toan-tin-chuan-final-qd-3567-scan-pdf--d988fffe.md",
+      "sha256": "c8c880da87e6babbf5e0c6e3f803961193cc6ffab646beb32477a177587cd45b"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-116-ths-co-so-toan-hoc-cho-tin-hoc-ctdt-49--20318d3b.md",
+      "sha256": "a5150c1e15c5447ddbb488f5926065723487e9d523afce1921d13a8e7170e9a9"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-chuandaura-pdf--0dd9aaae.md",
+      "sha256": "47f5417ea7da29ff70b731ef8527144273afe54c8d2ccae3b7d532335f8f26e5"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-ctdt-ttud-130815-pdf--23a0c1df.md",
+      "sha256": "13ca442fc7bd6ecebd108e29b467b37c60d878bd79ada4b94acd15e50838104b"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-curriculummap-vn-pdf--c6e4ea55.md",
+      "sha256": "0af944f5e306f9bca508432ce8116778298d9a148cd0741dcbaec72e8c91e00b"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-matrancdr-1-pdf--87a01b93.md",
+      "sha256": "2f4c01c05a4a3255dc2c0976441e5af56d3342eabe0bb79545fa933450356a74"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/cac-de-tai-thuc-tap-cua-sinh-vien-nuoc-ngoai--24503bd3b2f8.html",
+      "sha256": "ef6ba67b62684f1f11b30b221c16eeea08752c654b7e8572d516768cc4aaedd7"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/doan-hoi--8b4be74a17c5.html",
+      "sha256": "f8e3ed16a18c82ef62d25695138a8a812188316693cfb534e84dc00c27533ec9"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/may-tinh-va-khoa-hoc-thong-tin-clc--02190ce4bcc9.html",
+      "sha256": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/nganh-khoa-hoc-may-tinh-va-thong-tin--355fefeb6658.html",
+      "sha256": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/tin-tuc--9873f9a1f505.html",
+      "sha256": "e102893b32cc05e634fc55bad28c182056b60344b7204aac12359621990fabf5"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/tin-tuc-chung--5b19d89abf3a.html",
+      "sha256": "5b116b01dde089c60d6f40d658b9ca7bb5defca951048e481d0bdb34618806e3"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/computer_science/tin-tuc-sinh-vien--46700e8cc67a.html",
+      "sha256": "77cc8ab54d1cf4ed9fe2c5caa279b30ad6a3e0603e614de6bda4e929435f8352"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/data_science/data-science-laboratory--bbc63d68cfc3.html",
+      "sha256": "1259a4116b80d66c7c6f47fea3ee6716f51ff9af1dd61075c517af3067eb14ab"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/data_science/khoa-hoc-du-lieu--f9206b852afd.html",
+      "sha256": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bac-dao-tao--40a6b3b0d13d.html",
+      "sha256": "18966e5d9ad684311642b26636e28d4a57491cc93eb568867639809a109c25a4"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bieu-mau--7429b40385fc.html",
+      "sha256": "8e2881dd8402b4c7a2f2dce9777112694f5143defe3694f8ac3b18e8487dc73e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bo-mon-co-hoc--c578a6dd3442.html",
+      "sha256": "17789b94bbbf6ec122305e2a038c3a26105f48c170b294e5645258c27dd62ce8"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bo-mon-dai-so-hinh-hoc-topo--eb719fdf8a0f.html",
+      "sha256": "b14be3791a0c547d085050e7479d9b705c84b8bdb0d4a6219c121abc75bb91d1"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bo-mon-giai-tich--192b3644aa5d.html",
+      "sha256": "50593048ebad7169d60a02b0f39e87930396ea39a7ff6c221b53bf41e7ec21cd"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/bo-mon-phuong-trinh-vi-phan-va-he-dong-luc--ea6a2c4a7053.html",
+      "sha256": "2a3dc25e671c340fc7dc951af351d4d00100ec3b9cf79a79cd91347dc6902793"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/cac-nguon-tai-tro--c991d1e2faee.html",
+      "sha256": "88ac059d96d3462ca2b84e354df1a07a57d69c497900afd38a094783d723f437"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/chuong-trinh-dao-tao-thac-si--bf3a9b530085.html",
+      "sha256": "2e9f28463ff18471d009adf58b055718e2c94c2158425ff853981075574c238a"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/chuong-trinh-dao-tao-tien-si--d90e52fce1bd.html",
+      "sha256": "f8c83bbe8b36ea0c4650464a36a280085560fa45c45ed1c5912c698a26b774ff"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/co-hoi-viec-lam--8213ad3c45d4.html",
+      "sha256": "f14b331d3189b6593eb263c52e733602fb91cebb0c6ccd026ca6f7c25844fe04"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/cong-bo-khoa-hoc--778b5dc7f5a7.html",
+      "sha256": "667bba19a2ffff132669c1ae93a7aa8d274ee85a964509690fd7bd7286bcbe74"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/cuu-sinh-vien--d2e171e2fd12.html",
+      "sha256": "8adaf0322b09eacd80dec8b487f16bb2c385537a356b06713b3af5334b76eaa0"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/danh-sach-can-bo--bddb2fd55ae0.html",
+      "sha256": "207c39fbbe79cb97113cf31ee72117cb5e49f81af62c7bae485e814617b0a446"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/danh-sach-hoi-nghi-khoa-hoc--7dc08ad1a647.html",
+      "sha256": "3ae7e666abeff8e7a1531b7cd20792637b843c0ca118ce8de561557cea455873"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/gioi-thieu--681ec8c80abb.html",
+      "sha256": "113b5516c3d81d1fb96310b2310c1037b11852f41a9f297f96d93e6151d25934"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/hoi-dong-khoa-hoc-va-dao-tao--269cdb24a18c.html",
+      "sha256": "6c0021dc95d21694e056afefee06b4342edb3afff86a1393788023f29a9f27be"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/hoi-nghi--3b9bf9663c5e.html",
+      "sha256": "232a94bc18646e627c06572974f3d7bb1235937f5e92a96acdaffc3aa68ad631"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/hop-tac-phat-trien--f8047c9497d5.html",
+      "sha256": "1a01461116522719135950ced2d14bfe015a5d52981d3b96674b4e3e5f978502"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/lien-he-van-phong-khoa--0c116787e245.html",
+      "sha256": "0309f0aa4fa178d74a6ccd9ebc06813fc34b9a82a1c9da80afcb7676f1e715b2"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/loi-chao-mung--eb58d7fc23a2.html",
+      "sha256": "efda4c2cc5d089f09e6226421a580431b04b670d8201bff5732bfb27076ba699"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/nghien-cuu--a12f994e303b.html",
+      "sha256": "9bb7c22f7910371122e1ef27b1a02dd3b9adaadcd14c3b89e9b8ab26986b0617"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/nha--0e6c36457d66.html",
+      "sha256": "d3fefa032f255a9b0aae21fa1750e471b98d53b07452052c956c012482a8ae69"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/nhom-nghien-cuu-manh--cec431f91981.html",
+      "sha256": "561a2f34ccfb76035cee173e26cc7488666e6ef9f7b12db89de43224b11dc17c"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/seminar--d6b9ac3b692c.html",
+      "sha256": "7b5633e00291a5fce4514f97534dcfca31c706793c780679d2aeac98d8173dc6"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/sinh-vien--9d81b234146c.html",
+      "sha256": "86fadc0d93248ad905590a0a56da2d722a2827d24da50a6557dde2f548b3bf07"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/so-tay-sau-dai-hoc--4c1ef2d5d3d0.html",
+      "sha256": "2ccf089c4ac06af34cd50bf7657ee99669b2a3404a035159d7c303f10e531731"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/so-tay-sinh-vien--f933499c9e7d.html",
+      "sha256": "cf7cc34b03c5c7ceb94f14113bd2de62ebcc17e8aaf2300d6859e62211dfded9"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/su-menh-tam-nhin--c0de29e65ac7.html",
+      "sha256": "037547df4422f8958760c3282ed30dc883d8786551e98481dce665acea79bb0d"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/thong-tin-chung--12992f2966a8.html",
+      "sha256": "1d74f516103acb108ce49fa3f27cbaf5b13056b12c9d6855ee4750f1a9f0468c"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/thuc-tap-thuc-te--647103128c95.html",
+      "sha256": "ea3279ccbc7b3eb438628b5462c40a2e6f60dd98c52ceccde5c85fba5e6b697e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/general/triet-ly-giao-duc--3add1be61fba.html",
+      "sha256": "a2a131514edb844ffc8547e6441464c99c8fefeccee827832da85fa0f084cf1b"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/bo-mon-toan-hoc-tinh-toan-toan-ung-dung--474fb2d4d8ca.html",
+      "sha256": "750834ae7240d75b0946cd7dbb1a32dbf59a72d0cd804957c225b232794a0229"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/cac-chuong-trinh-dao-tao--af50b86eaec5.html",
+      "sha256": "a9f0c10aeb2d00d9dd614960452fabc84eefb58b92ac93e8af0d97c75c1ccf86"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/cac-linh-vuc-nghien-cuu-chinh--285c6a4a22e9.html",
+      "sha256": "4bc1e52c260fc1858beb13a184eedb996331276c48e7ebb5ab9f892ce89b6b31"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/co-hoi-hoc-bong--3b433ec780c1.html",
+      "sha256": "770d047bdb5118697790691061b53dcf73d896bc3871ea2367860c6c9438c497"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/danh-sach-de-tai-khoa-hoc-cong-nghe--e6011c6f9d7f.html",
+      "sha256": "e20bc05146c7e487265d516bd2a63703fd75aadda868eca7e7b7616779489f0e"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/dao-tao--5d9e32a8965f.html",
+      "sha256": "800ceb17a8f47c22c49812ca726fa5d6f2a28b539eab4bbd42ef1f69678d6174"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/dao-tao--f87d435745ea.html",
+      "sha256": "0e8c56d1a4f9db76150876b874c760d471e26889aef2d3c7c330bf3577aab662"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/dia-ly-quan-ly-dat-dai-va-gisc--ff653872af3d.html",
+      "sha256": "377edb50a2fab582f6312150ecb93c7e4f60d387b7f660673169cc4a5e3d72ed"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/doi-tac-nghien-cuu--78a0838f997d.html",
+      "sha256": "26a62a3214bb1a1882a79bdf4bf97e786683b0dc0bfcbb167547202cd465852a"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/lich-su-phat-trien--aed30a00e79e.html",
+      "sha256": "528380d9f3d3dd2afc7984dcb4aa79cefb4214cc68a7e23a3603906e0805a121"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/lien-ket--507f4b558102.html",
+      "sha256": "b6d4e328ada339d4f4ebd4f33d659089ae3c3016b36d49c90cb4afc0feb55483"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/nganh-toan-hoc--a80a4b0d8526.html",
+      "sha256": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/quan-ly-cong-nghe-tai-nguyen-moi-truong-va-dia-chat--f9fa325c383a.html",
+      "sha256": "5aee644c53c04df941e3dc4ea474f15e2428c574c92f5020a76efa6c0089fbce"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics/thanh-tich-khen-thuong--3f4845647770.html",
+      "sha256": "6a653995bafba98da27f8f3bccde933c23f2e34163065b8a66481ca6e677f751"
+    },
+    {
+      "encoding": "utf8-lf",
+      "path": "raw/html/mathematics_informatics/nganh-toan-tin--e56738f1794b.html",
+      "sha256": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_location": "git+https://github.com/5-Bit-System/SE_Project.git@0404f37c1b6c3864b7fe2e9938a8a21f777663f0#data/hus",
+  "source_snapshot_id": "hus-0404f37-20261026"
+}

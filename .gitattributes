@@ -1,0 +1,23 @@
+tests/fixtures/hus/*.pdf binary
+data/hus/quality/** text eol=lf
+data/hus/qa/**/*.json text eol=lf
+data/hus/qa/**/*.jsonl text eol=lf
+data/hus/qa/**/*.md text eol=lf
+data/hus/qa/**/*.psv text eol=lf
+data/hus/rag/**/*.json text eol=lf
+data/hus/rag/**/*.jsonl text eol=lf
+data/hus/rag/**/*.md text eol=lf
+data/hus/rag/**/*.psv text eol=lf
+data/hus/rag/releases/** text eol=lf
+app/hus/data_release.py text eol=lf
+app/hus/release_reader.py text eol=lf
+app/hus/release_validation.py text eol=lf
+app/hus/release_text.py text eol=lf
+data/hus/citation_assets/*.json text eol=lf
+data/hus/citation_assets/files/** binary
+# Integration manifests, patches and receipts retain their captured byte checksums.
+integration/** -text
+
+# Acceptance receipts and derived audit artifacts retain the exact captured bytes.
+docs/acceptance/** -text
+data/hus/qa/20261102/** -text

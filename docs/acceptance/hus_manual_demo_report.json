@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "verified_at": "2026-11-02T07:03:53.874135+00:00",
+  "scope": "local manual launcher only; real UI/API, synthetic accounts/catalog readiness, real HUS data",
+  "bug": "Non-HUS prompts fell through to acceptance-only forbidden chat_advisor and returned HTTP500.",
+  "reproduced_before_fix": {
+    "question": "Xin ch?o",
+    "http_status": 500
+  },
+  "fix": "Scoped launcher-only non-HUS fallback; preserve real RAG dispatch/guards; no synthetic-course suggestions or provider calls.",
+  "script": "backups/hus_integration/open_hus_rag_demo.py",
+  "script_sha256": "92dbe0e3a42d45f3231d7b87c7ca228fde6811ca67b1ababb620d0c33f0cecba",
+  "chromium_cases": 48,
+  "major_reports": {
+    "data_science": {
+      "path": "backups/hus_integration/p05-main/backups/manual-rag-20261102-140144-663705/demo-smoke.json",
+      "sha256": "c8d04c2ab97d78028a09bce3c245d10c313ac3f991040479e856feb361a763b5",
+      "cases": [
+        {
+          "question": "Xin chào",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Kỳ tới nên học môn gì?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Thời tiết hôm nay?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Xếp thời khóa biểu cho tôi",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Thầy nào dễ tính?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Tín chỉ MAT3533 và xếp thời khóa biểu?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Giới thiệu ngành",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3533?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3533?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3533?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "MAT3533 thi cuối kỳ bao nhiêu phần trăm?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3533?",
+          "mode": "hus_rag",
+          "status": "pass"
+        }
+      ]
+    },
+    "mathematics_informatics": {
+      "path": "backups/hus_integration/p05-main/backups/manual-rag-20261102-140206-846282/demo-smoke.json",
+      "sha256": "f97d0772caeee8627412c389ef81d8611b85e663b81b7f7c9eceb4acee026016",
+      "cases": [
+        {
+          "question": "Xin chào",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Kỳ tới nên học môn gì?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Thời tiết hôm nay?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Xếp thời khóa biểu cho tôi",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Thầy nào dễ tính?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Tín chỉ MAT3539 và xếp thời khóa biểu?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Giới thiệu ngành",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3539?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3539?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3539?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "MAT3539 thi cuối kỳ bao nhiêu phần trăm?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3539?",
+          "mode": "hus_rag",
+          "status": "pass"
+        }
+      ]
+    },
+    "mathematics": {
+      "path": "backups/hus_integration/p05-main/backups/manual-rag-20261102-140206-867578/demo-smoke.json",
+      "sha256": "6fb98b19f6896ea4b1049f118f44995430bde5388aeca50234a4306225930b0c",
+      "cases": [
+        {
+          "question": "Xin chào",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Kỳ tới nên học môn gì?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Thời tiết hôm nay?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Xếp thời khóa biểu cho tôi",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Thầy nào dễ tính?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Tín chỉ MAT3300 và xếp thời khóa biểu?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Giới thiệu ngành",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3300?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3300?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3300?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "MAT3300 thi cuối kỳ bao nhiêu phần trăm?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3300?",
+          "mode": "hus_rag",
+          "status": "pass"
+        }
+      ]
+    },
+    "computer_science": {
+      "path": "backups/hus_integration/p05-main/backups/manual-rag-20261102-140206-917263/demo-smoke.json",
+      "sha256": "88ee4ae579a6ce4facd1986e732023a962e57cf8a6b8df8210f3e68443a11b72",
+      "cases": [
+        {
+          "question": "Xin chào",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Kỳ tới nên học môn gì?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Thời tiết hôm nay?",
+          "mode": "heuristic_fallback",
+          "status": "pass"
+        },
+        {
+          "question": "Xếp thời khóa biểu cho tôi",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Thầy nào dễ tính?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Tín chỉ MAT3507 và xếp thời khóa biểu?",
+          "mode": "guardrail_rejected",
+          "status": "pass"
+        },
+        {
+          "question": "Giới thiệu ngành",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3507?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3507?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Nội dung MAT3507?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "MAT3507 thi cuối kỳ bao nhiêu phần trăm?",
+          "mode": "hus_rag",
+          "status": "pass"
+        },
+        {
+          "question": "Số tín chỉ MAT3507?",
+          "mode": "hus_rag",
+          "status": "pass"
+        }
+      ]
+    }
+  },
+  "regression": {
+    "python_passed": 672,
+    "skipped": 10,
+    "db_deselected": 80,
+    "node_passed": 9,
+    "warnings": [
+      "Starlette TestClient httpx deprecation"
+    ],
+    "junit": "backups/hus_integration/p05-main/backups/manual-demo-fix-regression.xml"
+  },
+  "frozen_code_and_test_manifests_unchanged": true,
+  "frozen_code_snapshot_sha256": "187ca8b8248dd62708b8ee0d3f9ea71e3519adfda477e05ea69acbc520cc2b4e",
+  "product_database_modified": false,
+  "vnu_contacted": false,
+  "llm_used": false,
+  "production_activated": false,
+  "committed_or_pushed": false,
+  "requires_restart_of_existing_demo": true
+}

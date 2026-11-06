@@ -216,6 +216,7 @@
     $('unparsed').querySelector('pre').textContent = (snap?.unknown_rows || []).map(row => row.cells.join(' | ')).join('\n');
   }
   async function load() {
+    if (window.systemAuth?.account?.role === 'admin') return;
     const current = epoch, sequence = ++loadSequence;
     let state, result;
     try {
@@ -264,7 +265,7 @@
   }
   async function openProfile() {
     if (window.systemAuth?.ready) await window.systemAuth.ready;
-    if (window.systemAuth && (!window.systemAuth.account || window.systemAuth.account.must_change_password)) return;
+    if (window.systemAuth && (!window.systemAuth.account || window.systemAuth.account.role !== 'student' || window.systemAuth.account.must_change_password)) return;
     render(); if (busy || profile || signedOut) return;
     const current = epoch;
     lock(true);
@@ -312,7 +313,7 @@
   });
   document.addEventListener('workspace:session-expired', () => { reset(); status('', 'session_expired'); });
   document.addEventListener('workspace:account-change', event => {
-    const id = event.detail && !event.detail.must_change_password ? event.detail.account_id + ':' + event.detail.session_id : null;
+    const id = event.detail?.role === 'student' && !event.detail.must_change_password ? event.detail.account_id + ':' + event.detail.session_id : null;
     if (id !== accountId) { accountId = id; reset(); if (id) { signedOut = false; openProfile(); } }
     if (!id) reset();
   });
@@ -320,7 +321,7 @@
   $('term').addEventListener('change', render);
   $('show').onclick = () => { const visible = $('password').type === 'password'; $('password').type = visible ? 'text' : 'password'; $('show').setAttribute('aria-pressed', String(visible)); render(); };
   $('login').onsubmit = async event => {
-    event.preventDefault(); if (busy || profile) return;
+    event.preventDefault(); if (busy || profile || window.systemAuth?.account?.role === 'admin') return;
     const current = epoch;
     const submitted = {username: $('username').value, password: $('password').value};
     $('password').value = ''; lock(true); status('waiting');

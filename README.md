@@ -15,13 +15,14 @@
 - Xem hồ sơ, bảng điểm và thống kê mô tả từ nguồn VNU; giữ nguyên các lượt học và điểm nguồn.
 - Lấy hồ sơ và bảng điểm mới từ VNU khi đăng nhập; giữ dữ liệu đã lưu nếu lần lấy nguồn mới gặp lỗi.
 - Quản trị viên quản lý tài khoản/quyền/trạng thái, không mặc định xem bảng điểm người khác.
+- Admin console có dashboard vận hành, preview tư vấn bằng hồ sơ tổng hợp, quản lý revision chương trình đào tạo, kiểm duyệt tài liệu học thuật, thông báo học vụ và audit log. Các thao tác quản trị yêu cầu phiên admin.
 - Backend tính eligibility, progress, recommendation và advisor được giữ; luồng cá nhân từ VNU còn chờ completeness, mapping chương trình và chính sách học vụ được xác minh. Giao diện chưa mở kết quả học vụ khi thiếu các điều kiện này.
 
 Các gợi ý không xác nhận môn có được mở trong một học kỳ cụ thể hay không. Hệ thống không xếp lịch học, xử lý xung đột lớp hoặc chứng nhận quy định chính thức của trường.
 
 ## Giới hạn và phạm vi chưa triển khai
 
-- Đã có đăng nhập VNU qua connector, phiên app trong DB, lưu/cập nhật bảng điểm và đăng nhập admin riêng. Chưa tích hợp OAuth/SSO chính thức, OCR bảng điểm hoặc RAG HUS hoạt động.
+- Đã có đăng nhập VNU qua connector, phiên app trong DB, lưu/cập nhật bảng điểm và đăng nhập admin riêng. Chưa tích hợp OAuth/SSO chính thức, OCR bảng điểm hoặc RAG HUS hoạt động. Phân hệ tài liệu có quy trình kiểm duyệt tài liệu học thuật (document review) trước khi công bố.
 - API cá nhân dùng `/me/profile`; các `/profiles/...` legacy đã đóng với 410. Không có tự động đồng bộ VNU hằng tuần.
 - `data/curricula/` chỉ giữ một mẫu metadata Khoa học dữ liệu 2022; mẫu này không phải nguồn catalog runtime và không đủ để seed bốn catalog.
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
@@ -57,7 +58,8 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 
 Mở <http://127.0.0.1:8000/>. `/health` kiểm tra tiến trình; `/ready` kiểm tra
 schema/catalog. Sau pull có migration mới, sao lưu DB rồi chạy
-`python -m database.tools.migrate upgrade`. Head hiện tại `hus_20261028_08`.
+`python -m database.tools.migrate upgrade`. Revision cuối cùng trong repository hiện là
+`hus_20261101_12_academic_announcements` (xác minh ngày 2026-11-02); kiểm tra trạng thái DB trước khi chạy migration.
 Giữ nguyên cấu hình và khóa đã có; không seed/publish lại chỉ để chạy app.
 Worker VNU dùng Google Chrome chạy nền. Dùng một worker; restart/reload mất
 cookie VNU trong RAM. Tắt LLM bằng `RECOMMENDATION_LLM_ENABLED=false` nếu cần.
@@ -97,7 +99,10 @@ Test mặc định dùng fixture tổng hợp và không gọi dịch vụ AI ha
 - `POST /recommendations`, `POST /recommendations/what-if`: gợi ý và xếp hạng lại trên tập đủ điều kiện.
 - `POST /auth/vnu`: sinh viên đăng nhập VNU trực tiếp; `POST /auth/login`: admin local.
 - `GET /me/profile`, các `/me/portal-*`: hồ sơ nguồn/cập nhật bảng điểm theo tài khoản.
-- `GET /admin/users`, `PATCH /admin/users/{account_id}`: quản lý tài khoản, chỉ dành cho admin.
+- `/admin/overview`, `/admin/metrics/health`, `/admin/recommendations/preview`: dashboard, tình trạng vận hành và preview chỉ dùng hồ sơ tổng hợp.
+- `/admin/programs`, `/admin/courses`, `/admin/catalog-revisions/*`: xem chương trình, import/kiểm tra revision, xem diff và quản lý duyệt/công bố.
+- `/admin/crawler/documents/*`: quản lý và kiểm duyệt tài liệu học thuật.
+- `/admin/announcements/*`, `/admin/audit-logs`, `/admin/users/*`: thông báo, nhật ký kiểm toán và tài khoản. Các route admin yêu cầu quyền admin; xem schema OpenAPI để biết phương thức và payload cụ thể.
 - `POST /advisor/chat`: tư vấn trong phạm vi sản phẩm.
 
 ## Tài liệu thêm
@@ -109,6 +114,8 @@ Test mặc định dùng fixture tổng hợp và không gọi dịch vụ AI ha
 - [Checklist nền tảng](docs/CODEBASE_CHECKLIST.md)
 - [Quyết định kiến trúc HUS/legacy](docs/adr/0001-hus-runtime-and-rollback.md)
 - [Hướng dẫn cộng tác](docs/CONTRIBUTING.md)
+- [Quy trình issue, commit, review và GitHub Project](docs/GITHUB_WORKFLOW.md)
 - [Kế hoạch dự án lịch sử](.agent/KE_HOACH_DU_AN.md)
+- [Kế hoạch remediation admin 2026-11-02](docs/superpowers/plans/2026-11-02-admin-console-remediation-plan.md)
 
 Kế hoạch lịch sử và tài liệu module không ghi đè trạng thái runtime hiện tại trong README, memory dự án và tài liệu HUS runtime.

@@ -6,7 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import EMPTY_PROFILE, session_payload
-from tests.frontend.presentation_fixture import open_plan_tools
+from tests.frontend.presentation_fixture import common_route, open_plan_tools
 
 
 def main():
@@ -41,8 +41,7 @@ def main():
             result, code = {}, 200
         elif path == '/me/profile':
             result, code = (sample, 200) if logged_in else (EMPTY_PROFILE, 200)
-        elif path.startswith('/static/') or path == '/' or path.startswith('/?'):
-            route.continue_()
+        elif common_route(route):
             return
         else:
             route.abort()
@@ -57,7 +56,11 @@ def main():
         page.goto('http://127.0.0.1:8000/#transcript')
         page.wait_for_function("location.hash === '#profile'")
         assert page.locator('#tab-btn-transcript, #tab-transcript, #dashboard-manual-plan').count() == 0
-        assert page.locator('input[type=file], #recommend-form, #advisor-chat-form').count() == 0
+        assert page.locator('#recommend-form, #advisor-chat-form').count() == 0
+        assert page.locator('input[type=file]').evaluate_all(
+            "inputs => inputs.every(input => input.closest('#system-admin'))"
+        ), 'File imports must stay inside the protected admin console'
+        assert page.locator('#system-admin').is_hidden()
         assert page.locator('#program-select').count() == 0
         assert page.locator('#course-language-select').count() == 0
         assert page.locator('[data-language-choice="vi"]').get_attribute('aria-pressed') == 'true'

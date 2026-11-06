@@ -2,6 +2,7 @@
 
 import asyncio
 import hmac
+import uuid
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
@@ -145,6 +146,18 @@ async def users(request: Request, page: int = 1, q: str = ''):
     if not 1 <= page <= 100000 or len(q) > 100:
         raise HTTPException(400, 'invalid_auth_request')
     return await call(repository.list_users, principal, page, q)
+
+
+@router.get('/admin/users/{account_id}')
+async def user_detail(request: Request, account_id: str):
+    principal = await require_account(request)
+    if principal['role'] != 'admin':
+        raise HTTPException(403, 'forbidden')
+    try:
+        uuid.UUID(account_id)
+    except ValueError:
+        raise HTTPException(400, 'invalid_auth_request') from None
+    return await call(repository.account_detail, principal, account_id)
 
 
 @router.patch('/admin/users/{account_id}')

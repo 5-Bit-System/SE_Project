@@ -17,7 +17,7 @@ Phân tích số liệu theo ngành/loại và mức độ khả thi RAG đượ
 
 Sáu tài liệu từng được include là Sứ mệnh, Triết lý giáo dục và bốn trang giới thiệu ngành. Các quyết định của agent không phải xác nhận học vụ độc lập hoặc xác nhận quy định hiện hành. Build06, build07 và các bản tái lập từng cho kết quả kỹ thuật nhất quán, nhưng **mọi file đầu ra của chúng đã bị xóa** theo yêu cầu; không còn 10 chunk thử hoặc tập `prepared_candidate` để dùng. Sáu kiểm thử synthetic và Ruff từng đạt trước khi dừng đợt thử này.
 
-Đầu ra từng có `document_review.csv`, `inventory.jsonl`, `documents.jsonl`, `chunks.jsonl`, `source_map.jsonl`, `issues.jsonl`, `evaluation_cases.jsonl` và `normalized/`; toàn bộ đã được xóa. Mã thử nghiệm [prepare_hus_corpus.py](../tools/prepare_hus_corpus.py) vẫn còn để tham khảo, nhưng annotation/câu hỏi đầu vào của lần chạy cũ không còn.
+Đầu ra từng có `document_review.csv`, `inventory.jsonl`, `documents.jsonl`, `chunks.jsonl`, `source_map.jsonl`, `issues.jsonl`, `evaluation_cases.jsonl` và `normalized/`; toàn bộ đã được xóa. Mã thử nghiệm [hus_snapshot_preparation.py](../tools/hus_snapshot_preparation.py) vẫn còn để tham khảo, nhưng annotation/câu hỏi đầu vào của lần chạy cũ không còn.
 
 Chưa chạy lại công cụ/chunking. Nhóm sẽ thảo luận và chốt cách xử lý trước khi tạo bộ dữ liệu dẫn xuất mới.
 

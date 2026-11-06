@@ -9,7 +9,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - run: python -m ruff check .
       - name: Validate independent synthetic fixtures
         run: python -X utf8 tools/build_catalogs.py --check --root tests/support/fixtures/catalogs
@@ -28,6 +30,17 @@ jobs:
           name: pytest-offline
           path: reports/pytest-offline.xml
           if-no-files-found: warn
+      - name: Build pinned HUS candidate corpus offline
+        run: python -X utf8 -m tools.prepare_hus_corpus build --out "${{ runner.temp }}/hus-corpus-candidate"
+      - name: Verify byte-identical HUS corpus reproduction
+        run: python -X utf8 -m tools.prepare_hus_corpus verify --out "${{ runner.temp }}/hus-corpus-candidate"
+      - name: Keep HUS candidate build evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: hus-corpus-candidate
+          path: ${{ runner.temp }}/hus-corpus-candidate
+          if-no-files-found: error
+          retention-days: 14
   postgres:
     runs-on: ubuntu-latest
     services:
@@ -49,7 +62,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - name: PostgreSQL round trips in isolated schemas using synthetic fixtures
         run: python -m pytest -q -m postgres --junitxml=reports/pytest-postgres.xml
       - name: Upload PostgreSQL test report
@@ -81,7 +96,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
       - name: Migrate fresh HUS database
         run: python -m database.tools.migrate upgrade
       - name: Validate and publish checked-in source
@@ -97,3 +114,74 @@ jobs:
           name: pytest-hus-postgres
           path: reports/pytest-hus-postgres.xml
           if-no-files-found: warn
+  rag_demo:
+    # Keep the browser runner on the explicitly supported Ubuntu LTS image.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
+      - run: python -m playwright install --with-deps chromium
+      - run: node --test tests/frontend/chat.test.cjs
+      - run: python -X utf8 -m tools.run_hus_rag_demo --smoke
+      - name: Keep standalone RAG browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-demo-${{ github.sha }}
+          path: backups/hus_rag_demo/
+          if-no-files-found: warn
+          retention-days: 14
+  admin_console:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: ci_test_only
+          POSTGRES_DB: ai07
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U test_user -d ai07"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      HUS_DATABASE_URL: postgresql+psycopg2://test_user:ci_test_only@127.0.0.1:5432/ai07?sslmode=disable
+      HUS_TEST_DATABASE_URL: postgresql+psycopg2://test_user:ci_test_only@127.0.0.1:5432/ai07?sslmode=disable
+      TEST_BASE_URL: http://127.0.0.1:8031
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m pip install -r requirements-dev.txt -c requirements-lock.txt
+          python -m pip check
+          python -m playwright install --with-deps chromium chrome
+      - run: |
+          python -m database.tools.migrate upgrade
+          python -m database.tools.publish_catalogs
+          python -m tools.verify_admin_console --reset-fixtures
+      - name: Keep isolated Admin browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-console-${{ github.sha }}
+          path: backups/
+          if-no-files-found: warn
+          retention-days: 14

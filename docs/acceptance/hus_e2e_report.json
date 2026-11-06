@@ -1,0 +1,250 @@
+{
+  "started_at": "2026-11-01T17:17:07.299662+00:00",
+  "status": "pass",
+  "scope": "local acceptance; real HUS package; synthetic UI catalogs; no academic certification",
+  "browser": {
+    "cases": [
+      {
+        "major": "data_science",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3533?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3533?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nên học MAT3533 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "data_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3533 của ngành khmtt?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3507?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT3507?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nên học MAT3507 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "computer_science",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3507 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3539?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3539?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nên học MAT3539 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics_informatics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3539 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f1",
+        "question": "Giới thiệu ngành",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3300?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nội dung MAT3300?",
+        "status": "answered",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nên học MAT3300 vì thi cuối kỳ 20% đúng không?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f3",
+        "question": "Nội dung MAT9999?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "major": "mathematics",
+        "dataset": "f2",
+        "question": "Số tín chỉ MAT3300 của ngành KHDL?",
+        "status": "no_information",
+        "result": "pass"
+      },
+      {
+        "case": "late-old-major-response-discarded",
+        "result": "pass"
+      }
+    ],
+    "page_errors": [],
+    "external_requests": "blocked"
+  },
+  "product_database_modified": false,
+  "llm_used": false,
+  "input_sha256": {
+    "data/hus/rag/manifest.json": "b75d612cf077a907f2c41a0bbc4e7167d2bef8b5cf43fb7fdac1dffbdf275afe",
+    "data/hus/processed/catalog.json": "f39ca67c7eb5d724798c23e675fb0a8f35e13cd633fdfeee28c4e9ad792c2e92",
+    "data/hus/rag/f1/acceptance_questions.jsonl": "edc8a764a18f42e6a0beb4b93c51ec6b98df79e09944ed5c220099b1b723aedb",
+    "data/hus/rag/f1/documents.jsonl": "297a27a6179d3ec529b1217014a918022fecc9a876d3e8654fde51c7ff4911bc",
+    "data/hus/rag/f1/f1_units.jsonl": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8",
+    "data/hus/rag/f1/manifest.json": "87a953f3d180ce1792e54515ee625255191b8612dde87350622f875cac41dbe3",
+    "data/hus/rag/f1/markdown_review_decisions.json": "a76e38b48a575363fcb451e242db97d8366a2e42591fb09f698c62c73bcf951a",
+    "data/hus/rag/f1/pending_F1_sections.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/hus/rag/f1/rag_chunks.jsonl": "fc9239e5c223331533770e8b2066b87cb7c9d57d50c0e3377100d5d137df5f9f",
+    "data/hus/rag/f1/source_inventory.jsonl": "8dc08cba6dcd552eb47a714964c7d3b4c5bfa0b8db0384978d28a02d87fe9d52",
+    "data/hus/rag/f1/source_map.jsonl": "0dd000ea8c4c08c431864ab6ee04fefd7793ad7816028ab4573dcaea9a911ce5",
+    "data/hus/rag/f2/hus_source.json": "6cd94644f6df4a6bfd75f3354cc78c287a6fe161662e2b2729d01390c9edc15a",
+    "data/hus/rag/f2/source_comparison.json": "5c71de26f4e3ba0cc364b4cb264891280e0532e2074d0b094f22822b8bb3f69e",
+    "data/hus/rag/f3/acceptance_questions.jsonl": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac",
+    "data/hus/rag/f3/coverage.jsonl": "8458c0e227cdcb4efe5dc2416de2fc0b6ccb9d07e51003a9cbfdd96a2d0932cb",
+    "data/hus/rag/f3/inputs/blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+    "data/hus/rag/f3/manifest.json": "df4e4ed077d4b9631603c6df768acd119e748db2e8b4fa3e6a2722c8a1772103",
+    "data/hus/rag/f3/rag_chunks.jsonl": "f0e60548e28ec438c0fd0ef69ed04fb4863d9a18e7984e2582c634aa2cec651c",
+    "data/hus/rag/f3/rag_documents.jsonl": "cf829aead81aa738ad9fb3c5fb423b9060bd880926ecaab61d2dc898e7113f2a",
+    "data/hus/rag/f3/records.jsonl": "4a6224a035ac75610e28b0959c813039b226310d3b1d66323eec15e60292dd45",
+    "data/hus/rag/f3/source_map.jsonl": "f988fcf8e484f64127093b17116072bcbb2a820dd57f9bd9140a3b889d63dd46"
+  },
+  "implementation_sha256": {
+    "app/hus/allowlist.py": "f19265b5b873333bb1bae6fa260c91fe9cf5f3f27a870c1a14de7cb15bc0a629",
+    "app/hus/answering.py": "b89f2113ebbd2ed718cba5f2af2e31aa1524364160ac1bbc7b70f56989176d96",
+    "app/hus/cleaning.py": "bb94454448e858e97f28dd9ef28b52aae43b190b6e2206faf8671ddd46c7b8f3",
+    "app/hus/corpus.py": "68a3f50030b7f2a4daebd37d72818f2b43ff7adcfa15e918f9b666e0c8bc44d9",
+    "app/hus/crawler.py": "25c84190fb500b88a50942b72975a6e9c01ff2c0985c627d6d1de2138cd2eccf",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/index.py": "aad7b1e499a11c5b172d5d24dae973270b26164a14c85619ae2b70ac5b559993",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "0c0c4036abeac41b4f7f301f4978cfdd96fe95b7c2975b0cde2be5365b8345e2",
+    "app/hus/pipeline.py": "5bed85e0db170bc2e529b34ebfd0f8aec885d85d20805ffdec9e1266e980eade",
+    "app/hus/provenance.py": "d1912286ccc6429b41dac887ba4c0568d0a573e73bc91adaa1d8b4714621c6d0",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/rag_loader.py": "45f698b1a5b597b247a0fc29ebb8c5050177bc86f6fb2b7ebecc7ca64e45d56c",
+    "app/hus/retrieval.py": "b73455e4f7892187445620f0569053e459b6bb115dbc0791ec12cded550dce91",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/state.py": "e90e1cd0e1eae08567331ff7e0abad8f9c0bedaea1aa4f598e1651b88d1431a1",
+    "app/hus/storage.py": "0c2f9fb0d5df87485154ae385e2d51622dc05365161ab4f0bb1a043c57509bf6",
+    "app/hus/urls.py": "d60169400c99306714a2deabd3ea6dc28c42902ca7ce865f1939c6cffaf66ea8",
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/api/routes.py": "f4a1fe0bfacf8ee6a74085f885254eace7a0fc0891210cdb0a781b202d3647f5",
+    "app/advisor.py": "13485a60b4b3767dd0015af67acbed6cdb2a07aab4a1ec3c2913add9a89ce02a",
+    "app/static/app.js": "fe6dfeb3215b192d0d82100538c0f87154aebf949dae9356523df1faaafa6d9b",
+    "app/schemas/hus.py": "2dd75c7e17805e9964fc9d200d9d57df7e251fdb971b6cb94265d5c57d5e1e22",
+    "app/services/hus_service.py": "a2bf3934a12a1280cbd7887cf3b3eb3d267ef767fe072fd5f9edc685249b14cd",
+    "tools/verify_hus_e2e.py": "8d7be7c793d301233b4ac10762d9f253f454012524a97cd8170e4b5f608e4599"
+  },
+  "api": {
+    "f1": 16,
+    "f2": 290,
+    "f3": 870,
+    "official_assessment_refused": 290,
+    "cross_major_refused": 812,
+    "wrong_version_refused": 8,
+    "major_alias": 8,
+    "chatbot": 16
+  },
+  "finished_at": "2026-11-01T17:17:23.555518+00:00"
+}

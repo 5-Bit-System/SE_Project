@@ -1,6 +1,7 @@
 import hashlib
 import logging
 import re
+import time
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -10,11 +11,13 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.academic import router as academic_router
+from app.api.admin import router as admin_router
 from app.api.auth import router as auth_router
 from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
 from app.config import get_settings
 from app.errors import StorageDataError, StorageUnavailable
+from app.services.operational_metrics import classify_route_group, metrics_recorder
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +71,7 @@ app.include_router(api_router)
 app.include_router(auth_router)
 app.include_router(portal_router)
 app.include_router(academic_router)
+app.include_router(admin_router)
 
 
 @app.middleware("http")
@@ -83,7 +87,19 @@ async def portal_boundary(request: Request, call_next):
                 or (request.method not in {"GET", "HEAD"} and origin not in allowed)):
             return JSONResponse({"detail": "origin_rejected"}, status_code=403,
                                 headers={"Cache-Control": "no-store"})
+    t0 = time.perf_counter()
     response = await call_next(request)
+    duration_ms = (time.perf_counter() - t0) * 1000.0
+
+    path = request.url.path
+    if not (path.startswith("/static/") or path == "/favicon.ico"):
+        metrics_recorder.record_request(
+            route_group=classify_route_group(path),
+            path=path,
+            method=request.method,
+            status_code=response.status_code,
+            duration_ms=duration_ms,
+        )
     if protected:
         response.headers["Cache-Control"] = "no-store"
         response.headers["Pragma"] = "no-cache"

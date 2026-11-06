@@ -166,6 +166,8 @@ def main():
                         page.locator('#auth-password-form button[type=submit]').click()
                         page.locator('#system-admin-open').wait_for(state='visible')
                         page.locator('#system-admin-open').click()
+                        if page.locator('#admin-tab-users').is_visible():
+                            page.locator('#admin-tab-users').click()
                         page.locator('#admin-users tbody tr').first.wait_for(state='visible')
                         assert page.locator('#admin-users tbody tr').count()==3
                         assert 'password_hash' not in page.locator('#admin-users').inner_text()

@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "main_base": "5239b7333a8f8cdf0f919e6b0505af0def99fe23",
+  "integration_worktree": "backups/hus_integration/p04-main",
+  "replay_worktree": "backups/hus_integration/p04-replay-check03",
+  "patch_sha256": "8751066474da284dbe51061fd9cf3b7543c3dae09ced246f08afdf4ff20f6a90",
+  "manifest_lf_sha256": "144170066d7a715d92236d872061b957fb19264b3f21366353ae9a3ab5b096a3",
+  "copied_inputs": 77,
+  "source_outputs": 34,
+  "main_offline": {
+    "passed": 652,
+    "skipped": 10,
+    "database_tests_deselected": 80,
+    "junit_sha256": "6a18e3e0c03e4fc63ed19bb7d8e827fba3713af401d5fc00376fb7751e090fee"
+  },
+  "new_backend_passed": 41,
+  "node_passed": 9,
+  "live_http_cases": 43,
+  "chromium_cases": 14,
+  "replay_backend_passed": 41,
+  "replay_node_passed": 9,
+  "commit_push_merge_performed": false,
+  "product_database_modified": false
+}

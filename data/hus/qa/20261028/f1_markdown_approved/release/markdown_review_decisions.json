@@ -1,0 +1,395 @@
+{
+  "authorization_instruction": "Loại trang nghề nghiệp trộn Toán Cơ; duyệt 10 tài liệu này luôn theo bản Markdown đã crawl.",
+  "decisions": {
+    "0dd9aaaeefcbd7d7": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "mathematics_informatics",
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-chuandaura-pdf--0dd9aaae.md",
+      "markdown_sha256_utf8_lf": "47f5417ea7da29ff70b731ef8527144273afe54c8d2ccae3b7d532335f8f26e5",
+      "program_variant": "unknown",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 3304,
+          "field": "objectives",
+          "quote_sha256": "f7a3b283d6431ed1afbaa6d57a004f0bdcd4d406ed564996d3ed7452479b48b3",
+          "start": 16
+        }
+      ],
+      "source_content_hash": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/ChuanDauRa.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "unknown"
+    },
+    "1c16ddf8a6f1f409": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "computer_science",
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-pdf--1c16ddf8.md",
+      "markdown_sha256_utf8_lf": "7b37063f0559275dc3e4f2a4fca8c99bf1572f11bbd96304ec9b81e4d69da508",
+      "program_variant": "high_quality",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 9203,
+          "field": "objectives",
+          "quote_sha256": "4e7cc37969185d0eb982625ef649f70a66ac2a9708502c2a88a2837782760084",
+          "start": 7475
+        },
+        {
+          "end": 18502,
+          "field": "careers",
+          "quote_sha256": "2801e85d3257ef84e7fdd61a4a138f01fb8873450214810c6674d9b45f8051ea",
+          "start": 17783
+        },
+        {
+          "end": 19074,
+          "field": "further_study",
+          "quote_sha256": "83f716225788d6fb27ae875a1fbc2b47210de089f84c1803c5483eab13a49b24",
+          "start": 18524
+        }
+      ],
+      "source_content_hash": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2019"
+    },
+    "1e3ad5f9915aa051": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "computer_science",
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-ctdt-mt-khtt-130815-pdf--1e3ad5f9.md",
+      "markdown_sha256_utf8_lf": "27374a416021f473e0f8a62e4fa1ff11141c872f5f0a7c95a52c7ee0f4f6abae",
+      "program_variant": "standard",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 5018,
+          "field": "objectives",
+          "quote_sha256": "47d33a23b7ef2706f1d38a71812be73645b1dd0ce31cfee6bfb285e9f1698c49",
+          "start": 3557
+        },
+        {
+          "end": 11736,
+          "field": "careers",
+          "quote_sha256": "2c932de5205317bc82a679fb2e09dd9e40c4c1d35eec5373a299ca93a5839560",
+          "start": 11337
+        },
+        {
+          "end": 11937,
+          "field": "further_study",
+          "quote_sha256": "46cc4dac1b779a26f1bff06e32f01e77de9b321a054af4fc2c224a1c30f29271",
+          "start": 11737
+        }
+      ],
+      "source_content_hash": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2015"
+    },
+    "23a0c1df14a5708a": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "mathematics_informatics",
+      "markdown_path": "processed/documents/mathematics_informatics/tai-lieu-dinh-kem-ctdt-ttud-130815-pdf--23a0c1df.md",
+      "markdown_sha256_utf8_lf": "13ca442fc7bd6ecebd108e29b467b37c60d878bd79ada4b94acd15e50838104b",
+      "program_variant": "standard",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 4037,
+          "field": "objectives",
+          "quote_sha256": "b86a7131ad4c886cb33cc973a4bbcb14b09e105d1faa2022388b28599a821fba",
+          "start": 3319
+        },
+        {
+          "end": 10721,
+          "field": "careers",
+          "quote_sha256": "f20f17ea25191e8ce40e4a37755cb01abca984cad3fdd5c4f1e06e4b43bb888a",
+          "start": 10301
+        },
+        {
+          "end": 10922,
+          "field": "further_study",
+          "quote_sha256": "c4a5953c080631636e1e4754b1e3e95a2880617013324d8005927968bb21cc3e",
+          "start": 10722
+        }
+      ],
+      "source_content_hash": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-TTUD-130815.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2015"
+    },
+    "31b55b4ee6f451a6": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "computer_science",
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-khmttt-cdr-docx--31b55b4e.md",
+      "markdown_sha256_utf8_lf": "d4ac779c52c30ce919765b08e9025d8942cd63211521b7d49e2634dc63251e7e",
+      "program_variant": "standard",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 4039,
+          "field": "objectives",
+          "quote_sha256": "1010ca1feed0c4441a103a12704af9a50996b9269de9c5a421d95a039d14a660",
+          "start": 363
+        }
+      ],
+      "source_content_hash": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2023"
+    },
+    "89d4b39494d72217": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "mathematics",
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-toanhoc-130815-pdf--89d4b394.md",
+      "markdown_sha256_utf8_lf": "8faac98efe54c796c4af95ed2dbca263e3d104d60af47a28ef406ede288b3bc0",
+      "program_variant": "standard",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 2477,
+          "field": "objectives",
+          "quote_sha256": "a70c8ec78290050491ab661fc29cd9c46f8dd89c047bcc1c181668d966622d8d",
+          "start": 2021
+        },
+        {
+          "end": 7267,
+          "field": "careers",
+          "quote_sha256": "4786363f65b769a096beb0cf46e60d69af18a5c5678c09c972965f8a52862346",
+          "start": 6819
+        },
+        {
+          "end": 7865,
+          "field": "further_study",
+          "quote_sha256": "c4178c4c02ce15fcad10468014f028c8d3fdf0c1e0dc8e16676b5033cd854f72",
+          "start": 7268
+        }
+      ],
+      "source_content_hash": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2015"
+    },
+    "8afffd3cada3d048": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "computer_science",
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-4-kctdt-clc-mtkhtt-10082020-0-pdf--8afffd3c.md",
+      "markdown_sha256_utf8_lf": "b4296100ae52dfafc713a294dc4663b524f91d807fe6da00fc80463e7f8291f0",
+      "program_variant": "high_quality",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 2719,
+          "field": "objectives",
+          "quote_sha256": "db57277f15be90c7abf124b3bda17726213a11f2329ed482047917feb4f9b695",
+          "start": 991
+        },
+        {
+          "end": 12017,
+          "field": "careers",
+          "quote_sha256": "2801e85d3257ef84e7fdd61a4a138f01fb8873450214810c6674d9b45f8051ea",
+          "start": 11298
+        },
+        {
+          "end": 12588,
+          "field": "further_study",
+          "quote_sha256": "83f716225788d6fb27ae875a1fbc2b47210de089f84c1803c5483eab13a49b24",
+          "start": 12038
+        }
+      ],
+      "source_content_hash": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020_0.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2019"
+    },
+    "d006f60211246633": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "mathematics",
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-kct-tttoan-final-pdf--d006f602.md",
+      "markdown_sha256_utf8_lf": "177d7544a355372c9f211ce9e5922603730b39411cd0ca1ee353ed9e3b55b76a",
+      "program_variant": "advanced",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 14487,
+          "field": "objectives",
+          "quote_sha256": "7d7881393cea8f7acb92e9a775b6fbcdd723e4ccb63617abe8f4b2928e4057ab",
+          "start": 13276
+        }
+      ],
+      "source_content_hash": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2008"
+    },
+    "d4fae066858f0b94": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "mathematics",
+      "markdown_path": "processed/documents/mathematics/tai-lieu-dinh-kem-ctdt-cnkhtn-toanhoc-13815-pdf--d4fae066.md",
+      "markdown_sha256_utf8_lf": "cfdd34f6961852a295a6795f694b945f042106795b388b8f9628d63778fc2637",
+      "program_variant": "talent",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 2639,
+          "field": "objectives",
+          "quote_sha256": "bb08e2633e11840d6e4bb48b9b38fe3328c6b7c3542ceb67ee4d58c2a8c9da54",
+          "start": 1890
+        },
+        {
+          "end": 7857,
+          "field": "careers",
+          "quote_sha256": "c45c672108057f7006749e6268c9fb3f8a1e51abacab7182739890dcc05ce9e5",
+          "start": 7340
+        },
+        {
+          "end": 8458,
+          "field": "further_study",
+          "quote_sha256": "a222d07ada21c106c34129194f8f6523aa02712ee195abf0bbc3e396669b68ce",
+          "start": 7858
+        }
+      ],
+      "source_content_hash": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2015"
+    },
+    "f7f470e712738589": {
+      "current_validity_verified": false,
+      "extraction_notes": [
+        "Page markers and isolated page numbers are omitted only in display; exact source quotes and offsets are retained.",
+        "Extraction glyphs such as legacy Vietnamese characters are retained, not silently corrected.",
+        "Blank decision numbers/dates in some sources are not filled or treated as verified."
+      ],
+      "major": "computer_science",
+      "markdown_path": "processed/documents/computer_science/tai-lieu-dinh-kem-104-khmttt-chuan-04-11-2023-docx--f7f470e7.md",
+      "markdown_sha256_utf8_lf": "f4ead650103f6918cd603b4f26fc89e4c2409afee59cbbc2c47465cc9a90f011",
+      "program_variant": "standard",
+      "raw_original_verified": false,
+      "reason": "Explicit user approval to use these ten Markdown sources for descriptive F1. Reviewed selected program goals, careers and further-study narratives; admissions and F2 spill removed. Original PDF/DOCX and current applicability remain unverified.",
+      "review_basis": "extracted_markdown",
+      "reviewed_at": "2026-10-28T15:15:14+00:00",
+      "reviewer": "Codex (F1 narrative review of crawled Markdown; not original-PDF or university approval)",
+      "scope": "selected_F1_sections",
+      "sections": [
+        {
+          "end": 3550,
+          "field": "objectives",
+          "quote_sha256": "bbb657732a1af4af4a068255af5d40200262dc5cdaaccdf78a611616bbd36aaf",
+          "start": 1159
+        },
+        {
+          "end": 8627,
+          "field": "careers",
+          "quote_sha256": "aa532acc50beac93564dd3ba8a6dc973f13d9e81679826596021cbcf2ced6cb1",
+          "start": 7923
+        },
+        {
+          "end": 8991,
+          "field": "further_study",
+          "quote_sha256": "0c02da82313bdcd5908fb4b91bc7e051566be62ccb575006297e06263efa6bb0",
+          "start": 8629
+        }
+      ],
+      "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+      "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+      "status": "include_markdown",
+      "version_as_stated_in_markdown": "2023"
+    }
+  },
+  "excluded_document_ids": [
+    "1f6ad01008734152"
+  ],
+  "policy": "user_authorized_descriptive_F1_from_markdown",
+  "schema_version": "1.0",
+  "source_snapshot_id": "hus-0404f37-20261026"
+}

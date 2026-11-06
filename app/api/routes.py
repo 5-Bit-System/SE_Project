@@ -1,4 +1,7 @@
+import time
+
 from fastapi import APIRouter, Depends, HTTPException, Query
+from pydantic import BaseModel, Field
 
 from app.auth.dependencies import retired_profile, verified_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
@@ -12,6 +15,7 @@ from app.schemas.eligibility import EligibilityRequest, EligibilityResult
 from app.schemas.profile import ProfileDetail, ProfileSummary, TranscriptSummary
 from app.schemas.recommendation import RecommendationRequest, RecommendationResponse, WhatIfRequest
 from app.services.advisor_service import chat_advisor
+from app.services.operational_metrics import metrics_recorder
 from app.services.recommendation_service import recommend
 from app.transcript import StudentTranscript
 
@@ -144,12 +148,13 @@ def profile_transcript_summary(profile_id: str) -> TranscriptSummary:
 
 @router.post("/recommendations", response_model=RecommendationResponse, dependencies=[Depends(verified_account)])
 def recommendations(request: RecommendationRequest) -> RecommendationResponse:
+    t0 = time.perf_counter()
     try:
         catalog = load_catalog(request.program_id)
         preference_extractor, llm_ranker = configured_adapters()
         # Validate the enriched response at the API boundary so legacy callers
         # and newer recommendation backends share one response contract.
-        return RecommendationResponse.model_validate(
+        res = RecommendationResponse.model_validate(
             recommend(
                 catalog,
                 request,
@@ -157,9 +162,16 @@ def recommendations(request: RecommendationRequest) -> RecommendationResponse:
                 llm_ranker=llm_ranker,
             ).model_dump()
         )
+        duration_ms = (time.perf_counter() - t0) * 1000.0
+        metrics_recorder.record_consultation("recommendation", True, duration_ms)
+        return res
     except CatalogError as exc:
+        duration_ms = (time.perf_counter() - t0) * 1000.0
+        metrics_recorder.record_consultation("recommendation", False, duration_ms, failure_reason=getattr(exc, "code", str(exc)))
         _raise_domain_error(exc)
     except ValueError as exc:
+        duration_ms = (time.perf_counter() - t0) * 1000.0
+        metrics_recorder.record_consultation("recommendation", False, duration_ms, failure_reason=str(exc))
         _raise_domain_error(exc)
 
 
@@ -247,3 +259,22 @@ def advisor_chat_endpoint(request: AdvisorRequest) -> AdvisorResponse:
         _raise_domain_error(exc)
     except ValueError as exc:
         _raise_domain_error(exc)
+
+
+
+class FeedbackRequest(BaseModel):
+    rating: int = Field(..., ge=1, le=5)
+    category: str = Field(..., max_length=50)
+    is_helpful: bool
+    comments: str | None = Field(default=None, max_length=500)
+
+
+@router.post("/academic/feedback")
+def submit_feedback(payload: FeedbackRequest, user: dict = Depends(verified_account)) -> dict[str, str]:
+    """Record quality feedback signal truthfully without retaining student transcript data."""
+    metrics_recorder.record_feedback(
+        rating=payload.rating,
+        category=payload.category,
+        is_helpful=payload.is_helpful,
+    )
+    return {"status": "recorded"}
