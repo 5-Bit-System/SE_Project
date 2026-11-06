@@ -48,6 +48,7 @@ from app.curriculum.rule_service import (
     validate_prerequisite_rules,
 )
 from app.integrations.daotao.store import engine
+from app.services.admin_insights import collect_admin_insights
 from app.services.admin_overview import AdminOverviewResponse, get_admin_overview
 from app.services.operational_metrics import get_operational_health
 from app.services.synthetic_preview import (
@@ -167,6 +168,16 @@ async def overview(request: Request) -> AdminOverviewResponse:
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
     return await get_admin_overview()
+
+
+@router.get("/insights")
+async def dashboard_insights(request: Request) -> dict[str, Any]:
+    principal = await require_account(request)
+    if principal.get("role") != "admin":
+        raise HTTPException(403, "forbidden")
+    from anyio import to_thread
+
+    return await to_thread.run_sync(collect_admin_insights)
 
 @router.get("/metrics/health")
 async def get_metrics_health(request: Request, window: str = "24h") -> dict[str, Any]:
