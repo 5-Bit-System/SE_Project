@@ -22,6 +22,11 @@ integration/** -text
 docs/acceptance/** -text
 data/hus/qa/20261102/** -text
 
-# Frozen evaluation packs use the same bytes on Windows and Linux.
-data/hus/evaluation/** text eol=lf
-data/hus/review/** text eol=lf
+# Frozen evaluation packs, review records and vector contracts retain the exact captured bytes.
+data/hus/evaluation/** -text
+data/hus/review/** -text
+data/hus/vector_profiles/** -text
+data/hus/vector_contracts/** -text
+data/hus/vector_passages/** -text
+requirements.txt -text
+requirements-lock.txt -text
