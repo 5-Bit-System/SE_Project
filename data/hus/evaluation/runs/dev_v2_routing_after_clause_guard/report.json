@@ -1,0 +1,112 @@
+{
+  "holdout_eligible": false,
+  "inputs_unchanged_during_run": true,
+  "metrics": {
+    "abstention_on_missing_or_out_of_scope": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "answer_status_accuracy": {
+      "denominator": 8,
+      "numerator": 4,
+      "value": 0.5
+    },
+    "cases": 8,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "f2_lookup_success": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "failure_counts": {
+      "post_retrieval_abstention": 4
+    },
+    "false_abstention_on_positive": {
+      "denominator": 8,
+      "numerator": 4,
+      "value": 0.5
+    },
+    "guardrail_success": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "routed_recall_at_5": {
+      "denominator": 4,
+      "numerator": 4.0,
+      "value": 1.0
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 8,
+      "numerator": 4,
+      "value": 0.5
+    },
+    "unjudged_alternative_citations": 0
+  },
+  "pack": "data/hus/evaluation/diagnostic_dev_v2_routing",
+  "pack_manifest_sha256": "bec661d7b506cd3a0095d8cd52e9d49a5d0624c62016559788f4b8835b678824",
+  "production_activated": false,
+  "quality_scope": "Eight exposed routing failures; other gate/representation errors remain separate",
+  "recorded_at_utc": "2026-11-03T13:58:38.563802+00:00",
+  "source_and_review_changed": false,
+  "source_binary_checks": {
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=9#page=9": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=10#page=10": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9": {
+      "bytes": 21509533,
+      "content_type": "application/pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    }
+  },
+  "status": "development_routing_slice_not_holdout_acceptance",
+  "summary": {
+    "name_answers_supported": 4,
+    "not_independent_acceptance": true,
+    "preview_full_answers_supported": 0,
+    "preview_searches": 4,
+    "routing_correct": 8,
+    "routing_total": 8
+  }
+}

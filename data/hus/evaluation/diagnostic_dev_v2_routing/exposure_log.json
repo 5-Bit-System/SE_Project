@@ -1,0 +1,19 @@
+{
+  "development_use_authorized_by": "User selected priority1 in RAG_PROGRESS_AND_NEXT_PLAN",
+  "independent_holdout_eligible": false,
+  "old_packs_predictions_gold_and_review_must_remain_unchanged": true,
+  "parent_creation_flags_are_historical": true,
+  "parent_pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "parent_question_ids": [
+    "H2-Q005",
+    "H2-Q009",
+    "H2-Q019",
+    "H2-Q023",
+    "H2-Q033",
+    "H2-Q037",
+    "H2-Q047",
+    "H2-Q051"
+  ],
+  "recorded_at": "2026-11-03T20:47:15.337360+07:00",
+  "used_for_runtime_tuning_after_this_freeze": true
+}
