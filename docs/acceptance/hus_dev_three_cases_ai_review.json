@@ -1,0 +1,1027 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "offline_ai_semantic_review_of_three_saved_development_answers",
+  "created_at_utc": "2026-11-03T08:32:17.732872+00:00",
+  "reviewer_kind": "ai",
+  "reviewer_id": "Codex delegated source-review agent",
+  "human_required": false,
+  "actual_human_reviews": 0,
+  "semantic_independence_certified": false,
+  "policy_basis": "Latest explicit AI-only review override in .agent/AGENTS.md dated 2026-11-03; no human signature prerequisite for this round.",
+  "review_scope": "Only DEV-Q006, DEV-Q049, DEV-Q050 in saved dev_pinned_remeasurement_v1 predictions; exposed development evaluation, not independent acceptance.",
+  "method": [
+    "Read the original DEV and parent P11 question/gold/provenance and frozen release source context.",
+    "Match each emitted citation to its exact release chunk and evidence character span.",
+    "Hash and inspect the actual pinned PDF/DOCX citation assets: physical PDF page 8 and DOCX word/document.xml.",
+    "Judge factual quotation support separately from full gold/question coverage, alternative-source validity and edition scope."
+  ],
+  "operations": {
+    "new_rag_inference": false,
+    "runtime_or_source_changes": false,
+    "gold_or_baseline_changes": false,
+    "external_web_access": false,
+    "only_written_artifact": "docs/acceptance/hus_dev_three_cases_ai_review.json"
+  },
+  "input_sha256": {
+    "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+    "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+    "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/evaluation/diagnostic_dev_v1/cases.jsonl": "f68f9bcd59a99b6ba99a3d89b7964df5104d256be6ec20dc8dae38451d35754f",
+    "data/hus/evaluation/diagnostic_dev_v1/gold.jsonl": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+    "data/hus/evaluation/diagnostic_dev_v1/manifest.json": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+    "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+    "data/hus/evaluation/p11_holdout_v1/evidence.jsonl": "3df64bff6e505f1e1b64e302e5435c5edff9735cb6e5982ec13e2f0f37e10eb1",
+    "data/hus/evaluation/p11_holdout_v1/gold.jsonl": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c",
+    "data/hus/evaluation/p11_holdout_v1/manifest.json": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+    "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/citation_audits.jsonl": "dc9d1019601999a4debcadf45ecf46b5fb2e0520ccfec542d4793072aff9e3f9",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/layered_metrics.json": "43be92eda032936d62d3455fcccab4f905bee7d0a1f1b1d222da0048586139ea",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/manifest.json": "6116e307ab14c20df88b6898b6fc5c1a4fc91e456d81ec857d563835f6370af7",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/predictions.jsonl": "b890b26be07502717eb73f07ada4255a6454db4fded6e59a0fe6d942ba71d332",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/report.json": "3c149f8f8dede64254e91947de606cf0d2451618499d66a912346414a926a35c",
+    "data/hus/evaluation/runs/dev_pinned_remeasurement_v1/scored_cases.jsonl": "5df2de5e25d2625a4484c2bcb87378d390645b38b6a38d69ad151bfbb11bec3a",
+    "data/hus/rag/CURRENT.json": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/31b55b4ee6f451a6.txt": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d4fae066858f0b94.txt": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f7f470e712738589.txt": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/d6370261338de29f.html": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f"
+  },
+  "verification": {
+    "run_manifest_file_hashes_match": true,
+    "release_evidence_manifest_hashes_match": true,
+    "citation_asset_hashes_match": true,
+    "all_six_cited_evidence_spans_exact": true,
+    "all_six_cited_release_chunks_exact": true,
+    "all_five_binary_backed_citation_uses_contain_normalized_quote": true,
+    "unique_binary_assets_inspected": 3,
+    "input_hashes_unchanged_during_review": true
+  },
+  "cases": [
+    {
+      "question_id": "DEV-Q006",
+      "reviewer_kind": "ai",
+      "human_required": false,
+      "original_question": "Không cần tư vấn chọn môn, mình chỉ muốn đọc khả năng học tiếp sau cử nhân Toán trong nguồn đã lưu.",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics",
+        "question": "Không cần tư vấn chọn môn, mình chỉ muốn đọc khả năng học tiếp sau cử nhân Toán trong nguồn đã lưu.",
+        "version": null
+      },
+      "development_provenance": {
+        "contrast_group": null,
+        "paraphrase_group": "mathematics:03",
+        "parent_question_id": "P11-Q003",
+        "question_id": "DEV-Q006",
+        "review_status": "ai_authored_draft_not_human_accepted",
+        "tags": [
+          "natural_language",
+          "negation"
+        ],
+        "variant": 2
+      },
+      "parent_question": {
+        "question_id": "P11-Q003",
+        "request": {
+          "allow_generated_reference": false,
+          "major": "mathematics",
+          "question": "Học xong cử nhân Toán thì tài liệu có nêu hướng học tiếp cao học hoặc nghiên cứu sinh không, và có điều kiện gì?",
+          "version": null
+        }
+      },
+      "parent_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E003"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "P11-Q003",
+        "review_status": "pending_independent_review"
+      },
+      "original_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E003"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "DEV-Q006",
+        "review_status": "pending_independent_review"
+      },
+      "expected_evidence": [
+        {
+          "p11_evidence": {
+            "citation": {
+              "end_char": 1003,
+              "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+              "raw_original_verified": true,
+              "review_status": "include",
+              "source_id": "ce8df97fe49665e9",
+              "source_kind": "crawled_prose",
+              "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+              "start_char": 914,
+              "title": "Ngành Toán học",
+              "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+            },
+            "content_origin": "crawled_source_quote",
+            "evidence_id": "P11-E003",
+            "major": "mathematics",
+            "purpose": "positive_support",
+            "review_status": "include",
+            "source_ref": {
+              "identity": "44955940d64d25b5b729f5b30d98718f",
+              "identity_field": "chunk_id",
+              "json_pointer": "/source_quote",
+              "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+            },
+            "value": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+            "version": "unknown"
+          },
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "mathematics",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "expected_span_exact_match": true,
+          "context_finding": "Conditional Master/PhD statement occurs in the objectives paragraph, separately from the generic further-study section.",
+          "source_context_path": "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt"
+        }
+      ],
+      "saved_answer": {
+        "http_status": 200,
+        "status": "answered",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": null,
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp Chương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên những kiến thức, kĩ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng, mô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để giải quyết. Những kĩ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân, của công việc và của nền kinh tế.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo Cử nhân Khoa học Tài năng ngành Toán học chủ yếu\ncung cấp cho sinh viên những kiến thức, kỹ năng cơ bản và quan trọng hơn cả là\nphương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề;\nphương pháp tư duy trừu tượng, mô hình hóa; phân tích, thiết lập bài toán và sử\ndụng công cụ toán học để giải quyết.\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học,\nnâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của\nbản thân, của công việc và của nền kinh tế.\nNguồn [2]: Tài liệu đính kèm: CTDT-CNKHTN-Toanhoc-13815.pdf; trang PDF 8; /hus/sources/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1?page=8#page=8; Bản PDF khôi phục; chưa xác minh tương đương bản gốc lịch sử.; phiên bản: 2015; hệ: talent",
+        "warnings": [
+          "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+          "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+        ],
+        "release_id": "hus-data-20261031-v3",
+        "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+      },
+      "saved_scored_case_unchanged": {
+        "actual_status": "answered",
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "expected_chunk_ids": [
+          "44955940d64d25b5b729f5b30d98718f"
+        ],
+        "expected_status": "answered",
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "major": "mathematics",
+        "positive": true,
+        "question_id": "DEV-Q006",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "77255979680ee28cfa517a7704832bc3",
+          "5576ba104d8ba5bc443df772cbb04162",
+          "bdc3538f018be0658be658d8ccaf6e8e",
+          "44955940d64d25b5b729f5b30d98718f"
+        ],
+        "unjudged_alternative_citations": 2
+      },
+      "citations": [
+        {
+          "citation_id": "1",
+          "source_id": "ce8df97fe49665e9",
+          "label": "Ngành Toán học",
+          "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+          "evidence_kind": "web",
+          "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+          "document_sha256": null,
+          "pdf_page": null,
+          "availability": "unverified",
+          "review_status": "include",
+          "quote": "Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp Chương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên những kiến thức, kĩ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng, mô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để giải quyết. Những kĩ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân, của công việc và của nền kinh tế.",
+          "locator": {
+            "end_char": 2042,
+            "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 1448
+          },
+          "chunk_id": "77255979680ee28cfa517a7704832bc3",
+          "declared_field": "further_study",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "mathematics",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "review_scope": "whole_document",
+          "raw_original_verified": true,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "Mathematics foundations in reasoning, abstraction, modelling and problem solving provide a basis for further study in the field."
+            ],
+            "does_not_establish": [
+              "The quoted span does not name Master or PhD levels or an eligibility condition."
+            ],
+            "brief_verbatim_quotes": [
+              "c? th? ti?p t?c h?c, n?ng cao tr?nh ?? trong l?nh v?c chuy?n m?n c?a m?nh"
+            ],
+            "context_finding": "The same archived web page separately contains the conditional Master/PhD sentence at characters 914:1003; the saved reply instead quotes characters 1448:2042. Context supports the gold, but unquoted context cannot be counted as information actually supplied by the reply."
+          },
+          "inspected_archived_html_path": "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html",
+          "archived_html_sha256": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+          "live_url_checked": false
+        },
+        {
+          "citation_id": "2",
+          "source_id": "d4fae066858f0b94",
+          "label": "Tài liệu đính kèm: CTDT-CNKHTN-Toanhoc-13815.pdf",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf",
+          "evidence_kind": "pdf",
+          "open_url": "/hus/sources/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1?page=8#page=8",
+          "document_sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+          "pdf_page": 8,
+          "availability": "available",
+          "review_status": "include_markdown",
+          "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo Cử nhân Khoa học Tài năng ngành Toán học chủ yếu\ncung cấp cho sinh viên những kiến thức, kỹ năng cơ bản và quan trọng hơn cả là\nphương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề;\nphương pháp tư duy trừu tượng, mô hình hóa; phân tích, thiết lập bài toán và sử\ndụng công cụ toán học để giải quyết.\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học,\nnâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của\nbản thân, của công việc và của nền kinh tế.",
+          "locator": {
+            "end_char": 8458,
+            "evidence_path": "evidence/f1/d4fae066858f0b94.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 7858
+          },
+          "chunk_id": "5576ba104d8ba5bc443df772cbb04162",
+          "declared_field": "further_study",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2015",
+            "major": "mathematics",
+            "program_id": null,
+            "program_variant": "talent",
+            "validity_status": "unknown"
+          },
+          "review_scope": "selected_F1_sections",
+          "raw_original_verified": false,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "For the 2015 talent Mathematics program, foundational skills are a basis for continuing study and development."
+            ],
+            "does_not_establish": [
+              "No Master/PhD levels or admissions condition appears in this quoted section.",
+              "This talent-program source does not establish a rule for every standard-program graduate."
+            ],
+            "brief_verbatim_quotes": [
+              "Ch??ng tr?nh ??o t?o C? nh?n Khoa h?c T?i n?ng ng?nh To?n h?c",
+              "Nh?ng k? n?ng n?y l? ti?n ??"
+            ],
+            "context_finding": "Direct text extraction of physical PDF page 8, section 5, contains the quoted passage after whitespace/diacritic normalization. PDF cover identifies talent Mathematics and Hanoi 2015. Historical byte equality remains unknown."
+          },
+          "inspected_asset_path": "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf",
+          "inspected_asset_sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+          "asset_hash_matches_citation": true,
+          "binary_quote_containment_after_normalization": true,
+          "binary_inspection_method": "PyMuPDF physical page 8 text extraction",
+          "binary_normalization": "NFKD, casefold, retain alphanumeric characters; used for format/diacritic comparison, not independent historical equivalence",
+          "binary_historical_byte_equality": "unknown",
+          "asset_origin": [
+            {
+              "binding": "f1:d4fae066858f0b94",
+              "expected_pages": 15,
+              "filename": "CTDT-CNKHTN-Toanhoc-13815.pdf",
+              "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+              "git_path": "data/hus/recovery/20261031/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf",
+              "kind": "pdf",
+              "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1"
+            }
+          ]
+        }
+      ],
+      "ai_judgment": {
+        "answer_claim_support_status": "supported",
+        "full_answer_adequacy_status": "partial",
+        "adequate_full_answer": false,
+        "alternative_citations_valid_as_full_gold_support": false,
+        "alternative_citations_valid_for_emitted_claims": true,
+        "citation_semantics": "All emitted source-specific quote blocks are supported by their respective frozen source spans and inspected binary text where available.",
+        "rationale": "The reply faithfully describes generic capacity for continuing study, which is responsive to the broader DEV wording. Against the inherited gold and parent question, it omits both named levels (Master and PhD) and the explicit if-eligible qualifier. The talent-2015 supplement is labelled but does not supply those omissions. This is incomplete gold coverage rather than a fabricated admissions claim.",
+        "missing_gold_components": [
+          "Master level",
+          "PhD level",
+          "if sufficient conditions are met"
+        ],
+        "broader_dev_question_assessment": "Supported generic answer, with a gold-inheritance/narrowing ambiguity; full parent-gold adequacy remains partial.",
+        "edition_scope_assessment": "Unknown-edition general web plus explicitly labelled 2015 talent source; no common effective edition inferred.",
+        "current_academic_applicability": "not_verified",
+        "official_source_approval_granted": false,
+        "authorizes_eligibility": false
+      }
+    },
+    {
+      "question_id": "DEV-Q049",
+      "reviewer_kind": "ai",
+      "human_required": false,
+      "original_question": "Ngành KHMTTT đào tạo để xử lý những vấn đề thông tin và dữ liệu nào?",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "computer_science",
+        "question": "Ngành KHMTTT đào tạo để xử lý những vấn đề thông tin và dữ liệu nào?",
+        "version": null
+      },
+      "development_provenance": {
+        "contrast_group": null,
+        "paraphrase_group": "computer_science:01",
+        "parent_question_id": "P11-Q025",
+        "question_id": "DEV-Q049",
+        "review_status": "ai_authored_draft_not_human_accepted",
+        "tags": [
+          "natural_language",
+          "synonym"
+        ],
+        "variant": 1
+      },
+      "parent_question": {
+        "question_id": "P11-Q025",
+        "request": {
+          "allow_generated_reference": false,
+          "major": "computer_science",
+          "question": "Chương trình Khoa học máy tính và thông tin hướng tới giải quyết những loại vấn đề về thông tin và dữ liệu nào?",
+          "version": null
+        }
+      },
+      "parent_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E021"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "P11-Q025",
+        "review_status": "pending_independent_review"
+      },
+      "original_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E021"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "DEV-Q049",
+        "review_status": "pending_independent_review"
+      },
+      "expected_evidence": [
+        {
+          "p11_evidence": {
+            "citation": {
+              "end_char": 664,
+              "evidence_path": "evidence/f1/d6370261338de29f.txt",
+              "raw_original_verified": true,
+              "review_status": "include",
+              "source_id": "d6370261338de29f",
+              "source_kind": "crawled_prose",
+              "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+              "start_char": 340,
+              "title": "Ngành Khoa học máy tính và thông tin",
+              "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+            },
+            "content_origin": "crawled_source_quote",
+            "evidence_id": "P11-E021",
+            "major": "computer_science",
+            "purpose": "positive_support",
+            "review_status": "include",
+            "source_ref": {
+              "identity": "4ab7e793d9bac7880f909865fbe1e67c",
+              "identity_field": "chunk_id",
+              "json_pointer": "/source_quote",
+              "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+            },
+            "value": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+            "version": "unknown"
+          },
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "expected_span_exact_match": true,
+          "context_finding": "Archived web objectives paragraph contains the gold statement. Its Important Information links point to both DOCX sources used in the saved reply; this establishes a documented related source path, not edition equivalence.",
+          "source_context_path": "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt"
+        }
+      ],
+      "saved_answer": {
+        "http_status": 200,
+        "status": "answered",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": null,
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] # PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO\n\n## 1. Chuẩn đầu ra về kiến thức (Program Knowledge - PK)\n\nPK1. Vận dụng các kiến thức cơ bản về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống trong nghề nghiệp và đời sống. (Mức 3)\n\nPK2. Thiết kế, cài đặt và kiểm thử các phần mềm ứng dụng, sử dụng các kiến thức về lập trình và tổ chức máy tính (hệ điều hành, kiến trúc máy tính và mạng máy tính). (Mức 6)\n\nPK3. Thiết kế, tổ chức, quản trị các hệ cơ sở dữ liệu, sử dụng các kiến thức về cơ sở toán học, lập trình và tổ chức máy tính. (Mức 5)\n\nPK4: Mô hình hoá, đề xuất, thiết kế, đánh giá và tối ưu hoá giải pháp cho các bài toán xử lí và khai thác thông tin, đặc biệt là trong lĩnh vực trí tuệ nhân tạo, vận dụng các kiến thức cơ sở toán học, tối ưu hoá, xác suất thống kê, cấu trúc dữ liệu và thuật toán, các phương pháp học máy và khai phá dữ liệu. (Mức 5)\n\nPK5: Vận dụng kiến thức cơ sở toán, tổ chức máy tính trong bảo đảm an toàn thông tin. (Mức 3)\n\nPK6: Lập kế hoạch, tổ chức, giám sát thực hiện các hoạt động xây dựng hệ thống thông tin và hoạt động nghiên cứu phát triển khoa học công nghệ, sử dụng các kiến thức về công nghệ phần mềm, phương pháp nghiên cứu khoa học và các kiến thức bổ trợ. (Mức 5)\n\n## 2. Chuẩn đầu ra về kĩ năng (Program Skill - PS)\n\nPS1: Lựa chọn phương thức giao tiếp và trình bày về lĩnh vực chuyên môn bằng các phương tiện truyền thống và hiện đại. Trình độ ngoại ngữ đạt mức tương đương bậc 3/6 theo khung năng lực ngoại ngữ 6 bậc do Bộ GD-ĐT Việt Nam ban hành. (Mức 3)\n\nPS2: Tổ chức và sắp xếp công việc hợp lý. Khởi nghiệp và tạo việc làm cho mình và cho người khác. (Mức 4)\n\nPS3: Kết hợp và sử dụng thành thạo các công cụ công nghệ thông tin như các ngôn ngữ lập trình, các ngôn ngữ truy vấn cơ sở dữ liệu, các công cụ thống kê, công cụ trực quan hóa dữ liệu, … Thích nghi với các thay đổi liên tục trong môi trường khoa học công nghệ, các công nghệ mới trong lĩnh vực khoa học máy tính và thông tin. (Mức 4)\n\nPS4: Phát hiện, đánh giá, phân tích vấn đề, đề xuất, mô hình hóa, tối ưu hóa giải pháp cho các bài toán lí thuyết và thực tế, các hệ thống thông tin theo các xu hướng hiện đại trong Công nghệ phần mềm. Tổ chức và xử lý thông tin, phát hiện tri thức từ các kho dữ liệu bằng các phương pháp học máy, khai phá dữ liệu. (Mức 5)\n\n\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: KHMTTT CĐR.docx; /hus/sources/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard\n\n[2] ## 2. Mục tiêu của chương trình đào tạo\n\nMục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin trang bị cho sinh viên những kiến thức cơ bản của ngành, đồng thời cung cấp các kiến thức chuyên sâu khai thác thế mạnh của khoa học thống kê trong khoa học thông tin. Sinh viên được trau dồi và nâng cao trình độ tiếng Anh chuyên ngành trong quá trình đào tạo, rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt. Chương trình đào tạo được thiết kế linh hoạt giúp sinh viên chủ động và phát huy sáng tạo trong quá trình học.\n\n2.2. Mục tiêu cụ thể\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin có các mục tiêu cụ thể như sau.\n\nVề kiến thức:\n\nTrang bị kiến thức chung về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống.\n\nTrang bị kiến thức phân tích, thiết kế, cài đặt và kiểm thử phần mềm và các hệ thống thông tin; các kiến thức cơ sở toán học, nguyên lí thuật toán, các lí thuyết tin học, trí tuệ nhân tạo nhằm mô hình hóa, đề xuất và tối ưu hóa giải pháp cho các bài toán quản lý và phân tích dữ liệu, xử lý thông tin.\n\nVề kĩ năng:\n\nTrang bị kĩ năng về khoa học máy tính và thông tin, kĩ năng thực hành nghề nghiệp, đảm bảo cho sinh viên có khả năng thích ứng cao với môi trường làm việc.\n\nNâng cao kĩ năng thực hành, khả năng nắm bắt, tiếp cận và ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp trong lĩnh vực Khoa học máy tính và thông tin.\n\nNâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn cho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương đương bậc 3/6 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong giao tiếp và có khả năng sử dụng tiếng Anh trong chuyên môn.\n\nRèn luyện các kĩ năng làm việc nhằm hội nhập quốc tế tốt.\n\nVề năng lực tự chủ và chịu trách nhiệm:\n\nRèn luyện khả năng làm việc độc lập và làm việc theo nhóm; tự chủ và sáng tạo trong học tập và nghiên cứu, sẵn sàng chia sẻ kiến thức, hỗ trợ cộng đồng; có đạo đức xã hội và đạo đức nghề nghiệp, chịu trách nhiệm cá nhân trước tập thể.\nNguồn [2]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+        "warnings": [
+          "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+          "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+        ],
+        "release_id": "hus-data-20261031-v3",
+        "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+      },
+      "saved_scored_case_unchanged": {
+        "actual_status": "answered",
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "expected_chunk_ids": [
+          "4ab7e793d9bac7880f909865fbe1e67c"
+        ],
+        "expected_status": "answered",
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "major": "computer_science",
+        "positive": true,
+        "question_id": "DEV-Q049",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "235a29b3d7972cb0f9de66bf06d58bff",
+          "c7ba6206d0dd89a4366c16fa118134d9",
+          "9614d3ce7459d0b32a050a4256bdc344",
+          "4ab7e793d9bac7880f909865fbe1e67c",
+          "52ef9da86098c6287f538c07243a193a"
+        ],
+        "unjudged_alternative_citations": 2
+      },
+      "citations": [
+        {
+          "citation_id": "1",
+          "source_id": "31b55b4ee6f451a6",
+          "label": "Tài liệu đính kèm: KHMTTT CĐR.docx",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx",
+          "evidence_kind": "file",
+          "open_url": "/hus/sources/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "document_sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "pdf_page": null,
+          "availability": "available",
+          "review_status": "include_markdown",
+          "quote": "# PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO\n\n## 1. Chuẩn đầu ra về kiến thức (Program Knowledge - PK)\n\nPK1. Vận dụng các kiến thức cơ bản về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống trong nghề nghiệp và đời sống. (Mức 3)\n\nPK2. Thiết kế, cài đặt và kiểm thử các phần mềm ứng dụng, sử dụng các kiến thức về lập trình và tổ chức máy tính (hệ điều hành, kiến trúc máy tính và mạng máy tính). (Mức 6)\n\nPK3. Thiết kế, tổ chức, quản trị các hệ cơ sở dữ liệu, sử dụng các kiến thức về cơ sở toán học, lập trình và tổ chức máy tính. (Mức 5)\n\nPK4: Mô hình hoá, đề xuất, thiết kế, đánh giá và tối ưu hoá giải pháp cho các bài toán xử lí và khai thác thông tin, đặc biệt là trong lĩnh vực trí tuệ nhân tạo, vận dụng các kiến thức cơ sở toán học, tối ưu hoá, xác suất thống kê, cấu trúc dữ liệu và thuật toán, các phương pháp học máy và khai phá dữ liệu. (Mức 5)\n\nPK5: Vận dụng kiến thức cơ sở toán, tổ chức máy tính trong bảo đảm an toàn thông tin. (Mức 3)\n\nPK6: Lập kế hoạch, tổ chức, giám sát thực hiện các hoạt động xây dựng hệ thống thông tin và hoạt động nghiên cứu phát triển khoa học công nghệ, sử dụng các kiến thức về công nghệ phần mềm, phương pháp nghiên cứu khoa học và các kiến thức bổ trợ. (Mức 5)\n\n## 2. Chuẩn đầu ra về kĩ năng (Program Skill - PS)\n\nPS1: Lựa chọn phương thức giao tiếp và trình bày về lĩnh vực chuyên môn bằng các phương tiện truyền thống và hiện đại. Trình độ ngoại ngữ đạt mức tương đương bậc 3/6 theo khung năng lực ngoại ngữ 6 bậc do Bộ GD-ĐT Việt Nam ban hành. (Mức 3)\n\nPS2: Tổ chức và sắp xếp công việc hợp lý. Khởi nghiệp và tạo việc làm cho mình và cho người khác. (Mức 4)\n\nPS3: Kết hợp và sử dụng thành thạo các công cụ công nghệ thông tin như các ngôn ngữ lập trình, các ngôn ngữ truy vấn cơ sở dữ liệu, các công cụ thống kê, công cụ trực quan hóa dữ liệu, … Thích nghi với các thay đổi liên tục trong môi trường khoa học công nghệ, các công nghệ mới trong lĩnh vực khoa học máy tính và thông tin. (Mức 4)\n\nPS4: Phát hiện, đánh giá, phân tích vấn đề, đề xuất, mô hình hóa, tối ưu hóa giải pháp cho các bài toán lí thuyết và thực tế, các hệ thống thông tin theo các xu hướng hiện đại trong Công nghệ phần mềm. Tổ chức và xử lý thông tin, phát hiện tri thức từ các kho dữ liệu bằng các phương pháp học máy, khai phá dữ liệu. (Mức 5)\n\n",
+          "locator": {
+            "end_char": 2695,
+            "evidence_path": "evidence/f1/31b55b4ee6f451a6.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 363
+          },
+          "chunk_id": "235a29b3d7972cb0f9de66bf06d58bff",
+          "declared_field": "objectives",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "review_scope": "selected_F1_sections",
+          "raw_original_verified": false,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "The emitted PK1-PK6 and PS1-PS4 outcome clauses, including software design/testing, database design/management, information processing/exploitation, machine learning and knowledge discovery."
+            ],
+            "gold_claim_coverage": "Related partial support: PK3 concerns databases and PK4/PS4 concern processing/exploiting information and discovering knowledge; this outcomes excerpt alone is not the complete training-objective statement listing organize/store/search/discover.",
+            "brief_verbatim_quotes": [
+              "PK3. Thi?t k?, t? ch?c, qu?n tr? c?c h? c? s? d? li?u",
+              "T? ch?c v? x? l? th?ng tin, ph?t hi?n tri th?c t? c?c kho d? li?u"
+            ],
+            "context_finding": "The actual DOCX word/document.xml contains the complete emitted block after normalization. The document identifies the standard Computer and Information Science program and 2023; its decision number/date fields are blank placeholders. No official promulgation/effectivity inference is made."
+          },
+          "inspected_asset_path": "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+          "inspected_asset_sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "asset_hash_matches_citation": true,
+          "binary_quote_containment_after_normalization": true,
+          "binary_inspection_method": "ZIP word/document.xml text extraction using ElementTree",
+          "binary_normalization": "NFKD, casefold, retain alphanumeric characters; used for format/diacritic comparison, not independent historical equivalence",
+          "binary_historical_byte_equality": "unknown",
+          "asset_origin": [
+            {
+              "binding": "f1:31b55b4ee6f451a6",
+              "expected_pages": null,
+              "filename": "KHMTTT CĐR.docx",
+              "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+              "git_path": "data/hus/recovery/20261031/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+              "kind": "docx",
+              "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c"
+            }
+          ]
+        },
+        {
+          "citation_id": "2",
+          "source_id": "f7f470e712738589",
+          "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+          "evidence_kind": "file",
+          "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "pdf_page": null,
+          "availability": "available",
+          "review_status": "include_markdown",
+          "quote": "## 2. Mục tiêu của chương trình đào tạo\n\nMục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin trang bị cho sinh viên những kiến thức cơ bản của ngành, đồng thời cung cấp các kiến thức chuyên sâu khai thác thế mạnh của khoa học thống kê trong khoa học thông tin. Sinh viên được trau dồi và nâng cao trình độ tiếng Anh chuyên ngành trong quá trình đào tạo, rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt. Chương trình đào tạo được thiết kế linh hoạt giúp sinh viên chủ động và phát huy sáng tạo trong quá trình học.\n\n2.2. Mục tiêu cụ thể\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin có các mục tiêu cụ thể như sau.\n\nVề kiến thức:\n\nTrang bị kiến thức chung về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống.\n\nTrang bị kiến thức phân tích, thiết kế, cài đặt và kiểm thử phần mềm và các hệ thống thông tin; các kiến thức cơ sở toán học, nguyên lí thuật toán, các lí thuyết tin học, trí tuệ nhân tạo nhằm mô hình hóa, đề xuất và tối ưu hóa giải pháp cho các bài toán quản lý và phân tích dữ liệu, xử lý thông tin.\n\nVề kĩ năng:\n\nTrang bị kĩ năng về khoa học máy tính và thông tin, kĩ năng thực hành nghề nghiệp, đảm bảo cho sinh viên có khả năng thích ứng cao với môi trường làm việc.\n\nNâng cao kĩ năng thực hành, khả năng nắm bắt, tiếp cận và ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp trong lĩnh vực Khoa học máy tính và thông tin.\n\nNâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn cho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương đương bậc 3/6 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong giao tiếp và có khả năng sử dụng tiếng Anh trong chuyên môn.\n\nRèn luyện các kĩ năng làm việc nhằm hội nhập quốc tế tốt.\n\nVề năng lực tự chủ và chịu trách nhiệm:\n\nRèn luyện khả năng làm việc độc lập và làm việc theo nhóm; tự chủ và sáng tạo trong học tập và nghiên cứu, sẵn sàng chia sẻ kiến thức, hỗ trợ cộng đồng; có đạo đức xã hội và đạo đức nghề nghiệp, chịu trách nhiệm cá nhân trước tập thể.",
+          "locator": {
+            "end_char": 3550,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 1159
+          },
+          "chunk_id": "c7ba6206d0dd89a4366c16fa118134d9",
+          "declared_field": "objectives",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "review_scope": "selected_F1_sections",
+          "raw_original_verified": false,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "The program trains interdisciplinary personnel using computer science and computational science to organize, store and search information and discover information/knowledge from data.",
+              "The emitted additional objectives about foundational/specialized knowledge, statistics, software/information systems, professional skills, English and autonomy/responsibility occur in the cited objectives section."
+            ],
+            "gold_claim_coverage": "Full support for every substantive gold objective component; the introduction differs but the information/data task list and scientific foundations agree.",
+            "brief_verbatim_quotes": [
+              "t? ch?c, l?u tr?, t?m ki?m th?ng tin, ph?t hi?n th?ng tin v? tri th?c t? d? li?u"
+            ],
+            "context_finding": "The actual DOCX word/document.xml, Part I section 2, contains the full emitted objectives block after normalization. Cover and introduction identify standard Computer and Information Science, code 7480101, Hanoi 2023. Decision number/date fields are blank placeholders. Historical byte equality and current academic applicability are not verified."
+          },
+          "inspected_asset_path": "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+          "inspected_asset_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "asset_hash_matches_citation": true,
+          "binary_quote_containment_after_normalization": true,
+          "binary_inspection_method": "ZIP word/document.xml text extraction using ElementTree",
+          "binary_normalization": "NFKD, casefold, retain alphanumeric characters; used for format/diacritic comparison, not independent historical equivalence",
+          "binary_historical_byte_equality": "unknown",
+          "asset_origin": [
+            {
+              "binding": "f1:f7f470e712738589",
+              "expected_pages": null,
+              "filename": "104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+              "git_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+              "kind": "docx",
+              "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+            }
+          ]
+        }
+      ],
+      "ai_judgment": {
+        "answer_claim_support_status": "supported",
+        "full_answer_adequacy_status": "supported",
+        "adequate_full_answer": true,
+        "alternative_citations_valid_as_full_gold_support": true,
+        "alternative_citations_valid_for_emitted_claims": true,
+        "citation_semantics": "All emitted source-specific quote blocks are supported by their respective frozen source spans and inspected binary text where available.",
+        "rationale": "Citation [2], the 2023 standard-program full DOCX, explicitly covers all gold objective concepts. Citation [1] provides relevant source-backed learning outcomes but is not sufficient alone for the complete objectives taxonomy. The request has version=null and asks for a stored-source description; the reply discloses 2023/standard, so the different unknown-edition web anchor need not be repeated to answer adequately.",
+        "missing_gold_components": [],
+        "broader_dev_question_assessment": "Adequate source-described answer, despite verbose outcomes material.",
+        "edition_scope_assessment": "A valid alternative for a version-unspecified descriptive request. Do not use this judgment for an edition-specific request or to assert equivalence to the unknown-edition web anchor.",
+        "current_academic_applicability": "not_verified",
+        "official_source_approval_granted": false,
+        "authorizes_eligibility": false
+      }
+    },
+    {
+      "question_id": "DEV-Q050",
+      "reviewer_kind": "ai",
+      "human_required": false,
+      "original_question": "Mục đích đào tạo của Khoa học máy tính và thông tin được tài liệu nguồn mô tả ra sao?",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "computer_science",
+        "question": "Mục đích đào tạo của Khoa học máy tính và thông tin được tài liệu nguồn mô tả ra sao?",
+        "version": null
+      },
+      "development_provenance": {
+        "contrast_group": null,
+        "paraphrase_group": "computer_science:01",
+        "parent_question_id": "P11-Q025",
+        "question_id": "DEV-Q050",
+        "review_status": "ai_authored_draft_not_human_accepted",
+        "tags": [
+          "natural_language",
+          "synonym"
+        ],
+        "variant": 2
+      },
+      "parent_question": {
+        "question_id": "P11-Q025",
+        "request": {
+          "allow_generated_reference": false,
+          "major": "computer_science",
+          "question": "Chương trình Khoa học máy tính và thông tin hướng tới giải quyết những loại vấn đề về thông tin và dữ liệu nào?",
+          "version": null
+        }
+      },
+      "parent_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E021"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "P11-Q025",
+        "review_status": "pending_independent_review"
+      },
+      "original_gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E021"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "DEV-Q050",
+        "review_status": "pending_independent_review"
+      },
+      "expected_evidence": [
+        {
+          "p11_evidence": {
+            "citation": {
+              "end_char": 664,
+              "evidence_path": "evidence/f1/d6370261338de29f.txt",
+              "raw_original_verified": true,
+              "review_status": "include",
+              "source_id": "d6370261338de29f",
+              "source_kind": "crawled_prose",
+              "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+              "start_char": 340,
+              "title": "Ngành Khoa học máy tính và thông tin",
+              "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+            },
+            "content_origin": "crawled_source_quote",
+            "evidence_id": "P11-E021",
+            "major": "computer_science",
+            "purpose": "positive_support",
+            "review_status": "include",
+            "source_ref": {
+              "identity": "4ab7e793d9bac7880f909865fbe1e67c",
+              "identity_field": "chunk_id",
+              "json_pointer": "/source_quote",
+              "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+            },
+            "value": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+            "version": "unknown"
+          },
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "expected_span_exact_match": true,
+          "context_finding": "Archived web objectives paragraph contains the gold statement. Its Important Information links point to both DOCX sources used in the saved reply; this establishes a documented related source path, not edition equivalence.",
+          "source_context_path": "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt"
+        }
+      ],
+      "saved_answer": {
+        "http_status": 200,
+        "status": "answered",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": null,
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] # PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO\n\n## 1. Chuẩn đầu ra về kiến thức (Program Knowledge - PK)\n\nPK1. Vận dụng các kiến thức cơ bản về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống trong nghề nghiệp và đời sống. (Mức 3)\n\nPK2. Thiết kế, cài đặt và kiểm thử các phần mềm ứng dụng, sử dụng các kiến thức về lập trình và tổ chức máy tính (hệ điều hành, kiến trúc máy tính và mạng máy tính). (Mức 6)\n\nPK3. Thiết kế, tổ chức, quản trị các hệ cơ sở dữ liệu, sử dụng các kiến thức về cơ sở toán học, lập trình và tổ chức máy tính. (Mức 5)\n\nPK4: Mô hình hoá, đề xuất, thiết kế, đánh giá và tối ưu hoá giải pháp cho các bài toán xử lí và khai thác thông tin, đặc biệt là trong lĩnh vực trí tuệ nhân tạo, vận dụng các kiến thức cơ sở toán học, tối ưu hoá, xác suất thống kê, cấu trúc dữ liệu và thuật toán, các phương pháp học máy và khai phá dữ liệu. (Mức 5)\n\nPK5: Vận dụng kiến thức cơ sở toán, tổ chức máy tính trong bảo đảm an toàn thông tin. (Mức 3)\n\nPK6: Lập kế hoạch, tổ chức, giám sát thực hiện các hoạt động xây dựng hệ thống thông tin và hoạt động nghiên cứu phát triển khoa học công nghệ, sử dụng các kiến thức về công nghệ phần mềm, phương pháp nghiên cứu khoa học và các kiến thức bổ trợ. (Mức 5)\n\n## 2. Chuẩn đầu ra về kĩ năng (Program Skill - PS)\n\nPS1: Lựa chọn phương thức giao tiếp và trình bày về lĩnh vực chuyên môn bằng các phương tiện truyền thống và hiện đại. Trình độ ngoại ngữ đạt mức tương đương bậc 3/6 theo khung năng lực ngoại ngữ 6 bậc do Bộ GD-ĐT Việt Nam ban hành. (Mức 3)\n\nPS2: Tổ chức và sắp xếp công việc hợp lý. Khởi nghiệp và tạo việc làm cho mình và cho người khác. (Mức 4)\n\nPS3: Kết hợp và sử dụng thành thạo các công cụ công nghệ thông tin như các ngôn ngữ lập trình, các ngôn ngữ truy vấn cơ sở dữ liệu, các công cụ thống kê, công cụ trực quan hóa dữ liệu, … Thích nghi với các thay đổi liên tục trong môi trường khoa học công nghệ, các công nghệ mới trong lĩnh vực khoa học máy tính và thông tin. (Mức 4)\n\nPS4: Phát hiện, đánh giá, phân tích vấn đề, đề xuất, mô hình hóa, tối ưu hóa giải pháp cho các bài toán lí thuyết và thực tế, các hệ thống thông tin theo các xu hướng hiện đại trong Công nghệ phần mềm. Tổ chức và xử lý thông tin, phát hiện tri thức từ các kho dữ liệu bằng các phương pháp học máy, khai phá dữ liệu. (Mức 5)\n\n\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: KHMTTT CĐR.docx; /hus/sources/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard\n\n[2] ## 2. Mục tiêu của chương trình đào tạo\n\nMục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin trang bị cho sinh viên những kiến thức cơ bản của ngành, đồng thời cung cấp các kiến thức chuyên sâu khai thác thế mạnh của khoa học thống kê trong khoa học thông tin. Sinh viên được trau dồi và nâng cao trình độ tiếng Anh chuyên ngành trong quá trình đào tạo, rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt. Chương trình đào tạo được thiết kế linh hoạt giúp sinh viên chủ động và phát huy sáng tạo trong quá trình học.\n\n2.2. Mục tiêu cụ thể\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin có các mục tiêu cụ thể như sau.\n\nVề kiến thức:\n\nTrang bị kiến thức chung về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống.\n\nTrang bị kiến thức phân tích, thiết kế, cài đặt và kiểm thử phần mềm và các hệ thống thông tin; các kiến thức cơ sở toán học, nguyên lí thuật toán, các lí thuyết tin học, trí tuệ nhân tạo nhằm mô hình hóa, đề xuất và tối ưu hóa giải pháp cho các bài toán quản lý và phân tích dữ liệu, xử lý thông tin.\n\nVề kĩ năng:\n\nTrang bị kĩ năng về khoa học máy tính và thông tin, kĩ năng thực hành nghề nghiệp, đảm bảo cho sinh viên có khả năng thích ứng cao với môi trường làm việc.\n\nNâng cao kĩ năng thực hành, khả năng nắm bắt, tiếp cận và ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp trong lĩnh vực Khoa học máy tính và thông tin.\n\nNâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn cho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương đương bậc 3/6 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong giao tiếp và có khả năng sử dụng tiếng Anh trong chuyên môn.\n\nRèn luyện các kĩ năng làm việc nhằm hội nhập quốc tế tốt.\n\nVề năng lực tự chủ và chịu trách nhiệm:\n\nRèn luyện khả năng làm việc độc lập và làm việc theo nhóm; tự chủ và sáng tạo trong học tập và nghiên cứu, sẵn sàng chia sẻ kiến thức, hỗ trợ cộng đồng; có đạo đức xã hội và đạo đức nghề nghiệp, chịu trách nhiệm cá nhân trước tập thể.\nNguồn [2]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+        "warnings": [
+          "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+          "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+        ],
+        "release_id": "hus-data-20261031-v3",
+        "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+      },
+      "saved_scored_case_unchanged": {
+        "actual_status": "answered",
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "expected_chunk_ids": [
+          "4ab7e793d9bac7880f909865fbe1e67c"
+        ],
+        "expected_status": "answered",
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "major": "computer_science",
+        "positive": true,
+        "question_id": "DEV-Q050",
+        "recall_at_5": 0.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "235a29b3d7972cb0f9de66bf06d58bff",
+          "c7ba6206d0dd89a4366c16fa118134d9",
+          "a434674194e7e8479130328b923bf7a3",
+          "9614d3ce7459d0b32a050a4256bdc344",
+          "52ef9da86098c6287f538c07243a193a"
+        ],
+        "unjudged_alternative_citations": 2
+      },
+      "citations": [
+        {
+          "citation_id": "1",
+          "source_id": "31b55b4ee6f451a6",
+          "label": "Tài liệu đính kèm: KHMTTT CĐR.docx",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KHMTTT%20C%C4%90R.docx",
+          "evidence_kind": "file",
+          "open_url": "/hus/sources/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "document_sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "pdf_page": null,
+          "availability": "available",
+          "review_status": "include_markdown",
+          "quote": "# PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO\n\n## 1. Chuẩn đầu ra về kiến thức (Program Knowledge - PK)\n\nPK1. Vận dụng các kiến thức cơ bản về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống trong nghề nghiệp và đời sống. (Mức 3)\n\nPK2. Thiết kế, cài đặt và kiểm thử các phần mềm ứng dụng, sử dụng các kiến thức về lập trình và tổ chức máy tính (hệ điều hành, kiến trúc máy tính và mạng máy tính). (Mức 6)\n\nPK3. Thiết kế, tổ chức, quản trị các hệ cơ sở dữ liệu, sử dụng các kiến thức về cơ sở toán học, lập trình và tổ chức máy tính. (Mức 5)\n\nPK4: Mô hình hoá, đề xuất, thiết kế, đánh giá và tối ưu hoá giải pháp cho các bài toán xử lí và khai thác thông tin, đặc biệt là trong lĩnh vực trí tuệ nhân tạo, vận dụng các kiến thức cơ sở toán học, tối ưu hoá, xác suất thống kê, cấu trúc dữ liệu và thuật toán, các phương pháp học máy và khai phá dữ liệu. (Mức 5)\n\nPK5: Vận dụng kiến thức cơ sở toán, tổ chức máy tính trong bảo đảm an toàn thông tin. (Mức 3)\n\nPK6: Lập kế hoạch, tổ chức, giám sát thực hiện các hoạt động xây dựng hệ thống thông tin và hoạt động nghiên cứu phát triển khoa học công nghệ, sử dụng các kiến thức về công nghệ phần mềm, phương pháp nghiên cứu khoa học và các kiến thức bổ trợ. (Mức 5)\n\n## 2. Chuẩn đầu ra về kĩ năng (Program Skill - PS)\n\nPS1: Lựa chọn phương thức giao tiếp và trình bày về lĩnh vực chuyên môn bằng các phương tiện truyền thống và hiện đại. Trình độ ngoại ngữ đạt mức tương đương bậc 3/6 theo khung năng lực ngoại ngữ 6 bậc do Bộ GD-ĐT Việt Nam ban hành. (Mức 3)\n\nPS2: Tổ chức và sắp xếp công việc hợp lý. Khởi nghiệp và tạo việc làm cho mình và cho người khác. (Mức 4)\n\nPS3: Kết hợp và sử dụng thành thạo các công cụ công nghệ thông tin như các ngôn ngữ lập trình, các ngôn ngữ truy vấn cơ sở dữ liệu, các công cụ thống kê, công cụ trực quan hóa dữ liệu, … Thích nghi với các thay đổi liên tục trong môi trường khoa học công nghệ, các công nghệ mới trong lĩnh vực khoa học máy tính và thông tin. (Mức 4)\n\nPS4: Phát hiện, đánh giá, phân tích vấn đề, đề xuất, mô hình hóa, tối ưu hóa giải pháp cho các bài toán lí thuyết và thực tế, các hệ thống thông tin theo các xu hướng hiện đại trong Công nghệ phần mềm. Tổ chức và xử lý thông tin, phát hiện tri thức từ các kho dữ liệu bằng các phương pháp học máy, khai phá dữ liệu. (Mức 5)\n\n",
+          "locator": {
+            "end_char": 2695,
+            "evidence_path": "evidence/f1/31b55b4ee6f451a6.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 363
+          },
+          "chunk_id": "235a29b3d7972cb0f9de66bf06d58bff",
+          "declared_field": "objectives",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "review_scope": "selected_F1_sections",
+          "raw_original_verified": false,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "The emitted PK1-PK6 and PS1-PS4 outcome clauses, including software design/testing, database design/management, information processing/exploitation, machine learning and knowledge discovery."
+            ],
+            "gold_claim_coverage": "Related partial support: PK3 concerns databases and PK4/PS4 concern processing/exploiting information and discovering knowledge; this outcomes excerpt alone is not the complete training-objective statement listing organize/store/search/discover.",
+            "brief_verbatim_quotes": [
+              "PK3. Thi?t k?, t? ch?c, qu?n tr? c?c h? c? s? d? li?u",
+              "T? ch?c v? x? l? th?ng tin, ph?t hi?n tri th?c t? c?c kho d? li?u"
+            ],
+            "context_finding": "The actual DOCX word/document.xml contains the complete emitted block after normalization. The document identifies the standard Computer and Information Science program and 2023; its decision number/date fields are blank placeholders. No official promulgation/effectivity inference is made."
+          },
+          "inspected_asset_path": "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+          "inspected_asset_sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+          "asset_hash_matches_citation": true,
+          "binary_quote_containment_after_normalization": true,
+          "binary_inspection_method": "ZIP word/document.xml text extraction using ElementTree",
+          "binary_normalization": "NFKD, casefold, retain alphanumeric characters; used for format/diacritic comparison, not independent historical equivalence",
+          "binary_historical_byte_equality": "unknown",
+          "asset_origin": [
+            {
+              "binding": "f1:31b55b4ee6f451a6",
+              "expected_pages": null,
+              "filename": "KHMTTT CĐR.docx",
+              "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+              "git_path": "data/hus/recovery/20261031/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx",
+              "kind": "docx",
+              "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c"
+            }
+          ]
+        },
+        {
+          "citation_id": "2",
+          "source_id": "f7f470e712738589",
+          "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+          "evidence_kind": "file",
+          "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "pdf_page": null,
+          "availability": "available",
+          "review_status": "include_markdown",
+          "quote": "## 2. Mục tiêu của chương trình đào tạo\n\nMục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin trang bị cho sinh viên những kiến thức cơ bản của ngành, đồng thời cung cấp các kiến thức chuyên sâu khai thác thế mạnh của khoa học thống kê trong khoa học thông tin. Sinh viên được trau dồi và nâng cao trình độ tiếng Anh chuyên ngành trong quá trình đào tạo, rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt. Chương trình đào tạo được thiết kế linh hoạt giúp sinh viên chủ động và phát huy sáng tạo trong quá trình học.\n\n2.2. Mục tiêu cụ thể\n\nChương trình đào tạo ngành Khoa học máy tính và thông tin có các mục tiêu cụ thể như sau.\n\nVề kiến thức:\n\nTrang bị kiến thức chung về khoa học xã hội, khoa học chính trị, pháp luật, văn hóa, quốc phòng-an ninh, khoa học trái đất và sự sống.\n\nTrang bị kiến thức phân tích, thiết kế, cài đặt và kiểm thử phần mềm và các hệ thống thông tin; các kiến thức cơ sở toán học, nguyên lí thuật toán, các lí thuyết tin học, trí tuệ nhân tạo nhằm mô hình hóa, đề xuất và tối ưu hóa giải pháp cho các bài toán quản lý và phân tích dữ liệu, xử lý thông tin.\n\nVề kĩ năng:\n\nTrang bị kĩ năng về khoa học máy tính và thông tin, kĩ năng thực hành nghề nghiệp, đảm bảo cho sinh viên có khả năng thích ứng cao với môi trường làm việc.\n\nNâng cao kĩ năng thực hành, khả năng nắm bắt, tiếp cận và ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp trong lĩnh vực Khoa học máy tính và thông tin.\n\nNâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn cho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương đương bậc 3/6 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong giao tiếp và có khả năng sử dụng tiếng Anh trong chuyên môn.\n\nRèn luyện các kĩ năng làm việc nhằm hội nhập quốc tế tốt.\n\nVề năng lực tự chủ và chịu trách nhiệm:\n\nRèn luyện khả năng làm việc độc lập và làm việc theo nhóm; tự chủ và sáng tạo trong học tập và nghiên cứu, sẵn sàng chia sẻ kiến thức, hỗ trợ cộng đồng; có đạo đức xã hội và đạo đức nghề nghiệp, chịu trách nhiệm cá nhân trước tập thể.",
+          "locator": {
+            "end_char": 3550,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261031-v3",
+            "start_char": 1159
+          },
+          "chunk_id": "c7ba6206d0dd89a4366c16fa118134d9",
+          "declared_field": "objectives",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "review_scope": "selected_F1_sections",
+          "raw_original_verified": false,
+          "release_span_exact_match": true,
+          "release_chunk_exact_match": true,
+          "source_findings": {
+            "support_status": "supported",
+            "supports_claims": [
+              "The program trains interdisciplinary personnel using computer science and computational science to organize, store and search information and discover information/knowledge from data.",
+              "The emitted additional objectives about foundational/specialized knowledge, statistics, software/information systems, professional skills, English and autonomy/responsibility occur in the cited objectives section."
+            ],
+            "gold_claim_coverage": "Full support for every substantive gold objective component; the introduction differs but the information/data task list and scientific foundations agree.",
+            "brief_verbatim_quotes": [
+              "t? ch?c, l?u tr?, t?m ki?m th?ng tin, ph?t hi?n th?ng tin v? tri th?c t? d? li?u"
+            ],
+            "context_finding": "The actual DOCX word/document.xml, Part I section 2, contains the full emitted objectives block after normalization. Cover and introduction identify standard Computer and Information Science, code 7480101, Hanoi 2023. Decision number/date fields are blank placeholders. Historical byte equality and current academic applicability are not verified."
+          },
+          "inspected_asset_path": "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+          "inspected_asset_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+          "asset_hash_matches_citation": true,
+          "binary_quote_containment_after_normalization": true,
+          "binary_inspection_method": "ZIP word/document.xml text extraction using ElementTree",
+          "binary_normalization": "NFKD, casefold, retain alphanumeric characters; used for format/diacritic comparison, not independent historical equivalence",
+          "binary_historical_byte_equality": "unknown",
+          "asset_origin": [
+            {
+              "binding": "f1:f7f470e712738589",
+              "expected_pages": null,
+              "filename": "104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "git_commit": "a543cf8d1fac273db41a65a14fb7ae0a05b2d965",
+              "git_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+              "kind": "docx",
+              "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+            }
+          ]
+        }
+      ],
+      "ai_judgment": {
+        "answer_claim_support_status": "supported",
+        "full_answer_adequacy_status": "supported",
+        "adequate_full_answer": true,
+        "alternative_citations_valid_as_full_gold_support": true,
+        "alternative_citations_valid_for_emitted_claims": true,
+        "citation_semantics": "All emitted source-specific quote blocks are supported by their respective frozen source spans and inspected binary text where available.",
+        "rationale": "Citation [2], the 2023 standard-program full DOCX, explicitly covers all gold objective concepts. Citation [1] provides relevant source-backed learning outcomes but is not sufficient alone for the complete objectives taxonomy. The request has version=null and asks for a stored-source description; the reply discloses 2023/standard, so the different unknown-edition web anchor need not be repeated to answer adequately.",
+        "missing_gold_components": [],
+        "broader_dev_question_assessment": "Adequate source-described answer, despite verbose outcomes material.",
+        "edition_scope_assessment": "A valid alternative for a version-unspecified descriptive request. Do not use this judgment for an edition-specific request or to assert equivalence to the unknown-edition web anchor.",
+        "current_academic_applicability": "not_verified",
+        "official_source_approval_granted": false,
+        "authorizes_eligibility": false
+      }
+    }
+  ],
+  "selected_case_summary": {
+    "reviewed_cases": 3,
+    "fully_adequate_answers": 2,
+    "partial_answers": 1,
+    "unsupported_answers": 0,
+    "uncertain_answers": 0,
+    "emitted_quote_blocks_source_supported": 6,
+    "emitted_quote_blocks_reviewed": 6,
+    "valid_alternative_full_gold_support_cases": [
+      "DEV-Q049",
+      "DEV-Q050"
+    ],
+    "partial_gold_coverage_cases": [
+      "DEV-Q006"
+    ]
+  },
+  "metric_handling": {
+    "original_metrics_preserved": true,
+    "original_anchor_metric": {
+      "numerator": 61,
+      "denominator": 64
+    },
+    "original_retrieval_recall_at_5": {
+      "numerator": 39,
+      "denominator": 40
+    },
+    "semantic_full_dataset_metric_calculated": false,
+    "reason": "Only the three pending cases and their six citations were semantically judged here. Other anchor-matched cases/citations were not all reviewed; do not infer a global semantic score from anchor integrity. Any aggregation must remain a separately labelled AI/exposed overlay.",
+    "independent_holdout_acceptance_claimed": false
+  },
+  "limits": [
+    "AI judgments are not human review or semantic-independence certification.",
+    "No check of current academic applicability or live URL availability was performed.",
+    "Recovered binary historical byte equivalence remains unknown; this review checks the actual pinned recovered assets only.",
+    "The 2023 DOCX decision-number/date placeholders do not establish official approval or current effectivity.",
+    "DEV-Q006 is broader than its inherited parent/gold; supported generic content and missing gold details are recorded separately.",
+    "Original run metrics, P11/P12/P2 baselines, gold, release, source-review status and runtime remain unchanged."
+  ]
+}

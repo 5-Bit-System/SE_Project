@@ -1,0 +1,913 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-11-03T15:31:46.512984+07:00",
+  "method": "Saved-observation analysis and deterministic classifier/gate replay on exact saved hit identities",
+  "new_rag_inference": false,
+  "new_retrieval_calls": 0,
+  "runtime_modified": false,
+  "reviewer_kind": "ai",
+  "human_review_required": false,
+  "independent_holdout_accepted": false,
+  "input_sha256": {
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/predictions.jsonl": "b47f96dd256a55221479c08663e632ace0cde4b18deac8c23438ca085df77aa1",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/scored_cases.jsonl": "be7af9b84e6b6aeabc41e1daf23500a3d9733e277836a9951358c09bb0236f77",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/input_snapshot.json": "19c889f4c8d278174fb04f8121e185d60e7c7dabd36c60df1704cd3760931ec1",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/manifest.json": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+    "app/hus/question_routing.py": "e0bf4dd6cb0275f2b8fbbf1bb6b74d46e664720865f3429bd9906d84f39d9edc",
+    "app/hus/answer_support.py": "6a372edbe1506c9cb20b490550dea9a768e62e893e80bf2e7b88dc257349f95c",
+    "app/hus/answering.py": "ef528b952d3f7314009f9d2612cab40970fc3d158bf323080c1cddb6e666eeaa",
+    "backups/h2_ai_review_finalize/diagnose_saved_failures.py": "deba9e14a41d0afc623c2838420ae826b002172d600bcdbf030727867344b5f5"
+  },
+  "failure_count": 25,
+  "failure_groups": {
+    "post_retrieval_gate_rejection": 16,
+    "name_intent_unrecognized": 4,
+    "content_misrouted_to_prerequisites": 4,
+    "strict_null_representation_mismatch": 1
+  },
+  "additional_design_risk": "Answering currently keeps at most two supported chunks. A future repair must assess whether four-group answers such as Q044 need more excerpts or scoped source aggregation; any-anchor success alone is insufficient.",
+  "cases": [
+    {
+      "question_id": "H2-Q001",
+      "question": "Khi đọc edition 2008 của ngành Toán học, tôi nên hiểu các mục tiêu đào tạo được nêu trong văn bản như thế nào?",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "objectives"
+      ],
+      "requested_text": "khi doc edition 2008 cua nganh toan hoc toi nen hieu cac muc tieu dao tao duoc neu trong van ban nhu the nao",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2008",
+        "edition",
+        "hieu"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "ba1b006436207d86df58106033a3edf4",
+          "unsupported_query_tokens": [
+            "2008",
+            "edition",
+            "hieu"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q002",
+      "question": "Riêng đoạn vị trí việc làm trong edition 2015 ngành Toán học, xin chép các nhóm công việc tác giả đã liệt kê và giữ rõ giới hạn nguồn.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "careers"
+      ],
+      "requested_text": "rieng doan vi tri viec lam trong edition 2015 nganh toan hoc xin chep cac nhom cong viec tac gia da liet ke va giu ro gioi han nguon",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2015",
+        "chep",
+        "doan",
+        "edition",
+        "giu",
+        "han",
+        "tac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "576a32614c1a16f7799e722bd1bd1313",
+          "unsupported_query_tokens": [
+            "2015",
+            "chep",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac"
+          ]
+        },
+        {
+          "chunk_id": "ad667609e5801d74c146610cb5ffcf00",
+          "unsupported_query_tokens": [
+            "2015",
+            "chep",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q003",
+      "question": "Tôi cần phần giới thiệu nền tảng về Toán học từ bản mô tả có edition chưa xác định; hãy trích thông tin có trong bản lưu, không suy sang quy định đang áp dụng.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "introduction"
+      ],
+      "requested_text": "toi can phan gioi thieu nen tang ve toan hoc tu ban mo ta co edition chua xac dinh hay trich thong tin co trong ban luu khong suy sang quy dinh dang ap dung",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "ap",
+        "dinh",
+        "edition",
+        "quy",
+        "sang",
+        "suy",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "e7864b281332873d47213bf53a1bf0f7",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q005",
+      "question": "Trong danh mục Toán học mang quyết định QD3565-2023, xin trả lại nguyên tên của mã MAT2300; không cần mô tả do AI viết.",
+      "observed_failure": "lookup_or_intent_abstention",
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        null,
+        null
+      ],
+      "requested_text": "trong danh muc toan hoc mang quyet dinh qd3565 2023 xin tra lai nguyen ten cua ma mat2300 khong can mo ta do ai viet",
+      "root_cause": "name_lookup_phrase_not_in_intent_rules",
+      "unrecognized_name_request": "nguyen ten cua ma",
+      "notes": "The scoped course code is present, but name intent patterns omit this phrasing. No structured lookup runs."
+    },
+    {
+      "question_id": "H2-Q008",
+      "question": "Tôi đã bật quyền tham khảo AI. Với MAT2303 của Toán học, phần gợi ý đánh giá mô tả những hoạt động nào? Chỉ coi đây là đề xuất, không phải quy định thi.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f3",
+        "field": "suggested_assessment",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "requested_text": "toi da bat quyen tham khao ai voi mat2303 cua toan hoc phan goi y danh gia mo ta nhung hoat dong nao chi coi day la de xuat khong phai quy dinh thi",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "coi",
+        "dinh",
+        "hoat",
+        "phai",
+        "quy"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "4c3ad968218e2d0dfcd1d5f7ebd8d7e1",
+          "unsupported_query_tokens": [
+            "coi",
+            "hoat"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q009",
+      "question": "Để hình dung trước môn MAT2304 (Toán học), hãy trình bày các chủ đề trong bản tham khảo AI khi quyền AI đã bật, kèm cảnh báo nguồn gốc.",
+      "observed_failure": "wrong_dataset",
+      "saved_route": {
+        "dataset": "f2",
+        "field": "prerequisites",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f2",
+        "prerequisites"
+      ],
+      "requested_text": "de hinh dung truoc mon mat2304 toan hoc hay trinh bay cac chu de trong ban tham khao ai khi quyen ai da bat kem canh bao nguon goc",
+      "root_cause": "unscoped_prerequisite_phrase_precedes_content_intent",
+      "trigger_phrase": "truoc mon",
+      "notes": "The request says “hình dung trước môn … các chủ đề … tham khảo AI”. The prereq rule matches “trước môn” before the content rule. The resulting valid F2 citation does not answer the requested F3 content."
+    },
+    {
+      "question_id": "H2-Q015",
+      "question": "Khi đọc edition 2015 của ngành Toán tin, tôi nên hiểu các mục tiêu đào tạo được nêu trong văn bản như thế nào?",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "objectives"
+      ],
+      "requested_text": "khi doc edition 2015 cua nganh toan tin toi nen hieu cac muc tieu dao tao duoc neu trong van ban nhu the nao",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2015",
+        "edition",
+        "hieu"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "1648ebdddb5ae44b8b34dc340deff05a",
+          "unsupported_query_tokens": [
+            "2015",
+            "edition",
+            "hieu"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q016",
+      "question": "Riêng đoạn vị trí việc làm trong edition 2015 ngành Toán tin, xin chép các nhóm công việc tác giả đã liệt kê và giữ rõ giới hạn nguồn.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "careers"
+      ],
+      "requested_text": "rieng doan vi tri viec lam trong edition 2015 nganh toan tin xin chep cac nhom cong viec tac gia da liet ke va giu ro gioi han nguon",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2015",
+        "chep",
+        "doan",
+        "edition",
+        "giu",
+        "han",
+        "tac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "8a8318039dbb5d75c52bbdc90ad37955",
+          "unsupported_query_tokens": [
+            "2015",
+            "chep",
+            "doan",
+            "edition",
+            "giu",
+            "han"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q017",
+      "question": "Tôi cần phần giới thiệu nền tảng về Toán tin từ bản mô tả có edition chưa xác định; hãy trích thông tin có trong bản lưu, không suy sang quy định đang áp dụng.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "introduction"
+      ],
+      "requested_text": "toi can phan gioi thieu nen tang ve toan tin tu ban mo ta co edition chua xac dinh hay trich thong tin co trong ban luu khong suy sang quy dinh dang ap dung",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "ap",
+        "dinh",
+        "edition",
+        "quy",
+        "sang",
+        "suy",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "44d598308d53629fef5b3c8a7ec61495",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q019",
+      "question": "Trong danh mục Toán tin mang quyết định QD3567-2023, xin trả lại nguyên tên của mã MAT2300; không cần mô tả do AI viết.",
+      "observed_failure": "lookup_or_intent_abstention",
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        null,
+        null
+      ],
+      "requested_text": "trong danh muc toan tin mang quyet dinh qd3567 2023 xin tra lai nguyen ten cua ma mat2300 khong can mo ta do ai viet",
+      "root_cause": "name_lookup_phrase_not_in_intent_rules",
+      "unrecognized_name_request": "nguyen ten cua ma",
+      "notes": "The scoped course code is present, but name intent patterns omit this phrasing. No structured lookup runs."
+    },
+    {
+      "question_id": "H2-Q022",
+      "question": "Tôi đã bật quyền tham khảo AI. Với MAT2303 của Toán tin, phần gợi ý đánh giá mô tả những hoạt động nào? Chỉ coi đây là đề xuất, không phải quy định thi.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f3",
+        "field": "suggested_assessment",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "requested_text": "toi da bat quyen tham khao ai voi mat2303 cua toan tin phan goi y danh gia mo ta nhung hoat dong nao chi coi day la de xuat khong phai quy dinh thi",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "coi",
+        "dinh",
+        "hoat",
+        "phai",
+        "quy"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "edae4b7813b214e5209c4408e7c5647c",
+          "unsupported_query_tokens": [
+            "coi",
+            "hoat"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q023",
+      "question": "Để hình dung trước môn MAT2304 (Toán tin), hãy trình bày các chủ đề trong bản tham khảo AI khi quyền AI đã bật, kèm cảnh báo nguồn gốc.",
+      "observed_failure": "wrong_dataset",
+      "saved_route": {
+        "dataset": "f2",
+        "field": "prerequisites",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f2",
+        "prerequisites"
+      ],
+      "requested_text": "de hinh dung truoc mon mat2304 toan tin hay trinh bay cac chu de trong ban tham khao ai khi quyen ai da bat kem canh bao nguon goc",
+      "root_cause": "unscoped_prerequisite_phrase_precedes_content_intent",
+      "trigger_phrase": "truoc mon",
+      "notes": "The request says “hình dung trước môn … các chủ đề … tham khảo AI”. The prereq rule matches “trước môn” before the content rule. The resulting valid F2 citation does not answer the requested F3 content."
+    },
+    {
+      "question_id": "H2-Q029",
+      "question": "Khi đọc edition 2015 của ngành KHMTTT, tôi nên hiểu các mục tiêu đào tạo được nêu trong văn bản như thế nào?",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "objectives"
+      ],
+      "requested_text": "khi doc edition 2015 cua nganh khmttt toi nen hieu cac muc tieu dao tao duoc neu trong van ban nhu the nao",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2015",
+        "edition",
+        "hieu"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "9614d3ce7459d0b32a050a4256bdc344",
+          "unsupported_query_tokens": [
+            "2015",
+            "edition"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q030",
+      "question": "Riêng đoạn vị trí việc làm trong edition 2015 ngành KHMTTT, xin chép các nhóm công việc tác giả đã liệt kê và giữ rõ giới hạn nguồn.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "careers"
+      ],
+      "requested_text": "rieng doan vi tri viec lam trong edition 2015 nganh khmttt xin chep cac nhom cong viec tac gia da liet ke va giu ro gioi han nguon",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "2015",
+        "chep",
+        "doan",
+        "edition",
+        "giu",
+        "han",
+        "tac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+          "unsupported_query_tokens": [
+            "2015",
+            "chep",
+            "doan",
+            "edition",
+            "giu",
+            "han"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q031",
+      "question": "Tôi cần phần giới thiệu nền tảng về KHMTTT từ bản mô tả có edition chưa xác định; hãy trích thông tin có trong bản lưu, không suy sang quy định đang áp dụng.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "introduction"
+      ],
+      "requested_text": "toi can phan gioi thieu nen tang ve khmttt tu ban mo ta co edition chua xac dinh hay trich thong tin co trong ban luu khong suy sang quy dinh dang ap dung",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "ap",
+        "dinh",
+        "edition",
+        "quy",
+        "sang",
+        "suy",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "f526a537e9132345485d15b065a5697b",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "f77eafbc905ff1efb3ab3f841b00fae3",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q033",
+      "question": "Trong danh mục KHMTTT mang quyết định QD3568-2023, xin trả lại nguyên tên của mã MAT1205E; không cần mô tả do AI viết.",
+      "observed_failure": "lookup_or_intent_abstention",
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        null,
+        null
+      ],
+      "requested_text": "trong danh muc khmttt mang quyet dinh qd3568 2023 xin tra lai nguyen ten cua ma mat1205e khong can mo ta do ai viet",
+      "root_cause": "name_lookup_phrase_not_in_intent_rules",
+      "unrecognized_name_request": "nguyen ten cua ma",
+      "notes": "The scoped course code is present, but name intent patterns omit this phrasing. No structured lookup runs."
+    },
+    {
+      "question_id": "H2-Q036",
+      "question": "Tôi đã bật quyền tham khảo AI. Với MAT1208 của KHMTTT, phần gợi ý đánh giá mô tả những hoạt động nào? Chỉ coi đây là đề xuất, không phải quy định thi.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f3",
+        "field": "suggested_assessment",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "requested_text": "toi da bat quyen tham khao ai voi mat1208 cua khmttt phan goi y danh gia mo ta nhung hoat dong nao chi coi day la de xuat khong phai quy dinh thi",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "coi",
+        "dinh",
+        "hoat",
+        "phai",
+        "quy"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "9b71e4de0f4f928fda21f23f8235c6b7",
+          "unsupported_query_tokens": [
+            "coi",
+            "hoat"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q037",
+      "question": "Để hình dung trước môn MAT2034 (KHMTTT), hãy trình bày các chủ đề trong bản tham khảo AI khi quyền AI đã bật, kèm cảnh báo nguồn gốc.",
+      "observed_failure": "wrong_dataset",
+      "saved_route": {
+        "dataset": "f2",
+        "field": "prerequisites",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f2",
+        "prerequisites"
+      ],
+      "requested_text": "de hinh dung truoc mon mat2034 khmttt hay trinh bay cac chu de trong ban tham khao ai khi quyen ai da bat kem canh bao nguon goc",
+      "root_cause": "unscoped_prerequisite_phrase_precedes_content_intent",
+      "trigger_phrase": "truoc mon",
+      "notes": "The request says “hình dung trước môn … các chủ đề … tham khảo AI”. The prereq rule matches “trước môn” before the content rule. The resulting valid F2 citation does not answer the requested F3 content."
+    },
+    {
+      "question_id": "H2-Q043",
+      "question": "Khi đọc bản mô tả có edition chưa xác định của ngành Khoa học dữ liệu, tôi nên hiểu các mục tiêu đào tạo được nêu trong văn bản như thế nào?",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "objectives"
+      ],
+      "requested_text": "khi doc ban mo ta co edition chua xac dinh cua nganh khoa hoc du lieu toi nen hieu cac muc tieu dao tao duoc neu trong van ban nhu the nao",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "dinh",
+        "edition",
+        "hieu",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "2b8dd1b0bf1f5a8bd676653c1f5d5132",
+          "unsupported_query_tokens": [
+            "dinh",
+            "edition",
+            "hieu",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "ccf316f46ad984b080e0bceceff9fa44",
+          "unsupported_query_tokens": [
+            "dinh",
+            "edition",
+            "hieu",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q044",
+      "question": "Riêng đoạn vị trí việc làm trong bản mô tả có edition chưa xác định ngành Khoa học dữ liệu, xin chép các nhóm công việc tác giả đã liệt kê và giữ rõ giới hạn nguồn.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "careers"
+      ],
+      "requested_text": "rieng doan vi tri viec lam trong ban mo ta co edition chua xac dinh nganh khoa hoc du lieu xin chep cac nhom cong viec tac gia da liet ke va giu ro gioi han nguon",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "chep",
+        "dinh",
+        "doan",
+        "edition",
+        "giu",
+        "han",
+        "tac",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+          "unsupported_query_tokens": [
+            "chep",
+            "dinh",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+          "unsupported_query_tokens": [
+            "chep",
+            "dinh",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "940a3740794040de84617af7e9aa78fd",
+          "unsupported_query_tokens": [
+            "chep",
+            "dinh",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+          "unsupported_query_tokens": [
+            "chep",
+            "dinh",
+            "doan",
+            "edition",
+            "giu",
+            "han",
+            "tac",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q045",
+      "question": "Tôi cần phần giới thiệu nền tảng về Khoa học dữ liệu từ bản mô tả có edition chưa xác định; hãy trích thông tin có trong bản lưu, không suy sang quy định đang áp dụng.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f1",
+        "introduction"
+      ],
+      "requested_text": "toi can phan gioi thieu nen tang ve khoa hoc du lieu tu ban mo ta co edition chua xac dinh hay trich thong tin co trong ban luu khong suy sang quy dinh dang ap dung",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "ap",
+        "dinh",
+        "edition",
+        "quy",
+        "sang",
+        "suy",
+        "xac"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "a02e3fe443e340a42147fca61503d628",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        },
+        {
+          "chunk_id": "7170857aebdc027daccc37102dd937bd",
+          "unsupported_query_tokens": [
+            "ap",
+            "dinh",
+            "edition",
+            "quy",
+            "sang",
+            "suy",
+            "xac"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q047",
+      "question": "Trong danh mục Khoa học dữ liệu mang quyết định QD3569-2023, xin trả lại nguyên tên của mã MAT2323; không cần mô tả do AI viết.",
+      "observed_failure": "lookup_or_intent_abstention",
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        null,
+        null
+      ],
+      "requested_text": "trong danh muc khoa hoc du lieu mang quyet dinh qd3569 2023 xin tra lai nguyen ten cua ma mat2323 khong can mo ta do ai viet",
+      "root_cause": "name_lookup_phrase_not_in_intent_rules",
+      "unrecognized_name_request": "nguyen ten cua ma",
+      "notes": "The scoped course code is present, but name intent patterns omit this phrasing. No structured lookup runs."
+    },
+    {
+      "question_id": "H2-Q048",
+      "question": "Tôi đang kiểm dòng điều kiện đầu vào cho MAT2400 (Khoa học dữ liệu, QD3569-2023). Dữ liệu nguồn ghi chuỗi mã học trước ra sao? Giữ nguyên chỗ chưa rõ.",
+      "observed_failure": "fact_mismatch",
+      "saved_route": {
+        "dataset": "f2",
+        "field": "prerequisites",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f2",
+        "prerequisites"
+      ],
+      "requested_text": "toi dang kiem dong dieu kien dau vao cho mat2400 khoa hoc du lieu qd3569 2023 du lieu nguon ghi chuoi ma hoc truoc ra sao giu nguyen cho chua ro",
+      "root_cause": "raw_variants_vs_source_row_null_representation",
+      "expected_facts": {
+        "prerequisites.raw_variants": []
+      },
+      "actual_facts": {
+        "catalog_review": {
+          "basis": null,
+          "institutional_certification": false,
+          "status": "draft_unverified"
+        },
+        "course_code": "MAT2400",
+        "course_name": "Đại số tuyến tính",
+        "field": "prerequisites",
+        "has_prerequisite_conflict": false,
+        "prerequisite_groups": [],
+        "review_status": "draft_unverified",
+        "unresolved_prerequisites": [],
+        "value": [
+          null
+        ]
+      },
+      "actual_reply": "MAT2400 — Đại số tuyến tính (QD3569-2023)\nĐiều kiện tiên quyết theo dòng nguồn: [1] Dòng nguồn không ghi điều kiện tiên quyết\n\nTrạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.\n\nNguồn [1]: 105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf; trang PDF 10; /hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+      "notes": "Strict metric compares [] with [null]. The reply truthfully states an empty source cell; completeness against the explicit unknown safeguard is judged separately by AI."
+    },
+    {
+      "question_id": "H2-Q050",
+      "question": "Tôi đã bật quyền tham khảo AI. Với MAT2407 của Khoa học dữ liệu, phần gợi ý đánh giá mô tả những hoạt động nào? Chỉ coi đây là đề xuất, không phải quy định thi.",
+      "observed_failure": "post_retrieval_abstention",
+      "saved_route": {
+        "dataset": "f3",
+        "field": "suggested_assessment",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "requested_text": "toi da bat quyen tham khao ai voi mat2407 cua khoa hoc du lieu phan goi y danh gia mo ta nhung hoat dong nao chi coi day la de xuat khong phai quy dinh thi",
+      "root_cause": "all_remaining_query_tokens_required_in_each_single_body",
+      "gate_refusal_reproduced_without_search": true,
+      "query_specific_tokens": [
+        "coi",
+        "dinh",
+        "hoat",
+        "phai",
+        "quy"
+      ],
+      "saved_hits": [
+        {
+          "chunk_id": "829ddc80378efbacf2b1c4f73d2e0d22",
+          "unsupported_query_tokens": [
+            "coi",
+            "hoat"
+          ]
+        }
+      ],
+      "notes": "Request grammar and metadata-only scope terms remain mandatory literal body terms. All required anchors were in the saved top5. No new search was forced."
+    },
+    {
+      "question_id": "H2-Q051",
+      "question": "Để hình dung trước môn MAT2501 (Khoa học dữ liệu), hãy trình bày các chủ đề trong bản tham khảo AI khi quyền AI đã bật, kèm cảnh báo nguồn gốc.",
+      "observed_failure": "wrong_dataset",
+      "saved_route": {
+        "dataset": "f2",
+        "field": "prerequisites",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "recomputed_route": [
+        "f2",
+        "prerequisites"
+      ],
+      "requested_text": "de hinh dung truoc mon mat2501 khoa hoc du lieu hay trinh bay cac chu de trong ban tham khao ai khi quyen ai da bat kem canh bao nguon goc",
+      "root_cause": "unscoped_prerequisite_phrase_precedes_content_intent",
+      "trigger_phrase": "truoc mon",
+      "notes": "The request says “hình dung trước môn … các chủ đề … tham khảo AI”. The prereq rule matches “trước môn” before the content rule. The resulting valid F2 citation does not answer the requested F3 content."
+    }
+  ],
+  "next_steps": [
+    "Copy exposed failure cases into a new dev version before any runtime tuning; retain this run and pack unchanged.",
+    "Add meaningful regressions for name/code requests, figurative before-course phrasing and source-only explanatory clauses.",
+    "Separate request grammar and metadata constraints from evidence-bearing claims without dropping unsupported factual qualifications.",
+    "Define empty prerequisite representation and scoring explicitly; preserve unknown versus no prerequisite.",
+    "Recheck complete multi-group source coverage, major/edition/variant, review/AI opt-in and rejection of unsupported assertions."
+  ]
+}
