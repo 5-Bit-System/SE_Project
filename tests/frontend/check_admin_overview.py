@@ -23,8 +23,7 @@ def main():
             page.locator('#auth-login-email').fill('admin')
             page.locator('#auth-login-password').fill('admin123')
             page.locator('#auth-login-form button[type=submit]').click()
-            page.locator('#system-admin-open').wait_for(state='visible')
-            page.locator('#system-admin-open').click()
+            page.locator('#system-admin').wait_for(state='visible')
             page.locator('#admin-panel-overview').wait_for(state='visible')
             page.locator('#admin-health-kpi-grid .admin-health-kpi-card').first.wait_for()
 

@@ -73,8 +73,23 @@
         </div>
       </div>
 
+      <div class="admin-header">
+        <button type="button" id="admin-sidebar-toggle" class="ad-menu-toggle" aria-label="Mở điều hướng quản trị" aria-expanded="false" aria-controls="admin-sidebar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="admin-header-title-group">
+          <div class="admin-title-row">
+            <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader" tabindex="-1">Bảng điều khiển quản trị</h2>
+            <span class="admin-status-pill">
+              <span class="admin-status-dot" aria-hidden="true"></span>
+              <span id="ad-readiness-label">Đang kiểm tra hệ thống</span>
+            </span>
+          </div>
+          <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
+        </div>
+      </div>
       <div class="header-right-actions">
-        <div id="system-account" hidden><span id="system-account-name"></span><div class="system-account-actions"><button type="button" id="system-home" data-auth-copy="workspace"></button><button type="button" id="system-password" data-auth-copy="changePassword"></button><button type="button" id="system-admin-open" hidden data-auth-copy="admin"></button><button type="button" id="system-logout" data-auth-copy="logout"></button></div></div>
+        <button type="button" id="system-menu-toggle" class="system-menu-toggle" popovertarget="system-header-controls" aria-controls="system-header-controls" aria-expanded="false" aria-label="Menu tài khoản" hidden><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+        <div id="system-header-controls" class="system-header-controls">
+        <div id="system-account" hidden><span id="system-account-name"></span><div class="system-account-actions"><button type="button" id="system-home" data-auth-copy="workspace"></button><button type="button" id="system-logout" data-auth-copy="logout"></button></div></div>
         <div class="appearance-control language-control">
           <span id="language-label" class="selector-label">Ngôn ngữ</span>
           <div class="theme-switcher" role="group" aria-labelledby="language-label">
@@ -88,6 +103,7 @@
             <button type="button" data-theme-choice="light" aria-label="Giao diện sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
             <button type="button" data-theme-choice="dark" aria-label="Giao diện tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -234,20 +250,6 @@
       </nav>
       <div class="ad-sidebar-footer"><span class="ad-sidebar-footer-icon" aria-hidden="true">QT</span><div><strong data-ad-copy="administrator">Quản trị viên</strong><small data-ad-copy="adminOnly">Không gian quản trị hệ thống</small></div></div>
     </aside>
-    <header class="admin-header">
-      <button type="button" id="admin-sidebar-toggle" class="ad-menu-toggle" aria-label="Mở điều hướng quản trị" aria-expanded="false" aria-controls="admin-sidebar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
-      <div class="admin-header-title-group">
-        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
-        <div class="admin-title-row">
-          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader" tabindex="-1">Bảng điều khiển quản trị</h2>
-          <span class="admin-status-pill">
-            <span class="admin-status-dot" aria-hidden="true"></span>
-            <span id="ad-readiness-label">Đang kiểm tra hệ thống</span>
-          </span>
-        </div>
-        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
-      </div>
-    </header>
 
 
 

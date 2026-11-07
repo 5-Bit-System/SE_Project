@@ -10,6 +10,26 @@
   let account = null, csrfToken = '', mode = 'student', busy = false, epoch = 0, noticeKey = '', noticeError = false, adminPage = 1, adminTotal = 0, adminRows = [];
   let adminCurrentTab = 'overview';
   const adminTabs = ['overview', 'curriculum', 'crawler', 'users', 'audit', 'announcements'];
+  Object.assign(copy.vi, {accountMenu: 'Menu tài khoản'});
+  Object.assign(copy.en, {accountMenu: 'Account menu'});
+  const headerControls = $('system-header-controls');
+  const menuToggle = $('system-menu-toggle');
+  function positionAccountMenu() {
+    const button = menuToggle.getBoundingClientRect();
+    const top = Math.min(button.bottom + 10, innerHeight - 80);
+    headerControls.style.top = `${top}px`;
+    headerControls.style.right = `${Math.max(16, innerWidth - button.right)}px`;
+    headerControls.style.maxHeight = `${innerHeight - top - 16}px`;
+  }
+  headerControls.addEventListener('beforetoggle', event => {
+    if (event.newState === 'open') positionAccountMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (headerControls.matches(':popover-open')) positionAccountMenu();
+  });
+  headerControls.addEventListener('toggle', event => {
+    menuToggle.setAttribute('aria-expanded', String(event.newState === 'open'));
+  });
 
   Object.assign(copy.vi, {
     restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
@@ -162,8 +182,18 @@
     $('system-session-loading').setAttribute('aria-busy', String(restoringSession));
     document.body.dataset.authState = restoringSession ? 'loading' : mode === 'admin' && account ? 'admin' : mode === 'workspace' && account ? 'workspace' : 'auth';
     $('system-account').hidden = !account; $('system-account-name').textContent = account ? (account.vnu_subject || account.email || account.display_name) + ' · ' + t(account.role === 'admin' ? 'adminRole':'studentRole') : '';
-    $('system-admin-open').hidden = !account || account.role !== 'admin' || account.must_change_password;
-    $('system-password').hidden = !account || account.role !== 'admin' || account.must_change_password;
+    const adminMenu = account?.role === 'admin' && mode === 'admin';
+    menuToggle.hidden = !adminMenu;
+    menuToggle.setAttribute('aria-label', t('accountMenu'));
+    headerControls.setAttribute('aria-label', t('accountMenu'));
+    if (adminMenu) {
+      headerControls.setAttribute('popover', 'auto');
+    } else {
+      if (headerControls.matches(':popover-open')) headerControls.hidePopover();
+      headerControls.removeAttribute('popover');
+      headerControls.removeAttribute('style');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
     $('system-home').hidden = account?.role !== 'student' || account.must_change_password;
     $('system-admin').hidden = mode !== 'admin' || !account || account.role !== 'admin';
     for (const key of ['student','login','password']) $(`auth-${key}-form`).hidden = mode !== key;
@@ -207,7 +237,6 @@
   }); };
   $('system-logout').onclick = async () => { if(busy) return; const pending = request('/auth/logout','POST'); expire(); lock(true); try { await pending; } catch(error) { notice(error.message,true); } finally { lock(false); } };
   $('system-home').onclick = () => { if (account?.role !== 'student') return; mode='workspace'; render(); };
-  $('system-password').onclick = () => { mode='password'; notice(); render(); };
   let lastActionTarget = null;
   let detailRequestId = 0, detailReturnFocus = null;
   const detailDialog = $('admin-user-detail-modal');
@@ -324,7 +353,6 @@
     $('admin-total').textContent=`${adminTotal} · ${adminPage}`; $('admin-prev').disabled=adminPage<=1;$('admin-next').disabled=adminPage*25>=adminTotal;
     if (elementToFocus) elementToFocus.focus();
   }
-  $('system-admin-open').onclick=()=>{mode='admin';adminPage=1;render();switchAdminTab('overview');};
   $('admin-search-form').onsubmit=event=>{event.preventDefault();adminPage=1;loadAdmin();};
   $('admin-prev').onclick=()=>{adminPage--;loadAdmin();};
   $('admin-next').onclick=()=>{adminPage++;loadAdmin();};

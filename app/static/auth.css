@@ -36,6 +36,9 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
 #system-account { max-width: 340px; font-size: 11px; text-align: right; overflow-wrap: anywhere; }
 .system-account-actions { display: flex; justify-content: end; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
 .system-account-actions button { font-size: 10px; padding: 5px 7px; }
+.system-header-controls { display: flex; align-items: inherit; gap: inherit; flex-wrap: inherit; max-width: 100%; }
+body:not([data-auth-state="admin"]) .app-header .admin-header { display: none; }
+#system-header-controls[popover]:not(:popover-open) { display: none; }
 #system-admin { padding-block: 28px 56px; }
 #system-admin .table-scroll { overflow-x: auto; max-width: 100%; }
 #admin-search-form { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
@@ -827,6 +830,14 @@ body[data-auth-state="workspace"] #system-auth, body[data-auth-state="admin"] #s
   border-radius: 3px;
 }
 #admin-user-detail-modal { max-height: calc(100dvh - 32px); overflow-y: auto; }
+#admin-user-detail-modal .admin-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: -24px -28px 0;
+  padding: 24px 28px 12px;
+  background: var(--surface-card);
+}
 #admin-user-detail-state:empty { display: none; }
 .admin-account-profile {
   display: grid;

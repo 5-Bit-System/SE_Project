@@ -18,8 +18,7 @@ def main():
             page.locator('#auth-login-email').fill('admin')
             page.locator('#auth-login-password').fill('admin123')
             page.locator('#auth-login-form button[type=submit]').click()
-            expect(page.locator('#system-admin-open')).to_be_visible()
-            page.locator('#system-admin-open').click()
+            expect(page.locator('#system-admin')).to_be_visible()
             template = page.request.get(BASE_URL + '/admin/crawler/documents?limit=1').json()['documents'][0]
             pending = []
             page.route('**/admin/crawler/documents?*', lambda route: pending.append(route))
@@ -44,6 +43,7 @@ def main():
             page.locator('#admin-overview-refresh').click()
             page.wait_for_timeout(150)
             assert held
+            page.locator('#system-menu-toggle').click()
             page.locator('#system-logout').click()
             expect(page.locator('#system-admin')).to_be_hidden()
             held[0].fulfill(status=200, content_type='application/json', body=json.dumps({

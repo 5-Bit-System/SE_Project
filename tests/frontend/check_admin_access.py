@@ -69,6 +69,9 @@ def main():
 
             def admin_only():
                 expect(page.locator('#system-admin')).to_be_visible()
+                expect(page.locator('#system-menu-toggle')).to_be_visible()
+                assert page.locator('#system-admin-open, #system-password').count() == 0
+                expect(page.locator('#system-header-controls')).to_be_hidden()
                 expect(page.locator('#system-home')).to_be_hidden()
                 assert page.locator('#admin-back').count() == 0
                 expect(page.locator('.main-content')).to_be_hidden()
@@ -84,7 +87,10 @@ def main():
             assert not any(role == 'admin' and path.startswith('/me/') for role, path in requests)
 
             for language in ('en', 'vi'):
+                page.locator('#system-menu-toggle').click()
                 page.locator(f'[data-language-choice="{language}"]').click()
+                expect(page.locator('#system-header-controls')).to_be_visible()
+                page.keyboard.press('Escape')
                 admin_only()
             page.set_viewport_size({'width': 390, 'height': 844})
             admin_only()
@@ -98,14 +104,13 @@ def main():
                 page.locator('#auth-password-form button[type=submit]').click()
                 admin_only()
 
-            page.locator('#system-password').click()
-            change_password()
             admin['account']['must_change_password'] = True
             page.reload()
             change_password()
             assert not any(role == 'admin' and path.startswith('/me/')
                            and path != '/me/password' for role, path in requests)
 
+            page.locator('#system-menu-toggle').click()
             page.locator('#system-logout').click()
             expect(page.locator('#auth-student-form')).to_be_visible()
             page.locator('#auth-vnu-username').fill('synthetic-only')
@@ -118,12 +123,12 @@ def main():
             expect(page.locator('#portal-profile')).to_be_visible()
             expect(page.locator('#system-home')).to_be_visible()
             expect(page.locator('#system-admin')).to_be_hidden()
-            expect(page.locator('#system-admin-open')).to_be_hidden()
+            expect(page.locator('#system-menu-toggle')).to_be_hidden()
             expect(page.locator('#portal-identity')).to_have_text('synthetic-only')
             assert not errors, errors
         finally:
             browser.close()
-    print('Admin-only UI: login/reload/routes, no student data/navigation, password rotation, VI/EN/mobile; logout -> student login preserved')
+    print('Admin UI: account menu, VI/EN/mobile, required password rotation and logout -> student login preserved')
 
 
 if __name__ == '__main__':

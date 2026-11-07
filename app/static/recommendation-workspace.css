@@ -34,7 +34,7 @@
 .rec-transcript:empty { display: none; }
 .rec-answer { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; border: 0; border-radius: 11px 11px 3px 11px; background: var(--selected-surface); padding: 12px 15px; margin-left: auto; max-width: 94%; text-align: left; cursor: pointer; color: var(--text-main); }
 .rec-answer > span:first-child { color: var(--text-muted); font-size: 11px; }
-.rec-answer strong { font-size: 12px; font-weight: 600; }
+.rec-answer strong { min-width: 0; overflow-wrap: anywhere; font-size: 12px; font-weight: 600; }
 .rec-free-goal strong { line-height: 1.9; overflow-wrap: anywhere; }
 .rec-answer .rec-answer-edit { font-size: 10px; margin-left: auto; color: var(--accent-primary); }
 .rec-question { padding: 26px 30px 30px; min-height: 340px; }
@@ -79,12 +79,17 @@
 .rec-budget label, .rec-budget > span { color: var(--text-muted); font-size: 12px; }
 .rec-budget input[type=number] { width: 68px; min-height: 43px; background: var(--bg-input); border: 1px solid var(--border-medium); border-radius: 9px; padding: 8px; font-size: 20px; font-weight: 600; text-align: center; }
 .rec-budget input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent-primary); height: 24px; }
+.rec-budget-bounds { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 12px; margin-top: -6px; font-size: 11px; color: var(--text-muted); }
 .rec-load-light input[type=range] { accent-color: var(--rec-mint); }
 .rec-load-heavy input[type=range] { accent-color: var(--accent-amber); }
 .rec-deadline-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
 .rec-deadline-form label, .rec-save-form label, .rec-compare-controls label { display: grid; gap: 8px; font-size: 12px; color: var(--text-muted); }
 .rec-deadline-form select, .rec-save-form select, .rec-save-form input, .rec-compare-controls select { width: 100%; min-height: 45px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main); padding: 10px 12px; border-radius: 9px; font-size: 13px; }
 .rec-deadline-form > button { grid-column: 1 / -1; margin-top: 6px; }
+.rec-custom-direction-form { display: grid; gap: 16px; margin-top: 22px; }
+.rec-custom-direction-form label { display: grid; gap: 8px; font-size: 12px; color: var(--text-muted); }
+.rec-custom-direction-form :is(input, select) { width: 100%; min-width: 0; min-height: 45px; border: 1px solid var(--border-medium); background: var(--bg-input); color: var(--text-main); padding: 11px 12px; border-radius: 10px; font-size: 13px; }
+.rec-custom-direction-form > button { justify-self: start; }
 .rec-composer { margin: 0 26px; padding: 12px 12px 12px 15px; border: 1px solid var(--border-medium); border-radius: 14px; display: flex; align-items: flex-end; gap: 12px; background: var(--bg-input); transition: box-shadow 200ms, border-color 200ms; }
 .rec-composer:focus-within { border-color: var(--accent-primary); box-shadow: 0 0 0 4px #6554e80c; }
 .rec-composer textarea { flex: 1; border: 0; outline: none; resize: none; padding: 5px 0; max-height: 140px; min-height: 28px; font: inherit; font-size: 12px; line-height: 1.8; min-width: 0; background: transparent; }
@@ -101,7 +106,7 @@
 .rec-profile-summary { display: grid; gap: 3px; padding-bottom: 17px; border-bottom: 1px solid var(--border-subtle); }
 .rec-summary-choice { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 9px 0; border: 0; background: transparent; text-align: left; cursor: pointer; color: var(--text-main); }
 .rec-summary-choice > span { color: var(--text-muted); font-size: 11px; }
-.rec-summary-choice strong { font-size: 11px; font-weight: 600; text-align: right; }
+.rec-summary-choice strong { min-width: 0; overflow-wrap: anywhere; font-size: 11px; font-weight: 600; text-align: right; }
 .rec-timeline { padding-left: 13px; margin: 25px 0 19px; }
 .rec-milestone { position: relative; padding: 0 0 25px 23px; border-left: 1px solid var(--border-subtle); display: grid; gap: 7px; }
 .rec-milestone > span:not(.rec-milestone-dot) { font-size: 10px; color: var(--text-muted); }

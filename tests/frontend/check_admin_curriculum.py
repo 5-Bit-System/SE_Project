@@ -38,8 +38,7 @@ def main():
             page.locator('#auth-login-form button[type=submit]').click()
 
             # 2. Open Admin Console and switch to Curriculum tab
-            page.locator('#system-admin-open').wait_for(state='visible')
-            page.locator('#system-admin-open').click()
+            page.locator('#system-admin').wait_for(state='visible')
             page.locator('#admin-tab-curriculum').click()
             page.locator('#admin-programs-tbody tr').first.wait_for(state='visible')
             print('  [PASS] Curriculum tab loaded with program rows')
@@ -93,7 +92,9 @@ def main():
             # 8. Screenshots: Course detail view (Light & Dark)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_courses_light.png'), full_page=True)
 
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
+            page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_courses_dark.png'), full_page=True)
             print('  [PASS] Course detail screenshots captured in light and dark')
@@ -107,7 +108,9 @@ def main():
             # 10. Screenshots: Programs list view
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_programs_dark.png'), full_page=True)
 
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="light"]').click()
+            page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_programs_light.png'), full_page=True)
 

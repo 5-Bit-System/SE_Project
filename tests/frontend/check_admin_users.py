@@ -38,8 +38,7 @@ def main():
             page.locator('#auth-login-form button[type=submit]').click()
 
             # 2. Open Admin Console and go to Users tab
-            page.locator('#system-admin-open').wait_for(state='visible')
-            page.locator('#system-admin-open').click()
+            page.locator('#system-admin').wait_for(state='visible')
             page.locator('#admin-tab-users').click()
             page.locator('#admin-users tbody tr').first.wait_for(state='visible')
             print('  [PASS] Users tab opened, user rows rendered')
@@ -106,7 +105,9 @@ def main():
             # 9. Screenshots: Desktop Light & Dark
             page.screenshot(path=str(EVIDENCE_DIR / 'users_desktop_light.png'), full_page=True)
 
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
+            page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'users_desktop_dark.png'), full_page=True)
             print('  [PASS] Desktop light and dark screenshots captured')

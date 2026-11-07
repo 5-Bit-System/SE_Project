@@ -498,4 +498,3 @@ def sync_crawled_documents_and_reviews(
             applied += 1
     total_docs = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
     return {"seeded": seeded, "total": total_docs, "reviews_applied": applied}
-
