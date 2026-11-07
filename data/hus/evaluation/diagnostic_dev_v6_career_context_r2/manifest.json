@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "split": "exposed_development",
+  "holdout_eligible": false,
+  "actual_human_reviews": 0,
+  "source_question_id": "DEV-Q027",
+  "release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  },
+  "parents": {
+    "data/hus/evaluation/diagnostic_dev_v1": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context": "e2f5fef15af048c1e60b9baa00fd385bca380eab1bb6dca6a54c1e0e958dd56c"
+  },
+  "runtime_before_sha256": "f951b6e774f59288acb11e48fbd90804215eb96e4c61abfa50851a8fbbc54e96",
+  "revision_reason": "Separate the existing role-only routing probe from post-retrieval context coverage.",
+  "files_sha256": {
+    "evidence.jsonl": "d3489712d3d5080b563c17cfbba00789e01fce64a4785746fd5371a595d323f6",
+    "gold.jsonl": "3232a3f02f4f1d2e75105e9b066d348b35d1ca391b7d8543e4aeb31ed4584e39",
+    "questions.jsonl": "40d12a422b7ed8bcb9f43ec850724f3d43e7c7b914382524008e81e58364908e",
+    "README.md": "8200ebd9850d30d6be6eeade9b87d508ff1ffcb9a7336d351f87a7bdd55a1e04"
+  }
+}
