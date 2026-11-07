@@ -1,0 +1,4 @@
+# Captured review-generation scripts are hash-bound review evidence.
+# Ruff uses the nearest config, so this keeps `ruff check .` from requiring them to be rewritten.
+[lint]
+select = []

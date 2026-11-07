@@ -1,0 +1,15 @@
+{
+  "P1_3_accepted": false,
+  "academic_verification_added": 0,
+  "boxes": 7136,
+  "images": 72,
+  "low_confidence_boxes": 1788,
+  "ocr_pages": 72,
+  "official_F3_enabled": false,
+  "pages_with_text": 72,
+  "queue_pages": 72,
+  "runtime_changed": false,
+  "source_inputs_unchanged": 78,
+  "status": "machine_ocr_complete_visual_and_academic_review_pending",
+  "table_structure_verified": false
+}

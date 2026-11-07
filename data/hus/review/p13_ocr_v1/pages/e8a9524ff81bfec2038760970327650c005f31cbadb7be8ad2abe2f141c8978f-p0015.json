@@ -1,0 +1,48 @@
+{
+  "observation": {
+    "academic_verified": false,
+    "blank_verified": false,
+    "boxes": [
+      {
+        "bbox_pixels": [
+          [
+            644.0,
+            1522.0
+          ],
+          [
+            674.0,
+            1522.0
+          ],
+          [
+            674.0,
+            1548.0
+          ],
+          [
+            644.0,
+            1548.0
+          ]
+        ],
+        "confidence": 0.9998983433148493,
+        "text": "17"
+      }
+    ],
+    "default_retrieval_enabled": false,
+    "image_path": "backups/hus_source_review/p13/ocr_images_v1/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f-p0015.png",
+    "image_sha256": "679c4f407fba3cfadd07fd00360f1fa1f0c874ab95a206365e1aa0fb70b56637",
+    "image_size_pixels": [
+      1190,
+      1682
+    ],
+    "low_confidence_boxes": 0,
+    "ocr_executed": true,
+    "original_text_layer_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+    "pdf_page": 15,
+    "review_status": "machine_ocr_pending_visual_and_academic_review",
+    "source_sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+    "table_structure_verified": false,
+    "text": "17",
+    "text_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+  },
+  "observation_sha256": "e87a1a7fec09d41ede7725c7543b4a35624e3470cf676178a5ded7050de965c7",
+  "run_identity_sha256": "2b28f83da57fbf1733f1f973d1acfc3cafe71c87cc00e16f9281dcb6f4bdcf96"
+}

@@ -1,0 +1,48 @@
+{
+  "observation": {
+    "academic_verified": false,
+    "blank_verified": false,
+    "boxes": [
+      {
+        "bbox_pixels": [
+          [
+            553.0,
+            255.0
+          ],
+          [
+            711.0,
+            255.0
+          ],
+          [
+            711.0,
+            291.0
+          ],
+          [
+            553.0,
+            291.0
+          ]
+        ],
+        "confidence": 0.6115958773477371,
+        "text": "Hà Nội; 2015"
+      }
+    ],
+    "default_retrieval_enabled": false,
+    "image_path": "backups/hus_source_review/p13/ocr_images_v1/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920-p0003.png",
+    "image_sha256": "3a960c164d1cb430fbc9ca5103e6680f72cc00ea6890a3cd8ec2c240f74bbc63",
+    "image_size_pixels": [
+      1191,
+      1684
+    ],
+    "low_confidence_boxes": 1,
+    "ocr_executed": true,
+    "original_text_layer_sha256": "4c41d4fe6d33d022835b272b5cd6372cf5b1464346f50a5bf0a851a622950cb7",
+    "pdf_page": 3,
+    "review_status": "machine_ocr_pending_visual_and_academic_review",
+    "source_sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+    "table_structure_verified": false,
+    "text": "Hà Nội; 2015",
+    "text_sha256": "b6ae708fcacef9ebcbb2f79072d97d9b621e7f71442df59e9a24fd6f007bdc2f"
+  },
+  "observation_sha256": "04990ee756b29615b95dfc6ee36efb57bb79bda6f0f743a5b17fdeedddf26c2e",
+  "run_identity_sha256": "2b28f83da57fbf1733f1f973d1acfc3cafe71c87cc00e16f9281dcb6f4bdcf96"
+}

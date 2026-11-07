@@ -1,0 +1,82 @@
+# P1-3 — Gói tiếp tục chờ review
+
+Các quan sát dưới đây do AI hỗ trợ kiểm tra kỹ thuật. Reviewer học vụ và thời điểm duyệt vẫn null. Không áp dụng mapping, không bật candidate/official F3, không suy hiệu lực hiện tại từ năm trên bìa.
+
+## Mã/tên cần quyết định
+
+| Candidate | Quan sát | Quyết định |
+| --- | --- | --- |
+| `098df9e79c1391af:3:2502` | Trang nguồn in 2502, không in MAT2502; tên Giải tích 2 và 4 tín chỉ gợi ý mapping, cần người duyệt xác nhận. | Chờ người review |
+| `098df9e79c1391af:12:MAT3550E` | Nguồn ghi NGUYÊN LÝ; canonical ghi Nguyên lí. Mã, tên tiếng Anh và 3 tín chỉ cùng khớp; đây là đề xuất xử lý khác cách viết. | Chờ người review |
+| `098df9e79c1391af:14:MAT1202` | LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG, mã MAT1202, 3 tín chỉ khớp canonical; nguồn còn một đề cương khác dùng trùng mã nên giữ blocker duplicate. | Chờ người review |
+| `098df9e79c1391af:27:MAT1202` | Nguồn thật in MAT1202 cho XÂY DỰNG HỆ THỐNG NHÚNG, 2 tín chỉ; cùng trang ghi MAT1202 là tiên quyết Lập trình hướng đối tượng. Không nối nội dung này vào MAT1202 canonical. | Chờ người review |
+| `bc0a1f59b7ab202c:54:MAT3561` | Nguồn ghi XỬ LÝ, canonical ghi Xử lí. Nguồn 2021 in tiên quyết MAT3508/MAT3509; canonical QD3567-2023 ghi MAT3533. Tên gần trùng không xác minh tương đương phiên bản hay tiên quyết. | Chờ người review |
+
+## 50 trích đoạn bổ sung
+
+Mở PDF ghim để kiểm tra bảng/ô và phiên bản; nguyên văn, offset và mọi trang có trong `../p13_syllabus_supplement_v1/field_supplements.jsonl`. Đường dẫn Git dưới đây mở binary đã kiểm hash, không xác nhận URL gốc đang hoạt động hoặc tài liệu còn hiệu lực.
+
+| Candidate | Trường | Trang PDF vật lý | PDF ghim |
+| --- | --- | --- | --- |
+| `098df9e79c1391af:0:MAT2316` | assessment | 8 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=8) |
+| `098df9e79c1391af:1:MAT2400` | assessment | 13, 14 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=13) |
+| `098df9e79c1391af:2:MAT2501` | assessment | 19, 20 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=19) |
+| `098df9e79c1391af:3:2502` | assessment | 25, 26 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=25) |
+| `098df9e79c1391af:4:MAT2503` | assessment | 31, 32 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=31) |
+| `098df9e79c1391af:5:MAT2403` | assessment | 36 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=36) |
+| `098df9e79c1391af:6:MAT2323` | assessment | 42 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=42) |
+| `098df9e79c1391af:7:MAT2407` | assessment | 49 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=49) |
+| `098df9e79c1391af:8:MAT1204` | assessment | 54, 55 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=54) |
+| `098df9e79c1391af:9:MAT1205E` | assessment | 59 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=59) |
+| `098df9e79c1391af:10:MAT3500` | assessment | 66 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=66) |
+| `098df9e79c1391af:11:MAT3557` | assessment | 71, 72 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=71) |
+| `098df9e79c1391af:12:MAT3550E` | assessment | 76 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=76) |
+| `098df9e79c1391af:13:MAT3507` | assessment | 82 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=82) |
+| `098df9e79c1391af:14:MAT1202` | assessment | 89 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=89) |
+| `098df9e79c1391af:15:MAT3514` | assessment | 99 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=99) |
+| `098df9e79c1391af:16:MAT3552E` | assessment | 105, 106 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=105) |
+| `098df9e79c1391af:17:MAT3505` | assessment | 111 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=111) |
+| `098df9e79c1391af:18:MAT3373E` | assessment | 117 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=117) |
+| `098df9e79c1391af:19:MAT3506` | assessment | 122 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=122) |
+| `098df9e79c1391af:20:MAT1206E` | assessment | 127 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=127) |
+| `098df9e79c1391af:21:MAT3374` | assessment | 132 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=132) |
+| `098df9e79c1391af:22:MAT1207` | assessment | 135 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=135) |
+| `098df9e79c1391af:23:MAT3541E` | assessment | 141, 142 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=141) |
+| `098df9e79c1391af:24:MAT3533` | assessment | 148, 149 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=148) |
+| `098df9e79c1391af:25:MAT3519` | assessment | 154, 155 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=154) |
+| `098df9e79c1391af:26:MAT3558` | assessment | 159 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=159) |
+| `098df9e79c1391af:27:MAT1202` | assessment | 164, 165 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=164) |
+| `098df9e79c1391af:28:MAT3560` | assessment | 170 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=170) |
+| `098df9e79c1391af:29:MAT3148` | assessment | 176 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=176) |
+| `098df9e79c1391af:30:MAT3554E` | assessment | 181 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=181) |
+| `098df9e79c1391af:31:MAT3562` | assessment | 186 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=186) |
+| `098df9e79c1391af:32:MAT3561` | assessment | 191 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=191) |
+| `098df9e79c1391af:33:MAT3563` | assessment | 197, 198 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=197) |
+| `098df9e79c1391af:34:MAT3534` | assessment | 204 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=204) |
+| `098df9e79c1391af:35:MAT3542` | assessment | 209 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=209) |
+| `098df9e79c1391af:36:MAT3539` | assessment | 216 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=216) |
+| `098df9e79c1391af:37:MAT3452` | assessment | 222, 223 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=222) |
+| `098df9e79c1391af:38:MAT3453` | assessment | 227 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=227) |
+| `098df9e79c1391af:39:MAT2034` | assessment | 231, 232 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=231) |
+| `098df9e79c1391af:40:MAT3538` | assessment | 237 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=237) |
+| `098df9e79c1391af:41:MAT3535` | assessment | 242, 243 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=242) |
+| `098df9e79c1391af:42:MAT1203` | assessment | 248 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=248) |
+| `098df9e79c1391af:43:MAT3377` | assessment | 254 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0.pdf#page=254) |
+| `bc0a1f59b7ab202c:8:THL1057` | content | 67, 68 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=67) |
+| `bc0a1f59b7ab202c:10:PHY1070` | assessment | 82 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=82) |
+| `bc0a1f59b7ab202c:10:PHY1070` | objectives | 81 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=81) |
+| `bc0a1f59b7ab202c:11:PHY1020` | objectives | 85 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=85) |
+| `bc0a1f59b7ab202c:54:MAT3561` | assessment | 256 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=256) |
+| `bc0a1f59b7ab202c:54:MAT3561` | objectives | 256 | [Mở PDF](https://raw.githubusercontent.com/5-Bit-System/SE_Project/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/data/hus/recovery/20261031/files/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b.pdf#page=256) |
+
+## Các thiếu hụt giữ nguyên
+
+- PEC1008: mục 6 trên trang PDF10 có tiêu đề và không có phần thân; không lấy mục 7 thay thế.
+- Trang PDF41 đề cương Toán tin có ba tiêu đề Tiếng Anh B1/GDTC/GDQPAN, không có mã hay đề cương chi tiết; trang42 đã sang INM1000.
+- 37 raw chưa thu hồi: xem `missing_source_priorities.jsonl`; 24 sau đại học và 1 seminar được đề xuất hoãn theo phạm vi hiện tại.
+- 6 hồ sơ pending OCR lịch sử chưa được đóng: 2 binary đã OCR; 4 liên kết raw cũ vẫn chưa chứng minh dù có PDF liên quan để tham khảo.
+- Text OCR của 72 trang nằm ở `../p13_ocr_v1/ocr_pages.jsonl`; ảnh tại `image_path` trong backups. Điểm confidence của model không phải độ chính xác hay xác minh mọi ô bảng.
+
+## Cách người review ghi quyết định
+
+Với từng candidate/field: ghi accept/reject/defer, reviewer thật, ngày, scope ngành/edition/cohort, hash PDF, trang vật lý, quote hoặc ô bảng và lý do. Kiểm riêng hiệu lực/điều chỉnh sau văn bản. Giữ bản pack này làm snapshot; ghi quyết định vào bản review mới rồi mới chuẩn bị release và nghiệm thu citation.
