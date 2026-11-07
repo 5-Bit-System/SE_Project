@@ -1,0 +1,12 @@
+{
+  "kind": "A2_code_snapshot_plus_Q027_override_and_new_test",
+  "base_archive": "data/hus/evaluation/a2_baseline_snapshot_v1/code_snapshot.zip",
+  "base_archive_sha256": "84f502c291baca090d9f6f58ece1b1a024fd89d0e356db30b64673af6c27f3b4",
+  "code_changes_sha256": "0fc70c670c1b5b8ec0581999801e5430886e2be31ebc3242d652ac6d2a41f7e4",
+  "files_sha256": {
+    "before/answer_support.py": "f951b6e774f59288acb11e48fbd90804215eb96e4c61abfa50851a8fbbc54e96",
+    "app/hus/answer_support.py": "a9a9a07d8fbf7cfb09e9da7612abc830a48d41378d7ae08a6d986639fc3400fe",
+    "tests/hus/test_career_context_coverage.py": "93dc84520b00d611a59be3d6ad8188c0939bd25166a57f02177eeb2ef11590ec"
+  },
+  "restore": "Use the A2 code ZIP and override app/hus/answer_support.py; add the new test. The before/ file is a diagnostic copy, not runtime."
+}
