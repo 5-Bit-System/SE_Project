@@ -18,10 +18,10 @@
     activity: ['Hoạt động hệ thống', 'System activity'], trafficScope: ['Lưu lượng API theo nhóm dịch vụ trong phiên chạy hiện tại.', 'API traffic by service group in the current process.'],
     catalogStatus: ['Trạng thái catalog', 'Catalog verification'], catalogSource: ['Theo chương trình đang hoạt động.', 'Active academic programs.'],
     activeSource: ['Nguồn hiện hành', 'Active source'], serviceHealth: ['Trạng thái hệ thống', 'System status'],
-    serviceSource: ['Kiểm tra sẵn sàng và trạng thái dữ liệu.', 'Readiness checks and catalog status.'], training: ['ĐÀO TẠO', 'ACADEMICS'],
-    programs: ['Chương trình đào tạo', 'Academic programs'], programDescription: ['Danh mục hiện hành theo ngành và khóa tuyển sinh.', 'Active catalogs by program and admission year.'],
-    managePrograms: ['Quản lý chương trình ↗', 'Manage programs ↗'], all: ['Tất cả', 'All'], verified: ['Đã xác minh', 'Verified'],
-    draft: ['Bản nháp', 'Draft'], searchPrograms: ['Tìm chương trình', 'Search programs']
+    serviceSource: ['Kiểm tra sẵn sàng và trạng thái dữ liệu.', 'Readiness checks and catalog status.'],
+    documentReview: ['TÀI LIỆU', 'DOCUMENTS'], documentStatus: ['Kiểm duyệt tài liệu', 'Document review'],
+    documentSource: ['Thống kê theo trạng thái tài liệu đã thu thập.', 'Breakdown of collected documents by review status.'],
+    documentPill: ['Nguồn tài liệu', 'Document source']
   };
   function empty(message) { return `<p class="ad-empty">${html(message || text('Chưa có dữ liệu để hiển thị.', 'No data to display.'))}</p>`; }
   function readiness() {
@@ -56,14 +56,36 @@
     target.innerHTML = `<div class="ad-traffic-total"><strong>${fmt(overall.total_requests)}</strong><span>${text('yêu cầu API được ghi nhận','recorded API requests')}</span><span class="ad-source-pill">${html(data.window || '')}</span></div>${chart}<div class="ad-chart-footer"><span><i></i>${text('Yêu cầu API theo nhóm dịch vụ','API requests by service group')}</span><span>${text('Phiên chạy hiện tại','Current process')}</span></div>`;
   }
   function renderCatalog() {
-    const metric = state.overview?.catalog_status;
-    const values = metric?.status === 'available' && metric.details?.statuses ? Object.values(metric.details.statuses) : Array.isArray(state.programs) ? state.programs.map(p => p.catalog_status) : null;
-    if (!values?.length) { $('ad-catalog-chart').innerHTML = empty(); return; }
-    const verified = values.filter(value => value === 'verified').length;
-    const draft = values.filter(value => value === 'draft_unverified').length;
-    const unknown = values.length - verified - draft;
-    const circumference = 389.56, segment = verified / values.length * circumference;
-    $('ad-catalog-chart').innerHTML = `<div class="ad-donut-wrap"><svg viewBox="0 0 160 160" role="img" aria-label="${verified} / ${values.length} ${text('chương trình đã xác minh cấp dự án','programs verified at project level')}"><circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-chart-track)" stroke-width="16"/>${verified ? `<circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-blue)" stroke-width="16" stroke-dasharray="${segment} ${circumference-segment}" transform="rotate(-90 80 80)"/>` : ''}</svg><div><strong>${verified}<small> / ${values.length}</small></strong><span>${text('chương trình đã xác minh','verified programs')}</span></div></div><div class="ad-verification-legend"><span><i></i>${text('Đã xác minh cấp dự án','Project verification')}<strong>${verified}</strong></span><span><i class="ad-draft-dot"></i>${text('Bản nháp, cần đối chiếu','Draft, pending review')}<strong>${draft}</strong></span>${unknown?`<span>${text('Chưa rõ trạng thái','Unknown status')}<strong>${unknown}</strong></span>`:''}</div><p class="ad-chart-note">${text('Xác nhận trong phạm vi dự án; không thay thế xác nhận học vụ của nhà trường.', 'Project-level review does not replace official institutional verification.')}</p>`;
+    const metric = state.overview?.document_review_status;
+    let total = 0, approved = 0, pending = 0, rejected = 0;
+    if (metric?.status === 'available' && metric.details) {
+      total = Number(metric.details.total) || 0;
+      approved = Number(metric.details.approved) || 0;
+      pending = Number(metric.details.pending) || 0;
+      rejected = Number(metric.details.rejected) || 0;
+    } else if (metric?.status === 'available' && numeric(metric.value)) {
+      total = metric.value;
+    } else {
+      $('ad-catalog-chart').innerHTML = empty(text('Chưa có số liệu kiểm duyệt tài liệu.', 'Document review metrics unavailable.'));
+      return;
+    }
+
+    if (!total && !approved && !pending && !rejected) {
+      $('ad-catalog-chart').innerHTML = empty(text('Chưa có tài liệu nào trong hệ thống.', 'No documents in the system.'));
+      return;
+    }
+
+    const circumference = 389.56;
+    const sum = total || (approved + pending + rejected) || 1;
+    const segApproved = (approved / sum) * circumference;
+    const segPending = (pending / sum) * circumference;
+    const segRejected = (rejected / sum) * circumference;
+
+    const offsetApproved = 0;
+    const offsetPending = -segApproved;
+    const offsetRejected = -(segApproved + segPending);
+
+    $('ad-catalog-chart').innerHTML = `<div class="ad-donut-wrap"><svg viewBox="0 0 160 160" role="img" aria-label="${text('Thống kê kiểm duyệt tài liệu: ', 'Document review statistics: ')}${approved} ${text('đã duyệt', 'approved')}, ${pending} ${text('chờ duyệt', 'pending')}, ${rejected} ${text('từ chối', 'rejected')}"><circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-chart-track)" stroke-width="16"/>${approved ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#10b981" stroke-width="16" stroke-dasharray="${segApproved} ${circumference - segApproved}" stroke-dashoffset="${offsetApproved}" transform="rotate(-90 80 80)"/>` : ''}${pending ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#f59e0b" stroke-width="16" stroke-dasharray="${segPending} ${circumference - segPending}" stroke-dashoffset="${offsetPending}" transform="rotate(-90 80 80)"/>` : ''}${rejected ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#ef4444" stroke-width="16" stroke-dasharray="${segRejected} ${circumference - segRejected}" stroke-dashoffset="${offsetRejected}" transform="rotate(-90 80 80)"/>` : ''}</svg><div><strong>${fmt(total)}</strong><span>${text('tài liệu đã thu thập', 'collected documents')}</span></div></div><div class="ad-verification-legend"><span><i style="background:#10b981"></i>${text('Đã duyệt', 'Approved')}<strong>${fmt(approved)}</strong></span><span><i style="background:#f59e0b"></i>${text('Chờ duyệt', 'Pending')}<strong>${fmt(pending)}</strong></span><span><i style="background:#ef4444"></i>${text('Từ chối', 'Rejected')}<strong>${fmt(rejected)}</strong></span></div><p class="ad-chart-note">${text('Thống kê kiểm duyệt tài liệu từ hệ thống thu thập.', 'Document review statistics from crawler subsystem.')}</p>`;
   }
   function renderStudentChart() {
     const target = $('admin-student-insights');

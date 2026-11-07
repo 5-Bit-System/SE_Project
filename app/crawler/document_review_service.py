@@ -89,6 +89,21 @@ def find_duplicates(conn, content_hash: str, exclude_id: str | None = None) -> l
     return [_row_to_dict(r) for r in rows]
 
 
+def get_document_review_summary(conn) -> dict[str, int]:
+    """Return count of crawled documents grouped by review status."""
+    rows = conn.execute(
+        text("SELECT review_status, count(*) FROM crawled_documents GROUP BY review_status")
+    ).fetchall()
+    counts = {r[0]: int(r[1]) for r in rows}
+    total = sum(counts.values())
+    return {
+        "total": total,
+        "approved": counts.get("approved", 0),
+        "pending": counts.get("pending", 0),
+        "rejected": counts.get("rejected", 0),
+    }
+
+
 def list_documents(
     conn,
     status: str | None = None,

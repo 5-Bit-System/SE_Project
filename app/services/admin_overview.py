@@ -27,6 +27,7 @@ class AdminOverviewResponse(BaseModel):
     courses_count: SourcedMetric
     catalog_status: SourcedMetric
     system_readiness: SourcedMetric
+    document_review_status: SourcedMetric | None = None
 
 
 def _collect_accounts_metric() -> SourcedMetric:
@@ -126,6 +127,28 @@ def _collect_readiness_metric() -> SourcedMetric:
         )
 
 
+def _collect_document_review_metric() -> SourcedMetric:
+    try:
+        from app.crawler.document_review_service import get_document_review_summary
+        from app.integrations.daotao.store import engine
+
+        with engine().connect() as conn:
+            summary = get_document_review_summary(conn)
+            return SourcedMetric(
+                value=summary["total"],
+                status="available",
+                source="postgres:crawled_documents",
+                details=summary,
+            )
+    except Exception as err:
+        return SourcedMetric(
+            value=None,
+            status="unavailable",
+            source="postgres:crawled_documents",
+            details={"error": str(err)},
+        )
+
+
 async def get_admin_overview() -> AdminOverviewResponse:
     """Collect truthful overview metrics without blocking the async event loop."""
     accounts_metric = await to_thread.run_sync(_collect_accounts_metric)
@@ -133,6 +156,7 @@ async def get_admin_overview() -> AdminOverviewResponse:
         _collect_catalog_metrics
     )
     readiness_metric = await to_thread.run_sync(_collect_readiness_metric)
+    document_metric = await to_thread.run_sync(_collect_document_review_metric)
 
     return AdminOverviewResponse(
         accounts_total=accounts_metric,
@@ -140,4 +164,5 @@ async def get_admin_overview() -> AdminOverviewResponse:
         courses_count=courses_metric,
         catalog_status=catalog_status_metric,
         system_readiness=readiness_metric,
+        document_review_status=document_metric,
     )

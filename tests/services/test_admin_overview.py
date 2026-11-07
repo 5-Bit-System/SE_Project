@@ -31,6 +31,32 @@ async def test_admin_overview_success():
     assert overview.system_readiness.source == "system:readiness_checks"
     assert overview.system_readiness.value in {"operational", "degraded"}
 
+    # 4. Document review status
+    assert overview.document_review_status is not None
+    assert overview.document_review_status.source == "postgres:crawled_documents"
+    if overview.document_review_status.status == "available":
+        assert isinstance(overview.document_review_status.value, int)
+        assert overview.document_review_status.value >= 0
+        details = overview.document_review_status.details or {}
+        assert "total" in details
+        assert "approved" in details
+        assert "pending" in details
+        assert "rejected" in details
+
+
+@pytest.mark.anyio
+async def test_admin_overview_document_review_unavailable_does_not_crash():
+    """When DB fails for crawled documents, metric must report unavailable with None."""
+    class FakeEngine:
+        def connect(self):
+            raise RuntimeError("connection lost")
+
+    with patch("app.integrations.daotao.store.engine", return_value=FakeEngine()):
+        overview = await get_admin_overview()
+        assert overview.document_review_status.status == "unavailable"
+        assert overview.document_review_status.value is None
+        assert "connection lost" in overview.document_review_status.details.get("error", "")
+
 
 @pytest.mark.anyio
 async def test_admin_overview_accounts_unavailable_does_not_report_zero():

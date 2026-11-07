@@ -38,6 +38,12 @@ def main():
     overview['catalog_status']['details'] = {'statuses': {
         item['program_id']: item['catalog_status'] for item in PROGRAMS
     }}
+    overview['document_review_status'] = {
+        'value': 44,
+        'status': 'available',
+        'source': 'postgres:crawled_documents',
+        'details': {'total': 44, 'approved': 21, 'pending': 2, 'rejected': 21},
+    }
     health = copy.deepcopy(HEALTH)
     for key, count in zip(('academic', 'portal', 'auth', 'consultation', 'admin', 'other'),
                           (30, 20, 35, 40, 20, 5)):
@@ -89,7 +95,13 @@ def main():
             expect(page.locator('#ad-program-table')).to_have_count(0)
             expect(page.locator('#ad-program-search')).to_have_count(0)
             expect(page.locator('.ad-column')).to_have_count(6)
-            assert '1 / 4' in page.locator('.ad-donut-wrap').inner_text()
+            expect(page.locator('.ad-donut-wrap')).to_contain_text('44')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Đã duyệt')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('21')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Chờ duyệt')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('2')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Từ chối')
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
             assert page.locator('#ad-status-cards [data-readiness="operational"]').is_visible()
             assert page.locator('#system-admin').evaluate("e => getComputedStyle(e).getPropertyValue('--ad-blue').trim()") == '#3476dc'
             checks.append('Authenticated production shell uses blue and real API contracts')
@@ -139,7 +151,9 @@ def main():
             page.screenshot(path=str(EVIDENCE / 'dashboard-dark.png'), full_page=True)
             page.locator('[data-language-choice="en"]').click()
             expect(page.locator('#ad-activity-heading')).to_have_text('System activity')
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Document review')
             page.locator('[data-language-choice="vi"]').click()
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
             page.locator('[data-theme-choice="light"]').click()
             checks.append('Dark theme and language controls remain operational')
 
