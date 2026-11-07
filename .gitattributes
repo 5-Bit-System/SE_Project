@@ -21,3 +21,7 @@ integration/** -text
 # Acceptance receipts and derived audit artifacts retain the exact captured bytes.
 docs/acceptance/** -text
 data/hus/qa/20261102/** -text
+
+# Frozen evaluation packs use the same bytes on Windows and Linux.
+data/hus/evaluation/** text eol=lf
+data/hus/review/** text eol=lf

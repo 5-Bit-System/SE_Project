@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "review_on": "2026-11-02",
+  "status": "technical_source_trace_verified_academic_validity_and_OCR_pending",
+  "audit_path": "data/hus/review/p13_source_audit_v1",
+  "audit_manifest_sha256": "15efb1d3bf800da227356963ea5b465005b31925ff4ba74ebffdf2b2e0bbfe7c",
+  "audit_summary": {
+    "F2_review_status": {
+      "draft_unverified": 223,
+      "verified": 67
+    },
+    "academic_verification_added": 0,
+    "audit_on": "2026-11-02",
+    "available_binary_assets": 17,
+    "binary_assets": 17,
+    "candidate_capture_trace_passed": 106,
+    "candidate_identity_links": 84,
+    "candidate_records": 106,
+    "capture_page_ranges_match": 273,
+    "capture_quotes_match": 273,
+    "committed": false,
+    "current_validity_verified": 0,
+    "file_types": {
+      "docx": 2,
+      "pdf": 15
+    },
+    "historical_pending_ocr": 6,
+    "independent_reextracted_quotes_found": 273,
+    "limitations": [
+      "Low-text heuristic does not certify blank/scan or table accuracy.",
+      "Independent PDFium text order can differ from captured PyMuPDF; mismatches need visual check.",
+      "Captured quote/hash/page checks do not certify academic correctness or current applicability."
+    ],
+    "live_checks": {
+      "attempts": 2,
+      "prove_current_validity": false
+    },
+    "low_text_pages": 72,
+    "new_RAG_inference": false,
+    "ocr_accuracy_claimed": false,
+    "ocr_run": false,
+    "official_F3_enabled": false,
+    "pdf_pages_triaged": 787,
+    "physical_page_ranges_valid": 273,
+    "prior_code_ocr_rows_reused": 297,
+    "product_database_modified": false,
+    "pushed": false,
+    "quote_spans": 273,
+    "release_payload_hashes_checked": 46,
+    "runtime_registry_changed": false,
+    "schema_version": "1.0",
+    "source_inventory_records": 106,
+    "source_release": "data/hus/rag/releases/hus-data-20261031-v3",
+    "sources_available": 69,
+    "sources_unavailable": 37,
+    "status": "technical_audit_only_academic_review_pending",
+    "tesseract_available": false,
+    "upstream_identity_issue_counts": {
+      "code_not_in_canonical_major": 18,
+      "duplicate_code_in_syllabus_source": 2,
+      "source_code_missing_prefix": 1,
+      "source_code_title_disagrees_with_canonical": 3
+    }
+  },
+  "source_cover_observations": [
+    {
+      "document_id": "098df9e79c1391af",
+      "raw_sha256": "56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0",
+      "physical_page": 1,
+      "captured_text_sha256": "7bf77d9e7b00b13d880fa0793efd96b0c387bf6b6043d11cab6a512556b18f01",
+      "source_declared_major": "computer_science",
+      "source_declared_variant": "standard",
+      "syllabus_decision_as_printed": "2385/QD-DHKHTN",
+      "syllabus_decision_date_as_printed": "2024-07-31",
+      "curriculum_decision_as_printed": "3568/QD-DHKHTN",
+      "curriculum_decision_date_as_printed": "2023-10-18"
+    },
+    {
+      "document_id": "bc0a1f59b7ab202c",
+      "raw_sha256": "6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b",
+      "physical_page": 1,
+      "captured_text_sha256": "ce31d01277d2d19d17f38192107b84c042921fdf001ecabf7bed2890b1875fcb",
+      "source_declared_major": "mathematics_informatics",
+      "source_declared_program_code": "7460117",
+      "source_declared_year": 2021,
+      "curriculum_decision_as_printed": null
+    }
+  ],
+  "cover_observation_method": "Codex AI-assisted rendering/text inspection of pinned covers only; not human or institutional sign-off",
+  "tests": {
+    "source_audit_tests_passed": 12,
+    "combined_focused_regression_passed": 80,
+    "scope": [
+      "source_review_audit",
+      "review_gate",
+      "quality",
+      "f3_reference"
+    ],
+    "junit_sha256": "b631b47f4b7271121541a877feeb47e6e70970f9f3b35d8d9ac82f0eac6d534f"
+  },
+  "technical_review": {
+    "kind": "read_only_AI_technical_review_not_academic_approval",
+    "important_findings_fixed": [
+      "reject runtime/source cache paths and output/cache overlap before writes"
+    ],
+    "final_verdict": "no remaining technical findings in reviewed scope"
+  },
+  "test_side_effect_and_cleanup": {
+    "temporary_untracked_PDF_copies_created": 6,
+    "temporary_copies_removed_after_exact_hash_check": 6,
+    "existing_source_files_overwritten": 0,
+    "source_root_git_status_clean_after_cleanup": true,
+    "negative_test_now_blocks_directory_writes_with_sentinel": true,
+    "final_pack_regenerated_after_guard_fix": true,
+    "original_audit_retained_in_ignored_backups": true
+  },
+  "standard_tesseract_paths_present": {
+    "C:/Program Files/Tesseract-OCR/tesseract.exe": false,
+    "C:/Program Files (x86)/Tesseract-OCR/tesseract.exe": false
+  },
+  "ocr_run": false,
+  "source_hashes_preserved": 63,
+  "runtime_hashes_preserved": 6,
+  "new_RAG_or_holdout_queries": 0,
+  "source_review_upgraded": false,
+  "human_academic_reviews_added": 0,
+  "current_validity_confirmed": 0,
+  "official_F3_enabled": false,
+  "P1_3_accepted": false,
+  "ruff": "pass",
+  "diff_check": "pass",
+  "implementation_and_document_sha256": {
+    ".gitattributes": "a09ddaec8405e2c20e9060d473e2cc3d39dca918f6d0b88fb7074a967ef8dadb",
+    "tools/audit_hus_source_review.py": "d385be2a03b75cba5d9156ee0acb0d02d95c4c3a7a08c8062c1dac2a79493765",
+    "tests/hus/test_source_review_audit.py": "05583022b770082893da0ab4fa3de632bc7dacf27b993732a7d2d7c1df989f64",
+    "docs/RAG_P13_SOURCE_REVIEW.md": "de7c1976e159229e1d8bf25508cd78fd928778981388ee1d2d83b76876884357",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "72cb22fc82ea0776e7e7e6d76509789a7da228ca8235d0b807e7127be9e3d3a8",
+    "docs/superpowers/plans/2026-11-02-hus-rag-p13-source-review.md": "9f47b073a233d3a9e96bde9abf1aba835aca94f37c254496147bf6fec2f6364c"
+  },
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "tested_commit": null,
+  "git_state": "uncommitted_worktree",
+  "new_remote_ci": false,
+  "committed": false,
+  "pushed": false
+}

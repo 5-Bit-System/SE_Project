@@ -1,0 +1,26 @@
+{
+  "PDFium_quote_match": 50,
+  "academic_reviews_added": 0,
+  "combined_candidate_field_coverage": {
+    "assessment": 106,
+    "content": 106,
+    "objectives": 105
+  },
+  "existing_candidates": 106,
+  "fields_added_for_review": {
+    "assessment": 46,
+    "content": 1,
+    "objectives": 3
+  },
+  "new_field_quotes": 50,
+  "official_F3_enabled": false,
+  "original_fields_found": {
+    "assessment": 60,
+    "content": 105,
+    "objectives": 102
+  },
+  "runtime_modified": false,
+  "source_headers": 109,
+  "unassigned_headers": 3,
+  "unresolved_field_slots": 1
+}
