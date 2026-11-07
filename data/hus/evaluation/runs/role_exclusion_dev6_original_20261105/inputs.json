@@ -1,0 +1,317 @@
+{
+  "evidence": [
+    {
+      "citation": {
+        "end_char": 1398,
+        "evidence_path": "evidence/f1/1b525683101bf943.txt",
+        "raw_original_verified": true,
+        "review_status": "include",
+        "source_id": "1b525683101bf943",
+        "source_kind": "crawled_prose",
+        "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+        "start_char": 1102,
+        "title": "Ngành Toán Tin",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+      },
+      "content_origin": "crawled_source_quote",
+      "evidence_id": "P11-E012",
+      "major": "mathematics_informatics",
+      "purpose": "positive_support",
+      "review_status": "include",
+      "source_ref": {
+        "identity": "29eae8734736c0e9d8e2fe500ce56d90",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+      },
+      "value": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "version": "unknown"
+    }
+  ],
+  "expected_release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  },
+  "gold": [
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C001",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C002",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C003",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C004",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C005",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C006",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C007",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "f1",
+      "evidence_ids": [
+        "P11-E012"
+      ],
+      "evidence_label": null,
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C008",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "evidence_label": null,
+      "expected_answer": "No same-edition enterprise evidence; do not borrow unknown-edition source.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "no_information",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C009",
+      "review_status": "pending_independent_review"
+    },
+    {
+      "academic_verified": false,
+      "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+      "authorizes_eligibility": false,
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "evidence_label": null,
+      "expected_answer": "No same-edition enterprise evidence; do not borrow unknown-edition source.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "no_information",
+      "must_abstain_from": [],
+      "question_id": "DEV6-C010",
+      "review_status": "pending_independent_review"
+    }
+  ],
+  "holdout_eligible": false,
+  "input_sha256": {
+    "data/hus/evaluation/diagnostic_dev_v1/manifest.json": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context/README.md": "6da173ce21e4bae2d043ae925323c7abfcd4292058db0fcd99756bdd64fefb23",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context/evidence.jsonl": "d3489712d3d5080b563c17cfbba00789e01fce64a4785746fd5371a595d323f6",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context/gold.jsonl": "3232a3f02f4f1d2e75105e9b066d348b35d1ca391b7d8543e4aeb31ed4584e39",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context/manifest.json": "e2f5fef15af048c1e60b9baa00fd385bca380eab1bb6dca6a54c1e0e958dd56c",
+    "data/hus/evaluation/diagnostic_dev_v6_career_context/questions.jsonl": "383f7ac60f306132d9f0b59587fef5db8686d90fc989574eba9aa7e4971a9123"
+  },
+  "legacy_applicable": true,
+  "pack": "data/hus/evaluation/diagnostic_dev_v6_career_context",
+  "questions": [
+    {
+      "question_id": "DEV6-C001",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ra trường Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp theo tài liệu?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C002",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Theo tài liệu, Toán tin có những công việc nào trong doanh nghiệp?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C003",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ngành Toán tin có những vai trò nào tại doanh nghiệp?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C004",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ra truong Toan tin co the dam nhiem cong viec nao trong doanh nghiep theo tai lieu?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C005",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ở doanh nghiệp, Toán tin có thể làm công việc nào?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C006",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Các vị trí việc làm trong doanh nghiệp của ngành Toán tin là gì?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C007",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Không hỏi giảng dạy; Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C008",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Theo edition chưa xác định, Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp?",
+        "version": null
+      }
+    },
+    {
+      "question_id": "DEV6-C009",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ra trường Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp theo tài liệu?",
+        "version": "2015"
+      }
+    },
+    {
+      "question_id": "DEV6-C010",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics_informatics",
+        "question": "Ra trường Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp theo tài liệu?",
+        "version": "1999"
+      }
+    }
+  ],
+  "split": "exposed_development"
+}
