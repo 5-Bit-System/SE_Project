@@ -1,0 +1,5527 @@
+{
+  "actual_human_reviews": 0,
+  "base_commit": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "created_at": "2026-11-04T19:33:57.881677+00:00",
+  "git_state": "uncommitted_worktree_pinned_by_hash",
+  "holdout_eligible": false,
+  "independent_holdout_accepted": false,
+  "initialization_ms": 4146.3908,
+  "input_pins_stable": true,
+  "kind": "measurement",
+  "limits": [
+    "Exposed development only, including previously tuned H2 questions.",
+    "Local warmed TestClient wall times, not network/production/load-test latency.",
+    "Raw historical scoring stays separate from F2 source contracts and exact-response-bound AI semantic review."
+  ],
+  "measurement_id": "2ab0c1b98eb1490b9bdcb71ba1befd09",
+  "pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "pipeline": "BM25+extractive_F1_F3_and_structured_F2_no_vector_no_LLM",
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "result": {
+    "by_category": {
+      "f1": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 12,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 12,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 12,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 12
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 12,
+            "max_ms": 139.3962,
+            "min_ms": 8.4167,
+            "p50_ms": 11.4494,
+            "p95_ms": 139.3962
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "answer_status_accuracy": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "cases": 12,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 18,
+            "numerator": 16,
+            "value": 0.8888888888888888
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 12,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 12,
+            "numerator": 12.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "unjudged_alternative_citations": 2
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 12,
+            "numerator": 12.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 12,
+            "numerator": 12.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "f2": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 16,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 16,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 16,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 16,
+            "numerator": 16,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 8,
+              "numerator": 8,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 16,
+            "numerator": 16,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 0
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 16,
+            "max_ms": 100.563,
+            "min_ms": 34.245,
+            "p50_ms": 37.9668,
+            "p95_ms": 100.563
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 16,
+            "numerator": 15,
+            "value": 0.9375
+          },
+          "answer_status_accuracy": {
+            "denominator": 16,
+            "numerator": 16,
+            "value": 1.0
+          },
+          "cases": 16,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 16,
+            "numerator": 15,
+            "value": 0.9375
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 16,
+            "numerator": 16,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 16,
+            "numerator": 15,
+            "value": 0.9375
+          },
+          "failure_counts": {
+            "fact_mismatch": 1
+          },
+          "false_abstention_on_positive": {
+            "denominator": 16,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 16,
+            "numerator": 15,
+            "value": 0.9375
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "search_call_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 16,
+            "numerator": 16,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "f3": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 8,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 8
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 8,
+            "max_ms": 52.9277,
+            "min_ms": 34.4336,
+            "p50_ms": 35.8636,
+            "p95_ms": 52.9277
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "answer_status_accuracy": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "cases": 8,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 8.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 8,
+            "numerator": 8.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 8.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "missing_evidence": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0
+        },
+        "cases": 8,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 0
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 8,
+            "max_ms": 42.2524,
+            "min_ms": 6.3476,
+            "p50_ms": 8.3504,
+            "p95_ms": 42.2524
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "answer_status_accuracy": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "cases": 8,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "guardrail_success": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "search_call_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "opt_in_required": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0
+        },
+        "cases": 4,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 0
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 4,
+            "max_ms": 115.6527,
+            "min_ms": 34.1856,
+            "p50_ms": 36.3992,
+            "p95_ms": 115.6527
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "answer_status_accuracy": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "cases": 4,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "guardrail_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "search_call_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "out_of_scope": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0
+        },
+        "cases": 8,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 0
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 8,
+            "max_ms": 7.0106,
+            "min_ms": 4.647,
+            "p50_ms": 4.9573,
+            "p95_ms": 7.0106
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "answer_status_accuracy": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "cases": 8,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "guardrail_success": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "search_call_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "by_major": {
+      "computer_science": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 14,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 2,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 5
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 14,
+            "max_ms": 76.8855,
+            "min_ms": 4.91,
+            "p50_ms": 34.3838,
+            "p95_ms": 76.8855
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "answer_status_accuracy": {
+            "denominator": 14,
+            "numerator": 14,
+            "value": 1.0
+          },
+          "cases": 14,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "data_science": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 14,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 2,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 5
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 14,
+            "max_ms": 69.9537,
+            "min_ms": 4.647,
+            "p50_ms": 31.4587,
+            "p95_ms": 69.9537
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 9,
+            "numerator": 8,
+            "value": 0.8888888888888888
+          },
+          "answer_status_accuracy": {
+            "denominator": 14,
+            "numerator": 14,
+            "value": 1.0
+          },
+          "cases": 14,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 15,
+            "numerator": 12,
+            "value": 0.8
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 4,
+            "numerator": 3,
+            "value": 0.75
+          },
+          "failure_counts": {
+            "fact_mismatch": 1
+          },
+          "false_abstention_on_positive": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 9,
+            "numerator": 8,
+            "value": 0.8888888888888888
+          },
+          "unjudged_alternative_citations": 2
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "mathematics": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 14,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 2,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 5
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 14,
+            "max_ms": 139.3962,
+            "min_ms": 4.9573,
+            "p50_ms": 48.0599,
+            "p95_ms": 139.3962
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "answer_status_accuracy": {
+            "denominator": 14,
+            "numerator": 14,
+            "value": 1.0
+          },
+          "cases": 14,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "mathematics_informatics": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 14,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 2,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 1,
+              "numerator": 1,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 5
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 14,
+            "max_ms": 115.6527,
+            "min_ms": 4.9525,
+            "p50_ms": 31.5873,
+            "p95_ms": 115.6527
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "answer_status_accuracy": {
+            "denominator": 14,
+            "numerator": 14,
+            "value": 1.0
+          },
+          "cases": 14,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "failure_counts": {},
+          "false_abstention_on_positive": {
+            "denominator": 9,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 5,
+            "numerator": 5.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 5,
+            "numerator": 5,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "cases": [
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "objectives",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "ba1b006436207d86df58106033a3edf4"
+        ],
+        "expected_classifier_field": "objectives",
+        "expected_field_v2": "objectives",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 139.3962,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q001",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "ba1b006436207d86df58106033a3edf4"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "576a32614c1a16f7799e722bd1bd1313"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 50.5973,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q002",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "576a32614c1a16f7799e722bd1bd1313",
+          "ad667609e5801d74c146610cb5ffcf00"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "introduction",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "e7864b281332873d47213bf53a1bf0f7"
+        ],
+        "expected_classifier_field": "introduction",
+        "expected_field_v2": "introduction",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 11.4281,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q003",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "e7864b281332873d47213bf53a1bf0f7"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 100.563,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q004",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "name",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "name",
+        "expected_field_v2": "name",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 50.0119,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q005",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "prerequisites",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "prerequisites",
+        "expected_field_v2": "prerequisites",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 49.7945,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q006",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 48.0599,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q007",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "suggested_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "4c3ad968218e2d0dfcd1d5f7ebd8d7e1"
+        ],
+        "expected_classifier_field": "suggested_assessment",
+        "expected_field_v2": "suggested_assessment",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 52.9277,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q008",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "4c3ad968218e2d0dfcd1d5f7ebd8d7e1"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "f57c3fae7bc35027e03fd9d569a02c7c"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 49.5917,
+        "major": "mathematics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q009",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "f57c3fae7bc35027e03fd9d569a02c7c"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "official_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "official_assessment",
+        "expected_field_v2": "official_assessment",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 42.2524,
+        "major": "mathematics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q010",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "current_offering",
+        "expected_field_v2": "current_offering",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 7.9163,
+        "major": "mathematics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q011",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 5.2727,
+        "major": "mathematics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q012",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 4.9573,
+        "major": "mathematics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q013",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "needs_clarification",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "opt_in_required",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "f57c3fae7bc35027e03fd9d569a02c7c"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "needs_clarification",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 40.4475,
+        "major": "mathematics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q014",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "objectives",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "1648ebdddb5ae44b8b34dc340deff05a"
+        ],
+        "expected_classifier_field": "objectives",
+        "expected_field_v2": "objectives",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 31.5873,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q015",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "1648ebdddb5ae44b8b34dc340deff05a"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 14.2153,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q016",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "introduction",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "expected_classifier_field": "introduction",
+        "expected_field_v2": "introduction",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 8.4167,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q017",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 72.3311,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q018",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "name",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "name",
+        "expected_field_v2": "name",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 35.6444,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q019",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "prerequisites",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "prerequisites",
+        "expected_field_v2": "prerequisites",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 34.245,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q020",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 34.69,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q021",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "suggested_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "edae4b7813b214e5209c4408e7c5647c"
+        ],
+        "expected_classifier_field": "suggested_assessment",
+        "expected_field_v2": "suggested_assessment",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 35.7063,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q022",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "edae4b7813b214e5209c4408e7c5647c"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "e8326d15dba453841c1bf93068d369a2"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 35.8636,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q023",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "e8326d15dba453841c1bf93068d369a2"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "official_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "official_assessment",
+        "expected_field_v2": "official_assessment",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 30.7721,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q024",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "current_offering",
+        "expected_field_v2": "current_offering",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 6.3476,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q025",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 7.0106,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q026",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 4.9525,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q027",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "needs_clarification",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "opt_in_required",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "e8326d15dba453841c1bf93068d369a2"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "needs_clarification",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 115.6527,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q028",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "objectives",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "9614d3ce7459d0b32a050a4256bdc344"
+        ],
+        "expected_classifier_field": "objectives",
+        "expected_field_v2": "objectives",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 39.6516,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q029",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "9614d3ce7459d0b32a050a4256bdc344"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "cc9519ceb5c2b5eb461ebfbd3e813e6f"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 15.6247,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q030",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "cc9519ceb5c2b5eb461ebfbd3e813e6f"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "introduction",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "f526a537e9132345485d15b065a5697b"
+        ],
+        "expected_classifier_field": "introduction",
+        "expected_field_v2": "introduction",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 9.2388,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q031",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "f526a537e9132345485d15b065a5697b",
+          "f77eafbc905ff1efb3ab3f841b00fae3"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 76.8855,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q032",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "name",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "name",
+        "expected_field_v2": "name",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 38.8741,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q033",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "prerequisites",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "prerequisites",
+        "expected_field_v2": "prerequisites",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 34.9589,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q034",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 35.284,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q035",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "suggested_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "9b71e4de0f4f928fda21f23f8235c6b7"
+        ],
+        "expected_classifier_field": "suggested_assessment",
+        "expected_field_v2": "suggested_assessment",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 37.7203,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q036",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "9b71e4de0f4f928fda21f23f8235c6b7"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "a31affad54bbc0ce3075184f3fb804dc"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 34.4336,
+        "major": "computer_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q037",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "a31affad54bbc0ce3075184f3fb804dc"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "official_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "official_assessment",
+        "expected_field_v2": "official_assessment",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 34.3838,
+        "major": "computer_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q038",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "current_offering",
+        "expected_field_v2": "current_offering",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 8.3504,
+        "major": "computer_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q039",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 6.7328,
+        "major": "computer_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q040",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 4.91,
+        "major": "computer_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q041",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "needs_clarification",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "opt_in_required",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "a31affad54bbc0ce3075184f3fb804dc"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "needs_clarification",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 34.1856,
+        "major": "computer_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q042",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 2,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "objectives",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "2b8dd1b0bf1f5a8bd676653c1f5d5132",
+          "ccf316f46ad984b080e0bceceff9fa44"
+        ],
+        "expected_classifier_field": "objectives",
+        "expected_field_v2": "objectives",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 11.4494,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q043",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "2b8dd1b0bf1f5a8bd676653c1f5d5132",
+          "ccf316f46ad984b080e0bceceff9fa44"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 4,
+        "category": "f1",
+        "citation_count": 4,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "251ab61e0d6a58faa68914d59fa45516",
+          "52b2b2acd330744f909bc2ea49cf5fb7",
+          "940a3740794040de84617af7e9aa78fd",
+          "d844e5fa88b2bf746f918a39a67aa2bb"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 9.9418,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q044",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "251ab61e0d6a58faa68914d59fa45516",
+          "d844e5fa88b2bf746f918a39a67aa2bb",
+          "940a3740794040de84617af7e9aa78fd",
+          "52b2b2acd330744f909bc2ea49cf5fb7"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 3,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "introduction",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "21625268a830b8656f4b5bd4f07a9f80"
+        ],
+        "expected_classifier_field": "introduction",
+        "expected_field_v2": "introduction",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 10.9285,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q045",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "21625268a830b8656f4b5bd4f07a9f80",
+          "a02e3fe443e340a42147fca61503d628",
+          "7170857aebdc027daccc37102dd937bd"
+        ],
+        "unjudged_alternative_citations": 2,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 69.9537,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q046",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "name",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "name",
+        "expected_field_v2": "name",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 35.1531,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q047",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "prerequisites",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "prerequisites",
+        "expected_field_v2": "prerequisites",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": false,
+        "failure": "fact_mismatch",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 37.9668,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q048",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f2",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f2",
+        "classifier_field": "credits",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "credits",
+        "expected_field_v2": "credits",
+        "expected_status": "answered",
+        "f2_contract_correct": true,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 36.7302,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q049",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "suggested_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "829ddc80378efbacf2b1c4f73d2e0d22"
+        ],
+        "expected_classifier_field": "suggested_assessment",
+        "expected_field_v2": "suggested_assessment",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 40.2719,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q050",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "829ddc80378efbacf2b1c4f73d2e0d22"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f3",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "4d1ac928f456661c8021540bebb46e55"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 34.7786,
+        "major": "data_science",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "H2-Q051",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "4d1ac928f456661c8021540bebb46e55"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "official_assessment",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "official_assessment",
+        "expected_field_v2": "official_assessment",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 31.4587,
+        "major": "data_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q052",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "current_offering",
+        "expected_field_v2": "current_offering",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 6.6905,
+        "major": "data_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q053",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 6.5021,
+        "major": "data_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q054",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "out_of_scope",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": null,
+        "classifier_field": null,
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": null,
+        "expected_field_v2": null,
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 4.647,
+        "major": "data_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q055",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "needs_clarification",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "opt_in_required",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f3",
+        "classifier_field": "content",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "4d1ac928f456661c8021540bebb46e55"
+        ],
+        "expected_classifier_field": "content",
+        "expected_field_v2": "content",
+        "expected_status": "needs_clarification",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 36.3992,
+        "major": "data_science",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "H2-Q056",
+        "recall_at_5": 0,
+        "retrieval_called": false,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": false,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      }
+    ],
+    "independent_holdout_accepted": false,
+    "metrics": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 16,
+          "numerator": 16,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 36,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "http_errors": 0
+      },
+      "cases": 56,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": null,
+        "ai_end_to_end_supported_complete": null,
+        "ai_entailment": null,
+        "ai_review_coverage": {
+          "denominator": 36,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 20,
+          "numerator": 20,
+          "value": 1.0
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 36,
+          "numerator": 36,
+          "value": 1.0
+        },
+        "reviewer_kind": null
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "prerequisites": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 16,
+          "numerator": 16,
+          "value": 1.0
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 20
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 56,
+          "max_ms": 139.3962,
+          "min_ms": 4.647,
+          "p50_ms": 34.69,
+          "p95_ms": 100.563
+        }
+      },
+      "raw_legacy": {
+        "abstention_on_12_missing_or_out_of_scope": {
+          "denominator": 16,
+          "numerator": 16,
+          "value": 1.0
+        },
+        "anchor_support_among_positive_answers": {
+          "denominator": 36,
+          "numerator": 35,
+          "value": 0.9722222222222222
+        },
+        "answer_status_accuracy": {
+          "denominator": 56,
+          "numerator": 56,
+          "value": 1.0
+        },
+        "cases": 56,
+        "citation_anchor_precision_lower_bound": {
+          "denominator": 42,
+          "numerator": 39,
+          "value": 0.9285714285714286
+        },
+        "citation_integrity_answer_pass_rate": {
+          "denominator": 36,
+          "numerator": 36,
+          "value": 1.0
+        },
+        "f2_lookup_success": {
+          "denominator": 16,
+          "numerator": 15,
+          "value": 0.9375
+        },
+        "failure_counts": {
+          "fact_mismatch": 1
+        },
+        "false_abstention_on_positive": {
+          "denominator": 36,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "guardrail_success": {
+          "denominator": 20,
+          "numerator": 20,
+          "value": 1.0
+        },
+        "http_errors": 0,
+        "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+        "opt_in_clarification": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "routed_recall_at_5": {
+          "denominator": 20,
+          "numerator": 20.0,
+          "value": 1.0
+        },
+        "scope_error_cases": {
+          "course_code": 0,
+          "major": 0,
+          "version": 0
+        },
+        "semantic_citation_precision": null,
+        "semantic_source_support": null,
+        "source_supported_success_on_positive": {
+          "denominator": 36,
+          "numerator": 35,
+          "value": 0.9722222222222222
+        },
+        "unjudged_alternative_citations": 2
+      },
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 20,
+          "numerator": 20.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 0,
+        "routed_recall_at_5": {
+          "denominator": 20,
+          "numerator": 20.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 20,
+          "numerator": 20,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 36,
+          "numerator": 36,
+          "value": 1.0
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "schema_version": "hus-chatbot-evaluation-2.0"
+  },
+  "schema_version": "hus-chatbot-evaluation-2.0",
+  "source_binary_checks": {
+    "/hus/sources/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30?page=6#page=6": {
+      "bytes": 1159213,
+      "content_type": "application/pdf",
+      "sha256": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30"
+    },
+    "/hus/sources/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920?page=9#page=9": {
+      "bytes": 465781,
+      "content_type": "application/pdf",
+      "sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920"
+    },
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=10#page=10": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=9#page=9": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=10#page=10": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=11#page=11": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9": {
+      "bytes": 21509533,
+      "content_type": "application/pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    },
+    "/hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=4#page=4": {
+      "bytes": 483700,
+      "content_type": "application/pdf",
+      "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+    },
+    "/hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=9#page=9": {
+      "bytes": 483700,
+      "content_type": "application/pdf",
+      "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+    },
+    "/hus/sources/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212?page=10#page=10": {
+      "bytes": 525031,
+      "content_type": "application/pdf",
+      "sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212"
+    },
+    "/hus/sources/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212?page=4#page=4": {
+      "bytes": 525031,
+      "content_type": "application/pdf",
+      "sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212"
+    }
+  },
+  "warmup": {
+    "excluded_from_metrics": true,
+    "http_status": 200,
+    "latency_ms": 7.8741,
+    "request": {
+      "major": "data_science",
+      "question": "Xin chào",
+      "version": "QD3569-2023"
+    }
+  }
+}
