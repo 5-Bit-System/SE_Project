@@ -1,0 +1,48 @@
+{
+  "LLM_implemented": false,
+  "P2_quality_gain_measured": false,
+  "RAG_inference_requests_added": 0,
+  "baseline_modified": false,
+  "called_search_misses": 2,
+  "called_search_misses_with_wrong_field_filter": 2,
+  "called_search_only_diagnostic": {
+    "denominator": 10,
+    "is_acceptance_metric": false,
+    "numerator": 8,
+    "value": 0.8
+  },
+  "committed": false,
+  "decision": "fix_routing_field_selection_and_post_retrieval_gates_before_vector_reranker_or_LLM",
+  "facts_URL_or_exam_weight_generation_permitted": false,
+  "false_abstentions": 25,
+  "new_independent_holdout_required_before_post_tuning_acceptance": true,
+  "no_retrieval_call_cases": 10,
+  "positive_F2_cases": 12,
+  "positive_F2_intent_or_lookup_abstentions": 5,
+  "positive_F2_lookup_successes": 7,
+  "positive_cases": 32,
+  "post_retrieval_abstention_cases": 10,
+  "pushed": false,
+  "recorded_on": "2026-11-02",
+  "reranker_implemented": false,
+  "retrieval_calls_added": 0,
+  "retrieval_eligible_cases": 20,
+  "retrieval_or_answering_code_modified": false,
+  "routed_recall_at_5": {
+    "denominator": 20,
+    "numerator": 8,
+    "value": 0.4
+  },
+  "schema_version": "1.0",
+  "source_inputs_sha256": {
+    "data/hus/evaluation/runs/p12_baseline_v1/manifest.json": "2bbe4e8eab32455228ad28df6d350890968f53140010124d4c8bd4515b9485fe",
+    "data/hus/evaluation/runs/p12_baseline_v1/predictions.jsonl": "264c780ff3303a2aae78650844b1b9d9cea7c9615ac537ffe456c47da038b148",
+    "data/hus/evaluation/runs/p12_baseline_v1/report.json": "e0bb8742b55d132a6edfc018dcb9eceb66a7c440fb0bd2133399999713446ee6",
+    "data/hus/evaluation/runs/p12_baseline_v1/scored_cases.jsonl": "927926fcc12df542a69d948ca274f9b775013c6f997da95a40fb5337b9df87b2",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+  },
+  "source_is_unreviewed_prospective_holdout_baseline": true,
+  "status": "technology_upgrade_not_yet_justified",
+  "top5_anchor_present_but_answer_abstained": 8,
+  "vector_implemented": false
+}
