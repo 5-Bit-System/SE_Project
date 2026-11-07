@@ -38,6 +38,12 @@ def main():
     overview['catalog_status']['details'] = {'statuses': {
         item['program_id']: item['catalog_status'] for item in PROGRAMS
     }}
+    overview['document_review_status'] = {
+        'value': 44,
+        'status': 'available',
+        'source': 'postgres:crawled_documents',
+        'details': {'total': 44, 'approved': 21, 'pending': 2, 'rejected': 21},
+    }
     health = copy.deepcopy(HEALTH)
     for key, count in zip(('academic', 'portal', 'auth', 'consultation', 'admin', 'other'),
                           (30, 20, 35, 40, 20, 5)):
@@ -86,39 +92,37 @@ def main():
             page.goto('http://127.0.0.1:8000/')
             expect(page.locator('#system-admin')).to_be_visible()
             expect(page.locator('#ad-membership-card [data-metric="memberships"]')).to_have_text('220')
-            expect(page.locator('#ad-program-table tbody tr')).to_have_count(4)
+            expect(page.locator('#ad-program-table')).to_have_count(0)
+            expect(page.locator('#ad-program-search')).to_have_count(0)
             expect(page.locator('.ad-column')).to_have_count(6)
-            assert '1 / 4' in page.locator('.ad-donut-wrap').inner_text()
+            expect(page.locator('.ad-donut-wrap')).to_contain_text('44')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Đã duyệt')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('21')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Chờ duyệt')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('2')
+            expect(page.locator('.ad-verification-legend')).to_contain_text('Từ chối')
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
             assert page.locator('#ad-status-cards [data-readiness="operational"]').is_visible()
             assert page.locator('#system-admin').evaluate("e => getComputedStyle(e).getPropertyValue('--ad-blue').trim()") == '#3476dc'
             checks.append('Authenticated production shell uses blue and real API contracts')
 
-            for status, count in [('verified', 1), ('draft_unverified', 3), ('all', 4)]:
-                page.locator(f'[data-ad-filter="{status}"]').click()
-                expect(page.locator('#ad-program-table tbody tr')).to_have_count(count)
-            page.locator('#ad-program-search').fill('Khoa học dữ liệu')
-            expect(page.locator('#ad-program-table tbody tr')).to_have_count(1)
-            page.locator('#ad-program-search').fill('not-present')
-            assert page.locator('#ad-program-table td').get_attribute('colspan') == '6'
-            page.locator('#ad-program-search').fill('')
-            checks.append('Program filters, search and empty state')
+            assert page.locator('.ad-program-card').count() == 0
+            checks.append('Redundant program table removed from overview dashboard')
 
             page.locator('.ad-activity-card [data-window="1h"]').click()
             expect(page.locator('.ad-traffic-total .ad-source-pill')).to_have_text('1h')
             assert page.locator('[data-window="1h"][aria-pressed="true"]').count() == 2
             checks.append('Time windows reload the API and synchronize both selectors')
 
-            page.locator('[data-ad-program]').first.click()
-            expect(page.locator('#admin-curriculum-detail-view')).to_be_visible()
-            expect(page.locator('#admin-courses-tbody tr')).to_have_count(1)
+            page.locator('#admin-tab-curriculum').click()
+            expect(page.locator('#admin-panel-curriculum')).to_be_visible()
             page.locator('#admin-tab-overview').click()
             expect(page.locator('.ad-column')).to_have_count(6)
-            checks.append('Dashboard links preserve curriculum/course management')
+            checks.append('Dashboard navigation preserves curriculum management')
 
             state.update(health_error=True, insights_error=True, programs_error=True)
             page.locator('#admin-overview-refresh').click()
             expect(page.locator('#ad-traffic-chart .ad-empty')).to_be_visible()
-            expect(page.locator('#ad-program-table .ad-empty')).to_be_visible()
             expect(page.locator('[data-metric="memberships"]')).to_have_text('Chưa có dữ liệu')
             assert page.locator('#admin-route-groups-tbody tr').count() == 0
             assert page.locator('#admin-student-insights .ad-student-visual').count() == 0
@@ -126,7 +130,6 @@ def main():
             state.update(health_error=False, insights_error=False, programs_error=False)
             page.locator('#admin-overview-refresh').click()
             expect(page.locator('.ad-column')).to_have_count(6)
-            expect(page.locator('#ad-program-table tbody tr')).to_have_count(4)
 
             for width, height in [(1920, 1080), (1440, 1000), (1024, 900), (768, 1024), (390, 844), (360, 800)]:
                 page.set_viewport_size({'width': width, 'height': height})
@@ -144,17 +147,25 @@ def main():
             checks.append('Six responsive widths and accessible mobile sidebar')
 
             page.set_viewport_size({'width': 1440, 'height': 1000})
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
+            page.keyboard.press('Escape')
             page.screenshot(path=str(EVIDENCE / 'dashboard-dark.png'), full_page=True)
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-language-choice="en"]').click()
             expect(page.locator('#ad-activity-heading')).to_have_text('System activity')
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Document review')
             page.locator('[data-language-choice="vi"]').click()
+            expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
+            page.keyboard.press('Escape')
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="light"]').click()
+            page.keyboard.press('Escape')
             checks.append('Dark theme and language controls remain operational')
 
             page.evaluate("document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: null}))")
             assert page.locator('#ad-traffic-chart').inner_text() == ''
-            assert page.locator('#ad-program-table').inner_text() == ''
+            assert page.locator('#ad-program-table').count() == 0
             assert page.locator('#ad-catalog-chart').inner_text() == ''
             checks.append('Account changes clear all new dashboard data')
             assert not errors, errors

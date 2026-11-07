@@ -28,13 +28,14 @@ def test_admin_overview_admin_authorized(verified_client, fake_accounts):
     assert response.status_code == 200
 
     data = response.json()
-    # Contract checks: all 5 named metrics must exist with truthful metadata
+    # Contract checks: all 6 named metrics must exist with truthful metadata
     for metric_name in (
         "accounts_total",
         "programs_count",
         "courses_count",
         "catalog_status",
         "system_readiness",
+        "document_review_status",
     ):
         assert metric_name in data, f"Missing metric: {metric_name}"
         metric = data[metric_name]

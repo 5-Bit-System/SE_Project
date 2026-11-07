@@ -5,7 +5,7 @@
   const $ = id => document.getElementById(id);
   const state = { overview: null, insights: null, health: null, programs: null };
   const palette = ['#3676d9', '#6c9be8', '#9abdf0', '#bdd4f5', '#5b89c6', '#d3e1f4'];
-  let identity = '', filter = 'all', sidebarOpen = false;
+  let identity = '', sidebarOpen = false;
   const mobile = matchMedia('(max-width: 760px)');
   const en = () => window.workspaceI18n?.language === 'en';
   const text = (vi, english) => en() ? english : vi;
@@ -18,10 +18,10 @@
     activity: ['Hoạt động hệ thống', 'System activity'], trafficScope: ['Lưu lượng API theo nhóm dịch vụ trong phiên chạy hiện tại.', 'API traffic by service group in the current process.'],
     catalogStatus: ['Trạng thái catalog', 'Catalog verification'], catalogSource: ['Theo chương trình đang hoạt động.', 'Active academic programs.'],
     activeSource: ['Nguồn hiện hành', 'Active source'], serviceHealth: ['Trạng thái hệ thống', 'System status'],
-    serviceSource: ['Kiểm tra sẵn sàng và trạng thái dữ liệu.', 'Readiness checks and catalog status.'], training: ['ĐÀO TẠO', 'ACADEMICS'],
-    programs: ['Chương trình đào tạo', 'Academic programs'], programDescription: ['Danh mục hiện hành theo ngành và khóa tuyển sinh.', 'Active catalogs by program and admission year.'],
-    managePrograms: ['Quản lý chương trình ↗', 'Manage programs ↗'], all: ['Tất cả', 'All'], verified: ['Đã xác minh', 'Verified'],
-    draft: ['Bản nháp', 'Draft'], searchPrograms: ['Tìm chương trình', 'Search programs']
+    serviceSource: ['Kiểm tra sẵn sàng và trạng thái dữ liệu.', 'Readiness checks and catalog status.'],
+    documentReview: ['TÀI LIỆU', 'DOCUMENTS'], documentStatus: ['Kiểm duyệt tài liệu', 'Document review'],
+    documentSource: ['Thống kê theo trạng thái tài liệu đã thu thập.', 'Breakdown of collected documents by review status.'],
+    documentPill: ['Nguồn tài liệu', 'Document source']
   };
   function empty(message) { return `<p class="ad-empty">${html(message || text('Chưa có dữ liệu để hiển thị.', 'No data to display.'))}</p>`; }
   function readiness() {
@@ -56,14 +56,36 @@
     target.innerHTML = `<div class="ad-traffic-total"><strong>${fmt(overall.total_requests)}</strong><span>${text('yêu cầu API được ghi nhận','recorded API requests')}</span><span class="ad-source-pill">${html(data.window || '')}</span></div>${chart}<div class="ad-chart-footer"><span><i></i>${text('Yêu cầu API theo nhóm dịch vụ','API requests by service group')}</span><span>${text('Phiên chạy hiện tại','Current process')}</span></div>`;
   }
   function renderCatalog() {
-    const metric = state.overview?.catalog_status;
-    const values = metric?.status === 'available' && metric.details?.statuses ? Object.values(metric.details.statuses) : Array.isArray(state.programs) ? state.programs.map(p => p.catalog_status) : null;
-    if (!values?.length) { $('ad-catalog-chart').innerHTML = empty(); return; }
-    const verified = values.filter(value => value === 'verified').length;
-    const draft = values.filter(value => value === 'draft_unverified').length;
-    const unknown = values.length - verified - draft;
-    const circumference = 389.56, segment = verified / values.length * circumference;
-    $('ad-catalog-chart').innerHTML = `<div class="ad-donut-wrap"><svg viewBox="0 0 160 160" role="img" aria-label="${verified} / ${values.length} ${text('chương trình đã xác minh cấp dự án','programs verified at project level')}"><circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-chart-track)" stroke-width="16"/>${verified ? `<circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-blue)" stroke-width="16" stroke-dasharray="${segment} ${circumference-segment}" transform="rotate(-90 80 80)"/>` : ''}</svg><div><strong>${verified}<small> / ${values.length}</small></strong><span>${text('chương trình đã xác minh','verified programs')}</span></div></div><div class="ad-verification-legend"><span><i></i>${text('Đã xác minh cấp dự án','Project verification')}<strong>${verified}</strong></span><span><i class="ad-draft-dot"></i>${text('Bản nháp, cần đối chiếu','Draft, pending review')}<strong>${draft}</strong></span>${unknown?`<span>${text('Chưa rõ trạng thái','Unknown status')}<strong>${unknown}</strong></span>`:''}</div><p class="ad-chart-note">${text('Xác nhận trong phạm vi dự án; không thay thế xác nhận học vụ của nhà trường.', 'Project-level review does not replace official institutional verification.')}</p>`;
+    const metric = state.overview?.document_review_status;
+    let total = 0, approved = 0, pending = 0, rejected = 0;
+    if (metric?.status === 'available' && metric.details) {
+      total = Number(metric.details.total) || 0;
+      approved = Number(metric.details.approved) || 0;
+      pending = Number(metric.details.pending) || 0;
+      rejected = Number(metric.details.rejected) || 0;
+    } else if (metric?.status === 'available' && numeric(metric.value)) {
+      total = metric.value;
+    } else {
+      $('ad-catalog-chart').innerHTML = empty(text('Chưa có số liệu kiểm duyệt tài liệu.', 'Document review metrics unavailable.'));
+      return;
+    }
+
+    if (!total && !approved && !pending && !rejected) {
+      $('ad-catalog-chart').innerHTML = empty(text('Chưa có tài liệu nào trong hệ thống.', 'No documents in the system.'));
+      return;
+    }
+
+    const circumference = 389.56;
+    const sum = total || (approved + pending + rejected) || 1;
+    const segApproved = (approved / sum) * circumference;
+    const segPending = (pending / sum) * circumference;
+    const segRejected = (rejected / sum) * circumference;
+
+    const offsetApproved = 0;
+    const offsetPending = -segApproved;
+    const offsetRejected = -(segApproved + segPending);
+
+    $('ad-catalog-chart').innerHTML = `<div class="ad-donut-wrap"><svg viewBox="0 0 160 160" role="img" aria-label="${text('Thống kê kiểm duyệt tài liệu: ', 'Document review statistics: ')}${approved} ${text('đã duyệt', 'approved')}, ${pending} ${text('chờ duyệt', 'pending')}, ${rejected} ${text('từ chối', 'rejected')}"><circle cx="80" cy="80" r="62" fill="none" stroke="var(--ad-chart-track)" stroke-width="16"/>${approved ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#10b981" stroke-width="16" stroke-dasharray="${segApproved} ${circumference - segApproved}" stroke-dashoffset="${offsetApproved}" transform="rotate(-90 80 80)"/>` : ''}${pending ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#f59e0b" stroke-width="16" stroke-dasharray="${segPending} ${circumference - segPending}" stroke-dashoffset="${offsetPending}" transform="rotate(-90 80 80)"/>` : ''}${rejected ? `<circle cx="80" cy="80" r="62" fill="none" stroke="#ef4444" stroke-width="16" stroke-dasharray="${segRejected} ${circumference - segRejected}" stroke-dashoffset="${offsetRejected}" transform="rotate(-90 80 80)"/>` : ''}</svg><div><strong>${fmt(total)}</strong><span>${text('tài liệu đã thu thập', 'collected documents')}</span></div></div><div class="ad-verification-legend"><span><i style="background:#10b981"></i>${text('Đã duyệt', 'Approved')}<strong>${fmt(approved)}</strong></span><span><i style="background:#f59e0b"></i>${text('Chờ duyệt', 'Pending')}<strong>${fmt(pending)}</strong></span><span><i style="background:#ef4444"></i>${text('Từ chối', 'Rejected')}<strong>${fmt(rejected)}</strong></span></div><p class="ad-chart-note">${text('Thống kê kiểm duyệt tài liệu từ hệ thống thu thập.', 'Document review statistics from crawler subsystem.')}</p>`;
   }
   function renderStudentChart() {
     const target = $('admin-student-insights');
@@ -77,19 +99,10 @@
     visual.innerHTML = `<div class="ad-stacked-bar" role="img" aria-label="${html(groups.map(g=>`${g.label}: ${g.count}`).join('; '))}">${groups.map((g,i)=>`<span style="width:${g.count/total*100}%;background:${palette[i%palette.length]}"></span>`).join('')}</div><div class="ad-student-legend">${groups.map((g,i)=>`<span><i style="background:${palette[i%palette.length]}"></i>${html(g.label)}<strong>${fmt(g.count)}</strong></span>`).join('')}</div>`;
     target.prepend(visual);
   }
-  function renderPrograms() {
-    const target = $('ad-program-table');
-    if (!Array.isArray(state.programs)) { target.innerHTML = empty(text('Chưa tải được danh mục chương trình. Chọn Làm mới để thử lại.', 'Programs are unavailable. Refresh to retry.')); return; }
-    const query = ($('ad-program-search')?.value || '').trim().toLocaleLowerCase();
-    const programs = state.programs.filter(p => (filter === 'all' || p.catalog_status === filter) && `${p.name} ${p.program_id} ${p.cohort || ''}`.toLocaleLowerCase().includes(query));
-    const headers = [text('Chương trình','Program'),text('Khóa','Cohort'),text('Tín chỉ','Credits'),text('Học phần','Courses'),text('Trạng thái','Status'),text('Chi tiết','Details')];
-    target.innerHTML = `<div class="ad-table-scroll"><table class="ad-program-table"><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${programs.length?programs.map(p=>`<tr><td><strong>${html(p.name)}</strong><small>${html(p.program_id)}</small></td><td>${html(p.cohort || '—')}</td><td>${fmt(p.total_credits)}</td><td>${fmt(p.course_count)}</td><td><span class="ad-program-status ${p.catalog_status==='verified'?'ad-verified':'ad-draft'}">${p.catalog_status==='verified'?text('Đã xác minh','Verified'):p.catalog_status==='draft_unverified'?text('Bản nháp','Draft'):text('Chưa xác định','Unknown')}</span></td><td><button type="button" data-ad-program="${html(p.program_id)}" class="ad-text-button" aria-label="${html(text('Xem học phần: ','View courses: ')+p.name)}">${text('Xem học phần ↗','View courses ↗')}</button></td></tr>`).join(''):`<tr><td colspan="6">${text('Không có chương trình phù hợp.','No matching programs.')}</td></tr>`}</tbody></table></div><p class="ad-table-note">${programs.length} / ${state.programs.length} ${text('chương trình · Nguồn catalog hiện hành','programs · Active catalogs')}</p>`;
-  }
   function render() {
     if (window.systemAuth?.account?.role !== 'admin') return;
-    readiness(); memberships(); renderTraffic(); renderCatalog(); renderPrograms();
+    readiness(); memberships(); renderTraffic(); renderCatalog();
     document.querySelectorAll('[data-ad-copy]').forEach(node => { const pair = copy[node.dataset.adCopy]; if (pair) node.textContent = pair[en()?1:0]; });
-    $('ad-program-search').placeholder = text('Tìm chương trình, mã ngành, khóa…','Search program, code or cohort…');
   }
   function update(kind, data) {
     if (!(kind in state) || window.systemAuth?.account?.role !== 'admin') return;
@@ -118,13 +131,8 @@
     else if (!event.shiftKey && document.activeElement===last) { event.preventDefault();first?.focus(); }
   });
   document.addEventListener('click', event => {
-    const button = event.target.closest('[data-ad-tab],[data-ad-program],[data-ad-filter],.admin-tab-btn,.ad-brand');
+    const button = event.target.closest('[data-ad-tab],[data-ad-program],.admin-tab-btn,.ad-brand');
     if (!button) return;
-    if (button.dataset.adFilter) {
-      filter=button.dataset.adFilter;
-      document.querySelectorAll('[data-ad-filter]').forEach(node=>{const active=node.dataset.adFilter===filter;node.classList.toggle('active',active);node.setAttribute('aria-pressed',String(active));});
-      renderPrograms(); return;
-    }
     if (button.dataset.adTab) window.systemAuth?.switchAdminTab(button.dataset.adTab);
     if (button.dataset.adProgram) {
       const program=state.programs?.find(p=>p.program_id===button.dataset.adProgram);
@@ -134,16 +142,13 @@
     setSidebar(false);
     if(mobile.matches) $('admin-heading')?.focus({preventScroll:true});
   });
-  $('ad-program-search')?.addEventListener('input',renderPrograms);
   document.addEventListener('workspace:account-change',event=>{
     const account=event.detail;
     const next=account?JSON.stringify([account.account_id,account.session_id,account.role,account.auth_version]):'';
     if(next===identity)return;
     identity=next;
     Object.keys(state).forEach(key=>{state[key]=null;});
-    filter='all';$('ad-program-search').value='';
-    document.querySelectorAll('[data-ad-filter]').forEach(node=>{const active=node.dataset.adFilter==='all';node.classList.toggle('active',active);node.setAttribute('aria-pressed',String(active));});
-    ['ad-traffic-chart','ad-catalog-chart','ad-program-table','ad-status-cards'].forEach(id=>$(id)?.replaceChildren());
+    ['ad-traffic-chart','ad-catalog-chart','ad-status-cards'].forEach(id=>$(id)?.replaceChildren());
     setSidebar(false);
     readiness();
   });

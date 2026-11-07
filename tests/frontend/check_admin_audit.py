@@ -48,8 +48,7 @@ def test_admin_audit_ui():
         page.locator("#auth-login-password").fill("admin123")
         page.locator("#auth-login-form button[type=submit]").click()
 
-        page.locator("#system-admin-open").wait_for(state="visible")
-        page.locator("#system-admin-open").click()
+        page.locator('#system-admin').wait_for(state='visible')
         page.locator("#system-admin").wait_for(state="visible")
 
         # 2. Switch to Audit Log tab
@@ -101,8 +100,7 @@ def test_admin_audit_ui():
         page_m.locator("#auth-login-password").fill("admin123")
         page_m.locator("#auth-login-form button[type=submit]").click()
 
-        page_m.locator("#system-admin-open").wait_for(state="visible")
-        page_m.locator("#system-admin-open").click()
+        page_m.locator('#system-admin').wait_for(state='visible')
         page_m.locator("#system-admin").wait_for(state="visible")
 
         page_m.locator("#admin-sidebar-toggle").click()

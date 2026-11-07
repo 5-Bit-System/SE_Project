@@ -39,8 +39,7 @@ def main():
             page.locator('#auth-login-password').fill('admin123')
             page.locator('#auth-login-form button[type=submit]').click()
 
-            page.locator('#system-admin-open').wait_for(state='visible')
-            page.locator('#system-admin-open').click()
+            page.locator('#system-admin').wait_for(state='visible')
             page.locator('#system-admin').wait_for(state='visible')
 
             # 2. Switch to Curriculum Tab

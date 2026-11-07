@@ -73,8 +73,23 @@
         </div>
       </div>
 
+      <div class="admin-header">
+        <button type="button" id="admin-sidebar-toggle" class="ad-menu-toggle" aria-label="Mở điều hướng quản trị" aria-expanded="false" aria-controls="admin-sidebar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="admin-header-title-group">
+          <div class="admin-title-row">
+            <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader" tabindex="-1">Bảng điều khiển quản trị</h2>
+            <span class="admin-status-pill">
+              <span class="admin-status-dot" aria-hidden="true"></span>
+              <span id="ad-readiness-label">Đang kiểm tra hệ thống</span>
+            </span>
+          </div>
+          <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
+        </div>
+      </div>
       <div class="header-right-actions">
-        <div id="system-account" hidden><span id="system-account-name"></span><div class="system-account-actions"><button type="button" id="system-home" data-auth-copy="workspace"></button><button type="button" id="system-password" data-auth-copy="changePassword"></button><button type="button" id="system-admin-open" hidden data-auth-copy="admin"></button><button type="button" id="system-logout" data-auth-copy="logout"></button></div></div>
+        <button type="button" id="system-menu-toggle" class="system-menu-toggle" popovertarget="system-header-controls" aria-controls="system-header-controls" aria-expanded="false" aria-label="Menu tài khoản" hidden><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+        <div id="system-header-controls" class="system-header-controls">
+        <div id="system-account" hidden><span id="system-account-name"></span><div class="system-account-actions"><button type="button" id="system-home" data-auth-copy="workspace"></button><button type="button" id="system-logout" data-auth-copy="logout"></button></div></div>
         <div class="appearance-control language-control">
           <span id="language-label" class="selector-label">Ngôn ngữ</span>
           <div class="theme-switcher" role="group" aria-labelledby="language-label">
@@ -88,6 +103,7 @@
             <button type="button" data-theme-choice="light" aria-label="Giao diện sáng" aria-pressed="true"><span aria-hidden="true">☀</span> Sáng</button>
             <button type="button" data-theme-choice="dark" aria-label="Giao diện tối" aria-pressed="false"><span aria-hidden="true">☾</span> Tối</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -234,20 +250,6 @@
       </nav>
       <div class="ad-sidebar-footer"><span class="ad-sidebar-footer-icon" aria-hidden="true">QT</span><div><strong data-ad-copy="administrator">Quản trị viên</strong><small data-ad-copy="adminOnly">Không gian quản trị hệ thống</small></div></div>
     </aside>
-    <header class="admin-header">
-      <button type="button" id="admin-sidebar-toggle" class="ad-menu-toggle" aria-label="Mở điều hướng quản trị" aria-expanded="false" aria-controls="admin-sidebar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
-      <div class="admin-header-title-group">
-        <span class="admin-badge-eyebrow" data-auth-copy="adminConsoleKicker">QUẢN TRỊ HỆ THỐNG</span>
-        <div class="admin-title-row">
-          <h2 id="admin-heading" class="admin-title" data-auth-copy="adminConsoleHeader" tabindex="-1">Bảng điều khiển quản trị</h2>
-          <span class="admin-status-pill">
-            <span class="admin-status-dot" aria-hidden="true"></span>
-            <span id="ad-readiness-label">Đang kiểm tra hệ thống</span>
-          </span>
-        </div>
-        <p class="admin-header-desc" data-auth-copy="adminConsoleDesc">Giám sát tổng quan, quản lý danh mục đào tạo và phân quyền tài khoản.</p>
-      </div>
-    </header>
 
 
 
@@ -304,7 +306,7 @@
           <div class="ad-card-heading"><div><p class="ad-eyebrow" data-ad-copy="operations">VẬN HÀNH</p><h4 id="ad-activity-heading" data-ad-copy="activity">Hoạt động hệ thống</h4><p class="ad-description" data-ad-copy="trafficScope">Lưu lượng API theo nhóm dịch vụ trong phiên chạy hiện tại.</p></div><div class="admin-health-window-selector" role="group" aria-label="Khung thời gian phân tích"><button type="button" class="admin-window-btn" data-window="1h" aria-pressed="false">1 giờ</button><button type="button" class="admin-window-btn active" data-window="24h" aria-pressed="true">24 giờ</button><button type="button" class="admin-window-btn" data-window="7d" aria-pressed="false">7 ngày</button></div></div>
           <div id="ad-traffic-chart" class="ad-chart-region" aria-live="polite"></div>
         </section>
-        <section class="ad-card" aria-labelledby="ad-catalog-heading"><div class="ad-card-heading"><div><p class="ad-eyebrow">CATALOG</p><h4 id="ad-catalog-heading" data-ad-copy="catalogStatus">Trạng thái catalog</h4><p class="ad-description" data-ad-copy="catalogSource">Theo chương trình đang hoạt động.</p></div><span class="ad-source-pill" data-ad-copy="activeSource">Nguồn hiện hành</span></div><div id="ad-catalog-chart" class="ad-chart-region" aria-live="polite"></div></section>
+        <section class="ad-card" aria-labelledby="ad-catalog-heading"><div class="ad-card-heading"><div><p class="ad-eyebrow" data-ad-copy="documentReview">TÀI LIỆU</p><h4 id="ad-catalog-heading" data-ad-copy="documentStatus">Kiểm duyệt tài liệu</h4><p class="ad-description" data-ad-copy="documentSource">Thống kê theo trạng thái tài liệu đã thu thập.</p></div><span class="ad-source-pill" data-ad-copy="documentPill">Nguồn tài liệu</span></div><div id="ad-catalog-chart" class="ad-chart-region" aria-live="polite"></div></section>
       </div>
       <div class="admin-system-highlights" aria-label="Chỉ số vận hành chính">
         <div class="admin-dashboard-stat"><span>Sinh viên</span><strong id="admin-highlight-students">Đang tải…</strong></div>
@@ -335,7 +337,6 @@
         </section>
         <section class="admin-dashboard-card ad-service-card" aria-labelledby="ad-services-heading"><h4 id="ad-services-heading" data-ad-copy="serviceHealth">Trạng thái hệ thống</h4><p class="admin-dashboard-description" data-ad-copy="serviceSource">Kiểm tra sẵn sàng và trạng thái dữ liệu.</p><div id="ad-status-cards" aria-live="polite"></div></section>
       </div>
-      <section class="ad-card ad-program-card" aria-labelledby="ad-program-heading"><div class="ad-card-heading"><div><p class="ad-eyebrow" data-ad-copy="training">ĐÀO TẠO</p><h4 id="ad-program-heading" data-ad-copy="programs">Chương trình đào tạo</h4><p class="ad-description" data-ad-copy="programDescription">Danh mục hiện hành theo ngành và khóa tuyển sinh.</p></div><button type="button" class="ad-text-button" data-ad-tab="curriculum" data-ad-copy="managePrograms">Quản lý chương trình ↗</button></div><div class="ad-program-toolbar"><div role="group" aria-label="Lọc trạng thái chương trình"><button type="button" data-ad-filter="all" class="active" aria-pressed="true" data-ad-copy="all">Tất cả</button><button type="button" data-ad-filter="verified" aria-pressed="false" data-ad-copy="verified">Đã xác minh</button><button type="button" data-ad-filter="draft_unverified" aria-pressed="false" data-ad-copy="draft">Bản nháp</button></div><label><span class="sr-only" data-ad-copy="searchPrograms">Tìm chương trình</span><input id="ad-program-search" type="search" placeholder="Tìm chương trình, mã ngành, khóa…" aria-label="Tìm chương trình, mã ngành hoặc khóa"></label></div><div id="ad-program-table" aria-live="polite"></div></section>
       <!-- Operational Health & Consultation Section -->
       <div id="admin-dashboard-monitoring" class="admin-health-section" style="margin-top: 2rem;">
         <div class="admin-panel-header admin-panel-header-actions" style="margin-bottom: 1rem; align-items: center;">

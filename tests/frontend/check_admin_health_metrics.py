@@ -35,8 +35,7 @@ def main():
             page.locator("#auth-login-form button[type=submit]").click()
 
             # 2. Open Admin Console
-            page.locator("#system-admin-open").wait_for(state="visible")
-            page.locator("#system-admin-open").click()
+            page.locator('#system-admin').wait_for(state='visible')
             page.locator("#system-admin").wait_for(state="visible")
             print("  [PASS] Navigated to Admin Console")
 
@@ -79,8 +78,7 @@ def main():
             page_mobile.locator("#auth-login-email").fill("admin")
             page_mobile.locator("#auth-login-password").fill("admin123")
             page_mobile.locator("#auth-login-form button[type=submit]").click()
-            page_mobile.locator("#system-admin-open").wait_for(state="visible")
-            page_mobile.locator("#system-admin-open").click()
+            page_mobile.locator('#system-admin').wait_for(state='visible')
             page_mobile.locator("#system-admin").wait_for(state="visible")
             page_mobile.wait_for_selector("#admin-health-kpi-grid .admin-health-kpi-card")
             page_mobile.wait_for_timeout(1000)

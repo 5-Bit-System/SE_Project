@@ -52,12 +52,11 @@ def main():
             page.locator('#auth-login-password').fill('admin123')
             page.locator('#auth-login-form button[type=submit]').click()
 
-            # 3. Wait for admin console open button
-            page.locator('#system-admin-open').wait_for(state='visible')
-            print('  [PASS] Admin signed in, #system-admin-open is visible')
+            # 3. Wait for the admin console after sign-in
+            page.locator('#system-admin').wait_for(state='visible')
+            print('  [PASS] Admin signed in, console is visible')
 
             # 4. Open Admin Console
-            page.locator('#system-admin-open').click()
             page.locator('#system-admin').wait_for(state='visible')
             assert not page.locator('#system-admin').is_hidden()
             print('  [PASS] Admin console shell is displayed (#system-admin visible)')
@@ -128,7 +127,9 @@ def main():
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_desktop_light.png'), full_page=True)
 
             # 11. Dark theme check & screenshot
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
+            page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_desktop_dark.png'), full_page=True)
             print('  [PASS] Dark mode captured')
@@ -139,7 +140,9 @@ def main():
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_mobile_dark.png'), full_page=True)
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
 
+            page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="light"]').click()
+            page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_mobile_light.png'), full_page=True)
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
