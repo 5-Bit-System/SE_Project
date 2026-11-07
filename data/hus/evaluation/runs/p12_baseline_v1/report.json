@@ -1,0 +1,891 @@
+{
+  "CURRENT_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+  "P1_1_creation_flags_are_historical": true,
+  "P1_2_accepted": false,
+  "baseline_runtime_sha256": {
+    "app/hus/answering.py": "c43d0c33e9cf09e88678bdf5cc1cd42e49a43173a8db597782a295a0b6a77e12",
+    "app/hus/chat.py": "b54f752590237852cb299cba19862974a3c29d364b94cb94ed53466471107989",
+    "app/hus/rag_loader.py": "cac4201907172af51cee990d60075c629c56f13139fa6f9ee0a925e70d807047",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/schemas/hus.py": "44b509c550acda14c5f3c7d286518b39514b5490a769088839ad1300c290d733",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19"
+  },
+  "by_category": {
+    "f1": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "no_retrieval_call": 7,
+        "post_retrieval_abstention": 5
+      },
+      "false_abstention_on_positive": {
+        "denominator": 12,
+        "numerator": 12,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 12,
+        "numerator": 3.0,
+        "value": 0.25
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 12,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "f2": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 7,
+        "value": 0.5833333333333334
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 12,
+        "numerator": 7,
+        "value": 0.5833333333333334
+      },
+      "failure_counts": {
+        "lookup_or_intent_abstention": 5
+      },
+      "false_abstention_on_positive": {
+        "denominator": 12,
+        "numerator": 5,
+        "value": 0.4166666666666667
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 12,
+        "numerator": 7,
+        "value": 0.5833333333333334
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "f3": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "no_retrieval_call": 3,
+        "post_retrieval_abstention": 5
+      },
+      "false_abstention_on_positive": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 8,
+        "numerator": 5.0,
+        "value": 0.625
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 8,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "missing_evidence": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "opt_in_required": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "cases": 4,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "out_of_scope": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 4,
+        "numerator": 3,
+        "value": 0.75
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 4,
+        "numerator": 3,
+        "value": 0.75
+      },
+      "cases": 4,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 1
+      },
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 3,
+        "value": 0.75
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    }
+  },
+  "by_major": {
+    "computer_science": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 3,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 5,
+        "value": 0.4166666666666667
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 3,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 1,
+        "lookup_or_intent_abstention": 1,
+        "no_retrieval_call": 1,
+        "post_retrieval_abstention": 4
+      },
+      "false_abstention_on_positive": {
+        "denominator": 8,
+        "numerator": 6,
+        "value": 0.75
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 3,
+        "value": 0.75
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 5,
+        "numerator": 4.0,
+        "value": 0.8
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 8,
+        "numerator": 2,
+        "value": 0.25
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "data_science": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 6,
+        "value": 0.5
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 3,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "failure_counts": {
+        "lookup_or_intent_abstention": 1,
+        "no_retrieval_call": 4,
+        "post_retrieval_abstention": 1
+      },
+      "false_abstention_on_positive": {
+        "denominator": 8,
+        "numerator": 6,
+        "value": 0.75
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 5,
+        "numerator": 1.0,
+        "value": 0.2
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 8,
+        "numerator": 2,
+        "value": 0.25
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "mathematics": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 6,
+        "value": 0.5
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 3,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "failure_counts": {
+        "lookup_or_intent_abstention": 1,
+        "no_retrieval_call": 2,
+        "post_retrieval_abstention": 3
+      },
+      "false_abstention_on_positive": {
+        "denominator": 8,
+        "numerator": 6,
+        "value": 0.75
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 5,
+        "numerator": 2.0,
+        "value": 0.4
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 8,
+        "numerator": 2,
+        "value": 0.25
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "mathematics_informatics": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 12,
+        "numerator": 5,
+        "value": 0.4166666666666667
+      },
+      "cases": 12,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 3,
+        "numerator": 1,
+        "value": 0.3333333333333333
+      },
+      "failure_counts": {
+        "lookup_or_intent_abstention": 2,
+        "no_retrieval_call": 3,
+        "post_retrieval_abstention": 2
+      },
+      "false_abstention_on_positive": {
+        "denominator": 8,
+        "numerator": 7,
+        "value": 0.875
+      },
+      "guardrail_success": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 5,
+        "numerator": 1.0,
+        "value": 0.2
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 8,
+        "numerator": 1,
+        "value": 0.125
+      },
+      "unjudged_alternative_citations": 0
+    }
+  },
+  "committed": false,
+  "definitions": {
+    "citation_anchor_precision_lower_bound": "Anchored, source-oracle-valid, scope-correct citations divided by all emitted citations. F2 facts must match. Oracle is answer-level, so integrity failure rejects all citations conservatively. Alternative sources need human review.",
+    "citation_integrity_answer_pass_rate": "Whole-answer independent quote/page/row/review/AI checks plus actual local binary GET/hash; denominator is answers that emitted citations. Does not assess relevance/semantic entailment or external website health.",
+    "f2_lookup_success": "Correct source-backed facts on all12 F2 positives; not Recall@5.",
+    "guardrail_success": "Exact expected refusal/clarification with no citations/facts on all16 guard cases.",
+    "routed_recall_at_5": "Macro anchor recall on all20 F1/F3 positives using first actual retriever call top5; no call/hit is zero. Includes routing failures. Gold never supplied to runtime.",
+    "semantic_metrics": "Citation precision and source support by human semantic judgment remain null; AI draft gold is not independent human review.",
+    "source_supported_success_on_positive": "Conservative draft-anchor support on all32 positives; requires answered/correct family/scope, source oracle, matching anchor and F2 facts. Not semantic certification.",
+    "timing": "No latency or load benchmark claimed; TestClient is in-process HTTP, not browser acceptance."
+  },
+  "evaluation_code_sha256": {
+    "tests/hus/test_rag_evaluation.py": "7392b7db2b6d4edb36d3d5a0b865c07a927f64265d9eeaecc5f5a8903449ed5b",
+    "tools/evaluate_hus_rag.py": "629e779aa0e26dae42d820d0b4eddfe517fa51ded7a8f94aefb3e18a30ff5657",
+    "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+    "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+    "tools/verify_hus_e2e.py": "18d561601bec38bf588b85991f0871c92dd64af8091651bd2b665aa4703f38c9"
+  },
+  "finished_at_utc": "2026-11-02T10:14:43.443990+00:00",
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "git_state": "uncommitted_worktree",
+  "gold_sha256": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c",
+  "holdout_inference_run": true,
+  "human_accepted_questions": 0,
+  "llm_used": false,
+  "metrics": {
+    "abstention_on_12_missing_or_out_of_scope": {
+      "denominator": 12,
+      "numerator": 11,
+      "value": 0.9166666666666666
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 7,
+      "numerator": 7,
+      "value": 1.0
+    },
+    "answer_status_accuracy": {
+      "denominator": 48,
+      "numerator": 22,
+      "value": 0.4583333333333333
+    },
+    "cases": 48,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 7,
+      "numerator": 7,
+      "value": 1.0
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 7,
+      "numerator": 7,
+      "value": 1.0
+    },
+    "f2_lookup_success": {
+      "denominator": 12,
+      "numerator": 7,
+      "value": 0.5833333333333334
+    },
+    "failure_counts": {
+      "guardrail_status_or_content_error": 1,
+      "lookup_or_intent_abstention": 5,
+      "no_retrieval_call": 10,
+      "post_retrieval_abstention": 10
+    },
+    "false_abstention_on_positive": {
+      "denominator": 32,
+      "numerator": 25,
+      "value": 0.78125
+    },
+    "guardrail_success": {
+      "denominator": 16,
+      "numerator": 15,
+      "value": 0.9375
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "routed_recall_at_5": {
+      "denominator": 20,
+      "numerator": 8.0,
+      "value": 0.4
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 32,
+      "numerator": 7,
+      "value": 0.21875
+    },
+    "unjudged_alternative_citations": 0
+  },
+  "pack": "data/hus/evaluation/p11_holdout_v1",
+  "pack_manifest_sha256": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+  "product_database_modified": false,
+  "production_activated": false,
+  "pushed": false,
+  "questions_sha256": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+  "release_identity": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "schema_version": "1.0",
+  "semantic_review": "pending",
+  "source_binary_checks": {
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=12#page=12": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=12#page=12": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=13#page=13": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=11#page=11": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=14#page=14": {
+      "bytes": 21509533,
+      "content_type": "application/pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    }
+  },
+  "source_input_sha256": {
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+  },
+  "split_access": "candidate evaluated and errors inspected; retire if later used for tuning",
+  "started_at_utc": "2026-11-02T10:14:42.346656+00:00",
+  "status": "provisional_candidate_measurement_not_independent_acceptance",
+  "tested_commit": null,
+  "top5_target": {
+    "independently_accepted": false,
+    "minimum": 0.9,
+    "provisionally_met": false
+  },
+  "used_for_retrieval_tuning": false,
+  "vnu_contacted": false
+}
