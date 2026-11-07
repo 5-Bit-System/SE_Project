@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "63bfdbe02302d72dc9b6b46cbd5dc0a4f1a4628e24d445562911b3067a980402",
+    "input_snapshot.json": "bd96be7893f45ac7a892000d2cfc658ac2e40d0fef418f05b99e65d89192cee0",
+    "layered_metrics.json": "527cb60d3bda46d163f5aa98117e175273179fd51ad33ec8e3bb5d048755c80b",
+    "predictions.jsonl": "32138aa9707264628d0019632be61f8ae51121d6101af672afbd7f5d7410d6e5",
+    "report.json": "01c709ff675cd7b153f5a62db26868f0c179374fb57c23122be7c3ff9185e944",
+    "runner.py": "70c25881817354c141d6cfe4585464afee29290b2eeeba5bc2eed10709950d35",
+    "scored_cases.jsonl": "bb8802026838c47f23f6a6011cc3cbf93a4d6447d91bf4cc85c99d780d3ae3ad"
+  }
+}
