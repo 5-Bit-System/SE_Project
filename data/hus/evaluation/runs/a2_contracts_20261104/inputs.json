@@ -1,0 +1,1838 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "A1-001-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/2\", \"json_pointers\": [\"/tables/official_curriculum_entries/2\"], \"pdf_locators\": [{\"document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"page\": 9, \"row\": 9, \"sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"CME1000\", \"course_name\": \"Giáo dục quốc phòng - an ninh\", \"credits\": 8, \"current_offering\": null, \"major\": \"computer_science\", \"membership\": {\"course_code\": \"CME1000\", \"course_group\": \"I\", \"course_type\": \"required\", \"curriculum_id\": 3, \"suggested_semester\": null}, \"name_en\": \"National Defence Education\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": true, \"external_codes\": [], \"has_conflict\": false, \"options\": [], \"parse_statuses\": [\"none\"], \"raw_variants\": [], \"status\": \"catalog_verified\"}, \"program_id\": \"khmtt_7480113qtd_2022\", \"record_id\": \"khmtt_7480113qtd_2022:CME1000\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"CME1000\", \"credits_in_source\": 8, \"curriculum_id\": 3, \"entry_id\": 515, \"group_key\": \"I\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"none\", \"prerequisite_source_text\": null, \"source_row_number\": 9}]}",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:CME1000",
+        "identity_field": "record_id"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1-002-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/110\", \"json_pointers\": [\"/tables/official_curriculum_entries/111\"], \"pdf_locators\": [{\"document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"page\": 10, \"row\": 24, \"sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT2407\", \"course_name\": \"Tối ưu hóa\", \"credits\": 3, \"current_offering\": null, \"major\": \"computer_science\", \"membership\": {\"course_code\": \"MAT2407\", \"course_group\": \"IV\", \"course_type\": \"required\", \"curriculum_id\": 3, \"suggested_semester\": null}, \"name_en\": \"Optimization\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [\"MAT2301\", \"MAT2303\", \"MAT2321\"], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT2407\", \"curriculum_id\": 3, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2301\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 3, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2321\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 3, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2400\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 3, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2303\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 3, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2502\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2301/\\nMAT2321/\\nMAT2400\\nMAT2303/\\nMAT2502\"], \"status\": \"unresolved_external\"}, \"program_id\": \"khmtt_7480113qtd_2022\", \"record_id\": \"khmtt_7480113qtd_2022:MAT2407\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT2407\", \"credits_in_source\": 3, \"curriculum_id\": 3, \"entry_id\": 500, \"group_key\": \"IV\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 10, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2301/\\nMAT2321/\\nMAT2400\\nMAT2303/\\nMAT2502\", \"source_row_number\": 24}]}",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:MAT2407",
+        "identity_field": "record_id"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1-003-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/67\", \"json_pointers\": [\"/tables/official_curriculum_entries/67\"], \"pdf_locators\": [{\"document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"page\": 11, \"row\": 31, \"sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT1202\", \"course_name\": \"Lập trình hướng đối tượng\", \"credits\": 3, \"current_offering\": null, \"major\": \"computer_science\", \"membership\": {\"course_code\": \"MAT1202\", \"course_group\": \"V.1\", \"course_type\": \"required\", \"curriculum_id\": 3, \"suggested_semester\": null}, \"name_en\": \"Object Oriented Programming\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT1202\", \"curriculum_id\": 3, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2505\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2505\"], \"status\": \"catalog_verified\"}, \"program_id\": \"khmtt_7480113qtd_2022\", \"record_id\": \"khmtt_7480113qtd_2022:MAT1202\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT1202\", \"credits_in_source\": 3, \"curriculum_id\": 3, \"entry_id\": 493, \"group_key\": \"V.1\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 11, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2505\", \"source_row_number\": 31}]}",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:MAT1202",
+        "identity_field": "record_id"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1-004-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/3\", \"json_pointers\": [\"/tables/official_curriculum_entries/3\"], \"pdf_locators\": [{\"document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"page\": 9, \"row\": 9, \"sha256\": \"b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"CME1000\", \"course_name\": \"Giáo dục quốc phòng - an ninh\", \"credits\": 8, \"current_offering\": null, \"major\": \"data_science\", \"membership\": {\"course_code\": \"CME1000\", \"course_group\": \"I\", \"course_type\": \"required\", \"curriculum_id\": 4, \"suggested_semester\": null}, \"name_en\": \"National Defence Education\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [], \"parse_statuses\": [\"none\"], \"raw_variants\": [], \"status\": \"unknown\"}, \"program_id\": \"khdl_7460108_2022\", \"record_id\": \"khdl_7460108_2022:CME1000\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"CME1000\", \"credits_in_source\": 8, \"curriculum_id\": 4, \"entry_id\": 580, \"group_key\": \"I\", \"pdf_document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"none\", \"prerequisite_source_text\": null, \"source_row_number\": 9}]}",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:CME1000",
+        "identity_field": "record_id"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1-005-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/111\", \"json_pointers\": [\"/tables/official_curriculum_entries/112\"], \"pdf_locators\": [{\"document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"page\": 10, \"row\": 24, \"sha256\": \"b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT2407\", \"course_name\": \"Tối ưu hóa\", \"credits\": 3, \"current_offering\": null, \"major\": \"data_science\", \"membership\": {\"course_code\": \"MAT2407\", \"course_group\": \"IV\", \"course_type\": \"required\", \"curriculum_id\": 4, \"suggested_semester\": null}, \"name_en\": \"Optimization\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [\"MAT2301\", \"MAT2303\", \"MAT2321\"], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT2407\", \"curriculum_id\": 4, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2301\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 4, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2321\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 4, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2400\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 4, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2303\"}, {\"course_code\": \"MAT2407\", \"curriculum_id\": 4, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2502\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2301/\\nMAT2321/\\nMAT2400\\nMAT2303/\\nMAT2502\"], \"status\": \"unresolved_external\"}, \"program_id\": \"khdl_7460108_2022\", \"record_id\": \"khdl_7460108_2022:MAT2407\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT2407\", \"credits_in_source\": 3, \"curriculum_id\": 4, \"entry_id\": 565, \"group_key\": \"IV\", \"pdf_document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"pdf_page\": 10, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2301/\\nMAT2321/\\nMAT2400\\nMAT2303/\\nMAT2502\", \"source_row_number\": 24}]}",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT2407",
+        "identity_field": "record_id"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1-006-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/68\", \"json_pointers\": [\"/tables/official_curriculum_entries/68\"], \"pdf_locators\": [{\"document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"page\": 11, \"row\": 29, \"sha256\": \"b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT1202\", \"course_name\": \"Lập trình hướng đối tượng\", \"credits\": 3, \"current_offering\": null, \"major\": \"data_science\", \"membership\": {\"course_code\": \"MAT1202\", \"course_group\": \"V.1\", \"course_type\": \"required\", \"curriculum_id\": 4, \"suggested_semester\": null}, \"name_en\": \"Object Oriented Programming\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT1202\", \"curriculum_id\": 4, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2505\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2505\"], \"status\": \"transcribed_unverified\"}, \"program_id\": \"khdl_7460108_2022\", \"record_id\": \"khdl_7460108_2022:MAT1202\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT1202\", \"credits_in_source\": 3, \"curriculum_id\": 4, \"entry_id\": 560, \"group_key\": \"V.1\", \"pdf_document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"pdf_page\": 11, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2505\", \"source_row_number\": 29}]}",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT1202",
+        "identity_field": "record_id"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1-007-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/0\", \"json_pointers\": [\"/tables/official_curriculum_entries/0\"], \"pdf_locators\": [{\"document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"page\": 9, \"row\": 9, \"sha256\": \"e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"CME1000\", \"course_name\": \"Giáo dục quốc phòng - an ninh\", \"credits\": 8, \"current_offering\": null, \"major\": \"mathematics\", \"membership\": {\"course_code\": \"CME1000\", \"course_group\": \"I\", \"course_type\": \"required\", \"curriculum_id\": 1, \"suggested_semester\": null}, \"name_en\": \"National Defence Education\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [], \"parse_statuses\": [\"none\"], \"raw_variants\": [], \"status\": \"unknown\"}, \"program_id\": \"toan_hoc_7460101_2022\", \"record_id\": \"toan_hoc_7460101_2022:CME1000\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"CME1000\", \"credits_in_source\": 8, \"curriculum_id\": 1, \"entry_id\": 379, \"group_key\": \"I\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"none\", \"prerequisite_source_text\": null, \"source_row_number\": 9}]}",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:CME1000",
+        "identity_field": "record_id"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1-008-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/143\", \"json_pointers\": [\"/tables/official_curriculum_entries/148\", \"/tables/official_curriculum_entries/149\"], \"pdf_locators\": [{\"document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"page\": 13, \"row\": 72, \"sha256\": \"e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf\"}, {\"document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"page\": 12, \"row\": 56, \"sha256\": \"e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT3325\", \"course_name\": \"Lịch sử toán học\", \"credits\": 3, \"current_offering\": null, \"major\": \"mathematics\", \"membership\": {\"course_code\": \"MAT3325\", \"course_group\": \"V.2.1\", \"course_type\": \"elective\", \"curriculum_id\": 1, \"suggested_semester\": null}, \"name_en\": \"History of Mathematics\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [\"MAT2322\"], \"has_conflict\": true, \"options\": [{\"course_code\": \"MAT3325\", \"curriculum_id\": 1, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2314\"}, {\"course_code\": \"MAT3325\", \"curriculum_id\": 1, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2304\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2304/\\nMAT2322\\nMAT2314\", \"MAT2314\\nMAT2304\"], \"status\": \"conflict\"}, \"program_id\": \"toan_hoc_7460101_2022\", \"record_id\": \"toan_hoc_7460101_2022:MAT3325\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT3325\", \"credits_in_source\": 3, \"curriculum_id\": 1, \"entry_id\": 316, \"group_key\": \"V.2.2\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 13, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2304/\\nMAT2322\\nMAT2314\", \"source_row_number\": 72}, {\"course_code\": \"MAT3325\", \"credits_in_source\": 3, \"curriculum_id\": 1, \"entry_id\": 332, \"group_key\": \"V.2.1\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 12, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2314\\nMAT2304\", \"source_row_number\": 56}]}",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT3325",
+        "identity_field": "record_id"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1-009-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/91\", \"json_pointers\": [\"/tables/official_curriculum_entries/91\"], \"pdf_locators\": [{\"document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"page\": 10, \"row\": 26, \"sha256\": \"e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT2308\", \"course_name\": \"Xác suất 1\", \"credits\": 3, \"current_offering\": null, \"major\": \"mathematics\", \"membership\": {\"course_code\": \"MAT2308\", \"course_group\": \"IV.1\", \"course_type\": \"required\", \"curriculum_id\": 1, \"suggested_semester\": null}, \"name_en\": \"Probability 1\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [\"MAT2320\"], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT2308\", \"curriculum_id\": 1, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2300\"}, {\"course_code\": \"MAT2308\", \"curriculum_id\": 1, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2320\"}, {\"course_code\": \"MAT2308\", \"curriculum_id\": 1, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2302\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2300/\\nMAT2320\\nMAT2302\"], \"status\": \"unresolved_external\"}, \"program_id\": \"toan_hoc_7460101_2022\", \"record_id\": \"toan_hoc_7460101_2022:MAT2308\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT2308\", \"credits_in_source\": 3, \"curriculum_id\": 1, \"entry_id\": 362, \"group_key\": \"IV.1\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 10, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2300/\\nMAT2320\\nMAT2302\", \"source_row_number\": 26}]}",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT2308",
+        "identity_field": "record_id"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1-010-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/64\", \"json_pointers\": [\"/tables/official_curriculum_entries/64\"], \"pdf_locators\": [{\"document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"page\": 9, \"row\": 17, \"sha256\": \"e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT1076\", \"course_name\": \"Cơ học lý thuyết\", \"credits\": 3, \"current_offering\": null, \"major\": \"mathematics\", \"membership\": {\"course_code\": \"MAT1076\", \"course_group\": \"III\", \"course_type\": \"required\", \"curriculum_id\": 1, \"suggested_semester\": null}, \"name_en\": \"Theoretical Mechanics\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT1076\", \"curriculum_id\": 1, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2302\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2302\"], \"status\": \"transcribed_unverified\"}, \"program_id\": \"toan_hoc_7460101_2022\", \"record_id\": \"toan_hoc_7460101_2022:MAT1076\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT1076\", \"credits_in_source\": 3, \"curriculum_id\": 1, \"entry_id\": 371, \"group_key\": \"III\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2302\", \"source_row_number\": 17}]}",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT1076",
+        "identity_field": "record_id"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1-011-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/1\", \"json_pointers\": [\"/tables/official_curriculum_entries/1\"], \"pdf_locators\": [{\"document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"page\": 9, \"row\": 9, \"sha256\": \"6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"CME1000\", \"course_name\": \"Giáo dục quốc phòng - an ninh\", \"credits\": 8, \"current_offering\": null, \"major\": \"mathematics_informatics\", \"membership\": {\"course_code\": \"CME1000\", \"course_group\": \"I\", \"course_type\": \"required\", \"curriculum_id\": 2, \"suggested_semester\": null}, \"name_en\": \"National Defence Education\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [], \"parse_statuses\": [\"none\"], \"raw_variants\": [], \"status\": \"unknown\"}, \"program_id\": \"toan_tin_7460117_2022\", \"record_id\": \"toan_tin_7460117_2022:CME1000\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"CME1000\", \"credits_in_source\": 8, \"curriculum_id\": 2, \"entry_id\": 448, \"group_key\": \"I\", \"pdf_document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"none\", \"prerequisite_source_text\": null, \"source_row_number\": 9}]}",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:CME1000",
+        "identity_field": "record_id"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1-012-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/94\", \"json_pointers\": [\"/tables/official_curriculum_entries/95\"], \"pdf_locators\": [{\"document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"page\": 9, \"row\": 23, \"sha256\": \"6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT2314\", \"course_name\": \"Phương trình vi phân\", \"credits\": 4, \"current_offering\": null, \"major\": \"mathematics_informatics\", \"membership\": {\"course_code\": \"MAT2314\", \"course_group\": \"IV\", \"course_type\": \"required\", \"curriculum_id\": 2, \"suggested_semester\": null}, \"name_en\": \"Differential Equations\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [\"MAT2321\"], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT2314\", \"curriculum_id\": 2, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2301\"}, {\"course_code\": \"MAT2314\", \"curriculum_id\": 2, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2321\"}, {\"course_code\": \"MAT2314\", \"curriculum_id\": 2, \"group_no\": 2, \"prerequisite_course_code\": \"MAT2303\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2301/\\nMAT2321\\nMAT2303\"], \"status\": \"unresolved_external\"}, \"program_id\": \"toan_tin_7460117_2022\", \"record_id\": \"toan_tin_7460117_2022:MAT2314\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT2314\", \"credits_in_source\": 4, \"curriculum_id\": 2, \"entry_id\": 434, \"group_key\": \"IV\", \"pdf_document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"pdf_page\": 9, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2301/\\nMAT2321\\nMAT2303\", \"source_row_number\": 23}]}",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:MAT2314",
+        "identity_field": "record_id"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1-013-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/66\", \"json_pointers\": [\"/tables/official_curriculum_entries/66\"], \"pdf_locators\": [{\"document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"page\": 10, \"row\": 32, \"sha256\": \"6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT1202\", \"course_name\": \"Lập trình hướng đối tượng\", \"credits\": 3, \"current_offering\": null, \"major\": \"mathematics_informatics\", \"membership\": {\"course_code\": \"MAT1202\", \"course_group\": \"V.1\", \"course_type\": \"required\", \"curriculum_id\": 2, \"suggested_semester\": null}, \"name_en\": \"Object Oriented Programming\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [{\"course_code\": \"MAT1202\", \"curriculum_id\": 2, \"group_no\": 1, \"prerequisite_course_code\": \"MAT2505\"}], \"parse_statuses\": [\"normalized\"], \"raw_variants\": [\"MAT2505\"], \"status\": \"transcribed_unverified\"}, \"program_id\": \"toan_tin_7460117_2022\", \"record_id\": \"toan_tin_7460117_2022:MAT1202\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT1202\", \"credits_in_source\": 3, \"curriculum_id\": 2, \"entry_id\": 425, \"group_key\": \"V.1\", \"pdf_document\": \"103. Toán tin-chuẩn final QD 3567 Scan.pdf\", \"pdf_page\": 10, \"prerequisite_parse_status\": \"normalized\", \"prerequisite_source_text\": \"MAT2505\", \"source_row_number\": 32}]}",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:MAT1202",
+        "identity_field": "record_id"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1-014-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curriculum_courses/103\", \"json_pointers\": [\"/tables/official_curriculum_entries/103\"], \"pdf_locators\": [{\"document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"page\": 10, \"row\": 18, \"sha256\": \"b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf\"}], \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_code\": \"MAT2400\", \"course_name\": \"Đại số tuyến tính\", \"credits\": 5, \"current_offering\": null, \"major\": \"data_science\", \"membership\": {\"course_code\": \"MAT2400\", \"course_group\": \"IV\", \"course_type\": \"required\", \"curriculum_id\": 4, \"suggested_semester\": null}, \"name_en\": \"Linear Algebra\", \"official_syllabus\": null, \"prerequisites\": {\"authorizes_eligibility\": false, \"empty_means_no_prerequisite\": false, \"external_codes\": [], \"has_conflict\": false, \"options\": [], \"parse_statuses\": [\"none\"], \"raw_variants\": [], \"status\": \"unknown\"}, \"program_id\": \"khdl_7460108_2022\", \"record_id\": \"khdl_7460108_2022:MAT2400\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_occurrences\": [{\"course_code\": \"MAT2400\", \"credits_in_source\": 5, \"curriculum_id\": 4, \"entry_id\": 571, \"group_key\": \"IV\", \"pdf_document\": \"105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\", \"pdf_page\": 10, \"prerequisite_parse_status\": \"none\", \"prerequisite_source_text\": null, \"source_row_number\": 18}]}",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT2400",
+        "identity_field": "record_id"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-001-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curricula/3\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_count\": 90, \"credits_required\": 135, \"major\": \"mathematics\", \"major_name\": \"Toán học\", \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_note\": \"Quyết định 3565/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 101. Toán học-chuẩn final QD 3565 Scan.pdf\"}",
+      "source_ref": {
+        "identity": "/tables/curricula/3",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/0\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"I\", \"group_note\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.\", \"group_title\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ\", \"min_credits_if_selected\": 21, \"offered_credits\": null, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"I\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/0",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E2",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/1\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/1",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E3",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/2\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"III\", \"group_note\": \"Kiến thức theo khối ngành\", \"group_title\": \"Kiến thức theo khối ngành\", \"min_credits_if_selected\": 3, \"offered_credits\": 3, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"III\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/2",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E4",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/3\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"IV.1\", \"group_note\": \"Kiến thức nhóm ngành bắt buộc\", \"group_title\": \"Kiến thức nhóm ngành bắt buộc\", \"min_credits_if_selected\": 48, \"offered_credits\": 48, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"IV.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/3",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E5",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/4\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"IV.2\", \"group_note\": \"Nhóm ngành tự chọn; chọn 1 trong 4 học phần lập trình\", \"group_title\": \"Nhóm ngành tự chọn; chọn 1 trong 4 học phần lập trình\", \"min_credits_if_selected\": 3, \"offered_credits\": 12, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"IV.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/4",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E6",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/5\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.1\", \"group_note\": \"Kiến thức ngành bắt buộc\", \"group_title\": \"Kiến thức ngành bắt buộc\", \"min_credits_if_selected\": 33, \"offered_credits\": 33, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/5",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E7",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/6\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.2.1\", \"group_note\": \"Định hướng Toán lý thuyết; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.\", \"group_title\": \"Định hướng Toán lý thuyết\", \"min_credits_if_selected\": 15, \"offered_credits\": 39, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/6",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E8",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/7\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.2.2\", \"group_note\": \"Định hướng Toán ứng dụng; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.\", \"group_title\": \"Định hướng Toán ứng dụng\", \"min_credits_if_selected\": 15, \"offered_credits\": 48, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/7",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E9",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/8\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.2.3\", \"group_note\": \"Định hướng Cơ học; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.\", \"group_title\": \"Định hướng Cơ học\", \"min_credits_if_selected\": 15, \"offered_credits\": 36, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.3\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/8",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E10",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/9\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.3.1\", \"group_note\": \"Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Khóa luận tốt nghiệp\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/9",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E11",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/10\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.3.2\", \"group_note\": \"Hai học phần thay thế khóa luận định hướng Toán; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Hai học phần thay thế khóa luận định hướng Toán\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/10",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-002-E12",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/11\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"V.3.3\", \"group_note\": \"Hai học phần thay thế khóa luận định hướng Cơ học; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Hai học phần thay thế khóa luận định hướng Cơ học\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.3\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/11",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-003-E1",
+      "major": "mathematics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/1\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán học\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 1, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"toan_hoc_7460101_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3565-2023\", \"major\": \"mathematics\", \"program_id\": \"toan_hoc_7460101_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/1",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A1B-004-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curricula/2\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_count\": 68, \"credits_required\": 132, \"major\": \"mathematics_informatics\", \"major_name\": \"Toán tin\", \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_note\": \"Quyết định 3567/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 103. Toán tin-chuẩn final QD 3567 Scan.pdf\"}",
+      "source_ref": {
+        "identity": "/tables/curricula/2",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/12\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"I\", \"group_note\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.\", \"group_title\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ\", \"min_credits_if_selected\": 21, \"offered_credits\": null, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"I\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/12",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E2",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/13\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/13",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E3",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/14\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"III\", \"group_note\": \"Kiến thức theo khối ngành\", \"group_title\": \"Kiến thức theo khối ngành\", \"min_credits_if_selected\": 3, \"offered_credits\": 3, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"III\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/14",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E4",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/15\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"IV\", \"group_note\": \"Kiến thức theo nhóm ngành bắt buộc\", \"group_title\": \"Kiến thức theo nhóm ngành bắt buộc\", \"min_credits_if_selected\": 46, \"offered_credits\": 46, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"IV\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/15",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E5",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/16\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"V.1\", \"group_note\": \"Kiến thức ngành bắt buộc\", \"group_title\": \"Kiến thức ngành bắt buộc\", \"min_credits_if_selected\": 35, \"offered_credits\": 35, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/16",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E6",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/17\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"V.2.1\", \"group_note\": \"Học phần tự chọn định hướng Tin học; Chọn MỘT trong hai định hướng V.2.1/V.2.2; tổng khối V.2 chỉ 15 tín chỉ.\", \"group_title\": \"Học phần tự chọn định hướng Tin học\", \"min_credits_if_selected\": 15, \"offered_credits\": 30, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/17",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E7",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/18\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"V.2.2\", \"group_note\": \"Học phần tự chọn chuyên sâu và bổ trợ định hướng Tin học; Chọn MỘT trong hai định hướng V.2.1/V.2.2; tổng khối V.2 chỉ 15 tín chỉ.\", \"group_title\": \"Các học phần chuyên sâu và bổ trợ định hướng Tính toán khoa học\", \"min_credits_if_selected\": 15, \"offered_credits\": 30, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/18",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E8",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/19\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"V.3.1\", \"group_note\": \"Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Khóa luận tốt nghiệp\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/19",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-005-E9",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/20\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"V.3.2\", \"group_note\": \"Hai học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Hai học phần thay thế khóa luận\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/20",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-006-E1",
+      "major": "mathematics_informatics",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/13\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Toán tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 2, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"toan_tin_7460117_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3567-2023\", \"major\": \"mathematics_informatics\", \"program_id\": \"toan_tin_7460117_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/13",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A1B-007-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curricula/1\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_count\": 67, \"credits_required\": 129, \"major\": \"computer_science\", \"major_name\": \"Khoa học máy tính và thông tin\", \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_note\": \"Quyết định 3568/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\"}",
+      "source_ref": {
+        "identity": "/tables/curricula/1",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/21\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"I\", \"group_note\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.\", \"group_title\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ\", \"min_credits_if_selected\": 21, \"offered_credits\": null, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"I\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/21",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E2",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/22\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/22",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E3",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/23\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"III\", \"group_note\": \"Kiến thức theo khối ngành\", \"group_title\": \"Kiến thức theo khối ngành\", \"min_credits_if_selected\": 3, \"offered_credits\": 3, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"III\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/23",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E4",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/24\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"IV\", \"group_note\": \"Kiến thức theo nhóm ngành bắt buộc\", \"group_title\": \"Kiến thức theo nhóm ngành bắt buộc\", \"min_credits_if_selected\": 28, \"offered_credits\": 28, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"IV\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/24",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E5",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/25\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"V.1\", \"group_note\": \"Kiến thức ngành bắt buộc\", \"group_title\": \"Kiến thức ngành bắt buộc\", \"min_credits_if_selected\": 49, \"offered_credits\": 49, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/25",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E6",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/26\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"V.2.1\", \"group_note\": \"Tự chọn về kĩ năng phần mềm\", \"group_title\": \"Tự chọn về kĩ năng phần mềm\", \"min_credits_if_selected\": 4, \"offered_credits\": 8, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/26",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E7",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/27\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"V.2.2\", \"group_note\": \"Tự chọn về trí tuệ nhân tạo và phát triển phần mềm\", \"group_title\": \"Tự chọn về trí tuệ nhân tạo và phát triển phần mềm\", \"min_credits_if_selected\": 12, \"offered_credits\": 39, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/27",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E8",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/28\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"V.3.1\", \"group_note\": \"Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Khóa luận tốt nghiệp\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/28",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-008-E9",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/29\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"V.3.2\", \"group_note\": \"Các học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Các học phần thay thế khóa luận\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/29",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-009-E1",
+      "major": "computer_science",
+      "quote": "{\"catalog_review\": {\"basis\": \"explicit_user_attestation\", \"institutional_certification\": false, \"reviewed_at\": \"2026-10-30T20:15:35Z\", \"reviewer\": \"user\", \"source_sha256\": \"bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab\", \"status\": \"verified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/22\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học máy tính và thông tin\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 3, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"khmtt_7480113qtd_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3568-2023\", \"major\": \"computer_science\", \"program_id\": \"khmtt_7480113qtd_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/22",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A1B-010-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/curricula/0\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"course_count\": 65, \"credits_required\": 127, \"major\": \"data_science\", \"major_name\": \"Khoa học dữ liệu\", \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_note\": \"Quyết định 3569/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf\"}",
+      "source_ref": {
+        "identity": "/tables/curricula/0",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/30\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"I\", \"group_note\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.\", \"group_title\": \"Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ\", \"min_credits_if_selected\": 21, \"offered_credits\": null, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"I\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/30",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E2",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/31\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/31",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E3",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/32\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"III\", \"group_note\": \"Kiến thức theo khối ngành\", \"group_title\": \"Kiến thức theo khối ngành\", \"min_credits_if_selected\": 3, \"offered_credits\": 3, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"III\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/32",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E4",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/33\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"IV\", \"group_note\": \"Kiến thức theo nhóm ngành bắt buộc\", \"group_title\": \"Kiến thức theo nhóm ngành bắt buộc\", \"min_credits_if_selected\": 28, \"offered_credits\": 28, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"IV\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/33",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E5",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/34\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.1\", \"group_note\": \"Kiến thức ngành bắt buộc\", \"group_title\": \"Kiến thức ngành bắt buộc\", \"min_credits_if_selected\": 35, \"offered_credits\": 35, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/34",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E6",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/35\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.2.1\", \"group_note\": \"Tự chọn về kĩ năng phần mềm\", \"group_title\": \"Tự chọn về kĩ năng phần mềm\", \"min_credits_if_selected\": 4, \"offered_credits\": 6, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/35",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E7",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/36\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.2.2\", \"group_note\": \"Tự chọn về Khoa học máy tính\", \"group_title\": \"Tự chọn về Khoa học máy tính\", \"min_credits_if_selected\": 6, \"offered_credits\": 9, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/36",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E8",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/37\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.2.3\", \"group_note\": \"Tự chọn về Thống kê và Khai phá dữ liệu\", \"group_title\": \"Tự chọn về Thống kê và Khai phá dữ liệu\", \"min_credits_if_selected\": 9, \"offered_credits\": 15, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.3\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/37",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E9",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/38\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.2.4\", \"group_note\": \"Tự chọn về ứng dụng Khoa học dữ liệu; Trong bản scan, tiêu đề này được in lặp V.2.3. Dùng V.2.4 làm mã nội bộ để không đụng tên.\", \"group_title\": \"Tự chọn về ứng dụng Khoa học dữ liệu\", \"min_credits_if_selected\": 9, \"offered_credits\": 27, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2.3\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/38",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E10",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/39\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.3.1\", \"group_note\": \"Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Khóa luận tốt nghiệp\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.1\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/39",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E11",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/40\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.3.2\", \"group_note\": \"Các học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.\", \"group_title\": \"Các học phần thay thế khóa luận\", \"min_credits_if_selected\": 7, \"offered_credits\": 7, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.3.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/40",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-011-E12",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/41\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"V.2\", \"group_note\": \"28/63 tín chỉ theo QĐ 3569, PDF trang 8, mục tóm tắt; tổng offered_credits của bốn nhóm con ở trang 11-12 là 57. Giữ nguyên khác biệt của nguồn, chờ người dùng rà soát.\", \"group_title\": \"Các học phần tự chọn\", \"min_credits_if_selected\": 28, \"offered_credits\": 63, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"V.2\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/41",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A1B-012-E1",
+      "major": "data_science",
+      "quote": "{\"catalog_review\": {\"basis\": null, \"institutional_certification\": false, \"status\": \"draft_unverified\"}, \"citation\": {\"evidence_path\": \"evidence/canonical_f2.json\", \"json_pointer\": \"/tables/official_curriculum_groups/31\", \"source_git_blob\": \"38be5742a07e47de2ca868c4d570393828d0738e\", \"source_id\": \"canonical_f2\", \"source_kind\": \"curriculum_transcription\", \"source_sha256\": \"e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c\", \"title\": \"Khoa học dữ liệu\", \"url\": \"https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json\"}, \"curriculum_id\": 4, \"group_key\": \"II\", \"group_note\": \"Kiến thức theo lĩnh vực\", \"group_title\": \"Kiến thức theo lĩnh vực\", \"min_credits_if_selected\": 5, \"offered_credits\": 13, \"program_id\": \"khdl_7460108_2022\", \"scope\": {\"applicability_status\": \"catalog_cohort_not_individual_account_binding\", \"cohort_year\": 2022, \"curriculum_version\": \"QD3569-2023\", \"major\": \"data_science\", \"program_id\": \"khdl_7460108_2022\", \"program_variant\": \"standard\", \"validity_status\": \"as_declared_in_canonical_F2\"}, \"source_heading\": \"II\"}",
+      "source_ref": {
+        "identity": "/tables/official_curriculum_groups/31",
+        "identity_field": "json_pointer"
+      },
+      "version": "QD3569-2023"
+    }
+  ],
+  "expected_release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  },
+  "gold": [
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-001-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-001",
+      "v2_expected_facts": {
+        "course_code": "CME1000",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-002-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-002",
+      "v2_expected_facts": {
+        "course_code": "MAT2407",
+        "field": "prerequisites",
+        "prerequisite_status": "unresolved",
+        "value": [
+          "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-003-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-003",
+      "v2_expected_facts": {
+        "course_code": "MAT1202",
+        "field": "prerequisites",
+        "prerequisite_status": "present",
+        "value": [
+          "MAT2505"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-004-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-004",
+      "v2_expected_facts": {
+        "course_code": "CME1000",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-005-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-005",
+      "v2_expected_facts": {
+        "course_code": "MAT2407",
+        "field": "prerequisites",
+        "prerequisite_status": "unresolved",
+        "value": [
+          "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-006-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-006",
+      "v2_expected_facts": {
+        "course_code": "MAT1202",
+        "field": "prerequisites",
+        "prerequisite_status": "present",
+        "value": [
+          "MAT2505"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-007-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-007",
+      "v2_expected_facts": {
+        "course_code": "CME1000",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-008-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-008",
+      "v2_expected_facts": {
+        "course_code": "MAT3325",
+        "field": "prerequisites",
+        "prerequisite_status": "conflict",
+        "value": [
+          "MAT2304/\nMAT2322\nMAT2314",
+          "MAT2314\nMAT2304"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-009-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-009",
+      "v2_expected_facts": {
+        "course_code": "MAT2308",
+        "field": "prerequisites",
+        "prerequisite_status": "unresolved",
+        "value": [
+          "MAT2300/\nMAT2320\nMAT2302"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-010-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-010",
+      "v2_expected_facts": {
+        "course_code": "MAT1076",
+        "field": "prerequisites",
+        "prerequisite_status": "present",
+        "value": [
+          "MAT2302"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-011-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-011",
+      "v2_expected_facts": {
+        "course_code": "CME1000",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-012-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-012",
+      "v2_expected_facts": {
+        "course_code": "MAT2314",
+        "field": "prerequisites",
+        "prerequisite_status": "unresolved",
+        "value": [
+          "MAT2301/\nMAT2321\nMAT2303"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-013-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-013",
+      "v2_expected_facts": {
+        "course_code": "MAT1202",
+        "field": "prerequisites",
+        "prerequisite_status": "present",
+        "value": [
+          "MAT2505"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1-014-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-014",
+      "v2_expected_facts": {
+        "course_code": "MAT2400",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "clarification_required",
+      "evidence_ids": [],
+      "expected_answer": "Clarify without facts/citations; no hidden course history",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": null,
+      "expected_status": "needs_clarification",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-015",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "clarification_required",
+      "evidence_ids": [],
+      "expected_answer": "Clarify without facts/citations; no hidden course history",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": null,
+      "expected_status": "needs_clarification",
+      "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+      "question_id": "A1-016",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-001-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_credits",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-001",
+      "v2_expected_facts": {
+        "field": "program_credits",
+        "program_id": "toan_hoc_7460101_2022",
+        "value": {
+          "credits_required": 135
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-002-E1",
+        "A1B-002-E2",
+        "A1B-002-E3",
+        "A1B-002-E4",
+        "A1B-002-E5",
+        "A1B-002-E6",
+        "A1B-002-E7",
+        "A1B-002-E8",
+        "A1B-002-E9",
+        "A1B-002-E10",
+        "A1B-002-E11",
+        "A1B-002-E12"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_groups",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-002",
+      "v2_expected_facts": {
+        "field": "program_groups",
+        "program_id": "toan_hoc_7460101_2022",
+        "value": [
+          {
+            "group_key": "I",
+            "group_note": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.",
+            "group_title": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ",
+            "min_credits_if_selected": 21,
+            "offered_credits": null,
+            "source_heading": "I"
+          },
+          {
+            "group_key": "II",
+            "group_note": "Kiến thức theo lĩnh vực",
+            "group_title": "Kiến thức theo lĩnh vực",
+            "min_credits_if_selected": 5,
+            "offered_credits": 13,
+            "source_heading": "II"
+          },
+          {
+            "group_key": "III",
+            "group_note": "Kiến thức theo khối ngành",
+            "group_title": "Kiến thức theo khối ngành",
+            "min_credits_if_selected": 3,
+            "offered_credits": 3,
+            "source_heading": "III"
+          },
+          {
+            "group_key": "IV.1",
+            "group_note": "Kiến thức nhóm ngành bắt buộc",
+            "group_title": "Kiến thức nhóm ngành bắt buộc",
+            "min_credits_if_selected": 48,
+            "offered_credits": 48,
+            "source_heading": "IV.1"
+          },
+          {
+            "group_key": "IV.2",
+            "group_note": "Nhóm ngành tự chọn; chọn 1 trong 4 học phần lập trình",
+            "group_title": "Nhóm ngành tự chọn; chọn 1 trong 4 học phần lập trình",
+            "min_credits_if_selected": 3,
+            "offered_credits": 12,
+            "source_heading": "IV.2"
+          },
+          {
+            "group_key": "V.1",
+            "group_note": "Kiến thức ngành bắt buộc",
+            "group_title": "Kiến thức ngành bắt buộc",
+            "min_credits_if_selected": 33,
+            "offered_credits": 33,
+            "source_heading": "V.1"
+          },
+          {
+            "group_key": "V.2.1",
+            "group_note": "Định hướng Toán lý thuyết; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.",
+            "group_title": "Định hướng Toán lý thuyết",
+            "min_credits_if_selected": 15,
+            "offered_credits": 39,
+            "source_heading": "V.2.1"
+          },
+          {
+            "group_key": "V.2.2",
+            "group_note": "Định hướng Toán ứng dụng; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.",
+            "group_title": "Định hướng Toán ứng dụng",
+            "min_credits_if_selected": 15,
+            "offered_credits": 48,
+            "source_heading": "V.2.2"
+          },
+          {
+            "group_key": "V.2.3",
+            "group_note": "Định hướng Cơ học; Chọn MỘT trong ba định hướng V.2.1/V.2.2/V.2.3, không phải cả ba.",
+            "group_title": "Định hướng Cơ học",
+            "min_credits_if_selected": 15,
+            "offered_credits": 36,
+            "source_heading": "V.2.3"
+          },
+          {
+            "group_key": "V.3.1",
+            "group_note": "Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Khóa luận tốt nghiệp",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.1"
+          },
+          {
+            "group_key": "V.3.2",
+            "group_note": "Hai học phần thay thế khóa luận định hướng Toán; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Hai học phần thay thế khóa luận định hướng Toán",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.2"
+          },
+          {
+            "group_key": "V.3.3",
+            "group_note": "Hai học phần thay thế khóa luận định hướng Cơ học; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Hai học phần thay thế khóa luận định hướng Cơ học",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.3"
+          }
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-003-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "group_rules",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-003",
+      "v2_expected_facts": {
+        "field": "group_rules",
+        "program_id": "toan_hoc_7460101_2022",
+        "value": {
+          "group_key": "II",
+          "group_note": "Kiến thức theo lĩnh vực",
+          "group_title": "Kiến thức theo lĩnh vực",
+          "min_credits_if_selected": 5,
+          "offered_credits": 13,
+          "source_heading": "II"
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-004-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_credits",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-004",
+      "v2_expected_facts": {
+        "field": "program_credits",
+        "program_id": "toan_tin_7460117_2022",
+        "value": {
+          "credits_required": 132
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-005-E1",
+        "A1B-005-E2",
+        "A1B-005-E3",
+        "A1B-005-E4",
+        "A1B-005-E5",
+        "A1B-005-E6",
+        "A1B-005-E7",
+        "A1B-005-E8",
+        "A1B-005-E9"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_groups",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-005",
+      "v2_expected_facts": {
+        "field": "program_groups",
+        "program_id": "toan_tin_7460117_2022",
+        "value": [
+          {
+            "group_key": "I",
+            "group_note": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.",
+            "group_title": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ",
+            "min_credits_if_selected": 21,
+            "offered_credits": null,
+            "source_heading": "I"
+          },
+          {
+            "group_key": "II",
+            "group_note": "Kiến thức theo lĩnh vực",
+            "group_title": "Kiến thức theo lĩnh vực",
+            "min_credits_if_selected": 5,
+            "offered_credits": 13,
+            "source_heading": "II"
+          },
+          {
+            "group_key": "III",
+            "group_note": "Kiến thức theo khối ngành",
+            "group_title": "Kiến thức theo khối ngành",
+            "min_credits_if_selected": 3,
+            "offered_credits": 3,
+            "source_heading": "III"
+          },
+          {
+            "group_key": "IV",
+            "group_note": "Kiến thức theo nhóm ngành bắt buộc",
+            "group_title": "Kiến thức theo nhóm ngành bắt buộc",
+            "min_credits_if_selected": 46,
+            "offered_credits": 46,
+            "source_heading": "IV"
+          },
+          {
+            "group_key": "V.1",
+            "group_note": "Kiến thức ngành bắt buộc",
+            "group_title": "Kiến thức ngành bắt buộc",
+            "min_credits_if_selected": 35,
+            "offered_credits": 35,
+            "source_heading": "V.1"
+          },
+          {
+            "group_key": "V.2.1",
+            "group_note": "Học phần tự chọn định hướng Tin học; Chọn MỘT trong hai định hướng V.2.1/V.2.2; tổng khối V.2 chỉ 15 tín chỉ.",
+            "group_title": "Học phần tự chọn định hướng Tin học",
+            "min_credits_if_selected": 15,
+            "offered_credits": 30,
+            "source_heading": "V.2.1"
+          },
+          {
+            "group_key": "V.2.2",
+            "group_note": "Học phần tự chọn chuyên sâu và bổ trợ định hướng Tin học; Chọn MỘT trong hai định hướng V.2.1/V.2.2; tổng khối V.2 chỉ 15 tín chỉ.",
+            "group_title": "Các học phần chuyên sâu và bổ trợ định hướng Tính toán khoa học",
+            "min_credits_if_selected": 15,
+            "offered_credits": 30,
+            "source_heading": "V.2.2"
+          },
+          {
+            "group_key": "V.3.1",
+            "group_note": "Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Khóa luận tốt nghiệp",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.1"
+          },
+          {
+            "group_key": "V.3.2",
+            "group_note": "Hai học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Hai học phần thay thế khóa luận",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.2"
+          }
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-006-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "group_rules",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-006",
+      "v2_expected_facts": {
+        "field": "group_rules",
+        "program_id": "toan_tin_7460117_2022",
+        "value": {
+          "group_key": "II",
+          "group_note": "Kiến thức theo lĩnh vực",
+          "group_title": "Kiến thức theo lĩnh vực",
+          "min_credits_if_selected": 5,
+          "offered_credits": 13,
+          "source_heading": "II"
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-007-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_credits",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-007",
+      "v2_expected_facts": {
+        "field": "program_credits",
+        "program_id": "khmtt_7480113qtd_2022",
+        "value": {
+          "credits_required": 129
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-008-E1",
+        "A1B-008-E2",
+        "A1B-008-E3",
+        "A1B-008-E4",
+        "A1B-008-E5",
+        "A1B-008-E6",
+        "A1B-008-E7",
+        "A1B-008-E8",
+        "A1B-008-E9"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_groups",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-008",
+      "v2_expected_facts": {
+        "field": "program_groups",
+        "program_id": "khmtt_7480113qtd_2022",
+        "value": [
+          {
+            "group_key": "I",
+            "group_note": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.",
+            "group_title": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ",
+            "min_credits_if_selected": 21,
+            "offered_credits": null,
+            "source_heading": "I"
+          },
+          {
+            "group_key": "II",
+            "group_note": "Kiến thức theo lĩnh vực",
+            "group_title": "Kiến thức theo lĩnh vực",
+            "min_credits_if_selected": 5,
+            "offered_credits": 13,
+            "source_heading": "II"
+          },
+          {
+            "group_key": "III",
+            "group_note": "Kiến thức theo khối ngành",
+            "group_title": "Kiến thức theo khối ngành",
+            "min_credits_if_selected": 3,
+            "offered_credits": 3,
+            "source_heading": "III"
+          },
+          {
+            "group_key": "IV",
+            "group_note": "Kiến thức theo nhóm ngành bắt buộc",
+            "group_title": "Kiến thức theo nhóm ngành bắt buộc",
+            "min_credits_if_selected": 28,
+            "offered_credits": 28,
+            "source_heading": "IV"
+          },
+          {
+            "group_key": "V.1",
+            "group_note": "Kiến thức ngành bắt buộc",
+            "group_title": "Kiến thức ngành bắt buộc",
+            "min_credits_if_selected": 49,
+            "offered_credits": 49,
+            "source_heading": "V.1"
+          },
+          {
+            "group_key": "V.2.1",
+            "group_note": "Tự chọn về kĩ năng phần mềm",
+            "group_title": "Tự chọn về kĩ năng phần mềm",
+            "min_credits_if_selected": 4,
+            "offered_credits": 8,
+            "source_heading": "V.2.1"
+          },
+          {
+            "group_key": "V.2.2",
+            "group_note": "Tự chọn về trí tuệ nhân tạo và phát triển phần mềm",
+            "group_title": "Tự chọn về trí tuệ nhân tạo và phát triển phần mềm",
+            "min_credits_if_selected": 12,
+            "offered_credits": 39,
+            "source_heading": "V.2.2"
+          },
+          {
+            "group_key": "V.3.1",
+            "group_note": "Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Khóa luận tốt nghiệp",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.1"
+          },
+          {
+            "group_key": "V.3.2",
+            "group_note": "Các học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Các học phần thay thế khóa luận",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.2"
+          }
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-009-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "group_rules",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-009",
+      "v2_expected_facts": {
+        "field": "group_rules",
+        "program_id": "khmtt_7480113qtd_2022",
+        "value": {
+          "group_key": "II",
+          "group_note": "Kiến thức theo lĩnh vực",
+          "group_title": "Kiến thức theo lĩnh vực",
+          "min_credits_if_selected": 5,
+          "offered_credits": 13,
+          "source_heading": "II"
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-010-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_credits",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-010",
+      "v2_expected_facts": {
+        "field": "program_credits",
+        "program_id": "khdl_7460108_2022",
+        "value": {
+          "credits_required": 127
+        }
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-011-E1",
+        "A1B-011-E2",
+        "A1B-011-E3",
+        "A1B-011-E4",
+        "A1B-011-E5",
+        "A1B-011-E6",
+        "A1B-011-E7",
+        "A1B-011-E8",
+        "A1B-011-E9",
+        "A1B-011-E10",
+        "A1B-011-E11",
+        "A1B-011-E12"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "program_groups",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-011",
+      "v2_expected_facts": {
+        "field": "program_groups",
+        "program_id": "khdl_7460108_2022",
+        "value": [
+          {
+            "group_key": "I",
+            "group_note": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ; CME1000, PES1000, HUS1012 không tính vào tổng tín chỉ chương trình; ngoại ngữ chọn một mã FLF.",
+            "group_title": "Kiến thức chung; ngoại ngữ B1 chọn 1/7, GDTC và GDQP-AN không tính vào tổng tín chỉ",
+            "min_credits_if_selected": 21,
+            "offered_credits": null,
+            "source_heading": "I"
+          },
+          {
+            "group_key": "II",
+            "group_note": "Kiến thức theo lĩnh vực",
+            "group_title": "Kiến thức theo lĩnh vực",
+            "min_credits_if_selected": 5,
+            "offered_credits": 13,
+            "source_heading": "II"
+          },
+          {
+            "group_key": "III",
+            "group_note": "Kiến thức theo khối ngành",
+            "group_title": "Kiến thức theo khối ngành",
+            "min_credits_if_selected": 3,
+            "offered_credits": 3,
+            "source_heading": "III"
+          },
+          {
+            "group_key": "IV",
+            "group_note": "Kiến thức theo nhóm ngành bắt buộc",
+            "group_title": "Kiến thức theo nhóm ngành bắt buộc",
+            "min_credits_if_selected": 28,
+            "offered_credits": 28,
+            "source_heading": "IV"
+          },
+          {
+            "group_key": "V.1",
+            "group_note": "Kiến thức ngành bắt buộc",
+            "group_title": "Kiến thức ngành bắt buộc",
+            "min_credits_if_selected": 35,
+            "offered_credits": 35,
+            "source_heading": "V.1"
+          },
+          {
+            "group_key": "V.2.1",
+            "group_note": "Tự chọn về kĩ năng phần mềm",
+            "group_title": "Tự chọn về kĩ năng phần mềm",
+            "min_credits_if_selected": 4,
+            "offered_credits": 6,
+            "source_heading": "V.2.1"
+          },
+          {
+            "group_key": "V.2.2",
+            "group_note": "Tự chọn về Khoa học máy tính",
+            "group_title": "Tự chọn về Khoa học máy tính",
+            "min_credits_if_selected": 6,
+            "offered_credits": 9,
+            "source_heading": "V.2.2"
+          },
+          {
+            "group_key": "V.2.3",
+            "group_note": "Tự chọn về Thống kê và Khai phá dữ liệu",
+            "group_title": "Tự chọn về Thống kê và Khai phá dữ liệu",
+            "min_credits_if_selected": 9,
+            "offered_credits": 15,
+            "source_heading": "V.2.3"
+          },
+          {
+            "group_key": "V.2.4",
+            "group_note": "Tự chọn về ứng dụng Khoa học dữ liệu; Trong bản scan, tiêu đề này được in lặp V.2.3. Dùng V.2.4 làm mã nội bộ để không đụng tên.",
+            "group_title": "Tự chọn về ứng dụng Khoa học dữ liệu",
+            "min_credits_if_selected": 9,
+            "offered_credits": 27,
+            "source_heading": "V.2.3"
+          },
+          {
+            "group_key": "V.3.1",
+            "group_note": "Khóa luận tốt nghiệp; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Khóa luận tốt nghiệp",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.1"
+          },
+          {
+            "group_key": "V.3.2",
+            "group_note": "Các học phần thay thế khóa luận; Chỉ chọn một phương án hoàn thành khóa luận/thay thế phù hợp.",
+            "group_title": "Các học phần thay thế khóa luận",
+            "min_credits_if_selected": 7,
+            "offered_credits": 7,
+            "source_heading": "V.3.2"
+          },
+          {
+            "group_key": "V.2",
+            "group_note": "28/63 tín chỉ theo QĐ 3569, PDF trang 8, mục tóm tắt; tổng offered_credits của bốn nhóm con ở trang 11-12 là 57. Giữ nguyên khác biệt của nguồn, chờ người dùng rà soát.",
+            "group_title": "Các học phần tự chọn",
+            "min_credits_if_selected": 28,
+            "offered_credits": 63,
+            "source_heading": "V.2"
+          }
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A1B-012-E1"
+      ],
+      "expected_answer": "Pinned structured source contract; no eligibility inference",
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "group_rules",
+      "expected_status": "answered",
+      "parent": "data/hus/evaluation/diagnostic_dev_v5_programs",
+      "question_id": "A1B-012",
+      "v2_expected_facts": {
+        "field": "group_rules",
+        "program_id": "khdl_7460108_2022",
+        "value": {
+          "group_key": "II",
+          "group_note": "Kiến thức theo lĩnh vực",
+          "group_title": "Kiến thức theo lĩnh vực",
+          "min_credits_if_selected": 5,
+          "offered_credits": 13,
+          "source_heading": "II"
+        }
+      }
+    }
+  ],
+  "holdout_eligible": false,
+  "input_sha256": {
+    "data/hus/evaluation/a2_contracts_v1/evidence.jsonl": "5e5bf5705d315505bd09334bb9cd4a25d7620a42c518d1d2396460bf75b3db8a",
+    "data/hus/evaluation/a2_contracts_v1/gold.jsonl": "c8d4cf0d9cf9e0beaef7286c74734cee57796ef55fa05beb0428b1455770ab65",
+    "data/hus/evaluation/a2_contracts_v1/manifest.json": "87c67980f1889f9358ce9b8852241dcf3f62085c9e7948c1714d4fe8c985afbd",
+    "data/hus/evaluation/a2_contracts_v1/questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6",
+    "data/hus/evaluation/diagnostic_dev_v4_contracts/manifest.json": "2f098be510551066878c6aa2423538da4847816e8c13d78fb48465e6861abec2",
+    "data/hus/evaluation/diagnostic_dev_v5_programs/manifest.json": "1ad26a0fe2315da610d468dcdf269ab81402980998e7b7fbfbc35e3c76eb5642"
+  },
+  "legacy_applicable": false,
+  "pack": "data/hus/evaluation/a2_contracts_v1",
+  "questions": [
+    {
+      "question_id": "A1-001",
+      "request": {
+        "major": "computer_science",
+        "question": "Tiên quyết CME1000?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1-002",
+      "request": {
+        "major": "computer_science",
+        "question": "Tiên quyết MAT2407?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1-003",
+      "request": {
+        "major": "computer_science",
+        "question": "Tiên quyết MAT1202?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1-004",
+      "request": {
+        "major": "data_science",
+        "question": "Tiên quyết CME1000?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1-005",
+      "request": {
+        "major": "data_science",
+        "question": "Tiên quyết MAT2407?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1-006",
+      "request": {
+        "major": "data_science",
+        "question": "Tiên quyết MAT1202?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1-007",
+      "request": {
+        "major": "mathematics",
+        "question": "Tiên quyết CME1000?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1-008",
+      "request": {
+        "major": "mathematics",
+        "question": "Tiên quyết MAT3325?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1-009",
+      "request": {
+        "major": "mathematics",
+        "question": "Tiên quyết MAT2308?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1-010",
+      "request": {
+        "major": "mathematics",
+        "question": "Tiên quyết MAT1076?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1-011",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Tiên quyết CME1000?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1-012",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Tiên quyết MAT2314?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1-013",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Tiên quyết MAT1202?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1-014",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "data_science",
+        "question": "Tôi đang kiểm dòng điều kiện đầu vào cho MAT2400 (Khoa học dữ liệu, QD3569-2023). Dữ liệu nguồn ghi chuỗi mã học trước ra sao? Giữ nguyên chỗ chưa rõ.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1-015",
+      "request": {
+        "major": "data_science",
+        "question": "MAT3533 có tên gì, bao nhiêu tín chỉ và tiên quyết gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1-016",
+      "request": {
+        "major": "data_science",
+        "question": "Môn đó có bao nhiêu tín chỉ?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1B-001",
+      "request": {
+        "major": "mathematics",
+        "question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1B-002",
+      "request": {
+        "major": "mathematics",
+        "question": "Chương trình gồm những nhóm kiến thức nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1B-003",
+      "request": {
+        "major": "mathematics",
+        "question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A1B-004",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1B-005",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Chương trình gồm những nhóm kiến thức nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1B-006",
+      "request": {
+        "major": "mathematics_informatics",
+        "question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A1B-007",
+      "request": {
+        "major": "computer_science",
+        "question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1B-008",
+      "request": {
+        "major": "computer_science",
+        "question": "Chương trình gồm những nhóm kiến thức nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1B-009",
+      "request": {
+        "major": "computer_science",
+        "question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A1B-010",
+      "request": {
+        "major": "data_science",
+        "question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1B-011",
+      "request": {
+        "major": "data_science",
+        "question": "Chương trình gồm những nhóm kiến thức nào?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A1B-012",
+      "request": {
+        "major": "data_science",
+        "question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?",
+        "version": "QD3569-2023"
+      }
+    }
+  ],
+  "split": "exposed_development_contracts"
+}
