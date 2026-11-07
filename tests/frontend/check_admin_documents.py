@@ -33,7 +33,6 @@ def seed_security_test_document():
 
     from app.crawler.document_review_service import create_document, get_document
     from tests.support.admin_database import admin_test_engine
-    from sqlalchemy import text
     eng = admin_test_engine()
     with eng.begin() as conn:
         if not get_document(conn, 'doc_xss_test'):
