@@ -1,0 +1,49 @@
+{
+  "command": [
+    "backups\\vector_contract_v1_20261105\\uv.exe",
+    "--no-config",
+    "--cache-dir",
+    "backups\\vector_contract_v1_20261105\\uv-cache",
+    "pip",
+    "compile",
+    "requirements-rag-vector.in",
+    "--python",
+    "backups/hus_integration/pr6-resolution-20261102/backups/pr6/ci-venv/Scripts/python.exe",
+    "--python-version",
+    "3.11",
+    "--python-platform",
+    "x86_64-pc-windows-msvc",
+    "--no-python-downloads",
+    "--generate-hashes",
+    "--no-build",
+    "--offline",
+    "--default-index",
+    "https://pypi.org/simple",
+    "--output-file",
+    "requirements-rag-vector-lock.txt"
+  ],
+  "exit_code": 0,
+  "inference_tested": false,
+  "inputs_sha256": {
+    "requirements-lock.txt": "86692cef119450f8af676e901719744b3b90881aaa956df3d670ee64475ac202",
+    "requirements-rag-vector.in": "b3523e40dd45f62f545618fb447fa5b3afc9fa9922296f0b45ad6192069b5f2c",
+    "requirements.txt": "81789424f7a7e84e41175d41a513c53cc60610cfb8201414a3071693c04c059c"
+  },
+  "lock_sha256": "1ecf035b5f919d302c7c38bab866b9ce061f3dc35ac5f2d7bac6a5a1e91368ca",
+  "model_weights_downloaded": false,
+  "package_count": 112,
+  "project_environment_modified": false,
+  "resolver": {
+    "executable_sha256": "1791d7a9ed5b6df13ccf80f102e025c333010d96326b4ff0262aa3b578835c5a",
+    "package": "uv",
+    "version": "0.13.7",
+    "wheel": "uv-0.13.7-py3-none-win_amd64.whl",
+    "wheel_sha256": "2835e2ab397d0db86323b9975dce75ecd76aa9cfa0d6a2aea84734aae7f8c9b3",
+    "wheel_url": "https://files.pythonhosted.org/packages/8e/4f/041b59d2a38807a3e31ef41064cf3e45d2752fe0409d89040d52778049ae/uv-0.13.7-py3-none-win_amd64.whl"
+  },
+  "target": {
+    "implementation": "cpython",
+    "platform": "win_amd64",
+    "python": "3.11"
+  }
+}
