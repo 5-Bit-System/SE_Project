@@ -5,7 +5,7 @@
   const $ = id => document.getElementById(id);
   const state = { overview: null, insights: null, health: null, programs: null };
   const palette = ['#3676d9', '#6c9be8', '#9abdf0', '#bdd4f5', '#5b89c6', '#d3e1f4'];
-  let identity = '', filter = 'all', sidebarOpen = false;
+  let identity = '', sidebarOpen = false;
   const mobile = matchMedia('(max-width: 760px)');
   const en = () => window.workspaceI18n?.language === 'en';
   const text = (vi, english) => en() ? english : vi;
@@ -77,19 +77,10 @@
     visual.innerHTML = `<div class="ad-stacked-bar" role="img" aria-label="${html(groups.map(g=>`${g.label}: ${g.count}`).join('; '))}">${groups.map((g,i)=>`<span style="width:${g.count/total*100}%;background:${palette[i%palette.length]}"></span>`).join('')}</div><div class="ad-student-legend">${groups.map((g,i)=>`<span><i style="background:${palette[i%palette.length]}"></i>${html(g.label)}<strong>${fmt(g.count)}</strong></span>`).join('')}</div>`;
     target.prepend(visual);
   }
-  function renderPrograms() {
-    const target = $('ad-program-table');
-    if (!Array.isArray(state.programs)) { target.innerHTML = empty(text('Chưa tải được danh mục chương trình. Chọn Làm mới để thử lại.', 'Programs are unavailable. Refresh to retry.')); return; }
-    const query = ($('ad-program-search')?.value || '').trim().toLocaleLowerCase();
-    const programs = state.programs.filter(p => (filter === 'all' || p.catalog_status === filter) && `${p.name} ${p.program_id} ${p.cohort || ''}`.toLocaleLowerCase().includes(query));
-    const headers = [text('Chương trình','Program'),text('Khóa','Cohort'),text('Tín chỉ','Credits'),text('Học phần','Courses'),text('Trạng thái','Status'),text('Chi tiết','Details')];
-    target.innerHTML = `<div class="ad-table-scroll"><table class="ad-program-table"><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${programs.length?programs.map(p=>`<tr><td><strong>${html(p.name)}</strong><small>${html(p.program_id)}</small></td><td>${html(p.cohort || '—')}</td><td>${fmt(p.total_credits)}</td><td>${fmt(p.course_count)}</td><td><span class="ad-program-status ${p.catalog_status==='verified'?'ad-verified':'ad-draft'}">${p.catalog_status==='verified'?text('Đã xác minh','Verified'):p.catalog_status==='draft_unverified'?text('Bản nháp','Draft'):text('Chưa xác định','Unknown')}</span></td><td><button type="button" data-ad-program="${html(p.program_id)}" class="ad-text-button" aria-label="${html(text('Xem học phần: ','View courses: ')+p.name)}">${text('Xem học phần ↗','View courses ↗')}</button></td></tr>`).join(''):`<tr><td colspan="6">${text('Không có chương trình phù hợp.','No matching programs.')}</td></tr>`}</tbody></table></div><p class="ad-table-note">${programs.length} / ${state.programs.length} ${text('chương trình · Nguồn catalog hiện hành','programs · Active catalogs')}</p>`;
-  }
   function render() {
     if (window.systemAuth?.account?.role !== 'admin') return;
-    readiness(); memberships(); renderTraffic(); renderCatalog(); renderPrograms();
+    readiness(); memberships(); renderTraffic(); renderCatalog();
     document.querySelectorAll('[data-ad-copy]').forEach(node => { const pair = copy[node.dataset.adCopy]; if (pair) node.textContent = pair[en()?1:0]; });
-    $('ad-program-search').placeholder = text('Tìm chương trình, mã ngành, khóa…','Search program, code or cohort…');
   }
   function update(kind, data) {
     if (!(kind in state) || window.systemAuth?.account?.role !== 'admin') return;
@@ -118,13 +109,8 @@
     else if (!event.shiftKey && document.activeElement===last) { event.preventDefault();first?.focus(); }
   });
   document.addEventListener('click', event => {
-    const button = event.target.closest('[data-ad-tab],[data-ad-program],[data-ad-filter],.admin-tab-btn,.ad-brand');
+    const button = event.target.closest('[data-ad-tab],[data-ad-program],.admin-tab-btn,.ad-brand');
     if (!button) return;
-    if (button.dataset.adFilter) {
-      filter=button.dataset.adFilter;
-      document.querySelectorAll('[data-ad-filter]').forEach(node=>{const active=node.dataset.adFilter===filter;node.classList.toggle('active',active);node.setAttribute('aria-pressed',String(active));});
-      renderPrograms(); return;
-    }
     if (button.dataset.adTab) window.systemAuth?.switchAdminTab(button.dataset.adTab);
     if (button.dataset.adProgram) {
       const program=state.programs?.find(p=>p.program_id===button.dataset.adProgram);
@@ -134,16 +120,13 @@
     setSidebar(false);
     if(mobile.matches) $('admin-heading')?.focus({preventScroll:true});
   });
-  $('ad-program-search')?.addEventListener('input',renderPrograms);
   document.addEventListener('workspace:account-change',event=>{
     const account=event.detail;
     const next=account?JSON.stringify([account.account_id,account.session_id,account.role,account.auth_version]):'';
     if(next===identity)return;
     identity=next;
     Object.keys(state).forEach(key=>{state[key]=null;});
-    filter='all';$('ad-program-search').value='';
-    document.querySelectorAll('[data-ad-filter]').forEach(node=>{const active=node.dataset.adFilter==='all';node.classList.toggle('active',active);node.setAttribute('aria-pressed',String(active));});
-    ['ad-traffic-chart','ad-catalog-chart','ad-program-table','ad-status-cards'].forEach(id=>$(id)?.replaceChildren());
+    ['ad-traffic-chart','ad-catalog-chart','ad-status-cards'].forEach(id=>$(id)?.replaceChildren());
     setSidebar(false);
     readiness();
   });
