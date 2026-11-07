@@ -29,14 +29,18 @@ EVIDENCE_DIR = Path("backups/admin_documents_20261101")
 
 
 def seed_security_test_document():
+    from sqlalchemy import text
+
     from app.crawler.document_review_service import create_document, get_document
     from tests.support.admin_database import admin_test_engine
+    from sqlalchemy import text
     eng = admin_test_engine()
     with eng.begin() as conn:
         if not get_document(conn, 'doc_xss_test'):
             create_document(conn, url="javascript:alert('xss')",
                 title="Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>",
                 markdown_content="# Nội dung an toàn", major="toan_hoc", doc_type="curriculum", doc_id="doc_xss_test")
+        conn.execute(text("UPDATE crawled_documents SET created_at = now() WHERE id = 'doc_xss_test'"))
     eng.dispose()
 
 

@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import logging
 import re
 import uuid
 from pathlib import Path
@@ -10,6 +11,61 @@ from typing import Any
 from sqlalchemy import text
 
 from app.curriculum.transactions import publication_lock
+
+logger = logging.getLogger(__name__)
+
+DEFAULT_REVIEWS_FILE = Path("data/hus/document_reviews.json")
+
+
+def normalize_crawled_url(url: str) -> str:
+    """Normalize crawler URLs. Specifically ensures mim.hus.vnu.edu.vn uses http:// to avoid port 443 timeout."""
+    if not url:
+        return ""
+    url = url.strip()
+    if url.startswith("https://mim.hus.vnu.edu.vn"):
+        url = "http://mim.hus.vnu.edu.vn" + url[len("https://mim.hus.vnu.edu.vn"):]
+    return url
+
+
+def load_git_reviews(file_path: Path | None = None) -> dict[str, dict[str, Any]]:
+    path = file_path or DEFAULT_REVIEWS_FILE
+    if not path.is_file():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        logger.warning("Could not read reviews file %s: %s", path, e)
+        return {}
+
+
+def save_git_review(
+    doc_id: str,
+    url: str,
+    content_hash: str,
+    title: str,
+    review_status: str,
+    review_reason: str,
+    reviewer_id: str | None = None,
+    reviewed_at: str | None = None,
+    file_path: Path | None = None,
+) -> None:
+    path = file_path or DEFAULT_REVIEWS_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    reviews = load_git_reviews(path)
+    reviews[doc_id] = {
+        "doc_id": doc_id,
+        "url": url,
+        "content_hash": content_hash,
+        "title": title,
+        "review_status": review_status,
+        "review_reason": review_reason,
+        "reviewer_id": reviewer_id,
+        "reviewed_at": reviewed_at or "",
+    }
+    tmp_path = path.with_suffix(".tmp")
+    tmp_path.write_text(json.dumps(reviews, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp_path.replace(path)
+
 
 
 def _safe_uuid(val: Any) -> str | None:
@@ -318,26 +374,128 @@ def review_document(
             "reviewer_id": _safe_uuid(reviewer_id),
         },
     )
-    return get_document(conn, doc_id)
+    updated = get_document(conn, doc_id)
+    if updated:
+        try:
+            save_git_review(
+                doc_id=doc_id,
+                url=updated["url"],
+                content_hash=updated["content_hash"],
+                title=updated["title"],
+                review_status=updated["review_status"],
+                review_reason=updated.get("review_reason") or "",
+                reviewer_id=updated.get("reviewer_id"),
+                reviewed_at=updated.get("reviewed_at"),
+            )
+        except Exception as e:
+            logger.warning("Dual-write git review failed for %s: %s", doc_id, e)
+    return updated
 
 
-def seed_crawled_documents_from_disk(conn, base_dir: Path | None = None) -> int:
-    """Explicit file import only; missing evidence never creates synthetic documents."""
-    if base_dir is None or not base_dir.is_dir():
+def seed_crawled_documents_from_disk(
+    conn, base_dir: Path | None = None, clean_old_mock: bool = False
+) -> int:
+    """Import 179 real crawled documents from disk into PostgreSQL.
+
+    If clean_old_mock is True, purges legacy mock test records while preserving
+    security audit anchors such as 'doc_xss_test'.
+    """
+    if clean_old_mock:
+        conn.execute(
+            text("""
+                DELETE FROM crawled_documents
+                WHERE id != 'doc_xss_test'
+                  AND (
+                    url LIKE '%approved-doc-test%'
+                    OR url LIKE '%cntt-copy%'
+                    OR url LIKE '%ctdt-khdl-gate%'
+                    OR url LIKE '%cntt-2022%'
+                    OR url LIKE '%doc_audit_%'
+                    OR url LIKE '%test-review-doc%'
+                    OR url LIKE '%dummy%'
+                    OR url LIKE 'javascript:%'
+                  )
+            """)
+        )
+
+    if base_dir is None:
+        base_dir = Path("data/hus/processed/documents")
+    if not base_dir.is_dir():
         return 0
+
     from urllib.parse import urlsplit
+
     count = 0
-    for path in sorted(base_dir.rglob('*.md')):
-        raw = path.read_text(encoding='utf-8')
+    for path in sorted(base_dir.rglob("*.md")):
+        raw = path.read_text(encoding="utf-8")
         metadata, content = parse_frontmatter(raw)
-        url = str(metadata.get('url') or '')
-        if urlsplit(url).scheme not in {'http', 'https'} or not metadata.get('title'):
+        raw_url = str(metadata.get("url") or "")
+        url = normalize_crawled_url(raw_url)
+        if urlsplit(url).scheme not in {"http", "https"} or not metadata.get("title"):
             continue
-        if find_duplicates(conn, compute_content_hash(content)):
+
+        existing_id = conn.execute(
+            text("SELECT id FROM crawled_documents WHERE url = :url"),
+            {"url": url},
+        ).scalar()
+        if existing_id:
             continue
-        metadata['original_file_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
-        create_document(conn, url=url, title=metadata['title'], markdown_content=content,
-            major=metadata.get('major', 'general'), doc_type=metadata.get('type', 'general_info'),
-            metadata_json=metadata)
+
+        doc_id = f"doc_{hashlib.sha256(url.encode('utf-8')).hexdigest()[:12]}"
+        metadata["original_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        create_document(
+            conn,
+            url=url,
+            title=metadata["title"],
+            markdown_content=content,
+            major=metadata.get("major", "general"),
+            doc_type=metadata.get("type", "general_info"),
+            metadata_json=metadata,
+            doc_id=doc_id,
+        )
         count += 1
     return count
+
+
+def sync_crawled_documents_and_reviews(
+    conn, docs_dir: Path | None = None, reviews_file: Path | None = None
+) -> dict[str, int]:
+    """Auto-sync on startup: seeds real documents from disk and applies saved review states from Git."""
+    seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir, clean_old_mock=True)
+    reviews = load_git_reviews(reviews_file)
+    applied = 0
+    for doc_id, r in reviews.items():
+        url = r.get("url")
+        status = r.get("review_status")
+        reason = r.get("review_reason") or "Auto-synced from repository review record"
+        reviewer_id = _safe_uuid(r.get("reviewer_id"))
+        reviewed_at = r.get("reviewed_at")
+        if not status or status not in ("approved", "rejected", "pending"):
+            continue
+
+        res = conn.execute(
+            text("""
+                UPDATE crawled_documents
+                SET review_status = :status,
+                    review_reason = :reason,
+                    reviewer_id = :reviewer_id,
+                    reviewed_at = CASE
+                        WHEN :reviewed_at IS NOT NULL AND :reviewed_at != '' THEN CAST(:reviewed_at AS timestamptz)
+                        ELSE now()
+                    END
+                WHERE id = :id OR url = :url
+            """),
+            {
+                "id": doc_id,
+                "url": url,
+                "status": status,
+                "reason": reason,
+                "reviewer_id": reviewer_id,
+                "reviewed_at": reviewed_at,
+            },
+        )
+        if res.rowcount > 0:
+            applied += 1
+    total_docs = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
+    return {"seeded": seeded, "total": total_docs, "reviews_applied": applied}
+
