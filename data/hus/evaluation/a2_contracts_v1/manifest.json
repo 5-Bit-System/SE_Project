@@ -1,0 +1,16 @@
+{
+  "schema_version": "a2-contracts-2.0",
+  "split": "exposed_development_contracts",
+  "holdout_eligible": false,
+  "legacy_scorer_applicable": false,
+  "actual_human_reviews": 0,
+  "parents": {
+    "data/hus/evaluation/diagnostic_dev_v4_contracts": "2f098be510551066878c6aa2423538da4847816e8c13d78fb48465e6861abec2",
+    "data/hus/evaluation/diagnostic_dev_v5_programs": "1ad26a0fe2315da610d468dcdf269ab81402980998e7b7fbfbc35e3c76eb5642"
+  },
+  "files_sha256": {
+    "evidence.jsonl": "5e5bf5705d315505bd09334bb9cd4a25d7620a42c518d1d2396460bf75b3db8a",
+    "gold.jsonl": "c8d4cf0d9cf9e0beaef7286c74734cee57796ef55fa05beb0428b1455770ab65",
+    "questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6"
+  }
+}
