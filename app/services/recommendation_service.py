@@ -7,15 +7,15 @@ from app.models import (
     RecommendationRequest,
     RecommendationResponse,
     RecommendedCourse,
-    StructuredPreference,
 )
 from app.recommendation.explanation import build_grounded_explanation
 from app.recommendation.llm import LLMRanker
-from app.recommendation.preference import PreferenceExtractor, extract_structured_preference
+from app.recommendation.preference import PreferenceExtractor
 from app.recommendation.ranking import KeywordRanker, Ranker
 from app.recommendation.scoring import score_course
 from app.recommendation.validation import validate_ranking_output
 from app.rules import evaluate_eligibility
+from app.services.study_intent_service import resolve_study_intent
 from app.transcript import resolve_program_id
 
 logger = logging.getLogger(__name__)
@@ -48,24 +48,19 @@ def recommend(
     by_code = {course.code: course for course in candidates}
     ranking_weights = request.ranking_weights or RankingWeights()
 
-    warnings: list[str] = []
-    preference = request.preference
-    if preference is None:
-        try:
-            if preference_extractor is None:
-                preference = extract_structured_preference(request.goal)
-            else:
-                preference = preference_extractor.extract(request.goal)
-                if isinstance(preference, dict):
-                    preference = StructuredPreference.model_validate(preference)
-                if not isinstance(preference, StructuredPreference):
-                    raise ValueError("Preference extractor trả về sai schema")
-        except Exception as exc:
-            logger.warning("Preference fallback: %s", type(exc).__name__)
-            preference = extract_structured_preference(request.goal)
-            warnings.append("Preference extractor gặp lỗi; đã dùng structured preference deterministic.")
-    if not preference.raw_goal and request.goal:
-        preference = preference.model_copy(update={"raw_goal": request.goal[:500]})
+    intent = resolve_study_intent(request.goal, catalog, form_input=request.form_input,
+        legacy_preference=request.preference, extractor=preference_extractor,
+        max_credits=request.max_credits, max_courses=request.limit)
+    preference = intent.preference
+    if preference.course_type_mode == "only" and preference.course_type:
+        candidates = [c for c in candidates if c.requirement_type == preference.course_type]
+        by_code = {c.code: c for c in candidates}
+    warnings = intent.diagnostics.warnings.copy()
+    if intent.diagnostics.status != "ready":
+        return RecommendationResponse(program_id=catalog.program.program_id,
+            catalog_status=catalog.program.catalog_status, recommendations=[],
+            eligible_count=len(candidates), preference=preference,
+            warnings=[*warnings, *intent.diagnostics.questions], intent=intent.diagnostics)
 
     backend_name = "deterministic-keyword-v1"
     try:
@@ -104,7 +99,7 @@ def recommend(
     total = 0
     for code in ordered_codes:
         course = by_code[code]
-        if total + course.credits > request.max_credits:
+        if total + course.credits > intent.max_credits:
             continue
         score = score_course(course, preference, ranking_weights)
         explanation, fit = build_grounded_explanation(
@@ -126,7 +121,7 @@ def recommend(
             offering_status="unknown",
         ))
         total += course.credits
-        if len(selected) >= request.limit:
+        if len(selected) >= intent.max_courses:
             break
     blocked_summary: dict[str, int] = {}
     for blocked in eligibility.blocked_courses:
@@ -135,6 +130,9 @@ def recommend(
     if catalog.program.catalog_status != "verified":
         warnings.append("Catalog chưa được xác minh đầy đủ; kết quả chỉ dùng thử, không phải tư vấn học vụ.")
     warnings.append("Trạng thái mở lớp trong học kỳ chưa được xác minh từ dữ liệu hiện có.")
+    if preference.interest_topics and not any(c.topics for c in candidates):
+        warnings.append("Metadata chủ đề của các môn còn thiếu; chưa đủ căn cứ chấm phù hợp theo nhãn chủ đề.")
+    assert total <= intent.max_credits and len(selected) <= intent.max_courses
     return RecommendationResponse(
         program_id=catalog.program.program_id,
         catalog_status=catalog.program.catalog_status,
@@ -147,4 +145,5 @@ def recommend(
         blocked_summary=blocked_summary,
         ranking_weights=ranking_weights,
         what_if=what_if,
+        intent=intent.diagnostics,
     )
