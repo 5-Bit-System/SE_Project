@@ -3,7 +3,7 @@ title: "Công nghệ kĩ thuật hóa học"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/hoa-hoc-va-cong-nghe/cong-nghe-ki-thuat-hoa-hoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Công nghệ kĩ thuật hóa học

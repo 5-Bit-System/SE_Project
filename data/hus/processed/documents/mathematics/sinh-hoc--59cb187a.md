@@ -3,7 +3,7 @@ title: "Sinh học"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/sinh-hoc-va-cong-nghe/sinh-hoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Sinh học

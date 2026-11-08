@@ -500,6 +500,46 @@ def review_document(
     return get_document(conn, doc_id)
 
 
+NON_MATH_DISCIPLINE_KEYWORDS: tuple[str, ...] = (
+    "hóa dược",
+    "hóa học",
+    "địa chất",
+    "địa lý",
+    "sinh học",
+    "vật lí",
+    "vật lý",
+    "môi trường",
+    "hải dương",
+    "khí tượng",
+    "hạt nhân",
+    "vật liệu",
+)
+
+
+def resolve_document_major(metadata: dict[str, Any], path: Path | None = None) -> str:
+    """Resolve document major respecting frontmatter and multi-discipline keywords.
+
+    Ensures that any document containing keywords from other natural science faculties
+    (Chemistry, Biology, Geology, Geography, Materials Science, Physics, Environmental Science, etc.)
+    is automatically categorized as 'general' even if located in mathematics directory.
+    Uses frontmatter major directly if valid and not conflicting with non-math disciplines.
+    """
+    raw_major = str(metadata.get("major") or "").strip().lower()
+    title = str(metadata.get("title") or "").lower()
+    fname = path.name.lower() if path else ""
+
+    if any(kw in title or kw in fname for kw in NON_MATH_DISCIPLINE_KEYWORDS):
+        return "general"
+
+    if raw_major:
+        return raw_major
+
+    if path and "mathematics" in path.parts:
+        return "mathematics"
+
+    return "general"
+
+
 def seed_crawled_documents_from_disk(
     conn, base_dir: Path | None = None, clean_old_mock: bool = False
 ) -> int:
@@ -556,7 +596,7 @@ def seed_crawled_documents_from_disk(
             url=url,
             title=metadata["title"],
             markdown_content=content,
-            major=metadata.get("major", "general"),
+            major=resolve_document_major(metadata, path),
             doc_type=metadata.get("type", "general_info"),
             metadata_json=metadata,
             doc_id=doc_id,

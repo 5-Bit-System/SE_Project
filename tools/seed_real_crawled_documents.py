@@ -12,11 +12,21 @@ from sqlalchemy import create_engine, text
 from app.config import get_settings
 from app.crawler.document_review_service import (
     DEFAULT_REVIEWS_FILE,
+    NON_MATH_DISCIPLINE_KEYWORDS,
     get_document_review_summary,
     normalize_crawled_url,
     parse_frontmatter,
+    resolve_document_major,
     sync_crawled_documents_and_reviews,
 )
+
+__all__ = [
+    "DEFAULT_REVIEWS_FILE",
+    "NON_MATH_DISCIPLINE_KEYWORDS",
+    "create_initial_git_reviews_if_empty",
+    "main",
+    "resolve_document_major",
+]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
