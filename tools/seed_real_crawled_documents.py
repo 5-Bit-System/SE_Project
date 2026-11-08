@@ -45,7 +45,6 @@ def create_initial_git_reviews_if_empty(
 
         doc_id = f"doc_{hashlib.sha256(url.encode('utf-8')).hexdigest()[:12]}"
         title = metadata["title"]
-        doc_type = metadata.get("type", "general_info")
         c_hash = hashlib.sha256(content.strip().encode("utf-8")).hexdigest()
 
         # Business rules for initial review states:
@@ -59,44 +58,23 @@ def create_initial_git_reviews_if_empty(
                 "review_status": "rejected",
                 "review_reason": f"Nội dung trùng khớp với tài liệu {content_hashes_seen[c_hash]}",
                 "reviewer_id": None,
-                "reviewed_at": "2026-11-05T14:30:00+07:00",
+                "reviewed_at": None,
             }
             continue
 
         content_hashes_seen[c_hash] = doc_id
 
-        # 2. Key official curriculum documents: mark approved
-        is_curriculum_or_core = (
-            doc_type == "curriculum"
-            or "chuong-trinh" in path.name
-            or "chuan" in path.name.lower()
-            or "ctdt" in path.name.lower()
-            or "nganh-" in path.name.lower()
-            or "clc" in path.name.lower()
-        )
-        if is_curriculum_or_core and len([r for r in reviews.values() if r["review_status"] == "approved"]) < 55:
-            reviews[doc_id] = {
-                "doc_id": doc_id,
-                "url": url,
-                "content_hash": c_hash,
-                "title": title,
-                "review_status": "approved",
-                "review_reason": "Chương trình đào tạo chuẩn Trường ĐHKHTN - ĐHQGHN đã đối chiếu",
-                "reviewer_id": None,
-                "reviewed_at": "2026-11-06T09:15:00+07:00",
-            }
-        # A few obsolete forms/drafts: mark rejected
-        elif ("bieu-mau" in path.name or "mau-" in path.name) and len([r for r in reviews.values() if r["review_status"] == "rejected"]) < 16:
-            reviews[doc_id] = {
-                "doc_id": doc_id,
-                "url": url,
-                "content_hash": c_hash,
-                "title": title,
-                "review_status": "rejected",
-                "review_reason": "Biểu mẫu hành chính cũ, không thuộc danh mục học phần đào tạo",
-                "reviewer_id": None,
-                "reviewed_at": "2026-11-06T10:00:00+07:00",
-            }
+        # 2. All newly seeded non-duplicate documents default to 'pending' awaiting administrator review
+        reviews[doc_id] = {
+            "doc_id": doc_id,
+            "url": url,
+            "content_hash": c_hash,
+            "title": title,
+            "review_status": "pending",
+            "review_reason": "Chờ kiểm định thực tế bởi quản trị viên",
+            "reviewer_id": None,
+            "reviewed_at": None,
+        }
 
     reviews_file.parent.mkdir(parents=True, exist_ok=True)
     reviews_file.write_text(json.dumps(reviews, ensure_ascii=False, indent=2), encoding="utf-8")
