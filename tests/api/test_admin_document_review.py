@@ -14,6 +14,31 @@ def setup_engine(monkeypatch):
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
 
 
+@pytest.fixture(autouse=True)
+def cleanup_test_documents():
+    eng = admin_test_engine()
+    from sqlalchemy import text
+
+    def _cleanup():
+        with eng.begin() as conn:
+            conn.execute(
+                text(
+                    "DELETE FROM crawled_documents "
+                    "WHERE id = 'doc_test_review' "
+                    "OR url LIKE '%test-review-doc%' "
+                    "OR url LIKE '%test%' "
+                    "OR id LIKE '%test%'"
+                )
+            )
+
+    _cleanup()
+    try:
+        yield
+    finally:
+        _cleanup()
+
+
+
 def test_admin_document_review_api(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
@@ -99,3 +124,17 @@ def test_admin_document_review_api(verified_client, fake_accounts):
     assert res_meta["title"] == "Tài liệu sau khi duyệt bị sửa lại tiêu đề"
     assert res_meta["review_status"] == "pending"
     assert res_meta["is_published"] is False
+
+
+def test_admin_document_review_db_clean():
+    from sqlalchemy import text
+    eng = admin_test_engine()
+    with eng.connect() as conn:
+        dirty = conn.execute(
+            text(
+                "SELECT count(*) FROM crawled_documents "
+                "WHERE id = 'doc_test_review' OR url LIKE '%test-review-doc%'"
+            )
+        ).scalar()
+        assert dirty == 0
+

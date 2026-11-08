@@ -37,3 +37,23 @@ class TransactionEngine:
 
     def dispose(self):
         pass
+
+
+@contextmanager
+def db_transaction_rollback():
+    eng = admin_test_engine()
+    with eng.connect() as conn:
+        trans = conn.begin_nested() if conn.in_transaction() else conn.begin()
+        try:
+            yield conn
+        finally:
+            if trans.is_active:
+                trans.rollback()
+
+
+@pytest.fixture
+def isolated_db_conn():
+    with db_transaction_rollback() as conn:
+        yield conn
+
+
