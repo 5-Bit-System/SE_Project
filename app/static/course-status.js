@@ -4,6 +4,7 @@
   const root = document.getElementById('course-status-board');
   const planningRoot = document.getElementById('course-planning-panel');
   const copy = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
+  const LOAD_TIMEOUT_MS = 20000;
   let source = null, board = null, loading = false, failed = false, budget = 20, savingBinding = false;
   let sequence = 0, controller, search = '', track = '', path = '', planError = '';
   let chosen = new Set();
@@ -578,14 +579,16 @@
   async function load(focusKey = null) {
     if (!source) return;
     const current = ++sequence; controller?.abort(); controller = new AbortController();
+    const loadController = controller;
+    const timeout = setTimeout(() => loadController.abort(), LOAD_TIMEOUT_MS);
     loading = true; failed = false; planError = ''; render();
     const params = new URLSearchParams({max_credits: String(budget)});
     if (track) params.set('selected_track_id', track);
     if (path) params.set('selected_graduation_path_id', path);
     try {
-      const response = await fetch(`/me/course-status?${params}`, {credentials: 'same-origin', cache: 'no-store', signal: controller.signal});
+      const response = await fetch(`/me/course-status?${params}`, {credentials: 'same-origin', cache: 'no-store', signal: loadController.signal});
       if (current !== sequence) return;
-      if (response.status === 401) { document.dispatchEvent(new Event('workspace:session-expired')); return; }
+      if (response.status === 401) { failed = true; board = null; document.dispatchEvent(new Event('workspace:session-expired')); return; }
       if (response.status === 422 && activePlan && (track || path)) {
         track = ''; path = ''; planDirty = true;
         planMessage = copy('Hướng/nhánh cũ không còn phù hợp. Chọn lại theo chương trình hiện tại.', 'The old track/path is unavailable. Select from your current curriculum.');
@@ -598,25 +601,30 @@
           && !result.program_selection) {
         try {
           const selectionResponse = await fetch('/me/academic-program', {
-            credentials: 'same-origin', cache: 'no-store', signal: controller.signal,
+            credentials: 'same-origin', cache: 'no-store', signal: loadController.signal,
           });
           if (current !== sequence) return;
           if (selectionResponse.ok) result.program_selection = await selectionResponse.json();
         } catch (selectionError) {
-          if (current !== sequence || selectionError.name === 'AbortError') return;
+          if (current !== sequence) return;
+          if (selectionError.name === 'AbortError') throw selectionError;
         }
       }
       board = result;
       if (!activePlan && !planDirty && !restoringDraft) chosen = new Set(result.plan?.course_codes || []);
       restoringDraft = false;
       if (planCredits() > budget) planError = copy('Các môn đang chọn vượt ngân sách mới. Bỏ bớt môn hoặc tăng tín chỉ trước khi lưu.', 'Your selected courses exceed the new budget. Remove courses or increase the budget before saving.');
-    } catch (error) { if (current !== sequence || error.name === 'AbortError') return; failed = true; }
-    if (current !== sequence) return;
-    loading = false; render();
-    if (focusKey) {
-      const focusTarget = [...root.querySelectorAll('[data-course-status-focus]'), ...planningRoot.querySelectorAll('[data-course-status-focus]')]
-        .find(element => element.dataset.courseStatusFocus === focusKey);
-      focusTarget?.focus();
+    } catch { if (current === sequence) failed = true; }
+    finally {
+      clearTimeout(timeout);
+      if (current === sequence) {
+        loading = false; render();
+        if (focusKey) {
+          const focusTarget = [...root.querySelectorAll('[data-course-status-focus]'), ...planningRoot.querySelectorAll('[data-course-status-focus]')]
+            .find(element => element.dataset.courseStatusFocus === focusKey);
+          focusTarget?.focus();
+        }
+      }
     }
   }
   document.addEventListener('workspace:portal-data', event => {
