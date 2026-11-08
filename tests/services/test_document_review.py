@@ -43,7 +43,7 @@ def test_markdown_sanitization():
 @pytest.mark.hus_postgres
 def test_document_review_lifecycle_and_duplicates(db_engine):
     with db_engine.begin() as conn:
-        content_1 = "# Khung chương trình chuẩn CNTT 2022"
+        content_1 = "# Khung chương trình đào tạo chuẩn ngành Công nghệ thông tin năm 2022 của Trường ĐHKHTN"
         # 1. Create original document
         doc1 = create_document(
             conn,
@@ -106,7 +106,7 @@ def test_metadata_update_on_approved_or_published_document_revokes_approval(db_e
             conn,
             url="https://hus.vnu.edu.vn/approved-doc-test",
             title="Tài liệu ban đầu",
-            markdown_content="# Nội dung",
+            markdown_content="# Nội dung văn bản chi tiết chương trình đào tạo chuẩn bậc đại học chính quy",
             major="computer_science",
         )
         doc_id = doc["id"]

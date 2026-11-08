@@ -61,7 +61,7 @@ def test_dual_write_on_review_document(db_engine, tmp_path, monkeypatch):
             conn,
             url="http://mim.hus.vnu.edu.vn/vi/test-dual-write",
             title="Tài liệu kiểm tra dual write",
-            markdown_content="# Nội dung kiểm thử dual write",
+            markdown_content="# Nội dung văn bản chi tiết kiểm thử dual write với độ dài đầy đủ đạt chuẩn",
             major="computer_science",
             doc_type="curriculum",
             doc_id="doc_dual_write_test",

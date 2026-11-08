@@ -38,11 +38,27 @@ def verified_client(fake_accounts):
 
 
 @pytest.fixture(autouse=True)
-def admin_database_isolation(request):
+def admin_database_isolation(request, monkeypatch, tmp_path):
     from tests.support import admin_database
     name = request.path.name
-    selected = name.startswith('test_admin_') or name in {'test_document_review.py', 'test_curriculum_revisions.py'}
-    if not selected or not request.node.get_closest_marker('hus_postgres'):
+    selected = name.startswith('test_admin_') or name in {
+        'test_document_review.py',
+        'test_curriculum_revisions.py',
+        'test_document_quality_gate.py',
+    }
+    if not selected:
+        yield
+        return
+
+    # Isolate DEFAULT_REVIEWS_FILE for admin API tests so post-commit export never mutates tracked file
+    if name.startswith('test_admin_'):
+        import app.crawler.document_review_service as drs
+        if drs.DEFAULT_REVIEWS_FILE.is_file():
+            test_reviews = tmp_path / "admin_test_reviews.json"
+            test_reviews.write_text(drs.DEFAULT_REVIEWS_FILE.read_text(encoding="utf-8"), encoding="utf-8")
+            monkeypatch.setattr(drs, "DEFAULT_REVIEWS_FILE", test_reviews)
+
+    if not request.node.get_closest_marker('hus_postgres'):
         yield
         return
     from sqlalchemy import create_engine

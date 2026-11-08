@@ -30,6 +30,7 @@ def test_audit_log_lifecycle_and_actions(verified_client, fake_accounts):
 
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
+        session["account_id"] = "57e9a52b-7365-4fe2-b9ce-1320ef48dc02"
 
     admin_test_url()
     eng = admin_test_engine()
@@ -41,7 +42,7 @@ def test_audit_log_lifecycle_and_actions(verified_client, fake_accounts):
             conn,
             url=f"https://hus.vnu.edu.vn/doc-{doc_id}",
             title="Audit Test Document",
-            markdown_content="# Test Content",
+            markdown_content="# Test Content: Nội dung chi tiết tài liệu phục vụ kiểm toán hệ thống đạt chuẩn",
             doc_id=doc_id,
         )
 

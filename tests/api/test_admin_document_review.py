@@ -27,7 +27,7 @@ def test_admin_document_review_api(verified_client, fake_accounts):
                 conn,
                 url="https://hus.vnu.edu.vn/test-review-doc",
                 title="Tài liệu kiểm thử kiểm duyệt",
-                markdown_content="# Nội dung tài liệu kiểm thử",
+                markdown_content="# Nội dung văn bản chi tiết tài liệu kiểm thử đạt tiêu chuẩn phê duyệt",
                 major="toan_hoc",
                 doc_type="curriculum",
                 source_id="src_hus_main",

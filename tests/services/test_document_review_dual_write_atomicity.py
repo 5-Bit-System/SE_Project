@@ -46,6 +46,7 @@ def test_rollback_in_db_does_not_mutate_json_file(tmp_path, monkeypatch):
         "url": "https://example.com/uncommitted",
         "content_hash": "hash_uncommitted",
         "title": "Uncommitted Document",
+        "markdown_content": "Nội dung văn bản chi tiết kiểm thử rollback với độ dài hợp lệ đạt tiêu chuẩn kiểm duyệt",
         "review_status": "pending",
         "is_published": False,
         "review_reason": None,

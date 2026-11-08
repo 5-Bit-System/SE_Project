@@ -192,6 +192,37 @@ def parse_frontmatter(text_content: str) -> tuple[dict[str, Any], str]:
     return meta, parts[2].strip()
 
 
+def is_meaningful_content(content: str, min_length: int = 50) -> tuple[bool, str]:
+    """Validate whether document content contains sufficient non-marker text.
+
+    Strips YAML frontmatter and HTML comment page markers (e.g. <!-- page 1 -->).
+    Returns (True, "") if cleaned text has at least min_length characters,
+    otherwise returns (False, "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)").
+    """
+    if not content:
+        return (
+            False,
+            "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)",
+        )
+
+    # Strip frontmatter if present
+    if content.startswith("---"):
+        _, body = parse_frontmatter(content)
+    else:
+        body = content
+
+    # Strip HTML comment markers (e.g., <!-- page 1 -->)
+    cleaned = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL).strip()
+
+    if len(cleaned) < min_length:
+        return (
+            False,
+            "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)",
+        )
+
+    return (True, "")
+
+
 def compute_content_hash(content: str) -> str:
     """Return SHA-256 hex digest of normalized content."""
     norm = content.strip().encode("utf-8")
@@ -296,6 +327,8 @@ def get_document(conn, doc_id: str) -> dict[str, Any] | None:
     doc["safe_markdown"] = sanitize_markdown_for_preview(doc["markdown_content"])
     doc["duplicates"] = find_duplicates(conn, doc["content_hash"], exclude_id=doc_id)
     doc["duplicate_count"] = len(doc["duplicates"])
+    is_meaningful, _ = is_meaningful_content(doc.get("markdown_content") or "")
+    doc["needs_ocr"] = not is_meaningful
     return doc
 
 
@@ -439,6 +472,14 @@ def review_document(
         raise ValueError(f"Tài liệu '{doc_id}' không tồn tại.")
     if doc.get('is_published'):
         raise ValueError('Published source versions are immutable; create a draft replacement')
+
+    if decision == "approved":
+        is_meaningful, error_msg = is_meaningful_content(doc.get("markdown_content") or "")
+        if not is_meaningful:
+            raise ValueError(
+                error_msg
+                or "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)"
+            )
 
     conn.execute(
         text("""

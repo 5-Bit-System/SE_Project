@@ -40,11 +40,11 @@ def test_publication_gate_full_lifecycle(verified_client, fake_accounts):
             {
                 "id": doc_id,
                 "url": "https://hus.vnu.edu.vn/ctdt-khdl-gate.pdf",
-                "hash": __import__('hashlib').sha256('# Nội dung CTĐT KHDL'.encode()).hexdigest(),
+                "hash": __import__('hashlib').sha256('# Nội dung khung chương trình đào tạo chuẩn KHDL năm 2022 Trường ĐHKHTN'.encode()).hexdigest(),
                 "title": "Chương trình chuẩn KHDL 2022",
                 "major": "data_science",
                 "doc_type": "curriculum",
-                "content": "# Nội dung CTĐT KHDL",
+                "content": "# Nội dung khung chương trình đào tạo chuẩn KHDL năm 2022 Trường ĐHKHTN",
                 "meta": "{}",
             },
         )
