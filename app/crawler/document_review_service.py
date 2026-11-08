@@ -464,13 +464,19 @@ def sync_crawled_documents_and_reviews(
     seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir, clean_old_mock=True)
     reviews = load_git_reviews(reviews_file)
     applied = 0
+    hash_mismatches = 0
+    protected_published = 0
     for doc_id, r in reviews.items():
         url = r.get("url")
         status = r.get("review_status")
+        content_hash = r.get("content_hash")
         reason = r.get("review_reason") or "Auto-synced from repository review record"
         reviewer_id = _safe_uuid(r.get("reviewer_id"))
         reviewed_at = r.get("reviewed_at")
         if not status or status not in ("approved", "rejected", "pending"):
+            continue
+        if not content_hash:
+            logger.warning("Skipping review sync for doc %s (%s): missing content_hash", doc_id, url)
             continue
 
         res = conn.execute(
@@ -483,11 +489,14 @@ def sync_crawled_documents_and_reviews(
                         WHEN :reviewed_at IS NOT NULL AND :reviewed_at != '' THEN CAST(:reviewed_at AS timestamptz)
                         ELSE now()
                     END
-                WHERE id = :id OR url = :url
+                WHERE (id = :id OR url = :url)
+                  AND content_hash = :content_hash
+                  AND is_published = false
             """),
             {
                 "id": doc_id,
                 "url": url,
+                "content_hash": content_hash,
                 "status": status,
                 "reason": reason,
                 "reviewer_id": reviewer_id,
@@ -495,6 +504,35 @@ def sync_crawled_documents_and_reviews(
             },
         )
         if res.rowcount > 0:
-            applied += 1
+            applied += res.rowcount
+        else:
+            matches = conn.execute(
+                text("SELECT id, content_hash, is_published FROM crawled_documents WHERE id = :id OR url = :url"),
+                {"id": doc_id, "url": url},
+            ).fetchall()
+            for row in matches:
+                if row[2]:  # is_published is true
+                    protected_published += 1
+                    logger.warning(
+                        "Skipping review sync for published document %s (%s)",
+                        row[0],
+                        url,
+                    )
+                elif row[1] != content_hash:
+                    hash_mismatches += 1
+                    logger.warning(
+                        "Skipping review sync for document %s (%s) due to content_hash mismatch: expected %s, found %s",
+                        row[0],
+                        url,
+                        content_hash,
+                        row[1],
+                    )
+
     total_docs = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
-    return {"seeded": seeded, "total": total_docs, "reviews_applied": applied}
+    return {
+        "seeded": seeded,
+        "total": total_docs,
+        "reviews_applied": applied,
+        "hash_mismatches": hash_mismatches,
+        "protected_published": protected_published,
+    }
