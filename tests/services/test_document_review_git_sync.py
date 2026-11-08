@@ -7,6 +7,7 @@ import pytest
 from app.crawler.document_review_service import (
     compute_content_hash,
     create_document,
+    export_git_reviews_from_db,
     get_document,
     load_git_reviews,
     review_document,
@@ -76,12 +77,18 @@ def test_dual_write_on_review_document(db_engine, tmp_path, monkeypatch):
         )
         assert reviewed["review_status"] == "approved"
 
-        # Verify JSON file was created and contains the review
-        assert test_json.is_file(), "Reviews JSON file must be created on review"
-        reviews = json.loads(test_json.read_text(encoding="utf-8"))
-        assert "doc_dual_write_test" in reviews
-        assert reviews["doc_dual_write_test"]["review_status"] == "approved"
-        assert reviews["doc_dual_write_test"]["review_reason"] == "Phê duyệt chương trình chuẩn"
+        # SSOT check: JSON file is NOT created inside the uncommitted transaction
+        assert not test_json.is_file(), "Reviews JSON file must not be modified inside DB transaction"
+
+    # Post-commit: export git reviews from DB
+    export_git_reviews_from_db(db_engine, file_path=test_json)
+
+    # Verify JSON file was created and contains the review
+    assert test_json.is_file(), "Reviews JSON file must be created on post-commit export"
+    reviews = json.loads(test_json.read_text(encoding="utf-8"))
+    assert "doc_dual_write_test" in reviews
+    assert reviews["doc_dual_write_test"]["review_status"] == "approved"
+    assert reviews["doc_dual_write_test"]["review_reason"] == "Phê duyệt chương trình chuẩn"
 
 
 @pytest.mark.hus_postgres

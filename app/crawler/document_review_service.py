@@ -3,7 +3,9 @@
 import hashlib
 import json
 import logging
+import os
 import re
+import time
 import uuid
 from pathlib import Path
 from typing import Any
@@ -67,6 +69,83 @@ def save_git_review(
     tmp_path.replace(path)
 
 
+def export_git_reviews_from_db(
+    engine_or_conn: Any,
+    file_path: Path | None = None,
+) -> int:
+    """Export committed review decisions from PostgreSQL (SSOT) to Git-tracked JSON with atomic write.
+
+    Queries all crawled documents with review_status IN ('approved', 'rejected'),
+    writes to a unique .tmp file in the destination directory, and atomically replaces
+    the target file using os.replace with up to 3 retries on transient file locks.
+    """
+    path = Path(file_path) if file_path is not None else DEFAULT_REVIEWS_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    if hasattr(engine_or_conn, "connect") and not hasattr(engine_or_conn, "execute"):
+        with engine_or_conn.connect() as conn:
+            return _do_export_git_reviews(conn, path)
+    else:
+        return _do_export_git_reviews(engine_or_conn, path)
+
+
+def _do_export_git_reviews(conn: Any, path: Path) -> int:
+    reviews = load_git_reviews(path)
+
+    rows = conn.execute(
+        text("""
+            SELECT id, url, content_hash, title, review_status, review_reason, reviewer_id, reviewed_at
+            FROM crawled_documents
+            WHERE review_status IN ('approved', 'rejected')
+            ORDER BY id
+        """)
+    ).fetchall()
+
+    for r in rows:
+        d = _row_to_dict(r)
+        if not d:
+            continue
+        reviews[d["id"]] = {
+            "doc_id": d["id"],
+            "url": d["url"],
+            "content_hash": d["content_hash"],
+            "title": d["title"],
+            "review_status": d["review_status"],
+            "review_reason": d.get("review_reason") or "",
+            "reviewer_id": d.get("reviewer_id"),
+            "reviewed_at": d.get("reviewed_at") or "",
+        }
+
+    tmp_path = path.with_name(f"{path.stem}_{uuid.uuid4().hex[:8]}.tmp")
+    payload = json.dumps(reviews, ensure_ascii=False, indent=2)
+
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            tmp_path.write_text(payload, encoding="utf-8")
+            os.replace(tmp_path, path)
+            break
+        except OSError as exc:
+            if attempt < max_retries - 1:
+                time.sleep(0.05 * (2**attempt))
+            else:
+                logger.error(
+                    "Failed to export git reviews to %s after %d attempts: %s",
+                    path,
+                    max_retries,
+                    exc,
+                )
+                raise
+        finally:
+            if tmp_path.exists():
+                try:
+                    tmp_path.unlink()
+                except OSError:
+                    pass
+
+    return len(reviews)
+
+
 
 def _safe_uuid(val: Any) -> str | None:
     if not val:
@@ -86,7 +165,10 @@ def _row_to_dict(row: Any) -> dict[str, Any] | None:
             d[k] = str(d[k])
     for k in ("created_at", "updated_at", "started_at", "completed_at", "reviewed_at"):
         if k in d and d[k] is not None:
-            d[k] = d[k].isoformat()
+            if hasattr(d[k], "isoformat"):
+                d[k] = d[k].isoformat()
+            else:
+                d[k] = str(d[k])
     return d
 
 
@@ -374,22 +456,7 @@ def review_document(
             "reviewer_id": _safe_uuid(reviewer_id),
         },
     )
-    updated = get_document(conn, doc_id)
-    if updated:
-        try:
-            save_git_review(
-                doc_id=doc_id,
-                url=updated["url"],
-                content_hash=updated["content_hash"],
-                title=updated["title"],
-                review_status=updated["review_status"],
-                review_reason=updated.get("review_reason") or "",
-                reviewer_id=updated.get("reviewer_id"),
-                reviewed_at=updated.get("reviewed_at"),
-            )
-        except Exception as e:
-            logger.warning("Dual-write git review failed for %s: %s", doc_id, e)
-    return updated
+    return get_document(conn, doc_id)
 
 
 def seed_crawled_documents_from_disk(
