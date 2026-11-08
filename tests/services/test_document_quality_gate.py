@@ -15,18 +15,13 @@ from app.crawler.document_review_service import (
     parse_frontmatter,
     review_document,
 )
-from tests.support.admin_database import admin_test_engine
+from tests.support.admin_database import admin_test_engine, db_transaction_rollback
 
 
-@pytest.fixture(scope="module")
-def db_engine():
-    eng = admin_test_engine()
-    try:
-        with eng.connect():
-            pass
-    except Exception:
-        pytest.skip("PostgreSQL database not reachable")
-    return eng
+@pytest.fixture
+def isolated_db_conn():
+    with db_transaction_rollback() as conn:
+        yield conn
 
 
 def test_meaningful_content_threshold():
@@ -73,70 +68,70 @@ def test_meaningful_content_threshold():
 
 
 @pytest.mark.hus_postgres
-def test_cannot_approve_empty_or_marker_only_document(db_engine):
+def test_cannot_approve_empty_or_marker_only_document(isolated_db_conn):
     """Quality gate must reject approval of empty or marker-only documents with ValueError."""
-    with db_engine.begin() as conn:
-        # Create a document with only page markers
-        doc = create_document(
-            conn,
-            url="https://hus.vnu.edu.vn/test-marker-quality-gate-doc",
-            title="Tài liệu scan chỉ có marker trang",
-            markdown_content="<!-- page 1 -->\n<!-- page 2 -->",
-            major="computer_science",
-        )
-        doc_id = doc["id"]
+    conn = isolated_db_conn
+    # Create a document with only page markers
+    doc = create_document(
+        conn,
+        url="https://hus.vnu.edu.vn/test-marker-quality-gate-doc",
+        title="Tài liệu scan chỉ có marker trang",
+        markdown_content="<!-- page 1 -->\n<!-- page 2 -->",
+        major="computer_science",
+    )
+    doc_id = doc["id"]
 
-        # Detail must expose needs_ocr=True
-        detail = get_document(conn, doc_id)
-        assert detail is not None
-        assert detail.get("needs_ocr") is True
+    # Detail must expose needs_ocr=True
+    detail = get_document(conn, doc_id)
+    assert detail is not None
+    assert detail.get("needs_ocr") is True
 
-        # Attempting to approve must raise ValueError with OCR required message
-        with pytest.raises(
-            ValueError,
-            match="Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt \\(cần OCR\\)",
-        ):
-            review_document(
-                conn,
-                doc_id=doc_id,
-                decision="approved",
-                reason="Duyệt tài liệu scan chưa OCR",
-                reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
-            )
-
-        # Rejecting a marker-only document is allowed
-        rejected = review_document(
+    # Attempting to approve must raise ValueError with OCR required message
+    with pytest.raises(
+        ValueError,
+        match="Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt \\(cần OCR\\)",
+    ):
+        review_document(
             conn,
             doc_id=doc_id,
-            decision="rejected",
-            reason="Tài liệu chỉ có marker trang, chưa có nội dung văn bản",
-            reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
-        )
-        assert rejected["review_status"] == "rejected"
-
-        # Create document with meaningful content (>= 50 chars)
-        meaningful_content = (
-            "Chương trình đào tạo cử nhân ngành Khoa học máy tính và Thông tin định hướng ứng dụng"
-        )
-        doc_good = create_document(
-            conn,
-            url="https://hus.vnu.edu.vn/test-good-content-gate-doc",
-            title="Tài liệu có nội dung chuẩn",
-            markdown_content=meaningful_content,
-            major="computer_science",
-        )
-        detail_good = get_document(conn, doc_good["id"])
-        assert detail_good["needs_ocr"] is False
-
-        # Approving good document succeeds
-        approved_good = review_document(
-            conn,
-            doc_id=doc_good["id"],
             decision="approved",
-            reason="Nội dung đầy đủ, hợp lệ",
+            reason="Duyệt tài liệu scan chưa OCR",
             reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
         )
-        assert approved_good["review_status"] == "approved"
+
+    # Rejecting a marker-only document is allowed
+    rejected = review_document(
+        conn,
+        doc_id=doc_id,
+        decision="rejected",
+        reason="Tài liệu chỉ có marker trang, chưa có nội dung văn bản",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+    )
+    assert rejected["review_status"] == "rejected"
+
+    # Create document with meaningful content (>= 50 chars)
+    meaningful_content = (
+        "Chương trình đào tạo cử nhân ngành Khoa học máy tính và Thông tin định hướng ứng dụng"
+    )
+    doc_good = create_document(
+        conn,
+        url="https://hus.vnu.edu.vn/test-good-content-gate-doc",
+        title="Tài liệu có nội dung chuẩn",
+        markdown_content=meaningful_content,
+        major="computer_science",
+    )
+    detail_good = get_document(conn, doc_good["id"])
+    assert detail_good["needs_ocr"] is False
+
+    # Approving good document succeeds
+    approved_good = review_document(
+        conn,
+        doc_id=doc_good["id"],
+        decision="approved",
+        reason="Nội dung đầy đủ, hợp lệ",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+    )
+    assert approved_good["review_status"] == "approved"
 
 
 def test_21_marker_files_marked_pending_with_ocr_reason():
@@ -211,16 +206,21 @@ def test_api_cannot_approve_empty_or_marker_only_document(
         )
         doc_id = doc["id"]
 
-    # Verify detail returns needs_ocr=True
-    detail_resp = verified_client.get(f"/admin/crawler/documents/{doc_id}")
-    assert detail_resp.status_code == 200
-    assert detail_resp.json()["needs_ocr"] is True
+    try:
+        # Verify detail returns needs_ocr=True
+        detail_resp = verified_client.get(f"/admin/crawler/documents/{doc_id}")
+        assert detail_resp.status_code == 200
+        assert detail_resp.json()["needs_ocr"] is True
 
-    # Attempt approve via API -> must return 400 Bad Request
-    resp = verified_client.post(
-        f"/admin/crawler/documents/{doc_id}/approve",
-        json={"reason": "Cố tình duyệt tài liệu chưa OCR"},
-    )
-    assert resp.status_code == 400
-    assert "cần OCR" in resp.json()["detail"]
+        # Attempt approve via API -> must return 400 Bad Request
+        resp = verified_client.post(
+            f"/admin/crawler/documents/{doc_id}/approve",
+            json={"reason": "Cố tình duyệt tài liệu chưa OCR"},
+        )
+        assert resp.status_code == 400
+        assert "cần OCR" in resp.json()["detail"]
+    finally:
+        with eng.begin() as conn:
+            from sqlalchemy import text
+            conn.execute(text("DELETE FROM crawled_documents WHERE id = :id"), {"id": doc_id})
 

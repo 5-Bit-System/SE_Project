@@ -68,6 +68,7 @@ def test_dual_write_on_review_document(isolated_db_conn, tmp_path, monkeypatch):
         doc_id="doc_dual_write_test",
         decision="approved",
         reason="Phê duyệt chương trình chuẩn",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
     )
     assert reviewed["review_status"] == "approved"
 

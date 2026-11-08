@@ -96,7 +96,9 @@ def _do_export_git_reviews(conn: Any, path: Path) -> int:
         text("""
             SELECT id, url, content_hash, title, review_status, review_reason, reviewer_id, reviewed_at
             FROM crawled_documents
-            WHERE review_status IN ('approved', 'rejected')
+            WHERE (review_status = 'rejected' OR (review_status = 'approved' AND reviewer_id IS NOT NULL))
+              AND url NOT LIKE 'javascript:%'
+              AND id != 'doc_xss_test'
             ORDER BY id
         """)
     ).fetchall()
@@ -104,6 +106,12 @@ def _do_export_git_reviews(conn: Any, path: Path) -> int:
     for r in rows:
         d = _row_to_dict(r)
         if not d:
+            continue
+        # Safeguard: never export orphan approved reviews or test fixtures to git JSON
+        if d["review_status"] == "approved" and not d.get("reviewer_id"):
+            logger.warning("Skipping export of unverified approved document %s", d["id"])
+            continue
+        if "javascript:" in d["url"].lower() or d["id"] == "doc_xss_test":
             continue
         reviews[d["id"]] = {
             "doc_id": d["id"],

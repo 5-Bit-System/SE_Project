@@ -10,22 +10,18 @@ from app.crawler.document_review_service import (
     parse_frontmatter,
     sync_crawled_documents_and_reviews,
 )
-from tests.support.admin_database import admin_test_engine
+from tests.support.admin_database import db_transaction_rollback
 
 
-@pytest.fixture(scope="module")
-def db_engine():
-    try:
-        eng = admin_test_engine()
-        with eng.connect():
-            pass
-        return eng
-    except Exception:
-        pytest.skip("PostgreSQL database not reachable")
+@pytest.fixture
+def isolated_db_conn():
+    with db_transaction_rollback() as conn:
+        yield conn
 
 
 @pytest.mark.hus_postgres
-def test_full_auto_sync_pipeline(db_engine, tmp_path):
+def test_full_auto_sync_pipeline(isolated_db_conn, tmp_path):
+    conn = isolated_db_conn
     docs_dir = Path("data/hus/processed/documents")
     assert docs_dir.is_dir()
 
@@ -65,15 +61,14 @@ def test_full_auto_sync_pipeline(db_engine, tmp_path):
         encoding="utf-8",
     )
 
-    with db_engine.begin() as conn:
-        res = sync_crawled_documents_and_reviews(
-            conn, docs_dir=docs_dir, reviews_file=test_reviews_file
-        )
-        assert res["total"] >= 170, f"Expected at least 170 total documents, got {res['total']}"
-        assert res["reviews_applied"] >= 2, f"Expected 2 applied reviews, got {res['reviews_applied']}"
+    res = sync_crawled_documents_and_reviews(
+        conn, docs_dir=docs_dir, reviews_file=test_reviews_file
+    )
+    assert res["total"] >= 170, f"Expected at least 170 total documents, got {res['total']}"
+    assert res["reviews_applied"] >= 2, f"Expected 2 applied reviews, got {res['reviews_applied']}"
 
-        # Verify summary includes both approved and rejected
-        summary = get_document_review_summary(conn)
-        assert summary["total"] >= 170
-        assert summary["approved"] >= 1
-        assert summary["rejected"] >= 1
+    # Verify summary includes both approved and rejected
+    summary = get_document_review_summary(conn)
+    assert summary["total"] >= 170
+    assert summary["approved"] >= 1
+    assert summary["rejected"] >= 1
