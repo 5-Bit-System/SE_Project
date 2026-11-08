@@ -608,7 +608,11 @@ def seed_crawled_documents_from_disk(
 def sync_crawled_documents_and_reviews(
     conn, docs_dir: Path | None = None, reviews_file: Path | None = None
 ) -> dict[str, int]:
-    """Auto-sync on startup: seeds real documents from disk and applies saved review states from Git."""
+    """Synchronize review state between Git JSON snapshot and database.
+
+    Can be invoked via CLI (`python -m tools.seed_real_crawled_documents`)
+    or guarded startup lifespan when `AUTO_SYNC_DOCUMENT_REVIEWS=true`.
+    """
     seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir, clean_old_mock=True)
     reviews = load_git_reviews(reviews_file)
     applied = 0

@@ -21,6 +21,7 @@ class Settings:
     gemini_base_url: str
     gemini_model: str
     recommendation_llm_enabled: bool
+    auto_sync_document_reviews: bool = False
 
 
 @lru_cache(maxsize=1)
@@ -52,4 +53,8 @@ def get_settings() -> Settings:
         .strip()
         .casefold()
         not in {"0", "false", "no", "off"},
+        auto_sync_document_reviews=os.getenv("AUTO_SYNC_DOCUMENT_REVIEWS", "false")
+        .strip()
+        .casefold()
+        in {"1", "true", "yes", "on"},
     )
