@@ -1,5 +1,59 @@
 # Project Memory and Contributor Guidelines
 
+## Local UI loading fix — 2026-11-08
+
+User reports perpetual recommendation "Đang đối chiếu" and possible accidental
+preference.py edit. Current parser/resolver/state checks: 52 pass in SE_Project;
+no syntax failure found and preference.py was not overwritten in this follow-up.
+Readiness text is driven by course-status.js loading state, before extraction.
+Its load() lacked a timeout and some early returns skipped loading cleanup.
+Added per-request 20s AbortController timer and finally cleanup guarded by sequence,
+including fallback academic-program fetch and 401. Old requests cannot clear a
+new request's loading flag. Verification: new synthetic Chrome test virtual time
+reproduces hung primary/selection requests, retry and 401; passes. Ruff, JS syntax
+and diff checks pass. No actual account/source inspection or DB/provider operation.
+Both existing board/workspace Chrome regression suites also passed, including
+source change, budgets, VI/EN, save/lost-response and logout races. Existing
+feature WIP stays local; no commit/push.
+
+## Local implementation — 2026-11-08: study intent resolution after revert
+
+User explicitly requests implementing the reviewed form/text/constraint/state
+design. Fetched main cd9de3c and created fix/study-intent-resolution-20261108;
+no commit/push/PR/merge or runtime/DB/provider call authorized in this request.
+Preserve pre-existing untracked docs/TONG_QUAN_TRICH_XUAT_SO_THICH.md.
+
+New study_intent schemas, constraint_parser, metadata-spec intent vocabulary,
+strict CatalogFeatureExtractor and common study_intent_service separate hard
+limits from model proposals. Form defaults cannot bypass text extraction;
+explicit conflicts/invalid/unsupported lower bounds return needs_clarification,
+not a new bundle. Parser handles whole signed/decimal tokens, cumulative/total
+roles and explicit corrections. Accented soft aliases avoid để/dễ and nhé/nhẹ;
+topic updates support add/set/remove/clear, canonical data_science aliases.
+course_type_mode prefer/only distinguishes preference from an explicit filter
+within eligible courses; no prerequisite or source verification bypass.
+
+Source-owned /me/advisor/chat keeps minimal normalized state on existing runtime
+session, context revision and CAS intent_version; commit only after ensure_current.
+Lost/mismatched state with history/version asks reset or rejects stale version.
+reset_intent explicitly starts over; no shared persistence across restarts/workers.
+Direct legacy service callers retain bounded user-turn replay, not trusted server
+state. Legacy calculation routes remain compatibility paths, not source-owned state.
+Recommendation intake sends form_input and stable IDs, not translated labels or
+invented career_goal/required preference. Soft weights are positive/normalized;
+UI displays clarification and cannot save an unconfirmed plan.
+
+Conda SE_Project verification: 1379 offline passed/123 deselected, one existing
+Starlette/httpx warning in 41.61s; 101 focused HTTP/service/regression cases passed
+earlier, new parser/resolver/state group 52 passed. Ruff, Node model/chat and JS
+syntax passed. Synthetic Chrome recommendation-workspace suite passed including
+clarification, save/compare, VI/EN and logout race. Initial browser run lacked
+ffmpeg; downloaded only to /tmp/se-study-intent-playwright and reran successfully.
+Tests use fake accounts/source/provider; no claim of real-model accuracy or DB
+acceptance. Source-only coverage tool confirms 65/67/90/68 memberships with five
+advisory fields all empty; not a runtime DB audit. No course metadata/publication
+or auth/binding/revision policy changed. See docs/STUDY_INTENT_RESOLUTION.md.
+
 ## Intake refinement publication authorized — 2026-11-04
 
 User now explicitly requests commit/push of the changes immediately below on
