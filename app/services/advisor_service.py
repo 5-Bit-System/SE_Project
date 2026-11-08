@@ -34,44 +34,6 @@ MAX_BLOCKED_IN_PROMPT = 15
 COURSE_CODE_PATTERN = re.compile(r"\b[A-Z]{3,4}\d{4}\b")
 
 
-def _extract_session_preference(request: AdvisorRequest) -> StructuredPreference:
-    """Trích xuất preference với câu hiện tại là nguồn ưu tiên.
-
-    Extractor dùng chung chỉ nhận một chuỗi tối đa 500 ký tự. Tách hai lượt
-    extraction giúp history bổ sung ngữ cảnh mà không che mất yêu cầu mới nhất.
-    """
-    current = extract_structured_preference(request.message)
-    previous_user_messages = "\n".join(
-        message.content[:MAX_HISTORY_MESSAGE_CHARS]
-        for message in request.history[-MAX_HISTORY_MESSAGES:]
-        if message.role == "user" and message.content.strip()
-    )
-    if not previous_user_messages:
-        return current
-
-    previous = extract_structured_preference(previous_user_messages[-2000:])
-    updates: dict[str, Any] = {}
-    for field_name in (
-        "workload",
-        "difficulty",
-        "orientation",
-        "career_goal",
-        "target_credits",
-        "target_course_count",
-        "course_type",
-        "prerequisite_tolerance",
-    ):
-        if getattr(current, field_name) is None:
-            previous_value = getattr(previous, field_name)
-            if previous_value is not None:
-                updates[field_name] = previous_value
-
-    topics = list(dict.fromkeys(current.interest_topics + previous.interest_topics))
-    if topics != current.interest_topics:
-        updates["interest_topics"] = topics[:20]
-    return current.model_copy(update=updates)
-
-
 def _build_recommendation_facts(
     catalog: Catalog,
     eligibility: EligibilityResult,
@@ -272,7 +234,14 @@ def heuristic_advisor(
         eligible_reasons=eligible_reasons,
     )
     facts = _build_recommendation_facts(catalog, synthetic_eligibility, preference)
-    top_facts = facts[:4]
+    top_facts, used_credits = [], 0
+    for fact in facts:
+        if used_credits + fact["credits"] > (preference.target_credits or 30):
+            continue
+        top_facts.append(fact)
+        used_credits += fact["credits"]
+        if len(top_facts) >= min(4, preference.target_course_count or 4):
+            break
     suggested_codes = [fact["code"] for fact in top_facts]
 
     # Xây dựng câu trả lời có cấu trúc
@@ -466,6 +435,7 @@ def chat_advisor(
     catalog: Catalog,
     request: AdvisorRequest,
     api_key: str | None = None,
+    resolved_intent=None,
 ) -> AdvisorResponse:
     """Điểm vào chính của Chat Advisor kết hợp Guardrails, Gemini Flash và Heuristic Fallback."""
     if resolve_program_id(request.program_id) != catalog.program.program_id:
@@ -497,8 +467,22 @@ def chat_advisor(
     catalog_codes = {course.code for course in catalog.courses}
 
     # 3. Dùng chung structured preference và facts với recommendation pipeline.
-    preference = _extract_session_preference(request)
-    recommendation_facts = _build_recommendation_facts(catalog, eligibility, preference)
+    from app.recommendation.llm import configured_adapters
+    from app.services.study_intent_service import resolve_study_intent
+    if resolved_intent is None:
+        extractor, _ = configured_adapters(catalog) if api_key != "" else (None, None)
+        resolved_intent = resolve_study_intent(request.message, catalog, form_input=request.form_input,
+            history=request.history, extractor=extractor, max_credits=30, max_courses=20)
+    preference = resolved_intent.preference
+    if preference.course_type_mode == "only" and preference.course_type:
+        eligible_courses = [c for c in eligible_courses if c.requirement_type == preference.course_type]
+        eligible_codes_set = {c.code for c in eligible_courses}
+    if resolved_intent.diagnostics.status != "ready":
+        return AdvisorResponse(reply="\n".join(resolved_intent.diagnostics.questions),
+            mode="heuristic_fallback", preference=preference, intent=resolved_intent.diagnostics)
+
+    recommendation_facts = [fact for fact in _build_recommendation_facts(catalog, eligibility, preference)
+                            if fact["code"] in eligible_codes_set]
 
     settings = get_settings()
     active_key = (
@@ -532,6 +516,10 @@ def chat_advisor(
                 gemini_reply,
                 eligible_codes_set,
             )
+            by_code = {course.code: course for course in eligible_courses}
+            if (sum(by_code[code].credits for code in valid_suggested) > resolved_intent.max_credits
+                    or len(valid_suggested) > resolved_intent.max_courses):
+                raise ValueError("Advisor bundle exceeds confirmed limits")
             safe_reply = _redact_unknown_course_codes(gemini_reply, catalog_codes)
 
             return AdvisorResponse(
@@ -539,6 +527,7 @@ def chat_advisor(
                 mode="gemini_llm",
                 is_guardrail_triggered=False,
                 suggested_courses=valid_suggested,
+                preference=preference, intent=resolved_intent.diagnostics,
             )
         except Exception as exc:
             # Nếu API key lỗi hoặc không có mạng, tự động chuyển sang Fallback
@@ -560,4 +549,5 @@ def chat_advisor(
         mode="heuristic_fallback",
         is_guardrail_triggered=False,
         suggested_courses=suggested_codes,
+        preference=preference, intent=resolved_intent.diagnostics,
     )
