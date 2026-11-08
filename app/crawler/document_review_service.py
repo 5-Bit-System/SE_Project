@@ -489,6 +489,21 @@ def review_document(
                 or "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)"
             )
 
+    valid_reviewer_id = None
+    safe_uid = _safe_uuid(reviewer_id)
+    if safe_uid:
+        try:
+            exists = conn.execute(
+                text("SELECT 1 FROM accounts WHERE id = :aid"),
+                {"aid": safe_uid},
+            ).scalar()
+            if exists:
+                valid_reviewer_id = safe_uid
+            else:
+                logger.warning("Reviewer account %s does not exist in accounts table; using null", safe_uid)
+        except Exception:
+            valid_reviewer_id = safe_uid
+
     conn.execute(
         text("""
             UPDATE crawled_documents
@@ -502,7 +517,7 @@ def review_document(
             "id": doc_id,
             "status": decision,
             "reason": reason.strip(),
-            "reviewer_id": _safe_uuid(reviewer_id),
+            "reviewer_id": valid_reviewer_id,
         },
     )
     return get_document(conn, doc_id)
@@ -639,6 +654,14 @@ def sync_crawled_documents_and_reviews(
             logger.warning("Skipping review sync for doc %s (%s): missing content_hash", doc_id, url)
             continue
 
+        valid_reviewer_id = None
+        if reviewer_id:
+            try:
+                if conn.execute(text("SELECT 1 FROM accounts WHERE id = :aid"), {"aid": reviewer_id}).scalar():
+                    valid_reviewer_id = reviewer_id
+            except Exception:
+                valid_reviewer_id = reviewer_id
+
         res = conn.execute(
             text("""
                 UPDATE crawled_documents
@@ -659,7 +682,7 @@ def sync_crawled_documents_and_reviews(
                 "content_hash": content_hash,
                 "status": status,
                 "reason": reason,
-                "reviewer_id": reviewer_id,
+                "reviewer_id": valid_reviewer_id,
                 "reviewed_at": reviewed_at,
             },
         )

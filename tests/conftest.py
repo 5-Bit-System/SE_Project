@@ -45,6 +45,8 @@ def admin_database_isolation(request, monkeypatch, tmp_path):
         'test_document_review.py',
         'test_curriculum_revisions.py',
         'test_document_quality_gate.py',
+        'test_document_review_git_sync.py',
+        'test_auto_sync_on_startup.py',
     }
     if not selected:
         yield
@@ -65,6 +67,7 @@ def admin_database_isolation(request, monkeypatch, tmp_path):
     engine = create_engine(admin_database.admin_test_url())
     with engine.connect() as conn:
         transaction = conn.begin()
+        admin_database.ensure_test_admin_account(conn)
         admin_database._active = admin_database.TransactionEngine(conn)
         try:
             yield
