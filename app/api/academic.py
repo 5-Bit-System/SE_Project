@@ -36,8 +36,10 @@ from app.progress import calculate_progress
 from app.recommendation.llm import configured_adapters
 from app.rules import _prepare_selection_context, evaluate_eligibility
 from app.schemas.advisor import AdvisorMessage, AdvisorRequest
+from app.schemas.study_intent import FormInput
 from app.services import semester_plan_service as plans
-from app.services.advisor_service import chat_advisor
+from app.services import study_intent_state
+from app.services.advisor_service import chat_advisor, check_scope_guardrails
 from app.services.course_status_service import (
     course_board,
     course_board_display,
@@ -45,6 +47,7 @@ from app.services.course_status_service import (
 )
 from app.services.operational_metrics import measured_consultation, metrics_recorder
 from app.services.recommendation_service import recommend
+from app.services.study_intent_service import resolve_study_intent
 
 router = APIRouter()
 # Server-reviewed policies only; no route accepts a policy or review flag from a student.
@@ -97,6 +100,9 @@ class AcademicOperation(AcademicQuery):
     ranking_weights: RankingWeights | None = None
     message: str = Field(default="", max_length=1000)
     history: list[AdvisorMessage] = Field(default_factory=list, max_length=20)
+    form_input: FormInput | None = None
+    intent_version: int | None = Field(default=None, ge=0, strict=True)
+    reset_intent: bool = Field(default=False, strict=True)
 
 
 def parse_query(request: Request) -> AcademicQuery:
@@ -381,9 +387,9 @@ async def recommendations(request: Request):
     query, catalog, context, passed = await operation(request)
     internal = RecommendationRequest(**query.model_dump(include={
         "goal", "max_credits", "limit", "selected_track_id", "selected_graduation_path_id",
-        "preference", "ranking_weights"}), program_id=catalog.program.program_id,
+        "preference", "ranking_weights", "form_input"}), program_id=catalog.program.program_id,
         passed_course_codes=sorted(passed))
-    extractor, ranker = configured_adapters()
+    extractor, ranker = configured_adapters(catalog)
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
@@ -408,12 +414,32 @@ async def advisor(request: Request):
     query, catalog, context, passed = await operation(request)
     if not query.message.strip():
         raise HTTPException(422, "academic_message_required")
+    value = await session(request)
+    # Session identity already binds account/owner. Revision also binds selection/source.
+    key = context["revision"]
+    try:
+        version, previous = study_intent_state.begin(value, key,
+            expected_version=query.intent_version, reset=query.reset_intent,
+            has_history=bool(query.history))
+    except study_intent_state.IntentStateConflict:
+        raise HTTPException(409, "intent_version_changed") from None
+    extractor = None
+    if not check_scope_guardrails(query.message)[0]:
+        extractor, _ = configured_adapters(catalog)
+    resolved = await asyncio.to_thread(resolve_study_intent, query.message, catalog,
+        form_input=query.form_input, previous_state=previous, extractor=extractor,
+        max_credits=30, max_courses=20)
     internal = AdvisorRequest(program_id=catalog.program.program_id, message=query.message,
-        history=query.history, passed_course_codes=sorted(passed),
+        history=query.history, passed_course_codes=sorted(passed), form_input=query.form_input,
         selected_track_id=query.selected_track_id,
         selected_graduation_path_id=query.selected_graduation_path_id)
-    result = await asyncio.to_thread(chat_advisor, catalog, internal)
+    result = await asyncio.to_thread(chat_advisor, catalog, internal, resolved_intent=resolved)
     await ensure_current(request, query, context)
+    if not result.is_guardrail_triggered:
+        try:
+            result.intent_version = study_intent_state.commit(value, key, version, resolved.state)
+        except study_intent_state.IntentStateConflict:
+            raise HTTPException(409, "intent_version_changed") from None
     principal = await require_account(request)
     await record_activity_safely(principal['account_id'], 'advisor')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
