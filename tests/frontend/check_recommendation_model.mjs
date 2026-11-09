@@ -11,9 +11,10 @@ const answers = {credits: 20, directionLabel: 'Invented interest', goal: 'Invent
 const payload = recommendationPayload(board, answers, 'balanced', 'invented-revision');
 assert.equal(payload.max_credits, 20);
 assert.equal(payload.expected_revision, 'invented-revision');
-assert.equal(payload.preference.target_credits, 20);
-assert.equal(payload.preference.course_type, 'required');
-assert.equal(payload.preference.workload, 'moderate');
+assert.equal(payload.form_input.values.target_credits, 20);
+assert.equal(payload.preference, undefined);
+assert.equal(payload.form_input.values.course_type, undefined);
+assert.equal(payload.form_input.values.workload, 'moderate');
 assert.ok(payload.ranking_weights.workload > 0);
 assert.equal(payload.selected_track_id, null);
 assert.equal(payload.passed_course_codes, undefined);
@@ -59,3 +60,12 @@ assert.deepEqual(comparePlans({rows: [course('A'), course('B')]}, {rows: [course
 assert.deepEqual(board.courses.eligible[1].groups[0], group);
 assert.equal(response.recommendations[0].credits, 99);
 console.log('Recommendation model: source-owned payload, bounds, budget, quotas, excluded/conditional/duplicate rows and real comparison passed');
+
+const software = recommendationPayload(board, {...answers, direction: 'software', directionLabel: 'Phần mềm', confirmedWorkload: true}, 'balanced', 'revision');
+const english = recommendationPayload(board, {...answers, direction: 'software', directionLabel: 'Software', confirmedWorkload: true}, 'balanced', 'revision');
+assert.deepEqual(software.form_input, english.form_input);
+assert.deepEqual(software.form_input.values.interest_topics, ['software_engineering']);
+assert.ok(software.form_input.explicit_fields.includes('workload'));
+assert.ok(!software.form_input.explicit_fields.includes('target_credits'));
+assert.ok(software.ranking_weights.orientation > 0 && software.ranking_weights.difficulty > 0);
+assert.equal(software.goal.includes('Phần mềm'), false);

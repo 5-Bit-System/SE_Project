@@ -66,7 +66,7 @@ function initialAnswers() {
     track: live.track || '', path: live.path || '', goal: '',
     customDirection: '', cohort: live.profile?.cohort || '',
     targetYear: window.years.includes(window.admissionYear + 3) ? window.admissionYear + 3 : window.years[0] ?? null, targetSemester: 2,
-    year: term.year, semester: term.semester, confirmedWorkload: false, confirmedDeadline: false};
+    year: term.year, semester: term.semester, creditsExplicit: false, confirmedWorkload: false, confirmedDeadline: false};
 }
 answers = initialAnswers();
 function animate(element, frames, options = {}) {
@@ -306,7 +306,7 @@ function renderQuestion() {
     slider.setAttribute('aria-label', copy('Điều chỉnh tín chỉ kỳ tới', 'Adjust next-term credits'));
     function update(value) {
       const next = Number(value); if (!Number.isInteger(next) || next < min || next > max) return;
-      answers.credits = next; number.value = next; slider.value = next; clearResults(); updateRoadmap(); renderResults();
+      answers.credits = next; answers.creditsExplicit = true; number.value = next; slider.value = next; clearResults(); updateRoadmap(); renderResults();
     }
     number.addEventListener('input', () => update(number.value)); slider.addEventListener('input', () => update(slider.value));
     const bounds = node('div', undefined, 'rec-budget-bounds'); bounds.append(node('span', `${min} ${copy('tín chỉ', 'credits')}`), node('span', `${max} ${copy('tín chỉ', 'credits')}`));
@@ -651,6 +651,7 @@ function openComparison() {
 }
 
 function errorMessage(failure) {
+  if (failure?.clarification) return failure.clarification;
   const planErrors = {
     semester_plan_budget_exceeded: copy('Phương án vượt ngân sách tín chỉ. Điều chỉnh tín chỉ hoặc bỏ bớt môn trước khi lưu.', 'This alternative exceeds the credit budget. Adjust the budget or remove courses before saving.'),
     semester_plan_group_full: copy('Lựa chọn đã vượt yêu cầu nhóm tự chọn. Kiểm tra lại các môn trong phương án.', 'The elective group requirement is already filled. Review the selected courses.'),
@@ -709,6 +710,10 @@ async function generate() {
           body: recommendationPayload(board, answers, id, context.revision)});
         if (current !== requestEpoch || owner !== live.identity) return;
         if (response.context_revision !== context.revision) throw Object.assign(new Error('context_changed'), {status: 409});
+        if (response.intent?.status === 'needs_clarification') {
+          throw Object.assign(new Error('study_intent_needs_clarification'), {
+            clarification: (response.intent.questions || []).join(' ')});
+        }
         results[id] = {...constrainRecommendations(response, board, Number(answers.credits)), status: 'done'};
       } catch (failure) {
         if (current !== requestEpoch || owner !== live.identity) return;

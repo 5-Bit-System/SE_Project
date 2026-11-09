@@ -56,16 +56,24 @@ export function recommendationPayload(board, answers, variant, revision) {
   }
   const milestone = answers.confirmedDeadline
     ? `Graduation goal: semester ${answers.targetSemester}, academic year ${answers.targetYear}-${answers.targetYear + 1}` : '';
-  const goal = [answers.directionLabel, answers.goal, milestone].filter(Boolean).join('. ').slice(0, 500);
+  // Translated labels are presentation only. Custom text remains free text.
+  const goal = [answers.goal, answers.direction === 'custom' ? answers.customDirection : '', milestone].filter(Boolean).join('. ').slice(0, 500);
+  const topics = ({ai: ['artificial_intelligence'], software: ['software_engineering'],
+    data: ['data_science'], applied: ['mathematics']})[answers.direction] || [];
+  const explicit = [];
+  if (answers.confirmedWorkload) explicit.push('workload');
+  if (answers.creditsExplicit) explicit.push('target_credits');
+  if (topics.length) explicit.push('interest_topics');
+  const weights = Object.fromEntries(Object.entries(WEIGHTS[variant]).map(([key, value]) => [key, value * .7]));
   return {
     program_id: board.program_id, expected_revision: revision,
     selected_track_id: answers.track || null,
     selected_graduation_path_id: answers.path || null,
     max_credits: credits, limit: 20, goal,
-    preference: {raw_goal: goal, workload: answers.workload, course_type: 'required',
-      interest_topics: answers.directionLabel ? [answers.directionLabel] : [],
-      target_credits: credits, career_goal: (answers.goal || '').slice(0, 200) || null},
-    ranking_weights: {...WEIGHTS[variant], orientation: 0, difficulty: 0},
+    form_input: {values: {workload: answers.workload, target_credits: credits,
+      interest_topics: topics, orientation: answers.direction === 'research' ? 'research' : null},
+      explicit_fields: answers.direction === 'research' ? [...explicit, 'orientation'] : explicit},
+    ranking_weights: {...weights, orientation: .1, difficulty: .1, career: .1},
   };
 }
 

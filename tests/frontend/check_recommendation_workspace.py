@@ -77,18 +77,23 @@ def main():
             assert payload['max_credits'] == 20
             assert payload['selected_track_id'] == 'track-ai'
             assert payload['selected_graduation_path_id'] == 'thesis'
-            assert payload['preference']['course_type'] == 'required'
-            assert payload['preference']['workload'] == 'moderate'
+            assert 'preference' not in payload
+            assert payload['form_input']['values']['workload'] == 'moderate'
             assert payload['ranking_weights']['workload'] > 0
             assert 'passed_course_codes' not in payload and 'owner' not in payload
+            if mode == 'clarification':
+                route.fulfill(json={'context_revision': payload['expected_revision'], 'recommendations': [],
+                    'intent': {'status': 'needs_clarification',
+                               'questions': ['Số tín chỉ mâu thuẫn tải học; hãy xác nhận lại.']}})
+                return
             if mode == 'pending':
                 pending.append(route)
                 return
-            if mode == 'failed' or (mode == 'partial' and payload['ranking_weights']['topic'] > .6):
+            if mode == 'failed' or (mode == 'partial' and payload['ranking_weights']['topic'] > .4):
                 route.fulfill(status=503, json={'detail': 'temporary_failure'})
                 return
             weights = payload['ranking_weights']
-            selected = ['B200', 'E400'] if weights['course_type'] > .6 else ['C300', 'D301', 'F500'] if weights['topic'] > .6 else ['B200', 'C300', 'E400']
+            selected = ['B200', 'E400'] if weights['course_type'] > .4 else ['C300', 'D301', 'F500'] if weights['topic'] > .4 else ['B200', 'C300', 'E400']
             route.fulfill(json={'context_revision': payload['expected_revision'], 'catalog_status': 'verified',
                 'recommendations': [{**next(row for row in rows if row['code'] == code),
                     'reason': 'Giải thích từ phản hồi API giả lập.', 'fit_reason': 'Phù hợp mục tiêu minh họa.'} for code in selected],
@@ -287,6 +292,11 @@ def main():
         page.locator('#rec-generate').click()
         expect(page.locator('#rec-plan-content .rec-error')).to_be_visible()
         assert page.locator('.rec-course').count() == 0
+        mode = 'clarification'
+        page.locator('#rec-generate').click()
+        expect(page.locator('#rec-plan-content .rec-error')).to_contain_text('hãy xác nhận lại')
+        assert page.locator('.rec-course').count() == 0
+        assert not page.locator('#rec-save').count() or not page.locator('#rec-save').is_enabled()
         page.emulate_media(reduced_motion='no-preference')
         mode = 'pending'
         page.locator('#rec-generate').click()

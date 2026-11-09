@@ -4,6 +4,9 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from app.models import StructuredPreference
+from app.schemas.study_intent import FormInput, IntentDiagnostics
+
 
 class AdvisorMessage(BaseModel):
     model_config = ConfigDict(extra="allow")
@@ -18,6 +21,7 @@ class AdvisorRequest(BaseModel):
     history: list[AdvisorMessage] = Field(default_factory=list)
     selected_track_id: str | None = None
     selected_graduation_path_id: str | None = None
+    form_input: FormInput | None = None
 
 
 class AdvisorResponse(BaseModel):
@@ -26,3 +30,6 @@ class AdvisorResponse(BaseModel):
     is_guardrail_triggered: bool = False
     guardrail_reason: str | None = None
     suggested_courses: list[str] = Field(default_factory=list)
+    preference: StructuredPreference | None = None
+    intent: IntentDiagnostics = Field(default_factory=IntentDiagnostics)
+    intent_version: int | None = None
