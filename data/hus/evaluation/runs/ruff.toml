@@ -1,0 +1,4 @@
+# Captured run scripts are hash-bound evaluation evidence (see each run's manifest.json).
+# Ruff uses the nearest config, so this keeps `ruff check .` from requiring them to be rewritten.
+[lint]
+select = []

@@ -1,0 +1,65 @@
+{
+  "authored_by": "Codex (AI-assisted draft)",
+  "baseline_code_commit": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "baseline_runtime_sha256": {
+    "app/hus/answering.py": "c43d0c33e9cf09e88678bdf5cc1cd42e49a43173a8db597782a295a0b6a77e12",
+    "app/hus/chat.py": "b54f752590237852cb299cba19862974a3c29d364b94cb94ed53466471107989",
+    "app/hus/rag_loader.py": "cac4201907172af51cee990d60075c629c56f13139fa6f9ee0a925e70d807047",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/schemas/hus.py": "44b509c550acda14c5f3c7d286518b39514b5490a769088839ad1300c290d733",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19"
+  },
+  "by_category": {
+    "f1": 12,
+    "f2": 12,
+    "f3": 8,
+    "missing_evidence": 8,
+    "opt_in_required": 4,
+    "out_of_scope": 4
+  },
+  "by_major": {
+    "computer_science": 12,
+    "data_science": 12,
+    "mathematics": 12,
+    "mathematics_informatics": 12
+  },
+  "created_on": "2026-11-02",
+  "development_inputs_sha256": {
+    "data/hus/qa/20261028/audit/acceptance_questions.jsonl": "3d2a21384268410b5538d1243eed0abc5dc7d7f70dc3e080f56d2a76d19358c4",
+    "data/hus/qa/20261028/f1_expanded/release/acceptance_questions.jsonl": "dc2bc4c20e336f8768cc666ba0e018071868b32e84d496e1bbeaba26b506981b",
+    "data/hus/qa/20261028/f1_markdown_approved/release/acceptance_questions.jsonl": "edc8a764a18f42e6a0beb4b93c51ec6b98df79e09944ed5c220099b1b723aedb",
+    "data/hus/qa/20261028/f3_reference/release/acceptance_questions.jsonl": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac",
+    "data/hus/rag/f1/acceptance_questions.jsonl": "edc8a764a18f42e6a0beb4b93c51ec6b98df79e09944ed5c220099b1b723aedb",
+    "data/hus/rag/f3/acceptance_questions.jsonl": "65f0c39d7749d32dcddbe7de16968598183bc059966a8cf4787914bdea525eac",
+    "data/hus/rag/releases/hus-data-20261031-v3/evaluation/questions.jsonl": "88609df9c8986bfda440aed2844479ce3629ff5b2bf06dad06ecd1d357a55125"
+  },
+  "evidence_count": 40,
+  "files": {
+    "README.md": "75d36c0ebc2e5111501cb2f137c82705c1875e4a49760bcad941c732a6b67073",
+    "evidence.jsonl": "3df64bff6e505f1e1b64e302e5435c5edff9735cb6e5982ec13e2f0f37e10eb1",
+    "gold.jsonl": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c",
+    "questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+    "review_decisions.jsonl": "0142bc51cfa722627d65807b5a024cc9d817729cd538b2ad1969804239057eb9",
+    "reviewer_packet.md": "be76ccd26008d590866131abc2b100553ffbf5155c330ed4bcc82523388cc0be"
+  },
+  "freeze_rule": "Do not edit frozen v1 to repair model errors. If exposed for tuning, retire/consume this split and author a new independent holdout version.",
+  "gold_method": "direct pinned source records and policy; never RAG predictions",
+  "human_author_independence_claimed": false,
+  "independent_human_review": false,
+  "package_id": "hus-p11-prospective-holdout-v1",
+  "question_count": 48,
+  "rag_inference_run": false,
+  "release_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+  "retrieval_metrics": null,
+  "schema_version": "1.0",
+  "source_inputs_sha256": {
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+  },
+  "source_release": "data/hus/rag/releases/hus-data-20261031-v3",
+  "split": "prospective_holdout_candidate",
+  "status": "candidate_pending_independent_review",
+  "used_for_retrieval_tuning": false
+}

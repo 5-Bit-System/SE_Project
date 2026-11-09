@@ -1,0 +1,891 @@
+{
+  "CURRENT_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+  "baseline_preserved": true,
+  "by_category": {
+    "f1": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "no_retrieval_call": 18,
+        "post_retrieval_abstention": 6
+      },
+      "false_abstention_on_positive": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 6.0,
+        "value": 0.25
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "f2": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "failure_counts": {
+        "lookup_or_intent_abstention": 24
+      },
+      "false_abstention_on_positive": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "f3": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 16,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "no_retrieval_call": 16
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 16,
+        "numerator": 0.0,
+        "value": 0.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "missing_evidence": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "cases": 16,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "opt_in_required": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 8
+      },
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 8,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "out_of_scope": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 8,
+        "numerator": 4,
+        "value": 0.5
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 4,
+        "value": 0.5
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 4
+      },
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 4,
+        "value": 0.5
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    }
+  },
+  "by_major": {
+    "computer_science": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 5,
+        "value": 0.20833333333333334
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 3,
+        "lookup_or_intent_abstention": 6,
+        "no_retrieval_call": 8,
+        "post_retrieval_abstention": 2
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 5,
+        "value": 0.625
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 2.0,
+        "value": 0.2
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "data_science": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 5,
+        "value": 0.20833333333333334
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 3,
+        "lookup_or_intent_abstention": 6,
+        "no_retrieval_call": 8,
+        "post_retrieval_abstention": 2
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 5,
+        "value": 0.625
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 2.0,
+        "value": 0.2
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "mathematics": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 5,
+        "value": 0.20833333333333334
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 3,
+        "lookup_or_intent_abstention": 6,
+        "no_retrieval_call": 8,
+        "post_retrieval_abstention": 2
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 5,
+        "value": 0.625
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 2.0,
+        "value": 0.2
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "mathematics_informatics": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 5,
+        "value": 0.20833333333333334
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 3,
+        "lookup_or_intent_abstention": 6,
+        "no_retrieval_call": 10
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 5,
+        "value": 0.625
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 0.0,
+        "value": 0.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "unjudged_alternative_citations": 0
+    }
+  },
+  "committed": false,
+  "development_inference_run": true,
+  "evaluation_code_sha256": {
+    "tools/evaluate_hus_diagnostic.py": "30e69ac9728146f7b862004f51d679c3d3dca1cacf6a77bd08eebe80e5b5e74a",
+    "tools/evaluate_hus_rag.py": "73647fce00dc53f712de4b43a7af56a008dc2ac309154a27e6d5f005a79ea5c9",
+    "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+    "tools/validate_hus_diagnostic.py": "c1347c3022eabe9993df849b4996d844ffc674032ccd7088ff7ca90cf03b1f21",
+    "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+    "tools/verify_hus_e2e.py": "18d561601bec38bf588b85991f0871c92dd64af8091651bd2b665aa4703f38c9"
+  },
+  "finished_at_utc": "2026-11-02T18:27:27.185491+00:00",
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "git_state": "uncommitted_worktree",
+  "gold_sha256": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+  "holdout_eligible": false,
+  "holdout_inference_run": false,
+  "independent_human_review": false,
+  "limits": [
+    "Development paraphrases reuse exposed source anchors; no independent quality acceptance.",
+    "Recall uses all F1/F3 positives and the first actual search top5, including routing misses.",
+    "F2 uses structured facts plus source anchors, not Recall@5.",
+    "Alternative citations can be correct; conservative anchor scoring requires human semantic review.",
+    "Citation oracle checks source/page/review/AI and GET/hash, not semantic entailment or web health.",
+    "In-process TestClient HTTP only; no browser, load, product database or production acceptance."
+  ],
+  "llm_used": false,
+  "metrics": {
+    "abstention_on_missing_or_out_of_scope": {
+      "denominator": 24,
+      "numerator": 20,
+      "value": 0.8333333333333334
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "answer_status_accuracy": {
+      "denominator": 96,
+      "numerator": 20,
+      "value": 0.20833333333333334
+    },
+    "cases": 96,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "f2_lookup_success": {
+      "denominator": 24,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "failure_counts": {
+      "guardrail_status_or_content_error": 12,
+      "lookup_or_intent_abstention": 24,
+      "no_retrieval_call": 34,
+      "post_retrieval_abstention": 6
+    },
+    "false_abstention_on_positive": {
+      "denominator": 64,
+      "numerator": 64,
+      "value": 1.0
+    },
+    "guardrail_success": {
+      "denominator": 32,
+      "numerator": 20,
+      "value": 0.625
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 8,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "routed_recall_at_5": {
+      "denominator": 40,
+      "numerator": 6.0,
+      "value": 0.15
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 64,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "unjudged_alternative_citations": 0
+  },
+  "pack": "data/hus/evaluation/diagnostic_dev_v1",
+  "pack_manifest_sha256": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+  "parent_split_status": "exposed_for_development_not_final_holdout",
+  "product_database_modified": false,
+  "production_activated": false,
+  "pushed": false,
+  "questions_sha256": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+  "release_identity": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "runtime_sha256": {
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/hus/allowlist.py": "5eb040688d9cf6e3a8ac84f84c996a9bb2d278f115e2c5ae9d074cb0e65b980b",
+    "app/hus/answering.py": "c43d0c33e9cf09e88678bdf5cc1cd42e49a43173a8db597782a295a0b6a77e12",
+    "app/hus/chat.py": "b54f752590237852cb299cba19862974a3c29d364b94cb94ed53466471107989",
+    "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+    "app/hus/citations.py": "02dfbb2ad1390ef9dac219ddeb9561fa7ad87e3e056c0bade26a3a039e242283",
+    "app/hus/cleaning.py": "9b6d49df001e1d84a2227fde6d362b783791fe0a1a98946a44ce65b10907b101",
+    "app/hus/corpus.py": "9b9f4d49a142f1d252b7a3139ce8a1f5484cf218125122ec0914893702a19c9a",
+    "app/hus/crawler.py": "4092955bf58b2134699aed3baffdc91fd7c1799feceb7c16504d034cefa7bbb2",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/demo.py": "de187262834002cdb60e7820ae4f6a1306385dd1295f46329be4d67232b2fb4b",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/index.py": "03e48e210540a2c1215e5f33770d5c8a35ecb829ffa257bc532f8def129721db",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "bf915475eab4d246b48e92f063a4de89f6e04a0d2a6c46cef91f47545e7c3a53",
+    "app/hus/pipeline.py": "52b556cb08cee1f7e7c8b6f65274c3889d78b19b8fa3441d4b3d4fd75e3de5f9",
+    "app/hus/portable_adapter.py": "28666f28b4bf60735bc92eccbec69f72e69cdf303e1c0059192edabcd310768e",
+    "app/hus/provenance.py": "7b687d2d715c2eee5ccca96b5243f929c52111dc682faaf28364b76c651f8509",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/rag_loader.py": "cac4201907172af51cee990d60075c629c56f13139fa6f9ee0a925e70d807047",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+    "app/hus/state.py": "a4f83c3fa87ab7521a9033806a654ebd0e50efd141b6eb87ae9b25a46a55d57d",
+    "app/hus/storage.py": "8113fd6a419d9f4087c03d395674d70a1f8233c423c76885fb54156deffe8056",
+    "app/hus/urls.py": "4edde88d965d577b28bba8501182e3b0deb8cfbbcc53e742521e7dca0085dcea",
+    "app/schemas/hus.py": "44b509c550acda14c5f3c7d286518b39514b5490a769088839ad1300c290d733",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19"
+  },
+  "schema_version": "1.0",
+  "source_binary_checks": {},
+  "source_input_sha256": {
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+  },
+  "split": "diagnostic_development",
+  "started_at_utc": "2026-11-02T18:27:22.134453+00:00",
+  "status": "development_measurement_not_independent_acceptance",
+  "tested_commit": null,
+  "vnu_contacted": false
+}

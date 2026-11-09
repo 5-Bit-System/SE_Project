@@ -6,7 +6,7 @@ và chạy `python -m playwright install chromium` trước khi mở demo.
 
 Demo độc lập dùng `app.hus.demo:app`, giao diện hỏi đáp riêng và dữ liệu HUS thật.
 Phạm vi gồm **F1/F2/F3 và trò chuyện cơ bản**. Ứng dụng chạy trên loopback, không cần
-đăng nhập, tài khoản/ngữ cảnh giả lập, catalog, bảng điểm, database hoặc model provider.
+đăng nhập, tài khoản/ngữ cảnh giả lập, catalog sản phẩm, bảng điểm, database hoặc model provider.
 
 Từ thư mục repository, mở PowerShell và chạy:
 
@@ -24,6 +24,13 @@ Chromium tự mở trang **Hỏi đáp HUS**. Chọn trực tiếp một trong b
 đang tra cứu**; **Phiên bản dữ liệu** hiển thị phiên bản có trong gói. Mặc định là
 Khoa học dữ liệu. Nhập vào **Câu hỏi của bạn**, bấm **Gửi** hoặc nhấn Enter;
 Shift+Enter xuống dòng.
+
+Hoặc dùng **Danh mục câu hỏi**: mở mục Thông tin ngành, Chương trình và môn học,
+Tìm hiểu môn học — AI tham khảo, hoặc Hướng dẫn; bấm câu hỏi để gửi ngay. Tìm tên/mã
+môn hoặc nội dung câu hỏi, có thể gõ không dấu. F1 ghi riêng phiên bản nguồn/hệ;
+F2/F3 theo đúng CTĐT đang chọn. Nút F3 chỉ mở sau khi bạn tự tích cho phép AI.
+Release v3 có **2.364 mục câu mẫu theo scope**, bao phủ 290 membership; đây không
+phải mọi cách diễn đạt tự nhiên. [Danh mục và số lượng theo ngành](HUS_RAG_QUESTION_CATALOG.md).
 
 | Thử | Câu hỏi / kỳ vọng |
 | --- | --- |

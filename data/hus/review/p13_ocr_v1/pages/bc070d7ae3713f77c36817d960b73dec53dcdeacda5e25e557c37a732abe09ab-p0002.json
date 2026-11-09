@@ -1,0 +1,532 @@
+{
+  "observation": {
+    "academic_verified": false,
+    "blank_verified": false,
+    "boxes": [
+      {
+        "bbox_pixels": [
+          [
+            245.0,
+            129.0
+          ],
+          [
+            843.0,
+            129.0
+          ],
+          [
+            843.0,
+            169.0
+          ],
+          [
+            245.0,
+            169.0
+          ]
+        ],
+        "confidence": 0.5745022264961837,
+        "text": "Điều 2. Chương trình đào tạo chuẩn trình độ đại học"
+      },
+      {
+        "bbox_pixels": [
+          [
+            920.0,
+            132.0
+          ],
+          [
+            1088.0,
+            132.0
+          ],
+          [
+            1088.0,
+            164.0
+          ],
+          [
+            920.0,
+            164.0
+          ]
+        ],
+        "confidence": 0.8612858166456576,
+        "text": "Khoa học máy"
+      },
+      {
+        "bbox_pixels": [
+          [
+            174.0,
+            178.0
+          ],
+          [
+            258.0,
+            178.0
+          ],
+          [
+            258.0,
+            204.0
+          ],
+          [
+            174.0,
+            204.0
+          ]
+        ],
+        "confidence": 0.9952003461002563,
+        "text": "tính và"
+      },
+      {
+        "bbox_pixels": [
+          [
+            331.0,
+            169.0
+          ],
+          [
+            1089.0,
+            169.0
+          ],
+          [
+            1089.0,
+            209.0
+          ],
+          [
+            331.0,
+            209.0
+          ]
+        ],
+        "confidence": 0.5346583029193442,
+        "text": "tin ban hành kèm theo Quyết định này được áp dụng cho sinh viên từ"
+      },
+      {
+        "bbox_pixels": [
+          [
+            174.0,
+            202.0
+          ],
+          [
+            1090.0,
+            202.0
+          ],
+          [
+            1090.0,
+            250.0
+          ],
+          [
+            174.0,
+            250.0
+          ]
+        ],
+        "confidence": 0.747734503274385,
+        "text": "khóa tuyển sinh năm 2022 của Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia"
+      },
+      {
+        "bbox_pixels": [
+          [
+            176.0,
+            254.0
+          ],
+          [
+            264.0,
+            254.0
+          ],
+          [
+            264.0,
+            286.0
+          ],
+          [
+            176.0,
+            286.0
+          ]
+        ],
+        "confidence": 0.9909354122824849,
+        "text": "Hà Nội."
+      },
+      {
+        "bbox_pixels": [
+          [
+            245.0,
+            286.0
+          ],
+          [
+            799.0,
+            286.0
+          ],
+          [
+            799.0,
+            328.0
+          ],
+          [
+            245.0,
+            328.0
+          ]
+        ],
+        "confidence": 0.7882413162339756,
+        "text": "Điều 3. 'Trưởng Phòng Đào tạo, Trưởng Khoa Toán"
+      },
+      {
+        "bbox_pixels": [
+          [
+            814.0,
+            292.0
+          ],
+          [
+            852.0,
+            292.0
+          ],
+          [
+            852.0,
+            318.0
+          ],
+          [
+            814.0,
+            318.0
+          ]
+        ],
+        "confidence": 0.9933780071875232,
+        "text": "Cơ"
+      },
+      {
+        "bbox_pixels": [
+          [
+            867.0,
+            285.0
+          ],
+          [
+            1089.0,
+            285.0
+          ],
+          [
+            1089.0,
+            323.0
+          ],
+          [
+            867.0,
+            323.0
+          ]
+        ],
+        "confidence": 0.6808298018304223,
+        "text": "Tin học, Trưởng các"
+      },
+      {
+        "bbox_pixels": [
+          [
+            175.0,
+            325.0
+          ],
+          [
+            901.0,
+            325.0
+          ],
+          [
+            901.0,
+            365.0
+          ],
+          [
+            175.0,
+            365.0
+          ]
+        ],
+        "confidence": 0.5830987801260787,
+        "text": "đơn vị có liên quan chịu trách nhiệm thi hành Quyết định này / . qeul"
+      },
+      {
+        "bbox_pixels": [
+          [
+            761.0,
+            375.0
+          ],
+          [
+            961.0,
+            375.0
+          ],
+          [
+            961.0,
+            411.0
+          ],
+          [
+            761.0,
+            411.0
+          ]
+        ],
+        "confidence": 0.6460563219130997,
+        "text": "HỀU TRƯỞNG"
+      },
+      {
+        "bbox_pixels": [
+          [
+            753.0,
+            405.0
+          ],
+          [
+            789.0,
+            405.0
+          ],
+          [
+            789.0,
+            423.0
+          ],
+          [
+            753.0,
+            423.0
+          ]
+        ],
+        "confidence": 0.6934715553069872,
+        "text": "Gc"
+      },
+      {
+        "bbox_pixels": [
+          [
+            198.0,
+            420.0
+          ],
+          [
+            298.0,
+            420.0
+          ],
+          [
+            298.0,
+            448.0
+          ],
+          [
+            198.0,
+            448.0
+          ]
+        ],
+        "confidence": 0.6833411942879373,
+        "text": "Nơi nhận:"
+      },
+      {
+        "bbox_pixels": [
+          [
+            729.0,
+            445.0
+          ],
+          [
+            824.0,
+            445.0
+          ],
+          [
+            824.0,
+            472.0
+          ],
+          [
+            729.0,
+            472.0
+          ]
+        ],
+        "confidence": 0.2718073692016247,
+        "text": "TRUng"
+      },
+      {
+        "bbox_pixels": [
+          [
+            208.0,
+            458.0
+          ],
+          [
+            326.0,
+            458.0
+          ],
+          [
+            326.0,
+            486.0
+          ],
+          [
+            208.0,
+            486.0
+          ]
+        ],
+        "confidence": 0.529761071330118,
+        "text": "Nhu Điều 3;"
+      },
+      {
+        "bbox_pixels": [
+          [
+            730.0,
+            472.0
+          ],
+          [
+            822.0,
+            472.0
+          ],
+          [
+            822.0,
+            498.0
+          ],
+          [
+            730.0,
+            498.0
+          ]
+        ],
+        "confidence": 0.4445417946305852,
+        "text": "Bh' HC"
+      },
+      {
+        "bbox_pixels": [
+          [
+            208.0,
+            482.0
+          ],
+          [
+            432.0,
+            482.0
+          ],
+          [
+            432.0,
+            512.0
+          ],
+          [
+            208.0,
+            512.0
+          ]
+        ],
+        "confidence": 0.8215916442863787,
+        "text": "ĐHQGHN (để báo cáo);"
+      },
+      {
+        "bbox_pixels": [
+          [
+            718.0,
+            496.0
+          ],
+          [
+            834.0,
+            496.0
+          ],
+          [
+            834.0,
+            522.0
+          ],
+          [
+            718.0,
+            522.0
+          ]
+        ],
+        "confidence": 0.2681344331259424,
+        "text": "Kho; HOC"
+      },
+      {
+        "bbox_pixels": [
+          [
+            208.0,
+            510.0
+          ],
+          [
+            416.0,
+            510.0
+          ],
+          [
+            416.0,
+            536.0
+          ],
+          [
+            208.0,
+            536.0
+          ]
+        ],
+        "confidence": 0.7898813556037916,
+        "text": "Lưu: VT, ĐT, HĐHO6"
+      },
+      {
+        "bbox_pixels": [
+          [
+            724.0,
+            520.0
+          ],
+          [
+            828.0,
+            520.0
+          ],
+          [
+            828.0,
+            546.0
+          ],
+          [
+            724.0,
+            546.0
+          ]
+        ],
+        "confidence": 0.10528008491175286,
+        "text": "TỰ NH:eN"
+      },
+      {
+        "bbox_pixels": [
+          [
+            709.0,
+            571.0
+          ],
+          [
+            1015.0,
+            571.0
+          ],
+          [
+            1015.0,
+            610.0
+          ],
+          [
+            709.0,
+            610.0
+          ]
+        ],
+        "confidence": 0.7199947822421054,
+        "text": "GSISKH Vũ Hoàng Linh"
+      },
+      {
+        "bbox_pixels": [
+          [
+            839.4789396203098,
+            137.4141973545267
+          ],
+          [
+            914.6261611585857,
+            128.54973189749748
+          ],
+          [
+            916.5210603796902,
+            159.5858026454733
+          ],
+          [
+            842.3738388414143,
+            168.45026810250252
+          ]
+        ],
+        "confidence": 0.9998834058208851,
+        "text": "ngành"
+      },
+      {
+        "bbox_pixels": [
+          [
+            261.92942454485564,
+            169.14592836148023
+          ],
+          [
+            335.85783314734755,
+            179.9430594116856
+          ],
+          [
+            330.07057545514436,
+            212.85407163851977
+          ],
+          [
+            255.14216685265242,
+            202.0569405883144
+          ]
+        ],
+        "confidence": 0.9999912035129589,
+        "text": "thông"
+      }
+    ],
+    "default_retrieval_enabled": false,
+    "image_path": "backups/hus_source_review/p13/ocr_images_v1/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab-p0002.png",
+    "image_sha256": "46c5a75f6b98acd70a8459040bb4435c647281bbebe3126d4e150607002e1d48",
+    "image_size_pixels": [
+      1192,
+      1685
+    ],
+    "low_confidence_boxes": 16,
+    "ocr_executed": true,
+    "original_text_layer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pdf_page": 2,
+    "review_status": "machine_ocr_pending_visual_and_academic_review",
+    "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "table_structure_verified": false,
+    "text": "Điều 2. Chương trình đào tạo chuẩn trình độ đại học\nKhoa học máy\ntính và\ntin ban hành kèm theo Quyết định này được áp dụng cho sinh viên từ\nkhóa tuyển sinh năm 2022 của Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia\nHà Nội.\nĐiều 3. 'Trưởng Phòng Đào tạo, Trưởng Khoa Toán\nCơ\nTin học, Trưởng các\nđơn vị có liên quan chịu trách nhiệm thi hành Quyết định này / . qeul\nHỀU TRƯỞNG\nGc\nNơi nhận:\nTRUng\nNhu Điều 3;\nBh' HC\nĐHQGHN (để báo cáo);\nKho; HOC\nLưu: VT, ĐT, HĐHO6\nTỰ NH:eN\nGSISKH Vũ Hoàng Linh\nngành\nthông",
+    "text_sha256": "e90878d7354f2fe0e75e80b15efbf0e582f7f66b6e5179816edce3c33c354649"
+  },
+  "observation_sha256": "e8e825063a5097e4c48744f3abb92c181d6006d1308cd4effb8a045aad073c4c",
+  "run_identity_sha256": "2b28f83da57fbf1733f1f973d1acfc3cafe71c87cc00e16f9281dcb6f4bdcf96"
+}

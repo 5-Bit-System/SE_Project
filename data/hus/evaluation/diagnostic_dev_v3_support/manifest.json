@@ -1,0 +1,28 @@
+{
+  "files_sha256": {
+    "README.md": "55f8ddccaed1c8ccff2de454916f538c14188ff5be65ddcd952091584c6a5518",
+    "cases.jsonl": "b55fd25db1a3a59e4b329dc55d6b7b2fb4b6b040fcc8ddd0ffcf3ea83b53d982",
+    "evidence.jsonl": "2849db545f713b3edc3557c832d079d9a8e9aff79f45c50277be9b02ef170e87",
+    "exposure_log.json": "9c69545def9b393b0e0ffa03b8f8b5cf0f8bcfde8c0b8af502a666db80537088",
+    "gold.jsonl": "62ee3029379e8f95de9914eef0e5a221a9df2dade000ce8352bc5798156c9933",
+    "questions.jsonl": "a670c77d58b247cf35034944e939373b72f5e29da725094af7618d586ab5bc93"
+  },
+  "holdout_eligible": false,
+  "parent_inputs_sha256": {
+    "data/hus/evaluation/ai_reviewed_exposed_v1/README.md": "1becc6ab41880cbcb38fef819598cfb5d465c4a5c55f8a592f72aeaeb3bbf59c",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/changes.jsonl": "706e9b7eb7c9275d90ea2f29a3c82843241568dbd64f459d7a9688326f96a4ca",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/evidence.jsonl": "548370f07eaf310b02c5694ee61844cba123d7d893aa137ee9ec4a3998e2287e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/gold.jsonl": "61317a0a32d8ca4428224c32b6005ee4aea0667a972bb34ecae00f733c6c1282",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/manifest.json": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1"
+  },
+  "preparation_script_sha256": "b071125a8c0222cb2ef3588869c5ee1f0fd767a452ded6dae2f404d08d2d2cd6",
+  "question_count": 20,
+  "runtime_before_sha256": {
+    "app/hus/answer_support.py": "6a372edbe1506c9cb20b490550dea9a768e62e893e80bf2e7b88dc257349f95c",
+    "app/hus/answering.py": "ef528b952d3f7314009f9d2612cab40970fc3d158bf323080c1cddb6e666eeaa"
+  },
+  "schema_version": "1.0",
+  "source_pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "split": "diagnostic_development"
+}

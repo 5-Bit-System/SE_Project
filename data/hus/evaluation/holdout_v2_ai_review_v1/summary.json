@@ -1,0 +1,49 @@
+{
+  "academic_verified": false,
+  "accepted_alternative_replacements": [],
+  "actual_human_reviews": 0,
+  "additional_complementary_anchors_required": 4,
+  "by_category": {
+    "f1": 12,
+    "f2": 16,
+    "f3": 8,
+    "missing_evidence": 8,
+    "opt_in_required": 4,
+    "out_of_scope": 8
+  },
+  "by_major": {
+    "computer_science": 14,
+    "data_science": 14,
+    "mathematics": 14,
+    "mathematics_informatics": 14
+  },
+  "decisions_for_ai_exposed_evaluation": {
+    "accept": 53,
+    "revise": 3
+  },
+  "explanation": "Three answer/rubric revisions are separate from semantic-exposure findings. All questions remain exposed; no independent performance claim.",
+  "gold_complete_as_written": 53,
+  "human_review_required": false,
+  "independent_holdout_accepted": false,
+  "invalid_alternative_replacement_candidates": 4,
+  "protected_files_checked": 144,
+  "protected_originals_unchanged": true,
+  "question_count": 56,
+  "rag_inference_during_review": false,
+  "release_activated": false,
+  "reviewed_at": "2026-11-03T15:28:08.135595+07:00",
+  "reviewer_kind": "ai",
+  "revisions_required": [
+    "H2-Q043",
+    "H2-Q044",
+    "H2-Q048"
+  ],
+  "runtime_tuning_performed": false,
+  "schema_version": "1.0",
+  "semantic_overlap_risk": {
+    "high": 52,
+    "moderate": 4
+  },
+  "source_supported_as_written": 54,
+  "status": "ai_review_complete"
+}

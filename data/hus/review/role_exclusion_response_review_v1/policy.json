@@ -1,0 +1,13 @@
+{
+  "reviewer_kind": "ai",
+  "actual_human_reviews": 0,
+  "holdout_eligible": false,
+  "new_readings": 17,
+  "exact_prior_judgments_inherited": 197,
+  "method": "Read changed/new questions,full measured reply,source/audit and exclusion requirements. Reuse earlier AI judgment only with exact four-way hash equality. All templates bound to new measurement/snapshot.",
+  "limits": [
+    "Not independent human review or certification of institutional source validity.",
+    "H2 still exposed25previously tuned; dev6/dev7 variants share prior sources and are not independent samples.",
+    "Bounded lexical role/exclusion grammar,not general Vietnamese semantic understanding."
+  ]
+}

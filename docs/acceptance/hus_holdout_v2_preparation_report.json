@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "status": "prepared_pending_real_human_review_not_acceptance",
+  "created_at_utc": "2026-11-02T19:25:29.101289+00:00",
+  "candidate": {
+    "status": "candidate_pending_independent_review",
+    "questions": 56,
+    "evidence_ids": 44,
+    "by_major": {
+      "mathematics": 14,
+      "mathematics_informatics": 14,
+      "computer_science": 14,
+      "data_science": 14
+    },
+    "by_category": {
+      "f1": 12,
+      "f2": 16,
+      "f3": 8,
+      "missing_evidence": 8,
+      "out_of_scope": 8,
+      "opt_in_required": 4
+    },
+    "accepted_reviews": 0,
+    "normalized_development_questions": 1050,
+    "exact_development_overlap": 0,
+    "semantic_overlap": "pending independent reviewer",
+    "rag_inference_run": false,
+    "retrieval_metrics": null,
+    "runtime_matches_baseline": true,
+    "pack_manifest_sha256": "8cb1a1876c47ca821e6caf866074f555c11bc5e3eed7e58ce15ea5727cbd3a94",
+    "questions_sha256": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+    "gold_sha256": "83849608339a0098019727d233380094cc38e02bcb6f7d9badc967895b193620"
+  },
+  "human_review": {
+    "status": "pending_real_human_review",
+    "questions": 56,
+    "decisions": {
+      "pending": 56
+    },
+    "claimed_accepted_reviews": 0,
+    "minimum_required": 40,
+    "accepted_by_major": {},
+    "accepted_by_category": {},
+    "ready_for_human_freeze_confirmation": false,
+    "human_identity_verified_by_tool": false,
+    "independent_holdout_certified": false,
+    "rag_inference_run": false,
+    "limits": "Validates declarations, not identity, source semantics or actual independent human work.",
+    "candidate_manifest_sha256": "8cb1a1876c47ca821e6caf866074f555c11bc5e3eed7e58ce15ea5727cbd3a94",
+    "review_file_sha256": "190f472a47c4eb567680870f48015a8079e70a7349008f26a0ae37bf971f4629",
+    "evidence_catalog_sha256": "c489d19f2ef97c5eebe0ac5a558c24cb0dfafeb6617840c19da4bae1eb90aff3"
+  },
+  "reviewer_volunteered": "user; identity/signatures intentionally blank until actual review",
+  "author_isolation_limitation": "isolated author stopped at usage limit; primary implementer completed AI draft, no author independence claimed",
+  "overlap_summary": {
+    "questions": 56,
+    "comparison_count": 99344,
+    "prior_prompt_occurrences": 1774,
+    "regression_prompt_count": 120,
+    "exact_duplicate_cases": 0,
+    "strong_lexical_risk_cases": 0,
+    "semantic_independence": "not_established_requires_human_review"
+  },
+  "source_followup": {
+    "historical_source_inventory": 106,
+    "missing_raw": 37,
+    "historical_blockers": 6,
+    "blockers_closed": 0,
+    "total_images_inspected_this_pass_including_rechecks": 19,
+    "OCR_missed_occurrences_AI_visually_observed": 45,
+    "new_human_approvals": 0,
+    "official_F3_enabled": false
+  },
+  "source_input_hashes_verified": 173,
+  "checks": {
+    "targeted_tests_passed": 54,
+    "ruff_app_tools_tests": "pass",
+    "git_diff_check": "pass",
+    "runtime_unchanged_since_dev_measurement": true,
+    "release_payloads_verified": 46,
+    "holdout_inference_run": false,
+    "production_deployed": false,
+    "committed": false,
+    "pushed": false
+  },
+  "artifacts_sha256": {
+    "data/hus/evaluation/holdout_v2_candidate/manifest.json": "8cb1a1876c47ca821e6caf866074f555c11bc5e3eed7e58ce15ea5727cbd3a94",
+    "data/hus/evaluation/holdout_v2_review/manifest.json": "9943b80b794a055af8cbabf8320939b76c28421f052f81ebc01e64a5603d4903",
+    "data/hus/review/p13_scope_followup_20261103/manifest.json": "f4ac5266edac9bc5d300363f89ac85206821b44b7a1f10e0d46333ed83b9b479",
+    "docs/RAG_REVIEW_RELEASE_GATES_2026_11_03.md": "bbb9a9c07ef437845c95740daa5e408ab8eab675f3874694ec7f65c21c460a78",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "e080ba9c0c13824b156e8c1adaf0b74b2e36dbe537902e29e12ca5611eba60a3",
+    "docs/RAG_SOURCE_REVIEW_FOLLOWUP_2026_11_03.md": "3661e8b46a5feb402245b15362790f8e9525f2a75629edd8541bf327bebb871e",
+    "data/hus/evaluation/README.md": "98c3da3a7dd69f84015d055cc52f397049e4e1986254cfb20ead5e1fb5f29ea0",
+    "tools/validate_hus_holdout_review.py": "1ea7d6a68e251da3f6553c1e1dbaef434e4b5f66844efa02b6f1fe5b7c426e76",
+    "tools/audit_hus_holdout_overlap.py": "8731daf47b8c902410df0bc15248fc3955b19638cd4bf2dbd5d057b3d7452e38",
+    "tests/hus/test_holdout_review.py": "96a09b16af1b384cf2a41ecaa64d5509c517595e85dbc2c753d923e12f35ad4d",
+    "tests/hus/test_holdout_overlap.py": "280780e6aff0fa70d4a7f269513c3ef88adc3821fec1ea1f5fec4df72a12669d",
+    "backups/hus_holdout_v2_20261103/preparation-tests.xml": "255654f69ba2b2ced3cd2ea9fcb5fe03fde04f90460a605b38ecbbd81685891d"
+  },
+  "next_required_human_action": "Review/revise/exclude questions and approve at least40; then confirm frozen subset before measurement."
+}

@@ -18,6 +18,16 @@ class HUSChatReply(BaseModel):
 
 def basic_reply(question: str) -> str | None:
     text = " ".join(_tokens(question))
+    if text == 'cach doc nguon':
+        return ('Với câu trả lời dựa trên dữ liệu, đọc nội dung và phiên bản nguồn kèm theo. '
+                'Các thẻ dẫn chứng bên dưới ghi tên nguồn và trạng thái review. '
+                'Bấm tên nguồn để mở tài liệu khi có liên kết đã kiểm tra. '
+                'Nguồn chưa xác minh hiện hành không xác nhận hiệu lực hiện tại; '
+                'nhãn “kiến thức AI” là nội dung tham khảo do AI sinh, không phải nguồn chính thức.')
+    if text == 'cach bat noi dung ai':
+        return ('Đánh dấu “Cho phép kiến thức AI tham khảo” bên dưới ô nhập câu hỏi, '
+                'rồi chọn câu trong mục Tìm hiểu môn học. Bạn tự quyết định quyền này; '
+                'đổi ngành sẽ tắt lại. Nội dung AI không phải đề cương hay quy định đánh giá chính thức.')
     if text in {"chao", "xin chao", "chao ban", "xin chao ban", "hi", "hello", "alo"}:
         return "Chào bạn! Bạn muốn tìm hiểu về ngành học, chương trình đào tạo hay một học phần?"
     if text in {"cam on", "cam on ban", "thanks", "thank you", "ok cam on"}:
@@ -27,6 +37,9 @@ def basic_reply(question: str) -> str | None:
     if text in {"ban la ai", "ban co the lam gi", "ban giup duoc gi", "toi co the hoi gi", "huong dan su dung"}:
         return ("Tôi hỗ trợ thông tin ngành học, dữ kiện chương trình và nội dung học phần. "
                 "Bạn có thể hỏi giới thiệu ngành, tín chỉ hoặc tiên quyết theo mã môn. "
+                "Câu hỏi cấp chương trình/nhóm không cần mã môn; chọn đúng ngành và phiên bản. "
+                "Mỗi lượt hỏi một loại thông tin; câu cấp môn ghi lại mã hoặc tên đầy đủ của môn; "
+                "câu sau không tự lấy môn từ câu trước. "
                 "Nội dung học phần AI cần bật cho phép kiến thức AI tham khảo.")
     return None
 

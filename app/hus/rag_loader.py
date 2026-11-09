@@ -211,6 +211,22 @@ class HUSRAGData:
         code = _text(course_code, "course_code").strip().upper()
         return deepcopy(self._courses.get((code, _major(major), _text(version, "version"))))
 
+    def get_f2_program(self, *, major: str, version: str) -> Row | None:
+        """Portable, exact-scope program snapshot; no legacy/source fallback."""
+        return deepcopy(getattr(self, "_program_records", {}).get(
+            (_major(major), _text(version, "version"))))
+
+    def f2_group_rules(self, *, major: str, version: str) -> tuple[Row, ...]:
+        """Independent parent/child rows in recorded order, never aggregated."""
+        return deepcopy(getattr(self, "_program_groups", {}).get(
+            (_major(major), _text(version, "version")), ()))
+
+    def f2_courses(self, *, major: str, version: str) -> tuple[F2Course, ...]:
+        """Scoped memberships for exact name resolution; no cross-edition fallback."""
+        scope = (_major(major), _text(version, "version"))
+        return deepcopy(tuple(course for course in self._courses.values()
+                              if (course.major, course.version) == scope))
+
     def _load_f2(self, payloads: dict[str, bytes]) -> dict[tuple, F2Course]:
         path = "f2/hus_source.json"
         bundle = _object(payloads[path], path)

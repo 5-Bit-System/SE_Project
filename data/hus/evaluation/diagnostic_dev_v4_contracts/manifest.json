@@ -1,0 +1,21 @@
+{
+  "split": "diagnostic_development",
+  "holdout_eligible": false,
+  "cases": 16,
+  "source_release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "format": "portable-2.0",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "parent_q048_inputs": {
+    "questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+    "gold.jsonl": "61317a0a32d8ca4428224c32b6005ee4aea0667a972bb34ecae00f733c6c1282",
+    "evidence.jsonl": "548370f07eaf310b02c5694ee61844cba123d7d893aa137ee9ec4a3998e2287e"
+  },
+  "files_sha256": {
+    "cases.jsonl": "932504a15de4a4fb1329cfbdec421602a8180b51c25a0c6b8731f77b56cda216",
+    "README.md": "352218723fc9d4e8aa8e6123f59d9846617dd7abd275b5d64448b00aaba9016d"
+  },
+  "note": "Legacy Q048 [] versus [null] score is not redefined by these new contract checks"
+}

@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-11-03T14:52:45.292258+00:00",
+  "holdout_eligible": false,
+  "inputs_unchanged_during_run": true,
+  "metrics": {
+    "abstention_on_missing_or_out_of_scope": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "answer_status_accuracy": {
+      "denominator": 20,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "cases": 20,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "f2_lookup_success": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "failure_counts": {
+      "post_retrieval_abstention": 20
+    },
+    "false_abstention_on_positive": {
+      "denominator": 20,
+      "numerator": 20,
+      "value": 1.0
+    },
+    "guardrail_success": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "routed_recall_at_5": {
+      "denominator": 20,
+      "numerator": 20.0,
+      "value": 1.0
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 20,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "unjudged_alternative_citations": 0
+  },
+  "pack": "data/hus/evaluation/diagnostic_dev_v3_support",
+  "pack_manifest_sha256": "54469f2117eb691d5130ebbe27a325bfc932bd05c635b0b5ef51bbc9cde24ac0",
+  "semantic_independence_claimed": false,
+  "source_binary_checks": {},
+  "status": "exposed_development_support_gate_slice",
+  "summary": {
+    "answered": 0,
+    "not_independent_acceptance": true,
+    "questions": 20,
+    "routed_correctly": 20,
+    "source_supported_success": 0
+  }
+}

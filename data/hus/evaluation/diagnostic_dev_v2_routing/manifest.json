@@ -1,0 +1,36 @@
+{
+  "by_category": {
+    "f2": 4,
+    "f3": 4
+  },
+  "by_major": {
+    "computer_science": 2,
+    "data_science": 2,
+    "mathematics": 2,
+    "mathematics_informatics": 2
+  },
+  "files_sha256": {
+    "README.md": "3498ce4ae4350ea4ab78ac32fdbb7630d354d0485172f23ea864feedf579154c",
+    "cases.jsonl": "19d9d7a9f583a11200fcd39ae249f1978419e27eee5ca5e24494078d09f18efe",
+    "evidence.jsonl": "ef871823348d8f336e8dfc8ef5fdb07c892615d3e8119db67f8e04238e3dda76",
+    "exposure_log.json": "e058756c6fc9e77a7bc693f8f507cfb6dc4ceb944c1ff1c3f47f4f182b70ffd0",
+    "gold.jsonl": "dc719182dc597fee2c25ddfac1f63977268cb72b53802227daa34062151aa479",
+    "questions.jsonl": "413ed018b1a6bb1ad681d6c6c4ff5837b623c564337cd90252770be502073bc9"
+  },
+  "holdout_eligible": false,
+  "parent_inputs_sha256": {
+    "data/hus/evaluation/ai_reviewed_exposed_v1/README.md": "1becc6ab41880cbcb38fef819598cfb5d465c4a5c55f8a592f72aeaeb3bbf59c",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/changes.jsonl": "706e9b7eb7c9275d90ea2f29a3c82843241568dbd64f459d7a9688326f96a4ca",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/evidence.jsonl": "548370f07eaf310b02c5694ee61844cba123d7d893aa137ee9ec4a3998e2287e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/gold.jsonl": "61317a0a32d8ca4428224c32b6005ee4aea0667a972bb34ecae00f733c6c1282",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/manifest.json": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1"
+  },
+  "preparation_script_sha256": "3bca87f308cde799651fa1280c2c4008f3c49145295b20f021bb5c2cb813e49f",
+  "question_count": 8,
+  "runtime_routing_before_sha256": "e0bf4dd6cb0275f2b8fbbf1bb6b74d46e664720865f3429bd9906d84f39d9edc",
+  "schema_version": "1.0",
+  "source_pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "source_release": "data/hus/rag/releases/hus-data-20261031-v3",
+  "split": "diagnostic_development"
+}

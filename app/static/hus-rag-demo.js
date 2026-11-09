@@ -47,10 +47,17 @@
   const messages = document.getElementById('rag-messages');
   const status = document.getElementById('rag-status');
   const form = document.getElementById('rag-form');
+  const catalog = document.getElementById('rag-catalog');
+  const catalogSearch = document.getElementById('rag-catalog-search');
+  const catalogStatus = document.getElementById('rag-catalog-status');
+  const catalogGroups = document.getElementById('rag-catalog-groups');
+  const catalogRetry = document.getElementById('rag-catalog-retry');
   let config = null;
   let busy = false;
   let scopeGeneration = 0;
   let requestController = null;
+  let catalogController = null;
+  let catalogEntries = [];
 
   function currentMajor() {
     return config?.majors.find(item => item.id === major.value) || null;
@@ -69,6 +76,117 @@
     send.disabled = unavailable || busy || !question.value.trim();
     send.firstChild.textContent = busy ? 'Đang trả lời ' : 'Gửi ';
     form.setAttribute('aria-busy', String(busy));
+    for (const {button, item} of catalogEntries) {
+      button.disabled = unavailable || busy || (item.requires_ai && !generated.checked);
+    }
+  }
+
+  function searchable(text) {
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/gi, 'd').toLowerCase();
+  }
+
+  function filterCatalog() {
+    const terms = searchable(catalogSearch.value).trim().split(/\s+/).filter(Boolean);
+    let visible = 0;
+    for (const {button, item} of catalogEntries) {
+      const text = searchable([item.question, item.course_label, item.scope_label].join(' '));
+      button.hidden = !terms.every(term => text.includes(term));
+      if (!button.hidden) visible += 1;
+    }
+    for (const section of catalogGroups.querySelectorAll('.rag-catalog-section')) {
+      section.hidden = !section.querySelector('.rag-catalog-question:not([hidden])');
+      if (terms.length && !section.hidden) section.open = true;
+    }
+    for (const group of catalogGroups.children) {
+      group.hidden = !group.querySelector('.rag-catalog-question:not([hidden])');
+      if (terms.length && !group.hidden) group.open = true;
+    }
+    catalogStatus.textContent = visible
+      ? visible + ' / ' + catalogEntries.length + ' câu hỏi · Bấm để hỏi'
+      : 'Không có câu hỏi phù hợp. Thử tên hoặc mã môn khác.';
+  }
+
+  function renderCatalog(value) {
+    catalogGroups.replaceChildren();
+    catalogEntries = [];
+    for (const group of value.groups) {
+      const details = document.createElement('details');
+      details.className = 'rag-catalog-group';
+      details.dataset.family = group.id;
+      details.open = group.id === 'f1';
+      const summary = document.createElement('summary');
+      summary.textContent = group.title + ' (' + group.questions.length + ')';
+      const note = document.createElement('p');
+      note.className = 'rag-catalog-note';
+      note.textContent = group.note;
+      details.append(summary, note);
+      const sections = new Map();
+      for (const item of group.questions) {
+        const label = item.course_label || item.scope_label;
+        let section = sections.get(label);
+        if (!section) {
+          section = document.createElement('details');
+          section.className = 'rag-catalog-section';
+          section.open = group.id === 'help';
+          const title = document.createElement('summary');
+          title.textContent = label;
+          section.appendChild(title);
+          sections.set(label, section);
+          details.appendChild(section);
+        }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'rag-catalog-question';
+        button.textContent = item.question;
+        if (item.requires_ai) button.title = 'Cần bật Cho phép kiến thức AI tham khảo';
+        const epoch = scopeGeneration;
+        button.addEventListener('click', () => {
+          if (epoch !== scopeGeneration || button.disabled) return;
+          question.value = item.question;
+          submit(null, item.request);
+        });
+        section.appendChild(button);
+        catalogEntries.push({button, item});
+      }
+      catalogGroups.appendChild(details);
+    }
+    filterCatalog();
+    updateControls();
+  }
+
+  async function loadCatalog() {
+    catalogController?.abort();
+    const selected = currentMajor();
+    if (!selected) return;
+    const epoch = scopeGeneration;
+    const controller = new AbortController();
+    catalogController = controller;
+    catalogEntries = [];
+    catalogGroups.replaceChildren();
+    catalogSearch.disabled = true;
+    catalogRetry.hidden = true;
+    catalog.removeAttribute('data-major');
+    catalogStatus.textContent = 'Đang tải danh mục theo ngành đã chọn…';
+    try {
+      const params = new URLSearchParams({major: selected.id, version: selected.version});
+      const response = await fetch('/hus/questions?' + params, {cache: 'no-store', signal: controller.signal});
+      if (!response.ok) throw new Error('catalog_unavailable');
+      const value = await response.json();
+      if (epoch !== scopeGeneration || catalogController !== controller) return;
+      if (value.major !== selected.id || value.version !== selected.version
+          || value.release_sha256 !== config.release_sha256 || !Array.isArray(value.groups)) {
+        throw new Error('invalid_catalog');
+      }
+      renderCatalog(value);
+      catalog.dataset.major = selected.id;
+      catalogSearch.disabled = false;
+    } catch (error) {
+      if (epoch !== scopeGeneration || catalogController !== controller || error.name === 'AbortError') return;
+      catalogEntries = [];
+      catalogGroups.replaceChildren();
+      catalogStatus.textContent = 'Không tải được danh mục. Bạn vẫn có thể nhập câu hỏi bên cạnh.';
+      catalogRetry.hidden = false;
+    }
   }
 
   function appendCitation(container, citation) {
@@ -140,6 +258,7 @@
     requestController = null;
     busy = false;
     generated.checked = false;
+    catalogSearch.value = '';
     question.value = '';
     messages.replaceChildren();
     const selected = currentMajor();
@@ -150,17 +269,19 @@
       setStatus('Đã chọn ' + selected.label + '. Đổi ngành sẽ bắt đầu hội thoại mới.');
     }
     updateControls();
+    loadCatalog();
   }
 
-  async function submit(event) {
-    event.preventDefault();
+  async function submit(event, catalogRequest = null) {
+    event?.preventDefault();
     const text = question.value.trim();
     const selected = currentMajor();
     if (!selected || !text || busy) return;
     const epoch = scopeGeneration;
     const controller = new AbortController();
     requestController = controller;
-    const payload = {question: text, major: selected.id, version: selected.version,
+    const payload = {...(catalogRequest || {}), question: text, major: selected.id,
+      version: catalogRequest?.version || selected.version,
       allow_generated_reference: generated.checked === true};
     appendMessage('user', text);
     question.value = '';
@@ -178,7 +299,20 @@
           || !result.reply.trim()) throw new Error('invalid_response');
       appendMessage('assistant', result.reply,
         result.mode === 'hus_rag' ? result.hus_answer?.citations : []);
-      setStatus('Đã trả lời theo phạm vi dữ liệu đã chọn.');
+      if (result.mode === 'basic_chat') {
+        setStatus('Đã phản hồi hội thoại.');
+      } else if (result.hus_answer?.status === 'needs_clarification') {
+        setStatus('Cần làm rõ câu hỏi; xem hướng dẫn trong phản hồi.');
+      } else if (result.hus_answer?.status === 'no_information') {
+        setStatus('Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.');
+      } else if (result.hus_answer?.status === 'answered') {
+        setStatus(result.hus_answer.facts?.field === 'prerequisites'
+          && result.hus_answer.facts?.prerequisite_status === 'unknown'
+          ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
+          : 'Đã trả lời theo phạm vi dữ liệu đã chọn.');
+      } else {
+        throw new Error('invalid_response');
+      }
     } catch (error) {
       if (epoch !== scopeGeneration || requestController !== controller || error.name === 'AbortError') return;
       const unavailable = error.message === 'http_503';
@@ -203,6 +337,9 @@
     }
   });
   major.addEventListener('change', resetScope);
+  generated.addEventListener('change', updateControls);
+  catalogSearch.addEventListener('input', filterCatalog);
+  catalogRetry.addEventListener('click', loadCatalog);
 
   async function initialize() {
     try {

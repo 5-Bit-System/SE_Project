@@ -1,0 +1,138 @@
+{
+  "actual_human_reviews": 0,
+  "cases": [
+    {
+      "audit_sha256": "a5ff570f6c581725aeaf015d17f8fbc847dfef791876fbd5ce03a738828eec2d",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "5eb88e0bdd62cc0777263d3cb9e683ac69efdbc520e6e0fb0baccb8fcd864089",
+      "notes": "",
+      "question_id": "DEV6-C001",
+      "request_sha256": "a9a533beb2a689c9f3510a50718ef573ef8fe7cac270f1040171933573b2032a",
+      "response_sha256": "c4908593f77dee0544abdd2cdf4d3fadceaa1e12c5c8559f21a638bd44d1864f",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "43a873f9d6411cb81f2e640425e80e9396aac9a712e185def14aaa5a458e1e20",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "9294c48b45c2022d0b72c3bc61c3379de0562fede252f9d696b35b1e52b68213",
+      "notes": "",
+      "question_id": "DEV6-C002",
+      "request_sha256": "ca2e9560612aeb458a9a4494d12cfa418dcbb0913230f3da74eb9bccbbbb9c07",
+      "response_sha256": "c4908593f77dee0544abdd2cdf4d3fadceaa1e12c5c8559f21a638bd44d1864f",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "b3c299723d1de260c7b7a737e1cb63e7f010bba66298c829049923a06232c9b3",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "cfaa637b02c651423a4bb4bcb1f58e06056262f1d526d9d528de3d35de841bcb",
+      "notes": "",
+      "question_id": "DEV6-C003",
+      "request_sha256": "9b0f594f44ac1b6b08f28a9e35222f53157f2a39aadf05af02f1ff5ead8af1c3",
+      "response_sha256": "33709a5c439a740786fa69425055e3fda1b036a0d460acd558a6d1b0395fad78",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "a3cdc88c94544963fba8d8e8d881b179ad6c42dc0fd08fcee46d04f04692b3c4",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "2f23604d2d7e7216d9dd08c1e2adefcbc8e38f2064873ea5fcfdb9a8bbcb56dd",
+      "notes": "",
+      "question_id": "DEV6-C004",
+      "request_sha256": "0f85758ec61347752fd9b69090f5223968ccba782dc3610268972e8271e2bdda",
+      "response_sha256": "c4908593f77dee0544abdd2cdf4d3fadceaa1e12c5c8559f21a638bd44d1864f",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "c7b84572036a7592c027706c2c89690183f7be1733a4664d8e31dcd5b273aa89",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "5c79f1741d92453ccb62721714a8dabe20b6be8df1ebc1cd3e8c3396c4daaa4c",
+      "notes": "",
+      "question_id": "DEV6-C005",
+      "request_sha256": "8459e35bc52bb33b0af562762e803359a0cc4b2496964171c831f554cdf5ccba",
+      "response_sha256": "6d9c54da8de4da00ed2801350ec34cd91b28541e8ddd64dedb69e494948b7f4b",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "aee61f913fbdbbfc5c1a7d08639b370cbb8101a33d2f1e58ff83237d3f85baa0",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "de3bb8a4e7bc8fabd41e10aaa5d9b97e69a16bd7f2e1bf07d42dd8971cffab53",
+      "notes": "",
+      "question_id": "DEV6-C006",
+      "request_sha256": "0c7c4f66eb52db5ea65fd1dbd3f8d234cd4a5f4e1b2e4df243b747e8d7574e2a",
+      "response_sha256": "6d9c54da8de4da00ed2801350ec34cd91b28541e8ddd64dedb69e494948b7f4b",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "ff32b073779a1bad4a8cfa3c8225e697f8f314b8807eaeef2e35c2e7ca33f108",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "920e4a15a252f1e3397608448e67c41ed967b3b57d039c26a44cd9748fd6f535",
+      "notes": "",
+      "question_id": "DEV6-C007",
+      "request_sha256": "e7c4772f71bda0bfcc9738fceeacaa7424f29bf9cbdbde13661d8b29b5f56c57",
+      "response_sha256": "c4908593f77dee0544abdd2cdf4d3fadceaa1e12c5c8559f21a638bd44d1864f",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "539e27dde33588d653462055b660de1fb160b45202b6d853392f9853aa7d69b0",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "c910905523bae009bb5530d658b3571eb91ce8f66f5e159265f31d9ceb8e9cf9",
+      "notes": "",
+      "question_id": "DEV6-C008",
+      "request_sha256": "396a4b3306a92fd5cfdc5c7175eadfe59f1a67134b89d9e61822387dfd57af3c",
+      "response_sha256": "6d9c54da8de4da00ed2801350ec34cd91b28541e8ddd64dedb69e494948b7f4b",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "3c5e4b14fd02d1699eef5f7b56aefdfb20a53ba24d4a7f8b6e28bc3d608b66f0",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "a0f7c4f7355c7a1599a7add4c2f00ce6aec2e8ecfa76445775178fc6949c8148",
+      "notes": "",
+      "question_id": "DEV6-C009",
+      "request_sha256": "e2ee2f7c35e1b3468213c5e76be3d37ee161bdd1d4a237ed968df665d7055dff",
+      "response_sha256": "945939797a9bd0fb60ccb0a6c7c3e7e35f81d6aaf085a6367ab7be04708bd37f",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    },
+    {
+      "audit_sha256": "24c95f23ff08f9745ebacbdb39df22aa434ee9cb93d2e5fadcf4f09ec561bf9a",
+      "completeness": "pending",
+      "entailment": "pending",
+      "gold_sha256": "8bbf4630e3f54836ad3690788891f57033798b4e975235e8004e084da2c25463",
+      "notes": "",
+      "question_id": "DEV6-C010",
+      "request_sha256": "9aec7121a05a8d2d6011a9ab78244364fff25351216cf9af6e2b9ee2f225777a",
+      "response_sha256": "e6e31e3a73250f513abfbcbe461b5ab6da307c01997e05d100e84b425addd264",
+      "reviewer": "",
+      "reviewer_kind": "ai"
+    }
+  ],
+  "citation_audits_sha256": "fd66fc05b704369def9e853302d6d1b5b47c7dbf7453cac38cd19bb28b7c3542",
+  "input_snapshot_sha256": "5c04de42d284bc3f72c938203174aa21bc1221a0bbc72700527b3104ac59433c",
+  "measurement_id": "ce41e1669e994e01b77574b5fec0d96c",
+  "predictions_sha256": "e53e977ff1d6f45db321e77065e81441daae7d0479204f76aec42d1cd763b11a",
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "schema_version": "hus-chatbot-evaluation-2.0",
+  "source_inputs_sha256": "537930b4d70c32b94e1fa79162f54622d8ee47eaf1708df84e0304a21b69781b",
+  "source_run": "data/hus/evaluation/runs/dev6_career_context_before_20261104"
+}

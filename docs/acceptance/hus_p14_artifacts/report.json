@@ -1,0 +1,209 @@
+{
+  "RAG_quality_acceptance": false,
+  "actual_production_monitoring": false,
+  "all_child_processes_stopped": true,
+  "builds": {
+    "blue": {
+      "build_sha256": "2fc5054ebbe11a53ef7bf05313f9cd9277a6324dad813a85f77bd4538600b435",
+      "registry_sha256": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+      "release_id": "hus-data-20261031-v3",
+      "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+      "scope": "local_operational_rehearsal"
+    },
+    "green": {
+      "build_sha256": "2fc5054ebbe11a53ef7bf05313f9cd9277a6324dad813a85f77bd4538600b435",
+      "registry_sha256": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+      "release_id": "hus-data-20261031-v3",
+      "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+      "scope": "local_operational_rehearsal"
+    }
+  },
+  "cases": [
+    {
+      "name": "blue_ready",
+      "status": "pass"
+    },
+    {
+      "name": "green_ready",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "basic_chat",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "F1_with_source",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "F2_fact",
+      "status": "pass"
+    },
+    {
+      "name": "PDF_binary_hash",
+      "status": "pass"
+    },
+    {
+      "name": "PDF_range",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "F3_opt_in_required",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "F3_AI_label_null_link",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "missing_assessment_abstains",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "same_PDF_distinct_pages",
+      "status": "pass"
+    },
+    {
+      "name": "PDF_page_13",
+      "status": "pass"
+    },
+    {
+      "name": "PDF_page_12",
+      "status": "pass"
+    },
+    {
+      "name": "invalid_input_422",
+      "status": "pass"
+    },
+    {
+      "name": "unknown_source_404",
+      "status": "pass"
+    },
+    {
+      "name": "corrupt_candidate_unready",
+      "status": "pass"
+    },
+    {
+      "name": "corrupt_candidate_rejected",
+      "status": "pass"
+    },
+    {
+      "name": "candidate_restored",
+      "status": "pass"
+    },
+    {
+      "name": "stale_activation_rejected",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "green_serves_after_switch",
+      "status": "pass"
+    },
+    {
+      "name": "active_outage_503",
+      "status": "pass"
+    },
+    {
+      "name": "chat_http_200",
+      "status": "pass"
+    },
+    {
+      "name": "rollback_blue_serves",
+      "status": "pass"
+    },
+    {
+      "name": "rollback_restored_bytes",
+      "status": "pass"
+    },
+    {
+      "name": "no_product_imports",
+      "status": "pass"
+    },
+    {
+      "name": "source_code_and_data_unchanged",
+      "status": "pass"
+    }
+  ],
+  "committed": false,
+  "crawler_or_external_network_permitted_in_children": false,
+  "monitor_samples": [
+    {
+      "instance": "green",
+      "ready": false,
+      "status": 503
+    },
+    {
+      "instance": "green",
+      "ready": true,
+      "status": 200
+    },
+    {
+      "instance": "green",
+      "ready": true,
+      "status": 200
+    },
+    {
+      "cause": "process_stopped",
+      "instance": "green",
+      "ready": false,
+      "status": 503
+    },
+    {
+      "instance": "blue",
+      "ready": true,
+      "status": 200
+    }
+  ],
+  "production_activated": false,
+  "production_eligible": false,
+  "prompt_or_response_text_logged": false,
+  "pushed": false,
+  "review_state_changed": false,
+  "same_release_process_switch_only": true,
+  "scope": "local_operational_rehearsal",
+  "source_input_files_unchanged": 113,
+  "status": "pass",
+  "transitions": [
+    {
+      "action": "activate_local_worker",
+      "previous_sha256": "bd4a4c1bc1b9b681603a93afdd7b3916a2e0c4bd9062265d6fb70f33f197d31c",
+      "selector_sha256": "4039f64e5b426150b59c5d036b42a5a0ea901f3cfe94c6f7aa15fad080c802e9"
+    },
+    {
+      "action": "rollback_local_worker",
+      "selector_sha256": "bd4a4c1bc1b9b681603a93afdd7b3916a2e0c4bd9062265d6fb70f33f197d31c"
+    }
+  ]
+}

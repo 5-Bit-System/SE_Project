@@ -43,12 +43,23 @@
         </div>
       </div>
 
-      <div id="rag-messages" class="rag-messages" role="log" aria-label="Hội thoại" aria-live="polite" aria-relevant="additions text"></div>
+      <div class="rag-body">
+        <aside id="rag-catalog" class="rag-catalog" aria-label="Danh mục câu hỏi">
+          <h2>Danh mục câu hỏi</h2>
+          <p class="rag-catalog-intro">Chọn một câu để hỏi ngay theo ngành đang tra cứu.</p>
+          <label for="rag-catalog-search">Tìm câu hỏi, tên hoặc mã môn</label>
+          <input id="rag-catalog-search" type="search" placeholder="Ví dụ: tín chỉ, MAT3533…" disabled>
+          <p id="rag-catalog-status" class="rag-catalog-status" role="status" aria-live="polite">Đang tải danh mục…</p>
+          <button id="rag-catalog-retry" type="button" hidden>Tải lại danh mục</button>
+          <div id="rag-catalog-groups" class="rag-catalog-groups"></div>
+        </aside>
+        <div class="rag-chat-panel">
+          <div id="rag-messages" class="rag-messages" role="log" aria-label="Hội thoại" aria-live="polite" aria-relevant="additions text"></div>
 
       <form id="rag-form" class="rag-composer">
         <label class="rag-question-label" for="rag-question">Câu hỏi của bạn</label>
         <div class="rag-input-row">
-          <textarea id="rag-question" rows="2" maxlength="1000" placeholder="Ví dụ: MAT3533 có bao nhiêu tín chỉ?" required disabled></textarea>
+          <textarea id="rag-question" rows="2" maxlength="1000" aria-describedby="rag-single-turn" placeholder="Ví dụ: MAT3533 có bao nhiêu tín chỉ?" required disabled></textarea>
           <button id="rag-send" type="submit" disabled>Gửi <span aria-hidden="true">↗</span></button>
         </div>
         <div class="rag-composer-footer">
@@ -58,9 +69,12 @@
           </label>
           <span class="rag-keyboard-hint">Enter để gửi · Shift + Enter để xuống dòng</span>
         </div>
+        <p id="rag-single-turn" class="rag-ai-note">Mỗi lượt hỏi một loại thông tin. Câu cấp chương trình/nhóm không cần mã môn; câu cấp môn ghi mã hoặc tên đầy đủ. Câu sau không tự lấy môn từ câu trước.</p>
         <p class="rag-ai-note">F3 là nội dung tham khảo do AI sinh, không phải đề cương hay quy định đánh giá chính thức.</p>
         <p id="rag-status" class="rag-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>
       </form>
+        </div>
+      </div>
     </section>
 
     <footer class="rag-footer">

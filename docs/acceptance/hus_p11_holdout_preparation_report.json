@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "prepared_on": "2026-11-02",
+  "status": "technical_preparation_passed_independent_human_review_pending",
+  "package": "data/hus/evaluation/p11_holdout_v1",
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "tested_commit": null,
+  "git_state": "uncommitted_worktree",
+  "validation": {
+    "status": "candidate_pending_independent_review",
+    "questions": 48,
+    "evidence_ids": 40,
+    "by_major": {
+      "mathematics": 12,
+      "mathematics_informatics": 12,
+      "computer_science": 12,
+      "data_science": 12
+    },
+    "by_category": {
+      "f1": 12,
+      "f2": 12,
+      "f3": 8,
+      "missing_evidence": 8,
+      "out_of_scope": 4,
+      "opt_in_required": 4
+    },
+    "accepted_reviews": 0,
+    "normalized_development_questions": 914,
+    "exact_development_overlap": 0,
+    "semantic_overlap": "pending independent reviewer",
+    "rag_inference_run": false,
+    "retrieval_metrics": null,
+    "runtime_matches_baseline": true,
+    "pack_manifest_sha256": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+    "questions_sha256": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+    "gold_sha256": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c"
+  },
+  "tests": {
+    "integrity_and_mutation_passed": 12,
+    "focused_regression_total_passed": 90,
+    "scope": [
+      "reviewer_holdout",
+      "rag_loader",
+      "retrieval",
+      "chat_scope",
+      "portable_adapter"
+    ],
+    "warnings": "existing FastAPI/Starlette TestClient deprecation",
+    "junit_local_path": "backups/hus_publish/p11-final-regression.xml",
+    "junit_sha256": "a5b2b87f112925f788f0c473e7f2828f57a8c24da68340960b9792ec601a6e4c"
+  },
+  "ruff": "pass",
+  "diff_check": "pass",
+  "source_input_hashes_preserved": 63,
+  "technical_review": {
+    "kind": "read_only_AI_code_review_not_human_gold_acceptance",
+    "important_findings_fixed": [
+      "bind generated evidence to category/dataset",
+      "enforce explicit F1 edition"
+    ],
+    "regressions_observed_red_then_green": true,
+    "final_verdict": "technical preparation ready; no new important findings"
+  },
+  "implementation_and_document_sha256": {
+    ".gitattributes": "2f3d9f4609a09b24febceb788aad0d2e406a652c731945b3bfa3c8f983f5074d",
+    "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+    "tests/hus/test_reviewer_holdout.py": "eabbbe26a5eca1605ac4681659bcda70cc4b63b2e148bd532466f15b828a08dd",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "8c95f018a85b05cf598d297b728a56770c8ebcf098c763a4a61312faf21edd8d",
+    "docs/superpowers/plans/2026-11-02-hus-rag-p11-reviewer-holdout.md": "c9150fe821de22587e0a68d0e59eca4b9787c379a2fa864f25492d219fc768a2"
+  },
+  "human_accepted_questions": 0,
+  "reviewer": null,
+  "reviewed_at": null,
+  "holdout_inference_run": false,
+  "retrieval_tuned_with_pack": false,
+  "P1_1_accepted": false,
+  "P1_2_metrics": null,
+  "source_review_upgraded": false,
+  "product_database_modified": false,
+  "vnu_contacted": false,
+  "production_activated": false,
+  "new_remote_ci_run": false,
+  "committed": false,
+  "pushed": false
+}

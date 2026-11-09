@@ -1,0 +1,19 @@
+{
+  "files_sha256": {
+    "blue_build_manifest.json": "55a442cf7120389cbbee3d9c3ab0dbc2b4156b31a242f8c7d18c3c3c3dd7c90e",
+    "blue_events.jsonl": "28eb2e80cb0a2a6dde93d4658a32300496a8aa1bbdb89a01c3241cde79462c55",
+    "blue_final_metrics.json": "d3cecb02982d9a89b802e150985eb1f6695b684da819986ea9b7c1975265ca55",
+    "blue_metrics.json": "bf886ca1260ddaad657d47c92b7174bb9d4c9a99a0e4ac5826383a22208fd235",
+    "blue_receipt.json": "f22fda5ea467601d376f9c314f2b0588fc7a96ba61451a92097950344e473e5d",
+    "gateway_events.jsonl": "cc82776cd3bdd006951dba43b10c2ee20059b05091ad3d2edb14221ade7a3199",
+    "green_build_manifest.json": "55a442cf7120389cbbee3d9c3ab0dbc2b4156b31a242f8c7d18c3c3c3dd7c90e",
+    "green_events.jsonl": "a6bba5b31bbc15280d12d855769980fc750be62da021c10f709ea85c8dfbe0a8",
+    "green_metrics.json": "15c06c518749008f9219b5254779bfd5d8fadb39badaa15f9cb3eee9f78c3a56",
+    "green_receipt.json": "72299494b3efcddf19862361f32e57434cd396aaf84a9e35dde2017d10a16dd9",
+    "initial_selector.json": "bd4a4c1bc1b9b681603a93afdd7b3916a2e0c4bd9062265d6fb70f33f197d31c",
+    "regression.xml": "3bdf4e049f0b60ae5d9ff3476970d197436b0e86371d46488090dd80de4f548e",
+    "report.json": "9e9b11c8c4016ddaf8fcc3490b0d3e76aec0b135b9850434bfd645a1377a6a01",
+    "restored_selector.json": "bd4a4c1bc1b9b681603a93afdd7b3916a2e0c4bd9062265d6fb70f33f197d31c"
+  },
+  "schema_version": "1.0"
+}
