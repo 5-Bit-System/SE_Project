@@ -3,7 +3,7 @@ title: "Khí tượng và khí hậu học"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/khi-tuong-khoa-hoc-va-cong-nghe-bien-tai-nguyen-va-moi-truong-nuoc/khi-tuong-va-khi-hau-hoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

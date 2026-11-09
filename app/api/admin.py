@@ -1,6 +1,7 @@
 
 """Admin console API endpoints with strict role-based authorization."""
 
+import logging
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -22,6 +23,7 @@ from app.audit.service import (
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
 from app.crawler.document_review_service import (
+    export_git_reviews_from_db,
     get_document,
     list_documents,
     review_document,
@@ -55,6 +57,8 @@ from app.services.synthetic_preview import (
     SyntheticPreviewRequest,
     run_synthetic_recommendation_preview,
 )
+
+logger = logging.getLogger(__name__)
 
 
 class CatalogImportRequest(BaseModel):
@@ -844,8 +848,8 @@ async def approve_crawled_document(
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
 
-    with engine().begin() as conn:
-        try:
+    try:
+        with engine().begin() as conn:
             reviewed = review_document(
                 conn,
                 doc_id=doc_id,
@@ -863,9 +867,16 @@ async def approve_crawled_document(
                 summary=f"Approved document {doc_id} with reason: {body.reason}",
                 details={"reason": body.reason},
             )
-            return reviewed
-        except ValueError as exc:
-            raise HTTPException(400, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(400, detail=str(exc)) from exc
+
+    # Post-commit: export git reviews after DB transaction has committed
+    try:
+        export_git_reviews_from_db(engine())
+    except Exception as exc:
+        logger.warning("Failed to export git reviews post-commit for doc %s: %s", doc_id, exc)
+
+    return reviewed
 
 
 @router.post("/crawler/documents/{doc_id}/reject")
@@ -876,8 +887,8 @@ async def reject_crawled_document(
     if principal.get("role") != "admin":
         raise HTTPException(403, "forbidden")
 
-    with engine().begin() as conn:
-        try:
+    try:
+        with engine().begin() as conn:
             reviewed = review_document(
                 conn,
                 doc_id=doc_id,
@@ -895,9 +906,16 @@ async def reject_crawled_document(
                 summary=f"Rejected document {doc_id} with reason: {body.reason}",
                 details={"reason": body.reason},
             )
-            return reviewed
-        except ValueError as exc:
-            raise HTTPException(400, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(400, detail=str(exc)) from exc
+
+    # Post-commit: export git reviews after DB transaction has committed
+    try:
+        export_git_reviews_from_db(engine())
+    except Exception as exc:
+        logger.warning("Failed to export git reviews post-commit for doc %s: %s", doc_id, exc)
+
+    return reviewed
 
 
 @router.get("/audit-logs")

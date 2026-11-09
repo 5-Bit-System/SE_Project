@@ -3,7 +3,7 @@ title: "Địa lý tự nhiên"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/dia-ly-quan-ly-dat-dai-v%C3%A0-gisc/dia-ly-tu-nhien"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

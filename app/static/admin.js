@@ -1894,13 +1894,20 @@
       // Status Badge
       const statusBadge = $('admin-doc-status-badge');
       if (statusBadge) {
-        if (doc.review_status === 'approved') {
+        if (doc.needs_ocr) {
+          statusBadge.innerHTML = '<span class="admin-status-badge badge-warning">📷 Chờ xử lý OCR</span>';
+        } else if (doc.review_status === 'approved') {
           statusBadge.innerHTML = '<span class="admin-status-badge badge-success">✓ Đã phê duyệt</span>';
         } else if (doc.review_status === 'rejected') {
           statusBadge.innerHTML = '<span class="admin-status-badge badge-danger">✕ Bị từ chối</span>';
         } else {
           statusBadge.innerHTML = '<span class="admin-status-badge badge-warning">⏳ Chờ kiểm duyệt</span>';
         }
+      }
+
+      const approveBtn = $('admin-doc-approve-btn');
+      if (approveBtn) {
+        approveBtn.title = doc.needs_ocr ? 'Tài liệu rỗng hoặc chỉ chứa marker trang, cần xử lý OCR trước khi phê duyệt' : '';
       }
 
       const decMeta = $('admin-doc-decision-meta');

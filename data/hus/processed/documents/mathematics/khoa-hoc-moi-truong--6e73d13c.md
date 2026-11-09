@@ -3,7 +3,7 @@ title: "Khoa học môi trường"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/Khoa-h%E1%BB%8Dc-C%C3%B4ng-ngh%E1%BB%87-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%C3%A0-th%E1%BB%B1c-ph%E1%BA%A9m/khoa-hoc-moi-truong"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

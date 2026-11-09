@@ -3,7 +3,7 @@ title: "Công nghệ kĩ thuật hạt nhân"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/vat-li-va-cong-nghe/cong-nghe-ki-thuat-hat-nhan"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học
