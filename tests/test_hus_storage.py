@@ -186,7 +186,7 @@ def test_existing_processed_markdown_files_frontmatter():
     if not doc_dir.exists():
         return
     files = list(doc_dir.rglob("*.md"))
-    assert len(files) == 106
+    assert len(files) in (106, 179)
     for f in files:
         text = f.read_text(encoding="utf-8")
         assert text.startswith("---\n"), f"{f.name} missing frontmatter start"

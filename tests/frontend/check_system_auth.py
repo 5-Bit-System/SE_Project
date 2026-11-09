@@ -112,8 +112,8 @@ def main():
                         page.wait_for_function("document.body.dataset.authState === 'workspace'")
                         assert sum(url.endswith('/auth/vnu') for url in submissions)==1
                         assert not any(url.endswith('/me/portal-connection') or url.endswith('/auth/login') for url in submissions)
-                        assert page.locator('#system-password').is_hidden()
-                        assert page.locator('#system-admin-open').is_hidden()
+                        assert page.locator('#system-password').count() == 0
+                        assert page.locator('#system-admin-open').count() == 0
                         assert page.request.get(base+'/admin/users').status==403
                         page.locator('#tab-btn-rules').click()
                         page.locator('#academic-program-choice').wait_for(state='visible')
@@ -160,12 +160,13 @@ def main():
                         page.locator('#auth-student-form').wait_for(state='visible')
                         admin_login(temporary)
                         page.locator('#auth-password-form').wait_for(state='visible')
-                        assert page.locator('#system-admin-open').is_hidden()
+                        assert page.locator('#system-admin-open').count() == 0
                         for key,value in [('current-password',temporary),('new-password',password),('new-confirm',password)]:
                             page.locator('#auth-'+key).fill(value)
                         page.locator('#auth-password-form button[type=submit]').click()
-                        page.locator('#system-admin-open').wait_for(state='visible')
-                        page.locator('#system-admin-open').click()
+                        page.locator('#system-admin').wait_for(state='visible')
+                        if page.locator('#admin-tab-users').is_visible():
+                            page.locator('#admin-tab-users').click()
                         page.locator('#admin-users tbody tr').first.wait_for(state='visible')
                         assert page.locator('#admin-users tbody tr').count()==3
                         assert 'password_hash' not in page.locator('#admin-users').inner_text()
@@ -176,6 +177,7 @@ def main():
                         row=page.locator('#admin-users tbody tr').filter(has_text='synthetic-browser-vnu')
                         row.locator('button').click()
                         page.wait_for_function("document.querySelector('#admin-users tbody').textContent.includes('kh\u00f3a')")
+                        page.locator('#system-menu-toggle').click()
                         page.locator('#system-logout').click()
                         page.locator('#auth-student-form').wait_for(state='visible')
                         student_login()

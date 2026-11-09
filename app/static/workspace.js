@@ -47,6 +47,7 @@
   }
 
   window.workspaceNavigate = target => {
+    if (window.systemAuth?.account?.role === 'admin') return;
     if (target === 'tab-transcript') target = 'portal-dialog';
     const selected = buttons.find(button => button.dataset.tab === target) || buttons[0];
     buttons.forEach(button => {
@@ -74,11 +75,21 @@
   document.querySelectorAll('[data-navigate]').forEach(button => button.addEventListener('click', () => window.workspaceNavigate(button.dataset.navigate)));
   function restoreRoute() {
     const route = location.hash.slice(1);
+    if (route.startsWith('admin/') || route.startsWith('admin-dashboard-')) {
+      if (!window.systemAuth?.account || window.systemAuth.account.role === 'admin') return;
+      history.replaceState(null, '', '#dashboard');
+      window.workspaceNavigate('tab-dashboard');
+      return;
+    }
+    if (window.systemAuth?.account?.role === 'admin') return;
     if (route === 'transcript') history.replaceState(null, '', '#profile');
     window.workspaceNavigate(['profile', 'transcript'].includes(route) ? 'portal-dialog' : `tab-${route || 'dashboard'}`);
   }
   window.addEventListener('popstate', restoreRoute);
   window.addEventListener('hashchange', restoreRoute);
+  document.addEventListener('workspace:account-change', () => {
+    if ((location.hash.startsWith('#admin/') || location.hash.startsWith('#admin-dashboard-')) && window.systemAuth?.account?.role === 'student') restoreRoute();
+  });
   function renderLanguage() {
     languageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.languageChoice === window.workspaceI18n.language)));
   }

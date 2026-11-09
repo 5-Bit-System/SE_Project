@@ -1,5 +1,586 @@
 # Project Memory and Contributor Guidelines
 
+## Core/vector branch separation — 2026-11-09
+
+User requests splitting V1-V3 into feat/hus-embedding-chromadb-v1-v3-20261109, rewriting crawldata
+without those commits, then merging remaining core through a PR/merge commit.
+Core starts26acab1 and retains all40 original core commits/authors. Vector
+implementation/artifacts/optional lock are absent here; preserve main
+dependency/admin/portal changes. Original full state is backed up locally.
+No new source promotion/LLM/production deployment in this Git operation.
+
+## Diagnostic1a career roles and teaching exclusions — 2026-11-05
+
+User selected step1a. Completed local crawldata,HEAD1287e2a/WIP/v3 unchanged.
+Runtime changes ONLYquestion_routing.py+answer_support.py: bounded role-nao/gi
+workplace career inference with noncareer course/program/company/objective guards;
+shared clause boundaries, explicit teaching refusal retains optional workplace
+scope; factual negation/later affirmative/official/numbers remain active. Drop
+whole excluded F1careers bodies before source coverage,never edit canonicalquote.
+Requested school context also body-supported; missing clean evidence refuses.
+49newtests,322focused,1882offline/90deselected,50Chromium,5Node,Ruffpass.
+968oldfilesprotected unchanged. TechnicalAIreview2Important (wrong role subject,
+qualified-refusal scope),both fixed in one RED9/40->GREEN322pass; no confirmedminors.
+New runs role_exclusion_dev96_20261105,h2_20261105,contracts_20261105,
+dev6_original_20261105,dev6_r2_20261105,dev7_20261105 (allprefixrole_exclusion_).
+Sixmeasurement+sixAIoverlay cachedreplays. Dev96/H2/contracts EXACTresponses+traces
+same as Q027mốc. Dev96Recall39/40,AIcomplete64/64;H2Recall20/20,F2raw15/16 vs source16/16.
+Originaldev6C003/C007 changed,r2onlyC007;bothAIcomplete8/8/control2/2. Dev7frozen14
+beforetuning:positive12/12AIentail/complete,control2/2. NewAIreadings17,inherited197
+ONLYequalrequest/response/gold/audit hashes+sourceimmutability;human0,H2exposed25,
+noindependentRecall90proof. Beforecomparisons joined recorded fullrequesthashes
+from post-Q027runs+newdev7-before,not fabricated uniformbeforemeasurement.
+Archive329code/test/dependencyfiles at data/hus/evaluation/role_exclusion_snapshot_v1.
+Evidence docs/RAG_ROLE_EXCLUSION_2026_11_05.md,acceptance/hus_role_exclusion_report.json;
+ignored backups/diagnostic_role_exclusion_20261105. Progress1a done,A3/V1-V4next.
+Old A2/Q027/dev6gốc/r2/gold/scorers/receipts preserved; scoped lexical grammar,
+not all-language/independent semantic or institutional-source certification.
+No sourcepromotion/officialF3/modeldownload/vector/LLM/provider/commit/push/deploy;
+no newembeddedPDFviewer/PostgreSQL/fullcatalogacceptance. Sourceblockers unchanged.
+
+
+## DEV-Q027 career context coverage — 2026-11-04
+
+User chose progress step1 and requested Superpowers. Completed local on crawldata,
+same HEAD1287e2a/WIP/v3. Only runtime change: app/hus/answer_support.py. Preserve
+exact active doanh-nghiep/cong-ty body context in F1careers within one existing
+source/scope/review group; keep context citations alongside specific continuations.
+Bounded request-refusal handling only for the new context extraction; no BM25,
+routing/schema/F2/release/review/evaluator/scorer changes.39new tests,273scoped,
+1833offline/90deselected,50Chromium,5Node,Ruffpass.895oldfiles protected unchanged.
+Fresh measurements dev_q027_dev_v1_20261104,dev_q027_h2_exposed_20261104,
+dev_q027_contracts_20261104,dev_q027_career_context_r2_20261104 +AIoverlays,8replays.
+Dev96 onlyQ027responsechanged:all4enterprise roles now present,unknown-edition web
+scope retained; Recall39/40 unchanged,rawanchor61/64,AIcomplete64/64 vsA2old63/64.
+All actualretrievaltraces unchanged; H2/contracts all responses identical toA2:
+Recall20/20,F2raw15/16 vs source16/16;Q048raw[null]/unknown/guards unchanged.
+AInewreadings11(Q027+10dev6r2),179old judgments inherited ONLYafter exact request/
+response/gold/audit hashmatch and sourceimmutability; not new independent review.
+Dev6r2quote8/8,controls2/2,butAIcomplete7/8: C007stillquotes teaching explicitly
+excluded byuser. Originaldev6C003 role-only wording routesintroduction; original
+pack/before-run retained,r2 adds cong-viec cue beforetuning to isolatecoverage.
+Both pre-existing routing/exclusion gaps deferred explicitly,next separate devfix;
+do not claim10/10semantics or general Vietnamese negation/synonym understanding.
+TechnicalAIreview Important refused-workplace false-refusal fixed RED9->GREEN273;
+initialfullattempt interrupted,finalrun separate. Receipt records actualJUnitpath
+from command (verification/offline.xml), final logs inverification_final.
+Evidence docs/RAG_DEV_Q027_COVERAGE_2026_11_04.md,acceptance/hus_dev_q027_coverage_report.json,
+ignored backups/dev_q027_20261104. New code_changes.zip ties A2basearchive tobefore/
+afteranswer_support+newtest; A2snapshot/runs/receipts unchanged. No vector/LLM/APIkey/
+provider/modeldownload,officialF3promotion,commit/push/deploy. H2still25prior-tuned,
+human0,noindependentRecall90proof; no newembeddedPDFviewer/PostgreSQL acceptance.
+
+
+## A2 versioned pinned BM25 baseline — 2026-11-04
+
+User selected A2. NO runtime/source/oldtool/test/gold/review/receipt modifications;
+850oldfiles hashprotected unchanged. Newtools evaluate_hus_chatbot.py,
+hus_rag_metrics_v2.py,hus_chatbot_source_audit.py,31newtests. Same crawldata/base
+1287e2a/selectedv3. Threefresh runs data/hus/evaluation/runs/a2_dev_v1_20261104,
+a2_h2_exposed_20261104,a2_contracts_20261104 plus *_ai_review separate overlays.
+Contract-only a2_contracts_v1 frozen28copiesfromA1v4/A1bv5 (26F2+2clarification).
+All code/data/tests/deps/env pinned, stable across commands; code_snapshot.zip
+327files in data/hus/evaluation/a2_baseline_snapshot_v1 preservesWIPbytes, not a
+commit or standalone data/fixturearchive. Sixcachedreplays matchcurrentpins.
+1794offline/90deselected,50Chromium,5Node,Ruffpass. PDFhash/page/endpoint regression,
+not newembeddedviewer/PostgreSQL/full-catalog/deploymentacceptance.
+Dev96route64/64,Recall39/40,F2source24/24,integrity64/64,guard32/32,optin8/8,
+falseabstention0,rawanchor60/64. AIentail64/64,complete63/64:DEV-Q027 has faithful
+standard2015workplaces/teaching but lacks requested concrete enterprise roles;
+goldalreadyintop5. Keep defect inbaseline,fixonlylaterdev/newrun,notinA2.
+H2FULL56nowmeasured:route36/36,Recall20/20,F2raw15/16 vs sourcecontract16/16
+(Q048raw[null]/unknown preserved vslegacy[]; no genericempty normalization),
+integrity/AIentail/AIcomplete36/36,missing/OOS16/16,optin4/4,falseabstention0.
+ContractsF2 26/26 inclprogram4/groups4/rules4/prereq14;clarify2/2. Allv2filter
+errors0;actualsearchparamsalsocheckedwhenemptyhits. LatencyHTTPp50/p95ms dev
+26.85/67.77,H232.01/88.64,contracts26.60/68.88;local sequentialwarmTestClient,
+notproduction,JSON/tracecapture/sourceaudit/review/startupexcluded.
+RootAIread180responsepackets (126positive,54control), fullalternatives/exception
+cases; decisions in data/hus/review/a2_response_review_v1. ReviewerAI,human0,
+notindependent. AcceptedQ004onlyexplicitTalent2015scope,Q049/050standard2023DOCX
+objectivesforunversionedqueries;Q027incomplete. H2still25uniquepriorruntime-tuned,
+all56exposed;noindependentRecall>=90proof despite20/20. A2didnottune runtime.
+Semanticjudgments answer-level,notper-citationprecision. Proxyquote/anchor!=
+entailment. Retainlegacycase.failure/scope_errors asrawdebug:contractprogram12
+legacyfalse-scopeerrors (rawlegacyinapplicable),v2usesfilter_errors/f2_contract;
+H2Q048retainslegacyfact_mismatch. Sourceauditexactrawstatusfacts independent.
+Technicalreview foundenvelope/release/marker,boundreviewrunidentity,emptyhitfilter,
+HTTPtiming,releasepreflightgaps;red-greenfixed,finalnoCritical/Important. Cached
+reviewverify makesnoHTTP/RAGcalls and bindmeasurementID/request/response/gold/
+audit/release/predictions/snapshot. Evidence docs/RAG_BASELINE_A2_2026_11_04.md,
+docs/acceptance/hus_chatbot_baseline_a2_report.json;ignored backups/chatbot_baseline_a2_20261104.
+ProgressA1/A1b/A2done;A3optionalvector/hybridexperimentusesfrozenbaseline;DEV027
+source/coveragefollowupseparatebecausegoldalreadyintop5. NoLLM/vector/modeldownload,
+officialF3promotion,commit/push/deploy.
+
+
+## A1b Q&A program/group lookup — 2026-11-04
+
+User selected A1b row. Completed local on same crawldata/WIP/HEAD/release; source,
+review/gold/scorers/CURRENT immutable, advisor/product untouched. New fields
+program_credits/program_groups/group_rules + optional hierarchical group_key.
+Portable loads4programs42groups into exactmajor/version defensive-copy lookups.
+Pure f2_data(canonical,input_manifest) in-memory verification binds full exported
+records:values/coverage/scope/review/url/blob/pointer, no release/index writes.
+Program credits135/132/129/127;groups12/9/9/12;program/group source review verified
+forCS only,3othersdraft. Distinct required/min_if_selected/offered,keepnull/choice
+notes/parent-child conflicts,never sum or authorizeeligibility. Canonicalweb JSON
+citations exacthash/pointer/quotes, no guessedPDFpages/liveURLfetch. Names/mixed
+scopes/fields/hints/variant text and refused group references guarded; missing
+group askskey,unknownnoinfo. Group-course lists not implemented. F3strictoptin
+and A1rawstatus preserved. Catalog+50 entries=2414;chat/HTMLhelp distinguish program
+no coursecode vs coursefullcode/name. Two oldcatalog tests now accept optionalcode.
+60newprogram+2browser tests;final1763offline/90deselected,50Chromium,5Node,Ruffpass.
+758oldprotectedfiles unchanged;code/data/tests/environment stable across commands.
+Devv5frozen12cases beforetuning0/12->12/12 contractonly. Olddev96freshRecall39/40,
+F224/24,integrity64/64,guard32/32,optin8/8,falseabstention0,rawanchor60/64;gate20
+still20/20. Initialregression10failures corrected(genericcareergroups,va in full
+coursename,oldUIallF2requirescodeassumption),logs preserved,finalrun separate.
+AIscopedpeerreview Important review/provenance,variant,mixed/negation findings
+red-green fixed; finalnoCritical/Important. Humanreviews0,25uniqueH2tuned stays,
+no fullH2rerun or independentRecallclaim. Evidence docs/RAG_PROGRAM_QUESTIONS_A1B_2026_11_04.md,
+docs/acceptance/hus_program_questions_a1b_report.json;ignoredbackups/program_questions_a1b_20261104.
+Progress nowA1/A1bdone,A2versionedevaluator+fullpinnedexposedbaseline NEXT. No new
+PDFviewer/PostgreSQL/full-catalog acceptance, externalprovider/modelcalls,
+officialF3promotion,commit/push/deploy.
+
+
+## A1 Q&A source-status and single-turn contracts — 2026-11-04
+
+User selected A1 from approved Q&A-only plan and said continue. Implemented local
+on crawldata, same selected v3 release; advisor/product untouched. Six runtime/UI
+files changed relative to snapshots in backups/chat_contracts_a1_20261104.
+F2 facts add prerequisite_status unknown/present/conflict/unresolved; raw [null],
+all source rows/citations, review and groups preserved. Priority conflict > missing
+raw/unknown > unresolved parse/code > present. Actual 290 memberships:103unknown,
+145present,41unresolved,1conflict (42 have unresolved codes, one also conflict).
+Blank stays unknown even project verified; explicit warning no inference of no
+prereqs/registration eligibility. Q048 copied to frozen dev_v4 before tuning;
+legacy gold/scorer [] vs [null] untouched. MVP one course/one info type per turn:
+detected multi-field requests clarify without facts/citations even explicit hints.
+Shared router aliases, bounded negated-field handling, bare hoc nhung preservation;
+actual required-earlier-study wording remains F2. No hidden prior-course state;
+exact unique scoped course names still work. Help/UI note and status messages updated.
+Frozen diagnostic_dev_v4_contracts16cases:old1/16,new16/16 contract-only not Recall.
+65newunit+3browser tests; fresh1701offline/90deselected,50Chromium,5Node,Ruffpass.
+744old protected files unchanged, runtime/test/data pins stable across commands.
+Old dev96 fresh:Recall39/40,F224/24,integrity64/64,guard32/32,optin8/8,falseabstention0,
+rawanchor60/64 unchanged. Dev3gate20 still route/answered/support20/20. Technical
+AI peer review Important alias/negation/nhung findings fixed red-green and verified;
+337reviewer fresh tests pass, final no Critical/Important. Humanreviews0. Exposure
+now25uniqueH2tuned (24dev2/3 +Q048dev4), never independent holdout. FullH2notrerun.
+New docs/RAG_CHAT_CONTRACTS_A1_2026_11_04.md and acceptance/hus_chat_contracts_a1_report.json;
+progress updated A1done,A1bprogram/group structured lookup NEXT. New UI test opens
+PDF binary endpoint; no new embedded viewer acceptance, PostgreSQL/full-catalog,
+external provider/embedding calls, source promotion, commit/push/deploy.
+
+
+## Q&A-only scope and comprehensive plan audit — 2026-11-04
+
+User explicitly states HUS question-answering chatbot is unrelated to the course
+recommendation chatbot. Keep scope F1/F2/F3/basic chat; never route through advisor,
+reuse its provider flags/prompts,require transcripts/eligible sets or merge features.
+User requested full audit and updated docs/RAG_PROGRESS_AND_NEXT_PLAN.md only;
+runtime/source/gold unchanged. New plan includes unknown/multi-field contracts,
+structured program/group lookup gap, baseline measurement, optional localE5+Chroma
+hybrid, independent LLM rewrite optin, Q&A UI, final evaluation and demo/deployment.
+Current program/group exports4+42 are not yet proper structured Q&A endpoints;
+curriculum-credit question asks for course code, group question routes F1.
+Additional probes:MAT2400 prereqvalue[null] no explicit status;multi-field only
+credits field;implicit course followup clarifies. Record as dev,neverholdout.
+Fresh894tests in tests/hus pass within1633offline/90deselected;50Chromium/5Nodepass.
+14sourcebinaryhashes12PDF+2DOCX validated;oldgate artifactpins stillmatch. No new
+PDFviewer/image acceptance,externalLLM/embeddingcalls,H2fullrun or sourcepromotion.
+Evidence docs/acceptance/hus_chatbot_scope_audit_2026_11_04.json and local ignored
+backups/chatbot_audit_20261104. Future vector/LLM files/config in plan do not exist.
+Keep humanreviews0/reviewerAI,exposure24H2cases and raw60/64 anchors honest.
+
+
+## Priority2 support gate — local 2026-11-03
+
+User selected priority2. Frozen diagnostic_dev_v3_support copies20exposedH2
+requests/gold/evidence before tuning:16gate refusals+4previouslyrouted previews.
+Only runtime changes answer_support.py and removing[:2] in answering.py.
+Explicit edition/QD checked against hitversion;arbitrary numbers remainfacts.
+Bounded request phrases handled per activeclause;commandverbs onlyatclausestart,
+never erase factual presentation skills. Peerreview found that Important issue;
+redtests+fix+reviewer confirmation done. Same source/hash/package/major/version/
+variant/course/field/origin/review required for grouped support;one sufficient
+source,sourceorder excerpts,existingtop5unchanged. No retriever/router/data/review
+or AIoptin change;officialF3 excluded.20answers0→20,allgoldquotes in citations20/20;
+Q043twoobjectiveparts,Q044all4careergroups,4previewsgeneratedwithconsent only.
+421protectedoldinputs unchanged;before/after only2artifactchanges,environment/
+evaluator/runner equal. Finalrun dev_v3_support_after_command_guard;oldruns frozen.
+78newgatetests;171gate+oldguard/routingpass.1633offline/90deselected,50oldChromium
++3newrealUIcases,5Node,scopedRuffpass;PDFhash/pages13/12,notnewPDFvieweracceptance.
+Dev96fresh:Recall39/40,F224/24,guard32/32,optin8/8,integrity64/64,falseabstention0.
+RAWanchor60/64vs61historical,notregraded.4missesQ004/Q027/Q049/Q050sourcealternatives
+reviewedseparately:Q004talent2015narrowpopulationmustremainexplicit,Q027standard2015,
+Q049/050standard2023DOCX. Q006nowquotescondition+Masters/PhDandcontinuationtogether.
+Humanreviews0;AIoverlay support_gate_v3_response_review no sourcepromotion/goldedit.
+H2full56notrerun;24uniqueH2casesnowruntime-tuned(dev2∪dev3),neverindependentholdout.
+Priority3F2null/unknown and separatelyrecordedalternatives NEXT,thenfullpinnedmeasure.
+No commit/push/deploy. See docs/RAG_SUPPORT_GATE_FIX_2026_11_03.md and matchingreceipt.
+
+
+## Clickable question catalog — local 2026-11-03
+
+User approved grouped clickable F1/F2/F3/help menu in standalone RAG demo.
+New app/hus/question_catalog.py derives2364 request entries from selectedv3 only:
+40F1 edition/variant scopes,1442F2,870generatedF3,12help across4majors/290memberships.
+GET /hus/questions exactmajor+decisionversion;F1 entries retain sourceedition/hệ.
+UI search supports unaccented names/codes;click reuses normalchat with field hints,
+never grantsAIconsent;major switch clears menu/chat+AI and ignores late responses.
+Two new basic help replies explain sources/AI;main/product/auth unchanged.
+All2364menu requests exercised viarealchat;new9API+5Chromium tests,32targetedpass.
+Final1555offline/90deselected,50oldChromium,5Node,scopedRuff pass;324protected
+data/evaluation/review files unchanged;code/test pins stable across regression.
+Read-only peer review2Minor resolved;noCritical/Important. No gate/routing/data
+change,newH2inference,officialF3promotion,commit/push/deploy. Menu is finite
+canonical templates with explicit fields,not proof of NL coverage/independentRecall.
+Existing priority2preview supportgate remains NEXT. See docs/HUS_RAG_QUESTION_CATALOG.md
+and docs/acceptance/hus_question_catalog_report.json;backups/question_catalog has
+local screenshots/logs/pins. Progress and manual updated briefly.
+
+
+## Priority1 routing name/preview fix — local 2026-11-03
+
+User selected priority1 from concise progress plan. New diagnostic_dev_v2_routing
+freezes8exposed H2requests/gold/evidence before tuning; parent H2/P11/P12/P2/dev,
+review/source/release/CURRENT unchanged. Only runtime change question_routing.py:
+name-of-code/course phrasing plus bounded preview disambiguation. Keep requested
+clause boundaries, explicit content/objective/assessment goal and real required
+study priority; requested_text output matches before across264evaluationqueries.
+Four original name requests now source-backed F2;four previewrequests now search
+F3/content with exactscope/consent. Final8case API route0→8,names0→4,search0→4;
+all4original previewanswers still rejected by unchanged answer_support gate.
+Priority2 gate is NEXT;do not claim global Recall90% or full answer success.
+Finalrun dev_v2_routing_after_need_guard;before run retained and intermediate
+runs frozen too.357protected old input hashes unchanged,only router differs
+among111artifact/runtime pins;environment/evaluator unchanged. New62tests red
+then green;194routing/guard/devpass. Full final1541offline/90deselected,5Node,
+50Chromium pass on111artifact/138testpins;UTF8 inherited by child Python processes.
+Peer review boundary findings resolved;no Important findings in finalslice.
+Raw56case H2metrics80% remain historical pre-fix;no new fullH2inference. Update
+exposure interpretation:8H2cases NOW usedforruntime tuning via devcopy;never
+recertify as independent. No source/review/optin/gate/UI changes,commit/push/deploy.
+See docs/RAG_ROUTING_NAME_PREVIEW_2026_11_03.md and matchingreceipt.
+
+
+## Source scope review v2 — local 2026-11-03
+
+User requested continued source/image/identity/edition/raw/blocker review and
+explicit release scope, official F3 kept out of defaults. New p13_release_scope_v2
+is an AI-only overlay; old packs,302protected inputs,CURRENT/registry/release,
+canonical/source reviews,runtime and RAG runs unchanged. Keep selected v3 only:
+15F1 source metadata/65chunks (14primary citation sources,one dedup provenance),
+290F2records/297occurrences/four hash-bound PDFs,870generated F3chunks opt-in only;
+106official syllabus candidates excluded.106source decisions/21dependencies
+explicitly distinguish historical URL identity from same-binary F2 dependencies.
+
+Actual image comparison now covers all297 F2occurrences across22tablepages,
+252beyond old45;194nonblank prereq rawcells match ignoring whitespace,103blank
+unknown. English MAT3554E singular Language vs canonical Languages recorded;
+MAT3360tone variant and unusual source hours preserved,no data correction.
+All4canonical decision PDFs p2 directly declare from admissions cohort2022;
+this does not verify later amendments/current validity/individual applicability.
+Three of4original identity proposals technically supported as candidates;
+MAT3561 2021→2023link deferred due prereq conflict. Reject embedded headerMAT1202
+as OOP;TOCp2+continuation support MAT1208errata candidate only. Additional
+KHMTTT2024TOCMAT2505→p4/headerMAT2316 mismatch prevents whole-document approval.
+No mapping applied,official F3 still excluded.
+
+Seven priority exact original HTTP URLs successfully fetched after sandbox
+escalation:4scanURL bindings match3existing F2PDFhashes;3matrix/map captures add
+3newhashes.7URLcaptures/6unique binaries total;30outside-scope originals not
+retried. Frozen historical missing37 unchanged;do not call30 HTTPfailures.
+Current URL-binding facets resolved4;all6full historical blockers remain open
+for residual historical-byte/current-validity/applicability evidence. New captures
+and images remain ignored local backups;metadata/hash proof is in the new pack.
+48unique PDFpages observed this pass,19overlap old19 and29outside it;not whole
+72OCR-page/1788low-confidence acceptance.34source/OCR/supplement tests pass.
+See docs/RAG_SOURCE_SCOPE_REVIEW_2026_11_03.md and matching receipt. No new RAG
+inference,source promotion,commit/push/deploy. Next source work is discrepancy
+resolution in a new data version or authoritative applicability for selected
+official fields;do not gate fixed existing scope on all37missing originals.
+
+
+## AI review policy override — local 2026-11-03
+
+Latest explicit user instruction: "thế thì bỏ qua người thật review chỉ cần AI review là được".
+This supersedes the human-signature prerequisite in older notes below for this
+round. Complete AI source/gold/overlap/alternative review and pinned measurement;
+do not block this work on human decisions. Keep reviewer_kind=ai and actual human
+reviews=0; never relabel AI as human or certify semantic independence. Preserve
+frozen holdout_v2_candidate, original human worksheet/validator, P11/P12/P2 baseline,
+runtime/source/review and AI opt-in. New AI-only artifacts belong in
+holdout_v2_ai_review_v1; corrected evaluation data in ai_reviewed_exposed_v1.
+Report exposed evaluation separately from independent Recall@5 acceptance.
+Publication/deployment and official F3/source approval remain separate.
+
+AI review now complete56/56:53 original gold adequate,3revised in derivative
+ai_reviewed_exposed_v1 before inference (Q043 objectives complement,Q044 all4
+career groups,Q048 blank prerequisite unknown).52high/4moderate semantic-exposure
+risks; no independent holdout claim. Pinned H2 exposed run:route28/36,search16/20,
+routedRecall16/20=80%,conditional16/16,F2strict11/16,integrity16/16,true refusal16/16,
+opt-in4/4,false refusal20/36.111artifact/environment pins and144protected inputs
+unchanged;cache reproduced. Failure diagnosis25cases:16overliteral support gate,
+4name phrasing unrecognized,4figurative before-course misrouted to prereq,1[]/[null]
+representation mismatch. No runtime tuning from H2 yet. Preserve pack/run for
+measurement; copy exposed cases to new dev before next fix, never recertify as
+independent. Dev3case AI review:Q006partial,Q049/Q050supported2023DOCX. See
+docs/RAG_AI_REVIEW_AND_MEASUREMENT_2026_11_03.md and matching new artifacts.
+Fresh regressions AFTER H2:1479offline pass/90deselected,5Node,50Chromium,realPDF
+viewer13/12 pass first attempt.108regression/111H2artifact/136Python+1Node test
+pins+environment unchanged. AI semantic response overlay56cases:16/16citations
+entail returned facts,12/16relevant,11/36positives fully correct,Q048partial,
+20controls correct. No delivered F3generated answers in this run. Original raw
+metrics stay unchanged; new semantic report is AI-only. No commit/push/deploy.
+
+
+## Pinned RAG remeasurement — local 2026-11-03
+
+User requested separate routing/retrieval/F2/citation-support/abstention metrics
+and fresh API/UI/PDF/scope/AI regression. H2 still0/56 accepted,so NOT run. New
+dev_pinned_remeasurement_v1 observes classifier before guards,then actual search;
+64/64 positive routes,39/40 scopedRecall,F224/24,integrity64/64,anchor61/64,
+true refusals24/24,opt-in8/8,false refusals0/64. Semantic metrics null; independent
+90%target remains unproven.111 code/UI/data pins+actual Python/distributions match
+before/after/cache. No runtime/data/gold/review change; evaluator/helper only.
+Fresh1479 offline pass/90 deselected,50Chromium,5Node;actual PDF viewer13/12 loaded
+and screenshots/hash/scroll checked.108 regression pins and136 test sources unchanged.
+See docs/RAG_PINNED_REMEASUREMENT_2026_11_03.md and matching receipt. No commit/push/deploy.
+
+
+## HUS holdout/review preparation — local 2026-11-03
+
+User will personally perform real independent review; no per-case decisions or
+signatures yet. New holdout_v2_candidate has56 questions/44 evidence IDs; root AI
+completed draft after isolated author hit usage limit, so author independence is
+NOT claimed. Do not run H2 or tune runtime from it before human review/freeze>=40.
+holdout_v2_review has CSV/JSONL pending forms,source alternatives and lexical/AST
+overlap audit;0 exact/strong lexical flags does not establish semantic independence.
+validate_hus_holdout_review only validates declared decisions,never verifies human
+identity or certifies independence. Source followup p13_scope_followup_20261103:
+19 images/45 OCR-missed occurrences technically inspected,106-source scope sheet,
+37 missing/6 blockers still open; official F3/release unchanged. See
+docs/RAG_REVIEW_RELEASE_GATES_2026_11_03.md and source followup report. User requires
+measurement on pinned final snapshot,API/UI/PDF/scope/AI regressions,publication
+and production only after acceptance. No commit/push/deploy yet;target still unknown.
+
+
+## HUS RAG routing fixes — local 2026-11-03
+
+Root remains crawldata at1287e2a with existing P1/P2 WIP. Diagnostic/dev v1 has96
+requests/88 texts and exposes old P1-1 for development; never certify it as final
+independent holdout. New question_routing/answer_support plus scoped F2 name lookup
+fix intent/field/negation/gates while preserving source/review/AI/citation. Explicit
+name/code/QD conflicts cannot borrow facts. Dev before→after Recall@5:6/40→39/40,
+F2:0/24→24/24,guard:20/32→32/32; source anchors61/64,three cases need human semantic
+review. Final1444 offline pass/90 deselected,50 Chromium,5 Node; Ruff app/tools/tests
+passes; full-repo lint has two pre-existing errors in P13 generation artifact.
+Frozen P11/P12/P2,release/CURRENT/review unchanged. See docs/RAG_ROUTING_FIXES_2026_11_03.md
+and receipt hus_routing_fixes_report.json. No commit/push/DB/VNU/provider/production.
+
+
+## Main contributor context preserved
+
+## Intake refinement publication authorized — 2026-11-04
+
+User now explicitly requests commit/push of the changes immediately below on
+the CURRENT branch, with about ten commits. Use exactly ten non-empty commits
+on feat/recommendation-conversation-ui from c823aa5; remote branch was fetched
+and is at the same base. This supersedes the preceding local-only restriction
+for these seven scoped source/test/doc/memory files, not for configuration or
+ignored runtime records. Preserve all original 19 commits and configured author.
+
+Commit plan: workload range helpers; cohort window helpers; custom-direction UI
+and wrapping; final-only chat; bounded workload controls/payload; graduation UI,
+cohort invalidation and precise readiness; model boundary tests; browser intake
+regressions; source/runtime report; contributor checkpoint. Stage related file
+increments while preserving the verified working files and their runtime content.
+No empty commits, invented authors, squash/rebase or force-push. Publish only
+the existing feature ref; no main merge or database operation in this publication.
+
+The implementation already passed the 621-case suite including PDF acceptance,
+five Chrome suites, Node model checks and lint/syntax/diff checks in the immediately
+preceding task. No code changes are introduced just to obtain more commits.
+Verify final tree against the pre-publication file hashes, ten new commits,
+upstream equality and exclusion of .vscode/settings.json, credentials, AD-102,
+PDF copies, video/logs/backup data. Publication preparation is recorded here;
+Git and the ignored publication receipt establish the actual resulting hashes.
+
+## Recommendation intake refined and catalog restored — 2026-11-04
+
+User requests custom direction input, chat only at the end, workload budgets
+light 14–17/moderate 18–20/heavy 21–30, HK1/HK2 graduation goals within six years
+from enrollment cohort, and checking the supplied 2023/K67 ZIP for the curriculum
+notice. Edits remain LOCAL on feat/recommendation-conversation-ui at published
+c823aa5; no new commit/push authorized for this refinement. Preserve untracked
+.vscode/settings.json and all ignored configuration/credentials/AD-102/backups.
+
+recommendation-model.mjs now owns credit ranges/clamping and a cohort-based goal
+window. K68=2023 admission, last academic year 2028–2029; on 04/11/2026 choices
+are 2026/2027/2028 starts. The UI rolls academic years in August; it does not
+adjudicate exact legal deadlines. Unknown/future/expired cohort has no invented
+choices. Graduation semester 3 is rejected. The six-year cap is the user's
+requested selector constraint; source PDF104 states a normal four-year program.
+
+recommendation-workspace.js/css add Tự chọn with a dedicated nonempty 120-char
+input; official track selection remains mandatory where the catalog requires it.
+Chat appears only after all 3 intake stages plus any required graduation-path
+stage, and hides while editing earlier steps. Mode changes clamp budgets; both
+number/slider and generation payload enforce ranges. Cohort refresh invalidates
+old goals/results. Long directions wrap on mobile. Readiness distinguishes
+unresolved outcomes/rules from unverified metadata; no server gates bypassed.
+
+Opened the exact user ZIP and matched archive + all five PDF hashes against
+hus_source.json. Read PDF104 pages 1–3: QD3568 on decision page, application
+from 2022/K67 on page 2, nominal four years on page 3. Page 3's QD3569 caption
+differs from decision page; source scan unchanged. No claim to a fresh independent
+full-field review of all PDFs; existing user sign-off covers KHMTTT hash
+bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.
+
+Found local runtime still using old draft KHMTTT revision 7aafa016... despite
+that reviewed source in Git. After source/PDF preflight and diff, called existing
+publish_catalogs on the loopback APP database engine in its normal atomic four-
+catalog transaction. KHMTTT restored to verified revision
+c46163d1629819649f9bc8d54db59156d8a46ee40deec6c6d1fdb923c731e1da.
+All 67 source/prerequisite states verified under existing sign-off; three other
+programs remain draft. No code/name/credit/prerequisite/type changes. KHDL adds
+the already-curated parent V.2 source locator/28–63 discrepancy note only.
+No source JSON/review record/account binding/transcript edits. Old immutable
+revisions retained for rollback; backup contains public catalog before/after.
+If a real account binding points at the old fingerprint, its owner must confirm
+the current program/cohort through the existing review UI; do not auto-bind.
+
+Verification: 621 pytest passed/80 DB deselected including PDF acceptance;
+existing Starlette warning and two Windows stdout-decode warnings. Both affected
+builder cases rerun with PYTHONUTF8=1 passed without decode warnings. Node model
+checks and five synthetic Chrome suites passed: recommendation intake, saved
+plans, VNU-only, presentation, study desk. New browser coverage includes custom
+directions with/without required track, empty input, final-only chat in 3/4 stages,
+all credit-range boundaries, K68/K69/cohort refresh/missing cohort, long mobile
+text, existing compare/save/lost-response/logout, themes/VI-EN/reduced motion.
+Actual active catalog + invented transcript gives strict context/board ready,
+without preview. No real VNU credentials, personal-record inspection or model call.
+
+Report docs/RECOMMENDATION_INTAKE_2026_11_04.md; ignored evidence and publication
+receipt backups/recommendation_refinement_20261104/. App remains running without
+restart at http://127.0.0.1:8000/#recommend; listener PID 9328 observed, verify
+identity before stopping. Health/ready/homepage 200, 22 HTML assets + imported
+model match disk, personal anonymous routes 401. Ruff/JS syntax/diff pass.
+## Publication authorized — 2026-11-04: metadata-aligned intent extraction
+
+User explicitly requests 20 content commits, push, PR and merge into main for
+the current shared preference vocabulary, real-provider terminal tool and
+fallback corrections. Use a feature branch and Create a merge commit, preserve
+all teammate commits. Main advanced to 1a5a79c (51 reachable commits since local
+86479f4); feature branch starts at origin/main with all local changes carried
+forward because none overlap. No teammate history is rewritten.
+Earlier local-only restrictions are superseded for this scoped publication.
+No provider spending, DB/catalog publication, secrets or runtime restart is
+included. Integrated validation on 1a5a79c plus local changes: 1347 offline
+passed/117 deselected, one existing warning in 50.56s; Ruff, four synthetic
+catalog checks, recommendation-model and chat Node checks passed.
+Remote PR/CI/merge outcomes must be verified, not inferred from this note.
+
+## Local fallback fixes — 2026-11-04
+
+User authorizes fixing reviewed fallback bugs. preference.py ignores negated
+numeric amounts and lower bounds, recognizes upper-bound phrases, conservatively
+takes the smallest remaining limit unless an explicit correction replaces it.
+Out-of-range numbers do not match valid trailing digits. Vietnamese đ folds to d
+so “đổi thành” is recognized. Course-type matching uses negation handling;
+career_goal remains null for study-only requests and is bounded to 200 characters
+for supported explicit career-intent patterns. These are bounded heuristics, not
+semantic validation of successful LLM responses. 19 regression cases added;
+41 focused cases pass, full SE_Project offline rerun 1261 passed/90 deselected,
+one existing warning in 47.65s; Ruff/diff checks pass. Sandbox run interrupted
+because internal HTTP tests stalled; completed outside-sandbox run is evidence.
+No model/provider call, DB write, commit, push or runtime restart performed.
+
+## Local preference vocabulary correction — 2026-11-04
+
+User requests extraction aligned with project metadata and explicitly confirms
+shared canonical labels, including software_engineering for software development.
+app/recommendation/vocabulary.py derives the version-1.0 intent label set from
+COURSE_METADATA_SPECIFICATION.md section 5, union selected-catalog extensions.
+Extractor, service validation and fallback use those intent labels; this does
+not change course metadata, catalog validation, HUS builder/revision or DB.
+Existing API preference field names remain compatible. Terminal tool additionally
+prints metadata_preferences mapping interest_topics→topics and
+course_type→requirement_type; it is not a CourseMetadata record. No real provider
+call, catalog publication, commit/push/PR/merge or runtime restart requested here.
+22 focused offline cases and Ruff pass; full Conda SE_Project offline regression
+1242 passed, 90 deselected, one existing Starlette/httpx warning in 42.73s.
+First sandbox run stalled and was interrupted; completed rerun outside sandbox
+is the regression evidence. Earlier empty-catalog-means-empty-intent
+notes describe the superseded behavior; course facts still require field evidence.
+
+## PR #97 merge authorized — 2026-11-03
+
+User now explicitly requests creating a PR and merging LLM feature extraction
+into main. This supersedes the preceding branch-only/no-merge restriction for
+this feature. PR #97 retains the 15 original commits at 519ab38. Main advanced
+to 05ffe0f with the team's recommendation UI and standalone HUS RAG changes.
+Merge main into the feature branch, preserve both contributor note blocks and
+all team/source ancestry, validate the combined tree, then use Create a merge
+commit on GitHub after CI passes. Do not squash or rebase. No production DB,
+metadata publication, provider call, runtime restart or BT3 merge is requested.
+
+Integrated verification: Conda SE_Project dependencies were synchronized with
+requirements-dev/requirements-lock after the newly merged HUS modules exposed
+missing PDF/DOCX dependencies. Completed rerun: 1237 offline passed,90 deselected
+in39.22s; Ruff, both catalog checks and recommendation-model/chat Node checks
+passed. First collection attempt failed for missing dependencies; it is not
+success evidence. Only contributor notes conflicted; retained both sides.
+HUS/UI/data/dependency/workflow files match origin/main byte-for-byte.
+
+## Publication authorized — 2026-11-03: LLM feature extraction
+
+User explicitly requests returning to the unfinished branch, creating exactly
+15 meaningful commits and pushing feat/llm-feature-extraction. This supersedes
+the local-only/no-commit notes below for this scoped change set. Baseline is
+5239b7333a8f8cdf0f919e6b0505af0def99fe23. Keep the separate BT3 assignment
+branch/worktree out of this publication; do not change main or merge a PR.
+
+Commit groups: preference/ranking models; safe keyword fallback; catalog-scoped
+extractor; metadata scoring; runtime adapter factory; recommendation limits;
+advisor response schema; shared advisor integration; compatibility API routes;
+authenticated academic API; extractor/validation tests; service integration
+tests; feature documentation; README navigation; contributor checkpoint.
+No empty commits or invented authorship. Preserve the reviewed final code/test
+bytes while staging these groups; use Git to verify exactly 15 new commits.
+
+Publication preflight in Conda SE_Project: 17 focused cases passed; 628 offline
+passed, 90 DB/source deselected in 3.56s; Ruff and diff checks passed. Existing
+Starlette/httpx warning remains. Synthetic/fake-provider tests do not establish
+real-provider language accuracy. No paid API, runtime restart, DB/catalog write,
+new chat UI or metadata publication is included. Publication outcome must be
+verified from Git/GitHub, not inferred from this preparation checkpoint.
+
+## Local implementation — 2026-11-02: shared LLM feature extraction
+
+User explicitly selects full integration into advisor and recommendation from
+an attached extraction proposal. Work is on feat/llm-feature-extraction; no
+commit/push, API spending, production DB/catalog writes or runtime restart.
+CatalogFeatureExtractor validates strict StructuredPreference fields against
+selected catalog vocabulary and falls back to current-message keywords on
+provider/schema/label failure. Advisor uses bounded user-only history, exposes
+preference JSON and rejects suggested bundles over extracted limits. Current
+intent overrides old topics via prompt rather than unconditional history union.
+No-provider fallback intentionally uses current message without guessing history.
+Recommendation takes min(request limits, extracted limits); topic IDs and career
+IDs match directly, and default soft-feature weights are positive. Existing
+eligibility/auth/context/source checks and ranker interfaces remain in place.
+HUS builder vocabulary is still empty; this does not publish topics/careers or
+invent course metadata. No active chat UI or new ranking algorithm is claimed.
+Conda SE_Project: 628 offline passed, 90 DB/source cases deselected; 17 new
+synthetic extraction/integration tests; Ruff and diff checks pass. Existing
+Starlette/httpx warning remains. Tests use fake providers, not real language
+accuracy/paid-API acceptance. See docs/LLM_FEATURE_EXTRACTION.md.
+
 ## PR #6 conflict resolution - 2026-11-02
 
 User explicitly requests fixing conflicts of crawldata -> main PR #6. This authorizes

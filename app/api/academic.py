@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+import logging
 from pathlib import Path
 from typing import Any
 from uuid import UUID
@@ -21,7 +22,8 @@ from app.academic_context import AcademicContextError, build_context, require_re
 from app.academic_policies import POLICIES
 from app.api.portal import safe_call, session
 from app.auth import portal as account_portal
-from app.auth.dependencies import COOKIE, require_account
+from app.auth import repository as auth_repository
+from app.auth.dependencies import COOKIE, optional_account, require_account
 from app.auth.dependencies import call as auth_call
 from app.catalog import load_catalog
 from app.catalog_contracts import digest
@@ -41,10 +43,24 @@ from app.services.course_status_service import (
     course_board_display,
     reviewed_course_board,
 )
+from app.services.operational_metrics import measured_consultation, metrics_recorder
 from app.services.recommendation_service import recommend
 
 router = APIRouter()
 # Server-reviewed policies only; no route accepts a policy or review flag from a student.
+
+logger = logging.getLogger(__name__)
+
+
+async def record_activity_safely(account_id: str, kind: str) -> None:
+    """A failed metadata write must not discard an already validated answer."""
+    try:
+        await auth_call(auth_repository.record_activity, account_id, kind)
+    except HTTPException as exc:
+        if exc.status_code != 503:
+            raise
+        # Do not include account IDs, message content, credentials or DB errors.
+        logger.warning("Account activity storage unavailable for %s", kind)
 
 
 @router.get("/academic-policy/vnu-3626-2022")
@@ -52,6 +68,17 @@ def policy_source():
     path = Path(__file__).resolve().parents[2] / "docs/policies/vnu_3626_2022.pdf"
     return FileResponse(path, media_type="application/pdf", filename="vnu_3626_2022.pdf",
                         content_disposition_type="inline")
+
+
+@router.get("/academic/documents/published")
+def get_published_academic_documents(major: str | None = None) -> list[dict]:
+    """Return only approved and published academic documents for user-facing readers."""
+    from app.api.admin import engine
+    from app.curriculum.publication_gate import get_published_documents
+
+    with engine().connect() as conn:
+        return get_published_documents(conn, major=major)
+
 
 
 class AcademicQuery(BaseModel):
@@ -349,6 +376,7 @@ async def operation(request: Request):
 
 
 @router.post("/me/recommendations")
+@measured_consultation('recommendation')
 async def recommendations(request: Request):
     query, catalog, context, passed = await operation(request)
     internal = RecommendationRequest(**query.model_dump(include={
@@ -359,6 +387,12 @@ async def recommendations(request: Request):
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
+    principal = await require_account(request)
+    await record_activity_safely(principal['account_id'], 'recommendation')
+    metrics_recorder.record_recommendation(
+        [(item.code, item.score) for item in result.recommendations],
+        [item.fit_reason for item in result.recommendations],
+    )
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
@@ -380,6 +414,8 @@ async def advisor(request: Request):
         selected_graduation_path_id=query.selected_graduation_path_id)
     result = await asyncio.to_thread(chat_advisor, catalog, internal)
     await ensure_current(request, query, context)
+    principal = await require_account(request)
+    await record_activity_safely(principal['account_id'], 'advisor')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
@@ -440,3 +476,37 @@ async def semester_plan_delete(plan_id: UUID, request: Request):
         raise HTTPException(422, 'semester_plan_version_required')
     await auth_call(plans.delete_plan, principal, plan_id, int(raw))
     return {'deleted': True}
+
+
+@router.get('/academic/announcements')
+async def list_active_announcements(
+    request: Request,
+    audience: str | None = None,
+) -> list[dict[str, Any]]:
+    """Return active published academic announcements with valid attributable source."""
+    principal = await optional_account(request)
+
+    if audience is not None and audience not in {'all', 'students', 'faculty'}:
+        raise HTTPException(400, 'invalid_audience')
+
+    if audience is None:
+        effective_audience = 'students' if (principal and principal.get('role') in {'student', 'admin'}) else 'all'
+    else:
+        effective_audience = audience
+
+    if effective_audience == 'all':
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='all')
+
+    if not principal:
+        raise HTTPException(401, 'authentication_required')
+
+    role = principal.get('role')
+    if effective_audience == 'students' and role in {'student', 'admin'}:
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='students')
+
+    if effective_audience == 'faculty':
+        raise HTTPException(403, 'faculty_audience_forbidden')
+
+    raise HTTPException(403, 'audience_forbidden')
