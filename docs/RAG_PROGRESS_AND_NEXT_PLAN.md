@@ -1,377 +1,231 @@
-# Tiến độ RAG, kế hoạch tiếp theo và hướng dẫn kiểm thử
+# Chatbot hỏi đáp HUS — tiến độ và kế hoạch hoàn thiện
 
-**Cập nhật giải quyết PR #6, 02/11/2026:** main `af8d4db` được hợp nhất vào
-crawldata `642706c` để xử lý xung đột; giữ nguyên API/auth/UI của main và app RAG
-độc lập. Xem [quyết định và hướng dẫn test](HUS_PR6_CONFLICT_RESOLUTION_2026_11_02.md)
-và [receipt mới](acceptance/hus_pr6_merge_report.json). Các SHA, số test và ghi chú
-chưa merge/push bên dưới mô tả các snapshot trước lần xử lý này.
+Cập nhật **09/11/2026**, nhánh **`crawldata`**: phần hỏi đáp lexical để hợp nhất vào main. Phần6/V1–V3 được tách sang nhánh `feat/hus-embedding-chromadb-v1-v3-20261109`. Chatbot hỏi đáp độc lập với chatbot đề xuất môn học.
 
-Ngày rà soát: **02/11/2026**. Nhánh đang làm việc: **`crawldata`**, HEAD
-`be76f50b16948b4831c20d53cc1976bc3f6c89bb`.
+**Hiện trạng:** A1/A1b/A2 và Q027/1a đã hoàn thành local: lookup F2, chương trình/nhóm, routing/gate và UI/catalog. Nhánh này dùng BM25 + trích nguồn; giữ scope/review/AI opt-in. V1–V3 không còn trong lịch sử hoặc cây code nhánh này; [nhánh embedding/Chroma riêng](https://github.com/5-Bit-System/SE_Project/tree/feat/hus-embedding-chromadb-v1-v3-20261109) giữ toàn bộ công việc đó. Chưa nối LLM hoặc triển khai production.
 
-**Điều chỉnh phạm vi mới nhất:** nhánh này chỉ hỏi F1/F2/F3 và trò chuyện cơ bản,
-không nối ranking/explanation. Demo đã chuyển sang `app.hus.demo:app`, handler và
-giao diện riêng, không bảng điểm/eligibility/catalog giả. Xem
-[thiết kế phạm vi](superpowers/specs/2026-11-02-hus-rag-scope-design.md) và
-[cách mở demo](HUS_RAG_MANUAL_DEMO.md). P0-4/P0-5 bên dưới là bằng chứng lịch sử của
-router tích hợp cũ; cần tích hợp/receipt/CI mới cho phạm vi đã chỉnh trước phát hành.
+**Mốc đo core:** baseline A2 và các run Q027/1a giữ nguyên. DevRecall39/40,H2exposed20/20,F2H2nguồn16/16(raw15/16) là số lịch sử; H2 exposed25câu tuning, human0, chưa chứng minh Recall độc lập≥90%. Kết quả kiểm tích hợp sau tách ghi riêng trong báo cáo nhánh.
 
-Nghiệm thu scope mới: **18 ca mới**, toàn crawldata **717 passed/26 skipped**,5 Node
-legacy, **50 câu hỏi Chromium** và ca đổi ngành khi chờ/hai trang cùng PDF đạt.
-[Receipt mới](acceptance/hus_rag_scope_report.json) ghim code/data/ảnh và ghi rõ demo
-local không thay nghiệm thu tài khoản production hoặc CI trên commit tích hợp.
+## 1. Luồng và các thành phần đang có
 
-Đây là tài liệu theo dõi chung sau khi đối chiếu **18 nhánh GitHub hiện có, 5 nhánh
-local, các ref cũ còn lưu và working tree**. Đã đọc cây file, các kế hoạch RAG khác
-nhau và code liên quan đến dữ liệu, API, auth, chatbot, UI, citation. Không checkout,
-merge, sửa code sản phẩm hoặc chạy lại test trên toàn bộ 18 nhánh trong lượt rà soát này.
-Các SHA bên dưới là snapshot đã kiểm tra, không phải cam kết HEAD sẽ không đổi.
+```mermaid
+flowchart LR
+    U[Câu hỏi + ngành/phiên bản + opt-in] --> R[Routing và kiểm phạm vi]
+    R --> F2[F2: lookup có cấu trúc]
+    F2 --> A[Đáp án và citation do backend quản lý]
+    R --> B[F1/F3: BM25 top 5]
+    B --> G[Gate bằng chứng và chọn đoạn cùng nguồn]
+    G --> A
+    R -. Query V4 dự kiến .-> H[F1/F3: BM25 + ChromaDB]
+    H -.-> G
+    G -. Opt-in LLM riêng, dự kiến .-> L[Gemini diễn đạt từ bằng chứng]
+    L -. Kiểm đầu ra hoặc fallback .-> A
+```
 
-**Kết luận:** phần crawl/dữ liệu, loader, truy xuất và trả lời trích xuất đã có ở local;
-P0-1 đã thống nhất nguồn runtime với portable v3 và canonical F2 main. Tuy nhiên,
-P0-4 đã tích hợp UI/auth của `main` trong worktree riêng, chưa merge/push.
-**P0-2 đã thực hiện contract dẫn chứng local**:
-AI hiện **“kiến thức AI”**, PDF mở binary qua resolver kiểm hash/trang, web mở URL nguồn;
-DOCX và nguồn thiếu hiện đúng loại/khả dụng. Xem [biên bản P0-2](RAG_P02_CITATIONS.md).
-
-**Cập nhật P0-1:** đã chọn portable v3 làm snapshot runtime local, nhập 52 file nguyên
-byte, chốt canonical F2 và generated opt-in. Xem [biên bản P0-1](RAG_P01_DATA_SELECTION.md).
-Các bảng legacy/snapshot rà soát bên dưới giữ để đối chiếu; nguồn runtime hiện đi qua
-CURRENT, không còn lấy 19 payload legacy làm nguồn mặc định của service.
-
-**Cập nhật P0-2:** thêm registry 12 PDF/2 DOCX từ Git object đã ghim, schema/resolver/UI
-và bộ test contract mới. Đã cập nhật oracle, mở PDF bằng Chromium viewer và kiểm trang,
-kiểm bytes DOCX, thẻ AI và nhiều trang cùng tệp (phần kiểm chứng P0-3 cùng thay đổi).
-Nguồn học vụ/review không được tự nâng; website ngoài chưa được chứng nhận còn online.
-
-**Cập nhật P0-3:** đã bổ sung oracle xác định trang F1 độc lập từ capture, kiểm đủ từng
-dòng nguồn F2 và 29 ca hồi quy/API. Browser mở hai trang 13/12 từ câu trả lời thật cho
-MAT3325; kiểm thẻ AI có `open_url=null`. Receipt mới ghim code/test/data và ảnh chụp,
-**2.318 HTTP/47 Chromium đạt**. Xem [biên bản P0-3](RAG_P03_CITATION_TESTS.md).
-
-**Cập nhật P0-4:** tích hợp trên main `5239b733` tại `backups/hus_integration/p04-main/`,
-branch `integration/hus-rag-p04-20261102`. API giữ gate tài khoản/CSRF/Origin/binding/
-revision; UI active thêm module chat riêng. **652 Python/9 Node, 43 HTTP/14 Chromium
-đạt**. Bản patch/manifest có thể tái tạo nằm trong `integration/hus-rag-p04/`; root
-crawldata vẫn dùng UI legacy. Xem [P0-4](RAG_P04_MAIN_INTEGRATION.md).
-
-**Cập nhật P0-5:** đã chuẩn bị 4/6 mốc: bundle tái tạo, workflow CI, receipt ghim
-snapshot và active/rollback trên bản sao. **672 Python/9 Node,43 HTTP/14 Chromium đạt**
-theo dependency lock; replay độc lập đạt60 backend/9 Node. Receipt local vẫn dirty,
-không đủ điều kiện phát hành. Chờ yêu cầu commit/push riêng để chốt ancestry, nghiệm
-thu commit thật, chạy CI remote và phát hành. Xem [P0-5](RAG_P05_RELEASE_PREPARATION.md).
-
-## 1. Phân biệt phần đã có trên GitHub và phần mới ở local
-
-| Phần | `crawldata` đã commit/push | Working tree hiện tại |
-| --- | --- | --- |
-| Crawl, raw/provenance, metadata, review gate, công cụ chuẩn bị dữ liệu | Có | Có |
-| Gói `data/hus/rag/{f1,f2,f3}` và warning F3 | Có | Có, 19 payload khớp manifest |
-| Portable v3, CURRENT và adapter snapshot P0-1 | Chưa trên nhánh này | Đã nhập/chọn dùng local; legacy giữ riêng |
-| `app/hus/rag_loader.py`, `retrieval.py`, `answering.py` | Chưa | Đã triển khai, chưa commit |
-| Schema/service HUS, `/hus/chat`, nhánh `hus_rag` trong `/advisor/chat` | Chưa | Đã triển khai, chưa commit |
-| Chat legacy có citation và chặn response sau đổi ngành/hồ sơ | Chưa | Đã triển khai; P0-2 phân loại AI/PDF/web/DOCX/missing và mở PDF thật |
-| Test loader/retrieval/answering, Chromium, receipt E2E | Chưa | Có trong working tree |
-| Nhãn “kiến thức AI” và mở PDF đúng tài liệu/trang | Chưa | Đã triển khai P0-2, nghiệm thu tăng cường P0-3 tại local |
-
-Không dùng kết quả local để tuyên bố `main` hoặc bản clone từ `crawldata` HEAD hiện
-tại đã chạy được RAG. Không coi file untracked là file đã nằm trên GitHub.
-
-## 2. Đối chiếu toàn bộ nhánh GitHub
-
-Mỗi link ghim đúng commit đã đọc. “Chưa runtime RAG” nghĩa là chưa thấy bộ nạp/truy
-xuất/trả lời HUS được nối vào chatbot, không có nghĩa các tính năng khác chưa hoàn tất.
-
-| Nhánh | Commit đã kiểm | Kết quả liên quan RAG |
-| --- | --- | --- |
-| `main` | [5239b733](https://github.com/5-Bit-System/SE_Project/tree/5239b7333a8f8cdf0f919e6b0505af0def99fe23) | FastAPI, auth/academic/portal và kế hoạch RAG; chưa có runtime HUS. Có F2 mới và PDF. |
-| `crawldata` | [be76f50b](https://github.com/5-Bit-System/SE_Project/tree/be76f50b16948b4831c20d53cc1976bc3f6c89bb) | Crawler, review/provenance và gói dữ liệu; runtime mới chỉ ở local như mục 1. |
-| `feat/hus-data-ready-20261031` | [a543cf8d](https://github.com/5-Bit-System/SE_Project/tree/a543cf8d1fac273db41a65a14fb7ae0a05b2d965) | Release portable v3, adapter, originals khôi phục; chưa kích hoạt chatbot/runtime. Ưu tiên đối chiếu. |
-| `feat/academic-eligibility-20261031` | [bf0711c5](https://github.com/5-Bit-System/SE_Project/tree/bf0711c505e924d891743b74fefbdf90172b36f1) | Auth/academic/portal, F2 mới; chưa runtime HUS. |
-| `feat/dashboard-remove-summary-20261030` | [5a543af4](https://github.com/5-Bit-System/SE_Project/tree/5a543af4fefe5139b26b8f5bf112a0c83656c9a3) | Dashboard/auth, kế hoạch module RAG và handoff lịch sử; candidate cũ đã retired. |
-| `feat/dashboard-semester-drilldown-20261028` | [8cabc76d](https://github.com/5-Bit-System/SE_Project/tree/8cabc76d0af4fc977824e38a68d432f3b6358b4b) | Dashboard/academic, F2 mới và cập nhật sign-off KHMTTT; chưa runtime HUS. |
-| `feat/database-setup-and-tests` | [6ffcd62d](https://github.com/5-Bit-System/SE_Project/tree/6ffcd62de443f9a5daf64fe4711ecde1ed6d3148) | Nền DB/test cũ và kế hoạch RAG 14/10; chưa crawler/runtime/gói RAG. |
-| `feat/login` | [65b5ab9d](https://github.com/5-Bit-System/SE_Project/tree/65b5ab9d12c592bca8da60b363302c1294861657) | Auth/portal; F2 bản cũ; chưa runtime HUS. |
-| `feat/login-redesign-20261031` | [d08ff28c](https://github.com/5-Bit-System/SE_Project/tree/d08ff28ca7e5007f7b57078f7c8ac1da7a42ed0a) | Login/UI module mới; F2 bản cũ; chưa runtime HUS. |
-| `feat/recommendation-conversation-ui` | [c823aa5c](https://github.com/5-Bit-System/SE_Project/tree/c823aa5ca1b8453f5b151574caf41ed88a6cc22a) | Hội thoại khuyến nghị qua `/me/recommendations`; không phải chatbot HUS. F2 mới. |
-| `feat/semester-plans` | [a7bb7622](https://github.com/5-Bit-System/SE_Project/tree/a7bb7622932e6f21b6e9f29fc7209bada324f1b8) | Semester plans, auth/portal; F2 bản cũ; chưa runtime HUS. |
-| `feat/vinh-database-tests` | [4285c0e7](https://github.com/5-Bit-System/SE_Project/tree/4285c0e71441e917971b1e42721e59eeaabda213) | HUS catalog/metadata repository trong DB, không phải retrieval/answering HUS. |
-| `feat/vnu-curriculum-planning` | [fba94de5](https://github.com/5-Bit-System/SE_Project/tree/fba94de5893a108246555a48d8b8ea767767fc08) | Academic binding/course board, F2 mới; chưa runtime HUS. |
-| `integration/dashboard-latest-20261030` | [d855260b](https://github.com/5-Bit-System/SE_Project/tree/d855260b7f415f0e1c989695ea0a2b28ed2bd585) | UI/auth tích hợp, candidate cũ retired; chưa runtime HUS. |
-| `integration/publish-ui-dashboard-20261029` | [db655c6d](https://github.com/5-Bit-System/SE_Project/tree/db655c6dd9738f3ecb37119be361ad74625dbe95) | UI/auth tích hợp và kế hoạch RAG; chưa runtime HUS. |
-| `bt3/23001953-VT-101-search-contract` | [c3a26db0](https://github.com/5-Bit-System/SE_Project/tree/c3a26db05fbd4801807ebb0c565905d4d2a22253) | `/courses/search` là tìm học phần, không phải RAG; chưa HUS answering. |
-| `vt098/23001925-idempotency` | [fe0b20f9](https://github.com/5-Bit-System/SE_Project/tree/fe0b20f93ced273e1316d08688f22bf9ac32269f) | Thí nghiệm SQLite idempotency, không phải nghiệm thu RAG production. |
-| `docs/local-setup-20261028` | [43d01ef4](https://github.com/5-Bit-System/SE_Project/tree/43d01ef439f1370a04668d902d14f7d1cb710f36) | Tài liệu setup/auth/DB; chưa runtime HUS. |
-
-Các nhánh local cũng đã kiểm tree: `main` ở `bfcbcbce47f0`, `feat/catalog-validation`
-ở `001dbcb0c5d6`, `backup/crawldata-before-20-20261026` ở `28d61c4bc13f`,
-`rewrite/crawldata-20-20261026` ở `38a5ddbd6044`, và `crawldata` ở SHA mục 1.
-Hai nhánh backup/rewrite giữ các mốc crawler/review cũ, không có runtime mới.
-`main` local và nhiều `origin/*` còn cũ; danh sách live phía trên lấy trực tiếp từ GitHub.
-Ref cache `origin/codebase` ở `442819d730c1` còn kế hoạch hữu ích nhưng không còn là một
-trong 18 nhánh live. Không dùng `git branch -a` một mình để kết luận trạng thái GitHub.
-
-## 3. Các kế hoạch RAG và trạng thái thực tế
-
-| Tài liệu | Kết quả đối chiếu / việc cần giữ |
+| Thành phần | Hiện có và giới hạn |
 | --- | --- |
-| [Kế hoạch RAG 14/10 trên main](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/superpowers/plans/2026-10-14-hus-rag-plan.md) | D1 router trước catalog, D2 lexical, D3 citation/abstention đã làm một phần trong local. Checkbox cũ chưa phản ánh WIP. Kế hoạch cho hỏi HUS không cần ngành khác contract hiện tại yêu cầu major; không tự bỏ bộ lọc ngành theo tài liệu cũ. |
-| [Crawl plan](HUS_CRAWL_PLAN.md), [implementation 15/10](superpowers/plans/2026-10-15-hus-crawl-implementation-plan.md) | Khung thu thập/làm sạch/lưu trữ đã có. Crawl thành công không đồng nghĩa nội dung được duyệt hoặc RAG đã active. |
-| [Phân loại ngành 21/10](superpowers/plans/2026-10-21-hus-crawl-major-classification.md) | Số 98 tài liệu là lịch sử; catalog hiện 106. Không áp lại mặc định general hoặc gộp Toán Cơ vào phạm vi hiện tại. |
-| [Corpus](HUS_CORPUS_PREPARATION.md), [provenance](HUS_RAW_PROVENANCE.md), [applicability](HUS_APPLICABILITY_METADATA.md), [source quality](HUS_SOURCE_QUALITY.md) | Có framework hash/review/quality; còn thiếu xác minh học vụ, không duyệt tự động chỉ vì có PDF. |
-| [Kế hoạch xử lý RAG trên main](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/KE_HOACH_XU_LY_DATA_RAG_HUS.md) | Lexical trước vector; tối thiểu 40 câu reviewer có evidence, tách holdout; mục tiêu top-5 ≥90%, release pin/activation/rollback. **Chưa có phép đo holdout chứng minh ngưỡng này.** |
-| [Tiền xử lý lịch sử](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/KE_HOACH_TIEN_XU_LY_DATA_HUS.md), [khả thi 23/10](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/THONG_KE_VA_DANH_GIA_KHA_THI_RAG_HUS_2026_10_23.md) | Build07 6 include/10 chunks đã xóa; số liệu không mô tả gói mới. Bộ câu hỏi cũ không phải holdout độc lập hiện tại. |
-| [Handoff normalization V2](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/rag_normalization/CHATGPT_NEXT_TASK_HANDOFF_2026_10_27.md) | Có ghi 30 descriptive chunks qua technical gate, 383 PDF source-checked, 1.107 quarantine trong nhánh/artifact local khác. Đường `backups/` và prose không chứng minh những chunks đó đang có trong runtime. Candidate ở nhiều nhánh đã `retired_markdown_removed`. Không cộng các số này vào gói đang dùng. |
-| [Module 10](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/modules/10-hus-corpus-release.md), [module 11](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/modules/11-hus-rag-qa.md) | Giữ ranh giới corpus/review và retrieval/answering; không crawl trong request/startup; release pin, conflict, source support. Trạng thái “chưa runtime” đúng main, đã cũ so với local crawldata. |
-| [CI và nghiệm thu module](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/KE_HOACH_CI_VA_NGHIEM_THU_MODULE.md) | Giữ yêu cầu fixture provenance, holdout, citation, source injection và release pinning ở phần corpus/RAG. CI hoặc thống kê test lịch sử không chứng minh WIP mới/link PDF đã đạt. |
-| [Cải thiện metadata HUS](https://github.com/5-Bit-System/SE_Project/blob/5239b7333a8f8cdf0f919e6b0505af0def99fe23/docs/KE_HOACH_CAI_THIEN_METADATA_HUS.md) | Liên quan chất lượng F2/field evidence; bản kế hoạch này tách phạm vi metadata khỏi HUS Q&A/RAG. Không dùng tỷ lệ tiến độ metadata lịch sử làm tỷ lệ hoàn tất RAG. |
-| [Data completion](https://github.com/5-Bit-System/SE_Project/blob/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/docs/HUS_DATA_COMPLETION_PLAN.md), [handoff 31/10](https://github.com/5-Bit-System/SE_Project/blob/a543cf8d1fac273db41a65a14fb7ae0a05b2d965/docs/HUS_DATA_HANDOFF_2026_10_31.md) | Đã có release v3 và originals bổ sung trên nhánh data-ready; cần đối chiếu adapter và nguồn thay vì crawl hoặc sinh lại toàn bộ. |
-| [Nghiệm thu local](HUS_E2E_ACCEPTANCE.md), [receipt](acceptance/hus_e2e_report.json) | Đạt 2.310 ca HTTP/25 Chromium theo contract cũ. Không phải nghiệm thu PDF mở trực tiếp hoặc nhãn “kiến thức AI”. |
+| API demo | `app.hus.demo:app`: `GET /hus/config`, `GET /hus/questions`, `POST /hus/chat`, `GET/HEAD /hus/sources/{source_id}`; trang `/` và static UI. Đây là demo loopback, chưa có bảo vệ điểm vào để công khai Internet. |
+| Hợp đồng chat | `app/schemas/hus.py`, `app/hus/chat.py`: câu hỏi, ngành, phiên bản, hệ, mã môn/nhóm, field và `allow_generated_reference` strict boolean; thêm `program_credits`, `program_groups`, `group_rules`, `group_key`. Trả `answered`/`no_information`/`needs_clarification` kèm facts/citation/warnings; mỗi lượt riêng, không nhận history. |
+| Chọn dữ liệu | `app/services/hus_service.py`, `rag_loader.py`, `portable_adapter.py`: nạp `CURRENT` đã kiểm hash, cache một snapshot. Đổi release cần reload/restart được kiểm soát; không tự crawl/build, không fallback sang gói legacy khi canonical lỗi. |
+| Embedding/Chroma | V1–V3 ở nhánh riêng `feat/hus-embedding-chromadb-v1-v3-20261109`; không có module vector, optional lock, artifact/index hoặc kiểm mode vector trong core. Xem mục6 để tiếp tục trên đúng nhánh. |
+| Routing/gate | `question_routing.py`, `answer_support.py`, `answering.py`: kiểm mã/ngành/phiên bản, phạm vi, field, yêu cầu official và quyền F3; F1/F3 tìm top 5 rồi chọn các đoạn đủ từ khóa bằng chứng trong một nguồn/phạm vi/review nhất quán. Đây là quy tắc lexical có giới hạn, chưa phải bộ hiểu ngữ nghĩa tổng quát. |
+| Citation | `citations.py`, `citation_assets.py`, `source_response.py`: web giữ URL nguồn; PDF đúng binary/hash/trang vật lý và byte range; DOCX tải file; nguồn AI không có link tài liệu giả. Hash đúng không xác nhận hiệu lực học vụ hiện tại. |
+| Giao diện hỏi đáp | `app/static/hus-rag-demo.html`, `app/static/hus-rag-demo.js`, `app/static/hus-rag-demo.css`: chọn bốn ngành, hiển thị phiên bản, trả lời kèm nguồn, opt-in F3, đổi ngành xóa hội thoại/tắt AI/bỏ phản hồi muộn; render bằng `textContent`. Hội thoại chỉ hiển thị trong bộ nhớ tab. |
+| Danh mục câu hỏi | `question_catalog.py`: **2.414 câu mẫu**, gồm 50 câu chương trình/nhóm mới; bấm gửi qua chat thật, tìm không dấu theo tên/mã. F1 giữ edition/hệ nguồn; F2/F3 theo CTĐT đã chọn. Phủ field mẫu, không phải mọi cách diễn đạt tự nhiên. |
 
-## 4. Dữ liệu cần thống nhất trước khi tích hợp
+**Giới hạn sản phẩm cần giữ rõ:** trả lời thông tin đã có nguồn; không quyết định đủ điều kiện đăng ký/tốt nghiệp, đề xuất môn, hoặc thao tác tài khoản. Nếu cần đưa vào website chung sau này, dùng màn hình/endpoint hỏi đáp riêng; không chuyển câu hỏi qua chatbot đề xuất môn học. Demo độc lập có thể là đích nộp đồ án, không bắt buộc tích hợp tài khoản/VNU/DB.
 
-| Nội dung | Gói legacy `crawldata` được giữ nguyên | Release v3 đã chọn cho runtime local |
-| --- | --- | --- |
-| F1 | 15 nguồn, 69 chunks; 10 nguồn duyệt Markdown, bản gốc chưa xác minh theo contract này | 65 chunks; báo cáo có original khả dụng cho 15 nguồn, 24 phần khớp capture khôi phục |
-| F2 | JSON cấu trúc: 290 membership/297 dòng, chưa thành chunks; trạng thái draft theo snapshot cũ | 336 chunks: 290 membership +42 nhóm +4 chương trình; 67 membership KHMTTT có sign-off cấp dự án, 223 còn draft |
-| F3 | 290 hồ sơ, 870 chunks tham khảo AI sinh | 870 chunks generated, cần opt-in; đề cương thật chưa được duyệt để index mặc định |
-| Nguồn gốc | Blob F2 `79dd58bc54998def1f0f5fe60016d068affc0433` | Blob F2 `38be5742a07e47de2ca868c4d570393828d0738e`, cũng có trên main hiện tại |
-| Contract | Manifest 19 payload và các thư mục f1/f2/f3 | Portable schema 2.0, `CURRENT.json` → `releases/hus-data-20261031-v3` |
-| Kích hoạt | `active_release=false` | `prepared_not_runtime_activated`; không đồng nghĩa đã nối chatbot |
+## 2. Dữ liệu, chunk và chỉ mục hiện tại
 
-V3 có **1.271 chunks**, release SHA256
-`27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4`.
-Canonical F2 được ghim từ main `94b7d05988d4118df283ad09a12ff75cef3161fc`.
-Tree nhánh data-ready có 12 PDF, 2 DOCX và 1 HTML recovery, cùng năm PDF chương trình
-trong `docs/pdf/`. Báo cáo còn 37 originals lịch sử ngoài tập F1 mặc định thiếu. Hai
-PDF đề cương có dữ liệu trích/candidate, **chưa có official verification để bật mặc định**.
+Snapshot **`hus-data-20261031-v3`**, release SHA-256 `27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4`.
 
-Khi rà soát ban đầu, các số v3 lấy từ tree/manifest/report. P0-1 sau đó đã nhập nguyên
-byte, chạy portable validation, diff và test runtime local trên v3; chưa tải/đối chiếu
-binary hoặc chạy lại toàn bộ suite upstream. Chỉ import sign-off đã ghi trong canonical,
-không cấp duyệt mới. Diff IDs, quote, edition, locator, hash và review ở biên bản P0-1;
-không ghép 65+69 F1, không nạp đồng thời `rag/`, `qa/` và hai release, không coi 336 F2
-chunks là 336 môn. Official/source-checked/AI technical review là các trạng thái khác nhau.
-
-## 5. Tiến độ hiện tại và các khoảng trống
-
-| Mốc | Trạng thái | Bằng chứng hoặc giới hạn |
-| --- | --- | --- |
-| Crawler, chuẩn hóa, raw/provenance và cổng review | Đã có | Code/contract committed crawldata; không đồng nghĩa tất cả nguồn được duyệt |
-| Gói F1/F2/F3 và quản lý nguồn | P0-1 đạt local | Runtime ghim v3/current; 19 payload legacy giữ nguyên; canonical mới đã đối chiếu |
-| Bộ nạp và truy xuất lọc ngành/phiên bản/mã môn | Đạt local | `rag_loader.py`, `retrieval.py`; BM25 offline, không phải embeddings |
-| Trả lời F1/F2/F3 và không điền thông tin thiếu | Đạt local P0-1→P0-4 | Service/citation mới đã test; main active trong worktree riêng, không gọi LLM cho HUS |
-| Chat legacy, link HTTP(S), stale response | Đạt local | Chromium dùng UI fixture, HUS dùng gói thật |
-| Kiểm thử | Đạt local v3 và main integration | P0-3 crawldata699 Python/5 Node/2.318 HTTP/47 Chromium; P0-4 main652 Python/9 Node/43 HTTP/14 Chromium. Hai scope có receipt riêng |
-| Citation theo yêu cầu mới | **Đạt local P0-2/P0-3** | AI đúng nhãn, PDF resolver/hash/trang và browser viewer thật; main kế thừa và test lại trong P0-4 |
-| Tích hợp với UI/auth/academic context của main | **Đạt local P0-4** | Worktree main riêng đã test auth/context/UI; patch/manifest lưu trong crawldata, chưa merge/push |
-| Holdout, Recall@5, source-support/abstention trên câu hỏi độc lập | **Chưa nghiệm thu** | Ca template/membership không thay cho đánh giá này |
-| CI/triển khai trên branch tích hợp | **Đã chuẩn bị local P0-5; remote chưa chạy** | Workflow/lock và receipt snapshot đã kiểm; strict từ chối source chưa commit; chưa activate production |
-
-### Ràng buộc khi đưa sang main
-
-Main vẫn là **FastAPI**, nhưng `/advisor/chat` có `verified_account`, cookie
-`study_app_session`, `X-CSRF-Token` và kiểm Origin. Có `/me/advisor/chat` dùng academic
-context, `context_revision`, binding verified/current và program_id của tài khoản.
-
-Main tách implementation ở `app/services/advisor_service.py` và schema thật ở
-`app/schemas/advisor.py`; crawldata còn re-export từ `app/advisor.py`. UI main nạp
-`auth.js`, `workspace.js`, `portal.js`, `course-status.js` và các module khác,
-**không nạp `app.js` và không chứa khung chat legacy đã test ở crawldata**.
-
-Không copy nguyên `routes.py`, `main.py`, `index.html` hoặc `app.js` từ crawldata đè main.
-Cần adapter/service và UI active đúng kiến trúc, giữ auth/CSRF/Origin và kiểm academic
-context; không tin ngành do client gửi thay cho binding. Nghiệm thu fixture không chứng
-nhận các ranh giới tài khoản này.
-
-## 6. Contract dẫn chứng bắt buộc theo yêu cầu mới
-
-**Mỗi phần trả lời có dữ kiện phải gắn dẫn chứng tương ứng.** Không có bằng chứng thì
-trả “Chưa có thông tin đủ căn cứ”, không tạo citation giả hoặc suy đoán tỷ lệ thi.
-
-| Loại bằng chứng | Cách hiển thị và hành động bắt buộc |
+| Nhóm | Cách tổ chức và số lượng đã đối chiếu |
 | --- | --- |
-| AI sinh | Hiện đúng nhãn **“kiến thức AI”**, kèm môn/ngành nếu có. Giữ `content_origin=generated`, warning và trạng thái chưa xác minh. Không lấy URL/PDF F2 làm dẫn chứng cho nội dung F3 AI sinh. Không cần link giả để thẻ AI được render. |
-| PDF | Hiện tên văn bản, trạng thái review, trang nếu biết. Click mở **đúng binary PDF**, đúng phiên bản/hash; dùng `#page=N` theo số trang vật lý đã xác định. Không mở JSON, trang GitHub code, PDF khác hoặc trang login/404. |
-| Web | Hiện tiêu đề và link đến URL trang nguồn. Chỉ render URL HTTP(S) từ registry/nguồn đã kiểm tra; không lấy URL tùy ý do câu hỏi/model sinh ra. |
-| DOCX/tệp khác | Ghi đúng loại tệp và khả dụng. Nếu cần bản PDF xem trước phải có bản chuyển đổi, hash và provenance riêng; không đổi đuôi/nhãn để giả thành PDF gốc. |
-| Nguồn thiếu/không mở được | Báo rõ nguồn chưa có bản mở được; không thay bằng JSON hoặc tài liệu khác rồi gọi là PDF. Giữ giới hạn review; không đánh dấu đã đạt test PDF. |
+| F1 | 15 nguồn metadata/14 nguồn citation chính; **65 chunk**: 7 introduction, 25 objectives, 21 careers, 12 further_study. Chọn đoạn đã review theo field; chia tại ranh giới đoạn/câu/chấm phẩy, tối đa khoảng **2.400 ký tự**, tránh đuôi dưới 260 ký tự, không overlap. Giữ quote gốc, offset và hash; sửa hiển thị không thay bằng chứng. Giữ 5 nguồn `include`, 10 `include_markdown`; chưa xác minh hiện hành. |
+| F2 | **290 membership/297 dòng nguồn** thuộc bốn CTĐT; xuất **336 chunk**: 4 program, 42 group_rules, 290 course_facts. Runtime lookup cấu trúc cấp môn và chương trình/nhóm, không dùng ranking vector. Giữ 223 `draft_unverified`/67 `verified` cấp dự án; 103 ô tiên quyết trống, 1 membership conflict, 42 có mã chưa giải quyết. A1b kiểm bản ghi chương trình/nhóm khớp canonical, review và provenance; không cộng nhóm cha/con hoặc suy điều kiện đăng ký/tốt nghiệp. |
+| F3 | **290 record × 3 field = 870 chunk**: content, objectives, suggested_assessment. Trong release này, content là summary tham khảo; mỗi field một chunk, không dùng ngưỡng cắt 2.400 ký tự của F1. Tất cả `generated`, nhãn **“kiến thức AI”**, opt-in mặc định tắt; không phải đề cương/đánh giá chính thức. |
+| Tệp mở citation | Registry hiện có **14 binary: 12 PDF + 2 DOCX**, đều khớp hash trong lượt rà soát này. Web không được tự tải lại mỗi request; không suy hash/truy cập được thành chứng nhận nguồn còn hiệu lực. |
+| Retrieval | BM25 trên935parent F1/F3, lọc scope/field/môn/quyền trước xếp hạng; F2 lookup riêng. Không đọc index vector, QA/gold hoặc bảng điểm. |
+| Hợp đồng index V1 | Inventory935parent giữ hash body/text/fullmetadata/package và metadata scalar scope/field/code/review/origin/release/source/opt-in. Model+tokenizer E5-small cùng commit cố định; lock112package WindowsAMD64/Python3.11 có hash, giữ core constraints. **Passage count=null,index_built=false,activation_allowed=false**; không coi inventory là vector. |
 
-Phân loại theo **nguồn gốc nội dung**, không chỉ theo đuôi URL. Một file PDF được tạo
-từ nội dung AI vẫn là “kiến thức AI”, không trở thành văn bản học vụ chính thức.
+Code tạo release: [data_release.py](../app/hus/data_release.py), [quy tắc chia F1](../app/hus/release_text.py), [retrieval](../app/hus/retrieval.py). **Ký tự khác token**: không thể lấy ngưỡng 2.400 ký tự để mặc nhiên bảo đảm vừa cửa sổ của model embedding.
 
-Contract **đã triển khai local trong P0-2**: `evidence_kind` (`ai/pdf/web/file/unavailable`),
-`display_label`, `source_id`, `source_url` gốc, `open_url`, `document_sha256`,
-`pdf_page` vật lý hoặc null, `availability`, `review_status`, `content_origin`, `locator`.
-Giữ metadata gốc; đổi nhãn trình bày AI không bắt buộc sửa mọi chunk F3/manifest.
+## 3. Các khoảng trống còn phải xử lý
 
-Trước P0-2, `HUSCitation` chỉ có các trường cũ và F2 lấy URL GitHub JSON, UI bỏ nguồn
-không có URL. P0-2 đã bổ sung các trường trên cùng `pdf_pages/media_type/availability_note`,
-giữ metadata cũ; F2 mở resolver PDF, AI có thẻ nguồn riêng. Portable v3 qua adapter có
-42 đoạn F1 web, 18 PDF và 5 DOCX; mọi PDF có locator theo quote/capture, không phải review
-trực quan học vụ mới. Chi tiết và giới hạn tại [P0-2](RAG_P02_CITATIONS.md).
+| Vấn đề | Đã xác nhận và hướng xử lý |
+| --- | --- |
+| Tiên quyết — đã sửa A1 | Facts có `prerequisite_status`: `unknown`/`present`/`conflict`/`unresolved`; giữ raw `[null]`, review và từng citation. MAT2400/Q048 có cảnh báo ô trống chưa đủ căn cứ kết luận “không có tiên quyết”; không suy điều kiện đăng ký. Mismatch `[]`/`[null]` của scorer cũ vẫn báo nguyên, không sửa gold để nâng điểm. |
+| Hỏi nhiều trường — đã sửa A1 | MVP một môn/một loại thông tin mỗi lượt. Câu yêu cầu nhiều field, kể cả có field hint, trả `needs_clarification`, chưa phát facts/citation. Không coi phần đã trả là toàn bộ đáp án; giữ nhận diện phủ định và cách hỏi không dấu. Đây là rule lexical có test, chưa chứng minh hiểu mọi câu tiếng Việt. |
+| CTĐT/nhóm — đã sửa A1b | Tra tổng tín chỉ 135/132/129/127 theo bốn ngành; danh sách 42 nhóm và từng mã như II/V.2.1 không cần mã môn. Giữ riêng yêu cầu tối thiểu nếu chọn/tín chỉ liệt kê/null/ghi chú, không cộng hoặc sửa mâu thuẫn cha/con. Citation canonical có hash và JSON pointer, không đoán trang PDF. Chưa hỗ trợ danh sách học phần theo nhóm hoặc mọi dữ kiện chương trình ngoài ba field đã chốt. |
+| Hội thoại nối tiếp | MVP single-turn đã ghi trong help/UI: “môn đó” cần mã hoặc tên đầy đủ; vẫn hỗ trợ tên khớp duy nhất trong đúng ngành/phiên bản. Không lấy môn từ câu trước. Context nhiều lượt là bổ sung tùy chọn, phải ràng buộc ngành/phiên bản và reset khi đổi scope. |
+| Chọn nguồn và đủ ý — đã sửa DEV-Q027 | Giữ bối cảnh `doanh nghiệp`/`công ty` như yêu cầu bằng chứng trong F1 careers; kiểm nguyên cụm ở body, cùng nhóm nguồn/scope/review, giữ citation của đoạn bối cảnh và đoạn chứa ý cụ thể. DEV-Q027 nay có đủ bốn vai trò theo nguồn web edition `unknown`; không mượn nguồn đó khi chọn2015. BM25/top5/gold/A2 không đổi. 39test mới và run mới đã kiểm. Q043/Q044 vẫn đủ các phần và điều kiện. |
+| Hai lỗi diagnostic — đã sửa1a | C003 dev6 gốc nay route `careers` với “vai trò nào/gì” trong bối cảnh việc làm; không suy vai trò của doanh nghiệp/môn/chương trình thành nghề nghiệp. C007 loại nguyên đoạn giảng dạy đã bị từ chối, giữ đủ vai trò doanh nghiệp; loại trừ có địa điểm giữ phạm vi, không xóa yêu cầu dương/số liệu/official phía sau. Không sửa quote hay dùng đoạn bị loại để bù bằng chứng; thiếu đoạn phù hợp thì từ chối. Dev6 gốc/r2 đủ ý8/8, dev7 đủ ý12/12/control2/2. Giữ nguyên các pack/run cũ; đây vẫn là grammar lexical có giới hạn, chưa phủ mọi cách hỏi. |
+| Anchor khác ngữ nghĩa | Raw dev A2 giữ60/64; run sau sửa **61/64**. AI đủ ý dev63/64 →64/64; Q027 đã được đọc lại theo phản hồi mới. Q004 chỉ chấp nhận trong phạm vi **talent2015 đã ghi rõ**, Q049/050 với objectives DOCX standard2023 cho câu không chỉ định edition; các judgment này chỉ kế thừa khi hash request/response/gold/audit giống A2. Không sửa gold hoặc chứng nhận hiệu lực nguồn; Q006 giữ điều kiện và Thạc sĩ/Tiến sĩ. |
+| Kiến thức còn thiếu | F3 hiện là nội dung AI đóng gói ngắn, không phủ mọi câu chuyên sâu; không dùng LLM hoặc vector để biến kiến thức ngoài nguồn thành dữ kiện official. Thiếu nguồn vẫn từ chối/hỏi rõ. |
+| UI và trạng thái | A1 đã phân biệt trả lời/thiếu thông tin/cần làm rõ/tiên quyết chưa rõ và thêm hướng dẫn single-turn. Tiếp tục kiểm citation nhiều đoạn, tìm tên/mã, mobile/bàn phím, retry và response cũ; catalog có field hint không chứng minh routing mọi câu nhập tự nhiên. |
+| Vận hành | Health/ready/metrics và activation/rollback hiện nằm trong **harness diễn tập local**, chưa là bộ vận hành production gắn sẵn vào demo. Cache/index/LLM tương lai cần cùng release identity, không trả trộn snapshot. |
 
-**Có PDF trong Git không có nghĩa link đã mở được.** Main mới chỉ thấy route PDF quy
-chế `/academic-policy/vnu-3626-2022`, không phải route cho các PDF chương trình/recovery.
-Cần registry source ID → binary/path scope/hash/version → endpoint PDF inline hoặc
-URL PDF đã xác minh; không lấy route quy chế thay nguồn học phần. Bản recovery có thể
-chưa chứng minh tương đương byte với lần crawl lịch sử; không tự nâng review vì file mở được.
+Probe kiểm mã ngoài membership MAT3540/KHDL đã từ chối đúng; đó không phải ca tiên quyết trống. Các probe mới là diagnostic đã xem, không phải holdout. [Biên bản rà soát máy](acceptance/hus_chatbot_scope_audit_2026_11_04.json).
 
-## 7. Kế hoạch tiếp theo theo thứ tự ưu tiên
+## 4. Phép đo và bằng chứng đã có
 
-| ID | Việc làm | Điều kiện hoàn tất |
+| Bộ/mốc | Kết quả và cách hiểu |
+| --- | --- |
+| Baseline lịch sử | Recall 8/20, F2 7/12; giữ nguyên code/data/gold/cache/receipt của mốc đó. |
+| H2 56 câu trước sửa routing/gate cuối | Route 28/36; routed Recall@5 **16/20=80%**, conditional 16/16; F2 strict 11/16; đáp án đủ ý theo AI review 11/36, Q048 partial; từ chối sai 20/36. Citation integrity 16/16, citation đúng yêu cầu 12/16; thiếu nguồn/OOS đúng 16/16, chặn chưa opt-in 4/4. Đây là số cũ, chưa phải điểm code hiện tại. |
+| Dev v2 routing | Tám ca: route 0/8→8/8; bốn tên/mã trả đúng F2, bốn preview route/search đúng F3. |
+| Dev v3 gate | 20 ca đã xem: 0/20→20/20 có nguồn khớp anchor và toàn bộ quote gold trong citation; top 5 không đổi. Không dùng điểm này thay chứng nhận ngữ nghĩa tổng quát. |
+| Dev96 — A2 ghim sau A1b | Route64/64, Recall **39/40**, F2 nguồn24/24, integrity64/64, controls32/32 (opt-in8/8), false refusal0/64, filter errors0. **Anchor raw60/64** giữ nguyên; AI entailment64/64, đủ ý **63/64** (DEV-Q027 thiếu vai trò cụ thể). |
+| Rà soát 04/11 trước A1 | Mốc audit khớp receipt gate lúc đó: **894 test HUS/1.633 test chung**, 50 Chromium, 5 Node đạt; kiểm 14 binary. Đây là bằng chứng trước thay đổi A1. |
+| A1 — hoàn thành 04/11 | Dev v4 đóng băng **16 ca: 1/16→16/16 đạt hợp đồng mới**, không phải điểm scorer cũ hay Recall độc lập. 65 test hợp đồng mới + 3 test browser mới; toàn suite **1.701 đạt/90 deselected**, 50 Chromium/5 Node/Ruff đạt. Cả 2.364 mục menu vẫn được kiểm qua API; PDF endpoint mở trong test UI, chưa nghiệm thu lại viewer thực. **744 file cũ được bảo vệ không đổi**, code/data/test ổn định qua các lệnh. Đo lại gate dev v3: vẫn 20/20 trả lời/route/hỗ trợ nguồn. |
+| A1b — hoàn thành 04/11 | Dev v5 đóng băng **12 ca: 0/12→12/12** đạt lookup và nguồn; chỉ là dev. 60 test chương trình + 2 browser mới; full suite **1.763 đạt/90 deselected**, 50 Chromium/5 Node/Ruff đạt; kiểm toàn bộ 2.414 mục menu qua API. **758 file cũ bảo vệ không đổi**; pins ổn định. Gate dev v3 vẫn 20/20. Lượt regression đầu phát hiện 10 lỗi routing/test UI, đã sửa và giữ log cũ, chạy lượt cuối riêng; không đổi gold/scorer. |
+| A2 — hoàn thành 04/11 | Full H2 exposed: route36/36, Recall **20/20**, F2 raw15/16 vs nguồn16/16, integrity/AI entailment/đủ ý36/36; thiếu nguồn/OOS16/16, opt-in4/4, false refusal0/36, filter errors0. Tập hợp đồng28: F2 26/26 + clarification2/2, không vào Recall. Latency p50/p95 local: dev26,85/67,77ms; H2 32,01/88,64ms; contracts26,60/68,88ms. 31test mới; full **1.794 đạt/90 deselected**, 50Chromium/5Node/Ruff đạt; **850file cũ không đổi**, không sửa runtime. Ba run + ba overlay replay đúng; archive327file code/test/dependency giữ bytes WIP. |
+| DEV-Q027 — hoàn thành 04/11 sau A2 | Chỉ sửa `answer_support.py`; dev96 chỉ đổi Q027, đủ bốn vai trò, AI đủ ý64/64 và raw anchor61/64; Recall39/40 không đổi. H2/contracts giữ nguyên phản hồi và mọi trace retrieval giống trước sửa. Tại mốc này dev6 r2 quote8/8/control2/2 nhưng AI đủ ý7/8; hai lỗi được xử lý riêng ở1a05/11. **1.833test đạt/90 deselected**, 50Chromium/5Node/Ruff đạt; **895file cũ không đổi**, 8run/overlay replay đúng. Review mới11phản hồi, kế thừa179judgment giống hash, không gọi là review độc lập mới. Latency p50/p95 ms: dev25,45/40,88; H2 36,05/96,49; contracts28,82/80,57; local một lượt, không kết luận nhanh hơn. |
+| 1a — hoàn thành 05/11 | Chỉ đổi routing/support; dev6 gốc đổi C003/C007, r2 chỉ đổi C007, đủ ý8/8 mỗi tập; dev7 freeze14câu trước tuning: đủ ý12/12/control2/2. Dev96/H2/contracts không đổi phản hồi/trace, filter errors0. **1.882test đạt/90 deselected**, 49test mới, 50Chromium/5Node/Ruff đạt; **968file cũ không đổi**, 6measurement+6AIoverlay replay đúng. Review mới17lượt/kế thừa197judgment đủ4hash;0human. Archive329file code/test/dependency. Latency p50/p95 ms: dev32,57/51,69; H2 34,69/100,56; chỉ local một lượt. |
+| V1 — hoàn thành 05/11 | Manifest/model profile/lock riêng đã ghim;935parent F1/F3,F2 ngoài vector. **1.926test đạt,1skip symlink thật,90deselected**;45test mới(44đạt/1skip),50Chromium/5Node/Ruff đạt. Test giả lập redirect-root và7ca đổi kiểu JSON giữ ID cũ đã RED→GREEN. **1.057file cũ không đổi**;180phản hồi/trace lexical giống1a,environment không đổi,không review ngữ nghĩa mới. Archive341file code/contract/profile/lock. Chưa kiểm inference,tokenizer thực hoặc model bytes lớn; không có điểm Recall/vector mới. |
+
+**Review và exposure:** đã AI review 56/56 theo quyết định bỏ điều kiện reviewer người thật; vẫn `reviewer_kind=ai`, **0 human review**. **25 câu H2 đã dùng tuning**: 24 câu qua dev v2/v3 (bốn preview trùng pack) và Q048 qua dev v4 A1. Dev v4 đóng băng 16 ca trước sửa; các test bổ sung cũng là dev. Không coi H2 hoặc các câu đã xem là holdout độc lập. Chưa chứng minh Recall@5 độc lập ≥90%.
+
+Bằng chứng: [A2: báo cáo và định nghĩa metric](RAG_BASELINE_A2_2026_11_04.md), [receipt/pins A2](acceptance/hus_chatbot_baseline_a2_report.json), [A1b](RAG_PROGRAM_QUESTIONS_A1B_2026_11_04.md), [receipt A1b](acceptance/hus_program_questions_a1b_report.json), [A1](RAG_CHAT_CONTRACTS_A1_2026_11_04.md), [H2 lịch sử](RAG_AI_REVIEW_AND_MEASUREMENT_2026_11_03.md), [gate](RAG_SUPPORT_GATE_FIX_2026_11_03.md). Receipt/gold/scorer cũ giữ nguyên. A2 có breakdown theo ngành/nhóm; semantic là AI ở cấp đáp án, không phải precision từng citation. Chưa gọi LLM/embedding, chạy PostgreSQL/full-catalog hoặc nghiệm thu lại PDF viewer thực.
+
+Sau A2: [sửa DEV-Q027 và giới hạn diagnostic](RAG_DEV_Q027_COVERAGE_2026_11_04.md), [receipt/run/pins mới](acceptance/hus_dev_q027_coverage_report.json). Phần kế thừa review ghi rõ nguồn/hash; **0human review**, không nâng kết quả dev thành nghiệm thu độc lập.
+
+Mốc1a mới nhất: [routing vai trò và loại trừ giảng dạy](RAG_ROLE_EXCLUSION_2026_11_05.md), [receipt/pins/run mới](acceptance/hus_role_exclusion_report.json). Giữ kết quả cũ7/8 đúng mốc lịch sử; không sửa lại thành8/8. Các biến thể cùng nguồn không phải mẫu độc lập.
+
+V1: [manifest contract-only](../data/hus/vector_contracts/e5_small_v1_20261105/manifest.json), [báo cáo/giới hạn](RAG_VECTOR_CONTRACT_V1_2026_11_05.md), [receipt và3run lexical](acceptance/hus_vector_contract_v1_report.json). Checksum trọng số/tokenizer lớn mới là **expected Hub LFS hash**, chưa phải hash đã kiểm trên bytes local.
+
+## 5. Thứ tự hoàn thiện và tiêu chí ra khỏi từng bước
+
+Đây là kế hoạch **chỉ cho hỏi đáp HUS**. Trước mỗi bước triển khai: ghim code/data/test, bổ sung test lỗi trước khi sửa, giữ bộ đo cũ, ghi kết quả vào run/receipt mới. Không đồng thời đổi retrieval, prompt LLM và dữ liệu rồi quy toàn bộ cải thiện cho một thành phần.
+
+### 5.1. Đọc mục 5–7 và chọn thứ tự thực hiện
+
+**Không làm hết mục 5 rồi mới sang mục 6 và 7.** Mục 5 là lộ trình tổng; **mục 6 là chi tiết của A3–A4**, **mục 7 là chi tiết của A5**. Khi đến A3 thì thực hiện V1–V4 trong mục 6; đến A4 thì thực hiện V5; đến A5 thì thực hiện L1–L6 trong mục 7. Các mã A/V/L chỉ các cấp công việc, không phải ba dự án nối tiếp nhau.
+
+| Thứ tự khuyến nghị từ hiện tại | Làm gì và đọc phần nào | Phụ thuộc / có thể song song |
 | --- | --- | --- |
-| P0-1 — Đạt local | Chốt nguồn dữ liệu/adapter giữa gói local, canonical F2 main và portable v3 | [Diff và quyết định](RAG_P01_DATA_SELECTION.md): cùng 63 unit, 69→65 do bốn lần gộp split; snapshot v3/request; opt-in mặc định tắt; giữ 67 sign-off/223 draft và F3 chưa xác minh |
-| P0-2 — Đạt local | Thực hiện contract citation ở mục 6 | [Biên bản/receipt](RAG_P02_CITATIONS.md): AI hiện “kiến thức AI”; web URL gốc; PDF resolver đúng hash/trang và binary; DOCX/missing trung thực; giữ review |
-| P0-3 — Đạt local | Sửa oracle, API test và browser test cho citation mới | [Biên bản/receipt riêng](RAG_P03_CITATION_TESTS.md): oracle trang F1 độc lập, đủ occurrence F2; 29 ca hồi quy/API; 2.318 HTTP/47 Chromium; ca thật MAT3325 trang 13/12, AI null-link vẫn hiện |
-| Sửa phạm vi — Đạt local | RAG F1/F2/F3 và trò chuyện cơ bản độc lập | Handler/app/UI riêng, không import recommendation/eligibility/auth/profile trong demo; receipt riêng sau sửa phạm vi |
-| P0-4 — Nghiệm thu cũ | Tích hợp service vào API/chatbot/UI active của main | [Biên bản/gói cũ](RAG_P04_MAIN_INTEGRATION.md) giữ nguyên; bước tiếp theo dùng endpoint HUS riêng, giữ account/CSRF/Origin/revision/binding, không fallback sang advisor chọn môn |
-| P0-5 — Chuẩn bị lịch sử 4/6 mốc | Chốt thay đổi reviewable, CI và bản phát hành tích hợp | [Bundle/receipt cũ](RAG_P05_RELEASE_PREPARATION.md) không chứng nhận scope mới; cần commit/receipt/CI mới sau tích hợp lại. Commit/push theo yêu cầu riêng |
-| P1-1 | Bộ câu hỏi reviewer/holdout độc lập tối thiểu 40 câu | Có đáp án evidence IDs, câu không có nguồn và ngoài phạm vi; tách khỏi tập dùng điều chỉnh retrieval |
-| P1-2 | Đo retrieval và chất lượng trả lời | Báo Recall@5/top-5 theo định nghĩa thống nhất, citation precision/source support, abstention, sai ngành/mã/phiên bản. Ngưỡng top-5 ≥90% từ kế hoạch cũ là mục tiêu cần đo, không phải kết quả sẵn có |
-| P1-3 | Review nguồn chính thức/hiệu lực, đề cương/OCR còn thiếu | Tái dùng originals/recovery đã có; hash/page/quote/review đúng; không mở toàn bộ source candidates hoặc official F3 chỉ vì trích được text |
-| P1-4 | Quan sát vận hành và diễn tập production | Lifecycle cơ bản đã có P0-5; tiếp theo kiểm trên deployment thật, cảnh báo/giám sát và giữ artifact rollback; không crawl trong startup/request hoặc lưu history cá nhân ngoài scope |
-| P2 | Cân nhắc vector/hybrid/reranker hoặc LLM diễn đạt | Chỉ làm khi đo thấy lexical không đủ; backend vẫn validate evidence/citation và không để LLM tạo facts/URL/điểm thi |
+| 0 — Giữ mốc đã có | A1 → A1b → A2 đã xong local. Giữ baseline BM25 A2 và các run cũ để so sánh. | Không cần làm lại; mỗi thay đổi tiếp theo tạo snapshot/run mới. |
+| 1 — Đã xong: sửa DEV-Q027 | Đã thêm test, giữ bối cảnh nghề nghiệp/citation cần thiết và đo BM25 trong **run mới**; đủ bốn vai trò. A2 giữ nguyên, chỉ Q027 đổi trong dev96, retrieval không đổi. | A3–A5 dùng cùng bản gate mới giữa các nhánh so sánh và báo riêng đối chiếu A2 lịch sử. |
+| 1a — Đã xong05/11: hai lỗi diagnostic | Đã sửa role routing và loại trừ giảng dạy,49test mới và6run mới; dev6 gốc/r2 đủ ý8/8, dev7 đủ ý12/12/control2/2. Giữ nguyên pack/gold/run trước1a, không dùng vector/LLM. | Bản routing/gate mới đã ghim làm nền cho các nhánh A3–A5; không so hai chế độ bằng hai phiên bản gate/dữ liệu khác nhau. |
+| 2 — A3: thực hiện trên nhánh riêng | V1–V3 giữ ở `feat/hus-embedding-chromadb-v1-v3-20261109`; tiếp V4 ở đó. | Sau khi core vào main, nhánh vector xuất phát từ main; không ghép vector ngầm vào bản lexical. |
+| 3 — A4: đo và chọn retrieval | Làm **V5**, mục 6: so BM25/vector/hybrid trên cùng code gate, dữ liệu và bộ câu hỏi đã ghim. | Sau V1–V4. Cả ba chế độ dùng cùng bản gate đã sửa; báo riêng so với A2 lịch sử. Không có lợi thì giữ BM25, vẫn có thể làm A5. |
+| 4 — A5: thử LLM diễn đạt | Làm **L1 → L2 → L3 → L4 → L5 → L6**, mục 7; L6 có điều kiện nghiệm thu riêng, chưa tự bật mặc định khi mới viết xong code. | LLM chỉ cần đáp án có bằng chứng; **không bắt buộc có Chroma/hybrid**. Có thể chuẩn bị L1–L4 bằng mock song song A3–A4; nên đo A/B L5 sau khi chọn và ghim retrieval để không đổi hai yếu tố cùng lúc. |
+| 5 — A6: hoàn thiện UI/API | Phần trạng thái, nguồn, mobile/bàn phím có thể làm sớm; phần opt-in LLM/generation/fallback làm cùng L2–L4 khi hợp đồng rõ. | Không phải đợi A5 xong toàn bộ mới bắt đầu. Regression UI cuối chạy sau khi các chế độ sẽ nộp đã ổn định. |
+| 6 — A7: đánh giá cuối | Chốt các tính năng thực sự dùng, freeze code/data/index/model/prompt phù hợp rồi chạy bộ mới chưa dùng tuning. | Sau các thay đổi được chọn ở A3–A6 và regression. Có thể chuẩn bị quy tắc/dạng bộ câu hỏi sớm; không dùng câu nghiệm thu để sửa runtime. AI review và exposure vẫn phải ghi trung thực. |
+| 7 — A8: đóng gói/nộp; xuất bản nếu được yêu cầu | Dùng kết quả A7 để hoàn thiện báo cáo, bản demo, hướng dẫn và kiểm môi trường đích. | Sau nghiệm thu; công khai cần thêm bảo vệ/vận hành/rollback, không tự triển khai từ việc hoàn thành kế hoạch. |
+| Xuyên suốt — Review nguồn | Làm mục 8 song song với các bước trên, ưu tiên nguồn trong phạm vi release. | Thử nghiệm dùng selection v3 đã ghim. Nếu duyệt nguồn mới thì tạo release mới và đo lại trên release đó; không thay dữ liệu giữa một phép A/B. |
 
-## 8. Hướng dẫn test trên crawldata hiện tại
+**Đường đi khuyến nghị:** hợp nhất core A1/A1b/A2,Q027/1a → tiếp A3/V4 trên nhánh embedding riêng → A4/V5 đo/chọn retrieval → A5/L1–L6 → A6 → A7 → A8. Review nguồn/UI/mock LLM có thể chuẩn bị song song. Giữ lexical nếu chưa chọn vector/LLM.
 
-### 8.1. Ghi nhận môi trường và kiểm thử nền
+### 5.2. Công việc và điều kiện hoàn thành
 
-Chạy từ repository root trên PowerShell, dùng cùng một interpreter Python trong cả
-phiên. Nếu thiếu dependency, cài theo `requirements-dev.txt` và `requirements-lock.txt`
-của dự án; Chromium acceptance cần Python Playwright và Chromium đã cài riêng.
+| Ưu tiên | Việc làm, file chính dự kiến | Đầu ra và điều kiện hoàn thành |
+| --- | --- | --- |
+| A1 — Hoàn thành local | Chuẩn hóa trạng thái tiên quyết, giữ raw, sửa Q048; nhiều field hỏi lại, MVP single-turn và UI nhất quán. Thay đổi trong `answering.py`, routing, schema, chat, HTML/JS; có test hợp đồng/API/trình duyệt. | Dev v4 16/16; regression 1.701 test, 50 Chromium, 5 Node đạt, receipt mới đã ghim. Giữ scorer cũ; không suy eligibility, không nới scope/review/opt-in; không chứng nhận độc lập từ dev. |
+| A1b — Hoàn thành local | Đã có lookup program/group_rules trong snapshot, API ba field và 50 câu menu; câu cấp chương trình không cần mã môn. Giữ source/review, null, ghi chú, từng nhóm cha/con; kiểm cả tên hệ, hint và câu nhiều ý. | Dev v5 12/12, full 1.763 test/50 Chromium/5 Node đạt, receipt ghim code/data. Không cộng tín chỉ, xếp môn hoặc tính đủ điều kiện tốt nghiệp. Danh sách môn theo nhóm còn ngoài hợp đồng này. |
+| A2 — Hoàn thành local | Có `tools/evaluate_hus_chatbot.py`, `tools/hus_rag_metrics_v2.py`, source auditor và31test; đo dev96/H2exposed56/contracts28, lưu inference và overlay AI riêng. Snapshot code/data/test/dependency/environment, raw metrics và code archive đã ghim; runtime không sửa trong A2. | Báo riêng đầy đủ các lớp, theo ngành/nhóm và latency; replay6run không inference mới. Giữ scorer/gold cũ, Q048 raw15/16 vs nguồn16/16 rõ ràng. Bản sửa Q027 đo riêng sau A2, không ghi đè đối chứng; chưa là nghiệm thu độc lập. |
+| A3 — Nhánh embedding riêng | V1–V3 và artifact được chuyển nguyên vẹn sang `feat/hus-embedding-chromadb-v1-v3-20261109`; tiếp query V4 trên nhánh đó. | Hợp đồng scope/review/opt-in và canonical citation của core vẫn là nền tảng; không đưa QA/gold vào index. |
+| A4 — Đo retrieval hybrid | Dự kiến thêm `app/hus/hybrid_retrieval.py`, `tests/hus/test_hybrid_retrieval.py`, tùy chọn mode trong `app/services/hus_service.py`; so BM25/vector/hybrid cùng nguồn, cùng scope, cùng bộ câu hỏi. | Đo final top 5, Recall/MRR, nguồn hỗ trợ, false refusal, p50/p95, RAM và thời gian build; trace từng leg riêng. Chỉ chọn hybrid khi có ích và không giảm độ đúng/guard. Nếu gate vẫn chặn paraphrase đã có nguồn, sửa hợp đồng bằng chứng có test, không bỏ gate dựa vào điểm vector. |
+| A5 — LLM tùy chọn | Adapter 9Router/Gemini riêng cho HUS, theo mục 7; không dùng dịch vụ/cấu hình của chatbot đề xuất môn. | Opt-in riêng, facts/citation bất biến, fallback hoạt động; so A/B với bản trích nguồn. Không cho LLM cứu câu đã bị gate từ chối hoặc tạo official F3. |
+| A6 — Hoàn thiện UI/API | Trạng thái answered/clarification/no-information/unknown, câu nhiều ý, nguồn và phiên bản dễ đọc, các opt-in độc lập, feedback tối thiểu không lộ secret. Sửa `app/hus/demo.py`, `app/hus/chat.py`, `app/hus/question_catalog.py`, ba file `hus-rag-demo` nêu ở mục 1; kiểm bằng `tools/run_hus_rag_demo.py`, `tests/hus/test_chat_scope.py`, `tests/hus/test_question_catalog_ui.py`. Có thể làm phần không phụ thuộc song song A3–A5. | Bấm menu và nhập tự nhiên cùng đúng hợp đồng; danh mục theo data; đổi ngành reset context/quyền và bỏ phản hồi cũ; mobile/bàn phím, lỗi/timeout và citation PDF/web/DOCX/AI đạt. Không yêu cầu tích hợp luồng tư vấn môn để hoàn thành bước này. |
+| A7 — Đánh giá cuối | Chuẩn bị bộ mới tối thiểu **48 câu/12 mỗi ngành**, đủ F1/F2/F3, thiếu nguồn, OOS và chưa opt-in; kiểm nguồn/gold/trùng ý/nguồn thay thế bằng AI theo chính sách đã chốt, ghi exposure và hạn chế độc lập. Freeze trước chạy, không dùng bộ này để tuning. | Chạy trên code/data/index/model/prompt đã ghim; Recall@5 mục tiêu ≥90%, không trộn scope, facts/citation đúng, không bỏ ý gold, control đúng. Báo exposure/AI review trung thực; nếu xem lỗi để sửa thì chuyển bộ đó sang dev và cần bộ mới cho nghiệm thu chưa dùng tuning. |
+| A8 — Nộp đồ án/xuất bản | README/lệnh chạy, bản demo tái lập, sơ đồ và báo cáo có giới hạn rõ. Nếu công khai: chốt host, bảo vệ API/secret, rate limit, health/ready, log/metrics và rollback; hướng dẫn ở mục 9. | Nghiệm thu môi trường thực với cùng release/index; thử lỗi provider, đổi release, restart và rollback. Chỉ commit/push/PR/deploy khi có yêu cầu tương ứng; vào main qua feature branch + PR + Create a merge commit. |
+| Song song — Nguồn | Tiếp tục phần nguồn thuộc scope release, theo mục 8. Không chặn selection v3 hiện tại chỉ vì mọi raw ngoài scope chưa thu hồi. | Nâng dữ liệu/official field bằng release mới và review riêng; không tự sửa nguồn hoặc nâng trạng thái trong runtime. |
+
+Reranker và hội thoại nhiều lượt có context chỉ là bổ sung sau khi có nhu cầu/phép đo; chưa phải điều kiện bắt buộc để nộp demo. Quyết định [P2 lịch sử](RAG_P2_RETRIEVAL_DECISION.md) được giữ nguyên; bản kế hoạch này đưa Chroma/hybrid và LLM vào **thử nghiệm có đối chứng**, không mặc nhiên coi chúng tốt hơn baseline.
+
+## 6. Kế hoạch embedding và ChromaDB cho F1/F3 — nhánh riêng
+
+Implementation V1–V3 đã được tách khỏi `crawldata`; tiếp tục ở [nhánh embedding/Chroma](https://github.com/5-Bit-System/SE_Project/tree/feat/hus-embedding-chromadb-v1-v3-20261109). Bản core/main hiện giữ lexical, không có model/index phụ thuộc tùy chọn. Kết quả lịch sử V1–V3 và receipt tương ứng nằm ở nhánh đó, không đổi dữ liệu để tách lịch sử.
+
+| Bước | Thứ tự và điều kiện |
+| --- | --- |
+| V1 — Hợp đồng | Ghim release/corpus/model/tokenizer/policy/lock và metadata; lexical mặc định, ML tùy chọn. |
+| V2 — Passage | Đếm token thật gồm prefix/context/special; khoảng400token nội dung, overlap≤64, không truncate; giữ parent và citation gốc. |
+| V3 — Build offline | Chroma PersistentClient trong thư mục mới; đủ parent/vector384chiều/cosine/metadata scope-review-origin-release; không QA/gold/bảng điểm; kiểm mở lại process khác. |
+| V4 — Tiếp theo trên nhánh riêng | Lọc scope/review/opt-in trước topk; kiểm canonical hash/citation; query/index lỗi thì fallback BM25 cùng scope, canonical lỗi fail closed. |
+| V5 — Hybrid/đo | Top20 mỗi leg, dedup parent, RRF60, finaltop5; ghim tham số và trace; so BM25/vector/hybrid, không cải thiện thì giữ lexical. |
+
+V1→V2→V3→V4 thuộc A3, V5 thuộc A4. Chưa cần LLM ở các bước này; không đợi làm hết mục5 mới sang mục6.
+
+## 7. Kế hoạch LLM diễn đạt qua 9Router/Gemini
+
+**Đây là chi tiết A5, chạy được trên BM25 hoặc retrieval đã chọn; không bắt buộc hoàn tất mục 6.** Thứ tự khuyến nghị **L1 → L2 → L3 → L4 → L5 → L6**, với test đi cùng từng bước:
+
+1. **L1–L2:** client/cấu hình, sau đó quyền và response contract; luôn giữ mặc định tắt. Có thể làm song song V1–V5 bằng mock, chưa cần gọi provider.
+2. **L3:** dùng contract L2 để dựng bundle/prompt và bộ kiểm đầu ra; bản trích nguồn vẫn là fallback. Chỉ nối model sau gate đã có đáp án/bằng chứng hợp lệ.
+3. **L4:** khi contract và kiểm đầu ra rõ, nối timeout/quota/concurrency/fallback với UI. Phần này làm cùng A6; chưa bật mặc định.
+4. **L5:** mock test được viết từ L1, không đợi đến cuối. Chỉ chạy phép đo A/B tổng thể khi L1–L4 đạt và retrieval được ghim; nếu dùng hybrid thì đo không LLM trước, sau đó mới bật LLM trên cùng retrieval. Live smoke ghi riêng request/quota và kết quả thực.
+5. **L6:** kiểm tắt cờ/rollback sau L5; chỉ bật mặc định khi nghiệm thu nội dung, guard và latency ở A7 đạt. Nếu chưa đạt thì giữ tắt, vẫn có thể nộp demo trích nguồn. Xuất bản công khai vẫn thuộc A8.
+
+Endpoint người dùng đã thử: **`http://localhost:20128/v1`**; model **`gemini/gemini-3.5-flash-lite`**; có kết quả `OK`. Đây là kết quả người dùng báo, không phải kiểm tra quota/availability hiện tại của agent. Các model khác đã có lỗi timeout/Free quota 0; không suy mọi model trong danh sách đều dùng được. Giữ project Free level, model ID tường minh; không tự bật billing hoặc chuyển sang combo/provider trả phí. Key của 9Router chỉ lưu server/env, không đưa vào Git/frontend/log/prompt.
+
+| Bước | Thực hiện và kiểm chứng |
+| --- | --- |
+| L1 — Client và cấu hình | Dự kiến `app/hus/llm_client.py` dùng HTTP tương thích OpenAI; không import dịch vụ tư vấn môn, không kết nối provider lúc startup. Mẫu cấu hình riêng trong `.env.example`: `HUS_LLM_ENABLED=false`, `HUS_LLM_BASE_URL=http://localhost:20128/v1`, `HUS_LLM_MODEL=gemini/gemini-3.5-flash-lite`, `HUS_LLM_API_KEY` không có secret trong mẫu. Test trước cho thiếu key/sai config/thành công/lỗi HTTP. |
+| L2 — Quyền và hợp đồng | Thêm `allow_llm_rewrite` strict boolean mặc định false, độc lập với `allow_generated_reference`. Chỉ gọi khi server bật, người dùng opt-in và F1/F3 đã `answered` có nguồn; F3 cần cả quyền dùng F3 lẫn quyền diễn đạt. F2/basic chat/clarification/no-information không gọi model. Giữ response cũ khi tắt; metadata generation/used/model/fallback riêng, không sửa `hus_answer` gốc, facts, quote, URL/hash hoặc review. |
+| L3 — Prompt và kiểm đầu ra | Chỉ gửi câu hỏi và bundle bằng chứng đã chọn của một snapshot; không gửi tài khoản, bảng điểm hay toàn bộ lịch sử. Nguồn là dữ liệu không đáng tin về mặt chỉ dẫn, không cấp tool/action cho model. JSON đầu ra gồm các ý và citation ID backend cấp; kiểm schema/ID, số/mã/phiên bản và coverage ý. ID lạ/URL tự tạo/phát hiện sai hoặc thiếu ý → bỏ bản sinh và fallback. Schema/ID đúng chưa chứng minh entailment: phải review từng ý khi đo, không tự công nhận bằng một LLM judge. |
+| L4 — Giới hạn và UI | Dự kiến timeout **20 giây**, tối đa **1.024 output token**, một lời gọi đồng thời/process, không retry tự động khi 429; quá tải hoặc không đủ ngân sách giữ đủ ý thì trả bản trích nguồn. Lỗi 401/403/429/5xx, timeout, phản hồi rỗng/cắt dở/không đạt kiểm tra đều fallback có lý do. Thêm opt-in “AI diễn đạt từ nguồn”, nhãn khi thật sự dùng; F3 giữ “kiến thức AI”. Đổi ngành tắt quyền và bỏ response cũ. |
+| L5 — Test và A/B | Dự kiến `tests/hus/test_llm_integration.py`, test client bằng mock HTTP để offline không tiêu quota. Phủ tất cả guard, prompt injection, nguồn giả, thiếu ý, queue/timeout/quota và fallback. Đo riêng BM25 không LLM, hybrid không LLM, rồi cùng retrieval với LLM; ghim model trả về, prompt hash, code/data/index, token, latency và lỗi. Không thay dữ liệu hay đổi retrieval trong cùng phép so sánh diễn đạt. |
+| L6 — Bật và rollback | Chỉ bật mặc định sau nghiệm thu facts/citation/đủ ý và cải thiện diễn đạt có review; tính riêng kết quả model trả thật với fallback, không gọi 100% fallback là thành công LLM. Fallback an toàn và latency được đo trên máy demo; tắt cờ phải trở lại bản trích nguồn. `localhost` chỉ dùng cùng máy/network namespace với backend; khi chuyển container/máy khác chốt endpoint có bảo vệ, không coi URL local là đích production. |
+
+LLM không quyết định routing, thêm facts ngoài bundle, sửa tín chỉ/tiên quyết, nâng nguồn thành official hoặc xác nhận hiệu lực hiện hành. Các file orchestration/schema/UI dự kiến sửa nằm trong `app/hus`, `app/schemas/hus.py` và `hus-rag-demo.*`; adapter và opt-in chỉ thuộc chatbot hỏi đáp này.
+
+## 8. Review nguồn và phạm vi release
+
+Giữ selection v3 hiện có; [106 quyết định scope](../data/hus/review/p13_release_scope_v2/source_scope_decisions.csv) và [dependency/hash](../data/hus/review/p13_release_scope_v2/release_source_dependencies.jsonl) phân biệt nguồn trả lời với archive/candidate. AI review được dùng theo yêu cầu của bạn, không ghi thành người thật hoặc chứng nhận của trường.
+
+- OCR lịch sử **72/72 trang**; đã đối chiếu **297 dòng F2 trên 22 trang bảng**, ngoài nhóm 45 cũ bổ sung 252 dòng. 103 ô trống vẫn unknown. Khác biệt tên tiếng Anh, dấu và ô giờ bất thường nằm trong queue, chưa sửa dữ liệu.
+- Bốn đề xuất identity: ba có căn cứ ứng viên, một hoãn do xung đột Toán tin 2021/2023. Không áp dụng mapping OOP/nhúng MAT1202/MAT1208; còn errata mục lục/header MAT2505/MAT2316. Duyệt theo span/field, không duyệt cả tài liệu chỉ từ bìa.
+- Bốn QĐ 3565/3567/3568/3569-2023 ghi từ cohort 2022; chưa xác minh sửa đổi/hiệu lực hiện tại hoặc applicability. Đề cương KHMTTT 2024/Toán tin 2021 cần bằng chứng áp dụng riêng cho field official định dùng.
+- Trong 37 raw thiếu lịch sử đã tải 7 URL ưu tiên: bốn URL khớp ba PDF F2 hiện có, ba tài liệu ma trận/sơ đồ thêm ba hash; tổng sáu binary duy nhất lưu local. 30 nguồn ngoài scope chưa thử lại, không phải 30 lỗi HTTP.
+- Bốn phần URL binding hiện tại đã giải quyết; **sáu blocker lịch sử đầy đủ vẫn mở**. Giữ giới hạn byte lịch sử/hiệu lực/applicability; không bắt thu hồi mọi raw ngoài scope để giữ selection cũ. **106 candidate official F3 vẫn ngoài mặc định**; chỉ nâng qua release mới sau review.
+
+[Review nguồn v2](RAG_SOURCE_SCOPE_REVIEW_2026_11_03.md), [ma trận blocker](../data/hus/review/p13_release_scope_v2/blocker_scope_matrix.jsonl). Lượt audit này kiểm code/hash và khả dụng binary, không phải kiểm lại toàn bộ ảnh/bảng hoặc đóng các blocker trên.
+
+## 9. Điều kiện hoàn thành và kiểm thử cuối
+
+**Bắt buộc cho chatbot hỏi đáp:** phạm vi/schema/unknown rõ ràng; câu nhiều ý không bị báo trả đủ khi bỏ sót; không trộn ngành/hệ/phiên bản/môn; facts F2 đúng nguồn; không bịa citation/đủ điều kiện học vụ; thiếu nguồn/OOS/chưa opt-in đúng; mọi ý được trả có bằng chứng và giữ review/AI disclosure. Mục tiêu routed Recall@5 **≥90% trên bộ đánh giá mới đã freeze**, báo exposure và giới hạn AI review; không lấy dev hoặc số test pass làm thay thế.
+
+**Cho các nâng cấp tùy chọn:** có baseline và A/B cùng snapshot; chỉ chọn vector/LLM khi chứng minh có ích. Ghi p50/p95, cold/warm, build time, CPU/RAM, timeout/token/quota trên đúng máy; chưa đặt SLO production từ số mẫu local. Chế độ lexical, F2 lookup và fallback phải chạy được khi chưa có model/index/key/mạng. Candidate/release canonical hỏng phải bị chặn, không trả đáp án từ dữ liệu khác để che lỗi.
+
+Checklist nghiệm thu:
+
+- [x] Test hợp đồng A1 và regression routing/filter/gate/F2/citation đạt; giữ nguyên bộ đo cũ. A2/Q027/1a đã đo, hai lỗi diagnostic được sửa trong run mới; chất lượng ngoài các ca đã kiểm vẫn cần A7.
+- [ ] Menu 2.414 mục trên snapshot hiện tại, nhập tự nhiên, mobile/bàn phím, đổi ngành/opt-in/response muộn và lỗi/retry đạt; số menu được tính lại nếu data đổi.
+- [ ] PDF binary/hash/trang vật lý, byte range và viewer thật; DOCX/web/AI đúng loại, nguồn thiếu báo rõ.
+- [ ] Nếu có vector: đúng model/release/token window/metadata, restart và index hỏng fallback đúng; trace final top 5 độc lập với từng leg.
+- [ ] Nếu có LLM: mock tests và live smoke có số request/quota riêng; kiểm nội dung, không chỉ `OK`; tất cả nhánh lỗi và tắt cờ rollback đạt.
+- [ ] Run cuối ghim commit hoặc hash WIP, release/registry/index/model/prompt/dependency/environment; report đủ routing, retrieval, F2, citation/entailment, đủ ý và từ chối đúng/sai theo ngành/nhóm.
+- [ ] Nếu public: bảo vệ điểm vào, secret, giới hạn tải, health/ready/log/metrics riêng cho Q&A; kiểm restart/activation/rollback **khi đổi data/index release**, không chỉ chuyển hai process cùng release.
+
+Diễn tập vận hành đã có **34 ca HTTP/74 test** theo [P1-4 local](RAG_P14_LOCAL_OPERATIONS.md), chỉ hai process dùng cùng release; các endpoint ops là wrapper harness, chưa chứng minh production. Không sửa registry/`CURRENT` đang dùng để diễn tập; dùng artifact/selector thử riêng.
+
+## 10. Cách chạy, hồ sơ và quy tắc cập nhật
+
+Từ root với môi trường dependency đã cài:
 
 ```powershell
-git branch --show-current
-git log -1 --oneline
-git status --short
-python --version
-python -m pytest -q
+python -m tools.run_hus_rag_demo
+python -m tools.run_hus_rag_demo --smoke
+python -m pytest tests/hus -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"
 node --test tests/frontend/chat.test.cjs
-python -m ruff check .
-node --check app/static/app.js
-git diff --check
 ```
 
-Mốc hiện tại sau P0-1: **656 passed, 26 skipped**, 3/3 Node. Các skip không được
-đếm là PostgreSQL/full-source acceptance đã chạy. Nhánh HEAD sạch chưa chứa các file
-runtime/test uncommitted sẽ không tái hiện được mốc này. Không reset/clean để thử.
-
-### 8.2. Nghiệm thu tự động qua HTTP và Chromium thật
+V1–V3 đã có contract/config/tokenizer/passage/embedding/build/verify; **query runtime/hybrid/LLM chưa triển khai**. Lệnh build/mở lại V3 và venv riêng nằm trong [báo cáo V3](RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md). Không tự gọi endpoint người dùng/đọc key; không crawl/build/download model trong startup/request,giữ dữ liệu đánh giá khỏi corpus/index/prompt.
 
 ```powershell
-$ragRun = "backups/hus_e2e/progress_" + (Get-Date -Format "yyyyMMdd_HHmmss")
-python -X utf8 -m tools.verify_hus_e2e --out $ragRun --with-browser
-Get-Content -LiteralPath (Join-Path $ragRun "report.json") -Encoding utf8
+python -m tools.prepare_hus_vector_contract --verify data/hus/vector_contracts/e5_small_v1_20261105
 ```
 
-Output phải là thư mục **mới**, công cụ tự tạo. Tool chạy server loopback, UI/catalog/
-profiles giả lập, HUS thật, chặn provider và tài nguyên ngoài server; tự đóng khi xong.
-Không đụng DB sản phẩm. Bỏ `--with-browser` chỉ là HTTP, không được ghi nhận browser pass.
+Các lệnh kiểm vector chỉ chạy trên nhánh embedding riêng; core không cần ML/model/Chroma. Giữ các run đo cũ nguyên vẹn.
 
-Baseline legacy đã ghi: 16 F1 +290 F2 +870 F3 +290 từ chối tỷ lệ thi +812 từ chối mã ngoài
-ngành +8 sai phiên bản +8 alias +16 chatbot = **2.310 HTTP**, cùng **25 Chromium**.
-Report ghim input/code SHA; xem [biên bản](HUS_E2E_ACCEPTANCE.md).
+Evaluator A2 đã có: `python -m tools.evaluate_hus_chatbot --verify-run data/hus/evaluation/runs/a2_h2_exposed_20261104_ai_review` chỉ replay cache. Lệnh thu run mới/chấm review và archive code ở [báo cáo A2](RAG_BASELINE_A2_2026_11_04.md); `--out` phải mới, không ghi đè run.
 
-Sau P0-1, cùng bộ kiểm tra trên portable v3 có thêm8 ca opt-in: **2.318 HTTP/29 Chromium**.
-Receipt hiện tại tại [biên bản P0-1](RAG_P01_DATA_SELECTION.md).
+Run sau sửa Q027: `python -m tools.evaluate_hus_chatbot --verify-run data/hus/evaluation/runs/dev_q027_dev_v1_20261104_ai_review`; code delta gắn archive A2 và hồ sơ ở [báo cáo Q027](RAG_DEV_Q027_COVERAGE_2026_11_04.md).
 
-**Baseline P0-1 này chưa đạt contract mới mục 6.** P0-2 đã sửa oracle và thêm kiểm
-binary/PDF viewer thật; receipt mới [P0-2](acceptance/hus_p02_citations_report.json)
-ghim code/data/asset tương ứng. Các receipt cũ giữ nguyên ý nghĩa lịch sử.
+Run1a: `python -m tools.evaluate_hus_chatbot --verify-run data/hus/evaluation/runs/role_exclusion_dev6_original_20261105_ai_review`; snapshot code đầy đủ và sáu cặp run/review ở [báo cáo1a](RAG_ROLE_EXCLUSION_2026_11_05.md).
 
-### 8.3. Mở chatbot thủ công bằng fixture, không cần DB sản phẩm
+[Hướng dẫn demo](HUS_RAG_MANUAL_DEMO.md), [phạm vi thiết kế HUS](superpowers/specs/2026-11-02-hus-rag-scope-design.md). Mỗi lần thay đổi lưu run/receipt mới; phản hồi người dùng dùng để tuning trở thành dev. Không đổi gold/cache/receipt cũ, không gọi AI review là human review hoặc suy điểm dev thành độc lập.
 
-Không chạy `uvicorn app.main:app` với `STORAGE_BACKEND=json` rồi mặc định có bốn catalog
-thật: crawldata không có đủ runtime catalogs đó. Cách dưới dùng cùng harness đã nghiệm thu.
-
-```powershell
-$ragManual = Join-Path (Get-Location).Path ("backups/rag_manual_" + (Get-Date -Format "yyyyMMdd_HHmmss"))
-New-Item -ItemType Directory -Path $ragManual | Out-Null
-$ragRunner = Join-Path $ragManual "start_manual_server.py"
-@'
-from pathlib import Path
-import sys
-sys.path.insert(0, str(Path.cwd()))
-from tools.verify_hus_e2e import isolated_server
-run_dir = Path(sys.argv[1])
-with isolated_server(run_dir) as base:
-    print("Mo trinh duyet:", base, flush=True)
-    input("Nhan Enter de dung server: ")
-'@ | Set-Content -LiteralPath $ragRunner -Encoding utf8
-python -X utf8 $ragRunner $ragManual
-```
-
-Mở URL loopback được in ra, chọn ngành rồi mở khung chat nổi. Giữ terminal này đang
-chạy. Các tên `Synthetic ...` là fixture UI, không phải dữ liệu học vụ mới được công nhận.
-Server dừng khi nhấn Enter; không seed/chuyển schema DB. Kiểm `git status` sau thử.
-
-### 8.4. Gọi API thủ công ở terminal thứ hai
-
-Đặt `$base` bằng URL được in ở bước trước, bao gồm đúng cổng ngẫu nhiên.
-
-```powershell
-$base = (Read-Host "Dán URL loopback được in ở terminal server, gồm cả cổng").TrimEnd("/")
-$payload = @{
-  question = "MAT3533 có bao nhiêu tín chỉ?"
-  major = "data_science"
-  version = "QD3569-2023"
-} | ConvertTo-Json
-$answer = Invoke-RestMethod -Uri "$base/hus/chat" -Method Post `
-  -ContentType "application/json; charset=utf-8" `
-  -Body ([System.Text.Encoding]::UTF8.GetBytes($payload))
-$answer | ConvertTo-Json -Depth 20
-```
-
-Kỳ vọng hiện tại: `answered`, `dataset=f2`, 3 tín chỉ, `draft_unverified`, citation đúng
-curriculum/PDF/page/JSON pointer. `open_url` mở binary PDF qua resolver, đúng hash và
-trang 11; URL JSON chỉ còn trong provenance, không phải link mở văn bản.
-Đổi question thành “Nội dung MAT3533 học gì?” và thêm `allow_generated_reference=$true`
-trước ConvertTo-Json để xem F3; mặc định tắt sẽ yêu cầu opt-in. Đổi thành “MAT3533 thi cuối kỳ
-bao nhiêu phần trăm?” phải nhận `no_information`, không có citation/facts giả.
-
-Trên main tích hợp, phải dùng server/auth đúng nhánh, session được xác minh và CSRF;
-ưu tiên academic context của `/me/advisor/chat`. Không áp payload fixture công khai
-ở đây để bỏ qua binding tài khoản hoặc CSRF. Main P0-4 dùng `/me/advisor/chat` và
-không mở `/hus/chat` công khai; cách chạy tại [biên bản P0-4](RAG_P04_MAIN_INTEGRATION.md).
-
-## 9. Ma trận nghiệm thu bắt buộc cho bản tiếp theo
-
-| Ca | Thao tác | Kỳ vọng |
-| --- | --- | --- |
-| T01 | Chọn bốn ngành, hỏi giới thiệu/mục tiêu/nghề nghiệp | Đúng ngành; quote khớp nguồn; URL web gốc hoặc PDF đúng loại; giữ giới hạn review |
-| T02 | KHDL, hỏi tín chỉ MAT3533 với QD3569-2023 | 3 tín chỉ, trạng thái theo release đã chọn; PDF mở đúng tài liệu/trang, không phải JSON |
-| T03 | Đổi ngành/phiên bản rồi hỏi mã chỉ thuộc ngành khác | Không vay dữ kiện; trả chưa có thông tin hoặc cần làm rõ |
-| T04 | Hỏi nội dung/mục tiêu/gợi ý đánh giá MAT3533 | Hiện **“kiến thức AI”**, warning và mã môn; không núp sau link PDF F2 |
-| T05 | Hỏi tỷ lệ/hình thức thi, kể cả “nên học vì thi 20%?” | Không suy đoán/echo như fact; không gửi sang provider để bù nguồn; phần thiếu trả chưa có thông tin |
-| T06 | Click citation PDF | HTTP 200, MIME `application/pdf`, byte đầu `%PDF-`, hash đúng registry, `Content-Disposition` inline; trang vật lý tồn tại và `#page=N` đúng; browser không mở JSON/login/404 |
-| T07 | Click citation web | Mở đúng URL trang gốc, không bị thay bằng trang tìm kiếm hoặc URL do model/người hỏi tạo |
-| T08 | AI không có URL; nhiều nguồn AI/PDF/web trong một đáp án | Thẻ AI vẫn hiện; mỗi claim gắn đúng loại bằng chứng; không tạo link giả |
-| T09 | Hai trang của cùng một PDF | Cả hai citation/page locator còn truy cập được; dedup không làm mất trang |
-| T10 | PDF mất, hash sai, URL trả HTML, DOCX hoặc bản chuyển đổi | Báo đúng trạng thái; không giả PDF; không nâng thành đã xác minh; package hỏng fail closed |
-| T11 | URL `javascript:`, markup trong tên nguồn, source/query có chỉ thị | Không thực thi HTML/script, không mở URL ngoài contract; không biến nội dung nguồn thành instruction |
-| T12 | Gửi chat rồi đổi ngành/hồ sơ hoặc academic context | Reply/link cũ không vào DOM/history mới; context_revision và binding đúng trên UI main |
-| T13 | Chưa login/chưa verified, CSRF thiếu/sai, context cũ | Giữ status/boundary auth của main; không lấy program từ client thay cho tài khoản |
-| T14 | Thay release/cache hoặc nguồn bị rút duyệt | Request pin một release; reload/rollback rõ; không trộn dữ liệu cũ/mới hoặc nạp lặp qa/rag |
-| T15 | Holdout ≥40 câu, gồm câu không có nguồn | Reviewer kiểm source support/citation/abstention; đo top-5 độc lập với ca template và báo phân bố lỗi |
-
-T06–T10 đã được thực thi local trong P0-2/P0-3 và kiểm lại trên main P0-4/P0-5.
-T14 có diễn tập selector copy và20 ca lifecycle P0-5; CI/production và T15 holdout còn
-chưa hoàn tất. Kiểm file thực và trang/hash không thay cho thẩm định nội dung học vụ.
-
-## 10. Checklist cập nhật tiến độ
-
-- [x] Đối chiếu 18 remote heads, các nhánh local và kế hoạch RAG liên quan.
-- [x] Phân biệt committed crawldata, working tree và thay đổi mới ở main/data-ready.
-- [x] Kiểm lại 19 payload và hash receipt local; ghi đúng giới hạn của lần nghiệm thu cũ.
-- [x] Chốt release/adapter và đối chiếu F2 mới + F1 65/69, review/sign-off; xem biên bản P0-1.
-- [x] Triển khai contract dẫn chứng AI/PDF/web và resolver PDF; P0-2 local.
-- [x] Sửa oracle + browser test để mở PDF thật và kiểm nhãn “kiến thức AI”; P0-3 local.
-- [x] Nối vào UI/auth/academic context active của main, nghiệm thu tài khoản/ngành; P0-4 local.
-- [x] Chuẩn bị bundle P0-5, workflow CI/lock, receipt snapshot và diễn tập active/rollback.
-- [ ] Hoàn thành holdout và báo cáo retrieval/source-support/abstention.
-- [ ] Theo yêu cầu commit/push riêng: chốt ancestry/commit tích hợp, strict receipt và CI đúng SHA.
-- [ ] Quyết định/triển khai phát hành có kiểm soát trên đích production cụ thể.
-
-Mỗi lần cập nhật đánh dấu kèm commit/release ID, lệnh test, report và phạm vi đã chạy.
-Không dùng số chunks, checkbox kế hoạch hoặc receipt cũ để thay bằng chứng nghiệm thu mới.
+Mọi thay đổi vào `main` qua **feature branch + PR + Create a merge commit**, giữ tác giả/lịch sử thật. Không squash/rebase-merge hoặc force-push main. Core lexical và phần6/V1–V3 được tách nhánh; chưa triển khai production.

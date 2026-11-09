@@ -1,0 +1,31 @@
+{
+  "development_authorization": "User selected priority2: grammar/scope-aware evidence gate and complete multi-chunk answers",
+  "human_reviews": 0,
+  "independent_holdout_eligible": false,
+  "parent_ids": [
+    "H2-Q001",
+    "H2-Q002",
+    "H2-Q003",
+    "H2-Q008",
+    "H2-Q009",
+    "H2-Q015",
+    "H2-Q016",
+    "H2-Q017",
+    "H2-Q022",
+    "H2-Q023",
+    "H2-Q029",
+    "H2-Q030",
+    "H2-Q031",
+    "H2-Q036",
+    "H2-Q037",
+    "H2-Q043",
+    "H2-Q044",
+    "H2-Q045",
+    "H2-Q050",
+    "H2-Q051"
+  ],
+  "parent_inputs_and_historical_results_unchanged": true,
+  "parent_pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "recorded_at": "2026-11-03T14:50:12.811489+00:00",
+  "reviewer_kind": "ai"
+}

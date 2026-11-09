@@ -1,0 +1,17 @@
+{"route": "config", "http_status": 200, "instance": "blue", "duration_ms": 328.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 250.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 234.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 250.0}
+{"route": "source", "http_status": 200, "instance": "blue", "duration_ms": 297.0}
+{"route": "source", "http_status": 206, "instance": "blue", "duration_ms": 250.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 234.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 219.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 250.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 281.0}
+{"route": "source", "http_status": 200, "instance": "blue", "duration_ms": 360.0}
+{"route": "source", "http_status": 200, "instance": "blue", "duration_ms": 328.0}
+{"route": "chat", "http_status": 422, "instance": "blue", "duration_ms": 250.0}
+{"route": "source", "http_status": 404, "instance": "blue", "duration_ms": 250.0}
+{"route": "chat", "http_status": 200, "instance": "green", "duration_ms": 296.0}
+{"route": "chat", "http_status": 503, "instance": "green", "duration_ms": 2343.0}
+{"route": "chat", "http_status": 200, "instance": "blue", "duration_ms": 234.0}

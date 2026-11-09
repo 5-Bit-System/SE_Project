@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "holdout_eligible": false,
+  "actual_human_reviews": 0,
+  "split": "exposed_development",
+  "release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  },
+  "parents": {
+    "data/hus/evaluation/diagnostic_dev_v6_career_context": "e2f5fef15af048c1e60b9baa00fd385bca380eab1bb6dca6a54c1e0e958dd56c"
+  },
+  "runtime_before_sha256": {
+    "app/hus/question_routing.py": "98a0cca07e0a3420396c00213c0762eadc4584010e55a21ae15da225b7ccdadf",
+    "app/hus/answer_support.py": "a9a9a07d8fbf7cfb09e9da7612abc830a48d41378d7ae08a6d986639fc3400fe"
+  },
+  "files_sha256": {
+    "evidence.jsonl": "d3489712d3d5080b563c17cfbba00789e01fce64a4785746fd5371a595d323f6",
+    "gold.jsonl": "aed4301a7fdae02d55b118fb76bad8639f503aea92d029a41b20ddf47fa30346",
+    "questions.jsonl": "13261079386ad19131cdee8a02ff9d7431e52bc72c593c29714b033d5fb35483",
+    "README.md": "2c57eb8692ac8c504a10a209cc1746cb5490f6cfc93fd631fb7464de4815fcc5"
+  }
+}

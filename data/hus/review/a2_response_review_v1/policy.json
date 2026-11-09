@@ -1,0 +1,23 @@
+{
+  "reviewer_kind": "ai",
+  "actual_human_reviews": 0,
+  "method": "AI read measured questions, response packets, source audits and gold; inspected alternative sources, full exception responses and multi-part goals/careers. Explicit case decisions serialized after reading.",
+  "positive_cases": 126,
+  "control_cases": 54,
+  "independent_holdout_accepted": false,
+  "incomplete_cases": [
+    "dev96:DEV-Q027"
+  ],
+  "review_does_not_change": [
+    "runtime",
+    "source approval",
+    "gold",
+    "historical scores"
+  ],
+  "limits": [
+    "AI reviewer is not an independent human expert.",
+    "Exposed cases overlap prior tuning; H2 has25runtime-tuned cases.",
+    "Entailment means support by pinned source, not factual/current institutional validity.",
+    "DEV-Q004 alternative remains limited to explicitly labeled talent2015 population."
+  ]
+}

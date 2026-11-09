@@ -1,0 +1,510 @@
+{
+  "observation": {
+    "academic_verified": false,
+    "blank_verified": false,
+    "boxes": [
+      {
+        "bbox_pixels": [
+          [
+            251.0,
+            133.0
+          ],
+          [
+            1093.0,
+            133.0
+          ],
+          [
+            1093.0,
+            171.0
+          ],
+          [
+            251.0,
+            171.0
+          ]
+        ],
+        "confidence": 0.6709673733600562,
+        "text": "Điều 2. Chương trình đào tạo chuẩn trình độ đại học ngành Toán học ban hành"
+      },
+      {
+        "bbox_pixels": [
+          [
+            179.0,
+            171.0
+          ],
+          [
+            1093.0,
+            171.0
+          ],
+          [
+            1093.0,
+            211.0
+          ],
+          [
+            179.0,
+            211.0
+          ]
+        ],
+        "confidence": 0.8856815538902966,
+        "text": "kèm theo Quyết định này được áp dụng cho sinh viên từ khóa tuyển sinh năm 2022 của"
+      },
+      {
+        "bbox_pixels": [
+          [
+            179.0,
+            213.0
+          ],
+          [
+            657.0,
+            213.0
+          ],
+          [
+            657.0,
+            249.0
+          ],
+          [
+            179.0,
+            249.0
+          ]
+        ],
+        "confidence": 0.7170191110994585,
+        "text": "Trường Đại học Khoa học Tự nhiên, Đại học"
+      },
+      {
+        "bbox_pixels": [
+          [
+            715.0,
+            213.0
+          ],
+          [
+            845.0,
+            213.0
+          ],
+          [
+            845.0,
+            249.0
+          ],
+          [
+            715.0,
+            249.0
+          ]
+        ],
+        "confidence": 0.9885760819896637,
+        "text": "gia Hà Nội."
+      },
+      {
+        "bbox_pixels": [
+          [
+            251.0,
+            249.0
+          ],
+          [
+            801.0,
+            249.0
+          ],
+          [
+            801.0,
+            290.0
+          ],
+          [
+            251.0,
+            290.0
+          ]
+        ],
+        "confidence": 0.7052986682277708,
+        "text": "Điều 3. Trưởng Phòng Đào tạo; Trưởng Khoa Toán"
+      },
+      {
+        "bbox_pixels": [
+          [
+            818.0,
+            254.0
+          ],
+          [
+            856.0,
+            254.0
+          ],
+          [
+            856.0,
+            280.0
+          ],
+          [
+            818.0,
+            280.0
+          ]
+        ],
+        "confidence": 0.986068211628072,
+        "text": "Cơ"
+      },
+      {
+        "bbox_pixels": [
+          [
+            869.0,
+            248.0
+          ],
+          [
+            1093.0,
+            248.0
+          ],
+          [
+            1093.0,
+            288.0
+          ],
+          [
+            869.0,
+            288.0
+          ]
+        ],
+        "confidence": 0.8826659906459171,
+        "text": "Tin học, Trưởng các"
+      },
+      {
+        "bbox_pixels": [
+          [
+            181.0,
+            289.0
+          ],
+          [
+            901.0,
+            289.0
+          ],
+          [
+            901.0,
+            327.0
+          ],
+          [
+            181.0,
+            327.0
+          ]
+        ],
+        "confidence": 0.6079302141476653,
+        "text": "đơn vị có liên quan chịu trách nhiệm thi hành Quyết định này J . Jul"
+      },
+      {
+        "bbox_pixels": [
+          [
+            765.0,
+            339.0
+          ],
+          [
+            963.0,
+            339.0
+          ],
+          [
+            963.0,
+            375.0
+          ],
+          [
+            765.0,
+            375.0
+          ]
+        ],
+        "confidence": 0.9792378770000986,
+        "text": "HỆU TRƯỞNG"
+      },
+      {
+        "bbox_pixels": [
+          [
+            202.0,
+            382.0
+          ],
+          [
+            302.0,
+            382.0
+          ],
+          [
+            302.0,
+            410.0
+          ],
+          [
+            202.0,
+            410.0
+          ]
+        ],
+        "confidence": 0.9831276945618584,
+        "text": "Nơi nhận:"
+      },
+      {
+        "bbox_pixels": [
+          [
+            736.0,
+            408.0
+          ],
+          [
+            830.0,
+            408.0
+          ],
+          [
+            830.0,
+            434.0
+          ],
+          [
+            736.0,
+            434.0
+          ]
+        ],
+        "confidence": 0.642958496205749,
+        "text": "TAƯỜNG"
+      },
+      {
+        "bbox_pixels": [
+          [
+            216.0,
+            420.0
+          ],
+          [
+            330.0,
+            420.0
+          ],
+          [
+            330.0,
+            448.0
+          ],
+          [
+            216.0,
+            448.0
+          ]
+        ],
+        "confidence": 0.9560097404123651,
+        "text": "Như Điều 3;"
+      },
+      {
+        "bbox_pixels": [
+          [
+            212.0,
+            444.0
+          ],
+          [
+            437.0,
+            444.0
+          ],
+          [
+            437.0,
+            475.0
+          ],
+          [
+            212.0,
+            475.0
+          ]
+        ],
+        "confidence": 0.9952467516513911,
+        "text": "ĐHQGHN (để báo cáo);"
+      },
+      {
+        "bbox_pixels": [
+          [
+            736.0,
+            436.0
+          ],
+          [
+            830.0,
+            436.0
+          ],
+          [
+            830.0,
+            462.0
+          ],
+          [
+            736.0,
+            462.0
+          ]
+        ],
+        "confidence": 0.4191580259546705,
+        "text": "BẠl Hoc"
+      },
+      {
+        "bbox_pixels": [
+          [
+            726.0,
+            460.0
+          ],
+          [
+            842.0,
+            460.0
+          ],
+          [
+            842.0,
+            486.0
+          ],
+          [
+            726.0,
+            486.0
+          ]
+        ],
+        "confidence": 0.9637137369947766,
+        "text": "KHOA HỌC"
+      },
+      {
+        "bbox_pixels": [
+          [
+            214.0,
+            472.0
+          ],
+          [
+            424.0,
+            472.0
+          ],
+          [
+            424.0,
+            500.0
+          ],
+          [
+            214.0,
+            500.0
+          ]
+        ],
+        "confidence": 0.775274277702829,
+        "text": "Lưu: VT, ĐT, HĐHO6."
+      },
+      {
+        "bbox_pixels": [
+          [
+            732.0,
+            486.0
+          ],
+          [
+            836.0,
+            486.0
+          ],
+          [
+            836.0,
+            510.0
+          ],
+          [
+            732.0,
+            510.0
+          ]
+        ],
+        "confidence": 0.547243087269559,
+        "text": "TỤ NHIEN"
+      },
+      {
+        "bbox_pixels": [
+          [
+            712.0,
+            538.0
+          ],
+          [
+            876.0,
+            538.0
+          ],
+          [
+            876.0,
+            568.0
+          ],
+          [
+            712.0,
+            568.0
+          ]
+        ],
+        "confidence": 0.47721406964764396,
+        "text": "GS-TSKH Vũ"
+      },
+      {
+        "bbox_pixels": [
+          [
+            956.0,
+            538.0
+          ],
+          [
+            1016.0,
+            538.0
+          ],
+          [
+            1016.0,
+            566.0
+          ],
+          [
+            956.0,
+            566.0
+          ]
+        ],
+        "confidence": 0.9987179040908813,
+        "text": "Linh"
+      },
+      {
+        "bbox_pixels": [
+          [
+            651.5144372945836,
+            212.28609323645895
+          ],
+          [
+            717.3282011773514,
+            206.7811992150991
+          ],
+          [
+            719.4855627054164,
+            244.71390676354105
+          ],
+          [
+            653.6717988226486,
+            249.2188007849009
+          ]
+        ],
+        "confidence": 0.9932070374488831,
+        "text": "Quốc"
+      },
+      {
+        "bbox_pixels": [
+          [
+            754.6546544120074,
+            370.5201198532081
+          ],
+          [
+            792.7332449137483,
+            367.0020711102661
+          ],
+          [
+            793.3453455879926,
+            384.4798801467919
+          ],
+          [
+            756.2667550862517,
+            387.9979288897339
+          ]
+        ],
+        "confidence": 0.40487738193311174,
+        "text": "L) €"
+      },
+      {
+        "bbox_pixels": [
+          [
+            877.1535010280254,
+            534.1219034952862
+          ],
+          [
+            960.9302330295156,
+            544.3567781154721
+          ],
+          [
+            955.8464989719746,
+            573.8780965047138
+          ],
+          [
+            873.0697669704844,
+            563.6432218845279
+          ]
+        ],
+        "confidence": 0.9998200700386212,
+        "text": "Hoàng"
+      }
+    ],
+    "default_retrieval_enabled": false,
+    "image_path": "backups/hus_source_review/p13/ocr_images_v1/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0-p0002.png",
+    "image_sha256": "7cfdcb00a37ee196b9a9f6d685ab8b18c4d0158c31a172fde4472aa54547ad3e",
+    "image_size_pixels": [
+      1192,
+      1685
+    ],
+    "low_confidence_boxes": 10,
+    "ocr_executed": true,
+    "original_text_layer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pdf_page": 2,
+    "review_status": "machine_ocr_pending_visual_and_academic_review",
+    "source_sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+    "table_structure_verified": false,
+    "text": "Điều 2. Chương trình đào tạo chuẩn trình độ đại học ngành Toán học ban hành\nkèm theo Quyết định này được áp dụng cho sinh viên từ khóa tuyển sinh năm 2022 của\nTrường Đại học Khoa học Tự nhiên, Đại học\ngia Hà Nội.\nĐiều 3. Trưởng Phòng Đào tạo; Trưởng Khoa Toán\nCơ\nTin học, Trưởng các\nđơn vị có liên quan chịu trách nhiệm thi hành Quyết định này J . Jul\nHỆU TRƯỞNG\nNơi nhận:\nTAƯỜNG\nNhư Điều 3;\nĐHQGHN (để báo cáo);\nBẠl Hoc\nKHOA HỌC\nLưu: VT, ĐT, HĐHO6.\nTỤ NHIEN\nGS-TSKH Vũ\nLinh\nQuốc\nL) €\nHoàng",
+    "text_sha256": "af39e3f2fdfebaf62f366f435f684e0378d8c38b95b561519f477da804bb5dc1"
+  },
+  "observation_sha256": "a9aae60547a45241c3fedf292d3e793224fdb137961148acbd684684fa33ee3a",
+  "run_identity_sha256": "2b28f83da57fbf1733f1f973d1acfc3cafe71c87cc00e16f9281dcb6f4bdcf96"
+}

@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "dc9d1019601999a4debcadf45ecf46b5fb2e0520ccfec542d4793072aff9e3f9",
+    "layered_metrics.json": "43be92eda032936d62d3455fcccab4f905bee7d0a1f1b1d222da0048586139ea",
+    "predictions.jsonl": "b890b26be07502717eb73f07ada4255a6454db4fded6e59a0fe6d942ba71d332",
+    "report.json": "3c149f8f8dede64254e91947de606cf0d2451618499d66a912346414a926a35c",
+    "scored_cases.jsonl": "5df2de5e25d2625a4484c2bcb87378d390645b38b6a38d69ad151bfbb11bec3a"
+  },
+  "pack_manifest_sha256": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+  "schema_version": "1.0"
+}

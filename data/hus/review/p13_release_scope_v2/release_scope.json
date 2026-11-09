@@ -1,0 +1,114 @@
+{
+  "CURRENT_changed": false,
+  "allowlist": {
+    "F1_descriptive_chunks": 65,
+    "F1_duplicate_provenance_only_source_ids": [
+      "8afffd3cada3d048"
+    ],
+    "F1_primary_chunk_source_count": 14,
+    "F1_source_ids": [
+      "055c47bf412172c0",
+      "0dd9aaaeefcbd7d7",
+      "1b525683101bf943",
+      "1c16ddf8a6f1f409",
+      "1e3ad5f9915aa051",
+      "23a0c1df14a5708a",
+      "31b55b4ee6f451a6",
+      "89d4b39494d72217",
+      "8afffd3cada3d048",
+      "ce8df97fe49665e9",
+      "d006f60211246633",
+      "d4fae066858f0b94",
+      "d6370261338de29f",
+      "f7f470e712738589",
+      "f8672cafba05d016"
+    ],
+    "F2_pdf_sha256": [
+      "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+      "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    ],
+    "F2_program_ids": [
+      "khdl_7460108_2022",
+      "khmtt_7480113qtd_2022",
+      "toan_hoc_7460101_2022",
+      "toan_tin_7460117_2022"
+    ],
+    "F2_source_occurrences": 297,
+    "F2_structured_records": 290,
+    "F3_generated_chunks": 870,
+    "F3_generated_records": 290,
+    "F3_requires_opt_in": true
+  },
+  "canonical_cohort_declarations": {
+    "current_validity_verified": false,
+    "declared_from_admissions_cohort": 2022,
+    "evidence": "cohort_declarations.jsonl",
+    "four_programs_directly_observed": true
+  },
+  "current_capture_followup": {
+    "current_URL_binding_facets_resolved": 4,
+    "current_URLs_recovered": 7,
+    "full_historical_blockers_closed": 0,
+    "historical_byte_equality_verified": false,
+    "historical_missing_originals": 37,
+    "new_sources_added_to_runtime": 0,
+    "new_unique_binary_hashes": 3,
+    "not_retried_remaining": 30,
+    "unique_capture_binaries": 6
+  },
+  "decided_at": "2026-11-03T15:46:56.296478+07:00",
+  "decision_basis": "User requested explicit release source scope while keeping unapproved official F3 out of default answers",
+  "excluded": {
+    "default_official_F3_chunks": 0,
+    "missing_original_URLs_not_required_for_retaining_existing_scope": 37,
+    "new_admissions_or_postgraduate_or_seminar_answers": false,
+    "other_historical_documents_not_selected_as_F1": 91,
+    "unapproved_official_syllabus_candidates": 106,
+    "unapproved_official_syllabus_documents": [
+      "098df9e79c1391af",
+      "bc0a1f59b7ab202c"
+    ]
+  },
+  "gate_interpretation": {
+    "current_RAG_quality_target_passed": false,
+    "future_official_F3_requires_explicit_source_identity_edition_and_applicability_approval": true,
+    "future_verified_F2_or_current_policy_claims_require_additional_source_review": true,
+    "historical_six_blockers_remain_open": true,
+    "missing37_is_not37_global_release_blockers": true,
+    "publication_or_deployment_authorized_here": false,
+    "scope_decision_is_source_or_academic_approval": false,
+    "source_bytes_used_by_F2_are_not_ignored_when_a_related_URL_is_missing": true
+  },
+  "human_review_claimed": false,
+  "input_sha256": {
+    "backups/p13_release_scope_v2/build_scope.py": "39d4c849b236d66f6dbf23e4c1e109805465329ffd6c0890c77f24d263778e7f",
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/rag/f1/f1_units.jsonl": "f6099f5bc1ac29fccd3580d4194d5ea72c6ac91d175ff9894ebd2cb9428454a8",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf",
+    "data/hus/rag/releases/hus-data-20261031-v3/input_manifest.json": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+    "data/hus/rag/releases/hus-data-20261031-v3/programs.jsonl": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+    "data/hus/review/p13_release_scope_v2/binding_review.jsonl": "8da382086e4f4a380ea091c9d15adbc7e4589db2d010a029b090d445ad159f89",
+    "data/hus/review/p13_release_scope_v2/cohort_declarations.jsonl": "8a46cb40cf6d32bc96dc10f9fe8ad845a3b865e4a44d8158b0b8c03bcfd0d659",
+    "data/hus/review/p13_release_scope_v2/missing_raw_review.jsonl": "fe0078a709607a44f0767d7b3a7cfa62f164e66f6a797e3077f7cd3f9e95f028",
+    "data/hus/review/p13_scope_followup_20261103/blocker_decisions.jsonl": "48203d1fedc3d16024558a4db8fa36ab3706225b8ef38bdc65c7527fdce17c77",
+    "data/hus/review/p13_scope_followup_20261103/source_scope_inventory.jsonl": "0988f9e455cac4e46aa736bb63a89f80a69b99db7852b7e9d988a1d2955227ce"
+  },
+  "reviewer_kind": "ai",
+  "runtime_changed": false,
+  "schema_version": "1.0",
+  "scope_id": "retain-selected-v3-F123-with-existing-claims",
+  "selected_release": "data/hus/rag/releases/hus-data-20261031-v3",
+  "selected_release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "selection": "retain_current_selection_without_source_expansion",
+  "source_dependency_count": 21,
+  "source_review_states_changed": false
+}

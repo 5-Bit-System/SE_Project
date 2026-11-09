@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "candidate_manifest_sha256": "8cb1a1876c47ca821e6caf866074f555c11bc5e3eed7e58ce15ea5727cbd3a94",
+  "files_sha256": {
+    "alternative_evidence_candidates.jsonl": "1f520e56b30d38e898a1d67ff5eb206cec0224d735f29feb54ea0316752dfa00",
+    "evidence_catalog.jsonl": "c489d19f2ef97c5eebe0ac5a558c24cb0dfafeb6617840c19da4bae1eb90aff3",
+    "README.md": "acab6b915cfd711b920fee6b6a6edf0888b459d9040f095acc50e7efb0bcd1be",
+    "review_template.jsonl": "3b39f080c077c098d53f49adf299d5e9d7683b7280df11d56c8208d50d6b9bae",
+    "review_worksheet.csv": "190f472a47c4eb567680870f48015a8079e70a7349008f26a0ae37bf971f4629",
+    "runtime_snapshot.json": "2236abf5b39c7dbab1903f62b6bcfb7b3f22c84863e27278bb7de3ecabb4308d",
+    "overlap_v1/manifest.json": "8ee22340003c43a45e44e2c6c9ba52fa911da041949377bff7159d7744c80a05",
+    "overlap_v1/neighbors.jsonl": "5512965b51f47593efdc0026b423b6a4054291359862adcc7212cc74ee194717",
+    "overlap_v1/report.json": "4d0539e55b374e024331edaa3b525c2d6f8ed9272793989a71d8277767f5508c",
+    "overlap_v2/manifest.json": "3020bdd05e1f11b65fcdf72133db25a3ccdda94fa392aaec222e9bda685903ec",
+    "overlap_v2/neighbors.jsonl": "fe160d56b7f525d73e02dedbd704782750742f172530c2012a967b52a1434472",
+    "overlap_v2/report.json": "2bd73e54984f7001257b49bb861125f687a8b82b24e52dcc6249c8d56a15b65a"
+  },
+  "human_accepted_reviews": 0,
+  "holdout_approved": false,
+  "pending_reviewer": "user volunteered; no real name/signature or per-question decision supplied"
+}

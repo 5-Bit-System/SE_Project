@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "split": "exposed_development",
+  "holdout_eligible": false,
+  "actual_human_reviews": 0,
+  "source_question_id": "DEV-Q027",
+  "release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  },
+  "parents": {
+    "data/hus/evaluation/diagnostic_dev_v1": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72"
+  },
+  "runtime_before_sha256": "f951b6e774f59288acb11e48fbd90804215eb96e4c61abfa50851a8fbbc54e96",
+  "files_sha256": {
+    "evidence.jsonl": "d3489712d3d5080b563c17cfbba00789e01fce64a4785746fd5371a595d323f6",
+    "gold.jsonl": "3232a3f02f4f1d2e75105e9b066d348b35d1ca391b7d8543e4aeb31ed4584e39",
+    "questions.jsonl": "383f7ac60f306132d9f0b59587fef5db8686d90fc989574eba9aa7e4971a9123",
+    "README.md": "6da173ce21e4bae2d043ae925323c7abfcd4292058db0fcd99756bdd64fefb23"
+  }
+}

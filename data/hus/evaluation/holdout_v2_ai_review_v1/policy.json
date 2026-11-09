@@ -1,0 +1,19 @@
+{
+  "actual_human_reviews": 0,
+  "allowed_use": "AI review satisfies the evaluation-preparation review prerequisite for this round",
+  "authorization": "Explicit user instruction in this conversation",
+  "human_acceptance_claimed": false,
+  "human_review_required": false,
+  "independent_holdout_accepted": false,
+  "independent_holdout_claim": false,
+  "limits": [
+    "Waiving the human signature does not establish semantic independence or current source validity.",
+    "Existing human-review forms and validator remain historical, unchanged and unfilled.",
+    "Frozen original candidate, old baseline, runtime, source reviews and AI opt-in remain unchanged.",
+    "Production publication, deployment and official F3 activation are separate decisions."
+  ],
+  "recorded_at": "2026-11-03T15:28:08.135595+07:00",
+  "reviewer_kind": "ai",
+  "schema_version": "1.0",
+  "user_instruction": "thế thì bỏ qua người thật review chỉ cần AI review là được"
+}

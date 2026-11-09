@@ -1,0 +1,29 @@
+{
+  "checked_on": "2026-11-03",
+  "method": "bounded_official_domain_web_search",
+  "exhaustive": false,
+  "queries": [
+    "site:hus.vnu.edu.vn \"3568\" \"2023\" \"Máy tính\"",
+    "site:hus.vnu.edu.vn \"3567\" \"2023\" \"Toán\"",
+    "site:mim.hus.vnu.edu.vn \"2385\" \"2024\"",
+    "site:hus.vnu.edu.vn \"chương trình đào tạo\" \"Toán tin\" \"2026\""
+  ],
+  "selected_leads": [
+    {
+      "url": "https://hus.vnu.edu.vn/thong-bao/dao-tao-tuyen-sinh/thong-bao-xet-tuyen-sinh-vien-vao-cac-chuong-trinh-dao-tao-dac-biet-nam-2026-ap-dung-cho-doi-tuong-sinh-vien-da-trung-tuyen-vao-truong-145802",
+      "page_date": "2026-08-14",
+      "meaning": "2026 special-program admissions includes integrated talented bachelor/master STEM Data Science; separate program/year, not evidence for cohort2022/QD3569 or QD3567/3568 applicability"
+    },
+    {
+      "url": "https://hus.vnu.edu.vn/mot-vong-quanh-hus/dien-dan-thay-va-tro/truong-dai-hoc-khoa-hoc-tu-nhien-gap-mat-tan-145879",
+      "page_date": "2026-09-19",
+      "event_date": "2026-09-18",
+      "meaning": "QH2026 cohort event; cannot certify historical2021/2023 syllabus applicability or absence of amendments"
+    }
+  ],
+  "new_originals_recovered": 0,
+  "current_validity_confirmed": 0,
+  "original_URLs_retried_this_pass": 0,
+  "prior_timeout_records": "data/hus/review/p13_source_retry_v1/attempts.jsonl",
+  "limits": "No complete authoritative amendment chain was established. Search absence or old fetch timeout is not proof of404, withdrawal or invalidity."
+}

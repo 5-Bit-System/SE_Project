@@ -1,0 +1,153 @@
+{
+  "CURRENT_changed": false,
+  "F2_review_unchanged": {
+    "draft_unverified": 223,
+    "verified": 67
+  },
+  "OCR": {
+    "P1_3_accepted": false,
+    "academic_verification_added": 0,
+    "boxes": 7136,
+    "images": 72,
+    "low_confidence_boxes": 1788,
+    "ocr_pages": 72,
+    "official_F3_enabled": false,
+    "pages_with_text": 72,
+    "queue_pages": 72,
+    "runtime_changed": false,
+    "source_inputs_unchanged": 78,
+    "status": "machine_ocr_complete_visual_and_academic_review_pending",
+    "table_structure_verified": false
+  },
+  "P1_3_accepted": false,
+  "academic_reviews_added": 0,
+  "committed": false,
+  "current_validity_confirmed": 0,
+  "diff_check": "pass",
+  "followup": {
+    "OCR_pages": 72,
+    "P1_3_accepted": false,
+    "code_token_diagnostic_is_not_row_accuracy": true,
+    "code_token_missing_from_OCR_page": 45,
+    "code_token_seen_on_page": 252,
+    "current_validity_confirmed": 0,
+    "distinct_visual_pages_inspected": 15,
+    "existing_recovered_documents_ocr_executed": 2,
+    "expected_code_page_occurrences_diagnosed": 297,
+    "historical_ocr_blockers": 6,
+    "historical_ocr_blockers_closed": 0,
+    "human_reviewer": null,
+    "identity_headers_visually_inspected": 5,
+    "missing_originals_remaining": 37,
+    "missing_source_proposed_categories": {
+      "admissions_separate_year_and_scope": 5,
+      "curriculum_outcome_matrix_or_map": 3,
+      "postgraduate_archive_outside_current_undergraduate_scope": 24,
+      "seminar_outside_F123": 1,
+      "undergraduate_scan_possible_alias": 4
+    },
+    "new_academic_reviews": 0,
+    "new_field_quotes_for_review": 50,
+    "new_originals_recovered": 0,
+    "official_F3_enabled": false,
+    "printed_duplicate_conflict_retained": 1,
+    "proposed_identity_links_not_applied": 4,
+    "runtime_modified": false,
+    "source_placeholder_pages_visually_inspected": 3,
+    "source_retry_attempts": 6,
+    "sparse_pages_visually_inspected": 6,
+    "sparse_pages_with_body_content": 1
+  },
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "git_state": "uncommitted_worktree",
+  "implementation_and_document_sha256": {
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "docs/RAG_P13_SOURCE_REVIEW.md": "551d74a0e73b6cae44faedaa3cc1c6a644b04a28eed7bf77b075fbf5ab7cabb7",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "b4c89617082656ad2c88cbdd113d532a5e31356be485761ede95de762d15d725",
+    "docs/superpowers/plans/2026-11-02-hus-rag-p13-source-review.md": "09c1e9a749df953f46fb361a1e26fc86e75df2c4d0aee6bcb2c3ed1b6d1f7a12",
+    "tests/hus/test_ocr_review.py": "da5ccd5824baca098cd1468bae0ac070b3e4b9efa3f5e62972ad0e30639be899",
+    "tests/hus/test_syllabus_supplement.py": "9ce3c13e0ab501842655648569fff17edb2528aa41bcd67ba06659dc21bfd6c6",
+    "tools/audit_hus_source_review.py": "d385be2a03b75cba5d9156ee0acb0d02d95c4c3a7a08c8062c1dac2a79493765",
+    "tools/ocr_hus_review.py": "5ead9a0aa6bf68264444001c833331252cf3de089d1ec8203f26f813a98652e5",
+    "tools/prepare_hus_syllabus_supplement.py": "f0423df269a7fa7f9f4c399a3ddfc6d9850c51dc01154bb5265b8b094f8197b5"
+  },
+  "models": [
+    {
+      "bytes": 83152330,
+      "filename": "craft_mlt_25k.pth",
+      "sha256": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17",
+      "upstream_md5": "2f8227d2def4037cdb3b34389dcf9ec1",
+      "url": "https://github.com/JaidedAI/EasyOCR/releases/download/pre-v1.1.6/craft_mlt_25k.zip"
+    },
+    {
+      "bytes": 15406141,
+      "filename": "latin_g2.pth",
+      "sha256": "aaa95be1c4a9cb3496879bed7c520886ce1164f89e026f0c54488394e74e8c55",
+      "upstream_md5": "469869130aad1a34e8f9086f4262bc59",
+      "url": "https://github.com/JaidedAI/EasyOCR/releases/download/v1.3/latin_g2.zip"
+    }
+  ],
+  "new_RAG_or_holdout_questions": 0,
+  "new_remote_CI": false,
+  "official_F3_enabled": false,
+  "oneoff_helper_path_error": {
+    "existing_files_written": 0,
+    "external_empty_directories_created": 7,
+    "preexisting_user_data_directory_preserved": true,
+    "root_guard_added": true,
+    "verified_new_empty_directories_removed": 7
+  },
+  "packs": {
+    "data/hus/review/p13_followup_v1": "72467129a732db05bf00932153ef4a51171d717edf75bdb1cd8deefc7a53f678",
+    "data/hus/review/p13_ocr_v1": "84e5e3cecc368ff938a027b0628863e6b76d70757d8beb54c481cdeee66e0188",
+    "data/hus/review/p13_source_audit_v1": "15efb1d3bf800da227356963ea5b465005b31925ff4ba74ebffdf2b2e0bbfe7c",
+    "data/hus/review/p13_source_retry_v1": "90b6b9ed791c67430e5f6fce9314e46344f7e75704707c5fde83015a95b7e344",
+    "data/hus/review/p13_syllabus_supplement_v1": "e011f685f27b6824b7d7f569de164da2c78af719c71a25836ccb80385b3117eb"
+  },
+  "pinned_input_files_unchanged": 78,
+  "product_database_modified": false,
+  "production_activated": false,
+  "pushed": false,
+  "receipt_script_sha256": "5dcd154625b0651bf04dcf45007c74a673bc8880ce1f4f1caffcd27ae9ce0994",
+  "recorded_on": "2026-11-02",
+  "resume_checked": true,
+  "resume_repeated_OCR_inference": false,
+  "ruff": "pass",
+  "runtime_code_files_unchanged": 6,
+  "schema_version": "1.0",
+  "source_runtime_git_status_clean": true,
+  "status": "technical_OCR_and_quote_supplement_complete_human_validity_and_table_review_pending",
+  "syllabus_supplement": {
+    "PDFium_quote_match": 50,
+    "academic_reviews_added": 0,
+    "combined_candidate_field_coverage": {
+      "assessment": 106,
+      "content": 106,
+      "objectives": 105
+    },
+    "existing_candidates": 106,
+    "fields_added_for_review": {
+      "assessment": 46,
+      "content": 1,
+      "objectives": 3
+    },
+    "new_field_quotes": 50,
+    "official_F3_enabled": false,
+    "original_fields_found": {
+      "assessment": 60,
+      "content": 105,
+      "objectives": 102
+    },
+    "runtime_modified": false,
+    "source_headers": 109,
+    "unassigned_headers": 3,
+    "unresolved_field_slots": 1
+  },
+  "tested_commit": null,
+  "tests": {
+    "failed": 0,
+    "junit_sha256": "12d4d17074e5fc2d7e13491701c7da0dc361a2b76c6cd546a893299516a422db",
+    "passed": 102,
+    "skipped": 0
+  }
+}

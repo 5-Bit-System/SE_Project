@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "recorded_on": "2026-11-02",
+  "status": "provisional_measurement_complete_target_not_met_human_acceptance_pending",
+  "run_path": "data/hus/evaluation/runs/p12_baseline_v1",
+  "run_manifest_sha256": "2bbe4e8eab32455228ad28df6d350890968f53140010124d4c8bd4515b9485fe",
+  "original_measurement_code_sha256": {
+    "tests/hus/test_rag_evaluation.py": "7392b7db2b6d4edb36d3d5a0b865c07a927f64265d9eeaecc5f5a8903449ed5b",
+    "tools/evaluate_hus_rag.py": "629e779aa0e26dae42d820d0b4eddfe517fa51ded7a8f94aefb3e18a30ff5657",
+    "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+    "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+    "tools/verify_hus_e2e.py": "18d561601bec38bf588b85991f0871c92dd64af8091651bd2b665aa4703f38c9"
+  },
+  "final_tool_and_document_sha256": {
+    "tools/evaluate_hus_rag.py": "73647fce00dc53f712de4b43a7af56a008dc2ac309154a27e6d5f005a79ea5c9",
+    "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+    "tests/hus/test_rag_evaluation.py": "a4c2bfdc84b8a82874fab6d779b30beea1f6dda290a5d05cd7c5b9337eacfcaf",
+    "docs/RAG_P12_EVALUATION.md": "5f2638ff8fe9fc1ac04b09abcf1745357184dd4399fb130020a50d55ed61f5a4",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "2420987fa9026a2bda49bd541fc8fbbc32737e8c4e78da5552c03520570a71c8",
+    "docs/superpowers/plans/2026-11-02-hus-rag-p12-evaluation.md": "a332d1589bcc42b30e4011f0d7604289809bc16514e8806c5dbde8c1be6767fe"
+  },
+  "collection_fix_after_measurement": "Preserve raw body/status/trace on non-JSON HTTP errors; all48 original requests were HTTP200, original scores unchanged.",
+  "metric_recomputation": {
+    "reproduced": true,
+    "questions": 48,
+    "new_rag_inference": false,
+    "metrics": {
+      "abstention_on_12_missing_or_out_of_scope": {
+        "denominator": 12,
+        "numerator": 11,
+        "value": 0.9166666666666666
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 48,
+        "numerator": 22,
+        "value": 0.4583333333333333
+      },
+      "cases": 48,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 7,
+        "numerator": 7,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 12,
+        "numerator": 7,
+        "value": 0.5833333333333334
+      },
+      "failure_counts": {
+        "guardrail_status_or_content_error": 1,
+        "lookup_or_intent_abstention": 5,
+        "no_retrieval_call": 10,
+        "post_retrieval_abstention": 10
+      },
+      "false_abstention_on_positive": {
+        "denominator": 32,
+        "numerator": 25,
+        "value": 0.78125
+      },
+      "guardrail_success": {
+        "denominator": 16,
+        "numerator": 15,
+        "value": 0.9375
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 20,
+        "numerator": 8.0,
+        "value": 0.4
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 32,
+        "numerator": 7,
+        "value": 0.21875
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "pack_manifest_sha256": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+    "recorded_code_matches_current": {
+      "tests/hus/test_rag_evaluation.py": false,
+      "tools/evaluate_hus_rag.py": false,
+      "tools/hus_rag_metrics.py": true,
+      "tools/validate_hus_holdout.py": true,
+      "tools/verify_hus_e2e.py": true
+    }
+  },
+  "holdout_prediction_requests": 48,
+  "holdout_inference_runs": 1,
+  "extra_holdout_queries_during_review_or_replay": 0,
+  "safe_empty_guard_responses": {
+    "numerator": 16,
+    "denominator": 16,
+    "definition": "no_information or needs_clarification, with no facts/citations; does not excuse Q035 strict wrong-status case"
+  },
+  "tests": {
+    "measurement_tool_tests_passed": 11,
+    "combined_focused_regression_passed": 68,
+    "scope": [
+      "rag_evaluation",
+      "reviewer_holdout",
+      "chat_scope",
+      "citation_oracle"
+    ],
+    "junit_sha256": "dfa9bc567fed559e07bd57cee45aae738a741983fecf9d29e01023f9bc92dbf2",
+    "warning": "existing FastAPI/Starlette TestClient deprecation"
+  },
+  "technical_review": {
+    "kind": "read_only_AI_review_not_human_acceptance",
+    "important_findings_fixed": [
+      "non-JSON HTTP500 status/body/retrieval trace capture"
+    ],
+    "final_verdict": "ready for provisional measurement scope; no remaining critical/important findings"
+  },
+  "source_input_hashes_preserved": 63,
+  "runtime_and_candidate_unchanged": true,
+  "ruff": "pass",
+  "diff_check": "pass",
+  "P1_1_human_accepted_questions": 0,
+  "P1_2_accepted": false,
+  "semantic_citation_precision": null,
+  "semantic_source_support": null,
+  "used_for_retrieval_tuning": false,
+  "production_activated": false,
+  "product_database_modified": false,
+  "vnu_contacted": false,
+  "llm_used": false,
+  "git_state": "uncommitted_worktree",
+  "tested_commit": null,
+  "new_remote_ci": false,
+  "committed": false,
+  "pushed": false
+}
