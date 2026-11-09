@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "filtered_anchor_misses.jsonl": "c4a1069af6395f089dbc231eed75752c8710262313764e5af3fcd7ec6afc58f5",
+    "report.json": "57be21654412b92eb5f96e9a270641893e6f7337fc4a898d97a94c1695f64d77"
+  },
+  "schema_version": "1.0",
+  "source_inputs_sha256": {
+    "data/hus/evaluation/runs/p12_baseline_v1/manifest.json": "2bbe4e8eab32455228ad28df6d350890968f53140010124d4c8bd4515b9485fe",
+    "data/hus/evaluation/runs/p12_baseline_v1/predictions.jsonl": "264c780ff3303a2aae78650844b1b9d9cea7c9615ac537ffe456c47da038b148",
+    "data/hus/evaluation/runs/p12_baseline_v1/report.json": "e0bb8742b55d132a6edfc018dcb9eceb66a7c440fb0bd2133399999713446ee6",
+    "data/hus/evaluation/runs/p12_baseline_v1/scored_cases.jsonl": "927926fcc12df542a69d948ca274f9b775013c6f997da95a40fb5337b9df87b2",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+  }
+}

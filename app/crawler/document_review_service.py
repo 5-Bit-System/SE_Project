@@ -3,8 +3,12 @@
 import hashlib
 import json
 import logging
+import os
 import re
+import threading
+import time
 import uuid
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +19,30 @@ from app.curriculum.transactions import publication_lock
 logger = logging.getLogger(__name__)
 
 DEFAULT_REVIEWS_FILE = Path("data/hus/document_reviews.json")
+_EXPORT_LOCK = threading.Lock()
+
+
+def document_review_fingerprint(document: dict[str, Any]) -> str:
+    """Bind a repository decision to one source version and its reviewed metadata.
+
+    This is an identity check for trusted review snapshots, not a signature or
+    proof that an administrator actually performed a review.
+    """
+    metadata = document.get("metadata_json") or {}
+    if isinstance(metadata, str):
+        metadata = json.loads(metadata)
+    payload = {
+        "format": "document-review-v1",
+        "id": document.get("id") or document.get("doc_id"),
+        "url": document.get("url"),
+        "content_hash": document.get("content_hash"),
+        "title": document.get("title"),
+        "major": document.get("major"),
+        "doc_type": document.get("doc_type"),
+        "metadata_json": metadata,
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
 
 def normalize_crawled_url(url: str) -> str:
@@ -67,6 +95,94 @@ def save_git_review(
     tmp_path.replace(path)
 
 
+def export_git_reviews_from_db(
+    engine_or_conn: Any,
+    file_path: Path | None = None,
+) -> int:
+    """Export committed review decisions from PostgreSQL (SSOT) to Git-tracked JSON with atomic write.
+
+    Queries all crawled documents with review_status IN ('approved', 'rejected'),
+    writes to a unique .tmp file in the destination directory, and atomically replaces
+    the target file using os.replace with up to 3 retries on transient file locks.
+    """
+    with _EXPORT_LOCK:
+        path = Path(file_path) if file_path is not None else DEFAULT_REVIEWS_FILE
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        if hasattr(engine_or_conn, "connect") and not hasattr(engine_or_conn, "execute"):
+            with engine_or_conn.connect() as conn:
+                return _do_export_git_reviews(conn, path)
+        else:
+            return _do_export_git_reviews(engine_or_conn, path)
+
+
+def _do_export_git_reviews(conn: Any, path: Path) -> int:
+    reviews: dict[str, dict[str, Any]] = {}
+
+    rows = conn.execute(
+        text("""
+            SELECT id, url, content_hash, title, major, doc_type, metadata_json,
+                   review_status, review_reason, reviewer_id, reviewed_at
+            FROM crawled_documents
+            WHERE (review_status = 'rejected' OR (review_status = 'approved' AND reviewer_id IS NOT NULL))
+              AND url NOT LIKE 'javascript:%'
+              AND id != 'doc_xss_test'
+            ORDER BY id
+        """)
+    ).fetchall()
+
+    for r in rows:
+        d = _row_to_dict(r)
+        if not d:
+            continue
+        # Safeguard: never export orphan approved reviews or test fixtures to git JSON
+        if d["review_status"] == "approved" and not d.get("reviewer_id"):
+            logger.warning("Skipping export of unverified approved document %s", d["id"])
+            continue
+        if "javascript:" in d["url"].lower() or d["id"] == "doc_xss_test":
+            continue
+        reviews[d["id"]] = {
+            "doc_id": d["id"],
+            "url": d["url"],
+            "content_hash": d["content_hash"],
+            "title": d["title"],
+            "review_status": d["review_status"],
+            "review_reason": d.get("review_reason") or "",
+            "reviewer_id": d.get("reviewer_id"),
+            "reviewed_at": d.get("reviewed_at") or "",
+            "review_fingerprint": document_review_fingerprint(d),
+        }
+
+    tmp_path = path.with_name(f"{path.stem}_{uuid.uuid4().hex[:8]}.tmp")
+    payload = json.dumps(reviews, ensure_ascii=False, indent=2)
+
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            tmp_path.write_text(payload, encoding="utf-8")
+            os.replace(tmp_path, path)
+            break
+        except OSError as exc:
+            if attempt < max_retries - 1:
+                time.sleep(0.05 * (2**attempt))
+            else:
+                logger.error(
+                    "Failed to export git reviews to %s after %d attempts: %s",
+                    path,
+                    max_retries,
+                    exc,
+                )
+                raise
+        finally:
+            if tmp_path.exists():
+                try:
+                    tmp_path.unlink()
+                except OSError:
+                    pass
+
+    return len(reviews)
+
+
 
 def _safe_uuid(val: Any) -> str | None:
     if not val:
@@ -86,7 +202,10 @@ def _row_to_dict(row: Any) -> dict[str, Any] | None:
             d[k] = str(d[k])
     for k in ("created_at", "updated_at", "started_at", "completed_at", "reviewed_at"):
         if k in d and d[k] is not None:
-            d[k] = d[k].isoformat()
+            if hasattr(d[k], "isoformat"):
+                d[k] = d[k].isoformat()
+            else:
+                d[k] = str(d[k])
     return d
 
 
@@ -108,6 +227,37 @@ def parse_frontmatter(text_content: str) -> tuple[dict[str, Any], str]:
             v = v.strip().strip('"').strip("'")
             meta[k] = v
     return meta, parts[2].strip()
+
+
+def is_meaningful_content(content: str, min_length: int = 50) -> tuple[bool, str]:
+    """Validate whether document content contains sufficient non-marker text.
+
+    Strips YAML frontmatter and HTML comment page markers (e.g. <!-- page 1 -->).
+    Returns (True, "") if cleaned text has at least min_length characters,
+    otherwise returns (False, "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)").
+    """
+    if not content:
+        return (
+            False,
+            "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)",
+        )
+
+    # Strip frontmatter if present
+    if content.startswith("---"):
+        _, body = parse_frontmatter(content)
+    else:
+        body = content
+
+    # Strip HTML comment markers (e.g., <!-- page 1 -->)
+    cleaned = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL).strip()
+
+    if len(cleaned) < min_length:
+        return (
+            False,
+            "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)",
+        )
+
+    return (True, "")
 
 
 def compute_content_hash(content: str) -> str:
@@ -214,6 +364,8 @@ def get_document(conn, doc_id: str) -> dict[str, Any] | None:
     doc["safe_markdown"] = sanitize_markdown_for_preview(doc["markdown_content"])
     doc["duplicates"] = find_duplicates(conn, doc["content_hash"], exclude_id=doc_id)
     doc["duplicate_count"] = len(doc["duplicates"])
+    is_meaningful, _ = is_meaningful_content(doc.get("markdown_content") or "")
+    doc["needs_ocr"] = not is_meaningful
     return doc
 
 
@@ -358,6 +510,35 @@ def review_document(
     if doc.get('is_published'):
         raise ValueError('Published source versions are immutable; create a draft replacement')
 
+    if decision == "approved":
+        is_meaningful, error_msg = is_meaningful_content(doc.get("markdown_content") or "")
+        if not is_meaningful:
+            raise ValueError(
+                error_msg
+                or "Nội dung tài liệu rỗng hoặc chỉ chứa marker trang, không đủ điều kiện phê duyệt (cần OCR)"
+            )
+
+    valid_reviewer_id = None
+    safe_uid = _safe_uuid(reviewer_id)
+    if safe_uid:
+        try:
+            exists = conn.execute(
+                text("SELECT 1 FROM accounts WHERE id = :aid"),
+                {"aid": safe_uid},
+            ).scalar()
+            if exists:
+                valid_reviewer_id = safe_uid
+            else:
+                logger.warning("Reviewer account %s does not exist in accounts table; using null", safe_uid)
+        except Exception as exc:
+            logger.warning("Failed to verify reviewer account %s: %s", safe_uid, exc)
+
+    if decision == "approved":
+        if not valid_reviewer_id:
+            raise ValueError(
+                "Phê duyệt tài liệu bắt buộc phải có tài khoản người duyệt (reviewer) hợp lệ trong hệ thống."
+            )
+
     conn.execute(
         text("""
             UPDATE crawled_documents
@@ -371,25 +552,50 @@ def review_document(
             "id": doc_id,
             "status": decision,
             "reason": reason.strip(),
-            "reviewer_id": _safe_uuid(reviewer_id),
+            "reviewer_id": valid_reviewer_id,
         },
     )
-    updated = get_document(conn, doc_id)
-    if updated:
-        try:
-            save_git_review(
-                doc_id=doc_id,
-                url=updated["url"],
-                content_hash=updated["content_hash"],
-                title=updated["title"],
-                review_status=updated["review_status"],
-                review_reason=updated.get("review_reason") or "",
-                reviewer_id=updated.get("reviewer_id"),
-                reviewed_at=updated.get("reviewed_at"),
-            )
-        except Exception as e:
-            logger.warning("Dual-write git review failed for %s: %s", doc_id, e)
-    return updated
+    return get_document(conn, doc_id)
+
+
+NON_MATH_DISCIPLINE_KEYWORDS: tuple[str, ...] = (
+    "hóa dược",
+    "hóa học",
+    "địa chất",
+    "địa lý",
+    "sinh học",
+    "vật lí",
+    "vật lý",
+    "môi trường",
+    "hải dương",
+    "khí tượng",
+    "hạt nhân",
+    "vật liệu",
+)
+
+
+def resolve_document_major(metadata: dict[str, Any], path: Path | None = None) -> str:
+    """Resolve document major respecting frontmatter and multi-discipline keywords.
+
+    Ensures that any document containing keywords from other natural science faculties
+    (Chemistry, Biology, Geology, Geography, Materials Science, Physics, Environmental Science, etc.)
+    is automatically categorized as 'general' even if located in mathematics directory.
+    Uses frontmatter major directly if valid and not conflicting with non-math disciplines.
+    """
+    raw_major = str(metadata.get("major") or "").strip().lower()
+    title = str(metadata.get("title") or "").lower()
+    fname = path.name.lower() if path else ""
+
+    if any(kw in title or kw in fname for kw in NON_MATH_DISCIPLINE_KEYWORDS):
+        return "general"
+
+    if raw_major:
+        return raw_major
+
+    if path and "mathematics" in path.parts:
+        return "mathematics"
+
+    return "general"
 
 
 def seed_crawled_documents_from_disk(
@@ -405,6 +611,9 @@ def seed_crawled_documents_from_disk(
             text("""
                 DELETE FROM crawled_documents
                 WHERE id != 'doc_xss_test'
+                  AND is_published = false
+                  AND review_status = 'pending'
+                  AND reviewer_id IS NULL AND reviewed_at IS NULL
                   AND (
                     url LIKE '%approved-doc-test%'
                     OR url LIKE '%cntt-copy%'
@@ -448,7 +657,7 @@ def seed_crawled_documents_from_disk(
             url=url,
             title=metadata["title"],
             markdown_content=content,
-            major=metadata.get("major", "general"),
+            major=resolve_document_major(metadata, path),
             doc_type=metadata.get("type", "general_info"),
             metadata_json=metadata,
             doc_id=doc_id,
@@ -460,17 +669,86 @@ def seed_crawled_documents_from_disk(
 def sync_crawled_documents_and_reviews(
     conn, docs_dir: Path | None = None, reviews_file: Path | None = None
 ) -> dict[str, int]:
-    """Auto-sync on startup: seeds real documents from disk and applies saved review states from Git."""
-    seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir, clean_old_mock=True)
+    """Seed sources and restore trusted decisions only into untouched drafts.
+
+    Existing database decisions always win, including after an export failure.
+    Legacy snapshots lacking a version fingerprint remain readable for inspection
+    but cannot authorize a decision. Never match a decision by URL alone.
+    """
+    publication_lock(conn)
+    # Fixture cleanup is never a side effect of normal startup or review restore.
+    seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir)
     reviews = load_git_reviews(reviews_file)
+    if not isinstance(reviews, dict):
+        raise ValueError("Review snapshot must be a JSON object keyed by document ID")
     applied = 0
+    hash_mismatches = 0
+    protected_published = 0
+    skipped_marker_only = 0
+    skipped_unverified_approvals = 0
+    skipped_existing_decisions = 0
+    version_mismatches = 0
+    invalid_review_evidence = 0
     for doc_id, r in reviews.items():
+        if not isinstance(r, dict):
+            invalid_review_evidence += 1
+            continue
         url = r.get("url")
         status = r.get("review_status")
-        reason = r.get("review_reason") or "Auto-synced from repository review record"
+        content_hash = r.get("content_hash")
+        target = conn.execute(
+            text("SELECT * FROM crawled_documents WHERE id = :id"), {"id": doc_id}
+        ).mappings().first()
+        if not target or target["url"] != url or r.get("doc_id", doc_id) != doc_id:
+            version_mismatches += 1
+            continue
+        if target["is_published"]:
+            protected_published += 1
+            continue
+        if not content_hash or target["content_hash"] != content_hash:
+            hash_mismatches += 1
+            continue
+        # A pending snapshot is not a decision and cannot revoke a database review.
+        if status not in ("approved", "rejected"):
+            continue
+        if (
+            target["review_status"] != "pending"
+            or target["reviewer_id"] is not None
+            or target["reviewed_at"] is not None
+            or target["review_reason"]
+        ):
+            skipped_existing_decisions += 1
+            continue
+
         reviewer_id = _safe_uuid(r.get("reviewer_id"))
-        reviewed_at = r.get("reviewed_at")
-        if not status or status not in ("approved", "rejected", "pending"):
+        valid_reviewer_id = None
+        if reviewer_id:
+            if conn.execute(text("SELECT 1 FROM accounts WHERE id = :aid"), {"aid": reviewer_id}).scalar():
+                valid_reviewer_id = reviewer_id
+        if not valid_reviewer_id:
+            if status == "approved":
+                skipped_unverified_approvals += 1
+            else:
+                invalid_review_evidence += 1
+            continue
+
+        if status == "approved":
+            is_meaningful, _ = is_meaningful_content(target["markdown_content"] or "")
+            if not is_meaningful:
+                skipped_marker_only += 1
+                continue
+        fingerprint = r.get("review_fingerprint")
+        if not fingerprint or fingerprint != document_review_fingerprint(dict(target)):
+            version_mismatches += 1
+            continue
+        reason = r.get("review_reason")
+        try:
+            reviewed_at = datetime.fromisoformat(r.get("reviewed_at") or "")
+        except (TypeError, ValueError):
+            invalid_review_evidence += 1
+            continue
+        if not isinstance(reason, str) or len(reason.strip()) < 3 or reviewed_at.utcoffset() is None:
+            invalid_review_evidence += 1
             continue
 
         res = conn.execute(
@@ -479,22 +757,37 @@ def sync_crawled_documents_and_reviews(
                 SET review_status = :status,
                     review_reason = :reason,
                     reviewer_id = :reviewer_id,
-                    reviewed_at = CASE
-                        WHEN :reviewed_at IS NOT NULL AND :reviewed_at != '' THEN CAST(:reviewed_at AS timestamptz)
-                        ELSE now()
-                    END
-                WHERE id = :id OR url = :url
+                    reviewed_at = :reviewed_at
+                WHERE id = :id AND url = :url
+                  AND content_hash = :content_hash
+                  AND is_published = false
+                  AND review_status = 'pending'
+                  AND reviewer_id IS NULL AND reviewed_at IS NULL
+                  AND (review_reason IS NULL OR review_reason = '')
             """),
             {
                 "id": doc_id,
                 "url": url,
+                "content_hash": content_hash,
                 "status": status,
-                "reason": reason,
-                "reviewer_id": reviewer_id,
+                "reason": reason.strip(),
+                "reviewer_id": valid_reviewer_id,
                 "reviewed_at": reviewed_at,
             },
         )
         if res.rowcount > 0:
-            applied += 1
+            applied += res.rowcount
+
     total_docs = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
-    return {"seeded": seeded, "total": total_docs, "reviews_applied": applied}
+    return {
+        "seeded": seeded,
+        "total": total_docs,
+        "reviews_applied": applied,
+        "hash_mismatches": hash_mismatches,
+        "protected_published": protected_published,
+        "skipped_marker_only": skipped_marker_only,
+        "skipped_unverified_approvals": skipped_unverified_approvals,
+        "skipped_existing_decisions": skipped_existing_decisions,
+        "version_mismatches": version_mismatches,
+        "invalid_review_evidence": invalid_review_evidence,
+    }

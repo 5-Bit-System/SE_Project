@@ -1,0 +1,1407 @@
+{
+  "actual_human_reviews": 0,
+  "base_commit": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "created_at": "2026-11-04T16:22:45.131389+00:00",
+  "git_state": "uncommitted_worktree_pinned_by_hash",
+  "holdout_eligible": false,
+  "independent_holdout_accepted": false,
+  "initialization_ms": 3090.0034,
+  "input_pins_stable": true,
+  "kind": "measurement",
+  "limits": [
+    "Exposed development only, including previously tuned H2 questions.",
+    "Local warmed TestClient wall times, not network/production/load-test latency.",
+    "Raw historical scoring stays separate from F2 source contracts and exact-response-bound AI semantic review."
+  ],
+  "measurement_id": "ce41e1669e994e01b77574b5fec0d96c",
+  "pack": "data/hus/evaluation/diagnostic_dev_v6_career_context",
+  "pipeline": "BM25+extractive_F1_F3_and_structured_F2_no_vector_no_LLM",
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "result": {
+    "by_category": {
+      "f1": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 8,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 1,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 8
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 8,
+            "max_ms": 31.3843,
+            "min_ms": 4.6184,
+            "p50_ms": 5.2373,
+            "p95_ms": 31.3843
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "answer_status_accuracy": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "cases": 8,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 11,
+            "numerator": 3,
+            "value": 0.2727272727272727
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {
+            "gold_anchor_not_cited_pending_semantic_review": 5
+          },
+          "false_abstention_on_positive": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "unjudged_alternative_citations": 8
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "search_call_coverage": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 8,
+            "numerator": 7,
+            "value": 0.875
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      },
+      "missing_evidence": {
+        "abstention": {
+          "control_failures": 1,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "http_errors": 0
+        },
+        "cases": 2,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 0
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 2,
+            "max_ms": 7.8726,
+            "min_ms": 3.7688,
+            "p50_ms": 3.7688,
+            "p95_ms": 7.8726
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "answer_status_accuracy": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "cases": 2,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {
+            "guardrail_status_or_content_error": 1
+          },
+          "false_abstention_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "guardrail_success": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "unjudged_alternative_citations": 0
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "search_call_coverage": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "by_major": {
+      "mathematics_informatics": {
+        "abstention": {
+          "control_failures": 1,
+          "correct_contract_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "false_abstention": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "http_errors": 0
+        },
+        "cases": 10,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {},
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 1,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 8
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 10,
+            "max_ms": 31.3843,
+            "min_ms": 3.7688,
+            "p50_ms": 5.2373,
+            "p95_ms": 31.3843
+          }
+        },
+        "raw_legacy": {
+          "abstention_on_12_missing_or_out_of_scope": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "anchor_support_among_positive_answers": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "answer_status_accuracy": {
+            "denominator": 10,
+            "numerator": 9,
+            "value": 0.9
+          },
+          "cases": 10,
+          "citation_anchor_precision_lower_bound": {
+            "denominator": 12,
+            "numerator": 3,
+            "value": 0.25
+          },
+          "citation_integrity_answer_pass_rate": {
+            "denominator": 9,
+            "numerator": 9,
+            "value": 1.0
+          },
+          "f2_lookup_success": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "failure_counts": {
+            "gold_anchor_not_cited_pending_semantic_review": 5,
+            "guardrail_status_or_content_error": 1
+          },
+          "false_abstention_on_positive": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "guardrail_success": {
+            "denominator": 2,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "http_errors": 0,
+          "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+          "opt_in_clarification": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "scope_error_cases": {
+            "course_code": 0,
+            "major": 0,
+            "version": 0
+          },
+          "semantic_citation_precision": null,
+          "semantic_source_support": null,
+          "source_supported_success_on_positive": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "unjudged_alternative_citations": 8
+        },
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 0,
+          "routed_recall_at_5": {
+            "denominator": 8,
+            "numerator": 7.0,
+            "value": 0.875
+          },
+          "search_call_coverage": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 8,
+            "numerator": 7,
+            "value": 0.875
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "cases": [
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 31.3843,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C001",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 10.9499,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C002",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": true,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "introduction",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 4.6184,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": true,
+        "positive_field_correct": false,
+        "question_id": "DEV6-C003",
+        "recall_at_5": 0.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": true
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 10.4446,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C004",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 4.6601,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C005",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 4.6673,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C006",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "f1",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "gold_anchor_not_cited_pending_semantic_review",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 8.1394,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C007",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 1,
+        "category": "f1",
+        "citation_count": 2,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [
+          "29eae8734736c0e9d8e2fe500ce56d90"
+        ],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "answered",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": true,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 5.2373,
+        "major": "mathematics_informatics",
+        "positive": true,
+        "positive_dataset_and_field_correct": true,
+        "positive_dataset_correct": true,
+        "positive_field_correct": true,
+        "question_id": "DEV6-C008",
+        "recall_at_5": 1.0,
+        "retrieval_called": true,
+        "retrieval_eligible": true,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": true,
+        "scope_checked_recall_at_5": 1.0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": true,
+        "status_correct": true,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955",
+          "29eae8734736c0e9d8e2fe500ce56d90",
+          "091e59489b7bdd59594687d6a7cd1aa3"
+        ],
+        "unjudged_alternative_citations": 1,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "answered",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 1,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": "guardrail_status_or_content_error",
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": false,
+        "http_error": false,
+        "latency_ms": 7.8726,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "DEV6-C009",
+        "recall_at_5": 0,
+        "retrieval_called": true,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": false,
+        "top5_chunk_ids": [
+          "8a8318039dbb5d75c52bbdc90ad37955"
+        ],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      },
+      {
+        "actual_status": "no_information",
+        "ai_completeness": null,
+        "ai_entailment": null,
+        "anchor_excluded_by_observed_filter": false,
+        "anchor_hit_scope_mismatch": false,
+        "anchored_citations": 0,
+        "category": "missing_evidence",
+        "citation_count": 0,
+        "citation_integrity_passed": true,
+        "classifier_dataset": "f1",
+        "classifier_field": "careers",
+        "classifier_observation_present": true,
+        "expected_chunk_ids": [],
+        "expected_classifier_field": "careers",
+        "expected_field_v2": "careers",
+        "expected_status": "no_information",
+        "f2_contract_correct": false,
+        "facts_match": true,
+        "failure": null,
+        "false_abstention": false,
+        "filter_errors": {
+          "ai_opt_in": false,
+          "course_code": false,
+          "major": false,
+          "program_variant": false,
+          "review": false,
+          "version": false
+        },
+        "gold_quote_covered": false,
+        "guardrail_success": true,
+        "http_error": false,
+        "latency_ms": 3.7688,
+        "major": "mathematics_informatics",
+        "positive": false,
+        "positive_dataset_and_field_correct": false,
+        "positive_dataset_correct": false,
+        "positive_field_correct": false,
+        "question_id": "DEV6-C010",
+        "recall_at_5": 0,
+        "retrieval_called": true,
+        "retrieval_eligible": false,
+        "retrieval_filter_observed": true,
+        "scope_checked_anchor_hit": false,
+        "scope_checked_recall_at_5": 0,
+        "scope_errors": {
+          "course_code": false,
+          "major": false,
+          "version": false
+        },
+        "source_integrity": true,
+        "source_supported_success": false,
+        "status_correct": true,
+        "top5_chunk_ids": [],
+        "unjudged_alternative_citations": 0,
+        "wrong_search_dataset": false,
+        "wrong_search_field": false
+      }
+    ],
+    "independent_holdout_accepted": false,
+    "metrics": {
+      "abstention": {
+        "control_failures": 1,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 2,
+          "numerator": 1,
+          "value": 0.5
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "false_abstention": {
+          "denominator": 8,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "http_errors": 0
+      },
+      "cases": 10,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": null,
+        "ai_end_to_end_supported_complete": null,
+        "ai_entailment": null,
+        "ai_review_coverage": {
+          "denominator": 8,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 8,
+          "numerator": 3,
+          "value": 0.375
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 8,
+          "numerator": 8,
+          "value": 1.0
+        },
+        "reviewer_kind": null
+      },
+      "f2": {
+        "by_field": {},
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 1,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 8
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 10,
+          "max_ms": 31.3843,
+          "min_ms": 3.7688,
+          "p50_ms": 5.2373,
+          "p95_ms": 31.3843
+        }
+      },
+      "raw_legacy": {
+        "abstention_on_12_missing_or_out_of_scope": {
+          "denominator": 2,
+          "numerator": 1,
+          "value": 0.5
+        },
+        "anchor_support_among_positive_answers": {
+          "denominator": 8,
+          "numerator": 3,
+          "value": 0.375
+        },
+        "answer_status_accuracy": {
+          "denominator": 10,
+          "numerator": 9,
+          "value": 0.9
+        },
+        "cases": 10,
+        "citation_anchor_precision_lower_bound": {
+          "denominator": 12,
+          "numerator": 3,
+          "value": 0.25
+        },
+        "citation_integrity_answer_pass_rate": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "f2_lookup_success": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "failure_counts": {
+          "gold_anchor_not_cited_pending_semantic_review": 5,
+          "guardrail_status_or_content_error": 1
+        },
+        "false_abstention_on_positive": {
+          "denominator": 8,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "guardrail_success": {
+          "denominator": 2,
+          "numerator": 1,
+          "value": 0.5
+        },
+        "http_errors": 0,
+        "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+        "opt_in_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "routed_recall_at_5": {
+          "denominator": 8,
+          "numerator": 7.0,
+          "value": 0.875
+        },
+        "scope_error_cases": {
+          "course_code": 0,
+          "major": 0,
+          "version": 0
+        },
+        "semantic_citation_precision": null,
+        "semantic_source_support": null,
+        "source_supported_success_on_positive": {
+          "denominator": 8,
+          "numerator": 3,
+          "value": 0.375
+        },
+        "unjudged_alternative_citations": 8
+      },
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 8,
+          "numerator": 7.0,
+          "value": 0.875
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 0,
+        "routed_recall_at_5": {
+          "denominator": 8,
+          "numerator": 7.0,
+          "value": 0.875
+        },
+        "search_call_coverage": {
+          "denominator": 8,
+          "numerator": 8,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 8,
+          "numerator": 7,
+          "value": 0.875
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "schema_version": "hus-chatbot-evaluation-2.0"
+  },
+  "schema_version": "hus-chatbot-evaluation-2.0",
+  "source_binary_checks": {
+    "/hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=9#page=9": {
+      "bytes": 483700,
+      "content_type": "application/pdf",
+      "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+    }
+  },
+  "warmup": {
+    "excluded_from_metrics": true,
+    "http_status": 200,
+    "latency_ms": 4.6672,
+    "request": {
+      "major": "data_science",
+      "question": "Xin chào",
+      "version": "QD3569-2023"
+    }
+  }
+}

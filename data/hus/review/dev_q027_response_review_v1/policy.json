@@ -1,0 +1,15 @@
+{
+  "reviewer_kind": "ai",
+  "actual_human_reviews": 0,
+  "independent_holdout_accepted": false,
+  "new_AI_readings": 11,
+  "prior_exact_response_judgments_inherited": 179,
+  "method": "Explicit newly read changed/diagnostic responses; unchanged A2 judgments inherited only with equal request/response/gold/source-audit hashes and unchanged protected sources. New run identity bindings for all rows.",
+  "limits": [
+    "Not fresh independent semantic review of every response.",
+    "AI review is not human or institutional source-validity certification.",
+    "H2 remains exposed with25previously tuned questions; dev6 variants reuse DEV-Q027 source/gold.",
+    "Original role-only C003 routing gap remains; r2 adds an explicit career cue to isolate source coverage.",
+    "DEV6-C007 has complete enterprise quote but still includes explicitly refused teaching; completeness marked fail, not hidden behind quote coverage."
+  ]
+}

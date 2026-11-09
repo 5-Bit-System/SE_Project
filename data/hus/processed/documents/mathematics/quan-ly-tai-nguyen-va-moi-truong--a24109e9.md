@@ -3,7 +3,7 @@ title: "Quản lý Tài nguyên và Môi trường"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/Qu%E1%BA%A3n-l%C3%BD-C%C3%B4ng-ngh%E1%BB%87-T%C3%A0i-nguy%C3%AAn-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%C3%A0-%C4%90%E1%BB%8Ba-ch%E1%BA%A5t/quan-ly-tai-nguyen-va-moi-truong"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

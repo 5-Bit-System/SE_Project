@@ -1,0 +1,1274 @@
+{
+  "CURRENT_sha256": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+  "artifact_and_environment_unchanged_during_run": true,
+  "artifact_sha256": {
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/hus/allowlist.py": "5eb040688d9cf6e3a8ac84f84c996a9bb2d278f115e2c5ae9d074cb0e65b980b",
+    "app/hus/answer_support.py": "f951b6e774f59288acb11e48fbd90804215eb96e4c61abfa50851a8fbbc54e96",
+    "app/hus/answering.py": "4f94598a71648b57483bfbf48b18295d373dc4ed13d244d6bbd9f9168a172a04",
+    "app/hus/chat.py": "b98775024813321c99a46c6b55f9f8a86db7fd6f1bb824c51c4c4056c326eeb0",
+    "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+    "app/hus/citations.py": "02dfbb2ad1390ef9dac219ddeb9561fa7ad87e3e056c0bade26a3a039e242283",
+    "app/hus/cleaning.py": "9b6d49df001e1d84a2227fde6d362b783791fe0a1a98946a44ce65b10907b101",
+    "app/hus/corpus.py": "9b9f4d49a142f1d252b7a3139ce8a1f5484cf218125122ec0914893702a19c9a",
+    "app/hus/crawler.py": "4092955bf58b2134699aed3baffdc91fd7c1799feceb7c16504d034cefa7bbb2",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/demo.py": "99255a19d1d9963dc2492c8d3b1e145614f5bd41c89acede969841d8711087ba",
+    "app/hus/extractors/__init__.py": "b0e0f4446f4518bd96f6c51cd7078460cb38caf94230a4aac8d36047d57bbd73",
+    "app/hus/extractors/docx.py": "29a3bf77800adeb928b9708e36a6c62897bf6393f586f0c140ec6075fa2bd14a",
+    "app/hus/extractors/excel.py": "23f7fbe4300a2a95abd345f78543611b853ae4ff8119733c0bf94da22a640fdc",
+    "app/hus/extractors/html.py": "07be1397d3adc2282923a69bd5bd14fdb4e783e5e9494cb36b9328e9a8990186",
+    "app/hus/extractors/pdf.py": "a7c175d96c8366edef779e9c2d6f96bdab163e76ea3af8d46a78af081c5fdb46",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/index.py": "03e48e210540a2c1215e5f33770d5c8a35ecb829ffa257bc532f8def129721db",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "bf915475eab4d246b48e92f063a4de89f6e04a0d2a6c46cef91f47545e7c3a53",
+    "app/hus/pipeline.py": "52b556cb08cee1f7e7c8b6f65274c3889d78b19b8fa3441d4b3d4fd75e3de5f9",
+    "app/hus/portable_adapter.py": "28666f28b4bf60735bc92eccbec69f72e69cdf303e1c0059192edabcd310768e",
+    "app/hus/provenance.py": "7b687d2d715c2eee5ccca96b5243f929c52111dc682faaf28364b76c651f8509",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/question_catalog.py": "3631d8521222fe0301f104d7ac1c5b4f73e4dedbca4d838f800502968f605ba7",
+    "app/hus/question_routing.py": "06d8a650ea971188ff8d38fe5198f9cf072ce7336c3138f1700770403c29504e",
+    "app/hus/rag_loader.py": "91fa1f92ef2c87bdd2d443b8c5c861ee6e28883815249388ce4ddc7149939963",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+    "app/hus/state.py": "a4f83c3fa87ab7521a9033806a654ebd0e50efd141b6eb87ae9b25a46a55d57d",
+    "app/hus/storage.py": "8113fd6a419d9f4087c03d395674d70a1f8233c423c76885fb54156deffe8056",
+    "app/hus/urls.py": "4edde88d965d577b28bba8501182e3b0deb8cfbbcc53e742521e7dca0085dcea",
+    "app/schemas/hus.py": "54b249fb316aa2d62bfb1f65dd8169d7690bd70487cfd0a64faa291e372b0188",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19",
+    "app/static/hus-rag-demo.css": "0aefdcd778a8053a6112ced4880166234ef6c56ad3144b6d03cacad112706be3",
+    "app/static/hus-rag-demo.html": "94e26bcd102e88d69df756e96e37ec82c3d27edc996cf7004f6ac7e4cad6454e",
+    "app/static/hus-rag-demo.js": "529d0dc3639bb84c0786e78c7076611136838e07032ee7e441d9e5dc84ad9879",
+    "data/hus/citation_assets/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+    "data/hus/citation_assets/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+    "data/hus/citation_assets/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+    "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+    "data/hus/citation_assets/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+    "data/hus/citation_assets/files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+    "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+    "data/hus/citation_assets/files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+    "data/hus/citation_assets/files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+    "data/hus/citation_assets/files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+    "data/hus/citation_assets/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+    "data/hus/citation_assets/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+    "data/hus/citation_assets/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/rag/CURRENT.json": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "data/hus/rag/releases/hus-data-20261031-v3/academic_issues.jsonl": "4d690d783c0e7d26df6453b851b180037757e22f28b1195b3038678121e7ac0a",
+    "data/hus/rag/releases/hus-data-20261031-v3/chunks.jsonl": "6a5ea606f174693263b048a100202a02cedb84a6b16ff71b854248106bd266d1",
+    "data/hus/rag/releases/hus-data-20261031-v3/display_edits.jsonl": "94345e079c7ce6780a238c4c872e331dc5bb248b601569508e15dad687c497e0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evaluation/questions.jsonl": "88609df9c8986bfda440aed2844479ce3629ff5b2bf06dad06ecd1d357a55125",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/canonical_f2.json": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/055c47bf412172c0.txt": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/0dd9aaaeefcbd7d7.txt": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1b525683101bf943.txt": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1c16ddf8a6f1f409.txt": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/1e3ad5f9915aa051.txt": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/23a0c1df14a5708a.txt": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/31b55b4ee6f451a6.txt": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/89d4b39494d72217.txt": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/8afffd3cada3d048.txt": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/ce8df97fe49665e9.txt": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d006f60211246633.txt": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d4fae066858f0b94.txt": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/d6370261338de29f.txt": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f7f470e712738589.txt": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1/f8672cafba05d016.txt": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/f1_recovery_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/generated_blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/055c47bf412172c0.html": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/1b525683101bf943.html": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/ce8df97fe49665e9.html": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/d6370261338de29f.html": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/raw/f8672cafba05d016.html": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_text.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_chunks.jsonl": "0fddecc891449d44dfb9071b2605faca5d67b912c731ed9de527bb1fd5bcef9b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf",
+    "data/hus/rag/releases/hus-data-20261031-v3/groups.jsonl": "cc7a8e5e77663151365a0fdb72d602e3b11609231b0d39f80e062a129d4ff8d5",
+    "data/hus/rag/releases/hus-data-20261031-v3/input_manifest.json": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+    "data/hus/rag/releases/hus-data-20261031-v3/programs.jsonl": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a",
+    "data/hus/rag/releases/hus-data-20261031-v3/quality_report.json": "49af0d5170927b689e75e9b21362a3f5c8d3f4b0de92860d387a625bfcb717b0",
+    "data/hus/rag/releases/hus-data-20261031-v3/search_aliases.jsonl": "00ddc3b915cc80d9370641ed92d3bc6c0ddb23cfe4bd0647e0f8f3c022746958",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_inventory.jsonl": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi_report.json": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+    "data/hus/rag/releases/hus-data-20261031-v3/syllabus_links.jsonl": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832",
+    "requirements-dev.txt": "cc43ed55833652f9c36fc5de1272a42981c6598b83d8dc4183852cba2ece8ef8",
+    "requirements-lock.txt": "86692cef119450f8af676e901719744b3b90881aaa956df3d670ee64475ac202",
+    "requirements.txt": "81789424f7a7e84e41175d41a513c53cc60610cfb8201414a3071693c04c059c"
+  },
+  "baseline_preserved": true,
+  "by_category": {
+    "f1": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 24,
+        "numerator": 20,
+        "value": 0.8333333333333334
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 33,
+        "numerator": 20,
+        "value": 0.6060606060606061
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {
+        "gold_anchor_not_cited_pending_semantic_review": 4
+      },
+      "false_abstention_on_positive": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 23.0,
+        "value": 0.9583333333333334
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 24,
+        "numerator": 20,
+        "value": 0.8333333333333334
+      },
+      "unjudged_alternative_citations": 13
+    },
+    "f2": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 24,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "f3": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "cases": 16,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 16,
+        "numerator": 16.0,
+        "value": 1.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "missing_evidence": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "cases": 16,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "opt_in_required": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    },
+    "out_of_scope": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "answer_status_accuracy": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "cases": 8,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "f2_lookup_success": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "routed_recall_at_5": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "unjudged_alternative_citations": 0
+    }
+  },
+  "by_major": {
+    "computer_science": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 16,
+        "numerator": 14,
+        "value": 0.875
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 18,
+        "numerator": 14,
+        "value": 0.7777777777777778
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "failure_counts": {
+        "gold_anchor_not_cited_pending_semantic_review": 2
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 9.0,
+        "value": 0.9
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 14,
+        "value": 0.875
+      },
+      "unjudged_alternative_citations": 4
+    },
+    "data_science": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 20,
+        "numerator": 16,
+        "value": 0.8
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "failure_counts": {},
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 10.0,
+        "value": 1.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "unjudged_alternative_citations": 4
+    },
+    "mathematics": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 16,
+        "numerator": 15,
+        "value": 0.9375
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 18,
+        "numerator": 15,
+        "value": 0.8333333333333334
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "failure_counts": {
+        "gold_anchor_not_cited_pending_semantic_review": 1
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 10.0,
+        "value": 1.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 15,
+        "value": 0.9375
+      },
+      "unjudged_alternative_citations": 3
+    },
+    "mathematics_informatics": {
+      "abstention_on_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "anchor_support_among_positive_answers": {
+        "denominator": 16,
+        "numerator": 15,
+        "value": 0.9375
+      },
+      "answer_status_accuracy": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      },
+      "cases": 24,
+      "citation_anchor_precision_lower_bound": {
+        "denominator": 17,
+        "numerator": 15,
+        "value": 0.8823529411764706
+      },
+      "citation_integrity_answer_pass_rate": {
+        "denominator": 16,
+        "numerator": 16,
+        "value": 1.0
+      },
+      "f2_lookup_success": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "failure_counts": {
+        "gold_anchor_not_cited_pending_semantic_review": 1
+      },
+      "false_abstention_on_positive": {
+        "denominator": 16,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "guardrail_success": {
+        "denominator": 8,
+        "numerator": 8,
+        "value": 1.0
+      },
+      "http_errors": 0,
+      "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+      "opt_in_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "routed_recall_at_5": {
+        "denominator": 10,
+        "numerator": 10.0,
+        "value": 1.0
+      },
+      "scope_error_cases": {
+        "course_code": 0,
+        "major": 0,
+        "version": 0
+      },
+      "semantic_citation_precision": null,
+      "semantic_source_support": null,
+      "source_supported_success_on_positive": {
+        "denominator": 16,
+        "numerator": 15,
+        "value": 0.9375
+      },
+      "unjudged_alternative_citations": 2
+    }
+  },
+  "committed": false,
+  "development_inference_run": true,
+  "environment": {
+    "distributions": [
+      [
+        "Mako",
+        "1.4.3"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.4"
+      ],
+      [
+        "PyYAML",
+        "6.0.3"
+      ],
+      [
+        "Pygments",
+        "2.21.0"
+      ],
+      [
+        "SQLAlchemy",
+        "2.0.54"
+      ],
+      [
+        "alembic",
+        "1.20.0"
+      ],
+      [
+        "annotated-doc",
+        "0.0.5"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "anyio",
+        "4.15.1"
+      ],
+      [
+        "argon2-cffi",
+        "25.1.0"
+      ],
+      [
+        "argon2-cffi-bindings",
+        "26.1.0"
+      ],
+      [
+        "beautifulsoup4",
+        "4.15.0"
+      ],
+      [
+        "certifi",
+        "2026.7.22"
+      ],
+      [
+        "cffi",
+        "2.1.1"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.2"
+      ],
+      [
+        "click",
+        "8.5.0"
+      ],
+      [
+        "colorama",
+        "0.4.6"
+      ],
+      [
+        "cryptography",
+        "50.0.2"
+      ],
+      [
+        "dnspython",
+        "2.9.0"
+      ],
+      [
+        "email-validator",
+        "2.3.0"
+      ],
+      [
+        "et_xmlfile",
+        "2.0.0"
+      ],
+      [
+        "fastapi",
+        "0.143.0"
+      ],
+      [
+        "greenlet",
+        "3.5.6"
+      ],
+      [
+        "h11",
+        "0.16.0"
+      ],
+      [
+        "httpcore",
+        "1.0.9"
+      ],
+      [
+        "httpx",
+        "0.28.1"
+      ],
+      [
+        "idna",
+        "3.20"
+      ],
+      [
+        "iniconfig",
+        "2.3.1"
+      ],
+      [
+        "lxml",
+        "6.1.3"
+      ],
+      [
+        "openpyxl",
+        "3.1.5"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.1"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "pdfminer.six",
+        "20260107"
+      ],
+      [
+        "pdfplumber",
+        "0.11.10"
+      ],
+      [
+        "pillow",
+        "13.0.0"
+      ],
+      [
+        "pip",
+        "24.0"
+      ],
+      [
+        "playwright",
+        "1.58.0"
+      ],
+      [
+        "pluggy",
+        "1.6.0"
+      ],
+      [
+        "psycopg2-binary",
+        "2.9.13"
+      ],
+      [
+        "pycparser",
+        "3.12"
+      ],
+      [
+        "pydantic",
+        "2.14.1"
+      ],
+      [
+        "pydantic_core",
+        "2.50.1"
+      ],
+      [
+        "pyee",
+        "13.0.1"
+      ],
+      [
+        "pypdfium2",
+        "5.14.0"
+      ],
+      [
+        "pytest",
+        "9.1.1"
+      ],
+      [
+        "python-docx",
+        "1.2.0"
+      ],
+      [
+        "python-dotenv",
+        "1.2.4"
+      ],
+      [
+        "ruff",
+        "0.17.0"
+      ],
+      [
+        "setuptools",
+        "65.5.0"
+      ],
+      [
+        "soupsieve",
+        "3.0.3"
+      ],
+      [
+        "starlette",
+        "1.8.0"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "uvicorn",
+        "0.54.0"
+      ]
+    ],
+    "executable": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_integration\\pr6-resolution-20261102\\backups\\pr6\\ci-venv\\Scripts\\python.exe",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "evaluation_code_sha256": {
+    "tools/evaluate_hus_diagnostic.py": "6f27b3f3e6112ca277c0faffb73f13c256b82bf6600b8cd2c633c700d0cb5355",
+    "tools/evaluate_hus_rag.py": "73647fce00dc53f712de4b43a7af56a008dc2ac309154a27e6d5f005a79ea5c9",
+    "tools/hus_rag_layer_metrics.py": "ce23fceb639b83117d095510cfa5c9bb1f55c55d6ad4d3bc728fc2add203679a",
+    "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+    "tools/validate_hus_diagnostic.py": "c1347c3022eabe9993df849b4996d844ffc674032ccd7088ff7ca90cf03b1f21",
+    "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+    "tools/verify_hus_e2e.py": "18d561601bec38bf588b85991f0871c92dd64af8091651bd2b665aa4703f38c9"
+  },
+  "finished_at_utc": "2026-11-04T10:12:18.214857+00:00",
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "git_state": "uncommitted_worktree",
+  "gold_sha256": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+  "holdout_eligible": false,
+  "holdout_inference_run": false,
+  "independent_human_review": false,
+  "limits": [
+    "Development paraphrases reuse exposed source anchors; no independent quality acceptance.",
+    "Recall uses all F1/F3 positives and the first actual search top5, including routing misses.",
+    "F2 uses structured facts plus source anchors, not Recall@5.",
+    "Alternative citations can be correct; conservative anchor scoring requires human semantic review.",
+    "Citation oracle checks source/page/review/AI and GET/hash, not semantic entailment or web health.",
+    "In-process TestClient HTTP only; no browser, load, product database or production acceptance."
+  ],
+  "llm_used": false,
+  "metrics": {
+    "abstention_on_missing_or_out_of_scope": {
+      "denominator": 24,
+      "numerator": 24,
+      "value": 1.0
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 64,
+      "numerator": 60,
+      "value": 0.9375
+    },
+    "answer_status_accuracy": {
+      "denominator": 96,
+      "numerator": 96,
+      "value": 1.0
+    },
+    "cases": 96,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 73,
+      "numerator": 60,
+      "value": 0.821917808219178
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 64,
+      "numerator": 64,
+      "value": 1.0
+    },
+    "f2_lookup_success": {
+      "denominator": 24,
+      "numerator": 24,
+      "value": 1.0
+    },
+    "failure_counts": {
+      "gold_anchor_not_cited_pending_semantic_review": 4
+    },
+    "false_abstention_on_positive": {
+      "denominator": 64,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "guardrail_success": {
+      "denominator": 32,
+      "numerator": 32,
+      "value": 1.0
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 8,
+      "numerator": 8,
+      "value": 1.0
+    },
+    "routed_recall_at_5": {
+      "denominator": 40,
+      "numerator": 39.0,
+      "value": 0.975
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 64,
+      "numerator": 60,
+      "value": 0.9375
+    },
+    "unjudged_alternative_citations": 13
+  },
+  "pack": "data/hus/evaluation/diagnostic_dev_v1",
+  "pack_manifest_sha256": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+  "parent_split_status": "exposed_for_development_not_final_holdout",
+  "product_database_modified": false,
+  "production_activated": false,
+  "pushed": false,
+  "quality_layers_file": "layered_metrics.json",
+  "questions_sha256": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+  "release_identity": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "runtime_sha256": {
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/hus/allowlist.py": "5eb040688d9cf6e3a8ac84f84c996a9bb2d278f115e2c5ae9d074cb0e65b980b",
+    "app/hus/answer_support.py": "f951b6e774f59288acb11e48fbd90804215eb96e4c61abfa50851a8fbbc54e96",
+    "app/hus/answering.py": "4f94598a71648b57483bfbf48b18295d373dc4ed13d244d6bbd9f9168a172a04",
+    "app/hus/chat.py": "b98775024813321c99a46c6b55f9f8a86db7fd6f1bb824c51c4c4056c326eeb0",
+    "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+    "app/hus/citations.py": "02dfbb2ad1390ef9dac219ddeb9561fa7ad87e3e056c0bade26a3a039e242283",
+    "app/hus/cleaning.py": "9b6d49df001e1d84a2227fde6d362b783791fe0a1a98946a44ce65b10907b101",
+    "app/hus/corpus.py": "9b9f4d49a142f1d252b7a3139ce8a1f5484cf218125122ec0914893702a19c9a",
+    "app/hus/crawler.py": "4092955bf58b2134699aed3baffdc91fd7c1799feceb7c16504d034cefa7bbb2",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/demo.py": "99255a19d1d9963dc2492c8d3b1e145614f5bd41c89acede969841d8711087ba",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/index.py": "03e48e210540a2c1215e5f33770d5c8a35ecb829ffa257bc532f8def129721db",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "bf915475eab4d246b48e92f063a4de89f6e04a0d2a6c46cef91f47545e7c3a53",
+    "app/hus/pipeline.py": "52b556cb08cee1f7e7c8b6f65274c3889d78b19b8fa3441d4b3d4fd75e3de5f9",
+    "app/hus/portable_adapter.py": "28666f28b4bf60735bc92eccbec69f72e69cdf303e1c0059192edabcd310768e",
+    "app/hus/provenance.py": "7b687d2d715c2eee5ccca96b5243f929c52111dc682faaf28364b76c651f8509",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/question_catalog.py": "3631d8521222fe0301f104d7ac1c5b4f73e4dedbca4d838f800502968f605ba7",
+    "app/hus/question_routing.py": "06d8a650ea971188ff8d38fe5198f9cf072ce7336c3138f1700770403c29504e",
+    "app/hus/rag_loader.py": "91fa1f92ef2c87bdd2d443b8c5c861ee6e28883815249388ce4ddc7149939963",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "92415230cabe445dd9844a64f584fc56a7710e7bdbab6594e8209c0c09c09004",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+    "app/hus/state.py": "a4f83c3fa87ab7521a9033806a654ebd0e50efd141b6eb87ae9b25a46a55d57d",
+    "app/hus/storage.py": "8113fd6a419d9f4087c03d395674d70a1f8233c423c76885fb54156deffe8056",
+    "app/hus/urls.py": "4edde88d965d577b28bba8501182e3b0deb8cfbbcc53e742521e7dca0085dcea",
+    "app/schemas/hus.py": "54b249fb316aa2d62bfb1f65dd8169d7690bd70487cfd0a64faa291e372b0188",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19"
+  },
+  "schema_version": "1.1",
+  "source_binary_checks": {
+    "/hus/sources/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920?page=9#page=9": {
+      "bytes": 465781,
+      "content_type": "application/pdf",
+      "sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920"
+    },
+    "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517": {
+      "bytes": 404363,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+    },
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=10#page=10": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=11#page=11": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=12#page=12": {
+      "bytes": 18438317,
+      "content_type": "application/pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+    },
+    "/hus/sources/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c": {
+      "bytes": 26348,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=12#page=12": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=13#page=13": {
+      "bytes": 19334830,
+      "content_type": "application/pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=11#page=11": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=12#page=12": {
+      "bytes": 19361810,
+      "content_type": "application/pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+    },
+    "/hus/sources/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1?page=8#page=8": {
+      "bytes": 460939,
+      "content_type": "application/pdf",
+      "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1"
+    },
+    "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=14#page=14": {
+      "bytes": 21509533,
+      "content_type": "application/pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+    },
+    "/hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=9#page=9": {
+      "bytes": 483700,
+      "content_type": "application/pdf",
+      "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+    }
+  },
+  "source_input_sha256": {
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+  },
+  "split": "diagnostic_development",
+  "started_at_utc": "2026-11-04T10:12:13.424749+00:00",
+  "status": "development_measurement_not_independent_acceptance",
+  "tested_commit": null,
+  "vnu_contacted": false
+}

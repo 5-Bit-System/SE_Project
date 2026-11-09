@@ -1,0 +1,15 @@
+{
+  "split": "development",
+  "holdout_eligible": false,
+  "cases": 12,
+  "release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "format": "portable-2.0",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "files_sha256": {
+    "cases.jsonl": "8b0d71dcd193c93ca1aa867f70de1aea3191ca0c90c73ab88c3e0b07d8dcfe30",
+    "README.md": "606d78431e6f113b583643952ba1d294fc62ea0e673fcd13c5cd1b1655bbd0d0"
+  }
+}

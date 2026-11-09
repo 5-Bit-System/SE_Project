@@ -1,0 +1,7 @@
+{
+  "files_sha256": {
+    "report.json": "1ab073e1d763cade425ac4b0751100ceaa49f77d1db3dd9555cc2c588f32df0c",
+    "review.json": "8c6f36769c50efdaaa69aad4e6b42281474fa216ef199aa9d96a90dbce68392f"
+  },
+  "schema_version": "hus-chatbot-evaluation-2.0"
+}

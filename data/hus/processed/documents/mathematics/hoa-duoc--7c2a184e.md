@@ -3,7 +3,7 @@ title: "Hóa Dược"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/hoa-hoc-va-cong-nghe/hoa-duoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

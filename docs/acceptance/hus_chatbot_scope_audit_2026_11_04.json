@@ -1,0 +1,338 @@
+{
+  "audit_date_local": "2026-11-04",
+  "timezone": "Asia/Bangkok",
+  "branch": "crawldata",
+  "base_head": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "scope": "HUS informational Q&A F1/F2/F3/basic chat only; course recommendation chatbot excluded",
+  "authorization": "User requested comprehensive Q&A audit and updated plan; explicitly separated recommendation chat",
+  "plan": {
+    "path": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "sha256": "907208ce12344d6c333442b170a7c5d7b4e2188d7cfa064c4641eb9202880895",
+    "lines": 175
+  },
+  "release": {
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "format": "portable-2.0",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "inventory": {
+    "families": {
+      "f1": {
+        "chunks": 65,
+        "fields": {
+          "introduction": 7,
+          "objectives": 25,
+          "further_study": 12,
+          "careers": 21
+        },
+        "max_text_characters": 2388,
+        "max_quote_characters": 2391
+      },
+      "f2": {
+        "chunks": 336,
+        "fields": {
+          "program": 4,
+          "group_rules": 42,
+          "course_facts": 290
+        },
+        "max_text_characters": 471,
+        "max_quote_characters": 0
+      },
+      "f3": {
+        "chunks": 870,
+        "fields": {
+          "content": 290,
+          "objectives": 290,
+          "suggested_assessment": 290
+        },
+        "max_text_characters": 374,
+        "max_quote_characters": 0
+      }
+    },
+    "f2": {
+      "memberships": 290,
+      "source_occurrences": 297,
+      "review_status": {
+        "verified": 67,
+        "draft_unverified": 223
+      },
+      "blank_raw_occurrences": 103,
+      "all_prereq_rows_blank_memberships": 103,
+      "conflicting_memberships": 1,
+      "unresolved_memberships": 42
+    },
+    "scopes": [
+      {
+        "major": "computer_science",
+        "version": "QD3568-2023",
+        "memberships": 67,
+        "menu_questions": {
+          "f1": 17,
+          "f2": 333,
+          "f3": 201,
+          "help": 3
+        }
+      },
+      {
+        "major": "data_science",
+        "version": "QD3569-2023",
+        "memberships": 65,
+        "menu_questions": {
+          "f1": 4,
+          "f2": 323,
+          "f3": 195,
+          "help": 3
+        }
+      },
+      {
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "memberships": 90,
+        "menu_questions": {
+          "f1": 12,
+          "f2": 448,
+          "f3": 270,
+          "help": 3
+        }
+      },
+      {
+        "major": "mathematics_informatics",
+        "version": "QD3567-2023",
+        "memberships": 68,
+        "menu_questions": {
+          "f1": 7,
+          "f2": 338,
+          "f3": 204,
+          "help": 3
+        }
+      }
+    ],
+    "asset_checks": [
+      {
+        "document_sha256": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+        "media_type": "application/pdf",
+        "bytes": 1159213
+      },
+      {
+        "document_sha256": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+        "media_type": "application/pdf",
+        "bytes": 465781
+      },
+      {
+        "document_sha256": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+        "media_type": "application/pdf",
+        "bytes": 164856
+      },
+      {
+        "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "bytes": 404363
+      },
+      {
+        "document_sha256": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+        "media_type": "application/pdf",
+        "bytes": 990545
+      },
+      {
+        "document_sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+        "media_type": "application/pdf",
+        "bytes": 18438317
+      },
+      {
+        "document_sha256": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+        "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "bytes": 26348
+      },
+      {
+        "document_sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+        "media_type": "application/pdf",
+        "bytes": 19334830
+      },
+      {
+        "document_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+        "media_type": "application/pdf",
+        "bytes": 19361810
+      },
+      {
+        "document_sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+        "media_type": "application/pdf",
+        "bytes": 460939
+      },
+      {
+        "document_sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+        "media_type": "application/pdf",
+        "bytes": 21509533
+      },
+      {
+        "document_sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+        "media_type": "application/pdf",
+        "bytes": 483700
+      },
+      {
+        "document_sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+        "media_type": "application/pdf",
+        "bytes": 525031
+      },
+      {
+        "document_sha256": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+        "media_type": "application/pdf",
+        "bytes": 351613
+      }
+    ],
+    "request_fields": [
+      "question",
+      "major",
+      "dataset",
+      "version",
+      "course_code",
+      "field",
+      "program_variant",
+      "allow_generated_reference"
+    ],
+    "reply_fields": [
+      "mode",
+      "reply",
+      "hus_answer"
+    ],
+    "routes": [
+      "/",
+      "/hus/chat",
+      "/hus/config",
+      "/hus/questions",
+      "/hus/sources/{source_id}",
+      "/openapi.json",
+      "/static"
+    ]
+  },
+  "observations": {
+    "prerequisite_blank": {
+      "course": "MAT2400",
+      "value": [
+        null
+      ],
+      "explicit_status_fact": false
+    },
+    "multiple_fields_returns_field": "credits",
+    "implicit_followup": "needs_clarification",
+    "inventory_probe_label_correction": {
+      "diagnostic": "prereq_blank",
+      "actual": "out_of_membership_code",
+      "reason": "MAT3540 is absent in selected DS scope; its refusal is correct"
+    },
+    "program_and_group_probes": [
+      {
+        "request": {
+          "question": "Theo nguồn đã lưu, chương trình ngành Khoa học dữ liệu yêu cầu bao nhiêu tín chỉ?",
+          "major": "data_science",
+          "version": "QD3569-2023"
+        },
+        "status": "needs_clarification",
+        "dataset": "f2"
+      },
+      {
+        "request": {
+          "question": "Chương trình ngành Khoa học dữ liệu có những nhóm kiến thức nào?",
+          "major": "data_science",
+          "version": "QD3569-2023"
+        },
+        "status": "answered",
+        "dataset": "f1"
+      }
+    ],
+    "structured_f2_program_and_group_api_supported": false,
+    "vector_or_chroma_in_runtime": false,
+    "hus_llm_rewrite_in_runtime": false,
+    "llm_connection_ok": "Reported by user only; provider not called during this audit",
+    "official_f3_default": false
+  },
+  "fresh_verification": {
+    "hus_folder_tests_passed": 894,
+    "general_offline_tests_passed": 1633,
+    "general_offline_deselected": 90,
+    "chromium_chat_cases_passed": 50,
+    "node_passed": 5,
+    "source_binary_hashes_checked": 14,
+    "real_pdf_viewer_reopened": false,
+    "new_page_image_review": false,
+    "postgres_tests_run": false,
+    "new_full_h2_inference": false,
+    "external_llm_embedding_requests": 0,
+    "warning": "Existing Starlette/httpx deprecation only"
+  },
+  "stable_inputs": {
+    "files_checked": 754,
+    "files_unchanged": true,
+    "runtime_artifacts": 112,
+    "runtime_artifacts_unchanged": true,
+    "prior_gate_1633_receipt_pins_match": true,
+    "manifest": "backups/chatbot_audit_20261104/input_pins.json",
+    "manifest_sha256": "327b9f21e0936f50ea64248347b5ea16a01e0f71da1a79e27aad640388d5821e",
+    "note": "Product files were protected against edits, not added to the Q&A functional scope"
+  },
+  "regression_tasks": {
+    "offline": {
+      "command": [
+        "C:\\Users\\dtai168\\SE_Project\\backups\\hus_integration\\pr6-resolution-20261102\\backups\\pr6\\ci-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "pytest",
+        "tests",
+        "-q",
+        "-m",
+        "not postgres and not hus_postgres and not full_catalog_acceptance",
+        "--junitxml=backups/chatbot_audit_20261104/offline.xml"
+      ],
+      "exit_code": 0,
+      "log_sha256": "699180bef53d74f0d7f3216a8d2a7bbfefb5a0f20b8c1a74888336c117fc536a",
+      "inputs_unchanged": true
+    },
+    "node": {
+      "command": [
+        "node",
+        "--test",
+        "tests/frontend/chat.test.cjs"
+      ],
+      "exit_code": 0,
+      "log_sha256": "a2aa384f2ebdd800aa395b8bcb97952e534afbb9c6af021e655c5ad60f6d6db9",
+      "inputs_unchanged": true
+    },
+    "browser": {
+      "command": [
+        "C:\\Users\\dtai168\\SE_Project\\backups\\hus_integration\\pr6-resolution-20261102\\backups\\pr6\\ci-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "tools.run_hus_rag_demo",
+        "--smoke"
+      ],
+      "exit_code": 0,
+      "log_sha256": "4cd3390b93d93c6d35d9415d4f0debecbc7fc7dc71e5aa12a1195e68d8908ad0",
+      "inputs_unchanged": true
+    }
+  },
+  "browser_report": {
+    "path": "backups/hus_rag_demo/20261104-100057-122827/report.json",
+    "sha256": "1c6eb30ba192aed8b01505db868b9a018a5dc18da38fb1c40f3377dac815b6b9"
+  },
+  "local_diagnostics": {
+    "inventory.json": "a2b41f1f3f04b7c5a31ac63a3969b1f0282cc3f96639add86097dd5a7cf44c87",
+    "contracts.json": "9489d3ae4d95c93d11b800a572f2e26137719e5f9014895ea7a98196f00f19d7",
+    "program_scope.json": "f48b0b22dd828ada1af111703e26ba395a2863d4a86ca6ac3fd442b3be8e08ca"
+  },
+  "limitations": {
+    "lexical_gate_not_general_semantic_entailment": true,
+    "independent_recall_90_proven": false,
+    "raw_dev96_anchors": "60/64 unchanged historical run",
+    "reviewer_policy": "AI-only allowed, human reviews remain zero; no source review promotion",
+    "exposed_development": "24 unique H2 cases already used for runtime tuning"
+  },
+  "implementation_changed": false,
+  "dependencies_installed": false,
+  "credentials_read_or_saved": false,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "local_artifacts_note": "backups are ignored local evidence, not published portable assets"
+}

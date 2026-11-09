@@ -3,7 +3,7 @@ title: "Vật lí học"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/vat-li-va-cong-nghe/vat-li-hoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

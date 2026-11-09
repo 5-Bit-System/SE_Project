@@ -1,0 +1,349 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-03T15:38:01.929504+07:00",
+  "status": "ai_review_and_measurement_complete_quality_target_not_met",
+  "branch": "crawldata",
+  "base_git_commit_not_tested_commit": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "tested_commit": null,
+  "git_state": "uncommitted_worktree",
+  "review_policy": {
+    "actual_human_reviews": 0,
+    "allowed_use": "AI review satisfies the evaluation-preparation review prerequisite for this round",
+    "authorization": "Explicit user instruction in this conversation",
+    "human_acceptance_claimed": false,
+    "human_review_required": false,
+    "independent_holdout_accepted": false,
+    "independent_holdout_claim": false,
+    "limits": [
+      "Waiving the human signature does not establish semantic independence or current source validity.",
+      "Existing human-review forms and validator remain historical, unchanged and unfilled.",
+      "Frozen original candidate, old baseline, runtime, source reviews and AI opt-in remain unchanged.",
+      "Production publication, deployment and official F3 activation are separate decisions."
+    ],
+    "recorded_at": "2026-11-03T15:28:08.135595+07:00",
+    "reviewer_kind": "ai",
+    "schema_version": "1.0",
+    "user_instruction": "thế thì bỏ qua người thật review chỉ cần AI review là được"
+  },
+  "review_summary": {
+    "academic_verified": false,
+    "accepted_alternative_replacements": [],
+    "actual_human_reviews": 0,
+    "additional_complementary_anchors_required": 4,
+    "by_category": {
+      "f1": 12,
+      "f2": 16,
+      "f3": 8,
+      "missing_evidence": 8,
+      "opt_in_required": 4,
+      "out_of_scope": 8
+    },
+    "by_major": {
+      "computer_science": 14,
+      "data_science": 14,
+      "mathematics": 14,
+      "mathematics_informatics": 14
+    },
+    "decisions_for_ai_exposed_evaluation": {
+      "accept": 53,
+      "revise": 3
+    },
+    "explanation": "Three answer/rubric revisions are separate from semantic-exposure findings. All questions remain exposed; no independent performance claim.",
+    "gold_complete_as_written": 53,
+    "human_review_required": false,
+    "independent_holdout_accepted": false,
+    "invalid_alternative_replacement_candidates": 4,
+    "protected_files_checked": 144,
+    "protected_originals_unchanged": true,
+    "question_count": 56,
+    "rag_inference_during_review": false,
+    "release_activated": false,
+    "reviewed_at": "2026-11-03T15:28:08.135595+07:00",
+    "reviewer_kind": "ai",
+    "revisions_required": [
+      "H2-Q043",
+      "H2-Q044",
+      "H2-Q048"
+    ],
+    "runtime_tuning_performed": false,
+    "schema_version": "1.0",
+    "semantic_overlap_risk": {
+      "high": 52,
+      "moderate": 4
+    },
+    "source_supported_as_written": 54,
+    "status": "ai_review_complete"
+  },
+  "derivative_pack": "data/hus/evaluation/ai_reviewed_exposed_v1",
+  "derivative_pack_manifest_sha256": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+  "measured_run": "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1",
+  "release_identity": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "raw_metrics": {
+    "abstention_on_missing_or_out_of_scope": {
+      "denominator": 16,
+      "numerator": 16,
+      "value": 1.0
+    },
+    "anchor_support_among_positive_answers": {
+      "denominator": 16,
+      "numerator": 11,
+      "value": 0.6875
+    },
+    "answer_status_accuracy": {
+      "denominator": 56,
+      "numerator": 36,
+      "value": 0.6428571428571429
+    },
+    "cases": 56,
+    "citation_anchor_precision_lower_bound": {
+      "denominator": 16,
+      "numerator": 11,
+      "value": 0.6875
+    },
+    "citation_integrity_answer_pass_rate": {
+      "denominator": 16,
+      "numerator": 16,
+      "value": 1.0
+    },
+    "f2_lookup_success": {
+      "denominator": 16,
+      "numerator": 11,
+      "value": 0.6875
+    },
+    "failure_counts": {
+      "fact_mismatch": 1,
+      "lookup_or_intent_abstention": 4,
+      "post_retrieval_abstention": 16,
+      "wrong_dataset": 4
+    },
+    "false_abstention_on_positive": {
+      "denominator": 36,
+      "numerator": 20,
+      "value": 0.5555555555555556
+    },
+    "guardrail_success": {
+      "denominator": 20,
+      "numerator": 20,
+      "value": 1.0
+    },
+    "http_errors": 0,
+    "human_review": "pending; source anchors/integrity do not certify semantic correctness",
+    "opt_in_clarification": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "routed_recall_at_5": {
+      "denominator": 20,
+      "numerator": 16.0,
+      "value": 0.8
+    },
+    "scope_error_cases": {
+      "course_code": 0,
+      "major": 0,
+      "version": 0
+    },
+    "semantic_citation_precision": null,
+    "semantic_source_support": null,
+    "source_supported_success_on_positive": {
+      "denominator": 36,
+      "numerator": 11,
+      "value": 0.3055555555555556
+    },
+    "unjudged_alternative_citations": 4
+  },
+  "ai_semantic_summary": {
+    "actual_generated_F3_answers": 0,
+    "actual_status_counts": {
+      "answered": 16,
+      "needs_clarification": 4,
+      "no_information": 36
+    },
+    "ai_full_answer_judgement_counts": {
+      "correct": 31,
+      "incorrect": 24,
+      "partial": 1
+    },
+    "cases": 56,
+    "citation_entails_literal_returned_fact": {
+      "denominator": 16,
+      "numerator": 16,
+      "value": 1.0
+    },
+    "citation_relevant_to_requested_information_and_dataset": {
+      "denominator": 16,
+      "numerator": 12,
+      "value": 0.75
+    },
+    "consent_flag_mismatches": 0,
+    "correct_missing_or_out_of_scope_refusals": {
+      "denominator": 16,
+      "numerator": 16,
+      "value": 1.0
+    },
+    "correct_opt_in_clarifications": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "emitted_citations": 16,
+    "expected_generated_F3_answers": 8,
+    "expected_positive_cases": 36,
+    "false_abstention_on_positive": {
+      "denominator": 36,
+      "numerator": 20,
+      "value": 0.5555555555555556
+    },
+    "false_permission_generated_content_leaks": 0,
+    "http_successes": 56,
+    "partial_positive_cases": [
+      "H2-Q048"
+    ],
+    "scope_major_or_version_errors": 0,
+    "source_supported_but_incomplete_blank_prerequisite_ids": [
+      "H2-Q048"
+    ],
+    "status_accuracy_only": {
+      "denominator": 56,
+      "numerator": 36,
+      "value": 0.6428571428571429
+    },
+    "strict_full_correct_among_actual_answered": {
+      "denominator": 16,
+      "numerator": 11,
+      "value": 0.6875
+    },
+    "strict_full_correct_and_responsive_all_cases": {
+      "denominator": 56,
+      "numerator": 31,
+      "value": 0.5535714285714286
+    },
+    "strict_full_correct_and_responsive_positive_cases": {
+      "denominator": 36,
+      "numerator": 11,
+      "value": 0.3055555555555556
+    },
+    "wrong_intent_F3_content_answer_ids": [
+      "H2-Q009",
+      "H2-Q023",
+      "H2-Q037",
+      "H2-Q051"
+    ]
+  },
+  "dev_three_case_summary": {
+    "reviewed_cases": 3,
+    "fully_adequate_answers": 2,
+    "partial_answers": 1,
+    "unsupported_answers": 0,
+    "uncertain_answers": 0,
+    "emitted_quote_blocks_source_supported": 6,
+    "emitted_quote_blocks_reviewed": 6,
+    "valid_alternative_full_gold_support_cases": [
+      "DEV-Q049",
+      "DEV-Q050"
+    ],
+    "partial_gold_coverage_cases": [
+      "DEV-Q006"
+    ]
+  },
+  "failure_groups": {
+    "post_retrieval_gate_rejection": 16,
+    "name_intent_unrecognized": 4,
+    "content_misrouted_to_prerequisites": 4,
+    "strict_null_representation_mismatch": 1
+  },
+  "fresh_regressions": {
+    "offline_passed": 1479,
+    "offline_deselected": 90,
+    "node_passed": 5,
+    "chromium_passed": 50,
+    "actual_pdf_pages_passed": [
+      13,
+      12
+    ],
+    "receipt": "docs/acceptance/hus_h2_ai_regression_report.json",
+    "receipt_sha256": "7f207d3cdb8a8a11c97604fbdedc3e87dbda57d967dbd184ee7f100176dc2eed"
+  },
+  "verified_counts": {
+    "ai_review_decisions": 56,
+    "gold_revisions": 3,
+    "evidence_ids": 48,
+    "actual_human_accepted": 0,
+    "protected_files": 144,
+    "measured_artifacts": 111,
+    "regression_runtime_data_pins": 108,
+    "python_test_inputs": 136,
+    "node_test_inputs": 1
+  },
+  "quality_target": {
+    "routed_recall_at_5_target": 0.9,
+    "observed_exposed_routed_recall_at_5": 0.8,
+    "met": false,
+    "independent_performance_proven": false
+  },
+  "frozen_originals_unchanged": true,
+  "runtime_tuned_from_H2": false,
+  "source_review": {
+    "report": "data/hus/review/p13_scope_followup_20261103/report.json",
+    "historical_blockers": 6,
+    "blockers_closed": 0,
+    "official_F3_enabled": false,
+    "review_state_changed": false
+  },
+  "verification": {
+    "source_and_artifact_pins_match": true,
+    "environment_matches": true,
+    "saved_scores_reproduced": true,
+    "all56_ai_response_reviewed": true,
+    "all_human_worksheet_rows_remain_pending": true
+  },
+  "next_runtime_work_required": true,
+  "publication_eligible_from_this_measurement": false,
+  "committed": false,
+  "pushed": false,
+  "production_activated": false,
+  "output_sha256": {
+    ".agent/AGENTS.md": "cbc58fbae57a2cf86ac87f33256697dddd12ddc0fbf9a78e34a64b266586ade9",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/changes.jsonl": "706e9b7eb7c9275d90ea2f29a3c82843241568dbd64f459d7a9688326f96a4ca",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/evidence.jsonl": "548370f07eaf310b02c5694ee61844cba123d7d893aa137ee9ec4a3998e2287e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/gold.jsonl": "61317a0a32d8ca4428224c32b6005ee4aea0667a972bb34ecae00f733c6c1282",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/manifest.json": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+    "data/hus/evaluation/ai_reviewed_exposed_v1/README.md": "1becc6ab41880cbcb38fef819598cfb5d465c4a5c55f8a592f72aeaeb3bbf59c",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/controls_review.jsonl": "d770c09e04763dbce3acb0b295c358953589374aaccb64480b3f85cc917f8555",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/f1_review.jsonl": "1c0e7e3429836495bf8655156eccf6325374c390e3484bc3ca9a63f4d1426672",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/f2_review.jsonl": "a07d4b015033731fd74d818097533dfea8fb8f27200c583c78cdef1aa5792275",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/manifest.json": "47027fca9f467fb3b347e0eb0a845aeeccbba1cdabae6580537e7911ad613387",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/policy.json": "14ad1ea7fae2421cb21068dccac78c444ef8a34413eaab3e9e89619e73368537",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/README.md": "20576a57d2d3629b2f6bc2dcc74cd6b0188827e0662c3df437463030e8cd490a",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/review_decisions.jsonl": "76bedeb1e314e8f64e1c48a5c351d9ff7fbd96494d63916072969d6ed1ca7244",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/review_results.csv": "c460dccfebc9dc5e9e61801c82502d387343efe46ac6ac51e59c5a6ef549a186",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/summary.json": "2047884d50f4cfe8fa4a2fbe69fc4859d56291b1d5bdf68d8808dcda0a8d9782",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/citation_audits.jsonl": "ffeacc068ae415edc4b64472d44ff7943209d6ec770710f458bcd627438cf5a3",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/input_snapshot.json": "19c889f4c8d278174fb04f8121e185d60e7c7dabd36c60df1704cd3760931ec1",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/layered_metrics.json": "5766d3054255d24faf3fbf60eb3b8904e21132f1de5e42cfab2f90d27360bb52",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/manifest.json": "de7d870f90b6d8a152ac4f465d44d6fc772807a3519953619a39494a2bcfa5f0",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/predictions.jsonl": "b47f96dd256a55221479c08663e632ace0cde4b18deac8c23438ca085df77aa1",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/report.json": "7e6c94d4c7b6293d9269583404abd57e381cd6c284371ae72a935d16c70129b7",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/runner.py": "3a091dd149cb52891af954bf1ededeaca8d157a5608587941f2203b8ee9c5aa5",
+    "data/hus/evaluation/runs/h2_ai_reviewed_exposed_v1/scored_cases.jsonl": "be7af9b84e6b6aeabc41e1daf23500a3d9733e277836a9951358c09bb0236f77",
+    "docs/acceptance/hus_dev_three_cases_ai_review.json": "8907bf64cf985a40426cb548edbfb7783730de4331cec933924e12bfe296a80a",
+    "docs/acceptance/hus_h2_ai_regression_report.json": "7f207d3cdb8a8a11c97604fbdedc3e87dbda57d967dbd184ee7f100176dc2eed",
+    "docs/acceptance/hus_h2_ai_response_support.json": "90386d36574ca02a7c43f42c93dffa0a44820adb9e39be7a6ec652affa43fe21",
+    "docs/acceptance/hus_h2_failure_diagnosis.json": "38219b31ec6c215294ebc771f640e20e57f2f00d4232dcea9681bce8bcbf5ef5",
+    "docs/RAG_AI_REVIEW_AND_MEASUREMENT_2026_11_03.md": "f1536f59ec12a288cd180b1faa60c3d60ddaecf38cb903d149e24670edd31c7d",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "43fe10732c1eb2f0f2bee99e587e383e53da7f1df9df862f58beae15ba44839d",
+    "docs/RAG_REVIEW_RELEASE_GATES_2026_11_03.md": "33102350ddefea1039d150262972e19ebf2ac6c523270139d49d1fc6b8d708be"
+  },
+  "verification_script_sha256": "6bb8342d45912e5949d772b0606640ef8eaada157608f21f3ef9f44e15b17792",
+  "limits": [
+    "AI review is authorized; human or semantic independence is not claimed.",
+    "Technical regression success does not override failed quality targets.",
+    "Source current validity, identity/cohort approvals and production activation remain outside this measurement."
+  ]
+}

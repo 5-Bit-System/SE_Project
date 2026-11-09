@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "dc9d1019601999a4debcadf45ecf46b5fb2e0520ccfec542d4793072aff9e3f9",
+    "predictions.jsonl": "fe3e9d108abfd4e78bc2bb49c73763c9242904f04763608dee10f7bd257c08c1",
+    "report.json": "8456d5d7cc9c4629e913ff5058f2ec3f9c1c5eb2679c34f92a27139b9832e785",
+    "scored_cases.jsonl": "5df2de5e25d2625a4484c2bcb87378d390645b38b6a38d69ad151bfbb11bec3a"
+  },
+  "pack_manifest_sha256": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+  "schema_version": "1.0"
+}

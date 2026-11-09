@@ -5,89 +5,40 @@ from __future__ import annotations
 import json
 import re
 
-from app.hus.rag_loader import HUSRAGData
+from app.hus.rag_loader import F2Course, HUSRAGData
 from app.hus.citations import CitationResolver, citation_line
-from app.hus.retrieval import COURSE_CODE, FIELD_LABELS, STOP_WORDS, HUSRAGRetriever, _body, _tokens
-from app.schemas.hus import HUSAnswer, HUSQuestion
+from app.hus.retrieval import COURSE_CODE, HUSRAGRetriever, _body, _tokens
+from app.hus.question_routing import (
+    has as _has, assessment_fact_request as assessment_fact_request,
+    is_hus_question as is_hus_question, question_intent,
+    out_of_scope, requested_text, requested_course_fields, unsupported_request, verified_requested as _verified_requested,
+    PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
+)
+from app.hus.answer_support import supported_hits
+from app.schemas.hus import F2PrerequisiteStatus, HUSAnswer, HUSQuestion
 
 
-def _has(text: str, *phrases: str) -> bool:
-    return any(f" {phrase} " in f" {text} " for phrase in phrases)
-
-
-def assessment_fact_request(question: str) -> bool:
-    """Exam weights/formats remain unknown even inside a recommendation request."""
-    text = " ".join(_tokens(question))
-    assessment = _has(text, "thi", "diem", "danh gia", "cuoi ky", "giua ky", "trac nghiem", "tu luan")
-    return assessment and ("%" in question or _has(
-        text, "phan tram", "ty le", "ti le", "trong so", "ty trong", "ti trong", "chiem",
-        "hinh thuc thi", "trac nghiem", "tu luan"))
-
-
-def question_intent(question: str) -> tuple[str | None, str | None]:
-    """Only recognize supported information intents; recommendation stays separate."""
-    text = " ".join(_tokens(question))
-    if assessment_fact_request(question):
-        return "f3", "official_assessment"
-    if _has(text, "nen hoc", "nen dang ky", "goi y mon", "de xuat mon", "chon mon",
-            "du dieu kien", "lo trinh", "ky toi nen", "ky toi hoc", "nen uu tien"):
-        return None, None
-    if _has(text, "tin chi"):
-        return "f2", "credits"
-    if _has(text, "tien quyet"):
-        return "f2", "prerequisites"
-    if _has(text, "so tiet", "so gio"):
-        return "f2", "hours"
-    if _has(text, "ten mon", "ten hoc phan"):
-        return "f2", "name"
-    if _has(text, "nghe nghiep", "viec lam", "lam nghe", "sau tot nghiep"):
-        return "f1", "careers"
-    if _has(text, "hoc tiep", "sau dai hoc"):
-        return "f1", "further_study"
-    if _has(text, "danh gia", "thi", "kiem tra", "cuoi ky", "ty le diem", "trong so"):
-        return "f3", "suggested_assessment"
-    if _has(text, "muc tieu", "chuan dau ra"):
-        return ("f3", "objectives") if any(COURSE_CODE.fullmatch(t) for t in _tokens(question)) or _has(
-            text, "hoc phan", "mon hoc") else ("f1", "objectives")
-    if _has(text, "noi dung", "chu de", "hoc gi", "de cuong"):
-        return "f3", "content"
-    if _has(text, "gioi thieu", "tong quan"):
-        return "f1", "introduction"
-    return None, None
-
-
-def is_hus_question(question: str) -> bool:
-    text = " ".join(_tokens(question))
-    if assessment_fact_request(question):
-        return True
-    # Preserve recommendation routing even if a credit count occurs in that request.
-    if _has(text, "nen hoc", "nen dang ky", "goi y mon", "de xuat mon", "chon mon",
-            "du dieu kien", "lo trinh", "ky toi nen", "ky toi hoc", "nen uu tien"):
-        return False
-    return (question_intent(question)[0] is not None or any(COURSE_CODE.fullmatch(t) for t in _tokens(question))) or _has(
-        text, "hus", "hoc phi", "diem chuan", "tuyen sinh", "quy che", "hoc bong")
+def prerequisite_status(course: F2Course) -> F2PrerequisiteStatus:
+    """Interpret source rows without replacing missing raw values or review."""
+    raw = [row.get("prerequisite_source_text") for row in course.source_rows]
+    variants = {" ".join(value.split()) for value in raw if value and value.strip()}
+    parses = {row.get("prerequisite_parse_status") for row in course.source_rows}
+    if course.has_prerequisite_conflict or "conflict" in parses or len(variants) > 1:
+        return "conflict"
+    if not raw or any(not value or not value.strip() for value in raw):
+        return "unknown"
+    if course.unresolved_prerequisites or parses - {"normalized", "parsed"}:
+        return "unresolved"
+    return "present"
 
 
 MAJOR_NAMES = {
     "mathematics": ("toan hoc", "toanhoc", "nganh toan", "mathematics"),
     "mathematics_informatics": ("toan tin", "toantin", "toan hoc va tin hoc", "mathematics informatics"),
-    "computer_science": ("khoa hoc may tinh", "may tinh va khoa hoc thong tin", "may tinh va thong tin",
-                         "khmtt", "khmt tt", "khmt", "computer science"),
+    "computer_science": ("khoa hoc may tinh va thong tin", "khoa hoc may tinh", "may tinh va khoa hoc thong tin", "may tinh va thong tin",
+                         "khmttt", "khmtt", "khmt tt", "khmt", "computer science"),
     "data_science": ("khoa hoc du lieu", "khdl", "data science"),
 }
-UNSUPPORTED = ("hoc phi", "diem chuan", "chi tieu", "tuyen sinh", "luong", "lich hoc", "hoc bong",
-               "giang vien", "thoi khoa bieu", "quy che", "dang mo", "dang duoc mo")
-GENERIC = set(_tokens(" ".join(FIELD_LABELS.values()) + " nganh hoc phan mon sinh vien tot nghiep "
-                     "chuong trinh dao tao nhung nhu the nao sau khi lam cong viec du kien "
-                     "tham khao toi muon hoi xin biet duoc co the gi co hoi")) | STOP_WORDS
-
-
-def _verified_requested(question: str) -> bool:
-    text = " ".join(_tokens(question))
-    return "%" in question or _has(text, "chinh thuc", "da xac minh", "hien hanh", "hien nay",
-                                    "hien tai", "nam nay", "ty le", "phan tram", "cuoi ky", "trong so")
-
-
 class HUSAnswerer:
     def __init__(self, data: HUSRAGData, *, asset_root=None):
         self.data = data
@@ -104,9 +55,17 @@ class HUSAnswerer:
 
     def _answer(self, request: HUSQuestion) -> HUSAnswer:
         dataset, field = question_intent(request.question)
+        # Request hints never authorize actions outside the standalone Q&A scope.
+        if out_of_scope(request.question):
+            return self._missing(request, dataset, "Phạm vi hỏi đáp không hỗ trợ xếp hạng, chọn môn hoặc thao tác bên ngoài.")
         dataset = dataset if request.dataset == "auto" else request.dataset
         field = request.field or field
         text = " ".join(_tokens(request.question))
+        editions = {f"qd{number} {year}" for number, year in
+                    re.findall(r"\b(?:qd\s*|quyet dinh\s+)(\d{3,6})\s+(\d{4})\b", text)}
+        if editions and (len(editions) > 1 or
+                         (request.version and editions != {" ".join(_tokens(request.version))})):
+            return self._missing(request, dataset, "Phiên bản trong câu hỏi không khớp phiên bản đã chọn.")
         codes = {t.upper() for t in _tokens(request.question) if COURSE_CODE.fullmatch(t)}
         if len(codes) > 1 or (codes and request.course_code and request.course_code not in codes):
             return self._missing(request, dataset, "Cần một mã học phần thống nhất cho mỗi câu hỏi.", clarify=True)
@@ -121,8 +80,33 @@ class HUSAnswerer:
                 named = named.replace(f" {name} ", " ")
         if mentioned and mentioned != {request.major}:
             return self._missing(request, dataset, "Câu hỏi khác phạm vi ngành đã chọn; cần chọn đúng ngành.")
-        if _has(text, *UNSUPPORTED) or re.search(r"\b20(?:2[6-9]|[3-9]\d)\b", text):
+        if unsupported_request(request.question):
             return self._missing(request, dataset, "Chưa có bằng chứng phù hợp về nội dung hoặc thời điểm được hỏi.")
+        program_fields = requested_program_fields(request.question)
+        if dataset == "f2" and program_fields and request.field and field not in program_fields:
+            return self._missing(request, "f2", "Loại dữ kiện đã chọn không khớp câu hỏi cấp chương trình/nhóm.", clarify=True)
+        if code and dataset == "f2" and program_total_request(request.question):
+            return self._missing(request, "f2", "Cần hỏi tổng chương trình hoặc dữ kiện một môn riêng.", clarify=True)
+        if dataset == "f2" and (field in PROGRAM_FIELDS or request.group_key is not None):
+            return self._program(request, code, field)
+        if dataset in {"f2", "f3"} and request.version:
+            # Full names are matched only within this exact major/version. Never
+            # guess a code from a fuzzy/global title match.
+            matches = {c.course_code for c in self.data.f2_courses(major=request.major, version=request.version)
+                       if _has(requested_text(request.question), " ".join(_tokens(c.course["course_name"])))}
+            if code and matches and code not in matches:
+                return self._missing(request, dataset, "Tên và mã học phần không khớp; cần làm rõ môn được hỏi.", clarify=True)
+            if len(matches) > 1:
+                return self._missing(request, dataset, "Tên học phần chưa xác định duy nhất; cần mã môn.", clarify=True)
+            code = code or next(iter(matches), None)
+        # Hints select a field; they cannot make a partial answer satisfy a
+        # multi-field question. No evidence is emitted until the user chooses.
+        if dataset in {"f2", "f3"} and len(requested_course_fields(request.question)) > 1:
+            if _verified_requested(request.question):
+                return self._missing(request, dataset, "Chưa có thông tin đã xác minh cho yêu cầu chính thức/hiện hành.")
+            return self._missing(request, dataset,
+                                 "Mỗi lượt hỏi một loại thông tin của một môn. Bạn muốn hỏi tên, tín chỉ, "
+                                 "tiên quyết, số giờ, nội dung, mục tiêu hay gợi ý đánh giá?", clarify=True)
         if dataset == "f2":
             if field is None and not _has(text, "thong tin", "la mon gi", "la gi"):
                 return self._missing(request, dataset, "Chưa xác định được trường dữ kiện được hỏi.")
@@ -147,12 +131,7 @@ class HUSAnswerer:
                                      version=request.version, course_code=code, field=field,
                                      program_variant=request.program_variant, top_k=5,
                                      allow_generated=request.allow_generated_reference)
-        # Generic intent labels alone must not support an unrelated specific assertion.
-        generic = GENERIC | set(_tokens(" ".join(n for names in MAJOR_NAMES.values() for n in names)))
-        for hit in hits:
-            generic.update(_tokens(hit.chunk.metadata.get("course_name", "")))
-        specific = set(_tokens(request.question)) - generic - {c.lower() for c in codes}
-        hits = tuple(h for h in hits if not specific or specific <= set(h.matched_terms))[:2]
+        hits = supported_hits(request.question, hits, aliases=MAJOR_NAMES, codes=codes)
         if not hits:
             return self._missing(request, dataset, "Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.")
         citations, excerpts, warnings = [], [], []
@@ -180,6 +159,78 @@ class HUSAnswerer:
                          status="needs_clarification" if clarify else "no_information",
                          dataset=dataset, major=request.major, version=request.version)
 
+    def _program(self, request: HUSQuestion, code: str | None, field: str) -> HUSAnswer:
+        if _verified_requested(request.question):
+            return self._missing(request, "f2", "Bản chép chương trình chưa xác nhận hiệu lực hiện hành hoặc chứng nhận của trường.")
+        if code or field not in PROGRAM_FIELDS:
+            return self._missing(request, "f2", "Cần chọn hỏi cấp chương trình/nhóm hoặc cấp môn riêng.", clarify=True)
+        requested_fields = requested_program_fields(request.question)
+        text = requested_text(request.question)
+        if (not requested_fields or len(requested_fields) > 1 or field not in requested_fields
+                or set(requested_course_fields(request.question)) - {"credits"}
+                or _has(text, *CAREER_TERMS, "hoc tiep", "sau dai hoc",
+                        "gioi thieu", "tong quan", "nen tang", "lich su hinh thanh")
+                or (field == "program_credits" and _has(text.replace("ma mon", ""), "mon", "hoc phan"))):
+            return self._missing(request, "f2", "Mỗi lượt hỏi một loại thông tin: tổng tín chỉ hoặc các nhóm kiến thức.", clarify=True)
+        if _has(text, "nhom") and _has(text, "mon nao", "hoc phan nao", "danh sach mon", "cac mon"):
+            return self._missing(request, "f2", "Phần này trả quy định/ghi chú nhóm, chưa hỗ trợ danh sách học phần theo nhóm.")
+        if not request.version:
+            return self._missing(request, "f2", "Cần phiên bản chương trình; không cần mã môn cho câu hỏi cấp chương trình.", clarify=True)
+        program = self.data.get_f2_program(major=request.major, version=request.version)
+        if program is None or (request.program_variant and program["scope"]["program_variant"] != request.program_variant):
+            return self._missing(request, "f2", "Không có chương trình đúng ngành/phiên bản/hệ đã chọn.")
+        if field == "program_credits" and any(
+                _has(text, " ".join(_tokens(course.course["course_name"])))
+                for course in self.data.f2_courses(major=request.major, version=request.version)):
+            return self._missing(request, "f2", "Cần hỏi tổng chương trình hoặc số tín chỉ một môn riêng.", clarify=True)
+        variants = {variant for variant, terms in {"standard": ("he chuan", "chuong trinh chuan"),
+                    "talent": ("tai nang",), "advanced": ("tien tien",), "high_quality": ("chat luong cao",)}.items()
+                    if _has(text, *terms)}
+        if variants and variants != {program["scope"]["program_variant"]}:
+            return self._missing(request, "f2", "Hệ nêu trong câu hỏi không khớp chương trình đã chọn.")
+        keys = question_group_keys(request.question)
+        if len(keys) > 1 or (keys and request.group_key and request.group_key not in keys):
+            return self._missing(request, "f2", "Cần một mã nhóm thống nhất, giữ đủ mã nhóm con như V.2.1.", clarify=True)
+        key = request.group_key or next(iter(keys), None)
+        if field != "group_rules" and key:
+            return self._missing(request, "f2", "Cần chọn tổng chương trình, danh sách nhóm hoặc quy định một nhóm riêng.", clarify=True)
+        warnings = [f"Trạng thái review: {program['catalog_review']['status']}; chưa xác minh hiệu lực hiện tại hoặc áp dụng cho từng sinh viên.",
+                    "Chỉ mô tả theo nguồn; không kết luận đủ điều kiện tốt nghiệp hoặc đăng ký học phần."]
+        if field == "program_credits":
+            if program["credits_required"] is None:
+                return self._missing(request, "f2", "Nguồn chưa ghi tổng tín chỉ yêu cầu của chương trình.")
+            value = {"credits_required": program["credits_required"]}
+            records, values = [program], [{**value, "note": program.get("source_note")}]
+            rendered = f"Tổng tín chỉ yêu cầu theo chương trình: {value['credits_required']}."
+            rendered += "\nGhi chú nguồn: " + (program.get("source_note") or "chưa ghi")
+        else:
+            records = list(self.data.f2_group_rules(major=request.major, version=request.version))
+            if field == "group_rules":
+                if not key:
+                    return self._missing(request, "f2", "Cần mã nhóm, ví dụ II hoặc V.2.1; có thể hỏi danh sách các nhóm trước.", clarify=True)
+                records = [row for row in records if row["group_key"] == key]
+            if not records:
+                return self._missing(request, "f2", "Không có nhóm này trong ngành và phiên bản đã chọn.")
+            values = [{k: row.get(k) for k in ("group_key", "group_title", "source_heading", "group_note",
+                                             "min_credits_if_selected", "offered_credits")} for row in records]
+            value = values[0] if field == "group_rules" else values
+            def shown(number):
+                return "chưa ghi" if number is None else str(number)
+            rendered = "\n\n".join(
+                f"[{i}] Nhóm {row['group_key']}: {row['group_title']}\n"
+                f"Yêu cầu tối thiểu nếu chọn: {shown(row['min_credits_if_selected'])} tín chỉ; "
+                f"tín chỉ được liệt kê: {shown(row['offered_credits'])}.\n"
+                f"Ghi chú nguồn: {row['group_note'] or 'chưa ghi'}." for i, row in enumerate(values, 1))
+            warnings.append("Các nhóm cha/con và số liệu khác nhau được giữ riêng; không cộng hoặc tự sửa số liệu.")
+        citations = [self.citation_resolver.program_record(row, val, i)
+                     for i, (row, val) in enumerate(zip(records, values, strict=True), 1)]
+        facts = {"program_id": program["program_id"], "scope": program["scope"], "field": field, "value": value,
+                 "review_status": program["catalog_review"]["status"], "catalog_review": program["catalog_review"]}
+        reply = "\n\n".join([f"{program['major_name']} ({request.version})\n{rendered}"] + warnings
+                              + [citation_line(citation) for citation in citations])
+        return HUSAnswer(reply=reply, status="answered", dataset="f2", major=request.major,
+                         version=request.version, facts=facts, warnings=warnings, citations=citations)
+
     def _f2(self, request: HUSQuestion, code: str | None, field: str) -> HUSAnswer:
         if not code or not request.version:
             return self._missing(request, "f2", "Cần mã học phần và phiên bản chương trình.", clarify=True)
@@ -206,6 +257,7 @@ class HUSAnswerer:
             value = value[0]
         facts = {"course_code": code, "course_name": course.course["course_name"], "field": field,
                  "value": value, "review_status": course.review_status,
+                 "prerequisite_status": prerequisite_status(course),
                  "has_prerequisite_conflict": course.has_prerequisite_conflict,
                  "unresolved_prerequisites": list(course.unresolved_prerequisites)}
         if "catalog_review" in course.provenance:
@@ -217,6 +269,9 @@ class HUSAnswerer:
             facts["prerequisite_groups"] = list(course.prerequisites)
             rendered = "\n".join(f"[{i}] {v if v else 'Dòng nguồn không ghi điều kiện tiên quyết'}"
                                   for i, v in enumerate(value, 1))
+            state_label = {"unknown": "Chưa rõ từ nguồn", "present": "Có ghi điều kiện trong nguồn",
+                           "conflict": "Mâu thuẫn giữa các dòng nguồn", "unresolved": "Chưa giải quyết mã hoặc cách đọc điều kiện"}
+            rendered = state_label[facts["prerequisite_status"]] + "\n" + rendered
         elif field == "course_info":
             rendered = f"Tên: {value['course_name']}; số tín chỉ: {value['credits']}"
         else:
@@ -225,10 +280,16 @@ class HUSAnswerer:
             warnings = ["Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường."]
         else:
             warnings = [f"Trạng thái xác minh: {course.review_status}; dữ kiện chép từ nguồn, chưa xác minh học vụ."]
-        if course.has_prerequisite_conflict:
+        if facts["prerequisite_status"] == "conflict":
             warnings.append("Có mâu thuẫn điều kiện tiên quyết giữa các dòng nguồn; chưa kết luận điều kiện đúng.")
         if course.unresolved_prerequisites:
             warnings.append("Mã tiên quyết chưa giải quyết: " + ", ".join(course.unresolved_prerequisites))
+        if field == "prerequisites":
+            if facts["prerequisite_status"] == "unknown":
+                warnings.append('Chưa đủ căn cứ để kết luận “không có tiên quyết”: ô nguồn trống vẫn là chưa rõ.')
+            elif facts["prerequisite_status"] == "unresolved":
+                warnings.append("Điều kiện chưa giải quyết đầy đủ; giữ nguyên dòng nguồn, không suy diễn quan hệ tiên quyết.")
+            warnings.append("Thông tin theo nguồn không kết luận bạn đủ điều kiện đăng ký học phần.")
         source_lines = [citation_line(c) for c in citations]
         label = {"credits": "Số tín chỉ", "prerequisites": "Điều kiện tiên quyết theo dòng nguồn",
                  "name": "Tên học phần", "hours": "Số giờ theo nguồn", "course_info": "Thông tin học phần"}[field]

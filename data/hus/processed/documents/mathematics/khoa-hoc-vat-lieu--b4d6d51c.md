@@ -3,7 +3,7 @@ title: "Khoa học vật liệu"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/vat-li-va-cong-nghe/khoa-hoc-vat-lieu"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

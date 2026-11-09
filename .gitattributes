@@ -21,3 +21,12 @@ integration/** -text
 # Acceptance receipts and derived audit artifacts retain the exact captured bytes.
 docs/acceptance/** -text
 data/hus/qa/20261102/** -text
+
+# Frozen evaluation packs, review records and vector contracts retain the exact captured bytes.
+data/hus/evaluation/** -text
+data/hus/review/** -text
+data/hus/vector_profiles/** -text
+data/hus/vector_contracts/** -text
+data/hus/vector_passages/** -text
+requirements.txt -text
+requirements-lock.txt -text

@@ -10,9 +10,10 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.hus.chat import HUSChatReply, chat
+from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.source_response import source_response
-from app.schemas.hus import HUSQuestion
+from app.schemas.hus import HUSMajor, HUSQuestion
 from app.services.hus_service import get_hus_answerer
 
 app = FastAPI(title="HUS RAG — demo local", docs_url=None, redoc_url=None)
@@ -57,6 +58,17 @@ def reply(request: HUSQuestion):
         return chat(request, current_answerer())
     except RAGDataError:
         raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
+
+
+@app.get("/hus/questions")
+def questions(major: HUSMajor, version: str = Query(min_length=1, max_length=80)):
+    answerer = current_answerer()
+    if (major, version) not in set(answerer.programs.values()):
+        raise HTTPException(404, "Không có ngành và phiên bản chương trình này.")
+    try:
+        return question_catalog(answerer.data, major=major, version=version)
+    except RAGDataError:
+        raise HTTPException(503, "Danh mục câu hỏi chưa sẵn sàng.") from None
 
 
 @app.api_route("/hus/sources/{source_id}", methods=["GET", "HEAD"])

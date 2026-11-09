@@ -56,6 +56,16 @@ async def lifespan(application: FastAPI) -> AsyncIterator[None]:
     from app.integrations.daotao.runtime import startup
 
     startup()
+    if get_settings().auto_sync_document_reviews and get_settings().storage_backend == "postgres":
+        try:
+            from app.api.admin import engine as admin_engine
+            from app.crawler.document_review_service import sync_crawled_documents_and_reviews
+
+            with admin_engine().begin() as conn:
+                sync_res = sync_crawled_documents_and_reviews(conn)
+                logger.info("Startup document review sync completed: %s", sync_res)
+        except Exception as exc:
+            logger.warning("Startup document review sync failed: %s", exc)
     try:
         yield
     finally:

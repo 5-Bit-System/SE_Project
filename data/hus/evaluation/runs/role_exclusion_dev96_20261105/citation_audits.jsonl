@@ -1,0 +1,96 @@
+{"error": null, "passed": true, "question_id": "DEV-Q001"}
+{"error": null, "passed": true, "question_id": "DEV-Q002"}
+{"error": null, "passed": true, "question_id": "DEV-Q003"}
+{"error": null, "passed": true, "question_id": "DEV-Q004"}
+{"error": null, "passed": true, "question_id": "DEV-Q005"}
+{"error": null, "passed": true, "question_id": "DEV-Q006"}
+{"error": null, "passed": true, "question_id": "DEV-Q007", "source_f2_contract": {"course_code": "MAT3422", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 4}}
+{"error": null, "passed": true, "question_id": "DEV-Q008", "source_f2_contract": {"course_code": "MAT3422", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 4}}
+{"error": null, "passed": true, "question_id": "DEV-Q009", "source_f2_contract": {"course_code": "MAT3411", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Phương pháp phần tử hữu hạn"}}
+{"error": null, "passed": true, "question_id": "DEV-Q010", "source_f2_contract": {"course_code": "MAT3411", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Phương pháp phần tử hữu hạn"}}
+{"error": null, "passed": true, "question_id": "DEV-Q011", "source_f2_contract": {"course_code": "MAT3415", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT3423"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q012", "source_f2_contract": {"course_code": "MAT3415", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT3423"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q013"}
+{"error": null, "passed": true, "question_id": "DEV-Q014"}
+{"error": null, "passed": true, "question_id": "DEV-Q015"}
+{"error": null, "passed": true, "question_id": "DEV-Q016"}
+{"error": null, "passed": true, "question_id": "DEV-Q017"}
+{"error": null, "passed": true, "question_id": "DEV-Q018"}
+{"error": null, "passed": true, "question_id": "DEV-Q019"}
+{"error": null, "passed": true, "question_id": "DEV-Q020"}
+{"error": null, "passed": true, "question_id": "DEV-Q021"}
+{"error": null, "passed": true, "question_id": "DEV-Q022"}
+{"error": null, "passed": true, "question_id": "DEV-Q023"}
+{"error": null, "passed": true, "question_id": "DEV-Q024"}
+{"error": null, "passed": true, "question_id": "DEV-Q025"}
+{"error": null, "passed": true, "question_id": "DEV-Q026"}
+{"error": null, "passed": true, "question_id": "DEV-Q027"}
+{"error": null, "passed": true, "question_id": "DEV-Q028"}
+{"error": null, "passed": true, "question_id": "DEV-Q029"}
+{"error": null, "passed": true, "question_id": "DEV-Q030"}
+{"error": null, "passed": true, "question_id": "DEV-Q031", "source_f2_contract": {"course_code": "MAT3525", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 2}}
+{"error": null, "passed": true, "question_id": "DEV-Q032", "source_f2_contract": {"course_code": "MAT3525", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 2}}
+{"error": null, "passed": true, "question_id": "DEV-Q033", "source_f2_contract": {"course_code": "MAT3509", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Ngôn ngữ hình thức và ôtômat"}}
+{"error": null, "passed": true, "question_id": "DEV-Q034", "source_f2_contract": {"course_code": "MAT3509", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Ngôn ngữ hình thức và ôtômat"}}
+{"error": null, "passed": true, "question_id": "DEV-Q035", "source_f2_contract": {"course_code": "MAT3565", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT1202\nMAT2405"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q036", "source_f2_contract": {"course_code": "MAT3565", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT1202\nMAT2405"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q037"}
+{"error": null, "passed": true, "question_id": "DEV-Q038"}
+{"error": null, "passed": true, "question_id": "DEV-Q039"}
+{"error": null, "passed": true, "question_id": "DEV-Q040"}
+{"error": null, "passed": true, "question_id": "DEV-Q041"}
+{"error": null, "passed": true, "question_id": "DEV-Q042"}
+{"error": null, "passed": true, "question_id": "DEV-Q043"}
+{"error": null, "passed": true, "question_id": "DEV-Q044"}
+{"error": null, "passed": true, "question_id": "DEV-Q045"}
+{"error": null, "passed": true, "question_id": "DEV-Q046"}
+{"error": null, "passed": true, "question_id": "DEV-Q047"}
+{"error": null, "passed": true, "question_id": "DEV-Q048"}
+{"error": null, "passed": true, "question_id": "DEV-Q049"}
+{"error": null, "passed": true, "question_id": "DEV-Q050"}
+{"error": null, "passed": true, "question_id": "DEV-Q051"}
+{"error": null, "passed": true, "question_id": "DEV-Q052"}
+{"error": null, "passed": true, "question_id": "DEV-Q053"}
+{"error": null, "passed": true, "question_id": "DEV-Q054"}
+{"error": null, "passed": true, "question_id": "DEV-Q055", "source_f2_contract": {"course_code": "MAT3558", "field": "credits", "prerequisite_status": "present", "review_status": "verified", "value": 2}}
+{"error": null, "passed": true, "question_id": "DEV-Q056", "source_f2_contract": {"course_code": "MAT3558", "field": "credits", "prerequisite_status": "present", "review_status": "verified", "value": 2}}
+{"error": null, "passed": true, "question_id": "DEV-Q057", "source_f2_contract": {"course_code": "MAT3541E", "field": "name", "prerequisite_status": "present", "review_status": "verified", "value": "Nguyên lí các ngôn ngữ lập trình"}}
+{"error": null, "passed": true, "question_id": "DEV-Q058", "source_f2_contract": {"course_code": "MAT3541E", "field": "name", "prerequisite_status": "present", "review_status": "verified", "value": "Nguyên lí các ngôn ngữ lập trình"}}
+{"error": null, "passed": true, "question_id": "DEV-Q059", "source_f2_contract": {"course_code": "MAT3563", "field": "prerequisites", "prerequisite_status": "present", "review_status": "verified", "value": ["MAT3562E"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q060", "source_f2_contract": {"course_code": "MAT3563", "field": "prerequisites", "prerequisite_status": "present", "review_status": "verified", "value": ["MAT3562E"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q061"}
+{"error": null, "passed": true, "question_id": "DEV-Q062"}
+{"error": null, "passed": true, "question_id": "DEV-Q063"}
+{"error": null, "passed": true, "question_id": "DEV-Q064"}
+{"error": null, "passed": true, "question_id": "DEV-Q065"}
+{"error": null, "passed": true, "question_id": "DEV-Q066"}
+{"error": null, "passed": true, "question_id": "DEV-Q067"}
+{"error": null, "passed": true, "question_id": "DEV-Q068"}
+{"error": null, "passed": true, "question_id": "DEV-Q069"}
+{"error": null, "passed": true, "question_id": "DEV-Q070"}
+{"error": null, "passed": true, "question_id": "DEV-Q071"}
+{"error": null, "passed": true, "question_id": "DEV-Q072"}
+{"error": null, "passed": true, "question_id": "DEV-Q073"}
+{"error": null, "passed": true, "question_id": "DEV-Q074"}
+{"error": null, "passed": true, "question_id": "DEV-Q075"}
+{"error": null, "passed": true, "question_id": "DEV-Q076"}
+{"error": null, "passed": true, "question_id": "DEV-Q077"}
+{"error": null, "passed": true, "question_id": "DEV-Q078"}
+{"error": null, "passed": true, "question_id": "DEV-Q079", "source_f2_contract": {"course_code": "MAT3397", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 4}}
+{"error": null, "passed": true, "question_id": "DEV-Q080", "source_f2_contract": {"course_code": "MAT3397", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 4}}
+{"error": null, "passed": true, "question_id": "DEV-Q081", "source_f2_contract": {"course_code": "MAT3399", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Xử lí ngôn ngữ tự nhiên và học sâu"}}
+{"error": null, "passed": true, "question_id": "DEV-Q082", "source_f2_contract": {"course_code": "MAT3399", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Xử lí ngôn ngữ tự nhiên và học sâu"}}
+{"error": null, "passed": true, "question_id": "DEV-Q083", "source_f2_contract": {"course_code": "MAT3534", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT3507\nMAT2323"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q084", "source_f2_contract": {"course_code": "MAT3534", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT3507\nMAT2323"]}}
+{"error": null, "passed": true, "question_id": "DEV-Q085"}
+{"error": null, "passed": true, "question_id": "DEV-Q086"}
+{"error": null, "passed": true, "question_id": "DEV-Q087"}
+{"error": null, "passed": true, "question_id": "DEV-Q088"}
+{"error": null, "passed": true, "question_id": "DEV-Q089"}
+{"error": null, "passed": true, "question_id": "DEV-Q090"}
+{"error": null, "passed": true, "question_id": "DEV-Q091"}
+{"error": null, "passed": true, "question_id": "DEV-Q092"}
+{"error": null, "passed": true, "question_id": "DEV-Q093"}
+{"error": null, "passed": true, "question_id": "DEV-Q094"}
+{"error": null, "passed": true, "question_id": "DEV-Q095"}
+{"error": null, "passed": true, "question_id": "DEV-Q096"}

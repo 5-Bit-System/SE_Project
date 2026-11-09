@@ -1,0 +1,28 @@
+{"question_id": "A1-001", "request": {"major": "computer_science", "question": "Tiên quyết CME1000?", "version": "QD3568-2023"}}
+{"question_id": "A1-002", "request": {"major": "computer_science", "question": "Tiên quyết MAT2407?", "version": "QD3568-2023"}}
+{"question_id": "A1-003", "request": {"major": "computer_science", "question": "Tiên quyết MAT1202?", "version": "QD3568-2023"}}
+{"question_id": "A1-004", "request": {"major": "data_science", "question": "Tiên quyết CME1000?", "version": "QD3569-2023"}}
+{"question_id": "A1-005", "request": {"major": "data_science", "question": "Tiên quyết MAT2407?", "version": "QD3569-2023"}}
+{"question_id": "A1-006", "request": {"major": "data_science", "question": "Tiên quyết MAT1202?", "version": "QD3569-2023"}}
+{"question_id": "A1-007", "request": {"major": "mathematics", "question": "Tiên quyết CME1000?", "version": "QD3565-2023"}}
+{"question_id": "A1-008", "request": {"major": "mathematics", "question": "Tiên quyết MAT3325?", "version": "QD3565-2023"}}
+{"question_id": "A1-009", "request": {"major": "mathematics", "question": "Tiên quyết MAT2308?", "version": "QD3565-2023"}}
+{"question_id": "A1-010", "request": {"major": "mathematics", "question": "Tiên quyết MAT1076?", "version": "QD3565-2023"}}
+{"question_id": "A1-011", "request": {"major": "mathematics_informatics", "question": "Tiên quyết CME1000?", "version": "QD3567-2023"}}
+{"question_id": "A1-012", "request": {"major": "mathematics_informatics", "question": "Tiên quyết MAT2314?", "version": "QD3567-2023"}}
+{"question_id": "A1-013", "request": {"major": "mathematics_informatics", "question": "Tiên quyết MAT1202?", "version": "QD3567-2023"}}
+{"question_id": "A1-014", "request": {"allow_generated_reference": false, "major": "data_science", "question": "Tôi đang kiểm dòng điều kiện đầu vào cho MAT2400 (Khoa học dữ liệu, QD3569-2023). Dữ liệu nguồn ghi chuỗi mã học trước ra sao? Giữ nguyên chỗ chưa rõ.", "version": "QD3569-2023"}}
+{"question_id": "A1-015", "request": {"major": "data_science", "question": "MAT3533 có tên gì, bao nhiêu tín chỉ và tiên quyết gì?", "version": "QD3569-2023"}}
+{"question_id": "A1-016", "request": {"major": "data_science", "question": "Môn đó có bao nhiêu tín chỉ?", "version": "QD3569-2023"}}
+{"question_id": "A1B-001", "request": {"question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?", "major": "mathematics", "version": "QD3565-2023"}}
+{"question_id": "A1B-002", "request": {"question": "Chương trình gồm những nhóm kiến thức nào?", "major": "mathematics", "version": "QD3565-2023"}}
+{"question_id": "A1B-003", "request": {"question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?", "major": "mathematics", "version": "QD3565-2023"}}
+{"question_id": "A1B-004", "request": {"question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?", "major": "mathematics_informatics", "version": "QD3567-2023"}}
+{"question_id": "A1B-005", "request": {"question": "Chương trình gồm những nhóm kiến thức nào?", "major": "mathematics_informatics", "version": "QD3567-2023"}}
+{"question_id": "A1B-006", "request": {"question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?", "major": "mathematics_informatics", "version": "QD3567-2023"}}
+{"question_id": "A1B-007", "request": {"question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?", "major": "computer_science", "version": "QD3568-2023"}}
+{"question_id": "A1B-008", "request": {"question": "Chương trình gồm những nhóm kiến thức nào?", "major": "computer_science", "version": "QD3568-2023"}}
+{"question_id": "A1B-009", "request": {"question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?", "major": "computer_science", "version": "QD3568-2023"}}
+{"question_id": "A1B-010", "request": {"question": "Chương trình đào tạo yêu cầu tổng cộng bao nhiêu tín chỉ?", "major": "data_science", "version": "QD3569-2023"}}
+{"question_id": "A1B-011", "request": {"question": "Chương trình gồm những nhóm kiến thức nào?", "major": "data_science", "version": "QD3569-2023"}}
+{"question_id": "A1B-012", "request": {"question": "Nhóm II có yêu cầu, tín chỉ liệt kê và ghi chú gì?", "major": "data_science", "version": "QD3569-2023"}}

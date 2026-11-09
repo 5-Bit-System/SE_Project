@@ -1,0 +1,36 @@
+{
+  "academic_review_upgraded": false,
+  "checked_on": "2026-11-02",
+  "conclusion": "Bounded search found relevant context but did not establish current curriculum/syllabus validity or absence of later amendments.",
+  "current_validity_confirmed": 0,
+  "method": "connected_web_search_official_domains",
+  "queries": [
+    "site:hus.vnu.edu.vn \"chương trình đào tạo\" \"Toán tin\" 2025",
+    "site:hus.vnu.edu.vn \"chương trình đào tạo\" \"Khoa học máy tính\" 2024 2025",
+    "site:hus.vnu.edu.vn \"chương trình đào tạo\" \"Khoa học dữ liệu\" 2025",
+    "site:mim.hus.vnu.edu.vn \"3567\" \"3568\""
+  ],
+  "search_is_exhaustive": false,
+  "selected_leads": [
+    {
+      "page_date": "2025-07-08",
+      "scope": "KHMTTT undergraduate accreditation event; not a curriculum amendment/edition applicability decision",
+      "url": "https://hus.vnu.edu.vn/tin-tuc-su-kien/khai-mac-chuong-trinh-danh-gia-ngoai-4-chuong-trinh-dao-tao-cua-truong-dai-hoc-khoa-hoc-tu-nhien-theo-tieu-chuan-aun-qa-142125"
+    },
+    {
+      "page_date": "2025-01-14",
+      "scope": "Mathematics/Data Science undergraduate evaluation event; not a QD3565/QD3569 current-validity certificate",
+      "url": "https://hus.vnu.edu.vn/tin-tuc-su-kien/be-mac-dot-khao-sat-chinh-thuc-kiem-dinh-chat-luong-05-chuong-trinh-dao-tao-trinh-do-dai-hoc-140828"
+    },
+    {
+      "document_decision_in_search_extract": "3552/QD-DHQGHN, 2015-09-28",
+      "live_binary_hash_verified": false,
+      "scope": "Historical curriculum; search-index publication/crawl time must not replace declared document edition",
+      "url": "https://hus.vnu.edu.vn/sites/default/files/huongdan/4.%20May%20tinh%20va%20khoa%20hoc%20thong%20tin.pdf"
+    },
+    {
+      "scope": "Program introduction; does not prove QD3567 applicability to an individual cohort",
+      "url": "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/toan-toan-ung-dung-va-tin-hoc/toan-tin"
+    }
+  ]
+}

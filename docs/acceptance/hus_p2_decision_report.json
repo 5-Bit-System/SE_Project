@@ -1,0 +1,19 @@
+{
+  "baseline_artifacts_unchanged": true,
+  "committed": false,
+  "decision_pack_manifest_sha256": "d78f5976cef3f49deab90d48ce30d760f1669e6029ac5cdab2d814ad38d1b5b1",
+  "decision_report_sha256": "57be21654412b92eb5f96e9a270641893e6f7337fc4a898d97a94c1695f64d77",
+  "document_sha256": "15e00a94274ef1b50aeeafdb3e18d91b514b39b9181b7c980e253f2c831eb9c2",
+  "git_head_is_base_only": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "human_holdout_acceptance": false,
+  "new_RAG_or_search_calls": 0,
+  "progress_document_sha256": "0f1d468e8633b56fad26523bdd6dfce0b6b45dd7177316760d62c9015cfd9d84",
+  "pushed": false,
+  "quality_gain_measured": false,
+  "recorded_on": "2026-11-02",
+  "runtime_unchanged": true,
+  "schema_version": "1.0",
+  "status": "upgrade_deferred_based_on_baseline_diagnosis",
+  "tested_commit": null,
+  "vector_or_reranker_or_LLM_added": false
+}

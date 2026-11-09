@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "ffeacc068ae415edc4b64472d44ff7943209d6ec770710f458bcd627438cf5a3",
+    "input_snapshot.json": "19c889f4c8d278174fb04f8121e185d60e7c7dabd36c60df1704cd3760931ec1",
+    "layered_metrics.json": "5766d3054255d24faf3fbf60eb3b8904e21132f1de5e42cfab2f90d27360bb52",
+    "predictions.jsonl": "b47f96dd256a55221479c08663e632ace0cde4b18deac8c23438ca085df77aa1",
+    "report.json": "7e6c94d4c7b6293d9269583404abd57e381cd6c284371ae72a935d16c70129b7",
+    "runner.py": "3a091dd149cb52891af954bf1ededeaca8d157a5608587941f2203b8ee9c5aa5",
+    "scored_cases.jsonl": "be7af9b84e6b6aeabc41e1daf23500a3d9733e277836a9951358c09bb0236f77"
+  },
+  "pack_manifest_sha256": "c2733c06f007c0a4299982c058ec40dcaaa3337767042bfc3ce0bc829352ff4e",
+  "schema_version": "1.0",
+  "status": "ai_reviewed_exposed_evaluation"
+}

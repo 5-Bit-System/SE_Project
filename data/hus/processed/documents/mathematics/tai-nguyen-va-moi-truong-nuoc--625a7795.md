@@ -3,7 +3,7 @@ title: "Tài nguyên và Môi trường nước"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/khi-tuong-khoa-hoc-va-cong-nghe-bien-tai-nguyen-va-moi-truong-nuoc/tai-nguyen-va-moi-truong-nuoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học
