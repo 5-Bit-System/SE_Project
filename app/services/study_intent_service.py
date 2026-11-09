@@ -4,13 +4,20 @@ import re
 from dataclasses import dataclass
 
 from app.models import Catalog, StructuredPreference
-from app.recommendation.constraint_parser import parse_constraints
+from app.recommendation.constraint_parser import fold, parse_constraints
 from app.recommendation.preference import preference_updates
 from app.recommendation.vocabulary import preference_vocabulary
 from app.schemas.study_intent import FormInput, IntentDiagnostics, StudyIntentState
 
 LIMITS = {"target_credits": 30, "target_course_count": 20}
 WORKLOAD_RANGES = {"light": (14, 17), "moderate": (18, 20), "heavy": (21, 30)}
+# Folded text that does not, by itself, carry a study goal.
+_NOOP_PREFIX = re.compile(
+    r"^\s*(?:chao|cam on|thanks|thank you|ok|oke|uh|u|vang|da|duoc|hello|hi|hey|help|giup)\b")
+_GENERIC_REQUEST = re.compile(r"\b(?:goi y|recommend|suggest|tu van|help|giup)\b")
+_STUDY_HINT = re.compile(
+    r"\b(?:hoc|mon|tin chi|ky toi|ki toi|dinh huong|nganh|chuong trinh|"
+    r"xay dung|he thong|muon|thich|career|course|credit|study|learn|build|system)\b")
 
 
 @dataclass
@@ -59,6 +66,7 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
             state.field_sources[field] = "explicit_form"
             state.questions = [q for q in state.questions if not q.startswith(field + ":")]
 
+    applied_any = False
     if extractor:
         before_proposal = state.model_copy(deep=True)
         try:
@@ -79,10 +87,7 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
                 if field == "course_type_mode" and value == "only" and field not in ruled_fields:
                     diagnostics.questions.append("course_type: hãy xác nhận bạn chỉ muốn loại môn này hay chỉ ưu tiên.")
                     continue
-                if field in ruled_fields or value is None or value == []:
-                    continue
-                if form_input and field in form_input.explicit_fields and getattr(form_input.values, field) != value:
-                    diagnostics.questions.append(f"{field}: câu nhập và lựa chọn biểu mẫu khác nhau; hãy chọn lại.")
+                if value is None or value == []:
                     continue
                 if field in {"interest_topics", "career_paths"}:
                     allowed = preference_vocabulary(catalog)["topics" if field == "interest_topics" else "career_paths"]
@@ -90,11 +95,33 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
                         raise ValueError("Unknown label")
                     if field == "interest_topics":
                         value = [v for v in value if v not in excluded]
+                    if not value:
+                        continue
+                    if form_input and field in form_input.explicit_fields:
+                        form_value = getattr(form_input.values, field) or []
+                        extra = [v for v in value if v not in form_value]
+                        if extra and not re.search(r"\b(?:thêm|cũng|và|them|cung|va|also|and)\b", message.casefold()):
+                            diagnostics.questions.append(
+                                f"{field}: câu nhập bổ sung lựa chọn khác biểu mẫu; hãy xác nhận lại.")
+                            continue
+                    merged = list(dict.fromkeys([*(state.values.get(field) or []), *value]))[:20]
+                    if merged != (state.values.get(field) or []):
+                        state.values[field] = merged
+                        state.field_sources[field] = "llm"
+                        applied_any = True
+                    continue
+                if field in ruled_fields:
+                    continue
+                if form_input and field in form_input.explicit_fields and getattr(form_input.values, field) != value:
+                    diagnostics.questions.append(f"{field}: câu nhập và lựa chọn biểu mẫu khác nhau; hãy chọn lại.")
+                    continue
                 state.values[field] = value
                 state.field_sources[field] = "llm"
+                applied_any = True
         except Exception as exc:
             # Roll back the entire proposal, including partial valid fields.
             state = before_proposal
+            applied_any = False
             diagnostics.extraction_source = "fallback"
             diagnostics.warnings.append(f"Bộ trích xuất không khả dụng ({type(exc).__name__}); đã dùng quy tắc và trạng thái trước.")
 
@@ -128,6 +155,7 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
             if field == "interest_topics":
                 excluded.difference_update(value)
         state.field_sources[field] = "text_rule"
+        applied_any = True
         state.questions = [q for q in state.questions if not q.startswith(field + ":")]
     state.questions.extend(constraints.questions)
     policy_workload = state.values.get("workload") or (form_input.values.workload if form_input else None)
@@ -148,6 +176,15 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
         elif unknown:
             diagnostics.warnings.append(f"{field}: đã bỏ nhãn không thuộc từ điển hiện tại.")
         state.values[field] = list(dict.fromkeys(v for v in state.values.get(field, []) if v in vocab[key]))[:20]
+    folded_message = fold(message).strip()
+    if (not applied_any and not state.values.get("interest_topics")
+            and not state.values.get("career_paths") and folded_message
+            and not _NOOP_PREFIX.match(folded_message)
+            and not _GENERIC_REQUEST.search(folded_message)
+            and _STUDY_HINT.search(folded_message)):
+        diagnostics.questions.append(
+            "goal: chưa nhận diện được chủ đề, môn học, tải học hoặc giới hạn cụ thể từ câu nhập; "
+            "hãy nêu rõ mong muốn hoặc chọn từ biểu mẫu.")
     state.excluded_topics = sorted(excluded)
     state.questions = list(dict.fromkeys([*state.questions, *diagnostics.questions]))
     diagnostics.questions = state.questions.copy()
