@@ -117,4 +117,3 @@ def test_revision_change_does_not_reuse_previous_intent_state(client, ready_cont
     assert data['intent']['status'] == 'needs_clarification'
     assert data['preference']['target_credits'] is None
     assert data['suggested_courses'] == []
-
