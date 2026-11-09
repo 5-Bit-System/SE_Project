@@ -28,6 +28,21 @@ def test_valid_model_json_cannot_change_explicit_limits(output):
     assert sum(c.credits for c in response.recommendations) <= 3
 
 
+@pytest.mark.parametrize("goal", [
+    "Tôi không muốn vượt quá 3 tín chỉ",
+    "Tôi muốn học không nhiều hơn 3 tín chỉ",
+    "Tôi không muốn học quá 3 tín chỉ",
+    "Tôi muốn học tối đa ba tín chỉ",
+    "Tôi muốn học dưới 3 tín chỉ",
+])
+def test_recommendation_never_exceeds_parsed_text_cap(goal):
+    response = recommend(sample_catalog(), RecommendationRequest(program_id="demo",
+        max_credits=20, limit=20, goal=goal))
+    assert response.intent.status == "ready"
+    assert sum(c.credits for c in response.recommendations) <= response.preference.target_credits
+    assert sum(c.credits for c in response.recommendations) <= 3
+
+
 def test_legacy_preference_cannot_bypass_text_extraction():
     calls = []
     class Extractor:
