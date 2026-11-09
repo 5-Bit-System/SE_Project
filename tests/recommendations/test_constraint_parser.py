@@ -43,3 +43,20 @@ def test_invalid_correction_is_not_absence():
 def test_lower_bound_requires_clarification():
     result = parse_constraints("Tôi muốn ít nhất 9 tín chỉ")
     assert result.questions and not result.updates
+
+
+@pytest.mark.parametrize(("message", "credits", "count"), [
+    ("Tôi không muốn vượt quá 3 tín chỉ", 3, None),
+    ("Tôi muốn học không nhiều hơn 3 tín chỉ", 3, None),
+    ("Tôi không muốn học quá 3 tín chỉ", 3, None),
+    ("Tôi không muốn vượt quá là 3 tín chỉ", 3, None),
+    ("Tôi không muốn vượt quá 2 môn", None, 2),
+    ("Tôi muốn học 1-2 môn", None, 2),
+    ("Tôi muốn học tối đa ba tín chỉ", 3, None),
+])
+def test_negated_ranges_and_written_numbers_are_parsed(message, credits, count):
+    result = parse_constraints(message)
+    assert not result.questions
+    values = {u.field: u.value for u in result.updates}
+    assert values.get("target_credits") == credits
+    assert values.get("target_course_count") == count
