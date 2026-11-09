@@ -111,7 +111,7 @@ def test_document_queue_get_does_not_seed_and_published_metadata_is_versioned(ad
         assert conn.execute(text('SELECT count(*) FROM crawled_documents')).scalar_one() == before
     with engine.begin() as conn:
         doc = create_document(conn, url='https://example.invalid/source', title='Original', markdown_content='# Synthetic: Nội dung tài liệu tổng hợp đạt chuẩn kiểm duyệt năm mươi ký tự')
-        review_document(conn, doc['id'], 'approved', 'Synthetic review')
+        review_document(conn, doc['id'], 'approved', 'Synthetic review', reviewer_id='57e9a52b-7365-4fe2-b9ce-1320ef48dc02')
         conn.execute(text('UPDATE crawled_documents SET is_published=true WHERE id=:id'), {'id': doc['id']})
         original = get_document(conn, doc['id'])
     updated = admin.put(f"/admin/crawler/documents/{doc['id']}/metadata", json={'title': 'Replacement'}).json()
