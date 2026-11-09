@@ -259,3 +259,30 @@ def test_model_addition_does_not_override_explicit_topic_switch():
             return StructuredPreference(interest_topics=["machine_learning", "software_engineering"])
     result = resolve_study_intent("chuyển sang học máy", sample_catalog(), extractor=Extractor())
     assert result.preference.interest_topics == ["machine_learning"]
+
+
+def test_unmapped_goal_asks_instead_of_ready_with_defaults():
+    from types import SimpleNamespace
+    result = resolve_study_intent(
+        "Kỳ tới tôi muốn tự xây dựng một hệ thống quản lý bán hàng cho cửa hàng nhỏ.",
+        sample_catalog(), extractor=SimpleNamespace(extract=lambda _: {"raw_goal": "..."}))
+    assert result.diagnostics.status == "needs_clarification"
+    assert result.diagnostics.questions
+
+
+def test_greeting_is_not_treated_as_unmapped_goal():
+    result = resolve_study_intent("chào bạn", sample_catalog())
+    assert result.diagnostics.status == "ready"
+    assert not result.diagnostics.questions
+
+
+def test_unknown_goal_is_not_silenced_by_leading_khong():
+    result = resolve_study_intent("không biết nên học gì kỳ tới", sample_catalog())
+    assert result.diagnostics.status == "needs_clarification"
+    assert result.diagnostics.questions
+
+
+def test_empty_message_with_explicit_form_stays_ready():
+    result = resolve_study_intent("", sample_catalog(), form_input=FormInput(
+        values={"workload": "moderate"}, explicit_fields=["workload"]))
+    assert result.diagnostics.status == "ready"
