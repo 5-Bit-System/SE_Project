@@ -1,0 +1,56 @@
+{"error": null, "passed": true, "question_id": "H2-Q001"}
+{"error": null, "passed": true, "question_id": "H2-Q002"}
+{"error": null, "passed": true, "question_id": "H2-Q003"}
+{"error": null, "passed": true, "question_id": "H2-Q004", "source_f2_contract": {"course_code": "MAT1076", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q005", "source_f2_contract": {"course_code": "MAT2300", "field": "name", "prerequisite_status": "unknown", "review_status": "draft_unverified", "value": "Đại số tuyến tính 1"}}
+{"error": null, "passed": true, "question_id": "H2-Q006", "source_f2_contract": {"course_code": "MAT2301", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT2300"]}}
+{"error": null, "passed": true, "question_id": "H2-Q007", "source_f2_contract": {"course_code": "MAT2302", "field": "credits", "prerequisite_status": "unknown", "review_status": "draft_unverified", "value": 5}}
+{"error": null, "passed": true, "question_id": "H2-Q008"}
+{"error": null, "passed": true, "question_id": "H2-Q009"}
+{"error": null, "passed": true, "question_id": "H2-Q010"}
+{"error": null, "passed": true, "question_id": "H2-Q011"}
+{"error": null, "passed": true, "question_id": "H2-Q012"}
+{"error": null, "passed": true, "question_id": "H2-Q013"}
+{"error": null, "passed": true, "question_id": "H2-Q014"}
+{"error": null, "passed": true, "question_id": "H2-Q015"}
+{"error": null, "passed": true, "question_id": "H2-Q016"}
+{"error": null, "passed": true, "question_id": "H2-Q017"}
+{"error": null, "passed": true, "question_id": "H2-Q018", "source_f2_contract": {"course_code": "MAT1202", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q019", "source_f2_contract": {"course_code": "MAT2300", "field": "name", "prerequisite_status": "unknown", "review_status": "draft_unverified", "value": "Đại số tuyến tính 1"}}
+{"error": null, "passed": true, "question_id": "H2-Q020", "source_f2_contract": {"course_code": "MAT2301", "field": "prerequisites", "prerequisite_status": "present", "review_status": "draft_unverified", "value": ["MAT2300"]}}
+{"error": null, "passed": true, "question_id": "H2-Q021", "source_f2_contract": {"course_code": "MAT2302", "field": "credits", "prerequisite_status": "unknown", "review_status": "draft_unverified", "value": 5}}
+{"error": null, "passed": true, "question_id": "H2-Q022"}
+{"error": null, "passed": true, "question_id": "H2-Q023"}
+{"error": null, "passed": true, "question_id": "H2-Q024"}
+{"error": null, "passed": true, "question_id": "H2-Q025"}
+{"error": null, "passed": true, "question_id": "H2-Q026"}
+{"error": null, "passed": true, "question_id": "H2-Q027"}
+{"error": null, "passed": true, "question_id": "H2-Q028"}
+{"error": null, "passed": true, "question_id": "H2-Q029"}
+{"error": null, "passed": true, "question_id": "H2-Q030"}
+{"error": null, "passed": true, "question_id": "H2-Q031"}
+{"error": null, "passed": true, "question_id": "H2-Q032", "source_f2_contract": {"course_code": "MAT1204", "field": "credits", "prerequisite_status": "present", "review_status": "verified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q033", "source_f2_contract": {"course_code": "MAT1205E", "field": "name", "prerequisite_status": "present", "review_status": "verified", "value": "Tiếng Anh chuyên ngành khoa học máy tính"}}
+{"error": null, "passed": true, "question_id": "H2-Q034", "source_f2_contract": {"course_code": "MAT1206E", "field": "prerequisites", "prerequisite_status": "present", "review_status": "verified", "value": ["MAT3507\nMAT1202"]}}
+{"error": null, "passed": true, "question_id": "H2-Q035", "source_f2_contract": {"course_code": "MAT1207", "field": "credits", "prerequisite_status": "present", "review_status": "verified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q036"}
+{"error": null, "passed": true, "question_id": "H2-Q037"}
+{"error": null, "passed": true, "question_id": "H2-Q038"}
+{"error": null, "passed": true, "question_id": "H2-Q039"}
+{"error": null, "passed": true, "question_id": "H2-Q040"}
+{"error": null, "passed": true, "question_id": "H2-Q041"}
+{"error": null, "passed": true, "question_id": "H2-Q042"}
+{"error": null, "passed": true, "question_id": "H2-Q043"}
+{"error": null, "passed": true, "question_id": "H2-Q044"}
+{"error": null, "passed": true, "question_id": "H2-Q045"}
+{"error": null, "passed": true, "question_id": "H2-Q046", "source_f2_contract": {"course_code": "MAT2034", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q047", "source_f2_contract": {"course_code": "MAT2323", "field": "name", "prerequisite_status": "present", "review_status": "draft_unverified", "value": "Xác suất - Thống kê"}}
+{"error": null, "passed": true, "question_id": "H2-Q048", "source_f2_contract": {"course_code": "MAT2400", "field": "prerequisites", "prerequisite_status": "unknown", "review_status": "draft_unverified", "value": [null]}}
+{"error": null, "passed": true, "question_id": "H2-Q049", "source_f2_contract": {"course_code": "MAT2403", "field": "credits", "prerequisite_status": "present", "review_status": "draft_unverified", "value": 3}}
+{"error": null, "passed": true, "question_id": "H2-Q050"}
+{"error": null, "passed": true, "question_id": "H2-Q051"}
+{"error": null, "passed": true, "question_id": "H2-Q052"}
+{"error": null, "passed": true, "question_id": "H2-Q053"}
+{"error": null, "passed": true, "question_id": "H2-Q054"}
+{"error": null, "passed": true, "question_id": "H2-Q055"}
+{"error": null, "passed": true, "question_id": "H2-Q056"}

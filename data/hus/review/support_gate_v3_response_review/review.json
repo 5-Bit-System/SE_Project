@@ -1,0 +1,335 @@
+{
+  "created_at": "2026-11-03T15:11:09.016633+00:00",
+  "reviewer_kind": "ai",
+  "human_reviews": 0,
+  "method": "Direct saved-response/source quote comparison; no independent semantic certification",
+  "positive_dev20_verbatim_source_coverage": [
+    {
+      "question_id": "DEV3-S001",
+      "parent_question_id": "H2-Q001",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E001"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S002",
+      "parent_question_id": "H2-Q002",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E002"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S003",
+      "parent_question_id": "H2-Q003",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E003"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S004",
+      "parent_question_id": "H2-Q008",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E008"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S005",
+      "parent_question_id": "H2-Q009",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E009"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S006",
+      "parent_question_id": "H2-Q015",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E012"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S007",
+      "parent_question_id": "H2-Q016",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E013"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S008",
+      "parent_question_id": "H2-Q017",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E014"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S009",
+      "parent_question_id": "H2-Q022",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E019"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S010",
+      "parent_question_id": "H2-Q023",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E020"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S011",
+      "parent_question_id": "H2-Q029",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E023"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S012",
+      "parent_question_id": "H2-Q030",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E024"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include_markdown"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S013",
+      "parent_question_id": "H2-Q031",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E025"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S014",
+      "parent_question_id": "H2-Q036",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E030"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S015",
+      "parent_question_id": "H2-Q037",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E031"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S016",
+      "parent_question_id": "H2-Q043",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E034",
+        "H2A-ccf316f46ad984b080e0bceceff9fa44"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 2,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S017",
+      "parent_question_id": "H2-Q044",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E035",
+        "H2A-d844e5fa88b2bf746f918a39a67aa2bb",
+        "H2A-52b2b2acd330744f909bc2ea49cf5fb7",
+        "H2A-940a3740794040de84617af7e9aa78fd"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 4,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S018",
+      "parent_question_id": "H2-Q045",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E036"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 3,
+      "review_statuses": [
+        "include"
+      ],
+      "generated_reference_allowed": false
+    },
+    {
+      "question_id": "DEV3-S019",
+      "parent_question_id": "H2-Q050",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E041"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    },
+    {
+      "question_id": "DEV3-S020",
+      "parent_question_id": "H2-Q051",
+      "status": "answered",
+      "expected_evidence_ids": [
+        "H2-E042"
+      ],
+      "full_verbatim_gold_coverage": true,
+      "citation_count": 1,
+      "review_statuses": [
+        "needs_review"
+      ],
+      "generated_reference_allowed": true
+    }
+  ],
+  "old_dev96_response_observations": [
+    {
+      "question_id": "DEV-Q004",
+      "decision": "scope_qualified_source_alternative",
+      "notes": "Uses the 2015 talent curriculum, explicitly labeled talent; workplaces are quoted faithfully. This narrower population must not be generalized to all variants.",
+      "quotes_match_selected_scoped_source": true,
+      "certifies_all_variant_or_current_applicability": false
+    },
+    {
+      "question_id": "DEV-Q027",
+      "decision": "source_alternative",
+      "notes": "Uses the 2015 standard curriculum with production/business workplaces, not the website anchor. Keep edition and draft/source review disclosures.",
+      "quotes_match_selected_scoped_source": true,
+      "certifies_all_variant_or_current_applicability": false
+    },
+    {
+      "question_id": "DEV-Q049",
+      "decision": "source_alternative",
+      "notes": "Uses standard 2023 DOCX program outcomes/skills and continuation. Source supports processing/exploitation of information; not proof of current validity.",
+      "quotes_match_selected_scoped_source": true,
+      "certifies_all_variant_or_current_applicability": false
+    },
+    {
+      "question_id": "DEV-Q050",
+      "decision": "source_alternative",
+      "notes": "Uses the same scoped 2023 DOCX, not the older website anchor. Do not update frozen gold or the raw anchor score.",
+      "quotes_match_selected_scoped_source": true,
+      "certifies_all_variant_or_current_applicability": false
+    },
+    {
+      "question_id": "DEV-Q006",
+      "decision": "requested_degree_condition_now_included",
+      "notes": "Response now quotes the website condition Nếu có đủ điều kiện and both Thạc sĩ, Tiến sĩ plus continuation; no eligibility decision.",
+      "quotes_match_selected_scoped_source": true,
+      "certifies_all_variant_or_current_applicability": false
+    }
+  ],
+  "raw_anchor_score_left_unchanged": {
+    "numerator": 60,
+    "denominator": 64
+  },
+  "gold_changed": false,
+  "source_review_promoted": false
+}

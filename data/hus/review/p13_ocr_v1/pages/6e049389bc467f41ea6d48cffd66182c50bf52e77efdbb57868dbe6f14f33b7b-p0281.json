@@ -1,0 +1,202 @@
+{
+  "observation": {
+    "academic_verified": false,
+    "blank_verified": false,
+    "boxes": [
+      {
+        "bbox_pixels": [
+          [
+            180.0,
+            126.0
+          ],
+          [
+            230.0,
+            126.0
+          ],
+          [
+            230.0,
+            150.0
+          ],
+          [
+            180.0,
+            150.0
+          ]
+        ],
+        "confidence": 0.4720748960971832,
+        "text": "XII."
+      },
+      {
+        "bbox_pixels": [
+          [
+            295.0,
+            122.0
+          ],
+          [
+            452.0,
+            122.0
+          ],
+          [
+            452.0,
+            154.0
+          ],
+          [
+            295.0,
+            154.0
+          ]
+        ],
+        "confidence": 0.9112552063585396,
+        "text": "Filter, Reduce"
+      },
+      {
+        "bbox_pixels": [
+          [
+            225.0,
+            205.0
+          ],
+          [
+            243.0,
+            205.0
+          ],
+          [
+            243.0,
+            227.0
+          ],
+          [
+            225.0,
+            227.0
+          ]
+        ],
+        "confidence": 0.9771043206174603,
+        "text": "b"
+      },
+      {
+        "bbox_pixels": [
+          [
+            310.0,
+            204.0
+          ],
+          [
+            374.0,
+            204.0
+          ],
+          [
+            374.0,
+            230.0
+          ],
+          [
+            310.0,
+            230.0
+          ]
+        ],
+        "confidence": 0.9999945492939307,
+        "text": "Filter"
+      },
+      {
+        "bbox_pixels": [
+          [
+            312.0,
+            242.0
+          ],
+          [
+            396.0,
+            242.0
+          ],
+          [
+            396.0,
+            268.0
+          ],
+          [
+            312.0,
+            268.0
+          ]
+        ],
+        "confidence": 0.9999927972798476,
+        "text": "Reduce"
+      },
+      {
+        "bbox_pixels": [
+          [
+            636.0,
+            1522.0
+          ],
+          [
+            680.0,
+            1522.0
+          ],
+          [
+            680.0,
+            1552.0
+          ],
+          [
+            636.0,
+            1552.0
+          ]
+        ],
+        "confidence": 0.52024245262146,
+        "text": "281"
+      },
+      {
+        "bbox_pixels": [
+          [
+            240.07899166023174,
+            122.14487414671835
+          ],
+          [
+            300.910427500436,
+            132.272393124891
+          ],
+          [
+            295.92100833976826,
+            158.85512585328166
+          ],
+          [
+            235.089572499564,
+            148.727606875109
+          ]
+        ],
+        "confidence": 0.6402395367622375,
+        "text": "Map,"
+      },
+      {
+        "bbox_pixels": [
+          [
+            313.0220279500418,
+            161.16388105512118
+          ],
+          [
+            366.85148597552694,
+            169.06778343107774
+          ],
+          [
+            361.9779720499582,
+            195.83611894487882
+          ],
+          [
+            309.14851402447306,
+            187.93221656892226
+          ]
+        ],
+        "confidence": 0.9999827936409793,
+        "text": "Map"
+      }
+    ],
+    "default_retrieval_enabled": false,
+    "image_path": "backups/hus_source_review/p13/ocr_images_v1/6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b-p0281.png",
+    "image_sha256": "f89bd66deaeb15cf92060a94912add923c08ed917ac34b6d7c55336ee922f1da",
+    "image_size_pixels": [
+      1190,
+      1682
+    ],
+    "low_confidence_boxes": 3,
+    "ocr_executed": true,
+    "original_text_layer_sha256": "eacce385413cb1af3f32cd56b776ebe65f0ae1176399a796268f1bee1e332197",
+    "pdf_page": 281,
+    "review_status": "machine_ocr_pending_visual_and_academic_review",
+    "source_sha256": "6e049389bc467f41ea6d48cffd66182c50bf52e77efdbb57868dbe6f14f33b7b",
+    "table_structure_verified": false,
+    "text": "XII.\nFilter, Reduce\nb\nFilter\nReduce\n281\nMap,\nMap",
+    "text_sha256": "ca9993208bd78d17be1ea01dfe8bb216b38abb8b706318795c0a1fe4b558e4a1"
+  },
+  "observation_sha256": "9fc30b4a056e61b02293aca6e4fe1fb89cee386a0890d980fb0a9f28347c51dd",
+  "run_identity_sha256": "2b28f83da57fbf1733f1f973d1acfc3cafe71c87cc00e16f9281dcb6f4bdcf96"
+}

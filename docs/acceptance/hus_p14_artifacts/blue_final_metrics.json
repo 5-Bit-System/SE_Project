@@ -1,0 +1,44 @@
+{
+  "build_sha256": "2fc5054ebbe11a53ef7bf05313f9cd9277a6324dad813a85f77bd4538600b435",
+  "duration_measurement": "middleware time to response headers; excludes streamed body transfer",
+  "http_counts": {
+    "chat:200": 8,
+    "chat:422": 1,
+    "config:200": 1,
+    "operations:200": 4,
+    "source:200": 3,
+    "source:206": 1,
+    "source:404": 1
+  },
+  "instance": "blue",
+  "latency": {
+    "chat": {
+      "p50_ms": 0.0,
+      "p95_ms": 31.0,
+      "window_samples": 9
+    },
+    "config": {
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "window_samples": 1
+    },
+    "operations": {
+      "p50_ms": 0.0,
+      "p95_ms": 125.0,
+      "window_samples": 4
+    },
+    "source": {
+      "p50_ms": 16.0,
+      "p95_ms": 31.0,
+      "window_samples": 5
+    }
+  },
+  "latency_window_limit": 512,
+  "prompt_or_response_text_logged": false,
+  "registry_sha256": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+  "release_id": "hus-data-20261031-v3",
+  "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "service_5xx": 0,
+  "service_5xx_ratio": 0.0,
+  "service_requests": 15
+}

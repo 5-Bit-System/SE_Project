@@ -1,0 +1,99 @@
+{
+  "actual_human_reviews": 0,
+  "by_category": {
+    "f1": 12,
+    "f2": 16,
+    "f3": 8,
+    "missing_evidence": 8,
+    "opt_in_required": 4,
+    "out_of_scope": 8
+  },
+  "by_major": {
+    "computer_science": 14,
+    "data_science": 14,
+    "mathematics": 14,
+    "mathematics_informatics": 14
+  },
+  "created_at": "2026-11-03T15:28:08.135595+07:00",
+  "evidence_count": 48,
+  "exposed": true,
+  "files_sha256": {
+    "README.md": "1becc6ab41880cbcb38fef819598cfb5d465c4a5c55f8a592f72aeaeb3bbf59c",
+    "changes.jsonl": "706e9b7eb7c9275d90ea2f29a3c82843241568dbd64f459d7a9688326f96a4ca",
+    "evidence.jsonl": "548370f07eaf310b02c5694ee61844cba123d7d893aa137ee9ec4a3998e2287e",
+    "gold.jsonl": "61317a0a32d8ca4428224c32b6005ee4aea0667a972bb34ecae00f733c6c1282",
+    "questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1"
+  },
+  "gold_source": "Pinned source records plus explicitly AI-reviewed complementary source chunks; never predictions",
+  "gold_substantive_revisions": [
+    {
+      "added_evidence_ids": [
+        "H2A-ccf316f46ad984b080e0bceceff9fa44"
+      ],
+      "original_gold_sha256": "486c5517dc69e985b190b9652bea398c70f874bd5ee09d8f68806c8d2dbdb1b8",
+      "question_id": "H2-Q043",
+      "reason": [
+        "Revise gold/evidence in a new candidate version to include H2A-ccf316f46ad984b080e0bceceff9fa44; do not score the existing one-sentence gold as a complete objectives answer."
+      ],
+      "revised_gold_sha256": "90fb500f27db816d8aba8011bcf64098f42cc195dfdab2583dc2d95a4c19c7ea"
+    },
+    {
+      "added_evidence_ids": [
+        "H2A-d844e5fa88b2bf746f918a39a67aa2bb",
+        "H2A-52b2b2acd330744f909bc2ea49cf5fb7",
+        "H2A-940a3740794040de84617af7e9aa78fd"
+      ],
+      "original_gold_sha256": "49c0a8b3cda19534af5b272eb69458b0c0badde9388ac1d3d0ae8a20ef1f9fbc",
+      "question_id": "H2-Q044",
+      "reason": [
+        "Revise gold/evidence in a new candidate version to cover all four same-source groups, or explicitly narrow the question to IT-enterprise roles; preserve 'depending on ability'."
+      ],
+      "revised_gold_sha256": "f40145df45e5c12bc7c7018ef7e760ed1a0d127e05d93896ee4c08007fa24f2b"
+    },
+    {
+      "added_evidence_ids": [],
+      "original_gold_sha256": "c7a44410b60475f361cda37624a05fbbd210464bf792c0cfa4864066122c0d3e",
+      "question_id": "H2-Q048",
+      "reason": [
+        "Đáp án/tiêu chí chấm cần nói rõ ô tiên quyết trống, bản chép canonical là null, raw_variants=[], status=unknown, empty_means_no_prerequisite=false; không kết luận không có học trước hay đủ điều kiện đăng ký.",
+        "Nếu dùng cho phép đo độc lập, viết lại hoặc thay câu bằng một tình huống có lý do phân biệt cụ thể, rồi kiểm overlap lại; không chỉ đổi mã/tên.",
+        "Có thể giữ nguyên dữ kiện đúng nguồn cho tập đánh giá đã lộ/diagnostic với nhãn AI-reviewed exposed evaluation; không gọi là holdout độc lập."
+      ],
+      "revised_gold_sha256": "3618baeffa60ec2848e33e53ce51dfe9f97e0273515eba83e576d39fa8a8842b"
+    }
+  ],
+  "holdout_eligible": false,
+  "human_review_required": false,
+  "independent_holdout_accepted": false,
+  "independent_human_review": false,
+  "parent_inputs_sha256": {
+    "data/hus/evaluation/holdout_v2_ai_review_v1/manifest.json": "47027fca9f467fb3b347e0eb0a845aeeccbba1cdabae6580537e7911ad613387",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/policy.json": "14ad1ea7fae2421cb21068dccac78c444ef8a34413eaab3e9e89619e73368537",
+    "data/hus/evaluation/holdout_v2_ai_review_v1/review_decisions.jsonl": "76bedeb1e314e8f64e1c48a5c351d9ff7fbd96494d63916072969d6ed1ca7244",
+    "data/hus/evaluation/holdout_v2_candidate/README.md": "5cddb4557a8f8589d928f65bf07ab85cfcf000834af3425b9c4e9fe5c54709e8",
+    "data/hus/evaluation/holdout_v2_candidate/evidence.jsonl": "4a4479fd4342f3d4b704e1d3c16a93f1447dfdcc1e3750a755ffd39491ee27ef",
+    "data/hus/evaluation/holdout_v2_candidate/gold.jsonl": "83849608339a0098019727d233380094cc38e02bcb6f7d9badc967895b193620",
+    "data/hus/evaluation/holdout_v2_candidate/manifest.json": "8cb1a1876c47ca821e6caf866074f555c11bc5e3eed7e58ce15ea5727cbd3a94",
+    "data/hus/evaluation/holdout_v2_candidate/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+    "data/hus/evaluation/holdout_v2_candidate/review_decisions.jsonl": "9846b36aeb4dc10f6eb05dfbbd46016a030aff278feb588bbcb2bf27f31ace0c",
+    "data/hus/evaluation/holdout_v2_candidate/reviewer_packet.md": "9cc4c9a7b38a08503c9b8c78699294925739ffd11da8b79e55503b0424eb5157",
+    "data/hus/evaluation/holdout_v2_review/alternative_evidence_candidates.jsonl": "1f520e56b30d38e898a1d67ff5eb206cec0224d735f29feb54ea0316752dfa00",
+    "data/hus/evaluation/holdout_v2_review/evidence_catalog.jsonl": "c489d19f2ef97c5eebe0ac5a558c24cb0dfafeb6617840c19da4bae1eb90aff3",
+    "data/hus/evaluation/holdout_v2_review/review_worksheet.csv": "190f472a47c4eb567680870f48015a8079e70a7349008f26a0ae37bf971f4629"
+  },
+  "question_count": 56,
+  "rag_inference_at_preparation": false,
+  "reviewer_kind": "ai",
+  "schema_version": "1.0",
+  "source_inputs_sha256": {
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf"
+  },
+  "source_release": "data/hus/rag/releases/hus-data-20261031-v3",
+  "source_release_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+  "split": "exposed_evaluation",
+  "status": "ai_reviewed_exposed_evaluation",
+  "used_for_runtime_tuning": false
+}

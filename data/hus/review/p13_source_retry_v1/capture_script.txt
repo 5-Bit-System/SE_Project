@@ -1,0 +1,89 @@
+"""One bounded retry of four historical OCR-source IDs, for review only."""
+import hashlib
+import json
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+OUT = ROOT / 'data/hus/review/p13_source_retry_v1'
+CACHE = ROOT / 'backups/hus_source_review/p13/retry_binaries_v1'
+IDS = {'554827330988bff8', '7b0e9c679a8eb75a', 'a090bd625a439d9b', 'a8f161744d0c9907'}
+
+
+class OfficialRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if urllib.parse.urlsplit(newurl).hostname != 'mim.hus.vnu.edu.vn':
+            raise ValueError('redirect outside original official host')
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def main():
+    assert (ROOT / '.git').exists() and (ROOT / 'data/hus/review/p13_source_audit_v1/missing_sources.jsonl').is_file()
+    assert not OUT.exists() and not CACHE.exists()
+    OUT.mkdir(parents=True)
+    CACHE.mkdir(parents=True)
+    source_file = ROOT / 'data/hus/review/p13_source_audit_v1/missing_sources.jsonl'
+    sources = [json.loads(s) for s in source_file.read_text().splitlines() if s.strip()]
+    sources = [s for s in sources if s['document_id'] in IDS]
+    attempts = {}
+    for source in sources:
+        parts = urllib.parse.urlsplit(source['source_url'])
+        assert parts.hostname == 'mim.hus.vnu.edu.vn'
+        decoded = urllib.parse.unquote(parts.path)
+        variants = [('https_upgrade_of_archived_url', parts.path)]
+        try:
+            repaired = decoded.encode('latin1').decode('utf8')
+            if repaired != decoded:
+                variants.append(('mojibake_repair_candidate', urllib.parse.quote(repaired, safe='/.-_')))
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+        for kind, path in variants:
+            url = urllib.parse.urlunsplit(('https', parts.netloc, path, '', ''))
+            attempts.setdefault(url, []).append({'document_id': source['document_id'], 'kind': kind,
+                                                'archived_source_url': source['source_url']})
+    opener = urllib.request.build_opener(OfficialRedirect())
+    records = []
+    for url, bindings in attempts.items():
+        record = {'requested_url': url, 'bindings': bindings, 'checked_at': datetime.now(timezone.utc).isoformat(),
+                  'academic_verified': False, 'current_validity_verified': False, 'historical_byte_equality': 'unknown'}
+        start = time.monotonic()
+        try:
+            with opener.open(url, timeout=15) as response:
+                record.update(origin_http_status=response.status, final_url=response.url,
+                              content_type=response.headers.get('Content-Type'))
+                raw = response.read(30_000_001)
+            record.update(bytes=len(raw), response_sha256=hashlib.sha256(raw).hexdigest())
+            if len(raw) > 30_000_000:
+                record['result'] = 'response_size_limit_exceeded'
+            elif raw.startswith(b'%PDF-'):
+                target = CACHE / (record['response_sha256'] + '.pdf')
+                if target.exists():
+                    assert target.read_bytes() == raw
+                else:
+                    target.write_bytes(raw)
+                record.update(result='pdf_captured_pending_parse_and_review', cache_path=target.relative_to(ROOT).as_posix())
+            else:
+                record['result'] = 'response_is_not_pdf'
+        except urllib.error.HTTPError as error:
+            record.update(result='origin_http_error', origin_http_status=error.code, final_url=error.url)
+        except Exception as error:
+            record.update(result='fetch_failed', origin_http_status=None, error_type=type(error).__name__, error=str(error))
+        record['elapsed_seconds'] = round(time.monotonic() - start, 3)
+        records.append(record)
+        (OUT / 'attempts.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False, sort_keys=True)+'\n' for r in records), encoding='utf-8')
+        print(record['result'], url, flush=True)
+        time.sleep(1)
+    pins = {'script_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'input_sha256': hashlib.sha256(source_file.read_bytes()).hexdigest(),
+            'attempts_sha256': hashlib.sha256((OUT/'attempts.jsonl').read_bytes()).hexdigest(),
+            'attempts':len(records), 'document_ids':sorted(IDS), 'runtime_modified':False,
+            'new_academic_approvals':0,'current_validity_confirmed':0}
+    (OUT / 'manifest.json').write_text(json.dumps(pins,indent=2)+'\n',encoding='utf-8')
+
+
+if __name__ == '__main__':
+    main()

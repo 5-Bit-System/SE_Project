@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "package_id": "hus-diagnostic-dev-v1",
+  "created_on": "2026-11-03",
+  "authored_by": "Codex (AI-assisted draft)",
+  "split": "diagnostic_development",
+  "holdout_eligible": false,
+  "independent_human_review": false,
+  "parent_split_status": "exposed_for_development_not_final_holdout",
+  "source_pack": "data/hus/evaluation/p11_holdout_v1",
+  "gold_method": "Pinned source-grounded P1-1 gold, not RAG predictions; semantic equivalence pending human review",
+  "rag_inference_run": false,
+  "runtime_changed_during_preparation": false,
+  "retrieval_metrics": null,
+  "baseline_code_commit": "1287e2adcb5e0161ff70b67791a6b7af2f9f1f1f",
+  "preparation_runtime_sha256": {
+    "app/hus/answering.py": "c43d0c33e9cf09e88678bdf5cc1cd42e49a43173a8db597782a295a0b6a77e12",
+    "app/hus/chat.py": "b54f752590237852cb299cba19862974a3c29d364b94cb94ed53466471107989",
+    "app/hus/rag_loader.py": "cac4201907172af51cee990d60075c629c56f13139fa6f9ee0a925e70d807047",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/schemas/hus.py": "44b509c550acda14c5f3c7d286518b39514b5490a769088839ad1300c290d733",
+    "app/services/hus_service.py": "3b13506a9d93594f0c7f3bb8137b45e7fd6517b6d8e4a2908d1026311f558d19"
+  },
+  "protected_inputs_sha256": {
+    "data/hus/evaluation/p11_holdout_v1/evidence.jsonl": "3df64bff6e505f1e1b64e302e5435c5edff9735cb6e5982ec13e2f0f37e10eb1",
+    "data/hus/evaluation/p11_holdout_v1/gold.jsonl": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c",
+    "data/hus/evaluation/p11_holdout_v1/manifest.json": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+    "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+    "data/hus/evaluation/p11_holdout_v1/README.md": "75d36c0ebc2e5111501cb2f137c82705c1875e4a49760bcad941c732a6b67073",
+    "data/hus/evaluation/p11_holdout_v1/reviewer_packet.md": "be76ccd26008d590866131abc2b100553ffbf5155c330ed4bcc82523388cc0be",
+    "data/hus/evaluation/p11_holdout_v1/review_decisions.jsonl": "0142bc51cfa722627d65807b5a024cc9d817729cd538b2ad1969804239057eb9",
+    "data/hus/evaluation/runs/p12_baseline_v1/citation_audits.jsonl": "0eb9f2906ab73820cfb8ab56a4e14f258ae02ce509fb71765e78a13e2c35d98e",
+    "data/hus/evaluation/runs/p12_baseline_v1/manifest.json": "2bbe4e8eab32455228ad28df6d350890968f53140010124d4c8bd4515b9485fe",
+    "data/hus/evaluation/runs/p12_baseline_v1/predictions.jsonl": "264c780ff3303a2aae78650844b1b9d9cea7c9615ac537ffe456c47da038b148",
+    "data/hus/evaluation/runs/p12_baseline_v1/report.json": "e0bb8742b55d132a6edfc018dcb9eceb66a7c440fb0bd2133399999713446ee6",
+    "data/hus/evaluation/runs/p12_baseline_v1/scored_cases.jsonl": "927926fcc12df542a69d948ca274f9b775013c6f997da95a40fb5337b9df87b2",
+    "data/hus/evaluation/decisions/p2_v1/filtered_anchor_misses.jsonl": "c4a1069af6395f089dbc231eed75752c8710262313764e5af3fcd7ec6afc58f5",
+    "data/hus/evaluation/decisions/p2_v1/manifest.json": "d78f5976cef3f49deab90d48ce30d760f1669e6029ac5cdab2d814ad38d1b5b1",
+    "data/hus/evaluation/decisions/p2_v1/report.json": "57be21654412b92eb5f96e9a270641893e6f7337fc4a898d97a94c1695f64d77"
+  },
+  "question_count": 96,
+  "unique_question_texts": 88,
+  "by_major": {
+    "mathematics": 24,
+    "mathematics_informatics": 24,
+    "computer_science": 24,
+    "data_science": 24
+  },
+  "by_category": {
+    "f1": 24,
+    "f2": 24,
+    "f3": 16,
+    "missing_evidence": 16,
+    "out_of_scope": 8,
+    "opt_in_required": 8
+  },
+  "by_tag": {
+    "natural_language": 56,
+    "synonym": 51,
+    "negation": 40,
+    "course_name": 4,
+    "course_code": 60,
+    "out_of_scope": 8
+  },
+  "files": {
+    "casebook.md": "f5f9090cbb220b66cfcc5b6820a20ecbaffd3b3b43249ebd6e5e201dbba5e05a",
+    "cases.jsonl": "f68f9bcd59a99b6ba99a3d89b7964df5104d256be6ec20dc8dae38451d35754f",
+    "gold.jsonl": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+    "questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+    "README.md": "bf7a0f2061a92f5ff6fdace55bc0cbfa077149c4b8c2eda6accc34104c498033"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "script_sha256": "31057fb35a59dc2b8ef92b88430fe45a1b676734d87677bcf4107df61ae5092b",
+  "input_sha256": "3836b8a010f235c706c85b98d3f7f77f7df8e2ca61a7d5b4ee247d62bc78ddfa",
+  "attempts_sha256": "6668ee0b38e9036c46d942930175daad4068462832284f2749cb46d61c6f3dd9",
+  "attempts": 6,
+  "document_ids": [
+    "554827330988bff8",
+    "7b0e9c679a8eb75a",
+    "a090bd625a439d9b",
+    "a8f161744d0c9907"
+  ],
+  "runtime_modified": false,
+  "new_academic_approvals": 0,
+  "current_validity_confirmed": 0,
+  "capture_script_snapshot": "capture_script.txt",
+  "capture_script_snapshot_sha256": "31057fb35a59dc2b8ef92b88430fe45a1b676734d87677bcf4107df61ae5092b"
+}

@@ -30,6 +30,7 @@ def _web_url(value):
 class CitationResolver:
     def __init__(self, data: HUSRAGData, asset_root: Path = DEFAULT_ASSET_ROOT):
         context = data.citation_context
+        self.release_identity = data.release_identity
         self.sources = context["sources"]
         self.pdfs = {p["source_ref"]: p for p in context["canonical_pdfs"]}
         allowed = {p["sha256"] for p in self.pdfs.values()}
@@ -109,6 +110,24 @@ class CitationResolver:
                            display_label=label, open_url=base["source_url"],
                            availability="unverified" if base["source_url"] else "unavailable",
                            availability_note="URL web nguồn; chưa kiểm tra truy cập lại trong request.")
+
+    def program_record(self, record: dict, value: dict, number: int) -> HUSCitation:
+        """Cite the pinned canonical JSON pointer; no inferred physical PDF page."""
+        import json
+
+        citation = record["citation"]
+        url = _web_url(citation.get("url"))
+        return HUSCitation(citation_id=str(number), dataset="f2", label=citation["title"],
+                           source_id=citation["source_id"], source_url=url,
+                           quote=json.dumps(value, ensure_ascii=False),
+                           locator={"evidence_path": citation["evidence_path"], "json_pointer": citation["json_pointer"]},
+                           review_status=record["catalog_review"]["status"], content_origin="structured_source_draft",
+                           metadata={"scope": record["scope"], "source_sha256": citation["source_sha256"],
+                                     "source_git_blob": citation["source_git_blob"],
+                                     "catalog_review": record["catalog_review"], **self.release_identity},
+                           evidence_kind="web" if url else "unavailable", display_label=citation["title"],
+                           open_url=url, availability="unverified" if url else "unavailable",
+                           availability_note="Vị trí JSON theo bản chép nguồn đã ghim; chưa xác minh hiệu lực hoặc truy cập lại URL.")
 
     def course_row(self, course: F2Course, row: dict, number: int, quote: str) -> HUSCitation:
         record = course.provenance.get("portable_record", {})

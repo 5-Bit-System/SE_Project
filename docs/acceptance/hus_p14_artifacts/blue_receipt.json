@@ -1,0 +1,13 @@
+{
+  "production_eligible": false,
+  "scope": "local_operational_rehearsal",
+  "status": "pass",
+  "worker": {
+    "base_url": "http://127.0.0.1:52193",
+    "build_sha256": "2fc5054ebbe11a53ef7bf05313f9cd9277a6324dad813a85f77bd4538600b435",
+    "instance": "blue",
+    "registry_sha256": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
+  }
+}

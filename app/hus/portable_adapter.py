@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from app.hus.data_release import checked_path, digest, encoded
+from app.hus.data_release import checked_path, digest, encoded, f2_data
 from app.hus.rag_loader import DEFAULT_RAG_ROOT, HUSRAGData, RAGChunk, RAGDataError, Row
 from app.hus.release_validation import validate_release
 
@@ -82,6 +82,23 @@ def load_current(root: Path = DEFAULT_RAG_ROOT) -> PortableRAGData:
         canonical = payloads["evidence/canonical_f2.json"]
         records = {r["record_id"]: r for r in _rows(payloads, "f2_records.jsonl")}
         programs = {r["program_id"]: r for r in _rows(payloads, "programs.jsonl")}
+        data._program_records = {}
+        data._program_groups = {}
+        groups = _rows(payloads, "groups.jsonl")
+        # Reproduce only in memory using the pinned source/provenance. This
+        # binds review, variant, URL/blob and pointer as well as numeric facts.
+        _, _, expected_programs, expected_groups, _ = f2_data(
+            json.loads(canonical), json.loads(payloads["input_manifest.json"]))
+        if _rows(payloads, "programs.jsonl") != expected_programs or groups != expected_groups:
+            raise RAGDataError("Program/group facts, scope, review or citation differ from canonical snapshot")
+        for program in programs.values():
+            scope = program["scope"]
+            key = (scope["major"], scope["curriculum_version"])
+            if key in data._program_records:
+                raise RAGDataError("Ambiguous program scope")
+            data._program_records[key] = deepcopy(program)
+            selected = [group for group in groups if group["program_id"] == program["program_id"]]
+            data._program_groups[key] = tuple(deepcopy(selected))
         # Reuse the structured table joins, not F2 text chunks, for exact lookups.
         first_citation = next(iter(records.values()))["citation"]
         comparison = {"source": {"url": first_citation["url"], "git_blob_sha": first_citation["source_git_blob"]},

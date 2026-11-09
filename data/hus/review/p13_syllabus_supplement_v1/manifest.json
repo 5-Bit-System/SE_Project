@@ -1,0 +1,27 @@
+{
+  "files_sha256": {
+    "field_supplements.jsonl": "e412b27aa0692545e4722421f2ee96d4fa8bf08f5f43f3e22d07af5fca8eff57",
+    "report.json": "858d979f962cb144dbd0c9c970fdef13616edad3f153484fcb63edfc46fc500c",
+    "unassigned_headers.jsonl": "f58298950f818f235f58e2fe9560c57fc4d491c3f6297a2601a0dc31379eac8e",
+    "unresolved_fields.jsonl": "587f6113ad5a6a35640ad53bf3080bcec6ec4731c30c1ac22082e5d5ba4b2796"
+  },
+  "source_inputs_sha256": {
+    "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+    "data/hus/corpus/review_decisions.json": "f92c41caae1e4e5c445e084661b3a000fe527f8165829eeb0c2efcfac783ebf8",
+    "data/hus/corpus/source_manifest.json": "069a00f313b6a09512b804a8b1d21602329ece99c09cd439f654d1115694e99b",
+    "data/hus/rag/CURRENT.json": "88c1b35a22e489827e2b39dd27fcc1a7703534c15f457b64f39914de979db723",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+    "data/hus/rag/releases/hus-data-20261031-v3/evidence/recovered_text.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+    "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl": "d6aba8a2dff38ed3d882fae99d37b67b3d913bd8f46e0650f7a7543a94f5f60b",
+    "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl": "646379c4b573990a569afc5633c29f75111d5bd0d3d185bd751d25eb74036aaf",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_inventory.jsonl": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+    "data/hus/rag/releases/hus-data-20261031-v3/source_syllabi_report.json": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6",
+    "data/hus/rag/releases/hus-data-20261031-v3/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+    "data/hus/rag/releases/hus-data-20261031-v3/syllabus_links.jsonl": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832"
+  },
+  "tool_sha256": "f0423df269a7fa7f9f4c399a3ddfc6d9850c51dc01154bb5265b8b094f8197b5"
+}

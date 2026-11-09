@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "e131d8e7d89bf654f2175c69870ffb7666df28d381c083d4c0942d16bbbba9bc",
+    "input_snapshot.json": "657804b2891e106f1bdbd487d5ac09a8f82aed361523d5a007cdbaeab6b41fde",
+    "inputs.json": "e46e8277a6001ff3abee966b2763d641790310d5815590fa06d3251c4a107605",
+    "predictions.jsonl": "8579b9021cd5e22ce11d9d4564414a37e5e0379a2aeca898e42c2f69d4346b3a",
+    "report.json": "f78d0a95459f429754daaac5e1a85cd6d60e9034a53dcca4581b6b66ac443712",
+    "review_template.json": "0cf2fd048d19038efbf2978c3a2b9cd527e6a3935249d2952c2aaf2a705fab32"
+  },
+  "schema_version": "hus-chatbot-evaluation-2.0"
+}

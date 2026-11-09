@@ -8,6 +8,8 @@ from urllib.parse import urlsplit
 
 HUSMajor = Literal["mathematics", "mathematics_informatics", "computer_science", "data_science"]
 HUSDataset = Literal["f1", "f2", "f3"]
+# Source interpretation only; none of these states authorizes registration.
+F2PrerequisiteStatus = Literal["unknown", "present", "conflict", "unresolved"]
 
 
 class HUSQuestion(BaseModel):
@@ -19,13 +21,19 @@ class HUSQuestion(BaseModel):
     course_code: str | None = Field(default=None, pattern=r"^[A-Z]{3}\d{4}[A-Z]?$")
     field: Literal["introduction", "careers", "further_study", "objectives", "content",
                    "suggested_assessment", "official_assessment", "credits", "prerequisites",
-                   "name", "hours", "course_info"] | None = None
+                   "name", "hours", "course_info", "program_credits", "program_groups", "group_rules"] | None = None
+    group_key: str | None = Field(default=None, max_length=32, pattern=r"^[IVX]+(?:\.[0-9]+)*$")
     program_variant: str | None = Field(default=None, min_length=1, max_length=80)
     allow_generated_reference: bool = Field(default=False, strict=True)
 
     @field_validator("course_code", mode="before")
     @classmethod
     def normalized_code(cls, value):
+        return value.strip().upper() if isinstance(value, str) else value
+
+    @field_validator("group_key", mode="before")
+    @classmethod
+    def normalized_group(cls, value):
         return value.strip().upper() if isinstance(value, str) else value
 
 

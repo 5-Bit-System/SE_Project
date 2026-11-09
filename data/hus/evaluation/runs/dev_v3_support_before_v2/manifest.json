@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "63bfdbe02302d72dc9b6b46cbd5dc0a4f1a4628e24d445562911b3067a980402",
+    "input_snapshot.json": "ac94b13ae775d7f90c2e771b8c964f1a431ddf8133690b0d0c666eefb6a7b416",
+    "layered_metrics.json": "d10a8f006f10667e6cb7727158e933b6422a5475ebee99aa705153ed235fdc28",
+    "predictions.jsonl": "3ef870d9b9359d51aefb4f36c839ac2f66103e56dfb2b8d541afd9b6fdcf97e6",
+    "report.json": "43eebea5e29261aaf4362176050bc24b1f757a06215e1b0564089b37ba483f0b",
+    "runner.py": "564289eae65c0a94a481cc0e8e1e4af24c0500708f66bd48a4583ab3e824b263",
+    "scored_cases.jsonl": "c191c01fff1ecdf9d06258a77ebf8e1c5a2c7035f9ce95ba408cf4f2367ebcbe"
+  }
+}
