@@ -42,6 +42,7 @@ def cleanup_test_documents():
 def test_admin_document_review_api(verified_client, fake_accounts):
     for session in fake_accounts.sessions.values():
         session["role"] = "admin"
+        session["account_id"] = "57e9a52b-7365-4fe2-b9ce-1320ef48dc02"
 
     admin_test_url()
     eng = admin_test_engine()

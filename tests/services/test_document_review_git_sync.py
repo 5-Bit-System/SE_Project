@@ -33,6 +33,7 @@ def test_save_and_load_git_reviews(tmp_path):
         title="Khoa học máy tính",
         review_status="approved",
         review_reason="Nội dung chuẩn",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
         file_path=review_file,
     )
 
@@ -89,7 +90,7 @@ def test_dual_write_on_review_document(isolated_db_conn, tmp_path, monkeypatch):
 @pytest.mark.hus_postgres
 def test_auto_sync_on_startup(isolated_db_conn, tmp_path):
     test_json = tmp_path / "sync_reviews.json"
-    content = "# Nội dung đồng bộ"
+    content = "# Nội dung đồng bộ đạt chuẩn độ dài tối thiểu lớn hơn năm mươi ký tự"
     h = compute_content_hash(content)
     test_json.write_text(
         json.dumps(
@@ -101,6 +102,7 @@ def test_auto_sync_on_startup(isolated_db_conn, tmp_path):
                     "title": "Tài liệu đồng bộ",
                     "review_status": "approved",
                     "review_reason": "Đồng bộ từ Git repo",
+                    "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
                 }
             }
         ),
@@ -147,6 +149,7 @@ def test_sync_does_not_apply_approved_status_if_content_hash_mismatched(isolated
                     "title": "Tài liệu kiểm tra phiên bản lệch hash",
                     "review_status": "approved",
                     "review_reason": "Đã duyệt phiên bản cũ v1",
+                    "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
                 }
             }
         ),

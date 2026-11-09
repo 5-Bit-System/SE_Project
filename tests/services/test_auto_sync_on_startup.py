@@ -45,6 +45,7 @@ def test_full_auto_sync_pipeline(isolated_db_conn, tmp_path):
                     "title": "Ngành Khoa học máy tính và thông tin",
                     "review_status": "approved",
                     "review_reason": "Chương trình chuẩn đã kiểm duyệt",
+                    "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
                     "reviewed_at": "2026-11-08T00:00:00+00:00",
                 },
                 "doc_test_rejected": {

@@ -6,6 +6,7 @@ import os
 from unittest.mock import MagicMock, patch
 
 import pytest
+from sqlalchemy import text
 
 from app.api import admin as admin_mod
 from app.api.admin import (
@@ -15,9 +16,12 @@ from app.api.admin import (
 )
 from app.crawler import document_review_service
 from app.crawler.document_review_service import (
+    create_document,
     export_git_reviews_from_db,
+    get_document,
     review_document,
 )
+from tests.support.admin_database import admin_test_engine, ensure_test_admin_account
 
 
 def test_rollback_in_db_does_not_mutate_json_file(tmp_path, monkeypatch):
@@ -256,3 +260,80 @@ def test_admin_api_calls_export_only_post_commit(monkeypatch):
 
     # Export count must still be 2 (not incremented on rollback)
     assert len(exported) == 2
+
+
+@pytest.mark.hus_postgres
+def test_real_db_rollback_leaves_no_residue_and_json_untouched(tmp_path):
+    eng = admin_test_engine()
+    test_reviews_file = tmp_path / "document_reviews.json"
+    initial_content = {
+        "doc_baseline": {
+            "doc_id": "doc_baseline",
+            "url": "https://hus.vnu.edu.vn/baseline",
+            "content_hash": "baseline_hash",
+            "title": "Baseline Doc",
+            "review_status": "pending",
+            "review_reason": "Chờ duyệt",
+            "reviewer_id": None,
+            "reviewed_at": None,
+        }
+    }
+    test_reviews_file.write_text(json.dumps(initial_content, indent=2), encoding="utf-8")
+
+    test_doc_id = "doc_test_rollback_isolation"
+    test_url = "http://mim.hus.vnu.edu.vn/vi/test-rollback-isolation"
+
+    orig_default = document_review_service.DEFAULT_REVIEWS_FILE
+    document_review_service.DEFAULT_REVIEWS_FILE = test_reviews_file
+    try:
+        # Pre-clean any leftover test document
+        with eng.begin() as cleanup_conn:
+            ensure_test_admin_account(cleanup_conn)
+            cleanup_conn.execute(
+                text("DELETE FROM crawled_documents WHERE id = :id OR url = :url"),
+                {"id": test_doc_id, "url": test_url},
+            )
+
+        # Connection 1 opens a transaction: creates document and reviews it
+        conn1 = eng.connect()
+        trans1 = conn1.begin()
+        try:
+            create_document(
+                conn1,
+                url=test_url,
+                title="Tài liệu kiểm tra rollback isolation",
+                markdown_content="Nội dung văn bản kiểm thử độ cô lập đa kết nối và rollback không lưu vết",
+                major="mathematics",
+                doc_id=test_doc_id,
+            )
+            review_document(
+                conn1,
+                doc_id=test_doc_id,
+                decision="approved",
+                reason="Phê duyệt thử nghiệm isolation",
+                reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+            )
+
+            # Connection 2 opens in parallel: checks DB -> cannot see uncommitted document (Read Committed isolation)
+            with eng.connect() as conn2:
+                doc_conn2 = get_document(conn2, test_doc_id)
+                assert doc_conn2 is None, "Connection 2 must not see uncommitted document from Connection 1"
+
+            # Connection 1 encounters an error and rolls back transaction
+            raise RuntimeError("Simulated failure in Connection 1 before commit")
+        except RuntimeError:
+            trans1.rollback()
+        finally:
+            conn1.close()
+
+        # Check DEFAULT_REVIEWS_FILE or test reviews JSON -> completely untouched
+        current_json = json.loads(test_reviews_file.read_text(encoding="utf-8"))
+        assert current_json == initial_content
+        assert test_doc_id not in current_json
+
+        # Connection 2 queries DB again -> document does not exist
+        with eng.connect() as conn2:
+            doc_after_rollback = get_document(conn2, test_doc_id)
+            assert doc_after_rollback is None, "Document must not exist in DB after transaction rollback"
+    finally:
+        document_review_service.DEFAULT_REVIEWS_FILE = orig_default
