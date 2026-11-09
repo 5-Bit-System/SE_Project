@@ -67,7 +67,7 @@ def test_rollback_in_db_does_not_mutate_json_file(tmp_path, monkeypatch):
                     doc_id="doc_uncommitted",
                     decision="approved",
                     reason="Hợp lệ chuẩn",
-                    reviewer_id="reviewer_1",
+                    reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
                 )
                 raise RuntimeError("Simulated DB transaction rollback before commit")
             except RuntimeError:
@@ -184,12 +184,12 @@ def test_export_git_reviews_queries_committed_states_from_db(tmp_path):
     mock_conn.execute.return_value.fetchall.return_value = [row_approved, row_rejected]
 
     count = export_git_reviews_from_db(mock_conn, file_path=test_json)
-    assert count == 3  # 1 existing pending + 2 from DB
+    assert count == 2  # SSOT: purges uncommitted/pending doc_pending not in DB
 
     exported = json.loads(test_json.read_text(encoding="utf-8"))
     assert exported["doc_approved"]["review_status"] == "approved"
     assert exported["doc_rejected"]["review_status"] == "rejected"
-    assert exported["doc_pending"]["review_status"] == "pending"
+    assert "doc_pending" not in exported
 
 
 def test_admin_api_calls_export_only_post_commit(monkeypatch):

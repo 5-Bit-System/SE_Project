@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 import uuid
 from pathlib import Path
@@ -17,6 +18,7 @@ from app.curriculum.transactions import publication_lock
 logger = logging.getLogger(__name__)
 
 DEFAULT_REVIEWS_FILE = Path("data/hus/document_reviews.json")
+_EXPORT_LOCK = threading.Lock()
 
 
 def normalize_crawled_url(url: str) -> str:
@@ -79,18 +81,19 @@ def export_git_reviews_from_db(
     writes to a unique .tmp file in the destination directory, and atomically replaces
     the target file using os.replace with up to 3 retries on transient file locks.
     """
-    path = Path(file_path) if file_path is not None else DEFAULT_REVIEWS_FILE
-    path.parent.mkdir(parents=True, exist_ok=True)
+    with _EXPORT_LOCK:
+        path = Path(file_path) if file_path is not None else DEFAULT_REVIEWS_FILE
+        path.parent.mkdir(parents=True, exist_ok=True)
 
-    if hasattr(engine_or_conn, "connect") and not hasattr(engine_or_conn, "execute"):
-        with engine_or_conn.connect() as conn:
-            return _do_export_git_reviews(conn, path)
-    else:
-        return _do_export_git_reviews(engine_or_conn, path)
+        if hasattr(engine_or_conn, "connect") and not hasattr(engine_or_conn, "execute"):
+            with engine_or_conn.connect() as conn:
+                return _do_export_git_reviews(conn, path)
+        else:
+            return _do_export_git_reviews(engine_or_conn, path)
 
 
 def _do_export_git_reviews(conn: Any, path: Path) -> int:
-    reviews = load_git_reviews(path)
+    reviews: dict[str, dict[str, Any]] = {}
 
     rows = conn.execute(
         text("""
