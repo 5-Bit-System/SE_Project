@@ -219,3 +219,43 @@ def test_unknown_explicit_label_requires_confirmation():
     result = resolve_study_intent("", sample_catalog(), form_input=FormInput(
         values={"interest_topics": ["not_a_label"]}, explicit_fields=["interest_topics"]))
     assert result.diagnostics.status == "needs_clarification"
+
+
+def test_model_topic_conflicting_with_explicit_form_is_not_merged():
+    class Extractor:
+        def extract(self, _):
+            return StructuredPreference(interest_topics=["machine_learning"])
+    form = FormInput(values={"interest_topics": ["software_engineering"]}, explicit_fields=["interest_topics"])
+    result = resolve_study_intent(
+        "kỳ tới tôi muốn xây dựng một hệ thống bán hàng",
+        sample_catalog(), form_input=form, extractor=Extractor())
+    assert result.diagnostics.status == "needs_clarification"
+    assert result.preference.interest_topics == ["software_engineering"]
+
+
+def test_model_can_add_topic_when_parser_found_same_field():
+    class Extractor:
+        def extract(self, _):
+            return StructuredPreference(interest_topics=["machine_learning", "software_engineering"])
+    result = resolve_study_intent(
+        "tôi thích học máy và muốn xây dựng một hệ thống quản lý bán hàng",
+        sample_catalog(), extractor=Extractor())
+    assert set(result.preference.interest_topics) == {"machine_learning", "software_engineering"}
+
+
+def test_model_addition_does_not_resurrect_negated_topic():
+    class Extractor:
+        def extract(self, _):
+            return StructuredPreference(interest_topics=["machine_learning", "software_engineering"])
+    result = resolve_study_intent(
+        "không thích học máy, chỉ thích phát triển phần mềm",
+        sample_catalog(), extractor=Extractor())
+    assert result.preference.interest_topics == ["software_engineering"]
+
+
+def test_model_addition_does_not_override_explicit_topic_switch():
+    class Extractor:
+        def extract(self, _):
+            return StructuredPreference(interest_topics=["machine_learning", "software_engineering"])
+    result = resolve_study_intent("chuyển sang học máy", sample_catalog(), extractor=Extractor())
+    assert result.preference.interest_topics == ["machine_learning"]
