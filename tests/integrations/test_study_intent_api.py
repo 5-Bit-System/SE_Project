@@ -16,7 +16,7 @@ const p = recommendationPayload({program_id:'khdl'}, {
 console.log(JSON.stringify(p));
 """
     return json.loads(subprocess.check_output(['node', '--input-type=module', '-e', script,
-        goal, 'yes' if explicit else 'no', revision], text=True))
+        goal, 'yes' if explicit else 'no', revision], text=True, encoding="utf-8"))
 
 
 def test_actual_ui_payload_invokes_extractor_and_surfaces_workload_conflict(client, ready_context, monkeypatch):
