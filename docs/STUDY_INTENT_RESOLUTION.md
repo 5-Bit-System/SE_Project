@@ -30,7 +30,7 @@ quy tắc vẫn cần đánh giá thêm và có thể phải hỏi lại.
 | File | Vai trò |
 |---|---|
 | `app/schemas/study_intent.py` | Form có explicit/default; cập nhật set/add/remove/clear; diagnostics và state nội bộ |
-| `app/recommendation/constraint_parser.py` | Số nguyên, âm/thập phân, tích lũy/tổng chương trình, phủ định, sửa ý và clear limit |
+| `app/recommendation/constraint_parser.py` | Số nguyên/chữ, khoảng số, phủ định trần, dưới/ít hơn, tích lũy/tổng chương trình, sửa ý và clear limit |
 | `app/recommendation/vocabulary.py` | Canonical IDs theo đặc tả metadata §5, alias dùng chung và extension riêng theo catalog |
 | `app/recommendation/preference.py` | Cập nhật sở thích theo mệnh đề, có giữ dấu khi phân biệt để/dễ và nhé/nhẹ |
 | `app/recommendation/feature_extractor.py` | Prompt hiện tại + preference trước, strict schema và validation nhãn; chưa tự quyết định giới hạn |
@@ -70,6 +70,12 @@ và có giá trị 20, mâu thuẫn với 9 sẽ yêu cầu xác nhận.
 Các quy tắc:
 
 - Câu hiện tại luôn được xét. Legacy `preference != null` không còn bypass extraction.
+- Câu có nội dung học tập nhưng không ánh xạ được chủ đề, môn, tải học hoặc giới
+  hạn trả `needs_clarification`, không trả `ready` với mặc định. Lời chào và câu
+  gợi ý chung không bị coi là chưa hiểu.
+- Model được bổ sung giá trị mới cho field danh sách mà parser đã nhận, nhưng
+  không được khôi phục chủ đề đã bị phủ định, lấn át “chuyển sang”, hoặc đặt/xóa
+  giới hạn cứng.
 - Field không nhắc đến được giữ từ state đúng context; `clear` khác `unset`.
 - Alias dữ liệu dùng `data_science`, không lấy từ chung chung “data” làm nhãn này.
 - Thích A **và** B là bổ sung; “chuyển sang B” là thay chủ đề. Phủ định xóa chủ đề tương ứng.
@@ -79,8 +85,11 @@ Các quy tắc:
   dấu sửa ý; cụm “đổi thành/đổi sang” thay giá trị trước đó.
 - Số tích lũy/tổng chương trình không phải budget kỳ tới. `1.5`, `1,5`, `-2`,
   `−2`, 0, số vượt khoảng cho phép tạo trạng thái cần xác nhận.
-- “Ít nhất” được nhận diện là giới hạn dưới chưa hỗ trợ chọn bundle, không biến
-  thành trần tối đa. Bản hiện tại hỏi lại mức tối đa.
+- Nhận số viết bằng chữ (`ba`, `mười hai`), khoảng `1-2 môn` (lấy cận trên) và
+  các cách nói trần như “không muốn vượt quá”, “không nhiều hơn”, “không học quá”.
+- “Ít nhất”, “nhiều hơn”, “hơn” là giới hạn dưới chưa hỗ trợ chọn bundle, không
+  biến thành trần tối đa. Bản hiện tại hỏi lại mức tối đa. “Dưới/ít hơn” là trần
+  chặt, nên `dưới 3` thành tối đa 2.
 - Trạng thái invalid/câu hỏi chưa giải quyết được giữ qua lượt sau. Cập nhật hợp
   lệ đúng field hoặc reset rõ ràng mới giải quyết trạng thái đó.
 - UI giữ policy tải học light 14–17, moderate 18–20, heavy 21–30. Yêu cầu ngoài
