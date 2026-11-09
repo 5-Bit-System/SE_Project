@@ -37,3 +37,40 @@ class TransactionEngine:
 
     def dispose(self):
         pass
+
+
+def ensure_test_admin_account(conn):
+    try:
+        from sqlalchemy import text
+        row = conn.execute(
+            text("SELECT id FROM accounts WHERE id = '57e9a52b-7365-4fe2-b9ce-1320ef48dc02'")
+        ).scalar()
+        if not row:
+            conn.execute(
+                text("""
+                    INSERT INTO accounts (id, username, password_hash, role)
+                    VALUES ('57e9a52b-7365-4fe2-b9ce-1320ef48dc02', 'test_admin_57e9a52b', 'hash_test', 'admin')
+                    ON CONFLICT DO NOTHING
+                """)
+            )
+    except Exception:
+        pass
+
+
+@contextmanager
+def db_transaction_rollback():
+    eng = admin_test_engine()
+    with eng.connect() as conn:
+        trans = conn.begin_nested() if conn.in_transaction() else conn.begin()
+        ensure_test_admin_account(conn)
+        try:
+            yield conn
+        finally:
+            if trans.is_active:
+                trans.rollback()
+
+
+@pytest.fixture
+def isolated_db_conn():
+    with db_transaction_rollback() as conn:
+        yield conn

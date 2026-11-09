@@ -3,7 +3,7 @@ title: "Công nghệ sinh học"
 url: "https://tuyensinh.hus.vnu.edu.vn/dai-hoc/nganh-hoc/sinh-hoc-va-cong-nghe/cong-nghe-sinh-hoc"
 publisher: "TUYENSINH"
 type: "general_info"
-major: "mathematics"
+major: "general"
 ---
 
 Ngành học

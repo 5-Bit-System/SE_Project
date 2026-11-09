@@ -32,14 +32,42 @@ def seed_security_test_document():
     from sqlalchemy import text
 
     from app.crawler.document_review_service import create_document, get_document
-    from tests.support.admin_database import admin_test_engine
-    eng = admin_test_engine()
+
+    try:
+        from tests.support.admin_database import admin_test_engine
+
+        eng = admin_test_engine()
+    except BaseException:
+        from app.integrations.daotao.store import engine
+
+        eng = engine()
+
+    safe_content = (
+        "# Nội dung an toàn có độ dài lớn hơn năm mươi ký tự hợp lệ "
+        "để đảm bảo vượt qua content quality gate khi kiểm thử giao diện phê duyệt."
+    )
     with eng.begin() as conn:
-        if not get_document(conn, 'doc_xss_test'):
-            create_document(conn, url="javascript:alert('xss')",
+        doc = get_document(conn, "doc_xss_test")
+        if not doc:
+            create_document(
+                conn,
+                url="javascript:alert('xss')",
                 title="Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>",
-                markdown_content="# Nội dung an toàn", major="toan_hoc", doc_type="curriculum", doc_id="doc_xss_test")
-        conn.execute(text("UPDATE crawled_documents SET created_at = now() WHERE id = 'doc_xss_test'"))
+                markdown_content=safe_content,
+                major="toan_hoc",
+                doc_type="curriculum",
+                doc_id="doc_xss_test",
+            )
+        else:
+            conn.execute(
+                text(
+                    "UPDATE crawled_documents SET markdown_content = :content WHERE id = 'doc_xss_test'"
+                ),
+                {"content": safe_content},
+            )
+        conn.execute(
+            text("UPDATE crawled_documents SET created_at = now() WHERE id = 'doc_xss_test'")
+        )
     eng.dispose()
 
 

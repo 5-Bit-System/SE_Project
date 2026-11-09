@@ -16,6 +16,7 @@
 - Lấy hồ sơ và bảng điểm mới từ VNU khi đăng nhập; giữ dữ liệu đã lưu nếu lần lấy nguồn mới gặp lỗi.
 - Quản trị viên quản lý tài khoản/quyền/trạng thái, không mặc định xem bảng điểm người khác.
 - Admin console có dashboard vận hành, preview tư vấn bằng hồ sơ tổng hợp, quản lý revision chương trình đào tạo, kiểm duyệt tài liệu học thuật, thông báo học vụ và audit log. Các thao tác quản trị yêu cầu phiên admin.
+- Review tài liệu được khôi phục từ snapshot chỉ khi khớp đúng phiên bản và chưa có quyết định trong DB. Xem [policy khôi phục review và công cụ sửa phân loại dữ liệu cũ](docs/DOCUMENT_REVIEW_RESTORE_POLICY.md), gồm giới hạn snapshot cũ thiếu fingerprint và chế độ xem trước trước khi cập nhật.
 - Backend tính eligibility, progress, recommendation và advisor được giữ; luồng cá nhân từ VNU còn chờ completeness, mapping chương trình và chính sách học vụ được xác minh. Giao diện chưa mở kết quả học vụ khi thiếu các điều kiện này.
 
 Các gợi ý không xác nhận môn có được mở trong một học kỳ cụ thể hay không. Hệ thống không xếp lịch học, xử lý xung đột lớp hoặc chứng nhận quy định chính thức của trường.
