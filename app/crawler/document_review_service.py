@@ -501,8 +501,14 @@ def review_document(
                 valid_reviewer_id = safe_uid
             else:
                 logger.warning("Reviewer account %s does not exist in accounts table; using null", safe_uid)
-        except Exception:
-            valid_reviewer_id = safe_uid
+        except Exception as exc:
+            logger.warning("Failed to verify reviewer account %s: %s", safe_uid, exc)
+
+    if decision == "approved":
+        if not valid_reviewer_id:
+            raise ValueError(
+                "Phê duyệt tài liệu bắt buộc phải có tài khoản người duyệt (reviewer) hợp lệ trong hệ thống."
+            )
 
     conn.execute(
         text("""
@@ -641,6 +647,8 @@ def sync_crawled_documents_and_reviews(
     applied = 0
     hash_mismatches = 0
     protected_published = 0
+    skipped_marker_only = 0
+    skipped_unverified_approvals = 0
     for doc_id, r in reviews.items():
         url = r.get("url")
         status = r.get("review_status")
@@ -659,8 +667,33 @@ def sync_crawled_documents_and_reviews(
             try:
                 if conn.execute(text("SELECT 1 FROM accounts WHERE id = :aid"), {"aid": reviewer_id}).scalar():
                     valid_reviewer_id = reviewer_id
-            except Exception:
-                valid_reviewer_id = reviewer_id
+            except Exception as exc:
+                logger.warning("Failed to verify reviewer account %s: %s", reviewer_id, exc)
+
+        if status == "approved":
+            if not valid_reviewer_id:
+                logger.warning(
+                    "Bỏ qua đồng bộ 'approved' cho doc %s: reviewer không hợp lệ hoặc không tồn tại trong accounts",
+                    doc_id,
+                )
+                skipped_unverified_approvals += 1
+                continue
+
+            target_doc = conn.execute(
+                text(
+                    "SELECT markdown_content FROM crawled_documents WHERE (id = :id OR url = :url) AND content_hash = :content_hash"
+                ),
+                {"id": doc_id, "url": url, "content_hash": content_hash},
+            ).mappings().first()
+            if target_doc:
+                is_meaningful, _ = is_meaningful_content(target_doc["markdown_content"] or "")
+                if not is_meaningful:
+                    logger.warning(
+                        "Bỏ qua đồng bộ 'approved' cho doc %s: nội dung rỗng hoặc chỉ có marker trang (cần OCR)",
+                        doc_id,
+                    )
+                    skipped_marker_only += 1
+                    continue
 
         res = conn.execute(
             text("""
@@ -718,4 +751,6 @@ def sync_crawled_documents_and_reviews(
         "reviews_applied": applied,
         "hash_mismatches": hash_mismatches,
         "protected_published": protected_published,
+        "skipped_marker_only": skipped_marker_only,
+        "skipped_unverified_approvals": skipped_unverified_approvals,
     }

@@ -75,6 +75,7 @@ def test_document_review_lifecycle_and_duplicates(isolated_db_conn):
         doc1["id"],
         decision="approved",
         reason="Đối chiếu chuẩn theo Quyết định 3568/QĐ-ĐHKHTN",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
     )
     assert app_doc["review_status"] == "approved"
     assert "3568" in app_doc["review_reason"]
@@ -107,7 +108,13 @@ def test_metadata_update_on_approved_or_published_document_revokes_approval(isol
     doc_id = doc["id"]
 
     # Approve and publish document
-    review_document(conn, doc_id, decision="approved", reason="Phê duyệt lần đầu")
+    review_document(
+        conn,
+        doc_id,
+        decision="approved",
+        reason="Phê duyệt lần đầu",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+    )
     conn.execute(text("UPDATE crawled_documents SET is_published = true WHERE id = :id"), {"id": doc_id})
 
     doc_approved = create_document.__globals__["get_document"](conn, doc_id)
@@ -131,7 +138,13 @@ def test_metadata_update_on_approved_or_published_document_revokes_approval(isol
     preserved = create_document.__globals__["get_document"](conn, doc_id)
     assert preserved["title"] == doc_approved["title"]
     assert preserved["is_published"] is True
-    re_app = review_document(conn, upd["id"], decision="approved", reason="Duyệt lại bản sửa đổi")
+    re_app = review_document(
+        conn,
+        upd["id"],
+        decision="approved",
+        reason="Duyệt lại bản sửa đổi",
+        reviewer_id="57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+    )
     assert re_app["review_status"] == "approved"
     assert re_app["title"] == "Tiêu đề đã sửa sau khi duyệt"
 
