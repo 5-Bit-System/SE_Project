@@ -223,4 +223,3 @@ def test_api_cannot_approve_empty_or_marker_only_document(
         with eng.begin() as conn:
             from sqlalchemy import text
             conn.execute(text("DELETE FROM crawled_documents WHERE id = :id"), {"id": doc_id})
-

@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 
 from app.config import get_settings
 from app.crawler.document_review_service import (
@@ -35,10 +35,24 @@ logger = logging.getLogger(__name__)
 def create_initial_git_reviews_if_empty(
     docs_dir: Path, reviews_file: Path = DEFAULT_REVIEWS_FILE
 ) -> None:
-    """If reviews JSON does not exist or has < 10 reviews, generate an initial curated set."""
-    if reviews_file.is_file() and len(json.loads(reviews_file.read_text("utf-8"))) >= 30:
-        logger.info("Found existing document_reviews.json with reviews, keeping existing.")
-        return
+    """Initialize only a missing snapshot or an explicit empty JSON object.
+
+    Preserve every nonempty review mapping byte-for-byte, including small exports.
+    A blank, malformed or non-object JSON file is an error, never permission to
+    overwrite an existing snapshot. This initializer does not repair snapshots.
+    """
+    if reviews_file.exists():
+        try:
+            existing_reviews = json.loads(reviews_file.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            raise ValueError(f"Invalid review snapshot JSON: {reviews_file}") from exc
+        if not isinstance(existing_reviews, dict) or any(
+            not isinstance(review, dict) for review in existing_reviews.values()
+        ):
+            raise ValueError(f"Invalid review snapshot mapping: {reviews_file}")
+        if existing_reviews:
+            logger.info("Found existing review snapshot, keeping all decisions.")
+            return
 
     reviews: dict[str, dict] = {}
     md_files = sorted(docs_dir.rglob("*.md"))
@@ -98,34 +112,14 @@ def main() -> None:
         logger.error("Documents directory not found at %s", docs_dir)
         sys.exit(1)
 
-    logger.info("Connecting to database: %s", settings.database_url)
-    engine = create_engine(settings.database_url)
-
     # 1. Pre-populate initial Git reviews file if needed
     create_initial_git_reviews_if_empty(docs_dir, DEFAULT_REVIEWS_FILE)
 
-    with engine.begin() as conn:
-        # 2. Ensure doc_xss_test exists
-        exists_xss = conn.execute(
-            text("SELECT 1 FROM crawled_documents WHERE id = 'doc_xss_test'")
-        ).scalar()
-        if not exists_xss:
-            conn.execute(
-                text("""
-                    INSERT INTO crawled_documents (
-                        id, url, content_hash, title, major, doc_type,
-                        markdown_content, metadata_json, review_status, created_at
-                    ) VALUES (
-                        'doc_xss_test', 'javascript:alert(\\'xss\\')', 'xss_hash',
-                        'Tài liệu bảo mật <img src=x onerror=window.__doc_xss=true>',
-                        'toan_hoc', 'curriculum', '# Nội dung an toàn', '{}'::jsonb,
-                        'pending', now()
-                    )
-                """)
-            )
-            logger.info("Created security audit document 'doc_xss_test'")
+    logger.info("Connecting to configured database")
+    engine = create_engine(settings.database_url)
 
-        # 3. Synchronize all 179 real documents and reviews
+    with engine.begin() as conn:
+        # 2. Synchronize source documents and reviews; test fixtures belong in tests.
         res = sync_crawled_documents_and_reviews(
             conn, docs_dir=docs_dir, reviews_file=DEFAULT_REVIEWS_FILE
         )
@@ -136,7 +130,7 @@ def main() -> None:
             res["reviews_applied"],
         )
 
-        # 4. Print summary
+        # 3. Print summary
         summary = get_document_review_summary(conn)
         logger.info("=== BÁO CÁO TRẠNG THÁI KIỂM DUYỆT TÀI LIỆU ===")
         logger.info("Tổng số tài liệu: %d", summary["total"])

@@ -138,4 +138,3 @@ def test_admin_document_review_db_clean():
             )
         ).scalar()
         assert dirty == 0
-

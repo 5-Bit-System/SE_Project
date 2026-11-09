@@ -15,6 +15,7 @@ from app.crawler.document_review_service import (
     sync_crawled_documents_and_reviews,
 )
 from tests.support.admin_database import db_transaction_rollback
+from tests.support.document_reviews import snapshot_decision
 
 
 @pytest.fixture
@@ -142,17 +143,8 @@ def test_sync_applies_approved_when_content_and_reviewer_are_valid(isolated_db_c
     )
     doc_id = doc["id"]
 
-    reviews = {
-        doc_id: {
-            "doc_id": doc_id,
-            "url": doc["url"],
-            "content_hash": doc["content_hash"],
-            "review_status": "approved",
-            "review_reason": "ok",
-            "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
-        }
-    }
-    reviews_file.write_text(json.dumps(reviews, ensure_ascii=False), encoding="utf-8")
+    # Restore requires complete evidence bound to this exact source version.
+    reviews_file.write_text(json.dumps({doc_id: snapshot_decision(doc)}), encoding="utf-8")
 
     res = sync_crawled_documents_and_reviews(conn, docs_dir=docs_dir, reviews_file=reviews_file)
 

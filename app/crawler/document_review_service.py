@@ -8,6 +8,7 @@ import re
 import threading
 import time
 import uuid
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +20,29 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_REVIEWS_FILE = Path("data/hus/document_reviews.json")
 _EXPORT_LOCK = threading.Lock()
+
+
+def document_review_fingerprint(document: dict[str, Any]) -> str:
+    """Bind a repository decision to one source version and its reviewed metadata.
+
+    This is an identity check for trusted review snapshots, not a signature or
+    proof that an administrator actually performed a review.
+    """
+    metadata = document.get("metadata_json") or {}
+    if isinstance(metadata, str):
+        metadata = json.loads(metadata)
+    payload = {
+        "format": "document-review-v1",
+        "id": document.get("id") or document.get("doc_id"),
+        "url": document.get("url"),
+        "content_hash": document.get("content_hash"),
+        "title": document.get("title"),
+        "major": document.get("major"),
+        "doc_type": document.get("doc_type"),
+        "metadata_json": metadata,
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
 
 def normalize_crawled_url(url: str) -> str:
@@ -97,7 +121,8 @@ def _do_export_git_reviews(conn: Any, path: Path) -> int:
 
     rows = conn.execute(
         text("""
-            SELECT id, url, content_hash, title, review_status, review_reason, reviewer_id, reviewed_at
+            SELECT id, url, content_hash, title, major, doc_type, metadata_json,
+                   review_status, review_reason, reviewer_id, reviewed_at
             FROM crawled_documents
             WHERE (review_status = 'rejected' OR (review_status = 'approved' AND reviewer_id IS NOT NULL))
               AND url NOT LIKE 'javascript:%'
@@ -125,6 +150,7 @@ def _do_export_git_reviews(conn: Any, path: Path) -> int:
             "review_reason": d.get("review_reason") or "",
             "reviewer_id": d.get("reviewer_id"),
             "reviewed_at": d.get("reviewed_at") or "",
+            "review_fingerprint": document_review_fingerprint(d),
         }
 
     tmp_path = path.with_name(f"{path.stem}_{uuid.uuid4().hex[:8]}.tmp")
@@ -585,6 +611,9 @@ def seed_crawled_documents_from_disk(
             text("""
                 DELETE FROM crawled_documents
                 WHERE id != 'doc_xss_test'
+                  AND is_published = false
+                  AND review_status = 'pending'
+                  AND reviewer_id IS NULL AND reviewed_at IS NULL
                   AND (
                     url LIKE '%approved-doc-test%'
                     OR url LIKE '%cntt-copy%'
@@ -640,63 +669,87 @@ def seed_crawled_documents_from_disk(
 def sync_crawled_documents_and_reviews(
     conn, docs_dir: Path | None = None, reviews_file: Path | None = None
 ) -> dict[str, int]:
-    """Synchronize review state between Git JSON snapshot and database.
+    """Seed sources and restore trusted decisions only into untouched drafts.
 
-    Can be invoked via CLI (`python -m tools.seed_real_crawled_documents`)
-    or guarded startup lifespan when `AUTO_SYNC_DOCUMENT_REVIEWS=true`.
+    Existing database decisions always win, including after an export failure.
+    Legacy snapshots lacking a version fingerprint remain readable for inspection
+    but cannot authorize a decision. Never match a decision by URL alone.
     """
-    seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir, clean_old_mock=True)
+    publication_lock(conn)
+    # Fixture cleanup is never a side effect of normal startup or review restore.
+    seeded = seed_crawled_documents_from_disk(conn, base_dir=docs_dir)
     reviews = load_git_reviews(reviews_file)
+    if not isinstance(reviews, dict):
+        raise ValueError("Review snapshot must be a JSON object keyed by document ID")
     applied = 0
     hash_mismatches = 0
     protected_published = 0
     skipped_marker_only = 0
     skipped_unverified_approvals = 0
+    skipped_existing_decisions = 0
+    version_mismatches = 0
+    invalid_review_evidence = 0
     for doc_id, r in reviews.items():
+        if not isinstance(r, dict):
+            invalid_review_evidence += 1
+            continue
         url = r.get("url")
         status = r.get("review_status")
         content_hash = r.get("content_hash")
-        reason = r.get("review_reason") or "Auto-synced from repository review record"
-        reviewer_id = _safe_uuid(r.get("reviewer_id"))
-        reviewed_at = r.get("reviewed_at")
-        if not status or status not in ("approved", "rejected", "pending"):
+        target = conn.execute(
+            text("SELECT * FROM crawled_documents WHERE id = :id"), {"id": doc_id}
+        ).mappings().first()
+        if not target or target["url"] != url or r.get("doc_id", doc_id) != doc_id:
+            version_mismatches += 1
             continue
-        if not content_hash:
-            logger.warning("Skipping review sync for doc %s (%s): missing content_hash", doc_id, url)
+        if target["is_published"]:
+            protected_published += 1
+            continue
+        if not content_hash or target["content_hash"] != content_hash:
+            hash_mismatches += 1
+            continue
+        # A pending snapshot is not a decision and cannot revoke a database review.
+        if status not in ("approved", "rejected"):
+            continue
+        if (
+            target["review_status"] != "pending"
+            or target["reviewer_id"] is not None
+            or target["reviewed_at"] is not None
+            or target["review_reason"]
+        ):
+            skipped_existing_decisions += 1
             continue
 
+        reviewer_id = _safe_uuid(r.get("reviewer_id"))
         valid_reviewer_id = None
         if reviewer_id:
-            try:
-                if conn.execute(text("SELECT 1 FROM accounts WHERE id = :aid"), {"aid": reviewer_id}).scalar():
-                    valid_reviewer_id = reviewer_id
-            except Exception as exc:
-                logger.warning("Failed to verify reviewer account %s: %s", reviewer_id, exc)
+            if conn.execute(text("SELECT 1 FROM accounts WHERE id = :aid"), {"aid": reviewer_id}).scalar():
+                valid_reviewer_id = reviewer_id
+        if not valid_reviewer_id:
+            if status == "approved":
+                skipped_unverified_approvals += 1
+            else:
+                invalid_review_evidence += 1
+            continue
 
         if status == "approved":
-            if not valid_reviewer_id:
-                logger.warning(
-                    "Bỏ qua đồng bộ 'approved' cho doc %s: reviewer không hợp lệ hoặc không tồn tại trong accounts",
-                    doc_id,
-                )
-                skipped_unverified_approvals += 1
+            is_meaningful, _ = is_meaningful_content(target["markdown_content"] or "")
+            if not is_meaningful:
+                skipped_marker_only += 1
                 continue
-
-            target_doc = conn.execute(
-                text(
-                    "SELECT markdown_content FROM crawled_documents WHERE (id = :id OR url = :url) AND content_hash = :content_hash"
-                ),
-                {"id": doc_id, "url": url, "content_hash": content_hash},
-            ).mappings().first()
-            if target_doc:
-                is_meaningful, _ = is_meaningful_content(target_doc["markdown_content"] or "")
-                if not is_meaningful:
-                    logger.warning(
-                        "Bỏ qua đồng bộ 'approved' cho doc %s: nội dung rỗng hoặc chỉ có marker trang (cần OCR)",
-                        doc_id,
-                    )
-                    skipped_marker_only += 1
-                    continue
+        fingerprint = r.get("review_fingerprint")
+        if not fingerprint or fingerprint != document_review_fingerprint(dict(target)):
+            version_mismatches += 1
+            continue
+        reason = r.get("review_reason")
+        try:
+            reviewed_at = datetime.fromisoformat(r.get("reviewed_at") or "")
+        except (TypeError, ValueError):
+            invalid_review_evidence += 1
+            continue
+        if not isinstance(reason, str) or len(reason.strip()) < 3 or reviewed_at.utcoffset() is None:
+            invalid_review_evidence += 1
+            continue
 
         res = conn.execute(
             text("""
@@ -704,48 +757,26 @@ def sync_crawled_documents_and_reviews(
                 SET review_status = :status,
                     review_reason = :reason,
                     reviewer_id = :reviewer_id,
-                    reviewed_at = CASE
-                        WHEN :reviewed_at IS NOT NULL AND :reviewed_at != '' THEN CAST(:reviewed_at AS timestamptz)
-                        ELSE now()
-                    END
-                WHERE (id = :id OR url = :url)
+                    reviewed_at = :reviewed_at
+                WHERE id = :id AND url = :url
                   AND content_hash = :content_hash
                   AND is_published = false
+                  AND review_status = 'pending'
+                  AND reviewer_id IS NULL AND reviewed_at IS NULL
+                  AND (review_reason IS NULL OR review_reason = '')
             """),
             {
                 "id": doc_id,
                 "url": url,
                 "content_hash": content_hash,
                 "status": status,
-                "reason": reason,
+                "reason": reason.strip(),
                 "reviewer_id": valid_reviewer_id,
                 "reviewed_at": reviewed_at,
             },
         )
         if res.rowcount > 0:
             applied += res.rowcount
-        else:
-            matches = conn.execute(
-                text("SELECT id, content_hash, is_published FROM crawled_documents WHERE id = :id OR url = :url"),
-                {"id": doc_id, "url": url},
-            ).fetchall()
-            for row in matches:
-                if row[2]:  # is_published is true
-                    protected_published += 1
-                    logger.warning(
-                        "Skipping review sync for published document %s (%s)",
-                        row[0],
-                        url,
-                    )
-                elif row[1] != content_hash:
-                    hash_mismatches += 1
-                    logger.warning(
-                        "Skipping review sync for document %s (%s) due to content_hash mismatch: expected %s, found %s",
-                        row[0],
-                        url,
-                        content_hash,
-                        row[1],
-                    )
 
     total_docs = conn.execute(text("SELECT count(*) FROM crawled_documents")).scalar() or 0
     return {
@@ -756,4 +787,7 @@ def sync_crawled_documents_and_reviews(
         "protected_published": protected_published,
         "skipped_marker_only": skipped_marker_only,
         "skipped_unverified_approvals": skipped_unverified_approvals,
+        "skipped_existing_decisions": skipped_existing_decisions,
+        "version_mismatches": version_mismatches,
+        "invalid_review_evidence": invalid_review_evidence,
     }

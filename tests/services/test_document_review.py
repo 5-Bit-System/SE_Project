@@ -178,4 +178,3 @@ def test_isolated_db_conn_leaves_no_residue_in_subsequent_test(isolated_db_conn)
         text("SELECT count(*) FROM crawled_documents WHERE id LIKE '%pollution_test%'")
     ).scalar()
     assert residue == 0
-

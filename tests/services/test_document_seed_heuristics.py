@@ -7,8 +7,112 @@ have a verified genuine reviewer_id.
 import json
 import uuid
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import MagicMock
 
+import pytest
+
+from app.crawler.document_review_service import export_git_reviews_from_db
 from tools.seed_real_crawled_documents import create_initial_git_reviews_if_empty
+
+
+def _write_seed_document(docs_dir: Path) -> None:
+    docs_dir.mkdir()
+    (docs_dir / "curriculum.md").write_text(
+        "---\ntitle: Curriculum\nurl: https://example.com/curriculum\n"
+        "type: curriculum\n---\nCurriculum awaiting human review.",
+        encoding="utf-8",
+    )
+
+
+@pytest.mark.parametrize("review_count", [1, 3, 29])
+def test_initializer_preserves_small_existing_review_snapshots(tmp_path, review_count):
+    docs_dir = tmp_path / "docs"
+    _write_seed_document(docs_dir)
+    reviews_file = tmp_path / "reviews.json"
+    decisions = {
+        f"doc_{index}": {
+            "doc_id": f"doc_{index}",
+            "review_status": "approved" if index % 2 == 0 else "rejected",
+            "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+            "review_reason": "A genuine recorded decision",
+            "reviewed_at": "2026-11-09T00:00:00+00:00",
+        }
+        for index in range(review_count)
+    }
+    original = (json.dumps(decisions, indent=4) + "\n").encode("utf-8")
+    reviews_file.write_bytes(original)
+
+    create_initial_git_reviews_if_empty(docs_dir, reviews_file)
+
+    assert reviews_file.read_bytes() == original
+
+
+def test_small_db_export_survives_initializer_without_losing_decisions(tmp_path):
+    docs_dir = tmp_path / "docs"
+    _write_seed_document(docs_dir)
+    reviews_file = tmp_path / "reviews.json"
+    conn = MagicMock()
+    rows = [
+        SimpleNamespace(_mapping={
+            "id": f"doc_export_{index}",
+            "url": f"https://example.com/approved-{index}",
+            "content_hash": f"hash-{index}",
+            "title": f"Reviewed curriculum {index}",
+            "major": "computer_science",
+            "doc_type": "curriculum",
+            "review_status": "approved",
+            "review_reason": "Verified source content",
+            "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
+            "reviewed_at": "2026-11-09T00:00:00+00:00",
+            "metadata_json": {},
+        })
+        for index in range(3)
+    ]
+    conn.execute.return_value.fetchall.return_value = rows
+    export_git_reviews_from_db(conn, file_path=reviews_file)
+    exported_bytes = reviews_file.read_bytes()
+    assert len(json.loads(exported_bytes)) == 3
+
+    create_initial_git_reviews_if_empty(docs_dir, reviews_file)
+
+    assert reviews_file.read_bytes() == exported_bytes
+    assert all(
+        decision["review_status"] == "approved"
+        for decision in json.loads(reviews_file.read_text(encoding="utf-8")).values()
+    )
+
+
+@pytest.mark.parametrize("invalid_content", ["", " \n", '{"doc":', "[]", "null", '{"doc": 1}'])
+def test_initializer_rejects_invalid_snapshot_without_overwriting(tmp_path, invalid_content):
+    docs_dir = tmp_path / "docs"
+    _write_seed_document(docs_dir)
+    reviews_file = tmp_path / "reviews.json"
+    original = invalid_content.encode("utf-8")
+    reviews_file.write_bytes(original)
+
+    with pytest.raises(ValueError, match="Invalid review snapshot"):
+        create_initial_git_reviews_if_empty(docs_dir, reviews_file)
+
+    assert reviews_file.read_bytes() == original
+
+
+@pytest.mark.parametrize("existing_empty_object", [False, True])
+def test_initializer_bootstraps_only_missing_or_empty_object(tmp_path, existing_empty_object):
+    docs_dir = tmp_path / "docs"
+    _write_seed_document(docs_dir)
+    reviews_file = tmp_path / "reviews.json"
+    if existing_empty_object:
+        reviews_file.write_text("{}", encoding="utf-8")
+
+    create_initial_git_reviews_if_empty(docs_dir, reviews_file)
+
+    decisions = json.loads(reviews_file.read_text(encoding="utf-8"))
+    assert len(decisions) == 1
+    decision = next(iter(decisions.values()))
+    assert decision["review_status"] == "pending"
+    assert decision["reviewer_id"] is None
+    assert decision["reviewed_at"] is None
 
 
 def test_create_initial_git_reviews_never_auto_approves(tmp_path: Path):

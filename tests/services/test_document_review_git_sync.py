@@ -14,6 +14,7 @@ from app.crawler.document_review_service import (
     sync_crawled_documents_and_reviews,
 )
 from tests.support.admin_database import db_transaction_rollback
+from tests.support.document_reviews import snapshot_decision
 
 
 @pytest.fixture
@@ -91,30 +92,12 @@ def test_dual_write_on_review_document(isolated_db_conn, tmp_path, monkeypatch):
 def test_auto_sync_on_startup(isolated_db_conn, tmp_path):
     test_json = tmp_path / "sync_reviews.json"
     content = "# Nội dung đồng bộ đạt chuẩn độ dài tối thiểu lớn hơn năm mươi ký tự"
-    h = compute_content_hash(content)
-    test_json.write_text(
-        json.dumps(
-            {
-                "doc_sync_target": {
-                    "doc_id": "doc_sync_target",
-                    "url": "http://mim.hus.vnu.edu.vn/vi/test-sync",
-                    "content_hash": h,
-                    "title": "Tài liệu đồng bộ",
-                    "review_status": "approved",
-                    "review_reason": "Đồng bộ từ Git repo",
-                    "reviewer_id": "57e9a52b-7365-4fe2-b9ce-1320ef48dc02",
-                }
-            }
-        ),
-        encoding="utf-8",
-    )
-
     docs_dir = tmp_path / "docs"
     docs_dir.mkdir(exist_ok=True)
     conn = isolated_db_conn
     from sqlalchemy import text
     conn.execute(text("DELETE FROM crawled_documents WHERE id = 'doc_sync_target'"))
-    create_document(
+    doc = create_document(
         conn,
         url="http://mim.hus.vnu.edu.vn/vi/test-sync",
         title="Tài liệu đồng bộ",
@@ -122,6 +105,9 @@ def test_auto_sync_on_startup(isolated_db_conn, tmp_path):
         major="mathematics",
         doc_id="doc_sync_target",
     )
+    test_json.write_text(json.dumps({doc["id"]: snapshot_decision(
+        doc, reason="Đồng bộ từ Git repo",
+    )}), encoding="utf-8")
 
     res = sync_crawled_documents_and_reviews(
         conn,
@@ -238,5 +224,3 @@ def test_sync_does_not_overwrite_published_document(isolated_db_conn, tmp_path):
     assert doc["review_status"] == "approved"
     assert doc["is_published"] is True
     assert res.get("protected_published", 0) >= 1
-
-

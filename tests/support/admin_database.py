@@ -74,5 +74,3 @@ def db_transaction_rollback():
 def isolated_db_conn():
     with db_transaction_rollback() as conn:
         yield conn
-
-
