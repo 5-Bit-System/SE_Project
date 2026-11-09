@@ -1,5 +1,61 @@
 # Project Memory and Contributor Guidelines
 
+## V3 real CPU embeddings and offline Chroma index — 2026-11-09
+
+User selected V3. Completed local crawldata HEAD884838b; existing V2 recheck WIP
+retained. New app/hus/embedding.py,vector_index.py,tools/build_hus_vector_index.py,
+tests/hus/test_embedding.py,test_vector_index_build.py. No old runtime/V1/V2/source/
+lock/eval/receipt edits.1108protectedoldfiles/core54package environment unchanged.
+112hashed lock packages installed only in backups/vector_index_v3_20261109/venv;
+all9 model files downloaded/checksummed in its model cache,including470641600byte
+safetensors SHA1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477.
+IMPORTANT actual Transformers5.22.1 AutoTokenizer/XLMRobertaTokenizer reconstructs
+whitespace pre-tokenizer and differs from V2 (377vs378tokens on235a29...#p000).
+Use PreTrainedTokenizerFast explicitly from verified tokenizer.json with special/
+pad tokens,NOTdefault AutoTokenizer; all939V2input-IDhashesmatch,including batch
+padding. Real AutoModel/eval/inference CPUfloat32,eager,2threads,maskedmean+L2,
+384dim. Hand pooling and batch/single invariance verified. No remote code/download
+in inference; model/optional imports lazy. No external LLM/provider API calls.
+Index data/hus/vector_indexes/e5_small_v3_20261109:
+ID8dad2f0f719a5228403d87f2b0c36a95f64fada9b82bf26bf432d4fed2469f74;
+939vectors/935parents(F169/F3870),cosine,PersistentClient,scalar scope/provenance,
+no documents/defaultEF/telemetry/F2/QA/gold/transcripts. Fresh-output-only; partial
+build never sealed. Verify requires separately pinned expected-index-id.
+Independentprocess reopens exact complete inventory and8family/majorprobes,tol1e-6.
+Actual Chroma1.5.9 restart API omits num_threads/batch_size; record as requested
+build controls only,require all other persisted settings and compare both if
+exposed. Default EF remains disabled. No byte-identical HNSW cross-machine claim.
+5fresh copied-index tamper cases rejected(document,metadata,vector,missingID,
+self-rehashedmanifest); original index unchanged. AI technical review0Critical/
+2Important/noMinor:NaN-distance and documents blindspot RED2/33->GREEN35; actual
+configuration/default-EF regression RED2/20->GREEN39. One fix pass/no re-review.
+Final2019pytestpass/2skip/90deselected,50Chromium,5Node,Ruffpass;3cachedlexical
+replays verified,no new Recall measure. Scratch runner exclusive-write logging
+error recovered preserving pytest/JUnit; final verification/commands_complete.json.
+Evidence docs/RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md,
+docs/acceptance/hus_offline_vector_index_v3_report.json,357file code/inventory ZIP
+data/hus/evaluation/vector_index_v3_snapshot (no weights/Chroma binary).
+Chroma binary local/ignored via new vector_indexes/.gitignore. Do not rerun
+write-once build/finalize/regression/tamper helpers against existing outputs.
+Runtime still lexical/vector-hybridreserved; V4filteredquery/fallback NEXT,
+V5hybrid/LLM/sourcepromotion/officialF3/commit/push/deploy notdone. Existing source
+blockers and exposed/H2/human0 limitations unchanged.
+
+## V2 recheck and roadmap consistency — 2026-11-09
+
+User asked to finish V2 first. Actual crawldata HEAD884838b already contains the
+completed 05/11 V2 implementation/artifact; do not recreate it or run destructive
+old execute.py. Read-only final_check verified V1/V2 identity, 1094 protected files,
+349-file archive, core environment, and 3 cached lexical replays. Fresh V2 pytest:
+54 passed/1 Windows-symlink skip. Real tokenizer suite rerun across all939 passages,
+Unicode and token boundaries; pass, old helper result writes redirected to fresh
+ignored backups/vector_passages_v2_recheck_20261109. New receipt only:
+docs/acceptance/hus_token_passages_v2_recheck_2026_11_09.json. Historical 1980-test
+regression was verified from its receipt/logs, NOT rerun. Progress date/status
+updated, two stale V2-next lines in section5.1 fixed to V1–V2 done/V3 next.
+No runtime/artifact/source/lock/environment edits, downloads, embeddings/index,
+new Recall measurement, V3/V4/V5 implementation, commit/push/deploy this recheck.
+
 ## V2 token-bounded embedding passages — 2026-11-05
 
 User asked to continue and complete V2 on crawldata/HEAD1287e2a/v3.
