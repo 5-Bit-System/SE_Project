@@ -136,6 +136,7 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
                 conflict = not bool(re.search(r"\b(?:thêm|cũng|và|them|cung|va|also|and)\b", message.casefold()))
             if conflict:
                 diagnostics.questions.append(f"{field}: lựa chọn biểu mẫu mâu thuẫn câu nhập; hãy xác nhận lại.")
+        before = state.values.get(field)
         if update.operation == "clear":
             state.values[field] = [] if field in {"interest_topics", "career_paths"} else None
             if field == "interest_topics":
@@ -154,7 +155,8 @@ def resolve_study_intent(message: str, catalog: Catalog, *, form_input: FormInpu
             state.values[field] = value
             if field == "interest_topics":
                 excluded.difference_update(value)
-        state.field_sources[field] = "text_rule"
+        if state.values.get(field) != before or field not in state.field_sources:
+            state.field_sources[field] = "text_rule"
         applied_any = True
         state.questions = [q for q in state.questions if not q.startswith(field + ":")]
     state.questions.extend(constraints.questions)
