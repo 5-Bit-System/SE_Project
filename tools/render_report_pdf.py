@@ -2,10 +2,10 @@
 Script to render deliverables/BT3_23001939_VT-099.html into deliverables/BT3_23001939_VT-099.pdf
 using Playwright Chromium, measure page count, and capture screenshot proofs.
 """
-import os
 import re
 import sys
 from pathlib import Path
+
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
