@@ -116,10 +116,34 @@ def _prerequisite_text(clauses: tuple[str, ...]) -> str:
     return prerequisite_text
 
 
+CREDIT_TERMS = (
+    "tin chi", "so tin", "bao nhieu tin", "may tin", "tong tin",
+    "so tc", "bao nhieu tc", "may tc", "tong tc", "khoi luong tin chi",
+    "hoc may tin", "hoc may tc", "hoc bao nhieu tin", "hoc bao nhieu tc",
+)
+TOTAL_CREDIT_TERMS = (
+    "tong tin chi", "tong so tin chi", "tong tin", "tong so tin",
+    "tong tc", "tong so tc", "tong cong",
+)
+PROGRAM_CREDIT_PHRASES = (
+    "tin chi chuong trinh", "tin chi cua chuong trinh", "tin chi ctdt",
+    "so tin chuong trinh", "so tin cua chuong trinh", "so tin ctdt",
+    "so tc chuong trinh", "so tc cua chuong trinh", "so tc ctdt",
+)
+
+
 COURSE_FIELD_TERMS = {
-    "credits": ("tin chi",),
-    "prerequisites": ("tien quyet", "hoc truoc", "truoc mon"),
-    "hours": ("so tiet", "so gio"),
+    "credits": CREDIT_TERMS,
+    "prerequisites": (
+        "tien quyet", "hoc truoc", "truoc mon",
+        "dieu kien tien quyet", "yeu cau tien quyet",
+        "mon tien quyet", "hoc phan tien quyet",
+    ),
+    "hours": (
+        "so tiet", "so gio", "bao nhieu tiet", "bao nhieu gio",
+        "may tiet", "may gio", "so gio hoc", "so tiet hoc",
+        "hoc may tiet", "hoc may gio", "hoc bao nhieu tiet", "hoc bao nhieu gio",
+    ),
     "name": ("ten mon", "ten hoc phan", "ten day du", "mang ten", "la mon gi",
              "ten cua ma", "ten cua mon", "ten cua hoc phan", "co ten gi"),
     "content": ("noi dung", "chu de", "hoc gi", "hoc ve", "phan se hoc", "de cuong", "hoc nhung"),
@@ -177,7 +201,7 @@ def question_group_keys(question: str) -> set[str]:
 
 def program_total_request(question: str) -> bool:
     text = requested_text(question)
-    return has(text, "chuong trinh", "ctdt", "toan khoa") and has(text, "tong tin chi", "tong cong")
+    return has(text, "chuong trinh", "ctdt", "toan khoa") and has(text, *TOTAL_CREDIT_TERMS)
 
 
 def requested_program_fields(question: str) -> tuple[str, ...]:
@@ -186,22 +210,22 @@ def requested_program_fields(question: str) -> tuple[str, ...]:
     course_context = has(text, "mon", "hoc phan") or any(COURSE_CODE.fullmatch(t) for t in _tokens(text))
     parts = [part for clause in _requested_clauses(question) for part in re.split(r"\bva\b", clause)]
     program_credit = any(
-        has(part, "tin chi") and has(part, "chuong trinh", "ctdt", "toan khoa", "nganh")
+        has(part, *CREDIT_TERMS) and has(part, "chuong trinh", "ctdt", "toan khoa", "nganh")
         and not has(part.replace("ma mon", ""), "mon", "hoc phan", "nhom", "khoi kien thuc")
         and not any(COURSE_CODE.fullmatch(token) for token in _tokens(part))
         and (not course_context or part.startswith(("chuong trinh", "ctdt", "toan khoa"))
-             or has(part, "tong tin chi", "tong cong", "tin chi chuong trinh", "tin chi cua chuong trinh", "tin chi ctdt"))
+             or has(part, *TOTAL_CREDIT_TERMS, *PROGRAM_CREDIT_PHRASES))
         for part in parts)
     if program_credit:
         fields.append("program_credits")
     group_parts = " ".join(part for part in parts if has(part, "nhom", "khoi kien thuc"))
     group = bool(group_parts) and (bool(question_group_keys(question)) or has(
-        group_parts, "nhom kien thuc", "khoi kien thuc", "chuong trinh", "ctdt", "tin chi", "ghi chu"))
+        group_parts, "nhom kien thuc", "khoi kien thuc", "chuong trinh", "ctdt", "ghi chu", *CREDIT_TERMS))
     if has(group_parts, *CAREER_TERMS) and not (question_group_keys(question) or has(
-            group_parts, "nhom kien thuc", "khoi kien thuc", "tin chi")):
+            group_parts, "nhom kien thuc", "khoi kien thuc", *CREDIT_TERMS)):
         group = False
     if group:
-        if question_group_keys(question) or has(group_parts, "ghi chu", "yeu cau", "tin chi"):
+        if question_group_keys(question) or has(group_parts, "ghi chu", "yeu cau", *CREDIT_TERMS):
             fields.append("group_rules")
         elif has(group_parts, "chuong trinh", "ctdt", "nhom kien thuc", "cac nhom", "danh sach nhom", "khoi kien thuc"):
             fields.append("program_groups")
