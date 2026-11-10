@@ -12,7 +12,7 @@ from app.hus.question_routing import (
     has as _has, assessment_fact_request as assessment_fact_request,
     is_hus_question as is_hus_question, question_intent,
     out_of_scope, requested_text, requested_course_fields, unsupported_request, verified_requested as _verified_requested,
-    PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
+    COURSE_FIELD_TERMS, PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
 )
 from app.hus.answer_support import supported_hits
 from app.schemas.hus import F2PrerequisiteStatus, HUSAnswer, HUSQuestion
@@ -92,8 +92,7 @@ class HUSAnswerer:
         if dataset in {"f2", "f3"} and request.version:
             # Full names are matched only within this exact major/version. Never
             # guess a code from a fuzzy/global title match.
-            matches = {c.course_code for c in self.data.f2_courses(major=request.major, version=request.version)
-                       if _has(requested_text(request.question), " ".join(_tokens(c.course["course_name"])))}
+            matches = self._matched_course_codes(request)
             if code and matches and code not in matches:
                 return self._missing(request, dataset, "Tên và mã học phần không khớp; cần làm rõ môn được hỏi.", clarify=True)
             if len(matches) > 1:
@@ -153,6 +152,29 @@ class HUSAnswerer:
         return HUSAnswer(reply=reply, status="answered", dataset=dataset, major=request.major,
                          version=request.version, citations=citations, warnings=warnings)
 
+    def _matched_course_codes(self, request: HUSQuestion) -> set[str]:
+        """Match exact scoped course names longest-first alongside major aliases."""
+        if not request.version:
+            return set()
+        remaining = f" {requested_text(request.question)} "
+        by_phrase: dict[str, set[str]] = {}
+        for course in self.data.f2_courses(major=request.major, version=request.version):
+            phrase = " ".join(_tokens(course.course["course_name"]))
+            if phrase:
+                by_phrase.setdefault(phrase, set()).add(course.course_code)
+        for names in MAJOR_NAMES.values():
+            for alias in names:
+                by_phrase.setdefault(alias, set())
+        for terms in COURSE_FIELD_TERMS.values():
+            for term in terms:
+                by_phrase.setdefault(term, set())
+        matched: set[str] = set()
+        for phrase in sorted(by_phrase, key=len, reverse=True):
+            if f" {phrase} " in remaining:
+                matched.update(by_phrase[phrase])
+                remaining = remaining.replace(f" {phrase} ", " ")
+        return matched
+
     @staticmethod
     def _missing(request, dataset, reason, *, clarify=False):
         return HUSAnswer(reply="Chưa có thông tin đủ căn cứ để trả lời. " + reason,
@@ -179,9 +201,7 @@ class HUSAnswerer:
         program = self.data.get_f2_program(major=request.major, version=request.version)
         if program is None or (request.program_variant and program["scope"]["program_variant"] != request.program_variant):
             return self._missing(request, "f2", "Không có chương trình đúng ngành/phiên bản/hệ đã chọn.")
-        if field == "program_credits" and any(
-                _has(text, " ".join(_tokens(course.course["course_name"])))
-                for course in self.data.f2_courses(major=request.major, version=request.version)):
+        if field == "program_credits" and self._matched_course_codes(request):
             return self._missing(request, "f2", "Cần hỏi tổng chương trình hoặc số tín chỉ một môn riêng.", clarify=True)
         variants = {variant for variant, terms in {"standard": ("he chuan", "chuong trinh chuan"),
                     "talent": ("tai nang",), "advanced": ("tien tien",), "high_quality": ("chat luong cao",)}.items()

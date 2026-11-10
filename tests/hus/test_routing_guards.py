@@ -157,3 +157,50 @@ def test_name_and_code_pointing_at_different_scoped_courses_need_clarification(a
 ])
 def test_unrelated_numeric_requirements_are_not_removed_as_conversational_words(answerer, question):
     assert_no_evidence(ask(answerer, question, allow_generated_reference=True))
+
+
+@pytest.mark.parametrize("question,expected_intent,expected_field,expected_value", [
+    ("giải tích 3 bao nhiêu tín", ("f2", "credits"), "credits", 2),
+    ("giải tích 3 bao nhiêu tc", ("f2", "credits"), "credits", 2),
+    ("môn MAT2400 mấy tín", ("f2", "credits"), "credits", 5),
+    ("môn MAT2400 mấy tc", ("f2", "credits"), "credits", 5),
+    ("MAT2400 có số tín là bao nhiêu", ("f2", "credits"), "credits", 5),
+    ("môn MAT2400 học mấy tiết", ("f2", "hours"), "hours", {"lecture": 50, "practice": 50, "self_study": 150}),
+])
+def test_course_credit_and_hour_phrase_variants(answerer, question, expected_intent, expected_field, expected_value):
+    from app.hus.question_routing import question_intent
+
+    assert question_intent(question) == expected_intent
+    answer = ask(answerer, question)
+    assert answer.status == "answered"
+    assert answer.facts["field"] == expected_field
+    assert answer.facts["value"] == expected_value
+
+
+@pytest.mark.parametrize("question", [
+    "Khoa Toán - Tin học có những ngành nào?",
+    "Thông tin về cơ hội nghề nghiệp sau tốt nghiệp?",
+    "Cử nhân Toán muốn học lên thạc sĩ, tiến sĩ thì trang khoa mô tả khả năng và điều kiện gì?",
+])
+def test_non_collision_guards_do_not_misroute_to_credits_or_prerequisites(question):
+    from app.hus.question_routing import question_intent
+
+    _dataset, field = question_intent(question)
+    assert field not in {"credits", "prerequisites"}
+
+
+@pytest.mark.parametrize("question,major,version,expected_code,expected_credits", [
+    ("đại số tuyến tính ở khoa học máy tính bao nhiêu tín chỉ", "computer_science", "QD3568-2023", "MAT2400", 5),
+    ("môn Học máy ở khoa học máy tính bao nhiêu tín", "computer_science", "QD3568-2023", "MAT3533", 3),
+    ("Môn Tiếng Anh chuyên ngành khoa học máy tính mấy tín?", "computer_science", "QD3568-2023", "MAT1205E", 2),
+    ("Môn Giải tích số nâng cao bao nhiêu tín?", "mathematics_informatics", "QD3567-2023", "MAT3369", 3),
+    ("Môn Cơ sở dữ liệu Web và hệ thống thông tin bao nhiêu tc?", "data_science", "QD3569-2023", "MAT3385", 3),
+])
+def test_longest_first_course_and_major_disambiguation(answerer, question, major, version, expected_code, expected_credits):
+    request = HUSQuestion(question=question, major=major, version=version)
+    answer = chat(request, answerer).hus_answer
+    assert answer.status == "answered"
+    assert answer.facts["course_code"] == expected_code
+    if expected_credits is not None:
+        assert answer.facts["value"] == expected_credits
+

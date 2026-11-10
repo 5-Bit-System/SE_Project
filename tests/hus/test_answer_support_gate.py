@@ -175,3 +175,15 @@ def test_real_calculus_evidence_cannot_support_a_presentation_skill(answerer, qu
 def test_imperative_request_position_still_accepts_supported_fields(prefix):
     h = hit('Cơ hội giảng dạy và nghiên cứu.')
     assert keep(f'{prefix} các nhóm nghề nghiệp.', h) == (h,)
+
+
+def test_program_framework_question_passes_support_gate(answerer):
+    request = HUSQuestion(
+        question='Tôi cần biết khung chương trình của ngành Khoa học máy tính và thông tin',
+        major='computer_science',
+        version='QD3568-2023',
+    )
+    answer = chat(request, answerer).hus_answer
+    assert answer.status == 'answered'
+    assert answer.dataset == 'f1'
+
