@@ -1,5 +1,51 @@
 # Project Memory and Contributor Guidelines
 
+## V1–V5 publication authorization — 2026-11-10
+
+User now requests commit/push V1–V5 to hus-embedding-chromadb with25total
+commits from26acab1:9original V1/V2+884838b documentation+5V3+5V4+5V5.
+Reuse original five-way V3 split (tree equals1ad85e3), keep V1/V2 IDs/authors.
+Remote observed1ad85e3; only this named branch may be pushed with an exact
+lease after verification. No main update/PR/merge/deploy/default-mode change.
+Earlier no-commit/push statements describe historical implementation receipts.
+Preserve those receipts and all source/model/index data; pin checkout newline
+rules for captured bytes. Publication mapping/remote verification logs belong
+in ignored backups/publish_v1_v5_25_20261110. See
+docs/HUS_VECTOR_V1_V5_PUBLICATION_2026_11_10.md for commit grouping and limits.
+
+## V5 hybrid RRF and controlled measurements — 2026-11-10
+
+User approved V5 implementation. Local hus-embedding-chromadb HEAD1ad85e3+
+V4/V5WIP; no commit/push/deploy/default switch. HUS_RETRIEVAL_MODE=lexical
+remains default; hybrid now explicit with same three HUS_VECTOR_* settings.
+New hybrid_retrieval.py: lexical20parents/vector20passages, compact parent
+dedup rank1+, equal RRF60, final5, tie parentID. Same prefilters/canonical;
+F2 bypass ML. V4 core query/runtime and historical evaluators/evidence remain
+unchanged. Nested vector fallback not counted as second lexical vote; canonical
+errors fail closed. Frozen per-call trace distinguishes both legs/pool/final.
+New evaluate_hus_hybrid.py/hus_rag_metrics_v3.py/compare_hus_hybrid.py, separate
+mode processes, full ordered suite/policy/runtime/model/index/environment pins,
+fresh-output sealing/cache replay.36V5devcases source-frozen before inference,
+plus dev96/contracts28=160/mode (56retrieval/54F2/50controls). AI-prepared exposed
+dev,0human; not A7/holdout. Probe36lexical in ignored backups, no gold/gate tuning.
+Final3runs: Recall@5 lexical55/56,vector55/56,hybrid56/56;MRR .87649/.88690/.88155;
+false-refusals5/6/5;F2source54/54,scope/audit/HTTPerrors0,vector/hybrid56live and
+0fallback.480predictions replay equal. Hybrid recovers strict anchor DEV-Q050
+already known to have a valid alternative source; vector loses answerDEV-Q052.
+All4newparaphrases and math-negation still refused despite retrieved anchors;
+do not relax gate merely because of vector scores. Semantic entailment/coverage
+review pending: comparison recommends lexical, not automatic hybrid promotion.
+Cold~1.3/20.1/28.4s;peakRSS323/1432/1431MiB for comparator pipeline,notproduction
+SLO/nativeBM25 benchmark. No index rebuild/new build-time measurement/provider.
+Review AI2Important (suite multiplicity pins, reviewed semantic regression)
+RED->GREEN; self-audit nested fallback consistency RED->GREEN; no re-review.
+Final2103pytestpass/2skip/90deselected,50Chromium,5Node,Ruff.12real hybridHTTP,
+F2noML/F3optout,copied-index fallback no doublevote and canonical503 verified.
+Evidence docs/RAG_HYBRID_V5_2026_11_10.md, acceptance/hus_hybrid_v5_report.json,
+new evaluation/hybrid_v5_dev_20261110 and runs/hybrid_v5_*_20261110_r1.
+Ignored backups/hybrid_v5_20261110 hold baseline/logs/recovery helpers.
+Next: response-bound content review/A6/A7; LLM optional only on new selection.
+
 ## V4 vector query and guardrails — 2026-11-10
 
 User approved V4 design and implementation, explicitly forbids push without a
