@@ -58,21 +58,27 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
         and has(req_text, "khoi", "nhom", "cau truc", "phan bo", "chia thanh")
         and not has(req_text, *CAREER_TERMS)
     )
-    has_scoped_course = bool(request.version and answerer._matched_course_codes(request))
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
     if (
         request.dataset == "auto"
         and dataset == "f1"
         and not is_framework_groups
-        and not has_scoped_course
         and request.version in decision_versions
+        and not (request.version and answerer._matched_course_codes(request))
     ):
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
     answer = answerer.answer(request)
     reply = answer.reply
     if answer.status == "answered":
-        llm_reply = generate_grounded_answer(request, answerer)
-        if llm_reply:
-            reply = llm_reply
+        llm_result = generate_grounded_answer(request, answerer, answer=answer)
+        if llm_result is not None:
+            if isinstance(llm_result, tuple):
+                llm_reply, llm_citations = llm_result
+            else:
+                llm_reply, llm_citations = llm_result, None
+            if llm_reply:
+                reply = llm_reply
+            if llm_citations:
+                answer = answer.model_copy(update={"citations": llm_citations})
     return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer)

@@ -4,15 +4,61 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 import httpx
+from dotenv import load_dotenv
 
-from app.config import get_settings
 from app.hus.answering import HUSAnswerer
-from app.schemas.hus import HUSQuestion
+from app.schemas.hus import HUSAnswer, HUSCitation, HUSQuestion
 
 LOGGER = logging.getLogger(__name__)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
+@dataclass(frozen=True)
+class HUSLLMSettings:
+    gemini_api_key: str
+    gemini_base_url: str
+    gemini_model: str
+    recommendation_llm_enabled: bool
+    hus_rag_llm_enabled: bool
+    hus_rag_llm_model: str
+
+
+def get_hus_llm_settings() -> HUSLLMSettings:
+    load_dotenv(PROJECT_ROOT / ".env", override=False)
+    rec_enabled = (
+        os.getenv("RECOMMENDATION_LLM_ENABLED", "true")
+        .strip()
+        .casefold()
+        not in {"0", "false", "no", "off"}
+    )
+    hus_enabled = (
+        os.getenv("HUS_RAG_LLM_ENABLED", "true")
+        .strip()
+        .casefold()
+        not in {"0", "false", "no", "off"}
+    )
+    return HUSLLMSettings(
+        gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
+        gemini_base_url=os.getenv("GEMINI_BASE_URL", "").strip(),
+        gemini_model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite",
+        recommendation_llm_enabled=rec_enabled,
+        hus_rag_llm_enabled=hus_enabled,
+        hus_rag_llm_model=os.getenv("HUS_RAG_LLM_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite",
+    )
+
+
+def get_settings() -> Any:
+    try:
+        from app.config import get_settings as _app_get_settings
+        return _app_get_settings()
+    except Exception:
+        return get_hus_llm_settings()
 
 
 def call_gemini_llm(
@@ -127,12 +173,25 @@ def call_gemini_llm(
     raise RuntimeError("Tất cả các model Gemini đều không phản hồi.")
 
 
-def generate_grounded_answer(request: HUSQuestion, answerer: HUSAnswerer) -> str | None:
+def generate_grounded_answer(
+    request: HUSQuestion,
+    answerer: HUSAnswerer,
+    answer: HUSAnswer | None = None,
+) -> tuple[str, list[HUSCitation]] | None:
     """Retrieve context and generate an intelligent natural language answer using Gemini."""
-    settings = get_settings()
-    if not settings.recommendation_llm_enabled:
+    try:
+        settings = get_settings()
+    except Exception:
+        settings = get_hus_llm_settings()
+
+    hus_rag_llm_enabled = getattr(
+        settings,
+        "hus_rag_llm_enabled",
+        getattr(settings, "recommendation_llm_enabled", False),
+    )
+    if not hus_rag_llm_enabled:
         return None
-    api_key = settings.gemini_api_key
+    api_key = getattr(settings, "gemini_api_key", "").strip()
     if not api_key:
         return None
 
@@ -145,6 +204,34 @@ def generate_grounded_answer(request: HUSQuestion, answerer: HUSAnswerer) -> str
     # Don't invoke LLM for out-of-scope or unparseable queries with zero context
     if bundle.intent_source == "none" or (not bundle.top_k_chunks and not bundle.structured_data):
         return None
+
+    # Collect citations: start with base answer citations so primary authoritative citations are preserved first
+    llm_citations: list[HUSCitation] = []
+    used_ids: set[str] = set()
+    existing_signatures = set()
+    if answer is not None and answer.citations:
+        for cit in answer.citations:
+            llm_citations.append(cit)
+            used_ids.add(str(cit.citation_id))
+            existing_signatures.add((cit.dataset, cit.source_id, cit.quote))
+
+    # Then append citations from retrieved Top-K chunks (if any)
+    for c in bundle.top_k_chunks:
+        if c.citation is not None:
+            sig = (c.citation.dataset, c.citation.source_id, c.citation.quote)
+            if sig not in existing_signatures:
+                new_cit = c.citation
+                if str(new_cit.citation_id) in used_ids:
+                    new_cit = new_cit.model_copy(update={"citation_id": str(len(llm_citations) + 1)})
+                llm_citations.append(new_cit)
+                used_ids.add(str(new_cit.citation_id))
+                existing_signatures.add(sig)
+
+    # Ensure citation IDs are sequential "1", "2", ...
+    llm_citations = [
+        cit.model_copy(update={"citation_id": str(i)})
+        for i, cit in enumerate(llm_citations, 1)
+    ]
 
     # Build prompt context
     context_sections = []
@@ -203,16 +290,24 @@ def generate_grounded_answer(request: HUSQuestion, answerer: HUSAnswerer) -> str
         "   - Phần 2: Tổng quan & Vị trí môn học: Tóm lược súc tích (1 đoạn ngắn) về vai trò nền tảng của môn học và ý nghĩa đối với ngành học/thực tiễn.\n"
         "   - Phần 3: Nội dung kiến thức trọng tâm: Trình bày các chủ đề kiến thức cốt lõi, giải thích ngắn gọn, rõ ràng bản chất và ứng dụng của từng chủ đề.\n"
         "   - Phần 4: Lời khuyên học tập & Lưu ý: 2-3 lời khuyên ngắn gọn để học tốt, kèm chú thích nhẹ nhàng về việc tham khảo đề cương chính thức từ Khoa/Bộ môn.\n"
-        "4. Không bịa đặt thêm các quy định học vụ hoặc môn học không có trong dữ liệu trên."
+        "4. Khi trích dẫn hoặc sử dụng luận điểm từ các đoạn trích dẫn tài liệu ở mục B, hãy gắn số thứ tự trích dẫn dạng [1], [2],... tương ứng với số thứ tự của đoạn trích dẫn vào cuối câu hoặc mệnh đề.\n"
+        "5. Không bịa đặt thêm các quy định học vụ hoặc môn học không có trong dữ liệu trên."
     )
 
+    model = (
+        getattr(settings, "hus_rag_llm_model", None)
+        or getattr(settings, "gemini_model", "gemini-3.5-flash-lite")
+    )
+    base_url = getattr(settings, "gemini_base_url", "")
+
     try:
-        return call_gemini_llm(
+        reply_text = call_gemini_llm(
             prompt,
             api_key=api_key,
-            base_url=settings.gemini_base_url,
-            model=settings.gemini_model,
+            base_url=base_url,
+            model=model,
         )
+        return (reply_text, llm_citations)
     except Exception as exc:
         LOGGER.warning("Gemini LLM call failed, falling back to extractive answer: %s", exc)
         return None
