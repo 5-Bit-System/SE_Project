@@ -1,5 +1,38 @@
 # Project Memory and Contributor Guidelines
 
+## V4 vector query and guardrails — 2026-11-10
+
+User approved V4 design and implementation, explicitly forbids push without a
+new command. Work local on hus-embedding-chromadb. No V4 commit/push/deploy.
+Checkout externally reset 586e460->1ad85e3 at00:08+07; retain current HEAD,
+reapplied only lost V4 integration; do not restore/rewrite history implicitly.
+New vector_query.py/vector_runtime.py; inject retriever into answerer/service,
+extend retrieval_config/.env.example. Default remains lexical/no optional ML.
+Explicit vector mode uses HUS_VECTOR_INDEX_PATH, HUS_VECTOR_MODEL_CACHE and
+HUS_VECTOR_EXPECTED_INDEX_ID pinned outside DB. F2 never initializes ML;
+hybrid unavailable until V5. No download/build/current selector changes.
+Chroma where prefilters release/family/major/review/opt-in and canonical parent
+allowlist plus requested version/variant/course/field. Query prefix+special
+tokens<=512, pinned V3 encoder graph, local CPUfloat32 maskedmean/L2.
+Verify full existing V3 index at startup; recheck manifest/inventory/collection
+identity/config/full DB inventory every query. Reject malformed/nonfinite/
+out-of-scope/tampered result wholesale; resolve parent canonical for citations,
+dedup by best distance. Empty valid result stays empty. Vector faults fallback
+BM25 with exact scope and stable reason; canonical faults fail closed outside
+fallback. Immutable per-call trace plus INFO logger, no query/exception secrets;
+locks serialize lazy runtime creation and model/tokenizer/index query operations.
+60focused tests pass; final2067offlinepass/2skip/90deselected,50Chromium,5Node,
+Ruffpass on1ad85e3+WIP. Existing CI venv required: default Python lacks argon2
+(initial26collection errors/12HUS failures, not product regressions); no install.
+Two ML processes8queries each match parent rankings;12HTTP answered with real
+vector service, F2zero vector calls,F3optout blocked. Overbudget/copy-manifest
+tamper fallback pass;8original index files hash unchanged;1060protected files
+hashed and no data/hus/V1-V3code/locks changed in Git. Technical AI review clean.
+Evidence docs/RAG_VECTOR_QUERY_V4_2026_11_10.md and acceptance/
+hus_vector_query_v4_report.json; ignored backups/vector_query_v4_20261109.
+Initial cold13-41s,warm~0.8-1s local,not production SLO. No new Recall evaluation,
+no gate relaxation, no hybrid/LLM/source promotion; V5/A7 next if selected.
+
 ## V3 real CPU embeddings and offline Chroma index — 2026-11-09
 
 User selected V3. Completed local crawldata HEAD884838b; existing V2 recheck WIP
