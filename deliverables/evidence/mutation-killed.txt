@@ -1,0 +1,260 @@
+================================================================================
+VT-099: DELIBERATE BUG / MUTATION TESTING REPORT ("BỎ MỘT VALIDATION QUAN TRỌNG")
+Branch: bt3/23001939-vt099 | Baseline Commit: a8567a0
+Target: Verify test suite sensitivity against intentional regressions & bypasses
+================================================================================
+
+--------------------------------------------------------------------------------
+MUTATION 1: Bỏ validation cấm reviewer sửa metadata
+--------------------------------------------------------------------------------
+Target file: app/api/admin.py
+Target endpoint: PUT /admin/crawler/documents/{doc_id}/metadata (update_crawled_document_metadata)
+Hypothesis: If the authorization check forbidding reviewers from modifying metadata is removed,
+            TC-07 (anti-vacuous authorization negative test) MUST fail immediately.
+
+Diff applied:
+--- a/app/api/admin.py
++++ b/app/api/admin.py
+@@ -807,7 +807,8 @@ async def update_crawled_document_metadata(
+     request: Request, doc_id: str, body: DocumentMetadataUpdateRequest
+ ) -> dict:
+     principal = await require_account(request)
+-    if principal.get("role") != "admin":
++    # MUTATION 1: Bỏ validation cấm reviewer sửa metadata (deliberate mutation)
++    if False:
+         raise HTTPException(403, "forbidden")
+ 
+     with engine().begin() as conn:
+
+Execution Command:
+$env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:s5dC78-hSEvNX11VzjGWZojPxuYyVH837_aseLOASvI@127.0.0.1:5433/ai07?sslmode=disable"
+.venv\Scripts\python.exe -m pytest tests/api/test_vt099_reviewer_concurrency.py -k "test_tc07" -v
+
+Verbatim Test Output:
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- F:\SE_Project\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: F:\SE_Project
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 12 items / 11 deselected / 1 selected
+
+tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative FAILED [100%]
+
+================================== FAILURES ===================================
+_____________ test_tc07_reviewer_cannot_update_metadata_negative ______________
+
+reviewer_client = <starlette.testclient.TestClient object at 0x0000022A70BCFED0>
+sample_pending_doc = {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', ...}
+
+    def test_tc07_reviewer_cannot_update_metadata_negative(reviewer_client, sample_pending_doc):
+        """TC-07 (API Negative): Reviewer calls GET (200 OK), then calls PUT /metadata -> 403 Forbidden (anti-vacuous)."""
+        doc_id = sample_pending_doc["id"]
+    
+        # Step 1: GET documents succeeds with 200 OK (verifies active reviewer authentication)
+        get_resp = reviewer_client.get(f"/admin/crawler/documents/{doc_id}")
+        assert get_resp.status_code == 200
+    
+        # Step 2: PUT metadata is strictly forbidden for reviewer
+        put_resp = reviewer_client.put(
+            f"/admin/crawler/documents/{doc_id}/metadata",
+            json={"title": "Tiêu đề bị sửa trái phép bởi reviewer", "major": "data_science"},
+        )
+>       assert put_resp.status_code == 403
+E       assert 200 == 403
+E        +  where 200 = <Response [200 OK]>.status_code
+
+tests\api\test_vt099_reviewer_concurrency.py:309: AssertionError
+============================== warnings summary ===============================
+tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative
+  F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative
+================= 1 failed, 11 deselected, 1 warning in 1.11s =================
+
+Status: MUTATION 1 KILLED!
+Verdict: TC-07 successfully caught the unauthorized modification attempt (returned 200 instead of 403).
+Working tree restored to clean state via `git checkout app/api/admin.py`.
+
+
+--------------------------------------------------------------------------------
+MUTATION 2: Bỏ validation compare-and-set / expected_status
+--------------------------------------------------------------------------------
+Target file: app/crawler/document_review_service.py
+Target function: review_document
+Hypothesis: If compare-and-set (expected_status verification under FOR UPDATE lock) is commented out:
+            - TC-10 (concurrent race condition with 2 threads) will fail because both threads commit successfully without raising DocumentConflictError (assert 2 == 1).
+            - TC-11 (API optimistic conflict check) will fail because status is updated regardless of stale state, returning 200 instead of 409 Conflict.
+
+Diff applied:
+--- a/app/crawler/document_review_service.py
++++ b/app/crawler/document_review_service.py
+@@ -515,11 +515,12 @@ def review_document(
+     if doc.get('is_published'):
+         raise ValueError('Published source versions are immutable; create a draft replacement')
+ 
+-    if expected_status is not None and doc.get("review_status") != expected_status:
+-        raise DocumentConflictError(
+-            f"Trạng thái tài liệu '{doc_id}' hiện tại là '{doc.get('review_status')}', "
+-            f"không khớp với trạng thái kỳ vọng '{expected_status}'."
+-        )
++    # MUTATION 2: Bỏ validation compare-and-set / expected_status
++    # if expected_status is not None and doc.get("review_status") != expected_status:
++    #     raise DocumentConflictError(
++    #         f"Trạng thái tài liệu '{doc_id}' hiện tại là '{doc.get('review_status')}', "
++    #         f"không khớp với trạng thái kỳ vọng '{expected_status}'."
++    #     )
+ 
+     if decision == "approved":
+         is_meaningful, error_msg = is_meaningful_content(doc.get("markdown_content") or "")
+
+Execution Command:
+$env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:s5dC78-hSEvNX11VzjGWZojPxuYyVH837_aseLOASvI@127.0.0.1:5433/ai07?sslmode=disable"
+.venv\Scripts\python.exe -m pytest tests/api/test_vt099_reviewer_concurrency.py -k "test_tc10 or test_tc11" -v
+
+Verbatim Test Output:
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- F:\SE_Project\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: F:\SE_Project
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 12 items / 10 deselected / 2 selected
+
+tests/api/test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier FAILED [ 50%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409 FAILED [100%]
+
+================================== FAILURES ===================================
+____________ test_tc10_service_concurrency_race_condition_barrier _____________
+
+sample_pending_doc = {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', ...}
+
+    def test_tc10_service_concurrency_race_condition_barrier(sample_pending_doc):
+        """TC-10 (Service Concurrency): Two real DB connections, 1 pending doc, 2 threads with Barrier(2),
+        Thread 1 approves, Thread 2 rejects, both send expected_status='pending'.
+        Assert exactly one commits and one raises DocumentConflictError."""
+        eng = admin_test_engine()
+        doc_id = sample_pending_doc["id"]
+    
+        barrier = threading.Barrier(2)
+        results = {}
+        exceptions = {}
+    
+        def worker_approve():
+            with eng.connect() as conn:
+                try:
+                    with conn.begin():
+                        barrier.wait(timeout=10)
+                        res = review_document(
+                            conn,
+                            doc_id,
+                            decision="approved",
+                            reason="Đồng thời phê duyệt từ luồng 1",
+                            reviewer_id=REVIEWER_1_ID,
+                            expected_status="pending",
+                        )
+                        results["approve"] = res
+                except Exception as exc:
+                    exceptions["approve"] = exc
+    
+        def worker_reject():
+            with eng.connect() as conn:
+                try:
+                    with conn.begin():
+                        barrier.wait(timeout=10)
+                        res = review_document(
+                            conn,
+                            doc_id,
+                            decision="rejected",
+                            reason="Đồng thời từ chối từ luồng 2",
+                            reviewer_id=REVIEWER_2_ID,
+                            expected_status="pending",
+                        )
+                        results["reject"] = res
+                except Exception as exc:
+                    exceptions["reject"] = exc
+    
+        t1 = threading.Thread(target=worker_approve, name="worker_approve")
+        t2 = threading.Thread(target=worker_reject, name="worker_reject")
+    
+        t1.start()
+        t2.start()
+        t1.join(timeout=15)
+        t2.join(timeout=15)
+    
+        # In RED phase, expected_status argument does not exist yet (TypeError),
+        # or DocumentConflictError is not raised.
+        # Assert exactly one thread commits successfully:
+>       assert len(results) == 1, (
+            f"Expected exactly 1 successful commit, got {len(results)}. "
+            f"Results: {results}, Exceptions: {exceptions}"
+        )
+E       AssertionError: Expected exactly 1 successful commit, got 2. Results: {'approve': {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', 'content_hash': '792436d46ed630f9d9c10d18e4963cdb976b8b3e01798b5efd43574a9ea646c4', 'title': 'Tài liệu đào tạo kiểm thử VT-099', 'major': 'toan_hoc', 'doc_type': 'curriculum', 'markdown_content': '# Nội dung văn bản chi tiết tài liệu kiểm thử đạt tiêu chuẩn phê duyệt và kiểm tra concurrency.', 'metadata_json': {}, 'review_status': 'approved', 'reviewer_id': '55555555-5555-4555-8555-111111111111', 'review_reason': 'Đồng thời phê duyệt từ luồng 1', 'reviewed_at': '2026-11-10T16:35:30.495786+00:00', 'is_published': False, 'created_at': '2026-11-10T16:35:30.439687+00:00', 'safe_markdown': '# Nội dung văn bản chi tiết tài liệu kiểm thử đạt tiêu chuẩn phê duyệt và kiểm tra concurrency.', 'duplicates': [], 'duplicate_count': 0, 'needs_ocr': False}, 'reject': {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', 'content_hash': '792436d46ed630f9d9c10d18e4963cdb976b8b3e01798b5efd43574a9ea646c4', 'title': 'Tài liệu đào tạo kiểm thử VT-099', 'major': 'toan_hoc', 'doc_type': 'curriculum', 'markdown_content': '# Nội dung văn bản chi tiết tài liệu kiểm thử đạt tiêu chuẩn phê duyệt và kiểm tra concurrency.', 'metadata_json': {}, 'review_status': 'rejected', 'reviewer_id': '55555555-5555-4555-8555-222222222222', 'review_reason': 'Đồng thời từ chối từ luồng 2', 'reviewed_at': '2026-11-10T16:35:30.495678+00:00', 'is_published': False, 'created_at': '2026-11-10T16:35:30.439687+00:00', 'safe_markdown': '# Nội dung văn bản chi tiết tài liệu kiểm thử đạt tiêu chuẩn phê duyệt và kiểm tra concurrency.', 'duplicates': [], 'duplicate_count': 0, 'needs_ocr': False}}, Exceptions: {}
+E       assert 2 == 1
+E        +  where 2 = len({'approve': {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', ...}, 'reject': {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', ...}})
+
+tests\api\test_vt099_reviewer_concurrency.py:400: AssertionError
+_____________________ test_tc11_api_conflict_returns_409 ______________________
+
+reviewer_client = <starlette.testclient.TestClient object at 0x000001EF10292690>
+sample_pending_doc = {'id': 'doc_vt099_test_pending', 'source_id': 'src_hus_main', 'job_id': None, 'url': 'https://hus.vnu.edu.vn/doc_vt099_test_pending', ...}
+
+    def test_tc11_api_conflict_returns_409(reviewer_client, sample_pending_doc):
+        """TC-11 (API Conflict): Document already approved. Reviewer sends POST .../reject with expected_status='pending' -> 409 Conflict."""
+        doc_id = sample_pending_doc["id"]
+        eng = admin_test_engine()
+        ensure_account(eng, REVIEWER_1_ID, REVIEWER_1_EMAIL, TEST_PASSWORD, role="reviewer")
+    
+        # Precondition: document is already approved
+        with eng.begin() as conn:
+            conn.execute(
+                text("""
+                    UPDATE crawled_documents
+                    SET review_status = 'approved',
+                        review_reason = 'Đã được duyệt từ trước',
+                        reviewer_id = :rid,
+                        reviewed_at = now()
+                    WHERE id = :id
+                """),
+                {"rid": REVIEWER_1_ID, "id": doc_id},
+            )
+    
+        # Reviewer sends reject with expected_status="pending"
+        resp = reviewer_client.post(
+            f"/admin/crawler/documents/{doc_id}/reject",
+            json={
+                "reason": "Phát hiện tài liệu không đạt chuẩn sau khi thấy pending",
+                "expected_status": "pending",
+            },
+        )
+>       assert resp.status_code == 409
+E       assert 200 == 409
+E        +  where 200 = <Response [200 OK]>.status_code
+
+tests\api\test_vt099_reviewer_concurrency.py:450: AssertionError
+============================== warnings summary ===============================
+tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409
+  F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/api/test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier
+FAILED tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409
+================= 2 failed, 10 deselected, 1 warning in 1.60s =================
+
+Status: MUTATION 2 KILLED!
+Verdict: Both TC-10 and TC-11 caught the missing compare-and-set validation:
+         - TC-10 failed with assert 2 == 1 (race condition allowed both threads to commit).
+         - TC-11 failed with assert 200 == 409 (API allowed overwrite without conflict detection).
+Working tree restored to clean state via `git checkout app/crawler/document_review_service.py`.
+
+================================================================================
+CONCLUSION:
+Both deliberate mutations were caught and killed by the test suite.
+Mutation score for selected critical security and concurrency validations: 100% (2/2 killed).
+Tests provide high defect sensitivity and anti-vacuous protection.
+================================================================================
