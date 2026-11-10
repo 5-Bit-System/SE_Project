@@ -8,7 +8,8 @@
 - **Mã biến thể:** **VT-099** (*Reviewer Role Moderation & Compare-and-Set Concurrency Conflict Protection*)
 - **Baseline commit:** `1205fa94eadfaa6a52721e85cdab8a7dea9cfa11` ("Merge PR #148 … fix(rag)")
 - **Nhánh Git:** `bt3/23001939-vt099`
-- **Pull Request URL:** `https://github.com/5-Bit-System/SE_Project/tree/bt3/23001939-vt099` (Pull Request: `#150` trên repo nhóm `5-Bit-System/SE_Project`)
+- **Issue liên kết:** [#168](https://github.com/5-Bit-System/SE_Project/issues/168)
+- **Pull Request URL:** [PR #169](https://github.com/5-Bit-System/SE_Project/pull/169) (`bt3/23001939-vt099` -> `main`)
 - **Tài liệu báo cáo:**
   - PDF: [`deliverables/BT3_23001939_VT-099.pdf`](../../deliverables/BT3_23001939_VT-099.pdf)
   - HTML gốc: [`deliverables/BT3_23001939_VT-099.html`](../../deliverables/BT3_23001939_VT-099.html)
