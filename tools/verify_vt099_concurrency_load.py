@@ -28,22 +28,22 @@ from typing import Any, Dict, List
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.config import get_settings
+from app.config import get_settings  # noqa: E402
 
 # Configure target database
 settings = get_settings()
 if not os.environ.get("HUS_TEST_DATABASE_URL"):
     os.environ["HUS_TEST_DATABASE_URL"] = settings.database_url
 
-from sqlalchemy import text
-from starlette.testclient import TestClient
+from sqlalchemy import text  # noqa: E402
+from starlette.testclient import TestClient  # noqa: E402
 
-import app.api.admin as admin_api
-from app.auth import repository
-from app.auth.security import csrf, password_hash
-from app.crawler.document_review_service import create_document
-from app.integrations.daotao.store import engine
-from app.main import app
+import app.api.admin as admin_api  # noqa: E402
+from app.auth import repository  # noqa: E402
+from app.auth.security import csrf, password_hash  # noqa: E402
+from app.crawler.document_review_service import create_document  # noqa: E402
+from app.integrations.daotao.store import engine  # noqa: E402
+from app.main import app  # noqa: E402
 
 # Target evidence output path
 EVIDENCE_FILE = PROJECT_ROOT / "deliverables" / "evidence" / "load-test-80-users.txt"
@@ -191,99 +191,113 @@ def run_load_experiment() -> Dict[str, Any]:
 
     # Isolate git reviews export during load test so disk I/O on data/hus/document_reviews.json
     # does not pollute repository git state or interfere with database latency measurements.
+    orig_export_func = admin_api.export_git_reviews_from_db
     admin_api.export_git_reviews_from_db = lambda *args, **kwargs: None
 
-    # Prepare 80 tasks
-    tasks: List[Dict[str, Any]] = []
+    try:
+        # Prepare 80 tasks
+        tasks: List[Dict[str, Any]] = []
 
-    # 40 distinct review requests
-    for i in range(NUM_DISTINCT):
-        tasks.append({
-            "task_id": i,
-            "category": "distinct",
-            "doc_id": f"{DOC_PREFIX_DISTINCT}{i:02d}",
-            "decision": "approve",
-            "reason": f"Duyệt riêng biệt hợp lệ task {i:02d}",
-            "expected_status": "pending",
-        })
-
-    # 40 shared review requests (4 shared docs x 10 competitors)
-    task_counter = NUM_DISTINCT
-    for s in range(NUM_SHARED):
-        sdid = f"{DOC_PREFIX_SHARED}{s:02d}"
-        for rep in range(COMPETITORS_PER_SHARED):
-            decision = "approve" if rep % 2 == 0 else "reject"
+        # 40 distinct review requests
+        for i in range(NUM_DISTINCT):
             tasks.append({
-                "task_id": task_counter,
-                "category": "shared",
-                "doc_id": sdid,
-                "decision": decision,
-                "reason": f"Cạnh tranh trạng thái {decision} nhóm {s} luồng {rep}",
+                "task_id": i,
+                "category": "distinct",
+                "doc_id": f"{DOC_PREFIX_DISTINCT}{i:02d}",
+                "decision": "approve",
+                "reason": f"Duyệt riêng biệt hợp lệ task {i:02d}",
                 "expected_status": "pending",
             })
-            task_counter += 1
 
-    assert len(tasks) == TOTAL_WORKERS, f"Expected {TOTAL_WORKERS} tasks, got {len(tasks)}"
+        # 40 shared review requests (4 shared docs x 10 competitors)
+        task_counter = NUM_DISTINCT
+        for s in range(NUM_SHARED):
+            sdid = f"{DOC_PREFIX_SHARED}{s:02d}"
+            for rep in range(COMPETITORS_PER_SHARED):
+                decision = "approve" if rep % 2 == 0 else "reject"
+                tasks.append({
+                    "task_id": task_counter,
+                    "category": "shared",
+                    "doc_id": sdid,
+                    "decision": decision,
+                    "reason": f"Cạnh tranh trạng thái {decision} nhóm {s} luồng {rep}",
+                    "expected_status": "pending",
+                })
+                task_counter += 1
 
-    barrier = threading.Barrier(TOTAL_WORKERS)
-    results: List[Dict[str, Any]] = []
+        assert len(tasks) == TOTAL_WORKERS, f"Expected {TOTAL_WORKERS} tasks, got {len(tasks)}"
 
-    with TestClient(app, base_url="http://127.0.0.1:8000") as client:
-        def worker(task: Dict[str, Any]) -> Dict[str, Any]:
-            endpoint = f"/admin/crawler/documents/{task['doc_id']}/{task['decision']}"
-            payload = {
-                "reason": task["reason"],
-                "expected_status": task["expected_status"],
-            }
-            req_headers = {
-                "x-csrf-token": token_csrf,
-                "origin": "http://127.0.0.1:8000",
-            }
-            req_cookies = {
-                "study_app_session": raw_token,
-            }
+        barrier = threading.Barrier(TOTAL_WORKERS)
+        results: List[Dict[str, Any]] = []
 
-            # Wait at barrier for synchronized release
-            barrier.wait(timeout=15.0)
+        with TestClient(app, base_url="http://127.0.0.1:8000") as client:
+            def worker(task: Dict[str, Any]) -> Dict[str, Any]:
+                endpoint = f"/admin/crawler/documents/{task['doc_id']}/{task['decision']}"
+                payload = {
+                    "reason": task["reason"],
+                    "expected_status": task["expected_status"],
+                }
+                req_headers = {
+                    "x-csrf-token": token_csrf,
+                    "origin": "http://127.0.0.1:8000",
+                }
+                req_cookies = {
+                    "study_app_session": raw_token,
+                }
 
-            t_start = time.perf_counter()
-            resp = client.post(
-                endpoint,
-                json=payload,
-                headers=req_headers,
-                cookies=req_cookies,
-            )
-            t_end = time.perf_counter()
+                try:
+                    # Wait at barrier for synchronized release
+                    barrier.wait(timeout=15.0)
 
-            return {
-                "task_id": task["task_id"],
-                "category": task["category"],
-                "doc_id": task["doc_id"],
-                "decision": task["decision"],
-                "status_code": resp.status_code,
-                "latency": t_end - t_start,
-                "response_text": resp.text[:120],
-            }
+                    t_start = time.perf_counter()
+                    resp = client.post(
+                        endpoint,
+                        json=payload,
+                        headers=req_headers,
+                        cookies=req_cookies,
+                    )
+                    t_end = time.perf_counter()
 
-        t_overall_start = time.perf_counter()
-        with ThreadPoolExecutor(max_workers=TOTAL_WORKERS) as executor:
-            futures = [executor.submit(worker, t) for t in tasks]
-            for fut in as_completed(futures):
-                results.append(fut.result())
-        t_overall_end = time.perf_counter()
+                    return {
+                        "task_id": task["task_id"],
+                        "category": task["category"],
+                        "doc_id": task["doc_id"],
+                        "decision": task["decision"],
+                        "status_code": resp.status_code,
+                        "latency": t_end - t_start,
+                        "response_text": resp.text[:120],
+                    }
+                except Exception as exc:
+                    return {
+                        "task_id": task["task_id"],
+                        "category": task["category"],
+                        "doc_id": task["doc_id"],
+                        "decision": task["decision"],
+                        "status_code": 500,
+                        "latency": 15.0,
+                        "response_text": f"Worker exception: {exc}",
+                    }
 
-    cleanup_load_data(eng)
+            t_overall_start = time.perf_counter()
+            with ThreadPoolExecutor(max_workers=TOTAL_WORKERS) as executor:
+                futures = [executor.submit(worker, t) for t in tasks]
+                for fut in as_completed(futures):
+                    results.append(fut.result())
+            t_overall_end = time.perf_counter()
 
-    return {
-        "results": results,
-        "total_wall_time": t_overall_end - t_overall_start,
-        "engine_pool": {
-            "type": type(eng.pool).__name__,
-            "pool_size": eng.pool.size(),
-            "max_overflow": eng.pool._max_overflow,
-            "timeout": eng.pool._timeout,
-        },
-    }
+        return {
+            "results": results,
+            "total_wall_time": t_overall_end - t_overall_start,
+            "engine_pool": {
+                "type": type(eng.pool).__name__,
+                "pool_size": eng.pool.size() if hasattr(eng.pool, "size") else 5,
+                "max_overflow": getattr(eng.pool, "_max_overflow", 10),
+                "timeout": getattr(eng.pool, "_timeout", 30.0),
+            },
+        }
+    finally:
+        admin_api.export_git_reviews_from_db = orig_export_func
+        cleanup_load_data(eng)
 
 
 def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
@@ -331,7 +345,7 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("1. EXECUTIVE SUMMARY & SLA VERIFICATION")
     lines.append("-" * 80)
     lines.append(f"  * Total Concurrent Workers:   {TOTAL_WORKERS} tasks (ThreadPoolExecutor max_workers=80)")
-    lines.append(f"  * Synchronization Mechanism:  threading.Barrier(80) at t=0")
+    lines.append("  * Synchronization Mechanism:  threading.Barrier(80) at t=0")
     lines.append(f"  * Total Requests Completed:   {total_requests}")
     lines.append(f"  * Total Wall-Clock Duration:  {total_wall_time:.4f} s")
     lines.append(f"  * Successful Reviews (200):   {len(success_requests)} (100% of distinct + 1 per shared group)")
@@ -367,14 +381,14 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("3. SUBSET BREAKDOWN & WORKLOAD BEHAVIOR")
     lines.append("-" * 80)
     lines.append("  [Subset A: 40 Distinct Documents]")
-    lines.append(f"  - Purpose: Measure queueing delay and lock acquisition under pg_advisory_xact_lock.")
+    lines.append("  - Purpose: Measure queueing delay and lock acquisition under pg_advisory_xact_lock.")
     lines.append(f"  - Completed: {len(distinct_results)}/40 | Success (200): {len(distinct_success)} | Conflicts (409): {len(distinct_conflict)} | Errors: {len(distinct_error)}")
     lines.append(f"  - Latency Range: min={min(distinct_latencies):.4f}s, p50={calculate_percentile(distinct_latencies, 50):.4f}s, p95={calculate_percentile(distinct_latencies, 95):.4f}s, max={max(distinct_latencies):.4f}s")
     lines.append("  - Analysis: Since all 40 documents are distinct, zero CAS conflicts occurred.")
     lines.append("    Every request succeeded with 200 OK after waiting its turn in the connection pool and advisory lock.")
     lines.append("")
     lines.append("  [Subset B: 40 Competing Shared Documents (4 groups x 10 workers)]")
-    lines.append(f"  - Purpose: Stress-test atomic compare-and-set (expected_status='pending') under high contention.")
+    lines.append("  - Purpose: Stress-test atomic compare-and-set (expected_status='pending') under high contention.")
     lines.append(f"  - Completed: {len(shared_results)}/40 | Success (200): {len(shared_success)} | Conflicts (409): {len(shared_conflict)} | Errors: {len(shared_error)}")
     lines.append(f"  - Latency Range: min={min(shared_latencies):.4f}s, p50={calculate_percentile(shared_latencies, 50):.4f}s, p95={calculate_percentile(shared_latencies, 95):.4f}s, max={max(shared_latencies):.4f}s")
     lines.append("  - Analysis: Exactly 4 requests committed successfully (1 winner per shared document),")
@@ -384,8 +398,8 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("4. THOROUGH TECHNICAL DISCUSSION")
     lines.append("-" * 80)
     lines.append("4.1. Database Engine & Connection Pool Architecture:")
-    lines.append(f"  - Database Target: PostgreSQL 16 on port 5433 (database: ai07, driver: psycopg2).")
-    lines.append(f"  - Measured Engine: app.integrations.daotao.store.engine() / admin_test_engine().")
+    lines.append("  - Database Target: PostgreSQL 16 on port 5433 (database: ai07, driver: psycopg2).")
+    lines.append("  - Measured Engine: app.integrations.daotao.store.engine() / admin_test_engine().")
     lines.append(f"  - Connection Pool Implementation: SQLAlchemy {pool_info['type']}.")
     lines.append(f"  - Configured Pool Size:   {pool_info['pool_size']} persistent connections.")
     lines.append(f"  - Configured Max Overflow: {pool_info['max_overflow']} burst connections.")
