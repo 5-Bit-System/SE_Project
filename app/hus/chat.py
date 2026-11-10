@@ -5,6 +5,8 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict
 
 from app.hus.answering import HUSAnswerer, question_intent
+from app.hus.llm_answerer import generate_grounded_answer
+from app.hus.question_routing import CAREER_TERMS, has, requested_text
 from app.hus.retrieval import _tokens
 from app.schemas.hus import HUSAnswer, HUSQuestion
 
@@ -50,9 +52,27 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
         if reply is not None:
             return HUSChatReply(mode="basic_chat", reply=reply)
     dataset, _ = question_intent(request.question)
+    req_text = requested_text(request.question)
+    is_framework_groups = (
+        has(req_text, "khung chuong trinh", "khung dao tao")
+        and has(req_text, "khoi", "nhom", "cau truc", "phan bo", "chia thanh")
+        and not has(req_text, *CAREER_TERMS)
+    )
+    has_scoped_course = bool(request.version and answerer._matched_course_codes(request))
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
-    if request.dataset == "auto" and dataset == "f1" and request.version in decision_versions:
+    if (
+        request.dataset == "auto"
+        and dataset == "f1"
+        and not is_framework_groups
+        and not has_scoped_course
+        and request.version in decision_versions
+    ):
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
     answer = answerer.answer(request)
-    return HUSChatReply(mode="hus_rag", reply=answer.reply, hus_answer=answer)
+    reply = answer.reply
+    if answer.status == "answered":
+        llm_reply = generate_grounded_answer(request, answerer)
+        if llm_reply:
+            reply = llm_reply
+    return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer)

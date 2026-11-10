@@ -13,7 +13,7 @@ from app.hus.chat import HUSChatReply, chat
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.source_response import source_response
-from app.schemas.hus import HUSMajor, HUSQuestion
+from app.schemas.hus import HUSMajor, HUSQuestion, HUSRetrievalBundle
 from app.services.hus_service import get_hus_answerer
 
 app = FastAPI(title="HUS RAG — demo local", docs_url=None, redoc_url=None)
@@ -56,6 +56,14 @@ def config():
 def reply(request: HUSQuestion):
     try:
         return chat(request, current_answerer())
+    except RAGDataError:
+        raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
+
+
+@app.post("/hus/retrieve", response_model=HUSRetrievalBundle)
+def retrieve(request: HUSQuestion, top_k: int = Query(default=5, ge=1, le=20)):
+    try:
+        return current_answerer().retrieve_context(request, top_k=top_k)
     except RAGDataError:
         raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
 
