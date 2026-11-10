@@ -17,11 +17,10 @@ def test_mode_defaults_to_lexical_without_any_optional_import():
 
 
 @pytest.mark.parametrize('value', ['hybrid'])
-def test_hybrid_stays_reserved_until_v5(value):
+def test_hybrid_is_explicitly_available_at_v5(value):
     c = config().HUSRetrievalSettings.from_env({'HUS_RETRIEVAL_MODE': value})
     assert c.mode == value
-    with pytest.raises(ValueError, match='V5'):
-        c.require_available()
+    c.require_available()
 
 
 @pytest.mark.parametrize('value', ['', 'unknown', 'LEXICAL', True, None])
@@ -30,7 +29,7 @@ def test_invalid_mode_does_not_silently_enable_or_fake_a_retriever(value):
         config().HUSRetrievalSettings.from_env({'HUS_RETRIEVAL_MODE': value})
 
 
-@pytest.mark.parametrize('value', ['hybrid', 'unknown'])
+@pytest.mark.parametrize('value', ['unknown'])
 def test_service_checks_mode_before_loading_any_vector_runtime(monkeypatch, value):
     config()
     from app.services.hus_service import get_hus_answerer
@@ -127,4 +126,28 @@ def test_actual_lexical_service_runs_when_optional_ml_imports_are_blocked(monkey
         assert a.status == 'answered' and a.dataset == 'f2'
     finally:
         sys.meta_path.remove(blocker)
+        get_hus_answerer.cache_clear()
+
+
+def test_hybrid_service_uses_vector_configuration_and_f2_without_ml(monkeypatch):
+    from app.hus import vector_runtime
+    from app.schemas.hus import HUSQuestion
+    from app.services.hus_service import get_hus_answerer
+
+    settings = config().HUSRetrievalSettings.from_env({'HUS_RETRIEVAL_MODE': 'hybrid',
+        'HUS_VECTOR_INDEX_PATH': 'index', 'HUS_VECTOR_MODEL_CACHE': 'cache',
+        'HUS_VECTOR_EXPECTED_INDEX_ID': 'a' * 64})
+    assert settings.index_path == 'index'
+    def forbidden(*args, **kwargs):
+        pytest.fail('F2 must not initialize ML in hybrid mode')
+    monkeypatch.setattr(vector_runtime, 'LocalVectorRuntime', forbidden)
+    monkeypatch.setenv('HUS_RETRIEVAL_MODE', 'hybrid')
+    get_hus_answerer.cache_clear()
+    try:
+        answerer = get_hus_answerer()
+        assert type(answerer.retriever).__name__ == 'HUSHybridRetriever'
+        answer = answerer.answer(HUSQuestion(question='MAT2501 có bao nhiêu tín chỉ?',
+                                             major='data_science', version='QD3569-2023'))
+        assert answer.status == 'answered' and answer.dataset == 'f2'
+    finally:
         get_hus_answerer.cache_clear()

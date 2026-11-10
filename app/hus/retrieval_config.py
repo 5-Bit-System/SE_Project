@@ -17,7 +17,7 @@ class HUSRetrievalSettings:
         value = env.get('HUS_RETRIEVAL_MODE', 'lexical')
         if type(value) is not str or value not in {'lexical', 'vector', 'hybrid'}:
             raise ValueError('HUS_RETRIEVAL_MODE must be lexical, vector or hybrid')
-        if value != 'vector':
+        if value == 'lexical':
             return cls(value)
         paths = [env.get(key) for key in ('HUS_VECTOR_INDEX_PATH', 'HUS_VECTOR_MODEL_CACHE',
                                          'HUS_VECTOR_EXPECTED_INDEX_ID')]
@@ -26,5 +26,5 @@ class HUSRetrievalSettings:
         return cls(value, *paths)
 
     def require_available(self):
-        if self.mode == 'hybrid':
-            raise ValueError('Hybrid retrieval remains unavailable until V5. Use lexical or vector.')
+        if self.mode not in {'lexical', 'vector', 'hybrid'}:
+            raise ValueError('Unsupported HUS retrieval mode')

@@ -20,4 +20,8 @@ def get_hus_answerer() -> HUSAnswerer:
         from app.hus.vector_runtime import LocalVectorRuntime
         return LocalVectorRuntime(settings, data)
 
-    return HUSAnswerer(data, retriever=HUSVectorRetriever(data, runtime_factory=runtime_factory))
+    vector = HUSVectorRetriever(data, runtime_factory=runtime_factory)
+    if settings.mode == 'hybrid':
+        from app.hus.hybrid_retrieval import HUSHybridRetriever
+        return HUSAnswerer(data, retriever=HUSHybridRetriever(data, vector=vector))
+    return HUSAnswerer(data, retriever=vector)
