@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "citation_audits.jsonl": "1455a29dd8d2b3821fb53192aee24a99c64ffeb60c591e54e8f7a6092ed37236",
+    "input_pins.json": "cfd89a239310e58a624148491e29dc331ffb199389f6e87232e01c1db8bcc0b8",
+    "inputs.json": "191fbd43dec1d319818fe83ed3224b5859b02c6bf079742326cfd60932bdbe78",
+    "predictions.jsonl": "b36c8b93d5b4f4920f5de6a670ef0bfa11da68877c90e0bafaaf024f21c2696f",
+    "report.json": "ae166db5eb34d7a5aa080e35ff3d72436f0a84f551ea21b59bd63f4b12d15e75"
+  },
+  "schema_version": "hus-hybrid-evaluation-3.0"
+}
