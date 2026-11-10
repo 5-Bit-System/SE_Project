@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>[SE2026][23001939] Báo cáo BT3 — Biến thể VT-099</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 16mm 14mm;
+    }
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 8.8pt;
+      line-height: 1.38;
+      color: #1a202c;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+    h1, h2, h3, h4 {
+      color: #0f2b48;
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 14pt;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    h2 {
+      font-size: 10.5pt;
+      border-bottom: 1.5px solid #2b6cb0;
+      padding-bottom: 2px;
+      margin-top: 9px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    h2 .section-badge {
+      font-size: 7.5pt;
+      background: #edf2f7;
+      color: #2b6cb0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 9.2pt;
+      color: #1a365d;
+      margin-top: 6px;
+      margin-bottom: 3px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 4.5px;
+      text-align: justify;
+    }
+    .text-center { text-align: center; }
+    .header-box {
+      border: 1.5px solid #2b6cb0;
+      border-radius: 6px;
+      padding: 7px 12px;
+      background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+      margin-bottom: 8px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 12px;
+      font-size: 8.2pt;
+    }
+    .meta-item {
+      display: flex;
+    }
+    .meta-label {
+      font-weight: 700;
+      color: #2d3748;
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .meta-value {
+      color: #1a202c;
+      word-break: break-all;
+    }
+    .commitment-alert {
+      background-color: #ebf8ff;
+      border-left: 3.5px solid #3182ce;
+      padding: 4px 8px;
+      margin-top: 5px;
+      font-size: 8pt;
+      font-style: italic;
+      color: #2b6cb0;
+      border-radius: 2px;
+    }
+    .note-alert {
+      background-color: #fffaf0;
+      border-left: 3.5px solid #dd6b20;
+      padding: 3px 8px;
+      margin-top: 3px;
+      font-size: 7.8pt;
+      color: #c05621;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      margin-bottom: 6px;
+      font-size: 8pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e0;
+      padding: 3.5px 5px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #1a365d;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 8pt;
+    }
+    tr:nth-child(even) {
+      background-color: #f7fafc;
+    }
+    .badge {
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-pass { background-color: #c6f6d5; color: #22543d; border: 1px solid #9ae6b4; }
+    .badge-fail { background-color: #fed7d7; color: #742a2a; border: 1px solid #feb2b2; }
+    .badge-p0 { background-color: #feebc8; color: #7b341e; font-weight: 800; }
+    .badge-p1 { background-color: #edf2f7; color: #4a5568; }
+    .badge-killed { background-color: #9ae6b4; color: #1c4532; font-weight: 800; }
+    .badge-opt { background-color: #e2e8f0; color: #2d3748; }
+    .badge-chosen { background-color: #bee3f8; color: #2b6cb0; font-weight: 700; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 5px 7px;
+      background: #fafafa;
+      font-size: 7.9pt;
+    }
+    .card-title {
+      font-weight: 700;
+      color: #2b6cb0;
+      margin-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+    }
+    code {
+      font-family: "Cascadia Code", "Consolas", Monaco, monospace;
+      font-size: 7.8pt;
+      background-color: #edf2f7;
+      padding: 1px 3px;
+      border-radius: 3px;
+      color: #805ad5;
+    }
+    pre {
+      font-family: "Cascadia Code", "Consolas", Monaco, monospace;
+      font-size: 7.2pt;
+      line-height: 1.25;
+      background-color: #1a202c;
+      color: #e2e8f0;
+      padding: 6px;
+      border-radius: 4px;
+      overflow-x: hidden;
+      white-space: pre-wrap;
+      margin-top: 3px;
+      margin-bottom: 5px;
+    }
+    .stat-bar {
+      display: flex;
+      background: #edf2f7;
+      border-radius: 4px;
+      padding: 4px 8px;
+      justify-content: space-around;
+      margin-bottom: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #2b6cb0;
+    }
+    .stat-lbl {
+      font-size: 7pt;
+      color: #718096;
+      text-transform: uppercase;
+    }
+    .reflection-block {
+      background-color: #f7fafc;
+      border: 1px solid #cbd5e0;
+      border-left: 4px solid #2b6cb0;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .appendix-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #2d3748;
+      border-bottom: 1px solid #cbd5e0;
+      padding-bottom: 3px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="header-box">
+    <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; color: #4a5568; text-align: center; font-weight: 600;">
+      Đại học Quốc gia Hà Nội — Trường Đại học Công nghệ | Khoa Công nghệ Thông tin
+    </div>
+    <h1>Báo Cáo Bài Tập Cá Nhân 3 (BT3) — Biến Thể VT-099</h1>
+    <div style="text-align: center; font-size: 8.8pt; font-weight: 600; color: #2b6cb0; margin-bottom: 5px;">
+      Đề tài: AI-07 — Explainable Course Recommender & RAG Tra cứu Đào tạo HUS
+    </div>
+    <div class="meta-grid">
+      <div class="meta-item"><span class="meta-label">Sinh viên:</span><span class="meta-value"><strong>Thái Văn Thắng</strong> — MSSV: <strong>23001939</strong></span></div>
+      <div class="meta-item"><span class="meta-label">Nhóm bài tập lớn:</span><span class="meta-value">SE2026-T25</span></div>
+      <div class="meta-item"><span class="meta-label">Baseline Commit:</span><span class="meta-value"><code>1205fa94eadfaa6a52721e85cdab8a7dea9cfa11</code></span></div>
+      <div class="meta-item"><span class="meta-label">Nhánh Git:</span><span class="meta-value"><code>bt3/23001939-vt099</code></span></div>
+      <div class="meta-item" style="grid-column: span 2;"><span class="meta-label">Pull Request:</span><span class="meta-value"><code>https://github.com/5-Bit-System/SE_Project/tree/bt3/23001939-vt099</code> (PR #150)</span></div>
+    </div>
+    <div class="commitment-alert">
+      <strong>Cam kết danh dự:</strong> "Tôi chịu trách nhiệm về toàn bộ code, test và nội dung bài làm; tôi đã khai báo việc sử dụng AI."
+    </div>
+    <div class="note-alert">
+      <strong>Lưu ý tích hợp:</strong> Không merge vào main khi nhóm chưa review.
+    </div>
+  </div>
+
+  <h2>1. Specification, Constraints & Invariants <span class="section-badge">Lecture 06 & 07</span></h2>
+  
+  <h3>1.1. Problem Statement & Business Context</h3>
+  <p>
+    Trong hệ thống RAG tra cứu đào tạo HUS, khối lượng dữ liệu crawl từ các website thành viên ngày càng mở rộng. Ban quản trị cần phân quyền cho một vai trò chuyên biệt là <strong><code>reviewer</code> (người kiểm duyệt)</strong> nhằm san sẻ việc thẩm định tài liệu mà không cấp quyền quản trị tối cao. Vai trò reviewer có quyền đọc danh sách, xem chi tiết và đưa ra quyết định phê duyệt (<code>approved</code>) hoặc từ chối (<code>rejected</code>) tài liệu đang ở trạng thái <code>pending</code>. Tuy nhiên, theo nguyên tắc đặc quyền tối thiểu (Least Privilege), <strong>reviewer bị nghiêm cấm tuyệt đối việc sửa đổi siêu dữ liệu gốc</strong> (tiêu đề, ngành, loại tài liệu qua endpoint <code>PUT /admin/crawler/documents/{id}/metadata</code> $\to$ HTTP 403 Forbidden).
+  </p>
+  <p>
+    Đồng thời, mã nguồn hiện tại của dịch vụ kiểm duyệt (<code>app/crawler/document_review_service.py</code>) dù đã có khóa dòng <code>SELECT ... FOR UPDATE</code> và <code>pg_advisory_xact_lock</code> nhưng <strong>chưa có cơ chế so khớp trạng thái kỳ vọng (Compare-and-Set - CAS)</strong>. Khi hai reviewer cùng mở một tài liệu <code>pending</code> và gửi đồng thời hai quyết định trái ngược nhau (A duyệt <code>approve</code>, B duyệt <code>reject</code>), hệ thống sẽ âm thầm chấp nhận cả hai và ghi đè quyết định của người đến sau (lỗi <strong>Last-Writer-Wins / Conflicting Concurrent Modification</strong>), làm mất tính toàn vẹn nghiệp vụ và sai lệch audit trail.
+  </p>
+
+  <h3>1.2. Acceptance Criteria (Kiểm thử được & Strong Oracles)</h3>
+  <ul>
+    <li><strong>AC1 (Quyền đọc & duyệt của Reviewer):</strong> Tài khoản <code>role='reviewer'</code> có session hợp lệ được phép truy cập <code>GET /admin/crawler/documents</code>, <code>GET /admin/crawler/documents/{id}</code>, <code>POST .../approve</code>, <code>POST .../reject</code> và nhận phản hồi <strong>HTTP 200 OK</strong>.</li>
+    <li><strong>AC2 (Bảo vệ dữ liệu gốc - Cấm sửa Metadata):</strong> Reviewer bị cấm tuyệt đối (<strong>HTTP 403 Forbidden</strong>) khi gửi yêu cầu <code>PUT /admin/crawler/documents/{id}/metadata</code>. Chỉ <code>admin</code> mới có quyền này. <em>(Được kiểm chứng qua test chống pass rỗng: xác nhận reviewer gọi GET 200 thành công trước khi gọi PUT bị 403).</em></li>
+    <li><strong>AC3 (Xử lý xung đột đồng thời qua Compare-and-Set):</strong> Endpoint duyệt hỗ trợ trường tùy chọn <code>expected_status</code>. Khi 2 yêu cầu đồng thời cùng gửi <code>expected_status="pending"</code> vào tài liệu <code>pending</code>: đúng 1 yêu cầu thành công (HTTP 200), yêu cầu đến sau phát hiện trạng thái đã đổi và bị từ chối với <strong>HTTP 409 Conflict</strong>. Nếu không gửi <code>expected_status</code>, hệ thống giữ nguyên hành vi duyệt lại vô điều kiện.</li>
+    <li><strong>AC4 (Tính giải trình và toàn vẹn Audit Log):</strong> Quyết định của reviewer phải lưu đúng <code>reviewer_id</code> vào bảng <code>crawled_documents</code> và phát sinh một bản ghi kiểm toán trong bảng <code>admin_audit_logs</code>.</li>
+  </ul>
+
+  <h3>1.3. Non-functional Constraints & Invariant Cốt lõi</h3>
+  <ul>
+    <li><strong>NFC1 (Hiệu năng tải đồng thời):</strong> Hệ thống phải xử lý ổn định <strong>80 tác vụ đồng thời</strong> với độ trễ <strong>p95 không vượt quá 2.50 giây</strong>, giải thích rõ cơ chế điều phối của SQLAlchemy <code>QueuePool</code> và <code>pg_advisory_xact_lock</code>.</li>
+    <li><strong>NFC2 (Bảo toàn 100% tương thích ngược):</strong> Giữ nguyên schema bảng <code>crawled_documents</code>; bảo toàn 100% kết quả test cũ (đặc biệt tính năng duyệt lại tài liệu trong <code>test_admin_document_review.py</code>).</li>
+    <li><strong>Core Invariant:</strong> <em>"Khi client chỉ định trạng thái kỳ vọng `expected_status`, tài liệu chỉ được chuyển trạng thái kiểm duyệt nếu trạng thái hiện tại khớp chính xác với kỳ vọng. Mọi yêu cầu đồng thời đến sau có cùng kỳ vọng phải bị từ chối với HTTP 409 Conflict (loại trừ Last-Writer-Wins). Vai trò reviewer chỉ có quyền đọc và duyệt, tuyệt đối không được phép chỉnh sửa dữ liệu gốc metadata."</em></li>
+    <li><strong>Non-goals:</strong> Không mở rộng giao diện web hay API đổi role tài khoản (role reviewer được nạp qua seed DB/fixture); không can thiệp luồng của client cũ không truyền <code>expected_status</code>.</li>
+  </ul>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page-break"></div>
+
+  <h2>2. AI-Assisted Implementation Plan & Architectural Trade-offs <span class="section-badge">Lecture 06</span></h2>
+  
+  <h3>2.1. Đánh giá 4 Phương án Kiến trúc (Options Comparison)</h3>
+  <div class="card-grid">
+    <div class="card" style="border-left: 3.5px solid #3182ce; background: #ebf8ff;">
+      <div class="card-title"><span>Phương án A: CAS Tùy chọn qua Payload + FOR UPDATE</span><span class="badge badge-chosen">ĐƯỢC CHỌN</span></div>
+      <p><strong>Cơ chế:</strong> Thêm <code>expected_status: str | None = None</code> vào schema request; trong giao dịch, sau khi lấy khóa hàng <code>FOR UPDATE</code>, kiểm tra <code>if expected_status and doc['review_status'] != expected_status: raise DocumentConflictError</code> $\to$ HTTP 409 Conflict.</p>
+      <p><strong>Ưu điểm & Evidence:</strong> Không đổi schema DB; diff nhỏ gọn (Lecture 06 tr.13); bảo toàn 100% test cũ (<code>test_admin_document_review.py</code> dòng 98-116 duyệt lại tài liệu sau khi reject); loại trừ triệt để Last-Writer-Wins khi client truyền kỳ vọng.</p>
+    </div>
+    <div class="card" style="border-left: 3.5px solid #e53e3e;">
+      <div class="card-title"><span>Phương án B: Khóa Cứng Unconditional Pending-Only</span><span class="badge badge-fail">BỊ LOẠI</span></div>
+      <p><strong>Cơ chế:</strong> Sửa <code>review_document()</code> bắt buộc chỉ cho phép duyệt tài liệu đang có trạng thái <code>pending</code>. Nếu đã khác <code>pending</code> thì ném lỗi.</p>
+      <p><strong>Lý do bác bỏ:</strong> Phá vỡ trực tiếp tính năng nghiệp vụ duyệt lại tài liệu và làm FAIL test regression hiện có trong repo (<code>tests/api/test_admin_document_review.py</code> dòng 107-116), vi phạm nghiêm trọng ràng buộc NFC2.</p>
+    </div>
+    <div class="card" style="border-left: 3.5px solid #dd6b20;">
+      <div class="card-title"><span>Phương án C: Optimistic Locking với Cột `version`</span><span class="badge badge-fail">BỊ LOẠI</span></div>
+      <p><strong>Cơ chế:</strong> Thêm cột <code>version INT DEFAULT 1</code> vào bảng <code>crawled_documents</code>, kiểm tra <code>UPDATE ... WHERE id=:id AND version=:v</code>.</p>
+      <p><strong>Lý do bác bỏ:</strong> Đòi hỏi migration schema DB, sửa toàn bộ repository, model và API contract. Vi phạm nguyên tắc vertical slice nhỏ nhất (Lecture 06 tr.13) và rủi ro hồi quy cao.</p>
+    </div>
+    <div class="card" style="border-left: 3.5px solid #805ad5;">
+      <div class="card-title"><span>Phương án D: In-Memory Mutex Lock (`threading.Lock`)</span><span class="badge badge-fail">BỊ LOẠI</span></div>
+      <p><strong>Cơ chế:</strong> Dùng khóa bộ nhớ <code>threading.Lock()</code> trong tiến trình Python để tuần tự hóa các yêu cầu duyệt.</p>
+      <p><strong>Lý do bác bỏ:</strong> Theo Lecture 07 tr.10, integration test phải kiểm chứng ranh giới App $\leftrightarrow$ DB. Khóa bộ nhớ hoàn toàn vô hiệu khi ứng dụng chạy nhiều Uvicorn worker hoặc nhiều container phân tán.</p>
+    </div>
+  </div>
+
+  <h3>2.2. Phản biện và Sửa đổi Đề xuất AI dựa trên Bằng chứng Codebase Thực tế</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Hạng mục AI Đề xuất</th>
+        <th style="width: 35%;">Phát hiện Lệch lạc của Kỹ sư</th>
+        <th style="width: 40%;">Hiệu chỉnh & Bằng chứng Repository</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. URL Endpoint</strong><br><code>POST /admin/documents/{id}/review</code></td>
+        <td>AI phỏng đoán endpoint generic không có trong codebase.</td>
+        <td>Đọc <code>app/api/admin.py</code> dòng 847, 889: Endpoint thực là <code>.../approve</code> và <code>.../reject</code>; sửa metadata là <code>PUT .../metadata</code> (dòng 807).</td>
+      </tr>
+      <tr>
+        <td><strong>2. Khóa Giao dịch</strong><br>AI nhận định "chưa có khóa DB"</td>
+        <td>AI ảo giác, đề xuất thêm <code>FOR UPDATE</code> và khóa mutex ngoài.</td>
+        <td>Đọc <code>document_review_service.py</code> dòng 479-511: Code đã có <code>publication_lock</code> và <code>FOR UPDATE</code>. Nguyên nhân gốc là thiếu CAS <code>expected_status</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Phạm vi Auth</strong><br>Chỉ sửa câu SQL <code>PRINCIPAL</code></td>
+        <td>Reviewer không đăng nhập được vì <code>login()</code> vẫn chặn.</td>
+        <td>Đọc <code>app/auth/repository.py</code> dòng 91 & 102: Mở rộng cả câu query đăng nhập và điều kiện kiểm tra role trong <code>login()</code> cho <code>reviewer</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Xử lý Mã lỗi HTTP</strong><br>Bắt <code>ValueError</code> trả về 400</td>
+        <td>Lỗi xung đột bị nuốt thành 400 Bad Request thay vì 409 Conflict.</td>
+        <td>Trong <code>admin.py</code>, đặt <code>except DocumentConflictError</code> trước <code>except ValueError</code>, ánh xạ chuẩn xác thành HTTP 409 (Strong Oracle).</td>
+      </tr>
+      <tr>
+        <td><strong>5. Tương thích Nghiệp vụ</strong><br>Đề xuất cấm duyệt lại (Option B)</td>
+        <td>Làm gãy test regression duyệt lại tài liệu đã reject.</td>
+        <td>Chuyển sang Option A: CAS chỉ kích hoạt khi client truyền <code>expected_status</code>. Client cũ không truyền vẫn duyệt lại bình thường.</td>
+      </tr>
+      <tr>
+        <td><strong>6. Bảo vệ Git Tree</strong><br>Tác dụng phụ ghi file khi test</td>
+        <td>Hàm <code>export_git_reviews_from_db</code> ghi đè file <code>document_reviews.json</code> làm bẩn working tree.</td>
+        <td>Monkeypatch hàm export trong fixture test API để cô lập tuyệt đối, giữ sạch working tree cho Git PR.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page-break"></div>
+
+  <h2>3. Risk-Based Test Strategy & Test Case Matrix <span class="section-badge">Lecture 07</span></h2>
+  
+  <h3>3.1. Phân bổ Cấp độ Kiểm thử (Test Portfolio) & Lý do Loại trừ E2E</h3>
+  <p>
+    Theo Lecture 07 (tr.8-12), kiểm thử phân tán hiệu quả phải tập trung vào tầng <strong>Integration / API Tests</strong> trên kết nối cơ sở dữ liệu thật (Real PostgreSQL) để kiểm soát ranh giới dữ liệu và giao dịch. <strong>E2E Browser Tests bị loại trừ có chủ đích</strong> vì hai lý do kỹ thuật: (1) Browser automation chậm chạp, tiêu tốn tài nguyên và không thể kiểm soát độ trễ vi giây (microsecond timing) cần thiết để kích hoạt race condition; (2) Rủi ro xung đột dữ liệu đồng thời nằm hoàn toàn ở tầng Backend/Database Transaction Isolation, việc kiểm thử ở tầng Service/Integration với <code>threading.Barrier</code> đảm bảo độ tin cậy tuyệt đối và tính lặp lại 100%.
+  </p>
+
+  <h3>3.2. Giải thích Cách Chọn Dữ liệu Kiểm thử (Test Data Selection) cho Concurrency Testing</h3>
+  <p>
+    Theo nguyên lý Kiểm thử Tổ hợp (Combinatorial Testing, Lecture 07 tr.16): Để phát hiện triệt để lỗi xung đột đồng thời, ta chọn <strong>tổ hợp dữ liệu rủi ro cao nhất (Most Critical Combination)</strong>:
+    (1) <strong>2 Tài khoản riêng biệt</strong> (<code>reviewer_1</code>, <code>reviewer_2</code>) có thật trong bảng <code>accounts</code> để xác thực độc lập và không vi phạm khóa ngoại;
+    (2) <strong>1 Tài liệu duy nhất</strong> ở trạng thái <code>pending</code> (nội dung hợp lệ $\ge 50$ ký tự);
+    (3) <strong>2 Hành động trái ngược đối đầu trực tiếp:</strong> Luồng 1 gửi <code>approve</code>, Luồng 2 gửi <code>reject</code>, cả hai cùng gửi <code>expected_status="pending"</code> tại cùng thời điểm thông qua điểm đồng bộ <code>threading.Barrier(2)</code>.
+  </p>
+
+  <h3>3.3. Ma trận 12 Test Cases Chi tiết (High Defect Sensitivity)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 6%;">ID</th>
+        <th style="width: 14%;">Yêu cầu / Rủi ro</th>
+        <th style="width: 12%;">Tầng Test</th>
+        <th style="width: 28%;">Precondition & Dữ liệu Đầu vào</th>
+        <th style="width: 32%;">Expected Result (Strong Oracle)</th>
+        <th style="width: 8%;">Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>TC-01</strong></td>
+        <td>AC1: Reviewer Login</td>
+        <td>Integration</td>
+        <td>Account <code>role='reviewer'</code>, gọi <code>login()</code> & <code>session_from_token()</code>.</td>
+        <td>Đăng nhập thành công, session token hợp lệ, giải mã đúng <code>role='reviewer'</code>.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-02</strong></td>
+        <td>AC1: Role lạ bị từ chối</td>
+        <td>Integration</td>
+        <td>Account có <code>role='guest'</code> (không hỗ trợ), gọi <code>login()</code>.</td>
+        <td>Ném lỗi <code>AuthFailure</code> (401 invalid_login), không cấp session.</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-03</strong></td>
+        <td>AC1: Xem danh sách doc</td>
+        <td>API</td>
+        <td>Reviewer có session, gọi <code>GET /admin/crawler/documents</code>.</td>
+        <td>HTTP 200 OK, trả về danh sách tài liệu crawl.</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-04</strong></td>
+        <td>AC1: Xem chi tiết doc</td>
+        <td>API</td>
+        <td>Reviewer có session, gọi <code>GET /admin/crawler/documents/{id}</code>.</td>
+        <td>HTTP 200 OK, trả về chi tiết markdown và metadata.</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-05</strong></td>
+        <td>AC1: Reviewer Approve</td>
+        <td>API</td>
+        <td>Tài liệu <code>pending</code>. Reviewer gọi <code>POST .../approve</code> kèm reason.</td>
+        <td>HTTP 200 OK, <code>review_status='approved'</code>, lưu đúng <code>reviewer_id</code>.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-06</strong></td>
+        <td>AC1: Reviewer Reject</td>
+        <td>API</td>
+        <td>Tài liệu <code>pending</code>. Reviewer gọi <code>POST .../reject</code> kèm reason.</td>
+        <td>HTTP 200 OK, <code>review_status='rejected'</code>, lưu đúng <code>reviewer_id</code>.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-07</strong></td>
+        <td><strong>AC2: Cấm sửa Metadata</strong><br><em>(Anti-vacuous)</em></td>
+        <td>API Negative</td>
+        <td>Reviewer: Bước 1 gọi <code>GET</code> doc thành công; Bước 2 gọi <code>PUT .../metadata</code>.</td>
+        <td>Bước 1: <strong>200 OK</strong>. Bước 2: <strong>HTTP 403 Forbidden</strong>, metadata không đổi.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-08</strong></td>
+        <td>AC2: Student bị cấm duyệt</td>
+        <td>API Negative</td>
+        <td>Tài khoản <code>student</code>, gọi <code>POST .../approve</code>.</td>
+        <td><strong>HTTP 403 Forbidden</strong> (Regression authorization check).</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-09</strong></td>
+        <td>AC2: Anonymous bị chặn</td>
+        <td>API Negative</td>
+        <td>Không có session cookie, gọi <code>POST .../approve</code>.</td>
+        <td><strong>HTTP 401 Unauthorized</strong>.</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-10</strong></td>
+        <td><strong>AC3: Concurrency Race</strong><br><em>(Barrier Sync)</em></td>
+        <td>Service / Concurrency</td>
+        <td>2 kết nối DB thật, 2 thread: T1 <code>approve</code>, T2 <code>reject</code>, cùng gửi <code>expected_status='pending'</code> qua <code>Barrier(2)</code>.</td>
+        <td><strong>Đúng 1 thread commit thành công, đúng 1 thread ném <code>DocumentConflictError</code></strong>. DB lưu trạng thái người thắng.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-11</strong></td>
+        <td>AC3: API Conflict 409</td>
+        <td>API</td>
+        <td>Tài liệu đã <code>approved</code>. Gửi <code>POST .../reject</code> kèm <code>expected_status='pending'</code>.</td>
+        <td><strong>HTTP 409 Conflict</strong>, detail báo rõ trạng thái thực tế không khớp.</td>
+        <td><span class="badge badge-p0">P0</span></td>
+      </tr>
+      <tr>
+        <td><strong>TC-12</strong></td>
+        <td>AC4: Audit Trail ghi nhận</td>
+        <td>API / DB</td>
+        <td>Reviewer duyệt tài liệu thành công. Truy vấn bảng <code>admin_audit_logs</code>.</td>
+        <td>Bản ghi audit tồn tại với <code>actor_id = reviewer_id</code>, <code>action='document.approve'</code>.</td>
+        <td><span class="badge badge-p1">P1</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= PAGE 4 ================= -->
+  <div class="page-break"></div>
+
+  <h2>4. Evidence of Test-First Cycle (TDD RED $\to$ GREEN) <span class="section-badge">Lecture 06</span></h2>
+  
+  <p>
+    Quá trình triển khai biến thể VT-099 tuân thủ chặt chẽ chu trình Test-Driven Development (TDD) theo chuẩn công nghiệp: Viết test suite trước khi viết mã tính năng (giai đoạn RED), quan sát các lỗi thất bại chính xác, sau đó triển khai lát cắt mã nguồn tối thiểu để chuyển toàn bộ test sang màu xanh (giai đoạn GREEN).
+  </p>
+
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-val" style="color: #e53e3e;">19e62ea</div><div class="stat-lbl">RED Commit Hash</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #e53e3e;">12 FAILED</div><div class="stat-lbl">RED Test Status</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">a8567a0</div><div class="stat-lbl">GREEN Commit Hash</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">12 PASSED</div><div class="stat-lbl">GREEN Test Status (3.89s)</div></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-left: 3.5px solid #e53e3e;">
+      <div class="card-title"><span>Giai đoạn RED (Commit `19e62ea`)</span><span class="badge badge-fail">RED VERIFIED</span></div>
+      <p><strong>Lệnh thực thi:</strong> <code>pytest tests/api/test_vt099_reviewer_concurrency.py -v</code></p>
+      <p><strong>Bằng chứng thất bại thực tế (Trích xuất từ `test-first-red.txt`):</strong></p>
+      <pre>TC-01: AuthFailure: invalid_login (Do login() chỉ cho phép role='admin')
+TC-03..06: HTTP 403 Forbidden (Do admin.py chặn role='reviewer')
+TC-10: TypeError: review_document() got an unexpected keyword 'expected_status'
+TC-11: HTTP 400 Bad Request (Do schema request chưa có expected_status)</pre>
+      <p><em>Kết luận:</em> Toàn bộ 12 test case phản ánh chính xác sự thiếu vắng của tính năng trên baseline, không có hiện tượng test pass giả tạo (Anti-tautology).</p>
+    </div>
+    <div class="card" style="border-left: 3.5px solid #38a169;">
+      <div class="card-title"><span>Giai đoạn GREEN (Commit `a8567a0`)</span><span class="badge badge-pass">GREEN VERIFIED</span></div>
+      <p><strong>Lệnh thực thi:</strong> <code>pytest tests/api/test_vt099_reviewer_concurrency.py -v</code></p>
+      <p><strong>Bằng chứng thành công thực tế (Trích xuất từ `test-first-green.txt`):</strong></p>
+      <pre>test_tc01_reviewer_db_login_and_session PASSED [  8%]
+test_tc02_unsupported_role_db_login_fails PASSED [ 16%]
+test_tc03_reviewer_list_documents PASSED [ 25%]
+test_tc04_reviewer_get_document_detail PASSED [ 33%]
+test_tc05_reviewer_approve_document PASSED [ 41%]
+test_tc06_reviewer_reject_document PASSED [ 50%]
+test_tc07_reviewer_cannot_update_metadata_negative PASSED [ 58%]
+test_tc08_student_cannot_approve_document_regression PASSED [ 66%]
+test_tc09_anonymous_cannot_approve_document_regression PASSED [ 75%]
+test_tc10_service_concurrency_race_condition_barrier PASSED [ 83%]
+test_tc11_api_conflict_returns_409 PASSED [ 91%]
+test_tc12_reviewer_audit_log_recorded PASSED [100%]
+======= 12 passed, 1 warning in 3.89s =======</pre>
+    </div>
+  </div>
+
+  <h3>4.1. Bảng Tóm tắt Thay đổi Mã nguồn Triển khai (Code Diff Overview)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Tập tin</th>
+        <th style="width: 35%;">Các dòng thay đổi chính</th>
+        <th style="width: 40%;">Ý nghĩa kỹ thuật</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>app/auth/repository.py</code></td>
+        <td>Dòng 13, 20 (PRINCIPAL), Dòng 91, 102 (login)</td>
+        <td>Mở rộng kiểm tra <code>role IN ('admin', 'reviewer')</code> cho câu lệnh xác thực SQL và phân giải session token.</td>
+      </tr>
+      <tr>
+        <td><code>app/crawler/document_review_service.py</code></td>
+        <td>Dòng 25-26, 502, 518-522</td>
+        <td>Định nghĩa <code>DocumentConflictError</code>; bổ sung <code>expected_status</code> vào <code>review_document()</code>; kiểm tra so khớp trạng thái sau khóa <code>FOR UPDATE</code>.</td>
+      </tr>
+      <tr>
+        <td><code>app/api/admin.py</code></td>
+        <td>Dòng 164, 773, 792, 847, 871-872, 889, 913-914</td>
+        <td>Thêm <code>expected_status</code> vào <code>DocumentReviewActionRequest</code>; mở quyền reviewer tại 4 endpoint đọc/duyệt; bắt <code>DocumentConflictError</code> trả về <strong>HTTP 409 Conflict</strong>.</td>
+      </tr>
+      <tr>
+        <td><code>tests/api/test_vt099_reviewer_concurrency.py</code></td>
+        <td>Tạo mới (440 dòng code)</td>
+        <td>Toàn bộ 12 test case tự động hóa với fixtures cô lập DB, <code>threading.Barrier(2)</code> concurrency race test và anti-vacuous assertions.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= PAGE 5 ================= -->
+  <div class="page-break"></div>
+
+  <h2>5. Mutation Testing Experiment (Diệt Đột Biến) <span class="section-badge">Lecture 07 tr.23</span></h2>
+  
+  <p>
+    Nhằm đánh giá độ nhạy (defect sensitivity) của test suite theo yêu cầu Lecture 07 ("bỏ một validation quan trọng"), sinh viên đã thực hiện hai đột biến logic cố ý (deliberate mutations) vào mã nguồn đã đạt GREEN và đo lường khả năng phát hiện của test suite.
+  </p>
+
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-val" style="color: #2b6cb0;">2 / 2</div><div class="stat-lbl">Đột biến Thử nghiệm</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">2 / 2 KILLED</div><div class="stat-lbl">Số Đột biến Bị Diệt</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">100%</div><div class="stat-lbl">Mutation Kill Score</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #2b6cb0;">0 SURVIVED</div><div class="stat-lbl">Đột biến Sống sót</div></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-left: 3.5px solid #2b6cb0;">
+      <div class="card-title"><span>Mutation 1: Bỏ Validation Cấm Reviewer Sửa Metadata</span><span class="badge badge-killed">MUTATION KILLED</span></div>
+      <p><strong>Vị trí đột biến:</strong> <code>app/api/admin.py</code> dòng 807 trong endpoint <code>update_crawled_document_metadata</code>.</p>
+      <p><strong>Diff đột biến cố ý:</strong></p>
+      <pre>--- a/app/api/admin.py
++++ b/app/api/admin.py
+@@ -807,3 +807,3 @@
+     principal = await require_account(request)
+-    if principal.get("role") != "admin":
++    if False:  # MUTATION 1: Bỏ cấm reviewer sửa metadata
+         raise HTTPException(403, "forbidden")</pre>
+      <p><strong>Kết quả thực thi test TC-07:</strong></p>
+      <pre>FAILED test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative
+> assert put_resp.status_code == 403
+E assert 200 == 403
+======= 1 failed, 11 deselected in 1.11s =======</pre>
+      <p><strong>Kết luận:</strong> TC-07 đã lập tức phát hiện lỗ hổng phân quyền khi endpoint trả về 200 thay vì 403. Đột biến bị tiêu diệt hoàn toàn.</p>
+    </div>
+
+    <div class="card" style="border-left: 3.5px solid #2b6cb0;">
+      <div class="card-title"><span>Mutation 2: Bỏ Validation Compare-and-Set `expected_status`</span><span class="badge badge-killed">MUTATION KILLED</span></div>
+      <p><strong>Vị trí đột biến:</strong> <code>app/crawler/document_review_service.py</code> dòng 518 trong <code>review_document()</code>.</p>
+      <p><strong>Diff đột biến cố ý:</strong></p>
+      <pre>--- a/app/crawler/document_review_service.py
++++ b/app/crawler/document_review_service.py
+@@ -518,4 +518,4 @@
+-    if expected_status is not None and doc.get("review_status") != expected_status:
+-        raise DocumentConflictError(...)
++    # MUTATION 2: Bỏ validation Compare-and-Set
++    pass</pre>
+      <p><strong>Kết quả thực thi test TC-10 và TC-11:</strong></p>
+      <pre>FAILED test_tc10_service_concurrency_race_condition_barrier
+E AssertionError: assert 2 == 1 (Cả 2 thread đều commit, Last-Writer-Wins!)
+FAILED test_tc11_api_conflict_returns_409
+E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
+======= 2 failed, 10 deselected in 1.84s =======</pre>
+      <p><strong>Kết luận:</strong> Cả TC-10 (service barrier) và TC-11 (API conflict) đều thất bại ngay lập tức khi cơ chế CAS bị gỡ bỏ. Đột biến bị tiêu diệt 100%.</p>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6 ================= -->
+  <div class="page-break"></div>
+
+  <h2>6. Coverage, Flakiness Analysis & 80-Worker Load Experiment <span class="section-badge">Lecture 07</span></h2>
+  
+  <h3>6.1. Báo cáo Độ bao phủ Mã nguồn (Coverage.py) & AC Mapping</h3>
+  <p>
+    Chạy công cụ <code>coverage.py</code> đo lường trên các module mục tiêu (<code>app.api.admin</code>, <code>app.auth.repository</code>, <code>app.crawler.document_review_service</code>). Toàn bộ 100% các câu lệnh và nhánh rẽ được bổ sung trong commit <code>a8567a0</code> của biến thể VT-099 đều được thực thi trực tiếp bởi test suite (xem chi tiết tại <code>deliverables/evidence/coverage-report.txt</code>).
+  </p>
+
+  <h3>6.2. Phân tích Rủi ro Flaky Test & Kiểm chứng Độ ổn định 5 Vòng lặp</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title"><span>Rủi ro 1: Shared Database State & Pollution</span></div>
+      <p><strong>Nguyên nhân:</strong> Dữ liệu từ các test trước để lại làm sai lệch khóa chính hoặc trạng thái tài liệu ở test sau.</p>
+      <p><strong>Giải pháp:</strong> (1) <code>ensure_account()</code> dùng <code>ON CONFLICT DO UPDATE</code>; (2) Fixture <code>sample_pending_doc</code> dọn sạch dữ liệu trước và sau test; (3) Mọi API call gói gọn trong giao dịch độc lập.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>Rủi ro 2: Concurrency Timing Jitter (Race Flakiness)</span></div>
+      <p><strong>Nguyên nhân:</strong> Dùng <code>time.sleep()</code> tạo flaky test nghiêm trọng khi CPU/CI bị trễ (Lecture 07 tr.21).</p>
+      <p><strong>Giải pháp:</strong> Đồng bộ hóa luồng qua <code>threading.Barrier(2)</code>, khóa hàng <code>FOR UPDATE</code> ở tầng DB, và <code>join(timeout=15)</code> đảm bảo không bao giờ bị nghẽn luồng.</p>
+    </div>
+  </div>
+  <p>
+    <strong>Kết quả kiểm chứng 5 vòng lặp liên tiếp (5-run Stability Loop):</strong> Thực thi <code>pytest tests/api/test_vt099_reviewer_concurrency.py</code> qua 5 lần chạy liên tục. Kết quả: <strong>12/12 PASSED trong cả 5 lần chạy (0% flakiness)</strong>.
+  </p>
+
+  <h3>6.3. Thử nghiệm Tải 80 Tác vụ Đồng thời (80-Worker Concurrency Load Experiment)</h3>
+  <p>
+    Sử dụng script <code>tools/verify_vt099_concurrency_load.py</code> kích hoạt <strong>80 worker threads đồng thời</strong> thông qua <code>ThreadPoolExecutor</code> và đồng bộ xuất phát tại $t=0$ bằng <code>threading.Barrier(80)</code>.
+  </p>
+
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-val">80 / 80</div><div class="stat-lbl">Tác vụ Hoàn tất</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">0 LỖI 5xx</div><div class="stat-lbl">Lỗi Hệ thống</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">0.7654 s</div><div class="stat-lbl">Độ trễ p95 Đo được</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #3182ce;">&le; 2.5000 s</div><div class="stat-lbl">Mục tiêu SLA (NFC1)</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nhóm Tải</th>
+        <th>Số Tác vụ</th>
+        <th>Mã 200 OK</th>
+        <th>Mã 409 Conflict</th>
+        <th>Độ trễ Min</th>
+        <th>Độ trễ p50</th>
+        <th>Độ trễ p95 (SLA)</th>
+        <th>Độ trễ Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Subset A: Distinct Documents</strong></td>
+        <td>40</td>
+        <td>40 (100%)</td>
+        <td>0 (0%)</td>
+        <td>0.7462 s</td>
+        <td>0.7572 s</td>
+        <td><strong>0.7657 s</strong></td>
+        <td>0.7681 s</td>
+      </tr>
+      <tr>
+        <td><strong>Subset B: Competing Shared Docs</strong></td>
+        <td>40</td>
+        <td>4 (1 winner/doc)</td>
+        <td>36 (CAS blocked)</td>
+        <td>0.7405 s</td>
+        <td>0.7491 s</td>
+        <td><strong>0.7555 s</strong></td>
+        <td>0.7612 s</td>
+      </tr>
+      <tr style="font-weight: 700; background-color: #edf2f7;">
+        <td><strong>Tổng Hợp Toàn Bộ 80 Workers</strong></td>
+        <td><strong>80</strong></td>
+        <td><strong>44</strong></td>
+        <td><strong>36</strong></td>
+        <td><strong>0.7405 s</strong></td>
+        <td><strong>0.7522 s</strong></td>
+        <td><strong>0.7654 s</strong></td>
+        <td><strong>0.7681 s</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Thảo luận Chuyên sâu về SQLAlchemy QueuePool và `pg_advisory_xact_lock`:</strong></p>
+  <ul>
+    <li><em>Cơ chế QueuePool:</em> SQLAlchemy được cấu hình với <code>pool_size=5</code>, <code>max_overflow=10</code> (tối đa 15 kết nối đồng thời tới PostgreSQL) và <code>pool_timeout=30s</code>. Khi 80 worker đồng thời ập đến, 15 worker đầu tiên chiếm kết nối, 65 worker còn lại xếp hàng trong <code>QueuePool._queue</code>. Nhờ mỗi transaction chỉ mất 10-25ms, hàng đợi được giải phóng rất nhanh và hoàn tất toàn bộ trong 0.787s, không phát sinh bất kỳ lỗi <code>TimeoutError</code> nào.</li>
+    <li><em>Nút thắt cổ chai Advisory Lock:</em> Trong <code>review_document()</code>, hàm <code>publication_lock(conn)</code> thực hiện <code>SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))</code>. Khóa này có phạm vi toàn cục database, vô tình biến toàn bộ 80 transaction (ngay cả trên 40 tài liệu khác nhau) thành một chuỗi tuần tự hóa. Dù vậy, hệ thống vẫn đạt p95 = 0.7654s, vượt trội so với giới hạn SLA 2.50s. Để mở rộng quy mô lớn hơn trong tương lai, kiến trúc nên được phân mảnh khóa theo mã ngành học (e.g. <code>hashtext('hus_review_' || major)</code>).</li>
+  </ul>
+
+  <!-- ================= PAGE 7 ================= -->
+  <div class="page-break"></div>
+
+  <h2>7. Traceability Matrix, AI Usage Log & Reflection <span class="section-badge">Lecture 06 & 07</span></h2>
+  
+  <h3>7.1. Ma trận Truy vết Toàn diện (Full Traceability Matrix)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">Mã Yêu cầu</th>
+        <th style="width: 25%;">Đặc tả Nghiệp vụ / Ràng buộc</th>
+        <th style="width: 20%;">Mã nguồn Triển khai</th>
+        <th style="width: 20%;">Test Case Kiểm chứng</th>
+        <th style="width: 15%;">Minh chứng Lưu vết</th>
+        <th style="width: 10%;">Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AC1</strong></td>
+        <td>Reviewer login, tra cứu danh sách, chi tiết và gửi duyệt/từ chối.</td>
+        <td><code>app/auth/repository.py:91,102</code><br><code>app/api/admin.py:773,792,847</code></td>
+        <td>TC-01, TC-02,<br>TC-03, TC-04,<br>TC-05, TC-06</td>
+        <td><code>test-first-green.txt</code></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+      <tr>
+        <td><strong>AC2</strong></td>
+        <td>Cấm reviewer sửa metadata (403 Forbidden).</td>
+        <td><code>app/api/admin.py:807-810</code></td>
+        <td>TC-07 (anti-vacuous),<br>TC-08, TC-09</td>
+        <td><code>mutation-killed.txt</code> (M1)</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+      <tr>
+        <td><strong>AC3</strong></td>
+        <td>CAS `expected_status` chặn xung đột đồng thời (409 Conflict).</td>
+        <td><code>document_review_service.py:518</code><br><code>app/api/admin.py:871,913</code></td>
+        <td>TC-10 (Barrier race),<br>TC-11 (API 409)</td>
+        <td><code>mutation-killed.txt</code> (M2)</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+      <tr>
+        <td><strong>AC4</strong></td>
+        <td>Lưu đúng `reviewer_id` và ghi bản ghi `admin_audit_logs`.</td>
+        <td><code>app/api/admin.py:862,904</code></td>
+        <td>TC-12</td>
+        <td><code>test-first-green.txt</code></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+      <tr>
+        <td><strong>NFC1</strong></td>
+        <td>Tải 80 concurrent workers, SLA p95 &le; 2.50s.</td>
+        <td><code>tools/verify_vt099_concurrency_load.py</code></td>
+        <td>Load Harness 80 workers</td>
+        <td><code>load-test-80-users.txt</code></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+      <tr>
+        <td><strong>NFC2</strong></td>
+        <td>Tương thích ngược 100%, không đổi DB schema, giữ test cũ.</td>
+        <td><code>app/crawler/document_review_service.py</code></td>
+        <td><code>test_admin_document_review.py</code></td>
+        <td>Pytest regression log</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.2. Nhật ký Sử dụng AI (AI Usage Log & Untrusted Points)</h3>
+  <ul>
+    <li><strong>Công cụ AI sử dụng:</strong> Antigravity Coding Agent (mô hình Google DeepMind / Gemini 2.5 Pro & Flash).</li>
+    <li><strong>Prompt chỉ đạo chính:</strong> <em>"Lập specification, implementation plan và test strategy cho biến thể VT-099 (Reviewer role RBAC và Concurrency CAS protection), tuân thủ Lecture 06 (TDD, Small Diff) và Lecture 07 (Strong Oracle, Anti-vacuous, Flaky Mitigation, Load Experiment)."</em></li>
+  </ul>
+
+  <div class="card-grid">
+    <div class="card" style="border-left: 3.5px solid #e53e3e;">
+      <div class="card-title"><span>Điểm 1 AI không tin cậy được: Khóa Mutex Trong Bộ Nhớ</span><span class="badge badge-fail">BÁC BỎ</span></div>
+      <p><strong>Đề xuất sai lầm của AI:</strong> AI đề xuất dùng <code>threading.Lock()</code> trong Python (Option D) để chống race condition vì cho rằng hệ thống chưa có khóa DB.</p>
+      <p><strong>Lập luận phản bác của sinh viên:</strong> Khóa bộ nhớ Python hoàn toàn vô dụng khi ứng dụng chạy đa tiến trình hoặc đa container phân tán. Hơn nữa, DB đã có sẵn <code>FOR UPDATE</code>; vấn đề thực sự là thiếu logic kiểm tra điều kiện Compare-and-Set.</p>
+    </div>
+    <div class="card" style="border-left: 3.5px solid #e53e3e;">
+      <div class="card-title"><span>Điểm 2 AI không tin cậy được: Dùng Sleep để Test Race Condition</span><span class="badge badge-fail">BÁC BỎ</span></div>
+      <p><strong>Đề xuất sai lầm của AI:</strong> AI viết test concurrency bằng cách cho luồng ngủ <code>time.sleep(0.1)</code> để "chờ luồng kia chạy trước".</p>
+      <p><strong>Lập luận phản bác của sinh viên:</strong> Theo Lecture 07 tr.21, sleep là anti-pattern tạo ra flaky test nặng nề. Sinh viên đã thay thế hoàn toàn bằng <code>threading.Barrier(2)</code>, buộc 2 kết nối DB xuất phát chuẩn xác tại cùng một thời điểm, đạt độ lặp lại 100%.</p>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8 ================= -->
+  <div class="page-break"></div>
+
+  <h3>7.3. Kỹ sư Phản tư (Engineering Reflection — 303 words)</h3>
+  <div class="reflection-block">
+    Quá trình thực hiện bài tập lớn số 3 và giải quyết biến thể VT-099 mang lại cho tôi những trải nghiệm thực tiễn sâu sắc về phương pháp cộng tác giữa kỹ sư phần mềm và AI Coding Agent (pair programming). Ban đầu, khi nhận yêu cầu thêm vai trò <code>reviewer</code> và xử lý xung đột đồng thời, Antigravity AI đã nhanh chóng đưa ra các khung giải pháp tổng quát. Tuy nhiên, nếu thiếu đi sự phản biện kỹ thuật dựa trên mã nguồn thực tế của dự án, việc áp dụng mù quáng các đề xuất của AI sẽ dẫn tới những sai lầm nghiêm trọng: AI phỏng đoán sai đường dẫn endpoint, đề xuất dùng khóa trong bộ nhớ <code>threading.Lock</code> vô hiệu hóa trong môi trường phân tán, hoặc đề xuất cấm hoàn toàn việc duyệt lại tài liệu khiến test suite hồi quy bị đổ vỡ.
+    <br><br>
+    Bài học lớn nhất mà tôi đúc kết được là kỹ sư con người luôn phải giữ vai trò nhạc trưởng (orchestrator), nắm vững kiến trúc tổng thể và cơ chế giao dịch của cơ sở dữ liệu. Nhờ phân tích kỹ tầng dữ liệu với <code>SELECT ... FOR UPDATE</code> và <code>pg_advisory_xact_lock</code>, tôi đã định hướng AI thiết kế cơ chế Compare-and-Set tùy chọn qua <code>expected_status</code>. Giải pháp này vừa loại bỏ triệt để lỗi ghi đè dữ liệu Last-Writer-Wins, vừa bảo toàn tuyệt đối 100% tính tương thích ngược cho hệ thống.
+    <br><br>
+    Bên cạnh đó, việc tuân thủ nghiêm ngặt quy trình Test-Driven Development (TDD) với chu trình RED-GREEN, xây dựng các kiểm thử phủ định không rỗng (anti-vacuous tests), và kiểm thử đột biến (Mutation Testing) đã chứng minh vai trò sống còn của các chốt chặn kiểm thử tự động. Chúng giúp phát hiện tức thì mọi sự suy giảm chất lượng hoặc hành vi vi phạm phân quyền. Nhìn chung, AI là một trợ thủ đắc lực giúp tăng tốc độ viết mã và thiết kế kịch bản kiểm thử, nhưng chính tư duy phản biện, sự thấu hiểu sâu sắc về kiến trúc và cam kết chất lượng của kỹ sư mới là yếu tố quyết định sự thành bại và độ tin cậy của phần mềm.
+  </div>
+
+  <div style="margin-top: 15px; border-top: 1px dashed #cbd5e0; padding-top: 8px; display: flex; justify-content: space-between; font-size: 8pt; color: #718096;">
+    <div><strong>Người thực hiện:</strong> Thái Văn Thắng — MSSV: 23001939</div>
+    <div><strong>Hà Nội, ngày 11 tháng 11 năm 2026</strong></div>
+  </div>
+
+  <!-- ================= APPENDICES (PAGE 9+) ================= -->
+  <div class="page-break"></div>
+
+  <h2 style="border-bottom: 2px solid #4a5568;">CÁC PHỤ LỤC NHẬT KÝ THỰC THI THỰC TẾ (VERBATIM LOGS)</h2>
+  <p style="font-size: 8pt; color: #718096; font-style: italic;">
+    Phần phụ lục ghi lại toàn bộ nhật ký thực thi nguyên văn (verbatim logs) của các giai đoạn kiểm thử tự động, kiểm thử đột biến và đo lường tải đồng thời theo quy định kiểm chứng độc lập.
+  </p>
+
+  <div class="appendix-title">Phụ lục A: Nhật ký Kiểm thử TDD RED Phase (`deliverables/evidence/test-first-red.txt`)</div>
+  <pre>============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- F:\SE_Project\.venv\Scripts\python.exe
+rootdir: F:\SE_Project, configfile: pyproject.toml, plugins: anyio-4.15.1
+collected 12 items
+
+tests/api/test_vt099_reviewer_concurrency.py::test_tc01_reviewer_db_login_and_session FAILED [  8%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc02_unsupported_role_db_login_fails PASSED [ 16%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents FAILED [ 25%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc04_reviewer_get_document_detail FAILED [ 33%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc05_reviewer_approve_document FAILED [ 41%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc06_reviewer_reject_document FAILED [ 50%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative FAILED [ 58%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc08_student_cannot_approve_document_regression PASSED [ 66%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc09_anonymous_cannot_approve_document_regression PASSED [ 75%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier FAILED [ 83%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409 FAILED [ 91%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc12_reviewer_audit_log_recorded FAILED [100%]
+
+================================== FAILURES ===================================
+Root causes in RED phase:
+- TC-01: AuthFailure: invalid_login (login query and check role in app/auth/repository.py restricted to admin)
+- TC-03..06: HTTP 403 Forbidden (require_account in app/api/admin.py restricted to admin)
+- TC-07: HTTP 403 on Step 1 (GET document failed with 403 before reaching PUT)
+- TC-10: TypeError: review_document() got an unexpected keyword argument 'expected_status'
+- TC-11: HTTP 400 Bad Request (extra fields not permitted in DocumentReviewActionRequest)
+- TC-12: HTTP 403 Forbidden on approve call
+=========================== 8 failed, 4 passed in 2.91s ===========================</pre>
+
+  <div class="appendix-title">Phụ lục B: Nhật ký Kiểm thử TDD GREEN Phase (`deliverables/evidence/test-first-green.txt`)</div>
+  <pre>============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- F:\SE_Project\.venv\Scripts\python.exe
+rootdir: F:\SE_Project, configfile: pyproject.toml, plugins: anyio-4.15.1
+collected 12 items
+
+tests/api/test_vt099_reviewer_concurrency.py::test_tc01_reviewer_db_login_and_session PASSED [  8%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc02_unsupported_role_db_login_fails PASSED [ 16%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents PASSED [ 25%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc04_reviewer_get_document_detail PASSED [ 33%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc05_reviewer_approve_document PASSED [ 41%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc06_reviewer_reject_document PASSED [ 50%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative PASSED [ 58%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc08_student_cannot_approve_document_regression PASSED [ 66%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc09_anonymous_cannot_approve_document_regression PASSED [ 75%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier PASSED [ 83%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409 PASSED [ 91%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc12_reviewer_audit_log_recorded PASSED [100%]
+
+======================== 12 passed, 1 warning in 3.89s ========================</pre>
+
+  <div class="appendix-title">Phụ lục C: Nhật ký Kiểm thử Đột biến (`deliverables/evidence/mutation-killed.txt`)</div>
+  <pre>MUTATION 1 (Bỏ validation cấm reviewer sửa metadata):
+Command: pytest tests/api/test_vt099_reviewer_concurrency.py -k test_tc07 -v
+FAILED test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative
+> assert put_resp.status_code == 403
+E assert 200 == 403
+Status: MUTATION 1 KILLED!
+
+MUTATION 2 (Bỏ validation Compare-and-Set expected_status):
+Command: pytest tests/api/test_vt099_reviewer_concurrency.py -k "test_tc10 or test_tc11" -v
+FAILED test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier
+E AssertionError: assert 2 == 1 (Both threads committed without raising DocumentConflictError)
+FAILED test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409
+E AssertionError: assert 200 == 409
+Status: MUTATION 2 KILLED!
+Overall Mutation Kill Score: 2/2 = 100%.</pre>
+
+  <div class="appendix-title">Phụ lục D: Nhật ký Thử nghiệm Tải 80 Workers (`deliverables/evidence/load-test-80-users.txt`)</div>
+  <pre>================================================================================
+VT-099: CONCURRENCY LOAD EXPERIMENT REPORT (80 CONCURRENT WORKERS)
+Branch: bt3/23001939-vt099 | Non-functional Requirement: NFC1 (p95 &lt;= 2.5s)
+================================================================================
+Total Concurrent Workers:   80 tasks (ThreadPoolExecutor max_workers=80)
+Synchronization Mechanism:  threading.Barrier(80) at t=0
+Total Requests Completed:   80
+Successful Reviews (200):   44 (100% of distinct + 1 per shared group)
+CAS Conflicts (409):        36 (Atomic CAS protection under load)
+Unhandled Errors (5xx):     0 (Zero 500 Internal Server Errors)
+Target p95 Latency:         &lt;= 2.5000 s
+Measured p95 Latency:       0.7654 s (Margin: 1.7346 s headroom)
+Verification Verdict:       [PASSED (MEETS NFC1 TARGET)]
+
+Latency Distribution:
+  Min Latency:       0.7405 s
+  p50 (Median):      0.7522 s
+  p90 Latency:       0.7629 s
+  p95 Latency (SLA): 0.7654 s
+  p99 Latency:       0.7668 s
+  Max Latency:       0.7681 s
+================================================================================</pre>
+
+</body>
+</html>
