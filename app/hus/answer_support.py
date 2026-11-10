@@ -21,7 +21,7 @@ REQUEST_WORDS = frozenset(_tokens(
     "kết hợp ba xây dựng dùng nhằm làm kiến thức chủ đề nội dung gồm các phần "
     "gợi ý đề xuất tham khảo mức do AI sinh đồng ý cho phép bật quyền nhớ rõ nguồn gốc "
     "cũng và hay hoặc chưa chính đủ riêng với còn của về tại đến một hai ba "
-    "mà như sẽ ghi nhé sao xong nhắc tục chuyên "
+    "mà như sẽ ghi nhé sao xong nhắc tục chuyên khung kỳ tiết "
     + " ".join(FIELD_LABELS.values()))) | STOP_WORDS
 
 
