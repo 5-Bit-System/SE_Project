@@ -1,7 +1,7 @@
 ================================================================================
 VT-099: CONCURRENCY LOAD EXPERIMENT REPORT (80 CONCURRENT WORKERS)
 Branch: bt3/23001939-vt099 | Non-functional Requirement: NFC1 (p95 <= 2.5s)
-Timestamp: 2026-11-10 16:57:11 UTC
+Timestamp: 2026-11-10 17:06:20 UTC
 ================================================================================
 
 1. EXECUTIVE SUMMARY & SLA VERIFICATION
@@ -9,38 +9,38 @@ Timestamp: 2026-11-10 16:57:11 UTC
   * Total Concurrent Workers:   80 tasks (ThreadPoolExecutor max_workers=80)
   * Synchronization Mechanism:  threading.Barrier(80) at t=0
   * Total Requests Completed:   80
-  * Total Wall-Clock Duration:  0.7609 s
+  * Total Wall-Clock Duration:  0.7875 s
   * Successful Reviews (200):   44 (100% of distinct + 1 per shared group)
   * CAS Conflicts (409):        36 (Atomic CAS protection under load)
   * Unhandled Errors (5xx/other):0 (Zero 500 Internal Server Errors)
   * Target p95 Latency:         <= 2.5000 s
-  * Measured p95 Latency:       0.7368 s
-  * Verification Verdict:       [PASSED (MEETS NFC1 TARGET)] (Margin: 1.7632 s headroom)
+  * Measured p95 Latency:       0.7654 s
+  * Verification Verdict:       [PASSED (MEETS NFC1 TARGET)] (Margin: 1.7346 s headroom)
 
 2. DETAILED LATENCY DISTRIBUTION (SECONDS)
 --------------------------------------------------------------------------------
   Metric               | All Requests (80)  | Distinct Docs (40) | Shared Docs (40)  
   ---------------------+--------------------+--------------------+-------------------
-  Min Latency          | 0.7138             | 0.7154             | 0.7138            
-  p50 (Median)         | 0.7241             | 0.7294             | 0.7207            
-  p90 Latency          | 0.7328             | 0.7368             | 0.7286            
-  p95 Latency (SLA)    | 0.7368             | 0.7380             | 0.7293            
-  p99 Latency          | 0.7391             | 0.7395             | 0.7321            
-  Max Latency          | 0.7399             | 0.7399             | 0.7333            
+  Min Latency          | 0.7405             | 0.7462             | 0.7405            
+  p50 (Median)         | 0.7522             | 0.7572             | 0.7491            
+  p90 Latency          | 0.7629             | 0.7654             | 0.7538            
+  p95 Latency (SLA)    | 0.7654             | 0.7657             | 0.7555            
+  p99 Latency          | 0.7668             | 0.7675             | 0.7591            
+  Max Latency          | 0.7681             | 0.7681             | 0.7612            
 
 3. SUBSET BREAKDOWN & WORKLOAD BEHAVIOR
 --------------------------------------------------------------------------------
   [Subset A: 40 Distinct Documents]
   - Purpose: Measure queueing delay and lock acquisition under pg_advisory_xact_lock.
   - Completed: 40/40 | Success (200): 40 | Conflicts (409): 0 | Errors: 0
-  - Latency Range: min=0.7154s, p50=0.7294s, p95=0.7380s, max=0.7399s
+  - Latency Range: min=0.7462s, p50=0.7572s, p95=0.7657s, max=0.7681s
   - Analysis: Since all 40 documents are distinct, zero CAS conflicts occurred.
     Every request succeeded with 200 OK after waiting its turn in the connection pool and advisory lock.
 
   [Subset B: 40 Competing Shared Documents (4 groups x 10 workers)]
   - Purpose: Stress-test atomic compare-and-set (expected_status='pending') under high contention.
   - Completed: 40/40 | Success (200): 4 | Conflicts (409): 36 | Errors: 0
-  - Latency Range: min=0.7138s, p50=0.7207s, p95=0.7293s, max=0.7333s
+  - Latency Range: min=0.7405s, p50=0.7491s, p95=0.7555s, max=0.7612s
   - Analysis: Exactly 4 requests committed successfully (1 winner per shared document),
     and exactly 36 competing requests received HTTP 409 Conflict with DocumentConflictError.
     Zero race conditions, zero phantom writes, zero dirty overwrites.
@@ -59,7 +59,7 @@ Timestamp: 2026-11-10 16:57:11 UTC
     When all 80 worker threads burst at t=0, the first 15 threads immediately checkout connections
     from QueuePool. The remaining 65 threads are held in the pool's FIFO queue (QueuePool._queue).
     Because individual review transactions execute in 10-25ms, connections are recycled rapidly.
-    The total pool queue was fully drained in 0.761s, well within the 30s timeout threshold,
+    The total pool queue was fully drained in 0.787s, well within the 30s timeout threshold,
     resulting in zero QueuePool TimeoutErrors.
 
 4.2. Effect of Serialized Advisory Lock (pg_advisory_xact_lock):
@@ -74,11 +74,11 @@ Timestamp: 2026-11-10 16:57:11 UTC
     Each transaction holds the advisory lock until COMMIT or ROLLBACK. At ~15ms per transaction,
     80 serialized transactions have a theoretical cumulative serialized execution floor of ~1.2s.
     Under our measured workload:
-    * Minimum latency (first worker to acquire lock): 0.7138 s.
-    * Median p50 latency (queued behind ~40 transactions): 0.7241 s.
-    * 95th percentile latency (queued behind ~76 transactions): 0.7368 s.
-    * Maximum latency (last transaction to complete): 0.7399 s.
-    The advisory lock is the primary contributor to latency queueing, yet p95 (0.7368s) safely satisfies NFC1 (<= 2.5s).
+    * Minimum latency (first worker to acquire lock): 0.7405 s.
+    * Median p50 latency (queued behind ~40 transactions): 0.7522 s.
+    * 95th percentile latency (queued behind ~76 transactions): 0.7654 s.
+    * Maximum latency (last transaction to complete): 0.7681 s.
+    The advisory lock is the primary contributor to latency queueing, yet p95 (0.7654s) safely satisfies NFC1 (<= 2.5s).
 
 4.3. Hardware Environment & Distributed Production Reality:
   - Benchmark Environment: Local Windows 11 host (AMD Ryzen / Intel Core CPU, NVMe SSD, loopback TCP 127.0.0.1:5433).
