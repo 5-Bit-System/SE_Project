@@ -40,10 +40,10 @@ MAJOR_NAMES = {
     "data_science": ("khoa hoc du lieu", "khdl", "data science"),
 }
 class HUSAnswerer:
-    def __init__(self, data: HUSRAGData, *, asset_root=None):
+    def __init__(self, data: HUSRAGData, *, asset_root=None, retriever=None):
         self.data = data
         self.citation_resolver = CitationResolver(data, **({"asset_root": asset_root} if asset_root is not None else {}))
-        self.retriever = HUSRAGRetriever(data)
+        self.retriever = HUSRAGRetriever(data) if retriever is None else retriever
         self.programs = data.program_scopes()
 
     def answer(self, request: HUSQuestion) -> HUSAnswer:

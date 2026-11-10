@@ -9,5 +9,15 @@ from app.hus.retrieval_config import HUSRetrievalSettings
 
 @lru_cache(maxsize=1)
 def get_hus_answerer() -> HUSAnswerer:
-    HUSRetrievalSettings.from_env().require_available()
-    return HUSAnswerer(HUSRAGData.load_current())
+    settings = HUSRetrievalSettings.from_env()
+    settings.require_available()
+    data = HUSRAGData.load_current()  # Canonical errors must never become vector fallback.
+    if settings.mode == 'lexical':
+        return HUSAnswerer(data)
+    from app.hus.vector_query import HUSVectorRetriever
+
+    def runtime_factory():
+        from app.hus.vector_runtime import LocalVectorRuntime
+        return LocalVectorRuntime(settings, data)
+
+    return HUSAnswerer(data, retriever=HUSVectorRetriever(data, runtime_factory=runtime_factory))
