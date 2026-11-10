@@ -1,0 +1,21 @@
+{
+  "actual_human_reviews": 0,
+  "files_sha256": {
+    "README.md": "718664fa946258b679ee2c6eefe74b67a20212d06b48637b6fc733230471bb71",
+    "evidence.jsonl": "76376ef997f0a782bebf15d571bfe9ea198ddba998d1976426a540d691adf562",
+    "gold.jsonl": "53c45cd585811b75e337450dc6d1b51bf2c21c16df0df4ccc08df5272068fe3b",
+    "questions.jsonl": "cd7cfb8e022deffa3822538ffa95c8240943328c0b7e8d8592fa5978590ce0a4"
+  },
+  "holdout_eligible": false,
+  "inference_before_freeze": false,
+  "legacy_scorer_applicable": false,
+  "question_count": 36,
+  "schema_version": "hus-hybrid-dev-5.0",
+  "source_release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "split": "ai_prepared_exposed_development"
+}
