@@ -17,6 +17,7 @@ Test Matrix:
 """
 
 import threading
+
 import pytest
 from sqlalchemy import text
 
@@ -46,7 +47,7 @@ TEST_PASSWORD = "StrongReviewerPassword2026!"
 
 
 def ensure_account(eng, account_id: str, email: str, password: str, role: str = "reviewer"):
-    uname = f"usr_{account_id.replace('-', '')[:20]}"
+    uname = f"rev_{account_id.replace('-', '')}"
     with eng.begin() as conn:
         conn.execute(
             text("""
@@ -59,8 +60,8 @@ def ensure_account(eng, account_id: str, email: str, password: str, role: str = 
                     :id, :username, :email, :email, :name,
                     :pw_hash, :role, now(), true, false
                 )
-                ON CONFLICT (username) DO UPDATE SET
-                    id = EXCLUDED.id,
+                ON CONFLICT (id) DO UPDATE SET
+                    username = EXCLUDED.username,
                     role = EXCLUDED.role,
                     email = EXCLUDED.email,
                     email_normalized = EXCLUDED.email_normalized,
@@ -139,7 +140,7 @@ def cleanup_data():
             conn.execute(
                 text(
                     "DELETE FROM accounts "
-                    "WHERE id IN (:id1, :id2, :id3) OR username LIKE 'usr_55555555%'"
+                    "WHERE id IN (:id1, :id2, :id3) OR username LIKE 'rev_55555555%' OR username LIKE 'usr_55555555%'"
                 ),
                 {"id1": REVIEWER_1_ID, "id2": REVIEWER_2_ID, "id3": GUEST_ID},
             )
@@ -165,6 +166,7 @@ def sample_pending_doc():
 @pytest.fixture
 def reviewer_client(fake_accounts):
     from fastapi.testclient import TestClient
+
     from app.main import app
 
     eng = admin_test_engine()
@@ -183,6 +185,7 @@ def reviewer_client(fake_accounts):
 @pytest.fixture
 def student_client(fake_accounts):
     from fastapi.testclient import TestClient
+
     from app.main import app
 
     with TestClient(app, base_url="http://127.0.0.1:8000") as client:
@@ -197,6 +200,7 @@ def student_client(fake_accounts):
 @pytest.fixture
 def anonymous_client():
     from fastapi.testclient import TestClient
+
     from app.main import app
 
     with TestClient(app, base_url="http://127.0.0.1:8000") as client:
@@ -472,6 +476,6 @@ def test_tc12_reviewer_audit_log_recorded(reviewer_client, sample_pending_doc):
         ).mappings().one_or_none()
 
         assert log is not None
-        assert log["actor_id"] == REVIEWER_1_ID
+        assert str(log["actor_id"]) == REVIEWER_1_ID
         assert log["action"] == "document.approve"
         assert log["target_id"] == doc_id

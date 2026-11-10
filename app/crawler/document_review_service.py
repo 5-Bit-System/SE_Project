@@ -22,6 +22,10 @@ DEFAULT_REVIEWS_FILE = Path("data/hus/document_reviews.json")
 _EXPORT_LOCK = threading.Lock()
 
 
+class DocumentConflictError(ValueError):
+    """Raised when review_document encounters an expected status mismatch (compare-and-set)."""
+
+
 def document_review_fingerprint(document: dict[str, Any]) -> str:
     """Bind a repository decision to one source version and its reviewed metadata.
 
@@ -495,6 +499,7 @@ def review_document(
     decision: str,
     reason: str,
     reviewer_id: str | None = None,
+    expected_status: str | None = None,
 ) -> dict[str, Any]:
     """Approve or reject a document with required reason and reviewer audit."""
     if decision not in ("approved", "rejected"):
@@ -509,6 +514,12 @@ def review_document(
         raise ValueError(f"Tài liệu '{doc_id}' không tồn tại.")
     if doc.get('is_published'):
         raise ValueError('Published source versions are immutable; create a draft replacement')
+
+    if expected_status is not None and doc.get("review_status") != expected_status:
+        raise DocumentConflictError(
+            f"Trạng thái tài liệu '{doc_id}' hiện tại là '{doc.get('review_status')}', "
+            f"không khớp với trạng thái kỳ vọng '{expected_status}'."
+        )
 
     if decision == "approved":
         is_meaningful, error_msg = is_meaningful_content(doc.get("markdown_content") or "")

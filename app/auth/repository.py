@@ -10,14 +10,14 @@ from app.integrations.daotao.store import engine
 
 PRINCIPAL = """
     SELECT a.id::text AS account_id,a.email,a.display_name,a.role,
-           CASE WHEN a.role='admin' THEN a.must_change_password ELSE false END AS must_change_password,
+           CASE WHEN a.role IN ('admin', 'reviewer') THEN a.must_change_password ELSE false END AS must_change_password,
            a.vnu_subject,s.auth_method,a.auth_version,s.id::text AS session_id,
            EXTRACT(EPOCH FROM LEAST(s.idle_expires_at,s.absolute_expires_at)-now())::integer AS expires_in
     FROM auth_sessions s JOIN accounts a ON a.id=s.account_id
     WHERE s.id=:session_id AND s.revoked_at IS NULL AND s.idle_expires_at>now()
       AND s.absolute_expires_at>now() AND s.auth_version=a.auth_version
       AND a.is_active AND (
-        (a.role='admin' AND s.auth_method='local' AND a.email_verified_at IS NOT NULL)
+        (a.role IN ('admin', 'reviewer') AND s.auth_method='local' AND a.email_verified_at IS NOT NULL)
         OR (a.role='student' AND s.auth_method='vnu' AND a.vnu_subject IS NOT NULL))
 """
 
@@ -88,7 +88,7 @@ def _create_session(conn, account, family_id=None, *, method='local'):
 
 def login(normalized, password):
     with engine().connect() as conn:
-        rows = conn.execute(text("SELECT * FROM accounts WHERE role='admin' AND "
+        rows = conn.execute(text("SELECT * FROM accounts WHERE role IN ('admin', 'reviewer') AND "
                                  '(email_normalized=:email OR lower(username)=:email)'),
                             {'email': normalized}).mappings().all()
         row = rows[0] if len(rows) == 1 else None
@@ -99,7 +99,7 @@ def login(normalized, password):
                                {'id': row['id']}).mappings().one()
         if account['password_hash'] != row['password_hash']:
             raise AuthFailure('invalid_login', 401)
-        if account['role'] != 'admin':
+        if account['role'] not in ('admin', 'reviewer'):
             raise AuthFailure('invalid_login', 401)
         if not account['is_active']:
             raise AuthFailure('account_disabled', 403)

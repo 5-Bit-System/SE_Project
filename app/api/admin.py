@@ -23,6 +23,7 @@ from app.audit.service import (
 from app.auth.dependencies import require_account
 from app.catalog import CatalogError, list_catalogs, load_catalog
 from app.crawler.document_review_service import (
+    DocumentConflictError,
     export_git_reviews_from_db,
     get_document,
     list_documents,
@@ -160,6 +161,7 @@ class DocumentMetadataUpdateRequest(BaseModel):
 
 class DocumentReviewActionRequest(BaseModel):
     reason: str = Field(min_length=3)
+    expected_status: str | None = None
 
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -771,7 +773,7 @@ async def list_crawled_documents(
     offset: int = 0,
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") != "admin":
+    if principal.get("role") not in ("admin", "reviewer"):
         raise HTTPException(403, "forbidden")
 
     with engine().connect() as conn:
@@ -790,7 +792,7 @@ async def list_crawled_documents(
 @router.get("/crawler/documents/{doc_id}")
 async def get_crawled_document_detail(request: Request, doc_id: str) -> dict:
     principal = await require_account(request)
-    if principal.get("role") != "admin":
+    if principal.get("role") not in ("admin", "reviewer"):
         raise HTTPException(403, "forbidden")
 
     with engine().connect() as conn:
@@ -845,7 +847,7 @@ async def approve_crawled_document(
     request: Request, doc_id: str, body: DocumentReviewActionRequest
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") != "admin":
+    if principal.get("role") not in ("admin", "reviewer"):
         raise HTTPException(403, "forbidden")
 
     try:
@@ -856,6 +858,7 @@ async def approve_crawled_document(
                 decision="approved",
                 reason=body.reason,
                 reviewer_id=principal.get("account_id"),
+                expected_status=body.expected_status,
             )
             log_admin_action(
                 conn,
@@ -867,6 +870,8 @@ async def approve_crawled_document(
                 summary=f"Approved document {doc_id} with reason: {body.reason}",
                 details={"reason": body.reason},
             )
+    except DocumentConflictError as exc:
+        raise HTTPException(409, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
 
@@ -884,7 +889,7 @@ async def reject_crawled_document(
     request: Request, doc_id: str, body: DocumentReviewActionRequest
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") != "admin":
+    if principal.get("role") not in ("admin", "reviewer"):
         raise HTTPException(403, "forbidden")
 
     try:
@@ -895,6 +900,7 @@ async def reject_crawled_document(
                 decision="rejected",
                 reason=body.reason,
                 reviewer_id=principal.get("account_id"),
+                expected_status=body.expected_status,
             )
             log_admin_action(
                 conn,
@@ -906,6 +912,8 @@ async def reject_crawled_document(
                 summary=f"Rejected document {doc_id} with reason: {body.reason}",
                 details={"reason": body.reason},
             )
+    except DocumentConflictError as exc:
+        raise HTTPException(409, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(400, detail=str(exc)) from exc
 
