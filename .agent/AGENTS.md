@@ -21,7 +21,10 @@ Completed integration of the HUS RAG lookup system into the "Sổ học tập" a
    - Backend storage (`app/hus/chat_history_repository.py`): stores per-account, per-major history in `data/hus_chat_history/{account_id}.json` (ignored in `.gitignore`), with strict regex validation (`^[a-zA-Z0-9_\-]+$`) against path traversal, atomic `tempfile` + `os.replace` writes, `threading.Lock`, and 100-message cap per major.
    - REST endpoints in `app/hus/router.py` & schemas in `app/schemas/hus.py`: `GET /hus/chat/history`, `POST /hus/chat/history`, `DELETE /hus/chat/history` bound to authenticated session (`optional_account`).
    - Frontend (`app/static/hus-lookup.js`): zero-latency F5 restoration via `localStorage` (`hus_chat_history_${accountId}_${majorId}`) + async server sync, account switching isolation (`workspace:account-change`), and `+ Đoạn chat mới` (`#lookup-new-chat`) reset button.
-5. **Verification & Regression Suites:**
+5. **AI Knowledge Auto-Enable & Checkbox UI Streamline:**
+   - Auto-enabled `allow_generated_reference: true` across all chat submissions, scope resets, and catalog selections.
+   - Hidden the visible checkbox and label from the composer footer (`#lookup-generated` kept as hidden active input), allowing unrestricted lookup while maintaining a clean, minimalist UI.
+6. **Verification & Regression Suites:**
    - `tests/hus/test_chat_history.py`: 22/22 unit & API tests passing.
    - `tests/frontend/test_lookup_persistence.py`: 2/2 Playwright browser tests passing (F5 reload retention + account A/B isolation).
    - `tests/frontend/check_workspace.py`, `tests/frontend/check_presentation.py`, `node tests/frontend/chat.test.cjs` (11/11), and `ruff check` all passing with 0 errors.
