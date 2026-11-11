@@ -9,7 +9,7 @@ from playwright.sync_api import sync_playwright
 
 from tests.frontend.presentation_fixture import common_route
 
-NAVIGATION = ["tab-btn-dashboard", "tab-btn-profile", "tab-btn-rules", "tab-btn-recommend"]
+NAVIGATION = ["tab-btn-dashboard", "tab-btn-profile", "tab-btn-rules", "tab-btn-recommend", "tab-btn-lookup"]
 VIETNAMESE = "Đường đến học phần tiếp theo: điều kiện, tín chỉ và kết quả đã ghi nhận."
 
 
@@ -143,7 +143,7 @@ def main():
         page.wait_for_function("document.querySelectorAll('#analytics-trend .chart-point').length === 2")
         assert page.locator(".nav-tabs .tab-btn").evaluate_all("nodes => nodes.map(n=>n.id)") == NAVIGATION
         assert page.locator(".workspace-body > .tab-panel").evaluate_all(
-            "nodes => nodes.map(n=>n.id)") == ["tab-dashboard", "portal-dialog", "tab-rules", "tab-recommend"]
+            "nodes => nodes.map(n=>n.id)") == ["tab-dashboard", "portal-dialog", "tab-rules", "tab-recommend", "tab-lookup"]
         for weight in (400, 500, 600, 700, 800):
             assert page.evaluate("""async ({weight, text}) => {
               await document.fonts.load(`${weight} 16px "Be Vietnam Pro"`, text);
@@ -157,7 +157,7 @@ def main():
                 expected_orientation = "horizontal" if width <= 800 else "vertical"
                 page.wait_for_function("expected => document.querySelector('.nav-tabs').getAttribute('aria-orientation') === expected",
                                        arg=expected_orientation)
-                for name, navigation in zip(("dashboard", "profile", "courses", "recommend"), NAVIGATION):
+                for name, navigation in zip(("dashboard", "profile", "courses", "recommend", "lookup"), NAVIGATION):
                     page.locator(f"#{navigation}").click()
                     if name == "courses":
                         page.wait_for_selector('[data-course-code="TEST004"]')
