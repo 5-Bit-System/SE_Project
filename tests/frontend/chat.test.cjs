@@ -6,6 +6,7 @@ const {
   escapeHtml,
   formatInlineMarkdown,
   renderSafeMarkdown,
+  groupCitations,
 } = require('../../app/static/hus-rag-demo.js');
 const origin = 'http://127.0.0.1:8000';
 const sha = 'a'.repeat(64);
@@ -124,4 +125,33 @@ test('renderSafeMarkdown parses course cards, headings, lists, and paragraphs', 
   assert.equal(contentList.className, 'rag-content-list');
   assert.equal(contentList.children.length, 2);
   assert.ok(contentList.children[1].innerHTML.includes('title="Trích dẫn nguồn [2]"'));
+});
+
+test('groupCitations deduplicates citations with same URL and groups citation IDs', () => {
+  const origin = 'http://127.0.0.1:8000';
+  const c1 = {evidence_kind:'web', source_url:'https://example.test/source1', open_url:'https://example.test/source1', citation_id:'3'};
+  const c2 = {evidence_kind:'web', source_url:'https://example.test/source1', open_url:'https://example.test/source1', citation_id:'4'};
+  const c3 = {evidence_kind:'web', source_url:'https://example.test/source1', open_url:'https://example.test/source1', citation_id:'5'};
+  const c4 = {evidence_kind:'web', source_url:'https://example.test/source2', open_url:'https://example.test/source2', citation_id:'6'};
+
+  const grouped = groupCitations([c1, c2, c3, c4], origin);
+  assert.equal(grouped.length, 2);
+  assert.equal(grouped[0].citation_id, '3, 4, 5');
+  assert.deepEqual(grouped[0].citation_ids, ['3', '4', '5']);
+  assert.equal(grouped[1].citation_id, '6');
+});
+
+test('groupCitations keeps PDF citations on different pages separate while merging same page', () => {
+  const origin = 'http://127.0.0.1:8000';
+  const sha = 'a'.repeat(64);
+  const pdf1 = {evidence_kind:'pdf', availability:'available', document_sha256:sha, pdf_page:10, open_url:`/hus/sources/${sha}?page=10#page=10`, citation_id:'1'};
+  const pdf2 = {evidence_kind:'pdf', availability:'available', document_sha256:sha, pdf_page:12, open_url:`/hus/sources/${sha}?page=12#page=12`, citation_id:'2'};
+  const pdf3 = {evidence_kind:'pdf', availability:'available', document_sha256:sha, pdf_page:10, open_url:`/hus/sources/${sha}?page=10#page=10`, citation_id:'3'};
+
+  const grouped = groupCitations([pdf1, pdf2, pdf3], origin);
+  assert.equal(grouped.length, 2);
+  assert.equal(grouped[0].citation_id, '1, 3');
+  assert.equal(grouped[0].pdf_page, 10);
+  assert.equal(grouped[1].citation_id, '2');
+  assert.equal(grouped[1].pdf_page, 12);
 });

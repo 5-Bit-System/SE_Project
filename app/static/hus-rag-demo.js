@@ -156,6 +156,7 @@
       escapeHtml,
       formatInlineMarkdown,
       renderSafeMarkdown,
+      groupCitations,
     };
   }
   if (typeof document === 'undefined') return;
@@ -310,6 +311,33 @@
     }
   }
 
+  function groupCitations(citations, origin) {
+    if (!Array.isArray(citations) || !citations.length) return [];
+    const groups = new Map();
+    for (const citation of citations) {
+      if (!citation || typeof citation !== 'object') continue;
+      const url = citationURL(citation, origin);
+      const key = url
+        ? `url:${url}`
+        : `meta:${citation.evidence_kind || ''}:${citation.source_id || ''}:${citationLabel(citation)}:${citation.pdf_page || ''}`;
+
+      const existing = groups.get(key);
+      if (existing) {
+        if (citation.citation_id && !existing.ids.includes(String(citation.citation_id))) {
+          existing.ids.push(String(citation.citation_id));
+        }
+      } else {
+        const ids = citation.citation_id ? [String(citation.citation_id)] : [];
+        groups.set(key, { citation, ids });
+      }
+    }
+    return Array.from(groups.values()).map(g => ({
+      ...g.citation,
+      citation_ids: g.ids,
+      citation_id: g.ids.join(', '),
+    }));
+  }
+
   function appendCitation(container, citation) {
     if (!citation || typeof citation !== 'object') return;
     const ai = isAI(citation);
@@ -317,10 +345,11 @@
     card.className = 'rag-citation' + (ai ? ' rag-citation-ai' : '');
     const heading = document.createElement('p');
     heading.className = 'rag-citation-title';
-    if (citation.citation_id) {
+    const numText = citation.citation_id || (Array.isArray(citation.citation_ids) ? citation.citation_ids.join(', ') : '');
+    if (numText) {
       const num = document.createElement('span');
       num.className = 'rag-citation-num';
-      num.textContent = `[${citation.citation_id}]`;
+      num.textContent = `[${numText}]`;
       heading.appendChild(num);
     }
     const kind = document.createElement('span');
@@ -382,7 +411,9 @@
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
       sources.setAttribute('aria-label', 'Dẫn chứng');
-      for (const citation of citations) appendCitation(sources, citation);
+      const origin = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+      const uniqueCitations = groupCitations(citations, origin);
+      for (const citation of uniqueCitations) appendCitation(sources, citation);
       body.appendChild(sources);
     }
     article.append(avatar, body);
