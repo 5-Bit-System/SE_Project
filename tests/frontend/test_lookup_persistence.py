@@ -3,10 +3,18 @@
 import json
 from urllib.parse import parse_qs, urlsplit
 
+from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import expect, sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
 from tests.frontend.presentation_fixture import common_route
+
+
+def _launch_browser(p):
+    try:
+        return p.chromium.launch(headless=True)
+    except PlaywrightError:
+        return p.chromium.launch(channel="chrome", headless=True)
 
 
 def test_lookup_history_persists_across_f5_reload():
@@ -57,7 +65,7 @@ def test_lookup_history_persists_across_f5_reload():
             assert common_route(route), url
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+        browser = _launch_browser(p)
         page = browser.new_page(viewport={"width": 1440, "height": 900})
         page.route("**/*", intercept)
 
@@ -161,7 +169,7 @@ def test_lookup_history_isolated_between_accounts():
             assert common_route(route), url
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+        browser = _launch_browser(p)
         page = browser.new_page(viewport={"width": 1440, "height": 900})
         page.route("**/*", intercept)
 

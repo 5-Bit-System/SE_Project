@@ -14,7 +14,7 @@ from app.hus.question_routing import (
     has as _has, assessment_fact_request as assessment_fact_request,
     is_hus_question as is_hus_question, question_intent as _rule_question_intent,
     out_of_scope, requested_text, requested_course_fields, unsupported_request, verified_requested as _verified_requested,
-    COURSE_FIELD_TERMS, PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
+    COURSE_FIELD_TERMS, COURSE_OVERVIEW_TERMS, PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
 )
 from app.hus.answer_support import supported_hits
 from app.hus.semantic_routing import rank_top_k_chunks, semantic_question_intent
@@ -50,6 +50,19 @@ def question_intent(question: str) -> tuple[str | None, str | None]:
         )
     ):
         return "f3", "objectives"
+    if (
+        (
+            dataset is None
+            or (
+                dataset == "f1"
+                and field == "introduction"
+                and not _has(req_text, "nganh", "chuong trinh", "ctdt", "khoa")
+            )
+        )
+        and (has_alias or has_code)
+        and _has(req_text, *COURSE_OVERVIEW_TERMS)
+    ):
+        return "f3", "content"
     if (
         not has_alias
         and not has_code
@@ -157,7 +170,7 @@ class HUSAnswerer:
                     or (
                         dataset == "f1"
                         and field == "introduction"
-                        and not _has(req_text, "gioi thieu", "tong quan", "nen tang", "lich su hinh thanh")
+                        and not _has(req_text, "nganh", "chuong trinh", "ctdt", "khoa", "nen tang", "lich su hinh thanh")
                     )
                 )
                 and (code or alias_matches)
@@ -170,6 +183,8 @@ class HUSAnswerer:
                 )
                 if sem_ds is not None:
                     dataset, field = sem_ds, sem_field
+                elif _has(req_text, *COURSE_OVERVIEW_TERMS):
+                    dataset, field = "f3", "content"
         program_fields = requested_program_fields(request.question)
         if dataset == "f2" and program_fields and request.field and field not in program_fields:
             return self._missing(request, "f2", "Loại dữ kiện đã chọn không khớp câu hỏi cấp chương trình/nhóm.", clarify=True)

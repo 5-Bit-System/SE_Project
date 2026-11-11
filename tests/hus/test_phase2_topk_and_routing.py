@@ -261,3 +261,29 @@ def test_cli_inspect_hus_topk_single_json_and_suite(capsys):
     assert "MAT3507" in out_suite
     assert "MAT1206E" in out_suite
     assert "TOP-2 CHUNKS" in out_suite
+
+
+@pytest.mark.parametrize(
+    "question,expected_code",
+    [
+        ("tôi cần biết về học phần giải tích 3", "MAT2503"),
+        ("học phần giải tích 3 như thế nào", "MAT2503"),
+        ("giải tích 3 có nội dung gì", "MAT2503"),
+        ("tôi cần biết về giải tích 3", "MAT2503"),
+        ("giải tích 3 như thế nào", "MAT2503"),
+        ("cho mình hỏi thông tin về môn giải tích 3", "MAT2503"),
+        ("môn giải tích 3 ra sao", "MAT2503"),
+    ],
+)
+def test_natural_course_overview_queries_route_to_f3_content(answerer, question, expected_code):
+    req = HUSQuestion(
+        question=question,
+        major="computer_science",
+        version="QD3568-2023",
+        allow_generated_reference=True,
+    )
+    ans = answerer.answer(req)
+    assert ans.status == "answered"
+    assert ans.dataset == "f3"
+    assert expected_code in ans.reply
+

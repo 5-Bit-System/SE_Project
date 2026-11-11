@@ -67,6 +67,10 @@ ANCHOR_INTENTS: tuple[tuple[str, str, tuple[str, ...]], ...] = (
             "mon hoc tien quyet bat buoc la gi",
             "yeu cau hoc truoc nhung hoc phan nao",
             "chua hoc mon nao thi khong duoc hoc hoc phan nay",
+            "can hoc mon gi truoc",
+            "can hoc gi truoc",
+            "hoc mon nao truoc",
+            "phai hoc mon gi truoc",
         ),
     ),
     (
@@ -183,6 +187,11 @@ ANCHOR_INTENTS: tuple[tuple[str, str, tuple[str, ...]], ...] = (
             "cac phan kien thuc se duoc hoc trong mon nay",
             "mon hoc nay hoc nhu the nao",
             "hoc phan nay hoc ra sao",
+            "toi can biet ve hoc phan nay",
+            "tim hieu thong tin ve mon hoc",
+            "hoc phan nay nhu the nao",
+            "mon hoc nay ra sao",
+            "gioi thieu tong quan ve hoc phan",
         ),
     ),
     (
