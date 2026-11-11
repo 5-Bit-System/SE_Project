@@ -48,6 +48,25 @@ def common_route(route, *, authenticated=True):
             'release_sha256': 'synthetic-sha256',
             'groups': [],
         })
+    elif path == '/hus/chat/history':
+        qs = parse_qs(urlsplit(route.request.url).query)
+        major = qs.get('major', ['data_science'])[0]
+        if route.request.method == 'DELETE':
+            route.fulfill(json={'status': 'cleared'})
+        elif route.request.method == 'POST':
+            route.fulfill(json={'status': 'saved', 'count': 1})
+        else:
+            route.fulfill(json={
+                'account_id': 'synthetic-student',
+                'major': major,
+                'messages': [],
+            })
+    elif path == '/hus/chat':
+        route.fulfill(json={
+            'mode': 'basic_chat',
+            'reply': 'Xin chào bạn!',
+            'hus_answer': None,
+        })
     elif path == '/' or path.startswith('/static/'):
         static = Path(__file__).resolve().parents[2] / 'app/static'
         file = static / ('index.html' if path == '/' else path.removeprefix('/static/'))

@@ -142,6 +142,34 @@ body:has(#tab-lookup.active) .tab-label small {
   white-space: nowrap;
 }
 
+#tab-lookup .lookup-new-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-control);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+#tab-lookup .lookup-new-chat-btn:hover {
+  background: var(--selected-surface);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+#tab-lookup .lookup-new-chat-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 1px;
+}
+
 /* Workspace Frame */
 #tab-lookup .lookup-workspace {
   flex: 1;

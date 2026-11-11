@@ -231,6 +231,7 @@
   const catalogStatus = document.getElementById('lookup-catalog-status');
   const catalogGroups = document.getElementById('lookup-catalog-groups');
   const catalogRetry = document.getElementById('lookup-catalog-retry');
+  const newChatBtn = document.getElementById('lookup-new-chat');
 
   let config = null;
   let busy = false;
@@ -242,6 +243,9 @@
   let latestPortalProgram = null;
   let initialized = false;
   let initializing = false;
+  let activeAccountId = null;
+  let currentConversation = [];
+  let syncingHistory = false;
 
   function currentMajor() {
     return config?.majors.find(item => item.id === major.value) || null;
@@ -463,7 +467,130 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
-  function resetScope() {
+  function getHistoryStorageKey(majorId) {
+    const accountId = activeAccountId || 'guest';
+    return `hus_chat_history_${accountId}_${majorId}`;
+  }
+
+  function loadCachedMessages(majorId) {
+    try {
+      const raw = localStorage.getItem(getHistoryStorageKey(majorId));
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveCachedMessages(majorId, msgList) {
+    try {
+      localStorage.setItem(getHistoryStorageKey(majorId), JSON.stringify(msgList));
+    } catch {
+      /* Quota exceeded or private browsing */
+    }
+  }
+
+  function clearCachedMessages(majorId) {
+    try {
+      localStorage.removeItem(getHistoryStorageKey(majorId));
+    } catch {
+      /* Storage unavailable */
+    }
+  }
+
+  function renderConversation(msgList, selected) {
+    if (!messages) return;
+    messages.replaceChildren();
+    if (!msgList || !msgList.length) {
+      if (selected) {
+        appendMessage('assistant', 'Xin chào! Bạn đang tra cứu ngành ' + selected.label
+          + '. Bạn có thể hỏi giới thiệu ngành, tín chỉ, môn tiên quyết hoặc nội dung học phần.');
+      }
+      return;
+    }
+    for (const msg of msgList) {
+      appendMessage(msg.role, msg.reply, msg.citations || [], msg.generation_mode || 'extractive');
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  async function resolveAccountId() {
+    if (activeAccountId) return activeAccountId;
+    if (typeof window !== 'undefined' && window.systemAuth?.account?.account_id) {
+      activeAccountId = String(window.systemAuth.account.account_id);
+      return activeAccountId;
+    }
+    try {
+      const res = await fetch('/auth/session', {credentials: 'same-origin', cache: 'no-store'});
+      if (res.ok) {
+        const data = await res.json();
+        if (data.authenticated && data.account?.account_id) {
+          activeAccountId = String(data.account.account_id);
+        }
+      }
+    } catch {
+      /* Offline or guest */
+    }
+    return activeAccountId;
+  }
+
+  async function syncHistoryWithServer(majorId) {
+    if (!activeAccountId || syncingHistory) return;
+    syncingHistory = true;
+    try {
+      const res = await fetch(`/hus/chat/history?major=${encodeURIComponent(majorId)}`, {
+        credentials: 'same-origin',
+        cache: 'no-store',
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (Array.isArray(data.messages) && data.messages.length) {
+        const selected = currentMajor();
+        if (selected && selected.id === majorId) {
+          currentConversation = data.messages;
+          saveCachedMessages(majorId, currentConversation);
+          renderConversation(currentConversation, selected);
+        }
+      }
+    } catch {
+      /* Fallback to localStorage */
+    } finally {
+      syncingHistory = false;
+    }
+  }
+
+  function recordTurn(role, reply, citations = [], generationMode = null) {
+    const selected = currentMajor();
+    if (!selected) return;
+    const entry = {
+      role,
+      reply,
+      citations: citations || [],
+      generation_mode: generationMode,
+      timestamp: new Date().toISOString(),
+    };
+    currentConversation.push(entry);
+    saveCachedMessages(selected.id, currentConversation);
+
+    if (activeAccountId) {
+      fetch('/hus/chat/history', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          major: selected.id,
+          role,
+          reply,
+          citations: citations || [],
+          generation_mode: generationMode,
+          timestamp: entry.timestamp,
+        }),
+      }).catch(() => {});
+    }
+  }
+
+  async function restoreScopeHistory(clearActive = false) {
     scopeGeneration += 1;
     requestController?.abort();
     requestController = null;
@@ -471,16 +598,47 @@
     if (generated) generated.checked = false;
     if (catalogSearch) catalogSearch.value = '';
     if (question) question.value = '';
-    if (messages) messages.replaceChildren();
     const selected = currentMajor();
     if (version) version.textContent = selected?.version || 'Chưa có dữ liệu';
-    if (selected) {
-      appendMessage('assistant', 'Xin chào! Bạn đang tra cứu ngành ' + selected.label
-        + '. Bạn có thể hỏi giới thiệu ngành, tín chỉ, môn tiên quyết hoặc nội dung học phần.');
-      setStatus('Đã chọn ' + selected.label + '. Đổi ngành sẽ bắt đầu hội thoại mới.');
+    if (!selected) {
+      if (messages) messages.replaceChildren();
+      updateControls();
+      return;
     }
+
+    await resolveAccountId();
+
+    if (clearActive) {
+      currentConversation = [];
+      clearCachedMessages(selected.id);
+      renderConversation([], selected);
+      if (activeAccountId) {
+        fetch(`/hus/chat/history?major=${encodeURIComponent(selected.id)}`, {
+          method: 'DELETE',
+          credentials: 'same-origin',
+        }).catch(() => {});
+      }
+      setStatus('Đã bắt đầu đoạn chat mới cho ngành ' + selected.label + '.');
+    } else {
+      const cached = loadCachedMessages(selected.id);
+      if (cached && cached.length) {
+        currentConversation = cached;
+        renderConversation(currentConversation, selected);
+        setStatus('Đã tải lịch sử hội thoại ' + selected.label + '.');
+      } else {
+        currentConversation = [];
+        renderConversation([], selected);
+        setStatus('Đã chọn ' + selected.label + '. Đổi ngành sẽ bắt đầu hội thoại mới.');
+      }
+      syncHistoryWithServer(selected.id);
+    }
+
     updateControls();
     loadCatalog();
+  }
+
+  function resetScope() {
+    restoreScopeHistory(false);
   }
 
   async function submit(event, catalogRequest = null) {
@@ -496,6 +654,7 @@
       version: catalogRequest?.version || selected.version,
       allow_generated_reference: generated?.checked === true};
     appendMessage('user', text);
+    recordTurn('user', text);
     question.value = '';
     question.style.height = '36px';
     busy = true;
@@ -510,8 +669,12 @@
       if (epoch !== scopeGeneration || requestController !== controller) return;
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
+      const citations = result.mode === 'hus_rag' ? result.hus_answer?.citations : [];
       appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : [],
+        citations,
+        result.generation_mode);
+      recordTurn('assistant', result.reply,
+        citations,
         result.generation_mode);
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
@@ -565,6 +728,20 @@
   if (generated) generated.addEventListener('change', updateControls);
   if (catalogSearch) catalogSearch.addEventListener('input', filterCatalog);
   if (catalogRetry) catalogRetry.addEventListener('click', loadCatalog);
+  if (newChatBtn) {
+    newChatBtn.addEventListener('click', () => {
+      restoreScopeHistory(true);
+      question?.focus();
+    });
+  }
+
+  document.addEventListener('workspace:account-change', event => {
+    const newAccountId = event.detail?.account_id ? String(event.detail.account_id) : null;
+    if (newAccountId !== activeAccountId) {
+      activeAccountId = newAccountId;
+      if (config) resetScope();
+    }
+  });
 
   document.addEventListener('workspace:portal-data', event => {
     const program = event.detail?.profile?.program || document.getElementById('workspace-program')?.textContent;

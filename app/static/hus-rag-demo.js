@@ -406,16 +406,16 @@
     speaker.className = 'rag-message-speaker';
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
     const isAssistant = role === 'assistant';
-    const isLLM = isAssistant && (generationMode === 'grounded_llm' || reply.includes('###') || (!generationMode && (reply.includes('**') || reply.includes('[1]'))));
+    const isLLM = isAssistant && (generationMode === 'grounded_llm' || (reply.includes('###') && (reply.includes('**') || reply.includes('- **'))));
     if (isLLM) {
       const badge = document.createElement('span');
       badge.className = 'rag-badge-llm';
       badge.textContent = '✨ Trợ lý AI HUS';
       speaker.appendChild(badge);
     }
-    const text = document.createElement(isAssistant ? 'div' : 'p');
+    const text = document.createElement(isLLM ? 'div' : 'p');
     text.className = 'rag-message-text';
-    if (isAssistant) {
+    if (isLLM) {
       renderSafeMarkdown(reply, text);
     } else {
       text.textContent = reply;

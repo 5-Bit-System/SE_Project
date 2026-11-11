@@ -1,5 +1,30 @@
 # Project Memory and Contributor Guidelines
 
+## Core Operating Rules: Subagent Usage and Main Agent Control — 2026-11-11
+- **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
+- **Tiến độ**: Báo cáo tổng tiến độ phần trăm (%) công việc thường xuyên trong mỗi cập nhật cho người dùng.
+
+## Workspace HUS Lookup Tab Integration, Zero-Scroll ChatGPT Layout & Account Chat History Persistence — 2026-11-11
+
+Completed integration of the HUS RAG lookup system into the "Sổ học tập" academic workspace (`feat/workspace-hus-lookup-20261111`):
+1. **Workspace Navigation & Lookup Tab (`#tab-lookup`):**
+   - Added 5th navigation item "Tra cứu thông tin" (`#tab-btn-lookup`) in `app/static/index.html`, `app/static/workspace.js`, and `app/static/i18n.js` (VI/EN).
+   - Mounted `/hus` router in `app/main.py` via `app/hus/router.py` (`/hus/config`, `/hus/chat`, `/hus/retrieve`, `/hus/questions`, `/hus/sources/{source_id}`).
+   - Created `app/static/hus-lookup.js` and `app/static/hus-lookup.css` with auto-sync of student major from VNU portal profile (`workspace:portal-data`).
+2. **Markdown Course Info Cards & ChatGPT-Style Zero-Scroll UI:**
+   - Decoupled `renderSafeMarkdown` in `hus-lookup.js` so `### Thông tin học phần` cards and `[1]` badges render cleanly regardless of generation mode; aligned user messages to the right (`.rag-message-user`).
+   - Redesigned `#tab-lookup` into a zero-scroll ChatGPT-style viewport (`calc(100dvh - 158px)`), compact header, pinned composer, and constrained sidebar height (`body:has(#tab-lookup.active) .workspace-sidebar`) so outer page scroll is `0px` on 1366x768 screens.
+3. **Natural Student Phrasing Intent Routing:**
+   - Expanded `COURSE_FIELD_TERMS["content"]` in `app/hus/question_routing.py` and `ANCHOR_INTENTS` in `app/hus/semantic_routing.py` to support natural queries (`"học như thế nào"`, `"học ra sao"`, `"dạy như thế nào"`).
+4. **Two-Tier Persistent Chat History by Account (F5 & Cross-Session):**
+   - Backend storage (`app/hus/chat_history_repository.py`): stores per-account, per-major history in `data/hus_chat_history/{account_id}.json` (ignored in `.gitignore`), with strict regex validation (`^[a-zA-Z0-9_\-]+$`) against path traversal, atomic `tempfile` + `os.replace` writes, `threading.Lock`, and 100-message cap per major.
+   - REST endpoints in `app/hus/router.py` & schemas in `app/schemas/hus.py`: `GET /hus/chat/history`, `POST /hus/chat/history`, `DELETE /hus/chat/history` bound to authenticated session (`optional_account`).
+   - Frontend (`app/static/hus-lookup.js`): zero-latency F5 restoration via `localStorage` (`hus_chat_history_${accountId}_${majorId}`) + async server sync, account switching isolation (`workspace:account-change`), and `+ Đoạn chat mới` (`#lookup-new-chat`) reset button.
+5. **Verification & Regression Suites:**
+   - `tests/hus/test_chat_history.py`: 22/22 unit & API tests passing.
+   - `tests/frontend/test_lookup_persistence.py`: 2/2 Playwright browser tests passing (F5 reload retention + account A/B isolation).
+   - `tests/frontend/check_workspace.py`, `tests/frontend/check_presentation.py`, `node tests/frontend/chat.test.cjs` (11/11), and `ruff check` all passing with 0 errors.
+
 ## Stage 3 refinement: UX layout, citation deduplication, prompt redesign, and prerequisite enrichment — 2026-11-11
 
 Completed user-driven UX and RAG refinements on `feat/hus-rag-phase2-gemini-lite` (HEAD `276dd2f`):

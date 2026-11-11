@@ -142,3 +142,27 @@ class HUSRetrievalBundle(BaseModel):
     release_id: str | None = None
     release_sha256: str | None = None
 
+
+class HUSChatMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    reply: str = Field(max_length=20000)
+    citations: list[dict[str, Any]] = Field(default_factory=list, max_length=50)
+    generation_mode: str | None = Field(default=None, max_length=64)
+    timestamp: str | None = Field(default=None, max_length=64)
+
+
+class HUSChatHistoryAppend(BaseModel):
+    major: str = Field(min_length=1, max_length=64)
+    role: Literal["user", "assistant"]
+    reply: str = Field(max_length=20000)
+    citations: list[dict[str, Any]] = Field(default_factory=list, max_length=50)
+    generation_mode: str | None = Field(default=None, max_length=64)
+    timestamp: str | None = Field(default=None, max_length=64)
+
+
+class HUSChatHistoryResponse(BaseModel):
+    account_id: str | None = Field(default=None, max_length=128)
+    major: str = Field(min_length=1, max_length=64)
+    messages: list[HUSChatMessage] = Field(default_factory=list)
+
+
