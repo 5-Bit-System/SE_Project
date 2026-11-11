@@ -34,8 +34,40 @@
     return citation.display_label || citation.label || 'Nguồn dữ liệu';
   }
 
+  function generationInfo(result, requested) {
+    const metadata = result.generation;
+    const answered = result.mode === 'hus_rag' && result.hus_answer?.status === 'answered';
+    if (metadata != null && (typeof metadata !== 'object' || typeof metadata.used !== 'boolean')) {
+      throw new Error('invalid_generation');
+    }
+    if (metadata?.used === true) {
+      if (!requested || !answered || typeof metadata.model !== 'string' || !metadata.model.trim()
+          || metadata.fallback_reason != null) throw new Error('invalid_generation');
+      return {kind: 'used', label: 'AI diễn đạt từ nguồn',
+        note: 'AI đã diễn đạt từ bằng chứng được chọn. Hãy đối chiếu nguồn dẫn bên dưới.'};
+    }
+    if (!requested || !answered) return null;
+    const reasons = {
+      busy: 'Dịch vụ AI đang bận; hiển thị bản trích nguồn.',
+      timeout: 'Dịch vụ AI vượt thời gian chờ; hiển thị bản trích nguồn.',
+      http_error: metadata?.http_status === 429
+        ? 'Dịch vụ AI đã chạm hạn mức; hiển thị bản trích nguồn.'
+        : 'Không kết nối được dịch vụ AI; hiển thị bản trích nguồn.',
+      transport_error: 'Không kết nối được dịch vụ AI; hiển thị bản trích nguồn.',
+      prompt_budget: 'Bằng chứng vượt giới hạn diễn đạt; hiển thị bản trích nguồn.',
+      output_budget: 'Phản hồi AI vượt giới hạn; hiển thị bản trích nguồn.',
+      invalid_output: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
+      evidence_coverage: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
+      invalid_response: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
+      invalid_result: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
+    };
+    return {kind: 'fallback', label: 'Bản trích nguồn',
+      note: Object.hasOwn(reasons, metadata?.fallback_reason) ? reasons[metadata.fallback_reason]
+        : 'AI chưa sẵn sàng; hiển thị bản trích nguồn.'};
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {citationURL, citationLabel};
+    module.exports = {citationURL, citationLabel, generationInfo};
   }
   if (typeof document === 'undefined') return;
 
@@ -44,6 +76,8 @@
   const question = document.getElementById('rag-question');
   const send = document.getElementById('rag-send');
   const generated = document.getElementById('rag-generated');
+  const rewrite = document.getElementById('rag-rewrite');
+  const rewriteUnavailable = document.getElementById('rag-rewrite-unavailable');
   const messages = document.getElementById('rag-messages');
   const status = document.getElementById('rag-status');
   const form = document.getElementById('rag-form');
@@ -73,6 +107,10 @@
     major.disabled = unavailable;
     question.disabled = unavailable || busy;
     generated.disabled = unavailable || busy;
+    rewrite.disabled = unavailable || busy || config?.llm_rewrite_available !== true;
+    rewriteUnavailable.hidden = config?.llm_rewrite_available === true;
+    rewrite.setAttribute('aria-describedby', 'rag-rewrite-disclosure'
+      + (rewriteUnavailable.hidden ? '' : ' rag-rewrite-unavailable'));
     send.disabled = unavailable || busy || !question.value.trim();
     send.firstChild.textContent = busy ? 'Đang trả lời ' : 'Gửi ';
     form.setAttribute('aria-busy', String(busy));
@@ -224,7 +262,7 @@
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, citations = []) {
+  function appendMessage(role, reply, citations = [], generation = null) {
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
     const avatar = document.createElement('span');
@@ -240,6 +278,16 @@
     text.className = 'rag-message-text';
     text.textContent = reply;
     body.append(speaker, text);
+    if (generation) {
+      const badge = document.createElement('p');
+      badge.className = 'rag-generation-label';
+      badge.dataset.kind = generation.kind;
+      badge.textContent = generation.label;
+      const note = document.createElement('p');
+      note.className = 'rag-generation-note';
+      note.textContent = generation.note;
+      body.append(badge, note);
+    }
     if (Array.isArray(citations) && citations.length) {
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
@@ -258,6 +306,7 @@
     requestController = null;
     busy = false;
     generated.checked = false;
+    rewrite.checked = false;
     catalogSearch.value = '';
     question.value = '';
     messages.replaceChildren();
@@ -283,6 +332,10 @@
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
       allow_generated_reference: generated.checked === true};
+    const wantsRewrite = rewrite.checked === true && config.llm_rewrite_available === true;
+    // Catalog requests supply scope hints, never permission to send data externally.
+    if (wantsRewrite) payload.allow_llm_rewrite = true;
+    else delete payload.allow_llm_rewrite;
     appendMessage('user', text);
     question.value = '';
     busy = true;
@@ -297,8 +350,11 @@
       if (epoch !== scopeGeneration || requestController !== controller) return;
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
+      if (result.mode === 'hus_rag' && !['answered', 'needs_clarification', 'no_information']
+        .includes(result.hus_answer?.status)) throw new Error('invalid_response');
+      const info = generationInfo(result, wantsRewrite);
       appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : []);
+        result.mode === 'hus_rag' ? result.hus_answer?.citations : [], info);
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
       } else if (result.hus_answer?.status === 'needs_clarification') {
@@ -310,9 +366,8 @@
           && result.hus_answer.facts?.prerequisite_status === 'unknown'
           ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
           : 'Đã trả lời theo phạm vi dữ liệu đã chọn.');
-      } else {
-        throw new Error('invalid_response');
       }
+      if (info) setStatus(status.textContent + ' ' + info.note);
     } catch (error) {
       if (epoch !== scopeGeneration || requestController !== controller || error.name === 'AbortError') return;
       const unavailable = error.message === 'http_503';

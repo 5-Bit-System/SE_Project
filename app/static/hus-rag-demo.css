@@ -71,6 +71,9 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 .rag-message-speaker { color: #6d7c70; font-size: 10px; font-weight: 600; margin: 0 0 7px; }
 .rag-message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; font-size: 13px; margin: 0; color: #2d4136; }
 .rag-message-user .rag-message-text { color: #4b5950; }
+.rag-generation-label { display: inline-block; margin: 10px 0 0; padding: 3px 7px; border-radius: 4px; background: #edf4e9; color: #315c43; font-size: 10px; font-weight: 600; }
+.rag-generation-label[data-kind="fallback"] { background: #f3f1eb; color: #6b5d41; }
+.rag-generation-note { margin: 5px 0 0; font-size: 10px; line-height: 1.6; color: var(--rag-muted); }
 .rag-citations { display: grid; gap: 7px; margin-top: 13px; }
 .rag-citation { border: 1px solid #e1e8df; border-radius: 7px; padding: 10px 12px; background: #fafcf8; }
 .rag-citation-title { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: 0; font-size: 11px; line-height: 1.6; }
@@ -90,7 +93,7 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 #rag-send:disabled { opacity: .45; }
 .rag-composer-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 9px; margin-top: 13px; }
 .rag-generated-label { display: inline-flex; gap: 7px; align-items: center; font-size: 11px; color: #53664f; cursor: pointer; }
-#rag-generated { accent-color: var(--rag-green); margin: 0; width: 14px; height: 14px; }
+#rag-generated, #rag-rewrite { accent-color: var(--rag-green); margin: 0; width: 14px; height: 14px; flex-shrink: 0; }
 .rag-keyboard-hint, .rag-ai-note { color: #80907f; font-size: 10px; }
 .rag-ai-note { line-height: 1.6; margin: 10px 0 0; }
 .rag-status { margin: 10px 0 0; min-height: 17px; line-height: 1.5; font-size: 11px; color: #6c7b68; }

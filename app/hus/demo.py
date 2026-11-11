@@ -10,6 +10,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.hus.chat import HUSChatReply, chat
+from app.hus.llm.config import llm_rewrite_available
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.source_response import source_response
@@ -49,7 +50,7 @@ def config():
     if len({major for major, _ in scopes}) != len(scopes):
         raise HTTPException(503, "Phiên bản chương trình chưa xác định duy nhất.")
     return {"majors": [{"id": major, "label": LABELS[major], "version": version} for major, version in scopes],
-            **answerer.data.release_identity}
+            **answerer.data.release_identity, 'llm_rewrite_available': llm_rewrite_available()}
 
 
 @app.post("/hus/chat", response_model=HUSChatReply)

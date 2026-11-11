@@ -2,9 +2,11 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from app.hus.answering import HUSAnswerer, question_intent
+from app.hus.llm.contracts import HUSGeneration, HUSRewriteHandler
+from app.hus.llm.generation import generate_reply
 from app.hus.retrieval import _tokens
 from app.schemas.hus import HUSAnswer, HUSQuestion
 
@@ -14,6 +16,7 @@ class HUSChatReply(BaseModel):
     mode: Literal["basic_chat", "hus_rag"]
     reply: str
     hus_answer: HUSAnswer | None = None
+    generation: HUSGeneration | None = Field(default=None, exclude_if=lambda value: value is None)
 
 
 def basic_reply(question: str) -> str | None:
@@ -44,15 +47,18 @@ def basic_reply(question: str) -> str | None:
     return None
 
 
-def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
+def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
+         rewriter: HUSRewriteHandler | None = None) -> HUSChatReply:
     if request.dataset == "auto" and request.course_code is None and request.field is None:
         reply = basic_reply(request.question)
         if reply is not None:
-            return HUSChatReply(mode="basic_chat", reply=reply)
+            reply, generation = generate_reply(request, None, reply, rewriter=rewriter)
+            return HUSChatReply(mode="basic_chat", reply=reply, generation=generation)
     dataset, _ = question_intent(request.question)
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
     if request.dataset == "auto" and dataset == "f1" and request.version in decision_versions:
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
     answer = answerer.answer(request)
-    return HUSChatReply(mode="hus_rag", reply=answer.reply, hus_answer=answer)
+    reply, generation = generate_reply(request, answer, answer.reply, rewriter=rewriter)
+    return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer, generation=generation)

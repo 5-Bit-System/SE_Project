@@ -63,12 +63,18 @@
           <button id="rag-send" type="submit" disabled>Gửi <span aria-hidden="true">↗</span></button>
         </div>
         <div class="rag-composer-footer">
+          <label class="rag-generated-label" for="rag-rewrite">
+            <input id="rag-rewrite" type="checkbox" aria-describedby="rag-rewrite-disclosure rag-rewrite-unavailable" disabled>
+            <span>AI diễn đạt từ nguồn</span>
+          </label>
           <label class="rag-generated-label" for="rag-generated">
             <input id="rag-generated" type="checkbox" disabled>
             <span>Cho phép kiến thức AI tham khảo</span>
           </label>
           <span class="rag-keyboard-hint">Enter để gửi · Shift + Enter để xuống dòng</span>
         </div>
+        <p id="rag-rewrite-disclosure" class="rag-ai-note">Khi bật AI diễn đạt, câu hỏi và bằng chứng được chọn sẽ được gửi tới Google Gemini. Không gửi lịch sử hội thoại, tài khoản hay bảng điểm. Đổi ngành sẽ tắt cả hai quyền.</p>
+        <p id="rag-rewrite-unavailable" class="rag-ai-note">AI diễn đạt chưa được bật trên máy chủ. Bạn vẫn có thể tra cứu và nhận bản trích nguồn.</p>
         <p id="rag-single-turn" class="rag-ai-note">Mỗi lượt hỏi một loại thông tin. Câu cấp chương trình/nhóm không cần mã môn; câu cấp môn ghi mã hoặc tên đầy đủ. Câu sau không tự lấy môn từ câu trước.</p>
         <p class="rag-ai-note">F3 là nội dung tham khảo do AI sinh, không phải đề cương hay quy định đánh giá chính thức.</p>
         <p id="rag-status" class="rag-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>

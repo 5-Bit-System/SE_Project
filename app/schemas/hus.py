@@ -25,6 +25,7 @@ class HUSQuestion(BaseModel):
     group_key: str | None = Field(default=None, max_length=32, pattern=r"^[IVX]+(?:\.[0-9]+)*$")
     program_variant: str | None = Field(default=None, min_length=1, max_length=80)
     allow_generated_reference: bool = Field(default=False, strict=True)
+    allow_llm_rewrite: bool = Field(default=False, strict=True, exclude_if=lambda value: value is False)
 
     @field_validator("course_code", mode="before")
     @classmethod
