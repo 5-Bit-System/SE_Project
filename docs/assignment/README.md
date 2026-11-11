@@ -38,14 +38,19 @@ Biến thể VT-099 triển khai một lát cắt dọc (vertical slice) hoàn c
 ## Hướng dẫn Thiết lập Môi trường và Chạy Kiểm thử
 
 ### 1. Chuẩn bị Môi trường
-Dự án sử dụng Python 3.11+ và cơ sở dữ liệu PostgreSQL. Kích hoạt môi trường ảo và thiết lập biến môi trường kết nối database:
+Dự án sử dụng Python 3.11+ và cơ sở dữ liệu PostgreSQL. Kích hoạt môi trường ảo, đảm bảo database đã chạy migration mới nhất và thiết lập biến môi trường kết nối:
 
 ```powershell
 # Di chuyển vào thư mục gốc repository
 cd f:\SE_Project
 
 # Thiết lập chuỗi kết nối database kiểm thử PostgreSQL
+# Lưu ý an toàn thông tin: Thay thế <TEST_DB_PASSWORD> bằng mật khẩu cục bộ của bạn.
+# Tuyệt đối không commit chuỗi chứa mật khẩu thực tế lên Git (CWE-798).
 $env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:<TEST_DB_PASSWORD>@127.0.0.1:5433/ai07?sslmode=disable"
+
+# BẮT BUỘC: Đảm bảo database đã chạy migration hus_20261111_14 mở rộng role reviewer
+uv run alembic upgrade head
 ```
 
 ### 2. Chạy Test Suite VT-099 (15 Test Cases)
@@ -81,6 +86,22 @@ Harness kích hoạt đồng thời 80 tác vụ thông qua `ThreadPoolExecutor`
   - Chạy `pytest tests/api/test_vt099_reviewer_concurrency.py -k "test_tc10 or test_tc11"`
   - Kết quả: **FAILED (KILLED)** do cả 2 luồng đều commit thành công mà không ném `DocumentConflictError`, API trả về 200 thay vì 409.
 - **Tỉ lệ diệt đột biến:** 100% (2/2 mutations killed).
+
+---
+
+## Các Hạn chế Đã Biết & Lưu ý Vận hành (Known Limitations & Operational Notes)
+
+1. **Giới hạn Khởi tạo Reviewer trên Giao diện Sản phẩm:**
+   - Hiện tại, endpoint `PUT /api/auth/users/{account_id}` (`app/api/auth.py:179`) chỉ hỗ trợ đổi vai trò giữa `{'student', 'admin'}`. 
+   - Vì vậy, việc cấp phát tài khoản `reviewer` trong môi trường thực tế hiện phải thực hiện thủ công bằng lệnh SQL trực tiếp vào bảng `accounts` hoặc qua migration/admin script chuyên biệt, chưa hỗ trợ trực tiếp từ UI quản trị chung.
+2. **Lưu ý Ràng buộc khi Downgrade Database:**
+   - Migration `hus_20261111_14` thêm role `reviewer` vào ràng buộc `accounts_role_check`. 
+   - Nếu thực hiện rollback (`uv run alembic downgrade -1`) trong khi bảng `accounts` vẫn còn tồn tại các tài khoản mang `role = 'reviewer'`, PostgreSQL sẽ báo lỗi vi phạm check constraint. Quản trị viên cần xóa hoặc chuyển đổi các tài khoản reviewer sang role khác trước khi hạ cấp.
+3. **Phạm vi Bảo vệ Compare-and-Set (CAS):**
+   - CAS là cơ chế tùy chọn kích hoạt khi client gửi trường `expected_status` trong payload kiểm duyệt.
+   - Nếu client (ví dụ UI web hiện tại) không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện theo thiết kế nhằm bảo toàn 100% tính tương thích ngược cho quy trình duyệt lại của các client cũ.
+4. **Giải thích Độ trễ Tải 80 Workers (Technical Hypothesis):**
+   - Hiện tượng độ trễ của 80 worker phân bố trong khoảng hẹp (~1.38s - ~1.43s) trên máy thử nghiệm là một **giả thuyết kỹ thuật chưa kiểm chứng bằng profiler chuyên dụng**. Giả thuyết này dựa trên suy luận rằng Starlette `TestClient` in-process serialize HTTP request trước khi vào các khối database đồng bộ, kết hợp cùng cơ chế xếp hàng của `QueuePool`. Cần đo đạc bằng công cụ profiling phân tán để xác nhận nguyên nhân chính xác trong môi trường production.
 
 ---
 

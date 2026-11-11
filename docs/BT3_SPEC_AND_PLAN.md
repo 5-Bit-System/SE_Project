@@ -33,9 +33,11 @@ Hệ thống hiện tại chỉ hỗ trợ hai vai trò người dùng trong cơ
 > **Core Invariant:** *"Khi client chỉ định trạng thái kỳ vọng `expected_status`, tài liệu chỉ được chuyển trạng thái kiểm duyệt nếu trạng thái hiện tại khớp chính xác với kỳ vọng. Mọi yêu cầu đồng thời đến sau có cùng kỳ vọng phải bị từ chối với HTTP 409 Conflict (loại trừ Last-Writer-Wins). Vai trò reviewer chỉ có quyền đọc và duyệt, tuyệt đối không được phép chỉnh sửa dữ liệu gốc metadata."*
 
 * **Non-goals / Residual Risks được ghi nhận:**
-  1. *Cấp tài khoản Reviewer qua API:* Trong `app/api/auth.py` dòng 179, endpoint quản trị tài khoản chỉ cho phép đổi role sang `{'student', 'admin'}`. Việc mở rộng API quản lý người dùng để tạo/đổi role reviewer từ giao diện web là Non-goal của vertical slice này (tài khoản reviewer trong bài tập được cấp qua database seed / test fixture).
+  1. *Cấp tài khoản Reviewer qua API:* Trong `app/api/auth.py` dòng 179, endpoint quản trị tài khoản chỉ cho phép đổi role sang `{'student', 'admin'}`. Việc mở rộng API quản lý người dùng để tạo/đổi role reviewer từ giao diện web là Non-goal của vertical slice này (tài khoản reviewer trong bài tập được cấp qua database seed / script quản trị).
   2. *Phạm vi bảo vệ Concurrency:* Cơ chế chống race condition hoạt động khi client gửi trường `expected_status`. Nếu client cũ không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện để tương thích ngược.
   3. *Quy chuẩn Schema DB:* Ràng buộc `accounts_role_check` ban đầu chỉ chấp nhận `('student', 'teacher', 'admin')`. Để đảm bảo tính toàn vẹn hệ thống mà không dùng DDL can thiệp trong fixture test (tránh rủi ro *false fixtures* theo Lecture 07), hệ thống bổ sung migration Alembic `database/hus_alembic/versions/20261111_14_reviewer_role.py` (`hus_20261111_14`) chính thức mở rộng ràng buộc cho `reviewer`.
+  4. *Giới hạn khi Downgrade Database:* Alembic downgrade về `hus_20261105_13` sẽ thất bại nếu còn tài khoản mang role `reviewer` trong bảng `accounts`. Người vận hành cần xóa hoặc di chuyển các tài khoản reviewer trước khi rollback migration.
+  5. *Độ trễ Tải 80 Workers:* Hiện tượng độ trễ các request gom cụm trong khoảng hẹp (~1.38s - ~1.43s) trên TestClient in-process là một **giả thuyết kỹ thuật (chưa kiểm chứng bằng profiler chuyên dụng)**. Giả định đặt ra là Starlette TestClient serialize HTTP request trước khi vào FastAPI synchronous DB blocks, kết hợp cơ chế hàng đợi QueuePool. Cần đo đạc bổ sung bằng công cụ profiling phân tán để khẳng định chắc chắn.
 
 ### 1.5. Prompt ban đầu, Assumptions và Các File Dự định Thay đổi
 
@@ -116,7 +118,7 @@ Theo yêu cầu bắt buộc của đề bài VT-099 và nguyên lý Combinatori
 | Test ID | Risk / Requirement | Test Level | Precondition & Input | Expected Result (Strong Oracle) | Priority |
 | :---: | :--- | :---: | :--- | :--- | :---: |
 | **TC-01** | AC1: Reviewer đăng nhập và có session hợp lệ | DB / Integration | Tạo account `role='reviewer'`. Gọi `login()` và `session_from_token()`. | Đăng nhập thành công, session hợp lệ, `role = 'reviewer'`. | P0 |
-| **TC-02** | AC1: Role lạ không có session | DB / Integration | Account có `role='guest'` (không hỗ trợ). Gọi `login()`. | `AuthFailure` (401 invalid_login). | P1 |
+| **TC-02** | AC1: Role lạ không có session | DB / Integration | Account có `role='teacher'` (hợp lệ trong schema nhưng không thuộc `LOCAL_LOGIN_ROLES`). Gọi `login()`. | `AuthFailure` (401 invalid_login). | P1 |
 | **TC-03** | AC1: Reviewer đọc danh sách tài liệu | API | Account `reviewer`, session hợp lệ. Gọi `GET /admin/crawler/documents`. | HTTP 200 OK, danh sách tài liệu. | P1 |
 | **TC-04** | AC1: Reviewer đọc chi tiết tài liệu | API | Account `reviewer`, session hợp lệ. Gọi `GET /admin/crawler/documents/{doc_id}`. | HTTP 200 OK, chi tiết tài liệu. | P1 |
 | **TC-05** | AC1: Reviewer phê duyệt tài liệu pending | API | Tài liệu `pending`. Reviewer gửi `POST .../approve` kèm reason $\ge 3$ ký tự. | HTTP 200 OK, `review_status='approved'`, lưu đúng `reviewer_id`. | P0 |

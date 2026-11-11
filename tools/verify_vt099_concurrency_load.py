@@ -17,6 +17,7 @@ Harness Requirements:
 
 import math
 import os
+import platform
 import sys
 import threading
 import time
@@ -292,6 +293,36 @@ def run_load_experiment() -> Dict[str, Any]:
         cleanup_load_data(eng)
 
 
+def get_system_hardware_info() -> str:
+    """Dynamically query host OS, architecture, CPU logical cores, and physical RAM."""
+    system_str = f"{platform.system()} {platform.release()} ({platform.machine()}, {os.cpu_count()} logical cores"
+    try:
+        import ctypes
+
+        class MEMORYSTATUSEX(ctypes.Structure):
+            _fields_ = [
+                ("dwLength", ctypes.c_ulong),
+                ("dwMemoryLoad", ctypes.c_ulong),
+                ("ullTotalPhys", ctypes.c_ulonglong),
+                ("ullAvailPhys", ctypes.c_ulonglong),
+                ("ullTotalPageFile", ctypes.c_ulonglong),
+                ("ullAvailPageFile", ctypes.c_ulonglong),
+                ("ullTotalVirtual", ctypes.c_ulonglong),
+                ("ullAvailVirtual", ctypes.c_ulonglong),
+                ("sullAvailExtendedVirtual", ctypes.c_ulonglong),
+            ]
+
+        stat = MEMORYSTATUSEX()
+        stat.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+        if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(stat)):
+            ram_gb = round(stat.ullTotalPhys / (1024**3), 1)
+            system_str += f", {ram_gb} GB RAM"
+    except Exception:
+        pass
+    system_str += ")"
+    return system_str
+
+
 def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     results = run_data["results"]
     total_wall_time = run_data["total_wall_time"]
@@ -340,7 +371,7 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("  * Synchronization Mechanism:  threading.Barrier(80) at t=0")
     lines.append(f"  * Total Requests Completed:   {total_requests}")
     lines.append(f"  * Total Wall-Clock Duration:  {total_wall_time:.4f} s")
-    lines.append(f"  * Successful Reviews (200):   {len(success_requests)} (100% of distinct + 1 per shared group)")
+    lines.append(f"  * Successful Reviews (200):   {len(success_requests)} ({len(distinct_success)} distinct + {len(shared_success)} shared winners)")
     lines.append(f"  * CAS Conflicts (409):        {len(conflict_requests)} (Atomic CAS protection under load)")
     lines.append(f"  * Unhandled Errors (5xx/other):{len(error_requests)} (Zero 500 Internal Server Errors)")
     lines.append(f"  * Target p95 Latency:         <= {TARGET_P95_SECONDS:.4f} s")
@@ -409,17 +440,18 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("  - In app/crawler/document_review_service.py, review_document() acquires this lock at the start of each transaction.")
     lines.append("  - Measured Latency Distribution Dynamics:")
     lines.append(f"    * Minimum latency: {min_lat:.4f} s | Median p50: {p50_lat:.4f} s | p95: {p95_lat:.4f} s | Max: {max_lat:.4f} s.")
-    lines.append("    * Observation: Latencies across all 80 threads are clustered within a narrow band (~0.74s to ~0.77s).")
-    lines.append("    * Root Cause: When 80 concurrent worker threads fire simultaneously against a single in-process")
-    lines.append("      Starlette TestClient, the ASGI event loop and thread synchronization serialize the HTTP request handling")
-    lines.append("      before entering the FastAPI synchronous database blocks (engine().begin()).")
+    lines.append(f"    * Observation: Latencies across all 80 threads are clustered within a narrow band ({min_lat:.2f}s to {max_lat:.2f}s).")
+    lines.append("    * Technical Hypothesis (unverified / chưa kiểm chứng bằng profiler):")
+    lines.append("      When 80 concurrent worker threads fire simultaneously against a single in-process")
+    lines.append("      Starlette TestClient, the ASGI event loop and thread synchronization are hypothesized to serialize")
+    lines.append("      the HTTP request handling before entering the FastAPI synchronous database blocks (engine().begin()).")
     lines.append("    * Concurrency Under PostgreSQL: The database-level pg_advisory_xact_lock further serializes all catalog actions,")
     lines.append("      ensuring atomic integrity without deadlocks or race conditions.")
     lines.append("    * Methodological Limitation: An in-process TestClient harness demonstrates batch completion SLA (p95 <= 2.5s)")
     lines.append("      and zero 5xx server errors under simultaneous arrival, but does not simulate distributed network RTT.")
     lines.append("")
     lines.append("4.3. Hardware Environment & Distributed Production Reality:")
-    lines.append("  - Benchmark Environment: Local Windows 11 host (11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz, 8 Cores, 16 Threads, 16 GB RAM, NVMe SSD).")
+    lines.append(f"  - Benchmark Environment: {get_system_hardware_info()}.")
     lines.append("    * Target DB: PostgreSQL 16 on loopback TCP 127.0.0.1:5433 (via HUS_TEST_DATABASE_URL).")
     lines.append("    * In-process ASGI transport via Starlette TestClient.")
     lines.append("  - Production Extrapolation & Identified Bottlenecks:")
