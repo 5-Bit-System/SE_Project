@@ -708,28 +708,18 @@ body:has(#tab-lookup.active) .tab-label small {
 #tab-lookup .lookup-composer-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
   margin-top: 6px;
   padding: 0 4px;
 }
 
 #tab-lookup .lookup-generated-label {
-  display: inline-flex;
-  gap: 6px;
-  align-items: center;
-  font-size: 11px;
-  color: var(--text-muted);
-  cursor: pointer;
-  user-select: none;
+  display: none !important;
 }
 
 #tab-lookup #lookup-generated {
-  accent-color: var(--accent-primary);
-  margin: 0;
-  width: 13px;
-  height: 13px;
-  cursor: pointer;
+  display: none !important;
 }
 
 #tab-lookup .lookup-status {

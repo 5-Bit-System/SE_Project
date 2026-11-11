@@ -223,6 +223,7 @@
   const question = document.getElementById('lookup-question');
   const send = document.getElementById('lookup-send');
   const generated = document.getElementById('lookup-generated');
+  if (generated) generated.checked = true;
   const messages = document.getElementById('lookup-messages');
   const status = document.getElementById('lookup-status');
   const form = document.getElementById('lookup-form');
@@ -261,14 +262,17 @@
     const unavailable = !currentMajor();
     if (major) major.disabled = unavailable;
     if (question) question.disabled = unavailable || busy;
-    if (generated) generated.disabled = unavailable || busy;
+    if (generated) {
+      generated.checked = true;
+      generated.disabled = unavailable || busy;
+    }
     if (send) {
       send.disabled = unavailable || busy || !question.value.trim();
       if (send.firstChild) send.firstChild.textContent = busy ? 'Đang trả lời ' : 'Gửi ';
     }
     if (form) form.setAttribute('aria-busy', String(busy));
-    for (const {button, item} of catalogEntries) {
-      button.disabled = unavailable || busy || (item.requires_ai && !generated.checked);
+    for (const {button} of catalogEntries) {
+      button.disabled = unavailable || busy;
     }
   }
 
@@ -331,7 +335,7 @@
         button.type = 'button';
         button.className = 'rag-catalog-question';
         button.textContent = item.question;
-        if (item.requires_ai) button.title = 'Cần bật Cho phép kiến thức AI tham khảo';
+        if (item.requires_ai) button.title = 'Tham khảo kiến thức AI';
         const epoch = scopeGeneration;
         button.addEventListener('click', () => {
           if (epoch !== scopeGeneration || button.disabled) return;
@@ -595,7 +599,7 @@
     requestController?.abort();
     requestController = null;
     busy = false;
-    if (generated) generated.checked = false;
+    if (generated) generated.checked = true;
     if (catalogSearch) catalogSearch.value = '';
     if (question) question.value = '';
     const selected = currentMajor();
@@ -652,7 +656,7 @@
     requestController = controller;
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
-      allow_generated_reference: generated?.checked === true};
+      allow_generated_reference: true};
     appendMessage('user', text);
     recordTurn('user', text);
     question.value = '';

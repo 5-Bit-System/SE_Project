@@ -1,8 +1,9 @@
 # Project Memory and Contributor Guidelines
 
-## Core Operating Rules: Subagent Usage and Main Agent Control — 2026-11-11
+## Core Operating Rules: Subagent Usage, Progress Transparency, and Direct Reporting — 2026-11-11
 - **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
-- **Tiến độ**: Báo cáo tổng tiến độ phần trăm (%) công việc thường xuyên trong mỗi cập nhật cho người dùng.
+- **Minh bạch hành động & Không treo trạng thái running**: Bất kỳ khi nào làm việc gì, agent phải hiển thị rõ ràng ra màn hình cho người dùng biết (các bước đang làm, lệnh/file đang thao tác), tuyệt đối không để im lặng hoặc hiển thị toàn bộ dưới dạng "running" mơ hồ.
+- **Báo cáo tiến độ (%) thường xuyên**: Luôn báo cáo tổng tiến độ phần trăm (%) công việc thường xuyên trong mỗi lần phản hồi/cập nhật cho người dùng để người dùng nắm rõ tiến trình cụ thể.
 
 ## Workspace HUS Lookup Tab Integration, Zero-Scroll ChatGPT Layout & Account Chat History Persistence — 2026-11-11
 
