@@ -1,5 +1,34 @@
 # Project Memory and Contributor Guidelines
 
+## Stage 3 refinement: UX layout, citation deduplication, prompt redesign, and prerequisite enrichment — 2026-11-11
+
+Completed user-driven UX and RAG refinements on `feat/hus-rag-phase2-gemini-lite` (HEAD `276dd2f`):
+1. **UI & Workspace Layout:**
+   - Expanded `.rag-shell` container width (`min(1520px, calc(100% - 32px))`) and chat message height to `60vh` (`min 480px`, `max 720px`).
+   - Cleaned up redundant instructions and notes below the chat input box.
+2. **Citation Source Deduplication:**
+   - Added `groupCitations(citations, origin)` in `app/static/hus-rag-demo.js`.
+   - Deduplicates identical target URLs into single cards with merged citation IDs (e.g. `[2, 3, 4, 5]`), while preserving distinct URLs and differing PDF pages.
+   - 10/10 Node.js unit tests passing in `tests/frontend/chat.test.cjs`.
+3. **Prompt Redesign & Motif Elimination:**
+   - Overhauled prompt template in `app/hus/llm_answerer.py` to adopt "Answer-First" principle.
+   - Completely eliminated rigid 4-part numbered formula (`### 1, 2, 3, 4` / "Phần 1: Thông tin học phần", "Phần 2: Tổng quan", "Phần 3: Nội dung", "Phần 4: Lời khuyên học tập").
+   - Now supports adaptive answering: concise (1-3 sentences) for credit/prereq lookups, natural and structured (200-350 words) for curriculum and course explanations.
+4. **Authoritative Decision PDF Linking:**
+   - Added `_resolve_f2_pdf_citation()` in `app/hus/llm_answerer.py` mapping program and course facts to official scanned PDF decisions (e.g. QĐ3569 `105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf`).
+   - Generates clickable `/hus/sources/{sha256}?page={page}#page={page}` citations opening exact pages in new browser tabs.
+5. **Prerequisite Normalization & Forward Prerequisite Enrichment:**
+   - Eliminated misleading `(Chưa có thông tin cụ thể trong hệ thống)` for foundational courses without prerequisites (e.g. MAT2400, MAT2501).
+   - Explicitly displays `Điều kiện tiên quyết: Không` when the official curriculum has no prerequisite requirement.
+   - For courses with prerequisites (e.g. MAT3507), resolves both code and course title (`MAT2505 (Lập trình cơ bản)`).
+   - Enriched two-way forward prerequisites (`dependent_courses`): shows follow-up courses unlocked by the current subject (e.g. MAT2400 is prerequisite for MAT2403, MAT2407, MAT3379, MAT3562).
+6. **Testing & Code Quality:**
+   - 18/18 tests passing in `tests/hus/test_llm_answering.py`.
+   - 23/23 tests passing in `tests/hus/test_grounded_citations_and_schema.py` and `tests/hus/test_chat_scope.py`.
+   - 10/10 Playwright UI tests passing.
+   - `ruff check app/ tests/`: 0 errors.
+   - All commits pushed to `origin/feat/hus-rag-phase2-gemini-lite`.
+
 ## Stage 3 complete: Grounded LLM answering, in-line citations, safe markdown UI, and security mock suite — 2026-11-11
 
 Completed Stage 3 (LLM Grounded Answering) under Subagent-Driven Development on feat/hus-rag-phase2-gemini-lite.
