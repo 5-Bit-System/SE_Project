@@ -1,0 +1,51 @@
+{
+  "activation_performed": false,
+  "actual_human_reviews": 0,
+  "assessor_sha256": "e2174d856ce9d0f2a6ed9d7863efcce5a685ddf5c7a8c13515192e72ee81a964",
+  "blocked_cases": [
+    {
+      "question_id": "DEV-Q025",
+      "reason": "incomplete_generated_answer"
+    }
+  ],
+  "changes_environment": false,
+  "current_pins_sha256": "72888df3c6a11a8de0753552569a66129a31f29cdb1dd280f4dc854adcbf690d",
+  "eligible_for_manual_acceptance": false,
+  "fallback": 5,
+  "independent_holdout_accepted": false,
+  "limits": [
+    "No production SLO or total20s deadline inferred.",
+    "Evidence assessment does not perform activation or replace operator acceptance."
+  ],
+  "new_provider_calls": 0,
+  "new_retrieval_calls": 0,
+  "observed_models": {
+    "gemini-3.5-flash-lite": 24
+  },
+  "provider_requests": 24,
+  "reasons": [
+    "final_completeness_failed",
+    "generated_completeness_failed"
+  ],
+  "recommended_action": "keep_disabled",
+  "recorded_pins_sha256": "72888df3c6a11a8de0753552569a66129a31f29cdb1dd280f4dc854adcbf690d",
+  "requested_model": "gemini-3.5-flash-lite",
+  "reviewer_kind": "ai",
+  "schema_version": "hus-llm-readiness-1.0",
+  "scope": "L5 evidence readiness only; operator rollback/latency acceptance remains separate",
+  "source_manifest_sha256": "6f8ddc1dae7e5957906c6ade0f331fef944d6a3553229272f6257aca059e8ed3",
+  "supported_complete_readability_gains": 9,
+  "token_usage": {
+    "completion_tokens": 3008,
+    "prompt_tokens": 20531,
+    "total_tokens": 23539
+  },
+  "used": 19,
+  "used_latency": {
+    "count": 19,
+    "max_ms": 10444.454099982977,
+    "min_ms": 1648.9448000211269,
+    "p50_ms": 2692.4309998285025,
+    "p95_ms": 10444.454099982977
+  }
+}
