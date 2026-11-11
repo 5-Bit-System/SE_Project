@@ -195,6 +195,61 @@ def call_gemini_llm(
     raise RuntimeError("Tất cả các model Gemini đều không phản hồi.")
 
 
+def _resolve_f2_pdf_citation(
+    bundle: Any,
+    request: HUSQuestion,
+    answerer: HUSAnswerer,
+) -> HUSCitation | None:
+    """Resolve authoritative F2 PDF citation for the course or program decision."""
+    major = request.major
+    version = getattr(bundle, "version", None) or request.version
+    course_fact = bundle.structured_data.get("course")
+    if course_fact and course_fact.get("course_code") and version:
+        code = course_fact["course_code"]
+        course = answerer.data.get_f2_course(code, major=major, version=version)
+        if course and course.source_rows:
+            return answerer.citation_resolver.course_row(
+                course,
+                course.source_rows[0],
+                1,
+                json.dumps(course.source_rows[0], ensure_ascii=False),
+            )
+    prog_fact = bundle.structured_data.get("program")
+    if prog_fact and version:
+        prog = answerer.data.get_f2_program(major=major, version=version)
+        if prog:
+            source_note = prog.get("source_note", "")
+            for pdf_name, pdf_info in answerer.citation_resolver.pdfs.items():
+                if pdf_name in source_note:
+                    sha = pdf_info.get("sha256")
+                    base = {
+                        "citation_id": "1",
+                        "dataset": "f2",
+                        "label": pdf_name,
+                        "source_id": f"canonical_f2:{pdf_name}",
+                        "source_url": None,
+                        "quote": (
+                            f"Quyết định ban hành CTĐT ngành {prog.get('major_name', '')} "
+                            f"({prog.get('credits_required', '')} tín chỉ)"
+                        ),
+                        "locator": {"evidence_path": f"docs/pdf/{pdf_name}"},
+                        "review_status": prog.get("catalog_review", {}).get("status", "draft_unverified"),
+                        "content_origin": "structured_source_draft",
+                        "metadata": {
+                            "program_id": prog.get("program_id"),
+                            **answerer.citation_resolver.release_identity,
+                        },
+                    }
+                    return answerer.citation_resolver._file(
+                        base,
+                        sha,
+                        "pdf",
+                        [1],
+                        "Quyết định ban hành CTĐT chính thức (PDF).",
+                    )
+    return None
+
+
 def generate_grounded_answer(
     request: HUSQuestion,
     answerer: HUSAnswerer,
@@ -229,25 +284,37 @@ def generate_grounded_answer(
 
     # Collect citations: start with base answer citations so primary authoritative citations are preserved first
     llm_citations: list[HUSCitation] = []
-    used_ids: set[str] = set()
     existing_signatures = set()
+
+    # If F2 structured data (course or program decision) exists, resolve its official PDF citation first
+    f2_pdf = _resolve_f2_pdf_citation(bundle, request, answerer)
+    f2_pdf_cit_id = None
+    if f2_pdf is not None:
+        llm_citations.append(f2_pdf)
+        existing_signatures.add((f2_pdf.dataset, f2_pdf.source_id, f2_pdf.open_url))
+        f2_pdf_cit_id = "1"
+
     if answer is not None and answer.citations:
         for cit in answer.citations:
-            llm_citations.append(cit)
-            used_ids.add(str(cit.citation_id))
-            existing_signatures.add((cit.dataset, cit.source_id, cit.quote))
+            sig = (cit.dataset, cit.source_id, cit.open_url)
+            if sig not in existing_signatures:
+                llm_citations.append(cit)
+                existing_signatures.add(sig)
 
-    # Then append citations from retrieved Top-K chunks (if any)
+    chunk_citation_map: dict[int, int] = {}
     for c in bundle.top_k_chunks:
         if c.citation is not None:
-            sig = (c.citation.dataset, c.citation.source_id, c.citation.quote)
-            if sig not in existing_signatures:
-                new_cit = c.citation
-                if str(new_cit.citation_id) in used_ids:
-                    new_cit = new_cit.model_copy(update={"citation_id": str(len(llm_citations) + 1)})
-                llm_citations.append(new_cit)
-                used_ids.add(str(new_cit.citation_id))
+            sig = (c.citation.dataset, c.citation.source_id, c.citation.open_url)
+            matched_idx = None
+            for idx, exist_cit in enumerate(llm_citations):
+                if (exist_cit.dataset, exist_cit.source_id, exist_cit.open_url) == sig:
+                    matched_idx = idx
+                    break
+            if matched_idx is None:
+                llm_citations.append(c.citation)
                 existing_signatures.add(sig)
+                matched_idx = len(llm_citations) - 1
+            chunk_citation_map[c.rank] = matched_idx + 1
 
     # Ensure citation IDs are sequential "1", "2", ...
     llm_citations = [
@@ -270,7 +337,11 @@ def generate_grounded_answer(
             c_lines.append(f"- Phân bổ giờ học: {json.dumps(course_fact['hours'], ensure_ascii=False)}")
         if course_fact.get("prerequisites_raw"):
             c_lines.append(f"- Điều kiện tiên quyết (theo dòng nguồn): {'; '.join(str(p) for p in course_fact['prerequisites_raw'] if p)}")
-        context_sections.append("### Dữ kiện học phần chính thức (F2):\n" + "\n".join(c_lines))
+        f2_tag = "### Dữ kiện học phần chính thức (F2)"
+        if f2_pdf_cit_id:
+            f2_tag += f" [{f2_pdf_cit_id}]"
+        f2_tag += ":\n"
+        context_sections.append(f2_tag + "\n".join(c_lines))
 
     prog_fact = bundle.structured_data.get("program")
     if prog_fact:
@@ -283,13 +354,18 @@ def generate_grounded_answer(
             p_lines.append("- Các khối/nhóm kiến thức trong khung chương trình:")
             for grp in prog_fact["group_rules"][:10]:
                 p_lines.append(f"  * Nhóm {grp.get('group_key')}: {grp.get('group_title')} (Tối thiểu: {grp.get('min_credits_if_selected')} tín chỉ)")
-        context_sections.append("### Dữ kiện chương trình đào tạo (F2):\n" + "\n".join(p_lines))
+        f2_tag = "### Dữ kiện chương trình đào tạo (F2)"
+        if f2_pdf_cit_id:
+            f2_tag += f" [{f2_pdf_cit_id}]"
+        f2_tag += ":\n"
+        context_sections.append(f2_tag + "\n".join(p_lines))
 
     # B. Retrieved textual excerpts (Top-K Chunks F1/F3)
     if bundle.top_k_chunks:
         chunk_lines = []
         for c in bundle.top_k_chunks:
-            source_tag = f"[{c.rank}] ({c.dataset}/{c.field or 'info'}"
+            assigned_id = chunk_citation_map.get(c.rank, c.rank)
+            source_tag = f"[{assigned_id}] ({c.dataset}/{c.field or 'info'}"
             if c.course_code:
                 source_tag += f" - {c.course_code}"
             source_tag += ")"
