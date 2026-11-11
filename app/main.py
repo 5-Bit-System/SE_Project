@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from app.api.academic import router as academic_router
 from app.api.admin import router as admin_router
 from app.api.auth import router as auth_router
+from app.api.hus import router as hus_router
 from app.api.portal import router as portal_router
 from app.api.routes import router as api_router
 from app.config import get_settings
@@ -82,6 +83,7 @@ app.include_router(auth_router)
 app.include_router(portal_router)
 app.include_router(academic_router)
 app.include_router(admin_router)
+app.include_router(hus_router)
 
 
 @app.middleware("http")
@@ -117,6 +119,8 @@ async def portal_boundary(request: Request, call_next):
         response.headers["Cache-Control"] = "no-store"
     elif request.url.path.startswith("/static/"):
         response.headers["Cache-Control"] = "no-cache"
+    elif request.url.path.startswith("/hus/"):
+        response.headers["Cache-Control"] = "no-store"
     return response
 
 
