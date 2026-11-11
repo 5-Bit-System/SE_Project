@@ -1,5 +1,619 @@
 # Project Memory and Contributor Guidelines
 
+## A7 measured (not accepted) and approved compact LLM v3 offline complete — 2026-11-11
+
+Supersedes active/pending notes below. User selected A7 and then approved detailed
+compact-LLM design/offline implementation; both tasks completed. Still hus-llm-rag,
+HEAD1aca071+WIP, CURRENT hus-data-20261111-v4, lexical/defaultLLMoff. No Google
+calls this turn, no env/template/key read/edit, no source/routing/retrieval changes,
+no commit/push/PR/deploy. Prior24Google-call budget exhausted, no new budget.
+
+A7 r1 froze48/12major,3F1/3F2/3F3+3controls before real-route inference. User
+approved v3 while active; r1 was measured/rootAIreviewed/sealed before codechange.
+After v3 final-code tests, NEW a7_v4_candidate_20261111_r2, runs/
+a7_v4_lexical_20261111_r2, review evaluation/reviews/a7_v4_ai_20261111_r2.json,
+overlay runs/a7_v4_ai_review_20261111_r2 and qa/20261111/a7_v4_r2/report.json.
+Questions/gold/evidence/release/submission same r1. All48 exact response/raw/
+effective request/retrieval trace/audit hash bindings identical; explicitly reused
+r1AI judgments after comparison, all48questions now declared exposed, no new
+independent/human review. r2pinsmatch current code, r1pins correctlyhistorical.
+Both fail A7: routedRecall19/24=79.17% vs90target, conditional19/20=95% NOTsubstitute;
+9falseabstentions/36positive, completeness27/36.27/27answered entailed relative
+source, sourceintegrity27/27, F2facts12/12, controls12/12inclindependent audits,
+scope/HTTPerrors0. R2localHTTPp50/p9530.838/66.335ms vsr112.439/33.774, same
+responses and modeloff so no attribution to v3, not network/production SLO.
+Q003validR&Dwebalternative semanticpass but frozen2023anchorproxy staysuncredited.
+Human0/AIexposed/nonblind; no holdout acceptance. Future baseline repair separate
+task; if A7 guides tuning, retire todev and freeze new evaluation set.
+
+LLMv3 complete: immutable document.py leafIDs with full LF/CRLF source spans,
+literalprefix/skeleton; strict output_v3.py ID/text, perleafcoverage/atoms, symbols/
+operator sequence and relativewordpositions, backendorder/bullets/citations.
+All selected evidence retained, no partialrender/truncation or globalIDcache.
+Default adapter+new measurementprep/export share evidence.build_evidence; F2 stays
+v1facts/HUSF2Presentation/canonical. Explicit legacy v2 bundle/output still available,
+not accepted on v3 calls. HUSTextRewrite.reply preserves firstindent, rejectsblank.
+Safe diagnostics.py/client/errors/ObservedAdapter trace only enum/count/knownIDs,
+no rejectedbody or chained JSON/Pydantic exception text.12kprompt/8192raw/1024token,
+64leaves/128units/3000restoredleafchars,20sHTTPX perphase/1concurrent/no retry unchanged.
+Single review0C/1I/0M found mixedsymbol corruption;11negativeoperator regressions
+inclratio RED→GREEN plus normalization positive, no independent rereview. Legacy
+v2/source/data unchanged, still not proof of entailment/all valid paraphrases.
+
+Verification:647 broadLLM/API/UI/permissions/rollback/A7pass487.56s before final
+narrow promptmathinstruction/ratio-colon change; final480fullLLMpass129.64s,
+including82newcompacttests. Counts overlap, not a full-repo green claim. Ruff and
+scoped diffchecks pass. One pre-existingStarlettewarning. Synthetic saved4F3stress
++Q022: rawJSON2710/2842chars,Q022383chars/4bullets, allcompletecopyvalid/missingleaf
+rejected; promptchars6789/6769/7328/3093/6824. NOactualgeneration/tokenfeasibility/
+readabilitygain measured; don't call5syntheticpassesLLMsuccess. No newGooglebudget.
+Publicsealed QA/20261111/llm_compact_v3_r1/report.json.2375preexistingdata files,
+45staticfiles SHA unchanged; canonicalRAGoutsideLLM unchanged,4L5+2A7r1cachedreplays
+reproduce. New doc/code changes only approvedLLM/measurement/tests/docs scopes;
+archive/hash/logs/ledgers backups/hus_llm_compact_20261111 and hus_a7_20261111.
+Docs RAG_LLM_COMPACT_V3_2026_11_11.md, RAG_A7_V4_2026_11_11.md and roadmap updated
+with failedA7/newnextsteps. Plans checkboxescomplete. Oldqa/run/gold/review/release
+files preserved; don't rerun sealedreceipt writers that requirefreshpaths.
+Next only when selected: generalbaseline diagnostic/fix9A7misses (notQIDpatch),
+freshA7aftertuning, newcohort/pins/budgetforL5v3, thenv4/protocolawareL6operatorreview.
+Do not ask design approval again or implicitly call Google/enable/deploy.
+
+## Compact LLM v3 implementation active; final verification/A7 recheck pending — 2026-11-11
+
+This is continuation of the approved detailed compact-layout design, not pending
+permission. Plan docs/superpowers/plans/2026-11-11-hus-llm-compact-layout.md and
+ledger backups/hus_llm_compact_20261111/progress.md. Before archive/hash snapshot
+there contains2460public runtime/data/test files, no env/template. Steps1–3 done:
+new document.py immutable leaf IDs/source spans/prefixes; prompts.SYSTEM_PROMPT_V3;
+output_v3.py strict complete IDs/per-leaf coverage/atoms/renderer; output.py dispatch
+retains legacy explicitbundle-v2; evidence.build_evidence shared dispatcher used
+by default adapter + L5 preparation/payload tools. F2 unchanged. contracts.py reply
+field preserves leading literal indentation but still rejects blank. client.py/
+new diagnostics.py only allowlisted stage/envelope finish/contenttype/count/tool/
+knownleaf metadata; ObservedAdapter/Transport record safe trace, no rejectedbody.
+13pipelineRED+1existinggreen -> defaultv3 works. Pydantic traceback leak regression
+RED->GREEN by suppressing chained exceptions. Updated current success mock outputs
+in fixtures/pipeline/evaluation/rollback/limits/v4_measurement/qualitativepipeline/
+test_llm_rewrite_ui; explicit v2 validators/grounding tests remain.
+
+Single technical review /root/review_llm_compact_implementation:0C/1I/0M. Mixed
+word/math operators could be inverted/dropped under old lexical-only retention.
+Root reproduced10REDs incl≠,≥,+,- order/position,subset,prime,modulo,✓,inventedop;
+new v3-only symbol signature+interleaved source words fixes all. Preserve Unicode
+minus normalization, legacy v2 unchanged; no independent rereview.81newcompact
+tests now pass (19document+47output+15pipeline). Entire LLM467passed before final
+extra privacy+11math tests; final LLM count expected479, VERIFY not assume.
+Final combined verification currently running exec session12174, log/XML
+backups/hus_llm_compact_20261111/final_regression.* (LLM+A7+F3API+LLMUI+chatcontracts/UI).
+Do not edit product Python while this run is active. After it completes add explicit
+math symbol/operator preservation sentence to SYSTEM_PROMPT_V3, then run focused
+prompt/pipeline checks and diagnostic on final code; no further feature change.
+Ruff/diff last pass before that prompt addition. Reviewer's extra measurement
+session39643 not accessible to root; exclude it from claimed counts.
+
+Synthetic diagnostic.py saved5cases (four L5v4longF3+Q022), using frozen A without
+retrieval/provider: v3 output2710/2842chars, Q022383chars/4bullets, all preserve
+canonical and reject missingleaf; current promptchars6559/6539/7098/2863/6594
+before explicit-math sentence. MUST rerun after finalprompt/fix. Synthetic only,
+not Google/tokenfeasibility/quality/readability acceptance. No new Google calls.
+
+A7 r1 already sealed/reviewed failed19/24recall27/36complete; keep unchanged.
+tools/evaluate_hus_a7.py pins metadata now hashes dormantv3 and legacy/F2 prompts
+separately and protocol strings; metric logic unchanged. After all product/evaluator
+changes stable, freeze candidate a7_v4_candidate_20261111_r2, assert questions/gold/
+evidence identicalr1, run once to NEW a7_v4_lexical_20261111_r2; compare ALL exact
+responses to r1. If identical, copy/rebind AI review with explicit prior-exposed
+recheck note, then score/replay new overlay/receipt. If any changed, read/review it.
+Do NOT call r2 a new independent holdout or fix baseline to raise A7score; no routing/
+retrieval/source changes authorized. Need finish new LLM implementation report,
+A7report final-code section, roadmap and memory, protected-data/runtime hashes,
+old L5/A7replays. Old pins correctly become historical after v3 code changes.
+Keep v4 CURRENT/lexical/LLMoff, all old run/gold/review/release bytes, no env/template
+read/edit, no provider call, no commit/push/deploy. No new permission question.
+
+## A7 r1 measured/failed; compact-LLM design now approved offline — 2026-11-11
+
+Supersedes design-pending notes below. User selected A7, then explicitly replied
+"Duyệt thiết kế, triển khai và kiểm thử offline" to detailed compact-layout spec.
+Both tasks remain active: A7 r1 is now locked; next implement approved LLM-v3
+offline, then re-pin/recheck A7 on final code in NEW artifact. No new Google budget.
+Do not ask design approval again. Keep CURRENTv4/lexical/LLMoff, hus-llm-rag WIP,
+no commit/push/PR/deploy. Do not silently repair baseline as part of measurement.
+
+A7 new tools/evaluate_hus_a7.py + hus_a7_cases.py, tests/hus/test_a7_evaluation.py.
+Plan docs/superpowers/plans/2026-11-11-hus-a7-v4-evaluation.md; ignored ledger/evidence
+backups/hus_a7_20261111. Frozen data/hus/evaluation/a7_v4_candidate_20261111_r1;
+48 exact-new questions vs pinned old packs (not exhaustive/manual semantic overlap),
+12/major=3F1/3F2/3F3+3controls. Source-authored gold before inference, observed raw/
+effective F1 chat version mapping, request-only real demo HTTP. Independent v4
+oracle + strict F2 values/types, local binary checks. LLM off/provider0/DB0/envfile0.
+Single technical review0C/2I/0M: exceptions lacked effective/latency and aborted
+sealing; control gate ignored failed audits. Both reproduced RED→GREEN, including
+48 synthetic real-route error collection. Root also fixed source-run provenance
+hash check and compared release ID/SHA subset (actual identity adds format/state).
+40newtests; final134relatedtests pass72.54s, Ruff pass; no rereview.
+
+Actual sealed run data/hus/evaluation/runs/a7_v4_lexical_20261111_r1 and exact-bound
+AI review file evaluation/reviews/a7_v4_ai_20261111_r1.json, overlay runs/
+a7_v4_ai_review_20261111_r1. Root read all48 exact displays and pinned targets;
+27/27answered entailed/complete,9/36positive noanswer completenessfail,12controlsNA
+and audit/status pass. Human0, AI exposed/nonblind, not independent acceptance.
+RoutedRecall19/24=79.17% FAIL90target, conditional19/20=95% not substitute;
+F2 12/12,controls12/12,scopeerrors0,HTTPerrors0,sourceaudit27/27answered.
+Bymajor CSrecall4/6complete6/9, DS5/6+7/9, Math5/6+8/9, MI5/6+6/9.
+Failures Q001/Q007/Q032/Q037 nosearch; Q002/Q014/Q020/Q038/Q043 search thenrefuse;
+wrong classifier Q007assessment,Q014careers,Q037F2name. Q003 answered correct R&D
+web alternative rather than2023gold anchor, semanticpass but old proxy unchanged.
+LocalHTTPp50/p95 12.439/33.774ms, not network/production;8PDFurls checked.
+Public sealed qa/20261111/a7_v4_r1/report.json confirms protected2469files unchanged,
+pins matched atreceipt, replay both reproduces. No runtime/gold/source changes.
+Docs/RAG_A7_V4_2026_11_11.md reports failed result and future v3 pin change.
+
+Need finish roadmap/docs at task end. Next read approved compact-layout spec,
+write/execute its plan with TDD, no approval handoff needed (already explicit).
+Old run artifacts immutable. LLM v3 will change runtime/prompt pins: old L5/current
+A7 pins become historical, not current readiness. New A7 r2 must reuse same frozen
+questions/gold/evidence, explicitly exposed recheck (not new holdout), fresh code
+pins, preserve r1 and every failed case. Do not attribute changed LLM-off retrieval
+results to new output protocol; expected canonical responses stay identical.
+
+## Long F3/Q022 diagnostic complete; compact-ID design pending approval — 2026-11-11
+
+User selected diagnostic roadmap row, then explicitly chose continued rewriting
+with compact source IDs and preserved bullets (not layout-only AI for long F3).
+Read-only offline investigation, no product code/prompt/validator/source/retrieval
+changes, no env/template read or Google calls. Still hus-llm-rag/base1aca071+WIP,
+CURRENT v4, lexical/LLM off; old 24-call budget remains exhausted. Public sealed
+receipt data/hus/qa/20261111/llm_long_f3_diagnostic_r1/report.json; ignored scripts,
+stats/details/proof/hash snapshot backups/hus_llm_diagnostic_20261111_r1.
+F3 Q005/Q013/Q029: 4 citations/39 coverage units/19 display leaves, 2246 quote
+chars; Q021: 5 citations/41 units/23 leaves, 2285 chars. Prompt prefers one point
+per source sentence/list/clause but output schema allows20points. Literal per-unit
+synthetic JSON 12045/9935chars exceeds8192 and separately pointcap. Short unit
+anchors expanded to full quote create extra duplication. Onepoint/citation
+4743/4875chars accepted by existing validator with exact-copy synthetic text;
+not impossible contract or proof of generated success/token feasibility.
+Three invalid_response near1020tokens: five distinct mock envelope failures map
+same error; old trace lacks finish reason/rejected raw, so cannot prove truncation
+or identify omitted units in Q013. Q022 exact displayed B reconstructed with full
+anchor is accepted despite collapsing four bullets; verbatim bullets accepted,
+drop last bullet rejected. No list-shape guard; enough words is not readability.
+All four stress cases reject dropped source; do not filter context to fit cap.
+Sizing sketch compact ID+text:2710/2842chars, not validated v3/generation/token
+prediction. Across580 whole F3 record fields max28leaves/55units. Protected2550
+existing code/test/tool/data files unchanged; live/review replay reproduced and
+preparedr3 pins match. Five synthetic HTTP requests only, external transport
+blocked in mock/replay proof, no new retrieval. All old artifacts untouched.
+New docs RAG_LLM_LONG_F3_DIAGNOSTIC_2026_11_11.md and superpowers/specs/
+2026-11-11-hus-llm-compact-layout-design.md; roadmap/L5 report updated.
+Full design proposal awaits detailed user approval before implementation/plan.
+Chosen approach approved, detailed schema not yet. Builder review under skill:
+no user-only decisions; clarified LF/CRLF boundaries/full-unit containment,
+expanded anchor cannot grant neighboring atoms, arbitrary output ID order but
+canonical render order, literal markers/indentation/textcaps/per-call mapping.
+Do not claim implementation fixed or synthetic pass equals entailment/LLM gain.
+Proposal keeps12kprompt/8192raw/1024tokens,64leaves/128units/3000chars per leaf,
+strict complete IDs, original layout, v2 coverage, F2 unchanged, safe diagnostic
+enums rather than rejected raw output. New pins/cohort/budget needed after any
+implementation; no further Google calls currently authorized. No commit/push.
+
+## A6 complete; authorized L5 v4 live budget consumed — 2026-11-11
+
+This entry supersedes the pending-budget status below. User explicitly approved
+max 24 Google calls while A6 was active. Exact prepared r3 cohort collected with
+24 HTTP 200 responses, gemini-3.5-flash-lite, >=5s spacing, no retry/model switch;
+12 controls made no calls. Budget exhausted; no further provider calls authorized.
+Live: data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1; exact-response AI
+review/score: llm_l5_v4_ai_review_20261111_r1, review file under evaluation/reviews.
+16 used/8 fallback (F1 5/3, F2 8/0, F3 3/5); 4 coverage, 3 invalid_response,
+1 invalid_output. All four long F3 content cases fell back. Total 35,265 tokens,
+16,393 on fallback. Used rewrite latency p50/p95 4.087/6.456s, excluding pacing,
+not UI latency. Root AI read all 24 positive A/B and 12 controls: used 16/16
+entailed/complete against pinned evidence; readability 2 better/13 same/1 worse
+(Q022 merges bullets). Fallback exact A, not model success. New Q025 retains the
+program-update idea; old DEV-Q025/run/review untouched. Nonblind/exposed,
+human review 0; not academic/independent acceptance. Replays reproduce without
+provider/retrieval. Three invalid_response cases near token cap do not prove
+truncation because rejected raw output/finish reason were not retained.
+Public sealed summary: data/hus/qa/20261111/llm_l5_v4_live_r1/report.json.
+All 2,516 protected old data files unchanged; collection code/data/prompt pins
+unchanged. Server .env loaded internally only for authorized CLI, never printed
+or edited; template remains out of scope. Keep lexical/default LLM disabled.
+
+A6 app.hus.demo:app on actual CURRENT v4 passed 163 targeted tests (26 Chromium
+UI/137 API), plus separate overlapping 18 browser/API scenario groups and 50 chat
+steps. Menu 2,124 entries/580 F3; all four majors, PDF hash/pages, actual DOCX
+download/hash, pinned web URL/AI labels, independent opt-ins, mobile 360/390px,
+keyboard/IME, scope/late response, 422/404/500/503/malformed, actual missing-root
+503 and restore/reload covered. Enabled LLM UI tests synthetic only; A6 provider
+calls 0, account/advisor requests 0. Root AI viewed desktop/mobile screenshots.
+Initial intentional config503 hit harness networkidle timeout; final harness
+uses DOM readiness and observable controls, all pass, no product code changes.
+Web remote availability/all devices/WCAG/academic quality not certified.
+Sealed A6 receipt data/hus/qa/20261111/a6_ui_api_r1/report.json; ignored evidence
+backups/hus_a6_20261111. All 2,598 protected code/static/data files unchanged;
+L5 r3 pins still match. Reports RAG_A6_UI_API_2026_11_11.md and
+RAG_LLM_L5_V4_2026_11_11.md, roadmap/plan updated. No commit/push/PR/deploy.
+Next: diagnostic long F3/Q022, A7 fresh evaluation, v4-aware L6 checker/operator
+acceptance; legacy L6 pin reader is not v4 acceptance. New live cohort needs new
+budget authorization. Preserve historical artifacts and v3 rollback snapshot.
+
+## L5 v4 offline ready; explicit live budget pending — 2026-11-11
+
+User selected new L5 row, then explicitly chose fixing baseline before reprepare
+when source preflight35/36 exposed Q002. Still hus-llm-rag/base1aca071+priorWIP;
+CURRENT v4 unchanged, lexical/defaultLLMoff, no commit/push/PR/deploy/providercall.
+NEW tools/evaluate_hus_llm_v4.py + hus_llm_v4_audit.py; versioned exposed36-case
+cohort24positives(8/family,2/major/family)+12controls. Reuse old F1/F2/objectives
+questions, F3content selects longest rendered non-overview unit permajor before
+generation; shared courses possible. No old packs/gold/run/review/source changes.
+Sourcepack data/hus/evaluation/llm_v4_dev_20261111_r1 sealed. New oracle independent
+F3 rendering/offset/record/target identity, inheritedparent/source/binary SHA proof,
+facts/type/scope/review/AI checks. Old EvidenceOracle gains asset_root and two
+default hooks; v3 behavior unchanged. L5engine save_prepared/run optional pin_reader;
+capture/check pins through prompt/save/collection, preserve exactA canonical forB,
+no B retrieval or cached replay inference. CLI live requires explicit envfile/live.
+One technical review0C/3I/0M: target/course omissions accepted, no prepared/cohort
+join, pin change atsave relabelled baseline. All fixed10RED->GREEN regressions;
+cohort mock routing corrected and old wrapper reconstructed for proper5RED,
+no independent rereview.31newmeasurement regressions total.
+Strict preflight discovered real Q002 target absent, oldA chose2023outcomes over
+generalpurpose. User approved baseline repair. app/hus/answer_support.py now
+recognizes explicit purpose questions and prefers scoped explicit-aim paragraphs;
+no heading-only/cross-hit borrowing, unknown topics still required in aim text,
+explicit outcomes wording keeps old selection. answering.py purpose-only query
+expansion 'nham muc tieu chung'; question_routing.py adds 'dao tao nham' synonym.
+No data/hash/alias/gold/prompt/LLMvalidator/budget changes.20purpose regressions;
+all related639tests pass, Ruff pass, existing Starlette warning only. No second
+whole-repo full-suite claim. Source bytes2516oldfiles SHA unchanged.
+Draft prepared r1 and failedpreflight remain immutable/stale. Draft r2 preceded
+last routing synonym and nowstale. FINAL prepared
+data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3, manifestSHA
+1a92bdf6fd9da21aadabe75f317f47f22da255bc706ad6db144d2c5e868b607a.
+New public finalpreflight data/hus/qa/20261111/llm_l5_v4_preflight_r2/report.json,
+sealed;36/36audits,24payloads fit3521..6912chars,total105399chars (NOTtokens/cost).
+Only Q002 body changed vs draft r1; samequestions/targets. All24exactbodies audited:
+public HUS facts/AIreference only, no account/transcript/history/key/header/path.
+Ignored backups/llm_l5_v4_20261111 payload_audit_r3, mock_success_r1/mock_quota_r1,
+testXML/logs/protectedhashes/planledger. Mock24HTTP used24, quota1HTTP thenstop;
+B/replay0retrieval, tokenusage unknown; NOT real quality/token/latency success.
+Docs RAG_LLM_L5_V4_2026_11_11.md/roadmap/plan updated. Sourceintegrity/target
+presence NOT entailment/completeness acceptance; AIexposed/nonblind/human0.
+Async separate budget question sent after finalprepare/preflight/mock: max24
+Google calls gemini-3.5-flash-lite,8/F1/F2/F3,12control0calls,>=5s,noretry/switch,
+stop429,1024outputtoken/call,ceiling24576outputtokens,inputcostunknown. WAIT reply;
+elapsedtime is not authorization. After approval use FINALr3 only, new live output,
+existing root.env loaded internally by CLI, never print/edit key or env/template.
+Then exact-response-bound AI review ALL A/B includingfallback, score/replay new
+artifacts, separateused/fallback/model/token/latency/errors and keep LLMoff.
+Do not alter corpus/retrieval/prompt/code mid-live; pin drift invalidates run.
+Root.env/privatekey and .env.example NOT read/edited this task. Known template
+credential remains outofscope; never unscoped-diff/stage it. No live call yet.
+
+## Shared local RAG selector chooses v4 — 2026-11-11
+
+User selected roadmap step1 controlled release selection after preview. Still
+hus-llm-rag/base1aca071+WIP, no new branch/commit/push/PR/deploy. Reviewed immutable
+integration receipt, validated v3/v4; atomic guarded CURRENT now chooses
+hus-data-20261111-v4 SHA ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463,
+state selected_for_local_rag_demo. Saved exact v3 and v4 selectors in NEW receipt
+data/hus/qa/20261111/f3_runtime_selection_r1/; v3 snapshot unchanged for rollback.
+Lexical/LLMoff enforced in fresh demo/API processes, no HUS_RAG_ROOT override,
+no private.env/template/key read/edit or new provider call. Existing app sessions
+not stopped; pre-existing demo processes require restart/cacheclear and UI reload.
+Actual default v4 service regression4majors: F1/F2 reply/facts/menu preserved,
+twoF3fields/optin/AIlabel, absent assessment no_information, provider0. Browser
+50cases+late scope/PDFpages passed with CURRENT v4 (not preview override), report
+backups/hus_rag_demo/20261111-092314-435996/report.json. 8Node/Ruff/diffcheck pass.
+Initial full offline2494pass/32fail/39errors/2skip/90deselect (1006.81s): historical
+v3 gold/oracle/index fixtures implicitly loaded newly selected v4. Explicit
+historical_v3_root/data/auditor fixtures from sealed P01 pointer; no old gold,
+anchor, review, receipt, source or index edits. Oracle accepts optional package
+root (only runtime-tool change), retains v3 registry/fulltext checks; NOT v4A6/A7.
+Historical auditor fixture clears servicecache before/after to avoid scope leaks.
+All71initial failed/error IDs rechecked plus4actual default-v4 cases and1frozen-v3
+pack rejection: final76pass/0fail/0error,187.80s. NOT a second green full-suite run.
+Separate targeted27oracle/119diagnostic-passage/42evaluator/78support passed,
+overlapping counts. Finalhelper asserts every initial failure covered, manifests
+valid, codeinventorysha captured; 678olddata/evidence files unchanged, only
+operational data/hus/rag/README.md changed of679trackedfiles. Ignored evidence
+backups/f3_selection_20261111, new public selection report; historical integration
+report correctly remains preview-only. Roadmap/manualdemo/integration runbook
+updated, rollback stops demo, validatesv3 then restores saved selector/restarts.
+No vector rebuild/download; v3 index incompatible v4. Next newv4 packs/auditor+
+pinned L5 A/B; existing L5 prepare correctly rejects frozenv3 packs onv4. No
+implicit live cohort authorization. Existing .env.example credential remains
+outofscope: never read/print/unscoped-diff/blind-stage it. Keep LLM disabled.
+
+## F3 v2 portable integration/preview/rollback verified — 2026-11-11
+
+User selected roadmap step1. hus-llm-rag HEAD1aca071 + priorWIP; no repeated
+design approval. New f3_runtime_release.py/prepare_hus_f3_runtime.py derive
+hus-data-20261111-v4 from fixedv3manifest5a926e...+candidate970aec...; archived
+parent/candidateevidence,strictreconstruction/inventory,preserveF1/F2/source/
+aliasesbyteexact.2154total=65F1+336F2+1753F3,290records;
+onlycontent/objectives,noassessment.
+Smallvalidatorv4dispatch,portableadapterfullunitoffsets,parentassetregistry
+bindingonlyaftervalidatedF1/F2identityproof;CitationAssets hash/allowlist/page
+checks unchanged. Oldv3 branch retains oldbehavior. Service adds optional
+processHUS_RAG_ROOT for explicitpreviewroot;cacheclear/restartrequired.
+SharedCURRENT STILLv3. Userrow requireschecksbeforeselection; preparedcanonical
+v4 andignoredpreview_ready ratherthanchoosingsharedselector. No publicdeploy.
+ReleaseSHA ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463.
+54newregressions14release/40API; initialRED13missingmodule/12locator-root,
+assetbindingRED8+precisebinaryRED1 fixed,53focusedGREEN. Freshreview0C/1I/0M:
+candidateextras acceptedafterouterreseal; exactinventory added1RED->GREEN14,
+noindependentre-review. Full2565pass/2skip/90deselect,8Node,50browsercases+late
+scope/PDFpages,Ruff/diffcheckpass;oldStarlettewarning. All testedcodeSHA matches.
+783olddata/QA/candidate/review/evalfiles unchanged;newv4only. API4majorssource/
+facts/menuF1F2preserved,2F3fields/580F3menu,total2124;consentindependent,absent
+assessment/basic0provider,syntheticquota/timeout/invalidfallback,echomockused,
+offrestorescanonical. Isolatedselectorsv3-v4-v3restoreexactAPI/menu4majors;
+explicitbadroot503bothLLMflags,noprovider,nolegacyfallback. Oldvectorcontract
+rejectsv4; noindexrebuild/modeldownload/newGooglecalls/defaultflagschanged.
+AdditionalAIreview10profiles(MAT1201/2301/2407/3301/3313/3337/3367/3507/3552E/
+3562E)outsideprior22;nomaterialconceptualerror. MAT2301semidefinite/zero-case
+noteoptionalcompleteness,notfalseclaim;sealedcandidateunchanged,human0.
+Docs HUS_F3_V2_INTEGRATION.md/roadmap;publicreceipt
+data/hus/qa/20261111/f3_runtime_integration_r1/report.json;ignored evidence
+backups/f3_runtime_20261111. NextcontrolledsharedselectionthenfreshL5A/B;
+oldL5/L6outputsnotregraded. No private.env/template read/edit,keyhandling,
+commit/push/PR/deploy. Known prior .env.example credential stilloutofscope;
+do not print/unscoped-diff/stage it. Defaults lexical/LLMoff unchanged.
+
+## F3 detailed AI candidate completed; no exercises/assessment — 2026-11-11
+
+User chose richer AI references for all4majors then removed exercises/criteria;
+scope correction applied as approval with reduced scope; continued on request.
+New data/hus/qa/20261110/f3_reference_v2:174code profiles ->290memberships,
+703code-indexedunits/704objectives,1753wholeunit chunks,content/objectives only.
+Includes shared concepts for same-name/E counterparts, not703distinct concepts.
+New app/hus/f3_detail.py/tools/prepare_hus_f3_detail.py:strictschema, pinned v3F2
+identity, record/chunk reconstruction/checksums, explicit AIoptin, protected/new
+output only, deterministicbuild/verify. Reader is F3-only offline, not a runtime
+adapter or fullF1/F2 answerer. Officialfieldsnull/needs_review/human0; noacademic
+signoff. New candidate release/README/SAMPLES/QUALITY_REPORT. CURRENT/v3/vector
+and594oldsource/review/evalfiles SHA unchanged;preexistingruntimebytes unchanged.
+26newtests,initialRED19+metadataRED5+blankRED2->GREEN26;full2511pass/2skip/90deselect,
+Ruff/diffcheckpass,oldStarlettewarning. Codehashes matchfulltestedbytes.
+Devtitlequeries top1 883/1173,top5 1173/1173,objectives290/290;exposed,notA7.
+Mediancontentchars251->2466,notqualityscore;maxgenericselectedquotechars2846
+excludespromptoverhead,notproofLLMtokenfit. No newGeminiAPI/liveAB/activation.
+OnefreshAIreview0Critical/0Important/1Minor;22completeprofiles+174titleinventory,
+notallacademicfacts. MAT3311 missingfinitegroup/complexfieldhypothesis fixed;
+rootgradedmaterialeducationalprecision;primaryEtingof+counterexample recorded,
+freshbuild/schema/retrieval checks,noindependentre-review. EarlierMAT3406damping
+qualification corrected withMITnotes;MAT3324reference strengthened. Authors3AI
+batches,refsconceptualonly,somebroad/index/search-visible;humanreview0. Unicode
+pipecorruption detected/repairedbeforeexport; useapply_patch orUTF8OutputEncoding.
+Evidence backups/f3_detail_20261110 withprotected/testhashes/XML/log/data_checks/
+contentfixes/verification. Earlierquota interruptedauthors;resumedremainingonly.
+Next: reviewcandidate/integrate2fields into newRAGrelease adapter/validator/menu,
+thennewpinnedL5A/B;no oldgold/run/reviewedits. No private.env read/edit, key,
+providerdefaultenable/commit/push/PR/deploy. Existing L1-L6WIP remains uncommitted.
+Finalhygiene checkfoundnonblankGooglecredentialin .env.example (usermanaged,
+notprinted/modified/moved;private.envnotread). Warneduser toscrubtemplatebefore
+futurecommit; do not blindly stage .env.example or assume it is blank now.
+
+## Qualitative coverage guard v2 completed offline; fresh L5 pending — 2026-11-10
+
+User selected roadmap step1 only. hus-llm-rag base1aca071 + existing L1-L6 WIP.
+Root cause: v1 ID/anchor/numeric checks accepted nonnumeric source omissions.
+New llm/coverage.py keeps every F1/F3 sentence/newline/semicolon textual unit:
+all NFKC/casefold word tokens in order in one point of samecitation, fullunit
+exact anchor required; symbol-only units literal. No stopwords/synonyms/ratios/
+topic-specific exceptions. output.py connects after v1 checks; prompt protocolv2.
+F2/canonical/facts/budgets unchanged. Conservative policy may reject correct
+synonym/reordered paraphrases; not proof of entailment/negation scope/completeness.
+Saved DEV-Q025 JSON reconstructed from rendered B, explicitly not raw provider;
+trusted archived v1 bytes SHA verified. Both cachedB and exactfirstsentence-only
+acceptedv1/rejectedv2; fullsource acceptedboth. Diagnostic only, not new live A/B.
+25newregressions;14initialRED->GREEN,431focused;2485offlinepass/2skip/90deselected,
+8Node,Ruff/diffcheckpass;existingStarlettewarning. Independent review0C/0I/0M.
+15oldL5/L6files SHA unchanged;cachedreview18/19unchanged. Runtimebefore61files:
+onlyoutput/prompts changed,newcoverage.py. Evidence backups/llm_qualitative_20261110
+with verification.json/runtimev1zip/testXML/hashes; newreport
+docs/RAG_LLM_QUALITATIVE_COVERAGE_2026_11_10.md;concise roadmap updated.
+Readinessoldrun stillkeep_disabled pluspins_changed. Freshprepare/newpinnedL5
+run/contentreview needed; no source/retrieval/gold/oldrun/review/receipt edits,
+newGooglecalls/private.envread-edit/defaultenable/commit/push/PR/deploy thisstep.
+
+## L6 technical readiness/rollback verified; default activation blocked — 2026-11-10
+
+User selected conditional L6. hus-llm-rag base1aca071 + uncommitted L1-L6.
+New tools/check_hus_llm_readiness.py read-only cached replay/currentpins/model/
+liveuse/source/controls/finalentailment-completeness/gain/latency check. Never
+enables/readskey/callsprovider/retrieval. Even hypothetical passing evidence only
+operator_review_required, not automatic activation/production signoff.
+Actualassessment keep_disabled, DEV-Q025 incomplete_generated_answer; L5content
+failure unchanged. Readiness artifact data/hus/evaluation/runs/llm_l6_readiness_20261110_r1.
+45newtests18readiness/27APIrollback: realRAG+adapter/client mockedprovider,
+off-on-off4majors*3families; timeout/transport/quota/invalidoutput fallback-off;
+exactlegacyresponse/noproviderafteroffevenmissingkey/invalidunusedconfig;
+userconsentandF3rightsindependent; canonical503bothflags. No newliveGooglecall.
+Review0Critical/1Important/0Minor: failedfallbackreviews erroneously skipped;
+fixed2RED->GREEN, finalBsemanticsallpositivesnowrequired, generatedsuccess/gain
+stillseparate. No re-review. Final2460offlinepass/2skip/90deselected,45focused,
+8Node,Ruff/diff-checkpass;existingStarlettewarning. L1-L5runtime/evaluatorhashes
+andL5sealedmanifestsunchanged. Evidence backups/llm_l6_20261110 XML/log/hash/verify.
+docs/HUS_LLM_OPERATIONS.md runbook: dedicatedloopbackserver, processenvprioritizes
+dotenvfile, restartrequiredtochangeexternalconfig; flagsfalse+reloadUIrollback.
+In-flightoldrequestmayfinish,notcancellation/total20s. Keyserveronly/GoogleHTTPS.
+Default .env/sample off remains; no privatekey/fileedit/source/retrieval/index/gold/
+lock/oldreceipt/commit/push/PR/deploy/billing change. Runtime stillpermits explicit
+manualflags perL1-L4; checker is read-only evidence, not new runtime middleware.
+L6 default activation NOT complete: must fix qualitativecoverage, newpinnedL5run
+and content/gain/fallback/latencyacceptance/A7 before enabling. Do not equate
+technicalreadiness/tests or cachedassessment with passedcontent/activation.
+
+## L5 paired live evaluation completed; keep LLM off — 2026-11-10
+
+User selected L5 then said continue. hus-llm-rag base1aca071 + uncommitted L1-L5.
+New tools/evaluate_hus_llm.py and hus_llm_measurement.py +26tests. Prepare freezes
+36exposed cases24positive/12controls, original packs/gold unchanged; lexical A
+once, exact effective request/canonical reused for B without retrieval. Pin runtime/
+source/assets/packs/env/evaluator/model/prompt; observe safe actual model/status/
+usage even rejected output, unknown stays unknown, cached replay/review bindings.
+24live GoogleHTTP200 actualgemini-3.5-flash-lite;19used/5evidence_coverage fallback,
+12guards0calls;noHTTP/quota/timeout in livecohort. F1used4/8,F2 8/8,F3 7/8.
+23539tokens=20531prompt+3008completion;17057used/6482fallback. Used rewrite
+p50/p95=2.692/10.444s excluding evaluation pacing5s,notproductionSLO.
+Root AI manual nonblind/nonindependent exposed-dev content review36pairs,human0:
+A24/24entailed/complete;Bused19/19entailed,18/19complete,10readabilitybetter/9same.
+DEV-Q025Bkeeps1993/formername but drops continuously-updated-program idea from
+quote/gold; conservative full-bundle completenessFAIL though mainquestionanswered.
+Fallback5exactA,notLLMsuccess. F2onlyprefix,noobserved factual-prose gain. Keepoff;
+newversion/run needed for qualitative coverage beforeA7/L6. No currentrun tuning.
+Technicalreview0Critical/1Important/0Minor; interruptedbyquota thenoriginalreview
+finished,429headers/body-timeout circuit fixedRED->GREEN,notre-reviewed. Selfaudit
+metadata4RED->GREEN. Final2415offlinepass/2skip/90deselected,26focused,8Node,Ruff/
+diff-checkpass;oldStarlettewarning. ExistingL1-L4runtimebytesunchanged.
+Autoapproval initially rejected bulkexport privacy uncertainty; exact24payloads
+exported/audited as public CTDT/AIcourse reference only,noaccount/transcript/history/
+key, then sameaction approved on newevidence. Deniedattempt made0calls. Max24,
+5sinterval,noretry/modelswitch/billing/.env/defaultchange. No furtherlive authorized
+implicitly from this receipt; keep explicit future cohorts/budgets reviewable.
+Artifacts data/hus/evaluation/runs/llm_l5_{prepared,google,ai_review}_20261110_r1;
+report docs/RAG_LLM_L5_2026_11_10.md;ignoredbackups/llm_l5_20261110 XML/log/pins/
+payloadaudit/manualreview. Replay bothraw/scored0provider/0retrieval. No source/
+retrieval/index/model/gold/lock/oldreceipt change,commit/push/PR/deploy/activation.
+
+## L4 capacity and UI completed locally — 2026-11-10
+
+User selected L4 on hus-llm-rag; HEAD base1aca071 + uncommitted L1-L4WIP.
+capacity.py nonblocking one Q&A adapter/process, default and injected handlers;
+busy returns canonical immediately, finally releases on all outcomes. Browser
+abort/major switch does not free provider work still running. Not cross-worker
+or standalone-client limit; HTTPX20s EACH phase, not total20s, unchanged budgets.
+Optional safe generation.http_status for HTTP failures; no provider body/key.
+/hus/config boolean availability only, valid enabled HTTPS Google config,
+no startup/provider probe. UI independent default-off rewrite/F3 consents,
+Google question/evidence disclosure, actual-used/fallback labels, F3 knowledgeAI
+labels kept; catalog cannot grant consent. Major resets both flags and ignores
+late text/metadata/status even with ignored abort. Mobile/keyboard/ARIA tested.
+40newpytest24backend/16Chromium+3Node;354focused pre-review+2green regressions.
+Final2389offlinepass/2skip/90deselected,8Node,Ruff/diff-checkpass; existingStarlettewarning.
+Independent review0Critical/0Important/1Minor: hidden unavailable note still in
+accessible description; fixed RED->GREEN, no re-review/rulings/deferred findings.
+Evidence backups/llm_l4_20261110 with XML/log/hash verification; report
+docs/RAG_LLM_L4_2026_11_10.md, roadmap/README/spec/plan updated.
+No live provider call/.env edit/default flag switch/source/retrieval/index/gold/
+lock change/commit/push/PR/deploy. LLM stays disabled and lexical default.
+L5 semantic entailment/completeness A-B review and L6 activation remain; structural
+validator/Node/UI tests and prior L1 live smoke are not content-quality acceptance.
+
+## L3 grounded adapter completed locally — 2026-11-10
+
+User selected L3 only. Current branch hus-llm-rag, renamed from old name and
+created on GitHub at base1aca071 by explicit prior requests; feature WIP uncommitted.
+New llm/evidence.py/prompts.py/output.py/adapter.py/usage.py; client complete_result
+keeps raw content plus actual model/usage, complete() still trims. Default adapter
+resolved only after L2 gates; strict JSON, exact anchors, per-citation numeric/code/
+edition atoms and all-ID/atom coverage; F2 style/fact keys/IDs only, canonical intact.
+Whitelist excludes arbitrary metadata/provenance/account/history/locator fields;
+source instructions are data, no tools/actions. Immutable bundle, prompt hash.
+Prompt text<=12000chars/raw output<=8192chars, reported output<=1024tokens;
+no truncation. Canonical source faults fail closed; output/provider faults fallback.
+Review0Critical/4Important/0Minor fixed with regression tests: nested F2 release/
+course/major identity, consistent F3 inferred course, malformed provenance ->503,
+raw whitespace output budget. Explicit snapshot binding also enforced. Self-audit
+Python3.11 numeric and fullwidth URL bypasses RED->GREEN. No re-review/rulings.
+120newtests,311focused,2349offlinepass/2skip/90deselected, one existing Starlette
+warning; Ruff/diff-checkpass. API12four-major/family cases mock provider, F2four
+prerequisite states; no live Google call in L3, no .env/key/default-mode changes.
+Evidence backups/llm_l3_20261110; docs/RAG_LLM_L3_2026_11_10.md.
+Coverage is structural, NOT semantic entailment/completeness; L5 review required.
+L4 UI/concurrency, L5 A-B and L6 activation remain. LLM stays disabled. No
+retrieval/source/index/gold/lock change, no commit/push/PR/deploy this step.
+
+## HUS LLM L2 selected and implemented locally — 2026-11-10
+
+User selected L2 table; authorization covers L2 only, not all L3/L4 design.
+New llm/contracts.py and generation.py; chat.py adapter hook and optional
+generation metadata; HUSQuestion strict allow_llm_rewrite=false. Either server
+or user flag off preserves exact legacy output shape; false request flag also
+omitted from request dump. Eligible answered F1/F2/F3 require citations; F3 needs
+its independent generated-reference right. F2 presentation only, full original
+canonical reply/facts/states retained. Callback receives deep copies and result
+data is revalidated, including model_construct/model_copy bypass cases.
+Default adapter absent -> pipeline_unavailable, no prompt or provider call.
+L3 must later register a validated adapter; do not claim LLM RAG rewriting works.
+54newL2tests,191focused pass. Independent review1Important validated-object
+bypass fixed4RED->GREEN; self-audit key-in-model metadata1RED->GREEN. No other
+Critical/Important/Minor/rulings. Evidence backups/llm_l2_20261110; report
+docs/RAG_LLM_L2_2026_11_10.md. Final2229offlinepass/2skip/90deselected, one
+existing Starlette warning; Ruff/diff-check pass. focused.xml/offline.xml/log and
+verification.json in the ignored evidence folder. Source/retrieval/index/old
+baseline/evaluation/locks untouched in Git; no browser UI change.
+Current .env remains ignored/private, LLM off; no live calls/commit/push/deploy.
+
+## Direct Gemini live connection smoke passed — 2026-11-10
+
+User explicitly requested live connection test. Ran ignored probe.py in
+backups/llm_live_smoke_20261110 using root .env without printing credentials.
+Sandbox attempt ConnectError/no HTTP; same one-request probe with approved
+network escalation succeeded: HTTP200, requested/returned gemini-3.5-flash-lite,
+reply exactly OK,1.285s,8prompt+1completion=9tokens. Receipt
+result_20261110T044003795961Z.json (first failed sandbox receipt also retained).
+Only synthetic short prompt, no RAG/account/transcript data sent. Root .env
+unchanged, HUS_LLM_ENABLED=false remains. This proves direct client connectivity,
+not RAG integration, semantic quality or free-quota/pricing. Design approval for
+L2-L4 still pending; no product code, commit/push/PR/deploy in this test.
+
+## Retrieval configuration clarification and local key — 2026-11-10
+
+User asks how to handle the lexical/vector env block for RAG+Gemini.
+Keep lexical and three vector values blank; updated comments explain BM25 can
+supply evidence to Gemini, and vector/hybrid both require all three values.
+User had inserted a Google key into .env.example after prior work. Preserved it
+in a newly created, Git-ignored root .env and blanked the template key. Never print
+root .env or key values. HUS_LLM_ENABLED remains false; no live provider call.
+Earlier notes saying root .env/key absent describe the prior verification time.
+RAG-Gemini design approval is still pending; this clarification is not approval.
+
+## RAG-grounded Gemini for all families requested — 2026-11-10
+
+User now wants Gemini answering from RAG and explicitly selected all F1/F2/F3
+through Gemini, with F2 credits/prerequisites unchanged. This supersedes the old
+L2 plan's F2 no-LLM rule and authorizes designing the integration beyond L1.
+Draft design: docs/superpowers/specs/2026-11-10-hus-rag-gemini-design.md.
+Brainstorming design review in progress; no L2-L4 product code changed yet.
+Proposed F2 contract bounds model to presentation style and backend-owned fact
+blocks; this functional limitation still needs user design review. Keep old
+canonical HUS answers/retrieval/source/evaluation receipts immutable.
+
+## Direct Google Gemini supersedes 9Router defaults — 2026-11-10
+
+User explicitly requests dropping 9Router and calling Gemini directly.
+HUS LLM config defaults and .env.example now use
+https://generativelanguage.googleapis.com/v1beta/openai with native Google ID
+gemini-3.5-flash-lite (no gemini/ prefix), separate Google AI Studio key in
+HUS_LLM_API_KEY. Keep disabled by default and scope at L1, no Q&A wiring.
+README and RAG roadmap section7/A5/L1/L6 updated for direct Google access.
+Six changed wire-contract cases RED->GREEN;72focused tests pass. Root .env
+does not exist; no key/secret created or read into output, no live provider calls.
+Final2175offlinepass/2skip/90deselected,72focused,Ruff/diff-checkpass; one existing
+Starlette warning. Evidence in ignored backups/llm_direct_gemini_20261110
+(focused.xml,offline.xml/log,verification.json); retain original
+llm_l1_20261110 receipts below as historical. Work local on hus-llm-9router-gemini;
+do not rename branch, commit/push or expand L2-L6 without a new request.
+
+## HUS LLM L1 client — 2026-11-10
+
+User selected hus-llm-9router-gemini and L1 only, then requested an llm directory.
+New app/hus/llm/{client.py,config.py,__init__.py,README.md}; tests/hus/llm.
+Separate HUS_LLM_* sample, disabled by default, localhost:20128/v1 and explicit
+gemini/gemini-3.5-flash-lite; blank key. Explicit text Chat Completions via httpx,
+no recommendation/config imports or HTTP at import/construction/app startup.
+No service/API wiring, prompts/evidence gate/UI, provider calls or paid usage.
+69 focused offline tests pass. Independent review found URL-parser mismatch and
+empty query/fragment delimiters; four regression tests RED->GREEN, no other
+findings. Final full offline run:2172pass/2skip/90deselected, one existing
+Starlette deprecation warning; PYTHONUTF8=1 avoids the first run's two Windows
+subprocess decode warnings. Ruff/diff-check pass. Evidence in ignored
+backups/llm_l1_20261110 (focused.xml, offline_final.xml/log, verification.json).
+Changes local only; no commit/push/PR/deploy. L2-L6 remain pending.
+
 ## V1–V5 publication authorization — 2026-11-10
 
 User now requests commit/push V1–V5 to hus-embedding-chromadb with25total

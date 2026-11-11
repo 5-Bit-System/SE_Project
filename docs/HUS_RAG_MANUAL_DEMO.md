@@ -12,6 +12,9 @@ Từ thư mục repository, mở PowerShell và chạy:
 
 ```powershell
 Set-Location C:\Users\dtai168\SE_Project
+Remove-Item Env:HUS_RAG_ROOT -ErrorAction SilentlyContinue
+$env:HUS_RETRIEVAL_MODE = 'lexical'
+$env:HUS_LLM_ENABLED = 'false'
 & .\backups\hus_integration\p05-ci-venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag_demo
 ```
 
@@ -29,8 +32,10 @@ Hoặc dùng **Danh mục câu hỏi**: mở mục Thông tin ngành, Chương t
 Tìm hiểu môn học — AI tham khảo, hoặc Hướng dẫn; bấm câu hỏi để gửi ngay. Tìm tên/mã
 môn hoặc nội dung câu hỏi, có thể gõ không dấu. F1 ghi riêng phiên bản nguồn/hệ;
 F2/F3 theo đúng CTĐT đang chọn. Nút F3 chỉ mở sau khi bạn tự tích cho phép AI.
-Release v3 có **2.364 mục câu mẫu theo scope**, bao phủ 290 membership; đây không
-phải mọi cách diễn đạt tự nhiên. [Danh mục và số lượng theo ngành](HUS_RAG_QUESTION_CATALOG.md).
+`CURRENT` đã chọn release **v4** cho demo local: **2.124 mục**, gồm **580 câu F3**
+về nội dung/mục tiêu cho 290 membership; giữ nhãn AI, không có bài tập/đánh giá.
+Process cũ cần restart và reload UI. Xem [lựa chọn v4/rollback](HUS_F3_V2_INTEGRATION.md);
+[danh mục v3 lịch sử](HUS_RAG_QUESTION_CATALOG.md) không dùng để đếm menu v4.
 
 | Thử | Câu hỏi / kỳ vọng |
 | --- | --- |
