@@ -1,0 +1,21 @@
+{
+  "active_runtime_release": false,
+  "all_official_academic_facts_verified": false,
+  "f1_f2_preserved_from": "hus-data-20261031-v3",
+  "f2_memberships": 290,
+  "f3_fields": [
+    "content",
+    "objectives"
+  ],
+  "f3_records": 290,
+  "family_counts": {
+    "F1": 65,
+    "F2": 336,
+    "F3": 1753
+  },
+  "human_review_count": 0,
+  "llm_quality_accepted": false,
+  "release_id": "hus-data-20261111-v4",
+  "schema_version": "2.0",
+  "total_chunks": 2154
+}

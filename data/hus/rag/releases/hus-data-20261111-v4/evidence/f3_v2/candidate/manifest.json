@@ -1,0 +1,44 @@
+{
+  "academic_verified": false,
+  "authored_by": "Codex",
+  "builder_sha256": "738d5759aa6cd5d293908d33818e7aab28b10ef8ad3736e255deadbec65b9643",
+  "chunks": 1753,
+  "distinct_codes": 174,
+  "fields": [
+    "content",
+    "objectives"
+  ],
+  "files": {
+    "coverage.jsonl": {
+      "bytes": 85092,
+      "sha256": "741f6b130725469fdd4672906afd6333bc9f42ae7f50b4c808b7f57e8edcd6f0"
+    },
+    "identity_f2.jsonl": {
+      "bytes": 723579,
+      "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+    },
+    "profiles.jsonl": {
+      "bytes": 637888,
+      "sha256": "8380973c86970175e02921834aa41a837fc720365c7465155bef749d30478d66"
+    },
+    "rag_chunks.jsonl": {
+      "bytes": 4330659,
+      "sha256": "14a4717f619bc08685e28b7516927c7875f189d12e983ac86c0d8b5ae20a0fcc"
+    },
+    "rag_documents.jsonl": {
+      "bytes": 1518616,
+      "sha256": "30e5f9d98b487ba1210a6c3525d16ecf32cc60daffed7928bde64ba00b336501"
+    },
+    "records.jsonl": {
+      "bytes": 2254092,
+      "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+    }
+  },
+  "human_review_count": 0,
+  "identity_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+  "records": 290,
+  "requires_generated_opt_in": true,
+  "schema_version": "hus-f3-detail-2.0",
+  "source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+  "state": "candidate_not_activated"
+}
