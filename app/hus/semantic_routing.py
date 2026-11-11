@@ -181,6 +181,8 @@ ANCHOR_INTENTS: tuple[tuple[str, str, tuple[str, ...]], ...] = (
             "de cuong mon hoc bao gom nhung chu de nao",
             "hoc phan trang bi nhung noi dung chuyen mon gi",
             "cac phan kien thuc se duoc hoc trong mon nay",
+            "mon hoc nay hoc nhu the nao",
+            "hoc phan nay hoc ra sao",
         ),
     ),
     (

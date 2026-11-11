@@ -63,6 +63,7 @@ def test_answerer_resolves_course_aliases_for_f2_facts(
     [
         ("Nội dung môn TTNT là gì?", "MAT1206E", "content"),
         ("Môn CSDL học gì?", "MAT3507", "content"),
+        ("giải tích 3 học như thế nào", "MAT2503", "content"),
         ("Mục tiêu môn GT1 là gì?", "MAT2501", "objectives"),
         ("Gợi ý đánh giá môn ĐSTT là gì?", "MAT2400", "suggested_assessment"),
     ],

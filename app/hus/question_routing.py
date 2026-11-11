@@ -146,7 +146,10 @@ COURSE_FIELD_TERMS = {
     ),
     "name": ("ten mon", "ten hoc phan", "ten day du", "mang ten", "la mon gi",
              "ten cua ma", "ten cua mon", "ten cua hoc phan", "co ten gi"),
-    "content": ("noi dung", "chu de", "hoc gi", "hoc ve", "phan se hoc", "de cuong", "hoc nhung"),
+    "content": (
+        "noi dung", "chu de", "hoc gi", "hoc ve", "phan se hoc", "de cuong", "hoc nhung",
+        "hoc nhu the nao", "hoc ra sao", "day nhu the nao",
+    ),
     "objectives": ("muc tieu", "chuan dau ra", "nang luc", "huong toi", "dao tao de", "muc dich dao tao"),
     "suggested_assessment": ("danh gia", "thi", "kiem tra"),
 }
