@@ -1,0 +1,71 @@
+{
+  "core_environment_unchanged": true,
+  "corpus": {
+    "family_passage_counts": {
+      "f1": 69,
+      "f3": 870
+    },
+    "max_content_tokens": 388,
+    "max_input_tokens": 392,
+    "max_overlap_tokens": 64,
+    "parent_count": 935,
+    "passage_count": 939,
+    "passages_file": "passages.jsonl",
+    "passages_sha256": "ac47324d8f788a8a9f835db2c321b54ee2d5f850a62e0589635b2ac68197d14c",
+    "split_parent_count": 4
+  },
+  "date": "2026-11-09",
+  "head_at_recheck": "884838b",
+  "focused_tests": {
+    "command": "python -X utf8 -m pytest tests/hus/test_passages.py tests/hus/test_passage_tokenizer.py tests/hus/test_passage_artifact.py -q",
+    "fresh_run": true,
+    "passed": 54,
+    "skipped": 1,
+    "skip_reason": "Windows symlink permission unavailable",
+    "duration_seconds": 39.65
+  },
+  "historical_regression": {
+    "receipt": "docs/acceptance/hus_token_passages_v2_report.json",
+    "receipt_logs_and_archive_verified": true,
+    "full_regression_rerun": false,
+    "lexical_cached_replays_verified": 3,
+    "new_recall_measurement": false
+  },
+  "embeddings_computed": false,
+  "evidence_sha256": {
+    "backups/vector_passages_v2_recheck_20261109/real_tokenizer.log": "39fa7be8a83573b8d7265b38f09e369d48f1da536db15bb9646151d37d6f0ec7",
+    "backups/vector_passages_v2_recheck_20261109/real_tokenizer_tests.json": "07ca9f92ab53ec1840de30b3d209264bebc6a6a064ea0a71e121c1b801955798"
+  },
+  "index_built": false,
+  "new_weights_or_downloads": false,
+  "passage_files_sha256": {
+    "manifest.json": "8b33d90381ff1fedee061baca3de08de476bea90b0b32b01da0059a90b06d5e7",
+    "passages.jsonl": "ac47324d8f788a8a9f835db2c321b54ee2d5f850a62e0589635b2ac68197d14c"
+  },
+  "passage_set_id": "bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb",
+  "protected_old_files_unchanged": 1094,
+  "real_tokenizer_check": {
+    "artifact_passages_verified": 939,
+    "boundary_counts_checked": [
+      1,
+      399,
+      400,
+      401,
+      800
+    ],
+    "passage_set_id": "bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb",
+    "samples_checked": 5,
+    "status": "pass",
+    "tokenizer_identity": {
+      "backend": "tokenizers.Tokenizer.from_str",
+      "configuration_sha256": "c3387078b9cfbb0d65a08fca77d574c49de62a7e92c48477a9015f4d0445e2ef",
+      "model_id": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "tokenizer_json_bytes": 17082730,
+      "tokenizer_json_sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "transformers_inference_compatibility_tested": false,
+      "version": "0.23.3"
+    }
+  },
+  "stage": "V2_reverified_no_runtime_change"
+}

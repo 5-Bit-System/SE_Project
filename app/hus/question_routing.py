@@ -138,6 +138,9 @@ COURSE_FIELD_TERMS = {
         "tien quyet", "hoc truoc", "truoc mon",
         "dieu kien tien quyet", "yeu cau tien quyet",
         "mon tien quyet", "hoc phan tien quyet",
+        "hoc mon gi truoc", "hoc gi truoc", "can hoc gi truoc", "can hoc mon gi truoc",
+        "phai hoc mon gi truoc", "mon nao truoc", "hoc mon nao truoc",
+        "can hoc truoc", "phai hoc truoc",
     ),
     "hours": (
         "so tiet", "so gio", "bao nhieu tiet", "bao nhieu gio",
@@ -146,10 +149,18 @@ COURSE_FIELD_TERMS = {
     ),
     "name": ("ten mon", "ten hoc phan", "ten day du", "mang ten", "la mon gi",
              "ten cua ma", "ten cua mon", "ten cua hoc phan", "co ten gi"),
-    "content": ("noi dung", "chu de", "hoc gi", "hoc ve", "phan se hoc", "de cuong", "hoc nhung"),
+    "content": (
+        "noi dung", "chu de", "hoc gi", "hoc ve", "phan se hoc", "de cuong", "hoc nhung",
+        "hoc nhu the nao", "hoc ra sao", "day nhu the nao", "day gi", "day nhung gi",
+    ),
     "objectives": ("muc tieu", "chuan dau ra", "nang luc", "huong toi", "dao tao de", "muc dich dao tao"),
     "suggested_assessment": ("danh gia", "thi", "kiem tra"),
 }
+
+COURSE_OVERVIEW_TERMS = (
+    "nhu the nao", "ra sao", "biet ve", "can biet", "tim hieu",
+    "thong tin", "gioi thieu", "tong quan", "mo ta", "khai quat",
+)
 
 
 def requested_course_fields(question: str) -> tuple[str, ...]:
@@ -266,6 +277,8 @@ def question_intent(question: str) -> tuple[str | None, str | None]:
     if has(text, *COURSE_FIELD_TERMS["objectives"]):
         return ("f3", "objectives") if course else ("f1", "objectives")
     if has(text, *COURSE_FIELD_TERMS["content"]):
+        return "f3", "content"
+    if course and has(text, *COURSE_OVERVIEW_TERMS):
         return "f3", "content"
     if not course and has(text, "gioi thieu", "tong quan", "nganh", "chuong trinh", "nen tang", "lich su hinh thanh"):
         return "f1", "introduction"

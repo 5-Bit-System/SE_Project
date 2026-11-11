@@ -2,9 +2,11 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, PrivateAttr
 
 from app.hus.answering import HUSAnswerer, question_intent
+from app.hus.llm_answerer import generate_grounded_answer
+from app.hus.question_routing import CAREER_TERMS, has, requested_text
 from app.hus.retrieval import _tokens
 from app.schemas.hus import HUSAnswer, HUSQuestion
 
@@ -14,6 +16,17 @@ class HUSChatReply(BaseModel):
     mode: Literal["basic_chat", "hus_rag"]
     reply: str
     hus_answer: HUSAnswer | None = None
+    _generation_mode: str | None = PrivateAttr(default=None)
+
+    @property
+    def generation_mode(self) -> Literal["grounded_llm", "extractive"] | None:
+        if self._generation_mode is not None:
+            return self._generation_mode  # type: ignore[return-value]
+        if self.mode != "hus_rag" or self.hus_answer is None:
+            return None
+        if self.reply != self.hus_answer.reply:
+            return "grounded_llm"
+        return "extractive"
 
 
 def basic_reply(question: str) -> str | None:
@@ -50,9 +63,37 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
         if reply is not None:
             return HUSChatReply(mode="basic_chat", reply=reply)
     dataset, _ = question_intent(request.question)
+    req_text = requested_text(request.question)
+    is_framework_groups = (
+        has(req_text, "khung chuong trinh", "khung dao tao")
+        and has(req_text, "khoi", "nhom", "cau truc", "phan bo", "chia thanh")
+        and not has(req_text, *CAREER_TERMS)
+    )
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
-    if request.dataset == "auto" and dataset == "f1" and request.version in decision_versions:
+    if (
+        request.dataset == "auto"
+        and dataset == "f1"
+        and not is_framework_groups
+        and request.version in decision_versions
+        and not (request.version and answerer._matched_course_codes(request))
+    ):
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
     answer = answerer.answer(request)
-    return HUSChatReply(mode="hus_rag", reply=answer.reply, hus_answer=answer)
+    reply = answer.reply
+    generation_mode: Literal["grounded_llm", "extractive"] = "extractive"
+    if answer.status == "answered":
+        llm_result = generate_grounded_answer(request, answerer, answer=answer)
+        if llm_result is not None:
+            if isinstance(llm_result, tuple):
+                llm_reply, llm_citations = llm_result
+            else:
+                llm_reply, llm_citations = llm_result, None
+            if llm_reply:
+                reply = llm_reply
+                generation_mode = "grounded_llm"
+            if llm_citations:
+                answer = answer.model_copy(update={"citations": llm_citations})
+    chat_reply = HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer)
+    chat_reply._generation_mode = generation_mode
+    return chat_reply

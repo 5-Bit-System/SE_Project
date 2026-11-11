@@ -1,0 +1,60 @@
+{
+  "activation_allowed": false,
+  "contract": {
+    "contract_id": "b24679900bd835304dd5cf2bce285f531a241e7514ba51b02b568c801946f143",
+    "manifest_sha256": "501f4252a2287ce35910d48062b57b9b0f808186b3b61c1a98eca0c6c254b574",
+    "parents_inventory_sha256": "71075f1762e2370dad0335067a1b26e668ec1d8067edb9b5726fcd3290ae996d"
+  },
+  "corpus": {
+    "family_passage_counts": {
+      "f1": 69,
+      "f3": 870
+    },
+    "max_content_tokens": 388,
+    "max_input_tokens": 392,
+    "max_overlap_tokens": 64,
+    "parent_count": 935,
+    "passage_count": 939,
+    "passages_file": "passages.jsonl",
+    "passages_sha256": "ac47324d8f788a8a9f835db2c321b54ee2d5f850a62e0589635b2ac68197d14c",
+    "split_parent_count": 4
+  },
+  "embeddings_computed": false,
+  "index_built": false,
+  "passage_set_id": "bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb",
+  "policy": {
+    "citation_basis": "canonical_parent_quote_hash_locator",
+    "context_template": "",
+    "counted": "prefix+context+content+special_tokens_actual_tokenizer",
+    "cross_parent_merge": false,
+    "cut_rule": "token_start_grapheme_safe_prefer_paragraph_or_sentence_end_at_least_half_target",
+    "f2": "structured_lookup_excluded_from_vector",
+    "generated_requires_opt_in": true,
+    "gold_comparison": "collapse_to_parent_id",
+    "max_overlap_tokens": 64,
+    "offset_basis": "parent_retrieval_body_unicode_codepoints_not_source_offsets",
+    "prefix": "passage: ",
+    "silent_truncation": false,
+    "target_content_tokens": 400,
+    "version": "hus-vector-passage-policy-2.0",
+    "window_tokens": 512
+  },
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261031-v3",
+    "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+    "source_state": "prepared_not_runtime_activated"
+  },
+  "schema_version": "hus-vector-passages-2.0",
+  "stage": "passages_only",
+  "tokenizer": {
+    "backend": "tokenizers.Tokenizer.from_str",
+    "configuration_sha256": "c3387078b9cfbb0d65a08fca77d574c49de62a7e92c48477a9015f4d0445e2ef",
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "tokenizer_json_bytes": 17082730,
+    "tokenizer_json_sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+    "transformers_inference_compatibility_tested": false,
+    "version": "0.23.3"
+  }
+}

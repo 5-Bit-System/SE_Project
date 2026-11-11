@@ -6,6 +6,16 @@ Cập nhật **09/11/2026**, nhánh **`crawldata`**: phần hỏi đáp lexical 
 
 **Mốc đo core:** baseline A2 và các run Q027/1a giữ nguyên. DevRecall39/40,H2exposed20/20,F2H2nguồn16/16(raw15/16) là số lịch sử; H2 exposed25câu tuning, human0, chưa chứng minh Recall độc lập≥90%. Kết quả kiểm tích hợp sau tách ghi riêng trong báo cáo nhánh.
 
+Cập nhật **10/11/2026**, nhánh local **`hus-embedding-chromadb`**, HEAD `1ad85e3` + WIP V4/V5 (mốc triển khai V1–V2 từ base `1287e2a`). Phạm vi: **chatbot hỏi đáp thông tin ngành, chương trình và môn học F1/F2/F3, cùng trò chuyện cơ bản**. Chatbot này độc lập với chatbot đề xuất môn học; không dùng bảng điểm, tập môn eligible, ranking, lịch học hoặc chức năng tư vấn cá nhân để trả lời RAG.
+
+**Hiện trạng:** A1/A1b/A2,Q027/1a,A3/V1–V4 và **A4/V5 đã triển khai/đo local**. Chroma giữ939vector/935parent; hybrid tùy chọn dùng top20mỗi leg→dedup parent→RRF60→final5, cùng scope/canonical/citation V4. **Mặc định vẫn `HUS_RETRIEVAL_MODE=lexical`**; F2 lookup riêng, không gọi ML. So160câu/mode: Recall@5 lexical55/56,vector55/56,hybrid56/56; MRR0,87649/0,88690/0,88155; false refusal5/6/5. Không có scope/source-audit/HTTP error; F2source54/54,vector/hybrid56querythật/0fallback. Hybrid cải thiện strict anchor dev, **chưa chứng minh Recall độc lập≥90% hoặc cải thiện ngữ nghĩa**; review entailment/completeness còn pending nên giữ lexical. Chưa có LLM/commit/push/deploy V4–V5.
+
+**Kiểm chứng V5 10/11:** 2103test đạt,2skip,90deselected;50Chromium,5Node,Ruff đạt.36ca mới đóng băng trước inference, thêm dev96/contracts28;480prediction replay khớp. Hybrid HTTP12ca, F3opt-out/F2noML, copied-index fallback và canonical503 đạt. Review AI2Important đã RED→GREEN; self-audit nested fallback đã sửa. [Báo cáo V5](RAG_HYBRID_V5_2026_11_10.md),[receipt](acceptance/hus_hybrid_v5_report.json). Index/model/source/lock và evidence cũ giữ nguyên; benchmark local một lượt, không production SLO. Tiếp theo là review nội dung/A6–A7 hoặc LLM tùy chọn khi được chọn.
+
+**Kiểm chứng V4 10/11:** 60 test tập trung đạt; full regression **2.067 đạt,2skip,90deselected**,50Chromium,5Node,Ruff đạt. Hai process chạy8query vector thật, thứ hạng parent khớp;12HTTP F1/F2/F3 qua service đạt, F2 không gọi vector/F3 opt-out bị chặn. Query quá budget và sửa manifest bản sao fallback đúng;8file index gốc giữ SHA. Rà soát kỹ thuật AI không có lỗi xác nhận; không có phép đo Recall mới. [Báo cáo V4](RAG_VECTOR_QUERY_V4_2026_11_10.md),[receipt](acceptance/hus_vector_query_v4_report.json). HEAD thay đổi bên ngoài từ586e460 về1ad85e3 trong lúc làm; V4 áp lại và regression cuối chạy trên HEAD hiện tại.
+
+**Kiểm chứng 09/11:** Lượt tái kiểm V2 trước đó:54test đạt/1skip, [receipt riêng](acceptance/hus_token_passages_v2_recheck_2026_11_09.json), không đo Recall mới. Lượt V3: **39test mới;2.019test regression đạt,2skip,90deselected;50Chromium,5Node,Ruff đạt**.1.108file cũ và môi trường chính giữ nguyên; archive357file code/inventory, không kèm trọng số/binary Chroma. [Báo cáo V3](RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md),[receipt/pins](acceptance/hus_offline_vector_index_v3_report.json).
+
 ## 1. Luồng và các thành phần đang có
 
 ```mermaid
@@ -16,7 +26,10 @@ flowchart LR
     R --> B[F1/F3: BM25 top 5]
     B --> G[Gate bằng chứng và chọn đoạn cùng nguồn]
     G --> A
-    R -. Query V4 dự kiến .-> H[F1/F3: BM25 + ChromaDB]
+    R --> V[Vector V4 tùy chọn: Chroma lọc scope]
+    V --> G
+    V -. Lỗi vector .-> B
+    R --> H[Hybrid V5 tùy chọn: BM25 + Chroma RRF60]
     H -.-> G
     G -. Opt-in LLM riêng, dự kiến .-> L[Gemini diễn đạt từ bằng chứng]
     L -. Kiểm đầu ra hoặc fallback .-> A
@@ -28,6 +41,7 @@ flowchart LR
 | Hợp đồng chat | `app/schemas/hus.py`, `app/hus/chat.py`: câu hỏi, ngành, phiên bản, hệ, mã môn/nhóm, field và `allow_generated_reference` strict boolean; thêm `program_credits`, `program_groups`, `group_rules`, `group_key`. Trả `answered`/`no_information`/`needs_clarification` kèm facts/citation/warnings; mỗi lượt riêng, không nhận history. |
 | Chọn dữ liệu | `app/services/hus_service.py`, `rag_loader.py`, `portable_adapter.py`: nạp `CURRENT` đã kiểm hash, cache một snapshot. Đổi release cần reload/restart được kiểm soát; không tự crawl/build, không fallback sang gói legacy khi canonical lỗi. |
 | Embedding/Chroma | V1–V3 ở nhánh riêng `feat/hus-embedding-chromadb-v1-v3-20261109`; không có module vector, optional lock, artifact/index hoặc kiểm mode vector trong core. Xem mục6 để tiếp tục trên đúng nhánh. |
+| Vector V1–V4 | V1:`vector_contract.py`,`retrieval_config.py`; V2:`passage_tokenizer.py`,`passages.py`; V3:`embedding.py`,`vector_index.py`,`tools/build_hus_vector_index.py`; V4:`vector_query.py`,`vector_runtime.py`. Chroma939vector/384chiều; query có lọc canonical trước top-k và fallback BM25. Verify cần index ID ghim riêng. Lexical mặc định không import ML; vector bật tường minh, hybrid V5 có thể bật tường minh. |
 | Routing/gate | `question_routing.py`, `answer_support.py`, `answering.py`: kiểm mã/ngành/phiên bản, phạm vi, field, yêu cầu official và quyền F3; F1/F3 tìm top 5 rồi chọn các đoạn đủ từ khóa bằng chứng trong một nguồn/phạm vi/review nhất quán. Đây là quy tắc lexical có giới hạn, chưa phải bộ hiểu ngữ nghĩa tổng quát. |
 | Citation | `citations.py`, `citation_assets.py`, `source_response.py`: web giữ URL nguồn; PDF đúng binary/hash/trang vật lý và byte range; DOCX tải file; nguồn AI không có link tài liệu giả. Hash đúng không xác nhận hiệu lực học vụ hiện tại. |
 | Giao diện hỏi đáp | `app/static/hus-rag-demo.html`, `app/static/hus-rag-demo.js`, `app/static/hus-rag-demo.css`: chọn bốn ngành, hiển thị phiên bản, trả lời kèm nguồn, opt-in F3, đổi ngành xóa hội thoại/tắt AI/bỏ phản hồi muộn; render bằng `textContent`. Hội thoại chỉ hiển thị trong bộ nhớ tab. |
@@ -45,7 +59,7 @@ Snapshot **`hus-data-20261031-v3`**, release SHA-256 `27bdf3714216292af6d6c6da10
 | F2 | **290 membership/297 dòng nguồn** thuộc bốn CTĐT; xuất **336 chunk**: 4 program, 42 group_rules, 290 course_facts. Runtime lookup cấu trúc cấp môn và chương trình/nhóm, không dùng ranking vector. Giữ 223 `draft_unverified`/67 `verified` cấp dự án; 103 ô tiên quyết trống, 1 membership conflict, 42 có mã chưa giải quyết. A1b kiểm bản ghi chương trình/nhóm khớp canonical, review và provenance; không cộng nhóm cha/con hoặc suy điều kiện đăng ký/tốt nghiệp. |
 | F3 | **290 record × 3 field = 870 chunk**: content, objectives, suggested_assessment. Trong release này, content là summary tham khảo; mỗi field một chunk, không dùng ngưỡng cắt 2.400 ký tự của F1. Tất cả `generated`, nhãn **“kiến thức AI”**, opt-in mặc định tắt; không phải đề cương/đánh giá chính thức. |
 | Tệp mở citation | Registry hiện có **14 binary: 12 PDF + 2 DOCX**, đều khớp hash trong lượt rà soát này. Web không được tự tải lại mỗi request; không suy hash/truy cập được thành chứng nhận nguồn còn hiệu lực. |
-| Retrieval | BM25 trên935parent F1/F3, lọc scope/field/môn/quyền trước xếp hạng; F2 lookup riêng. Không đọc index vector, QA/gold hoặc bảng điểm. |
+| Retrieval | BM25 trên935parent F1/F3, lọc scope/field/môn/quyền trước xếp hạng; F2 lookup riêng. Không đọc index vector, QA/gold hoặc bảng điểm. | Mặc định BM25 trên **935 parent F1/F3**, lọc scope/field/môn/quyền trước xếp hạng; F2 lookup riêng. Vector V4 tùy chọn truy vấn Chroma939passage, kiểm parent/citation và fallback cùng scope. Hybrid V5 RRF60 tùy chọn đã đo; reranker chưa có. Không đưa QA/gold vào corpus/index. |
 | Hợp đồng index V1 | Inventory935parent giữ hash body/text/fullmetadata/package và metadata scalar scope/field/code/review/origin/release/source/opt-in. Model+tokenizer E5-small cùng commit cố định; lock112package WindowsAMD64/Python3.11 có hash, giữ core constraints. **Passage count=null,index_built=false,activation_allowed=false**; không coi inventory là vector. |
 
 Code tạo release: [data_release.py](../app/hus/data_release.py), [quy tắc chia F1](../app/hus/release_text.py), [retrieval](../app/hus/retrieval.py). **Ký tự khác token**: không thể lấy ngưỡng 2.400 ký tự để mặc nhiên bảo đảm vừa cửa sổ của model embedding.
@@ -109,6 +123,8 @@ V1: [manifest contract-only](../data/hus/vector_contracts/e5_small_v1_20261105/m
 | 1a — Đã xong05/11: hai lỗi diagnostic | Đã sửa role routing và loại trừ giảng dạy,49test mới và6run mới; dev6 gốc/r2 đủ ý8/8, dev7 đủ ý12/12/control2/2. Giữ nguyên pack/gold/run trước1a, không dùng vector/LLM. | Bản routing/gate mới đã ghim làm nền cho các nhánh A3–A5; không so hai chế độ bằng hai phiên bản gate/dữ liệu khác nhau. |
 | 2 — A3: thực hiện trên nhánh riêng | V1–V3 giữ ở `feat/hus-embedding-chromadb-v1-v3-20261109`; tiếp V4 ở đó. | Sau khi core vào main, nhánh vector xuất phát từ main; không ghép vector ngầm vào bản lexical. |
 | 3 — A4: đo và chọn retrieval | Làm **V5**, mục 6: so BM25/vector/hybrid trên cùng code gate, dữ liệu và bộ câu hỏi đã ghim. | Sau V1–V4. Cả ba chế độ dùng cùng bản gate đã sửa; báo riêng so với A2 lịch sử. Không có lợi thì giữ BM25, vẫn có thể làm A5. |
+| 2 — A3: V1–V4 đã xong local | Đã có query scope/review/opt-in, kiểm canonical và fallback;8query thật/reopen,12HTTP và60test tập trung đạt. | Giữ đúng index ID/release/model đã ghim, routing/gate1a và lexical mặc định; chưa chọn vector thay baseline qua phép đo. |
+| 3 — A4/V5 đã đo local | So160câu/mode, Recall55/56→56/56hybrid, MRR và source/control báo riêng. | Giữ lexical: review ngữ nghĩa còn pending; raw retrieval dev không thay nghiệm thu nội dung hoặc A7. |
 | 4 — A5: thử LLM diễn đạt | Làm **L1 → L2 → L3 → L4 → L5 → L6**, mục 7; L6 có điều kiện nghiệm thu riêng, chưa tự bật mặc định khi mới viết xong code. | LLM chỉ cần đáp án có bằng chứng; **không bắt buộc có Chroma/hybrid**. Có thể chuẩn bị L1–L4 bằng mock song song A3–A4; nên đo A/B L5 sau khi chọn và ghim retrieval để không đổi hai yếu tố cùng lúc. |
 | 5 — A6: hoàn thiện UI/API | Phần trạng thái, nguồn, mobile/bàn phím có thể làm sớm; phần opt-in LLM/generation/fallback làm cùng L2–L4 khi hợp đồng rõ. | Không phải đợi A5 xong toàn bộ mới bắt đầu. Regression UI cuối chạy sau khi các chế độ sẽ nộp đã ổn định. |
 | 6 — A7: đánh giá cuối | Chốt các tính năng thực sự dùng, freeze code/data/index/model/prompt phù hợp rồi chạy bộ mới chưa dùng tuning. | Sau các thay đổi được chọn ở A3–A6 và regression. Có thể chuẩn bị quy tắc/dạng bộ câu hỏi sớm; không dùng câu nghiệm thu để sửa runtime. AI review và exposure vẫn phải ghi trung thực. |
@@ -116,6 +132,7 @@ V1: [manifest contract-only](../data/hus/vector_contracts/e5_small_v1_20261105/m
 | Xuyên suốt — Review nguồn | Làm mục 8 song song với các bước trên, ưu tiên nguồn trong phạm vi release. | Thử nghiệm dùng selection v3 đã ghim. Nếu duyệt nguồn mới thì tạo release mới và đo lại trên release đó; không thay dữ liệu giữa một phép A/B. |
 
 **Đường đi khuyến nghị:** hợp nhất core A1/A1b/A2,Q027/1a → tiếp A3/V4 trên nhánh embedding riêng → A4/V5 đo/chọn retrieval → A5/L1–L6 → A6 → A7 → A8. Review nguồn/UI/mock LLM có thể chuẩn bị song song. Giữ lexical nếu chưa chọn vector/LLM.
+**Đường đi khuyến nghị:** A2,Q027,1a,V1–V5 đã triển khai/đo local; giữ lexical → review nội dung và A6 → A7 → A8; A5/L1–L6 vẫn tùy chọn. UI,review nguồn và mock LLM có thể chuẩn bị song song. Vector/hybrid và LLM vẫn tùy chọn: nếu không dùng thì ghi rõ bỏ qua bước tương ứng,giữ bản trích nguồn và đi tiếp A6–A8.
 
 ### 5.2. Công việc và điều kiện hoàn thành
 
@@ -126,6 +143,8 @@ V1: [manifest contract-only](../data/hus/vector_contracts/e5_small_v1_20261105/m
 | A2 — Hoàn thành local | Có `tools/evaluate_hus_chatbot.py`, `tools/hus_rag_metrics_v2.py`, source auditor và31test; đo dev96/H2exposed56/contracts28, lưu inference và overlay AI riêng. Snapshot code/data/test/dependency/environment, raw metrics và code archive đã ghim; runtime không sửa trong A2. | Báo riêng đầy đủ các lớp, theo ngành/nhóm và latency; replay6run không inference mới. Giữ scorer/gold cũ, Q048 raw15/16 vs nguồn16/16 rõ ràng. Bản sửa Q027 đo riêng sau A2, không ghi đè đối chứng; chưa là nghiệm thu độc lập. |
 | A3 — Nhánh embedding riêng | V1–V3 và artifact được chuyển nguyên vẹn sang `feat/hus-embedding-chromadb-v1-v3-20261109`; tiếp query V4 trên nhánh đó. | Hợp đồng scope/review/opt-in và canonical citation của core vẫn là nền tảng; không đưa QA/gold vào index. |
 | A4 — Đo retrieval hybrid | Dự kiến thêm `app/hus/hybrid_retrieval.py`, `tests/hus/test_hybrid_retrieval.py`, tùy chọn mode trong `app/services/hus_service.py`; so BM25/vector/hybrid cùng nguồn, cùng scope, cùng bộ câu hỏi. | Đo final top 5, Recall/MRR, nguồn hỗ trợ, false refusal, p50/p95, RAM và thời gian build; trace từng leg riêng. Chỉ chọn hybrid khi có ích và không giảm độ đúng/guard. Nếu gate vẫn chặn paraphrase đã có nguồn, sửa hợp đồng bằng chứng có test, không bỏ gate dựa vào điểm vector. |
+| A3 — V1–V4 xong local | Đã có hợp đồng/passage/embedding/index, CLI build/verify và query V4 vào service; index939vector/935parent, artifact cũ giữ nguyên. Giữ F2 lookup, baseline A2 và routing/gate1a. | Wrapper fast từ graph đã kiểm hash; test prefilter/canonical/hash/citation/fallback/concurrency đạt. Lexical mặc định, không download/build trong request; chưa có phép đo Recall mới. |
+| A4/V5 — Đã triển khai/đo local | Hybrid adapter, comparator20→5 và evaluator v3;3process độc lập/cùng160câu/pins. | Final Recall55/56lexical→56/56hybrid; MRR0,87649→0,88155, source/control/F2 giữ đúng. Giữ lexical do semantic review pending. Không sửa gate/gold để nâng điểm. |
 | A5 — LLM tùy chọn | Adapter 9Router/Gemini riêng cho HUS, theo mục 7; không dùng dịch vụ/cấu hình của chatbot đề xuất môn. | Opt-in riêng, facts/citation bất biến, fallback hoạt động; so A/B với bản trích nguồn. Không cho LLM cứu câu đã bị gate từ chối hoặc tạo official F3. |
 | A6 — Hoàn thiện UI/API | Trạng thái answered/clarification/no-information/unknown, câu nhiều ý, nguồn và phiên bản dễ đọc, các opt-in độc lập, feedback tối thiểu không lộ secret. Sửa `app/hus/demo.py`, `app/hus/chat.py`, `app/hus/question_catalog.py`, ba file `hus-rag-demo` nêu ở mục 1; kiểm bằng `tools/run_hus_rag_demo.py`, `tests/hus/test_chat_scope.py`, `tests/hus/test_question_catalog_ui.py`. Có thể làm phần không phụ thuộc song song A3–A5. | Bấm menu và nhập tự nhiên cùng đúng hợp đồng; danh mục theo data; đổi ngành reset context/quyền và bỏ phản hồi cũ; mobile/bàn phím, lỗi/timeout và citation PDF/web/DOCX/AI đạt. Không yêu cầu tích hợp luồng tư vấn môn để hoàn thành bước này. |
 | A7 — Đánh giá cuối | Chuẩn bị bộ mới tối thiểu **48 câu/12 mỗi ngành**, đủ F1/F2/F3, thiếu nguồn, OOS và chưa opt-in; kiểm nguồn/gold/trùng ý/nguồn thay thế bằng AI theo chính sách đã chốt, ghi exposure và hạn chế độc lập. Freeze trước chạy, không dùng bộ này để tuning. | Chạy trên code/data/index/model/prompt đã ghim; Recall@5 mục tiêu ≥90%, không trộn scope, facts/citation đúng, không bỏ ý gold, control đúng. Báo exposure/AI review trung thực; nếu xem lỗi để sửa thì chuyển bộ đó sang dev và cần bộ mới cho nghiệm thu chưa dùng tuning. |
@@ -134,19 +153,32 @@ V1: [manifest contract-only](../data/hus/vector_contracts/e5_small_v1_20261105/m
 
 Reranker và hội thoại nhiều lượt có context chỉ là bổ sung sau khi có nhu cầu/phép đo; chưa phải điều kiện bắt buộc để nộp demo. Quyết định [P2 lịch sử](RAG_P2_RETRIEVAL_DECISION.md) được giữ nguyên; bản kế hoạch này đưa Chroma/hybrid và LLM vào **thử nghiệm có đối chứng**, không mặc nhiên coi chúng tốt hơn baseline.
 
-## 6. Kế hoạch embedding và ChromaDB cho F1/F3 — nhánh riêng
+## 6. Kế hoạch embedding và ChromaDB cho F1/F3
 
 Implementation V1–V3 đã được tách khỏi `crawldata`; tiếp tục ở [nhánh embedding/Chroma](https://github.com/5-Bit-System/SE_Project/tree/feat/hus-embedding-chromadb-v1-v3-20261109). Bản core/main hiện giữ lexical, không có model/index phụ thuộc tùy chọn. Kết quả lịch sử V1–V3 và receipt tương ứng nằm ở nhánh đó, không đổi dữ liệu để tách lịch sử.
 
-| Bước | Thứ tự và điều kiện |
-| --- | --- |
-| V1 — Hợp đồng | Ghim release/corpus/model/tokenizer/policy/lock và metadata; lexical mặc định, ML tùy chọn. |
-| V2 — Passage | Đếm token thật gồm prefix/context/special; khoảng400token nội dung, overlap≤64, không truncate; giữ parent và citation gốc. |
-| V3 — Build offline | Chroma PersistentClient trong thư mục mới; đủ parent/vector384chiều/cosine/metadata scope-review-origin-release; không QA/gold/bảng điểm; kiểm mở lại process khác. |
-| V4 — Tiếp theo trên nhánh riêng | Lọc scope/review/opt-in trước topk; kiểm canonical hash/citation; query/index lỗi thì fallback BM25 cùng scope, canonical lỗi fail closed. |
-| V5 — Hybrid/đo | Top20 mỗi leg, dedup parent, RRF60, finaltop5; ghim tham số và trace; so BM25/vector/hybrid, không cải thiện thì giữ lexical. |
+**Thực hiện khi đến A3–A4 ở mục 5, không đợi mục 5 hoàn tất.** Thứ tự chính là **V1 → V2 → V3 → V4 → V5**:
 
-V1→V2→V3→V4 thuộc A3, V5 thuộc A4. Chưa cần LLM ở các bước này; không đợi làm hết mục5 mới sang mục6.
+1. **A3 / V1–V2 đã xong:** giữ hợp đồng và939passage có ánh xạ parent/citation; đổi policy/lock/profile cần artifact mới,không sửa bộ đã lưu.
+2. **A3 / V3 đã xong:** cả9artifact model khớpSHA, wrapper khớp939token-ID, đủ939vector/935parent; mở lại process khác khớp toàn bộ inventory và8probe. Giữ ID index đã ghim,không tự activation.
+3. **A3 / V4 đã xong local:** query có lọc scope, kiểm identity và fallback; test index hợp lệ/các ca lỗi,8query thật/reopen và12HTTP đạt. Chưa dùng hybrid hoặc đổi mặc định.
+4. **A4 / V5 đã triển khai/đo local:** hybrid và comparator3mode cùng policy/release; giữ lexical chờ review nội dung. Việc sửa gate/chọn nguồn vẫn là thay đổi riêng phải đo lại.
+
+V4/V5 đã kiểm tích hợp với cùng index/release đã ghim; V5 không build lại hoặc sửa model/index. Chưa cần LLM ở bất kỳ bước V1–V5 nào.
+
+Mục tiêu: hỗ trợ câu hỏi khác từ nhưng gần nghĩa bằng **embedding local**,không tiêu quota Gemini.935 là số **parent**,V2 có939passage. V1 ghim **`intfloat/multilingual-e5-small`** commit `614241f622f53c4eeff9890bdc4f31cfecc418b3`,MIT,384chiều,512token,prefix `query: `/`passage: `,masked mean+L2,cosine,CPUfloat32 theo [model card](https://huggingface.co/intfloat/multilingual-e5-small/blob/614241f622f53c4eeff9890bdc4f31cfecc418b3/README.md). V3 đã kiểm bytes cả9artifact và cài112package khóa vào venv riêng; inference thực dùng AutoModel và `PreTrainedTokenizerFast(tokenizer.json)` để giữ đúng V2. Chưa có benchmark Recall hoặc nghiệm thu trên máy khác.
+
+| Bước | Thực hiện và kiểm chứng |
+| --- | --- |
+| V1 — Đã xong local | Manifest/inventory/profile/lock đã lưu tại cây `vector_contracts`/`vector_profiles`,bind release/corpus/fullmetadata/policy/model/tokenizer/lock. Writer chỉ tạo thư mục mới,verify tái tạo expected+canonical hash; chống stale input,overwrite/redirect và sửa kiểuJSON dưới ID cũ. `HUS_RETRIEVAL_MODE=lexical` đã có,không import ML; vector/hybrid reserved và báo unavailable tạiV1. `contract_only/index_built=false/passages=null/activation=false`; checksum lớn chỉ expected,không nâng thành đã verify local. |
+| V2 — Đã xong local: đơn vị embedding | Đã tải tường minh `tokenizer.json` đúng commit (`17.082.730` bytes, khớp SHA-256) vào cache riêng và chạy wheel `tokenizers==0.23.3` đã kiểm hash trong runtime tách biệt (không sửa môi trường chính). Đếm token thật gồm `passage: `/context/special `<s>...</s>`; xuất `data/hus/vector_passages/e5_small_v2_20261105` (`bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb`): **935 parent → 939 passage** (4 parent F1 tách đôi, max input 392/512, max content 388/400, max overlap 64/64). Bảo toàn 100% ký tự và ý cuối, không truncate/ghép khác parent, không tách grapheme Unicode; child giữ `parent_id`, `source_offsets=null`, `parent_chunk()` ánh xạ citation về quote/hash/locator gốc và `collapse_to_parents()` gộp parent cho gold. [Báo cáo V2](RAG_TOKEN_PASSAGES_V2_2026_11_05.md). |
+| V3 — Đã xong local: build offline | `data/hus/vector_indexes/e5_small_v3_20261109`,ID `8dad2f0f719a5228403d87f2b0c36a95f64fada9b82bf26bf432d4fed2469f74`:939vector/935parent,384chiều,L2,cosine. PersistentClient lưu đủ scalar scope/review/origin/release/parent/hash; không documents/QA/gold/bảng điểm/F2. Process khác mở lại khớp toàn bộ inventory và8probe;5ca tamper bị chặn.39test mới,regression2019đạt. V1/V2/source và môi trường chính giữ nguyên; Chroma không trả thread/batch sau restart nên chỉ chứng nhận các setting API thực trả về. [Báo cáo V3](RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md). |
+| V4 — Đã xong local: query và rào chắn | `vector_query.py`/`vector_runtime.py` dùng `where` scope/review/release/parent allowlist **trước top-k**; F1 giữ edition, F3 generated có opt-in. Verify index ID ghim ngoài DB và kiểm lại toàn inventory/config mỗi query; quote/citation từ canonical. Query >512 token hoặc lỗi vector → BM25 cùng scope, trace lý do; canonical lỗi fail closed. Tại mốc V4:60test tập trung,2067regression đạt;8query thật/reopen,12HTTP và copied-index tamper đạt; mặc định lexical, chưa hybrid/LLM/Recall mới/commit/push. Kết quả hybrid hiện tại ghi ở V5. [Báo cáo V4](RAG_VECTOR_QUERY_V4_2026_11_10.md). |
+| V5 — Đã triển khai/đo local | BM25top20/vector20passage→dedup parent→RRF60→final5; policy/hash ghim, pool/leg/final trace riêng, fallback không double-vote. Evaluator v3 so160câu/mode,finalRecall55/56lexical,55/56vector,56/56hybrid;MRR0,87649/0,88690/0,88155,false-refusal5/6/5,F2source54/54,0scope/audit/HTTPerror. Giữ lexical vì semantic review pending; không gọi dev là holdout. [Báo cáo V5](RAG_HYBRID_V5_2026_11_10.md). |
+
+Tham chiếu: [client local Chroma](https://docs.trychroma.com/reference/python), [metadata filtering](https://docs.trychroma.com/docs/querying-collections/metadata-filtering). Chroma local được dùng cho phát triển/demo; nếu chạy nhiều process hoặc public server phải chốt mô hình phục vụ/persistence riêng và kiểm concurrency/rollback, không dùng chung thư mục đang build giữa các worker.
+
+**Điểm nghiệm thu quan trọng:** tăng similarity hoặc Recall không tự chứng minh câu trả lời đúng. Gate vẫn phải giữ yêu cầu dữ kiện, quan hệ/phủ định và đủ ý; không xóa noun/skill như lỗi “năng lực trình bày” đã gặp. Các nguồn khác edition/hệ/review không được bù chứng cứ cho nhau. Reranker chỉ thử nếu candidate pool đã có nguồn đúng nhưng final top 5 còn xếp sai.
 
 ## 7. Kế hoạch LLM diễn đạt qua 9Router/Gemini
 
@@ -213,12 +245,16 @@ node --test tests/frontend/chat.test.cjs
 ```
 
 V1–V3 đã có contract/config/tokenizer/passage/embedding/build/verify; **query runtime/hybrid/LLM chưa triển khai**. Lệnh build/mở lại V3 và venv riêng nằm trong [báo cáo V3](RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md). Không tự gọi endpoint người dùng/đọc key; không crawl/build/download model trong startup/request,giữ dữ liệu đánh giá khỏi corpus/index/prompt.
+V1–V5 đã có contract/config/tokenizer/passage/embedding/build/verify, query và hybrid tường minh; LLM chưa triển khai. Hybrid đã đo, lexical vẫn mặc định; xem [báo cáo V5](RAG_HYBRID_V5_2026_11_10.md). Lệnh query/cấu hình V4 và giới hạn nằm trong [báo cáo V4](RAG_VECTOR_QUERY_V4_2026_11_10.md); build/mở lại V3 ở [báo cáo V3](RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md). Không tự gọi endpoint người dùng/đọc key; không crawl/build/download model trong startup/request,giữ dữ liệu đánh giá khỏi corpus/index/prompt.
 
 ```powershell
 python -m tools.prepare_hus_vector_contract --verify data/hus/vector_contracts/e5_small_v1_20261105
+python -m pytest tests/hus/test_vector_index_contract.py tests/hus/test_retrieval_configuration.py tests/hus/test_passage_tokenizer.py tests/hus/test_passages.py tests/hus/test_passage_artifact.py -q
+python -m pytest tests/hus/test_embedding.py tests/hus/test_vector_index_build.py -q
 ```
 
 Các lệnh kiểm vector chỉ chạy trên nhánh embedding riêng; core không cần ML/model/Chroma. Giữ các run đo cũ nguyên vẹn.
+Lệnh trên chỉ kiểm hợp đồng và đơn vị passage offline, không tải trọng số model hay build index. Lệnh kiểm V2 với cache `tokenizer.json` thực nằm trong [báo cáo V2](RAG_TOKEN_PASSAGES_V2_2026_11_05.md); lệnh cài lock đầy đủ cho V3 nằm trong [báo cáoV1](RAG_VECTOR_CONTRACT_V1_2026_11_05.md).
 
 Evaluator A2 đã có: `python -m tools.evaluate_hus_chatbot --verify-run data/hus/evaluation/runs/a2_h2_exposed_20261104_ai_review` chỉ replay cache. Lệnh thu run mới/chấm review và archive code ở [báo cáo A2](RAG_BASELINE_A2_2026_11_04.md); `--out` phải mới, không ghi đè run.
 
@@ -229,3 +265,4 @@ Run1a: `python -m tools.evaluate_hus_chatbot --verify-run data/hus/evaluation/ru
 [Hướng dẫn demo](HUS_RAG_MANUAL_DEMO.md), [phạm vi thiết kế HUS](superpowers/specs/2026-11-02-hus-rag-scope-design.md). Mỗi lần thay đổi lưu run/receipt mới; phản hồi người dùng dùng để tuning trở thành dev. Không đổi gold/cache/receipt cũ, không gọi AI review là human review hoặc suy điểm dev thành độc lập.
 
 Mọi thay đổi vào `main` qua **feature branch + PR + Create a merge commit**, giữ tác giả/lịch sử thật. Không squash/rebase-merge hoặc force-push main. Core lexical và phần6/V1–V3 được tách nhánh; chưa triển khai production.
+Mọi thay đổi vào `main` qua **feature branch + PR + Create a merge commit**,giữ tác giả/lịch sử thật; không squash/rebase-merge. Xuất bản/deploy sau nghiệm thu và yêu cầu tương ứng. **10/11 đã có A1/A1b/A2,Q027/1a,V1–V5local và phép đo3mode. Giữ lexical chờ review nội dung/A7; LLM tùy chọn chưa triển khai. V4/V5 chưa commit/push/deploy.**

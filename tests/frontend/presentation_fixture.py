@@ -2,7 +2,7 @@
 
 import mimetypes
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 from tests.frontend.auth_fixture import session_payload
 
@@ -28,6 +28,45 @@ def common_route(route, *, authenticated=True):
         route.fulfill(json=session_payload(authenticated))
     elif path == '/me/semester-plans':
         route.fulfill(json={'plans': []})
+    elif path == '/hus/config':
+        route.fulfill(json={
+            'release_sha256': 'synthetic-sha256',
+            'majors': [
+                {'id': 'computer_science', 'label': 'Khoa học máy tính và thông tin', 'version': 'QD3568-2023'},
+                {'id': 'data_science', 'label': 'Khoa học dữ liệu', 'version': 'QD3569-2023'},
+                {'id': 'mathematics', 'label': 'Toán học', 'version': 'QD3565-2023'},
+                {'id': 'mathematics_informatics', 'label': 'Toán tin', 'version': 'QD3567-2023'},
+            ],
+        })
+    elif path == '/hus/questions':
+        qs = parse_qs(urlsplit(route.request.url).query)
+        major = qs.get('major', ['data_science'])[0]
+        version = qs.get('version', ['QD3569-2023'])[0]
+        route.fulfill(json={
+            'major': major,
+            'version': version,
+            'release_sha256': 'synthetic-sha256',
+            'groups': [],
+        })
+    elif path == '/hus/chat/history':
+        qs = parse_qs(urlsplit(route.request.url).query)
+        major = qs.get('major', ['data_science'])[0]
+        if route.request.method == 'DELETE':
+            route.fulfill(json={'status': 'cleared'})
+        elif route.request.method == 'POST':
+            route.fulfill(json={'status': 'saved', 'count': 1})
+        else:
+            route.fulfill(json={
+                'account_id': 'synthetic-student',
+                'major': major,
+                'messages': [],
+            })
+    elif path == '/hus/chat':
+        route.fulfill(json={
+            'mode': 'basic_chat',
+            'reply': 'Xin chào bạn!',
+            'hus_answer': None,
+        })
     elif path == '/' or path.startswith('/static/'):
         static = Path(__file__).resolve().parents[2] / 'app/static'
         file = static / ('index.html' if path == '/' else path.removeprefix('/static/'))

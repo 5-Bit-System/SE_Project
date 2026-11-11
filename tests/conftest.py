@@ -8,6 +8,7 @@ os.environ["DATABASE_MODEL"] = "hus"
 os.environ["DATABASE_URL"] = ""
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["RECOMMENDATION_LLM_ENABLED"] = "false"
+os.environ["HUS_RAG_LLM_ENABLED"] = "false"
 os.environ['APP_ENV'] = 'test'
 os.environ['AUTH_TOKEN_PEPPER'] = 'synthetic-offline-server-secret-at-least-32-characters'
 os.environ['EMAIL_BACKEND'] = 'fake'
@@ -86,6 +87,7 @@ def isolated_runtime(monkeypatch, catalog_root, profiles_path):
     monkeypatch.setenv("DATABASE_URL", "")
     monkeypatch.setenv("GEMINI_API_KEY", "")
     monkeypatch.setenv("RECOMMENDATION_LLM_ENABLED", "false")
+    monkeypatch.setenv("HUS_RAG_LLM_ENABLED", "false")
     get_settings.cache_clear()
     from app.auth.settings import settings as get_auth_settings
     get_auth_settings.cache_clear()

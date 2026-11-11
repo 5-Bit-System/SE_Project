@@ -34,8 +34,143 @@
     return citation.display_label || citation.label || 'Nguồn dữ liệu';
   }
 
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatInlineMarkdown(raw) {
+    if (!raw) return '';
+    const safe = escapeHtml(raw);
+    return safe
+      .replace(/`([^`]+)`/g, '<code class="rag-inline-code">$1</code>')
+      .replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[(\d+)\]/g, '<span class="rag-inline-cite" title="Trích dẫn nguồn [$1]">[$1]</span>');
+  }
+
+  function createElement(tag, className) {
+    if (typeof document !== 'undefined') {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      return el;
+    }
+    return {
+      tagName: tag.toUpperCase(),
+      className: className || '',
+      innerHTML: '',
+      children: [],
+      appendChild(child) {
+        this.children.push(child);
+        return child;
+      },
+      get textContent() {
+        return this.innerHTML.replace(/<[^>]+>/g, '');
+      },
+    };
+  }
+
+  function renderSafeMarkdown(text, container) {
+    if (!container || typeof text !== 'string') return;
+    const lines = text.split(/\r?\n/);
+    let inCourseCard = false;
+    let courseCardEl = null;
+    let cardHasList = false;
+    let currentList = null;
+    let currentPara = null;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        currentList = null;
+        currentPara = null;
+        if (inCourseCard && cardHasList) {
+          inCourseCard = false;
+          courseCardEl = null;
+        }
+        continue;
+      }
+
+      const headingMatch = /^(#{1,4})\s*(.*)$/.exec(trimmed);
+      if (headingMatch) {
+        currentList = null;
+        currentPara = null;
+        const headingText = headingMatch[2].trim();
+        const isCourseCardHeading = /(?:Phần\s*\d+\s*[:.-]?\s*)?Thông tin (?:học phần|môn học)/i.test(headingText);
+
+        if (isCourseCardHeading) {
+          inCourseCard = true;
+          courseCardEl = createElement('div', 'rag-course-card');
+          cardHasList = false;
+          const header = createElement('div', 'rag-course-card-header');
+          header.innerHTML = formatInlineMarkdown(headingText);
+          courseCardEl.appendChild(header);
+          container.appendChild(courseCardEl);
+        } else {
+          inCourseCard = false;
+          courseCardEl = null;
+          const h = createElement('h4', 'rag-heading');
+          h.innerHTML = formatInlineMarkdown(headingText);
+          container.appendChild(h);
+        }
+        continue;
+      }
+
+      const listMatch = /^[-*]\s+(.*)$/.exec(trimmed);
+      if (listMatch) {
+        currentPara = null;
+        const itemContent = listMatch[1].trim();
+        if (inCourseCard && courseCardEl) {
+          cardHasList = true;
+          if (!currentList || currentList.className !== 'rag-course-card-list') {
+            currentList = createElement('ul', 'rag-course-card-list');
+            courseCardEl.appendChild(currentList);
+          }
+        } else {
+          if (!currentList || currentList.className !== 'rag-content-list') {
+            currentList = createElement('ul', 'rag-content-list');
+            container.appendChild(currentList);
+          }
+        }
+        const li = createElement('li');
+        li.innerHTML = formatInlineMarkdown(itemContent);
+        currentList.appendChild(li);
+        continue;
+      }
+
+      // If text line arrives after course card list is already built, exit course card
+      if (inCourseCard && cardHasList) {
+        inCourseCard = false;
+        courseCardEl = null;
+      }
+
+      currentList = null;
+      const target = (inCourseCard && courseCardEl) ? courseCardEl : container;
+      if (!currentPara) {
+        currentPara = createElement('p', 'rag-para');
+        currentPara.innerHTML = formatInlineMarkdown(trimmed);
+        target.appendChild(currentPara);
+      } else {
+        currentPara.innerHTML += ' ' + formatInlineMarkdown(trimmed);
+      }
+    }
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {citationURL, citationLabel};
+    module.exports = {
+      citationURL,
+      citationLabel,
+      escapeHtml,
+      formatInlineMarkdown,
+      renderSafeMarkdown,
+      groupCitations,
+    };
   }
   if (typeof document === 'undefined') return;
 
@@ -189,6 +324,33 @@
     }
   }
 
+  function groupCitations(citations, origin) {
+    if (!Array.isArray(citations) || !citations.length) return [];
+    const groups = new Map();
+    for (const citation of citations) {
+      if (!citation || typeof citation !== 'object') continue;
+      const url = citationURL(citation, origin);
+      const key = url
+        ? `url:${url}`
+        : `meta:${citation.evidence_kind || ''}:${citation.source_id || ''}:${citationLabel(citation)}:${citation.pdf_page || ''}`;
+
+      const existing = groups.get(key);
+      if (existing) {
+        if (citation.citation_id && !existing.ids.includes(String(citation.citation_id))) {
+          existing.ids.push(String(citation.citation_id));
+        }
+      } else {
+        const ids = citation.citation_id ? [String(citation.citation_id)] : [];
+        groups.set(key, { citation, ids });
+      }
+    }
+    return Array.from(groups.values()).map(g => ({
+      ...g.citation,
+      citation_ids: g.ids,
+      citation_id: g.ids.join(', '),
+    }));
+  }
+
   function appendCitation(container, citation) {
     if (!citation || typeof citation !== 'object') return;
     const ai = isAI(citation);
@@ -196,6 +358,13 @@
     card.className = 'rag-citation' + (ai ? ' rag-citation-ai' : '');
     const heading = document.createElement('p');
     heading.className = 'rag-citation-title';
+    const numText = citation.citation_id || (Array.isArray(citation.citation_ids) ? citation.citation_ids.join(', ') : '');
+    if (numText) {
+      const num = document.createElement('span');
+      num.className = 'rag-citation-num';
+      num.textContent = `[${numText}]`;
+      heading.appendChild(num);
+    }
     const kind = document.createElement('span');
     kind.className = 'rag-citation-kind';
     kind.textContent = ai ? 'AI' : ({pdf: 'PDF', web: 'WEB', file: 'TỆP'}[citation.evidence_kind] || 'NGUỒN');
@@ -224,7 +393,7 @@
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, citations = []) {
+  function appendMessage(role, reply, citations = [], generationMode = 'extractive') {
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
     const avatar = document.createElement('span');
@@ -236,15 +405,29 @@
     const speaker = document.createElement('p');
     speaker.className = 'rag-message-speaker';
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
-    const text = document.createElement('p');
+    const isAssistant = role === 'assistant';
+    const isLLM = isAssistant && (generationMode === 'grounded_llm' || (reply.includes('###') && (reply.includes('**') || reply.includes('- **'))));
+    if (isLLM) {
+      const badge = document.createElement('span');
+      badge.className = 'rag-badge-llm';
+      badge.textContent = '✨ Trợ lý AI HUS';
+      speaker.appendChild(badge);
+    }
+    const text = document.createElement(isLLM ? 'div' : 'p');
     text.className = 'rag-message-text';
-    text.textContent = reply;
+    if (isLLM) {
+      renderSafeMarkdown(reply, text);
+    } else {
+      text.textContent = reply;
+    }
     body.append(speaker, text);
     if (Array.isArray(citations) && citations.length) {
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
       sources.setAttribute('aria-label', 'Dẫn chứng');
-      for (const citation of citations) appendCitation(sources, citation);
+      const origin = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+      const uniqueCitations = groupCitations(citations, origin);
+      for (const citation of uniqueCitations) appendCitation(sources, citation);
       body.appendChild(sources);
     }
     article.append(avatar, body);
@@ -298,7 +481,8 @@
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
       appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : []);
+        result.mode === 'hus_rag' ? result.hus_answer?.citations : [],
+        result.generation_mode);
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
       } else if (result.hus_answer?.status === 'needs_clarification') {

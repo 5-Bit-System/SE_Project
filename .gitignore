@@ -32,5 +32,6 @@ data/hus/raw/documents/
 data/hus/state/
 data/hus/raw/provenance.jsonl
 data/hus/raw/html/**/*--*--*.html
+data/hus_chat_history/
 .codegraph/
 .pytest_temp/

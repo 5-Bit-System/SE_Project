@@ -104,3 +104,65 @@ class HUSAnswer(BaseModel):
     release_id: str | None = None
     release_sha256: str | None = None
     generated_reference_allowed: bool = False
+
+
+class HUSRetrievedChunk(BaseModel):
+    rank: int = Field(ge=1)
+    chunk_id: str
+    dataset: HUSDataset
+    major: HUSMajor
+    version: str
+    field: str | None = None
+    course_code: str | None = None
+    course_name: str | None = None
+    title: str | None = None
+    body: str
+    score: float
+    matched_terms: list[str] = Field(default_factory=list)
+    passed_support_gate: bool = False
+    review_status: str | None = None
+    content_origin: str | None = None
+    citation: HUSCitation | None = None
+
+
+class HUSRetrievalBundle(BaseModel):
+    question: str
+    normalized_question: str
+    major: HUSMajor
+    version: str | None = None
+    dataset: HUSDataset | None = None
+    field: str | None = None
+    intent_source: Literal["explicit", "rule", "semantic", "broad_fallback", "none"]
+    intent_confidence: float = 0.0
+    resolved_course_code: str | None = None
+    resolved_courses: list[dict[str, str]] = Field(default_factory=list)
+    top_k: int
+    top_k_chunks: list[HUSRetrievedChunk] = Field(default_factory=list)
+    structured_data: dict[str, Any] = Field(default_factory=dict)
+    release_id: str | None = None
+    release_sha256: str | None = None
+
+
+class HUSChatMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    reply: str = Field(max_length=20000)
+    citations: list[dict[str, Any]] = Field(default_factory=list, max_length=50)
+    generation_mode: str | None = Field(default=None, max_length=64)
+    timestamp: str | None = Field(default=None, max_length=64)
+
+
+class HUSChatHistoryAppend(BaseModel):
+    major: str = Field(min_length=1, max_length=64)
+    role: Literal["user", "assistant"]
+    reply: str = Field(max_length=20000)
+    citations: list[dict[str, Any]] = Field(default_factory=list, max_length=50)
+    generation_mode: str | None = Field(default=None, max_length=64)
+    timestamp: str | None = Field(default=None, max_length=64)
+
+
+class HUSChatHistoryResponse(BaseModel):
+    account_id: str | None = Field(default=None, max_length=128)
+    major: str = Field(min_length=1, max_length=64)
+    messages: list[HUSChatMessage] = Field(default_factory=list)
+
+

@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="/static/login-scene.css">
   <script src="/static/login-scene.js" defer></script>
   <link rel="stylesheet" href="/static/admin-dashboard.css">
+  <link rel="stylesheet" href="/static/hus-lookup.css">
+  <script src="/static/hus-lookup.js" defer></script>
 </head>
 <body data-auth-state="loading">
   <div class="ambient-background" aria-hidden="true" inert>
@@ -1471,6 +1473,7 @@
         <button id="tab-btn-profile" class="tab-btn" role="tab" aria-selected="false" aria-controls="portal-dialog" tabindex="-1" data-tab="portal-dialog"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></span><span class="tab-label">Hồ sơ của tôi<small>Tài khoản và bảng điểm VNU</small></span></button>
         <button id="tab-btn-rules" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-rules" tabindex="-1" data-tab="tab-rules"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h11M9 12h11M9 19h11M2.5 5l1 1 2-2M2.5 12l1 1 2-2M2.5 19l1 1 2-2"/></svg></span><span class="tab-label">Điều kiện học<small>Xem môn có thể học tiếp</small></span></button>
         <button id="tab-btn-recommend" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-recommend" tabindex="-1" data-tab="tab-recommend"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM20 2v4M18 4h4"/></svg></span><span class="tab-label">Gợi ý kỳ tới<small>Chọn môn theo mục tiêu</small></span></button>
+        <button id="tab-btn-lookup" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-lookup" tabindex="-1" data-tab="tab-lookup"><span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></span><span class="tab-label">Tra cứu thông tin<small>Hỏi đáp chương trình &amp; môn học</small></span></button>
       </nav>
       <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.</p><small>Đăng nhập VNU để xem hồ sơ và bảng điểm qua từng học kỳ.</small></div>
       <div class="sidebar-bottom">Sổ học tập <span>Đồng hành qua từng học kỳ</span></div>
@@ -1574,6 +1577,63 @@
         <div id="course-planning-panel" class="course-status"></div>
       </details>
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
+    </section>
+    <section id="tab-lookup" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-lookup">
+      <div class="lookup-topbar">
+        <div class="lookup-topbar-title">
+          <h2>Tra cứu thông tin</h2>
+          <span class="lookup-scope-pill"><span class="pulse-dot" aria-hidden="true"></span>Trợ lý HUS</span>
+        </div>
+        <div class="lookup-context">
+          <div class="lookup-major-field">
+            <label for="lookup-major" class="sr-only">Ngành đang tra cứu</label>
+            <select id="lookup-major" class="modern-select" disabled><option>Đang tải danh sách ngành…</option></select>
+          </div>
+          <div class="lookup-version-field">
+            <span class="sr-only">Phiên bản dữ liệu</span>
+            <output id="lookup-version" for="lookup-major" class="lookup-version-badge" title="Phiên bản dữ liệu">Đang tải…</output>
+          </div>
+          <button id="lookup-new-chat" type="button" class="lookup-new-chat-btn" title="Bắt đầu đoạn chat mới">+ Đoạn chat mới</button>
+        </div>
+      </div>
+      <div class="lookup-workspace workspace-surface">
+        <div class="lookup-body">
+          <aside id="lookup-catalog" class="lookup-catalog" aria-label="Danh mục câu hỏi">
+            <div class="lookup-catalog-header">
+              <h3>Câu hỏi gợi ý</h3>
+              <p id="lookup-catalog-status" class="lookup-catalog-status" role="status" aria-live="polite">Đang tải…</p>
+            </div>
+            <div class="lookup-catalog-search-wrap">
+              <label for="lookup-catalog-search" class="sr-only">Tìm câu hỏi, tên hoặc mã môn</label>
+              <input id="lookup-catalog-search" type="search" placeholder="Tìm câu hỏi, mã môn…" disabled>
+            </div>
+            <button id="lookup-catalog-retry" type="button" class="portal-button" hidden>Tải lại danh mục</button>
+            <div id="lookup-catalog-groups" class="lookup-catalog-groups"></div>
+          </aside>
+          <div class="lookup-chat-panel">
+            <div id="lookup-messages" class="lookup-messages" role="log" aria-label="Hội thoại tra cứu" aria-live="polite" aria-relevant="additions text"></div>
+            <form id="lookup-form" class="lookup-composer">
+              <label class="sr-only" for="lookup-question">Câu hỏi của bạn</label>
+              <div class="lookup-composer-box">
+                <textarea id="lookup-question" rows="1" maxlength="1000" aria-describedby="lookup-single-turn" placeholder="Nhắn tin cho Trợ lý HUS (Ví dụ: MAT3507 cần học môn gì trước?)..." required disabled></textarea>
+                <button id="lookup-send" type="submit" class="lookup-send-btn" title="Gửi câu hỏi" disabled aria-label="Gửi">
+                  <svg viewBox="0 0 20 20" fill="none" class="lookup-send-icon" aria-hidden="true">
+                    <path d="M3.5 10L16.5 3.5L10 16.5L8.5 11.5L3.5 10Z" fill="currentColor"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="lookup-composer-footer">
+                <input id="lookup-generated" type="checkbox" checked hidden aria-hidden="true">
+                <p id="lookup-status" class="lookup-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>
+              </div>
+              <p id="lookup-single-turn" class="sr-only">Hỗ trợ tra cứu mã môn, tên môn viết tắt (GT1, ĐSTT, CSDL, TTNT…), tín chỉ, tiên quyết và tài liệu PDF quyết định gốc.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="lookup-disclaimer">
+        <span>ⓘ Dữ liệu trích xuất từ QĐ ban hành CTĐT ĐHKHTN (QĐ 3565, 3567, 3568, 3569). Đối chiếu PDF gốc trong phần dẫn chứng.</span>
+      </div>
     </section>
     </div>
   </main>
