@@ -1,0 +1,167 @@
+{
+  "actual_human_reviews": 0,
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "collection_complete": true,
+  "holdout_eligible": false,
+  "kind": "measurement",
+  "latency_definition": "Local baseline; incremental validated rewrite/provider wall time excludes evaluation pacing. Not production SLO.",
+  "max_calls": 24,
+  "measurement_id": "94f00b2532e3430e9247e7d6c14de276",
+  "metrics": {
+    "actual_models": {
+      "gemini-3.5-flash-lite": 24
+    },
+    "baseline_false_refusals": 0,
+    "by_family": {
+      "basic_chat": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "clarification_required": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "f1": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 5
+      },
+      "f2": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 8
+      },
+      "f3": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 3
+      },
+      "missing_evidence": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "opt_in_required": {
+        "cases": 4,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "out_of_scope": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      }
+    },
+    "by_major": {
+      "computer_science": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 4
+      },
+      "data_science": {
+        "cases": 12,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 5
+      },
+      "mathematics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 4
+      },
+      "mathematics_informatics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 3
+      }
+    },
+    "cases": 36,
+    "control_status_mismatches": 0,
+    "eligible": 24,
+    "eligible_not_attempted": 0,
+    "errors": {
+      "invalid_response": 3
+    },
+    "fallback": 8,
+    "fallback_reasons": {
+      "evidence_coverage": 4,
+      "invalid_output": 1,
+      "invalid_response": 3
+    },
+    "guard_skipped": 12,
+    "http_status": {
+      "200": 24
+    },
+    "latency": {
+      "baseline": {
+        "count": 36,
+        "max_ms": 72.55579996854067,
+        "min_ms": 0.054900068789720535,
+        "p50_ms": 24.627499980852008,
+        "p95_ms": 63.56080016121268
+      },
+      "provider": {
+        "count": 24,
+        "max_ms": 6453.525000018999,
+        "min_ms": 1432.1498998906463,
+        "p50_ms": 4075.3665999509394,
+        "p95_ms": 6444.636899977922
+      },
+      "rewrite_fallback": {
+        "count": 8,
+        "max_ms": 6410.314100096002,
+        "min_ms": 2175.4379998892546,
+        "p50_ms": 3388.5981999337673,
+        "p95_ms": 6410.314100096002
+      },
+      "rewrite_used": {
+        "count": 16,
+        "max_ms": 6456.259700004011,
+        "min_ms": 1433.6196000222117,
+        "p50_ms": 4086.5055001340806,
+        "p95_ms": 6456.259700004011
+      }
+    },
+    "provider_requests": 24,
+    "source_audit_failures": 0,
+    "token_counter_unknown_requests": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    },
+    "token_usage": {
+      "completion_tokens": 6916,
+      "prompt_tokens": 28349,
+      "total_tokens": 35265
+    },
+    "token_usage_known_subtotal": {
+      "completion_tokens": 6916,
+      "prompt_tokens": 28349,
+      "total_tokens": 35265
+    },
+    "usage_known_requests": 24,
+    "usage_unknown_requests": 0,
+    "used": 16,
+    "used_rate_among_eligible": 0.6666666666666666
+  },
+  "min_interval_seconds": 5,
+  "prepared_sha256": "69a4cc4f0710f1b753b3070aa9b2811d8a79cade9c5dd66f4d1fa54ed4ec3ab6",
+  "recommended_enabled": false,
+  "requested_model": "gemini-3.5-flash-lite",
+  "schema_version": "hus-llm-paired-1.0",
+  "semantic_review": "pending",
+  "transport": "live_google"
+}

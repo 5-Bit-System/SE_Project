@@ -1,0 +1,460 @@
+{
+  "kind": "authorized live paired exposed-development L5 v4; not L6 activation",
+  "date": "2026-11-11",
+  "branch": "hus-llm-rag",
+  "live_artifact": "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1",
+  "reviewed_artifact": "data/hus/evaluation/runs/llm_l5_v4_ai_review_20261111_r1",
+  "prepared_manifest_sha256": "1a92bdf6fd9da21aadabe75f317f47f22da255bc706ad6db144d2c5e868b607a",
+  "authorization": {
+    "authorization_source": "Explicit user answer: Cho phép tối đa 24 lời gọi Google",
+    "date": "2026-11-11",
+    "prepared_artifact": "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3",
+    "prepared_manifest_sha256": "1a92bdf6fd9da21aadabe75f317f47f22da255bc706ad6db144d2c5e868b607a",
+    "model": "gemini-3.5-flash-lite",
+    "max_calls": 24,
+    "minimum_spacing_seconds": 5,
+    "output_tokens_per_call": 1024,
+    "retry_or_model_switch": false,
+    "stop_after_429": true,
+    "credential_handling": "Read existing server root .env internally; never print or edit key/file."
+  },
+  "budget_consumed": 24,
+  "further_calls_authorized": false,
+  "metrics": {
+    "actual_models": {
+      "gemini-3.5-flash-lite": 24
+    },
+    "baseline_false_refusals": 0,
+    "by_family": {
+      "basic_chat": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "clarification_required": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "f1": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 5
+      },
+      "f2": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 8
+      },
+      "f3": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 3
+      },
+      "missing_evidence": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "opt_in_required": {
+        "cases": 4,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "out_of_scope": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      }
+    },
+    "by_major": {
+      "computer_science": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 4
+      },
+      "data_science": {
+        "cases": 12,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 5
+      },
+      "mathematics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 4
+      },
+      "mathematics_informatics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 3
+      }
+    },
+    "cases": 36,
+    "control_status_mismatches": 0,
+    "eligible": 24,
+    "eligible_not_attempted": 0,
+    "errors": {
+      "invalid_response": 3
+    },
+    "fallback": 8,
+    "fallback_reasons": {
+      "evidence_coverage": 4,
+      "invalid_output": 1,
+      "invalid_response": 3
+    },
+    "guard_skipped": 12,
+    "http_status": {
+      "200": 24
+    },
+    "latency": {
+      "baseline": {
+        "count": 36,
+        "max_ms": 72.55579996854067,
+        "min_ms": 0.054900068789720535,
+        "p50_ms": 24.627499980852008,
+        "p95_ms": 63.56080016121268
+      },
+      "provider": {
+        "count": 24,
+        "max_ms": 6453.525000018999,
+        "min_ms": 1432.1498998906463,
+        "p50_ms": 4075.3665999509394,
+        "p95_ms": 6444.636899977922
+      },
+      "rewrite_fallback": {
+        "count": 8,
+        "max_ms": 6410.314100096002,
+        "min_ms": 2175.4379998892546,
+        "p50_ms": 3388.5981999337673,
+        "p95_ms": 6410.314100096002
+      },
+      "rewrite_used": {
+        "count": 16,
+        "max_ms": 6456.259700004011,
+        "min_ms": 1433.6196000222117,
+        "p50_ms": 4086.5055001340806,
+        "p95_ms": 6456.259700004011
+      }
+    },
+    "provider_requests": 24,
+    "source_audit_failures": 0,
+    "token_counter_unknown_requests": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    },
+    "token_usage": {
+      "completion_tokens": 6916,
+      "prompt_tokens": 28349,
+      "total_tokens": 35265
+    },
+    "token_usage_known_subtotal": {
+      "completion_tokens": 6916,
+      "prompt_tokens": 28349,
+      "total_tokens": 35265
+    },
+    "usage_known_requests": 24,
+    "usage_unknown_requests": 0,
+    "used": 16,
+    "used_rate_among_eligible": 0.6666666666666666
+  },
+  "tokens_by_outcome": {
+    "used": {
+      "prompt_tokens": 16665,
+      "completion_tokens": 2207,
+      "total_tokens": 18872
+    },
+    "fallback": {
+      "prompt_tokens": 11684,
+      "completion_tokens": 4709,
+      "total_tokens": 16393
+    }
+  },
+  "semantic": {
+    "actual_human_reviews": 0,
+    "all_positive": {
+      "a_completeness_pass": 24,
+      "a_entailment_pass": 24,
+      "b_completeness_pass": 24,
+      "b_entailment_pass": 24,
+      "count": 24,
+      "readability": {
+        "better": 2,
+        "same": 21,
+        "worse": 1
+      }
+    },
+    "fallback_only": {
+      "a_completeness_pass": 8,
+      "a_entailment_pass": 8,
+      "b_completeness_pass": 8,
+      "b_entailment_pass": 8,
+      "count": 8,
+      "readability": {
+        "same": 8
+      }
+    },
+    "independent_holdout_accepted": false,
+    "reviewer_kind": "ai",
+    "used_only": {
+      "a_completeness_pass": 16,
+      "a_entailment_pass": 16,
+      "b_completeness_pass": 16,
+      "b_entailment_pass": 16,
+      "count": 16,
+      "readability": {
+        "better": 2,
+        "same": 13,
+        "worse": 1
+      }
+    }
+  },
+  "review_method": "Root AI read24 positive exact A/B (F2 canonical suffix and fallback equality checked), all12 displayed controls; nonblind/nonindependent/exposed, human0. Relative to frozen sources, not academic certification.",
+  "long_f3_stress": {
+    "cases": 4,
+    "used": 0,
+    "fallback": 4
+  },
+  "near_output_cap_observation": "Three invalid_response cases reported1020 completion tokens near1024 cap. Raw rejected output/finish reason not retained; this is not proof of truncation.",
+  "decision": "keep_llm_disabled; limited phrasing gain and all long-content F3 stress fell back. A7/operator acceptance pending.",
+  "new_provider_calls_in_replay_review": 0,
+  "new_retrieval_calls_in_B_replay_review": 0,
+  "old_data_artifacts_unchanged": 2516,
+  "defaults": {
+    "retrieval": "lexical",
+    "llm_enabled": false
+  },
+  "during_collection_code_source_retrieval_prompt_model_changes": false,
+  "key_handling": "Existing server.env read internally only for approved live process; no key/file printed/edited. Template not read.",
+  "cases": [
+    {
+      "id": "L5V4-Q001",
+      "family": "f1",
+      "stress": false,
+      "used": false,
+      "fallback_reason": "evidence_coverage",
+      "http_status": 200,
+      "completion_tokens": 631
+    },
+    {
+      "id": "L5V4-Q002",
+      "family": "f1",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 208
+    },
+    {
+      "id": "L5V4-Q003",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q004",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q005",
+      "family": "f3",
+      "stress": true,
+      "used": false,
+      "fallback_reason": "invalid_response",
+      "http_status": 200,
+      "completion_tokens": 1020
+    },
+    {
+      "id": "L5V4-Q006",
+      "family": "f3",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 191
+    },
+    {
+      "id": "L5V4-Q009",
+      "family": "f1",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 495
+    },
+    {
+      "id": "L5V4-Q010",
+      "family": "f1",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 75
+    },
+    {
+      "id": "L5V4-Q011",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q012",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q013",
+      "family": "f3",
+      "stress": true,
+      "used": false,
+      "fallback_reason": "evidence_coverage",
+      "http_status": 200,
+      "completion_tokens": 302
+    },
+    {
+      "id": "L5V4-Q014",
+      "family": "f3",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 284
+    },
+    {
+      "id": "L5V4-Q017",
+      "family": "f1",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 108
+    },
+    {
+      "id": "L5V4-Q018",
+      "family": "f1",
+      "stress": false,
+      "used": false,
+      "fallback_reason": "invalid_output",
+      "http_status": 200,
+      "completion_tokens": 228
+    },
+    {
+      "id": "L5V4-Q019",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q020",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q021",
+      "family": "f3",
+      "stress": true,
+      "used": false,
+      "fallback_reason": "invalid_response",
+      "http_status": 200,
+      "completion_tokens": 1020
+    },
+    {
+      "id": "L5V4-Q022",
+      "family": "f3",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 163
+    },
+    {
+      "id": "L5V4-Q025",
+      "family": "f1",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 259
+    },
+    {
+      "id": "L5V4-Q026",
+      "family": "f1",
+      "stress": false,
+      "used": false,
+      "fallback_reason": "evidence_coverage",
+      "http_status": 200,
+      "completion_tokens": 166
+    },
+    {
+      "id": "L5V4-Q027",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q028",
+      "family": "f2",
+      "stress": false,
+      "used": true,
+      "fallback_reason": null,
+      "http_status": 200,
+      "completion_tokens": 53
+    },
+    {
+      "id": "L5V4-Q029",
+      "family": "f3",
+      "stress": true,
+      "used": false,
+      "fallback_reason": "invalid_response",
+      "http_status": 200,
+      "completion_tokens": 1020
+    },
+    {
+      "id": "L5V4-Q030",
+      "family": "f3",
+      "stress": false,
+      "used": false,
+      "fallback_reason": "evidence_coverage",
+      "http_status": 200,
+      "completion_tokens": 322
+    }
+  ],
+  "commit_push_deploy": false
+}
