@@ -14,7 +14,7 @@ from app.hus.question_routing import (
     out_of_scope, requested_text, requested_course_fields, unsupported_request, verified_requested as _verified_requested,
     PROGRAM_FIELDS, CAREER_TERMS, requested_program_fields, question_group_keys, program_total_request,
 )
-from app.hus.answer_support import supported_hits
+from app.hus.answer_support import supported_hits, training_purpose_requested
 from app.schemas.hus import F2PrerequisiteStatus, HUSAnswer, HUSQuestion
 
 
@@ -127,7 +127,10 @@ class HUSAnswerer:
             "content", "objectives", "suggested_assessment"}
         if field not in allowed:
             return self._missing(request, dataset, "Chưa xác định được loại thông tin phù hợp trong dữ liệu.")
-        hits = self.retriever.search(request.question, dataset=dataset, major=request.major,
+        query = request.question
+        if dataset == 'f1' and field == 'objectives' and training_purpose_requested(query):
+            query += ' nhằm mục tiêu chung'
+        hits = self.retriever.search(query, dataset=dataset, major=request.major,
                                      version=request.version, course_code=code, field=field,
                                      program_variant=request.program_variant, top_k=5,
                                      allow_generated=request.allow_generated_reference)
