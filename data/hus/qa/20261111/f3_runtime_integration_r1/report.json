@@ -1,0 +1,60 @@
+{
+  "kind": "F3 v2 portable integration and explicit preview, not shared activation",
+  "release_id": "hus-data-20261111-v4",
+  "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+  "families": {
+    "F1": 65,
+    "F2": 336,
+    "F3": 1753
+  },
+  "tests": {
+    "release_final": {
+      "tests": 14,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "passed": 14
+    },
+    "offline": {
+      "tests": 2567,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 2,
+      "passed": 2565
+    }
+  },
+  "new_regressions": 54,
+  "deselected": 90,
+  "node_passed": 8,
+  "browser_cases_passed": 50,
+  "menu_entries": 2124,
+  "f3_menu_entries": 580,
+  "ruff": "passed",
+  "protected_old_files_unchanged": 783,
+  "tested_code_hashes_match": true,
+  "changed_preexisting_hus_runtime": [
+    "app/hus/citations.py",
+    "app/hus/portable_adapter.py",
+    "app/hus/release_validation.py"
+  ],
+  "service_root_setting_added": true,
+  "review": {
+    "critical": 0,
+    "important": 1,
+    "minor_technical": 0,
+    "important_fixed": 1,
+    "regression": "resealed candidate_extra rejected (RED->GREEN)",
+    "additional_full_profiles": 10,
+    "human_review_count": 0,
+    "independent_rereview": false,
+    "content_note": "MAT2301 semidefinite/zero-eigenvalue completeness suggestion; not a false claim; sealed data unchanged"
+  },
+  "shared_current_changed": false,
+  "defaults_changed": false,
+  "gemini_live_calls": 0,
+  "private_env_or_template_read_or_modified": false,
+  "commit_push_deploy": false,
+  "old_vector_contract_rejected": true,
+  "canonical_failure_503_no_provider": true,
+  "next": "Controlled release selection, then fresh pinned L5 A/B."
+}
