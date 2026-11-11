@@ -341,7 +341,8 @@ def test_generate_grounded_answer_success(answerer, monkeypatch):
     assert "Cơ sở dữ liệu" in prompt_str
     assert "4" in prompt_str
     assert "[1], [2]" in prompt_str
-    assert "THÔNG TIN HỌC PHẦN LUÔN LUÔN PHẢI HIỂN THỊ NGAY Ở ĐẦU CÂU TRẢ LỜI" in prompt_str
+    assert "Answer-first" in prompt_str
+    assert "TUYỆT ĐỐI KHÔNG chia mục theo khuôn mẫu cứng nhắc" in prompt_str
 
 
 # ============================================================================

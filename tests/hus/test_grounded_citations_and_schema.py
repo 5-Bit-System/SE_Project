@@ -109,8 +109,8 @@ def test_generate_grounded_answer_prompt_and_citations_sync(answerer, monkeypatc
     assert len(captured_prompts) == 1
     prompt = captured_prompts[0]
     expected_instruction = (
-        "Khi trích dẫn hoặc sử dụng luận điểm từ các đoạn trích dẫn tài liệu ở mục B, "
-        "hãy gắn số thứ tự trích dẫn dạng [1], [2],... tương ứng với số thứ tự của đoạn trích dẫn vào cuối câu hoặc mệnh đề."
+        "Khi sử dụng thông tin từ các đoạn trích dẫn tài liệu ở trên, "
+        "hãy gắn số thứ tự trích dẫn dạng [1], [2],... tương ứng vào cuối câu hoặc mệnh đề."
     )
     assert expected_instruction in prompt
 
