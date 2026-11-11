@@ -44,6 +44,37 @@ WORKPLACE_REFUSAL = re.compile(
     r'\b(?:khong (?:hoi|can|yeu cau)|dung hoi) (?:(?:ve|den) )?'
     r'(?:(?:cong viec|viec lam|co hoi nghe nghiep|nghe nghiep) (?:(?:trong|tai|o) )?)?'
     r'(?:doanh nghiep|cong ty)\b')
+PURPOSE_REQUEST = re.compile(r'\b(?:dao tao (?:de|nham)|muc dich dao tao|muc tieu chung)\b')
+PURPOSE_SOURCE = re.compile(
+    r'^(?:\d+ )*(?:(?:chuong trinh|nganh|viec dao tao|dao tao)\b.{0,220}\b(?:nham|de)\b'
+    r'|muc dich\b|muc tieu chung\b)')
+
+
+def _purpose_material(group):
+    """Find explicit program aims, without treating a skills list as its purpose."""
+    selected, total = [], 0
+    for hit in group:
+        parts = [part for part in re.split(r'\n\s*\n', _body(hit.chunk)) if part.strip()]
+        included = set()
+        for index, part in enumerate(parts):
+            words = _tokens(part)
+            total += len(words)
+            if not PURPOSE_SOURCE.search(' '.join(words)):
+                continue
+            if len(words) <= 6:
+                # A heading alone is insufficient; never borrow across a hit/gap.
+                if (index + 1 >= len(parts) or parts[index + 1].lstrip().startswith('#')
+                        or len(_tokens(parts[index + 1])) < 8):
+                    continue
+                included.add(index + 1)
+            included.add(index)
+        selected.extend(word for index in included for word in _tokens(parts[index]))
+    return set(selected), len(selected) / total if total else 0
+
+
+def training_purpose_requested(question):
+    active = ' '.join(_requested_clauses(question))
+    return bool(PURPOSE_REQUEST.search(active)) and not has(active, 'chuan dau ra', 'nang luc', 'ky nang')
 
 
 def _scope_query(query: str) -> tuple[str, set[str]]:
@@ -137,7 +168,20 @@ def supported_hits(question: str, hits: tuple[RetrievalHit, ...], *,
                 continue
         if all(_qualifier_supported(phrase, hit) for phrase in qualifiers):
             groups[_source_scope(hit)].append(hit)
-    for group in groups.values():
+    grouped = list(groups.values())
+    purpose = (PURPOSE_REQUEST.search(query) if training_purpose_requested(question)
+               and grouped and grouped[0][0].chunk.dataset == 'f1'
+               and grouped[0][0].chunk.metadata.get('field') == 'objectives' else None)
+    if purpose:
+        # Aim requests prefer focused purpose text over a larger outcomes chapter.
+        # BM25 order still breaks ties. No source/edition/scope gets merged.
+        specific -= set(_tokens(purpose[0]))
+        grouped.sort(key=lambda group: _purpose_material(group)[1], reverse=True)
+    for group in grouped:
+        if purpose:
+            purpose_words, density = _purpose_material(group)
+            if not density or not specific <= purpose_words:
+                continue
         context_ids = set()
         if group[0].chunk.dataset == 'f1' and group[0].chunk.metadata.get('field') == 'careers':
             bodies = {hit.chunk.chunk_id: " " + " ".join(_tokens(_body(hit.chunk))) + " " for hit in group}
