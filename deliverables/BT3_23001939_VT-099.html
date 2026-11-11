@@ -284,7 +284,7 @@
     <li><strong>Core Invariant:</strong> <em>"Khi client chỉ định trạng thái kỳ vọng `expected_status`, tài liệu chỉ được chuyển trạng thái kiểm duyệt nếu trạng thái hiện tại khớp chính xác với kỳ vọng. Mọi yêu cầu đồng thời đến sau có cùng kỳ vọng phải bị từ chối với HTTP 409 Conflict (loại trừ Last-Writer-Wins khi client chỉ định kỳ vọng). Vai trò reviewer chỉ có quyền đọc và duyệt, tuyệt đối không được phép chỉnh sửa dữ liệu gốc metadata."</em></li>
     <li><strong>Non-goals, Residual Risks & Schema Governance:</strong>
       <ul>
-        <li><em>Phạm vi CAS:</em> CAS là cơ chế tùy chọn khi client truyền <code>expected_status</code>. Client cũ không truyền vẫn được cập nhật vô điều kiện để bảo toàn 100% tính tương thích ngược duyệt lại (NFC2).</li>
+        <li><em>Phạm vi CAS & Giới hạn Giao diện UI:</em> CAS là cơ chế tùy chọn khi client truyền <code>expected_status</code>. Client cũ không truyền vẫn được cập nhật vô điều kiện để bảo toàn 100% tính tương thích ngược duyệt lại (NFC2). Đồng thời, giao diện web frontend hiện tại chưa gửi trường này, do đó sự bảo vệ chống race condition hiện có hiệu lực và được kiểm chứng ở tầng backend API/service, chưa kích hoạt trên UI người dùng.</li>
         <li><em>Giới hạn Tạo Reviewer:</em> <code>app/api/auth.py:179</code> hiện chỉ cho phép cập nhật vai trò giữa <code>student</code> và <code>admin</code>; việc tạo tài khoản <code>reviewer</code> trong hệ thống hiện thực hiện qua seed database hoặc script quản trị, chưa hỗ trợ trực tiếp từ UI quản lý người dùng.</li>
         <li><em>Quy chuẩn Schema DB & Giới hạn Downgrade:</em> Đã bổ sung migration Alembic <code>database/hus_alembic/versions/20261111_14_reviewer_role.py</code> (<code>hus_20261111_14</code>) mở rộng ràng buộc <code>accounts_role_check</code> cho <code>reviewer</code>, loại bỏ hoàn toàn rủi ro <em>false fixtures</em> do chạy DDL trong test. Lưu ý khi <code>downgrade()</code>, cần dọn dẹp hoặc chuyển role các tài khoản reviewer trước để tránh lỗi vi phạm ràng buộc check constraint.</li>
         <li><em>Yêu cầu Môi trường:</em> Database kiểm thử (<code>HUS_TEST_DATABASE_URL</code>) phải được migrate lên head <code>hus_20261111_14</code> trước khi chạy test suite.</li>
@@ -524,19 +524,19 @@
   <h2>4. Evidence of Test-First Cycle (TDD RED $\to$ GREEN) <span class="section-badge">Lecture 06</span></h2>
   
   <p>
-    Quá trình triển khai biến thể VT-099 tuân thủ chặt chẽ chu trình Test-Driven Development (TDD) theo chuẩn công nghiệp: Viết test suite trước khi viết mã tính năng (giai đoạn RED), quan sát các lỗi thất bại chính xác, sau đó triển khai lát cắt mã nguồn tối thiểu để chuyển toàn bộ test sang màu xanh (giai đoạn GREEN).
+    Quá trình triển khai biến thể VT-099 tuân thủ chặt chẽ chu trình Test-Driven Development (TDD) theo Lecture 06: Viết test suite trước khi viết mã tính năng (giai đoạn RED), quan sát các lỗi thất bại chính xác, sau đó triển khai lát cắt mã nguồn tối thiểu để chuyển toàn bộ test sang màu xanh (giai đoạn GREEN). Vòng lặp TDD ban đầu ghi nhận 12 test cases cốt lõi (TC-01..TC-12); sau đó qua các vòng phản biện mã nguồn (peer review remediation), bộ test được bổ sung tiệm tiến thêm 3 test cases (TC-13, 14, 15) và migration Alembic <code>hus_20261111_14</code>, hoàn thiện trọn vẹn 15 test cases.
   </p>
 
   <div class="stat-bar">
     <div class="stat-item"><div class="stat-val" style="color: #e53e3e;">19e62ea</div><div class="stat-lbl">RED Commit Hash</div></div>
-    <div class="stat-item"><div class="stat-val" style="color: #e53e3e;">9 FAILED</div><div class="stat-lbl">RED Test Status (Baseline)</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #e53e3e;">9 FAILED</div><div class="stat-lbl">RED Status (9/12 FAILED)</div></div>
     <div class="stat-item"><div class="stat-val" style="color: #38a169;">a8567a0</div><div class="stat-lbl">GREEN Commit Hash</div></div>
-    <div class="stat-item"><div class="stat-val" style="color: #38a169;">15 PASSED</div><div class="stat-lbl">GREEN Test Status (5.43s)</div></div>
+    <div class="stat-item"><div class="stat-val" style="color: #38a169;">15 PASSED</div><div class="stat-lbl">Final Test Status (15/15)</div></div>
   </div>
 
   <div class="card-grid">
     <div class="card" style="border-left: 3.5px solid #e53e3e;">
-      <div class="card-title"><span>Giai đoạn RED (Commit `19e62ea`)</span><span class="badge badge-fail">RED VERIFIED</span></div>
+      <div class="card-title"><span>Giai đoạn RED (Commit `19e62ea` — 12 Tests)</span><span class="badge badge-fail">RED VERIFIED</span></div>
       <p><strong>Lệnh thực thi:</strong> <code>pytest tests/api/test_vt099_reviewer_concurrency.py -v</code></p>
       <p><strong>Phân tích Nguyên nhân Thất bại Thực tế (Trích xuất từ `test-first-red.txt`):</strong></p>
       <pre>TC-01: AuthFailure: invalid_login (login query chỉ cho phép role='admin')
@@ -544,10 +544,10 @@ TC-03..06: HTTP 403 Forbidden (require_account trong admin.py chặn reviewer)
 TC-10: TypeError: review_document() got an unexpected keyword 'expected_status'
 TC-11: HTTP 403 Forbidden (reviewer bị chặn trước khi đến logic so khớp CAS)
 TC-12: HTTP 403 Forbidden (chặn reviewer ghi nhận audit log)</pre>
-      <p><em>Ghi nhận kỹ thuật:</em> Các thất bại ở RED phản ánh tính chân thực của TDD: test fail vì tính năng chưa hề tồn tại trong mã nguồn. Giữa RED và GREEN, test fixtures được hoàn thiện thêm cơ chế upsert tài khoản kiểm thử và so khớp actor_id.</p>
+      <p><em>Ghi nhận kỹ thuật:</em> Các thất bại ở RED phản ánh tính chân thực của TDD: 9 test fail đúng lý do tính năng chưa tồn tại. Sau khi chuyển GREEN tại commit `a8567a0`, quá trình peer review remediation tiếp tục bổ sung TC-13, TC-14, TC-15 và migration Alembic.</p>
     </div>
     <div class="card" style="border-left: 3.5px solid #38a169;">
-      <div class="card-title"><span>Giai đoạn GREEN (Commit `a8567a0`)</span><span class="badge badge-pass">GREEN VERIFIED</span></div>
+      <div class="card-title"><span>Giai đoạn GREEN & Remediation (`a8567a0` $\to$ `de8219c`)</span><span class="badge badge-pass">GREEN VERIFIED</span></div>
       <p><strong>Lệnh thực thi:</strong> <code>pytest tests/api/test_vt099_reviewer_concurrency.py -v</code></p>
       <p><strong>Bằng chứng thành công thực tế (Trích xuất từ `test-first-green.txt`):</strong></p>
       <pre>test_tc01_reviewer_db_login_and_session PASSED [  5%]
@@ -597,7 +597,7 @@ test_tc15_expected_status_literal_validation_422 PASSED [ 88%]
       <tr>
         <td><code>tests/api/test_vt099_reviewer_concurrency.py</code></td>
         <td>Tạo mới (440 dòng code)</td>
-        <td>Toàn bộ 12 test case tự động hóa với fixtures cô lập DB, <code>threading.Barrier(2)</code> concurrency race test và anti-vacuous assertions.</td>
+        <td>Toàn bộ 15 test cases tự động hóa (12 test gốc và 3 test bổ sung qua phản biện peer review) với fixtures cô lập DB, <code>threading.Barrier(2)</code> concurrency race test và anti-vacuous assertions.</td>
       </tr>
     </tbody>
   </table>
@@ -861,13 +861,15 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
     </tbody>
   </table>
 
-  <h3>7.2. Kỹ sư Phản tư (Engineering Reflection — 315 words)</h3>
+  <h3>7.2. Kỹ sư Phản tư (Engineering Reflection — 333 words)</h3>
   <div class="reflection-block">
-    Quá trình thực hiện bài tập cá nhân 3 và giải quyết biến thể VT-099 mang lại cho tôi những trải nghiệm thực tiễn sâu sắc về phương pháp cộng tác đa tầng giữa kỹ sư phần mềm và các AI Coding Agent (pair programming & multi-agent review). Khi đối mặt với yêu cầu thêm vai trò <code>reviewer</code> và xử lý xung đột đồng thời, việc phối hợp giữa <strong>Antigravity (Google DeepMind)</strong> với vai trò tạo mã triển khai và <strong>Claude (Anthropic)</strong> với vai trò phản biện kiến trúc độc lập đã tạo nên một quy trình kiểm định chéo vô cùng hiệu quả.
+    Quá trình hoàn thành biến thể VT-099 mang lại cho tôi những kinh nghiệm thực chiến giá trị khi kết hợp cùng AI Coding Agent theo nguyên tắc kỹ thuật của Lecture 06 và 07.
     <br><br>
-    Tuy nhiên, bài học cốt lõi rút ra là kỹ sư con người bắt buộc phải giữ vai trò nhạc trưởng (orchestrator), nắm vững hiện trạng mã nguồn thực tế và cơ chế cơ sở dữ liệu. Nếu tin tưởng mù quáng vào AI mà thiếu đi sự kiểm chứng độc lập, hệ thống sẽ rơi vào những sai lầm chết người: AI phỏng đoán sai đường dẫn endpoint, ảo giác hệ thống chưa có khóa, đề xuất cấm duyệt lại làm phá vỡ regression suite, hoặc nguy hiểm hơn là dùng thủ thuật DDL trong test fixture (<em>false fixtures</em>) che giấu việc bảng <code>accounts</code> chưa hề hỗ trợ vai trò <code>reviewer</code> ở schema thật.
+    <strong>Điều gia tăng mức độ tự tin (confidence) lớn nhất</strong> là chu trình kiểm thử hai tầng khép kín. Việc áp dụng TDD RED-GREEN giúp kiểm soát chặt chẽ từng dòng diff tối thiểu trên ba tập tin cốt lõi (auth repository, document review service, admin API). Sự tự tin được củng cố vững chắc khi kỹ sư con người phản biện thành công các đề xuất sai lệch của AI (ảo giác endpoint, rủi ro <em>false fixtures</em> khi chạy DDL trong test fixture), triển khai migration Alembic chuẩn mực và kiểm chứng hai đột biến (Mutation Testing) bị tiêu diệt hoàn toàn bởi test suite.
     <br><br>
-    Chính nhờ kỹ sư bám sát mã nguồn và cơ chế <code>SELECT ... FOR UPDATE</code> cùng <code>pg_advisory_xact_lock</code>, tôi đã định hướng giải pháp Compare-and-Set tùy chọn qua <code>expected_status</code>, bổ sung migration Alembic <code>hus_20261111_14</code> chuẩn mực, và kiểm soát chặt chẽ việc bảo vệ bí mật chuỗi kết nối. Việc tuân thủ nghiêm ngặt chu trình TDD RED-GREEN, xây dựng test phủ định không rỗng (anti-vacuous), kiểm thử đột biến (Mutation Testing) và kiểm chứng tải 80 worker đã chứng minh rằng: AI là đòn bẩy gia tăng năng suất vượt bậc, nhưng chính sự hoài nghi lành mạnh, tư duy phản biện và trách nhiệm nghề nghiệp của người kỹ sư mới là chốt chặn cuối cùng bảo đảm sự an toàn, bảo mật và chất lượng bền vững của phần mềm.
+    <strong>Tuy nhiên, điều vẫn chưa được chứng minh</strong> trên môi trường thực tế gồm hai yếu tố. Thứ nhất, cơ chế Compare-and-Set (CAS) hiện tại chỉ kích hoạt khi client truyền <code>expected_status</code>; do giao diện frontend web hiện thời chưa gửi trường này, việc ngăn chặn race condition mới được bảo đảm ở tầng backend API, chưa bảo vệ trực tiếp trên UI người dùng. Thứ hai, bài đo tải 80 worker sử dụng Starlette <code>TestClient</code> in-process trên loopback nội bộ; độ trễ p95 đo được 1.4252s chưa phản ánh độ trễ mạng phân tán (network RTT) và việc cạnh tranh connection pool khi mở rộng đa pod.
+    <br><br>
+    <strong>Vì vậy, bài kiểm thử tiếp theo có giá trị cao nhất</strong> là một bộ End-to-End (E2E) Browser Concurrency Test với Playwright: mô phỏng hai reviewer cùng đăng nhập trên hai trình duyệt độc lập, cùng mở một tài liệu pending và đồng thời nhấn Duyệt/Từ chối sau khi giao diện frontend được cập nhật gửi kèm <code>expected_status</code>. Bài test này sẽ xác nhận trọn vẹn trải nghiệm người dùng và thông báo lỗi HTTP 409 Conflict trên giao diện thực tế.
   </div>
 
   <div style="margin-top: 10px; border-top: 1px dashed #cbd5e0; padding-top: 6px; display: flex; justify-content: space-between; font-size: 8pt; color: #718096;">
@@ -889,7 +891,7 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
     <li><strong>Các công cụ AI sử dụng phối hợp:</strong>
       <ul>
         <li><strong>Claude (Anthropic):</strong> Đóng vai trò Reviewer / Phản biện Kiến trúc độc lập. Thực hiện 2 vòng phản biện kế hoạch và thẩm định mã nguồn, phát hiện chính xác các sai lệch: phỏng đoán sai tên endpoint, ảo giác chưa có khóa DB, thiếu mở quyền <code>login()</code>, nuốt lỗi 409 thành 400, mâu thuẫn nghiệp vụ với test cũ, rủi ro <em>false fixtures</em> do chạy DDL trong test, và phát hiện chuỗi kết nối chứa mật khẩu trong bằng chứng.</li>
-        <li><strong>Antigravity (Google DeepMind / Gemini 2.5 Pro):</strong> Đóng vai trò Implementer / Cặp lập trình viên (Pair Programmer). Triển khai lát cắt dọc tối giản trên 3 file sản phẩm, xây dựng test suite 15 test cases, thực thi chu trình TDD RED-GREEN, đo lường coverage, thực nghiệm 2 mutation và bộ đo tải 80 workers.</li>
+        <li><strong>Antigravity (Google DeepMind / model không xác định):</strong> Đóng vai trò Implementer / Cặp lập trình viên (Pair Programmer). Triển khai lát cắt dọc tối giản trên 3 file sản phẩm, xây dựng test suite 15 test cases, thực thi chu trình TDD RED-GREEN, đo lường coverage, thực nghiệm 2 mutation và bộ đo tải 80 workers.</li>
       </ul>
     </li>
     <li><strong>Prompt chỉ đạo chính:</strong> <em>"Lập specification, implementation plan và test strategy cho biến thể VT-099 (Reviewer role RBAC và Concurrency CAS protection), tuân thủ Lecture 06 (TDD, Small Diff) và Lecture 07 (Strong Oracle, Anti-vacuous, Flaky Mitigation, Load Experiment)."</em></li>
@@ -913,13 +915,18 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
 platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- F:\SE_Project\.venv\Scripts\python.exe
 collected 12 items
 tests/api/test_vt099_reviewer_concurrency.py::test_tc01_reviewer_db_login_and_session FAILED [  8%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc02_unsupported_role_db_login_fails PASSED [ 16%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents FAILED [ 25%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc04_reviewer_get_document_detail FAILED [ 33%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc05_reviewer_approve_document FAILED [ 41%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc06_reviewer_reject_document FAILED [ 50%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc07_reviewer_cannot_update_metadata_negative FAILED [ 58%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc08_student_cannot_approve_document_regression PASSED [ 66%]
+tests/api/test_vt099_reviewer_concurrency.py::test_tc09_anonymous_cannot_approve_document_regression PASSED [ 75%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc10_service_concurrency_race_condition_barrier FAILED [ 83%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc11_api_conflict_returns_409 FAILED [ 91%]
 tests/api/test_vt099_reviewer_concurrency.py::test_tc12_reviewer_audit_log_recorded FAILED [100%]
-=========================== 8 failed, 4 passed in 2.91s ===========================</pre>
+=================== 9 failed, 3 passed, 1 warning in 3.99s ====================</pre>
 
   <div class="appendix-title">Phụ lục C: Nhật ký Thực thi Kiểm thử TDD GREEN Phase (`deliverables/evidence/test-first-green.txt`)</div>
   <pre style="margin-bottom: 0;">============================= test session starts =============================

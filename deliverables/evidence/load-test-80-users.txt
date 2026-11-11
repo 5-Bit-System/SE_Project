@@ -77,20 +77,17 @@ Timestamp: 2026-11-11 13:16:43 UTC
     * Methodological Limitation: An in-process TestClient harness demonstrates batch completion SLA (p95 <= 2.5s)
       and zero 5xx server errors under simultaneous arrival, but does not simulate distributed network RTT.
 
-4.3. Hardware Environment & Distributed Production Reality:
+4.3. Test Environment & Architectural Considerations:
   - Benchmark Environment: Windows 10 (AMD64, 16 logical cores, 15.7 GB RAM).
     * Target DB: PostgreSQL 16 on loopback TCP 127.0.0.1:5433 (via HUS_TEST_DATABASE_URL).
     * In-process ASGI transport via Starlette TestClient.
-  - Production Extrapolation & Identified Bottlenecks:
-    1. Network Latency: In a real distributed Kubernetes cluster with external clients, TLS termination,
-       and Ingress routing (e.g. Nginx/Traefik), per-request network round-trip time (RTT 15-50ms)
-       would shift p95 latency upward by ~150-300ms.
-    2. Multi-pod / Multi-worker Pool Multiplier: If 4 Uvicorn workers run across 2 pods, each maintains
-       QueuePool(5, 10), potentially opening 4 x 15 = 60 connections to PostgreSQL.
-    3. Global Advisory Lock Contention: Scaling the number of web workers cannot scale review transaction
-       throughput because pg_advisory_xact_lock is a single global lock in PostgreSQL.
-  - Recommended Architectural Evolution for Higher Concurrency:
-    * Shard the advisory lock by academic major/department: hashtext('hus_review_' || major).
-      This allows Math, Computer Science, and Chemistry reviews to proceed fully in parallel.
-    * Introduce PgBouncer in transaction-pooling mode between Uvicorn pods and PostgreSQL.
+  - Methodological Boundaries & Production Considerations (Qualitative):
+    1. Network Transport: The in-process harness bypasses physical network transport, TLS handshake,
+       and reverse proxy routing. In production, network round-trip time will add to end-to-end latency.
+    2. Multi-Process Connection Pool Scaling: Each independent Uvicorn worker process instantiates its own
+       SQLAlchemy QueuePool; uncoordinated horizontal scaling without external connection pooling (e.g. PgBouncer)
+       risks exhausting PostgreSQL database connection limits.
+    3. Advisory Lock Scope: Because pg_advisory_xact_lock('ai07_hus_catalog_publish') is currently a single
+       global lock, review transactions are strictly serialized across the entire database.
+       To scale concurrent throughput across unrelated departments, the lock can be sharded by academic major.
 ================================================================================

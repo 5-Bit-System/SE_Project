@@ -34,7 +34,7 @@ Hệ thống hiện tại chỉ hỗ trợ hai vai trò người dùng trong cơ
 
 * **Non-goals / Residual Risks được ghi nhận:**
   1. *Cấp tài khoản Reviewer qua API:* Trong `app/api/auth.py` dòng 179, endpoint quản trị tài khoản chỉ cho phép đổi role sang `{'student', 'admin'}`. Việc mở rộng API quản lý người dùng để tạo/đổi role reviewer từ giao diện web là Non-goal của vertical slice này (tài khoản reviewer trong bài tập được cấp qua database seed / script quản trị).
-  2. *Phạm vi bảo vệ Concurrency:* Cơ chế chống race condition hoạt động khi client gửi trường `expected_status`. Nếu client cũ không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện để tương thích ngược.
+  2. *Phạm vi bảo vệ Concurrency & Giới hạn Giao diện UI:* Cơ chế chống race condition hoạt động khi client gửi trường `expected_status`. Nếu client cũ không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện để tương thích ngược. Đồng thời, giao diện web frontend hiện tại chưa gửi trường này, nên cơ chế được bảo đảm và kiểm chứng ở tầng backend API/service, chưa kích hoạt trên UI người dùng.
   3. *Quy chuẩn Schema DB:* Ràng buộc `accounts_role_check` ban đầu chỉ chấp nhận `('student', 'teacher', 'admin')`. Để đảm bảo tính toàn vẹn hệ thống mà không dùng DDL can thiệp trong fixture test (tránh rủi ro *false fixtures* theo Lecture 07), hệ thống bổ sung migration Alembic `database/hus_alembic/versions/20261111_14_reviewer_role.py` (`hus_20261111_14`) chính thức mở rộng ràng buộc cho `reviewer`.
   4. *Giới hạn khi Downgrade Database:* Alembic downgrade về `hus_20261105_13` sẽ thất bại nếu còn tài khoản mang role `reviewer` trong bảng `accounts`. Người vận hành cần xóa hoặc di chuyển các tài khoản reviewer trước khi rollback migration.
   5. *Độ trễ Tải 80 Workers:* Hiện tượng độ trễ các request gom cụm trong khoảng hẹp (~1.38s - ~1.43s) trên TestClient in-process là một **giả thuyết kỹ thuật (chưa kiểm chứng bằng profiler chuyên dụng)**. Giả định đặt ra là Starlette TestClient serialize HTTP request trước khi vào FastAPI synchronous DB blocks, kết hợp cơ chế hàng đợi QueuePool. Cần đo đạc bổ sung bằng công cụ profiling phân tán để khẳng định chắc chắn.
@@ -143,21 +143,22 @@ Theo yêu cầu bắt buộc của đề bài VT-099 và nguyên lý Combinatori
    git rev-parse HEAD  # Lưu vết baseline: 1205fa94eadfaa6a52721e85cdab8a7dea9cfa11
    ```
 2. **TDD RED Phase:**
-   - Viết test suite `tests/api/test_vt099_reviewer_concurrency.py`.
-   - Chạy test, ghi nhận kết quả thất bại thực tế (không ghi khống kết quả), lưu log vào `deliverables/evidence/test-first-red.txt`.
+   - Viết test suite ban đầu `tests/api/test_vt099_reviewer_concurrency.py` gồm 12 test cases cốt lõi (TC-01 đến TC-12).
+   - Chạy test, ghi nhận kết quả thất bại thực tế (9 FAILED, 3 PASSED do tính năng chưa tồn tại), lưu log vào `deliverables/evidence/test-first-red.txt`.
    - Commit RED riêng biệt: `test: add failing tests for reviewer role rbac and concurrency conflict (RED)`.
-3. **AI Patch & TDD GREEN Phase:**
+3. **AI Patch & TDD GREEN Phase & Peer Review Remediation:**
    - Triển khai patch nhỏ: mở `login()` và `PRINCIPAL` trong `app/auth/repository.py`; mở quyền 4 endpoint đọc/duyệt và bắt `DocumentConflictError` ra 409 trong `app/api/admin.py`; thêm `DocumentConflictError` và `expected_status` trong `app/crawler/document_review_service.py`.
    - Review diff 4 lớp (Lecture 06 tr.17).
    - Chạy test, ghi nhận kết quả pass thực tế, lưu log vào `deliverables/evidence/test-first-green.txt`.
    - Commit GREEN: `feat(auth,admin): implement reviewer role rbac and compare-and-set concurrency protection (GREEN)`.
+   - Trong quá trình phản biện mã nguồn (peer review remediation), bổ sung thêm 3 test cases (TC-13, TC-14, TC-15) cùng migration Alembic `hus_20261111_14`, đưa toàn bộ suite lên 15 test cases (15/15 passed).
 4. **Mutation Testing:**
    - Thử nghiệm Mutation 1: Bỏ validation cấm reviewer sửa metadata $\to$ Test TC-07 bắt được (**Killed**).
    - Thử nghiệm Mutation 2: Bỏ kiểm tra `expected_status` trong `review_document()` $\to$ Test TC-10 và TC-11 bắt được (**Killed**).
    - Lưu log vào `deliverables/evidence/mutation-killed.txt`. Revert commit tạm trước khi nộp.
 5. **Concurrency Load Experiment:**
    - Chạy script `tools/verify_vt099_concurrency_load.py` kích hoạt **80 tác vụ đồng thời** (80 concurrent workers).
-   - Đo lường và đối chiếu p95 so với mục tiêu $\le 2.5$ giây, phân tích hàng đợi connection pool và advisory lock.
+   - Đo lường và đối chiếu p95 so với mục tiêu $\le 2.5$ giây (kết quả đo thực tế đạt p95 = 1.4252s; dao động giữa các lần chạy trong khoảng ~0.76s - ~1.43s), phân tích hàng đợi connection pool và advisory lock.
    - Lưu log vào `deliverables/evidence/load-test-80-users.txt`.
 6. **Deliverables & Hướng dẫn Nộp bài:**
    - Tạo thư mục `docs/assignment/` với `README.md` (hướng dẫn chạy test, link PR, cam kết không merge vào `main` khi nhóm chưa review).
