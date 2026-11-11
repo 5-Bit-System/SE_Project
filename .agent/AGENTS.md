@@ -1,5 +1,31 @@
 # Project Memory and Contributor Guidelines
 
+## Core Operating Rules: Subagent Usage, Progress Transparency, and Frequent % Reporting — 2026-11-11 (Pinned Top)
+- **Báo cáo tiến độ (%) thường xuyên (BẮT BUỘC ở mọi lượt)**:
+  - Trong **mỗi lượt phản hồi hoặc cập nhật trung gian** (kể cả khi đang thực thi tool, theo dõi tác vụ nền hay chốt kết quả cuối), agent **PHẢI mở đầu bằng tổng tiến độ phần trăm cụ thể** (ví dụ: `**Tiến độ tổng thể: 40%** — ...`).
+  - Đối với công việc nhiều bước hoặc tác vụ chạy lâu, phải cập nhật tiến độ `%` đều đặn theo từng cột mốc hoàn thành, nêu rõ bước vừa xong, việc đang làm và phần còn lại; chỉ báo `100%` khi đã kiểm chứng hoàn tất toàn bộ.
+- **Minh bạch hành động & Không treo trạng thái running**: Bất kỳ khi nào làm việc gì, agent phải hiển thị rõ ràng ra màn hình cho người dùng biết (các bước đang làm, lệnh/file đang thao tác), tuyệt đối không để im lặng hoặc hiển thị toàn bộ dưới dạng "running" mơ hồ.
+- **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
+
+## GitHub Project #2 Status Synchronization (2026-11-03 to 2026-11-11) — 2026-11-11
+
+Synchronized GitHub Project `#2` ("AI-07 · Sổ học tập — Kế hoạch, tiến độ và nghiệm thu", `https://github.com/orgs/5-Bit-System/projects/2`) via `backups/github_project_update_20261111/update_project_20261111.py` (using local `gh.exe` in `backups/github_project_setup_20261102/`):
+1. **Board Totals & Status Breakdown (before -> after):**
+   - Before (`2026-11-03` baseline on `main` `1a5a79c`): `82` items (`Done: 69`, `Todo: 7`, `Backlog: 6`).
+   - After (`2026-11-11` baseline on `main` `1205fa9` + active feature branches): **`156` items** (`Done: 130`, `In Review: 15`, `Todo: 6`, `Backlog: 5`).
+2. **Draft Items Progressed:**
+   - `extract-ui`, `goals-decision` -> `Done` (`Delivery: Main`, `Verification: PR đã merge`; `PR #100`, `PR #132` at `c9694f4`).
+   - `rag-f2` -> `Done` (`Delivery: Main và nhánh riêng`; `PR #146` + `feat/hus-rag-phase2-gemini-lite` at `276dd2f`).
+   - `rag-account`, `rag-citations` -> `In Review` (`Delivery: Nhánh riêng`; integrated on `feat/workspace-hus-lookup-20261111` at `76184eb` and `feat/hus-rag-phase2-gemini-lite`).
+3. **Pull Requests & Issues Added/Synced (`#100`–`#168`):**
+   - Merged PRs (`#100`, `#108`, `#112`, `#113`, `#131`, `#132`, `#141`, `#146`, `#148`) and closed issues (`#78`–`#82`, `#101`–`#111`, `#114`–`#145`, `#147`, `#167`) -> `Done` (`Main` / `Main và nhánh riêng`); `#150`, `#151`, `#168` -> `Done` (`Nhánh riêng`).
+   - Open `PR #149` (`hus-embedding-chromadb`) -> `In Review` (`Nhánh riêng`).
+   - **Auto-close safety guard enforced:** All 16 open repository issues (`#69`, `#152`–`#166`) were kept `OPEN` on GitHub; items with branch/main code ready (`#152`–`#162`, `#165`) were set to `In Review` (never `Done` so GitHub Project automation does not close teammates' open issues), while remaining evaluation/rollout/holdout items were set to `Todo` (`#163`, `#164`) or `Backlog` (`#69`, `#166`).
+4. **Project Metadata & Local Evidence:**
+   - Updated Project `#2` `shortDescription` and `readme` with the `2026-11-11` status reconciliation note (`<!-- se-project-status-update:20261103 -->` section updated through `1205fa9`).
+   - Before/after snapshots and update script preserved locally in gitignored `backups/github_project_update_20261111/` (`before_items.json`, `after_items.json`, `before_readme.md`, `after_readme.md`, `update_project_20261111.py`).
+   - Session close-out only: no `git commit`, `git push`, `PR`, runtime restart, or code edits to product source/tests were performed.
+
 ## Natural Course Overview Routing, AI Reference Auto-Enable & CI Playwright Lock Alignment — 2026-11-11
 
 Completed session updates on `feat/workspace-hus-lookup-20261111` (HEAD `76184eb`):
@@ -13,11 +39,6 @@ Completed session updates on `feat/workspace-hus-lookup-20261111` (HEAD `76184eb
 3. **CI Dependency Constraint & Headless Browser Fallback:**
    - Aligned `requirements-portal.txt` (`playwright>=1.58,<2`) with `requirements-lock.txt` (`playwright==1.58.0`) so `pip install -r requirements-dev.txt -c requirements-lock.txt` resolves cleanly in GitHub Actions (`postgres` and `hus_postgres` CI jobs green) while preserving the pinned `requirements-lock.txt` SHA256 required by `app/hus/vector_contract.py`.
    - Added `_launch_browser(p)` in `tests/frontend/test_lookup_persistence.py` to prefer default headless Chromium before falling back to `channel="chrome"`.
-
-## Core Operating Rules: Subagent Usage, Progress Transparency, and Direct Reporting — 2026-11-11
-- **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
-- **Minh bạch hành động & Không treo trạng thái running**: Bất kỳ khi nào làm việc gì, agent phải hiển thị rõ ràng ra màn hình cho người dùng biết (các bước đang làm, lệnh/file đang thao tác), tuyệt đối không để im lặng hoặc hiển thị toàn bộ dưới dạng "running" mơ hồ.
-- **Báo cáo tiến độ (%) thường xuyên**: Luôn báo cáo tổng tiến độ phần trăm (%) công việc thường xuyên trong mỗi lần phản hồi/cập nhật cho người dùng để người dùng nắm rõ tiến trình cụ thể.
 
 ## Workspace HUS Lookup Tab Integration, Zero-Scroll ChatGPT Layout & Account Chat History Persistence — 2026-11-11
 
