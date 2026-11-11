@@ -29,9 +29,8 @@ class Chars:
 
 
 @pytest.fixture(scope='module')
-def data():
-    from app.hus.rag_loader import HUSRAGData
-    return HUSRAGData.load_current()
+def data(historical_v3_data):
+    return historical_v3_data
 
 
 @pytest.fixture(scope='module')
@@ -215,6 +214,7 @@ def test_symlink_and_redirected_root_escape_are_rejected(tmp_path, data, monkeyp
 
 def test_cli_rejects_unverified_contract_before_loading_tokenizer(tmp_path, data, monkeypatch):
     tool = importlib.import_module('tools.prepare_hus_passages')
+    monkeypatch.setattr(tool.HUSRAGData, 'load_current', lambda: data)
     called = []
     monkeypatch.setattr(tool, 'load_tokenizer', lambda *a, **kw: called.append(True))
     bad = tmp_path / 'bad_contract'
@@ -230,6 +230,7 @@ def test_cli_rejects_unverified_contract_before_loading_tokenizer(tmp_path, data
 
 def test_cli_writes_and_verifies(tmp_path, data, monkeypatch):
     tool = importlib.import_module('tools.prepare_hus_passages')
+    monkeypatch.setattr(tool.HUSRAGData, 'load_current', lambda: data)
     monkeypatch.setattr(tool, 'load_tokenizer', lambda folder, contract: Chars())
     root = tmp_path / 'vector_passages'
     monkeypatch.setattr(tool, 'PASSAGE_ROOT', root)

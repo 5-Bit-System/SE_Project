@@ -121,6 +121,12 @@ def load_current(root: Path = DEFAULT_RAG_ROOT) -> PortableRAGData:
                                   "recovered_pages": _rows(payloads, "evidence/recovered_text.jsonl"),
                                   "canonical_pdfs": json.loads(payloads["input_manifest.json"])["pdfs"],
                                   "release_identity": data.release_identity}
+        if manifest.get('f3_detail'):
+            # The v4 validator proves every inherited source/F1/F2 asset equals
+            # this SHA-pinned parent. Its content-addressed binary registry is
+            # reusable without rebinding unknown releases or weakening hashes.
+            parent = json.loads(payloads['evidence/f3_v2/parent_manifest.json'])
+            data._citation_context['asset_release_sha256'] = parent['release_sha256']
         f3_records = {r["record_id"]: r for r in _rows(payloads, "f3_records.jsonl")}
         chunks = {"f1": [], "f3": []}
         for chunk in _rows(payloads, "chunks.jsonl"):
@@ -154,6 +160,9 @@ def load_current(root: Path = DEFAULT_RAG_ROOT) -> PortableRAGData:
                             citation_label=f"F3 do AI sinh — {record['course_code']} — {record['major_name']}",
                             locator={"record_id": record["record_id"], "field": chunk["field"],
                                      "evidence_path": citation["evidence_path"]})
+                if manifest.get('f3_detail'):
+                    meta['locator'].update({key: citation[key] for key in
+                        ('start_char', 'end_char', 'offset_scope')})
             meta["locator"]["release_id"] = current["release_id"]
             version = scope["curriculum_version"]
             name = f"{family}_chunks.jsonl"

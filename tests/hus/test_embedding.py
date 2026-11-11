@@ -13,10 +13,9 @@ def module():
 
 
 @pytest.fixture(scope='module')
-def contract():
-    from app.hus.rag_loader import HUSRAGData
+def contract(historical_v3_data):
     from app.hus.vector_contract import build_contract
-    return build_contract(HUSRAGData.load_current())[0]
+    return build_contract(historical_v3_data)[0]
 
 
 def test_missing_model_cache_fails_without_loading_optional_runtime(tmp_path, contract):

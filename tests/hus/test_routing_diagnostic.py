@@ -7,7 +7,6 @@ import pytest
 
 from app.hus.answering import HUSAnswerer
 from app.hus.chat import chat
-from app.hus.rag_loader import HUSRAGData
 from app.schemas.hus import HUSQuestion
 from tools.hus_rag_metrics import citation_scope, facts_match
 
@@ -17,8 +16,9 @@ GOLD = [json.loads(line) for line in (PACK / "gold.jsonl").read_text(encoding="u
 
 
 @pytest.fixture(scope="module")
-def answerer():
-    return HUSAnswerer(HUSRAGData.load_current())
+def answerer(historical_v3_data):
+    # The exposed diagnostic gold is frozen to v3, including its assessment field.
+    return HUSAnswerer(historical_v3_data)
 
 
 @pytest.mark.parametrize("question,target", list(zip(QUESTIONS, GOLD, strict=True)),

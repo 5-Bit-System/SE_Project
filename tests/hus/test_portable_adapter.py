@@ -22,21 +22,21 @@ DIGEST = "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4"
 
 
 @pytest.fixture(scope="module")
-def selected():
-    return HUSRAGData.load_current()
+def selected(historical_v3_data):
+    return historical_v3_data
 
 
 @pytest.fixture
-def copied(tmp_path):
-    pointer = json.loads((ROOT / "CURRENT.json").read_bytes())
+def copied(tmp_path, historical_v3_root):
+    pointer = json.loads((historical_v3_root / "CURRENT.json").read_bytes())
     target = tmp_path / "rag"
     path = Path(pointer["release_path"])
-    shutil.copytree(ROOT / path, target / path)
-    (target / "CURRENT.json").write_bytes((ROOT / "CURRENT.json").read_bytes())
+    shutil.copytree(historical_v3_root / path, target / path)
+    (target / "CURRENT.json").write_bytes((historical_v3_root / "CURRENT.json").read_bytes())
     return target, target / path
 
 
-def test_current_release_preserves_scope_and_never_loads_F2_chunks_twice(selected):
+def test_historical_v3_preserves_scope_and_never_loads_F2_chunks_twice(selected):
     assert selected.release_identity["release_id"] == RELEASE
     assert selected.release_identity["release_sha256"] == DIGEST
     majors = ["mathematics", "mathematics_informatics", "computer_science", "data_science"]
@@ -45,12 +45,12 @@ def test_current_release_preserves_scope_and_never_loads_F2_chunks_twice(selecte
     assert len(selected._courses) == 290
     assert set(selected._chunks) == {"f1", "f3"}
     assert len(selected.program_scopes()) == 4
-    hits = HUSRAGRetriever.load().search("Giới thiệu", dataset="f1", major="data_science")
+    hits = HUSRAGRetriever(selected).search("Giới thiệu", dataset="f1", major="data_science")
     assert hits and all(h.chunk.metadata["release_id"] == RELEASE for h in hits)
 
 
-def test_comparison_receipt_reproduces_and_explains_all_four_removed_splits():
-    report = compare(ROOT)
+def test_comparison_receipt_reproduces_and_explains_all_four_removed_splits(historical_v3_root):
+    report = compare(historical_v3_root)
     assert report == json.loads(Path("data/hus/qa/20261102/p01/reconciliation.json").read_bytes())
     assert report["f1"]["selected_units"] == 63 and report["f1"]["unit_ids_equal"]
     assert {(r["source_id"], r["old_count"], r["new_count"]) for r in report["f1"]["resplit_units"]} == {

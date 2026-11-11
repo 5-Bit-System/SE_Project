@@ -18,9 +18,8 @@ def module():
 
 
 @pytest.fixture(scope='module')
-def data():
-    from app.hus.rag_loader import HUSRAGData
-    return HUSRAGData.load_current()
+def data(historical_v3_data):
+    return historical_v3_data
 
 
 @pytest.fixture

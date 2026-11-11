@@ -27,6 +27,9 @@ def pointer(document: object, path: str) -> object:
 
 def validate_release(root: Path) -> dict:
     manifest = read_json(root / 'manifest.json')
+    if 'f3_detail' in manifest:
+        from app.hus.f3_runtime_release import validate_detail_release
+        return validate_detail_release(root)
     unsigned = {k: v for k, v in manifest.items() if k != 'release_sha256'}
     require(digest(encoded(unsigned)) == manifest['release_sha256'], 'Manifest identity mismatch')
     expected_files = set(manifest['files']) | {'manifest.json'}

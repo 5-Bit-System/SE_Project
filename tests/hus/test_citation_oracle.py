@@ -7,20 +7,20 @@ from fastapi.testclient import TestClient
 
 from app.hus.answering import HUSAnswerer
 from app.hus.demo import app
-from app.hus.rag_loader import HUSRAGData
 from app.hus.retrieval import _body
 from app.schemas.hus import HUSQuestion
 from tools.verify_hus_e2e import EvidenceOracle
 
 
 @pytest.fixture(scope="module")
-def oracle():
-    return EvidenceOracle()
+def oracle(historical_v3_root):
+    # This oracle's binary registry and full-text F3 checks are sealed to v3.
+    return EvidenceOracle(package=historical_v3_root)
 
 
 @pytest.fixture(scope="module")
-def answerer():
-    return HUSAnswerer(HUSRAGData.load_current())
+def answerer(historical_v3_data):
+    return HUSAnswerer(historical_v3_data)
 
 
 @pytest.fixture(scope="module")
