@@ -1,0 +1,9 @@
+{
+  "schema_version": "2.0",
+  "state": "prepared_not_runtime_activated",
+  "release_id": "hus-data-20261031-v3",
+  "release_path": "releases/hus-data-20261031-v3",
+  "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+  "index_entrypoint": "chunks.jsonl",
+  "generated_reference_requires_opt_in": true
+}

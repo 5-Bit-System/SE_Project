@@ -1,0 +1,9 @@
+{
+  "generated_reference_requires_opt_in": true,
+  "index_entrypoint": "chunks.jsonl",
+  "release_id": "hus-data-20261111-v4",
+  "release_path": "releases/hus-data-20261111-v4",
+  "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+  "schema_version": "2.0",
+  "state": "selected_for_local_rag_demo"
+}

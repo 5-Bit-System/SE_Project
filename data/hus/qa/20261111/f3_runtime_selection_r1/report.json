@@ -1,0 +1,89 @@
+{
+  "additional_final_cases": "4 actual default-v4 service cases + frozen-v3 pack rejection",
+  "all_71_initial_failed_or_error_cases_covered_by_recheck": true,
+  "browser_cases_passed": 50,
+  "browser_report": "C:/Users/dtai168/SE_Project/backups/hus_rag_demo/20261111-092314-435996/report.json",
+  "cache_reload": "Cleared in API checks; fresh dedicated loopback server for browser checks. Pre-existing app processes not stopped; restart them to load v4.",
+  "commit_push_deploy": false,
+  "date": "2026-11-11",
+  "default_service_cases": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 4,
+    "skipped": 0,
+    "tests": 4
+  },
+  "gemini_live_calls": 0,
+  "git_branch": "hus-llm-rag",
+  "historical_oracle_limit": "v3 oracle/evaluation/index checks use explicit v3 roots. V4 A6/A7 and new pinned L5 pending.",
+  "initial_full_offline": {
+    "errors": 39,
+    "failures": 32,
+    "passed": 2494,
+    "skipped": 2,
+    "tests": 2567
+  },
+  "integration_receipt": "data/hus/qa/20261111/f3_runtime_integration_r1/report.json",
+  "kind": "controlled shared selector selection for local RAG demo",
+  "node_passed": 8,
+  "operational_documentation_updated": [
+    "data/hus/rag/README.md"
+  ],
+  "other_targeted_runs": {
+    "evaluation_final": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 42,
+      "skipped": 0,
+      "tests": 42
+    },
+    "historical_final": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 119,
+      "skipped": 1,
+      "tests": 120
+    },
+    "oracle": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 27,
+      "skipped": 0,
+      "tests": 27
+    },
+    "support_gate": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 78,
+      "skipped": 0,
+      "tests": 78
+    }
+  },
+  "private_env_or_template_read_or_modified": false,
+  "protected_existing_files_unchanged": 678,
+  "rechecked_failures": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 76,
+    "skipped": 0,
+    "tests": 76
+  },
+  "rollback_selector": "data/hus/qa/20261111/f3_runtime_selection_r1/CURRENT.v3.json",
+  "ruff": "pass",
+  "runtime_settings_during_checks": {
+    "HUS_LLM_ENABLED": "false",
+    "HUS_RAG_ROOT": null,
+    "HUS_RETRIEVAL_MODE": "lexical"
+  },
+  "selected": {
+    "generated_reference_requires_opt_in": true,
+    "index_entrypoint": "chunks.jsonl",
+    "release_id": "hus-data-20261111-v4",
+    "release_path": "releases/hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "schema_version": "2.0",
+    "state": "selected_for_local_rag_demo"
+  },
+  "verification_note": "Initial failures from implicit v3 fixtures; repaired with explicit historical roots. All initial failed/error cases rechecked; no claim of a second full-suite run.",
+  "verified_code_inventory_sha256": "a8fd0a8f5a2e88c65c2af4e30dc5c80ec0d1671ccfd988bc49ff57dacb799f50"
+}
