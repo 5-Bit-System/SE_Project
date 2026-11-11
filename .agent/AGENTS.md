@@ -1,5 +1,19 @@
 # Project Memory and Contributor Guidelines
 
+## Natural Course Overview Routing, AI Reference Auto-Enable & CI Playwright Lock Alignment — 2026-11-11
+
+Completed session updates on `feat/workspace-hus-lookup-20261111` (HEAD `76184eb`):
+1. **AI Reference Auto-Enable & Minimalist Composer Footer:**
+   - Updated `app/static/index.html`, `app/static/hus-lookup.css`, and `app/static/hus-lookup.js` so `allow_generated_reference` is permanently auto-enabled (`true`) across chat submissions, scope resets, and catalog questions (`item.requires_ai`).
+   - Hidden the `#lookup-generated` checkbox and removed the visible "Cho phép kiến thức AI tham khảo (F3)" label row from `.lookup-composer-footer`.
+2. **Natural Student Course Overview & Inquiry Intent Routing:**
+   - Added `COURSE_OVERVIEW_TERMS` (`"nhu the nao"`, `"ra sao"`, `"biet ve"`, `"can biet"`, `"tim hieu"`, `"thong tin"`, `"gioi thieu"`, `"tong quan"`, `"mo ta"`, `"khai quat"`) and expanded prerequisite/content phrases in `app/hus/question_routing.py`.
+   - Updated `question_intent` and `HUSAnswerer._answer` in `app/hus/answering.py` plus `ANCHOR_INTENTS` in `app/hus/semantic_routing.py` so natural student queries mentioning a course code or alias (e.g. `"tôi cần biết về học phần giải tích 3"`, `"học phần giải tích 3 như thế nào"`) route directly to `("f3", "content")` and return full course info cards + grounded explanations.
+   - Added 7 parametrized regression cases in `tests/hus/test_phase2_topk_and_routing.py` (`test_natural_course_overview_queries_route_to_f3_content`).
+3. **CI Dependency Constraint & Headless Browser Fallback:**
+   - Aligned `requirements-portal.txt` (`playwright>=1.58,<2`) with `requirements-lock.txt` (`playwright==1.58.0`) so `pip install -r requirements-dev.txt -c requirements-lock.txt` resolves cleanly in GitHub Actions (`postgres` and `hus_postgres` CI jobs green) while preserving the pinned `requirements-lock.txt` SHA256 required by `app/hus/vector_contract.py`.
+   - Added `_launch_browser(p)` in `tests/frontend/test_lookup_persistence.py` to prefer default headless Chromium before falling back to `channel="chrome"`.
+
 ## Core Operating Rules: Subagent Usage, Progress Transparency, and Direct Reporting — 2026-11-11
 - **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
 - **Minh bạch hành động & Không treo trạng thái running**: Bất kỳ khi nào làm việc gì, agent phải hiển thị rõ ràng ra màn hình cho người dùng biết (các bước đang làm, lệnh/file đang thao tác), tuyệt đối không để im lặng hoặc hiển thị toàn bộ dưới dạng "running" mơ hồ.
