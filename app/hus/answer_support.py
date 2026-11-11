@@ -2,6 +2,7 @@
 
 import re
 from collections import defaultdict
+from collections.abc import Iterable
 
 from app.hus.question_routing import TEACHING_TERMS, _requested_clauses, career_exclusions, has
 from app.hus.retrieval import FIELD_LABELS, STOP_WORDS, RetrievalHit, _body, _tokens
@@ -91,7 +92,8 @@ def _qualifier_supported(phrase: str, hit: RetrievalHit) -> bool:
 
 
 def supported_hits(question: str, hits: tuple[RetrievalHit, ...], *,
-                   aliases: dict[str, tuple[str, ...]], codes: set[str]) -> tuple[RetrievalHit, ...]:
+                   aliases: dict[str, tuple[str, ...]], codes: set[str],
+                   extra_neutral: Iterable[str] = ()) -> tuple[RetrievalHit, ...]:
     """Cover factual requirements with exact excerpts from one scoped source.
 
     Metadata can satisfy explicit edition identity, never a numerical/domain
@@ -112,8 +114,11 @@ def supported_hits(question: str, hits: tuple[RetrievalHit, ...], *,
         for name in names:
             neutral.update(_tokens(name))
     neutral.update(c.lower() for c in codes)
+    neutral.update(_tokens(" ".join(extra_neutral)))
     for hit in hits:
         neutral.update(_tokens(hit.chunk.metadata.get("course_name", "")))
+    if hits and all(hit.chunk.dataset == "f3" for hit in hits):
+        neutral.update(("day", "cot", "loi", "chuong", "trong", "tam"))
     specific = set(_tokens(query)) - neutral
     # These are factual qualifications even though their individual words can
     # occur in ordinary requests to enumerate programs or describe a degree.

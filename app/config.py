@@ -21,6 +21,8 @@ class Settings:
     gemini_base_url: str
     gemini_model: str
     recommendation_llm_enabled: bool
+    hus_rag_llm_enabled: bool = True
+    hus_rag_llm_model: str = "gemini-3.5-flash-lite"
     auto_sync_document_reviews: bool = False
 
 
@@ -53,8 +55,15 @@ def get_settings() -> Settings:
         .strip()
         .casefold()
         not in {"0", "false", "no", "off"},
+        hus_rag_llm_enabled=os.getenv("HUS_RAG_LLM_ENABLED", "true").strip().lower()
+        in {"1", "true", "yes", "on"},
+        hus_rag_llm_model=os.getenv("HUS_RAG_LLM_MODEL", "gemini-3.5-flash-lite").strip()
+        or "gemini-3.5-flash-lite",
         auto_sync_document_reviews=os.getenv("AUTO_SYNC_DOCUMENT_REVIEWS", "false")
         .strip()
         .casefold()
         in {"1", "true", "yes", "on"},
     )
+
+
+load_settings = get_settings

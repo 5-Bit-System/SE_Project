@@ -1,0 +1,2238 @@
+{
+  "actual_human_reviews": 0,
+  "holdout_eligible": false,
+  "modes": {
+    "hybrid": {
+      "by_major": {
+        "computer_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 10.283333333333333,
+            "value": 0.7345238095238095
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 4140.24080010131,
+            "min_ms": 1.3294999953359365,
+            "p50_ms": 12.434700038284063,
+            "p95_ms": 4039.2473000101745
+          }
+        },
+        "data_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 42,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 12.583333333333334,
+            "value": 0.8988095238095238
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 42,
+            "max_ms": 1783.510300097987,
+            "min_ms": 1.3731999788433313,
+            "p50_ms": 14.076799852773547,
+            "p95_ms": 1769.237699918449
+          }
+        },
+        "mathematics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 40,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 2,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 13.0,
+            "value": 0.9285714285714286
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 40,
+            "max_ms": 4060.247100191191,
+            "min_ms": 1.6540999058634043,
+            "p50_ms": 40.456100134178996,
+            "p95_ms": 3885.683599859476
+          }
+        },
+        "mathematics_informatics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 13.5,
+            "value": 0.9642857142857143
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 4126.005100086331,
+            "min_ms": 1.7035999335348606,
+            "p50_ms": 36.06679989024997,
+            "p95_ms": 4047.363799996674
+          }
+        }
+      },
+      "by_tag": {
+        "f2_control": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 13.104199897497892,
+            "min_ms": 10.553899919614196,
+            "p50_ms": 10.561799863353372,
+            "p95_ms": 13.104199897497892
+          }
+        },
+        "historical_exposed": {
+          "candidate_recall": {
+            "denominator": 40,
+            "numerator": 40.0,
+            "value": 1.0
+          },
+          "cases": 124,
+          "fallback_rate": {
+            "denominator": 40,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 40,
+            "numerator": 37.2,
+            "value": 0.93
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 40,
+            "numerator": 40.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 40,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 40,
+          "vector_live": 40,
+          "warm_latency": {
+            "count": 124,
+            "max_ms": 4140.24080010131,
+            "min_ms": 1.3294999953359365,
+            "p50_ms": 20.57329984381795,
+            "p95_ms": 3947.870399802923
+          }
+        },
+        "missing_source": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 12.712500058114529,
+            "min_ms": 9.44819999858737,
+            "p50_ms": 9.550400078296661,
+            "p95_ms": 12.712500058114529
+          }
+        },
+        "name_code": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1610.6020000297576,
+            "min_ms": 1420.6999000161886,
+            "p50_ms": 1420.795900048688,
+            "p95_ms": 1610.6020000297576
+          }
+        },
+        "negation": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.1666666666666665,
+            "value": 0.5416666666666666
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1439.2750998958945,
+            "min_ms": 1291.9924999587238,
+            "p50_ms": 1301.3438999187201,
+            "p95_ms": 1439.2750998958945
+          }
+        },
+        "opt_out": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 11.938000097870827,
+            "min_ms": 8.870800025761127,
+            "p50_ms": 8.903199806809425,
+            "p95_ms": 11.938000097870827
+          }
+        },
+        "out_of_scope": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 4.911000141873956,
+            "min_ms": 1.6540999058634043,
+            "p50_ms": 1.6648001037538052,
+            "p95_ms": 4.911000141873956
+          }
+        },
+        "paraphrase": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 4,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.0,
+            "value": 0.5
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1660.3560000658035,
+            "min_ms": 1393.980400171131,
+            "p50_ms": 1396.7800999525934,
+            "p95_ms": 1660.3560000658035
+          }
+        },
+        "unaccented": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1440.993099939078,
+            "min_ms": 1412.204199936241,
+            "p50_ms": 1429.4469999149442,
+            "p95_ms": 1440.993099939078
+          }
+        },
+        "wrong_edition": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 567.7130999974906,
+            "min_ms": 525.4701999947429,
+            "p50_ms": 527.7092999313027,
+            "p95_ms": 567.7130999974906
+          }
+        }
+      },
+      "cold_ms": 28410.3512999136,
+      "initialization_ms": 4663.575700018555,
+      "metrics": {
+        "candidate_recall": {
+          "denominator": 56,
+          "numerator": 56.0,
+          "value": 1.0
+        },
+        "cases": 160,
+        "fallback_rate": {
+          "denominator": 56,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "fallbacks": {},
+        "false_refusals": 5,
+        "http_errors": 0,
+        "mrr_at_5": {
+          "denominator": 56,
+          "numerator": 49.366666666666674,
+          "value": 0.8815476190476191
+        },
+        "no_call_misses": 0,
+        "recall_at_5": {
+          "denominator": 56,
+          "numerator": 56.0,
+          "value": 1.0
+        },
+        "retrieval_cases": 56,
+        "scope_error_cases": 0,
+        "source_audit_failures": 0,
+        "vector_attempts": 56,
+        "vector_live": 56,
+        "warm_latency": {
+          "count": 160,
+          "max_ms": 4140.24080010131,
+          "min_ms": 1.3294999953359365,
+          "p50_ms": 31.63479990325868,
+          "p95_ms": 3886.065499857068
+        }
+      },
+      "peak_rss_bytes": 1500536832,
+      "source_and_answer_metrics": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 2,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 36,
+            "numerator": 36,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 110,
+            "numerator": 5,
+            "value": 0.045454545454545456
+          },
+          "http_errors": 0
+        },
+        "cases": 160,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 110,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 56,
+            "numerator": 47,
+            "value": 0.8392857142857143
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 105,
+            "numerator": 105,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 12,
+              "numerator": 12,
+              "value": 1.0
+            },
+            "group_rules": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 8,
+              "numerator": 8,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 22,
+              "numerator": 22,
+              "value": 1.0
+            },
+            "program_credits": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "program_groups": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 54,
+            "numerator": 54,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 56
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 160,
+            "max_ms": 4140.24080010131,
+            "min_ms": 1.3294999953359365,
+            "p50_ms": 31.63479990325868,
+            "p95_ms": 3886.065499857068
+          }
+        },
+        "raw_legacy": null,
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 56,
+            "numerator": 56.0,
+            "value": 1.0
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 5,
+          "routed_recall_at_5": {
+            "denominator": 56,
+            "numerator": 56.0,
+            "value": 1.0
+          },
+          "search_call_coverage": {
+            "denominator": 56,
+            "numerator": 56,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 110,
+            "numerator": 110,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "lexical": {
+      "by_major": {
+        "computer_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 10.75,
+            "value": 0.7678571428571429
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 13.0,
+            "value": 0.9285714285714286
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 1614.11439999938,
+            "min_ms": 3.904900047928095,
+            "p50_ms": 32.29329991154373,
+            "p95_ms": 1594.64480006136
+          }
+        },
+        "data_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 42,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 12.583333333333334,
+            "value": 0.8988095238095238
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 42,
+            "max_ms": 1511.2971998751163,
+            "min_ms": 4.23020008020103,
+            "p50_ms": 31.163099920377135,
+            "p95_ms": 1483.4082999732345
+          }
+        },
+        "mathematics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 40,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 2,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 12.75,
+            "value": 0.9107142857142857
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 40,
+            "max_ms": 1601.1970001272857,
+            "min_ms": 2.4433000944554806,
+            "p50_ms": 37.747700000181794,
+            "p95_ms": 1559.1933999676257
+          }
+        },
+        "mathematics_informatics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 13.0,
+            "value": 0.9285714285714286
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 1589.3465999979526,
+            "min_ms": 3.7611001171171665,
+            "p50_ms": 35.72330018505454,
+            "p95_ms": 1559.0258000884205
+          }
+        }
+      },
+      "by_tag": {
+        "f2_control": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 35.339999943971634,
+            "min_ms": 31.434800010174513,
+            "p50_ms": 31.57910006120801,
+            "p95_ms": 35.339999943971634
+          }
+        },
+        "historical_exposed": {
+          "candidate_recall": {
+            "denominator": 40,
+            "numerator": 40.0,
+            "value": 1.0
+          },
+          "cases": 124,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 40,
+            "numerator": 36.5,
+            "value": 0.9125
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 40,
+            "numerator": 39.0,
+            "value": 0.975
+          },
+          "retrieval_cases": 40,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 124,
+            "max_ms": 1614.11439999938,
+            "min_ms": 2.4433000944554806,
+            "p50_ms": 35.353400046005845,
+            "p95_ms": 1559.0258000884205
+          }
+        },
+        "missing_source": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 35.31880001537502,
+            "min_ms": 23.292900063097477,
+            "p50_ms": 26.573200011625886,
+            "p95_ms": 35.31880001537502
+          }
+        },
+        "name_code": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1511.2971998751163,
+            "min_ms": 1390.2105998713523,
+            "p50_ms": 1444.6282000280917,
+            "p95_ms": 1511.2971998751163
+          }
+        },
+        "negation": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.583333333333333,
+            "value": 0.6458333333333333
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1559.1933999676257,
+            "min_ms": 1368.2769001461565,
+            "p50_ms": 1388.7378999497741,
+            "p95_ms": 1559.1933999676257
+          }
+        },
+        "opt_out": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 31.732500065118074,
+            "min_ms": 24.1459000390023,
+            "p50_ms": 24.298799922689795,
+            "p95_ms": 31.732500065118074
+          }
+        },
+        "out_of_scope": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 5.884799873456359,
+            "min_ms": 4.23020008020103,
+            "p50_ms": 4.2906999588012695,
+            "p95_ms": 5.884799873456359
+          }
+        },
+        "paraphrase": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 4,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.0,
+            "value": 0.5
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1528.8739001844078,
+            "min_ms": 1362.4045001342893,
+            "p50_ms": 1392.4406999722123,
+            "p95_ms": 1528.8739001844078
+          }
+        },
+        "unaccented": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1525.7623998913914,
+            "min_ms": 1449.3396999314427,
+            "p50_ms": 1465.723400004208,
+            "p95_ms": 1525.7623998913914
+          }
+        },
+        "wrong_edition": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1501.7718998715281,
+            "min_ms": 1392.7408999297768,
+            "p50_ms": 1413.240300025791,
+            "p95_ms": 1501.7718998715281
+          }
+        }
+      },
+      "cold_ms": 1314.3193998839706,
+      "initialization_ms": 3350.8906001225114,
+      "metrics": {
+        "candidate_recall": {
+          "denominator": 56,
+          "numerator": 56.0,
+          "value": 1.0
+        },
+        "cases": 160,
+        "fallback_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "fallbacks": {},
+        "false_refusals": 5,
+        "http_errors": 0,
+        "mrr_at_5": {
+          "denominator": 56,
+          "numerator": 49.083333333333336,
+          "value": 0.8764880952380952
+        },
+        "no_call_misses": 0,
+        "recall_at_5": {
+          "denominator": 56,
+          "numerator": 55.0,
+          "value": 0.9821428571428571
+        },
+        "retrieval_cases": 56,
+        "scope_error_cases": 0,
+        "source_audit_failures": 0,
+        "vector_attempts": 0,
+        "vector_live": 0,
+        "warm_latency": {
+          "count": 160,
+          "max_ms": 1614.11439999938,
+          "min_ms": 2.4433000944554806,
+          "p50_ms": 35.72330018505454,
+          "p95_ms": 1554.0442999918014
+        }
+      },
+      "peak_rss_bytes": 338386944,
+      "source_and_answer_metrics": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 2,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 36,
+            "numerator": 36,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 110,
+            "numerator": 5,
+            "value": 0.045454545454545456
+          },
+          "http_errors": 0
+        },
+        "cases": 160,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 110,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 56,
+            "numerator": 48,
+            "value": 0.8571428571428571
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 105,
+            "numerator": 105,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 12,
+              "numerator": 12,
+              "value": 1.0
+            },
+            "group_rules": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 8,
+              "numerator": 8,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 22,
+              "numerator": 22,
+              "value": 1.0
+            },
+            "program_credits": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "program_groups": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 54,
+            "numerator": 54,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 56
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 160,
+            "max_ms": 1614.11439999938,
+            "min_ms": 2.4433000944554806,
+            "p50_ms": 35.72330018505454,
+            "p95_ms": 1554.0442999918014
+          }
+        },
+        "raw_legacy": null,
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 56,
+            "numerator": 55.0,
+            "value": 0.9821428571428571
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 5,
+          "routed_recall_at_5": {
+            "denominator": 56,
+            "numerator": 55.0,
+            "value": 0.9821428571428571
+          },
+          "search_call_coverage": {
+            "denominator": 56,
+            "numerator": 56,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 110,
+            "numerator": 110,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    },
+    "vector": {
+      "by_major": {
+        "computer_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 2,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 10.083333333333334,
+            "value": 0.7202380952380952
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 13.0,
+            "value": 0.9285714285714286
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 3792.4126000143588,
+            "min_ms": 4.39150002785027,
+            "p50_ms": 30.468899989500642,
+            "p95_ms": 3744.783599860966
+          }
+        },
+        "data_science": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 42,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 12.583333333333334,
+            "value": 0.8988095238095238
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 42,
+            "max_ms": 3951.0067999362946,
+            "min_ms": 3.3762999810278416,
+            "p50_ms": 33.72550010681152,
+            "p95_ms": 3917.0051999390125
+          }
+        },
+        "mathematics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 40,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 2,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 13.0,
+            "value": 0.9285714285714286
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 40,
+            "max_ms": 3852.579499827698,
+            "min_ms": 1.2447999324649572,
+            "p50_ms": 40.69370008073747,
+            "p95_ms": 3718.695100164041
+          }
+        },
+        "mathematics_informatics": {
+          "candidate_recall": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "cases": 39,
+          "fallback_rate": {
+            "denominator": 14,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 14,
+            "numerator": 14.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 14,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 14,
+          "vector_live": 14,
+          "warm_latency": {
+            "count": 39,
+            "max_ms": 3953.9363000076264,
+            "min_ms": 1.3621000107377768,
+            "p50_ms": 28.01560005173087,
+            "p95_ms": 3949.9194999225438
+          }
+        }
+      },
+      "by_tag": {
+        "f2_control": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 42.13279997929931,
+            "min_ms": 30.468899989500642,
+            "p50_ms": 32.70879993215203,
+            "p95_ms": 42.13279997929931
+          }
+        },
+        "historical_exposed": {
+          "candidate_recall": {
+            "denominator": 40,
+            "numerator": 40.0,
+            "value": 1.0
+          },
+          "cases": 124,
+          "fallback_rate": {
+            "denominator": 40,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 40,
+            "numerator": 37.0,
+            "value": 0.925
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 40,
+            "numerator": 39.0,
+            "value": 0.975
+          },
+          "retrieval_cases": 40,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 40,
+          "vector_live": 40,
+          "warm_latency": {
+            "count": 124,
+            "max_ms": 3951.0067999362946,
+            "min_ms": 1.2447999324649572,
+            "p50_ms": 30.260700033977628,
+            "p95_ms": 3625.1296000555158
+          }
+        },
+        "missing_source": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 39.62399996817112,
+            "min_ms": 24.949399987235665,
+            "p50_ms": 31.53869998641312,
+            "p95_ms": 39.62399996817112
+          }
+        },
+        "name_code": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 3935.5882999952883,
+            "min_ms": 3792.4126000143588,
+            "p50_ms": 3852.579499827698,
+            "p95_ms": 3935.5882999952883
+          }
+        },
+        "negation": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 1,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.1666666666666665,
+            "value": 0.5416666666666666
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 3917.0051999390125,
+            "min_ms": 3390.8286998048425,
+            "p50_ms": 3398.314000107348,
+            "p95_ms": 3917.0051999390125
+          }
+        },
+        "opt_out": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 65.09490008465946,
+            "min_ms": 24.036699905991554,
+            "p50_ms": 29.319799970835447,
+            "p95_ms": 65.09490008465946
+          }
+        },
+        "out_of_scope": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 6.574300117790699,
+            "min_ms": 3.5863001830875874,
+            "p50_ms": 4.556800005957484,
+            "p95_ms": 6.574300117790699
+          }
+        },
+        "paraphrase": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 4,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 2.5,
+            "value": 0.625
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 3953.9363000076264,
+            "min_ms": 3470.263099996373,
+            "p50_ms": 3511.2842000089586,
+            "p95_ms": 3953.9363000076264
+          }
+        },
+        "unaccented": {
+          "candidate_recall": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 4,
+            "numerator": 4.0,
+            "value": 1.0
+          },
+          "retrieval_cases": 4,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 4,
+          "vector_live": 4,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 3949.9194999225438,
+            "min_ms": 3589.2537999898195,
+            "p50_ms": 3744.783599860966,
+            "p95_ms": 3949.9194999225438
+          }
+        },
+        "wrong_edition": {
+          "candidate_recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "cases": 4,
+          "fallback_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "fallbacks": {},
+          "false_refusals": 0,
+          "http_errors": 0,
+          "mrr_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "no_call_misses": 0,
+          "recall_at_5": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "retrieval_cases": 0,
+          "scope_error_cases": 0,
+          "source_audit_failures": 0,
+          "vector_attempts": 0,
+          "vector_live": 0,
+          "warm_latency": {
+            "count": 4,
+            "max_ms": 1689.5556000526994,
+            "min_ms": 1336.6069998592138,
+            "p50_ms": 1381.8444998469204,
+            "p95_ms": 1689.5556000526994
+          }
+        }
+      },
+      "cold_ms": 20132.184599991888,
+      "initialization_ms": 4460.864800028503,
+      "metrics": {
+        "candidate_recall": {
+          "denominator": 56,
+          "numerator": 56.0,
+          "value": 1.0
+        },
+        "cases": 160,
+        "fallback_rate": {
+          "denominator": 56,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "fallbacks": {},
+        "false_refusals": 6,
+        "http_errors": 0,
+        "mrr_at_5": {
+          "denominator": 56,
+          "numerator": 49.66666666666667,
+          "value": 0.886904761904762
+        },
+        "no_call_misses": 0,
+        "recall_at_5": {
+          "denominator": 56,
+          "numerator": 55.0,
+          "value": 0.9821428571428571
+        },
+        "retrieval_cases": 56,
+        "scope_error_cases": 0,
+        "source_audit_failures": 0,
+        "vector_attempts": 56,
+        "vector_live": 56,
+        "warm_latency": {
+          "count": 160,
+          "max_ms": 3953.9363000076264,
+          "min_ms": 1.2447999324649572,
+          "p50_ms": 32.08819986321032,
+          "p95_ms": 3851.7877999693155
+        }
+      },
+      "peak_rss_bytes": 1501323264,
+      "source_and_answer_metrics": {
+        "abstention": {
+          "control_failures": 0,
+          "correct_contract_clarification": {
+            "denominator": 2,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "correct_missing_or_out_of_scope": {
+            "denominator": 36,
+            "numerator": 36,
+            "value": 1.0
+          },
+          "correct_opt_in_clarification": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "false_abstention": {
+            "denominator": 110,
+            "numerator": 6,
+            "value": 0.05454545454545454
+          },
+          "http_errors": 0
+        },
+        "cases": 160,
+        "citation_source_support": {
+          "actual_human_reviews": 0,
+          "ai_completeness": null,
+          "ai_end_to_end_supported_complete": null,
+          "ai_entailment": null,
+          "ai_review_coverage": {
+            "denominator": 110,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+          "gold_quote_coverage_proxy": {
+            "denominator": 56,
+            "numerator": 46,
+            "value": 0.8214285714285714
+          },
+          "integrity_among_answered_positive": {
+            "denominator": 104,
+            "numerator": 104,
+            "value": 1.0
+          },
+          "reviewer_kind": null
+        },
+        "f2": {
+          "by_field": {
+            "credits": {
+              "denominator": 12,
+              "numerator": 12,
+              "value": 1.0
+            },
+            "group_rules": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "name": {
+              "denominator": 8,
+              "numerator": 8,
+              "value": 1.0
+            },
+            "prerequisites": {
+              "denominator": 22,
+              "numerator": 22,
+              "value": 1.0
+            },
+            "program_credits": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "program_groups": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            }
+          },
+          "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+          "source_contract_success": {
+            "denominator": 54,
+            "numerator": 54,
+            "value": 1.0
+          }
+        },
+        "filters": {
+          "anchor_excluded_by_observed_filter": 0,
+          "errors": {
+            "ai_opt_in": 0,
+            "course_code": 0,
+            "major": 0,
+            "program_variant": 0,
+            "review": 0,
+            "version": 0
+          },
+          "observed_search_cases": 56
+        },
+        "latency": {
+          "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+          "http_ms": {
+            "count": 160,
+            "max_ms": 3953.9363000076264,
+            "min_ms": 1.2447999324649572,
+            "p50_ms": 32.08819986321032,
+            "p95_ms": 3851.7877999693155
+          }
+        },
+        "raw_legacy": null,
+        "retrieval": {
+          "conditional_recall_at_5": {
+            "denominator": 56,
+            "numerator": 55.0,
+            "value": 0.9821428571428571
+          },
+          "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+          "no_call_misses": 0,
+          "post_retrieval_false_abstention": 6,
+          "routed_recall_at_5": {
+            "denominator": 56,
+            "numerator": 55.0,
+            "value": 0.9821428571428571
+          },
+          "search_call_coverage": {
+            "denominator": 56,
+            "numerator": 56,
+            "value": 1.0
+          }
+        },
+        "routing": {
+          "missing_observation_cases": 0,
+          "positive_dataset_and_field": {
+            "denominator": 110,
+            "numerator": 110,
+            "value": 1.0
+          },
+          "stage": "classifier_before_scope_and_evidence_guards"
+        }
+      }
+    }
+  },
+  "pins_sha256": "7f4481e836a2244be6e627f99a7e531f55c1b6d2b88c3f52d52de9db80247875",
+  "recommendation": {
+    "changes_runtime_default": false,
+    "reasons": [
+      "semantic_review_pending"
+    ],
+    "recommended_mode": "lexical",
+    "retrieval_improved": true
+  },
+  "runs": {
+    "hybrid": {
+      "manifest_sha256": "68297db372d0adbf410b312f16795b83781bb12b98879c3c59722ba564ea84fc",
+      "run": "data\\hus\\evaluation\\runs\\hybrid_v5_hybrid_20261110_r1"
+    },
+    "lexical": {
+      "manifest_sha256": "7821475f194b13fca1dd762a2e3ad2ff336a3d31eb3a23a548114477b0ef554d",
+      "run": "data\\hus\\evaluation\\runs\\hybrid_v5_lexical_20261110_r1"
+    },
+    "vector": {
+      "manifest_sha256": "b8d55e01af90a478c06ac32d4afb8422a281a62956a678b4fb1126aeec328ef9",
+      "run": "data\\hus\\evaluation\\runs\\hybrid_v5_vector_20261110_r1"
+    }
+  },
+  "schema_version": "hus-hybrid-comparison-3.0"
+}

@@ -1,5 +1,162 @@
 # Project Memory and Contributor Guidelines
 
+## Stage 3 refinement: UX layout, citation deduplication, prompt redesign, and prerequisite enrichment — 2026-11-11
+
+Completed user-driven UX and RAG refinements on `feat/hus-rag-phase2-gemini-lite` (HEAD `276dd2f`):
+1. **UI & Workspace Layout:**
+   - Expanded `.rag-shell` container width (`min(1520px, calc(100% - 32px))`) and chat message height to `60vh` (`min 480px`, `max 720px`).
+   - Cleaned up redundant instructions and notes below the chat input box.
+2. **Citation Source Deduplication:**
+   - Added `groupCitations(citations, origin)` in `app/static/hus-rag-demo.js`.
+   - Deduplicates identical target URLs into single cards with merged citation IDs (e.g. `[2, 3, 4, 5]`), while preserving distinct URLs and differing PDF pages.
+   - 10/10 Node.js unit tests passing in `tests/frontend/chat.test.cjs`.
+3. **Prompt Redesign & Motif Elimination:**
+   - Overhauled prompt template in `app/hus/llm_answerer.py` to adopt "Answer-First" principle.
+   - Completely eliminated rigid 4-part numbered formula (`### 1, 2, 3, 4` / "Phần 1: Thông tin học phần", "Phần 2: Tổng quan", "Phần 3: Nội dung", "Phần 4: Lời khuyên học tập").
+   - Now supports adaptive answering: concise (1-3 sentences) for credit/prereq lookups, natural and structured (200-350 words) for curriculum and course explanations.
+4. **Authoritative Decision PDF Linking:**
+   - Added `_resolve_f2_pdf_citation()` in `app/hus/llm_answerer.py` mapping program and course facts to official scanned PDF decisions (e.g. QĐ3569 `105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf`).
+   - Generates clickable `/hus/sources/{sha256}?page={page}#page={page}` citations opening exact pages in new browser tabs.
+5. **Prerequisite Normalization & Forward Prerequisite Enrichment:**
+   - Eliminated misleading `(Chưa có thông tin cụ thể trong hệ thống)` for foundational courses without prerequisites (e.g. MAT2400, MAT2501).
+   - Explicitly displays `Điều kiện tiên quyết: Không` when the official curriculum has no prerequisite requirement.
+   - For courses with prerequisites (e.g. MAT3507), resolves both code and course title (`MAT2505 (Lập trình cơ bản)`).
+   - Enriched two-way forward prerequisites (`dependent_courses`): shows follow-up courses unlocked by the current subject (e.g. MAT2400 is prerequisite for MAT2403, MAT2407, MAT3379, MAT3562).
+6. **Testing & Code Quality:**
+   - 18/18 tests passing in `tests/hus/test_llm_answering.py`.
+   - 23/23 tests passing in `tests/hus/test_grounded_citations_and_schema.py` and `tests/hus/test_chat_scope.py`.
+   - 10/10 Playwright UI tests passing.
+   - `ruff check app/ tests/`: 0 errors.
+   - All commits pushed to `origin/feat/hus-rag-phase2-gemini-lite`.
+
+## Stage 3 complete: Grounded LLM answering, in-line citations, safe markdown UI, and security mock suite — 2026-11-11
+
+Completed Stage 3 (LLM Grounded Answering) under Subagent-Driven Development on feat/hus-rag-phase2-gemini-lite.
+Implemented:
+- Decoupled settings in app/config.py: HUS_RAG_LLM_ENABLED (default true) and HUS_RAG_LLM_MODEL
+  (default gemini-3.5-flash-lite), reading GEMINI_API_KEY from .env safely.
+- In-line citations and synchronized schema:
+  - app/hus/llm_answerer.py instructs model to cite [1], [2] matching Top-K chunk order.
+  - app/hus/chat.py updates answer.citations and tracks generation_mode ('grounded_llm' vs 'extractive').
+  - Enhanced security: switched to x-goog-api-key header (no API key in URL), added _redact_key helper
+    preventing any token leaks in exceptions, httpx tracebacks, or warning logs.
+- Safe Markdown & Course Card UI:
+  - app/static/hus-rag-demo.js: escapeHtml XSS protection, renderSafeMarkdown parsing Course Info Cards,
+    headings, bold, lists, and [1] badges; backward-compatible plain-text <p> for extractive mode.
+  - app/static/hus-rag-demo.css: modern academic styles for .rag-course-card, .rag-badge-llm, and .rag-inline-cite.
+- Verification & Test Coverage:
+  - tests/hus/test_llm_answering.py: 16 comprehensive mock tests (direct API, OpenAI proxy, 503/timeout fallback,
+    security key redaction, empty bypass, chat integration) with 100% network isolation.
+  - tests/frontend/chat.test.cjs: 8 Node.js tests passing for XSS sanitization and markdown parsing.
+  - Full Playwright UI regression (test_chat_contracts_ui, test_program_questions_ui, test_question_catalog_ui) passing.
+  - Ruff linter 0 errors across app/ and tests/.
+
+## Phase 2 Top-K retrieval, course aliases, and Gemini 3.5 Flash-Lite grounded generation — 2026-11-11
+
+User authorized Phase 2 implementation and live Google AI Studio integration.
+Work branched from hus-embedding-chromadb (bc545c5) to new feature branch
+feat/hus-rag-phase2-gemini-lite; committed 39c191f and pushed to origin with PR ready.
+New modules:
+- app/hus/course_aliases.py: Scoped abbreviation resolver for GT1-GT3, CSDL, TTNT, ĐSTT, etc.
+- app/hus/semantic_routing.py: 78 canonical anchor intents and multi-signal Top-K ranker.
+- app/hus/llm_answerer.py: Google Generative Language API integration, grounded in F2 facts
+  and Top-K chunks; smart fallback chain for Lite models (gemini-flash-lite-latest ->
+  gemini-3.5-flash-lite -> gemini-3.1-flash-lite); prompt structured with course metadata
+  upfront, pedagogical tone, and controlled length (~500-600 words).
+Updated schemas and runtime:
+- app/schemas/hus.py: HUSRetrievedChunk and HUSRetrievalBundle.
+- app/hus/answering.py: retrieve_context() method, scoped alias support in _matched_course_codes.
+- app/hus/chat.py: Grounded LLM generation with extractive answer fallback.
+- app/hus/demo.py: Added POST /hus/retrieve endpoint.
+- app/hus/answer_support.py: extra_neutral tokens support for alias resolution.
+Testing and verification:
+- 104 new/focused tests in tests/hus/test_course_aliases.py (57), test_semantic_routing.py (23),
+  test_phase2_topk_and_routing.py (24) all pass in 14.67s.
+- Outbound HTTP strictly forbidden and verified in pytest isolation (assert not network_attempts).
+- Ruff linter 0 errors across all app/hus/ and tests/hus/ files.
+- Live demo verified with gemini-3.5-flash-lite on MAT2503: 547 words, course info upfront, ~1.8s
+  model latency (~3.5-7s full chat roundtrip with prompt assembly).
+No leaks of GEMINI_API_KEY; .env, .vscode/, and internal review notes remain local/untracked.
+
+## V1–V5 publication authorization — 2026-11-10
+
+User now requests commit/push V1–V5 to hus-embedding-chromadb with25total
+commits from26acab1:9original V1/V2+884838b documentation+5V3+5V4+5V5.
+Reuse original five-way V3 split (tree equals1ad85e3), keep V1/V2 IDs/authors.
+Remote observed1ad85e3; only this named branch may be pushed with an exact
+lease after verification. No main update/PR/merge/deploy/default-mode change.
+Earlier no-commit/push statements describe historical implementation receipts.
+Preserve those receipts and all source/model/index data; pin checkout newline
+rules for captured bytes. Publication mapping/remote verification logs belong
+in ignored backups/publish_v1_v5_25_20261110. See
+docs/HUS_VECTOR_V1_V5_PUBLICATION_2026_11_10.md for commit grouping and limits.
+
+## V5 hybrid RRF and controlled measurements — 2026-11-10
+
+User approved V5 implementation. Local hus-embedding-chromadb HEAD1ad85e3+
+V4/V5WIP; no commit/push/deploy/default switch. HUS_RETRIEVAL_MODE=lexical
+remains default; hybrid now explicit with same three HUS_VECTOR_* settings.
+New hybrid_retrieval.py: lexical20parents/vector20passages, compact parent
+dedup rank1+, equal RRF60, final5, tie parentID. Same prefilters/canonical;
+F2 bypass ML. V4 core query/runtime and historical evaluators/evidence remain
+unchanged. Nested vector fallback not counted as second lexical vote; canonical
+errors fail closed. Frozen per-call trace distinguishes both legs/pool/final.
+New evaluate_hus_hybrid.py/hus_rag_metrics_v3.py/compare_hus_hybrid.py, separate
+mode processes, full ordered suite/policy/runtime/model/index/environment pins,
+fresh-output sealing/cache replay.36V5devcases source-frozen before inference,
+plus dev96/contracts28=160/mode (56retrieval/54F2/50controls). AI-prepared exposed
+dev,0human; not A7/holdout. Probe36lexical in ignored backups, no gold/gate tuning.
+Final3runs: Recall@5 lexical55/56,vector55/56,hybrid56/56;MRR .87649/.88690/.88155;
+false-refusals5/6/5;F2source54/54,scope/audit/HTTPerrors0,vector/hybrid56live and
+0fallback.480predictions replay equal. Hybrid recovers strict anchor DEV-Q050
+already known to have a valid alternative source; vector loses answerDEV-Q052.
+All4newparaphrases and math-negation still refused despite retrieved anchors;
+do not relax gate merely because of vector scores. Semantic entailment/coverage
+review pending: comparison recommends lexical, not automatic hybrid promotion.
+Cold~1.3/20.1/28.4s;peakRSS323/1432/1431MiB for comparator pipeline,notproduction
+SLO/nativeBM25 benchmark. No index rebuild/new build-time measurement/provider.
+Review AI2Important (suite multiplicity pins, reviewed semantic regression)
+RED->GREEN; self-audit nested fallback consistency RED->GREEN; no re-review.
+Final2103pytestpass/2skip/90deselected,50Chromium,5Node,Ruff.12real hybridHTTP,
+F2noML/F3optout,copied-index fallback no doublevote and canonical503 verified.
+Evidence docs/RAG_HYBRID_V5_2026_11_10.md, acceptance/hus_hybrid_v5_report.json,
+new evaluation/hybrid_v5_dev_20261110 and runs/hybrid_v5_*_20261110_r1.
+Ignored backups/hybrid_v5_20261110 hold baseline/logs/recovery helpers.
+Next: response-bound content review/A6/A7; LLM optional only on new selection.
+
+## V4 vector query and guardrails — 2026-11-10
+
+User approved V4 design and implementation, explicitly forbids push without a
+new command. Work local on hus-embedding-chromadb. No V4 commit/push/deploy.
+Checkout externally reset 586e460->1ad85e3 at00:08+07; retain current HEAD,
+reapplied only lost V4 integration; do not restore/rewrite history implicitly.
+New vector_query.py/vector_runtime.py; inject retriever into answerer/service,
+extend retrieval_config/.env.example. Default remains lexical/no optional ML.
+Explicit vector mode uses HUS_VECTOR_INDEX_PATH, HUS_VECTOR_MODEL_CACHE and
+HUS_VECTOR_EXPECTED_INDEX_ID pinned outside DB. F2 never initializes ML;
+hybrid unavailable until V5. No download/build/current selector changes.
+Chroma where prefilters release/family/major/review/opt-in and canonical parent
+allowlist plus requested version/variant/course/field. Query prefix+special
+tokens<=512, pinned V3 encoder graph, local CPUfloat32 maskedmean/L2.
+Verify full existing V3 index at startup; recheck manifest/inventory/collection
+identity/config/full DB inventory every query. Reject malformed/nonfinite/
+out-of-scope/tampered result wholesale; resolve parent canonical for citations,
+dedup by best distance. Empty valid result stays empty. Vector faults fallback
+BM25 with exact scope and stable reason; canonical faults fail closed outside
+fallback. Immutable per-call trace plus INFO logger, no query/exception secrets;
+locks serialize lazy runtime creation and model/tokenizer/index query operations.
+60focused tests pass; final2067offlinepass/2skip/90deselected,50Chromium,5Node,
+Ruffpass on1ad85e3+WIP. Existing CI venv required: default Python lacks argon2
+(initial26collection errors/12HUS failures, not product regressions); no install.
+Two ML processes8queries each match parent rankings;12HTTP answered with real
+vector service, F2zero vector calls,F3optout blocked. Overbudget/copy-manifest
+tamper fallback pass;8original index files hash unchanged;1060protected files
+hashed and no data/hus/V1-V3code/locks changed in Git. Technical AI review clean.
+Evidence docs/RAG_VECTOR_QUERY_V4_2026_11_10.md and acceptance/
+hus_vector_query_v4_report.json; ignored backups/vector_query_v4_20261109.
+Initial cold13-41s,warm~0.8-1s local,not production SLO. No new Recall evaluation,
+no gate relaxation, no hybrid/LLM/source promotion; V5/A7 next if selected.
+
 ## Core/vector branch separation — 2026-11-09
 
 User requests splitting V1-V3 into feat/hus-embedding-chromadb-v1-v3-20261109, rewriting crawldata
@@ -8,6 +165,135 @@ Core starts26acab1 and retains all40 original core commits/authors. Vector
 implementation/artifacts/optional lock are absent here; preserve main
 dependency/admin/portal changes. Original full state is backed up locally.
 No new source promotion/LLM/production deployment in this Git operation.
+
+## V3 real CPU embeddings and offline Chroma index — 2026-11-09
+
+User selected V3. Completed local crawldata HEAD884838b; existing V2 recheck WIP
+retained. New app/hus/embedding.py,vector_index.py,tools/build_hus_vector_index.py,
+tests/hus/test_embedding.py,test_vector_index_build.py. No old runtime/V1/V2/source/
+lock/eval/receipt edits.1108protectedoldfiles/core54package environment unchanged.
+112hashed lock packages installed only in backups/vector_index_v3_20261109/venv;
+all9 model files downloaded/checksummed in its model cache,including470641600byte
+safetensors SHA1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477.
+IMPORTANT actual Transformers5.22.1 AutoTokenizer/XLMRobertaTokenizer reconstructs
+whitespace pre-tokenizer and differs from V2 (377vs378tokens on235a29...#p000).
+Use PreTrainedTokenizerFast explicitly from verified tokenizer.json with special/
+pad tokens,NOTdefault AutoTokenizer; all939V2input-IDhashesmatch,including batch
+padding. Real AutoModel/eval/inference CPUfloat32,eager,2threads,maskedmean+L2,
+384dim. Hand pooling and batch/single invariance verified. No remote code/download
+in inference; model/optional imports lazy. No external LLM/provider API calls.
+Index data/hus/vector_indexes/e5_small_v3_20261109:
+ID8dad2f0f719a5228403d87f2b0c36a95f64fada9b82bf26bf432d4fed2469f74;
+939vectors/935parents(F169/F3870),cosine,PersistentClient,scalar scope/provenance,
+no documents/defaultEF/telemetry/F2/QA/gold/transcripts. Fresh-output-only; partial
+build never sealed. Verify requires separately pinned expected-index-id.
+Independentprocess reopens exact complete inventory and8family/majorprobes,tol1e-6.
+Actual Chroma1.5.9 restart API omits num_threads/batch_size; record as requested
+build controls only,require all other persisted settings and compare both if
+exposed. Default EF remains disabled. No byte-identical HNSW cross-machine claim.
+5fresh copied-index tamper cases rejected(document,metadata,vector,missingID,
+self-rehashedmanifest); original index unchanged. AI technical review0Critical/
+2Important/noMinor:NaN-distance and documents blindspot RED2/33->GREEN35; actual
+configuration/default-EF regression RED2/20->GREEN39. One fix pass/no re-review.
+Final2019pytestpass/2skip/90deselected,50Chromium,5Node,Ruffpass;3cachedlexical
+replays verified,no new Recall measure. Scratch runner exclusive-write logging
+error recovered preserving pytest/JUnit; final verification/commands_complete.json.
+Evidence docs/RAG_OFFLINE_VECTOR_INDEX_V3_2026_11_09.md,
+docs/acceptance/hus_offline_vector_index_v3_report.json,357file code/inventory ZIP
+data/hus/evaluation/vector_index_v3_snapshot (no weights/Chroma binary).
+Chroma binary local/ignored via new vector_indexes/.gitignore. Do not rerun
+write-once build/finalize/regression/tamper helpers against existing outputs.
+Runtime still lexical/vector-hybridreserved; V4filteredquery/fallback NEXT,
+V5hybrid/LLM/sourcepromotion/officialF3/commit/push/deploy notdone. Existing source
+blockers and exposed/H2/human0 limitations unchanged.
+
+## V2 recheck and roadmap consistency — 2026-11-09
+
+User asked to finish V2 first. Actual crawldata HEAD884838b already contains the
+completed 05/11 V2 implementation/artifact; do not recreate it or run destructive
+old execute.py. Read-only final_check verified V1/V2 identity, 1094 protected files,
+349-file archive, core environment, and 3 cached lexical replays. Fresh V2 pytest:
+54 passed/1 Windows-symlink skip. Real tokenizer suite rerun across all939 passages,
+Unicode and token boundaries; pass, old helper result writes redirected to fresh
+ignored backups/vector_passages_v2_recheck_20261109. New receipt only:
+docs/acceptance/hus_token_passages_v2_recheck_2026_11_09.json. Historical 1980-test
+regression was verified from its receipt/logs, NOT rerun. Progress date/status
+updated, two stale V2-next lines in section5.1 fixed to V1–V2 done/V3 next.
+No runtime/artifact/source/lock/environment edits, downloads, embeddings/index,
+new Recall measurement, V3/V4/V5 implementation, commit/push/deploy this recheck.
+
+## V2 token-bounded embedding passages — 2026-11-05
+
+User asked to continue and complete V2 on crawldata/HEAD1287e2a/v3.
+New app/hus/passage_tokenizer.py,app/hus/passages.py,tools/prepare_hus_passages.py,
+3newtestmodules (tests/hus/test_passage_tokenizer.py,test_passages.py,test_passage_artifact.py).
+ZERO runtime/lexical/V1/data/review/evaluation/environment files modified;
+1094oldprotectedfiles unchanged. Explicit fetch_tokenizer caches ONLY pinned E5
+tokenizer.json (17082730bytes,SHA256 0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39)
+into backups/vector_passages_v2_20261105/tokenizer_cache; locked wheel
+tokenizers-0.23.3-cp310-abi3-win_amd64.whl (2872101bytes,SHA256 1f0823bb00c5fdc98e487354d54dd55a03848d61a1a0bf29a68c77f24f3b26c3)
+extracted only into ignored backups/vector_passages_v2_20261105/tokenizer_runtime;
+core Python environment (54packages) untouched.
+Passages data/hus/vector_passages/e5_small_v2_20261105:
+ID bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb,
+bound to V1 contract b24679900bd835304dd5cf2bce285f531a241e7514ba51b02b568c801946f143.
+935parents -> 939passages (F1 65->69 with 4split parents,F3 870->870,F2 excluded).
+Actual native fast-tokenizer counts include passage: prefix,context(empty) and
+<s>...</s>: max input_tokens 392<=512,max content_tokens 388<=400,max overlap 64<=64.
+100% lossless character coverage of _body(chunk) including final chars/whitespace;
+token-start grapheme-safe cuts (NFD/CCC=0 marks,ZWJ,skin-tone,flags,CRLF guarded)
+prefer paragraph>sentence>line ends (>=half target) with raw token-start fallback
+when trailing space inflates tokens at budget boundary. Each child keeps parent_id,
+hashes,scalar metadata; body_start_char/body_end_char are local retrieval-body
+codepoint offsets (source_offsets=null); parent_chunk() and collapse_to_parents()
+enforce canonical parent citation and parent-level gold comparison.
+stage=passages_only,embeddings_computed=false,index_built=false,activation=false,
+transformers_inference_compatibility_tested=false.
+55newtests:54pass,1Windows-symlink skip (simulated redirected-root guard passes).
+Technical AI peer review 0Critical,4Important,2Minor fixed in one RED10->GREEN54/1skip
+pass; real_tokenizer_tests+real_audit pass across all939passages and Unicode/boundary cases.
+Final1980pass/2skip/90deselected,50Chromium,5Node,Ruffpass. Cached lexical replays
+for dev96/h2/contracts verified without new inference or semantic review.
+Archive349files at data/hus/evaluation/vector_passages_v2_snapshot.
+Evidence docs/RAG_TOKEN_PASSAGES_V2_2026_11_05.md,acceptance/hus_token_passages_v2_report.json;
+ignored backups/vector_passages_v2_20261105. Progress V1/V2done,V3 offline model
+weights/embedding/Chroma build NEXT. No weights/Chroma/V4query/LLM/source promotion/
+commit/push/deploy.
+
+## V1 optional vector index contract — 2026-11-05
+
+User selected V1 then said continue. Completed local crawldata/HEAD1287e2a/v3.
+New app/hus/vector_contract.py,retrieval_config.py,tools/prepare_hus_vector_contract.py,
+2newtestmodules; ONLYoldruntime hus_service.py checks lexical-default mode before
+loading snapshot; .env.example adds HUS_RETRIEVAL_MODE=lexical. vector/hybrid are
+reserved,V1explicitunavailable,not fake fallback; restart/cacheclear afterenvchange.
+Nooptionalimports/index/model reads inlexical. Noanswer/gate/schema/review changes.
+Contract data/hus/vector_contracts/e5_small_v1_20261105:IDb24679900bd835304dd5cf2bce285f531a241e7514ba51b02b568c801946f143,
+935parents(F165/F3870),body/text/fullmetadata/package/projectionhashes,F2excluded.
+contract_only/index_builtfalse/passagenull/activationfalse. Existingv3unchanged.
+Modelprofile data/hus/vector_profiles/e5_small_v1:HFintfloat/multilingual-e5-small
+commit614241f622f53c4eeff9890bdc4f31cfecc418b3,tokenizersamerev,384/512tokens,
+query:/passage:prefix,maskedmean+L2,cosine,CPUfloat32,safetensors,no trust_remote_code.
+6tinyconfig bytes verifiedGitblob/SHA256,3large LFSexpectedhashesONLY,notdownloaded
+orlocallyverified. DirectAutoModel/AutoTokenizer,notSentenceTransformerswrapper.
+Optional requirements-rag-vector.in/-lock.txt:112fullyhashed packages,target
+WindowsAMD64/CPython3.11,coreconstraints unchanged;torch2.15.0,transformers5.22.1,
+Chroma1.5.9. uv0.13.7 standaloneSHAverified inbackups,metadata resolution;3inputs+lock
+bound inprovenance. NoMLinstall/currentenvironmentchange or inferencecompatclaim.
+45newtests:44pass,1realWindows-symlinkskip; simulatedrootredirectguard tested.
+InitialRED33,rootredirect/stale-resolution RED4fixed;AIreview Important bool/int or
+int/float equality identity bypass RED7->GREEN44/1skip,canonicalJSON+unsignedhashfix.
+Final1926pass/1skip/90deselected,50Chromium,5Node,Ruffpass.1057oldfilesprotected.
+3freshvector_v1_lexical_{dev96,h2,f2}_20261105 runs:180responses/traces identical
+to1a,no newsemanticreview. DefaultstillBM25,Recalldev39/40,H2exposed20/20,F2raw15/16
+vs source16/16. H2still25tuned,human0,noindependentRecall90proof. Archive341files
+code/contract/profile/locks:data/hus/evaluation/vector_contract_v1_snapshot.
+Evidence docs/RAG_VECTOR_CONTRACT_V1_2026_11_05.md,acceptance/hus_vector_contract_v1_report.json;
+ignored backups/vector_contract_v1_20261105. Networkescalationsmetadata/helperonly,
+no auto-reviewrejection; modelweights/tokenizerlarge/provider notdownloaded/called.
+ProgressV1done,V2tokenizer/token-count/passagesNEXT. V3build/V4query/LLM/source
+promotion/officialF3/commit/push/deploy notdone. ExistingPDFendpointregressiononly,
+notnewembeddedviewer/PostgreSQL/fullcatalogacceptance;sourceblockersunchanged.
 
 ## Diagnostic1a career roles and teaching exclusions — 2026-11-05
 
@@ -37,7 +323,6 @@ Old A2/Q027/dev6gốc/r2/gold/scorers/receipts preserved; scoped lexical grammar
 not all-language/independent semantic or institutional-source certification.
 No sourcepromotion/officialF3/modeldownload/vector/LLM/provider/commit/push/deploy;
 no newembeddedPDFviewer/PostgreSQL/fullcatalogacceptance. Sourceblockers unchanged.
-
 
 ## DEV-Q027 career context coverage — 2026-11-04
 
@@ -69,7 +354,6 @@ ignored backups/dev_q027_20261104. New code_changes.zip ties A2basearchive tobef
 afteranswer_support+newtest; A2snapshot/runs/receipts unchanged. No vector/LLM/APIkey/
 provider/modeldownload,officialF3promotion,commit/push/deploy. H2still25prior-tuned,
 human0,noindependentRecall90proof; no newembeddedPDFviewer/PostgreSQL acceptance.
-
 
 ## A2 versioned pinned BM25 baseline — 2026-11-04
 
@@ -113,7 +397,6 @@ ProgressA1/A1b/A2done;A3optionalvector/hybridexperimentusesfrozenbaseline;DEV027
 source/coveragefollowupseparatebecausegoldalreadyintop5. NoLLM/vector/modeldownload,
 officialF3promotion,commit/push/deploy.
 
-
 ## A1b Q&A program/group lookup — 2026-11-04
 
 User selected A1b row. Completed local on same crawldata/WIP/HEAD/release; source,
@@ -144,7 +427,6 @@ Progress nowA1/A1bdone,A2versionedevaluator+fullpinnedexposedbaseline NEXT. No n
 PDFviewer/PostgreSQL/full-catalog acceptance, externalprovider/modelcalls,
 officialF3promotion,commit/push/deploy.
 
-
 ## A1 Q&A source-status and single-turn contracts — 2026-11-04
 
 User selected A1 from approved Q&A-only plan and said continue. Implemented local
@@ -174,7 +456,6 @@ progress updated A1done,A1bprogram/group structured lookup NEXT. New UI test ope
 PDF binary endpoint; no new embedded viewer acceptance, PostgreSQL/full-catalog,
 external provider/embedding calls, source promotion, commit/push/deploy.
 
-
 ## Q&A-only scope and comprehensive plan audit — 2026-11-04
 
 User explicitly states HUS question-answering chatbot is unrelated to the course
@@ -194,7 +475,6 @@ PDFviewer/image acceptance,externalLLM/embeddingcalls,H2fullrun or sourcepromoti
 Evidence docs/acceptance/hus_chatbot_scope_audit_2026_11_04.json and local ignored
 backups/chatbot_audit_20261104. Future vector/LLM files/config in plan do not exist.
 Keep humanreviews0/reviewerAI,exposure24H2cases and raw60/64 anchors honest.
-
 
 ## Priority2 support gate — local 2026-11-03
 
@@ -222,7 +502,6 @@ H2full56notrerun;24uniqueH2casesnowruntime-tuned(dev2∪dev3),neverindependentho
 Priority3F2null/unknown and separatelyrecordedalternatives NEXT,thenfullpinnedmeasure.
 No commit/push/deploy. See docs/RAG_SUPPORT_GATE_FIX_2026_11_03.md and matchingreceipt.
 
-
 ## Clickable question catalog — local 2026-11-03
 
 User approved grouped clickable F1/F2/F3/help menu in standalone RAG demo.
@@ -241,7 +520,6 @@ canonical templates with explicit fields,not proof of NL coverage/independentRec
 Existing priority2preview supportgate remains NEXT. See docs/HUS_RAG_QUESTION_CATALOG.md
 and docs/acceptance/hus_question_catalog_report.json;backups/question_catalog has
 local screenshots/logs/pins. Progress and manual updated briefly.
-
 
 ## Priority1 routing name/preview fix — local 2026-11-03
 
@@ -265,7 +543,6 @@ Raw56case H2metrics80% remain historical pre-fix;no new fullH2inference. Update
 exposure interpretation:8H2cases NOW usedforruntime tuning via devcopy;never
 recertify as independent. No source/review/optin/gate/UI changes,commit/push/deploy.
 See docs/RAG_ROUTING_NAME_PREVIEW_2026_11_03.md and matchingreceipt.
-
 
 ## Source scope review v2 — local 2026-11-03
 
@@ -304,7 +581,6 @@ inference,source promotion,commit/push/deploy. Next source work is discrepancy
 resolution in a new data version or authoritative applicability for selected
 official fields;do not gate fixed existing scope on all37missing originals.
 
-
 ## AI review policy override — local 2026-11-03
 
 Latest explicit user instruction: "thế thì bỏ qua người thật review chỉ cần AI review là được".
@@ -337,7 +613,6 @@ entail returned facts,12/16relevant,11/36positives fully correct,Q048partial,
 20controls correct. No delivered F3generated answers in this run. Original raw
 metrics stay unchanged; new semantic report is AI-only. No commit/push/deploy.
 
-
 ## Pinned RAG remeasurement — local 2026-11-03
 
 User requested separate routing/retrieval/F2/citation-support/abstention metrics
@@ -350,7 +625,6 @@ before/after/cache. No runtime/data/gold/review change; evaluator/helper only.
 Fresh1479 offline pass/90 deselected,50Chromium,5Node;actual PDF viewer13/12 loaded
 and screenshots/hash/scroll checked.108 regression pins and136 test sources unchanged.
 See docs/RAG_PINNED_REMEASUREMENT_2026_11_03.md and matching receipt. No commit/push/deploy.
-
 
 ## HUS holdout/review preparation — local 2026-11-03
 
@@ -368,7 +642,6 @@ docs/RAG_REVIEW_RELEASE_GATES_2026_11_03.md and source followup report. User req
 measurement on pinned final snapshot,API/UI/PDF/scope/AI regressions,publication
 and production only after acceptance. No commit/push/deploy yet;target still unknown.
 
-
 ## HUS RAG routing fixes — local 2026-11-03
 
 Root remains crawldata at1287e2a with existing P1/P2 WIP. Diagnostic/dev v1 has96
@@ -381,7 +654,6 @@ review. Final1444 offline pass/90 deselected,50 Chromium,5 Node; Ruff app/tools/
 passes; full-repo lint has two pre-existing errors in P13 generation artifact.
 Frozen P11/P12/P2,release/CURRENT/review unchanged. See docs/RAG_ROUTING_FIXES_2026_11_03.md
 and receipt hus_routing_fixes_report.json. No commit/push/DB/VNU/provider/production.
-
 
 ## Main contributor context preserved
 

@@ -1,0 +1,239 @@
+{
+  "base_commit": "1ad85e3205ca9ba377f7a757ce4145ab589574fe",
+  "branch": "hus-embedding-chromadb",
+  "contract_id": "b24679900bd835304dd5cf2bce285f531a241e7514ba51b02b568c801946f143",
+  "created_at": "2026-11-10T09:10:24.311622+07:00",
+  "default_mode": "lexical",
+  "execution_notes": [
+    "Default Python lacked argon2 (26 collection errors and 12 HUS import failures); existing CI venv used without installing packages.",
+    "Earlier 2167-pass/2-skip regression belongs to HEAD586e460; final current-base result is recorded separately.",
+    "Checkout externally reset from586e460 to1ad85e3 at2026-11-10T00:08+07:00; only V4 integration reapplied without changing branch history.",
+    "Scratch HTTP helper RAGChunk assertion corrected; HTTP503 after checkout reset diagnosed and integration reapplied.",
+    "No commit/push performed."
+  ],
+  "files": {
+    ".agent/AGENTS.md": {
+      "bytes": 252926,
+      "sha256": "91619c366d5503a7d8018239d71936efbdf3ca1eda43f543d5a99ba40b6f75d1"
+    },
+    ".env.example": {
+      "bytes": 2149,
+      "sha256": "5b269815f4d3d192ebb83a0d4967bb66c818375297b37b8cd3dc8c922277557e"
+    },
+    "app/hus/answering.py": {
+      "bytes": 23533,
+      "sha256": "9e0b97ba836f8161d5a7ef5197ee32586713b80818970f5b8b6bc64321fbddd1"
+    },
+    "app/hus/retrieval_config.py": {
+      "bytes": 1313,
+      "sha256": "12994de28eb57691101d458ab6a19a64bbd8c7a41c121b2af67fbd2bfc320da3"
+    },
+    "app/hus/vector_query.py": {
+      "bytes": 8378,
+      "sha256": "173a99f6b9c7328dbf28ff61385b989aa14fcd5534b75d30ee2dceaa61b9b361"
+    },
+    "app/hus/vector_runtime.py": {
+      "bytes": 6424,
+      "sha256": "32d56ab3cbdd8a71368ec4d37a6523f067e00cf6c05a23f8dc2abdd75d16fe48"
+    },
+    "app/services/hus_service.py": {
+      "bytes": 884,
+      "sha256": "9ef93f74a69c8731deb3c5901d97fb4e4e6bdc1a4a9d89b7b162a6273b51e966"
+    },
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": {
+      "bytes": 52071,
+      "sha256": "72579b1c7683c0d328d75aca9968ee44ab8802a95c1b36a06b6316abe645577d"
+    },
+    "docs/RAG_VECTOR_QUERY_V4_2026_11_10.md": {
+      "bytes": 6487,
+      "sha256": "b13355fad0463ae925853bb6d59ed3e3ea4e1a9f55e054fcd0318724412c7f6c"
+    },
+    "docs/superpowers/plans/2026-11-09-hus-vector-query-v4.md": {
+      "bytes": 6062,
+      "sha256": "8da800bfcad1a3f68e228ed0f329bf0504916f64d36bfd6800ab1600d1af1056"
+    },
+    "docs/superpowers/specs/2026-11-09-hus-vector-query-v4-design.md": {
+      "bytes": 5125,
+      "sha256": "e9b2130e916c8cc149c3e33404971f8ef30ca2d9dedf52bbf4ab27c81b1a7a12"
+    },
+    "tests/hus/test_retrieval_configuration.py": {
+      "bytes": 5306,
+      "sha256": "56a888e4b0b0c29e74fc3ba78f3aea9f12d94a4b374cd879000422c00fae4efa"
+    },
+    "tests/hus/test_vector_query.py": {
+      "bytes": 10554,
+      "sha256": "57df9486314a90f9253744dac0227bd0f2b50f556f5ce71ad7881cbce2f0b773"
+    },
+    "tests/hus/test_vector_runtime.py": {
+      "bytes": 5934,
+      "sha256": "e492812f1ab5fe109bb589d8c9f2ca72d227d10eea430d462e68791ceb02c50a"
+    }
+  },
+  "hybrid_available": false,
+  "index_id": "8dad2f0f719a5228403d87f2b0c36a95f64fada9b82bf26bf432d4fed2469f74",
+  "limitations": [
+    "No new Recall or independent semantic evaluation",
+    "No V5 hybrid, LLM, source promotion or deployment",
+    "Full inventory verification adds latency; cold startup includes model loading",
+    "Canonical snapshot corruption requires reload and fails closed",
+    "Top-k passage dedup may return fewer than k parents"
+  ],
+  "passage_set_id": "bc9c992887f33f16b7c53a0a5b3b905b046fe24af497972f56e0fdc3987231fb",
+  "production_activation": false,
+  "schema_version": "hus-vector-query-v4-1.0",
+  "status": "implemented_verified_local_uncommitted",
+  "vector_requires_explicit_configuration": true,
+  "verification": {
+    "chromium": {
+      "mode": "lexical",
+      "passed": 50,
+      "report": "backups/hus_rag_demo/20261110-090639-950365/report.json",
+      "report_sha256": "1c6eb30ba192aed8b01505db868b9a018a5dc18da38fb1c40f3377dac815b6b9"
+    },
+    "final_pytest": {
+      "command": "backups/hus_integration/pr6-resolution-20261102/backups/pr6/ci-venv/Scripts/python.exe -m pytest -q tests -m \"not postgres and not hus_postgres and not full_catalog_acceptance\" --junitxml=backups/vector_query_v4_20261109/pytest-final.xml",
+      "deselected": 90,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "ec241e054b91beff687bd5d82c150b9e2c1f33ec96b02e378c8ecf3444519b70",
+      "passed": 2067,
+      "seconds": 278.515,
+      "skip_details": [
+        {
+          "reason": "Windows symlink creation not permitted; redirected-root guard covered",
+          "test": "test_symlink_and_redirected_root_escape_are_rejected"
+        },
+        {
+          "reason": "Windows symlink creation not permitted; path escape still covered",
+          "test": "test_symlink_escape_is_rejected"
+        }
+      ],
+      "skipped": 2
+    },
+    "git_diff_check": true,
+    "node": {
+      "command": "node --test tests/frontend/chat.test.cjs",
+      "passed": 5
+    },
+    "protected_tracked_file_count": 1060,
+    "protected_tracked_files_unchanged": true,
+    "real_http": {
+      "cases": [
+        {
+          "citation_count": 4,
+          "family": "f1",
+          "major": "data_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f2",
+          "major": "data_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f3",
+          "major": "data_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f1",
+          "major": "computer_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f2",
+          "major": "computer_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f3",
+          "major": "computer_science",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f1",
+          "major": "mathematics",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f2",
+          "major": "mathematics",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f3",
+          "major": "mathematics",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f1",
+          "major": "mathematics_informatics",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f2",
+          "major": "mathematics_informatics",
+          "status": "answered"
+        },
+        {
+          "citation_count": 1,
+          "family": "f3",
+          "major": "mathematics_informatics",
+          "status": "answered"
+        }
+      ],
+      "f2_vector_calls": 0,
+      "f3_without_opt_in_blocked": true,
+      "recall_measurement": false,
+      "status": "pass",
+      "vector_trace_count": 8
+    },
+    "real_vector": {
+      "copied_manifest_tamper_fallback": "index_identity",
+      "original_index_hashes": {
+        "chroma\\2fd1f3f8-b0e3-44aa-b9f1-b9955e717379\\data_level0.bin": "316e5ab32a55f548cd453722a69eddecef537d384b5ef5f722fce02882fe44ef",
+        "chroma\\2fd1f3f8-b0e3-44aa-b9f1-b9955e717379\\header.bin": "8aa19ce9b8891157e63dc0fa96d1c6a057217ce76466b2c1cabedf2299d6a460",
+        "chroma\\2fd1f3f8-b0e3-44aa-b9f1-b9955e717379\\index_metadata.pickle": "c041ffa607f702c563c8c81fa65a417fe5268412c4531b0ced6bf55e3884527c",
+        "chroma\\2fd1f3f8-b0e3-44aa-b9f1-b9955e717379\\length.bin": "fc8aa470003ff17e0e0c0a5df01ded6d7b4da701033a496b3b55ab3b89d7cd6a",
+        "chroma\\2fd1f3f8-b0e3-44aa-b9f1-b9955e717379\\link_lists.bin": "e68d69363b58ee39ca9388614b6715d1d692c6fadf3f2c1e8fd69336c6f90a7e",
+        "chroma\\chroma.sqlite3": "7b9da2d3820f7c401a75d6ea6648932887fd1d137f89de60ac64c693ac8a7845",
+        "manifest.json": "5006e23a3fcd1f84f081fc4d2629d832da0750e86182eac73de3f534883b33cb",
+        "vectors.jsonl": "d989dc4dbcb9a3efbbbfc41bc2675486b605cbc767e872055c7b25a7d1f31f29"
+      },
+      "original_index_unchanged": true,
+      "over_budget_fallback": "query_token_budget",
+      "parent_rankings_equal_after_restart": true,
+      "processes": 2,
+      "queries_per_process": 8,
+      "reports": {
+        "api_smoke.json": "8c4d26d29310323d82c37e21abef96175cff47d061881c23a114b0d603e93651",
+        "smoke.json": "72c11c6996d76dd1ef79e3566011b432a7c5e20465ab92cc27a3ef285656ed67",
+        "smoke_restart.json": "b4c379bac2dc721bd5e1442cb9c230bb477305dfac7a4a16fe026ef578826915"
+      }
+    },
+    "ruff": {
+      "command": "python -m ruff check .",
+      "passed": true
+    },
+    "scoped_pytest": {
+      "passed": 60,
+      "source": "backups/vector_query_v4_20261109/pytest-v4.xml"
+    },
+    "technical_ai_review": {
+      "critical": 0,
+      "important": 0,
+      "independent_human_review": false,
+      "minor_confirmed": 0
+    }
+  }
+}
