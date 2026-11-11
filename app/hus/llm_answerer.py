@@ -335,8 +335,28 @@ def generate_grounded_answer(
         ]
         if course_fact.get("hours"):
             c_lines.append(f"- Phân bổ giờ học: {json.dumps(course_fact['hours'], ensure_ascii=False)}")
-        if course_fact.get("prerequisites_raw"):
-            c_lines.append(f"- Điều kiện tiên quyết (theo dòng nguồn): {'; '.join(str(p) for p in course_fact['prerequisites_raw'] if p)}")
+        # Prerequisites of this course:
+        raw_prereqs = [str(p).strip() for p in (course_fact.get("prerequisites_raw") or []) if p and str(p).strip()]
+        prereqs_named = course_fact.get("prerequisites_named") or []
+        if prereqs_named:
+            prereq_desc = ", ".join(
+                f"{item['course_code']} ({item['course_name']})" if item.get("course_name") else item["course_code"]
+                for item in prereqs_named
+            )
+            c_lines.append(f"- Điều kiện tiên quyết: {prereq_desc}")
+        elif raw_prereqs:
+            c_lines.append(f"- Điều kiện tiên quyết: {'; '.join(raw_prereqs)}")
+        else:
+            c_lines.append("- Điều kiện tiên quyết: Không (môn học không yêu cầu môn tiên quyết)")
+
+        # Dependent courses:
+        deps = course_fact.get("dependent_courses") or []
+        if deps:
+            dep_desc = ", ".join(
+                f"{d['course_code']} ({d['course_name']})" if d.get("course_name") else d["course_code"]
+                for d in deps[:5]
+            )
+            c_lines.append(f"- Là học phần tiên quyết cho các môn: {dep_desc}")
         f2_tag = "### Dữ kiện học phần chính thức (F2)"
         if f2_pdf_cit_id:
             f2_tag += f" [{f2_pdf_cit_id}]"
@@ -383,13 +403,14 @@ def generate_grounded_answer(
         "HƯỚNG DẪN TRẢ LỜI CHO SINH VIÊN:\n"
         "1. Trả lời đúng trọng tâm trước tiên (Answer-first): Đi thẳng vào nội dung sinh viên hỏi ngay câu đầu tiên. Tuyệt đối không mở bài rườm rà hay chào hỏi thừa thãi.\n"
         "2. Bố cục linh hoạt và tự nhiên theo đúng câu hỏi (TUYỆT ĐỐI KHÔNG chia mục theo khuôn mẫu cứng nhắc 1, 2, 3, 4 hay Phần 1, Phần 2, Phần 3, Phần 4):\n"
-        "   - Nếu sinh viên hỏi về học phần/môn học (khi có dữ kiện học phần F2): Mở đầu với thông tin học phần ngắn gọn (dạng '### Thông tin học phần' gồm các gạch đầu dòng: Mã học phần, Tên học phần, Số tín chỉ, Phân bổ thời lượng, Điều kiện tiên quyết nếu có), sau đó giải thích trực tiếp nội dung hoặc yêu cầu của câu hỏi.\n"
+        "   - Nếu sinh viên hỏi về học phần/môn học (khi có dữ kiện học phần F2): Mở đầu với thông tin học phần ngắn gọn (dạng '### Thông tin học phần' gồm các gạch đầu dòng: Mã học phần, Tên học phần, Số tín chỉ, Phân bổ thời lượng, Điều kiện tiên quyết - nếu không yêu cầu môn tiên quyết ghi rõ 'Không', nếu môn này là tiên quyết cho môn khác thì có thể ghi thêm môn mở tiếp theo), sau đó giải thích trực tiếp nội dung hoặc yêu cầu của câu hỏi.\n"
         "   - Nếu sinh viên hỏi về chương trình đào tạo, mục tiêu ngành, hoặc cơ hội nghề nghiệp: Trình bày mạch lạc theo các nhóm ý tự nhiên của chủ đề đó (ví dụ: mục tiêu đào tạo, cấu trúc khối kiến thức, hoặc các vị trí việc làm). Không áp đặt bố cục của môn học hay đưa vào lời khuyên học tập không liên quan.\n"
         "   - Nếu là câu hỏi tra cứu dữ kiện ngắn (ví dụ: số tín chỉ, môn tiên quyết, thời lượng môn): Trả lời súc tích, ngắn gọn (1 - 3 câu), đi thẳng vào đáp án.\n"
         "   - Nếu là câu hỏi tìm hiểu nội dung môn học hoặc tổng quan: Giải thích mạch lạc, súc tích (khoảng 200 - 400 từ), sử dụng các đoạn văn ngắn hoặc gạch đầu dòng rõ ràng.\n"
         "3. Tuyệt đối chính xác về số liệu: Giữ nguyên vẹn mã môn, số tín chỉ, phân bổ số tiết và điều kiện tiên quyết theo dữ liệu F2 đã cung cấp. Không tự ý suy diễn hoặc thay đổi số liệu.\n"
         "4. Dẫn nguồn minh bạch: Khi sử dụng thông tin từ các đoạn trích dẫn tài liệu ở trên, hãy gắn số thứ tự trích dẫn dạng [1], [2],... tương ứng vào cuối câu hoặc mệnh đề.\n"
-        "5. Giọng điệu cố vấn học vụ: Lịch sự, khách quan và đáng tin cậy. Chỉ trả lời dựa trên dữ liệu đã cung cấp. Nếu dữ liệu trên không đề cập đến thông tin sinh viên hỏi, hãy trung thực thông báo tài liệu chưa có thông tin, tuyệt đối không bịa đặt."
+        "5. Giọng điệu cố vấn học vụ: Lịch sự, khách quan và đáng tin cậy. Chỉ trả lời dựa trên dữ liệu đã cung cấp. Nếu dữ liệu trên không đề cập đến thông tin sinh viên hỏi, hãy trung thực thông báo tài liệu chưa có thông tin, tuyệt đối không bịa đặt.\n"
+        "6. Quy tắc điều kiện tiên quyết: Tuyệt đối KHÔNG viết các câu mơ hồ như '(Chưa có thông tin cụ thể trong hệ thống)'. Nếu dữ liệu F2 ghi điều kiện tiên quyết là 'Không', hãy khẳng định rõ ràng là môn học không yêu cầu môn học tiên quyết."
     )
 
     model = (

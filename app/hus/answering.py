@@ -551,6 +551,25 @@ class HUSAnswerer:
                     if credits_rows and all(v is not None for v in credits_rows) and len(set(credits_rows)) == 1
                     else course.course.get("credits")
                 )
+                prereqs_named = []
+                for p in course.prerequisites:
+                    p_code = p.get("prerequisite_course_code") if isinstance(p, dict) else str(p)
+                    if p_code:
+                        p_course = self.data.get_f2_course(p_code, major=request.major, version=version)
+                        p_name = p_course.course.get("course_name") if p_course else None
+                        prereqs_named.append({"course_code": p_code, "course_name": p_name})
+
+                dependent_courses = []
+                for scoped_c in self.data.f2_courses(major=request.major, version=version):
+                    for r in scoped_c.source_rows:
+                        prereq_text = r.get("prerequisite_source_text") or ""
+                        if course.course_code in prereq_text:
+                            dependent_courses.append({
+                                "course_code": scoped_c.course_code,
+                                "course_name": scoped_c.course.get("course_name"),
+                            })
+                            break
+
                 structured_data["course"] = {
                     "course_code": course.course_code,
                     "course_name": course.course.get("course_name"),
@@ -558,7 +577,9 @@ class HUSAnswerer:
                     "hours": course.course_metadata.get("values", {}).get("hours"),
                     "prerequisites_raw": [r.get("prerequisite_source_text") for r in course.source_rows],
                     "prerequisite_groups": list(course.prerequisites),
+                    "prerequisites_named": prereqs_named,
                     "prerequisite_status": prerequisite_status(course),
+                    "dependent_courses": dependent_courses,
                     "review_status": course.review_status,
                 }
         elif len(resolved_courses) > 1:

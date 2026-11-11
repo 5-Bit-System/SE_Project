@@ -566,3 +566,87 @@ def test_chat_integration_extractive_mode_when_llm_none(answerer, monkeypatch):
     assert result.generation_mode == "extractive"
     assert result.hus_answer is not None
     assert result.reply == result.hus_answer.reply
+
+
+# ============================================================================
+# Kịch bản 8: Kiểm tra điều kiện tiên quyết (Prerequisites Enrichment)
+# ============================================================================
+
+
+def test_prerequisite_enrichment_no_prerequisites(answerer, monkeypatch):
+    """Kịch bản 8A: Môn học không có tiên quyết (MAT2400) -> Prompt ghi rõ 'Không' và liệt kê môn tiếp theo."""
+    captured_prompts: list[str] = []
+
+    def mock_post(client_self, url, *args, **kwargs):
+        json_body = kwargs.get("json", {})
+        parts = json_body.get("contents", [{}])[0].get("parts", [{}])
+        if parts:
+            captured_prompts.append(parts[0].get("text", ""))
+        req = httpx.Request("POST", str(url))
+        return httpx.Response(200, json=_mock_gemini_success_response("Phản hồi mock"), request=req)
+
+    monkeypatch.setattr(httpx.Client, "post", mock_post)
+    monkeypatch.setattr(
+        "app.hus.llm_answerer.get_settings",
+        lambda: SimpleNamespace(
+            hus_rag_llm_enabled=True,
+            gemini_api_key="mock-valid-key",
+            hus_rag_llm_model="gemini-3.5-flash-lite",
+            gemini_base_url="",
+            gemini_model="gemini-3.5-flash-lite",
+            recommendation_llm_enabled=True,
+        ),
+    )
+
+    req = HUSQuestion(
+        question="nội dung của đại số tuyến tính",
+        major="data_science",
+        version="QD3569-2023",
+        allow_generated_reference=True,
+    )
+    result = generate_grounded_answer(req, answerer)
+    assert result is not None
+    assert len(captured_prompts) == 1
+    prompt_str = captured_prompts[0]
+
+    assert "- Điều kiện tiên quyết: Không (môn học không yêu cầu môn tiên quyết)" in prompt_str
+    assert "- Là học phần tiên quyết cho các môn: MAT2403" in prompt_str
+
+
+def test_prerequisite_enrichment_with_prerequisites(answerer, monkeypatch):
+    """Kịch bản 8B: Môn học có tiên quyết (MAT3507) -> Prompt ghi rõ mã môn và tên môn tiên quyết."""
+    captured_prompts: list[str] = []
+
+    def mock_post(client_self, url, *args, **kwargs):
+        json_body = kwargs.get("json", {})
+        parts = json_body.get("contents", [{}])[0].get("parts", [{}])
+        if parts:
+            captured_prompts.append(parts[0].get("text", ""))
+        req = httpx.Request("POST", str(url))
+        return httpx.Response(200, json=_mock_gemini_success_response("Phản hồi mock"), request=req)
+
+    monkeypatch.setattr(httpx.Client, "post", mock_post)
+    monkeypatch.setattr(
+        "app.hus.llm_answerer.get_settings",
+        lambda: SimpleNamespace(
+            hus_rag_llm_enabled=True,
+            gemini_api_key="mock-valid-key",
+            hus_rag_llm_model="gemini-3.5-flash-lite",
+            gemini_base_url="",
+            gemini_model="gemini-3.5-flash-lite",
+            recommendation_llm_enabled=True,
+        ),
+    )
+
+    req = HUSQuestion(
+        question="Môn CSDL bao nhiêu tín?",
+        major="computer_science",
+        version="QD3568-2023",
+    )
+    result = generate_grounded_answer(req, answerer)
+    assert result is not None
+    assert len(captured_prompts) == 1
+    prompt_str = captured_prompts[0]
+
+    assert "MAT2505" in prompt_str
+    assert "Lập trình cơ bản" in prompt_str
