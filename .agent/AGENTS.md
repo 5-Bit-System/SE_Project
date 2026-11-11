@@ -7,6 +7,22 @@
 - **Minh bạch hành động & Không treo trạng thái running**: Bất kỳ khi nào làm việc gì, agent phải hiển thị rõ ràng ra màn hình cho người dùng biết (các bước đang làm, lệnh/file đang thao tác), tuyệt đối không để im lặng hoặc hiển thị toàn bộ dưới dạng "running" mơ hồ.
 - **Subagent Policy**: Chỉ dùng subagent khi thực sự cần thiết (cho các tác vụ nghiên cứu sâu độc lập hoặc tác vụ song song không chung state). Main agent phải trực tiếp kiểm soát, giám sát tiến trình liên tục, không để bị delay, và chủ động thực hiện trực tiếp các chỉnh sửa cụ thể để đảm bảo tốc độ cao nhất.
 
+## History-only reconciliation of `origin/hus-llm-rag` (`f61b0fd`) into `feat/workspace-hus-lookup-20261111` — 2026-11-11
+
+With explicit user authorization, reconciled `origin/hus-llm-rag` (`f61b0fd`, 20 commits `cf3f87f..f61b0fd` authored by `Duong Van Tai <duongvantai2048@gmail.com>`) into `feat/workspace-hus-lookup-20261111` via history-only merge commit `8012f31` (`git merge -s ours`) ahead of opening the PR to `main`:
+1. **Scope & Disclosed Boundaries:**
+   - **Ancestry preserved:** Both `hus-embedding-chromadb` (`13fa6cd..1aca071`, 25 V1–V5 commits) and `origin/hus-llm-rag` (`cf3f87f..f61b0fd`, 20 LLM/F3-v4/A7 commits) are genuine ancestors of `feat/workspace-hus-lookup-20261111`, preserving original commit hashes and author identities without rewriting or manufacturing commits.
+   - **Active tree unchanged from `85bd371`:** Keeps the Workspace Lookup tab (`#tab-lookup`, `app/hus/router.py`, `app/hus/chat_history_repository.py`), `app/hus/llm_answerer.py`, and `hus-data-20261031-v3` (`data/hus/rag/CURRENT.json`). The parallel `app/hus/llm/*` pipeline, `app/hus/f3_detail.py`, `app/hus/f3_runtime_release.py`, and `hus-data-20261111-v4` from `origin/hus-llm-rag` remain unmerged functionally.
+   - **Local uncommitted exclusions:** Untracked `.vscode/`, `uv.lock`, `previews/`, and 4 dated markdown review notes in `docs/` remain outside Git.
+2. **Pre-push Local Verification (matching `85bd371` product tree):**
+   - `pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"`: **2537 passed, 2 skipped, 148 deselected** (1 existing Starlette `httpx` deprecation warning).
+   - `PYTHONHASHSEED=1` and `PYTHONHASHSEED=2` on `tests/database/source/test_reviewed_prerequisites.py::test_optimization_requires_every_own_major_prerequisite`: **4 passed** each.
+   - `ruff check app tests tools database`: **All checks passed** (untracked local `previews/admin-dashboard/build_data.py` excluded).
+   - `tools/build_catalogs.py --check` (both `--root tests/support/fixtures/catalogs` and default retained sample): **passed**.
+   - `node --test tests/frontend/chat.test.cjs`: **11/11 passed**.
+   - `python -X utf8 -m tools.prepare_hus_corpus build` & `verify`: **Verified byte-identical reproduction (120 files)**.
+   - PostgreSQL (`postgres`, `hus_postgres`), `rag_demo`, and `admin_console` jobs were verified on `85bd371` (5/5 GitHub Actions checks green) and re-verified on GitHub CI after push.
+
 ## GitHub Project #2 Status Synchronization (2026-11-03 to 2026-11-11) — 2026-11-11
 
 Synchronized GitHub Project `#2` ("AI-07 · Sổ học tập — Kế hoạch, tiến độ và nghiệm thu", `https://github.com/orgs/5-Bit-System/projects/2`) via `backups/github_project_update_20261111/update_project_20261111.py` (using local `gh.exe` in `backups/github_project_setup_20261102/`):
