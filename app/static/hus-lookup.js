@@ -79,6 +79,7 @@
     const lines = text.split(/\r?\n/);
     let inCourseCard = false;
     let courseCardEl = null;
+    let cardHasList = false;
     let currentList = null;
     let currentPara = null;
 
@@ -89,6 +90,10 @@
       if (!trimmed) {
         currentList = null;
         currentPara = null;
+        if (inCourseCard && cardHasList) {
+          inCourseCard = false;
+          courseCardEl = null;
+        }
         continue;
       }
 
@@ -97,11 +102,12 @@
         currentList = null;
         currentPara = null;
         const headingText = headingMatch[2].trim();
-        const isCourseCardHeading = /(?:Phần\s*1\s*[:.-]?\s*)?Thông tin (?:học phần|môn học)/i.test(headingText);
+        const isCourseCardHeading = /(?:Phần\s*\d+\s*[:.-]?\s*)?Thông tin (?:học phần|môn học)/i.test(headingText);
 
         if (isCourseCardHeading) {
           inCourseCard = true;
           courseCardEl = createElement('div', 'rag-course-card');
+          cardHasList = false;
           const header = createElement('div', 'rag-course-card-header');
           header.innerHTML = formatInlineMarkdown(headingText);
           courseCardEl.appendChild(header);
@@ -121,6 +127,7 @@
         currentPara = null;
         const itemContent = listMatch[1].trim();
         if (inCourseCard && courseCardEl) {
+          cardHasList = true;
           if (!currentList || currentList.className !== 'rag-course-card-list') {
             currentList = createElement('ul', 'rag-course-card-list');
             courseCardEl.appendChild(currentList);
@@ -135,6 +142,12 @@
         li.innerHTML = formatInlineMarkdown(itemContent);
         currentList.appendChild(li);
         continue;
+      }
+
+      // If text line arrives after course card list is already built, exit course card
+      if (inCourseCard && cardHasList) {
+        inCourseCard = false;
+        courseCardEl = null;
       }
 
       currentList = null;
@@ -420,16 +433,17 @@
     const speaker = document.createElement('p');
     speaker.className = 'rag-message-speaker';
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
-    const isLLM = role === 'assistant' && generationMode === 'grounded_llm';
+    const isAssistant = role === 'assistant';
+    const isLLM = isAssistant && (generationMode === 'grounded_llm' || reply.includes('###') || (!generationMode && (reply.includes('**') || reply.includes('[1]'))));
     if (isLLM) {
       const badge = document.createElement('span');
       badge.className = 'rag-badge-llm';
       badge.textContent = '✨ Trợ lý AI HUS';
       speaker.appendChild(badge);
     }
-    const text = document.createElement(isLLM ? 'div' : 'p');
+    const text = document.createElement(isAssistant ? 'div' : 'p');
     text.className = 'rag-message-text';
-    if (isLLM) {
+    if (isAssistant) {
       renderSafeMarkdown(reply, text);
     } else {
       text.textContent = reply;

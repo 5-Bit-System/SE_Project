@@ -127,6 +127,51 @@ test('renderSafeMarkdown parses course cards, headings, lists, and paragraphs', 
   assert.ok(contentList.children[1].innerHTML.includes('title="Trích dẫn nguồn [2]"'));
 });
 
+test('renderSafeMarkdown closes course card when followed directly by narrative paragraph', () => {
+  const markdown = [
+    '### Thông tin học phần',
+    '- **Mã học phần:** FLF1107 [1]',
+    '- **Tên học phần:** Tiếng Anh B1 [1]',
+    '- **Số tín chỉ:** 5 [1]',
+    '',
+    'Nội dung môn Tiếng Anh B1 tập trung vào kỹ năng giao tiếp.',
+    '',
+    'Bên cạnh đó, các mục tiêu tham khảo giúp sinh viên tự tin hơn.',
+  ].join('\n');
+
+  const container = {
+    children: [],
+    appendChild(child) {
+      this.children.push(child);
+      return child;
+    },
+  };
+
+  renderSafeMarkdown(markdown, container);
+
+  // 1. First element is .rag-course-card
+  const card = container.children[0];
+  assert.equal(card.className, 'rag-course-card');
+  assert.equal(card.children[0].className, 'rag-course-card-header');
+  assert.ok(card.children[0].innerHTML.includes('Thông tin học phần'));
+
+  const cardList = card.children[1];
+  assert.equal(cardList.className, 'rag-course-card-list');
+  assert.equal(cardList.children.length, 3);
+  // Course card must NOT contain narrative paragraphs
+  assert.equal(card.children.length, 2);
+
+  // 2. Second element is paragraph in container outside card
+  const para1 = container.children[1];
+  assert.equal(para1.className, 'rag-para');
+  assert.ok(para1.innerHTML.includes('Nội dung môn Tiếng Anh B1'));
+
+  // 3. Third element is second paragraph
+  const para2 = container.children[2];
+  assert.equal(para2.className, 'rag-para');
+  assert.ok(para2.innerHTML.includes('Bên cạnh đó'));
+});
+
 test('groupCitations deduplicates citations with same URL and groups citation IDs', () => {
   const origin = 'http://127.0.0.1:8000';
   const c1 = {evidence_kind:'web', source_url:'https://example.test/source1', open_url:'https://example.test/source1', citation_id:'3'};

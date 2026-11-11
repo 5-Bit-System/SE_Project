@@ -62,15 +62,19 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 #rag-major { display: block; width: 100%; max-width: 500px; padding: 8px 32px 8px 11px; border: 1px solid #d5ded5; border-radius: 6px; background-color: #fff; color: #294b38; font-size: 13px; }
 .rag-version-field { border-left: 1px solid var(--rag-line); padding-left: 25px; width: 225px; }
 #rag-version { font-size: 12px; color: #3c5a48; overflow-wrap: anywhere; }
-.rag-messages { min-height: 480px; max-height: 720px; height: 60vh; overflow-y: auto; padding: 26px 32px; scrollbar-width: thin; scrollbar-color: #cedbcf transparent; }
-.rag-message { display: flex; align-items: flex-start; gap: 11px; margin: 0 0 21px; }
+.rag-messages { min-height: 480px; max-height: 720px; height: 60vh; overflow-y: auto; padding: 26px 32px; scrollbar-width: thin; scrollbar-color: #cedbcf transparent; display: flex; flex-direction: column; gap: 20px; }
+.rag-message { display: flex; align-items: flex-start; gap: 11px; margin: 0; }
+.rag-message-assistant { align-self: flex-start; flex-direction: row; max-width: 96%; width: 100%; }
+.rag-message-user { align-self: flex-end; flex-direction: row-reverse; max-width: 82%; margin-left: auto; gap: 10px; }
 .rag-message:last-child { margin-bottom: 0; }
 .rag-avatar { display: grid; flex: 0 0 auto; place-items: center; width: 28px; height: 28px; border: 1px solid #dce7db; border-radius: 8px; color: #426448; background: #f0f5eb; font-size: 10px; font-weight: 700; }
-.rag-message-user .rag-avatar { background: #f2f3f2; color: #657067; border-color: #e3e7e3; }
+.rag-message-user .rag-avatar { background: #f0f5eb; color: #23543d; border-color: #dce7db; }
 .rag-message-content { min-width: 0; flex: 1; padding-top: 3px; }
-.rag-message-speaker { color: #6d7c70; font-size: 10px; font-weight: 600; margin: 0 0 7px; }
+.rag-message-user .rag-message-content { min-width: 0; flex: 0 1 auto; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.rag-message-speaker { color: #6d7c70; font-size: 10px; font-weight: 600; margin: 0 0 7px; display: flex; align-items: center; gap: 8px; }
+.rag-message-user .rag-message-speaker { justify-content: flex-end; text-align: right; margin: 0 0 4px; }
 .rag-message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; font-size: 13px; margin: 0; color: #2d4136; }
-.rag-message-user .rag-message-text { color: #4b5950; }
+.rag-message-user .rag-message-text { background: #23543d; color: #ffffff; padding: 10px 16px; border-radius: 16px 16px 4px 16px; box-shadow: 0 2px 10px rgba(35, 84, 61, 0.18); text-align: left; line-height: 1.6; }
 .rag-badge-llm { font-size: 9px; padding: 2px 7px; border-radius: 10px; background: #eef5ea; color: #23634d; border: 1px solid #d5e5d5; margin-left: 8px; display: inline-block; vertical-align: middle; }
 .rag-heading { margin: 14px 0 6px; font-size: 13px; font-weight: 700; color: #1f4838; }
 .rag-para { margin: 0 0 10px; line-height: 1.7; }
@@ -78,10 +82,10 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 .rag-content-list li { margin-bottom: 4px; }
 .rag-inline-cite { display: inline-block; padding: 0 4px; margin: 0 2px; font-size: 10px; font-weight: 700; border-radius: 4px; background: #e8f0e6; color: #215c46; vertical-align: 1px; }
 code, .rag-inline-code { font-family: monospace; font-size: 12px; background: #ebf0e9; padding: 1px 4px; border-radius: 4px; color: #23543d; }
-.rag-course-card { margin: 8px 0 14px; padding: 12px 14px; background: #f7faf5; border: 1px solid #d8e5d5; border-left: 4px solid var(--rag-green); border-radius: 6px; }
-.rag-course-card-header { font-size: 11px; font-weight: 700; color: var(--rag-green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
-.rag-course-card-list { margin: 0 0 0 16px; padding: 0; line-height: 1.65; }
-.rag-course-card-list li { margin-bottom: 4px; font-size: 12.5px; }
+.rag-course-card { margin: 10px 0 16px; padding: 14px 16px; background: #f7faf5; border: 1px solid #d8e5d5; border-left: 4px solid var(--rag-green); border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); }
+.rag-course-card-header { font-size: 11px; font-weight: 700; color: var(--rag-green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.rag-course-card-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.rag-course-card-list li { margin: 0; font-size: 13px; line-height: 1.6; color: #2d4136; }
 .rag-citation-num { font-size: 10px; font-weight: 700; color: var(--rag-green); margin-right: 4px; }
 .rag-citations { display: grid; gap: 7px; margin-top: 13px; }
 .rag-citation { border: 1px solid #e1e8df; border-radius: 7px; padding: 10px 12px; background: #fafcf8; }

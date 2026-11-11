@@ -282,13 +282,31 @@
   padding: 24px 28px;
   scrollbar-width: thin;
   scrollbar-color: var(--border-subtle) transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 #tab-lookup .rag-message {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin: 0 0 20px;
+  margin: 0;
+}
+
+#tab-lookup .rag-message-assistant {
+  align-self: flex-start;
+  flex-direction: row;
+  max-width: 96%;
+  width: 100%;
+}
+
+#tab-lookup .rag-message-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  max-width: 82%;
+  margin-left: auto;
+  gap: 10px;
 }
 
 #tab-lookup .rag-message:last-child {
@@ -310,14 +328,24 @@
 }
 
 #tab-lookup .rag-message-user .rag-avatar {
-  background: var(--soft-surface);
-  color: var(--text-muted);
+  background: var(--selected-surface);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-subtle);
 }
 
 #tab-lookup .rag-message-content {
   min-width: 0;
   flex: 1;
   padding-top: 2px;
+}
+
+#tab-lookup .rag-message-user .rag-message-content {
+  min-width: 0;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 #tab-lookup .rag-message-speaker {
@@ -328,6 +356,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+#tab-lookup .rag-message-user .rag-message-speaker {
+  justify-content: flex-end;
+  text-align: right;
+  margin: 0 0 4px;
 }
 
 #tab-lookup .rag-badge-llm {
@@ -350,7 +384,13 @@
 }
 
 #tab-lookup .rag-message-user .rag-message-text {
-  color: var(--text-main);
+  background: var(--action-gradient);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 2px 10px rgba(109, 74, 255, 0.2);
+  text-align: left;
+  line-height: 1.6;
 }
 
 #tab-lookup .rag-heading {
@@ -399,12 +439,13 @@
 }
 
 #tab-lookup .rag-course-card {
-  margin: 8px 0 14px;
-  padding: 12px 14px;
+  margin: 10px 0 16px;
+  padding: 14px 16px;
   background: var(--soft-surface);
   border: 1px solid var(--border-subtle);
   border-left: 4px solid var(--accent-emerald);
   border-radius: var(--radius-control);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 #tab-lookup .rag-course-card-header {
@@ -413,18 +454,26 @@
   color: var(--accent-emerald);
   text-transform: uppercase;
   letter-spacing: .08em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 #tab-lookup .rag-course-card-list {
-  margin: 0 0 0 16px;
+  margin: 0;
   padding: 0;
-  line-height: 1.65;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 #tab-lookup .rag-course-card-list li {
-  margin-bottom: 4px;
-  font-size: 12.5px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-main);
 }
 
 #tab-lookup .rag-citation-num {
