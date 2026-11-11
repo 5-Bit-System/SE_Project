@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, PrivateAttr
 
 from app.hus.answering import HUSAnswerer, question_intent
 from app.hus.llm_answerer import generate_grounded_answer
@@ -16,6 +16,17 @@ class HUSChatReply(BaseModel):
     mode: Literal["basic_chat", "hus_rag"]
     reply: str
     hus_answer: HUSAnswer | None = None
+    _generation_mode: str | None = PrivateAttr(default=None)
+
+    @property
+    def generation_mode(self) -> Literal["grounded_llm", "extractive"] | None:
+        if self._generation_mode is not None:
+            return self._generation_mode  # type: ignore[return-value]
+        if self.mode != "hus_rag" or self.hus_answer is None:
+            return None
+        if self.reply != self.hus_answer.reply:
+            return "grounded_llm"
+        return "extractive"
 
 
 def basic_reply(question: str) -> str | None:
@@ -70,6 +81,7 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
         request = request.model_copy(update={"version": None})
     answer = answerer.answer(request)
     reply = answer.reply
+    generation_mode: Literal["grounded_llm", "extractive"] = "extractive"
     if answer.status == "answered":
         llm_result = generate_grounded_answer(request, answerer, answer=answer)
         if llm_result is not None:
@@ -79,6 +91,9 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
                 llm_reply, llm_citations = llm_result, None
             if llm_reply:
                 reply = llm_reply
+                generation_mode = "grounded_llm"
             if llm_citations:
                 answer = answer.model_copy(update={"citations": llm_citations})
-    return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer)
+    chat_reply = HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer)
+    chat_reply._generation_mode = generation_mode
+    return chat_reply

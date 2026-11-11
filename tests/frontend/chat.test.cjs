@@ -1,6 +1,12 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
-const {citationURL, citationLabel} = require('../../app/static/hus-rag-demo.js');
+const {
+  citationURL,
+  citationLabel,
+  escapeHtml,
+  formatInlineMarkdown,
+  renderSafeMarkdown,
+} = require('../../app/static/hus-rag-demo.js');
 const origin = 'http://127.0.0.1:8000';
 const sha = 'a'.repeat(64);
 const pdf = page => ({evidence_kind:'pdf', availability:'available', document_sha256:sha,
@@ -40,4 +46,82 @@ test('missing files have no fake open target, and DOCX stays a file', () => {
     display_label:'Source.docx', open_url:`/hus/sources/${sha}`};
   assert.equal(citationLabel(doc), 'Source.docx');
   assert.equal(citationURL(doc, origin), origin + doc.open_url);
+});
+
+test('escapeHtml sanitizes XSS characters and handles edge cases', () => {
+  assert.equal(escapeHtml("<script>alert('xss')</script>"), '&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;');
+  assert.equal(escapeHtml('<img src=x onerror="alert(1)">'), '&lt;img src=x onerror=&quot;alert(1)&quot;&gt;');
+  assert.equal(escapeHtml('Tom & Jerry'), 'Tom &amp; Jerry');
+  assert.equal(escapeHtml(null), '');
+  assert.equal(escapeHtml(undefined), '');
+  assert.equal(escapeHtml(123), '123');
+});
+
+test('formatInlineMarkdown transforms bold, citations, and code while preserving XSS safety', () => {
+  const input = '**Mã học phần:** `MAT3507` và nội dung [1] [2].';
+  const output = formatInlineMarkdown(input);
+  assert.equal(
+    output,
+    '<strong>Mã học phần:</strong> <code class="rag-inline-code">MAT3507</code> và nội dung <span class="rag-inline-cite" title="Trích dẫn nguồn [1]">[1]</span> <span class="rag-inline-cite" title="Trích dẫn nguồn [2]">[2]</span>.'
+  );
+
+  // XSS attack within markdown formatting
+  const xss = '**<script>alert(1)</script>** `x="1" & y="2"` [3]';
+  const safeOutput = formatInlineMarkdown(xss);
+  assert.ok(!safeOutput.includes('<script>'));
+  assert.ok(safeOutput.includes('<strong>&lt;script&gt;alert(1)&lt;/script&gt;</strong>'));
+  assert.ok(safeOutput.includes('&quot;1&quot; &amp; y=&quot;2&quot;'));
+  assert.ok(safeOutput.includes('title="Trích dẫn nguồn [3]"'));
+});
+
+test('renderSafeMarkdown parses course cards, headings, lists, and paragraphs', () => {
+  const markdown = [
+    '### Phần 1: Thông tin học phần',
+    '- Mã học phần: MAT3507 [1]',
+    '- Tên học phần: Cơ sở dữ liệu',
+    '- Số tín chỉ: 4',
+    '',
+    '### Phần 2: Tổng quan môn học',
+    'Môn học này là môn nền tảng.',
+    '- Khái niệm cơ bản',
+    '- Chuẩn hóa dữ liệu [2]',
+  ].join('\n');
+
+  const container = {
+    children: [],
+    appendChild(child) {
+      this.children.push(child);
+      return child;
+    },
+  };
+
+  renderSafeMarkdown(markdown, container);
+
+  // 1. First element is .rag-course-card
+  const card = container.children[0];
+  assert.equal(card.className, 'rag-course-card');
+  assert.equal(card.children[0].className, 'rag-course-card-header');
+  assert.ok(card.children[0].innerHTML.includes('Thông tin học phần'));
+
+  // Course card list
+  const cardList = card.children[1];
+  assert.equal(cardList.className, 'rag-course-card-list');
+  assert.equal(cardList.children.length, 3);
+  assert.ok(cardList.children[0].innerHTML.includes('class="rag-inline-cite"'));
+
+  // 2. Second element is .rag-heading
+  const heading = container.children[1];
+  assert.equal(heading.className, 'rag-heading');
+  assert.ok(heading.innerHTML.includes('Phần 2: Tổng quan môn học'));
+
+  // 3. Third element is paragraph
+  const para = container.children[2];
+  assert.equal(para.className, 'rag-para');
+  assert.equal(para.innerHTML, 'Môn học này là môn nền tảng.');
+
+  // 4. Fourth element is content list outside card
+  const contentList = container.children[3];
+  assert.equal(contentList.className, 'rag-content-list');
+  assert.equal(contentList.children.length, 2);
+  assert.ok(contentList.children[1].innerHTML.includes('title="Trích dẫn nguồn [2]"'));
 });

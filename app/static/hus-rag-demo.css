@@ -71,6 +71,18 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 .rag-message-speaker { color: #6d7c70; font-size: 10px; font-weight: 600; margin: 0 0 7px; }
 .rag-message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; font-size: 13px; margin: 0; color: #2d4136; }
 .rag-message-user .rag-message-text { color: #4b5950; }
+.rag-badge-llm { font-size: 9px; padding: 2px 7px; border-radius: 10px; background: #eef5ea; color: #23634d; border: 1px solid #d5e5d5; margin-left: 8px; display: inline-block; vertical-align: middle; }
+.rag-heading { margin: 14px 0 6px; font-size: 13px; font-weight: 700; color: #1f4838; }
+.rag-para { margin: 0 0 10px; line-height: 1.7; }
+.rag-content-list { margin: 4px 0 10px 18px; padding: 0; line-height: 1.65; }
+.rag-content-list li { margin-bottom: 4px; }
+.rag-inline-cite { display: inline-block; padding: 0 4px; margin: 0 2px; font-size: 10px; font-weight: 700; border-radius: 4px; background: #e8f0e6; color: #215c46; vertical-align: 1px; }
+code, .rag-inline-code { font-family: monospace; font-size: 12px; background: #ebf0e9; padding: 1px 4px; border-radius: 4px; color: #23543d; }
+.rag-course-card { margin: 8px 0 14px; padding: 12px 14px; background: #f7faf5; border: 1px solid #d8e5d5; border-left: 4px solid var(--rag-green); border-radius: 6px; }
+.rag-course-card-header { font-size: 11px; font-weight: 700; color: var(--rag-green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.rag-course-card-list { margin: 0 0 0 16px; padding: 0; line-height: 1.65; }
+.rag-course-card-list li { margin-bottom: 4px; font-size: 12.5px; }
+.rag-citation-num { font-size: 10px; font-weight: 700; color: var(--rag-green); margin-right: 4px; }
 .rag-citations { display: grid; gap: 7px; margin-top: 13px; }
 .rag-citation { border: 1px solid #e1e8df; border-radius: 7px; padding: 10px 12px; background: #fafcf8; }
 .rag-citation-title { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: 0; font-size: 11px; line-height: 1.6; }

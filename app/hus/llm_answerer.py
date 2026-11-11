@@ -61,6 +61,12 @@ def get_settings() -> Any:
         return get_hus_llm_settings()
 
 
+def _redact_key(text: str, key: str) -> str:
+    if not key or not isinstance(text, str):
+        return text
+    return text.replace(key, "[REDACTED_API_KEY]")
+
+
 def call_gemini_llm(
     prompt: str,
     *,
@@ -96,16 +102,22 @@ def call_gemini_llm(
             "max_tokens": 4000,
         }
         with httpx.Client(timeout=30.0) as client:
-            resp = client.post(endpoint, headers=headers, json=payload)
-            resp.raise_for_status()
-            data = resp.json()
-            choices = data.get("choices", [])
-            if not choices:
-                raise ValueError("Proxy API không trả về choice nào.")
-            content = choices[0].get("message", {}).get("content", "")
-            if not content:
-                raise ValueError("Nội dung phản hồi từ LLM API rỗng.")
-            return content.strip()
+            try:
+                resp = client.post(endpoint, headers=headers, json=payload)
+                resp.raise_for_status()
+                data = resp.json()
+                choices = data.get("choices", [])
+                if not choices:
+                    raise ValueError("Proxy API không trả về choice nào.")
+                content = choices[0].get("message", {}).get("content", "")
+                if not content:
+                    raise ValueError("Nội dung phản hồi từ LLM API rỗng.")
+                return content.strip()
+            except Exception as exc:
+                if api_key and api_key in str(exc):
+                    clean_msg = _redact_key(str(exc), api_key)
+                    raise RuntimeError(f"Lỗi khi gọi Proxy API ({clean_msg})") from None
+                raise
 
     # 2. Google AI Studio / Generative Language API directly
     models_to_try = [model_name]
@@ -130,7 +142,11 @@ def call_gemini_llm(
 
     last_error: Exception | None = None
     for cur_model in models_to_try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{cur_model}:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{cur_model}:generateContent"
+        headers = {
+            "x-goog-api-key": api_key,
+            "Content-Type": "application/json",
+        }
         payload = {
             "contents": [
                 {
@@ -144,7 +160,7 @@ def call_gemini_llm(
         }
         try:
             with httpx.Client(timeout=15.0) as client:
-                resp = client.post(url, json=payload)
+                resp = client.post(url, headers=headers, json=payload)
                 if resp.status_code == 503:
                     LOGGER.warning("Model %s 503 high demand, trying next fallback model...", cur_model)
                     continue
@@ -162,13 +178,19 @@ def call_gemini_llm(
                 return text
         except (httpx.TimeoutException, httpx.HTTPStatusError) as exc:
             last_error = exc
-            LOGGER.warning("Call to %s failed (%s), trying next fallback...", cur_model, exc)
+            clean_msg = _redact_key(str(exc), api_key)
+            LOGGER.warning("Call to %s failed (%s), trying next fallback...", cur_model, clean_msg)
             continue
         except Exception as exc:
             last_error = exc
+            clean_msg = _redact_key(str(exc), api_key)
+            LOGGER.warning("Call to %s failed unexpectedly (%s)", cur_model, clean_msg)
             break
 
     if last_error is not None:
+        if api_key and api_key in str(last_error):
+            clean_msg = _redact_key(str(last_error), api_key)
+            raise RuntimeError(f"Lỗi khi gọi Gemini API ({clean_msg})") from None
         raise last_error
     raise RuntimeError("Tất cả các model Gemini đều không phản hồi.")
 
@@ -309,6 +331,7 @@ def generate_grounded_answer(
         )
         return (reply_text, llm_citations)
     except Exception as exc:
-        LOGGER.warning("Gemini LLM call failed, falling back to extractive answer: %s", exc)
+        clean_msg = _redact_key(str(exc), api_key)
+        LOGGER.warning("Gemini LLM call failed, falling back to extractive answer: %s", clean_msg)
         return None
 

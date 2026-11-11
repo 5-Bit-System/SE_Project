@@ -1,5 +1,54 @@
 # Project Memory and Contributor Guidelines
 
+## Stage 3 complete: Grounded LLM answering, in-line citations, safe markdown UI, and security mock suite — 2026-11-11
+
+Completed Stage 3 (LLM Grounded Answering) under Subagent-Driven Development on feat/hus-rag-phase2-gemini-lite.
+Implemented:
+- Decoupled settings in app/config.py: HUS_RAG_LLM_ENABLED (default true) and HUS_RAG_LLM_MODEL
+  (default gemini-3.5-flash-lite), reading GEMINI_API_KEY from .env safely.
+- In-line citations and synchronized schema:
+  - app/hus/llm_answerer.py instructs model to cite [1], [2] matching Top-K chunk order.
+  - app/hus/chat.py updates answer.citations and tracks generation_mode ('grounded_llm' vs 'extractive').
+  - Enhanced security: switched to x-goog-api-key header (no API key in URL), added _redact_key helper
+    preventing any token leaks in exceptions, httpx tracebacks, or warning logs.
+- Safe Markdown & Course Card UI:
+  - app/static/hus-rag-demo.js: escapeHtml XSS protection, renderSafeMarkdown parsing Course Info Cards,
+    headings, bold, lists, and [1] badges; backward-compatible plain-text <p> for extractive mode.
+  - app/static/hus-rag-demo.css: modern academic styles for .rag-course-card, .rag-badge-llm, and .rag-inline-cite.
+- Verification & Test Coverage:
+  - tests/hus/test_llm_answering.py: 16 comprehensive mock tests (direct API, OpenAI proxy, 503/timeout fallback,
+    security key redaction, empty bypass, chat integration) with 100% network isolation.
+  - tests/frontend/chat.test.cjs: 8 Node.js tests passing for XSS sanitization and markdown parsing.
+  - Full Playwright UI regression (test_chat_contracts_ui, test_program_questions_ui, test_question_catalog_ui) passing.
+  - Ruff linter 0 errors across app/ and tests/.
+
+## Phase 2 Top-K retrieval, course aliases, and Gemini 3.5 Flash-Lite grounded generation — 2026-11-11
+
+User authorized Phase 2 implementation and live Google AI Studio integration.
+Work branched from hus-embedding-chromadb (bc545c5) to new feature branch
+feat/hus-rag-phase2-gemini-lite; committed 39c191f and pushed to origin with PR ready.
+New modules:
+- app/hus/course_aliases.py: Scoped abbreviation resolver for GT1-GT3, CSDL, TTNT, ĐSTT, etc.
+- app/hus/semantic_routing.py: 78 canonical anchor intents and multi-signal Top-K ranker.
+- app/hus/llm_answerer.py: Google Generative Language API integration, grounded in F2 facts
+  and Top-K chunks; smart fallback chain for Lite models (gemini-flash-lite-latest ->
+  gemini-3.5-flash-lite -> gemini-3.1-flash-lite); prompt structured with course metadata
+  upfront, pedagogical tone, and controlled length (~500-600 words).
+Updated schemas and runtime:
+- app/schemas/hus.py: HUSRetrievedChunk and HUSRetrievalBundle.
+- app/hus/answering.py: retrieve_context() method, scoped alias support in _matched_course_codes.
+- app/hus/chat.py: Grounded LLM generation with extractive answer fallback.
+- app/hus/demo.py: Added POST /hus/retrieve endpoint.
+- app/hus/answer_support.py: extra_neutral tokens support for alias resolution.
+Testing and verification:
+- 104 new/focused tests in tests/hus/test_course_aliases.py (57), test_semantic_routing.py (23),
+  test_phase2_topk_and_routing.py (24) all pass in 14.67s.
+- Outbound HTTP strictly forbidden and verified in pytest isolation (assert not network_attempts).
+- Ruff linter 0 errors across all app/hus/ and tests/hus/ files.
+- Live demo verified with gemini-3.5-flash-lite on MAT2503: 547 words, course info upfront, ~1.8s
+  model latency (~3.5-7s full chat roundtrip with prompt assembly).
+No leaks of GEMINI_API_KEY; .env, .vscode/, and internal review notes remain local/untracked.
+
 ## V1–V5 publication authorization — 2026-11-10
 
 User now requests commit/push V1–V5 to hus-embedding-chromadb with25total

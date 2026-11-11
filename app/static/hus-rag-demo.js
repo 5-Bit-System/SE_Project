@@ -34,8 +34,129 @@
     return citation.display_label || citation.label || 'Nguồn dữ liệu';
   }
 
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatInlineMarkdown(raw) {
+    if (!raw) return '';
+    const safe = escapeHtml(raw);
+    return safe
+      .replace(/`([^`]+)`/g, '<code class="rag-inline-code">$1</code>')
+      .replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[(\d+)\]/g, '<span class="rag-inline-cite" title="Trích dẫn nguồn [$1]">[$1]</span>');
+  }
+
+  function createElement(tag, className) {
+    if (typeof document !== 'undefined') {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      return el;
+    }
+    return {
+      tagName: tag.toUpperCase(),
+      className: className || '',
+      innerHTML: '',
+      children: [],
+      appendChild(child) {
+        this.children.push(child);
+        return child;
+      },
+      get textContent() {
+        return this.innerHTML.replace(/<[^>]+>/g, '');
+      },
+    };
+  }
+
+  function renderSafeMarkdown(text, container) {
+    if (!container || typeof text !== 'string') return;
+    const lines = text.split(/\r?\n/);
+    let inCourseCard = false;
+    let courseCardEl = null;
+    let currentList = null;
+    let currentPara = null;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        currentList = null;
+        currentPara = null;
+        continue;
+      }
+
+      const headingMatch = /^(#{1,4})\s*(.*)$/.exec(trimmed);
+      if (headingMatch) {
+        currentList = null;
+        currentPara = null;
+        const headingText = headingMatch[2].trim();
+        const isCourseCardHeading = /(?:Phần\s*1\s*[:.-]?\s*)?Thông tin (?:học phần|môn học)/i.test(headingText);
+
+        if (isCourseCardHeading) {
+          inCourseCard = true;
+          courseCardEl = createElement('div', 'rag-course-card');
+          const header = createElement('div', 'rag-course-card-header');
+          header.innerHTML = formatInlineMarkdown(headingText);
+          courseCardEl.appendChild(header);
+          container.appendChild(courseCardEl);
+        } else {
+          inCourseCard = false;
+          courseCardEl = null;
+          const h = createElement('h4', 'rag-heading');
+          h.innerHTML = formatInlineMarkdown(headingText);
+          container.appendChild(h);
+        }
+        continue;
+      }
+
+      const listMatch = /^[-*]\s+(.*)$/.exec(trimmed);
+      if (listMatch) {
+        currentPara = null;
+        const itemContent = listMatch[1].trim();
+        if (inCourseCard && courseCardEl) {
+          if (!currentList || currentList.className !== 'rag-course-card-list') {
+            currentList = createElement('ul', 'rag-course-card-list');
+            courseCardEl.appendChild(currentList);
+          }
+        } else {
+          if (!currentList || currentList.className !== 'rag-content-list') {
+            currentList = createElement('ul', 'rag-content-list');
+            container.appendChild(currentList);
+          }
+        }
+        const li = createElement('li');
+        li.innerHTML = formatInlineMarkdown(itemContent);
+        currentList.appendChild(li);
+        continue;
+      }
+
+      currentList = null;
+      const target = (inCourseCard && courseCardEl) ? courseCardEl : container;
+      if (!currentPara) {
+        currentPara = createElement('p', 'rag-para');
+        currentPara.innerHTML = formatInlineMarkdown(trimmed);
+        target.appendChild(currentPara);
+      } else {
+        currentPara.innerHTML += ' ' + formatInlineMarkdown(trimmed);
+      }
+    }
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {citationURL, citationLabel};
+    module.exports = {
+      citationURL,
+      citationLabel,
+      escapeHtml,
+      formatInlineMarkdown,
+      renderSafeMarkdown,
+    };
   }
   if (typeof document === 'undefined') return;
 
@@ -196,6 +317,12 @@
     card.className = 'rag-citation' + (ai ? ' rag-citation-ai' : '');
     const heading = document.createElement('p');
     heading.className = 'rag-citation-title';
+    if (citation.citation_id) {
+      const num = document.createElement('span');
+      num.className = 'rag-citation-num';
+      num.textContent = `[${citation.citation_id}]`;
+      heading.appendChild(num);
+    }
     const kind = document.createElement('span');
     kind.className = 'rag-citation-kind';
     kind.textContent = ai ? 'AI' : ({pdf: 'PDF', web: 'WEB', file: 'TỆP'}[citation.evidence_kind] || 'NGUỒN');
@@ -224,7 +351,7 @@
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, citations = []) {
+  function appendMessage(role, reply, citations = [], generationMode = 'extractive') {
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
     const avatar = document.createElement('span');
@@ -236,9 +363,20 @@
     const speaker = document.createElement('p');
     speaker.className = 'rag-message-speaker';
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
-    const text = document.createElement('p');
+    const isLLM = role === 'assistant' && generationMode === 'grounded_llm';
+    if (isLLM) {
+      const badge = document.createElement('span');
+      badge.className = 'rag-badge-llm';
+      badge.textContent = '✨ Trợ lý AI HUS';
+      speaker.appendChild(badge);
+    }
+    const text = document.createElement(isLLM ? 'div' : 'p');
     text.className = 'rag-message-text';
-    text.textContent = reply;
+    if (isLLM) {
+      renderSafeMarkdown(reply, text);
+    } else {
+      text.textContent = reply;
+    }
     body.append(speaker, text);
     if (Array.isArray(citations) && citations.length) {
       const sources = document.createElement('div');
@@ -298,7 +436,8 @@
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
       appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : []);
+        result.mode === 'hus_rag' ? result.hus_answer?.citations : [],
+        result.generation_mode);
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
       } else if (result.hus_answer?.status === 'needs_clarification') {
