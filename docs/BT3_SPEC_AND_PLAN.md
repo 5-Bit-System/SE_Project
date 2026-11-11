@@ -35,6 +35,7 @@ Hệ thống hiện tại chỉ hỗ trợ hai vai trò người dùng trong cơ
 * **Non-goals / Residual Risks được ghi nhận:**
   1. *Cấp tài khoản Reviewer qua API:* Trong `app/api/auth.py` dòng 179, endpoint quản trị tài khoản chỉ cho phép đổi role sang `{'student', 'admin'}`. Việc mở rộng API quản lý người dùng để tạo/đổi role reviewer từ giao diện web là Non-goal của vertical slice này (tài khoản reviewer trong bài tập được cấp qua database seed / test fixture).
   2. *Phạm vi bảo vệ Concurrency:* Cơ chế chống race condition hoạt động khi client gửi trường `expected_status`. Nếu client cũ không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện để tương thích ngược.
+  3. *Quy chuẩn Schema DB:* Ràng buộc `accounts_role_check` ban đầu chỉ chấp nhận `('student', 'teacher', 'admin')`. Để đảm bảo tính toàn vẹn hệ thống mà không dùng DDL can thiệp trong fixture test (tránh rủi ro *false fixtures* theo Lecture 07), hệ thống bổ sung migration Alembic `database/hus_alembic/versions/20261111_14_reviewer_role.py` (`hus_20261111_14`) chính thức mở rộng ràng buộc cho `reviewer`.
 
 ### 1.5. Prompt ban đầu, Assumptions và Các File Dự định Thay đổi
 
@@ -83,7 +84,7 @@ Theo yêu cầu bắt buộc của biến thể VT-099, AI đề xuất hai phư
   - *Evidence loại:* Theo Lecture 07 tr.10, integration test phải kiểm tra boundary App $\leftrightarrow$ Database (schema, transactions, constraints). Khóa trong bộ nhớ Python hoàn toàn vô hiệu khi ứng dụng chạy nhiều tiến trình worker.
 
 ### 1.7. Phản biện và Sửa đổi dựa trên Code Repository Thực tế
-Các đề xuất ban đầu của **Antigravity Coding Agent (DeepMind / Gemini)** đã được **reviewer kỹ thuật của nhóm** phản biện và hiệu chỉnh dựa trên bằng chứng mã nguồn:
+Các đề xuất ban đầu của **Antigravity Coding Agent (DeepMind / Gemini)** và các phản biện đa tầng từ **Claude (Anthropic)** cùng **reviewer kỹ thuật của nhóm** đã được đối chiếu nghiêm ngặt và hiệu chỉnh dựa trên bằng chứng mã nguồn:
 1. **Sửa đổi tên Endpoint:** AI ban đầu phỏng đoán generic `POST /admin/documents/{id}/review` và `DELETE /admin/documents/{id}`. Reviewer đã đọc [`app/api/admin.py`](file:///f:/SE_Project/app/api/admin.py) và chỉ ra các endpoint thực tế là `POST /admin/crawler/documents/{doc_id}/approve` & `/reject`, và sửa dữ liệu gốc là `PUT /admin/crawler/documents/{doc_id}/metadata`.
 2. **Bác bỏ giả định "chưa có lock":** AI ban đầu nhận định mã nguồn chưa có lock và đề xuất thêm `FOR UPDATE`. Reviewer đã đọc [`app/crawler/document_review_service.py`](file:///f:/SE_Project/app/crawler/document_review_service.py) dòng 479–480 và chỉ ra hệ thống đã có `publication_lock` và `FOR UPDATE`, vấn đề thực chất là thiếu kiểm tra trạng thái kỳ vọng (Compare-and-Set) dẫn tới Last-Writer-Wins.
 3. **Mở rộng Đầy đủ Tầng Auth:** AI ban đầu chỉ định sửa câu `PRINCIPAL`. Reviewer đã kiểm tra [`app/auth/repository.py`](file:///f:/SE_Project/app/auth/repository.py) dòng 91 và 102, chỉ ra hàm `login()` cũng giới hạn `role='admin'`. Kế hoạch đã bổ sung việc mở rộng `login()` cho role `reviewer`.
@@ -124,8 +125,11 @@ Theo yêu cầu bắt buộc của đề bài VT-099 và nguyên lý Combinatori
 | **TC-08** | **AC2 (Negative 2 - Regression):** Student gọi API kiểm duyệt | API | Account `student`. Gọi `POST .../{doc_id}/approve`. | **HTTP 403 Forbidden**. | P1 |
 | **TC-09** | **AC2 (Negative 3 - Regression):** Anonymous gọi API kiểm duyệt | API | Chưa đăng nhập (không session). Gọi `POST .../{doc_id}/approve`. | **HTTP 401 Unauthorized**. | P1 |
 | **TC-10** | **AC3 (Race Condition):** Hai kết nối duyệt đồng thời trên cùng tài liệu | Service / Concurrency | Hai kết nối DB thật (`conn1`, `conn2`), tài liệu `pending`. Luồng 1 `approve`, Luồng 2 `reject`, cùng gửi `expected_status="pending"`, đồng bộ qua `Barrier(2)`. | **Đúng 1 luồng commit thành công, 1 luồng ném `DocumentConflictError`**. DB lưu trạng thái người thắng. | P0 |
-| **TC-11** | AC3: API ánh xạ DocumentConflictError thành HTTP 409 | API | Tài liệu đã `approved`. Reviewer gửi `POST .../reject` kèm `expected_status="pending"`. | **HTTP 409 Conflict**, detail giải thích rõ trạng thái xung đột. | P0 |
+| **TC-11** | AC3: API ánh xạ DocumentConflictError thành HTTP 409 | API | Tài liệu đã `approved`/`rejected`. Reviewer gửi `POST .../reject` hoặc `POST .../approve` kèm `expected_status="pending"`. | **HTTP 409 Conflict**, detail giải thích rõ trạng thái xung đột (kiểm chứng cả 2 nhánh approve/reject). | P0 |
 | **TC-12** | AC4: Audit trail lưu vết hành động của reviewer | API / DB | Reviewer duyệt thành công tài liệu. Kiểm tra bảng `admin_audit_logs`. | Có bản ghi audit với `actor_id = reviewer.id`, `action = 'document.approve'`. | P1 |
+| **TC-13** | AC2: Reviewer bị cấm truy cập các endpoint quản trị khác | API | Reviewer có session gọi `GET /admin/overview` và `GET /admin/audit-logs`. | **HTTP 403 Forbidden** (Least Privilege RBAC bảo vệ toàn diện). | P1 |
+| **TC-14** | AC1: Reviewer tuân thủ cờ must_change_password | DB / Auth | Tạo account reviewer với `must_change_password=True`. Gọi `login()`. | `session["must_change_password"] is True`. | P1 |
+| **TC-15** | AC3: API validate expected_status theo enum Literal | API | Reviewer gửi `expected_status="not_a_valid_status"`. | **HTTP 422 Unprocessable Entity** (Strong Oracle, loại bỏ giá trị lạ). | P1 |
 
 ---
 

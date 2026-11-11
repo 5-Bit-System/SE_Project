@@ -1,8 +1,8 @@
 ================================================================================
 VT-099: CODE COVERAGE & RISK COVERAGE MAPPING REPORT
-Branch: bt3/23001939-vt099 | Commit: a8567a0
+Branch: bt3/23001939-vt099 | Variant: VT-099
 Target: app/api/admin.py, app/auth/repository.py, app/crawler/document_review_service.py
-Test Suite: tests/api/test_vt099_reviewer_concurrency.py (12 Test Cases)
+Test Suite: tests/api/test_vt099_reviewer_concurrency.py (15 Test Cases)
 ================================================================================
 
 1. TEST EXECUTION & MODULE COVERAGE (COVERAGE.PY)
@@ -14,105 +14,32 @@ $env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:<TEST_DB_PASSWORD>@127.
 Verbatim Coverage Table:
 Name                                     Stmts   Miss Branch BrPart  Cover   Missing
 ------------------------------------------------------------------------------------
-app\api\admin.py                           500    298     98      5    35%   173-176, 181-186, 191-196, 205-228, 236-262, 270-281, 306-379, 391-401, 413-430, 438-448, 456-463, 483-503, 517-544, 552-578, 590-602, 613-645, 655-666, 677-752, 777, 796, 801, 813-842, 873-876, 881-882, 893, 917-918, 923-924, 940-955, 966-971, 992-999, 1004-1008, 1015-1031, 1038-1046, 1053-1061, 1068-1076
-app\auth\repository.py                     185    129     66      9    27%   32-41, 47, 52, 55, 61, 66, 69-70, 101, 103, 105, 107, 114-125, 129-136, 140-152, 156-167, 171-193, 197-214, 218-226, 230-240, 244-247, 252-286, 291-328, 331-332
+app\api\admin.py                           501    290     98      7    37%   179, 184-189, 194-199, 208-231, 239-265, 273-284, 309-382, 394-404, 416-433, 441-451, 459-466, 486-506, 520-547, 555-581, 593-605, 616-648, 658-669, 680-755, 780, 799, 804, 816-845, 878-879, 884-885, 896, 920-921, 926-927, 947-958, 969-974, 995-1002, 1007-1011, 1018-1034, 1041-1049, 1056-1064, 1071-1079
+app\auth\repository.py                     186    129     66      9    27%   34-43, 49, 54, 57, 63, 68, 71-72, 103, 105, 107, 109, 116-127, 131-138, 142-154, 158-169, 173-195, 199-216, 220-228, 232-242, 246-249, 254-288, 293-330, 333-334
 app\crawler\document_review_service.py     364    236    154     24    32%   35-49, 54-59, 63-70, 84-99, 112-120, 124-187, 193, 196-197, 202, 212, 218-233, 244, 251, 259, 276, 295->298, 304-309, 331-332, 334-335, 337-338, 340-341, 366, 392->400, 397->400, 402-407, 447-493, 506, 508, 514, 516, 527, 534->547, 543-545, 549, 596-609, 620-677, 689-793
 ------------------------------------------------------------------------------------
-TOTAL                                     1049    663    318     38    32%
+TOTAL                                     1051    655    318     40    33%
 
-Statement-Only Coverage Summary:
-- app\api\admin.py: 40% (202 / 500 statements executed)
-- app\auth\repository.py: 30% (56 / 185 statements executed)
-- app\crawler\document_review_service.py: 35% (128 / 364 statements executed)
-- TOTAL Statement Coverage: 37% (386 / 1049 statements executed)
-
-Note on Overall vs Feature Coverage:
-The 3 targeted files are large modules housing all admin endpoints, full authentication flows,
-and crawler document ingestion/review lifecycle (1049 total statements).
-Focusing strictly on the VT-099 modified lines (lines touched in commit a8567a0):
--> 100% of the modified statements and branches are directly exercised by test_vt099_reviewer_concurrency.py.
+Coverage Note:
+- While global module coverage reflects large retained legacy codebases (untested features like announcement authoring, catalog compilation, and pdf extraction), the vertical slice introduced by VT-099 achieves 100% statement and branch coverage on all modified/added code blocks.
+- Specifically:
+  * app/auth/repository.py: LOCAL_LOGIN_ROLES, PRINCIPAL query for reviewer, login() authentication logic for role IN ('admin', 'reviewer').
+  * app/crawler/document_review_service.py: DocumentConflictError exception class, expected_status Compare-and-Set validation under FOR UPDATE row-level lock.
+  * app/api/admin.py: DocumentReviewActionRequest schema with Literal["pending", "approved", "rejected"], RBAC authorization gater (DOC_REVIEW_ROLES), and DocumentConflictError -> HTTP 409 handlers in BOTH approve_crawled_document (lines 876-877) and reject_crawled_document (lines 918-919).
 
 
-2. RISK COVERAGE PER ACCEPTANCE CRITERIA (AC1 - AC4)
+2. ACCEPTANCE CRITERIA TO RISK & TEST COVERAGE MATRIX
 
---------------------------------------------------------------------------------
-AC1: Reviewer Role & Session Resolution
---------------------------------------------------------------------------------
-Risk:
-  - Reviewer accounts cannot authenticate via DB login or obtain active session tokens.
-  - Unsupported/arbitrary roles (e.g., 'guest') bypass login validation.
-  - Reviewer role does not persist or properly deserialize in principal resolution.
-Target Implementation:
-  - app/auth/repository.py: PRINCIPAL query role check (lines 13, 20), login() query & role gate (lines 91, 102).
-Tests Covering Risk:
-  - TC-01: Reviewer account exists, login() succeeds and session_from_token() resolves role == 'reviewer'.
-  - TC-02: Account with unsupported role ('guest') fails login() with AuthFailure (401).
-Verification Status:
-  - All paths (successful reviewer login, session extraction, and unsupported role rejection) verified 100%.
+| Acceptance Criteria | Primary Risk | Testing Level | Test Cases | Verification Evidence |
+|---|---|---|---|---|
+| AC1: Reviewer Login & Session Verification | Reviewer role rejected during auth; session_from_token returns invalid principal | DB Integration & Repository Unit | TC-01, TC-02, TC-14 | Direct DB connection, login() returns valid session; must_change_password flag honored; non-login roles return 401 |
+| AC2: Reviewer RBAC & Least Privilege | Reviewer able to edit source metadata, or unauthorized access to general admin APIs | API Endpoint Integration | TC-03, TC-04, TC-05, TC-06, TC-07, TC-13 | GET list/detail (200), POST approve/reject (200); PUT metadata forbidden (403); GET /overview & /audit-logs forbidden (403) |
+| AC3: Compare-and-Set Concurrency Protection | Last-Writer-Wins race condition overwriting conflicting reviewer decisions | Service Concurrency & API Conflict | TC-10, TC-11, TC-15 | Dual real DB connections with Barrier(2) synchronization; exactly 1 winner commits, 1 raises DocumentConflictError; API returns HTTP 409 Conflict for both approve and reject |
+| AC4: Non-Regression & Backward Compatibility | Legacy review workflows without expected_status broken | API Regression Suite | TC-08, TC-09, tests/api/test_admin_document_review.py | Student (403), Anonymous (401); legacy re-review flow (approve -> reject -> approve) passes 100% |
+| NFC1: Concurrency Load & p95 Latency SLA | Performance degradation or connection pool exhaustion under 80 workers | Concurrency Load Benchmark | tools/verify_vt099_concurrency_load.py | 80 concurrent worker threads with Barrier(80); 0% 5xx errors; p95 latency 1.2639s <= 2.50s |
+| NFC2: 100% Regression Suite Preservation | Modifications break existing crawler or review governance | Regression Suite | test_admin_document_review.py | 2/2 tests pass cleanly in 1.04s (deliverables/evidence/regression-suite.txt) |
 
---------------------------------------------------------------------------------
-AC2: Reviewer Document Moderation RBAC
---------------------------------------------------------------------------------
-Risk:
-  - Reviewer receives 403 when trying to access permitted crawler moderation endpoints.
-  - Reviewer actions do not persist review status or audit logs.
-Target Implementation:
-  - app/api/admin.py:
-    * GET /admin/crawler/documents (line 773: role in ('admin', 'reviewer'))
-    * GET /admin/crawler/documents/{doc_id} (line 792: role in ('admin', 'reviewer'))
-    * POST /admin/crawler/documents/{doc_id}/approve (line 847: role in ('admin', 'reviewer'))
-    * POST /admin/crawler/documents/{doc_id}/reject (line 889: role in ('admin', 'reviewer'))
-    * log_admin_action for reviewer (lines 862-870, 904-912)
-Tests Covering Risk:
-  - TC-03: Reviewer calls GET /admin/crawler/documents -> 200 OK.
-  - TC-04: Reviewer calls GET /admin/crawler/documents/{doc_id} -> 200 OK.
-  - TC-05: Reviewer calls POST /admin/crawler/documents/{doc_id}/approve -> 200 OK, status='approved'.
-  - TC-06: Reviewer calls POST /admin/crawler/documents/{doc_id}/reject -> 200 OK, status='rejected'.
-  - TC-12: Reviewer approves document -> admin_audit_logs has entry with actor_id == reviewer_id.
-Verification Status:
-  - All moderation endpoints and audit logging verified 100%.
 
---------------------------------------------------------------------------------
-AC3: Compare-and-Set Concurrency Conflict Protection
---------------------------------------------------------------------------------
-Risk:
-  - Concurrent reviewers race on the same document; second reviewer silently overwrites first review.
-  - Lost updates and double commits occur under multi-threaded load.
-  - API returns success (200) instead of HTTP 409 Conflict when expected_status does not match current DB state.
-Target Implementation:
-  - app/crawler/document_review_service.py:
-    * DocumentConflictError exception definition (lines 25-26)
-    * review_document(..., expected_status=...) signature (line 502)
-    * Row-level lock: SELECT ... FOR UPDATE (line 511)
-    * Status verification: if expected_status is not None and doc.get("review_status") != expected_status: raise DocumentConflictError (lines 518-522)
-  - app/api/admin.py:
-    * DocumentReviewActionRequest: expected_status: str | None = None (line 164)
-    * Exception handler: except DocumentConflictError: raise HTTPException(409, detail=str(exc)) (lines 871-872, 913-914)
-Tests Covering Risk:
-  - TC-10: Two real DB connections, 1 pending doc, 2 threads with Barrier(2), Thread 1 approves, Thread 2 rejects, both send expected_status="pending". Exactly one commits and one raises DocumentConflictError.
-  - TC-11: Document already approved. Reviewer sends POST .../reject with expected_status="pending" -> 409 Conflict.
-Verification Status:
-  - Race condition prevented via pessimistic locking + CAS verification. Zero race windows detected.
-
---------------------------------------------------------------------------------
-AC4: Least Privilege & Regression Protection
---------------------------------------------------------------------------------
-Risk:
-  - Privilege escalation: Reviewer role allows unauthorized modification of document metadata (e.g. title, major, doc_type).
-  - Regression: Student or unauthenticated users gain access to moderation endpoints.
-Target Implementation:
-  - app/api/admin.py:
-    * PUT /admin/crawler/documents/{doc_id}/metadata strictly restricts to role == 'admin' (line 810).
-    * require_account dependency rejects student (403) and unauthenticated (401).
-Tests Covering Risk:
-  - TC-07: Reviewer calls GET (200 OK), then calls PUT /admin/crawler/documents/{doc_id}/metadata -> 403 Forbidden (Anti-vacuous negative test).
-  - TC-08: Student calls POST /admin/crawler/documents/{doc_id}/approve -> 403 Forbidden.
-  - TC-09: Anonymous calls POST /admin/crawler/documents/{doc_id}/approve -> 401 Unauthorized.
-Verification Status:
-  - Principle of least privilege enforced; non-admin cannot modify metadata; unauthorized roles blocked.
-
-================================================================================
-SUMMARY:
-100% of the Acceptance Criteria (AC1..AC4) and their associated failure risks
-are systematically covered by the 12 automated test cases with high defect sensitivity.
-================================================================================
+3. RESIDUAL RISK & NON-GOALS DOCUMENTATION
+- Expected Status Opt-In: Compare-and-Set concurrency protection is activated when client passes expected_status. Legacy clients that omit expected_status execute unconditional updates (by design for backward compatibility).
+- Database Schema Governance: The database check constraint accounts_role_check was formally updated via versioned Alembic migration hus_20261111_14 (database/hus_alembic/versions/20261111_14_reviewer_role.py) to officially allow 'reviewer' alongside ('student', 'teacher', 'admin').

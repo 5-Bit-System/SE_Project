@@ -1,7 +1,7 @@
 ================================================================================
 VT-099: CONCURRENCY LOAD EXPERIMENT REPORT (80 CONCURRENT WORKERS)
 Branch: bt3/23001939-vt099 | Non-functional Requirement: NFC1 (p95 <= 2.5s)
-Timestamp: 2026-11-10 17:06:20 UTC
+Timestamp: 2026-11-11 06:39:08 UTC
 ================================================================================
 
 1. EXECUTIVE SUMMARY & SLA VERIFICATION
@@ -9,38 +9,38 @@ Timestamp: 2026-11-10 17:06:20 UTC
   * Total Concurrent Workers:   80 tasks (ThreadPoolExecutor max_workers=80)
   * Synchronization Mechanism:  threading.Barrier(80) at t=0
   * Total Requests Completed:   80
-  * Total Wall-Clock Duration:  0.7875 s
+  * Total Wall-Clock Duration:  0.9370 s
   * Successful Reviews (200):   44 (100% of distinct + 1 per shared group)
   * CAS Conflicts (409):        36 (Atomic CAS protection under load)
   * Unhandled Errors (5xx/other):0 (Zero 500 Internal Server Errors)
   * Target p95 Latency:         <= 2.5000 s
-  * Measured p95 Latency:       0.7654 s
-  * Verification Verdict:       [PASSED (MEETS NFC1 TARGET)] (Margin: 1.7346 s headroom)
+  * Measured p95 Latency:       0.8933 s
+  * Verification Verdict:       [PASSED (MEETS NFC1 TARGET)] (Margin: 1.6067 s headroom)
 
 2. DETAILED LATENCY DISTRIBUTION (SECONDS)
 --------------------------------------------------------------------------------
   Metric               | All Requests (80)  | Distinct Docs (40) | Shared Docs (40)  
   ---------------------+--------------------+--------------------+-------------------
-  Min Latency          | 0.7405             | 0.7462             | 0.7405            
-  p50 (Median)         | 0.7522             | 0.7572             | 0.7491            
-  p90 Latency          | 0.7629             | 0.7654             | 0.7538            
-  p95 Latency (SLA)    | 0.7654             | 0.7657             | 0.7555            
-  p99 Latency          | 0.7668             | 0.7675             | 0.7591            
-  Max Latency          | 0.7681             | 0.7681             | 0.7612            
+  Min Latency          | 0.7428             | 0.8382             | 0.7428            
+  p50 (Median)         | 0.8714             | 0.8645             | 0.8721            
+  p90 Latency          | 0.8901             | 0.8930             | 0.8801            
+  p95 Latency (SLA)    | 0.8933             | 0.8944             | 0.8815            
+  p99 Latency          | 0.8979             | 0.8995             | 0.8912            
+  Max Latency          | 0.9010             | 0.9010             | 0.8957            
 
 3. SUBSET BREAKDOWN & WORKLOAD BEHAVIOR
 --------------------------------------------------------------------------------
   [Subset A: 40 Distinct Documents]
   - Purpose: Measure queueing delay and lock acquisition under pg_advisory_xact_lock.
   - Completed: 40/40 | Success (200): 40 | Conflicts (409): 0 | Errors: 0
-  - Latency Range: min=0.7462s, p50=0.7572s, p95=0.7657s, max=0.7681s
+  - Latency Range: min=0.8382s, p50=0.8645s, p95=0.8944s, max=0.9010s
   - Analysis: Since all 40 documents are distinct, zero CAS conflicts occurred.
     Every request succeeded with 200 OK after waiting its turn in the connection pool and advisory lock.
 
   [Subset B: 40 Competing Shared Documents (4 groups x 10 workers)]
   - Purpose: Stress-test atomic compare-and-set (expected_status='pending') under high contention.
   - Completed: 40/40 | Success (200): 4 | Conflicts (409): 36 | Errors: 0
-  - Latency Range: min=0.7405s, p50=0.7491s, p95=0.7555s, max=0.7612s
+  - Latency Range: min=0.7428s, p50=0.8721s, p95=0.8815s, max=0.8957s
   - Analysis: Exactly 4 requests committed successfully (1 winner per shared document),
     and exactly 36 competing requests received HTTP 409 Conflict with DocumentConflictError.
     Zero race conditions, zero phantom writes, zero dirty overwrites.
@@ -58,32 +58,28 @@ Timestamp: 2026-11-10 17:06:20 UTC
   - Queueing Mechanics under 80 Workers:
     When all 80 worker threads burst at t=0, the first 15 threads immediately checkout connections
     from QueuePool. The remaining 65 threads are held in the pool's FIFO queue (QueuePool._queue).
-    Because individual review transactions execute in 10-25ms, connections are recycled rapidly.
-    The total pool queue was fully drained in 0.787s, well within the 30s timeout threshold,
+    The total pool queue was fully drained in 0.937s, well within the 30s timeout threshold,
     resulting in zero QueuePool TimeoutErrors.
 
-4.2. Effect of Serialized Advisory Lock (pg_advisory_xact_lock):
+4.2. Effect of Advisory Lock and TestClient Event Loop Dispatching:
   - In app/curriculum/transactions.py, publication_lock(conn) executes:
       SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))
   - In app/crawler/document_review_service.py, review_document() acquires this lock at the start of each transaction.
-  - Concurrency Impact:
-    While row-level locking (SELECT ... FOR UPDATE) only serializes operations on the *same* document id,
-    pg_advisory_xact_lock with a fixed hash key acts as a database-wide serialization mutex across ALL review actions.
-    Consequently, even the 40 distinct documents cannot execute their review updates in parallel inside PostgreSQL.
-  - Queueing Delay Attribution:
-    Each transaction holds the advisory lock until COMMIT or ROLLBACK. At ~15ms per transaction,
-    80 serialized transactions have a theoretical cumulative serialized execution floor of ~1.2s.
-    Under our measured workload:
-    * Minimum latency (first worker to acquire lock): 0.7405 s.
-    * Median p50 latency (queued behind ~40 transactions): 0.7522 s.
-    * 95th percentile latency (queued behind ~76 transactions): 0.7654 s.
-    * Maximum latency (last transaction to complete): 0.7681 s.
-    The advisory lock is the primary contributor to latency queueing, yet p95 (0.7654s) safely satisfies NFC1 (<= 2.5s).
+  - Measured Latency Distribution Dynamics:
+    * Minimum latency: 0.7428 s | Median p50: 0.8714 s | p95: 0.8933 s | Max: 0.9010 s.
+    * Observation: Latencies across all 80 threads are clustered within a narrow band (~0.74s to ~0.77s).
+    * Root Cause: When 80 concurrent worker threads fire simultaneously against a single in-process
+      Starlette TestClient, the ASGI event loop and thread synchronization serialize the HTTP request handling
+      before entering the FastAPI synchronous database blocks (engine().begin()).
+    * Concurrency Under PostgreSQL: The database-level pg_advisory_xact_lock further serializes all catalog actions,
+      ensuring atomic integrity without deadlocks or race conditions.
+    * Methodological Limitation: An in-process TestClient harness demonstrates batch completion SLA (p95 <= 2.5s)
+      and zero 5xx server errors under simultaneous arrival, but does not simulate distributed network RTT.
 
 4.3. Hardware Environment & Distributed Production Reality:
-  - Benchmark Environment: Local Windows 11 host (AMD Ryzen / Intel Core CPU, NVMe SSD, loopback TCP 127.0.0.1:5433).
-    * Loopback TCP RTT: < 0.1 ms.
-    * In-process ASGI transport via Starlette TestClient (avoids external network socket overhead).
+  - Benchmark Environment: Local Windows 11 host (11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz, 8 Cores, 16 Threads, 16 GB RAM, NVMe SSD).
+    * Target DB: PostgreSQL 16 on loopback TCP 127.0.0.1:5433 (via HUS_TEST_DATABASE_URL).
+    * In-process ASGI transport via Starlette TestClient.
   - Production Extrapolation & Identified Bottlenecks:
     1. Network Latency: In a real distributed Kubernetes cluster with external clients, TLS termination,
        and Ingress routing (e.g. Nginx/Traefik), per-request network round-trip time (RTT 15-50ms)

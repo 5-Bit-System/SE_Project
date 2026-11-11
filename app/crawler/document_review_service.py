@@ -10,7 +10,7 @@ import time
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from sqlalchemy import text
 
@@ -499,7 +499,7 @@ def review_document(
     decision: str,
     reason: str,
     reviewer_id: str | None = None,
-    expected_status: str | None = None,
+    expected_status: Literal["pending", "approved", "rejected"] | None = None,
 ) -> dict[str, Any]:
     """Approve or reject a document with required reason and reviewer audit."""
     if decision not in ("approved", "rejected"):

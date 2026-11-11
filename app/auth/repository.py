@@ -8,6 +8,8 @@ from app.auth.security import AuthFailure, digest, password_matches, token
 from app.auth.settings import settings
 from app.integrations.daotao.store import engine
 
+LOCAL_LOGIN_ROLES = ("admin", "reviewer")
+
 PRINCIPAL = """
     SELECT a.id::text AS account_id,a.email,a.display_name,a.role,
            CASE WHEN a.role IN ('admin', 'reviewer') THEN a.must_change_password ELSE false END AS must_change_password,
@@ -99,7 +101,7 @@ def login(normalized, password):
                                {'id': row['id']}).mappings().one()
         if account['password_hash'] != row['password_hash']:
             raise AuthFailure('invalid_login', 401)
-        if account['role'] not in ('admin', 'reviewer'):
+        if account['role'] not in LOCAL_LOGIN_ROLES:
             raise AuthFailure('invalid_login', 401)
         if not account['is_active']:
             raise AuthFailure('account_disabled', 403)

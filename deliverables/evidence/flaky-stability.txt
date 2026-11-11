@@ -1,53 +1,29 @@
 ================================================================================
-VT-099: FLAKY TEST ANALYSIS & STABILITY VERIFICATION REPORT
-Branch: bt3/23001939-vt099 | Baseline Commit: a8567a0
-Target Suite: tests/api/test_vt099_reviewer_concurrency.py (12 Test Cases)
-Framework: pytest 9.1.1, Python 3.11.15, PostgreSQL (ai07)
+VT-099: FLAKY TEST ANALYSIS & 5-ITERATION STABILITY VERIFICATION
+Branch: bt3/23001939-vt099 | Suite: tests/api/test_vt099_reviewer_concurrency.py (15 tests)
+Non-functional Requirement: NFC2 (Flakiness <= 1%)
 ================================================================================
 
-1. FLAKY TEST RISKS ANALYSIS (LECTURE 07 TR.21)
+1. FLAKY TEST RISK ANALYSIS & MITIGATION ARCHITECTURE
 
-According to Software Testing principles (Lecture 07 - Test Smells, Antipatterns, and Flakiness),
-flaky tests produce non-deterministic results (passing and failing without code changes).
-In VT-099, two primary flakiness categories were identified and rigorously mitigated:
+In Lecture 07 (tr. 24-26), flaky tests undermine engineering confidence by passing or failing non-deterministically.
+For VT-099, two primary sources of flakiness were identified and proactively mitigated:
 
---------------------------------------------------------------------------------
-Risk 1: Shared Database State & Pollution (Trạng thái cơ sở dữ liệu dùng chung)
---------------------------------------------------------------------------------
-Source of Flakiness:
-- Tests mutate shared persistent tables (`accounts`, `crawled_documents`, `admin_audit_logs`).
-- If a test leaves dirty state, duplicate primary keys, or uncommitted rows, subsequent tests or
-  repeated runs fail intermittently depending on test execution order or leftover data.
-Mitigations in VT-099:
-- Idempotent Account Setup:
-  `ensure_account()` executes `ON CONFLICT (id) DO UPDATE` to ensure test reviewer accounts
-  (`REVIEWER_1_ID`, `REVIEWER_2_ID`, `GUEST_ID`) can be invoked across multiple runs without
-  `UniqueViolation` errors while guaranteeing known credentials.
-- Fixture-level Document Lifecycle Isolation:
-  `sample_pending_doc` explicitly deletes any existing record with `doc_vt099_test_pending` before
-  inserting a pristine pending document, and cleans it up upon fixture teardown.
-- Independent Transactions:
-  Each API request and service function operates within scoped transactions (`with eng.begin() as conn`),
-  preventing lingering table-level lock states across tests.
+A. Shared State Contamination (PostgreSQL DB):
+- Risk: Concurrent or sequential tests mutating the shared `accounts`, `crawled_documents`, or `admin_audit_logs` tables
+  can leak state across test boundaries, causing intermittent failures.
+- Mitigation:
+  * Strict fixture isolation (`cleanup_data` autouse fixture) runs both BEFORE and AFTER each test function.
+  * Uses deterministic test-specific IDs (`55555555-5555-4555-8555-*`) and document prefixes (`doc_vt099_*`),
+    ensuring other test suites running on the database are never affected.
+  * Deterministic test user cleanup cascades cleanly to `auth_sessions` and `admin_audit_logs`.
 
---------------------------------------------------------------------------------
-Risk 2: Concurrency Timing & Non-deterministic Multi-threading (Bất đồng bộ & Race Timing)
---------------------------------------------------------------------------------
-Source of Flakiness:
-- Multi-threaded concurrency tests often rely on arbitrary sleeps (`time.sleep(0.1)`), which fail
-  flakily under variable CPU load, OS scheduling jitter, or slower disk I/O in CI environments.
-Mitigations in VT-099:
-- Synchronization via `threading.Barrier(2)`:
-  In `test_tc10_service_concurrency_race_condition_barrier`, two worker threads are synchronized
-  strictly at the barrier point (`barrier.wait(timeout=10)`). Neither thread proceeds until both
-  threads are alive and ready to contend for the database record simultaneously.
-- Pessimistic Row-level Locking (`SELECT ... FOR UPDATE`):
-  Serializability is enforced at the database transaction layer via row locks and publication locks,
-  guaranteeing that exactly one thread acquires the lock first and commits, while the contending
-  thread is blocked until lock release and then deterministically encounters the CAS mismatch.
-- Explicit Thread Joins with Timeouts:
-  Threads are joined with explicit timeouts (`t.join(timeout=15)`), guaranteeing no hung threads or
-  resource leakage even in failure conditions.
+B. Race Condition Timing Jitter (Barrier vs Sleep):
+- Risk: Using `time.sleep()` for concurrency testing introduces timing jitter, CPU load sensitivity, and flaky CI execution.
+- Mitigation:
+  * TC-10 uses `threading.Barrier(2)` synchronization across two separate physical database connections (`admin_test_engine().connect()`).
+  * Both worker threads block at the barrier before releasing simultaneously to compete for the `SELECT ... FOR UPDATE` row lock.
+  * Zero reliance on wall-clock sleeps, guaranteeing 100% deterministic contention regardless of CPU scheduling speed.
 
 
 2. STABILITY VERIFICATION: 5-ITERATION EXECUTION LOOP
@@ -56,111 +32,65 @@ Command:
 $env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:<TEST_DB_PASSWORD>@127.0.0.1:5433/ai07?sslmode=disable"
 for ($i=1; $i -le 5; $i++) {
     Write-Host "=================== RUN $i / 5 ==================="
-    .venv\Scripts\python.exe -m pytest tests/api/test_vt099_reviewer_concurrency.py -v -q
+    uv run pytest tests/api/test_vt099_reviewer_concurrency.py -q
 }
 
 Verbatim Execution Traces:
 =================== RUN 1 / 5 ===================
-============================= test session starts =============================
-platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-rootdir: F:\SE_Project
-configfile: pyproject.toml
-plugins: anyio-4.15.1
-collected 12 items
-
-tests\api\test_vt099_reviewer_concurrency.py ............                [100%]
-
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+...............                                                          [100%]
 ============================== warnings summary ===============================
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents
   F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 12 passed, 1 warning in 3.91s ========================
-
+15 passed, 1 warning in 4.93s
 =================== RUN 2 / 5 ===================
-============================= test session starts =============================
-platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-rootdir: F:\SE_Project
-configfile: pyproject.toml
-plugins: anyio-4.15.1
-collected 12 items
-
-tests\api\test_vt099_reviewer_concurrency.py ............                [100%]
-
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+...............                                                          [100%]
 ============================== warnings summary ===============================
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents
   F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 12 passed, 1 warning in 3.90s ========================
-
+15 passed, 1 warning in 5.27s
 =================== RUN 3 / 5 ===================
-============================= test session starts =============================
-platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-rootdir: F:\SE_Project
-configfile: pyproject.toml
-plugins: anyio-4.15.1
-collected 12 items
-
-tests\api\test_vt099_reviewer_concurrency.py ............                [100%]
-
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+...............                                                          [100%]
 ============================== warnings summary ===============================
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents
   F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 12 passed, 1 warning in 3.82s ========================
-
+15 passed, 1 warning in 4.97s
 =================== RUN 4 / 5 ===================
-============================= test session starts =============================
-platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-rootdir: F:\SE_Project
-configfile: pyproject.toml
-plugins: anyio-4.15.1
-collected 12 items
-
-tests\api\test_vt099_reviewer_concurrency.py ............                [100%]
-
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+...............                                                          [100%]
 ============================== warnings summary ===============================
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents
   F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 12 passed, 1 warning in 3.97s ========================
-
+15 passed, 1 warning in 6.32s
 =================== RUN 5 / 5 ===================
-============================= test session starts =============================
-platform win32 -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-rootdir: F:\SE_Project
-configfile: pyproject.toml
-plugins: anyio-4.15.1
-collected 12 items
-
-tests\api\test_vt099_reviewer_concurrency.py ............                [100%]
-
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+...............                                                          [100%]
 ============================== warnings summary ===============================
 tests/api/test_vt099_reviewer_concurrency.py::test_tc03_reviewer_list_documents
   F:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 12 passed, 1 warning in 3.84s ========================
+15 passed, 1 warning in 5.55s
 
 
-3. STABILITY METRICS SUMMARY
-
-- Total Runs: 5
-- Total Test Executions: 60 (12 tests x 5 runs)
-- Successful Executions: 60 / 60 (100%)
-- Failed Executions: 0 (0%)
-- Average Execution Time: 3.89s
-- Flakiness Rate: 0.00% (Zero Flakiness)
-
-Conclusion:
-The VT-099 test suite exhibits 100% deterministic reproducibility across multiple runs
-against real PostgreSQL connections, with no sensitivity to test order or concurrency timing jitter.
-================================================================================
+3. CONCLUSION & FLAKINESS METRIC
+- Total Test Runs: 5 consecutive runs x 15 test cases = 75 test executions.
+- Total Passes: 75 / 75.
+- Total Failures: 0 / 75.
+- Flakiness Rate: 0.00% (well within the <= 1.0% threshold).
+- Verdict: Test suite demonstrates rock-solid stability and zero flakiness across real PostgreSQL transactions.

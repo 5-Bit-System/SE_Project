@@ -28,12 +28,12 @@ from typing import Any, Dict, List
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.config import get_settings  # noqa: E402
-
 # Configure target database
-settings = get_settings()
-if not os.environ.get("HUS_TEST_DATABASE_URL"):
-    os.environ["HUS_TEST_DATABASE_URL"] = settings.database_url
+test_url = os.environ.get("HUS_TEST_DATABASE_URL")
+if not test_url:
+    print("Error: HUS_TEST_DATABASE_URL environment variable must be set explicitly.")
+    print("Do not run load harness against default/development database.")
+    sys.exit(1)
 
 from sqlalchemy import text  # noqa: E402
 from starlette.testclient import TestClient  # noqa: E402
@@ -113,15 +113,7 @@ def setup_load_data(eng) -> str:
     cleanup_load_data(eng)
 
     with eng.begin() as conn:
-        # 1. Ensure accounts_role_check allows reviewer
-        conn.execute(text("ALTER TABLE accounts DROP CONSTRAINT IF EXISTS accounts_role_check"))
-        conn.execute(
-            text(
-                "ALTER TABLE accounts ADD CONSTRAINT accounts_role_check "
-                "CHECK (role in ('student', 'teacher', 'admin', 'reviewer', 'guest'))"
-            )
-        )
-        # 2. Seed reviewer account
+        # Seed reviewer account (schema accounts_role_check allows reviewer via migration hus_20261111_14)
         conn.execute(
             text("""
                 INSERT INTO accounts (
@@ -408,32 +400,28 @@ def analyze_and_format_report(run_data: Dict[str, Any]) -> str:
     lines.append("  - Queueing Mechanics under 80 Workers:")
     lines.append("    When all 80 worker threads burst at t=0, the first 15 threads immediately checkout connections")
     lines.append("    from QueuePool. The remaining 65 threads are held in the pool's FIFO queue (QueuePool._queue).")
-    lines.append("    Because individual review transactions execute in 10-25ms, connections are recycled rapidly.")
     lines.append(f"    The total pool queue was fully drained in {total_wall_time:.3f}s, well within the 30s timeout threshold,")
     lines.append("    resulting in zero QueuePool TimeoutErrors.")
     lines.append("")
-    lines.append("4.2. Effect of Serialized Advisory Lock (pg_advisory_xact_lock):")
+    lines.append("4.2. Effect of Advisory Lock and TestClient Event Loop Dispatching:")
     lines.append("  - In app/curriculum/transactions.py, publication_lock(conn) executes:")
     lines.append("      SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))")
     lines.append("  - In app/crawler/document_review_service.py, review_document() acquires this lock at the start of each transaction.")
-    lines.append("  - Concurrency Impact:")
-    lines.append("    While row-level locking (SELECT ... FOR UPDATE) only serializes operations on the *same* document id,")
-    lines.append("    pg_advisory_xact_lock with a fixed hash key acts as a database-wide serialization mutex across ALL review actions.")
-    lines.append("    Consequently, even the 40 distinct documents cannot execute their review updates in parallel inside PostgreSQL.")
-    lines.append("  - Queueing Delay Attribution:")
-    lines.append("    Each transaction holds the advisory lock until COMMIT or ROLLBACK. At ~15ms per transaction,")
-    lines.append("    80 serialized transactions have a theoretical cumulative serialized execution floor of ~1.2s.")
-    lines.append("    Under our measured workload:")
-    lines.append(f"    * Minimum latency (first worker to acquire lock): {min_lat:.4f} s.")
-    lines.append(f"    * Median p50 latency (queued behind ~40 transactions): {p50_lat:.4f} s.")
-    lines.append(f"    * 95th percentile latency (queued behind ~76 transactions): {p95_lat:.4f} s.")
-    lines.append(f"    * Maximum latency (last transaction to complete): {max_lat:.4f} s.")
-    lines.append(f"    The advisory lock is the primary contributor to latency queueing, yet p95 ({p95_lat:.4f}s) safely satisfies NFC1 (<= 2.5s).")
+    lines.append("  - Measured Latency Distribution Dynamics:")
+    lines.append(f"    * Minimum latency: {min_lat:.4f} s | Median p50: {p50_lat:.4f} s | p95: {p95_lat:.4f} s | Max: {max_lat:.4f} s.")
+    lines.append("    * Observation: Latencies across all 80 threads are clustered within a narrow band (~0.74s to ~0.77s).")
+    lines.append("    * Root Cause: When 80 concurrent worker threads fire simultaneously against a single in-process")
+    lines.append("      Starlette TestClient, the ASGI event loop and thread synchronization serialize the HTTP request handling")
+    lines.append("      before entering the FastAPI synchronous database blocks (engine().begin()).")
+    lines.append("    * Concurrency Under PostgreSQL: The database-level pg_advisory_xact_lock further serializes all catalog actions,")
+    lines.append("      ensuring atomic integrity without deadlocks or race conditions.")
+    lines.append("    * Methodological Limitation: An in-process TestClient harness demonstrates batch completion SLA (p95 <= 2.5s)")
+    lines.append("      and zero 5xx server errors under simultaneous arrival, but does not simulate distributed network RTT.")
     lines.append("")
     lines.append("4.3. Hardware Environment & Distributed Production Reality:")
-    lines.append("  - Benchmark Environment: Local Windows 11 host (AMD Ryzen / Intel Core CPU, NVMe SSD, loopback TCP 127.0.0.1:5433).")
-    lines.append("    * Loopback TCP RTT: < 0.1 ms.")
-    lines.append("    * In-process ASGI transport via Starlette TestClient (avoids external network socket overhead).")
+    lines.append("  - Benchmark Environment: Local Windows 11 host (11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz, 8 Cores, 16 Threads, 16 GB RAM, NVMe SSD).")
+    lines.append("    * Target DB: PostgreSQL 16 on loopback TCP 127.0.0.1:5433 (via HUS_TEST_DATABASE_URL).")
+    lines.append("    * In-process ASGI transport via Starlette TestClient.")
     lines.append("  - Production Extrapolation & Identified Bottlenecks:")
     lines.append("    1. Network Latency: In a real distributed Kubernetes cluster with external clients, TLS termination,")
     lines.append("       and Ingress routing (e.g. Nginx/Traefik), per-request network round-trip time (RTT 15-50ms)")

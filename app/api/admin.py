@@ -2,7 +2,7 @@
 """Admin console API endpoints with strict role-based authorization."""
 
 import logging
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
@@ -159,9 +159,12 @@ class DocumentMetadataUpdateRequest(BaseModel):
     metadata_json: dict | None = None
 
 
+DOC_REVIEW_ROLES = ("admin", "reviewer")
+
+
 class DocumentReviewActionRequest(BaseModel):
     reason: str = Field(min_length=3)
-    expected_status: str | None = None
+    expected_status: Literal["pending", "approved", "rejected"] | None = None
 
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -773,7 +776,7 @@ async def list_crawled_documents(
     offset: int = 0,
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") not in ("admin", "reviewer"):
+    if principal.get("role") not in DOC_REVIEW_ROLES:
         raise HTTPException(403, "forbidden")
 
     with engine().connect() as conn:
@@ -792,7 +795,7 @@ async def list_crawled_documents(
 @router.get("/crawler/documents/{doc_id}")
 async def get_crawled_document_detail(request: Request, doc_id: str) -> dict:
     principal = await require_account(request)
-    if principal.get("role") not in ("admin", "reviewer"):
+    if principal.get("role") not in DOC_REVIEW_ROLES:
         raise HTTPException(403, "forbidden")
 
     with engine().connect() as conn:
@@ -847,7 +850,7 @@ async def approve_crawled_document(
     request: Request, doc_id: str, body: DocumentReviewActionRequest
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") not in ("admin", "reviewer"):
+    if principal.get("role") not in DOC_REVIEW_ROLES:
         raise HTTPException(403, "forbidden")
 
     try:
@@ -889,7 +892,7 @@ async def reject_crawled_document(
     request: Request, doc_id: str, body: DocumentReviewActionRequest
 ) -> dict:
     principal = await require_account(request)
-    if principal.get("role") not in ("admin", "reviewer"):
+    if principal.get("role") not in DOC_REVIEW_ROLES:
         raise HTTPException(403, "forbidden")
 
     try:

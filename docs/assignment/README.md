@@ -7,7 +7,7 @@
 - **Mã đề tài:** AI-07 (Explainable Course Recommender)
 - **Mã biến thể:** **VT-099** (*Reviewer Role Moderation & Compare-and-Set Concurrency Conflict Protection*)
 - **Baseline commit:** `1205fa94eadfaa6a52721e85cdab8a7dea9cfa11` ("Merge PR #148 … fix(rag)")
-- **Nhánh Git:** `bt3/23001939-vt099`
+- **Nhánh Git:** [`bt3/23001939-vt099`](https://github.com/5-Bit-System/SE_Project/tree/bt3/23001939-vt099)
 - **Tài liệu báo cáo:**
   - PDF: [`deliverables/BT3_23001939_VT-099.pdf`](../../deliverables/BT3_23001939_VT-099.pdf)
   - HTML gốc: [`deliverables/BT3_23001939_VT-099.html`](../../deliverables/BT3_23001939_VT-099.html)
@@ -26,9 +26,12 @@ Biến thể VT-099 triển khai một lát cắt dọc (vertical slice) hoàn c
    - Reviewer có quyền phê duyệt (`POST .../approve`) hoặc từ chối (`POST .../reject`) tài liệu chờ duyệt (`pending`).
    - Reviewer **bị cấm tuyệt đối (HTTP 403 Forbidden)** khi cố tình chỉnh sửa siêu dữ liệu gốc (`PUT /admin/crawler/documents/{id}/metadata`). Quyền này chỉ thuộc về `admin`.
 2. **Bảo vệ xung đột đồng thời (Compare-and-Set Concurrency Conflict Protection):**
-   - Bổ sung trường tùy chọn `expected_status` trong payload kiểm duyệt.
-   - Khi hai reviewer cùng mở một tài liệu `pending` và gửi quyết định trái ngược nhau đồng thời kèm `expected_status="pending"`: hệ thống khóa hàng (`SELECT ... FOR UPDATE`), yêu cầu đầu tiên commit thành công (HTTP 200 OK), yêu cầu thứ hai phát hiện trạng thái đã đổi và bị từ chối ngay lập tức với **HTTP 409 Conflict** (loại trừ triệt để lỗi *Last-Writer-Wins*).
-   - Bảo toàn 100% tính tương thích ngược cho các client cũ không gửi `expected_status` (vẫn hỗ trợ duyệt lại).
+   - Bổ sung trường tùy chọn `expected_status` trong payload kiểm duyệt (`Literal['pending', 'approved', 'rejected']`).
+   - Khi hai reviewer cùng mở một tài liệu `pending` và gửi quyết định trái ngược nhau đồng thời kèm `expected_status="pending"`: hệ thống khóa hàng (`SELECT ... FOR UPDATE`), yêu cầu đầu tiên commit thành công (HTTP 200 OK), yêu cầu thứ hai phát hiện trạng thái đã đổi và bị từ chối ngay lập tức với **HTTP 409 Conflict** (loại trừ lỗi *Last-Writer-Wins* khi client chỉ định trạng thái kỳ vọng).
+   - Bảo toàn 100% tính tương thích ngược cho các client cũ không gửi `expected_status` (vẫn hỗ trợ duyệt lại vô điều kiện).
+3. **Quy chuẩn Schema Database bằng Alembic Migration:**
+   - Hệ thống bổ sung migration `database/hus_alembic/versions/20261111_14_reviewer_role.py` (`hus_20261111_14`) mở rộng `accounts_role_check` cho vai trò `reviewer`.
+   - Loại bỏ hoàn toàn việc chỉnh sửa DDL trong test fixtures (tránh lỗi *false fixtures*).
 
 ---
 
@@ -45,13 +48,13 @@ cd f:\SE_Project
 $env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:<TEST_DB_PASSWORD>@127.0.0.1:5433/ai07?sslmode=disable"
 ```
 
-### 2. Chạy Test Suite VT-099 (12 Test Cases)
-Test suite kiểm tra toàn diện 4 Acceptance Criteria (TC-01 đến TC-12) bao gồm xác thực, phân quyền RBAC, anti-vacuous authorization negative tests, service concurrency barrier race test và API 409 conflict:
+### 2. Chạy Test Suite VT-099 (15 Test Cases)
+Test suite kiểm tra toàn diện 4 Acceptance Criteria (TC-01 đến TC-15) bao gồm xác thực, phân quyền RBAC, anti-vacuous authorization negative tests, service concurrency barrier race test, API 409 conflict (cả approve và reject) và literal validation:
 
 ```powershell
 .venv\Scripts\python.exe -m pytest tests/api/test_vt099_reviewer_concurrency.py -v
 ```
-*Kết quả kỳ vọng: 12 passed in ~3.8s.*
+*Kết quả kỳ vọng: 15 passed in ~5.0s.*
 
 ### 3. Chạy Regression Test Suite (Bảo toàn Test cũ)
 Kiểm chứng 100% tính tương thích ngược với các test case duyệt tài liệu hiện có trong codebase:

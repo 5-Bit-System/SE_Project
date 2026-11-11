@@ -24,16 +24,12 @@ from sqlalchemy import text
 from app.auth import repository
 from app.auth.security import AuthFailure, password_hash
 from app.crawler.document_review_service import (
+    DocumentConflictError,
     create_document,
     get_document,
     review_document,
 )
 from tests.support.admin_database import admin_test_engine, admin_test_url
-
-try:
-    from app.crawler.document_review_service import DocumentConflictError
-except ImportError:
-    DocumentConflictError = None  # Expected during RED phase
 
 pytestmark = pytest.mark.hus_postgres
 
@@ -41,8 +37,8 @@ REVIEWER_1_ID = "55555555-5555-4555-8555-111111111111"
 REVIEWER_1_EMAIL = "reviewer1_vt099@hus.vnu.edu.vn"
 REVIEWER_2_ID = "55555555-5555-4555-8555-222222222222"
 REVIEWER_2_EMAIL = "reviewer2_vt099@hus.vnu.edu.vn"
-GUEST_ID = "55555555-5555-4555-8555-333333333333"
-GUEST_EMAIL = "guest_vt099@hus.vnu.edu.vn"
+TEACHER_ID = "55555555-5555-4555-8555-333333333333"
+TEACHER_EMAIL = "teacher_vt099@hus.vnu.edu.vn"
 TEST_PASSWORD = "StrongReviewerPassword2026!"
 
 
@@ -100,14 +96,6 @@ def ensure_test_doc(eng, doc_id: str = "doc_vt099_test_pending") -> dict:
 def setup_engine(monkeypatch, tmp_path):
     admin_test_url()
     eng = admin_test_engine()
-    with eng.begin() as conn:
-        conn.execute(text("ALTER TABLE accounts DROP CONSTRAINT IF EXISTS accounts_role_check"))
-        conn.execute(
-            text(
-                "ALTER TABLE accounts ADD CONSTRAINT accounts_role_check "
-                "CHECK (role in ('student', 'teacher', 'admin', 'reviewer', 'guest'))"
-            )
-        )
     monkeypatch.setattr("app.api.admin.engine", lambda: eng)
     monkeypatch.setattr("app.auth.repository.engine", lambda: eng)
     monkeypatch.setattr("app.integrations.daotao.store.engine", lambda: eng)
@@ -127,22 +115,37 @@ def cleanup_data():
             conn.execute(
                 text("""
                     DELETE FROM admin_audit_logs
-                    WHERE actor_id IN (:id1, :id2, :id3)
+                    WHERE actor_id IN (:id1, :id2, :id3, :id4)
                        OR target_id LIKE 'doc_vt099%'
                 """),
-                {"id1": REVIEWER_1_ID, "id2": REVIEWER_2_ID, "id3": GUEST_ID},
+                {
+                    "id1": REVIEWER_1_ID,
+                    "id2": REVIEWER_2_ID,
+                    "id3": TEACHER_ID,
+                    "id4": "55555555-5555-4555-8555-444444444444",
+                },
             )
             conn.execute(
-                text("DELETE FROM auth_sessions WHERE account_id IN (:id1, :id2, :id3)"),
-                {"id1": REVIEWER_1_ID, "id2": REVIEWER_2_ID, "id3": GUEST_ID},
+                text("DELETE FROM auth_sessions WHERE account_id IN (:id1, :id2, :id3, :id4)"),
+                {
+                    "id1": REVIEWER_1_ID,
+                    "id2": REVIEWER_2_ID,
+                    "id3": TEACHER_ID,
+                    "id4": "55555555-5555-4555-8555-444444444444",
+                },
             )
             conn.execute(text("DELETE FROM crawled_documents WHERE id LIKE 'doc_vt099%'"))
             conn.execute(
                 text(
                     "DELETE FROM accounts "
-                    "WHERE id IN (:id1, :id2, :id3) OR username LIKE 'rev_55555555%' OR username LIKE 'usr_55555555%'"
+                    "WHERE id IN (:id1, :id2, :id3, :id4) OR username LIKE 'rev_55555555%' OR username LIKE 'usr_55555555%'"
                 ),
-                {"id1": REVIEWER_1_ID, "id2": REVIEWER_2_ID, "id3": GUEST_ID},
+                {
+                    "id1": REVIEWER_1_ID,
+                    "id2": REVIEWER_2_ID,
+                    "id3": TEACHER_ID,
+                    "id4": "55555555-5555-4555-8555-444444444444",
+                },
             )
 
     _cleanup()
@@ -228,12 +231,12 @@ def test_tc01_reviewer_db_login_and_session():
 
 
 def test_tc02_unsupported_role_db_login_fails():
-    """TC-02 (DB Integration): Account with unsupported role (e.g. 'guest') fails login() with AuthFailure (401)."""
+    """TC-02 (DB Integration): Account with non-login role (e.g. 'teacher') fails login() with AuthFailure (401)."""
     eng = admin_test_engine()
-    ensure_account(eng, GUEST_ID, GUEST_EMAIL, TEST_PASSWORD, role="guest")
+    ensure_account(eng, TEACHER_ID, TEACHER_EMAIL, TEST_PASSWORD, role="teacher")
 
     with pytest.raises(AuthFailure) as exc_info:
-        repository.login(GUEST_EMAIL, TEST_PASSWORD)
+        repository.login(TEACHER_EMAIL, TEST_PASSWORD)
     assert exc_info.value.status == 401
     assert exc_info.value.code == "invalid_login"
 
@@ -420,12 +423,12 @@ def test_tc10_service_concurrency_race_condition_barrier(sample_pending_doc):
 
 
 def test_tc11_api_conflict_returns_409(reviewer_client, sample_pending_doc):
-    """TC-11 (API Conflict): Document already approved. Reviewer sends POST .../reject with expected_status='pending' -> 409 Conflict."""
+    """TC-11 (API Conflict): Document already approved/rejected. Mismatched expected_status -> 409 Conflict."""
     doc_id = sample_pending_doc["id"]
     eng = admin_test_engine()
     ensure_account(eng, REVIEWER_1_ID, REVIEWER_1_EMAIL, TEST_PASSWORD, role="reviewer")
 
-    # Precondition: document is already approved
+    # Case A: Document already approved. Reviewer sends reject with expected_status="pending" -> 409 Conflict
     with eng.begin() as conn:
         conn.execute(
             text("""
@@ -439,18 +442,43 @@ def test_tc11_api_conflict_returns_409(reviewer_client, sample_pending_doc):
             {"rid": REVIEWER_1_ID, "id": doc_id},
         )
 
-    # Reviewer sends reject with expected_status="pending"
-    resp = reviewer_client.post(
+    resp_reject = reviewer_client.post(
         f"/admin/crawler/documents/{doc_id}/reject",
         json={
             "reason": "Phát hiện tài liệu không đạt chuẩn sau khi thấy pending",
             "expected_status": "pending",
         },
     )
-    assert resp.status_code == 409
-    data = resp.json()
-    assert "detail" in data
-    assert "approved" in data["detail"].lower() or "pending" in data["detail"].lower()
+    assert resp_reject.status_code == 409
+    data_reject = resp_reject.json()
+    assert "detail" in data_reject
+    assert "approved" in data_reject["detail"].lower() or "pending" in data_reject["detail"].lower()
+
+    # Case B: Document already rejected. Reviewer sends approve with expected_status="pending" -> 409 Conflict (covers approve branch)
+    with eng.begin() as conn:
+        conn.execute(
+            text("""
+                UPDATE crawled_documents
+                SET review_status = 'rejected',
+                    review_reason = 'Đã bị từ chối từ trước',
+                    reviewer_id = :rid,
+                    reviewed_at = now()
+                WHERE id = :id
+            """),
+            {"rid": REVIEWER_1_ID, "id": doc_id},
+        )
+
+    resp_approve = reviewer_client.post(
+        f"/admin/crawler/documents/{doc_id}/approve",
+        json={
+            "reason": "Cố tình phê duyệt tài liệu khi đã bị từ chối",
+            "expected_status": "pending",
+        },
+    )
+    assert resp_approve.status_code == 409
+    data_approve = resp_approve.json()
+    assert "detail" in data_approve
+    assert "rejected" in data_approve["detail"].lower() or "pending" in data_approve["detail"].lower()
 
 
 def test_tc12_reviewer_audit_log_recorded(reviewer_client, sample_pending_doc):
@@ -479,3 +507,66 @@ def test_tc12_reviewer_audit_log_recorded(reviewer_client, sample_pending_doc):
         assert str(log["actor_id"]) == REVIEWER_1_ID
         assert log["action"] == "document.approve"
         assert log["target_id"] == doc_id
+
+
+def test_tc13_reviewer_cannot_access_other_admin_endpoints(reviewer_client):
+    """TC-13 (Least Privilege RBAC): Reviewer is forbidden (403) from accessing admin-only management endpoints."""
+    # 1. Overview metrics
+    resp_overview = reviewer_client.get("/admin/overview")
+    assert resp_overview.status_code == 403
+
+    # 2. Audit logs inspection
+    resp_audit = reviewer_client.get("/admin/audit-logs")
+    assert resp_audit.status_code == 403
+
+
+def test_tc14_reviewer_must_change_password_flag():
+    """TC-14 (Auth Invariant): Reviewer account created with must_change_password=True preserves flag in session."""
+    eng = admin_test_engine()
+    uid = "55555555-5555-4555-8555-444444444444"
+    uemail = "reviewer_must_change@hus.vnu.edu.vn"
+    uname = f"rev_{uid.replace('-', '')}"
+
+    with eng.begin() as conn:
+        conn.execute(
+            text("""
+                INSERT INTO accounts (
+                    id, username, email, email_normalized, display_name,
+                    password_hash, role, email_verified_at, is_active,
+                    must_change_password
+                )
+                VALUES (
+                    :id, :username, :email, :email, :name,
+                    :pw_hash, 'reviewer', now(), true, true
+                )
+                ON CONFLICT (id) DO UPDATE SET
+                    must_change_password = true,
+                    role = 'reviewer'
+            """),
+            {
+                "id": uid,
+                "username": uname,
+                "email": uemail,
+                "name": "Reviewer Must Change PW",
+                "pw_hash": password_hash(TEST_PASSWORD),
+            },
+        )
+
+    raw_token = repository.login(uemail, TEST_PASSWORD)
+    session = repository.session_from_token(raw_token)
+    assert session is not None
+    assert session["role"] == "reviewer"
+    assert session["must_change_password"] is True
+
+
+def test_tc15_expected_status_literal_validation_422(reviewer_client, sample_pending_doc):
+    """TC-15 (API Strong Oracle): Sending an invalid expected_status string raises HTTP 422 Unprocessable Entity."""
+    doc_id = sample_pending_doc["id"]
+    resp = reviewer_client.post(
+        f"/admin/crawler/documents/{doc_id}/approve",
+        json={
+            "reason": "Phê duyệt với trạng thái kỳ vọng không hợp lệ",
+            "expected_status": "not_a_valid_status",
+        },
+    )
+    assert resp.status_code == 422
