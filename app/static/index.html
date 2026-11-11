@@ -1579,52 +1579,63 @@
       <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Dữ liệu điều kiện học có thể thay đổi; kết quả là thông tin tham khảo. Hãy xác nhận lịch mở lớp với nhà trường.</p></div>
     </section>
     <section id="tab-lookup" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-lookup">
-      <div class="lookup-heading">
-        <div>
-          <p class="page-context">Hỏi đáp học vụ HUS</p>
+      <div class="lookup-topbar">
+        <div class="lookup-topbar-title">
           <h2>Tra cứu thông tin</h2>
-          <p class="muted-copy">Tra thông tin ngành học, khung chương trình, điều kiện tiên quyết và đề cương học phần từ dữ liệu HUS chính thức.</p>
+          <span class="lookup-scope-pill"><span class="pulse-dot" aria-hidden="true"></span>Trợ lý HUS</span>
         </div>
-        <div class="lookup-families" aria-label="Phạm vi hỏi đáp">
-          <span class="subtle-tag"><strong>F1</strong> Thông tin ngành</span>
-          <span class="subtle-tag"><strong>F2</strong> Khung chương trình</span>
-          <span class="subtle-tag"><strong>F3</strong> Kiến thức AI tham khảo</span>
+        <div class="lookup-context">
+          <div class="lookup-major-field">
+            <label for="lookup-major" class="sr-only">Ngành đang tra cứu</label>
+            <select id="lookup-major" class="modern-select" disabled><option>Đang tải danh sách ngành…</option></select>
+          </div>
+          <div class="lookup-version-field">
+            <span class="sr-only">Phiên bản dữ liệu</span>
+            <output id="lookup-version" for="lookup-major" class="lookup-version-badge" title="Phiên bản dữ liệu">Đang tải…</output>
+          </div>
         </div>
       </div>
       <div class="lookup-workspace workspace-surface">
-        <div class="lookup-context">
-          <div class="lookup-major-field"><label for="lookup-major">Ngành đang tra cứu</label><select id="lookup-major" class="modern-select" disabled><option>Đang tải danh sách ngành…</option></select></div>
-          <div class="lookup-version-field"><span class="lookup-field-label">Phiên bản dữ liệu</span><output id="lookup-version" for="lookup-major">Đang tải…</output></div>
-        </div>
         <div class="lookup-body">
           <aside id="lookup-catalog" class="lookup-catalog" aria-label="Danh mục câu hỏi">
-            <h3>Danh mục câu hỏi gợi ý</h3>
-            <p class="lookup-catalog-intro">Chọn câu hỏi mẫu theo ngành đang tra cứu hoặc tìm theo mã/tên môn.</p>
-            <label for="lookup-catalog-search">Tìm câu hỏi, tên hoặc mã môn</label>
-            <input id="lookup-catalog-search" type="search" placeholder="Ví dụ: tín chỉ, MAT3507, tiên quyết…" disabled>
-            <p id="lookup-catalog-status" class="lookup-catalog-status" role="status" aria-live="polite">Đang tải danh mục…</p>
+            <div class="lookup-catalog-header">
+              <h3>Câu hỏi gợi ý</h3>
+              <p id="lookup-catalog-status" class="lookup-catalog-status" role="status" aria-live="polite">Đang tải…</p>
+            </div>
+            <div class="lookup-catalog-search-wrap">
+              <label for="lookup-catalog-search" class="sr-only">Tìm câu hỏi, tên hoặc mã môn</label>
+              <input id="lookup-catalog-search" type="search" placeholder="Tìm câu hỏi, mã môn…" disabled>
+            </div>
             <button id="lookup-catalog-retry" type="button" class="portal-button" hidden>Tải lại danh mục</button>
             <div id="lookup-catalog-groups" class="lookup-catalog-groups"></div>
           </aside>
           <div class="lookup-chat-panel">
             <div id="lookup-messages" class="lookup-messages" role="log" aria-label="Hội thoại tra cứu" aria-live="polite" aria-relevant="additions text"></div>
             <form id="lookup-form" class="lookup-composer">
-              <label class="lookup-question-label" for="lookup-question">Câu hỏi của bạn</label>
-              <div class="lookup-input-row">
-                <textarea id="lookup-question" rows="2" maxlength="1000" aria-describedby="lookup-single-turn" placeholder="Ví dụ: MAT3507 cần học môn gì trước? Hoặc: Khung chương trình Khoa học dữ liệu gồm những khối nào?" required disabled></textarea>
-                <button id="lookup-send" type="submit" class="portal-button primary-action" disabled>Gửi <span aria-hidden="true">↗</span></button>
+              <label class="sr-only" for="lookup-question">Câu hỏi của bạn</label>
+              <div class="lookup-composer-box">
+                <textarea id="lookup-question" rows="1" maxlength="1000" aria-describedby="lookup-single-turn" placeholder="Nhắn tin cho Trợ lý HUS (Ví dụ: MAT3507 cần học môn gì trước?)..." required disabled></textarea>
+                <button id="lookup-send" type="submit" class="lookup-send-btn" title="Gửi câu hỏi" disabled aria-label="Gửi">
+                  <svg viewBox="0 0 20 20" fill="none" class="lookup-send-icon" aria-hidden="true">
+                    <path d="M3.5 10L16.5 3.5L10 16.5L8.5 11.5L3.5 10Z" fill="currentColor"/>
+                  </svg>
+                </button>
               </div>
               <div class="lookup-composer-footer">
-                <label class="lookup-generated-label" for="lookup-generated"><input id="lookup-generated" type="checkbox" disabled><span>Cho phép kiến thức AI tham khảo (F3)</span></label>
-                <span class="lookup-keyboard-hint">Enter để gửi · Shift + Enter để xuống dòng</span>
+                <label class="lookup-generated-label" for="lookup-generated">
+                  <input id="lookup-generated" type="checkbox" disabled>
+                  <span>Cho phép kiến thức AI tham khảo (F3)</span>
+                </label>
+                <p id="lookup-status" class="lookup-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>
               </div>
-              <p id="lookup-single-turn" class="lookup-ai-note">Hỗ trợ tra cứu mã môn, tên môn viết tắt (GT1, ĐSTT, CSDL, TTNT…), tín chỉ, tiên quyết và tài liệu PDF quyết định gốc.</p>
-              <p id="lookup-status" class="lookup-status" role="status" aria-live="polite">Đang kiểm tra dữ liệu HUS…</p>
+              <p id="lookup-single-turn" class="sr-only">Hỗ trợ tra cứu mã môn, tên môn viết tắt (GT1, ĐSTT, CSDL, TTNT…), tín chỉ, tiên quyết và tài liệu PDF quyết định gốc.</p>
             </form>
           </div>
         </div>
       </div>
-      <div class="source-notice"><span aria-hidden="true">ⓘ</span><p>Thông tin trích xuất từ quyết định ban hành CTĐT của ĐHKHTN (QĐ 3565, 3567, 3568, 3569). Đối chiếu văn bản PDF gốc trong phần dẫn chứng.</p></div>
+      <div class="lookup-disclaimer">
+        <span>ⓘ Dữ liệu trích xuất từ QĐ ban hành CTĐT ĐHKHTN (QĐ 3565, 3567, 3568, 3569). Đối chiếu PDF gốc trong phần dẫn chứng.</span>
+      </div>
     </section>
     </div>
   </main>

@@ -290,8 +290,8 @@
       if (terms.length && !group.hidden) group.open = true;
     }
     catalogStatus.textContent = visible
-      ? visible + ' / ' + catalogEntries.length + ' câu hỏi · Bấm để hỏi'
-      : 'Không có câu hỏi phù hợp. Thử tên hoặc mã môn khác.';
+      ? (visible === catalogEntries.length ? `${visible} câu hỏi` : `${visible}/${catalogEntries.length} câu hỏi`)
+      : 'Không có kết quả phù hợp';
   }
 
   function renderCatalog(value) {
@@ -497,6 +497,7 @@
       allow_generated_reference: generated?.checked === true};
     appendMessage('user', text);
     question.value = '';
+    question.style.height = '36px';
     busy = true;
     updateControls();
     setStatus('Đang tìm thông tin trong dữ liệu của ngành đã chọn…');
@@ -543,7 +544,11 @@
 
   if (form) form.addEventListener('submit', submit);
   if (question) {
-    question.addEventListener('input', updateControls);
+    question.addEventListener('input', () => {
+      question.style.height = 'auto';
+      question.style.height = Math.min(Math.max(question.scrollHeight, 36), 120) + 'px';
+      updateControls();
+    });
     question.addEventListener('keydown', event => {
       if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) {
         event.preventDefault();
