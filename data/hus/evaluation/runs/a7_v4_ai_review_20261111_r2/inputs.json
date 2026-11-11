@@ -1,0 +1,2335 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "A7V4-Q001-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "f526a537e9132345485d15b065a5697b",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Chương trình đào tạo Khoa học máy tính và thông tin là chương trình đào tạo trình độ đại học, bắt đầu được tuyển sinh từ năm 2012.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q002-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "c7ba6206d0dd89a4366c16fa118134d9",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Mục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+      "version": "2023"
+    },
+    {
+      "evidence_id": "A7V4-Q003-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "3d5549c23ea06616555c5f6917ccfa12",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;",
+      "version": "2023"
+    },
+    {
+      "evidence_id": "A7V4-Q004-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:MAT2501",
+        "identity_field": "record_id",
+        "json_pointer": "/credits",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": 4,
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q005-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:MAT2407",
+        "identity_field": "record_id",
+        "json_pointer": "/source_occurrences",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": [
+        "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502"
+      ],
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q006-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "khmtt_7480113qtd_2022:MAT3500",
+        "identity_field": "record_id",
+        "json_pointer": "/course_name",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": "Toán rời rạc",
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q007-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "cb86f293fc3013c5a6f4b896c5b9917a",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Đồ thị và cây\nĐồ thị mô tả liên hệ giữa các đỉnh bằng cạnh; đường đi diễn tả khả năng tiếp cận. Cây liên thông không chu trình nên có đường đơn duy nhất giữa hai đỉnh, hữu ích để biểu diễn phân cấp và mạng nối tối giản.\nKhái niệm thành phần: đỉnh; cạnh; liên thông; cây.\nVí dụ minh họa do AI biên soạn: Một mạng liên lạc hình cây nối được mọi địa điểm nhưng mất một cạnh sẽ tách mạng vì không còn đường vòng thay thế.",
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q008-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "fab9c31be06f98d101649a210a608f79",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn.",
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q009-source",
+      "major": "computer_science",
+      "source_ref": {
+        "identity": "19f0617e21d0f958e5e7ec53813e8b81",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Mục tiêu tham khảo do AI đề xuất:\n- Mô hình hóa lựa chọn bằng biến, mục tiêu và các ràng buộc có đơn vị rõ.\n- Giải thích tác dụng của tính lồi đối với quan hệ tối ưu cục bộ và toàn cục.\n- Diễn giải điều kiện dừng, nhân tử và điều kiện KKT dưới các giả thiết phù hợp.\n- Phân tích tính khả thi và bằng chứng về chất lượng nghiệm do thuật toán tạo ra.",
+      "version": "QD3568-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q013-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "21625268a830b8656f4b5bd4f07a9f80",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q014-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "ccf316f46ad984b080e0bceceff9fa44",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Đó là trang bị cho sinh viên kiến thức, trình độ chuyên môn tốt, các kiến thức và kỹ năng sâu về khoa học dữ liệu, khả năng thực hành nghề nghiệp nhằm đảm bảo cho sinh viên thích ứng cao với môi trường làm việc; Nâng cao kỹ năng thực hành, thực tập; có khả năng nắm bắt, tiếp cận và bước đầu ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp; Rèn luyện các kỹ năng làm việc nhằm hội nhập quốc tế tốt.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q015-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "fff32c3b35802b8f2d4f999460bfe349",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Sau khi tốt nghiệp, sinh viên còn có khả năng theo học sau đại học tại các khoa hoặc các trường Đại học khác có uy tín trong nước cũng như trên thế giới, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường ĐH, viện nghiên cứu, doanh nghiệp và cơ sở sản xuất.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q016-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT3500",
+        "identity_field": "record_id",
+        "json_pointer": "/credits",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": 4,
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q017-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT2501",
+        "identity_field": "record_id",
+        "json_pointer": "/source_occurrences",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": [
+        null
+      ],
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q018-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "khdl_7460108_2022:MAT2407",
+        "identity_field": "record_id",
+        "json_pointer": "/course_name",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": "Tối ưu hóa",
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q019-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "53c33f4964b4e3607d7404e50ab128cc",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Tính lồi và cấu trúc nghiệm\nTập lồi chứa toàn bộ đoạn nối giữa hai điểm của nó, còn hàm lồi có giá trị không vượt nội suy tuyến tính tương ứng. Khi tối thiểu hóa hàm lồi trên miền lồi, tối ưu cục bộ cũng là tối ưu toàn cục; tính lồi không tự bảo đảm tồn tại hoặc duy nhất của nghiệm.\nKhái niệm thành phần: tập lồi; hàm lồi; cực tiểu cục bộ; cực tiểu toàn cục.\nVí dụ minh họa do AI biên soạn: Một hàm mục tiêu phẳng trên cả một đoạn khả thi có thể có nhiều nghiệm tối ưu, dù bài toán vẫn lồi và mọi nghiệm cục bộ đều là toàn cục.",
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q020-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "3d18a23fd22309e6db3b54310b17c401",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Đạo hàm và xấp xỉ địa phương\nĐạo hàm là giới hạn của tỷ số biến thiên và cho phần tuyến tính mô tả hàm gần một điểm. Khả vi mạnh hơn liên tục: một đồ thị không đứt vẫn có thể có góc nhọn, nơi hệ số góc hai phía không khớp và không có tiếp tuyến duy nhất theo nghĩa đạo hàm.\nKhái niệm thành phần: đạo hàm; tỷ số biến thiên; tiếp tuyến; xấp xỉ tuyến tính.\nVí dụ minh họa do AI biên soạn: Đồ thị giá trị tuyệt đối liên tục tại gốc nhưng có độ dốc trái và phải khác nhau, minh họa vì sao liên tục chưa bảo đảm khả vi.",
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q021-source",
+      "major": "data_science",
+      "source_ref": {
+        "identity": "9d9943ae0df6b7daf856ee0e0771176d",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt quan hệ tương đương với quan hệ thứ tự\n- Sử dụng nguyên lý đếm phù hợp sự phân biệt và thứ tự\n- Giải thích phép quy nạp và quan hệ truy hồi\n- Diễn giải liên thông, đường đi và cây trong đồ thị",
+      "version": "QD3569-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q025-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "e7864b281332873d47213bf53a1bf0f7",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q026-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "e10eb3bab40d2e220787788f53ab58d8",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q027-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "44955940d64d25b5b729f5b30d98718f",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q028-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT2303",
+        "identity_field": "record_id",
+        "json_pointer": "/credits",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": 5,
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q029-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT2311",
+        "identity_field": "record_id",
+        "json_pointer": "/source_occurrences",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": [
+        "MAT2308"
+      ],
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q030-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "toan_hoc_7460101_2022:MAT2407",
+        "identity_field": "record_id",
+        "json_pointer": "/course_name",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": "Tối ưu hóa",
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q031-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "f1636193af414fe2fbf6eaf69853ed1a",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Đổi biến và hệ số Jacobian\nĐổi biến thay tọa độ để phù hợp đối xứng của hàm hoặc miền, đồng thời phải tính độ co giãn diện tích hay thể tích. Giá trị tuyệt đối định thức Jacobian biểu diễn hệ số này, nên không thể chỉ thay biểu thức hàm mà giữ nguyên phần tử tích phân.\nKhái niệm thành phần: đổi biến; tọa độ cực; Jacobian; phần tử diện tích.\nVí dụ minh họa do AI biên soạn: Trong tọa độ cực, một dải cùng độ rộng góc có diện tích lớn hơn khi xa gốc, giải thích vì sao phần tử diện tích chứa thêm thừa số bán kính.",
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q032-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "23e4b28d9f7719bba3a7bf96daef4155",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Ước lượng và khoảng tin cậy\nƯớc lượng điểm cung cấp một giá trị từ mẫu, còn khoảng tin cậy biểu diễn độ bất định theo quy trình lấy mẫu và giả định đã chọn. Mức tin cậy là đặc tính bao phủ dài hạn của phương pháp; nó không biến tham số cố định thành biến ngẫu nhiên trong diễn giải tần suất.\nKhái niệm thành phần: ước lượng điểm; khoảng tin cậy; mức tin cậy; độ bao phủ.\nVí dụ minh họa do AI biên soạn: Hai mẫu độc lập có thể cho hai khoảng khác nhau dù cùng dùng một quy trình, phản ánh biến động lấy mẫu chứ không phải tham số tổng thể thay đổi theo từng mẫu.",
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q033-source",
+      "major": "mathematics",
+      "source_ref": {
+        "identity": "b2eb819f7310551673f422bb33c151ae",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Mục tiêu tham khảo do AI đề xuất:\n- Mô hình hóa lựa chọn bằng biến, mục tiêu và các ràng buộc có đơn vị rõ.\n- Giải thích tác dụng của tính lồi đối với quan hệ tối ưu cục bộ và toàn cục.\n- Diễn giải điều kiện dừng, nhân tử và điều kiện KKT dưới các giả thiết phù hợp.\n- Phân tích tính khả thi và bằng chứng về chất lượng nghiệm do thuật toán tạo ra.",
+      "version": "QD3565-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q037-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "44d598308d53629fef5b3c8a7ec61495",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q038-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "a412471eac8540c9c40e56c92ea7b94b",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "Mục tiêu đào tạo Chương trình đào tạo đại học ngành Toán Tin nhằm trang bị cho sinh viên những kiến thức cơ sở vững chắc về Toán học và Tin học, và các kiến thức chuyên ngành mang tính liên ngành Toán ứng dụng và Tin học.",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q039-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "29eae8734736c0e9d8e2fe500ce56d90",
+        "identity_field": "chunk_id",
+        "json_pointer": "/source_quote",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+      },
+      "value": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "version": "unknown"
+    },
+    {
+      "evidence_id": "A7V4-Q040-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:MAT3533",
+        "identity_field": "record_id",
+        "json_pointer": "/credits",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": 3,
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q041-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:MAT3500",
+        "identity_field": "record_id",
+        "json_pointer": "/source_occurrences",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": [
+        null
+      ],
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q042-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "toan_tin_7460117_2022:MAT2303",
+        "identity_field": "record_id",
+        "json_pointer": "/course_name",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl",
+        "sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf"
+      },
+      "value": "Giải tích 2",
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q043-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "d39f724b454c85b1650f56e4a2fa5ab8",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Mô hình và hàm mất mát\nHàm mất mát định lượng sự khác nhau giữa dự đoán và mục tiêu theo ý nghĩa của nhiệm vụ. Tối ưu điều chỉnh tham số giảm mất mát trên mẫu, nhưng nghiệm tối ưu của mục tiêu đã chọn chưa bảo đảm phù hợp mọi quyết định thực tế.\nKhái niệm thành phần: hồi quy; phân loại; gradient; hàm mất mát.\nVí dụ minh họa do AI biên soạn: Dự đoán giá trị liên tục có thể dùng sai số bình phương, còn xác suất cho nhiều lớp cần mục tiêu gắn với phân phối nhãn.",
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q044-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "e9b1bed380ba3de6f236a2626d16b3d9",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Quy nạp và truy hồi\nQuy nạp chứng minh một tính chất lan từ trường hợp đầu sang các bước tiếp theo. Quan hệ truy hồi mô tả giá trị qua các giá trị trước, nhưng vẫn cần điều kiện đầu để xác định một dãy cụ thể.\nKhái niệm thành phần: quy nạp; điều kiện đầu; truy hồi.\nVí dụ minh họa do AI biên soạn: Số cách đi lên cầu thang bằng bước một hoặc hai bậc có thể tách theo loại bước cuối, tạo liên hệ với hai trường hợp trước.",
+      "version": "QD3567-2023"
+    },
+    {
+      "evidence_id": "A7V4-Q045-source",
+      "major": "mathematics_informatics",
+      "source_ref": {
+        "identity": "96dcc5e96a9fd01312048b284199d796",
+        "identity_field": "chunk_id",
+        "json_pointer": "/rendered_source_unit",
+        "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+      },
+      "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phân tích miền và giới hạn nhiều biến với các đường tiếp cận khác nhau.\n- Phân biệt tồn tại đạo hàm riêng với khả vi và xấp xỉ tuyến tính toàn phần.\n- Diễn giải gradient, Hessian và vai trò điểm biên trong cực trị.\n- Mô tả miền để thiết lập tích phân lặp phù hợp.\n- Giải thích ý nghĩa hệ số Jacobian khi đổi biến trong tích phân.",
+      "version": "QD3567-2023"
+    }
+  ],
+  "exposure": {
+    "actual_human_reviews": 0,
+    "author_kind": "ai",
+    "cases": [
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q001",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q002",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q003",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q004",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q005",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q006",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q007",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q008",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q009",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q010",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q011",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q012",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q013",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q014",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q015",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q016",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q017",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q018",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q019",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q020",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q021",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q022",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q023",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q024",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q025",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q026",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q027",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q028",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q029",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q030",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q031",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q032",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q033",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q034",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q035",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q036",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q037",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q038",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q039",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q040",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q041",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q042",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q043",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q044",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q045",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q046",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q047",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": true,
+        "question_id": "A7V4-Q048",
+        "topic_and_source_exposure": "Sources/runtime and prior intent families seen; not an independent holdout."
+      }
+    ],
+    "eligible_for_independent_acceptance": false,
+    "if_used_for_tuning": "Retire to dev; freeze a new evaluation set.",
+    "inputs_sha256": {
+      "data/hus/evaluation/a2_contracts_v1/questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6",
+      "data/hus/evaluation/a7_v4_candidate_20261111_r1/pack.json": "07b958a320983a43d65f759c25b5d9c712a363a3bce0475c0e6318a94d724397",
+      "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+      "data/hus/evaluation/diagnostic_dev_v2_routing/questions.jsonl": "413ed018b1a6bb1ad681d6c6c4ff5837b623c564337cd90252770be502073bc9",
+      "data/hus/evaluation/diagnostic_dev_v3_support/questions.jsonl": "a670c77d58b247cf35034944e939373b72f5e29da725094af7618d586ab5bc93",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context/questions.jsonl": "383f7ac60f306132d9f0b59587fef5db8686d90fc989574eba9aa7e4971a9123",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context_r2/questions.jsonl": "40d12a422b7ed8bcb9f43ec850724f3d43e7c7b914382524008e81e58364908e",
+      "data/hus/evaluation/diagnostic_dev_v7_role_exclusion/questions.jsonl": "13261079386ad19131cdee8a02ff9d7431e52bc72c593c29714b033d5fb35483",
+      "data/hus/evaluation/holdout_v2_candidate/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/hybrid_v5_dev_20261110/questions.jsonl": "cd7cfb8e022deffa3822538ffa95c8240943328c0b7e8d8592fa5978590ce0a4",
+      "data/hus/evaluation/llm_v4_dev_20261111_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+      "data/hus/evaluation/runs/llm_l5_ai_review_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_google_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_prepared_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_v4_ai_review_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r1/prepared.json": "d0adc047741d5debdfcfe0787682be33e7ad4c598b1ef9c23c43ed4da0d4d2ea",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r2/prepared.json": "1cafc7c64e0cc7ca666da02ef4dcc217106aad29ed00ea843958dda3b40ebe9f",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5"
+    },
+    "limits": "Exact normalized comparison to pinned evaluations only; not exhaustive manual/conversation semantic overlap review.",
+    "runtime_and_sources_seen": true
+  },
+  "gold": [
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q001-source"
+      ],
+      "expected_answer": "Chương trình đào tạo Khoa học máy tính và thông tin là chương trình đào tạo trình độ đại học, bắt đầu được tuyển sinh từ năm 2012.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "introduction",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q001",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q002-source"
+      ],
+      "expected_answer": "Mục tiêu của chương trình Khoa học máy tính và thông tin là đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q002",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q003-source"
+      ],
+      "expected_answer": "Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q003",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q004-source"
+      ],
+      "expected_answer": 4,
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "credits": 4
+      },
+      "expected_field": "credits",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q004",
+      "v2_expected_facts": {
+        "course_code": "MAT2501",
+        "field": "credits",
+        "prerequisite_status": "unknown",
+        "value": 4
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q005-source"
+      ],
+      "expected_answer": [
+        "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502"
+      ],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q005",
+      "v2_expected_facts": {
+        "course_code": "MAT2407",
+        "field": "prerequisites",
+        "prerequisite_status": "unresolved",
+        "value": [
+          "MAT2301/\nMAT2321/\nMAT2400\nMAT2303/\nMAT2502"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q006-source"
+      ],
+      "expected_answer": "Toán rời rạc",
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "name": "Toán rời rạc"
+      },
+      "expected_field": "name",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q006",
+      "v2_expected_facts": {
+        "course_code": "MAT3500",
+        "field": "name",
+        "prerequisite_status": "unknown",
+        "value": "Toán rời rạc"
+      }
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q007-source"
+      ],
+      "expected_answer": "Đồ thị và cây\nĐồ thị mô tả liên hệ giữa các đỉnh bằng cạnh; đường đi diễn tả khả năng tiếp cận. Cây liên thông không chu trình nên có đường đơn duy nhất giữa hai đỉnh, hữu ích để biểu diễn phân cấp và mạng nối tối giản.\nKhái niệm thành phần: đỉnh; cạnh; liên thông; cây.\nVí dụ minh họa do AI biên soạn: Một mạng liên lạc hình cây nối được mọi địa điểm nhưng mất một cạnh sẽ tách mạng vì không còn đường vòng thay thế.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q007",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q008-source"
+      ],
+      "expected_answer": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q008",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q009-source"
+      ],
+      "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Mô hình hóa lựa chọn bằng biến, mục tiêu và các ràng buộc có đơn vị rõ.\n- Giải thích tác dụng của tính lồi đối với quan hệ tối ưu cục bộ và toàn cục.\n- Diễn giải điều kiện dừng, nhân tử và điều kiện KKT dưới các giả thiết phù hợp.\n- Phân tích tính khả thi và bằng chứng về chất lượng nghiệm do thuật toán tạo ra.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q009",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "opt_in_required",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "needs_clarification",
+      "question_id": "A7V4-Q010",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "suggested_assessment",
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q011",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "clarification_required",
+      "evidence_ids": [],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": null,
+      "expected_status": "needs_clarification",
+      "question_id": "A7V4-Q012",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q013-source"
+      ],
+      "expected_answer": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "introduction",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q013",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q014-source"
+      ],
+      "expected_answer": "Đó là trang bị cho sinh viên kiến thức, trình độ chuyên môn tốt, các kiến thức và kỹ năng sâu về khoa học dữ liệu, khả năng thực hành nghề nghiệp nhằm đảm bảo cho sinh viên thích ứng cao với môi trường làm việc; Nâng cao kỹ năng thực hành, thực tập; có khả năng nắm bắt, tiếp cận và bước đầu ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp; Rèn luyện các kỹ năng làm việc nhằm hội nhập quốc tế tốt.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q014",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q015-source"
+      ],
+      "expected_answer": "Sau khi tốt nghiệp, sinh viên còn có khả năng theo học sau đại học tại các khoa hoặc các trường Đại học khác có uy tín trong nước cũng như trên thế giới, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường ĐH, viện nghiên cứu, doanh nghiệp và cơ sở sản xuất.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "further_study",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q015",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q016-source"
+      ],
+      "expected_answer": 4,
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "credits": 4
+      },
+      "expected_field": "credits",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q016",
+      "v2_expected_facts": {
+        "course_code": "MAT3500",
+        "field": "credits",
+        "prerequisite_status": "unknown",
+        "value": 4
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q017-source"
+      ],
+      "expected_answer": [
+        null
+      ],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q017",
+      "v2_expected_facts": {
+        "course_code": "MAT2501",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q018-source"
+      ],
+      "expected_answer": "Tối ưu hóa",
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "name": "Tối ưu hóa"
+      },
+      "expected_field": "name",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q018",
+      "v2_expected_facts": {
+        "course_code": "MAT2407",
+        "field": "name",
+        "prerequisite_status": "unresolved",
+        "value": "Tối ưu hóa"
+      }
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q019-source"
+      ],
+      "expected_answer": "Tính lồi và cấu trúc nghiệm\nTập lồi chứa toàn bộ đoạn nối giữa hai điểm của nó, còn hàm lồi có giá trị không vượt nội suy tuyến tính tương ứng. Khi tối thiểu hóa hàm lồi trên miền lồi, tối ưu cục bộ cũng là tối ưu toàn cục; tính lồi không tự bảo đảm tồn tại hoặc duy nhất của nghiệm.\nKhái niệm thành phần: tập lồi; hàm lồi; cực tiểu cục bộ; cực tiểu toàn cục.\nVí dụ minh họa do AI biên soạn: Một hàm mục tiêu phẳng trên cả một đoạn khả thi có thể có nhiều nghiệm tối ưu, dù bài toán vẫn lồi và mọi nghiệm cục bộ đều là toàn cục.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q019",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q020-source"
+      ],
+      "expected_answer": "Đạo hàm và xấp xỉ địa phương\nĐạo hàm là giới hạn của tỷ số biến thiên và cho phần tuyến tính mô tả hàm gần một điểm. Khả vi mạnh hơn liên tục: một đồ thị không đứt vẫn có thể có góc nhọn, nơi hệ số góc hai phía không khớp và không có tiếp tuyến duy nhất theo nghĩa đạo hàm.\nKhái niệm thành phần: đạo hàm; tỷ số biến thiên; tiếp tuyến; xấp xỉ tuyến tính.\nVí dụ minh họa do AI biên soạn: Đồ thị giá trị tuyệt đối liên tục tại gốc nhưng có độ dốc trái và phải khác nhau, minh họa vì sao liên tục chưa bảo đảm khả vi.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q020",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q021-source"
+      ],
+      "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt quan hệ tương đương với quan hệ thứ tự\n- Sử dụng nguyên lý đếm phù hợp sự phân biệt và thứ tự\n- Giải thích phép quy nạp và quan hệ truy hồi\n- Diễn giải liên thông, đường đi và cây trong đồ thị",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q021",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "opt_in_required",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "needs_clarification",
+      "question_id": "A7V4-Q022",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "suggested_assessment",
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q023",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "out_of_scope",
+      "evidence_ids": [],
+      "expected_dataset": null,
+      "expected_facts": {},
+      "expected_field": null,
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q024",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q025-source"
+      ],
+      "expected_answer": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "introduction",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q025",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q026-source"
+      ],
+      "expected_answer": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q026",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q027-source"
+      ],
+      "expected_answer": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "further_study",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q027",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q028-source"
+      ],
+      "expected_answer": 5,
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "credits": 5
+      },
+      "expected_field": "credits",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q028",
+      "v2_expected_facts": {
+        "course_code": "MAT2303",
+        "field": "credits",
+        "prerequisite_status": "present",
+        "value": 5
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q029-source"
+      ],
+      "expected_answer": [
+        "MAT2308"
+      ],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q029",
+      "v2_expected_facts": {
+        "course_code": "MAT2311",
+        "field": "prerequisites",
+        "prerequisite_status": "present",
+        "value": [
+          "MAT2308"
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q030-source"
+      ],
+      "expected_answer": "Tối ưu hóa",
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "name": "Tối ưu hóa"
+      },
+      "expected_field": "name",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q030",
+      "v2_expected_facts": {
+        "course_code": "MAT2407",
+        "field": "name",
+        "prerequisite_status": "unresolved",
+        "value": "Tối ưu hóa"
+      }
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q031-source"
+      ],
+      "expected_answer": "Đổi biến và hệ số Jacobian\nĐổi biến thay tọa độ để phù hợp đối xứng của hàm hoặc miền, đồng thời phải tính độ co giãn diện tích hay thể tích. Giá trị tuyệt đối định thức Jacobian biểu diễn hệ số này, nên không thể chỉ thay biểu thức hàm mà giữ nguyên phần tử tích phân.\nKhái niệm thành phần: đổi biến; tọa độ cực; Jacobian; phần tử diện tích.\nVí dụ minh họa do AI biên soạn: Trong tọa độ cực, một dải cùng độ rộng góc có diện tích lớn hơn khi xa gốc, giải thích vì sao phần tử diện tích chứa thêm thừa số bán kính.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q031",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q032-source"
+      ],
+      "expected_answer": "Ước lượng và khoảng tin cậy\nƯớc lượng điểm cung cấp một giá trị từ mẫu, còn khoảng tin cậy biểu diễn độ bất định theo quy trình lấy mẫu và giả định đã chọn. Mức tin cậy là đặc tính bao phủ dài hạn của phương pháp; nó không biến tham số cố định thành biến ngẫu nhiên trong diễn giải tần suất.\nKhái niệm thành phần: ước lượng điểm; khoảng tin cậy; mức tin cậy; độ bao phủ.\nVí dụ minh họa do AI biên soạn: Hai mẫu độc lập có thể cho hai khoảng khác nhau dù cùng dùng một quy trình, phản ánh biến động lấy mẫu chứ không phải tham số tổng thể thay đổi theo từng mẫu.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q032",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q033-source"
+      ],
+      "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Mô hình hóa lựa chọn bằng biến, mục tiêu và các ràng buộc có đơn vị rõ.\n- Giải thích tác dụng của tính lồi đối với quan hệ tối ưu cục bộ và toàn cục.\n- Diễn giải điều kiện dừng, nhân tử và điều kiện KKT dưới các giả thiết phù hợp.\n- Phân tích tính khả thi và bằng chứng về chất lượng nghiệm do thuật toán tạo ra.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q033",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "opt_in_required",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "needs_clarification",
+      "question_id": "A7V4-Q034",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "suggested_assessment",
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q035",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "basic_chat",
+      "evidence_ids": [],
+      "expected_dataset": null,
+      "expected_facts": {},
+      "expected_field": null,
+      "expected_status": null,
+      "question_id": "A7V4-Q036",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q037-source"
+      ],
+      "expected_answer": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "introduction",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q037",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q038-source"
+      ],
+      "expected_answer": "Mục tiêu đào tạo Chương trình đào tạo đại học ngành Toán Tin nhằm trang bị cho sinh viên những kiến thức cơ sở vững chắc về Toán học và Tin học, và các kiến thức chuyên ngành mang tính liên ngành Toán ứng dụng và Tin học.",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q038",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f1",
+      "evidence_ids": [
+        "A7V4-Q039-source"
+      ],
+      "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "expected_dataset": "f1",
+      "expected_facts": {},
+      "expected_field": "careers",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q039",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q040-source"
+      ],
+      "expected_answer": 3,
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "credits": 3
+      },
+      "expected_field": "credits",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q040",
+      "v2_expected_facts": {
+        "course_code": "MAT3533",
+        "field": "credits",
+        "prerequisite_status": "unresolved",
+        "value": 3
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q041-source"
+      ],
+      "expected_answer": [
+        null
+      ],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "prerequisites",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q041",
+      "v2_expected_facts": {
+        "course_code": "MAT3500",
+        "field": "prerequisites",
+        "prerequisite_status": "unknown",
+        "value": [
+          null
+        ]
+      }
+    },
+    {
+      "category": "f2",
+      "evidence_ids": [
+        "A7V4-Q042-source"
+      ],
+      "expected_answer": "Giải tích 2",
+      "expected_dataset": "f2",
+      "expected_facts": {
+        "name": "Giải tích 2"
+      },
+      "expected_field": "name",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q042",
+      "v2_expected_facts": {
+        "course_code": "MAT2303",
+        "field": "name",
+        "prerequisite_status": "present",
+        "value": "Giải tích 2"
+      }
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q043-source"
+      ],
+      "expected_answer": "Mô hình và hàm mất mát\nHàm mất mát định lượng sự khác nhau giữa dự đoán và mục tiêu theo ý nghĩa của nhiệm vụ. Tối ưu điều chỉnh tham số giảm mất mát trên mẫu, nhưng nghiệm tối ưu của mục tiêu đã chọn chưa bảo đảm phù hợp mọi quyết định thực tế.\nKhái niệm thành phần: hồi quy; phân loại; gradient; hàm mất mát.\nVí dụ minh họa do AI biên soạn: Dự đoán giá trị liên tục có thể dùng sai số bình phương, còn xác suất cho nhiều lớp cần mục tiêu gắn với phân phối nhãn.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q043",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q044-source"
+      ],
+      "expected_answer": "Quy nạp và truy hồi\nQuy nạp chứng minh một tính chất lan từ trường hợp đầu sang các bước tiếp theo. Quan hệ truy hồi mô tả giá trị qua các giá trị trước, nhưng vẫn cần điều kiện đầu để xác định một dãy cụ thể.\nKhái niệm thành phần: quy nạp; điều kiện đầu; truy hồi.\nVí dụ minh họa do AI biên soạn: Số cách đi lên cầu thang bằng bước một hoặc hai bậc có thể tách theo loại bước cuối, tạo liên hệ với hai trường hợp trước.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "content",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q044",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "f3",
+      "evidence_ids": [
+        "A7V4-Q045-source"
+      ],
+      "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân tích miền và giới hạn nhiều biến với các đường tiếp cận khác nhau.\n- Phân biệt tồn tại đạo hàm riêng với khả vi và xấp xỉ tuyến tính toàn phần.\n- Diễn giải gradient, Hessian và vai trò điểm biên trong cực trị.\n- Mô tả miền để thiết lập tích phân lặp phù hợp.\n- Giải thích ý nghĩa hệ số Jacobian khi đổi biến trong tích phân.",
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "answered",
+      "question_id": "A7V4-Q045",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "opt_in_required",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "objectives",
+      "expected_status": "needs_clarification",
+      "question_id": "A7V4-Q046",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "expected_dataset": "f3",
+      "expected_facts": {},
+      "expected_field": "suggested_assessment",
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q047",
+      "v2_expected_facts": {}
+    },
+    {
+      "category": "missing_evidence",
+      "evidence_ids": [],
+      "expected_dataset": "f2",
+      "expected_facts": {},
+      "expected_field": "credits",
+      "expected_status": "no_information",
+      "question_id": "A7V4-Q048",
+      "v2_expected_facts": {}
+    }
+  ],
+  "holdout_eligible": false,
+  "kind": "hus-a7-v4-1.0",
+  "pins": {
+    "artifacts": {
+      "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+      "app/hus/allowlist.py": "5eb040688d9cf6e3a8ac84f84c996a9bb2d278f115e2c5ae9d074cb0e65b980b",
+      "app/hus/answer_support.py": "52fed78a202a924f6d00e8af8663ec16cf1a9bd11ca47928234fcf4024898a42",
+      "app/hus/answering.py": "22c0b4e3fbcbc217fa6938040f980382154ecbaff49d7adab89f51f71d387e0d",
+      "app/hus/chat.py": "89ab48389351d30f5d4fa178a90667dd768042ec589382d325c2c3d78f37f28c",
+      "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+      "app/hus/citations.py": "26fc7e189d99fbcfe1ad8471d56c95aa782af1e035ed4d12bd9cfb8618273849",
+      "app/hus/cleaning.py": "9b6d49df001e1d84a2227fde6d362b783791fe0a1a98946a44ce65b10907b101",
+      "app/hus/corpus.py": "9b9f4d49a142f1d252b7a3139ce8a1f5484cf218125122ec0914893702a19c9a",
+      "app/hus/crawler.py": "4092955bf58b2134699aed3baffdc91fd7c1799feceb7c16504d034cefa7bbb2",
+      "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+      "app/hus/demo.py": "73cdd07d2f6c2dcbbf74293405bff865174ed89f1b223f9b8f5cf61270aedced",
+      "app/hus/embedding.py": "e141333cfb0dd352d4e25bc11ede37dc9b3a6860c34c00a7d06c82bb40446482",
+      "app/hus/extractors/__init__.py": "b0e0f4446f4518bd96f6c51cd7078460cb38caf94230a4aac8d36047d57bbd73",
+      "app/hus/extractors/docx.py": "29a3bf77800adeb928b9708e36a6c62897bf6393f586f0c140ec6075fa2bd14a",
+      "app/hus/extractors/excel.py": "23f7fbe4300a2a95abd345f78543611b853ae4ff8119733c0bf94da22a640fdc",
+      "app/hus/extractors/html.py": "07be1397d3adc2282923a69bd5bd14fdb4e783e5e9494cb36b9328e9a8990186",
+      "app/hus/extractors/pdf.py": "a7c175d96c8366edef779e9c2d6f96bdab163e76ea3af8d46a78af081c5fdb46",
+      "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+      "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+      "app/hus/f3_detail.py": "738d5759aa6cd5d293908d33818e7aab28b10ef8ad3736e255deadbec65b9643",
+      "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+      "app/hus/f3_runtime_release.py": "e7e7ed60d803fc1fefd6014e9f8f75638af8fd1ccca49e1759c426d5c0d0c12b",
+      "app/hus/hybrid_retrieval.py": "d3c6d9177304b0fe1f58b8c0f7fa4f31a8ad5c1a50b025fcc4b107b393a9aaec",
+      "app/hus/index.py": "03e48e210540a2c1215e5f33770d5c8a35ecb829ffa257bc532f8def129721db",
+      "app/hus/llm/__init__.py": "28388f9029c88a1e7e4f4d4123f9a3ada5042f3509e0a7804a1953a642a60497",
+      "app/hus/llm/adapter.py": "0e4015a49644168cf91a5b30e5067dd60be660ceffd8704c9c64eb329fdc3095",
+      "app/hus/llm/capacity.py": "d2d85f20052dc40bdfba6b5e34ef032d2f2a7a04b161db8936c01ff4e9b3ebf9",
+      "app/hus/llm/client.py": "46196b8a555628160824ccc27278d28ce96097a9f910d34e812a373c955cd63d",
+      "app/hus/llm/config.py": "0b8616891284ecf110e9b0b70b27b45f7ca2e8c734e4f7e1a1e5b2cc78bff536",
+      "app/hus/llm/contracts.py": "ba33f4ad7be202fdd709ed1bf123df75e150f2abd893401250a8b21747fbae18",
+      "app/hus/llm/coverage.py": "13d9bb383b3a52a1ee55b6b99056246eac3420880028d967583077c0275ec689",
+      "app/hus/llm/diagnostics.py": "e82edf3030e69239600cf26d2f7198370e41f23294cdbc097cb52421a99ffae6",
+      "app/hus/llm/document.py": "76e88ae2e21d41cb14a0d810a069c5b70330e5e20804c22c481e22ca69d43390",
+      "app/hus/llm/evidence.py": "3b2d29f4b8ce69f86b0fb1a1bda93d827fb4adfbc0666354b14eec99d8bbc7b5",
+      "app/hus/llm/generation.py": "834afaeda6ecc5c5f0899311877e7e53184bbd65d2a24ba67529e8c86c39176b",
+      "app/hus/llm/output.py": "af70dea35979ab3a33c58e829483c2a05881279c8fb63f9e3ba8650e6209e8b9",
+      "app/hus/llm/output_v3.py": "04dcee69be77aac74410695e5881939041cd4dcb9ba786f3b7282f135c3e855e",
+      "app/hus/llm/prompts.py": "1f814331eaf0f5bafd8be4596ecc8206e63d6fb7eaf7f0e4b80703e06b8fc9e6",
+      "app/hus/llm/usage.py": "7dbff844c20803e554dfce921e9a0ff6fa189d2c85681b87042abe3df8550c1f",
+      "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+      "app/hus/models.py": "bf915475eab4d246b48e92f063a4de89f6e04a0d2a6c46cef91f47545e7c3a53",
+      "app/hus/passage_tokenizer.py": "86a16e2a70b99faf8b2d60e57b0f8883bb0b046b83806bdbc47451aba43a1369",
+      "app/hus/passages.py": "f42509e2b82b9cb8a6975412190430ce3c66c1c2c657af95d1140c70e99fb6c0",
+      "app/hus/pipeline.py": "52b556cb08cee1f7e7c8b6f65274c3889d78b19b8fa3441d4b3d4fd75e3de5f9",
+      "app/hus/portable_adapter.py": "18f8ad1c84b6209bd69eb69737b6356180a25c8177c9de7650b47ffda3a4a354",
+      "app/hus/provenance.py": "7b687d2d715c2eee5ccca96b5243f929c52111dc682faaf28364b76c651f8509",
+      "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+      "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+      "app/hus/question_catalog.py": "8733ffcd9624aa0cb6698a6ef60738e7852df705870278ac39cf3f5db1fc9e3c",
+      "app/hus/question_routing.py": "daaadb63907d5b9d7c64cc7505bba91b2acdf365d560036a38eab921f624941b",
+      "app/hus/rag_loader.py": "8ce5c7ff7965e0b7b9b29cf2465f4ab49d994578f2aba62a97c97d6eeb0f525c",
+      "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+      "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+      "app/hus/release_validation.py": "5de530697faaddef91f1ac8273db3b7193b853a8d70346a9ff9858e1e9109c0e",
+      "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+      "app/hus/retrieval_config.py": "840282faced437929e13b9ddba6ad1d871925787b01ba648134da6075dc16f1e",
+      "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+      "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+      "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+      "app/hus/state.py": "a4f83c3fa87ab7521a9033806a654ebd0e50efd141b6eb87ae9b25a46a55d57d",
+      "app/hus/storage.py": "8113fd6a419d9f4087c03d395674d70a1f8233c423c76885fb54156deffe8056",
+      "app/hus/urls.py": "4edde88d965d577b28bba8501182e3b0deb8cfbbcc53e742521e7dca0085dcea",
+      "app/hus/vector_contract.py": "d874d777d66484e69cb37c605eb6bc03aa4d98c057d472f9788c0e82625579df",
+      "app/hus/vector_index.py": "7f27b7f2b38f1534a77d2f81637390d911bbb9bc81cef447162cd21cc8ac15e2",
+      "app/hus/vector_query.py": "173a99f6b9c7328dbf28ff61385b989aa14fcd5534b75d30ee2dceaa61b9b361",
+      "app/hus/vector_runtime.py": "32d56ab3cbdd8a71368ec4d37a6523f067e00cf6c05a23f8dc2abdd75d16fe48",
+      "app/schemas/hus.py": "5c9771360486e60193d5ad57a0adee0e08c032b7aaf3624e474dd95ef08bf34a",
+      "app/services/hus_service.py": "c7b5007a35b4b09ac88503d80dcd18f3122472214c8e7aae829427cbbf98e678",
+      "app/static/hus-rag-demo.css": "8c37d44f695970ede2356e342603a4d1a8e1beb32f68fd9c4f9500162e7f390d",
+      "app/static/hus-rag-demo.html": "81eb2685b4cfc1c79728a15b4b3f0077068b3314a8bf8aa21f298f5fe3a7980a",
+      "app/static/hus-rag-demo.js": "4a33e55cd2d38c64bab3459a6b74b42b3c4c8e2b338ebefcb6016985b79ddd61",
+      "data/hus/citation_assets/files/14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30.pdf": "14e7f87b1532989e7c822880c2b4e8134db3f4a4ace2b789b5ee27657fffbb30",
+      "data/hus/citation_assets/files/2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920.pdf": "2bc81e20fa37d37234cdb50862bdcbd2c1ae0fb4b136a7612a56da34fb712920",
+      "data/hus/citation_assets/files/3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4.pdf": "3d4ccd122e40f59b1fe7e73b70d93f171337999c44b0416c64ab0026cfc311f4",
+      "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+      "data/hus/citation_assets/files/49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6.pdf": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+      "data/hus/citation_assets/files/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8.pdf": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+      "data/hus/citation_assets/files/9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c.docx": "9f1e410d345a1f6c0be0773da0141abaa96430801aade8fdae6d95c4d1e3ae0c",
+      "data/hus/citation_assets/files/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2.pdf": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "data/hus/citation_assets/files/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab.pdf": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "data/hus/citation_assets/files/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1.pdf": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1",
+      "data/hus/citation_assets/files/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0.pdf": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+      "data/hus/citation_assets/files/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f.pdf": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+      "data/hus/citation_assets/files/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212.pdf": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+      "data/hus/citation_assets/files/faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f.pdf": "faf6a1fe1444377c88aa98d3e39dbb378db5ef54a5c171fb3759b81b158d4e4f",
+      "data/hus/citation_assets/registry.json": "31ea8dfa0fe7755e418d602dea007ffd18aaa2dee90f0b0ccf47e0800dbdfe99",
+      "data/hus/rag/CURRENT.json": "6924808bec6e3e6e3af065d0ded89c5764f7f6eb2b29fb1aa70042edb1fe4d94",
+      "data/hus/rag/releases/hus-data-20261111-v4/academic_issues.jsonl": "4d690d783c0e7d26df6453b851b180037757e22f28b1195b3038678121e7ac0a",
+      "data/hus/rag/releases/hus-data-20261111-v4/chunks.jsonl": "07c1003d6953a009426bceb3255379d766477e88222d2d69e994ad4ab74ed7ae",
+      "data/hus/rag/releases/hus-data-20261111-v4/display_edits.jsonl": "94345e079c7ce6780a238c4c872e331dc5bb248b601569508e15dad687c497e0",
+      "data/hus/rag/releases/hus-data-20261111-v4/evaluation/questions.jsonl": "3a07550d29514786a956451dff17e73ed46d27ca9a624478ff7698982c8d0369",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/canonical_f2.json": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/055c47bf412172c0.txt": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/0dd9aaaeefcbd7d7.txt": "69969504968b3ff8c0dffe4957c3971ffa6c3d425c389d821476c4a710e5a6ee",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1b525683101bf943.txt": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1c16ddf8a6f1f409.txt": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1e3ad5f9915aa051.txt": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/23a0c1df14a5708a.txt": "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/31b55b4ee6f451a6.txt": "b6b1acb155b3c77d2988824d7583f6a71c1805fefa6b2b77ea52a52415803bdb",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/89d4b39494d72217.txt": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/8afffd3cada3d048.txt": "c135289b21865e81cfb8a180593f7524a098cbd9d4711f4c12bf963a793a030a",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/ce8df97fe49665e9.txt": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d006f60211246633.txt": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d4fae066858f0b94.txt": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d6370261338de29f.txt": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f7f470e712738589.txt": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f8672cafba05d016.txt": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1_recovery_comparisons.jsonl": "67a90633bce308c1ece7a6adce8bd633bb78a3b6f5b30e41a00dfacbc2fd876d",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/coverage.jsonl": "741f6b130725469fdd4672906afd6333bc9f42ae7f50b4c808b7f57e8edcd6f0",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/identity_f2.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/manifest.json": "970aec760c6fdc371f01e1a8b7019d954e140ab51598a92a277492b239c6c56e",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/profiles.jsonl": "8380973c86970175e02921834aa41a837fc720365c7465155bef749d30478d66",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/rag_chunks.jsonl": "14a4717f619bc08685e28b7516927c7875f189d12e983ac86c0d8b5ae20a0fcc",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/rag_documents.jsonl": "30e5f9d98b487ba1210a6c3525d16ecf32cc60daffed7928bde64ba00b336501",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/candidate/records.jsonl": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/f3_v2/parent_manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/generated_blueprints.psv": "f2b0de36f5362fc5d590d5512b42fc423899d68ee85e88e52d3c03152ae150ec",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/pdf_code_page_audit.csv": "b75cc8a337929ddcf41f573b5a1ea235e26d4c8ae46f5e52bd25561d84e1cc72",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/raw/055c47bf412172c0.html": "006a1601975142c1d454b25a2eb6d6cf8eba79bbf15d6c19d45f233790779394",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/raw/1b525683101bf943.html": "b9364bdb8188311375f5805a897284af1a46c054831b08cdddf789ff3ec3a001",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/raw/ce8df97fe49665e9.html": "beb1f235d6d1e5db67eb71600571f977ac132092bfb4d5617e4e770fd1d0e31c",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/raw/d6370261338de29f.html": "b4bec58ee5e68d70d48e7596fea2fff8e486ecb98b670ab9c82ea711f395791e",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/raw/f8672cafba05d016.html": "507b38226a1d6285d48af11fb9d7a75c61f20e905e76218d938827b21af8c914",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/recovered_sources.jsonl": "e2b6f953073efb25d94c6873c2236a05d7f169a9e0c0d7731932ea08734341c8",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/recovered_text.jsonl": "27f8a9c5b3f1a10ba8ccfdb9f3ea7e59abe00ac0b5908d92a24f16ec1b3022c3",
+      "data/hus/rag/releases/hus-data-20261111-v4/evidence/search_glossary.json": "d3b3478862bc2c96df223b1ff26a6b2e2799f45104bc764a90ef68453f1166c0",
+      "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+      "data/hus/rag/releases/hus-data-20261111-v4/f2_chunks.jsonl": "0fddecc891449d44dfb9071b2605faca5d67b912c731ed9de527bb1fd5bcef9b",
+      "data/hus/rag/releases/hus-data-20261111-v4/f2_records.jsonl": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+      "data/hus/rag/releases/hus-data-20261111-v4/f3_chunks.jsonl": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+      "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+      "data/hus/rag/releases/hus-data-20261111-v4/groups.jsonl": "cc7a8e5e77663151365a0fdb72d602e3b11609231b0d39f80e062a129d4ff8d5",
+      "data/hus/rag/releases/hus-data-20261111-v4/input_manifest.json": "5eafc54cb301d56384e7c487e46b4a81df847ea6eed12ee2849c293fec98c994",
+      "data/hus/rag/releases/hus-data-20261111-v4/manifest.json": "7a363e3462e8684f194cf5d35438a52987b6cca6f6518651fb1effc1c33f11da",
+      "data/hus/rag/releases/hus-data-20261111-v4/programs.jsonl": "a5e291c5f2b6d97c148d84e904bba5fffc73faefc0871560af9b2c92da7caa4a",
+      "data/hus/rag/releases/hus-data-20261111-v4/quality_report.json": "28ae9790794e7fde4e60ec44b61cf3d0fd6bc0ee189ac1e9eb89fd788b6c7b2c",
+      "data/hus/rag/releases/hus-data-20261111-v4/search_aliases.jsonl": "00ddc3b915cc80d9370641ed92d3bc6c0ddb23cfe4bd0647e0f8f3c022746958",
+      "data/hus/rag/releases/hus-data-20261111-v4/source_inventory.jsonl": "469dbe9fa08a2866b1e08cba90b077059b6a219b7a37d8987af32ccec168b1c5",
+      "data/hus/rag/releases/hus-data-20261111-v4/source_syllabi.jsonl": "0f4471f4f01c382ccbe8a64afafa550a54887f19752c45615d3aa0016fe879d6",
+      "data/hus/rag/releases/hus-data-20261111-v4/source_syllabi_report.json": "c93c44150376ff88b4dba754a2ba44110eb2dcb0457fb7138e18c15edcf262b6",
+      "data/hus/rag/releases/hus-data-20261111-v4/sources.jsonl": "ac3ef328cc7202243ff33bff7d3c4264883429a49c1016e6570eab10a1f4dad5",
+      "data/hus/rag/releases/hus-data-20261111-v4/syllabus_links.jsonl": "b662acc37f0df03ac34c35d230178c196a27e72238eec3c533c2a9e7688c5832",
+      "requirements-dev.txt": "cc43ed55833652f9c36fc5de1272a42981c6598b83d8dc4183852cba2ece8ef8",
+      "requirements-lock.txt": "86692cef119450f8af676e901719744b3b90881aaa956df3d670ee64475ac202",
+      "requirements.txt": "81789424f7a7e84e41175d41a513c53cc60610cfb8201414a3071693c04c059c"
+    },
+    "configuration": {
+      "actual_model": null,
+      "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+      "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+      "entrypoint": "app.hus.demo:app",
+      "f1_f3_protocol": "hus-llm-document-v3",
+      "f2_protocol": "hus-llm-evidence-v1",
+      "index": null,
+      "llm_enabled": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_inference": "not_run",
+      "retrieval": "lexical"
+    },
+    "environment": {
+      "distributions": [
+        [
+          "Mako",
+          "1.4.3"
+        ],
+        [
+          "MarkupSafe",
+          "3.0.4"
+        ],
+        [
+          "PyYAML",
+          "6.0.3"
+        ],
+        [
+          "Pygments",
+          "2.21.0"
+        ],
+        [
+          "SQLAlchemy",
+          "2.0.54"
+        ],
+        [
+          "alembic",
+          "1.20.0"
+        ],
+        [
+          "annotated-doc",
+          "0.0.5"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "anyio",
+          "4.15.1"
+        ],
+        [
+          "argon2-cffi",
+          "25.1.0"
+        ],
+        [
+          "argon2-cffi-bindings",
+          "26.1.0"
+        ],
+        [
+          "beautifulsoup4",
+          "4.15.0"
+        ],
+        [
+          "certifi",
+          "2026.7.22"
+        ],
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "charset-normalizer",
+          "3.5.2"
+        ],
+        [
+          "click",
+          "8.5.0"
+        ],
+        [
+          "colorama",
+          "0.4.6"
+        ],
+        [
+          "cryptography",
+          "50.0.2"
+        ],
+        [
+          "dnspython",
+          "2.9.0"
+        ],
+        [
+          "email-validator",
+          "2.3.0"
+        ],
+        [
+          "et_xmlfile",
+          "2.0.0"
+        ],
+        [
+          "fastapi",
+          "0.143.0"
+        ],
+        [
+          "greenlet",
+          "3.5.6"
+        ],
+        [
+          "h11",
+          "0.16.0"
+        ],
+        [
+          "httpcore",
+          "1.0.9"
+        ],
+        [
+          "httpx",
+          "0.28.1"
+        ],
+        [
+          "idna",
+          "3.20"
+        ],
+        [
+          "iniconfig",
+          "2.3.1"
+        ],
+        [
+          "lxml",
+          "6.1.3"
+        ],
+        [
+          "openpyxl",
+          "3.1.5"
+        ],
+        [
+          "opentelemetry-api",
+          "1.45.1"
+        ],
+        [
+          "packaging",
+          "26.3"
+        ],
+        [
+          "pdfminer.six",
+          "20260107"
+        ],
+        [
+          "pdfplumber",
+          "0.11.10"
+        ],
+        [
+          "pillow",
+          "13.0.0"
+        ],
+        [
+          "pip",
+          "24.0"
+        ],
+        [
+          "playwright",
+          "1.58.0"
+        ],
+        [
+          "pluggy",
+          "1.6.0"
+        ],
+        [
+          "psycopg2-binary",
+          "2.9.13"
+        ],
+        [
+          "pycparser",
+          "3.12"
+        ],
+        [
+          "pydantic",
+          "2.14.1"
+        ],
+        [
+          "pydantic_core",
+          "2.50.1"
+        ],
+        [
+          "pyee",
+          "13.0.1"
+        ],
+        [
+          "pypdfium2",
+          "5.14.0"
+        ],
+        [
+          "pytest",
+          "9.1.1"
+        ],
+        [
+          "python-docx",
+          "1.2.0"
+        ],
+        [
+          "python-dotenv",
+          "1.2.4"
+        ],
+        [
+          "ruff",
+          "0.17.0"
+        ],
+        [
+          "setuptools",
+          "65.5.0"
+        ],
+        [
+          "soupsieve",
+          "3.0.3"
+        ],
+        [
+          "starlette",
+          "1.8.0"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "uvicorn",
+          "0.54.0"
+        ]
+      ],
+      "executable": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_integration\\pr6-resolution-20261102\\backups\\pr6\\ci-venv\\Scripts\\python.exe",
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+    },
+    "evaluators": {
+      "tests/hus/test_a7_evaluation.py": "61b14fdffacf0dad8dbd5876425f3e7826a09b3b0fd2361fa3f9863179223673",
+      "tools/evaluate_hus_a7.py": "27527db6f137fc311f3c8cb7c2d6bfc45f4b97857206ff07bec4b722322d2e29",
+      "tools/evaluate_hus_chatbot.py": "8fdf53cb54f88590575eb55cf4de8954e3fb522fa552efa5a2d200ecfaa40644",
+      "tools/evaluate_hus_diagnostic.py": "6f27b3f3e6112ca277c0faffb73f13c256b82bf6600b8cd2c633c700d0cb5355",
+      "tools/evaluate_hus_rag.py": "73647fce00dc53f712de4b43a7af56a008dc2ac309154a27e6d5f005a79ea5c9",
+      "tools/hus_a7_cases.py": "79f74e746ac366e501e424db1013d6577e0ae04b53eebf9787e4a0d84791e663",
+      "tools/hus_chatbot_source_audit.py": "9a736a0b03d7638c5c49232d58e3f31957c5ef52813ba7115f9cb7d4d500e693",
+      "tools/hus_llm_v4_audit.py": "b41be90d9f350e1166a03ed0eeaec17c58d3049421e95f1d66172b87bd18925e",
+      "tools/hus_rag_layer_metrics.py": "ce23fceb639b83117d095510cfa5c9bb1f55c55d6ad4d3bc728fc2add203679a",
+      "tools/hus_rag_metrics.py": "3ead52e049e3d2e24e3ff0139ed7dd3e350aa08dff58fd270e664fb157e8a419",
+      "tools/hus_rag_metrics_v2.py": "c19d555f4722f91389f49ef1eb301e3e4cc5d8b6a64ae1478140f999002e404f",
+      "tools/validate_hus_diagnostic.py": "c1347c3022eabe9993df849b4996d844ffc674032ccd7088ff7ca90cf03b1f21",
+      "tools/validate_hus_holdout.py": "a696e24bcb771fccac50b6fdcc394f57d07b8058e8956b38ec1f434067c7f815",
+      "tools/verify_hus_e2e.py": "6e7a2f917aaba7376faad5ed0a3829264746d761d7ae0d570ce86231fa3cf4e5"
+    }
+  },
+  "questions": [
+    {
+      "question_id": "A7V4-Q001",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Xin giới thiệu mốc bắt đầu tuyển sinh của ngành Khoa học máy tính và thông tin hệ chuẩn.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q002",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Mục đích đào tạo ngành Khoa học máy tính và thông tin phục vụ những bài toán thông tin nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q003",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Cơ hội nghề nghiệp trong nghiên cứu và phát triển của ngành Khoa học máy tính và thông tin ra sao?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q004",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Trong CTĐT đang chọn, Giải tích 1 MAT2501 được tính mấy tín chỉ?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q005",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Dòng nguồn điều kiện tiên quyết cho Tối ưu hóa MAT2407 ghi gì?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q006",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Xin đối chiếu tên đầy đủ của học phần mang mã MAT3500.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q007",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Nội dung AI tham khảo MAT3500 giải thích Đồ thị và cây như thế nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q008",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Nội dung MAT3533: trình bày chủ đề Khái quát và điều chuẩn theo nguồn AI tham khảo.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q009",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Theo tham khảo AI, mục tiêu học phần Tối ưu hóa MAT2407 gồm những năng lực nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q010",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Mình chưa bật quyền AI: cho xem nội dung tham khảo MAT3500.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q011",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Nguồn hiện có gợi ý đánh giá học phần MAT3533 như thế nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q012",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Hãy cho biết đồng thời tín chỉ và tiên quyết của Giải tích 1 MAT2501.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q013",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Xin giới thiệu ba lĩnh vực kiến thức làm nền tảng cho ngành Khoa học dữ liệu.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q014",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Mục tiêu đào tạo Khoa học dữ liệu chú trọng thực hành nghề nghiệp và hội nhập quốc tế thế nào?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q015",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Khả năng học tiếp sau đại học của người tốt nghiệp Khoa học dữ liệu được nguồn mô tả ra sao?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q016",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Đối chiếu số tín chỉ của Toán rời rạc MAT3500 trong phiên bản này giúp mình.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q017",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Ô tiên quyết của học phần Giải tích 1 MAT2501 hiện ghi thông tin gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q018",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Mã học phần MAT2407 tương ứng tên đầy đủ nào trong danh mục?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q019",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Nội dung AI tham khảo MAT2407 về Tính lồi và cấu trúc nghiệm có giải thích gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q020",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Đọc nội dung tham khảo MAT2501, phần Đạo hàm và xấp xỉ địa phương trình bày gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q021",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Mục tiêu học phần Toán rời rạc MAT3500 theo phần AI tham khảo là những gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q022",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Chưa cho phép kiến thức AI, tôi muốn xem mục tiêu MAT2407.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q023",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Trong phần AI đang lưu, có gợi ý đánh giá môn MAT3500 không?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q024",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Dự báo thời tiết thành phố Đà Nẵng vào cuối tuần này giúp tôi.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q025",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Giới thiệu ngành Toán học: khoa có những chương trình cử nhân nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q026",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Cơ hội nghề nghiệp ở ngân hàng và bảo hiểm cho cử nhân Toán học được mô tả thế nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q027",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Nguồn nói gì về khả năng học tiếp thạc sĩ, tiến sĩ sau khi tốt nghiệp Toán học?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q028",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Học phần Giải tích 2 MAT2303 mang số tín chỉ bao nhiêu theo nguồn?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q029",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Theo dòng gốc, điều kiện tiên quyết của Thống kê ứng dụng MAT2311 là gì?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q030",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Cho tôi tên đầy đủ ứng với mã MAT2407 trong ngành đang chọn.",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q031",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Phần nội dung tham khảo MAT2303 giải thích Đổi biến và hệ số Jacobian ra sao?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q032",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Trong nội dung AI MAT2311, chủ đề Ước lượng và khoảng tin cậy được diễn giải thế nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q033",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Các mục tiêu tham khảo AI của môn MAT2407 nhắm tới năng lực nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q034",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Tôi chưa đồng ý dùng nguồn AI; nội dung học phần MAT2303 có gì?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q035",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Cho biết gợi ý đánh giá MAT2311 nếu dữ liệu AI đang lưu có trường này.",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q036",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Alo!",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q037",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Giới thiệu lịch sử Toán Tin: chương trình bắt đầu năm nào và từng mang tên gì?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q038",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Mục đích đào tạo ngành Toán Tin kết hợp nền tảng Toán học và Tin học như thế nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q039",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Cơ hội nghề nghiệp tại doanh nghiệp cho người học Toán Tin gồm những vai trò nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q040",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Số tín chỉ được ghi cho môn Học máy MAT3533 của ngành này là bao nhiêu?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q041",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Đọc nguyên thông tin tiên quyết nguồn của Toán rời rạc MAT3500 giúp mình.",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q042",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Tên đầy đủ ghi trong danh mục cho mã MAT2303 là tên nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q043",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Nội dung AI MAT3533 trình bày Mô hình và hàm mất mát như thế nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q044",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Nội dung tham khảo MAT3500 về Quy nạp và truy hồi giải thích những gì?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q045",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Hãy liệt kê mục tiêu tham khảo AI của học phần Giải tích 2 MAT2303.",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q046",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Dù chưa bật opt-in AI, xin liệt kê mục tiêu tham khảo môn MAT3500.",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q047",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Với dữ liệu AI hiện có, có gợi ý đánh giá cho Giải tích 2 MAT2303 không?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "question_id": "A7V4-Q048",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Trong danh mục ngành này, MAT9999 có số tín chỉ được ghi là bao nhiêu?",
+        "version": "QD3567-2023"
+      }
+    }
+  ],
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "submission": {
+    "entrypoint": "app.hus.demo:app",
+    "llm_enabled": false,
+    "retrieval": "lexical",
+    "versions": {
+      "computer_science": "QD3568-2023",
+      "data_science": "QD3569-2023",
+      "mathematics": "QD3565-2023",
+      "mathematics_informatics": "QD3567-2023"
+    }
+  }
+}
