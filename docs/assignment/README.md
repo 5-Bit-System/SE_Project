@@ -75,9 +75,17 @@ Harness kích hoạt đồng thời 80 tác vụ thông qua `ThreadPoolExecutor`
 ```powershell
 .venv\Scripts\python.exe tools/verify_vt099_concurrency_load.py
 ```
-*Kết quả kỳ vọng: 80/80 requests hoàn tất, 0 lỗi 5xx, p95 latency đo được 1.4252s (dao động giữa các lần chạy trong khoảng ~0.76s - ~1.43s phụ thuộc tải CPU nền và trạng thái connection pool, hoàn toàn thỏa mãn mục tiêu SLA <= 2.50s).*
+*Kết quả kỳ vọng: 80/80 requests hoàn tất, 0 lỗi 5xx, p95 latency đo được 1.4252s ở lần chạy có log đầy đủ (dao động giữa các lần chạy, nguyên nhân chưa kiểm chứng; mọi lần chạy đều thỏa mãn SLA <= 2.50s).*
 
-### 5. Kiểm thử Đột biến (Mutation Testing Verification)
+### 5. Kiểm tra Độ phủ Dòng Diff Thực tế (Diff Coverage Verification)
+Tái lập kết quả đo đạc độ phủ trên lát cắt mã nguồn VT-099 (19 diff statements trên 3 files):
+
+```powershell
+python tools/measure_diff_coverage.py
+```
+*Kết quả kỳ vọng: 19/19 diff statements covered (100.0%).*
+
+### 6. Kiểm thử Đột biến (Mutation Testing Verification)
 Độ nhạy của test suite đối với các lỗi cố ý ("bỏ một validation quan trọng") được ghi nhận chi tiết tại [`deliverables/evidence/mutation-killed.txt`](../../deliverables/evidence/mutation-killed.txt):
 - **Mutation 1 (Bỏ validation cấm reviewer sửa metadata trong `admin.py`):**
   - Chạy `pytest tests/api/test_vt099_reviewer_concurrency.py -k test_tc07`
@@ -102,7 +110,7 @@ Harness kích hoạt đồng thời 80 tác vụ thông qua `ThreadPoolExecutor`
    - Nếu client không gửi trường này, hệ thống sẽ thực hiện cập nhật vô điều kiện theo thiết kế nhằm bảo toàn 100% tính tương thích ngược cho quy trình duyệt lại của các client cũ.
    - Giao diện web frontend hiện tại chưa gửi trường `expected_status`, do đó sự bảo vệ chống race condition hiện có hiệu lực và được kiểm chứng ở tầng backend API/service; việc kích hoạt trên UI sẽ hoàn tất khi frontend bổ sung trường này.
 4. **Giải thích Độ trễ Tải 80 Workers (Technical Hypothesis):**
-   - Hiện tượng độ trễ của 80 worker phân bố trong khoảng hẹp (~1.38s - ~1.43s) trên máy thử nghiệm là một **giả thuyết kỹ thuật chưa kiểm chứng bằng profiler chuyên dụng**. Giả thuyết này dựa trên suy luận rằng Starlette `TestClient` in-process serialize HTTP request trước khi vào các khối database đồng bộ, kết hợp cùng cơ chế xếp hàng của `QueuePool`. Cần đo đạc bằng công cụ profiling phân tán để xác nhận nguyên nhân chính xác trong môi trường production.
+   - Hiện tượng độ trễ của 80 worker phân bố trong khoảng hẹp (~1.38s - ~1.43s) trên máy thử nghiệm là một **giả thuyết kỹ thuật chưa kiểm chứng bằng profiler chuyên dụng**; độ trễ có dao động giữa các lần chạy do môi trường thử nghiệm. Giả thuyết này dựa trên suy luận rằng Starlette `TestClient` in-process serialize HTTP request trước khi vào các khối database đồng bộ, kết hợp cùng cơ chế xếp hàng của `QueuePool`.
 
 ---
 

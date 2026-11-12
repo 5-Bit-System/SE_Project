@@ -297,27 +297,17 @@
 
   <h2>2. AI-Assisted Implementation Plan & Architectural Trade-offs <span class="section-badge">Lecture 06</span></h2>
   
-  <h3>2.1. Đánh giá 4 Phương án Kiến trúc (Options Comparison)</h3>
+  <h3>2.1. Đánh giá Hai Phương án Kiến trúc (Ràng buộc Đề bài VT-099)</h3>
   <div class="card-grid">
     <div class="card" style="border-left: 3.5px solid #3182ce; background: #ebf8ff;">
       <div class="card-title"><span>Phương án A: CAS Tùy chọn qua Payload + FOR UPDATE</span><span class="badge badge-chosen">ĐƯỢC CHỌN</span></div>
-      <p><strong>Cơ chế:</strong> Thêm <code>expected_status: str | None = None</code> vào schema request; trong giao dịch, sau khi lấy khóa hàng <code>FOR UPDATE</code>, kiểm tra <code>if expected_status and doc['review_status'] != expected_status: raise DocumentConflictError</code> $\to$ HTTP 409 Conflict.</p>
-      <p><strong>Ưu điểm & Evidence:</strong> Không đổi schema DB; diff nhỏ gọn (Lecture 06 tr.13); bảo toàn 100% test cũ (<code>test_admin_document_review.py</code> dòng 98-116 duyệt lại tài liệu sau khi reject); loại trừ triệt để Last-Writer-Wins khi client truyền kỳ vọng.</p>
+      <p><strong>Cơ chế:</strong> Thêm trường tùy chọn <code>expected_status: Literal[...] | None = None</code> vào schema request; trong giao dịch, sau khi nhận khóa dòng <code>SELECT ... FOR UPDATE</code> có sẵn, kiểm tra <code>if expected_status and doc['review_status'] != expected_status: raise DocumentConflictError</code> $\to$ ánh xạ thành <strong>HTTP 409 Conflict</strong>.</p>
+      <p><strong>Ưu điểm & Bằng chứng Repository:</strong> Không đổi schema DB; diff nhỏ gọn (Lecture 06 tr.13); bảo toàn 100% test regression hiện có (<code>test_admin_document_review.py</code> dòng 98-116 duyệt lại tài liệu sau khi reject); loại trừ triệt để race condition khi client chỉ định trạng thái kỳ vọng.</p>
     </div>
     <div class="card" style="border-left: 3.5px solid #e53e3e;">
-      <div class="card-title"><span>Phương án B: Khóa Cứng Unconditional Pending-Only</span><span class="badge badge-fail">BỊ LOẠI</span></div>
-      <p><strong>Cơ chế:</strong> Sửa <code>review_document()</code> bắt buộc chỉ cho phép duyệt tài liệu đang có trạng thái <code>pending</code>. Nếu đã khác <code>pending</code> thì ném lỗi.</p>
-      <p><strong>Lý do bác bỏ:</strong> Phá vỡ trực tiếp tính năng nghiệp vụ duyệt lại tài liệu và làm FAIL test regression hiện có trong repo (<code>tests/api/test_admin_document_review.py</code> dòng 107-116), vi phạm nghiêm trọng ràng buộc NFC2.</p>
-    </div>
-    <div class="card" style="border-left: 3.5px solid #dd6b20;">
-      <div class="card-title"><span>Phương án C: Optimistic Locking với Cột `version`</span><span class="badge badge-fail">BỊ LOẠI</span></div>
-      <p><strong>Cơ chế:</strong> Thêm cột <code>version INT DEFAULT 1</code> vào bảng <code>crawled_documents</code>, kiểm tra <code>UPDATE ... WHERE id=:id AND version=:v</code>.</p>
-      <p><strong>Lý do bác bỏ:</strong> Đòi hỏi migration schema DB, sửa toàn bộ repository, model và API contract. Vi phạm nguyên tắc vertical slice nhỏ nhất (Lecture 06 tr.13) và rủi ro hồi quy cao.</p>
-    </div>
-    <div class="card" style="border-left: 3.5px solid #805ad5;">
-      <div class="card-title"><span>Phương án D: In-Memory Mutex Lock (`threading.Lock`)</span><span class="badge badge-fail">BỊ LOẠI</span></div>
-      <p><strong>Cơ chế:</strong> Dùng khóa bộ nhớ <code>threading.Lock()</code> trong tiến trình Python để tuần tự hóa các yêu cầu duyệt.</p>
-      <p><strong>Lý do bác bỏ:</strong> Theo Lecture 07 tr.10, integration test phải kiểm chứng ranh giới App $\leftrightarrow$ DB. Khóa bộ nhớ hoàn toàn vô hiệu khi ứng dụng chạy nhiều Uvicorn worker hoặc nhiều container phân tán.</p>
+      <div class="card-title"><span>Phương án B: Khóa Cứng Unconditional Pending-Only (hoặc Mutex)</span><span class="badge badge-fail">BỊ LOẠI</span></div>
+      <p><strong>Cơ chế:</strong> Bắt buộc <code>review_document()</code> chỉ cho phép duyệt từ <code>pending</code>, hoặc dùng <code>threading.Lock()</code> trong bộ nhớ Python để tuần tự hóa.</p>
+      <p><strong>Lý do bác bỏ & Bằng chứng Repository:</strong> (1) Quy tắc pending-only phá vỡ tính năng nghiệp vụ duyệt lại và làm FAIL test cũ trong repo (<code>tests/api/test_admin_document_review.py</code> dòng 107-116), vi phạm NFC2; (2) Khóa bộ nhớ Python vô hiệu khi ứng dụng chạy đa tiến trình worker (Lecture 07 tr.10).</p>
     </div>
   </div>
 
@@ -682,8 +672,8 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
       <tr>
         <td><code>app/api/admin.py</code></td>
         <td>37% (211/501 stmts)</td>
-        <td>11 statements</td>
-        <td><strong>100.0% (11/11 stmts)</strong></td>
+        <td>12 statements</td>
+        <td><strong>100.0% (12/12 stmts)</strong></td>
       </tr>
       <tr>
         <td><code>app/auth/repository.py</code></td>
@@ -700,13 +690,13 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
       <tr style="font-weight: 700; background-color: #edf2f7;">
         <td>Tổng cộng Lát cắt VT-099</td>
         <td>33% (406/1051 stmts)</td>
-        <td>18 statements</td>
-        <td><strong>100.0% (18/18 statements)</strong></td>
+        <td>19 statements</td>
+        <td><strong>100.0% (19/19 statements)</strong></td>
       </tr>
     </tbody>
   </table>
   <p style="font-size: 8pt; color: #4a5568; margin-top: -2px; margin-bottom: 6px;">
-    <em>Ghi chú chi tiết:</em> Toàn bộ 18 câu lệnh thêm mới thuộc lát cắt VT-099 (schema <code>DocumentReviewActionRequest</code> với Literal <code>expected_status</code>, gater <code>DOC_REVIEW_ROLES</code>, khối bắt lỗi 409 ở cả 2 endpoint <code>approve</code> và <code>reject</code>, hằng số <code>LOCAL_LOGIN_ROLES</code>, câu truy vấn <code>PRINCIPAL</code>, ngoại lệ <code>DocumentConflictError</code>, và kiểm tra CAS dưới khóa dòng <code>SELECT FOR UPDATE</code>) đều được 15 test cases trong <code>test_vt099_reviewer_concurrency.py</code> thực thi đầy đủ (0 câu lệnh bị bỏ sót). Xem chi tiết tại <code>deliverables/evidence/coverage-report.txt</code>.
+    <em>Ghi chú chi tiết:</em> Toàn bộ 19 câu lệnh thêm mới thuộc lát cắt VT-099 (schema <code>DocumentReviewActionRequest</code> với Literal <code>expected_status</code>, gater <code>DOC_REVIEW_ROLES</code>, 4 role checks, bắt lỗi 409 ở cả 2 endpoint <code>approve</code> và <code>reject</code>, hằng số <code>LOCAL_LOGIN_ROLES</code>, câu query <code>login()</code>, ngoại lệ <code>DocumentConflictError</code>, và kiểm tra CAS dưới khóa dòng <code>SELECT FOR UPDATE</code>) đều được 15 test cases trong <code>test_vt099_reviewer_concurrency.py</code> thực thi đầy đủ (0 câu lệnh bị bỏ sót). Tái lập kiểm chứng độc lập: <code>python tools/measure_diff_coverage.py</code>.
   </p>
 
   <h3>6.2. Phân tích Rủi ro Flaky Test & Kiểm chứng Độ ổn định 5 Vòng lặp Liên tiếp</h3>
@@ -791,7 +781,7 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
     <li><em>Cấu hình Phần cứng Thực tế:</em> Máy kiểm thử Windows 10/11 (AMD64, 16 logical cores, 15.7 GB RAM), SSD NVMe, kết nối PostgreSQL 16 qua loopback TCP 127.0.0.1:5433 (được script truy vấn tự động qua <code>platform</code> và <code>ctypes</code>).</li>
     <li><em>Đặc tính Phân bố Độ trễ & Giả thuyết Kỹ thuật:</em> Độ trễ của 80 worker phân bố tập trung trong khoảng hẹp (1.38s đến 1.43s). <strong>Giả thuyết kỹ thuật (chưa kiểm chứng bằng profiler chuyên dụng):</strong> Hiện tượng các độ trễ gom cụm được giả định là do 80 worker threads cùng gửi request qua một đối tượng Starlette <code>TestClient</code> in-process; cơ chế event loop và điều phối luồng của ASGI client tuần tự hóa việc tiếp nhận request trước khi đi vào các khối xử lý database đồng bộ (<code>engine().begin()</code>).</li>
     <li><em>Cơ chế Hàng đợi Connection Pool:</em> SQLAlchemy <code>QueuePool</code> cấu hình <code>pool_size=5</code> và <code>max_overflow=10</code> (tối đa 15 kết nối hoạt động đồng thời). Khi 80 luồng đồng loạt bùng nổ tại $t=0$, 15 luồng đầu tiên nhận kết nối ngay lập tức, 65 luồng còn lại được xếp hàng trong FIFO queue của pool và được rút cạn hoàn toàn trong 1.476s (không phát sinh lỗi TimeoutError 30s).</li>
-    <li><em>Tác động của `pg_advisory_xact_lock` & Khuyến nghị Mở rộng:</em> Trong <code>review_document()</code>, hàm <code>publication_lock(conn)</code> thực hiện <code>SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))</code>. Khóa này có phạm vi toàn cục database, bảo đảm tính nguyên tử tuyệt đối cho các giao dịch kiểm duyệt và chống race condition. Độ trễ p95 đạt 1.4252s, hoàn toàn thỏa mãn mục tiêu SLA &le; 2.50s. Để mở rộng thông lượng trong môi trường Kubernetes phân tán, khuyến nghị sharding advisory lock theo ngành đào tạo (<code>hashtext('hus_review_' || major)</code>) và triển khai PgBouncer.</li>
+    <li><em>Tác động của `pg_advisory_xact_lock` & Giới hạn Khóa Toàn cục:</em> Trong <code>review_document()</code>, hàm <code>publication_lock(conn)</code> thực hiện <code>SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))</code>. Khóa này có phạm vi toàn cục database, bảo đảm tính nguyên tử tuyệt đối cho các giao dịch kiểm duyệt và loại trừ race condition. Độ trễ p95 đạt 1.4252s, hoàn toàn thỏa mãn mục tiêu SLA &le; 2.50s. Do khóa mang tính toàn cục, các yêu cầu kiểm duyệt giữa các ngành đào tạo khác nhau vẫn phải tuần tự hóa sau khóa này; nếu cần tăng thông lượng đa ngành, khóa có thể được sharding theo ngành đào tạo (<code>hashtext('hus_review_' || major)</code>).</li>
   </ul>
 <div class="page-break"></div>
   <!-- ================= PAGE 8 ================= -->
@@ -861,13 +851,13 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
     </tbody>
   </table>
 
-  <h3>7.2. Kỹ sư Phản tư (Engineering Reflection — 333 words)</h3>
+  <h3>7.2. Kỹ sư Phản tư (Engineering Reflection — 334 words)</h3>
   <div class="reflection-block">
     Quá trình hoàn thành biến thể VT-099 mang lại cho tôi những kinh nghiệm thực chiến giá trị khi kết hợp cùng AI Coding Agent theo nguyên tắc kỹ thuật của Lecture 06 và 07.
     <br><br>
     <strong>Điều gia tăng mức độ tự tin (confidence) lớn nhất</strong> là chu trình kiểm thử hai tầng khép kín. Việc áp dụng TDD RED-GREEN giúp kiểm soát chặt chẽ từng dòng diff tối thiểu trên ba tập tin cốt lõi (auth repository, document review service, admin API). Sự tự tin được củng cố vững chắc khi kỹ sư con người phản biện thành công các đề xuất sai lệch của AI (ảo giác endpoint, rủi ro <em>false fixtures</em> khi chạy DDL trong test fixture), triển khai migration Alembic chuẩn mực và kiểm chứng hai đột biến (Mutation Testing) bị tiêu diệt hoàn toàn bởi test suite.
     <br><br>
-    <strong>Tuy nhiên, điều vẫn chưa được chứng minh</strong> trên môi trường thực tế gồm hai yếu tố. Thứ nhất, cơ chế Compare-and-Set (CAS) hiện tại chỉ kích hoạt khi client truyền <code>expected_status</code>; do giao diện frontend web hiện thời chưa gửi trường này, việc ngăn chặn race condition mới được bảo đảm ở tầng backend API, chưa bảo vệ trực tiếp trên UI người dùng. Thứ hai, bài đo tải 80 worker sử dụng Starlette <code>TestClient</code> in-process trên loopback nội bộ; độ trễ p95 đo được 1.4252s chưa phản ánh độ trễ mạng phân tán (network RTT) và việc cạnh tranh connection pool khi mở rộng đa pod.
+    <strong>Tuy nhiên, điều vẫn chưa được chứng minh</strong> trên môi trường thực tế gồm hai yếu tố. Thứ nhất, cơ chế Compare-and-Set (CAS) hiện tại chỉ kích hoạt khi client truyền <code>expected_status</code>; do giao diện frontend web hiện thời chưa gửi trường này, việc ngăn chặn race condition mới được bảo đảm ở tầng backend API, chưa bảo vệ trực tiếp trên UI người dùng. Thứ hai, bài đo tải 80 worker sử dụng Starlette <code>TestClient</code> in-process trên loopback nội bộ; độ trễ p95 đo được 1.4252s chưa phản ánh độ trễ mạng vật lý (network latency) và cạnh tranh connection pool giữa các tiến trình worker độc lập.
     <br><br>
     <strong>Vì vậy, bài kiểm thử tiếp theo có giá trị cao nhất</strong> là một bộ End-to-End (E2E) Browser Concurrency Test với Playwright: mô phỏng hai reviewer cùng đăng nhập trên hai trình duyệt độc lập, cùng mở một tài liệu pending và đồng thời nhấn Duyệt/Từ chối sau khi giao diện frontend được cập nhật gửi kèm <code>expected_status</code>. Bài test này sẽ xác nhận trọn vẹn trải nghiệm người dùng và thông báo lỗi HTTP 409 Conflict trên giao diện thực tế.
   </div>

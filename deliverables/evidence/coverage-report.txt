@@ -25,15 +25,16 @@ Coverage & Diff Statement Analysis:
   * app/api/admin.py: 37% (211/501 statements, 290 missed từ các endpoint crawler/announcement/admin khác)
   * app/auth/repository.py: 27% (57/186 statements, 129 missed từ LDAP/OAuth/student session khác)
   * app/crawler/document_review_service.py: 32% (128/364 statements, 236 missed từ pipeline crawler/html parsing khác)
-- Measured Line-by-Line Diff Statement Coverage (đo đạc thực nghiệm qua coverage.json ánh xạ git diff):
-  * app/api/admin.py: 11 diff statements, 11 executed, 0 missed (100.0%)
-    - Bao gồm: schema DocumentReviewActionRequest với Literal expected_status, DOC_REVIEW_ROLES gater, 409 conflict handling ở cả 2 endpoint approve và reject.
+- Measured Line-by-Line Diff Statement Coverage (tái lập tự động qua script tools/measure_diff_coverage.py đối chiếu git diff với coverage missed lines):
+  * app/api/admin.py: 12 diff statements, 12 executed, 0 missed (100.0%)
+    - Bao gồm: hằng số DOC_REVIEW_ROLES (dòng 162), trường expected_status (dòng 167), 4 role checks (dòng 779, 798, 853, 895), truyền expected_status (dòng 864, 906), bắt DocumentConflictError và raise 409 (dòng 876-877, 918-919).
   * app/auth/repository.py: 3 diff statements, 3 executed, 0 missed (100.0%)
-    - Bao gồm: hằng số LOCAL_LOGIN_ROLES, câu truy vấn PRINCIPAL cho reviewer, và điều kiện xác thực login().
+    - Bao gồm: hằng số LOCAL_LOGIN_ROLES (dòng 11), câu truy vấn login() cho reviewer (dòng 93), và điều kiện xác thực login() (dòng 104).
   * app/crawler/document_review_service.py: 4 diff statements, 4 executed, 0 missed (100.0%)
-    - Bao gồm: DocumentConflictError exception class, kiểm tra expected_status CAS dưới khóa dòng SELECT FOR UPDATE.
-  * Tổng cộng: 18 diff statements, 18 executed, 0 missed (100.0% line-level diff coverage).
-- Lưu ý khoa học: Báo cáo phân định rành mạch giữa độ phủ toàn module (33% tổng thể) và độ phủ thực tế đo đạc được trên lát cắt thay đổi của VT-099 (18/18 statements).
+    - Bao gồm: exception class DocumentConflictError (dòng 25), tham số expected_status (dòng 502), kiểm tra expected_status CAS và raise exception (dòng 518-519).
+  * Tổng cộng: 19 diff statements, 19 executed, 0 missed (100.0% line-level diff coverage).
+  * Lệnh kiểm chứng độc lập: python tools/measure_diff_coverage.py
+- Lưu ý khoa học: Báo cáo phân định rành mạch giữa độ phủ toàn module (33% tổng thể) và độ phủ thực tế đo đạc được trên lát cắt thay đổi của VT-099 (19/19 statements).
 
 
 2. ACCEPTANCE CRITERIA TO RISK & TEST COVERAGE MATRIX
@@ -44,7 +45,7 @@ Coverage & Diff Statement Analysis:
 | AC2: Reviewer RBAC & Least Privilege | Reviewer able to edit source metadata, or unauthorized access to general admin APIs | API Endpoint Integration | TC-03, TC-04, TC-05, TC-06, TC-07, TC-13 | GET list/detail (200), POST approve/reject (200); PUT metadata forbidden (403); GET /overview & /audit-logs forbidden (403) |
 | AC3: Compare-and-Set Concurrency Protection | Last-Writer-Wins race condition overwriting conflicting reviewer decisions | Service Concurrency & API Conflict | TC-10, TC-11, TC-15 | Dual real DB connections with Barrier(2) synchronization; exactly 1 winner commits, 1 raises DocumentConflictError; API returns HTTP 409 Conflict for both approve and reject |
 | AC4: Non-Regression & Backward Compatibility | Legacy review workflows without expected_status broken | API Regression Suite | TC-08, TC-09, tests/api/test_admin_document_review.py | Student (403), Anonymous (401); legacy re-review flow (approve -> reject -> approve) passes 100% |
-| NFC1: Concurrency Load & p95 Latency SLA | Performance degradation or connection pool exhaustion under 80 workers | Concurrency Load Benchmark | tools/verify_vt099_concurrency_load.py | 80 concurrent worker threads with Barrier(80); 0% 5xx errors; measured p95 latency 1.4252s <= 2.50s (variance across runs: ~0.76s-1.43s based on CPU load and connection pool, consistently within SLA) |
+| NFC1: Concurrency Load & p95 Latency SLA | Performance degradation or connection pool exhaustion under 80 workers | Concurrency Load Benchmark | tools/verify_vt099_concurrency_load.py | 80 concurrent worker threads with Barrier(80); 0% 5xx errors; measured p95 latency 1.4252s <= 2.50s (observed run-to-run variance, unverified root cause; all runs consistently within SLA) |
 | NFC2: 100% Regression Suite Preservation | Modifications break existing crawler or review governance | Regression Suite | test_admin_document_review.py | 2/2 tests pass cleanly in 1.04s (deliverables/evidence/regression-suite.txt) |
 
 

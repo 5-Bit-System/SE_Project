@@ -2,6 +2,8 @@
 VT-099: CONCURRENCY LOAD EXPERIMENT REPORT (80 CONCURRENT WORKERS)
 Branch: bt3/23001939-vt099 | Non-functional Requirement: NFC1 (p95 <= 2.5s)
 Timestamp: 2026-11-11 13:16:43 UTC
+Note: Benchmark metrics recorded from run at 2026-11-11 13:16:43 UTC;
+      discussion text in Section 4.3 revised post-run to remove unmeasured speculative extrapolations.
 ================================================================================
 
 1. EXECUTIVE SUMMARY & SLA VERIFICATION
