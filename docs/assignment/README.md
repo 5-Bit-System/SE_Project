@@ -46,6 +46,8 @@ cd f:\SE_Project
 
 # Thiết lập chuỗi kết nối database kiểm thử PostgreSQL
 # Lưu ý an toàn thông tin: Thay thế <TEST_DB_PASSWORD> bằng mật khẩu cục bộ của bạn.
+# Mật khẩu database PostgreSQL kiểm thử cục bộ đã được thu hồi và thay đổi sau khi phát hiện
+# lộ trong lịch sử cũ; toàn bộ lịch sử Git của nhánh nộp bài bt3/23001939-vt099 đã được lọc sạch.
 # Tuyệt đối không commit chuỗi chứa mật khẩu thực tế lên Git (CWE-798).
 $env:HUS_TEST_DATABASE_URL = "postgresql+psycopg2://ai07:<TEST_DB_PASSWORD>@127.0.0.1:5433/ai07?sslmode=disable"
 

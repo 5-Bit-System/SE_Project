@@ -30,6 +30,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 # Configure target database
+# Ghi chú an toàn thông tin: Mật khẩu database PostgreSQL kiểm thử cục bộ đã được thu hồi
+# và thay đổi sau khi phát hiện lộ trong lịch sử cũ. Nhánh git đã được lọc sạch thông tin nhạy cảm.
 test_url = os.environ.get("HUS_TEST_DATABASE_URL")
 if not test_url:
     print("Error: HUS_TEST_DATABASE_URL environment variable must be set explicitly.")

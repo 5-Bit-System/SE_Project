@@ -1,5 +1,11 @@
 """Test suite for VT-099: Reviewer Role RBAC and Concurrency Conflict Protection (Compare-and-Set).
 
+Security & Configuration Note:
+- Mật khẩu database PostgreSQL kiểm thử cục bộ đã được thu hồi và thay đổi sau khi phát hiện
+  lộ trong lịch sử commit cũ (CWE-798 Remediation). Lịch sử commit của nhánh bt3/23001939-vt099
+  đã được lọc sạch (git filter-branch); chuỗi kết nối nhận qua biến môi trường HUS_TEST_DATABASE_URL
+  hoặc file .env cục bộ không commit lên git.
+
 Test Matrix:
 - TC-01 (DB Integration): Reviewer account exists, login() succeeds and session_from_token() resolves role == 'reviewer'.
 - TC-02 (DB Integration): Account with unsupported role (e.g. 'guest') fails login() with AuthFailure (401).
