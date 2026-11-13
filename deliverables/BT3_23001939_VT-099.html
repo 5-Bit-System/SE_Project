@@ -305,9 +305,9 @@
       <p><strong>Ưu điểm & Bằng chứng Repository:</strong> Không đổi schema DB; diff nhỏ gọn (Lecture 06 tr.13); bảo toàn 100% test regression hiện có (<code>test_admin_document_review.py</code> dòng 98-116 duyệt lại tài liệu sau khi reject); loại trừ triệt để race condition khi client chỉ định trạng thái kỳ vọng.</p>
     </div>
     <div class="card" style="border-left: 3.5px solid #e53e3e;">
-      <div class="card-title"><span>Phương án B: Khóa Cứng Unconditional Pending-Only (hoặc Mutex)</span><span class="badge badge-fail">BỊ LOẠI</span></div>
-      <p><strong>Cơ chế:</strong> Bắt buộc <code>review_document()</code> chỉ cho phép duyệt từ <code>pending</code>, hoặc dùng <code>threading.Lock()</code> trong bộ nhớ Python để tuần tự hóa.</p>
-      <p><strong>Lý do bác bỏ & Bằng chứng Repository:</strong> (1) Quy tắc pending-only phá vỡ tính năng nghiệp vụ duyệt lại và làm FAIL test cũ trong repo (<code>tests/api/test_admin_document_review.py</code> dòng 107-116), vi phạm NFC2; (2) Khóa bộ nhớ Python vô hiệu khi ứng dụng chạy đa tiến trình worker (Lecture 07 tr.10).</p>
+      <div class="card-title"><span>Phương án B: Khóa Cứng Unconditional Pending-Only</span><span class="badge badge-fail">BỊ LOẠI</span></div>
+      <p><strong>Cơ chế:</strong> Bắt buộc <code>review_document()</code> chỉ cho phép duyệt hoặc từ chối khi trạng thái tài liệu hiện tại là <code>pending</code> (vô điều kiện).</p>
+      <p><strong>Lý do bác bỏ & Bằng chứng Repository:</strong> Quy tắc pending-only phá vỡ quy trình nghiệp vụ duyệt lại (re-review) tài liệu đã bị reject, làm FAIL test hồi quy có sẵn trong repository (<code>tests/api/test_admin_document_review.py</code> dòng 107-116), vi phạm mục tiêu phi chức năng NFC2 (tương thích ngược 100%).</p>
     </div>
   </div>
 
@@ -537,7 +537,7 @@ TC-12: HTTP 403 Forbidden (chặn reviewer ghi nhận audit log)</pre>
       <p><em>Ghi nhận kỹ thuật:</em> Các thất bại ở RED phản ánh tính chân thực của TDD: 9 test fail đúng lý do tính năng chưa tồn tại. Sau khi chuyển GREEN tại commit `a8567a0`, quá trình peer review remediation tiếp tục bổ sung TC-13, TC-14, TC-15 và migration Alembic.</p>
     </div>
     <div class="card" style="border-left: 3.5px solid #38a169;">
-      <div class="card-title"><span>Giai đoạn GREEN & Remediation (`a8567a0` $\to$ `de8219c`)</span><span class="badge badge-pass">GREEN VERIFIED</span></div>
+      <div class="card-title"><span>Giai đoạn GREEN & Hoàn thiện Remediation (từ `a8567a0`)</span><span class="badge badge-pass">GREEN VERIFIED</span></div>
       <p><strong>Lệnh thực thi:</strong> <code>pytest tests/api/test_vt099_reviewer_concurrency.py -v</code></p>
       <p><strong>Bằng chứng thành công thực tế (Trích xuất từ `test-first-green.txt`):</strong></p>
       <pre>test_tc01_reviewer_db_login_and_session PASSED [  5%]
@@ -672,8 +672,8 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
       <tr>
         <td><code>app/api/admin.py</code></td>
         <td>37% (211/501 stmts)</td>
-        <td>12 statements</td>
-        <td><strong>100.0% (12/12 stmts)</strong></td>
+        <td>11 statements</td>
+        <td><strong>100.0% (11/11 stmts)</strong></td>
       </tr>
       <tr>
         <td><code>app/auth/repository.py</code></td>
@@ -689,14 +689,14 @@ E AssertionError: assert 200 == 409 (Trả về 200 thay vì 409 Conflict)
       </tr>
       <tr style="font-weight: 700; background-color: #edf2f7;">
         <td>Tổng cộng Lát cắt VT-099</td>
-        <td>33% (406/1051 stmts)</td>
-        <td>19 statements</td>
-        <td><strong>100.0% (19/19 statements)</strong></td>
+        <td>396/1051 stmts (37.7% stmts; 33% branch)</td>
+        <td>18 statements</td>
+        <td><strong>100.0% (18/18 statements)</strong></td>
       </tr>
     </tbody>
   </table>
   <p style="font-size: 8pt; color: #4a5568; margin-top: -2px; margin-bottom: 6px;">
-    <em>Ghi chú chi tiết:</em> Toàn bộ 19 câu lệnh thêm mới thuộc lát cắt VT-099 (schema <code>DocumentReviewActionRequest</code> với Literal <code>expected_status</code>, gater <code>DOC_REVIEW_ROLES</code>, 4 role checks, bắt lỗi 409 ở cả 2 endpoint <code>approve</code> và <code>reject</code>, hằng số <code>LOCAL_LOGIN_ROLES</code>, câu query <code>login()</code>, ngoại lệ <code>DocumentConflictError</code>, và kiểm tra CAS dưới khóa dòng <code>SELECT FOR UPDATE</code>) đều được 15 test cases trong <code>test_vt099_reviewer_concurrency.py</code> thực thi đầy đủ (0 câu lệnh bị bỏ sót). Tái lập kiểm chứng độc lập: <code>python tools/measure_diff_coverage.py</code>.
+    <em>Ghi chú chi tiết:</em> Toàn bộ 18 câu lệnh thêm mới thuộc lát cắt VT-099 (import <code>Literal</code>, schema <code>DocumentReviewActionRequest</code> với <code>expected_status</code>, gater <code>DOC_REVIEW_ROLES</code>, 4 role checks, bắt lỗi 409 ở cả 2 endpoint <code>approve</code> và <code>reject</code>, hằng số <code>LOCAL_LOGIN_ROLES</code>, câu query <code>login()</code>, ngoại lệ <code>DocumentConflictError</code>, và kiểm tra CAS dưới khóa dòng <code>SELECT FOR UPDATE</code>) đều được 15 test cases trong <code>test_vt099_reviewer_concurrency.py</code> thực thi đầy đủ (0 câu lệnh bị bỏ sót). Tái lập kiểm chứng độc lập: <code>python tools/measure_diff_coverage.py</code>.
   </p>
 
   <h3>6.2. Phân tích Rủi ro Flaky Test & Kiểm chứng Độ ổn định 5 Vòng lặp Liên tiếp</h3>

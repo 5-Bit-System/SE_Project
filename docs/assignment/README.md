@@ -78,12 +78,12 @@ Harness kích hoạt đồng thời 80 tác vụ thông qua `ThreadPoolExecutor`
 *Kết quả kỳ vọng: 80/80 requests hoàn tất, 0 lỗi 5xx, p95 latency đo được 1.4252s ở lần chạy có log đầy đủ (dao động giữa các lần chạy, nguyên nhân chưa kiểm chứng; mọi lần chạy đều thỏa mãn SLA <= 2.50s).*
 
 ### 5. Kiểm tra Độ phủ Dòng Diff Thực tế (Diff Coverage Verification)
-Tái lập kết quả đo đạc độ phủ trên lát cắt mã nguồn VT-099 (19 diff statements trên 3 files):
+Tái lập kết quả đo đạc độ phủ trên lát cắt mã nguồn VT-099 (18 diff statements trên 3 files):
 
 ```powershell
 python tools/measure_diff_coverage.py
 ```
-*Kết quả kỳ vọng: 19/19 diff statements covered (100.0%).*
+*Kết quả kỳ vọng: 18/18 diff statements covered (100.0%).*
 
 ### 6. Kiểm thử Đột biến (Mutation Testing Verification)
 Độ nhạy của test suite đối với các lỗi cố ý ("bỏ một validation quan trọng") được ghi nhận chi tiết tại [`deliverables/evidence/mutation-killed.txt`](../../deliverables/evidence/mutation-killed.txt):
