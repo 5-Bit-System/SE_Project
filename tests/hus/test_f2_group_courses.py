@@ -99,3 +99,31 @@ def test_group_course_listing_cross_major_isolation(answerer):
     for citation in ans_ds.citations:
         assert citation.dataset == "f2"
         assert "locator" in citation.model_dump()
+
+
+def test_group_course_listing_required_major_group_v_1(answerer):
+    """Group V.1 matches required major courses in Data Science."""
+    q = HUSQuestion(
+        question="danh sách môn học nhóm V.1",
+        major="data_science",
+        version="QD3569-2023",
+    )
+    ans = answerer.answer(q)
+    assert ans.status == "answered"
+    assert "Nhóm V.1" in ans.reply
+    assert "Danh sách học phần thuộc nhóm:" in ans.reply
+    assert ans.facts["value"]["course_count"] > 5
+
+
+def test_group_course_listing_math_informatics_group_i(answerer):
+    """Querying group I in Mathematics & Informatics succeeds with valid course list."""
+    q = HUSQuestion(
+        question="nhóm I gồm các môn học nào?",
+        major="mathematics_informatics",
+        version="QD3567-2023",
+    )
+    ans = answerer.answer(q)
+    assert ans.status == "answered"
+    assert "Nhóm I" in ans.reply
+    assert ans.facts["value"]["course_count"] > 0
+
