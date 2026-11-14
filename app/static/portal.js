@@ -88,8 +88,27 @@
   let requestedTerm = null, requestedLetter = null, requestedYear = null;
   let accountId = null;
   let reminderTimer;
+  let pendingSyncKey = null, pollTimer, pollFailures = 0, progressResult = null;
+  const completedJobIds = new Set();
   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
+  function renderProgress(result = progressResult) {
+    progressResult = result;
+    const active = result && Number.isInteger(result.progress_percent) && result.progress_percent >= 0 && result.progress_percent <= 100;
+    $('task-progress').hidden = !active;
+    if (!active) return;
+    const en = window.workspaceI18n.language === 'en';
+    const labels = en ? {queued: 'Waiting for a worker', collecting: 'Reading VNU data', saving: 'Saving', finished: 'Completed', failed: 'Failed', cancelled: 'Cancelled'}
+      : {queued: 'Đang chờ xử lý', collecting: 'Đang đọc dữ liệu VNU', saving: 'Đang lưu', finished: 'Hoàn tất', failed: 'Thất bại', cancelled: 'Đã hủy'};
+    $('progress').value = result.progress_percent;
+    $('progress-label').textContent = `${labels[result.phase] || result.state} · ${result.progress_percent}% · ${en ? 'stage progress' : 'tiến trình theo giai đoạn'}`;
+  }
+  function uncertainSync() {
+    status();
+    $('status').textContent = window.workspaceI18n.language === 'en'
+      ? 'The result is unconfirmed. Click Update transcript to resume this request.'
+      : 'Chưa xác nhận được kết quả. Bấm Cập nhật bảng điểm để tiếp tục yêu cầu này.';
+  }
   function status(key = '', error = '') {
     messageKey = key; errorKey = error;
     const loading = key === 'waiting' && !error;
@@ -104,6 +123,7 @@
   }
   function reset() {
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
+    clearTimeout(pollTimer); pendingSyncKey = null; pollFailures = 0; completedJobIds.clear(); renderProgress(null);
     requestedTerm = null; requestedLetter = null; requestedYear = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
@@ -115,14 +135,14 @@
     render();
     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}));
   }
-  async function api(path, method = 'GET', body) {
+  async function api(path, method = 'GET', body, headers = {}) {
     const current = epoch;
     const response = await fetch(path, {method, credentials: 'same-origin', cache: 'no-store',
-      headers: {...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
+      headers: {...headers, ...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
     const result = await response.json();
     if (!response.ok) {
       if (current === epoch && response.status === 401) { reset(); window.systemAuth?.expire(); status('', 'session_expired'); }
-      throw new Error(result.detail);
+      throw Object.assign(new Error(result.detail), {status: response.status});
     }
     return result;
   }
@@ -142,6 +162,7 @@
   }
   function renderReminder() {
     clearTimeout(reminderTimer);
+    document.querySelector('.transcript-refresh-bar').hidden = !profile;
     const t = text(), now = Date.now();
     const last = Date.parse(profile?.last_synced_at || profile?.fetched_at || '');
     const known = Boolean(profile?.snapshot) && Number.isFinite(last) && last <= now;
@@ -161,6 +182,7 @@
     document.querySelectorAll('[data-portal-copy]').forEach(node => { node.textContent = t[node.dataset.portalCopy]; });
     $('show').textContent = $('password').type === 'password' ? t.show : t.hide;
     status(messageKey, errorKey);
+    renderProgress();
     renderReminder();
     const review = $('collection-review');
     review.replaceChildren();
@@ -258,8 +280,9 @@
     }
   }
   function beginPolling(result, current) {
-    if (result.state === 'reauth_required') { syncError('vnu_reauth_required'); return; }
+    if (result.state === 'reauth_required') { pendingSyncKey = null; renderProgress(null); syncError('vnu_reauth_required'); return; }
     job = result.id; $('reauth').hidden = true; $('reauth').reset();
+    pollFailures = 0; renderProgress(result);
     $('cancel').hidden = false; poll(current);
   }
   async function openProfile() {
@@ -333,32 +356,49 @@
   };
   async function poll(current) {
     if (!job || current !== epoch) return;
+    clearTimeout(pollTimer);
     try {
       const result = await api(`/me/portal-sync/${encodeURIComponent(job)}`);
       if (current !== epoch) return;
-      if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
-      job = null; $('cancel').hidden = true; await load();
+      pollFailures = 0; renderProgress(result);
+      if (['running', 'saving'].includes(result.state)) { pollTimer = setTimeout(() => poll(current), 1000); return; }
+      const finishedId = job;
+      job = null; pendingSyncKey = null; $('cancel').hidden = true; await load();
       if (current !== epoch) return;
       if (result.error || result.state === 'cancelled') syncError(result.error || 'cancelled');
       else {
         const review = profile?.latest_collection;
-        if (result.state === 'done' && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
+        if (result.state === 'done' && !completedJobIds.has(finishedId) && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
+          completedJobIds.add(finishedId);
           window.workspaceMotion?.statusFeedback($('status'), 'success');
         }
       }
-    } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
+    } catch (err) {
+      if (current !== epoch) return;
+      if ((!err.status || err.status >= 500) && ++pollFailures <= 3) {
+        pollTimer = setTimeout(() => poll(current), Math.min(1000 * 2 ** pollFailures, 8000));
+      } else if (!err.status || err.status >= 500) { uncertainSync(); lock(false); }
+      else { status('', err.message); job = null; pendingSyncKey = null; $('cancel').hidden = true; }
+    }
     finally { if (current === epoch && !job) lock(false); }
   }
   $('sync').onclick = async () => {
-    if (busy || job) return;
+    if (busy) return;
+    if (job) { pollFailures = 0; lock(true); poll(epoch); return; }
     window.workspaceNavigate('portal-dialog');
     if (!profile) { $('username').focus(); $('login').scrollIntoView({block: 'center'}); return; }
     const current = epoch;
     lock(true); status('waiting');
     try {
-      const result = await api('/me/portal-sync', 'POST');
+      pendingSyncKey ||= crypto.randomUUID();
+      const result = await api('/me/portal-sync', 'POST', undefined, {'Idempotency-Key': pendingSyncKey});
       if (current === epoch) beginPolling(result, current);
-    } catch (err) { if (current === epoch) syncError(err.message); }
+    } catch (err) {
+      if (current === epoch) {
+        if (!err.status || err.status >= 500) uncertainSync();
+        else { pendingSyncKey = null; syncError(err.message); }
+      }
+    }
     finally { if (current === epoch) lock(Boolean(job)); }
   };
   $('reauth').onsubmit = async event => {

@@ -16,6 +16,7 @@ from app.auth.dependencies import call as auth_call
 from app.auth.dependencies import require_account
 from app.integrations.daotao import runtime, store
 from app.integrations.daotao.snapshot import PortalFailure, collection_review
+from app.services import portal_sync_jobs as sync_jobs
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -186,7 +187,19 @@ async def sync_job(job, value, submitted):
             raise PortalFailure('vnu_reauth_required' if value.app_session_id else 'session_expired')
         if value.portal_version != version:
             raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
-        result = await runtime.collect(submitted)
+        if job.get("request_key"):
+            def collecting():
+                # A queued task may lose its session/provider state while waiting for a slot.
+                if not runtime.session_active(value) or job["state"] != "running":
+                    raise PortalFailure("cancelled")
+                if value.portal_version != version:
+                    raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
+                sync_jobs.mark(job, "running", "collecting", 25)
+
+            result = await runtime.collect(submitted, wait_for_slot=True,
+                on_started=collecting)
+        else:
+            result = await runtime.collect(submitted)
         if result["subject"] != value.subject:
             if value.app_session_id:
                 runtime.clear_portal(value)
@@ -204,7 +217,7 @@ async def sync_job(job, value, submitted):
         if "cookies" in result:
             runtime.install_portal(value, result["cookies"], version)
         captured = result['snapshot']
-        job["state"] = "saving"
+        sync_jobs.mark(job, "saving", "saving", 75)
         saving = asyncio.create_task(auth_call(account_portal.save, value, result['snapshot'], result.get('profile'))
                                      if value.app_session_id else safe_call(store.save, value.owner,
                                      value.generation, result['snapshot'], result.get('profile')))
@@ -213,15 +226,15 @@ async def sync_job(job, value, submitted):
         except asyncio.CancelledError:
             # A DB thread cannot be cancelled. Wait rather than report a false rollback.
             job["result"] = await saving
-        job["state"] = "done"
+        sync_jobs.mark(job, "done", "finished", 100)
         if runtime.session_active(value):
             value.latest_collection = collection_review(captured, job['result'])
     except asyncio.CancelledError:
-        job["state"] = "cancelled"
+        sync_jobs.mark(job, "cancelled", "cancelled")
         if runtime.session_active(value):
             runtime.clear_portal(value)
     except Exception as exc:
-        job["state"] = "failed"
+        sync_jobs.mark(job, "failed", "failed")
         job["error"] = exc.detail if isinstance(exc, HTTPException) else (
             str(exc) if isinstance(exc, PortalFailure) else "portal_unavailable")
         if captured is not None and runtime.session_active(value):
@@ -235,27 +248,33 @@ async def sync_job(job, value, submitted):
         submitted.clear()
 
 
-def start_job(value, submitted):
+def start_job(value, submitted, request_key=None):
     if not runtime.session_active(value):
         submitted.clear()
         raise HTTPException(401, "session_expired")
+    existing = sync_jobs.replay(runtime.jobs, value, request_key)
+    if existing:
+        submitted.clear()
+        return existing
     if any(j["owner"] == value.owner and j["state"] in {"running", "saving"}
            for j in runtime.jobs.values()):
         submitted.clear()
         raise HTTPException(409, "busy")
     runtime.reap()
-    if len(runtime.jobs) >= 1000:
+    if (len(runtime.jobs) >= 1000 or sum(job["state"] in {"running", "saving"}
+            for job in runtime.jobs.values()) >= sync_jobs.MAX_ACTIVE_JOBS):
         submitted.clear()
         raise HTTPException(429, "busy")
     job_id = secrets.token_urlsafe(24)
     job = {"owner": value.owner, "session": value,
-           "state": "running", "created": time.monotonic(), "portal_version": value.portal_version}
+           "state": "running", "phase": "queued", "progress_percent": 0,
+           "request_key": request_key, "created": time.monotonic(), "portal_version": value.portal_version}
     task = asyncio.create_task(sync_job(job, value, submitted))
     job["task"] = task
     runtime.jobs[job_id] = job
     runtime.tasks.add(task)
     task.add_done_callback(runtime.tasks.discard)
-    return {"id": job_id, "state": "running"}
+    return sync_jobs.response(job_id, job) if request_key else {"id": job_id, "state": "running"}
 
 
 @router.post("/me/portal-sync", status_code=202)
@@ -273,6 +292,16 @@ async def sync(request: Request):
         except (ValueError, UnicodeError):
             raise HTTPException(400, "invalid_sync_request") from None
     try:
+        request_key = sync_jobs.key_hash(request.headers)
+    except ValueError:
+        raise HTTPException(400, "invalid_idempotency_key") from None
+    if not runtime.session_active(value):
+        raise HTTPException(401, "session_expired")
+    runtime.reap()
+    existing = sync_jobs.replay(runtime.jobs, value, request_key)
+    if existing:
+        return existing  # Before cookie resume: lost ACK can outlive provider-cookie rotation.
+    try:
         submitted = runtime.resume_request(value)
     except PortalFailure as exc:
         if str(exc) == 'vnu_reauth_required':
@@ -280,7 +309,7 @@ async def sync(request: Request):
             # authenticated app user whose temporary provider state expired.
             return JSONResponse({'state': 'reauth_required'}, status_code=200)
         raise HTTPException(401 if str(exc) == "session_expired" else 409, str(exc)) from None
-    return start_job(value, submitted)
+    return start_job(value, submitted, request_key)
 
 
 @router.post("/me/portal-reauth", status_code=202)
@@ -302,6 +331,8 @@ async def owned_job(request, job_id):
 @router.get("/me/portal-sync/{job_id}")
 async def job_status(request: Request, job_id: str):
     job = await owned_job(request, job_id)
+    if job.get("request_key"):
+        return sync_jobs.response(job_id, job)
     return {k: v for k, v in job.items() if k in {"state", "error", "result"}}
 
 

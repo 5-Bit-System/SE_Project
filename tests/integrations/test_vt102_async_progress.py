@@ -13,6 +13,7 @@ from app.main import app
 from tests.integrations.test_portal_sessions import cookie
 
 KEY = "vt102-request-00000001"
+REAL_COLLECT = runtime.collect
 
 
 @pytest.fixture
@@ -27,6 +28,8 @@ def sync_client(monkeypatch, fake_accounts):
 
     async def collect(submitted, **options):
         trace["collect"] += 1
+        if options.get("on_started"):
+            options["on_started"]()
         entered.set()
         assert await asyncio.to_thread(release.wait, 5), "Test collector gate was not released"
         if trace["fail"]:
@@ -254,3 +257,57 @@ def test_tc18_missing_csrf_rejects_admission(sync_client):
     sync_client.headers.pop("x-csrf-token")
     assert submit(sync_client).status_code == 403
     assert not runtime.jobs and sync_client.trace["collect"] == 0
+
+
+def test_tc21_receipt_replay_precedes_expired_provider_cookie(sync_client):
+    client = sync_client
+    job_id = begin(client)
+    client.finish()
+    runtime.clear_portal(runtime.sessions["app:" + client.principal["session_id"]])
+    response = submit(client)
+    assert response.status_code == 202 and response.json()["id"] == job_id
+    assert submit(client, "vt102-new-intent-0002").json() == {"state": "reauth_required"}
+    assert client.trace["collect"] == client.trace["save"] == 1
+
+
+def test_tc22_duplicate_key_headers_are_rejected(sync_client):
+    response = sync_client.post("/me/portal-sync", headers=[("Idempotency-Key", KEY), ("Idempotency-Key", KEY)])
+    assert response.status_code == 400
+    assert not runtime.jobs
+
+
+def test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation(sync_client, monkeypatch):
+    client = sync_client
+    spawned = []
+    waiting = threading.Event()
+
+    class QueueGate(asyncio.Semaphore):
+        async def acquire(self):
+            waiting.set()
+            return await super().acquire()
+
+    class Process:
+        returncode = 0
+
+        async def communicate(self, body):
+            import json
+
+            request = json.loads(body)
+            return json.dumps({"subject": request["subject"], "snapshot": {}}).encode(), b""
+
+    async def create(*args, **kwargs):
+        spawned.append(True)
+        return Process()
+
+    monkeypatch.setattr(runtime, "collect", REAL_COLLECT)
+    monkeypatch.setattr(runtime, "slots", QueueGate(0))
+    monkeypatch.setattr(asyncio, "create_subprocess_exec", create)
+    response = submit(client)
+    assert waiting.wait(3), "Job did not reach the collector queue"
+    value = runtime.sessions["app:" + client.principal["session_id"]]
+    runtime.clear_portal(value)
+    client.portal.call(runtime.slots.release)
+    client.finish()
+    assert not spawned, "Queued work must recheck provider version before spawning"
+    body = client.get('/me/portal-sync/' + response.json()["id"]).json()
+    assert body["state"] == "failed" and body["progress_percent"] == 0

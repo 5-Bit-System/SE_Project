@@ -146,13 +146,15 @@ def new_session(owner, subject, generation, cookies=None):
     return token
 
 
-async def collect(credentials):
+async def collect(credentials, *, wait_for_slot=False, on_started=None):
     body = json.dumps(credentials).encode("utf-8")
     if len(body) > MAX_INPUT_BYTES:
         raise PortalFailure("portal_state_invalid")
-    if slots.locked():
+    if not wait_for_slot and slots.locked():
         raise PortalFailure("busy")
     async with slots:
+        if on_started is not None:
+            on_started()
         env = {k: v for k, v in os.environ.items() if k not in {"DEBUG", "PWDEBUG"}}
         env["PYTHONIOENCODING"] = "utf-8"
         process = await asyncio.create_subprocess_exec(
