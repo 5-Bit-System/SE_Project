@@ -5,6 +5,7 @@ from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
+from tests.frontend.presentation_fixture import open_plan_tools
 
 
 def main():
@@ -25,6 +26,8 @@ def main():
             route.fulfill(json=session_payload(state['authenticated']))
         elif path == '/me/profile':
             route.fulfill(json={**source, 'latest_collection': state['review']})
+        elif path == '/me/semester-plans':
+            route.fulfill(json={'plans': []})
         elif path == '/me/portal-sync':
             route.fulfill(json={'state': 'reauth_required'})
         elif path == '/me/portal-reauth':
@@ -57,8 +60,8 @@ def main():
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.route('**/*', intercept)
         page.goto('http://127.0.0.1:8000/#rules')
-        root = page.locator('#course-status-board')
-        root.get_by_role('button', name='Cập nhật bảng điểm VNU', exact=True).click()
+        page.locator('#tab-btn-profile').click()
+        page.locator('#portal-sync').click()
         page.locator('#portal-reauth').wait_for(state='visible')
         page.locator('#portal-reauth-password').fill('invented-password')
         page.evaluate("document.dispatchEvent(new Event('visibilitychange'))")
@@ -71,7 +74,11 @@ def main():
         page.wait_for_function("document.querySelector('#portal-collection-review').textContent.includes('điều khiển lọc')")
         assert page.locator('#portal-reauth-password').input_value() == ''
         page.locator('#tab-btn-rules').click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('điều khiển lọc')")
+        page.locator('#course-status-board').get_by_role('button', name='Cập nhật', exact=True).click()
+        page.locator('#tab-btn-recommend').click()
+        open_plan_tools(page)
+        root = page.locator('#course-planning-panel')
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('điều khiển lọc')")
         page.locator('[data-language-choice="en"]').click()
         assert 'Detected filter controls' in root.inner_text()
         page.locator('#tab-btn-profile').click()
