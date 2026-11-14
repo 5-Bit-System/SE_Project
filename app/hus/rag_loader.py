@@ -227,6 +227,19 @@ class HUSRAGData:
         return deepcopy(tuple(course for course in self._courses.values()
                               if (course.major, course.version) == scope))
 
+    def f2_courses_in_group(self, group_key: str, *, major: str, version: str) -> tuple[F2Course, ...]:
+        """Return all courses belonging to a specific group_key in the given curriculum."""
+        key = _text(group_key, "group_key").strip().upper()
+        courses = self.f2_courses(major=major, version=version)
+        matched = []
+        for c in courses:
+            for g in c.groups:
+                g_code = str(g.get("group_key") or g.get("group_code") or "").strip().upper()
+                if g_code == key or g_code.startswith(key + "."):
+                    matched.append(c)
+                    break
+        return deepcopy(tuple(matched))
+
     def _load_f2(self, payloads: dict[str, bytes]) -> dict[tuple, F2Course]:
         path = "f2/hus_source.json"
         bundle = _object(payloads[path], path)
