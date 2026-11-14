@@ -189,6 +189,25 @@
     }));
   }
 
+  const FOLLOW_UP_PRONOUN_PATTERN = /(?:^|[^\p{L}\p{N}_])(?:môn|mon|học phần|hoc phan)\s+(?:đó|do|này|nay|đấy|day)(?:[^\p{L}\p{N}_]|$)/iu;
+  const COURSE_CODE_PATTERN = /\b([A-Z]{3}\d{4}[A-Z]?)\b/;
+  const NAMED_COURSE_PATTERN = /(?:^|[^\p{L}\p{N}_])(?:giải tích|giai tich|đại số|dai so|xác suất|xac suat|lập trình|lap trinh|cơ sở dữ liệu|co so du lieu|toán|toan|tin)\s+\d+/iu;
+
+  function isFollowUpCourseQuery(text) {
+    if (!text || typeof text !== 'string') return false;
+    const trimmed = text.trim();
+    if (!FOLLOW_UP_PRONOUN_PATTERN.test(trimmed)) return false;
+    if (COURSE_CODE_PATTERN.test(trimmed)) return false;
+    if (NAMED_COURSE_PATTERN.test(trimmed)) return false;
+    return true;
+  }
+
+  function extractCourseCode(text) {
+    if (!text || typeof text !== 'string') return null;
+    const match = COURSE_CODE_PATTERN.exec(text);
+    return match ? match[1] : null;
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
       citationURL,
@@ -197,6 +216,8 @@
       formatInlineMarkdown,
       renderSafeMarkdown,
       groupCitations,
+      isFollowUpCourseQuery,
+      extractCourseCode,
     };
   }
   if (typeof document === 'undefined') return;
@@ -247,6 +268,24 @@
   let activeAccountId = null;
   let currentConversation = [];
   let syncingHistory = false;
+  let lastResolvedCourseCode = null;
+
+  function updateLastResolvedCourseFromConversation(convo) {
+    if (!convo || !convo.length) {
+      lastResolvedCourseCode = null;
+      return;
+    }
+    for (let i = convo.length - 1; i >= 0; i--) {
+      if (convo[i].role === 'assistant') {
+        const code = extractCourseCode(convo[i].reply);
+        if (code) {
+          lastResolvedCourseCode = code;
+          return;
+        }
+      }
+    }
+    lastResolvedCourseCode = null;
+  }
 
   function currentMajor() {
     return config?.majors.find(item => item.id === major.value) || null;
@@ -555,6 +594,7 @@
           currentConversation = data.messages;
           saveCachedMessages(majorId, currentConversation);
           renderConversation(currentConversation, selected);
+          updateLastResolvedCourseFromConversation(currentConversation);
         }
       }
     } catch {
@@ -614,6 +654,7 @@
 
     if (clearActive) {
       currentConversation = [];
+      lastResolvedCourseCode = null;
       clearCachedMessages(selected.id);
       renderConversation([], selected);
       if (activeAccountId) {
@@ -628,9 +669,11 @@
       if (cached && cached.length) {
         currentConversation = cached;
         renderConversation(currentConversation, selected);
+        updateLastResolvedCourseFromConversation(currentConversation);
         setStatus('Đã tải lịch sử hội thoại ' + selected.label + '.');
       } else {
         currentConversation = [];
+        lastResolvedCourseCode = null;
         renderConversation([], selected);
         setStatus('Đã chọn ' + selected.label + '. Đổi ngành sẽ bắt đầu hội thoại mới.');
       }
@@ -657,6 +700,9 @@
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
       allow_generated_reference: true};
+    if (isFollowUpCourseQuery(text) && lastResolvedCourseCode) {
+      payload.course_code = lastResolvedCourseCode;
+    }
     appendMessage('user', text);
     recordTurn('user', text);
     question.value = '';
@@ -680,6 +726,12 @@
       recordTurn('assistant', result.reply,
         citations,
         result.generation_mode);
+      if (result.hus_answer?.facts?.course_code) {
+        lastResolvedCourseCode = result.hus_answer.facts.course_code;
+      } else {
+        const found = extractCourseCode(result.reply);
+        if (found) lastResolvedCourseCode = found;
+      }
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
       } else if (result.hus_answer?.status === 'needs_clarification') {
