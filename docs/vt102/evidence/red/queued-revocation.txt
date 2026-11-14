@@ -1,0 +1,19 @@
+COMMAND: .venv/Scripts/python.exe -m pytest tests/integrations/test_vt102_async_progress.py::test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation -q --tb=short -p no:cacheprovider --basetemp backups/vt102_red/queued-revocation-red2
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____ test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation _____
+tests\integrations\test_vt102_async_progress.py:311: in test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation
+    assert not spawned, "Queued work must recheck provider version before spawning"
+E   AssertionError: Queued work must recheck provider version before spawning
+E   assert not [True]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation
+1 failed, 1 warning in 0.81s
+
+EXIT_CODE: 1

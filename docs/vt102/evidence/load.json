@@ -1,0 +1,32 @@
+{
+  "actors": 40,
+  "environment": "ASGI in-process; synthetic VNU subprocess/store/auth repository",
+  "maximum_collector_concurrency": 2,
+  "logical_jobs": 40,
+  "collector_calls": 40,
+  "save_calls": 40,
+  "requests": 160,
+  "error_rate": 0.0,
+  "metrics": {
+    "post": {
+      "samples": 40,
+      "min_ms": 40.762,
+      "avg_ms": 49.144,
+      "p95_ms": 57.819
+    },
+    "retry": {
+      "samples": 40,
+      "min_ms": 17.421,
+      "avg_ms": 24.139,
+      "p95_ms": 29.242
+    },
+    "poll": {
+      "samples": 80,
+      "min_ms": 16.477,
+      "avg_ms": 27.328,
+      "p95_ms": 44.854
+    }
+  },
+  "target_p95_ms": 1500,
+  "passed": true
+}

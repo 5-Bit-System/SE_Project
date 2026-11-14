@@ -1,0 +1,8 @@
+COMMAND: .venv/Scripts/python.exe -m coverage report --data-file=backups/vt102_green.coverage
+Name                                 Stmts   Miss Branch BrPart  Cover
+----------------------------------------------------------------------
+app\api\portal.py                      290     62     98     21    76%
+app\integrations\daotao\runtime.py     179     19     78     14    86%
+app\services\portal_sync_jobs.py        22      0     12      0   100%
+----------------------------------------------------------------------
+TOTAL                                  491     81    188     35    81%

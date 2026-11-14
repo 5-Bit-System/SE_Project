@@ -1,0 +1,107 @@
+COMMAND: .venv/Scripts/python.exe -X utf8 -m tests.frontend.check_vt102_async_progress
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\SE_Project\tests\frontend\check_vt102_async_progress.py", line 87, in <module>
+    main()
+  File "D:\SE_Project\tests\frontend\check_vt102_async_progress.py", line 51, in main
+    expect(page.locator("#portal-sync")).to_be_visible()
+  File "D:\SE_Project\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14811, in to_be_visible
+    self._sync(
+  File "D:\SE_Project\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "D:\SE_Project\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+  File "D:\SE_Project\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "D:\SE_Project\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden 
+Call log:
+  - Expect "to_be_visible" locator("#portal-sync") with timeout 5000ms
+  - waiting for locator("#portal-sync")
+    3 × locator resolved to <button disabled type="button" id="portal-sync" data-portal-copy="sync" class="portal-button primary-action">Cập nhật bảng điểm</button>
+      - unexpected value "hidden"
+    10 × locator resolved to <button type="button" id="portal-sync" data-portal-copy="sync" class="portal-button primary-action">Cập nhật bảng điểm</button>
+       - unexpected value "hidden"
+
+Aria snapshot:
+- link "Đi tới nội dung chính":
+  - /url: "#workspace-heading"
+- banner:
+  - text: ĐHKHTN · ĐHQG Hà Nội
+  - heading "Sổ học tập" [level=1]
+  - text: synthetic-only · Sinh viên
+  - button "Sổ học tập"
+  - button "Đăng xuất hệ thống"
+  - text: Ngôn ngữ
+  - group "Ngôn ngữ":
+    - button "Tiếng Việt" [pressed]: VI
+    - button "English": EN
+  - text: Giao diện
+  - group "Giao diện":
+    - button "Giao diện sáng" [pressed]: Sáng
+    - button "Giao diện tối": Tối
+- text: Synthetic Bảng điểm được lấy từ VNU và lưu theo tài khoản của bạn.
+- main:
+  - complementary:
+    - paragraph: Hồ sơ VNU
+    - text: Ngành học
+    - strong: Synthetic
+    - text: Khóa học
+    - strong: "68"
+    - tablist "Các bước lập kế hoạch học tập":
+      - tab "Dashboard Tổng quan học tập"
+      - tab "Hồ sơ của tôi Tài khoản và bảng điểm VNU" [selected]
+      - tab "Điều kiện học Xem môn có thể học tiếp"
+      - tab "Gợi ý kỳ tới Chọn môn theo mục tiêu"
+    - paragraph: Một kế hoạch phù hợp bắt đầu từ bảng điểm của bạn.
+    - text: Đăng nhập VNU để xem hồ sơ và bảng điểm qua từng học kỳ. Sổ học tập Đồng hành qua từng học kỳ
+  - heading "Hồ sơ của tôi" [level=2]
+  - tabpanel "Hồ sơ của tôi Tài khoản và bảng điểm VNU":
+    - heading "Hồ sơ học tập" [level=2]
+    - button "Về Dashboard"
+    - status: Đã tải hồ sơ.
+    - paragraph: Tài khoản đã xác minh
+    - heading "vt102-browser-synthetic" [level=3]
+    - paragraph: "Bảng điểm lưu lúc: —"
+    - text: Nguồn VNU Họ và tên
+    - strong: Chưa có thông tin
+    - text: Ngành học
+    - strong: Synthetic
+    - text: Khóa học
+    - strong: "68"
+    - text: Tổng tín chỉ tích lũy
+    - strong: —
+    - text: Điểm trung bình tích lũy hệ 4
+    - strong: —
+    - heading "Bảng điểm nguồn" [level=3]
+    - paragraph: Theo năm học và học kỳ, mới nhất trước.
+    - status: 0 / 0 lượt học
+    - text: Tìm mã hoặc tên học phần
+    - searchbox "Tìm mã hoặc tên học phần"
+    - text: Học kỳ
+    - combobox "Học kỳ":
+      - option "Tất cả học kỳ" [selected]
+    - region "Bảng điểm nguồn":
+      - table:
+        - rowgroup:
+          - row "Mã môn Tên học phần Tín chỉ Hệ 10 Chữ Hệ 4":
+            - columnheader "Mã môn"
+            - columnheader "Tên học phần"
+            - columnheader "Tín chỉ"
+            - columnheader "Hệ 10"
+            - columnheader "Chữ"
+            - columnheader "Hệ 4"
+        - rowgroup:
+          - row "Không có học phần phù hợp.":
+            - cell "Không có học phần phù hợp."
+    - button "Ngắt phiên VNU"
+    - button "Xóa bảng điểm VNU"
+- contentinfo:
+  - paragraph: Sổ học tập · Gợi ý học phần có giải thích · Chương trình ĐHKHTN - ĐHQG Hà Nội, khóa 2022.
+  - paragraph: Hồ sơ và bảng điểm VNU được lưu theo tài khoản. Bạn có thể cập nhật hoặc xóa trong Hồ sơ của tôi.
+
+EXIT_CODE: 1

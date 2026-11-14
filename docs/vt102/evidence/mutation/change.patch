@@ -1,0 +1,11 @@
+diff --git a/app/services/portal_sync_jobs.py b/app/services/portal_sync_jobs.py
+index 8ba1542..40f06d2 100644
+--- a/app/services/portal_sync_jobs.py
++++ b/app/services/portal_sync_jobs.py
+@@ -33,5 +33,5 @@ def mark(job, state, phase, percent=None):
+ def response(job_id, job):
+     """Allowlist on-wire fields; the percent is a milestone, not estimated duration."""
+     return {"id": job_id, "state": job["state"], "phase": job["phase"],
+-            "progress_percent": job.get("progress_percent", 0),
++            "progress_percent": 0,
+             "error": job.get("error"), "result": job.get("result")}

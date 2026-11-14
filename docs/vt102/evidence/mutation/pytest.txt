@@ -1,0 +1,70 @@
+COMMAND (isolated worktree): D:\SE_Project\.venv\Scripts\python.exe -m pytest tests/integrations/test_vt102_async_progress.py tests/integrations/test_vt102_queue.py -q --tb=short -p no:cacheprovider --basetemp D:\SE_Project\backups\vt102_red\mutation-run --junitxml D:\SE_Project\docs\vt102\evidence\mutation\pytest.xml
+F.............FF....FF......F                                            [100%]
+================================== FAILURES ===================================
+___________ test_tc01_ack_precedes_completion_and_poll_has_progress ___________
+tests\integrations\test_vt102_async_progress.py:98: in test_tc01_ack_precedes_completion_and_poll_has_progress
+    assert_progress(response.json(), job_id, "running", "collecting", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25
+____________________ test_tc08_done_mapping_is_exactly_100 ____________________
+tests\integrations\test_vt102_async_progress.py:163: in test_tc08_done_mapping_is_exactly_100
+    assert_progress(response.json(), job_id, "done", "finished", 100)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 100
+___________ test_tc09_provider_failure_retry_keeps_same_failed_job ____________
+tests\integrations\test_vt102_async_progress.py:178: in test_tc09_provider_failure_retry_keeps_same_failed_job
+    assert_progress(original, job_id, "failed", "failed", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25
+_________________ test_tc14_saving_phase_before_commit_is_75 __________________
+tests\integrations\test_vt102_async_progress.py:228: in test_tc14_saving_phase_before_commit_is_75
+    assert_progress(response.json(), job_id, "saving", "saving", 75)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 75
+______________ test_tc15_cancel_before_save_does_not_report_100 _______________
+tests\integrations\test_vt102_async_progress.py:237: in test_tc15_cancel_before_save_does_not_report_100
+    assert_progress(body, job_id, "cancelled", "cancelled", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25
+_ test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry _
+tests\integrations\test_vt102_queue.py:7: in test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry
+    report = asyncio.run(workload(monkeypatch))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\support\vt102_harness.py:96: in workload
+    assert all(response.json().get("progress_percent") == 100
+E   AssertionError
+============================== warnings summary ===============================
+..\..\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc01_ack_precedes_completion_and_poll_has_progress
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc08_done_mapping_is_exactly_100
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc09_provider_failure_retry_keeps_same_failed_job
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc14_saving_phase_before_commit_is_75
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc15_cancel_before_save_does_not_report_100
+FAILED tests/integrations/test_vt102_queue.py::test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry
+6 failed, 23 passed, 1 warning in 2.74s
+
+EXIT_CODE: 1

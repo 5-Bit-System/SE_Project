@@ -1,0 +1,14 @@
+[
+  {
+    "module": "check_vt102_async_progress",
+    "exit_code": 0
+  },
+  {
+    "module": "check_portal_sync_feedback",
+    "exit_code": 0
+  },
+  {
+    "module": "check_portal_reauth",
+    "exit_code": 0
+  }
+]

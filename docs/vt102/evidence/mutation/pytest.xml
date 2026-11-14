@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="29" time="2.738" timestamp="2026-11-14T23:40:22.758222+07:00" hostname="LAPTOPCUAVINH"><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc01_ack_precedes_completion_and_poll_has_progress" time="0.127"><failure message="assert 0 == 25">tests\integrations\test_vt102_async_progress.py:98: in test_tc01_ack_precedes_completion_and_poll_has_progress
+    assert_progress(response.json(), job_id, "running", "collecting", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25</failure></testcase><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc02_same_key_while_running_replays_receipt" time="0.015" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc03_lost_ack_retry_after_commit_does_not_repeat_side_effect" time="0.013" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc04_invalid_key_never_starts_job[]" time="0.009" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc04_invalid_key_never_starts_job[short]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc04_invalid_key_never_starts_job[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]" time="0.009" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc04_invalid_key_never_starts_job[invalid key with spaces]" time="0.009" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc05_valid_key_length_boundaries[aaaaaaaaaaaaaaaa]" time="0.011" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc05_valid_key_length_boundaries[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc06_invalid_body_never_starts_job[body0]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc06_invalid_body_never_starts_job[None]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc06_invalid_body_never_starts_job[body2]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc06_invalid_body_never_starts_job[body3]" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc07_missing_key_preserves_legacy_admission" time="0.011" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc08_done_mapping_is_exactly_100" time="0.012"><failure message="assert 0 == 100">tests\integrations\test_vt102_async_progress.py:163: in test_tc08_done_mapping_is_exactly_100
+    assert_progress(response.json(), job_id, "done", "finished", 100)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 100</failure></testcase><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc09_provider_failure_retry_keeps_same_failed_job" time="0.014"><failure message="assert 0 == 25">tests\integrations\test_vt102_async_progress.py:178: in test_tc09_provider_failure_retry_keeps_same_failed_job
+    assert_progress(original, job_id, "failed", "failed", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25</failure></testcase><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc10_40_concurrent_retries_create_one_job" time="0.071" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc11_different_session_cannot_read_same_owner_job" time="0.013" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc12_expired_app_session_creates_nothing" time="0.010" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc13_new_key_while_owner_busy_is_distinct_intent" time="0.013" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc14_saving_phase_before_commit_is_75" time="0.012"><failure message="assert 0 == 75">tests\integrations\test_vt102_async_progress.py:228: in test_tc14_saving_phase_before_commit_is_75
+    assert_progress(response.json(), job_id, "saving", "saving", 75)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 75</failure></testcase><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc15_cancel_before_save_does_not_report_100" time="0.014"><failure message="assert 0 == 25">tests\integrations\test_vt102_async_progress.py:237: in test_tc15_cancel_before_save_does_not_report_100
+    assert_progress(body, job_id, "cancelled", "cancelled", 25)
+tests\integrations\test_vt102_async_progress.py:88: in assert_progress
+    assert body["progress_percent"] == percent  # Literal expected value kills mapping mutations.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 0 == 25</failure></testcase><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc16_body_validation_still_applies_to_reused_key" time="0.040" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc17_expired_vnu_prompts_reauth_without_job" time="0.019" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc18_missing_csrf_rejects_admission" time="0.015" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc21_receipt_replay_precedes_expired_provider_cookie" time="0.018" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc22_duplicate_key_headers_are_rejected" time="0.009" /><testcase classname="tests.integrations.test_vt102_async_progress" name="test_tc23_queued_job_does_not_contact_vnu_after_provider_revocation" time="0.012" /><testcase classname="tests.integrations.test_vt102_queue" name="test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry" time="0.280"><failure message="AssertionError">tests\integrations\test_vt102_queue.py:7: in test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry
+    report = asyncio.run(workload(monkeypatch))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\support\vt102_harness.py:96: in workload
+    assert all(response.json().get("progress_percent") == 100
+E   AssertionError</failure></testcase></testsuite></testsuites>

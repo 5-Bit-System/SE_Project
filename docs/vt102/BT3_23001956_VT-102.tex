@@ -1,0 +1,388 @@
+% !TeX program = xelatex
+% Overleaf: upload this single file, choose XeLaTeX, Recompile.
+% Also supports pdfLaTeX; no images, bibliography, shell escape or external files.
+\documentclass[10pt,a4paper]{article}
+\usepackage{fix-cm}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,BoldItalicFont=texgyretermes-bolditalic.otf]
+  \setsansfont{texgyreheros-regular.otf}[BoldFont=texgyreheros-bold.otf]
+  \setmonofont{texgyrecursor-regular.otf}[BoldFont=texgyrecursor-bold.otf]
+\fi
+\makeatletter
+\@ifundefined{l@vietnamese}{\newlanguage\l@vietnamese}{}
+\makeatother
+\usepackage[vietnamese]{babel}
+\usepackage[a4paper,margin=16mm,top=17mm,bottom=17mm,headheight=13pt,headsep=5mm,footskip=8mm]{geometry}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+\usepackage{array,booktabs,tabularx,enumitem,titlesec,listings,fancyhdr,lastpage,xurl}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,pdftitle={BT3 23001956 VT-102},pdfauthor={Vu Khac Huy Vinh}]{hyperref}
+\definecolor{Accent}{HTML}{23476B}
+\definecolor{Pale}{HTML}{EEF3F8}
+\AtBeginDocument{\fontsize{10.4}{12.1}\selectfont}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\code}[1]{{\small\expandafter\path\expandafter{#1}}}
+\newcommand{\Baseline}{7aa9d939ddca47461dbc7a55972fdfbec7c434fe}
+\newcommand{\Green}{7a06e62}
+\newcommand{\repo}{https://github.com/5-Bit-System/SE_Project}
+\newcommand{\src}[2]{\href{\repo/blob/\Green/#1}{#2}}
+\setlist{nosep,leftmargin=1.3em,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\large\bfseries\color{Accent}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{6pt}{5pt}
+\titlespacing*{\subsection}{0pt}{5pt}{3pt}
+\pagestyle{fancy}\fancyhf{}
+\lhead{\footnotesize\color{Accent}SE2026 • Bài tập cá nhân 3 • VT-102}
+\rhead{\footnotesize Spec → Test → Change → Verify → Review}
+\lfoot{\footnotesize Vũ Khắc Huy Vinh • 23001956}
+\rfoot{\footnotesize\thepage/\pageref*{LastPage}}
+\lstset{basicstyle=\ttfamily\fontsize{8.4}{9.6}\selectfont,breaklines=true,columns=fullflexible,keepspaces=true,showstringspaces=false,backgroundcolor=\color{Pale},frame=single,rulecolor=\color{Accent!25},aboveskip=5pt,belowskip=5pt}
+\emergencystretch=3em\raggedbottom
+\begin{document}
+
+% PAGE 1
+\begin{center}
+{\Large\bfseries\color{Accent}BÁO CÁO BÀI TẬP CÁ NHÂN 3}\par
+{\large VT-102 — Async task progress \& retry safety}
+\end{center}
+\textbf{Sinh viên:} Vũ Khắc Huy Vinh / \textbf{23001956}. \textbf{Nhóm:} SE2026-T25.
+\textbf{Vai trò:} Thành viên. \textbf{Dự án:} AI-07 — Explainable Course Recommender.
+Ngày thực nghiệm: \textbf{14/11/2026}, Asia/Saigon.
+
+\textbf{Baseline commit:} {\scriptsize\texttt{\Baseline}}.
+Nhánh: \code{feat/vt102-async-task-progress}.
+Repository: \href{\repo}{5-Bit-System/SE\_Project}.
+Commit giữ test RED: \code{1fe363e}; implementation GREEN: \code{\Green}.
+Hash là mốc thực thi, không tuyên bố đây là main mới nhất.
+
+\section*{1. Specification và vertical slice}
+\textbf{Problem statement.} Cập nhật bảng điểm VNU có thể kéo dài hoặc mất phản hồi nhận việc.
+Retry hiện trả busy hoặc tạo tác vụ mới sau khi lần trước hoàn tất. UI chưa có tiến trình theo giai đoạn.
+Cần receipt ổn định cho cùng ý định và phản hồi tiến trình đúng trạng thái, tránh lặp collector, save và thông báo hoàn tất.
+
+\textbf{Hiện trạng đã xác minh:} repo đã có POST202, \code{asyncio.create_task}, API polling,
+hai collector slot và timeout 120s. DB đã có \code{UNIQUE(owner,digest)}, row lock và generation fence.
+Đóng góp mới là idempotency ở job/request, admission chờ slot và milestone progress; không nhận luồng cũ là code mới.
+
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}p{12mm}Y@{}}
+\toprule\rowcolor{Pale}\textbf{AC} & \textbf{Điều kiện nghiệm thu có thể kiểm thử}\\\midrule
+AC01 & POST202 trả id khi collector còn bị giữ bằng Event; GET đọc được tiến trình. Không chờ crawl hoàn tất mới ACK.\\
+AC02 & Cùng session/owner/key trả cùng id khi active, terminal hoặc mất ACK sau commit; collector1, save tối đa1, feedback hoàn tất tối đa1/job.\\
+AC03 & Response có id/state/phase/progress\_percent/error/result; collecting25, saving75, done100; failed/cancelled không biến thành 100.\\
+AC04 & Sai key/body bị từ chối trước side effect; hết app session401, job ngoài session404, thiếu CSRF403; giữ reauth và generation fence.\\
+AC05 & UI dùng lại key khi mất ACK, poll tiếp, hiển thị progress có label, không tự retry password; dọn dữ liệu khi logout và giữ legacy callers.\\
+\bottomrule
+\end{tabularx}\endgroup\par
+
+\textbf{NFC:} 40 actor/tác vụ đồng thời, p95 acceptance và status \ensuremath{\leq} 1.5 giây;
+capacity 40 active, tối đa hai collector thật sự chạy; duplicate không chiếm slot mới.
+Không log password/cookie và không load vào VNU công cộng.
+
+\textbf{Scope:} một process/event loop, cùng app session còn hiệu lực, tối đa 30 phút.
+Registry RAM không chứng minh exactly-once qua restart hoặc nhiều worker.
+Mục tiêu latency là ACK/poll, không phải hoàn thành crawl trong 1.5s.
+\clearpage
+
+% PAGE 2
+\section*{2. Risk-based strategy và Equivalence Partitioning}
+Ưu tiên integration/API vì rủi ro đi qua request → registry → collector → transaction → response.
+Một E2E Chrome kiểm tra ranh giới browser, key retry, progress và feedback. Helper thuần được chạy qua contract API;
+không tạo unit test chỉ so lại hằng số với chính hằng số đó.
+
+\subsection*{2.1. Các lớp tương đương và dữ liệu đại diện}
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}p{28mm}Y Y@{}}
+\toprule\rowcolor{Pale}\textbf{Miền} & \textbf{Phân vùng} & \textbf{Mẫu và mục đích}\\\midrule
+Idempotency-Key & Thiếu; hợp lệ16–128; rỗng; ngắn; dài; sai ký tự; lặp header & None, 16/128 chữ a, empty, short, 129 ký tự, spaces, hai header. EP kết hợp kiểm tra biên.\\
+Logical intent & Same key active/terminal; key mới khi busy; key ở phiên khác & Active replay, lost ACK sau commit, failed replay; không suy cùng owner là được đọc job mọi phiên.\\
+Request body & Empty/\{\} hợp lệ; list/null/owner/password không hợp lệ & Chặn đưa danh tính hoặc credential vào endpoint sync; validate cả replay.\\
+Progress & Queued0, collecting25, saving75, done100; failed/cancelled giữ mốc & Chỉ milestone có nguồn; không giả đo số dòng để tạo percent1–99.\\
+Authentication & App hợp lệ/hết hạn; CSRF thiếu; provider hết hạn & Tách401,403 và200 reauth\_required; không tạo job trên request bị từ chối.\\
+Delivery & ACK nhận/mất; retry tuần tự/đồng thời & Đếm id, collector/save/feedback thay vì chỉ đếm snapshot DB.\\
+\bottomrule
+\end{tabularx}\endgroup\par
+
+\subsection*{2.2. Phân bổ layers và test không cần thiết}
+\textbf{API:} 29 instances cuối cùng thuộc các case TC01–19, TC21–23. Dùng account/store/provider giả nhưng chạy
+route, validation, ownership, queue và serializer thật. Các test legacy giữ hành vi reauth, cancellation và commit shielding.
+
+\textbf{E2E:} TC20 dùng Chrome và route interception; mô phỏng POST mất response, bấm lại với cùng key,
+poll25/100, feedback1, EN/mobile/logout. Không cần server thật hoặc credential VNU cho test này.
+
+\textbf{Không cần cho slice:} pixel-perfect visual regression, stress hàng nghìn browser, broker/email tests hoặc
+test LLM ranking không liên quan. PostgreSQL fault injection, restart/multi-worker là test tiếp theo cần thiết nếu mở rộng cam kết;
+không coi chúng đã được chứng minh bởi fake store.
+
+\subsection*{2.3. Giả định AI cần sửa bằng evidence}
+\begin{enumerate}
+\item “Phải xây async từ đầu”: sai vì baseline đã có job/poll. Điều chỉnh phạm vi vào receipt và progress.
+\item “Chỉ cần thêm UNIQUE snapshot”: sai vì constraint đã tồn tại và không ngăn collector/save lặp.
+\item “40 concurrent nghĩa là 40 browser VNU cùng chạy”: chưa có căn cứ; runtime có hai slot. Dùng queue và công bố giới hạn đo.
+\item “% phản ánh thời gian còn lại”: sai; worker không stream số dòng hoặc ETA. UI ghi rõ tiến trình theo giai đoạn.
+\end{enumerate}
+\clearpage
+
+% PAGE 3
+\section*{3. Test cases theo rủi ro}
+P0 là correctness/privacy/idempotency; P1 là compatibility/UX. Bảng case đầy đủ ở
+\code{docs/vt102/STEP2_TEST_STRATEGY.md}; dưới đây giữ đủ input, expected và priority để review.
+
+\par\begingroup\fontsize{8.7}{10.1}\selectfont
+\begin{tabularx}{\linewidth}{@{}p{9mm}p{17mm}p{14mm}Y Y p{6mm}@{}}
+\toprule\rowcolor{Pale}\textbf{ID} & \textbf{Risk/AC} & \textbf{Level} & \textbf{Precondition/Input} & \textbf{Expected} & \textbf{P}\\\midrule
+01 & Async/AC01 & API & Collector giữ bằng Event & ACK trước save; GET25 & 0\\
+02 & Retry/AC02 & API & Same key, running & Same id; collector/save1 & 0\\
+03 & Lost ACK & API/fail & Save xong, bỏ response & Replay id; counts không tăng & 0\\
+04 & Bad key & API/neg & Empty/short/129/spaces & 400; zero jobs & 0\\
+05 & Key bounds & API & Length16/128 & 202; một job & 1\\
+06 & Bad body & API/neg & [], null, owner, password & 400; zero side effects & 0\\
+07 & Legacy & API & Thiếu header & Luồng cũ hoạt động & 1\\
+08 & Mapping & API & Save đã hoàn tất & done/finished/100 literal & 0\\
+09 & Failed retry & API/fail & Provider fail trước save & Failed id cũ; collect1/save0 & 0\\
+10 & Concurrency & API & 40 retry cùng key & 40 replay202; counts1 & 0\\
+11 & Ownership & API/neg & Cùng owner, khác session & GET404 & 0\\
+12 & Expiry & API/neg & App expires\_in=0 & 401, không job & 0\\
+13 & New intent & API & Key mới, owner đang busy & 409; không job thứ hai & 1\\
+14 & Commit stage & API & Save chặn bằng Event & saving75 trước commit & 0\\
+15 & Cancellation & API/fail & Hủy khi collector chờ & cancelled25; save0 & 0\\
+16 & Replay body & API/neg & Key cũ + owner body khác & Validate400 trước replay & 0\\
+17 & Reauth & API & Provider state hết hạn & 200 reauth; không job & 1\\
+18 & CSRF & API/neg & Không token CSRF & 403; không job & 0\\
+19 & Load/queue & API & 40 owner + retry/poll & 40 jobs/save; max2 collector & 0\\
+20 & UI/AC05 & Chrome & ACK mất, retry, poll & Same key;25/100; feedback1 & 1\\
+21 & Cookie rotate & API & Done rồi cookie bị xóa & Replay được; không recrawl & 0\\
+22 & Bad header & API/neg & Hai key header & 400; không job & 1\\
+23 & Queue race & API/fail & Đã chờ slot rồi revoke & Không spawn; failed0 & 0\\
+\bottomrule
+\end{tabularx}\endgroup\par
+
+\textbf{Failure path trọng tâm — TC03:} client không biết POST đã được nhận; server đã commit save.
+Client gửi lại cùng key. Test giữ id cũ và đếm collector/save đúng1; nếu tạo job mới, assertion fail dù
+snapshot digest có thể khiến lần ghi thứ hai trả unchanged. Đây là khác biệt giữa job idempotency và dedup dữ liệu.
+
+\textbf{TC23 phát hiện trong review:} kiểm tra phiên trước khi vào queue chưa đủ. Provider có thể bị revoke
+trong lúc chờ slot. Test báo FAIL vì đã spawn sau revoke; patch thêm recheck ngay trước collector bắt đầu.
+\clearpage
+
+% PAGE 4
+\section*{4. Test-First: RED → xác nhận → GREEN}
+\subsection*{4.1. RED có lý do xác định}
+Test đầu không import module chưa tồn tại; gọi API sẵn có ở baseline, dùng provider/account/store giả.
+Lệnh và raw stdout/JUnit lưu trong \code{docs/vt102/evidence/red/}:
+\begin{lstlisting}
+python -m pytest tests/integrations/test_vt102_async_progress.py
+  -q --tb=short -p no:cacheprovider --junitxml=<red/pytest.xml>
+12 failed, 13 passed, 1 warning; EXIT_CODE=1
+\end{lstlisting}
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}p{22mm}Y Y@{}}
+\toprule\rowcolor{Pale}\textbf{Case} & \textbf{Expected} & \textbf{Actual RED}\\\midrule
+TC01/08/14/15 & Field progress, phase và id trên GET & Chỉ state/result; thiếu schema mới.\\
+TC02/10 & Same-key replay202 & Actual409 busy.\\
+TC03/09 & Retry terminal cùng id & Actual tạo id mới.\\
+TC04 & Key sai trả400 & Actual202, header chưa được kiểm tra.\\
+\bottomrule
+\end{tabularx}\endgroup\par
+\textbf{Review của người dùng:} “Đã review RED, tiếp tục GREEN và hoàn tất bài”. Chỉ sau xác nhận này mới sửa
+product code. Commit \code{1fe363e} giữ test RED gốc đúng SHA-256 trong summary; phiên bản final có thêm regression.
+
+Baseline regression riêng: \textbf{56 PASS}. Queue RED bổ sung: \textbf{1 FAIL} đúng điều kiện retry.
+Lần đầu baseline test thiếu thư mục basetemp và browser attempt đầu gặp selector precondition không hợp lệ;
+đó là lỗi setup/precondition, được loại khỏi bằng chứng RED feature, không biến thành thành tích phát hiện bug.
+
+\subsection*{4.2. Contract triển khai}
+\begin{lstlisting}
+POST /me/portal-sync
+Idempotency-Key: vt102-request-00000001
+X-CSRF-Token: <current session token>
+{}
+
+{"id":"opaque-job-id","state":"running","phase":"collecting",
+ "progress_percent":25,"error":null,"result":null}
+\end{lstlisting}
+Key hợp lệ 16–128 ASCII, \code{[A-Za-z0-9_-]}, được hash trong job. Scope gắn owner và đúng session object;
+validate body/header trước lookup; replay trước resume cookie và owner busy. Missing header giữ contract legacy.
+Lookup/admission không có await giữa kiểm tra và tạo job trong event loop đơn.
+
+\subsection*{4.3. GREEN và regression}
+\begin{lstlisting}
+PYTHONUTF8=1 python -m coverage run --branch ... -m pytest tests
+  -q -m "not postgres and not hus_postgres"
+  --full-catalog-root docs/acceptance/hus_2022 ...
+650 passed, 80 deselected, 1 warning; EXIT_CODE=0
+\end{lstlisting}
+Đây là toàn nhóm offline + PDF acceptance, \textbf{không phải 80 PostgreSQL tests}. Warning Starlette/httpx có sẵn.
+Evidence GREEN gồm full command, stdout, JUnit, coverage JSON và product diff review.
+\clearpage
+
+% PAGE 5
+\section*{5. AI-assisted change và mutation experiment}
+\subsection*{5.1. Patch có giới hạn}
+\src{app/services/portal_sync_jobs.py}{portal\_sync\_jobs.py} giữ key validation/hash, session-scoped replay,
+capacity40 và response allowlist. Không tạo registry DB mới: receipt gắn vào job RAM hiện có, cùng vòng đời cleanup.
+\src{app/api/portal.py}{portal.py} cập nhật queued0 → collecting25 → saving75 → done100,
+failed/cancelled giữ mốc. GET không lộ object task/session/credential.
+
+\begin{lstlisting}[language=Python]
+# New receipt: replay before resume_request and owner-busy check.
+existing = sync_jobs.replay(runtime.jobs, value, request_key)
+if existing:
+    return existing
+# No await between the final admission check and task registration.
+return start_job(value, submitted, request_key)
+\end{lstlisting}
+\src{app/integrations/daotao/runtime.py}{runtime.py} thêm wait-for-slot có opt-in; login legacy vẫn fail-fast.
+Callback collecting chỉ chạy sau khi nhận slot, recheck session/provider version trước spawn.
+Cancellation khi đang save vẫn dựa vào shield/đợi kết quả transaction thật, không báo rollback giả.
+
+UI \src{app/static/portal.js}{portal.js} giữ key khi POST mất phản hồi, giữ id khi poll lỗi tạm thời,
+poll retry có giới hạn/backoff và feedback success tối đa1/job. Progress có label VI/EN.
+Reauth password không tự submit lại. Refresh bar trước đây luôn hidden được hiển thị khi đã có profile.
+
+\subsection*{5.2. Mutation bắt buộc: đổi mapping response field}
+Tạo worktree/branch thí nghiệm \code{experiment/vt102-progress-mutation}, từ GREEN \code{\Green};
+commit mutant \code{8a4fc64} chỉ đổi một mapping:
+\begin{lstlisting}[language=Python]
+# Correct:
+"progress_percent": job.get("progress_percent", 0)
+# Deliberate bug in the isolated experiment only:
+"progress_percent": 0
+\end{lstlisting}
+Chạy toàn suite feature29 instances: \textbf{6 FAIL / 23 PASS}, exit1. TC08 so field thật trên wire
+với literal100 nên phát hiện \code{0 != 100}; TC01/09/14/15 và TC19 cũng fail.
+Không tính mutation score tổng thể từ một mutant.
+
+Revert \code{3093c3b}: \textbf{29 PASS}, exit0. Tree sau revert khớp chính xác tree GREEN;
+hai commit thí nghiệm không là ancestor của nhánh nộp và không được push lên nhánh nộp.
+Raw command/stdout/JUnit và hash trước/sau ở \code{evidence/mutation/}.
+
+\textbf{Invariant:} cùng logical request trong scope phiên/process tạo tối đa một job/collector/save;
+completion feedback không lặp và response phản ánh state thật. UNIQUE snapshot vẫn là lớp bảo vệ DB riêng.
+\clearpage
+
+% PAGE 6
+\section*{6. Coverage, flakiness và performance experiment}
+\subsection*{6.1. Line/branch coverage thực đo}
+Coverage 7.17.3 chạy cùng 650 test, scope ba module liên quan; không tuyên bố coverage toàn repository.
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}Yrrr@{}}
+\toprule\rowcolor{Pale}\textbf{Module} & \textbf{Lines} & \textbf{Branches} & \textbf{Combined}\\\midrule
+portal\_sync\_jobs.py & 22/22 & 12/12 & 100\%\\
+portal.py & 228/290 & 67/98 & 76\%\\
+runtime.py & 160/179 & 60/78 & 86\%\\
+\bottomrule
+\end{tabularx}\endgroup\par
+Lines controller còn thiếu và các branch chưa đi qua vẫn là residual risk, dù helper mới đạt100\%.
+Risk coverage dựa trên case/AC ở trang7; coverage không thay thế assertion đúng nghĩa nghiệp vụ.
+
+\subsection*{6.2. Hai nguồn flakiness chính}
+\textbf{Thời gian và race:} sleep sau POST có thể đọc nhầm state nếu máy chậm. Test dùng Event tại collector/save,
+gather task và literal mapping. Timeout3/5s chỉ chống treo. TC23 báo đã chờ semaphore trước revoke, tránh test sai race.
+
+\textbf{Shared state và event loop:} registry/semaphore/session dùng chung có thể rò giữa test hoặc bị bind vào loop cũ.
+Mỗi test thay registry, drain/cancel task và giải phóng gate trong finally. 40 actor có cookie/CSRF riêng;
+không đổi một cookie jar chung rồi gọi đồng thời. Browser dùng expect theo DOM, không sleep để giả đồng bộ.
+
+\subsection*{6.3. Tải40, p95 mục tiêu \ensuremath{\leq}1.5s}
+Lệnh: \code{python -m tools.vt102_load}. 40 actor gửi POST, retry cùng key, poll khi đang active rồi poll sau completion.
+Tổng160 requests;40 logical jobs,40 collector calls,40 saves; tối đa2 collector chạy,38 chờ.
+Timer \code{perf_counter}; nearest-rank p95 là phần tử thứ \ensuremath{\lceil0.95n\rceil} sau sắp xếp.
+
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule\rowcolor{Pale}\textbf{Endpoint group} & \textbf{n} & \textbf{min ms} & \textbf{avg ms} & \textbf{p95 ms}\\\midrule
+POST acceptance & 40 & 40.762 & 49.144 & 57.819\\
+POST same-key retry & 40 & 17.421 & 24.139 & 29.242\\
+GET status & 80 & 16.477 & 27.328 & 44.854\\
+\bottomrule
+\end{tabularx}\endgroup\par
+\textbf{Error rate:0\%.} Cả ba p95 nhỏ hơn1500ms. Không có success nhờ trả busy hàng loạt;
+counts và kết quả done100 được kiểm tra trong harness. Raw metric JSON: \code{docs/vt102/evidence/load.json}.
+
+\textbf{Giới hạn trung thực:} ASGI in-process trên Windows/Python3.12, một lần chạy40 actor;
+VNU subprocess, auth repository và store là doubles. Không đo TCP/TLS, DB contention, VNU thật,
+soak hoặc multi-process. Không gọi đây là SLA production hay throughput requests/giây.
+\clearpage
+
+% PAGE 7
+\section*{7. Traceability và engineering review}
+\par\begingroup\small
+\begin{tabularx}{\linewidth}{@{}p{19mm}p{23mm}Y p{18mm}p{22mm}@{}}
+\toprule\rowcolor{Pale}\textbf{AC/Risk} & \textbf{Test IDs} & \textbf{Test file / evidence} & \textbf{Commit} & \textbf{Kết quả}\\\midrule
+AC01 async & TC01,19 & \path{test_vt102_async_progress.py}; \path{test_vt102_queue.py} & \Green & PASS\\
+AC02 duplicate retry & TC02,03,\newline09,10,21 & \path{tests/integrations/test_vt102_async_progress.py} & \Green & PASS; counts1\\
+AC03 schema & TC01,08,14,15,23 & Cùng API test file; literal on-wire assertions & \Green & PASS\\
+AC04 ownership & TC04,06,11,12,\newline16–18,22 & Cùng API test file; synthetic accounts & \Green & PASS\\
+AC05 UI & TC20 & \path{tests/frontend/check_vt102_async_progress.py}; evidence/browser & \Green & PASS\\
+NFC40/p95 & TC19 + harness & \path{tools/vt102_load.py}; evidence/load.json & \Green & p95<1.5s, fake I/O\\
+Mutation mapping & TC08 + suite29 & evidence/mutation/pytest.txt; restored.txt & 8a4fc64 → 3093c3b & Killed6; restored29 PASS\\
+Test-first RED & TC01–18 & evidence/red/pytest.txt; summary.json & 1fe363e & 12 FAIL/13 PASS\\
+\bottomrule
+\end{tabularx}\endgroup\par
+
+\subsection*{7.1. Hai đề xuất AI phải kiểm tra kỹ}
+\textbf{Đề xuất1:} dùng UNIQUE(owner,digest) rồi kết luận retry an toàn. Constraint bảo vệ snapshot trùng nội dung,
+nhưng không bảo vệ số lần collector, save transaction, cập nhật timestamp và feedback. Sửa bằng receipt lookup
+trước resume/busy và các assertion về id/counts. TC03 chứng minh mất ACK sau commit không tạo job thứ hai.
+
+\textbf{Đề xuất2:} kiểm tra session một lần trước khi xếp hàng, hoặc dùng một delay cố định rồi assert done.
+Session/provider có thể bị revoke trong lúc chờ; delay không khóa đúng boundary.
+TC23 tái hiện spawn sau revoke, sau đó thêm recheck tại callback nhận slot.
+Test dùng Event/semaphore và trực tiếp kiểm tra subprocess không được gọi.
+
+\subsection*{7.2. Những cam kết chưa được chứng minh}
+Idempotency scope session/process: restart xóa RAM và mất provider cookie; không được replay thành công giả.
+Muốn survive restart/multi-worker cần durable command/receipt với unique key và protocol phục hồi riêng.
+Không mở lại ghi PII sau generation fence, không tự gửi lại password để che lỗi reauth.
+
+80 PostgreSQL tests không chạy trong lượt này; fake save counters không chứng minh rollback/unique constraint
+ở DB thật dưới race hoặc crash. Các bảo vệ DB cũ được giữ nguyên. Bước tiếp theo có giá trị nhất:
+fault injection commit/lost ACK/restart trên PostgreSQL disposable.
+
+\textbf{Cách kiểm tra evidence:} clone nhánh, chạy các lệnh README, đối chiếu exit code và JUnit;
+test RED/experiment nằm ở các commit thật được nêu, không sửa timestamp/author để giả thứ tự làm việc.
+Nhánh main không bị merge hoặc viết trực tiếp trong bài tập này.
+\clearpage
+
+% PAGE 8
+\section*{8. Reflection và tái lập}
+\textbf{Reflection —315 từ theo khoảng trắng; bản nháp để sinh viên biên tập.}
+
+Quy trình Spec, Test, AI-assisted Change, Verify và Review giúp tôi phân biệt một giải pháp có vẻ hợp lý với một thay đổi đã có bằng chứng. Khi đọc repository, tôi phát hiện đồng bộ VNU đã chạy bất đồng bộ và database đã chống trùng snapshot. Vì vậy, đóng góp của bài tập tập trung vào receipt khi retry và tiến trình phản hồi, thay vì nhận toàn bộ luồng cũ là phần triển khai mới.
+
+Confidence tăng rõ nhất khi test giữ collector và transaction tại các boundary xác định. Tôi kiểm tra cùng key trả cùng job, đếm số collector và save, đồng thời mô phỏng mất phản hồi sau commit. Các assertion trên field thật phát hiện mutation map progress thành không. Việc revert mutation rồi chạy lại giúp phân biệt lỗi cố ý với lỗi môi trường. Equivalence Partitioning cũng nhắc tôi kiểm tra key thiếu, sai và hợp lệ như những hợp đồng khác nhau.
+
+Tuy nhiên, kết quả chưa chứng minh exactly-once sau restart hoặc giữa nhiều worker. Registry vẫn nằm trong RAM và thuộc phiên đăng nhập. Harness có bốn mươi actor nhưng thay VNU, authentication repository và lưu trữ bằng dữ liệu giả; p95 thấp không đại diện cho độ trễ mạng hay contention PostgreSQL thật. Coverage cao của helper cũng không đồng nghĩa mọi nhánh controller đều an toàn.
+
+Hai điểm tôi phải kiểm tra kỹ là dùng UNIQUE snapshot để kết luận không có job trùng, và dùng timeout hoặc sleep để suy ra thứ tự thực thi. Cả hai đều có thể tạo cảm giác an toàn sai. Test tiếp theo có giá trị cao nhất là fault injection sau commit trên PostgreSQL disposable, kết hợp mất ACK và restart. Nếu yêu cầu mở rộng tới nhiều process, tôi sẽ thiết kế ledger bền vững trước khi nâng phạm vi cam kết.
+
+\subsection*{8.1. Lệnh tái lập rút gọn}
+\begin{lstlisting}
+git fetch origin
+git switch --track origin/feat/vt102-async-task-progress
+python -m pip install -r requirements-vt102.txt -c requirements-lock.txt
+python -m pytest tests/integrations/test_vt102_async_progress.py tests/integrations/test_vt102_queue.py -q
+python -m tools.vt102_load --output backups/load-reproduce.json
+python -m tests.frontend.check_vt102_async_progress
+\end{lstlisting}
+Chi tiết venv, Python UTF-8, optional Chrome, coverage và whole offline/PDF suite có trong
+\href{\repo/blob/feat/vt102-async-task-progress/README_VT102.md}{README\_VT102.md}.
+TC20 route-intercept hoàn toàn; các browser regression cũ có thể cần static server local.
+Không dùng --reload trên Windows để chạy VNU worker.
+
+\textbf{Nguồn bằng chứng chính:} source permalink tại GREEN \code{\Green};
+\code{docs/vt102/evidence/} chứa baseline, RED, GREEN, product diff, mutation và load JSON.
+\textbf{Xuất PDF:} upload duy nhất file .tex này lên Overleaf, chọn XeLaTeX và Recompile;
+không cần .bib/ảnh ngoài hoặc shell escape. Nhánh pdfLaTeX có font encoding T5.
+\end{document}

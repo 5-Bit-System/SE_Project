@@ -1,5 +1,102 @@
 # Project Memory and Contributor Guidelines
 
+## VT-102 completed, publication authorized — 2026-11-14
+
+User requested a standalone LaTeX report, implementation, a NEW branch and push.
+Then explicitly confirmed: "Da review RED, tiep tuc GREEN va hoan tat bai".
+This supersedes Step-1-only and intermediate review stops below for completing
+the assignment, but not test-first. Later "Lam tiep" reaffirmed the ongoing task.
+Branch feat/vt102-async-task-progress created from baseline
+7aa9d939ddca47461dbc7a55972fdfbec7c434fe. Preserve .vscode/settings.json,
+credentials and ignored backups. No merge/main write or force push authorized.
+
+RED ran before product edits: 25 instances, 12 assertion failures/13 passed,
+zero setup errors, reviewed by user. Commit 1fe363e preserves the exact original
+RED test hash. Added queue RED before implementation. Commit 7a06e62 implements
+session/process-scoped sync key receipts, replay before provider resume/busy,
+40 active capacity, opt-in waiting behind 2 collector slots and progress phases
+0/25/75/100. Legacy no-key/reauth JSON contracts retained. Collector callback
+rechecks session/provider version after queue wait; TC23 first failed on spawn
+after revocation, then passed with recheck. UI keeps key on lost ACK, retains job
+for bounded poll retry, renders accessible VI/EN progress and success once/job;
+shows existing refresh bar for loaded profiles. No auto password retry, academic
+rule/source/DB/schema edits, durable/exactly-once claim or restart recovery.
+
+Verification: final coverage run of offline + PDF acceptance 650 passed,
+80 PostgreSQL cases deselected, existing Starlette/httpx warning. Feature29 PASS.
+New helper: lines22/22, branches12/12; controller228/290 and67/98; runtime160/179
+and60/78. Harness40 actors,160 ASGI requests,40 jobs/collectors/saves,max2 active,
+0% errors; p95 POST57.819ms/retry29.242ms/poll44.854ms. These are synthetic
+provider/auth-store measurements, not real VNU/DB/network/SLA evidence.
+
+Mutation in isolated worktree/branch experiment/vt102-progress-mutation:
+8a4fc64 maps progress_percent to zero; feature suite6 FAIL/23 PASS. Revert
+3093c3b gives29 PASS and exact GREEN tree. Worktree target verified, removed,
+temporary branch deleted; mutation commits must not be pushed to submission ref.
+Raw logs/receipt preserve hashes. TC20 Chrome lost ACK/same key/progress25/100/
+feedback1/EN/mobile/logout passed. Legacy sync-feedback fixture updated for the
+previously moved planning notices, explicit refresh and saved-plan API response;
+it and reauth Chrome regression pass. No real credentials/provider/model/DB I/O.
+
+Report docs/vt102/BT3_23001956_VT-102.tex is one-file Overleaf source with XeLaTeX
+and pdfLaTeX branches; compiled locally with Tectonic/XeTeX to adjacent PDF,
+8 A4 pages, Vietnamese checked, zero overfull boxes. pdfLaTeX branch supplied
+but not locally executed. Reflection is315 whitespace words and marked draft
+for student's own editing. README_VT102.md covers setup and exact rerun commands;
+requirements-vt102.txt pins optional coverage7.17.3. Full stdout/JUnit/coverage/
+load/mutation/PDF receipts under docs/vt102/evidence; transient images/TeX logs
+and experiment files remain in ignored backups. Raw evidence whitespace retained;
+source/docs whitespace checks exclude generated evidence paths only.
+
+User authorized publication to the NEW branch. Verify final clean tracked tree,
+no unrelated files, no mutation ancestry, remote head/upstream after push.
+This is a preparation checkpoint; Git/publication receipt establish final hashes.
+Do not treat absent DB acceptance or synthetic load as broader certification.
+
+## VT-102 assignment, Step 1 only — 2026-11-14
+
+User supplied the BT3 brief in attachment 1aa19a97-2975-4e36-a2c2-7daba90ff322.
+Student Vu Khac Huy Vinh/23001956, SE2026-T25, AI-07, variant VT-102. Workflow
+is Spec -> Test -> AI-assisted Change -> Verify -> Review, with an explicit STOP
+for user review after every major step. Current authorization is STEP 1 ONLY.
+Do not write new tests yet or edit product code. Later RED must fail for the
+missing feature and the user must review/save/confirm that evidence before any
+GREEN product patch. Setup/import/syntax errors do not count as RED. Do not
+infer approval of GREEN from a later generic request to proceed with Step 2.
+
+Actual local baseline 7aa9d939ddca47461dbc7a55972fdfbec7c434fe on
+feat/recommendation-conversation-ui, clean tracked tree before this task;
+preserve preexisting untracked .vscode/settings.json. No fetch/pull/branch create,
+commit/push, app launch, database access or mutation in Step 1. Proposed branch
+feat/vt102-async-task-progress has NOT been created. Earlier publication requests
+describe completed UI work; do not infer authorization to publish this assignment.
+
+Read actual portal API, runtime, store, frontend, existing tests and dependencies.
+Async sync already exists (POST202, create_task, GET/poll); snapshot dedup has
+UNIQUE(owner,digest) and a row lock. Missing parts are request idempotency and
+consistent progress fields. Registry is RAM/session-private, terminal cleanup
+uses creation age 1800s; collector has 2 slots and 120s timeout, fail-fast busy.
+These facts invalidate assumptions that async and all duplicate protection are
+absent. Existing tests protect cancellation during reading and shield DB commit.
+
+Step 1 spec/plan: docs/vt102/STEP1_SPEC_PLAN.md, five ACs, NFR 40 concurrent and
+p95 <=1.5s for acceptance/status (not crawl completion), explicit assumptions,
+API/invariant/milestone contract and planned file list. Proposed slice extends
+cookie-based VNU transcript sync with same-session/process key replay, bounded
+waiting behind two collector slots, 0/25/75/100 milestone progress and final UI
+feedback once per job. No automatic credential/reauth retry. Single-process,
+30-minute/session scope is a REVIEW PROPOSAL, not a general exactly-once claim;
+durable/multi-worker scope requires revising spec/tests before GREEN.
+
+Existing baseline tests only: portal_api + portal_jobs + portal_sessions,
+56 passed, 1 preexisting Starlette/httpx warning, exit0. Raw command/output and
+JUnit are in docs/vt102/evidence; Git/source/package survey is adjacent. An
+initial attempt failed setup because basetemp parent was absent; that attempt
+is preserved under backups/vt102_step1/attempt1-* and explicitly is NOT RED.
+Created parent and reran cleanly. pytest/httpx/Playwright installed; coverage,
+pytest-cov and pytest-asyncio absent. No full suite/load/coverage/mutation yet.
+Stop at Step 1 review; Step 2 is test design only and separately reviewable.
+
 ## Intake refinement publication authorized — 2026-11-04
 
 User now explicitly requests commit/push of the changes immediately below on

@@ -1,0 +1,4 @@
+COMMAND: .venv/Scripts/python.exe -X utf8 -m tests.frontend.check_portal_sync_feedback
+Sync feedback: current CSRF/reauth, retained source, progress, reload, VI/EN and logout passed
+
+EXIT_CODE: 0

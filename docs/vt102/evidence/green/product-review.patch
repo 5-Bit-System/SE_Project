@@ -1,0 +1,368 @@
+diff --git a/app/api/portal.py b/app/api/portal.py
+index 6069968..a16f720 100644
+--- a/app/api/portal.py
++++ b/app/api/portal.py
+@@ -16,6 +16,7 @@ from app.auth.dependencies import call as auth_call
+ from app.auth.dependencies import require_account
+ from app.integrations.daotao import runtime, store
+ from app.integrations.daotao.snapshot import PortalFailure, collection_review
++from app.services import portal_sync_jobs as sync_jobs
+ 
+ router = APIRouter()
+ logger = logging.getLogger(__name__)
+@@ -186,7 +187,19 @@ async def sync_job(job, value, submitted):
+             raise PortalFailure('vnu_reauth_required' if value.app_session_id else 'session_expired')
+         if value.portal_version != version:
+             raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
+-        result = await runtime.collect(submitted)
++        if job.get("request_key"):
++            def collecting():
++                # A queued task may lose its session/provider state while waiting for a slot.
++                if not runtime.session_active(value) or job["state"] != "running":
++                    raise PortalFailure("cancelled")
++                if value.portal_version != version:
++                    raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
++                sync_jobs.mark(job, "running", "collecting", 25)
++
++            result = await runtime.collect(submitted, wait_for_slot=True,
++                on_started=collecting)
++        else:
++            result = await runtime.collect(submitted)
+         if result["subject"] != value.subject:
+             if value.app_session_id:
+                 runtime.clear_portal(value)
+@@ -204,7 +217,7 @@ async def sync_job(job, value, submitted):
+         if "cookies" in result:
+             runtime.install_portal(value, result["cookies"], version)
+         captured = result['snapshot']
+-        job["state"] = "saving"
++        sync_jobs.mark(job, "saving", "saving", 75)
+         saving = asyncio.create_task(auth_call(account_portal.save, value, result['snapshot'], result.get('profile'))
+                                      if value.app_session_id else safe_call(store.save, value.owner,
+                                      value.generation, result['snapshot'], result.get('profile')))
+@@ -213,15 +226,15 @@ async def sync_job(job, value, submitted):
+         except asyncio.CancelledError:
+             # A DB thread cannot be cancelled. Wait rather than report a false rollback.
+             job["result"] = await saving
+-        job["state"] = "done"
++        sync_jobs.mark(job, "done", "finished", 100)
+         if runtime.session_active(value):
+             value.latest_collection = collection_review(captured, job['result'])
+     except asyncio.CancelledError:
+-        job["state"] = "cancelled"
++        sync_jobs.mark(job, "cancelled", "cancelled")
+         if runtime.session_active(value):
+             runtime.clear_portal(value)
+     except Exception as exc:
+-        job["state"] = "failed"
++        sync_jobs.mark(job, "failed", "failed")
+         job["error"] = exc.detail if isinstance(exc, HTTPException) else (
+             str(exc) if isinstance(exc, PortalFailure) else "portal_unavailable")
+         if captured is not None and runtime.session_active(value):
+@@ -235,27 +248,33 @@ async def sync_job(job, value, submitted):
+         submitted.clear()
+ 
+ 
+-def start_job(value, submitted):
++def start_job(value, submitted, request_key=None):
+     if not runtime.session_active(value):
+         submitted.clear()
+         raise HTTPException(401, "session_expired")
++    existing = sync_jobs.replay(runtime.jobs, value, request_key)
++    if existing:
++        submitted.clear()
++        return existing
+     if any(j["owner"] == value.owner and j["state"] in {"running", "saving"}
+            for j in runtime.jobs.values()):
+         submitted.clear()
+         raise HTTPException(409, "busy")
+     runtime.reap()
+-    if len(runtime.jobs) >= 1000:
++    if (len(runtime.jobs) >= 1000 or sum(job["state"] in {"running", "saving"}
++            for job in runtime.jobs.values()) >= sync_jobs.MAX_ACTIVE_JOBS):
+         submitted.clear()
+         raise HTTPException(429, "busy")
+     job_id = secrets.token_urlsafe(24)
+     job = {"owner": value.owner, "session": value,
+-           "state": "running", "created": time.monotonic(), "portal_version": value.portal_version}
++           "state": "running", "phase": "queued", "progress_percent": 0,
++           "request_key": request_key, "created": time.monotonic(), "portal_version": value.portal_version}
+     task = asyncio.create_task(sync_job(job, value, submitted))
+     job["task"] = task
+     runtime.jobs[job_id] = job
+     runtime.tasks.add(task)
+     task.add_done_callback(runtime.tasks.discard)
+-    return {"id": job_id, "state": "running"}
++    return sync_jobs.response(job_id, job) if request_key else {"id": job_id, "state": "running"}
+ 
+ 
+ @router.post("/me/portal-sync", status_code=202)
+@@ -272,6 +291,16 @@ async def sync(request: Request):
+                 raise ValueError
+         except (ValueError, UnicodeError):
+             raise HTTPException(400, "invalid_sync_request") from None
++    try:
++        request_key = sync_jobs.key_hash(request.headers)
++    except ValueError:
++        raise HTTPException(400, "invalid_idempotency_key") from None
++    if not runtime.session_active(value):
++        raise HTTPException(401, "session_expired")
++    runtime.reap()
++    existing = sync_jobs.replay(runtime.jobs, value, request_key)
++    if existing:
++        return existing  # Before cookie resume: lost ACK can outlive provider-cookie rotation.
+     try:
+         submitted = runtime.resume_request(value)
+     except PortalFailure as exc:
+@@ -280,7 +309,7 @@ async def sync(request: Request):
+             # authenticated app user whose temporary provider state expired.
+             return JSONResponse({'state': 'reauth_required'}, status_code=200)
+         raise HTTPException(401 if str(exc) == "session_expired" else 409, str(exc)) from None
+-    return start_job(value, submitted)
++    return start_job(value, submitted, request_key)
+ 
+ 
+ @router.post("/me/portal-reauth", status_code=202)
+@@ -302,6 +331,8 @@ async def owned_job(request, job_id):
+ @router.get("/me/portal-sync/{job_id}")
+ async def job_status(request: Request, job_id: str):
+     job = await owned_job(request, job_id)
++    if job.get("request_key"):
++        return sync_jobs.response(job_id, job)
+     return {k: v for k, v in job.items() if k in {"state", "error", "result"}}
+ 
+ 
+diff --git a/app/integrations/daotao/runtime.py b/app/integrations/daotao/runtime.py
+index 14e9d6e..b737b06 100644
+--- a/app/integrations/daotao/runtime.py
++++ b/app/integrations/daotao/runtime.py
+@@ -146,13 +146,15 @@ def new_session(owner, subject, generation, cookies=None):
+     return token
+ 
+ 
+-async def collect(credentials):
++async def collect(credentials, *, wait_for_slot=False, on_started=None):
+     body = json.dumps(credentials).encode("utf-8")
+     if len(body) > MAX_INPUT_BYTES:
+         raise PortalFailure("portal_state_invalid")
+-    if slots.locked():
++    if not wait_for_slot and slots.locked():
+         raise PortalFailure("busy")
+     async with slots:
++        if on_started is not None:
++            on_started()
+         env = {k: v for k, v in os.environ.items() if k not in {"DEBUG", "PWDEBUG"}}
+         env["PYTHONIOENCODING"] = "utf-8"
+         process = await asyncio.create_subprocess_exec(
+diff --git a/app/services/portal_sync_jobs.py b/app/services/portal_sync_jobs.py
+new file mode 100644
+index 0000000..8ba1542
+--- /dev/null
++++ b/app/services/portal_sync_jobs.py
+@@ -0,0 +1,37 @@
++"""Single-event-loop, session-scoped sync receipts. Not a durable/exactly-once queue."""
++
++import hashlib
++import re
++
++MAX_ACTIVE_JOBS = 40
++
++
++def key_hash(headers):
++    values = headers.getlist("idempotency-key")
++    if not values:
++        return None  # Legacy callers retain their existing contract.
++    if len(values) != 1 or not re.fullmatch(r"[A-Za-z0-9_-]{16,128}", values[0]):
++        raise ValueError("invalid_idempotency_key")
++    return hashlib.sha256(values[0].encode("ascii")).hexdigest()
++
++
++def replay(jobs, session, request_key):
++    if request_key is not None:
++        for job_id, job in jobs.items():
++            if (job.get("request_key") == request_key and job.get("session") is session
++                    and job.get("owner") == session.owner):
++                return response(job_id, job)
++    return None
++
++
++def mark(job, state, phase, percent=None):
++    job.update(state=state, phase=phase)
++    if percent is not None:
++        job["progress_percent"] = percent
++
++
++def response(job_id, job):
++    """Allowlist on-wire fields; the percent is a milestone, not estimated duration."""
++    return {"id": job_id, "state": job["state"], "phase": job["phase"],
++            "progress_percent": job.get("progress_percent", 0),
++            "error": job.get("error"), "result": job.get("result")}
+diff --git a/app/static/index.html b/app/static/index.html
+index 7ad2dd3..3fc56a2 100644
+--- a/app/static/index.html
++++ b/app/static/index.html
+@@ -214,6 +214,7 @@
+       <section class="transcript-refresh-bar" aria-labelledby="portal-refresh-title" hidden>
+         <div><h2 id="portal-refresh-title"></h2><p id="portal-refresh-message" role="status" aria-live="polite"></p><p id="portal-refresh-time"></p></div>
+         <div class="transcript-refresh-actions"><button type="button" id="portal-sync" class="portal-button primary-action" data-portal-copy="sync"></button><button type="button" id="portal-cancel" class="portal-button" hidden data-portal-copy="cancel"></button></div>
++        <div id="portal-task-progress" hidden><label id="portal-progress-label" for="portal-progress"></label><progress id="portal-progress" max="100" value="0"></progress></div>
+       </section>
+     <section id="tab-dashboard" class="tab-panel active" role="tabpanel" aria-labelledby="tab-btn-dashboard">
+       <div id="dashboard-content" class="dashboard-heading">
+diff --git a/app/static/portal.css b/app/static/portal.css
+index 2917b9a..b71b348 100644
+--- a/app/static/portal.css
++++ b/app/static/portal.css
+@@ -27,6 +27,10 @@
+ .portal-actions { margin-top: 24px; }
+ .portal-delete { color: var(--text-main); border-color: var(--border-focus); margin-left: auto; }
+ #portal-confirm { margin-top: 16px; padding: 16px; background: var(--warning-bg); }
++#portal-task-progress { grid-column: 1 / -1; flex-basis: 100%; min-width: 0; width: 100%; }
++.transcript-refresh-bar { flex-wrap: wrap; }
++#portal-progress-label { display: block; font-size: 12px; color: var(--text-muted); margin: 8px 0; }
++#portal-progress { display: block; width: 100%; height: 10px; accent-color: var(--accent-primary); }
+ 
+ /* Keep the pending portal request visible while its browser runs in the background. */
+ #portal-status.is-loading {
+diff --git a/app/static/portal.js b/app/static/portal.js
+index c927b72..bb83daa 100644
+--- a/app/static/portal.js
++++ b/app/static/portal.js
+@@ -88,8 +88,27 @@
+   let requestedTerm = null, requestedLetter = null, requestedYear = null;
+   let accountId = null;
+   let reminderTimer;
++  let pendingSyncKey = null, pollTimer, pollFailures = 0, progressResult = null;
++  const completedJobIds = new Set();
+   const reminderInterval = 7 * 24 * 60 * 60 * 1000;
+   const text = () => copy[window.workspaceI18n.language === 'en' ? 'en' : 'vi'];
++  function renderProgress(result = progressResult) {
++    progressResult = result;
++    const active = result && Number.isInteger(result.progress_percent) && result.progress_percent >= 0 && result.progress_percent <= 100;
++    $('task-progress').hidden = !active;
++    if (!active) return;
++    const en = window.workspaceI18n.language === 'en';
++    const labels = en ? {queued: 'Waiting for a worker', collecting: 'Reading VNU data', saving: 'Saving', finished: 'Completed', failed: 'Failed', cancelled: 'Cancelled'}
++      : {queued: 'Đang chờ xử lý', collecting: 'Đang đọc dữ liệu VNU', saving: 'Đang lưu', finished: 'Hoàn tất', failed: 'Thất bại', cancelled: 'Đã hủy'};
++    $('progress').value = result.progress_percent;
++    $('progress-label').textContent = `${labels[result.phase] || result.state} · ${result.progress_percent}% · ${en ? 'stage progress' : 'tiến trình theo giai đoạn'}`;
++  }
++  function uncertainSync() {
++    status();
++    $('status').textContent = window.workspaceI18n.language === 'en'
++      ? 'The result is unconfirmed. Click Update transcript to resume this request.'
++      : 'Chưa xác nhận được kết quả. Bấm Cập nhật bảng điểm để tiếp tục yêu cầu này.';
++  }
+   function status(key = '', error = '') {
+     messageKey = key; errorKey = error;
+     const loading = key === 'waiting' && !error;
+@@ -104,6 +123,7 @@
+   }
+   function reset() {
+     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
++    clearTimeout(pollTimer); pendingSyncKey = null; pollFailures = 0; completedJobIds.clear(); renderProgress(null);
+     requestedTerm = null; requestedLetter = null; requestedYear = null;
+     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
+     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
+@@ -115,14 +135,14 @@
+     render();
+     document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail: null}));
+   }
+-  async function api(path, method = 'GET', body) {
++  async function api(path, method = 'GET', body, headers = {}) {
+     const current = epoch;
+     const response = await fetch(path, {method, credentials: 'same-origin', cache: 'no-store',
+-      headers: {...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
++      headers: {...headers, ...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
+     const result = await response.json();
+     if (!response.ok) {
+       if (current === epoch && response.status === 401) { reset(); window.systemAuth?.expire(); status('', 'session_expired'); }
+-      throw new Error(result.detail);
++      throw Object.assign(new Error(result.detail), {status: response.status});
+     }
+     return result;
+   }
+@@ -142,6 +162,7 @@
+   }
+   function renderReminder() {
+     clearTimeout(reminderTimer);
++    document.querySelector('.transcript-refresh-bar').hidden = !profile;
+     const t = text(), now = Date.now();
+     const last = Date.parse(profile?.last_synced_at || profile?.fetched_at || '');
+     const known = Boolean(profile?.snapshot) && Number.isFinite(last) && last <= now;
+@@ -161,6 +182,7 @@
+     document.querySelectorAll('[data-portal-copy]').forEach(node => { node.textContent = t[node.dataset.portalCopy]; });
+     $('show').textContent = $('password').type === 'password' ? t.show : t.hide;
+     status(messageKey, errorKey);
++    renderProgress();
+     renderReminder();
+     const review = $('collection-review');
+     review.replaceChildren();
+@@ -258,8 +280,9 @@
+     }
+   }
+   function beginPolling(result, current) {
+-    if (result.state === 'reauth_required') { syncError('vnu_reauth_required'); return; }
++    if (result.state === 'reauth_required') { pendingSyncKey = null; renderProgress(null); syncError('vnu_reauth_required'); return; }
+     job = result.id; $('reauth').hidden = true; $('reauth').reset();
++    pollFailures = 0; renderProgress(result);
+     $('cancel').hidden = false; poll(current);
+   }
+   async function openProfile() {
+@@ -333,32 +356,49 @@
+   };
+   async function poll(current) {
+     if (!job || current !== epoch) return;
++    clearTimeout(pollTimer);
+     try {
+       const result = await api(`/me/portal-sync/${encodeURIComponent(job)}`);
+       if (current !== epoch) return;
+-      if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
+-      job = null; $('cancel').hidden = true; await load();
++      pollFailures = 0; renderProgress(result);
++      if (['running', 'saving'].includes(result.state)) { pollTimer = setTimeout(() => poll(current), 1000); return; }
++      const finishedId = job;
++      job = null; pendingSyncKey = null; $('cancel').hidden = true; await load();
+       if (current !== epoch) return;
+       if (result.error || result.state === 'cancelled') syncError(result.error || 'cancelled');
+       else {
+         const review = profile?.latest_collection;
+-        if (result.state === 'done' && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
++        if (result.state === 'done' && !completedJobIds.has(finishedId) && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
++          completedJobIds.add(finishedId);
+           window.workspaceMotion?.statusFeedback($('status'), 'success');
+         }
+       }
+-    } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
++    } catch (err) {
++      if (current !== epoch) return;
++      if ((!err.status || err.status >= 500) && ++pollFailures <= 3) {
++        pollTimer = setTimeout(() => poll(current), Math.min(1000 * 2 ** pollFailures, 8000));
++      } else if (!err.status || err.status >= 500) { uncertainSync(); lock(false); }
++      else { status('', err.message); job = null; pendingSyncKey = null; $('cancel').hidden = true; }
++    }
+     finally { if (current === epoch && !job) lock(false); }
+   }
+   $('sync').onclick = async () => {
+-    if (busy || job) return;
++    if (busy) return;
++    if (job) { pollFailures = 0; lock(true); poll(epoch); return; }
+     window.workspaceNavigate('portal-dialog');
+     if (!profile) { $('username').focus(); $('login').scrollIntoView({block: 'center'}); return; }
+     const current = epoch;
+     lock(true); status('waiting');
+     try {
+-      const result = await api('/me/portal-sync', 'POST');
++      pendingSyncKey ||= crypto.randomUUID();
++      const result = await api('/me/portal-sync', 'POST', undefined, {'Idempotency-Key': pendingSyncKey});
+       if (current === epoch) beginPolling(result, current);
+-    } catch (err) { if (current === epoch) syncError(err.message); }
++    } catch (err) {
++      if (current === epoch) {
++        if (!err.status || err.status >= 500) uncertainSync();
++        else { pendingSyncKey = null; syncError(err.message); }
++      }
++    }
+     finally { if (current === epoch) lock(Boolean(job)); }
+   };
+   $('reauth').onsubmit = async event => {

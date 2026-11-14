@@ -1,0 +1,4 @@
+COMMAND: .venv/Scripts/python.exe -X utf8 -m tests.frontend.check_vt102_async_progress
+TC20 browser: lost ACK/same key, progress, one completion, EN/mobile/logout passed
+
+EXIT_CODE: 0

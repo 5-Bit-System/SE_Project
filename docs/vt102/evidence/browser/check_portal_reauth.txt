@@ -1,0 +1,4 @@
+COMMAND: .venv/Scripts/python.exe -X utf8 -m tests.frontend.check_portal_reauth
+Portal reauth: password-free sync, source expiry, technical error, explicit reauth, logout race and VI/EN/mobile passed
+
+EXIT_CODE: 0

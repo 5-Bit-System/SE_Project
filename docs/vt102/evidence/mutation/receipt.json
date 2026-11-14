@@ -1,0 +1,10 @@
+{
+  "base": "7a06e6226f1ae45f3756791eabf4793eda201174",
+  "mutant": "8a4fc64c617875152693b1b3ef1a2748e04fc355",
+  "mutation": "progress_percent mapped to constant 0",
+  "exit_code": 1,
+  "branch": "experiment/vt102-progress-mutation",
+  "revert": "3093c3b0e7c527c6be97935569b4c5b7e803ea7c",
+  "restored_exit_code": 0,
+  "restored_tree_matches_green": true
+}

@@ -1,0 +1,10 @@
+{
+  "pages": 8,
+  "compiler": "Tectonic (XeTeX)",
+  "standalone": true,
+  "overfull_boxes": 0,
+  "reflection_words": 315,
+  "vietnamese_text_checked": true,
+  "overleaf_recommended_compiler": "XeLaTeX",
+  "pdftex_branch": "provided, not executed locally"
+}
