@@ -559,11 +559,19 @@
   }
 
   async function resolveAccountId() {
-    if (activeAccountId) return activeAccountId;
-    if (typeof window !== 'undefined' && window.systemAuth?.account?.account_id) {
-      activeAccountId = String(window.systemAuth.account.account_id);
+    const currentAuthId = typeof window !== 'undefined' && window.systemAuth?.account?.account_id
+      ? String(window.systemAuth.account.account_id)
+      : null;
+    if (currentAuthId) {
+      if (activeAccountId && activeAccountId !== currentAuthId) {
+        activeAccountId = currentAuthId;
+        lastResolvedCourseCode = null;
+      } else {
+        activeAccountId = currentAuthId;
+      }
       return activeAccountId;
     }
+    if (activeAccountId) return activeAccountId;
     try {
       const res = await fetch('/auth/session', {credentials: 'same-origin', cache: 'no-store'});
       if (res.ok) {
@@ -792,9 +800,14 @@
   }
 
   document.addEventListener('workspace:account-change', event => {
-    const newAccountId = event.detail?.account_id ? String(event.detail.account_id) : null;
+    const newAccountId = event.detail?.account_id
+      ? String(event.detail.account_id)
+      : (typeof window !== 'undefined' && window.systemAuth?.account?.account_id
+        ? String(window.systemAuth.account.account_id)
+        : null);
     if (newAccountId !== activeAccountId) {
       activeAccountId = newAccountId;
+      lastResolvedCourseCode = null;
       if (config) resetScope();
     }
   });
