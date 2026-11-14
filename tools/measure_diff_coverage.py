@@ -98,10 +98,10 @@ def main():
         all_stmts = exec_lines | miss_lines
 
         added_lines = diff_lines.get(target, [])
-        tracked_stmts = [l for l in added_lines if l in all_stmts]
+        tracked_stmts = [line_no for line_no in added_lines if line_no in all_stmts]
 
-        file_exec = [l for l in tracked_stmts if l in exec_lines]
-        file_miss = [l for l in tracked_stmts if l in miss_lines]
+        file_exec = [line_no for line_no in tracked_stmts if line_no in exec_lines]
+        file_miss = [line_no for line_no in tracked_stmts if line_no in miss_lines]
 
         pct = (len(file_exec) / len(tracked_stmts) * 100) if tracked_stmts else 0.0
 
@@ -109,10 +109,10 @@ def main():
         print(f"Added lines in git diff: {len(added_lines)} | Tracked statements: {len(tracked_stmts)}")
         print("-" * 80)
 
-        for l in tracked_stmts:
-            code = file_lines[l - 1].strip() if l <= len(file_lines) else ""
-            status = "EXECUTED (1)" if l in exec_lines else "MISSED   (0)"
-            print(f"  Line {l:<4} | {status} | {code[:60]}")
+        for line_no in tracked_stmts:
+            code = file_lines[line_no - 1].strip() if line_no <= len(file_lines) else ""
+            status = "EXECUTED (1)" if line_no in exec_lines else "MISSED   (0)"
+            print(f"  Line {line_no:<4} | {status} | {code[:60]}")
 
         print(f"-> Statement Coverage for {target}: {len(file_exec)}/{len(tracked_stmts)} ({pct:.1f}%)")
 

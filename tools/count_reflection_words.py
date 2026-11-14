@@ -18,10 +18,10 @@ def main():
     count = len(words)
     print(f"Reflection word count: {count} words")
     if 250 <= count <= 350:
-        print(f"VERDICT: PASSED (Within required 250-350 range)")
+        print("VERDICT: PASSED (Within required 250-350 range)")
         return 0
     else:
-        print(f"VERDICT: FAILED (Outside required 250-350 range)")
+        print("VERDICT: FAILED (Outside required 250-350 range)")
         return 1
 
 if __name__ == "__main__":
