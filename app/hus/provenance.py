@@ -5,6 +5,7 @@ The ledger is local acquisition state, not an approval or a substitute for a pin
 
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,6 +16,14 @@ from pydantic import BaseModel, ConfigDict
 
 from app.hus.models import RawSourceReference
 from app.hus.urls import CrawlError, canonicalize_url
+
+
+def _safe_path(path: Path) -> Path:
+    if os.name == "nt":
+        resolved = str(path.resolve())
+        if not resolved.startswith("\\\\?\\"):
+            return Path("\\\\?\\" + resolved)
+    return path
 
 
 class CaptureEvent(BaseModel):
@@ -70,7 +79,7 @@ class RawArchive:
             if canonicalize_url(event.source_url) != identity or event.reference is None:
                 continue
             ref = event.reference
-            path = self.path_for(ref)
+            path = _safe_path(self.path_for(ref))
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != ref.raw_sha256:
                 return None
             return ref
@@ -90,11 +99,12 @@ class RawArchive:
         if not path.resolve().is_relative_to(self.root.resolve()):
             raise CrawlError("Raw output escapes source root")
         directory.mkdir(parents=True, exist_ok=True)
+        target_path = _safe_path(path)
         try:
-            with path.open("xb") as stream:
+            with target_path.open("xb") as stream:
                 stream.write(raw)
         except FileExistsError:
-            if path.read_bytes() != raw:
+            if target_path.read_bytes() != raw:
                 raise CrawlError(f"Corrupted immutable raw version: {path.name}")
         observed_at = datetime.now(timezone.utc).isoformat(timespec="microseconds")
         ref = RawSourceReference(
