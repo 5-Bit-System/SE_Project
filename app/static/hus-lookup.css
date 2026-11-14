@@ -766,3 +766,72 @@ body:has(#tab-lookup.active) .tab-label small {
     height: 48vh;
   }
 }
+
+@media (max-width: 768px) {
+  #tab-lookup.active {
+    height: calc(100dvh - 120px);
+    max-height: calc(100dvh - 120px);
+    gap: 6px;
+    padding: 0 4px;
+  }
+  #tab-lookup .lookup-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 2px;
+  }
+  #tab-lookup .lookup-topbar-title {
+    justify-content: space-between;
+    width: 100%;
+  }
+  #tab-lookup h2 {
+    font-size: 18px;
+  }
+  #tab-lookup .lookup-context {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+  }
+  #tab-lookup .lookup-select {
+    flex: 1;
+    min-width: 0;
+    font-size: 13px;
+  }
+  #tab-lookup .lookup-new-chat-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #tab-lookup .lookup-body {
+    flex-direction: column;
+  }
+  #tab-lookup .lookup-catalog {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 8px 10px;
+    max-height: 120px;
+  }
+  #tab-lookup .lookup-catalog-groups {
+    max-height: 80px;
+  }
+  #tab-lookup .lookup-messages {
+    flex: 1;
+    min-height: 260px;
+    padding: 8px 6px;
+  }
+  #tab-lookup .rag-message-user {
+    max-width: 90%;
+    margin-left: auto;
+  }
+  #tab-lookup .rag-message-assistant {
+    max-width: 96%;
+  }
+  #tab-lookup .lookup-composer {
+    padding: 6px 4px 4px;
+  }
+  #tab-lookup .lookup-input {
+    font-size: 14px;
+  }
+}
