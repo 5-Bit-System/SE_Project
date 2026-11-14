@@ -268,24 +268,6 @@
   let activeAccountId = null;
   let currentConversation = [];
   let syncingHistory = false;
-  let lastResolvedCourseCode = null;
-
-  function updateLastResolvedCourseFromConversation(convo) {
-    if (!convo || !convo.length) {
-      lastResolvedCourseCode = null;
-      return;
-    }
-    for (let i = convo.length - 1; i >= 0; i--) {
-      if (convo[i].role === 'assistant') {
-        const code = extractCourseCode(convo[i].reply);
-        if (code) {
-          lastResolvedCourseCode = code;
-          return;
-        }
-      }
-    }
-    lastResolvedCourseCode = null;
-  }
 
   function currentMajor() {
     return config?.majors.find(item => item.id === major.value) || null;
@@ -559,19 +541,11 @@
   }
 
   async function resolveAccountId() {
-    const currentAuthId = typeof window !== 'undefined' && window.systemAuth?.account?.account_id
-      ? String(window.systemAuth.account.account_id)
-      : null;
-    if (currentAuthId) {
-      if (activeAccountId && activeAccountId !== currentAuthId) {
-        activeAccountId = currentAuthId;
-        lastResolvedCourseCode = null;
-      } else {
-        activeAccountId = currentAuthId;
-      }
+    if (activeAccountId) return activeAccountId;
+    if (typeof window !== 'undefined' && window.systemAuth?.account?.account_id) {
+      activeAccountId = String(window.systemAuth.account.account_id);
       return activeAccountId;
     }
-    if (activeAccountId) return activeAccountId;
     try {
       const res = await fetch('/auth/session', {credentials: 'same-origin', cache: 'no-store'});
       if (res.ok) {
@@ -602,7 +576,6 @@
           currentConversation = data.messages;
           saveCachedMessages(majorId, currentConversation);
           renderConversation(currentConversation, selected);
-          updateLastResolvedCourseFromConversation(currentConversation);
         }
       }
     } catch {
@@ -662,7 +635,6 @@
 
     if (clearActive) {
       currentConversation = [];
-      lastResolvedCourseCode = null;
       clearCachedMessages(selected.id);
       renderConversation([], selected);
       if (activeAccountId) {
@@ -677,11 +649,9 @@
       if (cached && cached.length) {
         currentConversation = cached;
         renderConversation(currentConversation, selected);
-        updateLastResolvedCourseFromConversation(currentConversation);
         setStatus('Đã tải lịch sử hội thoại ' + selected.label + '.');
       } else {
         currentConversation = [];
-        lastResolvedCourseCode = null;
         renderConversation([], selected);
         setStatus('Đã chọn ' + selected.label + '. Đổi ngành sẽ bắt đầu hội thoại mới.');
       }
@@ -708,9 +678,6 @@
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
       allow_generated_reference: true};
-    if (isFollowUpCourseQuery(text) && lastResolvedCourseCode) {
-      payload.course_code = lastResolvedCourseCode;
-    }
     appendMessage('user', text);
     recordTurn('user', text);
     question.value = '';
@@ -734,12 +701,6 @@
       recordTurn('assistant', result.reply,
         citations,
         result.generation_mode);
-      if (result.hus_answer?.facts?.course_code) {
-        lastResolvedCourseCode = result.hus_answer.facts.course_code;
-      } else {
-        const found = extractCourseCode(result.reply);
-        if (found) lastResolvedCourseCode = found;
-      }
       if (result.mode === 'basic_chat') {
         setStatus('Đã phản hồi hội thoại.');
       } else if (result.hus_answer?.status === 'needs_clarification') {
@@ -800,14 +761,9 @@
   }
 
   document.addEventListener('workspace:account-change', event => {
-    const newAccountId = event.detail?.account_id
-      ? String(event.detail.account_id)
-      : (typeof window !== 'undefined' && window.systemAuth?.account?.account_id
-        ? String(window.systemAuth.account.account_id)
-        : null);
+    const newAccountId = event.detail?.account_id ? String(event.detail.account_id) : null;
     if (newAccountId !== activeAccountId) {
       activeAccountId = newAccountId;
-      lastResolvedCourseCode = null;
       if (config) resetScope();
     }
   });
