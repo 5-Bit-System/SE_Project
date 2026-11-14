@@ -1,0 +1,118 @@
+COMMAND: PYTHONUTF8=1 .venv/Scripts/python.exe -m pytest tests/integrations/test_vt102_async_progress.py -q --tb=short -p no:cacheprovider --basetemp backups/vt102_red/run1 --junitxml docs/vt102/evidence/red/pytest.xml
+
+FFFFFFF.......FFF...FF...                                                [100%]
+================================== FAILURES ===================================
+___________ test_tc01_ack_precedes_completion_and_poll_has_progress ___________
+tests\integrations\test_vt102_async_progress.py:95: in test_tc01_ack_precedes_completion_and_poll_has_progress
+    assert_progress(response.json(), job_id, "running", "collecting", 25)
+tests\integrations\test_vt102_async_progress.py:79: in assert_progress
+    assert {"id", "state", "phase", "progress_percent", "error", "result"} <= body.keys(), (
+E   AssertionError: ('VT-102 response is missing the new progress contract', ['state'])
+E   assert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])
+E    +  where dict_keys(['state']) = <built-in method keys of dict object at 0x0000027637E8C980>()
+E    +    where <built-in method keys of dict object at 0x0000027637E8C980> = {'state': 'running'}.keys
+______________ test_tc02_same_key_while_running_replays_receipt _______________
+tests\integrations\test_vt102_async_progress.py:102: in test_tc02_same_key_while_running_replays_receipt
+    assert replay.status_code == 202, "Same-key retry must replay, not return busy"
+E   AssertionError: Same-key retry must replay, not return busy
+E   assert 409 == 202
+E    +  where 409 = <Response [409 Conflict]>.status_code
+______ test_tc03_lost_ack_retry_after_commit_does_not_repeat_side_effect ______
+tests\integrations\test_vt102_async_progress.py:116: in test_tc03_lost_ack_retry_after_commit_does_not_repeat_side_effect
+    assert replay.json()["id"] == job_id, "Lost-ACK retry must not create a second job"
+E   AssertionError: Lost-ACK retry must not create a second job
+E   assert 'q_OIptUJj6fg...HqCFbr_nHdULS' == 'y4W1NuPXmZGq...wSOS5kPVi8OZg'
+E     
+E     - y4W1NuPXmZGq3qgpaelwSOS5kPVi8OZg
+E     + q_OIptUJj6fgKGy_aSfHqCFbr_nHdULS
+__________________ test_tc04_invalid_key_never_starts_job[] ___________________
+tests\integrations\test_vt102_async_progress.py:125: in test_tc04_invalid_key_never_starts_job
+    assert response.status_code == 400, "Invalid Idempotency-Key must be rejected"
+E   AssertionError: Invalid Idempotency-Key must be rejected
+E   assert 202 == 400
+E    +  where 202 = <Response [202 Accepted]>.status_code
+________________ test_tc04_invalid_key_never_starts_job[short] ________________
+tests\integrations\test_vt102_async_progress.py:125: in test_tc04_invalid_key_never_starts_job
+    assert response.status_code == 400, "Invalid Idempotency-Key must be rejected"
+E   AssertionError: Invalid Idempotency-Key must be rejected
+E   assert 202 == 400
+E    +  where 202 = <Response [202 Accepted]>.status_code
+_ test_tc04_invalid_key_never_starts_job[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+tests\integrations\test_vt102_async_progress.py:125: in test_tc04_invalid_key_never_starts_job
+    assert response.status_code == 400, "Invalid Idempotency-Key must be rejected"
+E   AssertionError: Invalid Idempotency-Key must be rejected
+E   assert 202 == 400
+E    +  where 202 = <Response [202 Accepted]>.status_code
+_______ test_tc04_invalid_key_never_starts_job[invalid key with spaces] _______
+tests\integrations\test_vt102_async_progress.py:125: in test_tc04_invalid_key_never_starts_job
+    assert response.status_code == 400, "Invalid Idempotency-Key must be rejected"
+E   AssertionError: Invalid Idempotency-Key must be rejected
+E   assert 202 == 400
+E    +  where 202 = <Response [202 Accepted]>.status_code
+____________________ test_tc08_done_mapping_is_exactly_100 ____________________
+tests\integrations\test_vt102_async_progress.py:160: in test_tc08_done_mapping_is_exactly_100
+    assert_progress(response.json(), job_id, "done", "finished", 100)
+tests\integrations\test_vt102_async_progress.py:79: in assert_progress
+    assert {"id", "state", "phase", "progress_percent", "error", "result"} <= body.keys(), (
+E   AssertionError: ('VT-102 response is missing the new progress contract', ['result', 'state'])
+E   assert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state', 'result'])
+E    +  where dict_keys(['state', 'result']) = <built-in method keys of dict object at 0x0000027637E94FC0>()
+E    +    where <built-in method keys of dict object at 0x0000027637E94FC0> = {'state': 'done', 'result': 'saved'}.keys
+___________ test_tc09_provider_failure_retry_keeps_same_failed_job ____________
+tests\integrations\test_vt102_async_progress.py:172: in test_tc09_provider_failure_retry_keeps_same_failed_job
+    assert replay.status_code == 202 and replay.json()["id"] == job_id
+E   AssertionError: assert (202 == 202 and '2yTGw-bl4U_g...xE4vmgdN6SZRM' == 'ONJpm6Zbm_lj...exP67IgIF6X3O'
+E    +  where 202 = <Response [202 Accepted]>.status_code
+E     
+E     - ONJpm6Zbm_ljOV2e7qlexP67IgIF6X3O
+E     + 2yTGw-bl4U_gMOMUjDvxE4vmgdN6SZRM)
+_______________ test_tc10_40_concurrent_retries_create_one_job ________________
+tests\integrations\test_vt102_async_progress.py:189: in test_tc10_40_concurrent_retries_create_one_job
+    assert {response.status_code for response in responses} == {202}
+E   assert {409} == {202}
+E     
+E     Extra items in the left set:
+E     409
+E     Extra items in the right set:
+E     202
+E     Use -v to get more diff
+_________________ test_tc14_saving_phase_before_commit_is_75 __________________
+tests\integrations\test_vt102_async_progress.py:225: in test_tc14_saving_phase_before_commit_is_75
+    assert_progress(response.json(), job_id, "saving", "saving", 75)
+tests\integrations\test_vt102_async_progress.py:79: in assert_progress
+    assert {"id", "state", "phase", "progress_percent", "error", "result"} <= body.keys(), (
+E   AssertionError: ('VT-102 response is missing the new progress contract', ['state'])
+E   assert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])
+E    +  where dict_keys(['state']) = <built-in method keys of dict object at 0x0000027637FA13C0>()
+E    +    where <built-in method keys of dict object at 0x0000027637FA13C0> = {'state': 'saving'}.keys
+______________ test_tc15_cancel_before_save_does_not_report_100 _______________
+tests\integrations\test_vt102_async_progress.py:234: in test_tc15_cancel_before_save_does_not_report_100
+    assert_progress(body, job_id, "cancelled", "cancelled", 25)
+tests\integrations\test_vt102_async_progress.py:79: in assert_progress
+    assert {"id", "state", "phase", "progress_percent", "error", "result"} <= body.keys(), (
+E   AssertionError: ('VT-102 response is missing the new progress contract', ['state'])
+E   assert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])
+E    +  where dict_keys(['state']) = <built-in method keys of dict object at 0x00000276364DD840>()
+E    +    where <built-in method keys of dict object at 0x00000276364DD840> = {'state': 'cancelled'}.keys
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SE_Project\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc01_ack_precedes_completion_and_poll_has_progress
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc02_same_key_while_running_replays_receipt
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc03_lost_ack_retry_after_commit_does_not_repeat_side_effect
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc04_invalid_key_never_starts_job[]
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc04_invalid_key_never_starts_job[short]
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc04_invalid_key_never_starts_job[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc04_invalid_key_never_starts_job[invalid key with spaces]
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc08_done_mapping_is_exactly_100
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc09_provider_failure_retry_keeps_same_failed_job
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc10_40_concurrent_retries_create_one_job
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc14_saving_phase_before_commit_is_75
+FAILED tests/integrations/test_vt102_async_progress.py::test_tc15_cancel_before_save_does_not_report_100
+12 failed, 13 passed, 1 warning in 1.47s
+
+EXIT_CODE: 1

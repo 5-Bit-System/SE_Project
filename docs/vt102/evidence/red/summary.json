@@ -1,0 +1,74 @@
+{
+  "baseline": "7aa9d939ddca47461dbc7a55972fdfbec7c434fe",
+  "branch": "feat/vt102-async-task-progress",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "tests/integrations/test_vt102_async_progress.py",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "backups/vt102_red/run1",
+    "--junitxml",
+    "docs/vt102/evidence/red/pytest.xml"
+  ],
+  "exit_code": 1,
+  "tests": 25,
+  "failures": 12,
+  "errors": 0,
+  "passed": 13,
+  "failure_details": [
+    {
+      "test": "test_tc01_ack_precedes_completion_and_poll_has_progress",
+      "reason": "AssertionError: ('VT-102 response is missing the new progress contract', ['state'])\nassert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])\n +  where dict_keys(['state']) = <built-in method keys of dict object at 0x0000027637E8C980>()\n +    where <built-in method keys of dict object at 0x0000027637E8C980> = {'state': 'running'}.keys"
+    },
+    {
+      "test": "test_tc02_same_key_while_running_replays_receipt",
+      "reason": "AssertionError: Same-key retry must replay, not return busy\nassert 409 == 202\n +  where 409 = <Response [409 Conflict]>.status_code"
+    },
+    {
+      "test": "test_tc03_lost_ack_retry_after_commit_does_not_repeat_side_effect",
+      "reason": "AssertionError: Lost-ACK retry must not create a second job\nassert 'q_OIptUJj6fg...HqCFbr_nHdULS' == 'y4W1NuPXmZGq...wSOS5kPVi8OZg'\n  \n  - y4W1NuPXmZGq3qgpaelwSOS5kPVi8OZg\n  + q_OIptUJj6fgKGy_aSfHqCFbr_nHdULS"
+    },
+    {
+      "test": "test_tc04_invalid_key_never_starts_job[]",
+      "reason": "AssertionError: Invalid Idempotency-Key must be rejected\nassert 202 == 400\n +  where 202 = <Response [202 Accepted]>.status_code"
+    },
+    {
+      "test": "test_tc04_invalid_key_never_starts_job[short]",
+      "reason": "AssertionError: Invalid Idempotency-Key must be rejected\nassert 202 == 400\n +  where 202 = <Response [202 Accepted]>.status_code"
+    },
+    {
+      "test": "test_tc04_invalid_key_never_starts_job[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "reason": "AssertionError: Invalid Idempotency-Key must be rejected\nassert 202 == 400\n +  where 202 = <Response [202 Accepted]>.status_code"
+    },
+    {
+      "test": "test_tc04_invalid_key_never_starts_job[invalid key with spaces]",
+      "reason": "AssertionError: Invalid Idempotency-Key must be rejected\nassert 202 == 400\n +  where 202 = <Response [202 Accepted]>.status_code"
+    },
+    {
+      "test": "test_tc08_done_mapping_is_exactly_100",
+      "reason": "AssertionError: ('VT-102 response is missing the new progress contract', ['result', 'state'])\nassert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state', 'result'])\n +  where dict_keys(['state', 'result']) = <built-in method keys of dict object at 0x0000027637E94FC0>()\n +    where <built-in method keys of dict object at 0x0000027637E94FC0> = {'state': 'done', 'result': 'saved'}.keys"
+    },
+    {
+      "test": "test_tc09_provider_failure_retry_keeps_same_failed_job",
+      "reason": "AssertionError: assert (202 == 202 and '2yTGw-bl4U_g...xE4vmgdN6SZRM' == 'ONJpm6Zbm_lj...exP67IgIF6X3O'\n +  where 202 = <Response [202 Accepted]>.status_code\n  \n  - ONJpm6Zbm_ljOV2e7qlexP67IgIF6X3O\n  + 2yTGw-bl4U_gMOMUjDvxE4vmgdN6SZRM)"
+    },
+    {
+      "test": "test_tc10_40_concurrent_retries_create_one_job",
+      "reason": "assert {409} == {202}\n  \n  Extra items in the left set:\n  409\n  Extra items in the right set:\n  202\n  Use -v to get more diff"
+    },
+    {
+      "test": "test_tc14_saving_phase_before_commit_is_75",
+      "reason": "AssertionError: ('VT-102 response is missing the new progress contract', ['state'])\nassert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])\n +  where dict_keys(['state']) = <built-in method keys of dict object at 0x0000027637FA13C0>()\n +    where <built-in method keys of dict object at 0x0000027637FA13C0> = {'state': 'saving'}.keys"
+    },
+    {
+      "test": "test_tc15_cancel_before_save_does_not_report_100",
+      "reason": "AssertionError: ('VT-102 response is missing the new progress contract', ['state'])\nassert {'error', 'id', 'phase', 'progress_percent', 'result', 'state'} <= dict_keys(['state'])\n +  where dict_keys(['state']) = <built-in method keys of dict object at 0x00000276364DD840>()\n +    where <built-in method keys of dict object at 0x00000276364DD840> = {'state': 'cancelled'}.keys"
+    }
+  ],
+  "test_sha256": "7ecd7e956df0e17961c42ec9752c272a011ebd6c096de678e1b9b51f5037633d"
+}

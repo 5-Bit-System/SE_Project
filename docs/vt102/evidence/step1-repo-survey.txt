@@ -1,0 +1,773 @@
+VT-102 / STEP 1 / 2026-11-14 Asia/Saigon
+LOCAL CHECKOUT ONLY; no fetch/pull or product changes.
+
+$ git rev-parse HEAD
+7aa9d939ddca47461dbc7a55972fdfbec7c434fe
+EXIT_CODE: 0
+
+$ git branch --show-current
+feat/recommendation-conversation-ui
+EXIT_CODE: 0
+
+$ git status --short
+?? .vscode/
+?? docs/vt102/
+EXIT_CODE: 0
+
+$ git show -s --format=%H%n%cs%n%s HEAD
+7aa9d939ddca47461dbc7a55972fdfbec7c434fe
+2026-11-04
+docs(contributors): record intake publication scope and evidence
+EXIT_CODE: 0
+
+$ git ls-files app database tests tools docs pyproject.toml requirements.txt requirements-dev.txt requirements-portal.txt .github/workflows
+.github/workflows/checks.yml
+app/__init__.py
+app/academic_context.py
+app/academic_policies.py
+app/api/__init__.py
+app/api/academic.py
+app/api/auth.py
+app/api/portal.py
+app/api/routes.py
+app/auth/__init__.py
+app/auth/dependencies.py
+app/auth/mail.py
+app/auth/portal.py
+app/auth/repository.py
+app/auth/security.py
+app/auth/settings.py
+app/catalog.py
+app/catalog_contracts.py
+app/catalog_normalization.py
+app/catalog_validation.py
+app/config.py
+app/db/__init__.py
+app/db/schema.py
+app/db/session.py
+app/errors.py
+app/infrastructure/__init__.py
+app/infrastructure/hus_repository.py
+app/infrastructure/json_catalog_repository.py
+app/infrastructure/postgres_repository.py
+app/infrastructure/repositories.py
+app/integrations/__init__.py
+app/integrations/daotao/README.md
+app/integrations/daotao/__init__.py
+app/integrations/daotao/client.py
+app/integrations/daotao/parser.py
+app/integrations/daotao/runtime.py
+app/integrations/daotao/session_state.py
+app/integrations/daotao/snapshot.py
+app/integrations/daotao/store.py
+app/integrations/daotao/worker.py
+app/main.py
+app/models.py
+app/profiles.py
+app/program_bindings.py
+app/progress.py
+app/recommendation/__init__.py
+app/recommendation/explanation.py
+app/recommendation/llm.py
+app/recommendation/preference.py
+app/recommendation/ranking.py
+app/recommendation/scoring.py
+app/recommendation/validation.py
+app/rules.py
+app/schemas/__init__.py
+app/schemas/advisor.py
+app/schemas/catalog.py
+app/schemas/eligibility.py
+app/schemas/metadata.py
+app/schemas/profile.py
+app/schemas/recommendation.py
+app/services/__init__.py
+app/services/advisor_service.py
+app/services/course_status_service.py
+app/services/recommendation_service.py
+app/services/semester_plan_service.py
+app/static/analytics.css
+app/static/analytics.js
+app/static/app.js
+app/static/auth.css
+app/static/auth.js
+app/static/course-status.css
+app/static/course-status.js
+app/static/dashboard.js
+app/static/favicon.svg
+app/static/fonts.css
+app/static/fonts/OFL-BeVietnamPro.txt
+app/static/fonts/be-vietnam-pro-400-latin-ext.woff2
+app/static/fonts/be-vietnam-pro-400-latin.woff2
+app/static/fonts/be-vietnam-pro-400-vietnamese.woff2
+app/static/fonts/be-vietnam-pro-500-latin-ext.woff2
+app/static/fonts/be-vietnam-pro-500-latin.woff2
+app/static/fonts/be-vietnam-pro-500-vietnamese.woff2
+app/static/fonts/be-vietnam-pro-600-latin-ext.woff2
+app/static/fonts/be-vietnam-pro-600-latin.woff2
+app/static/fonts/be-vietnam-pro-600-vietnamese.woff2
+app/static/fonts/be-vietnam-pro-700-latin-ext.woff2
+app/static/fonts/be-vietnam-pro-700-latin.woff2
+app/static/fonts/be-vietnam-pro-700-vietnamese.woff2
+app/static/fonts/be-vietnam-pro-800-latin-ext.woff2
+app/static/fonts/be-vietnam-pro-800-latin.woff2
+app/static/fonts/be-vietnam-pro-800-vietnamese.woff2
+app/static/i18n.js
+app/static/index.html
+app/static/login-scene.css
+app/static/login-scene.js
+app/static/motion.css
+app/static/motion.js
+app/static/portal.css
+app/static/portal.js
+app/static/recommendation-model.mjs
+app/static/recommendation-workspace.css
+app/static/recommendation-workspace.js
+app/static/styles.css
+app/static/theme.js
+app/static/themes.css
+app/static/workspace.css
+app/static/workspace.js
+app/transcript.py
+database/.env.example
+database/DESIGN.md
+database/DOCKER_SCHEMA.md
+database/DOCKER_VERIFICATION.md
+database/HUS_RUNTIME.md
+database/README.md
+database/SCHEMA.md
+database/__init__.py
+database/archive/2026-10-17-sql-neon-guide.md
+database/data/hus_source.json
+database/docker-compose.mail.yml
+database/docker-compose.yml
+database/hus_alembic.ini
+database/hus_alembic/env.py
+database/hus_alembic/versions/20261017_01_baseline.py
+database/hus_alembic/versions/20261017_02_runtime.py
+database/hus_alembic/versions/20261023_01_transcript_sync.py
+database/hus_alembic/versions/20261023_03_portal.py
+database/hus_alembic/versions/20261023_04_merge_sync_portal.py
+database/hus_alembic/versions/20261025_04_system_auth.py
+database/hus_alembic/versions/20261025_05_session_rotation.py
+database/hus_alembic/versions/20261025_06_vnu_signin.py
+database/hus_alembic/versions/20261028_07_merge_legacy_sync.py
+database/hus_alembic/versions/20261028_08_semester_plans.py
+database/hus_db/__init__.py
+database/hus_db/catalog_builder.py
+database/hus_db/config.py
+database/hus_db/connection.py
+database/hus_db/introspect.py
+database/hus_db/prerequisites.py
+database/hus_db/verify.py
+database/sql/00_ai07_schema.sql
+database/sql/10_official_curricula_2023.sql
+database/tools/__init__.py
+database/tools/apply_sql.py
+database/tools/audit_metadata.py
+database/tools/inspect_schema.py
+database/tools/metadata_report.py
+database/tools/migrate.py
+database/tools/publish_catalogs.py
+database/tools/seed_system_accounts.py
+database/tools/verify_data.py
+docs/ACADEMIC_UI_INTEGRATION_2026_10_29.md
+docs/BAO_CAO_DON_DEP_2026_10_25.md
+docs/BAO_CAO_DON_DEP_2026_10_29.md
+docs/CODEBASE_CHECKLIST.md
+docs/CONTRIBUTING.md
+docs/COURSE_METADATA_SPECIFICATION.md
+docs/COURSE_SELECTION_REASONS.md
+docs/COURSE_STATUS_BOARD.md
+docs/DASHBOARD_INTEGRATION_2026_10_30.md
+docs/DASHBOARD_POPUP_2026_10_31.md
+docs/DATABASE_DESIGN.md
+docs/DATABASE_TEST_IMPROVEMENT_PLAN.md
+docs/FRONTEND_MOTION_2026_10_28.md
+docs/FRONTEND_POLISH_2026_10_28.md
+docs/FRONTEND_REDESIGN_2026_10_23.md
+docs/GRADIENT_UI_2026_10_23.md
+docs/HUONG_DAN_TAI_KHOAN_HE_THONG.md
+docs/HUS_METADATA_RUBRIC_DRAFT.md
+docs/HUS_PDF_ACCEPTANCE_REVIEW.md
+docs/HUS_PDF_CODE_PAGE_AUDIT.csv
+docs/KE_HOACH_CAI_THIEN_METADATA_HUS.md
+docs/KE_HOACH_CHUYEN_SANG_BANG_DIEM_VNU_2026_10_23.md
+docs/KE_HOACH_CI_VA_NGHIEM_THU_MODULE.md
+docs/KE_HOACH_GIU_PHIEN_VNU_2026_10_25.md
+docs/KE_HOACH_TAI_KHOAN_HE_THONG_2026_10_25.md
+docs/KE_HOACH_TICH_HOP_PORTAL_BANG_DIEM_2026_10_23.md
+docs/KE_HOACH_TIEN_XU_LY_DATA_HUS.md
+docs/KE_HOACH_XU_LY_DATA_RAG_HUS.md
+docs/LANGUAGE_UI_FIX_2026_10_23.md
+docs/LOCAL_SETUP.md
+docs/LOGIN_SCENE_PREVIEW_2026_10_31.md
+docs/PORTAL_INTEGRATION_STATUS_2026_10_23.md
+docs/RA_SOAT_MODULE_VA_KE_HOACH_CHINH_SUA_2026_10_23.md
+docs/RECOMMENDATION_INTAKE_2026_11_04.md
+docs/RECOMMENDATION_WORKSPACE_2026_11_01.md
+docs/SEMESTER_PLANS.md
+docs/SEMESTER_UI_2026_10_23.md
+docs/STUDY_DESK_MOTION_2026_10_29.md
+docs/SYSTEM_SPECIFICATION.md
+docs/TEAM_CONTRIBUTIONS_2026_10_23.md
+docs/THONG_KE_VA_DANH_GIA_KHA_THI_RAG_HUS_2026_10_23.md
+docs/VINH_DATABASE_TEST_REPORT.md
+docs/VINH_PDF_SOURCE_REVIEW.md
+docs/VINH_PREREQUISITE_AUDIT.md
+docs/VNU_ACADEMIC_CONTEXT_STATUS_2026_10_23.md
+docs/VNU_CURRICULUM_PLANNING_REVIEW_2026_11_01.md
+docs/VNU_PERSONAL_ACADEMIC_2026_10_25.md
+docs/VNU_SIGNIN_2026_10_25.md
+docs/WORKSPACE_DASHBOARD_PROFILE_2026_10_23.md
+docs/acceptance/hus_2022/README.md
+docs/acceptance/hus_2022/hus_pdf_expectations.json
+docs/adr/0001-hus-runtime-and-rollback.md
+docs/archive/2026-10-17-prior-checklists.md
+"docs/pdf/101. To\303\241n h\341\273\215c-chu\341\272\251n final QD 3565 Scan.pdf"
+"docs/pdf/102. To\303\241n h\341\273\215c-t\303\240i n\304\203ng final QD 3566 Scan.pdf"
+"docs/pdf/103. To\303\241n tin-chu\341\272\251n final QD 3567 Scan.pdf"
+"docs/pdf/104.-KHMTTT-chu\341\272\251n final QD 3568 Scan final (1).pdf"
+"docs/pdf/105.-Khoa-h\341\273\215c-d\341\273\257-li\341\273\207u-chu\341\272\251n final Q\304\220 3569 Scan.pdf"
+docs/policies/README.md
+docs/policies/vnu_3626_2022.pdf
+docs/rag_normalization/CHATGPT_NEXT_TASK_HANDOFF_2026_10_27.md
+docs/rag_normalization/HANDOFF_2026_10_26.md
+docs/rag_normalization/example_course_record.json
+docs/rag_normalization/inventory_snapshot.json
+docs/rag_normalization/source_selection.csv
+docs/superpowers/plans/2026-10-14-codebase-audit.md
+docs/superpowers/plans/2026-10-14-frontend-plan.md
+docs/superpowers/plans/2026-10-14-hus-rag-plan.md
+docs/superpowers/plans/2026-10-14-metadata-runtime-progress.md
+docs/superpowers/plans/2026-10-14-recommendation-chat-plan.md
+docs/superpowers/plans/2026-10-17-test-suite-calibration.md
+pyproject.toml
+requirements-dev.txt
+requirements-portal.txt
+requirements.txt
+tests/README.md
+tests/__init__.py
+tests/advisor/README.md
+tests/advisor/test_advisor.py
+tests/catalogs/README.md
+tests/catalogs/test_catalog_fixtures.py
+tests/catalogs/test_curriculum_data.py
+tests/catalogs/test_hus_catalog_builder.py
+tests/catalogs/test_hus_metadata_enrichment.py
+tests/catalogs/test_hus_preparation.py
+tests/catalogs/test_metadata_builder.py
+tests/catalogs/test_metadata_compatibility.py
+tests/catalogs/test_metadata_contract.py
+tests/catalogs/test_metadata_validation.py
+tests/catalogs/test_seed_validation.py
+tests/conftest.py
+tests/database/README.md
+tests/database/integrity/test_sql_checks.py
+tests/database/source/conftest.py
+tests/database/source/test_four_majors.py
+tests/database/source/test_invalid_export.py
+tests/database/source/test_pdf_code_page_audit.py
+tests/database/source/test_prerequisite_coverage.py
+tests/database/source/test_reviewed_prerequisites.py
+tests/database/test_config_redaction.py
+tests/database/test_database.py
+tests/database/test_database_targets.py
+tests/database/test_hus_database.py
+tests/database/test_hus_migration_runtime.py
+tests/database/test_hus_persistence.py
+tests/database/test_hus_postgres.py
+tests/database/test_hus_revision_history.py
+tests/database/test_hus_runtime.py
+tests/eligibility/README.md
+tests/eligibility/test_academic_context.py
+tests/eligibility/test_course_status.py
+tests/eligibility/test_rules.py
+tests/eligibility/test_semester_plan_validation.py
+tests/frontend/README.md
+tests/frontend/auth_fixture.py
+tests/frontend/check_analytics.mjs
+tests/frontend/check_analytics_drilldown.py
+tests/frontend/check_charts.py
+tests/frontend/check_course_status.py
+tests/frontend/check_language.mjs
+tests/frontend/check_motion.py
+tests/frontend/check_portal.py
+tests/frontend/check_portal_auth.py
+tests/frontend/check_portal_collection.py
+tests/frontend/check_portal_loading.py
+tests/frontend/check_portal_profile_source.py
+tests/frontend/check_portal_reauth.py
+tests/frontend/check_portal_reminder.py
+tests/frontend/check_portal_resume.py
+tests/frontend/check_portal_session.py
+tests/frontend/check_portal_sync_feedback.py
+tests/frontend/check_presentation.py
+tests/frontend/check_program_binding.py
+tests/frontend/check_recommendation_model.mjs
+tests/frontend/check_recommendation_workspace.py
+tests/frontend/check_semester_plans.py
+tests/frontend/check_session_restore.py
+tests/frontend/check_study_desk.py
+tests/frontend/check_system_auth.py
+tests/frontend/check_vnu_only.py
+tests/frontend/check_workspace.py
+tests/frontend/presentation_fixture.py
+tests/integrations/test_academic_api.py
+tests/integrations/test_academic_binding_store.py
+tests/integrations/test_academic_context.py
+tests/integrations/test_daotao_parser.py
+tests/integrations/test_frontend_delivery.py
+tests/integrations/test_local_startup.py
+tests/integrations/test_portal_api.py
+tests/integrations/test_portal_jobs.py
+tests/integrations/test_portal_sessions.py
+tests/integrations/test_portal_snapshot.py
+tests/integrations/test_portal_store.py
+tests/integrations/test_portal_worker.py
+tests/integrations/test_program_binding.py
+tests/integrations/test_semester_plans_api.py
+tests/integrations/test_semester_plans_store.py
+tests/integrations/test_system_auth.py
+tests/integrations/test_transcript_collection.py
+tests/integrations/test_vnu_policy.py
+tests/integrations/test_vnu_signin.py
+tests/progress/README.md
+tests/progress/test_progress.py
+tests/recommendations/README.md
+tests/recommendations/test_recommendations.py
+tests/storage/README.md
+tests/storage/test_storage.py
+tests/support/README.md
+tests/support/__init__.py
+tests/support/catalog_fixtures.py
+tests/support/fixtures/catalogs/khdl_7460108_2022/courses.json
+tests/support/fixtures/catalogs/khdl_7460108_2022/curriculum.json
+tests/support/fixtures/catalogs/khdl_7460108_2022/source_rows.json
+tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/courses.json
+tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/curriculum.json
+tests/support/fixtures/catalogs/khmtt_7480113qtd_2022/source_rows.json
+tests/support/fixtures/catalogs/toan_hoc_7460101_2022/courses.json
+tests/support/fixtures/catalogs/toan_hoc_7460101_2022/curriculum.json
+tests/support/fixtures/catalogs/toan_hoc_7460101_2022/source_rows.json
+tests/support/fixtures/catalogs/toan_tin_7460117_2022/courses.json
+tests/support/fixtures/catalogs/toan_tin_7460117_2022/curriculum.json
+tests/support/fixtures/catalogs/toan_tin_7460117_2022/source_rows.json
+tests/support/fixtures/demo_profiles.json
+tests/support/hus_acceptance.py
+tests/support/postgres_targets.py
+tests/support/system_auth.py
+tests/transcript/README.md
+tests/transcript/test_transcript.py
+tools/build_catalogs.py
+tools/prepare_hus_corpus.py
+tools/run_local.py
+tools/seed_database.py
+tools/try_daotao.py
+EXIT_CODE: 0
+
+$ Read UTF-8 source excerpts: app/api/portal.py
+260: 
+261: @router.post("/me/portal-sync", status_code=202)
+262: async def sync(request: Request):
+263:     value = await session(request)
+264:     raw = bytearray()
+265:     async for chunk in request.stream():
+266:         raw.extend(chunk)
+267:         if len(raw) > 4096:
+268:             raise HTTPException(413, "invalid_sync_request")
+269:     if raw.strip():
+270:         try:
+271:             if json.loads(raw) != {}:
+272:                 raise ValueError
+273:         except (ValueError, UnicodeError):
+274:             raise HTTPException(400, "invalid_sync_request") from None
+275:     try:
+276:         submitted = runtime.resume_request(value)
+277:     except PortalFailure as exc:
+278:         if str(exc) == 'vnu_reauth_required':
+279:             # No job has failed: this is a normal interaction step for an
+280:             # authenticated app user whose temporary provider state expired.
+281:             return JSONResponse({'state': 'reauth_required'}, status_code=200)
+282:         raise HTTPException(401 if str(exc) == "session_expired" else 409, str(exc)) from None
+283:     return start_job(value, submitted)
+284: 
+285: 
+286: @router.post("/me/portal-reauth", status_code=202)
+287: async def reauthenticate(request: Request):
+288:     value = await session(request)
+289:     submitted = await credentials(request, subject=value.subject)
+290:     submitted["mode"] = "login"
+291:     return start_job(value, submitted)
+292: 
+293: 
+294: async def owned_job(request, job_id):
+295:     value = await session(request)
+296:     job = runtime.jobs.get(job_id)
+297:     if job is None or job["owner"] != value.owner or job.get("session") is not value:
+298:         raise HTTPException(404, "job_not_found")
+299:     return job
+300: 
+301: 
+302: @router.get("/me/portal-sync/{job_id}")
+303: async def job_status(request: Request, job_id: str):
+304:     job = await owned_job(request, job_id)
+305:     return {k: v for k, v in job.items() if k in {"state", "error", "result"}}
+306: 
+307: 
+308: @router.delete("/me/portal-sync/{job_id}")
+309: async def cancel(request: Request, job_id: str):
+310:     job = await owned_job(request, job_id)
+311:     if job["state"] == "running":
+312:         job["state"] = "cancelled"
+313:         job["task"].cancel()
+314:         await asyncio.gather(job["task"], return_exceptions=True)
+315:         if runtime.session_active(job["session"]):
+316:             runtime.clear_portal(job["session"])
+317:     elif job["state"] == "saving":
+318:         await job["task"]
+319:     return {"state": job["state"]}
+320: 
+321: 
+322: @router.delete("/me/portal-data")
+323: async def clear(request: Request):
+324:     principal = await require_account(request)
+325:     link = await auth_call(account_portal.clear, principal)
+326:     if link:
+327:         runtime.revoke_owner(link['owner'])
+328:     return {'deleted': True}
+
+$ Read UTF-8 source excerpts: app/integrations/daotao/runtime.py
+15: 
+16: slots = asyncio.Semaphore(2)
+17: sessions = {}
+18: jobs = {}
+19: tasks = set()
+20: logger = logging.getLogger(__name__)
+21: cleanup_task = None
+[...]
+107: 
+108: 
+109: def reap():
+110:     now = time.monotonic()
+111:     for value in list(sessions.values()):
+112:         if value.expiry <= now:
+113:             revoke(value)
+114:         elif value.portal and value.portal["expiry"] <= now:
+115:             clear_portal(value)
+116:     for key, job in list(jobs.items()):
+117:         if job["state"] not in {"running", "saving"} and job["created"] < now - 1800:
+118:             jobs.pop(key, None)
+119: 
+120: 
+121: def startup():
+122:     global cleanup_task
+123: 
+124:     async def cleanup():
+125:         while True:
+126:             await asyncio.sleep(30)
+127:             reap()
+128: 
+129:     cleanup_task = asyncio.create_task(cleanup())
+130: 
+131: 
+132: def new_session(owner, subject, generation, cookies=None):
+133:     now = time.monotonic()
+134:     reap()
+135:     if len(sessions) >= 1000:
+[...]
+149: async def collect(credentials):
+150:     body = json.dumps(credentials).encode("utf-8")
+151:     if len(body) > MAX_INPUT_BYTES:
+152:         raise PortalFailure("portal_state_invalid")
+153:     if slots.locked():
+154:         raise PortalFailure("busy")
+155:     async with slots:
+156:         env = {k: v for k, v in os.environ.items() if k not in {"DEBUG", "PWDEBUG"}}
+157:         env["PYTHONIOENCODING"] = "utf-8"
+158:         process = await asyncio.create_subprocess_exec(
+159:             sys.executable, "-m", "app.integrations.daotao.worker",
+160:             stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
+161:             stderr=asyncio.subprocess.DEVNULL, env=env,
+162:             creationflags=0x08000000 if os.name == "nt" else 0,
+163:         )
+164:         try:
+[...]
+219:                 await process.wait()
+220: 
+221: 
+222: async def shutdown():
+223:     global cleanup_task
+224:     if cleanup_task:
+225:         cleanup_task.cancel()
+226:         await asyncio.gather(cleanup_task, return_exceptions=True)
+227:         cleanup_task = None
+228:     for value in list(sessions.values()):
+229:         revoke(value)
+230:     for task in list(tasks):
+231:         if not task.cancelling():
+232:             task.cancel()
+233:     await asyncio.gather(*list(tasks), return_exceptions=True)
+234:     sessions.clear()
+235:     jobs.clear()
+
+$ Read UTF-8 source excerpts: app/integrations/daotao/store.py
+46:                 "snapshot": row["payload"],
+47:                 "fetched_at": row["fetched_at"].isoformat() if row["fetched_at"] else None}
+48: 
+49: 
+50: def save(owner_id, generation, payload, source_profile=None, *, connection=None):
+51:     with (engine().begin() if connection is None else nullcontext(connection)) as conn:
+52:         user = conn.execute(text("SELECT * FROM portal_users WHERE id=:id FOR UPDATE"),
+53:                             {"id": owner_id}).mappings().one_or_none()
+54:         if user is None or user["generation"] != generation:
+55:             raise PortalFailure("cancelled")
+56:         if source_profile is not None:
+57:             # Source display labels only. Never an academic program/policy binding.
+58:             details = {key: value if isinstance(value, str) and 0 < len(value) <= 200 else None
+59:                        for key in ("name", "program", "cohort")
+60:                        for value in [source_profile.get(key)]}
+61:             if "_last_synced_at" in user["profile"]:
+62:                 details["_last_synced_at"] = user["profile"]["_last_synced_at"]
+63:             previous = user["profile"] or {}
+64:             if (all(previous.get(key) == details.get(key) for key in ("program", "cohort"))
+65:                     and isinstance(previous.get("academic_binding"), dict)):
+66:                 details["academic_binding"] = previous["academic_binding"]
+67:             conn.execute(text("UPDATE portal_users SET profile=CAST(:profile AS JSONB) WHERE id=:id"),
+68:                          {"profile": json.dumps(details), "id": owner_id})
+69:         existing = conn.execute(text("""
+70:             SELECT id FROM portal_transcript_snapshots WHERE owner=:owner AND digest=:digest
+71:         """), {"owner": owner_id, "digest": payload["digest"]}).scalar()
+72:         if existing:
+73:             if str(existing) == str(user["current_snapshot_id"]):
+74:                 mark_synced(conn, owner_id)
+75:             return "unchanged"
+76:         # Until pagination/filter completion is proven, never replace prior data.
+77:         if user["current_snapshot_id"] and payload["completeness"] != "complete":
+78:             raise PortalFailure("incomplete_snapshot")
+79:         snapshot_id = str(uuid.uuid4())
+80:         conn.execute(text("""
+81:             INSERT INTO portal_transcript_snapshots(id,owner,digest,completeness,payload)
+82:             VALUES (:id,:owner,:digest,:completeness,CAST(:payload AS JSONB))
+83:         """), {"id": snapshot_id, "owner": owner_id, "digest": payload["digest"],
+
+$ Read UTF-8 source excerpts: database/hus_alembic/versions/20261023_03_portal.py
+20:         );
+21:         CREATE TABLE portal_transcript_snapshots (
+22:           id UUID PRIMARY KEY, owner UUID NOT NULL REFERENCES portal_users(id) ON DELETE CASCADE,
+23:           digest TEXT NOT NULL, completeness TEXT NOT NULL,
+24:           payload JSONB NOT NULL, fetched_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+25:           UNIQUE(owner, id), UNIQUE(owner, digest),
+26:           CHECK(completeness IN ('unknown', 'partial', 'complete'))
+27:         );
+28:         ALTER TABLE portal_users ADD CONSTRAINT fk_portal_current_owner
+29:           FOREIGN KEY(id, current_snapshot_id)
+30:           REFERENCES portal_transcript_snapshots(owner, id) DEFERRABLE INITIALLY DEFERRED;
+31:         CREATE TABLE portal_transcript_attempts (
+32:           snapshot UUID NOT NULL REFERENCES portal_transcript_snapshots(id) ON DELETE CASCADE,
+33:           row_key TEXT NOT NULL, source JSONB NOT NULL,
+34:           PRIMARY KEY(snapshot, row_key)
+
+$ Read UTF-8 source excerpts: app/static/portal.js
+118:   async function api(path, method = 'GET', body) {
+119:     const current = epoch;
+120:     const response = await fetch(path, {method, credentials: 'same-origin', cache: 'no-store',
+121:       headers: {...(body ? {'Content-Type': 'application/json'} : {}), ...(method !== 'GET' && window.systemAuth?.csrf ? {'X-CSRF-Token': window.systemAuth.csrf} : {})}, body: body ? JSON.stringify(body) : undefined});
+122:     const result = await response.json();
+123:     if (!response.ok) {
+124:       if (current === epoch && response.status === 401) { reset(); window.systemAuth?.expire(); status('', 'session_expired'); }
+125:       throw new Error(result.detail);
+126:     }
+127:     return result;
+128:   }
+129:   function cell(row, value, tag = 'td') { const node = document.createElement(tag); node.textContent = value ?? ''; row.append(node); return node; }
+130:   function sourceSummaryValue(rows, label) {
+[...]
+334:   async function poll(current) {
+335:     if (!job || current !== epoch) return;
+336:     try {
+337:       const result = await api(`/me/portal-sync/${encodeURIComponent(job)}`);
+338:       if (current !== epoch) return;
+339:       if (['running', 'saving'].includes(result.state)) { setTimeout(() => poll(current), 1000); return; }
+340:       job = null; $('cancel').hidden = true; await load();
+341:       if (current !== epoch) return;
+342:       if (result.error || result.state === 'cancelled') syncError(result.error || 'cancelled');
+343:       else {
+344:         const review = profile?.latest_collection;
+345:         if (result.state === 'done' && ['saved', 'unchanged'].includes(review?.save_status) && review.completeness === 'complete') {
+346:           window.workspaceMotion?.statusFeedback($('status'), 'success');
+347:         }
+348:       }
+349:     } catch (err) { if (current !== epoch) return; status('', err.message); job = null; $('cancel').hidden = true; }
+350:     finally { if (current === epoch && !job) lock(false); }
+351:   }
+352:   $('sync').onclick = async () => {
+353:     if (busy || job) return;
+354:     window.workspaceNavigate('portal-dialog');
+355:     if (!profile) { $('username').focus(); $('login').scrollIntoView({block: 'center'}); return; }
+356:     const current = epoch;
+357:     lock(true); status('waiting');
+358:     try {
+359:       const result = await api('/me/portal-sync', 'POST');
+360:       if (current === epoch) beginPolling(result, current);
+361:     } catch (err) { if (current === epoch) syncError(err.message); }
+362:     finally { if (current === epoch) lock(Boolean(job)); }
+
+$ Read UTF-8 source excerpts: app/api/academic.py
+350: 
+351: @router.post("/me/recommendations")
+352: async def recommendations(request: Request):
+353:     query, catalog, context, passed = await operation(request)
+354:     internal = RecommendationRequest(**query.model_dump(include={
+355:         "goal", "max_credits", "limit", "selected_track_id", "selected_graduation_path_id",
+356:         "preference", "ranking_weights"}), program_id=catalog.program.program_id,
+357:         passed_course_codes=sorted(passed))
+358:     extractor, ranker = configured_adapters()
+359:     result = await asyncio.to_thread(recommend, catalog, internal,
+360:                                      preference_extractor=extractor, llm_ranker=ranker)
+361:     await ensure_current(request, query, context)
+362:     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
+363: 
+364: 
+
+$ Read UTF-8 source excerpts: pyproject.toml
+1: [tool.pytest.ini_options]
+2: testpaths = ["tests"]
+3: addopts = "--import-mode=importlib"
+4: markers = [
+5:     "hus_postgres: requires an explicit HUS_TEST_DATABASE_URL for local ai07",
+6:     "postgres: requires an explicitly configured TEST_DATABASE_URL",
+7:     "full_catalog_acceptance: requires an explicit external --full-catalog-root",
+8: ]
+9: 
+10: [tool.ruff]
+11: target-version = "py311"
+12: line-length = 100
+13: extend-exclude = ["myproject", "my_project", "backups"]
+14: 
+
+$ Read UTF-8 source excerpts: requirements-dev.txt
+1: -r requirements.txt
+2: pytest>=8,<10
+3: ruff>=0.9,<1
+
+$ Python importlib package inspection
+[
+  {
+    "package": "pytest",
+    "installed": true,
+    "version": "9.1.1"
+  },
+  {
+    "package": "pytest-cov",
+    "installed": false,
+    "version": null
+  },
+  {
+    "package": "coverage",
+    "installed": false,
+    "version": null
+  },
+  {
+    "package": "httpx",
+    "installed": true,
+    "version": "0.28.1"
+  },
+  {
+    "package": "playwright",
+    "installed": true,
+    "version": "1.64.1"
+  },
+  {
+    "package": "pytest-asyncio",
+    "installed": false,
+    "version": null
+  }
+]
+
+$ Additional baseline excerpt: app/api/portal.py (job lifecycle and admission)
+177: async def sync_job(job, value, submitted):
+178:     version = job.get("portal_version", value.portal_version)
+179:     captured = None
+180:     try:
+181:         if value.app_session_id:
+182:             await auth_call(account_portal.check, value)
+183:         if job["state"] != "running":
+184:             return
+185:         if not runtime.session_active(value):
+186:             raise PortalFailure('vnu_reauth_required' if value.app_session_id else 'session_expired')
+187:         if value.portal_version != version:
+188:             raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
+189:         result = await runtime.collect(submitted)
+190:         if result["subject"] != value.subject:
+191:             if value.app_session_id:
+192:                 runtime.clear_portal(value)
+193:             else:
+194:                 runtime.revoke(value)
+195:             raise PortalFailure("identity_unverified")
+196:         if value.app_session_id:
+197:             await auth_call(account_portal.check, value)
+198:         if job["state"] != "running":
+199:             return
+200:         if not runtime.session_active(value):
+201:             raise PortalFailure('vnu_reauth_required' if value.app_session_id else 'session_expired')
+202:         if value.portal_version != version:
+203:             raise PortalFailure("vnu_reauth_required" if not value.portal else "cancelled")
+204:         if "cookies" in result:
+205:             runtime.install_portal(value, result["cookies"], version)
+206:         captured = result['snapshot']
+207:         job["state"] = "saving"
+208:         saving = asyncio.create_task(auth_call(account_portal.save, value, result['snapshot'], result.get('profile'))
+209:                                      if value.app_session_id else safe_call(store.save, value.owner,
+210:                                      value.generation, result['snapshot'], result.get('profile')))
+211:         try:
+212:             job["result"] = await asyncio.shield(saving)
+213:         except asyncio.CancelledError:
+214:             # A DB thread cannot be cancelled. Wait rather than report a false rollback.
+215:             job["result"] = await saving
+216:         job["state"] = "done"
+217:         if runtime.session_active(value):
+218:             value.latest_collection = collection_review(captured, job['result'])
+219:     except asyncio.CancelledError:
+220:         job["state"] = "cancelled"
+221:         if runtime.session_active(value):
+222:             runtime.clear_portal(value)
+223:     except Exception as exc:
+224:         job["state"] = "failed"
+225:         job["error"] = exc.detail if isinstance(exc, HTTPException) else (
+226:             str(exc) if isinstance(exc, PortalFailure) else "portal_unavailable")
+227:         if captured is not None and runtime.session_active(value):
+228:             value.latest_collection = collection_review(captured,
+229:                 'retained' if job['error'] == 'incomplete_snapshot' else 'failed')
+230:         if value.app_session_id and job['error'] in {'session_expired', 'password_change_required', 'forbidden', 'vnu_not_connected'}:
+231:             runtime.revoke(value)
+232:         if job["error"] == "vnu_reauth_required" and value.portal_version == version:
+233:             runtime.clear_portal(value)
+234:     finally:
+235:         submitted.clear()
+236: 
+237: 
+238: def start_job(value, submitted):
+239:     if not runtime.session_active(value):
+240:         submitted.clear()
+241:         raise HTTPException(401, "session_expired")
+242:     if any(j["owner"] == value.owner and j["state"] in {"running", "saving"}
+243:            for j in runtime.jobs.values()):
+244:         submitted.clear()
+245:         raise HTTPException(409, "busy")
+246:     runtime.reap()
+247:     if len(runtime.jobs) >= 1000:
+248:         submitted.clear()
+249:         raise HTTPException(429, "busy")
+250:     job_id = secrets.token_urlsafe(24)
+251:     job = {"owner": value.owner, "session": value,
+252:            "state": "running", "created": time.monotonic(), "portal_version": value.portal_version}
+253:     task = asyncio.create_task(sync_job(job, value, submitted))
+254:     job["task"] = task
+255:     runtime.jobs[job_id] = job
+256:     runtime.tasks.add(task)
+257:     task.add_done_callback(runtime.tasks.discard)
+258:     return {"id": job_id, "state": "running"}
+259: 
+260: 
+261: @router.post("/me/portal-sync", status_code=202)

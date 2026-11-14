@@ -1,0 +1,16 @@
+{
+  "baseline": "7aa9d939ddca47461dbc7a55972fdfbec7c434fe",
+  "branch_unchanged": true,
+  "product_and_test_diff_empty": true,
+  "index_empty": true,
+  "existing_tests": 56,
+  "failures": 0,
+  "errors": 0,
+  "stage": "Step 1 only; waiting for user review",
+  "files": {
+    "docs/vt102/STEP1_SPEC_PLAN.md": "768442a9ea104e738bece5b63aad6b774df02ae3bfe3cf126a13b27f85fc4b35",
+    "docs/vt102/evidence/step1-baseline-junit.xml": "eb8785b4c7c818e692b35d097be41f7b7367065472397418afe3549d64be56f7",
+    "docs/vt102/evidence/step1-baseline-tests.txt": "5d49766d9fb64e4057202f3a9e7c79264d4076a50ac9b15cabff1c097a9bbe90",
+    "docs/vt102/evidence/step1-repo-survey.txt": "5e69c7afaf67e43563b517483450f588722895e3a266db3771ed020aa886371f"
+  }
+}

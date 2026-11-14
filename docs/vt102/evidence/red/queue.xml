@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.133" timestamp="2026-11-14T23:29:05.396180+07:00" hostname="LAPTOPCUAVINH"><testcase classname="tests.integrations.test_vt102_queue" name="test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry" time="0.269"><failure message="AssertionError">tests\integrations\test_vt102_queue.py:7: in test_tc19_40_distinct_jobs_queue_behind_two_collectors_without_duplicate_retry
+    report = asyncio.run(workload(monkeypatch))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\support\vt102_harness.py:83: in workload
+    assert all(response.status_code == 202 for response in retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError</failure></testcase></testsuite></testsuites>
