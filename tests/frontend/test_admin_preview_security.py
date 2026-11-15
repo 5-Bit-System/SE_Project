@@ -1,5 +1,9 @@
 """Real admin UI with synthetic API fixtures; every browser request is intercepted."""
 
+import csv
+import io
+import os
+from pathlib import Path
 from urllib.parse import urlsplit
 
 import pytest
@@ -69,6 +73,14 @@ def assert_inert(page):
     assert page.evaluate('window.previewInjection === undefined')
 
 
+def screenshot(page, name):
+    output = os.environ.get('ADMIN_PREVIEW_SCREENSHOTS')
+    if output:
+        directory = Path(output)
+        directory.mkdir(parents=True, exist_ok=True)
+        page.locator('#admin-curriculum-preview-view').screenshot(path=str(directory / name))
+
+
 @pytest.mark.parametrize('field', ['code', 'name'])
 @pytest.mark.parametrize('payload', [PAYLOAD, QUOTED])
 def test_picker_metadata_is_text_and_values_survive(preview, field, payload):
@@ -84,6 +96,73 @@ def test_picker_metadata_is_text_and_values_survive(preview, field, payload):
     page.locator('#admin-preview-run-btn').click()
     expect(page.locator('#admin-preview-results-area')).to_be_visible()
     assert state['requests'][0]['passed_course_codes'] == [state['courses'][0]['code']]
+
+
+def test_csv_course_name_remains_literal_in_browser(preview):
+    from app.curriculum.import_service import validate_and_parse_csv
+
+    page, state = preview
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(['code', 'name', 'credits'])
+    writer.writerow(['TEST101', PAYLOAD, 3])
+    parsed = validate_and_parse_csv(buffer.getvalue(), 'synthetic', 'Security fixture')
+    # Exercise the actual CSV parser, then the actual UI; no database/publication is implied.
+    assert parsed['valid'], parsed['errors']
+    state['courses'] = parsed['courses']
+    open_preview(page)
+    expect(page.locator('#admin-preview-courses-picker')).to_contain_text(PAYLOAD)
+    assert_inert(page)
+    screenshot(page, 'picker-literal-metadata.png')
+
+
+def test_preview_presets_tabs_and_empty_results(preview):
+    page, state = preview
+    state['courses'] = [{'code': f'TEST{i:03}', 'name': f'Giải tích {i} & ứng dụng', 'credits': 3}
+                        for i in range(1, 9)]
+    state['result'].update({
+        'catalog': {'is_unverified': True, 'warning': 'Dữ liệu giả phục vụ kiểm thử'},
+        'recommendations': [{'rank': 1, 'code': 'TEST008', 'name': 'Giải tích & ứng dụng',
+                             'credits': 3, 'score': 0.8, 'reason': 'Phù hợp mục tiêu'}],
+        'eligible_courses': [{'code': 'TEST008', 'name': 'Giải tích & ứng dụng',
+                              'credits': 3, 'block': 'Cơ sở', 'term': 2}],
+        'blocked_courses': [{'code': 'TEST009', 'name': PAYLOAD, 'credits': 3,
+                             'block': 'Chuyên ngành', 'reasons': [
+                                 {'message': 'Cần hoàn thành môn trước',
+                                  'missing_prerequisites': [['TEST001', 'TEST002']]}]}],
+    })
+    open_preview(page)
+    expect(page.locator('.admin-preview-chk')).to_have_count(8)
+    page.locator('.admin-preset-btn[data-preset="year1"]').click()
+    expect(page.locator('#admin-preview-selected-num')).to_have_text('6')
+    page.locator('#admin-preview-run-btn').click()
+    expect(page.locator('#admin-preview-results-area')).to_be_visible()
+    assert state['requests'][-1]['passed_course_codes'] == [c['code'] for c in state['courses'][:6]]
+    expect(page.locator('#admin-tbody-rec')).to_contain_text('Điểm: 80%')
+    expect(page.locator('#admin-tbody-rec')).to_contain_text('Giải tích & ứng dụng')
+    screenshot(page, 'recommended-desktop.png')
+    page.locator('#admin-res-tab-eligible').click()
+    expect(page.locator('#admin-res-panel-eligible')).to_be_visible()
+    page.locator('#admin-res-tab-blocked').click()
+    expect(page.locator('#admin-tbody-blk')).to_contain_text('TEST001, TEST002')
+    expect(page.locator('#admin-tbody-blk')).to_contain_text(PAYLOAD)
+    assert_inert(page)
+    screenshot(page, 'blocked-literal-metadata.png')
+    state['result'] = {'simulation_disclaimer': 'Không có kết quả', 'recommendations': [],
+                       'eligible_courses': [], 'blocked_courses': []}
+    page.locator('.admin-preset-btn[data-preset="core"]').click()
+    expect(page.locator('#admin-preview-selected-num')).to_have_text('8')
+    page.locator('#admin-preview-run-btn').click()
+    expect(page.locator('#admin-tbody-rec')).to_contain_text('Không có học phần')
+    expect(page.locator('#admin-res-count-rec')).to_have_text('0')
+    expect(page.locator('#admin-res-panel-recommended')).to_be_visible()
+    page.locator('#admin-res-tab-blocked').click()
+    expect(page.locator('#admin-tbody-blk')).to_contain_text('Không có học phần')
+    page.locator('#admin-res-tab-eligible').click()
+    expect(page.locator('#admin-tbody-eli')).to_contain_text('Không có học phần')
+    state['courses'] = []
+    page.locator('#admin-preview-prog-select').dispatch_event('change')
+    expect(page.locator('#admin-preview-courses-picker')).to_contain_text('Không có học phần')
 
 
 @pytest.mark.parametrize('field', ['program_id', 'name'])
