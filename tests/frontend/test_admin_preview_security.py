@@ -96,3 +96,44 @@ def test_program_option_preserves_special_characters(preview, field):
         f"{state['programs'][0]['name']} ({state['programs'][0]['program_id']})")
     expect(option).to_have_attribute('value', state['programs'][0]['program_id'])
     assert_inert(page)
+
+
+RESULT_FIELDS = [
+    ('recommendations', field) for field in ('rank', 'code', 'name', 'credits', 'reason', 'fit_reason')
+] + [
+    ('eligible_courses', field) for field in ('code', 'name', 'credits', 'block', 'term')
+] + [
+    ('blocked_courses', field) for field in ('code', 'name', 'credits', 'block', 'message', 'prerequisite')
+] + [('banner', 'simulation_disclaimer'), ('banner', 'warning')]
+
+
+@pytest.mark.parametrize('section,field', RESULT_FIELDS)
+def test_result_metadata_does_not_create_markup(preview, section, field):
+    page, state = preview
+    result = state['result']
+    if section == 'banner':
+        if field == 'warning':
+            result['catalog'] = {'is_unverified': True, 'warning': PAYLOAD}
+        else:
+            result[field] = PAYLOAD
+        target = '#admin-preview-banner'
+    else:
+        row = {'rank': 1, 'code': 'TEST101', 'name': 'Giải tích', 'credits': 3,
+               'score': 0.8, 'block': 'Cơ sở', 'term': 1}
+        if field in ('message', 'prerequisite'):
+            row['reasons'] = [{'message': PAYLOAD if field == 'message' else 'Thiếu môn',
+                               'missing_prerequisites': [[PAYLOAD if field == 'prerequisite' else 'TEST001']]}]
+        else:
+            row[field] = PAYLOAD
+        result[section] = [row]
+        target = {'recommendations': '#admin-tbody-rec', 'eligible_courses': '#admin-tbody-eli',
+                  'blocked_courses': '#admin-tbody-blk'}[section]
+    open_preview(page)
+    page.locator('#admin-preview-run-btn').click()
+    expect(page.locator('#admin-preview-results-area')).to_be_visible()
+    if section == 'eligible_courses':
+        page.locator('#admin-res-tab-eligible').click()
+    elif section == 'blocked_courses':
+        page.locator('#admin-res-tab-blocked').click()
+    expect(page.locator(target)).to_contain_text(PAYLOAD)
+    assert_inert(page)
