@@ -2229,9 +2229,8 @@
     if (!previewProgramsLoaded) {
       try {
         const progs = await adminRequest('/admin/programs');
-        progSelect.innerHTML = progs.map(p => `
-          <option value="${p.program_id}">${p.name} (${p.program_id})</option>
-        `).join('');
+        progSelect.replaceChildren(...progs.map(p =>
+          new Option(`${p.name} (${p.program_id})`, p.program_id)));
         previewProgramsLoaded = true;
         if (progs.length > 0) {
           loadPreviewCourses(progs[0].program_id);
@@ -2267,16 +2266,23 @@
       return;
     }
 
-    picker.innerHTML = courses.map(c => `
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 8px; border-radius: 6px; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <input type="checkbox" value="${c.code}" class="admin-preview-chk" style="cursor: pointer;">
-        <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><strong>${c.code}</strong>: ${c.name}</span>
-      </label>
-    `).join('');
-
-    picker.querySelectorAll('.admin-preview-chk').forEach(chk => {
+    picker.replaceChildren(...courses.map(c => {
+      const label = document.createElement('label');
+      label.style.cssText = 'display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 8px; border-radius: 6px; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-subtle);';
+      const chk = document.createElement('input');
+      chk.type = 'checkbox';
+      chk.value = c.code;
+      chk.className = 'admin-preview-chk';
+      chk.style.cursor = 'pointer';
       chk.addEventListener('change', updateSelectedPreviewCount);
-    });
+      const text = document.createElement('span');
+      text.style.cssText = 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;';
+      const code = document.createElement('strong');
+      code.textContent = c.code;
+      text.append(code, `: ${c.name}`);
+      label.append(chk, text);
+      return label;
+    }));
     updateSelectedPreviewCount();
   }
 
