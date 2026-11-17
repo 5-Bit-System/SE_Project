@@ -40,9 +40,15 @@ function button(text, action, cls = 'rec-button') {
 const titleFor = id => ({balanced: copy('Cân bằng', 'Balanced'),
   graduation: copy('Ưu tiên tốt nghiệp', 'Graduation focus'),
   direction: copy('Sát định hướng', 'Interest focus')})[id];
-const hintFor = id => ({balanced: copy('Hài hòa mục tiêu và môn bắt buộc', 'Balance interests and required courses'),
-  graduation: copy('Tăng ưu tiên môn bắt buộc còn thiếu', 'Give remaining required courses more weight'),
-  direction: copy('Tăng ưu tiên chủ đề bạn quan tâm', 'Give your interests more weight')})[id];
+const hintFor = id => ({
+  balanced: copy('Dung hòa giữa định hướng bạn thích và các môn cần hoàn thành trên bảng điểm', 'Balances your personal interests with courses needed on your transcript'),
+  graduation: copy('Ưu tiên môn bắt buộc, môn học lại (F), nhóm thiếu tín chỉ và môn mở khóa lộ trình', 'Prioritizes required courses, F-grade retakes, unmet credit groups, and prerequisite unlocks'),
+  direction: copy('Tập trung tối đa vào chủ đề, định hướng và phong cách học bạn mong muốn', 'Focuses heavily on your chosen topics, career direction, and study preferences'),
+})[id];
+function translateText(text) {
+  if (!text) return '';
+  return window.workspaceI18n?.language === 'en' ? window.workspaceI18n.translate(text) : text;
+}
 let live = window.workspacePlanning?.snapshot() || {};
 let identity = live.identity || '';
 let answers, step = 0, results = {}, selected = 'balanced', busy = false, error = '';
@@ -50,7 +56,7 @@ let requestEpoch = 0, requestController, generationRevision = '', catalog = new 
 let catalogProgram = '', catalogSequence = 0, saved = new Set(), draftText = '';
 const uncertainSaves = new Set();
 let generationPassed = new Set();
-let pendingSave = false, introShown = false, reviewMode = false, customDirectionOpen = false;
+let pendingSave = false, introShown = false, reviewMode = false, customDirectionOpen = false, guideOpen = false;
 let planningStateKey = '';
 const animations = new Set();
 const dialog = node('dialog', undefined, 'rec-dialog');
@@ -178,10 +184,9 @@ function readiness() {
 
 function render(transition = false) {
   cancelMotion(); root.replaceChildren();
-  const heading = node('header', undefined, 'rec-heading');
-  const intro = node('div');
-  intro.append(node('p', copy('Một học kỳ, nhiều khả năng.', 'One semester. More possibilities.'), 'rec-kicker'),
-    node('h2', copy('Kỳ tới, học theo cách của bạn.', 'Your next semester, your way.')),
+  const heading = node('header', undefined, 'rec-heading workspace-page-header');
+  const intro = node('div', undefined, 'workspace-page-intro');
+  intro.append(node('h2', copy('Gợi ý kỳ tới', 'Next-term suggestions')),
     node('p', copy('Nói về mục tiêu. Cùng tìm những môn đưa bạn đến gần hơn.', 'Share your goals. Find the courses that move you forward.')));
   const history = button(copy('Phương án đã lưu', 'Saved alternatives'), openTools, 'rec-button rec-secondary');
   history.prepend(icon('layers')); heading.append(intro, history); root.append(heading);
@@ -206,7 +211,7 @@ function render(transition = false) {
   footer.append(node('span', copy('Bảng điểm của bạn là điểm bắt đầu.', 'Your transcript is the starting point.')),
     button(copy('Làm lại', 'Start over'), () => { clearResults(); answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; render(); }, 'rec-text-button'));
   conversation.append(footer);
-  shell.append(conversation, renderRoadmap()); root.append(shell);
+  shell.append(conversation, renderRoadmap()); root.append(shell, renderAlgorithmGuide());
   const resultsArea = node('section', undefined, 'rec-results'); resultsArea.id = 'rec-results'; root.append(resultsArea);
   renderResults();
   const mobile = button(copy('Xem lộ trình của bạn', 'View your study path'), openMobileRoadmap, 'rec-mobile-roadmap');
@@ -461,6 +466,47 @@ function renderRoadmap(mobile = false) {
   aside.append(node('p', copy('Mốc tương lai là mong muốn của bạn. Lịch mở lớp và tiến độ tốt nghiệp cần được đối chiếu với nhà trường.', 'Future milestones reflect your goals. Confirm course offerings and graduation progress with the university.'), 'rec-roadmap-note'));
   return aside;
 }
+function renderAlgorithmGuide() {
+  const details = node('details', undefined, 'rec-algorithm-guide');
+  details.open = guideOpen;
+  details.addEventListener('toggle', () => { guideOpen = details.open; });
+  const summary = node('summary');
+  summary.append(
+    node('strong', copy('Cách hệ thống gợi ý và xếp hạng môn học', 'How course recommendations work')),
+    node('span', copy('Lọc điều kiện → Chấm phù hợp & bảng điểm → Tối ưu tổ hợp T ± 2 TC', 'Eligibility gate → Fit & transcript need → Optimal T ± 2 cr bundle'), 'rec-algorithm-summary-meta')
+  );
+  const body = node('div', undefined, 'rec-algorithm-guide-body');
+  const stepsList = node('ol', undefined, 'rec-algorithm-steps');
+  const items = [
+    [
+      copy('1. Kiểm tra điều kiện cứng (Eligibility)', '1. Hard eligibility filtering'),
+      copy('Chỉ giữ các môn bạn chưa qua, thuộc đúng ngành/hướng đã chọn, đã đạt đủ môn tiên quyết (AND/OR) và còn chỗ trong nhóm tự chọn. Môn bị chặn hoặc chưa xác minh không bao giờ được đề xuất.', 'Keeps only unpassed courses in your program/track whose prerequisites (AND/OR) and elective-group quotas are satisfied. Blocked or unverified courses are never recommended.'),
+    ],
+    [
+      copy('2. Đo độ phù hợp với mục tiêu (PrefFit)', '2. Scoring alignment with your goals (PrefFit)'),
+      copy('Trích xuất chủ đề, nghề nghiệp, định hướng (lý thuyết, thực hành, nghiên cứu), độ sâu nội dung và khối lượng học từ lựa chọn cùng ghi chú của bạn. Khớp chính xác nhận điểm cao hơn và giảm dần mượt mà với mức gần kề.', 'Extracts topics, career tracks, orientation (theory, practice, research), content depth, and workload from your answers and note. Exact matches score highest with smooth falloff for nearby levels.'),
+    ],
+    [
+      copy('3. Đánh giá nhu cầu bảng điểm (TranscriptNeed)', '3. Practical transcript urgency (TranscriptNeed)'),
+      copy('Ưu tiên môn cần học lại (điểm F), môn bắt buộc hoặc nhánh tốt nghiệp còn thiếu, nhóm tự chọn chưa đủ tín chỉ, và môn nền tảng giúp mở khóa nhiều học phần tiếp theo (tăng ưu tiên khi mốc tốt nghiệp gần).', 'Prioritizes F-grade retakes, remaining required or graduation-path courses, unmet elective credit groups, and foundation courses that unlock downstream subjects (weighted higher when graduation is close).'),
+    ],
+    [
+      copy('4. Cân bằng 3 phương án & chọn tổ hợp (T ± 2 TC)', '4. Blending 3 options & bundle optimization (T ± 2 cr)'),
+      copy('Mỗi phương án pha trộn hai điểm trên theo trọng số riêng rồi quy đổi thành độ ưu tiên tương đối (~%), sau đó tìm tổ hợp môn có tổng điểm cao nhất quanh ngân sách mục tiêu (±2 TC, hoặc giữ đúng trần cứng khi ghi rõ "tối đa N tín chỉ").', 'Each option blends both scores with its own weights, converts them into relative priority (~%), and selects the highest-scoring course bundle within ±2 credits of your target (or a strict cap when "at most N credits" is specified).'),
+    ],
+  ];
+  items.forEach(([title, desc]) => {
+    const li = node('li');
+    li.append(node('strong', title), node('p', desc));
+    stepsList.append(li);
+  });
+  body.append(
+    stepsList,
+    node('p', copy('Lưu ý: Tỷ lệ ~% chỉ thể hiện mức ưu tiên tương đối giữa các môn đang đủ điều kiện trong lần chạy này — không phải xác suất qua môn hay cam kết mở lớp từ nhà trường.', 'Note: The ~% figure indicates relative priority among currently eligible courses — not a passing probability or an official schedule guarantee.'), 'rec-algorithm-disclaimer')
+  );
+  details.append(summary, body);
+  return details;
+}
 function updateRoadmap() {
   const previous = root.querySelector('#rec-roadmap');
   if (previous) previous.replaceWith(renderRoadmap());
@@ -482,10 +528,45 @@ function openMobileRoadmap() {
 }
 function openCourse(course) {
   const content = modal(`${course.code} · ${courseName(course)}`, 'rec-course-dialog');
-  content.append(node('p', `${course.credits} ${copy('tín chỉ', 'credits')} · ${copy('Thuộc phương án', 'In alternative')} ${titleFor(selected)}`, 'rec-dialog-meta'));
-  const why = node('section'); why.append(node('h3', copy('Vì sao gợi ý môn này?', 'Why this course?')),
-    node('p', course.reason || copy('Chưa có giải thích chi tiết từ hệ thống.', 'No detailed explanation was returned.')));
-  if (course.fit_reason) why.append(node('p', course.fit_reason)); content.append(why);
+  const prob = Number.isFinite(course.fit_probability) ? ` · ${copy('Độ ưu tiên tương đối', 'Relative priority')}: ~${Math.round(course.fit_probability * 100)}%` : '';
+  content.append(node('p', `${course.credits} ${copy('tín chỉ', 'credits')} · ${copy('Phương án', 'Alternative')} ${titleFor(selected)}${prob}`, 'rec-dialog-meta'));
+  const why = node('section'); why.append(node('h3', copy('Vì sao gợi ý môn này?', 'Why this course?')));
+  const hasStructured = Boolean(course.fit_reason) && (
+    (Array.isArray(course.transcript_signals) && course.transcript_signals.length > 0)
+    || (Array.isArray(course.eligibility_reason) && course.eligibility_reason.length > 0)
+  );
+  if (hasStructured) {
+    const fitLine = node('p');
+    fitLine.append(node('strong', copy('Phù hợp mục tiêu: ', 'Goal alignment: ')), document.createTextNode(translateText(course.fit_reason)));
+    why.append(fitLine);
+    if (Array.isArray(course.transcript_signals) && course.transcript_signals.length) {
+      const sigTitle = node('p');
+      sigTitle.append(node('strong', copy('Vai trò với bảng điểm của bạn:', 'Impact on your study progress:')));
+      const list = node('ul', undefined, 'rec-signal-list');
+      course.transcript_signals.forEach(sig => list.append(node('li', translateText(sig))));
+      why.append(sigTitle, list);
+    }
+    const eligText = Array.isArray(course.eligibility_reason) && course.eligibility_reason.length
+      ? course.eligibility_reason.map(translateText).join('; ')
+      : copy('Đã vượt qua kiểm tra điều kiện tiên quyết và quy tắc chương trình.', 'Satisfies recorded prerequisites and curriculum rules.');
+    const eligLine = node('p');
+    eligLine.append(node('strong', copy('Điều kiện học phần: ', 'Eligibility status: ')), document.createTextNode(eligText));
+    why.append(eligLine);
+  } else {
+    const mainReason = translateText(course.reason || copy('Chưa có giải thích chi tiết từ hệ thống.', 'No detailed explanation was returned.'));
+    why.append(node('p', mainReason));
+    if (course.fit_reason && !String(course.reason || '').includes(course.fit_reason)) {
+      why.append(node('p', translateText(course.fit_reason)));
+    }
+    if (Array.isArray(course.transcript_signals) && course.transcript_signals.length) {
+      const list = node('ul', undefined, 'rec-signal-list');
+      course.transcript_signals.forEach(sig => {
+        if (!String(course.reason || '').includes(sig)) list.append(node('li', translateText(sig)));
+      });
+      if (list.childElementCount) why.append(list);
+    }
+  }
+  content.append(why);
   const entry = catalog.get(course.code);
   const prerequisites = node('section'); prerequisites.append(node('h3', copy('Điều kiện tiên quyết', 'Prerequisites')));
   if (!entry) prerequisites.append(node('p', copy('Chưa đọc được chi tiết tiên quyết từ catalog. Kết quả gợi ý vẫn được xét điều kiện ở server.', 'Detailed catalog prerequisites are unavailable. Server eligibility checks still apply.')));
@@ -514,7 +595,7 @@ function openCourse(course) {
       node('p', copy('Các dòng là điều kiện “và”; các mã trong cùng một dòng là lựa chọn “hoặc”.', 'Rows are AND conditions; alternatives in the same row are OR conditions.'), 'rec-question-hint'));
     animate(path, [{strokeDasharray: 1, strokeDashoffset: 1}, {strokeDasharray: 1, strokeDashoffset: 0}], {duration: 700});
   }
-  content.append(prerequisites, node('p', copy('Môn đủ điều kiện theo dữ liệu đang xét. Chưa xác nhận môn sẽ mở ở kỳ tới.', 'Eligible under the current academic data. Next-term availability is not confirmed.'), 'rec-dialog-meta'));
+  content.append(prerequisites, node('p', copy('Môn đủ điều kiện theo dữ liệu đang xét; tỷ lệ ~% chỉ thể hiện mức ưu tiên tương đối và chưa xác nhận lịch mở lớp kỳ tới.', 'Eligible under current academic data; the ~% figure reflects relative priority and does not confirm next-term course offerings.'), 'rec-dialog-meta'));
   dialog.showModal();
 }
 
@@ -527,8 +608,8 @@ function renderResults() {
   }
   if (!Object.keys(results).length) return;
   const header = node('div', undefined, 'rec-results-heading');
-  const intro = node('div'); intro.append(node('h3', copy('Ba góc nhìn cho một học kỳ.', 'Three ways to shape your semester.')),
-    node('p', copy('Cùng điều kiện học vụ, khác cách ưu tiên. Bạn chọn phương án phù hợp với mình.', 'The same academic requirements, with different priorities. Choose what fits you.')));
+  const intro = node('div'); intro.append(node('h3', copy('Ba phương án gợi ý cho học kỳ tới', 'Three study plans for next semester')),
+    node('p', copy('Cùng lọc từ các môn bạn đủ điều kiện học, khác nhau ở mức ưu tiên giữa định hướng cá nhân và tiến độ tốt nghiệp.', 'All filtered by your prerequisite eligibility, differing in how they balance personal interests and graduation progress.')));
   const compare = button(copy('So sánh phương án', 'Compare alternatives'), () => openComparison(), 'rec-button rec-secondary');
   compare.id = 'rec-compare'; compare.disabled = Object.values(results).filter(plan => plan.status === 'done').length < 2;
   header.append(intro, compare); area.append(header);
@@ -558,21 +639,35 @@ function renderResults() {
     const loading = node('div', undefined, 'rec-loading'); loading.setAttribute('role', 'status');
     const papers = node('div', undefined, 'rec-loading-papers'); papers.setAttribute('aria-hidden', 'true');
     for (let index = 0; index < 3; index++) papers.append(node('i'));
-    loading.append(papers, node('strong', copy('Đang ghép một học kỳ phù hợp…', 'Putting your semester together…')),
-      node('p', copy('Đối chiếu điều kiện môn học, mục tiêu và ngân sách tín chỉ.', 'Checking eligibility, interests and your credit budget.')));
+    loading.append(papers, node('strong', copy('Đang tìm và tối ưu tổ hợp môn…', 'Evaluating and optimizing your course bundle…')),
+      node('p', copy('Kiểm tra tiên quyết, chấm điểm độ phù hợp, nhu cầu bảng điểm và chọn tổ hợp sát ngân sách tín chỉ.', 'Checking prerequisites, scoring goal fit and transcript needs, and selecting an optimal credit bundle.')));
     panel.append(loading);
   } else if (plan.status === 'error') panel.append(node('p', plan.error, 'rec-error'));
   else if (!plan.rows.length) panel.append(node('div', copy('Chưa tìm được môn phù hợp với điều kiện hiện tại. Kiểm tra dữ liệu hoặc điều chỉnh lựa chọn rồi tạo lại.', 'No suitable courses were found under the current requirements. Review your data or preferences and try again.'), 'rec-empty'));
   else {
     const caption = node('div', undefined, 'rec-plan-caption');
-    caption.append(node('p', hintFor(selected)), node('strong', `${plan.credits} / ${answers.credits} ${copy('tín chỉ', 'credits')}`)); panel.append(caption);
+    const delta = plan.credits - Number(answers.credits);
+    const deltaText = delta === 0 ? '' : ` (${delta > 0 ? '+' : ''}${delta} ${copy('TC · biên ±2 TC', 'cr · ±2 cr band')})`;
+    caption.append(node('p', hintFor(selected)), node('strong', `${plan.credits} / ${answers.credits} ${copy('tín chỉ', 'credits')}${deltaText}`)); panel.append(caption);
     const grid = node('div', undefined, 'rec-course-grid');
     plan.rows.forEach(course => {
       const card = node('article', undefined, 'rec-course'); card.dataset.recCourse = course.code;
       const meta = node('div', undefined, 'rec-course-meta');
-      meta.append(node('span', course.code), node('span', `${course.credits} ${copy('TC', 'credits')}`));
+      const badges = node('div', undefined, 'rec-course-badges');
+      badges.append(node('span', course.code));
+      if (course.is_retake) badges.append(node('span', copy('Học lại (F)', 'Retake (F)'), 'rec-badge-retake'));
+      const pct = Number.isFinite(course.fit_probability) && course.fit_probability > 0 ? Math.round(course.fit_probability * 100) : null;
+      const rightTag = pct !== null
+        ? `${course.credits} ${copy('TC', 'cr')} · ${copy('Ưu tiên', 'Match')} ~${pct}%`
+        : `${course.credits} ${copy('TC', 'credits')}`;
+      const rightSpan = node('span', rightTag);
+      if (pct !== null) {
+        rightSpan.title = copy('Mức ưu tiên tương đối so với các môn đủ điều kiện khác trong lần chạy này', 'Relative priority among currently eligible courses');
+      }
+      meta.append(badges, rightSpan);
       const title = button(courseName(course), () => openCourse(course), 'rec-course-title');
-      const reason = node('p', course.fit_reason || course.reason || '', 'rec-course-reason');
+      const cardSummary = translateText(course.fit_reason || course.reason || '');
+      const reason = node('p', cardSummary, 'rec-course-reason');
       const footer = node('div', undefined, 'rec-course-footer');
       footer.append(node('span', course.requirement_type === 'elective' ? copy('Tự chọn', 'Elective') : copy('Bắt buộc', 'Required')),
         button(copy('Vì sao môn này?', 'Why this course?'), () => openCourse(course), 'rec-text-button'));
@@ -589,7 +684,7 @@ function renderResults() {
       if (adopted) openTools(); else { error = copy('Dữ liệu đã đổi. Hãy tạo lại gợi ý trước khi chỉnh sửa.', 'Academic data changed. Generate new suggestions before editing.'); renderResults(); }
     }, 'rec-button rec-secondary');
     actions.append(save, edit); panel.append(actions);
-    if (plan.omitted.length) panel.append(node('p', copy('Đã giữ lại các môn phù hợp với ngân sách, nhóm tín chỉ và điều kiện lập kế hoạch hiện tại.', 'Only courses within the current credit budget, group quotas and planning requirements are retained.'), 'rec-question-hint'));
+    if (plan.omitted.length) panel.append(node('p', copy('Các môn đủ điều kiện còn lại được lược bỏ khỏi tổ hợp này để giữ tổng tín chỉ quanh mục tiêu và tuân thủ hạn mức nhóm tự chọn.', 'Other eligible courses were left out of this bundle to stay near your credit target and respect elective group quotas.'), 'rec-question-hint'));
     if (plan.warnings.length) {
       const warnings = node('details', undefined, 'rec-result-warnings');
       warnings.append(node('summary', copy('Thông tin cần đối chiếu', 'Information to confirm')));
@@ -759,7 +854,7 @@ function openSave() {
     try {
       await request('/me/semester-plans', {method: 'POST', signal: AbortSignal.timeout(60000), body: {
         title: title.value.trim(), academic_year_start: Number(answers.year), semester: Number(answers.semester),
-        max_credits: Number(answers.credits), selected_track_id: answers.track || null,
+        max_credits: Math.min(30, Math.max(Number(answers.credits), plan.credits)), selected_track_id: answers.track || null,
         selected_graduation_path_id: answers.path || null, course_codes: plan.rows.map(row => row.code),
         expected_basis: live.board.plan_basis,
       }});

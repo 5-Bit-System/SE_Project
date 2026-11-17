@@ -6,7 +6,6 @@ from app.services import semester_plan_service as plans
 from tests.integrations.test_program_binding import (  # noqa: F401
     authenticate,
     client,
-    confirmation,
 )
 
 
@@ -28,12 +27,12 @@ def test_board_provides_stable_plan_basis_across_app_sessions(client, monkeypatc
                         mark_catalog_reviewed_for_test(load_catalog(program_id)))
 
     authenticate(client, 'owner-a')
-    assert client.post('/me/academic-program', json=confirmation(client)).status_code == 200
     first = client.get('/me/course-status').json()
     authenticate(client, 'owner-a')
     second = client.get('/me/course-status').json()
     assert first['context_revision'] != second['context_revision']
     assert first['plan_basis'] == second['plan_basis']
+    assert client.writes == []
     client.data['owner-a']['snapshot']['digest'] = 'new-source'
     assert client.get('/me/course-status').json()['plan_basis'] != first['plan_basis']
 

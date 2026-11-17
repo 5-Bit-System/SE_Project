@@ -341,3 +341,19 @@ def test_planning_review_never_shrinks_the_available_prerequisite_sequence(curri
         assert view["can_plan"] is False
         assert view["plan"]["course_codes"] == []
     assert pending == before
+
+
+def test_failed_f_course_is_marked_retake_in_eligible_board(curriculum):
+    ready_ctx = {
+        "status": "ready",
+        "revision": "synthetic-retake",
+        "completed_course_codes": ["A"],
+        "outcomes": [
+            {"code": "A", "state": "completed"},
+            {"code": "B", "state": "not_completed"},
+        ],
+    }
+    board = course_board_display(course_board(curriculum, ready_ctx))
+    eligible = {row["code"]: row for row in board["courses"]["eligible"]}
+    assert eligible["B"]["is_retake"] is True
+    assert eligible["E1"]["is_retake"] is False

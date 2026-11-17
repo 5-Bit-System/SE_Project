@@ -54,15 +54,35 @@ class RecommendationSignal:
 
 
 def _fit_category(reason: str) -> str:
-    if reason.startswith('Tên hoặc metadata môn có chứa chủ đề'):
+    if reason.startswith((
+        'Tên hoặc metadata môn có chứa chủ đề',
+        'Phù hợp chủ đề bạn quan tâm:',
+        'Chủ đề môn khớp định hướng quan tâm:',
+    )):
         return 'topic'
-    if reason.startswith('Metadata môn khớp định hướng nghề nghiệp'):
+    if reason.startswith((
+        'Metadata môn khớp định hướng nghề nghiệp',
+        'Gắn với định hướng nghề nghiệp:',
+        'Liên quan hướng nghề nghiệp:',
+    )):
         return 'career'
-    if reason.startswith('Metadata môn khớp '):
+    if reason.startswith((
+        'Metadata môn khớp ',
+        'Phù hợp phong cách học tập',
+        'Đặc trưng môn học tương đồng:',
+    )):
         return 'metadata'
-    if reason.startswith('Môn có loại '):
+    if reason.startswith((
+        'Môn có loại ',
+        'Thuộc nhóm học phần ',
+        'Môn thuộc loại ',
+    )):
         return 'course_type'
-    if reason.startswith('Môn có một phần từ khóa'):
+    if reason.startswith((
+        'Môn có một phần từ khóa',
+        'Có nội dung liên quan một phần',
+        'Môn có độ tương đồng một phần',
+    )):
         return 'keyword'
     if reason.startswith('Catalog hiện chưa có metadata đủ'):
         return 'insufficient_metadata'

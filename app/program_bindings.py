@@ -1,4 +1,4 @@
-"""Account-specific, explicit curriculum confirmation against source enrollment."""
+"""Portal enrollment resolution and legacy account curriculum confirmations."""
 
 from __future__ import annotations
 
@@ -8,7 +8,8 @@ from datetime import datetime, timezone
 
 from app.academic_policies import POLICY_VERSION
 from app.catalog import list_catalogs
-from app.catalog_contracts import digest
+from app.catalog_contracts import EXPECTED_PROGRAM_IDS, digest
+from app.models import Catalog
 
 TALENT_PROGRAM_ID = "toan_hoc_tai_nang_7460101_2022"
 BINDING_SCHEMA_VERSION = 1
@@ -72,6 +73,33 @@ def source_cohort(profile: dict) -> int | None:
     else:
         return None
     return number if 67 <= number <= current_cohort() else None
+
+
+def resolved_program(profile: dict) -> str | None:
+    """Choose only a uniquely identified, supported portal enrollment."""
+    program_id = source_program(profile)
+    if program_id in EXPECTED_PROGRAM_IDS and source_cohort(profile) is not None:
+        return program_id
+    return None
+
+
+def source_binding(profile: dict, catalog: Catalog) -> dict | None:
+    """Resolve the current portal enrollment without persisting a confirmation.
+
+    The source must identify one supported program and cohort. Catalog review,
+    transcript completeness and grades are still validated by the academic context.
+    No timestamp is included so repeated reads keep the same planning basis.
+    """
+    program_id, cohort = resolved_program(profile), source_cohort(profile)
+    if program_id != catalog.program.program_id or cohort is None:
+        return None
+    scope = source_scope(profile)
+    return {"binding_schema_version": BINDING_SCHEMA_VERSION,
+            "program_id": program_id, "cohort": cohort,
+            "catalog_revision": catalog_fingerprint(catalog),
+            "verified": True, "policy_version": POLICY_VERSION,
+            "confirmation_method": "portal_source_enrollment",
+            "source_scope": scope, "evidence_ref": f"portal-enrollment:{scope}"}
 
 
 def binding_current(profile: dict) -> bool:

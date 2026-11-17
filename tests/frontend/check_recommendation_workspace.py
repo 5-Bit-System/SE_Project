@@ -96,7 +96,11 @@ def main():
             selected = ['B200', 'E400'] if weights['course_type'] > .4 else ['C300', 'D301', 'F500'] if weights['topic'] > .4 else ['B200', 'C300', 'E400']
             route.fulfill(json={'context_revision': payload['expected_revision'], 'catalog_status': 'verified',
                 'recommendations': [{**next(row for row in rows if row['code'] == code),
-                    'reason': 'Giải thích từ phản hồi API giả lập.', 'fit_reason': 'Phù hợp mục tiêu minh họa.'} for code in selected],
+                    'fit_probability': 0.42,
+                    'eligibility_reason': ['Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog.'],
+                    'transcript_signals': ['Học phần bắt buộc còn thiếu trong chương trình đào tạo.'],
+                    'fit_reason': 'Phù hợp chủ đề bạn quan tâm: Học máy.',
+                    'reason': 'Đủ điều kiện: Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog. Phù hợp: Phù hợp chủ đề bạn quan tâm: Học máy. Tiến độ bảng điểm: Học phần bắt buộc còn thiếu trong chương trình đào tạo.'} for code in selected],
                 'warnings': ['Lịch mở lớp chưa xác nhận.']})
         elif path == '/me/semester-plans' and request.method == 'GET':
             route.fulfill(json={'plans': plans})
@@ -201,10 +205,17 @@ def main():
         expect(page.locator('.rec-course')).to_have_count(3)
         assert page.locator('.rec-course img').count() == 0
         assert '10 / 20 tín chỉ' in page.locator('.rec-plan-caption').inner_text()
+        expect(page.locator('.rec-algorithm-guide')).to_be_visible()
+        page.locator('.rec-algorithm-guide > summary').click()
+        expect(page.locator('.rec-algorithm-steps li')).to_have_count(4)
+        expect(page.locator('.rec-algorithm-guide')).to_contain_text('T ± 2 TC')
         page.screenshot(path=str(evidence / 'results-light-1440.png'), full_page=True)
         page.locator('.rec-course').first.get_by_role('button', name='Vì sao môn này?', exact=True).click()
         expect(page.locator('.rec-dialog')).to_be_visible()
-        assert 'A100: Môn nền tảng đã hoàn thành' in page.locator('.rec-dialog').inner_text()
+        dialog_text = page.locator('.rec-dialog').inner_text()
+        assert 'A100: Môn nền tảng đã hoàn thành' in dialog_text
+        assert dialog_text.count('Phù hợp chủ đề bạn quan tâm: Học máy.') == 1
+        assert dialog_text.count('Học phần bắt buộc còn thiếu trong chương trình đào tạo.') == 1
         page.keyboard.press('Escape')
         expect(page.locator('.rec-dialog')).not_to_be_visible()
         page.locator('[data-rec-variant="direction"]').click()
@@ -255,7 +266,13 @@ def main():
         expect(page.locator('.rec-roadmap-sheet')).to_be_visible()
         page.keyboard.press('Escape')
         page.locator('[data-language-choice=en]').click()
-        expect(page.get_by_role('heading', name='Your next semester, your way.')).to_be_visible()
+        expect(page.get_by_role('heading', name='Next-term suggestions', exact=True)).to_be_visible()
+        expect(page.locator('.rec-algorithm-guide')).to_contain_text('How course recommendations work')
+        expect(page.locator('.rec-course-reason').first).to_contain_text('Matches your focus topics: Machine Learning.')
+        page.locator('.rec-course').first.get_by_role('button', name='Why this course?', exact=True).click()
+        expect(page.locator('.rec-dialog')).to_contain_text('Goal alignment:')
+        expect(page.locator('.rec-dialog')).to_contain_text('Remaining required course in your curriculum.')
+        page.keyboard.press('Escape')
         page.emulate_media(reduced_motion='reduce')
         page.locator('[data-rec-variant="direction"]').click()
         assert page.locator('.rec-flying-chip').count() == 0

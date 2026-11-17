@@ -167,8 +167,9 @@ def test_source_enrollment_change_invalidates_prior_owner_confirmation(client):
     profile["cohort"] = "69"
     assert not binding_current(profile)
     data = client.get("/me/course-status").json()
-    assert data["status"] == "needs_program_binding"
-    assert data["courses"] is None
+    assert data["courses"] is not None
+    assert "program_binding_unverified" not in data["blocking_reasons"]
+    assert client.writes == ["owner-a"]
 
 
 def test_unknown_or_unsupported_source_enrollment_has_no_default_program_or_cohort(client):
@@ -196,7 +197,7 @@ def test_binding_does_not_override_unknown_completeness(client):
 
 
 @pytest.mark.parametrize("name,program,cohort", [
-    ("Toán học", "toan_hoc_7460101_2022", 67),
+    ("Toán học chương trình chuẩn", "toan_hoc_7460101_2022", 67),
     ("Toán tin", "toan_tin_7460117_2022", 69),
     ("Khoa học dữ liệu", KHDL, 70),
     ("Khoa học máy tính và thông tin", KHMT, 68),
@@ -252,3 +253,108 @@ def test_owner_link_change_during_source_read_cannot_return_previous_owner_metad
     assert response.status_code == 409
     assert response.json()['detail'] == 'vnu_not_connected'
     assert 'source_program' not in response.json()
+
+
+def test_course_board_resolves_source_without_confirmation_or_writes(client, monkeypatch):
+    use_reviewed_catalogs(monkeypatch)
+    authenticate(client, "owner-a")
+    before = copy.deepcopy(client.data)
+    first = client.get("/me/course-status").json()
+    second = client.get("/me/course-status").json()
+    assert first["courses"] is not None
+    assert first["program_id"] == KHMT
+    assert "program_binding_unverified" not in first["blocking_reasons"]
+    assert "program_selection" not in first
+    assert first["context_revision"] == second["context_revision"]
+    assert first["plan_basis"] == second["plan_basis"]
+    assert client.data == before
+    assert client.writes == []
+
+
+def test_catalog_fingerprint_change_automatically_refreshes_source_binding(client, monkeypatch):
+    from app.api import academic
+    from app.program_bindings import source_binding
+
+    use_reviewed_catalogs(monkeypatch)
+    authenticate(client, "owner-a")
+    selections = {"selected_track_id": "synthetic_track", "selected_graduation_path_id": "thesis"}
+    before = client.get("/me/course-status", params=selections).json()
+    assert before["status"] == "ready"
+    metadata = client.data["owner-a"]["profile"]
+    original_binding = source_binding(metadata, academic.load_catalog(KHMT))
+    metadata["academic_binding"] = {**original_binding, "program_id": KHDL,
+                                    "catalog_revision": "0" * 64}
+    load_catalog = academic.load_catalog
+    publication_revision = load_catalog(KHMT).program.catalog_revision
+
+    def changed(program_id):
+        catalog = load_catalog(program_id).model_copy(deep=True)
+        catalog.program.name += " (synthetic metadata revision)"
+        return catalog
+
+    monkeypatch.setattr(academic, "load_catalog", changed)
+    assert academic.load_catalog(KHMT).program.catalog_revision == publication_revision
+    after = client.get("/me/course-status", params=selections).json()
+    assert after["status"] == "ready"
+    assert after["program_id"] == KHMT
+    assert after["courses"] == before["courses"]
+    assert after["context_revision"] != before["context_revision"]
+    assert after["plan_basis"] != before["plan_basis"]
+    binding = source_binding(metadata, academic.load_catalog(KHMT))
+    assert binding["catalog_revision"] != original_binding["catalog_revision"]
+    assert binding["confirmation_method"] == "portal_source_enrollment"
+    assert "confirmed_at" not in binding
+    assert client.writes == []
+
+
+@pytest.mark.parametrize("source_change,reason", [
+    ({"completeness": "unknown"}, "source_incomplete"),
+    ({"attempts": "invalid"}, "source_rows_invalid"),
+    ({"schema_version": 2}, "source_schema_unsupported"),
+])
+def test_automatic_curriculum_cannot_bypass_invalid_source(client, monkeypatch, source_change, reason):
+    use_reviewed_catalogs(monkeypatch)
+    authenticate(client, "owner-a")
+    client.data["owner-a"]["snapshot"].update(source_change)
+    response = client.get("/me/course-status")
+    assert response.status_code == 200
+    result = response.json()
+    assert result["status"] == "needs_source_review"
+    assert reason in result["blocking_reasons"]
+    assert "program_binding_unverified" not in result["blocking_reasons"]
+    assert "program_selection" not in result
+    assert result["courses"] is result["progress"] is result["plan"] is None
+    assert client.writes == []
+
+
+@pytest.mark.parametrize("enrollment", [
+    {"program": "Unsupported program", "cohort": "68"},
+    {"program": "Toan hoc", "cohort": "68"},
+    {"program": "Toan hoc tai nang", "cohort": "68"},
+    {"program": "Khoa hoc du lieu", "cohort": None},
+    {"program": None, "cohort": "68"},
+])
+def test_unresolved_enrollment_never_falls_back_to_stored_binding(client, monkeypatch, enrollment):
+    use_reviewed_catalogs(monkeypatch)
+    authenticate(client, "owner-a")
+    client.data["owner-a"]["profile"]["academic_binding"] = {
+        "program_id": KHMT, "verified": True, "evidence_ref": "synthetic:old"}
+    client.data["owner-a"]["profile"].update(enrollment)
+    result = client.get("/me/course-status").json()
+    assert result["courses"] is None
+    assert "source_enrollment_unresolved" in result["blocking_reasons"]
+    assert "program_selection" not in result
+    assert client.writes == []
+
+
+def test_requested_program_cannot_override_source_enrollment(client, monkeypatch):
+    use_reviewed_catalogs(monkeypatch)
+    authenticate(client, "owner-a")
+    response = client.get("/me/academic-context", params={"program_id": KHDL})
+    assert response.status_code == 200
+    context = response.json()
+    assert context["status"] == "needs_source_review"
+    assert "academic_program_source_mismatch" in context["blocking_reasons"]
+    assert context["completed_course_codes"] == []
+    assert client.get("/me/eligibility", params={"program_id": KHDL}).status_code == 409
+    assert client.writes == []

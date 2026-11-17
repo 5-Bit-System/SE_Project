@@ -1,207 +1,121 @@
-"""Multiple invented accounts through the same confirmation/board UI; no VNU I/O."""
+"""Portal enrollment automatically drives the board; all account/API data is invented."""
 
-import json
+from copy import deepcopy
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlsplit
 
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
-from tests.frontend.presentation_fixture import common_route, open_plan_tools
-
-KHMT = "khmtt_7480113qtd_2022"
-KHDL = "khdl_7460108_2022"
-
-
-def course(code):
-    return {"code": code, "name": "Invented " + code, "name_en": None, "credits": 3,
-            "requirement_type": "required", "counted_in_total": True,
-            "groups": [], "reasons": [], "suggested": False}
+from tests.frontend.presentation_fixture import common_route
 
 
 def main():
-    owner = "a"
-    confirmed = {"a": False, "b": False}
-    complete = {"a": True, "b": False}
-    waiting, errors, writes = [], [], []
-    delayed = False
-    programs = [{"program_id": KHMT, "name": "Khoa học máy tính và thông tin", "catalog_revision": "a" * 64},
-                {"program_id": KHDL, "name": "Khoa học dữ liệu", "catalog_revision": "b" * 64}]
+    state = {"owner": "a", "mode": "ready"}
+    requests, pending, errors = [], [], []
 
-    def source():
-        return {"profile": {"program": programs[0 if owner == "a" else 1]["name"],
-                            "cohort": "68" if owner == "a" else "67"},
-                "snapshot": {"completeness": "complete" if complete[owner] else "unknown"}}
+    def profile():
+        return {"subject": "synthetic-only", "profile": {
+            "program": "Khoa học máy tính và thông tin" if state["owner"] == "a" else "Khoa học dữ liệu",
+            "cohort": "68"}, "snapshot": {"schema_version": 1, "digest": state["owner"],
+                "completeness": "complete", "attempts": [], "source_summary": [], "unknown_rows": []}}
 
-    def saved_profile():
-        value = source()
-        value["subject"] = "synthetic-only"
-        value["snapshot"].update(attempts=[], source_summary=[], unknown_rows=[])
-        return value
-
-    def setup():
-        return {"programs": programs, "cohorts": [67, 68, 69],
-                "suggested_program_id": KHMT if owner == "a" else KHDL,
-                "suggested_cohort": 68 if owner == "a" else 67,
-                "source_program": source()["profile"]["program"],
-                "source_cohort": source()["profile"]["cohort"],
-                "snapshot_digest": "invented-" + owner, "source_scope": owner * 64,
-                "policy_source": "/academic-policy/vnu-3626-2022"}
-
-    def ready_board():
-        code = "TESTA" if owner == "a" else "TESTB"
-        return {"status": "ready", "blocking_reasons": [],
-                "courses": {"completed": [course(code)], "eligible": [course(code + "NEXT")],
-                            "blocked": [{**course(code + "LATER"), "reasons": [{
-                                "kind": "missing_prerequisites", "missing_prerequisites": [[code + "NEXT"]]}]}]},
-                "progress": {"total": {"earned_credits": 3, "required_credits": 120, "remaining_credits": 117}},
-                "plan": {"course_codes": [], "suggested_credits": 0, "max_credits": 20},
-                "selections": {}}
+    def board():
+        def course(suffix):
+            return {"code": state["owner"].upper() + suffix, "name": "Invented " + suffix,
+                    "name_en": None, "credits": 3, "requirement_type": "required",
+                    "counted_in_total": True, "groups": [], "reasons": [], "suggested": False}
+        result = {"status": "ready", "blocking_reasons": [], "selections": {},
+                  "courses": {"completed": [course("DONE")], "eligible": [course("NEXT")],
+                              "blocked": [course("LATER")]},
+                  "progress": {"total": {"earned_credits": 3, "required_credits": 120, "remaining_credits": 117}},
+                  "plan": {"course_codes": [], "suggested_credits": 0, "max_credits": 20}}
+        if state["mode"] in {"incomplete", "unresolved"}:
+            result.update(status="needs_source_review", courses=None, progress=None, plan=None,
+                          blocking_reasons=["source_incomplete" if state["mode"] == "incomplete" else "source_enrollment_unresolved"])
+        return result
 
     def intercept(route):
-        parsed = urlparse(route.request.url)
+        parsed = urlsplit(route.request.url)
         path = parsed.path
-        if path == "/me/course-status":
-            if not confirmed[owner]:
-                result = {"status": "needs_program_binding", "courses": None,
-                          "blocking_reasons": ["program_binding_unverified"], "program_selection": setup()}
-            elif not complete[owner]:
-                result = {"status": "needs_source_review", "courses": None,
-                          "blocking_reasons": ["source_incomplete"],
-                          "collection_status": {"completeness": "unknown"}}
-            else:
-                result = ready_board()
-            route.fulfill(content_type="application/json", body=json.dumps(result))
-        elif path == "/auth/session":
-            session = session_payload()
-            session["account"].update(
-                account_id="00000000-0000-4000-8000-00000000000" + ("1" if owner == "a" else "3"),
-                session_id="00000000-0000-4000-8000-00000000000" + ("2" if owner == "a" else "4"))
-            route.fulfill(json=session)
-        elif path == "/me/profile":
-            route.fulfill(content_type="application/json", body=json.dumps(saved_profile()))
-        elif path == "/me/semester-plans":
-            route.fulfill(json={"plans": []})
-        elif path == "/me/portal-sync":
-            route.fulfill(json={"state": "reauth_required"})
-        elif path == "/me/academic-program":
-            assert route.request.headers.get("x-csrf-token") == "synthetic-browser-csrf"
-            body = route.request.post_data_json
-            assert body["program_id"] == setup()["suggested_program_id"]
-            assert body["cohort"] == setup()["suggested_cohort"]
-            assert body["expected_source_scope"] == owner * 64
-            assert body["confirm"] is True
-            assert not set(body) & {"owner", "records", "passed_course_codes", "verified"}
-            writes.append(owner)
-            if delayed:
-                waiting.append(route)
-                return
-            confirmed[owner] = True
-            route.fulfill(content_type="application/json", body='{"confirmed":true}')
-        elif path.startswith(("/me/", "/auth/")):
-            route.fulfill(status=401, content_type="application/json", body='{"detail":"session_expired"}')
-        elif parsed.hostname == "127.0.0.1" and (path == "/" or path.startswith("/static/")):
-            assert common_route(route)
-        else:
+        requests.append((route.request.method, path))
+        if parsed.hostname != "127.0.0.1":
             route.abort()
+        elif path == "/auth/session":
+            value = session_payload()
+            digit = "1" if state["owner"] == "a" else "3"
+            value["account"].update(account_id="00000000-0000-4000-8000-00000000000" + digit,
+                                    session_id="00000000-0000-4000-8000-00000000000" + digit)
+            route.fulfill(json=value)
+        elif path == "/me/profile":
+            route.fulfill(json=profile())
+        elif path == "/me/course-status":
+            if state["mode"] == "pending":
+                pending.append((route, deepcopy(board())))
+            else:
+                route.fulfill(json=board())
+        elif path == "/me/academic-program":
+            raise AssertionError("Automatic curriculum must not request manual confirmation")
+        elif common_route(route):
+            return
+        else:
+            route.fulfill(status=404, json={"detail": "not_found"})
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(channel="chrome", headless=True)
         page = browser.new_page(viewport={"width": 1440, "height": 1050})
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.route("**/*", intercept)
-        page.goto("http://127.0.0.1:8000/?course-mode=personal#rules")
-        page.wait_for_selector("#course-status-board")
+        page.goto("http://127.0.0.1:8000/#rules")
         root = page.locator("#course-status-board")
-        planner = page.locator("#course-planning-panel")
-
-        def open_confirmation():
-            page.locator("#tab-btn-recommend").click()
-            open_plan_tools(page)
-            page.wait_for_selector("#academic-program-choice")
-
-        def emit():
-            page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail:value}))", source())
-
-        # Restore the existing session from HTTP on page load, then open personal mode.
-        open_confirmation()
-        assert page.locator("#academic-program-choice").input_value() == KHMT
-        assert page.locator("#academic-cohort-choice").input_value() == "68"
-        assert not writes
-        evidence = Path("backups/personal_academic_20261025/ui")
-        evidence.mkdir(parents=True, exist_ok=True)
-        page.screenshot(path=str(evidence / "confirmation-desktop.png"), full_page=True)
-        page.set_viewport_size({"width": 390, "height": 1050})
-        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-        page.screenshot(path=str(evidence / "confirmation-mobile.png"), full_page=True)
-        page.set_viewport_size({"width": 1440, "height": 1050})
-        page.locator("#academic-program-consent").check()
-        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
-        page.locator("#tab-btn-rules").click()
-        page.wait_for_selector('[data-course-code="TESTA"]')
-        assert root.locator(".course-state-completed .course-status-card").count() == 1
-        assert root.locator(".course-state-eligible .course-status-card").count() == 1
-        assert root.locator(".course-state-blocked .course-status-card").count() == 1
-        assert page.locator("#course-credit-budget").input_value() == "20"
-        # Switching account clears the first account before the second response.
-        page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
-        assert root.locator('[data-course-code="TESTA"]').count() == 0
-        owner = "b"
-        page.evaluate("window.systemAuth.refresh()")
-        emit()
-        open_confirmation()
-        assert page.locator("#academic-program-choice").input_value() == KHDL
-        assert page.locator("#academic-cohort-choice").input_value() == "67"
-        page.locator("#academic-program-consent").check()
-        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
-        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('bộ đọc mới')")
-        assert root.locator(".course-status-card").count() == 0
-        complete["b"] = True
-        emit()
-        page.locator("#tab-btn-rules").click()
-        page.wait_for_selector('[data-course-code="TESTB"]')
-        assert root.locator('[data-course-code="TESTA"]').count() == 0
-        assert writes == ["a", "b"]
-        page.locator('[data-language-choice="en"]').click()
-        assert 'Your course map' in root.inner_text()
-        page.locator('[data-language-choice="vi"]').click()
-        evidence = Path("backups/personal_academic_20261025/ui")
-        evidence.mkdir(parents=True, exist_ok=True)
-        for theme in ("light", "dark"):
-            page.locator(f'[data-theme-choice="{theme}"]').click()
-            for width in (1440, 390):
-                page.set_viewport_size({"width": width, "height": 1050})
-                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-                page.screenshot(path=str(evidence / f"personal-{theme}-{width}.png"), full_page=True)
-        # A confirmation response arriving after logout must not restore the old profile.
-        # The old incomplete snapshot exposes an action that opens the actual update form.
-        complete["b"] = False
-        page.evaluate("document.dispatchEvent(new Event('visibilitychange'))")
+        page.wait_for_selector('[data-course-code="ADONE"]')
+        for section in ("completed", "eligible", "blocked"):
+            assert root.locator(f".course-state-{section} .course-status-card").count() == 1
+        assert page.locator("#academic-program-choice, #academic-program-consent, .course-program-confirmation").count() == 0
+        assert "Xem bảng điểm VNU" not in root.inner_text()
+        assert root.locator(".course-status-recovery").count() == 0
+        page.reload()
+        page.wait_for_selector('[data-course-code="ADONE"]')
+        state["mode"] = "incomplete"
         root.get_by_role("button", name="Cập nhật", exact=True).click()
-        page.locator("#tab-btn-recommend").click()
-        open_plan_tools(page)
-        planner.get_by_role("button", name="Cập nhật bảng điểm VNU", exact=True).click()
-        assert page.locator("#portal-dialog").is_visible()
-        page.locator("#tab-btn-rules").click()
-        complete["b"] = True
-        confirmed["b"] = False
-        emit()
-        open_confirmation()
-        delayed = True
-        page.locator("#academic-program-consent").check()
-        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
-        page.wait_for_timeout(100)
-        assert waiting
-        page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
-        for route in waiting:
-            route.fulfill(content_type="application/json", body='{"confirmed":true}')
-        page.wait_for_timeout(100)
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa xác minh bảng điểm')")
         assert root.locator(".course-status-card").count() == 0
-        assert planner.locator("#academic-program-choice").count() == 0
-        assert 'Đăng nhập VNU' in root.inner_text()
+        assert root.get_by_role("button", name="Cập nhật bảng điểm VNU", exact=True).is_visible()
+        state["mode"] = "unresolved"
+        root.get_by_role("button", name="Cập nhật", exact=True).click()
+        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('Chưa xác định được chương trình')")
+        assert root.locator(".course-status-card").count() == 0
+        assert page.locator(".course-program-confirmation").count() == 0
+        state["mode"] = "pending"
+        root.get_by_role("button", name="Cập nhật", exact=True).click()
+        page.wait_for_timeout(100)
+        assert pending
+        page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
+        state.update(owner="b", mode="ready")
+        page.evaluate("window.systemAuth.refresh()")
+        page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail:value}))", profile())
+        page.wait_for_selector('[data-course-code="BDONE"]')
+        for route, response in pending:
+            try:
+                route.fulfill(json=response)
+            except Exception:
+                pass  # The real AbortController may have already cancelled the old request.
+        assert root.locator('[data-course-code="ADONE"]').count() == 0
+        assert root.locator('[data-course-code="BDONE"]').count() == 1
+        page.locator('[data-language-choice="en"]').click()
+        assert root.get_by_role('heading', name='Eligibility', exact=True).count() == 1
+        page.set_viewport_size({"width": 390, "height": 950})
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        page.locator('[data-language-choice="vi"]').click()
+        output = Path("backups/automatic_curriculum_20261113")
+        output.mkdir(parents=True, exist_ok=True)
+        page.screenshot(path=str(output / "automatic-mobile.png"), full_page=True)
+        page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
+        assert root.locator(".course-status-card").count() == 0
+        assert not any(path == "/me/academic-program" for _, path in requests)
         assert not errors, errors
         browser.close()
-    print("Personal curriculum: two owners, distinct programs/cohorts, source verification, three states, VI/EN/mobile and stale confirmation passed")
+    print("Automatic curriculum: direct course map, reload, no confirmation, source failures, two owners, stale responses, VI/EN and mobile passed")
 
 
 if __name__ == "__main__":

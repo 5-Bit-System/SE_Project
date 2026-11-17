@@ -5,13 +5,14 @@
   const planningRoot = document.getElementById('course-planning-panel');
   const copy = (vi, en) => window.workspaceI18n.language === 'en' ? en : vi;
   const LOAD_TIMEOUT_MS = 20000;
-  let source = null, board = null, loading = false, failed = false, budget = 20, savingBinding = false;
+  let source = null, board = null, loading = false, failed = false, budget = 20;
   let sequence = 0, controller, search = '', track = '', path = '', planError = '';
   let chosen = new Set();
   let savedPlans = [], activePlan = null, planBusy = false, plansLoading = false;
   let planOwnerEpoch = 0, plansSequence = 0, planMessage = '', planTitle = '', planYear = new Date().getFullYear(), planSemester = 1;
   let planDirty = false;
   let sourceKey = '', sourceOwner = null, restoringDraft = false;
+  let recovery = null;
   const draftKey = 'study-workspace-semester-draft-v1';
   const sessionIdentity = () => {
     const account = window.systemAuth?.account;
@@ -238,12 +239,12 @@
   const reasonText = reason => ({
     source_missing: copy('Chưa có bảng điểm VNU đã lưu.', 'No saved VNU transcript is available.'),
     source_incomplete: copy('Chưa xác minh bảng điểm đã được lấy đầy đủ.', 'Transcript completeness has not been verified.'),
-    program_binding_unverified: copy('Chưa xác minh chương trình áp dụng cho hồ sơ VNU.', 'The applicable program has not been verified for this VNU profile.'),
+    program_binding_unverified: copy('Chưa xác định được chương trình từ thông tin ngành và khóa trên cổng đào tạo.', 'The curriculum could not be resolved from portal enrollment.'),
     policy_not_applicable: copy('Chưa xác minh quy chế học vụ áp dụng.', 'The applicable academic policy has not been verified.'),
     course_outcomes_unresolved: copy('Có môn học lại, điểm hoặc mã môn cần đối chiếu trước khi xác định môn đã đạt.', 'Retakes, grades or course codes need review before completed courses can be determined.'),
     track_selection_required: copy('Chọn hướng chuyên ngành để xét đúng yêu cầu.', 'Select a study track to apply its requirements.'),
     graduation_selection_required: copy('Chọn nhánh tốt nghiệp để xét đúng yêu cầu.', 'Select a graduation path to apply its requirements.')
-    ,source_enrollment_unresolved: copy('Chưa đối chiếu được ngành/khóa đọc từ VNU với các khung đang hỗ trợ.', 'Source enrollment could not be matched to a supported curriculum.'),
+    ,source_enrollment_unresolved: copy('Chưa xác định được chương trình từ ngành và khóa đọc trên cổng đào tạo. Hãy cập nhật hồ sơ học tập.', 'The curriculum could not be resolved from portal program and cohort. Update your academic profile.'),
     academic_program_source_mismatch: copy('Lựa chọn không khớp ngành/khóa đọc từ VNU.', 'Your selection does not match source enrollment.'),
     context_changed: copy('Dữ liệu đã thay đổi. Hãy tải lại rồi xác nhận.', 'The data changed. Reload it before confirming.')
     ,program_rules_review_required: copy('Quy tắc chọn hướng trong khung này cần đối chiếu thêm. Vẫn hiển thị các môn đã đối chiếu điểm đạt; kế hoạch tạm dừng.', 'This curriculum’s study-track rules need review. Resolved passed courses remain visible; planning is paused.')
@@ -295,6 +296,7 @@
     const meta = el('div', undefined, 'course-status-meta');
     const labels = {required: copy('Bắt buộc', 'Required'), elective: copy('Tự chọn', 'Elective'), required_excluded: copy('Bắt buộc', 'Required'), graduation: copy('Tốt nghiệp', 'Graduation')};
     meta.append(el('span', credits(course.credits), 'course-status-badge'), el('span', labels[course.requirement_type] || '', 'course-status-badge'));
+    if (course.is_retake) meta.append(el('span', copy('Học lại (điểm F)', 'Retake (grade F)'), 'course-status-badge course-status-retake'));
     node.append(meta);
     const reasons = el('ul', undefined, 'course-status-reasons');
     if (state === 'blocked') course.reasons.forEach(reason => {
@@ -318,6 +320,7 @@
             ? copy('Có thể học theo mặc định đã chọn; điều kiện tiên quyết đã thỏa.', 'Available under the selected default; prerequisites are satisfied.')
           : copy('Đã thỏa điều kiện tiên quyết trong chương trình.', 'Catalog prerequisites are satisfied.');
       reasons.append(availability);
+      if (course.is_retake) reasons.append(el('li', copy('Lần học trước chưa đạt (điểm F); đủ điều kiện để học lại ở kỳ tới.', 'Previous attempt did not pass (grade F); eligible to retake next term.')));
       if (course.result_pending) reasons.append(el('li', copy('Kết quả môn này còn chờ đối chiếu; chưa tính là đã hoàn thành.', 'This result still needs review; the course is not counted as completed.')));
       course.groups.filter(group => group.remaining_credits > 0).forEach(group => {
         const item = el('li');
@@ -364,7 +367,9 @@
           : board?.blocking_reasons?.includes('catalog_unverified')
             ? copy('Chưa phân loại: khung chương trình chưa được xác minh.', 'Not classified: curriculum is not verified.')
           : board?.blocking_reasons?.includes('program_binding_unverified')
-            ? copy('Chưa phân loại: cần xác nhận chương trình áp dụng ở phía trên.', 'Not classified: confirm your curriculum above.')
+            ? reasonText('source_enrollment_unresolved')
+          : board?.blocking_reasons?.includes('source_enrollment_unresolved')
+            ? reasonText('source_enrollment_unresolved')
             : copy('Chờ dữ liệu học tập được xác minh', 'Awaiting verified academic data');
         list.append(el('p', !courses ? pending : copy('Không có môn phù hợp', 'No matching courses'), 'course-status-empty'));
       }
@@ -420,74 +425,34 @@
     label.append(input); return label;
   }
 
-  function renderProgramConfirmation(options) {
-    const form = el('form', undefined, 'course-program-confirmation');
-    form.append(el('h3', copy('Xác nhận chương trình áp dụng', 'Confirm your curriculum')),
-      el('p', copy('Xác nhận một lần cho tài khoản này. Ngành và khóa phải khớp thông tin nguồn VNU; các tài khoản khác có xác nhận riêng.', 'Confirm once for this account. Program and cohort must match VNU enrollment; other accounts keep their own confirmation.')));
-    const facts = el('p'); facts.append(el('span', options.source_program || '—', 'source-profile-value'),
-      document.createTextNode(' · '), el('span', options.source_cohort || '—', 'source-profile-value'));
-    form.append(facts);
-    const controls = el('div', undefined, 'course-program-controls');
-    const programLabel = el('label', copy('Chương trình', 'Curriculum')), programInput = el('select'); programInput.id = 'academic-program-choice';
-    programInput.append(new Option(copy('Chọn chương trình', 'Choose a curriculum'), ''));
-    options.programs.forEach(item => programInput.append(new Option(item.name, item.program_id)));
-    programInput.value = options.suggested_program_id || ''; programInput.required = true;
-    programLabel.append(programInput);
-    const cohortLabel = el('label', copy('Khóa tuyển sinh', 'Admission cohort')), cohortInput = el('select'); cohortInput.id = 'academic-cohort-choice';
-    cohortInput.append(new Option(copy('Chọn khóa', 'Choose a cohort'), ''));
-    options.cohorts.forEach(number => cohortInput.append(new Option(`K${number} · ${2022 + number - 67}`, String(number))));
-    cohortInput.value = options.suggested_cohort ? String(options.suggested_cohort) : ''; cohortInput.required = true;
-    cohortLabel.append(cohortInput); controls.append(programLabel, cohortLabel); form.append(controls);
-    const consentLabel = el('label', undefined, 'course-program-consent'), consent = el('input');
-    consent.type = 'checkbox'; consent.id = 'academic-program-consent'; consent.required = true;
-    consentLabel.append(consent, el('span', copy('Tôi xác nhận khung này áp dụng cho ngành và khóa của tôi.', 'I confirm that this curriculum applies to my program and cohort.'))); form.append(consentLabel);
-    const policy = el('a', copy('Xem quy chế đánh giá kết quả học tập 3626/2022', 'View the 3626/2022 assessment policy'));
-    policy.href = options.policy_source; policy.target = '_blank'; policy.rel = 'noopener'; form.append(policy);
-    const submit = el('button', copy('Xác nhận và đối chiếu bảng điểm', 'Confirm and check my transcript'), 'portal-button'); submit.type = 'submit';
-    const candidates = options.program_candidates || (options.suggested_program_id ? [options.suggested_program_id] : []);
-    submit.disabled = savingBinding || !candidates.length || !options.suggested_cohort || !options.snapshot_digest;
-    if (!candidates.length || !options.suggested_cohort) form.append(el('p', reasonText('source_enrollment_unresolved')));
-    else if (candidates.length > 1) form.append(el('p', copy('Ngành nguồn có nhiều chương trình. Chỉ xác nhận nếu bạn thuộc chương trình chuẩn đang được hỗ trợ.', 'The source major has multiple curricula. Confirm only if you attend the supported standard program.')));
-    form.append(submit);
-    form.addEventListener('submit', async event => {
-      event.preventDefault(); if (savingBinding || !form.reportValidity()) return;
-      const chosenProgram = options.programs.find(item => item.program_id === programInput.value);
-      if (!chosenProgram) return;
-      const current = sequence;
-      savingBinding = true; planError = ''; submit.disabled = true;
-      try {
-        const response = await fetch('/me/academic-program', {method: 'POST', credentials: 'same-origin', cache: 'no-store',
-          headers: {'Content-Type': 'application/json', 'X-CSRF-Token': window.systemAuth?.csrf || ''}, body: JSON.stringify({program_id: programInput.value,
-            cohort: Number(cohortInput.value), expected_catalog_revision: chosenProgram.catalog_revision,
-            expected_snapshot_digest: options.snapshot_digest, expected_source_scope: options.source_scope, confirm: consent.checked})});
-        const result = await response.json(); if (current !== sequence) return;
-        if (response.status === 401) { document.dispatchEvent(new Event('workspace:session-expired')); return; }
-        if (!response.ok) throw new Error(typeof result.detail === 'string' ? result.detail : 'context_changed');
-        savingBinding = false; await load();
-      } catch (error) { if (current === sequence) { planError = reasonText(error.message); savingBinding = false; render(); } }
-    });
-    return form;
+  function placeRecovery() {
+    if (!recovery) return;
+    const focused = recovery.contains(document.activeElement) ? document.activeElement : null;
+    const host = document.documentElement.dataset.view === 'tab-rules' ? root : planningRoot;
+    if (recovery.parentElement === host) return;
+    if (host === root) host.insertBefore(recovery, root.querySelector('.course-status-toolbar, .course-status-columns'));
+    else host.prepend(recovery);
+    focused?.focus({preventScroll: true});
   }
 
   function render() {
     saveDraft();
     root.replaceChildren(); root.setAttribute('aria-busy', String(loading));
     planningRoot.replaceChildren(); planningRoot.setAttribute('aria-busy', String(loading));
-    const heading = el('div', undefined, 'course-status-heading');
-    const intro = el('div'); intro.append(el('h2', copy('Bản đồ học phần', 'Your course map')), el('p', copy('Biết mình đã hoàn thành gì, nên học gì tiếp và còn vướng điều kiện nào.', 'See what you have completed, what you can take next and what still needs to be fulfilled.')));
+    const heading = el('div', undefined, 'course-status-heading workspace-page-header');
+    const intro = el('div', undefined, 'workspace-page-intro'); intro.append(el('h2', copy('Điều kiện học', 'Eligibility')), el('p', copy('Xem môn đã hoàn thành, có thể học và điều kiện còn thiếu.', 'See completed courses, available courses and remaining requirements.')));
     const refresh = el('button', copy('Cập nhật', 'Refresh'), 'portal-button'); refresh.type = 'button'; refresh.disabled = !source || loading || planBusy;
     refresh.dataset.courseStatusFocus = 'refresh';
     refresh.addEventListener('click', () => load('refresh')); heading.append(intro, refresh); root.append(heading);
-    const legend = el('div', undefined, 'course-status-legend');
-    states.forEach((state, index) => { const item = el('span', undefined, `course-state-${state}`); item.append(el('i', undefined, 'course-status-dot'), document.createTextNode(titles()[index])); legend.append(item); });
-    root.append(legend);
     const displayable = Boolean(board?.courses);
+    recovery = source && board && !loading && !failed && !displayable
+      ? el('section', undefined, 'course-status-recovery') : null;
     const ready = !failed && (board?.status === 'ready' || (board?.status === 'partial' && board.can_plan));
     if (!displayable || loading || failed || board?.preview_only) {
       const status = el('p', !source ? copy('Đăng nhập VNU trong Hồ sơ của tôi để xem các môn học.', 'Sign in with VNU in My profile to view your courses.')
         : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…')
         : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.')
-        : !displayable ? copy('Chưa đủ dữ liệu để phân loại môn học. Kiểm tra hồ sơ và chương trình đã xác nhận.', 'More verified data is needed. Check your profile and confirmed curriculum.')
+        : !displayable ? copy('Chưa đủ dữ liệu để phân loại môn học. Hãy cập nhật thông tin từ cổng đào tạo.', 'More source data is needed to classify courses. Update your portal profile.')
         : copy('Bản xem trước từ dữ liệu chương trình chưa xác minh.', 'Preview based on unverified curriculum data.'), 'course-status-note');
       status.setAttribute('role', 'status'); root.append(status);
     }
@@ -495,7 +460,7 @@
       const notice = el('div', undefined, 'course-status-notice'); notice.setAttribute('role', 'status');
       notice.append(el('p', !source ? copy('Đăng nhập VNU để kiểm tra dữ liệu học tập của bạn.', 'Sign in with VNU to check your academic data.') : loading ? copy('Đang đối chiếu điều kiện học…', 'Checking your course requirements…') : failed ? copy('Chưa tải được kết quả. Vui lòng thử cập nhật lại.', 'Results could not be loaded. Please try refreshing.') : board?.preview_only ? copy('Đây là bản xem trước theo bảng điểm và khung hiện có. Thông tin khung hoặc môn học chưa xác minh nên chưa thể lập kế hoạch. Môn nối tiếp vẫn cần hoàn thành tiên quyết trước khi học.', 'This preview uses the current transcript and curriculum data. Unverified curriculum or course details prevent planning. Complete prerequisites before taking follow-up courses.') : board?.status === 'partial' ? copy('Đã phân loại phần dữ liệu đối chiếu được. Chỉ hiển thị môn tính tín chỉ tích lũy. Các môn nối tiếp trong nhóm Có thể học vẫn cần hoàn thành tiên quyết trước; kết quả chưa rõ không được tính là đã hoàn thành.', 'Reviewed results are shown. Only courses counting toward earned credits are shown. Available prerequisite sequences still require completing prerequisites first; unresolved results do not count as completed.') : copy('Chưa đủ dữ liệu để phân loại chính xác các môn của bạn.', 'More verified data is needed to classify your courses.')));
       if (source && !loading) {
-        const reasons = board?.blocking_reasons || ['program_binding_unverified', ...(source.snapshot?.completeness !== 'complete' ? ['source_incomplete'] : [])];
+        const reasons = board?.blocking_reasons || [...(source.snapshot?.completeness !== 'complete' ? ['source_incomplete'] : [])];
         const list = el('ul'); [...new Set(reasons.map(reasonText))].forEach(text => list.append(el('li', text))); notice.append(list);
         if (board?.collection_status?.completeness !== 'complete' && reasons.includes('source_incomplete')) {
           const collection = board?.latest_collection || source.latest_collection || board?.collection_status, proof = collection?.evidence;
@@ -513,10 +478,8 @@
         });
         notice.append(sync);
       }
-      const profile = el('button', copy('Xem bảng điểm VNU', 'View VNU transcript'), 'portal-button'); profile.type = 'button'; profile.addEventListener('click', () => window.workspaceNavigate('portal-dialog'));
-      notice.append(profile); planningRoot.append(notice);
+      (recovery || planningRoot).append(notice);
     }
-    if (board?.program_selection && source && !loading && !failed) planningRoot.append(renderProgramConfirmation(board.program_selection));
     if (board?.review_items?.length) {
       const review = el('details', undefined, 'course-review-items');
       review.append(el('summary', `${board.review_items.length} ${copy('mã môn cần đối chiếu thêm', 'course codes need further review')}`));
@@ -564,7 +527,7 @@
       const progress = board.progress.total;
       const done = el('div'); done.append(el('p', board.preview_only ? copy('Tín chỉ tạm tính theo dữ liệu chưa xác minh', 'Estimated credits from unverified data') : board.progress_is_lower_bound ? copy('Tín chỉ đạt đã đối chiếu (tối thiểu)', 'Reviewed earned credits (minimum)') : copy('Tín chỉ tích lũy trong chương trình', 'Earned program credits')), el('strong', `${progress.earned_credits} / ${progress.required_credits} ${copy('TC', 'credits')}`));
       const bar = el('progress'); bar.max = progress.required_credits; bar.value = Math.min(progress.earned_credits, bar.max); bar.setAttribute('aria-label', copy('Tiến độ tín chỉ', 'Credit progress')); done.append(bar, el('p', `${copy('Còn thiếu', 'Remaining')}: ${credits(progress.remaining_credits)}`));
-      const plan = el('div'); plan.append(el('p', board.preview_only ? copy('Kế hoạch kỳ tới đang tạm dừng', 'Next-term planning is paused') : copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', board.preview_only ? copy('Mở lại kế hoạch sau khi khung và thông tin môn học được xác minh.', 'Planning will resume after the curriculum and course details are verified.') : copy('Ưu tiên môn bắt buộc và nhóm tín chỉ còn thiếu; chỉ gợi ý môn có tiên quyết đã hoàn thành. Có thể bỏ bớt môn trong phương án bên dưới.', 'Required courses and unfulfilled credit groups come first; suggestions require completed prerequisites. Remove courses from the alternative below.')));
+      const plan = el('div'); plan.append(el('p', board.preview_only ? copy('Kế hoạch kỳ tới đang tạm dừng', 'Next-term planning is paused') : copy('Kế hoạch kỳ tới của bạn', 'Your next-term plan')), el('strong', `${planCredits()} / ${credits(budget)}`), el('p', board.preview_only ? copy('Mở lại kế hoạch sau khi khung và thông tin môn học được xác minh.', 'Planning will resume after the curriculum and course details are verified.') : copy('Tự động chọn từ các môn đã đủ tiên quyết: ưu tiên môn học lại (điểm F), môn bắt buộc/nhóm tín chỉ còn thiếu và mức phù hợp mục tiêu quanh ngưỡng tín chỉ đã chọn. Có thể bỏ bớt môn bên dưới.', 'Built from prerequisite-eligible courses: prioritizes F-grade retakes, remaining required or elective-group credits, and goal fit within your credit budget. Remove courses below if needed.')));
       summary.append(done, plan); planningRoot.append(summary);
       const breakdown = renderProgressBreakdown(board.progress);
       if (breakdown) planningRoot.append(breakdown);
@@ -573,6 +536,7 @@
     const error = el('p', planError, 'course-plan-error'); error.setAttribute('role', 'status'); planningRoot.append(error);
     root.append(renderColumns());
     root.append(el('p', board?.preview_only ? copy('Màu trong bản xem trước phản ánh dữ liệu hiện có, chưa xác nhận điều kiện học chính thức. Không dùng kết quả này để đăng ký môn; hãy xác nhận khung và quy định với nhà trường.', 'Preview colors reflect the available data and do not confirm official eligibility. Do not use this result to register; confirm the curriculum and rules with the university.') : copy('Màu vàng gồm môn có thể học và các môn nối tiếp khi tiên quyết nằm trong cùng nhóm. Vẫn cần hoàn thành tiên quyết trước khi học môn nối tiếp; chưa xác nhận lịch mở lớp.', 'Yellow includes available courses and sequences whose prerequisites are in this group. Complete prerequisites before taking follow-up courses; course offerings are not confirmed.'), 'course-status-note'));
+    placeRecovery();
     document.dispatchEvent(new CustomEvent('workspace:planning-state', {detail: planningSnapshot()}));
   }
 
@@ -597,19 +561,6 @@
       if (!response.ok) throw new Error('course_status_unavailable');
       const result = await response.json();
       if (current !== sequence) return;
-      if ((result.blocking_reasons || []).includes('program_binding_unverified')
-          && !result.program_selection) {
-        try {
-          const selectionResponse = await fetch('/me/academic-program', {
-            credentials: 'same-origin', cache: 'no-store', signal: loadController.signal,
-          });
-          if (current !== sequence) return;
-          if (selectionResponse.ok) result.program_selection = await selectionResponse.json();
-        } catch (selectionError) {
-          if (current !== sequence) return;
-          if (selectionError.name === 'AbortError') throw selectionError;
-        }
-      }
       board = result;
       if (!activePlan && !planDirty && !restoringDraft) chosen = new Set(result.plan?.course_codes || []);
       restoringDraft = false;
@@ -638,7 +589,7 @@
     ++sequence; ++planOwnerEpoch; ++plansSequence;
     controller?.abort(); source = next; sourceKey = nextKey; sourceOwner = next ? sessionIdentity() : null; board = null;
     savedPlans = []; planBusy = false; plansLoading = false; planError = '';
-    loading = false; failed = false; savingBinding = false;
+    loading = false; failed = false;
     if (!sameSession) {
       activePlan = null; chosen.clear(); track = ''; path = ''; search = ''; budget = 20;
       planTitle = ''; planMessage = ''; planDirty = false; restoringDraft = false;
@@ -652,7 +603,10 @@
     if (source) fetchPlans();
     if (source && ['tab-rules', 'tab-recommend'].includes(document.documentElement.dataset.view)) load();
   });
-  document.addEventListener('workspace:navigate', event => { if (['tab-rules', 'tab-recommend'].includes(event.detail) && source && !board && !loading) load(); });
+  document.addEventListener('workspace:navigate', event => {
+    placeRecovery();
+    if (['tab-rules', 'tab-recommend'].includes(event.detail) && source && !board && !loading) load();
+  });
   document.addEventListener('workspace:course-mode', event => { if (event.detail === 'personal' && source && !board && !loading) load(); });
   document.addEventListener('workspace:language-change', render);
   document.addEventListener('workspace:plans-changed', () => { if (source) fetchPlans(); });

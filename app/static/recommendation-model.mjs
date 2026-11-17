@@ -56,6 +56,12 @@ export function recommendationPayload(board, answers, variant, revision) {
   }
   const milestone = answers.confirmedDeadline
     ? `Graduation goal: semester ${answers.targetSemester}, academic year ${answers.targetYear}-${answers.targetYear + 1}` : '';
+  let remainingTerms = null;
+  if (answers.confirmedDeadline && Number.isInteger(Number(answers.targetYear)) && Number.isInteger(Number(answers.targetSemester))) {
+    const nowTerm = defaultTerm();
+    const diff = (Number(answers.targetYear) - nowTerm.year) * 2 + (Number(answers.targetSemester) - nowTerm.semester) + 1;
+    if (diff >= 1 && diff <= 20) remainingTerms = diff;
+  }
   // Translated labels are presentation only. Custom text remains free text.
   const goal = [answers.goal, answers.direction === 'custom' ? answers.customDirection : '', milestone].filter(Boolean).join('. ').slice(0, 500);
   const topics = ({ai: ['artificial_intelligence'], software: ['software_engineering'],
@@ -69,7 +75,7 @@ export function recommendationPayload(board, answers, variant, revision) {
     program_id: board.program_id, expected_revision: revision,
     selected_track_id: answers.track || null,
     selected_graduation_path_id: answers.path || null,
-    max_credits: credits, limit: 20, goal,
+    max_credits: credits, credit_tolerance: 2, target_remaining_terms: remainingTerms, limit: 20, goal,
     form_input: {values: {workload: answers.workload, target_credits: credits,
       interest_topics: topics, orientation: answers.direction === 'research' ? 'research' : null},
       explicit_fields: answers.direction === 'research' ? [...explicit, 'orientation'] : explicit},
@@ -82,6 +88,8 @@ export function constrainRecommendations(response, board, budget) {
     .filter(course => course.counted_in_total !== false && course.planning_eligible !== false
       && course.eligibility_basis !== 'available_prerequisites')
     .map(course => [course.code, course]));
+  const tolerance = Number.isInteger(response?.credit_tolerance) ? response.credit_tolerance : 2;
+  const maxBudget = Math.min(30, budget + tolerance);
   const seen = new Set(), used = new Map(), rows = [], omitted = [];
   let credits = 0;
   for (const recommendation of response?.recommendations || []) {
@@ -89,7 +97,7 @@ export function constrainRecommendations(response, board, budget) {
     if (!course || seen.has(course.code)) { omitted.push(recommendation.code); continue; }
     seen.add(course.code);
     const groups = (course.groups || []).filter(group => Number.isFinite(group.required_credits));
-    if (credits + course.credits > budget || (groups.length && groups.every(group =>
+    if (credits + course.credits > maxBudget || (groups.length && groups.every(group =>
       group.earned_credits + (used.get(group.id) || 0) >= group.required_credits))) {
       omitted.push(course.code); continue;
     }

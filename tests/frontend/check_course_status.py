@@ -198,7 +198,7 @@ def main():
         page.wait_for_function("document.activeElement?.dataset.courseStatusFocus === 'path'")
         page.locator('#tab-btn-rules').click()
         page.locator('[data-language-choice="en"]').click()
-        assert 'Your course map' in root.inner_text()
+        assert root.get_by_role('heading', name='Eligibility', exact=True).count() == 1
         assert root.locator('.course-status-columns input[type=checkbox]').count() == 0
         assert 'Available to study' in root.locator('.course-state-eligible h3').inner_text()
         assert 'Complete those prerequisites before taking this course.' in root.locator('[data-course-code="TEST-F"]').inner_text()
@@ -249,12 +249,12 @@ def main():
         page.set_viewport_size({"width": 1440, "height": 1050})
         mode = 'unready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Chưa xác minh chương trình')")
+        page.wait_for_function("document.querySelector('#course-status-board .course-status-recovery')?.textContent.includes('Chưa xác định được chương trình')")
         assert root.locator('.course-status-card').count() == 0
         assert root.locator('.course-status-column').count() == 3
         mode = 'catalog_unverified'
         root.get_by_role('button', name='Cập nhật', exact=True).click()
-        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('Khung chương trình chưa được xác minh')")
+        page.wait_for_function("document.querySelector('#course-status-board .course-status-recovery')?.textContent.includes('Khung chương trình chưa được xác minh')")
         assert root.locator('.course-status-card').count() == 0
         mode = 'ready'
         root.get_by_role('button', name='Cập nhật', exact=True).click()

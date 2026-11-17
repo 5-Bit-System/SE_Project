@@ -257,6 +257,13 @@
     "Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog.": "Not completed yet; recorded curriculum prerequisites are satisfied.",
     "Môn có một phần từ khóa trùng với mục tiêu đã nhập.": "This course matches some keywords in your goal.",
     "Catalog hiện chưa có metadata đủ để xác định điểm phù hợp cụ thể cho preference này.": "The curriculum does not yet contain enough metadata to determine a specific fit for this preference.",
+    "Catalog hiện chưa có metadata đủ để xác định mức độ phù hợp cụ thể cho lựa chọn này.": "The curriculum does not yet contain enough metadata to determine a specific fit for these preferences.",
+    "Có nội dung liên quan một phần tới mục tiêu và cấu trúc chương trình.": "Partially aligns with your goals and curriculum structure.",
+    "Đã qua kiểm tra điều kiện tiên quyết và quy tắc chương trình.": "Satisfies recorded prerequisites and curriculum rules.",
+    "Ưu tiên học lại học phần chưa đạt ở lần học trước (điểm F).": "Retake priority: previous attempt did not pass (grade F).",
+    "Thuộc nhóm học phần tốt nghiệp của nhánh bạn đã chọn.": "Part of your selected graduation path.",
+    "Là môn tiên quyết giúp mở đường cho học phần tốt nghiệp bạn đã chọn.": "Prerequisite unlocking courses in your selected graduation path.",
+    "Học phần bắt buộc còn thiếu trong chương trình đào tạo.": "Remaining required course in your curriculum.",
     "Môn học có xung đột điều kiện tiên quyết trong tài liệu nguồn PDF.": "The source PDF contains conflicting prerequisites for this course.",
     "Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.": "This course's prerequisites have not been established from the source documents.",
     "Đã qua kiểm tra eligibility của backend.": "Passed the backend eligibility checks.",
@@ -270,6 +277,80 @@
   const originals = new WeakMap();
   const attributes = new WeakMap();
   const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,#curriculum-reference,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy])';
+
+  const topicEn = {
+    "Trí tuệ nhân tạo": "Artificial Intelligence",
+    "Học máy": "Machine Learning",
+    "Học sâu": "Deep Learning",
+    "Thị giác máy tính": "Computer Vision",
+    "Xử lý ảnh": "Image Processing",
+    "Xử lý ngôn ngữ tự nhiên": "Natural Language Processing",
+    "Khoa học dữ liệu": "Data Science",
+    "Dữ liệu lớn": "Big Data",
+    "Cơ sở dữ liệu": "Databases",
+    "Toán học": "Mathematics",
+    "Giải tích": "Calculus",
+    "Đại số": "Algebra",
+    "Toán rời rạc": "Discrete Mathematics",
+    "Xác suất": "Probability",
+    "Thống kê": "Statistics",
+    "Tối ưu hóa": "Optimization",
+    "Giải tích số": "Numerical Analysis",
+    "Phương trình vi phân": "Differential Equations",
+    "Hình học & Tôpô": "Geometry & Topology",
+    "Cơ học": "Mechanics",
+    "Mô hình toán học": "Mathematical Modeling",
+    "Lập trình": "Programming",
+    "Cấu trúc dữ liệu & Thuật toán": "Data Structures & Algorithms",
+    "Công nghệ phần mềm": "Software Engineering",
+    "Phát triển Web": "Web Development",
+    "Hệ điều hành": "Operating Systems",
+    "Mạng máy tính": "Computer Networks",
+    "An toàn thông tin": "Cybersecurity",
+    "Kiến trúc máy tính & Hệ thống nhúng": "Computer Architecture & Embedded",
+    "Phương pháp nghiên cứu": "Research Methodology",
+    "Giáo dục đại cương": "General Education",
+    "Ngoại ngữ": "Foreign Language",
+  };
+  const careerEn = {
+    "Kỹ sư Trí tuệ nhân tạo": "AI Engineer",
+    "Kỹ sư Thị giác máy tính": "Computer Vision Engineer",
+    "Nhà khoa học dữ liệu": "Data Scientist",
+    "Chuyên viên phân tích dữ liệu": "Data Analyst",
+    "Kỹ sư phần mềm": "Software Engineer",
+    "Nghiên cứu viên định lượng": "Quantitative Researcher",
+    "Chuyên gia Toán ứng dụng": "Applied Mathematician",
+    "Nghiên cứu học thuật": "Academic Researcher",
+    "Kỹ sư An toàn thông tin": "Security Engineer",
+    "Kỹ sư Hệ thống nhúng": "Embedded Systems Engineer",
+  };
+  const styleEn = {
+    "thiên về lý thuyết": "theory-oriented",
+    "thiên về thực hành": "practice-oriented",
+    "định hướng nghiên cứu": "research-oriented",
+    "nội dung cơ bản": "introductory content",
+    "mức độ trung bình": "moderate content",
+    "nội dung chuyên sâu": "advanced content",
+    "khối lượng học nhẹ nhàng": "light workload",
+    "khối lượng học vừa phải": "moderate workload",
+    "khối lượng học tập trung": "heavy workload",
+  };
+  const reqEn = {
+    "bắt buộc": "required",
+    "tự chọn": "elective",
+    "bắt buộc không tính tổng tín chỉ": "non-credit-total required",
+    "tốt nghiệp": "graduation",
+  };
+  const translateTerms = (list, map) => list.split(',').map(s => {
+    const t = s.trim();
+    return Object.hasOwn(map, t) ? map[t] : t;
+  }).join(', ');
+  const translateStyleList = list => list.split(',').map(part => {
+    const t = part.trim();
+    const m = /^(.+?) \(gần với (.+?)\)$/.exec(t);
+    if (m) return `${styleEn[m[1]] || m[1]} (close to ${styleEn[m[2]] || m[2]})`;
+    return styleEn[t] || t;
+  }).join(', ');
 
   function translate(source) {
     if (language !== "en") return source;
@@ -289,6 +370,13 @@
       [/^Điểm phù hợp: (.+)$/, 'Fit score: $1'],
       [/^Tên hoặc metadata môn có chứa chủ đề người học nêu: (.+)$/, 'The course name or metadata contains your topic: $1'],
       [/^Môn có loại (.+) đúng với preference đã chuẩn hóa\.$/, 'The course type $1 matches your normalized preference.'],
+      [/^Phù hợp chủ đề bạn quan tâm: (.+)\.$/, (_, list) => `Matches your focus topics: ${translateTerms(list, topicEn)}.`],
+      [/^Gắn với định hướng nghề nghiệp: (.+)\.$/, (_, list) => `Supports career direction: ${translateTerms(list, careerEn)}.`],
+      [/^Phù hợp phong cách học tập bạn chọn: (.+)\.$/, (_, list) => `Matches your study style preferences: ${translateStyleList(list)}.`],
+      [/^Thuộc nhóm học phần (.+) đúng theo ưu tiên của bạn\.$/, (_, req) => `In your preferred course category (${reqEn[req] || req}).`],
+      [/^Giúp mở khóa (\d+) học phần tiếp theo trong chương trình\.$/, 'Unlocks $1 downstream courses in your curriculum.'],
+      [/^Bổ sung tín chỉ cho nhóm tự chọn (.+)\.$/, (_, list) => `Contributes credits to unmet elective group(s): ${list.replaceAll('còn thiếu', 'remaining').replaceAll(' TC)', ' cr)')}.`],
+      [/^Đủ điều kiện: (.+) Phù hợp: (.+?) Tiến độ bảng điểm: (.+)$/, (_, eligible, fit, signals) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)} Progress impact: ${signals.split('. ').filter(Boolean).map(s => translate(s.endsWith('.') ? s : s + '.')).join(' ')}`],
       [/^Đủ điều kiện: (.+) Phù hợp: (.+)$/, (_, eligible, fit) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)}`],
       [/^(⚠️\s*)?Chưa hoàn thành môn tiên quyết: (.+)$/, (_, icon, codes) => `${icon || ''}Missing prerequisites: ${codes.replaceAll(' hoặc ', ' or ')}`],
       [/^(⚠️\s*)?Môn thuộc hướng khác với track đã chọn: (.+)$/, (_, icon, track) => `${icon || ''}Outside the selected specialization: ${track}`],

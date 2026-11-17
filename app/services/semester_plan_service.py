@@ -11,7 +11,7 @@ from app.auth import portal, repository
 from app.auth.security import AuthFailure
 from app.catalog_contracts import digest
 from app.infrastructure.hus_repository import HusRepository
-from app.program_bindings import binding_current, catalog_fingerprint
+from app.program_bindings import catalog_fingerprint, resolved_program, source_binding
 from app.rules import _prepare_selection_context
 from app.services.course_status_service import (
     course_board,
@@ -27,7 +27,7 @@ class PlanError(AuthFailure):
 
 def basis_for(saved, catalog, track, path):
     """No app-session token or timestamp: a new login must not stale a plan."""
-    binding = (saved.get('profile') or {}).get('academic_binding') or {}
+    binding = source_binding(saved.get('profile') or {}, catalog) or {}
     return {'snapshot_digest': (saved.get('snapshot') or {}).get('digest'),
             'source_scope': binding.get('source_scope'),
             'catalog_revision': digest(catalog.model_dump(mode='json')),
@@ -71,14 +71,14 @@ def list_plans(principal):
             reasons = []
             if not saved or not saved.get('snapshot'):
                 reasons.append('source_missing')
-            elif not binding_current(saved.get('profile') or {}):
-                reasons.append('program_binding_unverified')
+            elif not resolved_program(saved.get('profile') or {}):
+                reasons.append('source_enrollment_unresolved')
             else:
                 try:
                     catalog = HusRepository(conn.engine)._load_catalog(conn, row['program_id'])
                     current = basis_for(saved, catalog, row['selected_track_id'],
                                         row['selected_graduation_path_id'])
-                    if current != row['basis']:
+                    if not source_binding(saved.get('profile') or {}, catalog) or current != row['basis']:
                         reasons.append('academic_data_changed')
                 except ValueError:
                     reasons.append('program_unavailable')
@@ -91,15 +91,21 @@ def save_plan(value, body, plan_id=None):
     with repository.engine().begin() as conn:
         actor = portal.bound(conn, value, lock=True)
         saved = source(conn, actor, lock=True)
-        if not saved or not binding_current(saved.get('profile') or {}):
-            raise PlanError('program_binding_unverified')
+        if not saved or not saved.get('snapshot'):
+            raise PlanError('source_missing')
+        metadata = saved.get('profile') or {}
+        program_id = resolved_program(metadata)
+        if not program_id:
+            raise PlanError('source_enrollment_unresolved')
         # Serialize against publication/activation, then use exactly that catalog.
         conn.execute(text("SELECT pg_advisory_xact_lock(hashtext('ai07_hus_catalog_publish'))"))
-        binding = saved['profile']['academic_binding']
         conn.execute(text('''SELECT revision_id FROM hus_catalog_revisions
             WHERE program_id=:program AND active FOR SHARE'''),
-            {'program': binding['program_id']})
-        catalog = HusRepository(conn.engine)._load_catalog(conn, binding['program_id'])
+            {'program': program_id})
+        catalog = HusRepository(conn.engine)._load_catalog(conn, program_id)
+        binding = source_binding(metadata, catalog)
+        if binding is None:
+            raise PlanError('source_enrollment_unresolved')
         track, path = body.selected_track_id, body.selected_graduation_path_id
         try:
             _prepare_selection_context(catalog, track, path)

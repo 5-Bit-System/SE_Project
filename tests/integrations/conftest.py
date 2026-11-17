@@ -36,9 +36,7 @@ def ready_context(client, monkeypatch):
     # Test-only evidence/policy. Never enable these settings for a real account.
     import importlib.util
     assert importlib.util.find_spec('app.api.academic') is not None, 'Source-owned API missing'
-    from app.academic_context import AcademicPolicy
     from app.api import academic
-    from app.api.academic import POLICIES
     from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
 
     load_catalog = academic.load_catalog
@@ -46,15 +44,10 @@ def ready_context(client, monkeypatch):
                         mark_catalog_reviewed_for_test(load_catalog(program_id)))
 
     client.fake_accounts.issue(client, 'synthetic-owner', 'synthetic', linked=True)
-    preview = client.get('/me/academic-context?program_id=khdl').json()
-    client.profile_data['profile']['academic_binding'] = {
-        'program_id': 'khdl_7460108_2022', 'catalog_revision': preview['catalog_revision'],
-        'verified': True, 'evidence_ref': 'synthetic-only:review', 'policy_version': 'test-only-v1'}
+    client.profile_data['profile'].update(program='Khoa học dữ liệu', cohort='68')
     client.profile_data['snapshot'].update(completeness='complete', attempts=[{
         'row_key': '0', 'code': 'PHI1006', 'credits': '3', 'grade10': '4.2',
         'letter': 'D', 'grade4': '1'}])
-    monkeypatch.setitem(POLICIES, 'test-only-v1', AcademicPolicy(
-        'test-only-v1', 'synthetic:test-spec', ('khdl_7460108_2022',), {'D': (4, 4.9, 1)}))
     context = client.get('/me/academic-context?program_id=khdl').json()
     assert context['status'] == 'ready'
     assert context['completed_course_codes'] == ['PHI1006']

@@ -27,8 +27,13 @@ def course_board(
     selected_graduation_path_id: str | None = None,
 ) -> dict:
     passed = require_ready(context)
+    failed = {
+        outcome["code"] for outcome in context.get("outcomes", [])
+        if outcome.get("state") == "not_completed"
+    }
     return _assemble_board(catalog, passed, context["revision"], max_credits,
-                           selected_track_id, selected_graduation_path_id)
+                           selected_track_id, selected_graduation_path_id,
+                           failed=failed)
 
 
 def course_board_display(board: dict) -> dict:
@@ -111,7 +116,9 @@ def course_board_display(board: dict) -> dict:
 def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
                     max_credits: int, selected_track_id: str | None,
                     selected_graduation_path_id: str | None,
-                    preview_unverified_metadata: bool = False) -> dict:
+                    preview_unverified_metadata: bool = False,
+                    failed: set[str] | None = None) -> dict:
+    failed_set = set(failed or ())
     eligibility = evaluate_eligibility(
         catalog, passed, max_credits=30, selected_track_id=selected_track_id,
         selected_graduation_path_id=selected_graduation_path_id,
@@ -144,6 +151,7 @@ def _assemble_board(catalog: Catalog, passed: set[str], context_revision: str,
                         for reason in blocked[course.code].reasons] if state == "blocked" else [],
             "eligibility_basis": _default_eligibility_basis(catalog, course)
             if state == "eligible" else None,
+            "is_retake": state == "eligible" and course.code in failed_set,
             "suggested": False,
         }
         if (state == "eligible" and suggested_credits + course.credits <= max_credits
@@ -188,6 +196,8 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
         raise AcademicContextError("academic_context_not_ready")
     completed = {outcome["code"] for outcome in context["outcomes"]
                  if outcome["state"] == "completed"}
+    failed = {outcome["code"] for outcome in context["outcomes"]
+              if outcome["state"] == "not_completed"}
     unresolved = {outcome["code"] for outcome in context["outcomes"]
                   if outcome["state"] == "unresolved"}
     outside = any(outcome["state"] == "out_of_catalog" for outcome in context["outcomes"])
@@ -199,7 +209,8 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
     # strict recommendation/advisor/progress APIs. No readiness flag is changed.
     view = _assemble_board(catalog, completed, context["revision"], max_credits,
                            selected_track_id, selected_graduation_path_id,
-                           preview_unverified_metadata=preview_unverified_metadata)
+                           preview_unverified_metadata=preview_unverified_metadata,
+                           failed=failed)
     pause_plan = (outside or bool(selection_blockers)
                   or bool(getattr(catalog.program, "planning_blockers", []))
                   or preview_unverified_metadata)
