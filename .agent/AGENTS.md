@@ -11,6 +11,22 @@
   - Trước khi merge PR: phải chờ toàn bộ check CI trên PR hoàn tất và đạt `success`.
   - Sau khi merge vào `main`: phải tiếp tục theo dõi workflow CI `push` trên nhánh đích (`main`) cho đến khi tất cả các job đều xanh; nếu có bất kỳ job nào đỏ/flake thì phải kiểm tra log, xử lý hoặc chạy lại cho đến khi xanh toàn bộ mới được báo cáo hoàn tất `100%`.
 
+## `PlanExplanation` Phase 3–4 UI, i18n, LLM Fallback & Local Verification — 2026-11-17
+
+Completed Phases 3–4 of **Cách A cải tiến** `PlanExplanation` on `fix/vnu-transcript-encoding-20261113` (committed locally as `313ae85`; NOT pushed to `origin`):
+1. **Phase 3 (Frontend Card, Opt-In Toggle, On-Demand Enhance & Bilingual i18n):**
+   - `app/static/recommendation-model.mjs`: updated `recommendationPayload(..., options = {})` to emit strict boolean `include_narrative` (`false` by default) and added Unicode word-boundary-safe `normalizePlanExplanation()` inside `constrainRecommendations()`.
+   - `app/static/recommendation-workspace.js` & `app/static/recommendation-workspace.css`: wired `#rec-include-narrative` toggle in the review step (sends `include_narrative: true` only for the selected variant when enabled), `renderPlanExplanation()` card with XSS-safe DOM creation (`textContent`), `explanation_source` badge, and on-demand per-tab `#rec-enhance-explanation` (`enhancePlanExplanation()`) with `AbortController`, revision/owner race protection, and graceful fallback notice preserving recommended courses on AI error.
+   - `app/static/i18n.js`: added exact caveat translations, `[data-llm-narrative]` observer skip protection for free-form AI prose, and multi-sentence regex rules translating deterministic `PlanExplanation` (`headline`, `bundle_rationale`, `highlights`, `caveats`) into English.
+   - `tests/frontend/check_recommendation_model.mjs`: added unit assertions for `include_narrative` strict booleans, `normalizePlanExplanation()`, and omitted-code filtering.
+2. **Phase 4 (LLM Fallback Hardening, Playwright E2E, Live Smoke & Full Offline Verification):**
+   - `app/recommendation/llm.py`: hardened `_llm_text()` with `x-goog-api-key` header (no key in URL), `_redact_key()` exception scrubbing, and `_candidate_models()` fallback on transient `404`/`429`/`503`/timeout (discovered during live Gemini `.env` testing under `503 UNAVAILABLE`).
+   - `tests/recommendations/test_plan_explanation.py`: added `test_llm_text_uses_header_key_and_falls_back_on_503` (15/15 tests passing in file).
+   - `tests/frontend/check_recommendation_workspace.py`: added real Chrome E2E verification for deterministic `PlanExplanation`, `503` error fallback notice preservation, `#rec-enhance-explanation` upgrade to `llm_grounded`, per-tab state retention, XSS payload safety, EN translation, and `#rec-include-narrative` checkbox (`1440`/`1024`/`390`, light/dark).
+   - Isolated live smoke test (`127.0.0.1:8019`, KHMTTT `khmtt_7480113qtd_2022` from `database/data/hus_source.json`, synthetic K68 transcript with `F` on `MAT3533`, real `.env` Gemini): verified `deterministic_fallback` (`include_narrative=false`), `GuardrailViolation` fallback recovery, and Chrome E2E upgrade to `llm_grounded` (`MAT3533` retake badge + 5 courses).
+   - Final checks after last edit: `ruff check app tests database tools` (**All checks passed!**), `node --check` + `check_recommendation_model.mjs` + `node --test tests/frontend/chat.test.cjs` (**11/11 passed**), `tools/build_catalogs.py --check --root tests/support/fixtures/catalogs` (**4/4 passed**), `tests.frontend.check_recommendation_workspace` (passed), and `pytest -q -m "not postgres and not hus_postgres and not full_catalog_acceptance"` (**2638 passed, 2 skipped, 148 deselected**).
+   - **Remaining work:** Sync/merge with `origin/main` (`eeff843`), push, open PR to `main`, and verify 100% all-green GitHub Actions CI (`offline`, `postgres`, `hus_postgres`, `rag_demo`, `admin_console`) on PR and `main` when ready to publish.
+
 ## Recommendation UI Copy Rewrite & `PlanExplanation` Phase 1–2 Implementation — 2026-11-17
 
 Completed student-facing explanation copy cleanup, live Gemini API key check, locked-in **Cách A cải tiến** `PlanExplanation` architecture, Phase 1–2 backend implementation, and structured local commits on `fix/vnu-transcript-encoding-20261113` (committed locally; NOT pushed to `origin`):
