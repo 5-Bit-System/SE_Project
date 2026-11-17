@@ -75,21 +75,11 @@ def reply(request: HUSQuestion, response: Response) -> HUSChatReply:
         raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
 
 
-async def _resolve_account_id(request: Request) -> str | None:
-    try:
-        from app.auth.dependencies import optional_account
+async def _resolve_account_id(request: Request) -> str:
+    from app.auth.dependencies import require_account
 
-        principal = await optional_account(request)
-        if principal and principal.get("account_id"):
-            return str(principal["account_id"])
-    except (ImportError, HTTPException):
-        pass
-    except Exception:
-        pass
-    dev_account_id = request.headers.get("X-Account-ID")
-    if dev_account_id:
-        return dev_account_id.strip()
-    return None
+    principal = await require_account(request)
+    return str(principal["account_id"])
 
 
 @router.get("/chat/history", response_model=HUSChatHistoryResponse)
@@ -100,8 +90,6 @@ async def get_chat_history(
 ) -> HUSChatHistoryResponse:
     response.headers["Cache-Control"] = "no-store"
     account_id = await _resolve_account_id(request)
-    if not account_id:
-        return HUSChatHistoryResponse(account_id=None, major=major, messages=[])
     try:
         raw_messages = chat_history_repository.get_history(account_id, major=major)
         messages = [HUSChatMessage(**msg) for msg in raw_messages]
@@ -118,8 +106,6 @@ async def append_chat_history(
 ) -> dict[str, Any]:
     response.headers["Cache-Control"] = "no-store"
     account_id = await _resolve_account_id(request)
-    if not account_id:
-        return {"status": "guest_ignored"}
     try:
         messages = chat_history_repository.append_message(
             account_id=account_id,
@@ -139,8 +125,6 @@ async def delete_chat_history(
 ) -> dict[str, Any]:
     response.headers["Cache-Control"] = "no-store"
     account_id = await _resolve_account_id(request)
-    if not account_id:
-        return {"status": "no_account"}
     try:
         chat_history_repository.clear_history(account_id=account_id, major=major)
         return {"status": "cleared"}

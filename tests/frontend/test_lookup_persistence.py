@@ -1,6 +1,8 @@
 """Test chat history persistence across F5 page reload and New Chat button."""
 
 import json
+import os
+from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 from playwright.sync_api import Error as PlaywrightError
@@ -36,6 +38,8 @@ def test_lookup_history_persists_across_f5_reload():
         elif path.startswith('/me/'):
             route.fulfill(json=sample)
         elif path == '/hus/chat/history':
+            if route.request.method in {'POST', 'DELETE'}:
+                assert route.request.headers.get('x-csrf-token') == 'synthetic-browser-csrf'
             qs = parse_qs(urlsplit(url).query)
             major = qs.get('major', ['data_science'])[0]
             if route.request.method == 'DELETE':
@@ -102,6 +106,10 @@ def test_lookup_history_persists_across_f5_reload():
         expect(page.locator(".rag-message-user")).to_contain_text("giải tích 1 học gì?")
         expect(page.locator(".rag-message-assistant").last).to_contain_text("Thông tin học phần")
         expect(page.locator(".rag-course-card")).to_be_visible()
+        evidence_dir = os.environ.get('HUS_SECURITY_SCREENSHOTS')
+        if evidence_dir:
+            Path(evidence_dir).mkdir(parents=True, exist_ok=True)
+            page.screenshot(path=str(Path(evidence_dir) / 'history-restored.png'), full_page=True)
 
         # 6. Click "+ Đoạn chat mới" button
         expect(page.locator("#lookup-new-chat")).to_be_visible()
@@ -112,6 +120,8 @@ def test_lookup_history_persists_across_f5_reload():
         expect(page.locator(".rag-message-user")).to_have_count(0)
         expect(page.locator(".rag-message-assistant").first).to_contain_text("Xin chào!")
 
+        if evidence_dir:
+            page.screenshot(path=str(Path(evidence_dir) / 'history-cleared.png'), full_page=True)
         browser.close()
 
 

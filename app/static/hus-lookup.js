@@ -628,7 +628,7 @@
     if (activeAccountId) {
       fetch('/hus/chat/history', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'X-CSRF-Token': window.systemAuth?.csrf || ''},
         credentials: 'same-origin',
         body: JSON.stringify({
           major: selected.id,
@@ -668,6 +668,7 @@
       if (activeAccountId) {
         fetch(`/hus/chat/history?major=${encodeURIComponent(selected.id)}`, {
           method: 'DELETE',
+          headers: {'X-CSRF-Token': window.systemAuth?.csrf || ''},
           credentials: 'same-origin',
         }).catch(() => {});
       }
