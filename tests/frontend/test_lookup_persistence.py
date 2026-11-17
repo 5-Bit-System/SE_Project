@@ -193,6 +193,13 @@ def test_lookup_history_isolated_between_accounts():
 
         expect(page.locator(".rag-message-user")).to_contain_text("Câu hỏi bí mật của User A")
 
+        # Both asynchronous history writes must belong to A before the fixture switches identities.
+        page.wait_for_function("""async () => {
+            const response = await fetch('/hus/chat/history?major=data_science');
+            const history = await response.json();
+            return history.messages?.length === 2;
+        }""")
+
         # 2. Switch session to User B and reload
         current_account[0] = "student-user-B"
         page.reload(wait_until="networkidle")
