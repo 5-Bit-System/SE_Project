@@ -31,9 +31,10 @@ def main():
     metadata['A100'] = {**course('A100', 'Môn nền tảng đã hoàn thành', 3), 'prerequisites': []}
     source = {'subject': 'synthetic-only', 'profile': {'program': 'Chương trình minh họa', 'cohort': '68'},
               'snapshot': {'digest': 'synthetic-snapshot', 'completeness': 'complete', 'attempts': []}}
-    plans, requests, errors, pending = [], [], [], []
+    plans, requests, errors, pending, rec_payloads = [], [], [], [], []
     mode = 'ready'
     save_mode = 'saved'
+    enhance_mode = 'llm'
     required_track = required_path = True
 
     def revision(query):
@@ -81,6 +82,8 @@ def main():
             assert payload['form_input']['values']['workload'] == 'moderate'
             assert payload['ranking_weights']['workload'] > 0
             assert 'passed_course_codes' not in payload and 'owner' not in payload
+            assert isinstance(payload['include_narrative'], bool)
+            rec_payloads.append(payload)
             if mode == 'clarification':
                 route.fulfill(json={'context_revision': payload['expected_revision'], 'recommendations': [],
                     'intent': {'status': 'needs_clarification',
@@ -92,8 +95,34 @@ def main():
             if mode == 'failed' or (mode == 'partial' and payload['ranking_weights']['topic'] > .4):
                 route.fulfill(status=503, json={'detail': 'temporary_failure'})
                 return
+            if payload['include_narrative'] and enhance_mode == 'error':
+                route.fulfill(status=503, json={'detail': 'narrative_temporarily_unavailable'})
+                return
             weights = payload['ranking_weights']
             selected = ['B200', 'E400'] if weights['course_type'] > .4 else ['C300', 'D301', 'F500'] if weights['topic'] > .4 else ['B200', 'C300', 'E400']
+            strategy_label = 'Ưu tiên tốt nghiệp' if weights['course_type'] > .4 else 'Sát định hướng' if weights['topic'] > .4 else 'Cân bằng'
+            if payload['include_narrative'] and enhance_mode == 'llm':
+                plan_explanation = {
+                    'headline': f'Phương án {strategy_label.lower()} với B200 và C300 <img src=x onerror=alert(1)>',
+                    'bundle_rationale': 'Tổ hợp ưu tiên môn bắt buộc B200 cùng hướng Học máy để giữ cân bằng tiến độ.',
+                    'highlights': [
+                        'Ưu tiên hoàn thành B200 trước các học phần tiếp theo.',
+                        'Giữ tổng tín chỉ ở mức hợp lý cho kỳ tới.',
+                    ],
+                    'caveats': ['Trạng thái mở lớp kỳ tới chưa được xác minh; hãy đối chiếu thời khóa biểu chính thức khi đăng ký.'],
+                    'explanation_source': 'llm_grounded',
+                }
+            else:
+                plan_explanation = {
+                    'headline': f'Đề xuất {len(selected)} môn (10 TC) — {strategy_label}',
+                    'bundle_rationale': f'Tổ hợp gồm {len(selected)} học phần với tổng 10 TC (mục tiêu 20 TC, biên ±2 TC) theo chiến lược {strategy_label}. Nội dung gắn với chủ đề: Học máy.',
+                    'highlights': [
+                        'Học lại điểm F: B200 được ưu tiên đưa vào kế hoạch kỳ này.',
+                        'Cân đối tải học kỳ ở mức 10/20 TC (còn thiếu 117 TC theo CTĐT).',
+                    ],
+                    'caveats': ['Trạng thái mở lớp kỳ tới chưa được xác minh; hãy đối chiếu thời khóa biểu chính thức khi đăng ký.'],
+                    'explanation_source': 'deterministic_fallback',
+                }
             route.fulfill(json={'context_revision': payload['expected_revision'], 'catalog_status': 'verified',
                 'recommendations': [{**next(row for row in rows if row['code'] == code),
                     'fit_probability': 0.42,
@@ -101,7 +130,8 @@ def main():
                     'transcript_signals': ['Học phần bắt buộc còn thiếu trong chương trình đào tạo.'],
                     'fit_reason': 'Phù hợp chủ đề bạn quan tâm: Học máy.',
                     'reason': 'Đủ điều kiện: Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog. Phù hợp: Phù hợp chủ đề bạn quan tâm: Học máy. Tiến độ bảng điểm: Học phần bắt buộc còn thiếu trong chương trình đào tạo.'} for code in selected],
-                'warnings': ['Lịch mở lớp chưa xác nhận.']})
+                'warnings': ['Lịch mở lớp chưa xác nhận.'],
+                'plan_explanation': plan_explanation})
         elif path == '/me/semester-plans' and request.method == 'GET':
             route.fulfill(json={'plans': plans})
         elif path == '/me/semester-plans' and request.method == 'POST':
@@ -195,6 +225,7 @@ def main():
         page.locator('[data-rec-path="thesis"]').click()
         expect(page.locator('#rec-goal')).to_be_visible()
         assert plans == []
+        expect(page.locator('#rec-include-narrative')).not_to_be_checked()
         page.locator('#rec-goal').fill('Mình muốn ưu tiên học máy.')
         page.locator('.rec-send').click()
         expect(page.locator('.rec-free-goal')).to_contain_text('ưu tiên học máy')
@@ -202,9 +233,29 @@ def main():
         expect(page.locator('#rec-save')).to_be_enabled(timeout=15000)
         assert page.locator('.rec-course').first.evaluate("element => element.getAnimations().some(animation => animation.playState === 'running')")
         assert len([item for item in requests if item == ('/me/recommendations', 'POST')]) == 3
+        assert len(rec_payloads) == 3 and all(item['include_narrative'] is False for item in rec_payloads)
         expect(page.locator('.rec-course')).to_have_count(3)
         assert page.locator('.rec-course img').count() == 0
         assert '10 / 20 tín chỉ' in page.locator('.rec-plan-caption').inner_text()
+        expect(page.locator('.rec-plan-explanation')).to_be_visible()
+        expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'deterministic_fallback')
+        expect(page.locator('.rec-plan-source-badge')).to_contain_text('Tổng hợp từ dữ liệu chương trình')
+        expect(page.locator('.rec-plan-headline')).to_contain_text('Đề xuất 3 môn (10 TC) — Cân bằng')
+        expect(page.locator('#rec-enhance-explanation')).to_be_visible()
+        enhance_mode = 'error'
+        page.locator('#rec-enhance-explanation').click()
+        expect(page.locator('.rec-plan-enhance-notice')).to_contain_text('Không kết nối được dịch vụ AI lúc này')
+        expect(page.locator('.rec-course')).to_have_count(3)
+        expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'deterministic_fallback')
+        enhance_mode = 'llm'
+        page.locator('#rec-enhance-explanation').click()
+        expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'llm_grounded')
+        expect(page.locator('.rec-plan-explanation.is-llm')).to_be_visible()
+        expect(page.locator('.rec-plan-source-badge')).to_contain_text('Tổng hợp AI · bám sát dữ liệu')
+        expect(page.locator('.rec-plan-headline')).to_contain_text('Phương án cân bằng với B200 và C300')
+        expect(page.locator('#rec-enhance-explanation')).to_have_count(0)
+        expect(page.locator('.rec-plan-enhance-notice')).to_have_count(0)
+        assert page.locator('.rec-plan-explanation img').count() == 0
         expect(page.locator('.rec-algorithm-guide')).to_be_visible()
         page.locator('.rec-algorithm-guide > summary').click()
         expect(page.locator('.rec-algorithm-steps li')).to_have_count(4)
@@ -221,11 +272,14 @@ def main():
         page.locator('[data-rec-variant="direction"]').click()
         expect(page.locator('.rec-course')).to_have_count(1)
         assert 'C300' in page.locator('.rec-course').inner_text()
+        expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'deterministic_fallback')
+        expect(page.locator('#rec-enhance-explanation')).to_be_visible()
         page.locator('#rec-compare').click()
         expect(page.locator('.rec-compare-dialog table')).to_be_visible()
         assert 'E400' in page.locator('.rec-compare-dialog table').inner_text()
         page.keyboard.press('Escape')
         page.locator('[data-rec-variant="balanced"]').click()
+        expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'llm_grounded')
         save_mode = 'failed'
         page.locator('#rec-save').click()
         page.get_by_role('button', name='Xác nhận lưu', exact=True).click()
@@ -268,6 +322,9 @@ def main():
         page.locator('[data-language-choice=en]').click()
         expect(page.get_by_role('heading', name='Next-term suggestions', exact=True)).to_be_visible()
         expect(page.locator('.rec-algorithm-guide')).to_contain_text('How course recommendations work')
+        expect(page.locator('.rec-plan-source-badge')).to_contain_text('AI summary · data-grounded (VI)')
+        expect(page.locator('.rec-plan-headline')).to_contain_text('Phương án cân bằng với B200 và C300')
+        expect(page.locator('.rec-plan-caveats')).to_contain_text('Next-term course offerings are not verified; check the official timetable when registering.')
         expect(page.locator('.rec-course-reason').first).to_contain_text('Matches your focus topics: Machine Learning.')
         page.locator('.rec-course').first.get_by_role('button', name='Why this course?', exact=True).click()
         expect(page.locator('.rec-dialog')).to_contain_text('Goal alignment:')
@@ -275,9 +332,21 @@ def main():
         page.keyboard.press('Escape')
         page.emulate_media(reduced_motion='reduce')
         page.locator('[data-rec-variant="direction"]').click()
+        expect(page.locator('.rec-plan-source-badge')).to_contain_text('Curriculum & transcript summary')
+        expect(page.locator('.rec-plan-headline')).to_contain_text('Suggested 3 courses (10 cr) — Interest focus')
+        expect(page.locator('.rec-plan-rationale')).to_contain_text('Bundle of 3 courses totaling 10 cr (target 20 cr, ±2 cr band) under the Interest focus strategy.')
+        expect(page.locator('.rec-plan-highlights')).to_contain_text('F-grade retake: B200 prioritized in this term plan.')
         assert page.locator('.rec-flying-chip').count() == 0
         page.locator('[data-language-choice=vi]').click()
         page.set_viewport_size({'width': 1440, 'height': 1000})
+        page.locator('[data-rec-variant="balanced"]').click()
+        rec_payloads.clear()
+        page.locator('#rec-include-narrative').check()
+        page.locator('#rec-generate').click()
+        expect(page.locator('.rec-plan-explanation.is-llm')).to_be_visible(timeout=15000)
+        assert len(rec_payloads) == 3
+        assert sum(1 for item in rec_payloads if item['include_narrative']) == 1
+        page.locator('#rec-include-narrative').uncheck()
         # A cohort refresh in the same session must invalidate the old graduation goal.
         page.evaluate("""() => {
           const value = window.workspacePlanning.snapshot(); value.profile.cohort = '69';

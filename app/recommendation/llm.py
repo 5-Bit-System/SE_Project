@@ -7,6 +7,7 @@ ve deterministic ranking.
 """
 
 import json
+import logging
 from collections.abc import Callable
 from typing import Any
 
@@ -14,6 +15,36 @@ import httpx
 
 from app.config import get_settings
 from app.models import Course, RankingWeights, StructuredPreference
+
+logger = logging.getLogger(__name__)
+
+
+def _redact_key(text: str, key: str) -> str:
+    if not key or not isinstance(text, str):
+        return text
+    return text.replace(key, "[REDACTED_API_KEY]")
+
+
+def _candidate_models(primary: str) -> list[str]:
+    model_name = (primary or "gemini-3.5-flash-lite").removeprefix("models/").strip()
+    if "lite" in model_name.lower():
+        fallbacks = (
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-2.5-flash-lite",
+        )
+    else:
+        fallbacks = (
+            "gemini-3.5-flash",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+        )
+    ordered = [model_name]
+    for alt in fallbacks:
+        if alt not in ordered:
+            ordered.append(alt)
+    return ordered
 
 
 class LLMPreferenceExtractor:
@@ -98,41 +129,71 @@ def _llm_text(prompt: str) -> str:
         endpoint = base_url.rstrip("/")
         if not endpoint.endswith("/chat/completions"):
             endpoint += "/chat/completions"
-        response = httpx.post(
-            endpoint,
-            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.1,
-                "max_tokens": 1200,
-            },
-            timeout=20.0,
-        )
-        response.raise_for_status()
+        try:
+            response = httpx.post(
+                endpoint,
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                json={
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.1,
+                    "max_tokens": 1200,
+                },
+                timeout=20.0,
+            )
+            response.raise_for_status()
+        except Exception as exc:
+            if api_key and api_key in str(exc):
+                raise RuntimeError(_redact_key(str(exc), api_key)) from None
+            raise
         data = response.json()
         content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
-    else:
-        endpoint = (
-            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        )
-        response = httpx.post(
-            endpoint,
-            params={"key": api_key},
-            json={
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.1, "maxOutputTokens": 1200},
-            },
-            timeout=20.0,
-        )
-        response.raise_for_status()
-        data = response.json()
-        parts = data.get("candidates", [{}])[0].get("content", {}).get("parts", [])
-        content = "".join(part.get("text", "") for part in parts)
+        if not content:
+            raise ValueError("LLM tra ve noi dung rong")
+        return content.strip()
 
-    if not content:
-        raise ValueError("LLM tra ve noi dung rong")
-    return content.strip()
+    last_error: Exception | None = None
+    for cur_model in _candidate_models(model):
+        endpoint = (
+            f"https://generativelanguage.googleapis.com/v1beta/models/{cur_model}:generateContent"
+        )
+        try:
+            response = httpx.post(
+                endpoint,
+                headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"temperature": 0.1, "maxOutputTokens": 1200},
+                },
+                timeout=20.0,
+            )
+            if response.status_code in {404, 429, 503}:
+                logger.warning("Recommendation LLM %s HTTP %s; trying fallback model.", cur_model, response.status_code)
+                last_error = httpx.HTTPStatusError(
+                    f"HTTP {response.status_code}",
+                    request=response.request,
+                    response=response,
+                )
+                continue
+            response.raise_for_status()
+            data = response.json()
+            parts = data.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+            content = "".join(part.get("text", "") for part in parts)
+            if not content:
+                raise ValueError("LLM tra ve noi dung rong")
+            return content.strip()
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as exc:
+            last_error = exc
+            if isinstance(exc, httpx.HTTPStatusError) and exc.response.status_code in {400, 401, 403}:
+                break
+            logger.warning("Recommendation LLM %s failed (%s); trying fallback model.", cur_model, type(exc).__name__)
+            continue
+
+    if last_error is not None:
+        if api_key and api_key in str(last_error):
+            raise RuntimeError(_redact_key(str(last_error), api_key)) from None
+        raise last_error
+    raise RuntimeError("Recommendation LLM khong phan hoi")
 
 
 def configured_adapters(catalog=None) -> tuple[LLMPreferenceExtractor | None, LLMRanker | None]:

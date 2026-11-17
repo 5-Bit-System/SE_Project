@@ -63,7 +63,9 @@
 .rec-secondary { font-weight: 500; }
 .rec-text-button { border: 0; background: transparent; padding: 4px 0; color: var(--accent-primary); font-size: 11px; font-weight: 600; cursor: pointer; text-align: left; line-height: 1.7; }
 .rec-text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
-.rec-generate { display: flex; width: 100%; margin-top: 22px; min-height: 48px; }
+.rec-narrative-toggle { display: flex; align-items: flex-start; gap: 10px; margin-top: 18px; padding: 11px 14px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--rec-paper); color: var(--text-main); font-size: 12px; line-height: 1.6; cursor: pointer; }
+.rec-narrative-toggle input[type=checkbox] { width: 17px; height: 17px; margin: 2px 0 0; flex: 0 0 auto; accent-color: var(--accent-primary); cursor: pointer; }
+.rec-generate { display: flex; width: 100%; margin-top: 14px; min-height: 48px; }
 .rec-load-options { display: flex; gap: 8px; margin: 24px 0; }
 .rec-load-choice { flex: 1; display: grid; place-items: center; gap: 12px; padding: 16px 6px; border: 1px solid var(--border-subtle); border-radius: 13px; background: var(--rec-paper); cursor: pointer; font-size: 11px; transition: background 180ms, transform 180ms; }
 .rec-load-choice svg { width: 27px; height: 27px; color: var(--text-muted); }
@@ -150,6 +152,19 @@
 .rec-plan-caption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin: 14px 0; }
 .rec-plan-caption p { font-size: 12px; color: var(--text-muted); margin: 0; }
 .rec-plan-caption strong { font-size: 14px; white-space: nowrap; max-width: 100%; }
+.rec-plan-explanation { margin: 0 0 18px; padding: 18px 20px; border: 1px solid var(--border-subtle); border-left: 3px solid var(--rec-mint); border-radius: 16px; background: var(--bg-surface); display: grid; gap: 10px; min-width: 0; }
+.rec-plan-explanation.is-llm { border-left-color: var(--rec-indigo); background: linear-gradient(135deg, var(--bg-surface) 0%, var(--rec-paper) 100%); }
+.rec-plan-explanation.is-empty { margin-top: 12px; }
+.rec-plan-explanation-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; }
+.rec-plan-source-badge { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; font-size: 11px; font-weight: 600; background: var(--soft-surface); color: var(--rec-mint); border: 1px solid var(--border-subtle); }
+.rec-plan-source-badge.is-llm { background: var(--rec-lavender); color: var(--rec-indigo); }
+.rec-plan-source-badge svg { width: 14px; height: 14px; flex: 0 0 auto; }
+.rec-plan-enhance { min-height: 36px; padding: 7px 13px; font-size: 11.5px; }
+.rec-plan-headline { margin: 2px 0 0; font-size: 16px; line-height: 1.5; font-weight: 600; color: var(--text-main); overflow-wrap: anywhere; }
+.rec-plan-rationale { margin: 0; font-size: 13px; line-height: 1.75; color: var(--text-main); overflow-wrap: anywhere; }
+.rec-plan-highlights { margin: 2px 0 0; padding-left: 19px; display: grid; gap: 5px; font-size: 12.5px; line-height: 1.65; color: var(--text-muted); }
+.rec-plan-enhance-notice { margin: 2px 0 0; padding: 8px 11px; border-radius: 9px; background: var(--warning-bg); color: var(--text-main); font-size: 11.5px; line-height: 1.6; }
+.rec-plan-caveats { margin: 4px 0 0; padding: 10px 0 0 18px; border-top: 1px solid var(--border-subtle); display: grid; gap: 4px; font-size: 11px; line-height: 1.65; color: var(--text-muted); }
 .rec-course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; perspective: 1000px; }
 .rec-course { background: var(--bg-surface); padding: 18px; border: 1px solid var(--border-subtle); border-radius: 15px; min-width: 0; display: flex; flex-direction: column; box-shadow: 0 3px 12px #6554e806; transition: border-color 160ms, transform 160ms; }
 .rec-course:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
@@ -258,6 +273,8 @@
   .rec-variant-tab small { font-size: 9px; }
   .rec-course-grid { grid-template-columns: minmax(0, 1fr); }
   .rec-plan-caption strong { white-space: normal; overflow-wrap: anywhere; }
+  .rec-plan-explanation { padding: 15px 16px; }
+  .rec-plan-enhance { width: 100%; }
   .rec-course-title { font-size: 16px; }
   .rec-course-reason, .rec-course-footer > span { font-size: 12px; }
   .rec-dialog-heading { padding: 18px; }

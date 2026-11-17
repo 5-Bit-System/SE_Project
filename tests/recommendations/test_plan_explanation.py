@@ -593,3 +593,54 @@ def test_recommend_and_api_narrative_integration(client, ready_context, monkeypa
     assert api_calls == 1
     assert data["plan_explanation"] is not None
     assert data["plan_explanation"]["explanation_source"] == "llm_grounded"
+
+
+def test_llm_text_uses_header_key_and_falls_back_on_503(monkeypatch):
+    import httpx
+
+    from app.config import get_settings
+    from app.recommendation import llm as rec_llm
+
+    secret = "synthetic-secret-key-for-redaction"
+    monkeypatch.setenv("GEMINI_API_KEY", secret)
+    monkeypatch.setenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+    monkeypatch.setenv("GEMINI_BASE_URL", "")
+    get_settings.cache_clear()
+
+    seen_calls = []
+
+    def fake_post(url, *, headers=None, json=None, timeout=None, params=None):
+        seen_calls.append({"url": url, "headers": headers or {}, "params": params})
+        req = httpx.Request("POST", url)
+        if len(seen_calls) == 1:
+            return httpx.Response(503, request=req, json={"error": {"code": 503}})
+        return httpx.Response(
+            200,
+            request=req,
+            json={"candidates": [{"content": {"parts": [{"text": '{"ok": true}'}]}}]},
+        )
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    result = rec_llm._llm_text("hello")
+    assert result == '{"ok": true}'
+    assert len(seen_calls) == 2
+    assert all(call["params"] is None for call in seen_calls)
+    assert all(call["headers"].get("x-goog-api-key") == secret for call in seen_calls)
+    assert all(secret not in call["url"] for call in seen_calls)
+    assert "gemini-3.5-flash-lite" in seen_calls[0]["url"]
+    assert "gemini-flash-lite-latest" in seen_calls[1]["url"]
+
+    # Auth 401 fails immediately without exhausting fallbacks and never leaks the API key.
+    def auth_fail_post(url, **kwargs):
+        req = httpx.Request("POST", url)
+        raise httpx.HTTPStatusError(
+            f"Unauthorized for {secret}",
+            request=req,
+            response=httpx.Response(401, request=req),
+        )
+
+    monkeypatch.setattr(httpx, "post", auth_fail_post)
+    with pytest.raises(RuntimeError) as exc_info:
+        rec_llm._llm_text("hello")
+    assert secret not in str(exc_info.value)
+    assert "[REDACTED_API_KEY]" in str(exc_info.value)

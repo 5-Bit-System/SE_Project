@@ -52,7 +52,7 @@ function translateText(text) {
 let live = window.workspacePlanning?.snapshot() || {};
 let identity = live.identity || '';
 let answers, step = 0, results = {}, selected = 'balanced', busy = false, error = '';
-let requestEpoch = 0, requestController, generationRevision = '', catalog = new Map();
+let requestEpoch = 0, requestController, enhanceController, generationRevision = '', generationBoard = null, catalog = new Map();
 let catalogProgram = '', catalogSequence = 0, saved = new Set(), draftText = '';
 const uncertainSaves = new Set();
 let generationPassed = new Set();
@@ -72,7 +72,7 @@ function initialAnswers() {
     track: live.track || '', path: live.path || '', goal: '',
     customDirection: '', cohort: live.profile?.cohort || '',
     targetYear: window.years.includes(window.admissionYear + 3) ? window.admissionYear + 3 : window.years[0] ?? null, targetSemester: 2,
-    year: term.year, semester: term.semester, creditsExplicit: false, confirmedWorkload: false, confirmedDeadline: false};
+    year: term.year, semester: term.semester, creditsExplicit: false, confirmedWorkload: false, confirmedDeadline: false, includeNarrative: false};
 }
 answers = initialAnswers();
 function animate(element, frames, options = {}) {
@@ -87,7 +87,8 @@ function cancelMotion() {
   document.querySelectorAll('.rec-flying-chip').forEach(element => element.remove());
 }
 function clearResults() {
-  requestEpoch++; requestController?.abort(); busy = false; generationRevision = '';
+  requestEpoch++; requestController?.abort(); enhanceController?.abort(); enhanceController = null;
+  busy = false; generationRevision = ''; generationBoard = null;
   results = {}; saved.clear(); uncertainSaves.clear(); error = '';
   generationPassed.clear();
 }
@@ -347,10 +348,21 @@ function renderQuestion() {
     if (!paths.length) section.append(button(copy('Kiểm tra hướng chuyên ngành', 'Review study track'), openTools));
   }
   if (reviewing) {
+    const toggle = node('label', undefined, 'rec-narrative-toggle');
+    toggle.htmlFor = 'rec-include-narrative';
+    const checkbox = node('input'); checkbox.id = 'rec-include-narrative'; checkbox.type = 'checkbox';
+    checkbox.checked = Boolean(answers.includeNarrative); checkbox.disabled = busy;
+    checkbox.addEventListener('change', () => {
+      answers.includeNarrative = checkbox.checked; clearResults(); renderResults();
+    });
+    toggle.append(checkbox, node('span', copy(
+      'Tự động viết nhận xét tổng thể bằng AI cho phương án chính (giữ nguyên môn đã chọn)',
+      'Automatically write an AI overall summary for the primary option (selected courses unchanged)',
+    )));
     const action = button('', generate, 'rec-button rec-primary rec-generate'); action.id = 'rec-generate';
     action.disabled = busy || live.loading || !live.sourceAvailable;
     action.append(icon('spark'), node('span', busy ? copy('Đang đối chiếu…', 'Checking your options…') : copy('Tìm phương án cho mình', 'Find my study options')));
-    section.append(action);
+    section.append(toggle, action);
   }
   return section;
 }
@@ -599,6 +611,60 @@ function openCourse(course) {
   dialog.showModal();
 }
 
+function renderPlanExplanation(plan) {
+  const explanation = plan?.planExplanation;
+  if (!explanation) return null;
+  const isLlm = explanation.explanation_source === 'llm_grounded';
+  const maybeTranslate = text => (isLlm ? text : translateText(text));
+  const card = node('section', undefined, `rec-plan-explanation${isLlm ? ' is-llm' : ''}${!plan.rows.length ? ' is-empty' : ''}`);
+  card.setAttribute('aria-labelledby', 'rec-plan-explanation-heading');
+  card.dataset.explanationSource = explanation.explanation_source;
+
+  const top = node('div', undefined, 'rec-plan-explanation-top');
+  const badge = node('span', undefined, `rec-plan-source-badge${isLlm ? ' is-llm' : ''}`);
+  badge.append(icon(isLlm ? 'spark' : 'layers'), node('span', isLlm
+    ? copy('Tổng hợp AI · bám sát dữ liệu', 'AI summary · data-grounded (VI)')
+    : copy('Tổng hợp từ dữ liệu chương trình', 'Curriculum & transcript summary')));
+  top.append(badge);
+
+  if (!isLlm && plan.rows.length) {
+    const enhanceBtn = button('', () => enhancePlanExplanation(selected), 'rec-button rec-secondary rec-plan-enhance');
+    enhanceBtn.id = 'rec-enhance-explanation';
+    enhanceBtn.disabled = Boolean(plan.enhancing || busy || live.loading || pendingSave);
+    enhanceBtn.append(icon('spark'), node('span', plan.enhancing
+      ? copy('Đang viết diễn giải AI…', 'Generating AI summary…')
+      : copy('Diễn giải tự nhiên bằng AI', 'Enhance with AI summary')));
+    top.append(enhanceBtn);
+  }
+
+  const heading = node('h4', maybeTranslate(explanation.headline), 'rec-plan-headline');
+  heading.id = 'rec-plan-explanation-heading';
+  const rationale = node('p', maybeTranslate(explanation.bundle_rationale), 'rec-plan-rationale');
+  if (isLlm) {
+    heading.dataset.llmNarrative = 'true';
+    rationale.dataset.llmNarrative = 'true';
+  }
+  card.append(top, heading, rationale);
+
+  if (explanation.highlights?.length) {
+    const list = node('ul', undefined, 'rec-plan-highlights');
+    if (isLlm) list.dataset.llmNarrative = 'true';
+    explanation.highlights.forEach(item => list.append(node('li', maybeTranslate(item))));
+    card.append(list);
+  }
+  if (plan.enhanceNotice) {
+    const notice = node('p', plan.enhanceNotice, 'rec-plan-enhance-notice');
+    notice.setAttribute('role', 'status');
+    card.append(notice);
+  }
+  if (explanation.caveats?.length) {
+    const caveats = node('ul', undefined, 'rec-plan-caveats');
+    explanation.caveats.forEach(item => caveats.append(node('li', translateText(item))));
+    card.append(caveats);
+  }
+  return card;
+}
+
 function renderResults() {
   const area = root.querySelector('#rec-results'); if (!area) return;
   area.replaceChildren();
@@ -643,12 +709,17 @@ function renderResults() {
       node('p', copy('Kiểm tra tiên quyết, chấm điểm độ phù hợp, nhu cầu bảng điểm và chọn tổ hợp sát ngân sách tín chỉ.', 'Checking prerequisites, scoring goal fit and transcript needs, and selecting an optimal credit bundle.')));
     panel.append(loading);
   } else if (plan.status === 'error') panel.append(node('p', plan.error, 'rec-error'));
-  else if (!plan.rows.length) panel.append(node('div', copy('Chưa tìm được môn phù hợp với điều kiện hiện tại. Kiểm tra dữ liệu hoặc điều chỉnh lựa chọn rồi tạo lại.', 'No suitable courses were found under the current requirements. Review your data or preferences and try again.'), 'rec-empty'));
-  else {
+  else if (!plan.rows.length) {
+    const explanationCard = renderPlanExplanation(plan);
+    if (explanationCard) panel.append(explanationCard);
+    else panel.append(node('div', copy('Chưa tìm được môn phù hợp với điều kiện hiện tại. Kiểm tra dữ liệu hoặc điều chỉnh lựa chọn rồi tạo lại.', 'No suitable courses were found under the current requirements. Review your data or preferences and try again.'), 'rec-empty'));
+  } else {
     const caption = node('div', undefined, 'rec-plan-caption');
     const delta = plan.credits - Number(answers.credits);
     const deltaText = delta === 0 ? '' : ` (${delta > 0 ? '+' : ''}${delta} ${copy('TC · biên ±2 TC', 'cr · ±2 cr band')})`;
     caption.append(node('p', hintFor(selected)), node('strong', `${plan.credits} / ${answers.credits} ${copy('tín chỉ', 'credits')}${deltaText}`)); panel.append(caption);
+    const explanationCard = renderPlanExplanation(plan);
+    if (explanationCard) panel.append(explanationCard);
     const grid = node('div', undefined, 'rec-course-grid');
     plan.rows.forEach(course => {
       const card = node('article', undefined, 'rec-course'); card.dataset.recCourse = course.code;
@@ -797,19 +868,22 @@ async function generate() {
     if (context.status !== 'ready') throw new Error('academic_context_not_ready');
     if (context.revision !== board.context_revision) throw Object.assign(new Error('context_changed'), {status: 409});
     generationRevision = context.revision;
+    generationBoard = board;
     generationPassed = new Set(context.completed_course_codes || []);
     results = Object.fromEntries(VARIANTS.map(id => [id, {status: 'loading'}])); renderResults();
     await Promise.allSettled(VARIANTS.map(async id => {
       try {
         const response = await request('/me/recommendations', {method: 'POST', signal,
-          body: recommendationPayload(board, answers, id, context.revision)});
+          body: recommendationPayload(board, answers, id, context.revision, {
+            includeNarrative: Boolean(answers.includeNarrative) && id === selected,
+          })});
         if (current !== requestEpoch || owner !== live.identity) return;
         if (response.context_revision !== context.revision) throw Object.assign(new Error('context_changed'), {status: 409});
         if (response.intent?.status === 'needs_clarification') {
           throw Object.assign(new Error('study_intent_needs_clarification'), {
             clarification: (response.intent.questions || []).join(' ')});
         }
-        results[id] = {...constrainRecommendations(response, board, Number(answers.credits)), status: 'done'};
+        results[id] = {...constrainRecommendations(response, board, Number(answers.credits)), status: 'done', enhancing: false, enhanceNotice: ''};
       } catch (failure) {
         if (current !== requestEpoch || owner !== live.identity) return;
         results[id] = {status: 'error', error: errorMessage(failure)};
@@ -825,6 +899,65 @@ async function generate() {
       root.querySelectorAll('[data-rec-course]').forEach((element, index) =>
         animate(element, [{opacity: 0, transform: 'translateY(14px) rotateX(-4deg)'}, {opacity: 1, transform: 'translateY(0) rotateX(0)'}],
           {duration: 500, delay: Math.min(index * 70, 280)}));
+    }
+  }
+}
+
+async function enhancePlanExplanation(variant) {
+  const plan = results[variant];
+  if (!plan || plan.status !== 'done' || !plan.rows.length || plan.enhancing || busy || !live.sourceAvailable || !generationBoard || !generationRevision) return;
+  if (live.board?.context_revision !== generationRevision) {
+    error = errorMessage({status: 409}); renderResults(); return;
+  }
+  const epoch = requestEpoch, owner = live.identity, revision = generationRevision, board = generationBoard;
+  enhanceController?.abort();
+  const controller = new AbortController();
+  enhanceController = controller;
+  const timeout = setTimeout(() => { if (epoch === requestEpoch && enhanceController === controller) controller.abort(); }, 60000);
+  plan.enhancing = true; plan.enhanceNotice = ''; renderResults();
+  try {
+    const response = await request('/me/recommendations', {
+      method: 'POST',
+      signal: controller.signal,
+      body: recommendationPayload(board, answers, variant, revision, {includeNarrative: true}),
+    });
+    if (epoch !== requestEpoch || owner !== live.identity) return;
+    if (response.context_revision !== revision) {
+      error = errorMessage({status: 409});
+      return;
+    }
+    if (response.intent?.status === 'needs_clarification') {
+      plan.enhanceNotice = (response.intent.questions || []).join(' ') || copy('Chưa thể diễn giải AI lúc này.', 'AI summary could not be generated right now.');
+      return;
+    }
+    const constrained = constrainRecommendations(response, board, Number(answers.credits));
+    const nextExplanation = constrained.planExplanation;
+    if (nextExplanation?.explanation_source === 'llm_grounded') {
+      plan.planExplanation = nextExplanation;
+      plan.enhanceNotice = '';
+    } else {
+      if (nextExplanation) plan.planExplanation = nextExplanation;
+      plan.enhanceNotice = copy(
+        'Chưa bật hoặc chưa kết nối được AI lúc này; đang giữ tóm tắt từ dữ liệu đã kiểm tra.',
+        'AI summary is unavailable right now; keeping the data-grounded summary.',
+      );
+    }
+  } catch (failure) {
+    if (epoch !== requestEpoch || owner !== live.identity) return;
+    if (failure?.status === 401 || failure?.status === 409) {
+      error = errorMessage(failure);
+    } else {
+      plan.enhanceNotice = copy(
+        'Không kết nối được dịch vụ AI lúc này; vẫn giữ tóm tắt từ dữ liệu đã kiểm tra.',
+        'Could not reach the AI summary service; keeping the data-grounded summary.',
+      );
+    }
+  } finally {
+    clearTimeout(timeout);
+    if (enhanceController === controller) enhanceController = null;
+    if (epoch === requestEpoch && owner === live.identity) {
+      plan.enhancing = false;
+      renderResults();
     }
   }
 }
@@ -947,5 +1080,5 @@ document.addEventListener('visibilitychange', () => {
   syncMotionVisibility();
 });
 reduced.addEventListener('change', () => { if (reduced.matches) cancelMotion(); });
-window.addEventListener('pagehide', () => { requestController?.abort(); cancelMotion(); });
+window.addEventListener('pagehide', () => { requestController?.abort(); enhanceController?.abort(); cancelMotion(); });
 render(); syncMotionVisibility(); if (live.board?.program_id) loadCatalog(live.board.program_id);

@@ -268,7 +268,9 @@
     "Điều kiện tiên quyết của môn học chưa được xác định từ tài liệu nguồn.": "This course's prerequisites have not been established from the source documents.",
     "Đã qua kiểm tra eligibility của backend.": "Passed the backend eligibility checks.",
     "Phóng to khung chat": "Maximize chat",
-    "Thu nhỏ về 1/4 màn hình": "Restore chat window"
+    "Thu nhỏ về 1/4 màn hình": "Restore chat window",
+    "Trạng thái mở lớp kỳ tới chưa được xác minh; hãy đối chiếu thời khóa biểu chính thức khi đăng ký.": "Next-term course offerings are not verified; check the official timetable when registering.",
+    "Dữ liệu chương trình đào tạo chưa được xác minh đầy đủ; kết quả chỉ mang tính tham khảo học vụ.": "Curriculum data is not fully verified; results are for academic reference only."
   };
 
   const storageKey = "study-workspace-language";
@@ -276,7 +278,7 @@
   try { if (localStorage.getItem(storageKey) === "en") language = "en"; } catch { /* Optional preference. */ }
   const originals = new WeakMap();
   const attributes = new WeakMap();
-  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,#curriculum-reference,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy])';
+  const skip = 'script,style,textarea,[data-course-code],.course-code-name,.table-course-code,#portal-dialog,#curriculum-reference,.portal-source,.portal-transcript-table td,.source-profile-value,#catalog-name-text,.chat-message:not([data-ui-copy]),[data-llm-narrative]';
 
   const topicEn = {
     "Trí tuệ nhân tạo": "Artificial Intelligence",
@@ -341,6 +343,11 @@
     "bắt buộc không tính tổng tín chỉ": "non-credit-total required",
     "tốt nghiệp": "graduation",
   };
+  const strategyEn = {
+    "Cân bằng": "Balanced",
+    "Sát định hướng": "Interest focus",
+    "Ưu tiên tốt nghiệp": "Graduation focus",
+  };
   const translateTerms = (list, map) => list.split(',').map(s => {
     const t = s.trim();
     return Object.hasOwn(map, t) ? map[t] : t;
@@ -376,6 +383,30 @@
       [/^Thuộc nhóm học phần (.+) đúng theo ưu tiên của bạn\.$/, (_, req) => `In your preferred course category (${reqEn[req] || req}).`],
       [/^Giúp mở khóa (\d+) học phần tiếp theo trong chương trình\.$/, 'Unlocks $1 downstream courses in your curriculum.'],
       [/^Bổ sung tín chỉ cho nhóm tự chọn (.+)\.$/, (_, list) => `Contributes credits to unmet elective group(s): ${list.replaceAll('còn thiếu', 'remaining').replaceAll(' TC)', ' cr)')}.`],
+      [/^Đề xuất (\d+) môn \((\d+) TC\) — ([^·]+)$/, (_, count, cr, strategy) => `Suggested ${count} courses (${cr} cr) — ${strategyEn[strategy.trim()] || strategy.trim()}`],
+      [/^ưu tiên học lại (\d+) môn$/, 'prioritizing $1 retake(s)'],
+      [/^Chưa tìm thấy tổ hợp môn phù hợp \(([^,]+), mục tiêu (\d+) TC\)$/, (_, strategy, target) => `No matching bundle found (${strategyEn[strategy] || strategy}, target ${target} cr)`],
+      [/^Tổ hợp gồm (\d+) học phần với tổng (\d+) TC \(mục tiêu (\d+) TC, biên ±(\d+) TC\) theo chiến lược ([^.]+)\.$/, (_, count, cr, target, tol, strategy) => `Bundle of ${count} courses totaling ${cr} cr (target ${target} cr, ±${tol} cr band) under the ${strategyEn[strategy] || strategy} strategy.`],
+      [/^Ưu tiên học lại ([^.]+?) để khắc phục điểm F và giữ nhịp tiến độ\.$/, 'Prioritizes retaking $1 to recover from grade F and stay on track.'],
+      [/^Học phần ([^.]+?) giúp mở khóa (\d+) môn tiếp theo trong sơ đồ tiên quyết\.$/, 'Course $1 unlocks $2 downstream courses in the prerequisite graph.'],
+      [/^Bổ sung tín chỉ cho các nhóm tự chọn còn thiếu: ([^.]+)\.$/, 'Adds credits to unmet elective groups: $1.'],
+      [/^Nội dung gắn với chủ đề: ([^.]+)\.$/, (_, list) => `Aligned with topics: ${translateTerms(list, topicEn)}.`],
+      [/^Hỗ trợ định hướng nghề nghiệp: ([^.]+)\.$/, (_, list) => `Supports career paths: ${translateTerms(list, careerEn)}.`],
+      [/^Đã lọc bớt (\d+) môn đủ điều kiện khác để vừa khung tín chỉ học kỳ\.$/, 'Filtered out $1 other eligible courses to fit the semester credit band.'],
+      [/^Không thể ghép tổ hợp học phần đạt mục tiêu (\d+) TC \(±(\d+) TC\) theo chiến lược ([^.]+)\.$/, (_, target, tol, strategy) => `Could not assemble a bundle matching the ${target} cr target (±${tol} cr) under the ${strategyEn[strategy] || strategy} strategy.`],
+      [/^Chương trình hiện còn (\d+) tín chỉ chưa tích lũy\.$/, 'Your curriculum still has $1 remaining credits.'],
+      [/^Có (\d+) môn đủ điều kiện nhưng không khớp ngưỡng tín chỉ hoặc ràng buộc lọc hiện tại\.$/, '$1 eligible courses did not fit the current credit band or filter constraints.'],
+      [/^Hiện chưa có học phần đủ điều kiện đáp ứng bộ lọc hiện tại\.$/, 'No eligible courses match the current filter.'],
+      [/^Hãy thử nới giới hạn tín chỉ, bỏ bộ lọc loại môn hoặc kiểm tra lại nhánh tốt nghiệp\.$/, 'Try widening your credit target, clearing course-type filters, or checking your graduation path.'],
+      [/^Chiến lược đang áp dụng: ([^.]+?) với mục tiêu (\d+) TC \(±(\d+) TC\)\.$/, (_, strategy, target, tol) => `Active strategy: ${strategyEn[strategy] || strategy} with a ${target} cr target (±${tol} cr).`],
+      [/^Số tín chỉ còn thiếu theo khung chương trình: (\d+) TC\.$/, 'Remaining credits in curriculum: $1 cr.'],
+      [/^Các học phần chưa đạt cần lưu ý học lại: ([^.]+)\.$/, 'Unpassed courses to consider retaking: $1.'],
+      [/^Học lại điểm F: ([^.]+?) được ưu tiên đưa vào kế hoạch kỳ này\.$/, 'F-grade retake: $1 prioritized in this term plan.'],
+      [/^Mở đường tiên quyết cho các kỳ sau: ([^.]+)\.$/, (_, list) => `Unlocks prerequisites for upcoming terms: ${list.replace(/\(mở khóa (\d+) môn\)/g, '(unlocks $1 courses)')}.`],
+      [/^Lấp khoảng trống nhóm tự chọn còn thiếu: ([^.]+)\.$/, 'Closes gaps in unmet elective groups: $1.'],
+      [/^Bám sát mục tiêu học tập về ([^.]+)\.$/, (_, bits) => `Aligns with your study focus on ${bits.replace(/chủ đề ([^.]+?)(?= và nghề nghiệp |$)/, (_, t) => `topics ${translateTerms(t, topicEn)}`).replace(/nghề nghiệp (.+)$/, (_, c) => `career focus ${translateTerms(c, careerEn)}`).replace(' và ', ' and ')}.`],
+      [/^Cân đối tải học kỳ ở mức (\d+)\/(\d+) TC \(còn thiếu (\d+) TC theo CTĐT\)\.$/, 'Balances semester load at $1/$2 cr ($3 cr remaining in curriculum).'],
+      [/^Cân đối tải học kỳ ở mức (\d+)\/(\d+) TC\.$/, 'Balances semester load at $1/$2 cr.'],
       [/^Đủ điều kiện: (.+) Phù hợp: (.+?) Tiến độ bảng điểm: (.+)$/, (_, eligible, fit, signals) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)} Progress impact: ${signals.split('. ').filter(Boolean).map(s => translate(s.endsWith('.') ? s : s + '.')).join(' ')}`],
       [/^Đủ điều kiện: (.+) Phù hợp: (.+)$/, (_, eligible, fit) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)}`],
       [/^(⚠️\s*)?Chưa hoàn thành môn tiên quyết: (.+)$/, (_, icon, codes) => `${icon || ''}Missing prerequisites: ${codes.replaceAll(' hoặc ', ' or ')}`],
@@ -402,6 +433,15 @@
     if (value.startsWith('⚠️ ') && Object.hasOwn(en, value.slice(3))) return source.replace(value, '⚠️ ' + en[value.slice(3)]);
     for (const [pattern, replacement] of rules) {
       if (pattern.test(value)) return source.replace(value, value.replace(pattern, replacement));
+    }
+    if (value.includes('. ')) {
+      const parts = value.split(/(?<=\.)\s+/).filter(Boolean);
+      if (parts.length > 1) {
+        const translatedParts = parts.map(translate);
+        if (translatedParts.some((part, index) => part !== parts[index])) {
+          return source.replace(value, translatedParts.join(' '));
+        }
+      }
     }
     const summary = /^(.*): (\d+)$/.exec(value);
     if (summary && Object.hasOwn(en, summary[1])) return source.replace(value, `${en[summary[1]]}: ${summary[2]}`);

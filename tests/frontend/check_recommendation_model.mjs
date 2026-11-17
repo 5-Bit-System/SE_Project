@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {comparePlans, constrainRecommendations, creditLimits, creditsForWorkload,
-  graduationWindow, recommendationPayload, validGraduationGoal} from '../../app/static/recommendation-model.mjs';
+  graduationWindow, normalizePlanExplanation, recommendationPayload, validGraduationGoal} from '../../app/static/recommendation-model.mjs';
 
 const group = {id: 'elective', required_credits: 3, earned_credits: 0};
 const course = (code, credits = 3, extra = {}) => ({code, credits, name: `Catalog ${code}`, groups: [], counted_in_total: true, ...extra});
@@ -69,3 +69,30 @@ assert.ok(software.form_input.explicit_fields.includes('workload'));
 assert.ok(!software.form_input.explicit_fields.includes('target_credits'));
 assert.ok(software.ranking_weights.orientation > 0 && software.ranking_weights.difficulty > 0);
 assert.equal(software.goal.includes('Phần mềm'), false);
+assert.strictEqual(payload.include_narrative, false);
+assert.strictEqual(recommendationPayload(board, answers, 'balanced', 'revision', {includeNarrative: true}).include_narrative, true);
+assert.strictEqual(recommendationPayload(board, {...answers, includeNarrative: true}, 'balanced', 'revision').include_narrative, true);
+assert.strictEqual(recommendationPayload(board, {...answers, includeNarrative: true}, 'balanced', 'revision', {includeNarrative: false}).include_narrative, false);
+
+assert.equal(result.planExplanation, null);
+const withExplanation = constrainRecommendations({
+  ...response,
+  plan_explanation: {
+    headline: 'Đề xuất 2 môn (6 TC) — Cân bằng',
+    bundle_rationale: 'Tổ hợp phù hợp cho A và B.',
+    highlights: ['Ưu tiên A.', 'Bổ sung B.', 'Không chọn C vì vượt nhóm.'],
+    caveats: ['Trạng thái mở lớp chưa xác minh.'],
+    explanation_source: 'llm_grounded',
+  },
+}, board, 20);
+assert.equal(withExplanation.planExplanation.explanation_source, 'llm_grounded');
+assert.deepEqual(withExplanation.planExplanation.highlights, ['Ưu tiên A.', 'Bổ sung B.']);
+assert.equal(normalizePlanExplanation({headline: '', bundle_rationale: 'Missing headline'}), null);
+assert.equal(normalizePlanExplanation({
+  headline: 'Đề xuất có FOREIGN',
+  bundle_rationale: 'Không hợp lệ',
+}, ['FOREIGN']), null);
+assert.equal(constrainRecommendations({
+  recommendations: [{code: 'FOREIGN', credits: 3}],
+  plan_explanation: {headline: 'Hợp lệ', bundle_rationale: 'Có môn'},
+}, board, 20).planExplanation, null);

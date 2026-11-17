@@ -46,7 +46,7 @@ export function defaultTerm(date = new Date()) {
   return {year: date.getFullYear(), semester: autumn ? 2 : 1};
 }
 
-export function recommendationPayload(board, answers, variant, revision) {
+export function recommendationPayload(board, answers, variant, revision, options = {}) {
   const credits = Number(answers.credits);
   const limits = creditLimits(answers.workload);
   if (!board?.program_id || !revision || !WEIGHTS[variant]
@@ -71,15 +71,57 @@ export function recommendationPayload(board, answers, variant, revision) {
   if (answers.creditsExplicit) explicit.push('target_credits');
   if (topics.length) explicit.push('interest_topics');
   const weights = Object.fromEntries(Object.entries(WEIGHTS[variant]).map(([key, value]) => [key, value * .7]));
+  const includeNarrative = Boolean(options?.includeNarrative ?? answers.includeNarrative);
   return {
     program_id: board.program_id, expected_revision: revision,
     selected_track_id: answers.track || null,
     selected_graduation_path_id: answers.path || null,
     max_credits: credits, credit_tolerance: 2, target_remaining_terms: remainingTerms, limit: 20, goal,
+    include_narrative: includeNarrative,
     form_input: {values: {workload: answers.workload, target_credits: credits,
       interest_topics: topics, orientation: answers.direction === 'research' ? 'research' : null},
       explicit_fields: answers.direction === 'research' ? [...explicit, 'orientation'] : explicit},
     ranking_weights: {...weights, orientation: .1, difficulty: .1, career: .1},
+  };
+}
+
+function normalizeStringList(items, limit = 5) {
+  if (!Array.isArray(items)) return [];
+  const result = [];
+  for (const item of items) {
+    if (typeof item !== 'string') continue;
+    const text = item.trim();
+    if (!text) continue;
+    result.push(text);
+    if (result.length >= limit) break;
+  }
+  return result;
+}
+
+function mentionsOmittedCode(text, omittedPatterns) {
+  return omittedPatterns.some(pattern => pattern.test(text));
+}
+
+export function normalizePlanExplanation(raw, omittedCodes = []) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+  const headline = typeof raw.headline === 'string' ? raw.headline.trim() : '';
+  const bundleRationale = typeof raw.bundle_rationale === 'string' ? raw.bundle_rationale.trim() : '';
+  if (!headline || !bundleRationale) return null;
+  const omittedPatterns = [...new Set((omittedCodes || []).filter(code => typeof code === 'string' && code.trim()))]
+    .map(code => new RegExp(`(?<![\\p{L}\\p{N}_])${code.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}_])`, 'u'));
+  if (omittedPatterns.length && (mentionsOmittedCode(headline, omittedPatterns) || mentionsOmittedCode(bundleRationale, omittedPatterns))) {
+    return null;
+  }
+  const highlights = normalizeStringList(raw.highlights, 5)
+    .filter(item => !omittedPatterns.length || !mentionsOmittedCode(item, omittedPatterns));
+  const caveats = normalizeStringList(raw.caveats, 5);
+  const explanationSource = raw.explanation_source === 'llm_grounded' ? 'llm_grounded' : 'deterministic_fallback';
+  return {
+    headline,
+    bundle_rationale: bundleRationale,
+    highlights,
+    caveats,
+    explanation_source: explanationSource,
   };
 }
 
@@ -106,7 +148,12 @@ export function constrainRecommendations(response, board, budget) {
     credits += course.credits;
     groups.forEach(group => used.set(group.id, (used.get(group.id) || 0) + course.credits));
   }
-  return {rows, credits, omitted, warnings: response?.warnings || []};
+  const rowCodes = new Set(rows.map(row => row.code));
+  const droppedCodes = omitted.filter(code => !rowCodes.has(code));
+  const planExplanation = rows.length === 0 && (response?.recommendations || []).length > 0
+    ? null
+    : normalizePlanExplanation(response?.plan_explanation, droppedCodes);
+  return {rows, credits, omitted, warnings: response?.warnings || [], planExplanation};
 }
 
 export function comparePlans(left, right) {
