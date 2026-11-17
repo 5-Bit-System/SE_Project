@@ -152,20 +152,36 @@ class RankingWeights(BaseModel):
 class RecommendationRequest(BaseModel):
     program_id: str
     passed_course_codes: list[str] = Field(default_factory=list)
+    failed_course_codes: list[str] = Field(default_factory=list)
     goal: str = Field(default="", max_length=500)
     max_credits: int = Field(default=18, ge=1, le=30)
+    credit_tolerance: int = Field(default=2, ge=0, le=5)
+    target_remaining_terms: int | None = Field(default=None, ge=1, le=20)
     limit: int = Field(default=5, ge=1, le=20)
     selected_track_id: str | None = None
     selected_graduation_path_id: str | None = None
     preference: StructuredPreference | None = None
     ranking_weights: RankingWeights | None = None
     form_input: FormInput | None = None
+    include_narrative: bool = Field(default=False, strict=True)
 
 
 class WhatIfRequest(RecommendationRequest):
     """Request xếp hạng lại trên cùng eligibility với bộ trọng số mới."""
 
     ranking_weights: RankingWeights = Field(default_factory=RankingWeights)
+
+
+class PlanExplanation(BaseModel):
+    """Giải thích tổng thể cho bộ môn học được đề xuất trong học kỳ."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    headline: str = Field(min_length=1, max_length=200)
+    bundle_rationale: str = Field(min_length=1, max_length=1000)
+    highlights: list[str] = Field(default_factory=list, max_length=5)
+    caveats: list[str] = Field(default_factory=list, max_length=5)
+    explanation_source: Literal["deterministic_fallback", "llm_grounded"] = "deterministic_fallback"
 
 
 class RecommendedCourse(BaseModel):
@@ -175,6 +191,9 @@ class RecommendedCourse(BaseModel):
     reason: str
     rank: int = Field(default=0, ge=0)
     score: float = Field(default=0.0, ge=0.0, le=1.0)
+    fit_probability: float | None = Field(default=None, ge=0.0, le=1.0)
+    is_retake: bool = False
+    transcript_signals: list[str] = Field(default_factory=list)
     eligibility_reason: list[str] = Field(default_factory=list)
     fit_reason: str = "Chưa có dữ liệu đủ để xác định mức độ phù hợp chi tiết."
     source_status: str = "unknown"
@@ -186,6 +205,9 @@ class RecommendationResponse(BaseModel):
     catalog_status: str
     recommendations: list[RecommendedCourse]
     eligible_count: int
+    target_credits: int | None = None
+    selected_credits: int = 0
+    credit_tolerance: int = 2
     warnings: list[str] = Field(default_factory=list)
     preference: StructuredPreference = Field(default_factory=StructuredPreference)
     ranking_backend: str = "deterministic-keyword-v1"
@@ -194,6 +216,7 @@ class RecommendationResponse(BaseModel):
     ranking_weights: RankingWeights = Field(default_factory=RankingWeights)
     what_if: bool = False
     intent: IntentDiagnostics = Field(default_factory=IntentDiagnostics)
+    plan_explanation: PlanExplanation | None = None
 
 
 class BlockedReason(BaseModel):

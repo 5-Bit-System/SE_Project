@@ -37,7 +37,7 @@ def test_preview_context_reads_owner_from_session_and_stays_unready(client):
     authenticated(client)
     response = client.get('/me/academic-context?program_id=khdl')
     assert response.status_code == 200
-    assert response.json()['status'] == 'needs_program_binding'
+    assert response.json()['status'] == 'needs_source_review'
     assert response.json()['completed_course_codes'] == []
     assert client.seen_owners == ['synthetic-owner']
     assert response.headers['cache-control'] == 'no-store'
@@ -59,7 +59,7 @@ def test_unready_source_never_returns_personalized_empty_transcript_results(clie
     response = client.get(path + '?program_id=khdl')
     assert response.status_code == 409
     assert response.json()['detail']['code'] == 'academic_context_not_ready'
-    assert 'program_binding_unverified' in response.json()['detail']['blocking_reasons']
+    assert 'source_enrollment_unresolved' in response.json()['detail']['blocking_reasons']
 
 
 @pytest.mark.parametrize('path', ['/me/recommendations', '/me/recommendations/what-if',
@@ -162,7 +162,7 @@ def test_expired_session_does_not_read_stored_source(client, path):
     assert client.seen_owners == []
 
 
-def test_course_board_requires_session_and_never_guesses_program_from_display(client):
+def test_course_board_resolves_portal_enrollment_but_requires_complete_source(client):
     assert client.get('/me/course-status').status_code == 401
     assert client.seen_owners == []
     authenticated(client)
@@ -170,8 +170,9 @@ def test_course_board_requires_session_and_never_guesses_program_from_display(cl
     response = client.get('/me/course-status')
     assert response.status_code == 200
     assert response.json()['courses'] is None
-    assert response.json()['blocking_reasons'] == [
-        'source_incomplete', 'program_binding_unverified']
+    assert 'source_incomplete' in response.json()['blocking_reasons']
+    assert 'program_binding_unverified' not in response.json()['blocking_reasons']
+    assert 'program_selection' not in response.json()
     assert response.headers['cache-control'] == 'no-store'
 
 

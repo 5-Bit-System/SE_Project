@@ -1,4 +1,5 @@
 from app.models import (
+    PlanExplanation,
     RankingWeights,
     RecommendationRequest,
     RecommendationResponse,
@@ -8,6 +9,7 @@ from app.models import (
 )
 
 __all__ = [
+    "PlanExplanation",
     "RecommendationRequest",
     "RecommendationResponse",
     "RecommendedCourse",

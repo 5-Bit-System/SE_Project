@@ -29,7 +29,7 @@ from app.catalog import load_catalog
 from app.catalog_contracts import digest
 from app.integrations.daotao import runtime, store
 from app.models import RankingWeights, RecommendationRequest, StructuredPreference
-from app.program_bindings import ProgramBindingError, binding_current
+from app.program_bindings import ProgramBindingError, resolved_program, source_binding
 from app.program_bindings import confirm as confirm_program
 from app.program_bindings import options as program_options
 from app.progress import calculate_progress
@@ -95,6 +95,8 @@ class AcademicOperation(AcademicQuery):
     expected_revision: str | None = Field(default=None, max_length=64)
     goal: str = Field(default="", max_length=500)
     max_credits: int = Field(default=18, ge=1, le=30)
+    credit_tolerance: int = Field(default=2, ge=0, le=5)
+    target_remaining_terms: int | None = Field(default=None, ge=1, le=20)
     limit: int = Field(default=5, ge=1, le=20)
     preference: StructuredPreference | None = None
     ranking_weights: RankingWeights | None = None
@@ -103,6 +105,7 @@ class AcademicOperation(AcademicQuery):
     form_input: FormInput | None = None
     intent_version: int | None = Field(default=None, ge=0, strict=True)
     reset_intent: bool = Field(default=False, strict=True)
+    include_narrative: bool = Field(default=False, strict=True)
 
 
 def parse_query(request: Request) -> AcademicQuery:
@@ -151,13 +154,18 @@ async def resolve_context(request: Request, query: AcademicQuery, saved: dict | 
     except ValueError:
         raise HTTPException(422, "academic_program_invalid") from None
     metadata = saved.get("profile") or {}
-    binding = metadata.get("academic_binding")
-    if not isinstance(binding, dict) or not binding_current(metadata):
-        binding = None
+    binding = source_binding(metadata, catalog)
     policy = POLICIES.get(binding.get("policy_version")) if binding else None
     context = build_context(saved.get("snapshot"), owner_id=owner_id, catalog=catalog,
                             catalog_revision=revision, binding=binding, policy=policy,
                             preview_unverified_metadata=preview_unverified_metadata)
+    if "program_binding_unverified" in context["blocking_reasons"]:
+        reason = ("academic_program_source_mismatch" if resolved_program(metadata)
+                  and resolved_program(metadata) != catalog.program.program_id
+                  else "source_enrollment_unresolved")
+        context["blocking_reasons"] = [reason if item == "program_binding_unverified" else item
+                                       for item in context["blocking_reasons"]]
+        context["status"] = "needs_source_review"
     # Track/path are part of the revision even if they do not change passed facts.
     context["revision"] = hashlib.sha256(json.dumps({
         "context": context["revision"], "track": query.selected_track_id,
@@ -254,9 +262,10 @@ async def course_status(request: Request):
         raise HTTPException(422, "invalid_academic_request") from None
     saved = await safe_call(store.profile, owner_id)
     await auth_call(account_portal.check, value)
-    binding = (saved.get("profile") or {}).get("academic_binding")
+    metadata = saved.get("profile") or {}
+    program_id = resolved_program(metadata)
     unavailable = {
-        "status": "needs_program_binding", "blocking_reasons": [],
+        "status": "needs_source_review", "blocking_reasons": [],
         "courses": None, "progress": None, "plan": None,
         "latest_collection": (await session(request)).latest_collection,
     }
@@ -271,15 +280,10 @@ async def course_status(request: Request):
         unavailable["blocking_reasons"].append("source_missing")
     elif snapshot.get("completeness") != "complete":
         unavailable["blocking_reasons"].append("source_incomplete")
-    if (not isinstance(binding, dict) or not binding_current(saved.get("profile") or {})
-            or binding.get("verified") is not True
-            or not isinstance(binding.get("program_id"), str)
-            or not binding["program_id"].strip()):
-        unavailable["blocking_reasons"].append("program_binding_unverified")
-        unavailable["program_selection"] = await asyncio.to_thread(program_options, saved)
-        await auth_call(account_portal.check, value)
+    if not program_id:
+        unavailable["blocking_reasons"].append("source_enrollment_unresolved")
         return unavailable
-    query = AcademicQuery(program_id=binding["program_id"], **options.model_dump(exclude={"max_credits"}))
+    query = AcademicQuery(program_id=program_id, **options.model_dump(exclude={"max_credits"}))
     catalog, context = await resolve_context(
         request, query, saved, source_session=value,
         preview_unverified_metadata=True,
@@ -315,8 +319,6 @@ async def course_status(request: Request):
     if board_context["status"] != "ready" and not reviewable:
         result = {**unavailable, "status": board_context["status"],
                   "blocking_reasons": board_context["blocking_reasons"], "selections": selections}
-        if "program_binding_unverified" in board_context["blocking_reasons"]:
-            result["program_selection"] = await asyncio.to_thread(program_options, saved)
         return result
     missing = []
     if selections["track_required"] and not query.selected_track_id:
@@ -385,13 +387,19 @@ async def operation(request: Request):
 @measured_consultation('recommendation')
 async def recommendations(request: Request):
     query, catalog, context, passed = await operation(request)
+    failed_codes = sorted(
+        outcome["code"] for outcome in context.get("outcomes", [])
+        if outcome.get("state") == "not_completed"
+    )
     internal = RecommendationRequest(**query.model_dump(include={
-        "goal", "max_credits", "limit", "selected_track_id", "selected_graduation_path_id",
-        "preference", "ranking_weights", "form_input"}), program_id=catalog.program.program_id,
-        passed_course_codes=sorted(passed))
-    extractor, ranker = configured_adapters(catalog)
+        "goal", "max_credits", "credit_tolerance", "target_remaining_terms",
+        "limit", "selected_track_id", "selected_graduation_path_id",
+        "preference", "ranking_weights", "form_input", "include_narrative"}),
+        program_id=catalog.program.program_id,
+        passed_course_codes=sorted(passed), failed_course_codes=failed_codes)
+    extractor, _ = configured_adapters(catalog)
     result = await asyncio.to_thread(recommend, catalog, internal,
-                                     preference_extractor=extractor, llm_ranker=ranker)
+                                     preference_extractor=extractor, llm_ranker=None)
     await ensure_current(request, query, context)
     principal = await require_account(request)
     await record_activity_safely(principal['account_id'], 'recommendation')
