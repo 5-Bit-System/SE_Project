@@ -25,6 +25,10 @@
     if (event.newState === 'open') positionAccountMenu();
   });
   window.addEventListener('resize', () => {
+    if (account?.role === 'admin' && mode === 'admin') {
+      const compact = typeof matchMedia === 'function' && matchMedia('(max-width: 1080px)').matches;
+      if (compact !== !menuToggle.hidden) render();
+    }
     if (headerControls.matches(':popover-open')) positionAccountMenu();
   });
   headerControls.addEventListener('toggle', event => {
@@ -33,7 +37,7 @@
 
   Object.assign(copy.vi, {
     restoringSession:'Đang khôi phục phiên đăng nhập…', eyebrow:'Không gian học tập của sinh viên VNU', headline:'Mỗi học kỳ,\nmột bước tiến rõ ràng.', description:'Bảng điểm và thông tin học tập của bạn, gọn trong một không gian. Theo dõi hành trình và chủ động lên kế hoạch cho kỳ tiếp theo.',
-    featureTranscript:'Bảng điểm theo học kỳ', featurePlans:'Kế hoạch học tập cá nhân', visualKicker:'MINH HỌA GIAO DIỆN', visualTitle:'Hồ sơ học tập của bạn', visualFoot:'Thông tin được sắp xếp theo từng học kỳ',
+    featureTranscript:'Bảng điểm theo học kỳ', featurePlans:'Kế hoạch học tập cá nhân', featureLookup:'Tra cứu CTĐT & môn học HUS', visualKicker:'KHÁM PHÁ KHÔNG GIAN', visualTitle:'Trọn vẹn lộ trình học tập', visualFoot:'Toán · Toán tin · KHMTTT · Khoa học dữ liệu',
     authKicker:'ĐĂNG NHẬP AN TOÀN', authWelcome:'Chào mừng bạn', authTypePrompt:'Chọn loại tài khoản để tiếp tục vào không gian học tập.', authFooter:'ĐHKHTN · Đại học Quốc gia Hà Nội', showPassword:'Hiện mật khẩu', hidePassword:'Ẩn mật khẩu',
     vnuUsernamePlaceholder:'Nhập tài khoản VNU', adminUsernamePlaceholder:'Nhập tài khoản quản trị', passwordPlaceholder:'Nhập mật khẩu',
     studentTab:'Sinh viên VNU', adminTab:'Quản trị viên', studentTitle:'Đăng nhập bằng VNU',
@@ -56,7 +60,7 @@
   });
   Object.assign(copy.en, {
     eyebrow:'A study space for VNU students', headline:'Every semester,\na clearer next step.', description:'Your transcript and study information, together in one place. Follow your progress and plan ahead for the next semester.',
-    featureTranscript:'Transcript by semester', featurePlans:'Personal study plans', visualKicker:'INTERFACE PREVIEW', visualTitle:'Your study profile', visualFoot:'Information organized by semester',
+    featureTranscript:'Transcript by semester', featurePlans:'Personal study plans', featureLookup:'HUS curriculum lookup', visualKicker:'WORKSPACE OVERVIEW', visualTitle:'Your full academic path', visualFoot:'Math · Math & Info · CS & IT · Data Science',
     authKicker:'SECURE SIGN IN', authWelcome:'Welcome', authTypePrompt:'Choose an account type to continue to your study space.', authFooter:'VNU University of Science · Vietnam National University', showPassword:'Show password', hidePassword:'Hide password',
     vnuUsernamePlaceholder:'Enter your VNU account', adminUsernamePlaceholder:'Enter your administrator account', passwordPlaceholder:'Enter your password',
     studentTab:'VNU student', adminTab:'Administrator', studentTitle:'Sign in with VNU',
@@ -182,7 +186,8 @@
     $('system-session-loading').setAttribute('aria-busy', String(restoringSession));
     document.body.dataset.authState = restoringSession ? 'loading' : mode === 'admin' && account ? 'admin' : mode === 'workspace' && account ? 'workspace' : 'auth';
     $('system-account').hidden = !account; $('system-account-name').textContent = account ? (account.vnu_subject || account.email || account.display_name) + ' · ' + t(account.role === 'admin' ? 'adminRole':'studentRole') : '';
-    const adminMenu = account?.role === 'admin' && mode === 'admin';
+    const compactAdminHeader = typeof matchMedia === 'function' && matchMedia('(max-width: 1080px)').matches;
+    const adminMenu = account?.role === 'admin' && mode === 'admin' && compactAdminHeader;
     menuToggle.hidden = !adminMenu;
     menuToggle.setAttribute('aria-label', t('accountMenu'));
     headerControls.setAttribute('aria-label', t('accountMenu'));
@@ -194,7 +199,7 @@
       headerControls.removeAttribute('style');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
-    $('system-home').hidden = account?.role !== 'student' || account.must_change_password;
+    $('system-home').hidden = account?.role !== 'student' || account.must_change_password || mode === 'workspace';
     $('system-admin').hidden = mode !== 'admin' || !account || account.role !== 'admin';
     for (const key of ['student','login','password']) $(`auth-${key}-form`).hidden = mode !== key;
     $('auth-login-tab').hidden = Boolean(account); $('auth-student-tab').hidden = Boolean(account);

@@ -43,7 +43,8 @@ def main():
             page.locator('#admin-overview-refresh').click()
             page.wait_for_timeout(150)
             assert held
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('#system-logout').click()
             expect(page.locator('#system-admin')).to_be_hidden()
             held[0].fulfill(status=200, content_type='application/json', body=json.dumps({

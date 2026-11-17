@@ -4,7 +4,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const state = { overview: null, insights: null, health: null, programs: null };
-  const palette = ['#3676d9', '#6c9be8', '#9abdf0', '#bdd4f5', '#5b89c6', '#d3e1f4'];
+  const palette = ['var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)', 'var(--chart-4)', 'var(--chart-5)', 'var(--chart-6)'];
   let identity = '', sidebarOpen = false;
   const mobile = matchMedia('(max-width: 760px)');
   const en = () => window.workspaceI18n?.language === 'en';

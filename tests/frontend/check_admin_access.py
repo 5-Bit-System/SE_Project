@@ -68,10 +68,15 @@ def main():
             page.locator('#auth-login-form button[type=submit]').click()
 
             def admin_only():
+                compact = page.evaluate('innerWidth <= 1080')
                 expect(page.locator('#system-admin')).to_be_visible()
-                expect(page.locator('#system-menu-toggle')).to_be_visible()
+                if compact:
+                    expect(page.locator('#system-menu-toggle')).to_be_visible()
+                    expect(page.locator('#system-header-controls')).to_be_hidden()
+                else:
+                    expect(page.locator('#system-menu-toggle')).to_be_hidden()
+                    expect(page.locator('#system-header-controls')).to_be_visible()
                 assert page.locator('#system-admin-open, #system-password').count() == 0
-                expect(page.locator('#system-header-controls')).to_be_hidden()
                 expect(page.locator('#system-home')).to_be_hidden()
                 assert page.locator('#admin-back').count() == 0
                 expect(page.locator('.main-content')).to_be_hidden()
@@ -87,10 +92,12 @@ def main():
             assert not any(role == 'admin' and path.startswith('/me/') for role, path in requests)
 
             for language in ('en', 'vi'):
-                page.locator('#system-menu-toggle').click()
+                if page.locator('#system-menu-toggle').is_visible():
+                    page.locator('#system-menu-toggle').click()
                 page.locator(f'[data-language-choice="{language}"]').click()
                 expect(page.locator('#system-header-controls')).to_be_visible()
-                page.keyboard.press('Escape')
+                if page.locator('#system-menu-toggle').is_visible():
+                    page.keyboard.press('Escape')
                 admin_only()
             page.set_viewport_size({'width': 390, 'height': 844})
             admin_only()
@@ -110,7 +117,8 @@ def main():
             assert not any(role == 'admin' and path.startswith('/me/')
                            and path != '/me/password' for role, path in requests)
 
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('#system-logout').click()
             expect(page.locator('#auth-student-form')).to_be_visible()
             page.locator('#auth-vnu-username').fill('synthetic-only')
@@ -121,7 +129,7 @@ def main():
             # Open the profile explicitly instead of relying on the old admin hash.
             page.locator('[data-tab="portal-dialog"]').click()
             expect(page.locator('#portal-profile')).to_be_visible()
-            expect(page.locator('#system-home')).to_be_visible()
+            expect(page.locator('#system-home')).to_be_hidden()
             expect(page.locator('#system-admin')).to_be_hidden()
             expect(page.locator('#system-menu-toggle')).to_be_hidden()
             expect(page.locator('#portal-identity')).to_have_text('synthetic-only')
