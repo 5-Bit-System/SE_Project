@@ -168,6 +168,8 @@ def main():
         page.locator('.analytics-data-table summary').click()
         assert 'Updated: 23/10/2026, 07:00:00' in page.locator('#analytics-status').inner_text()
         page.locator('#tab-btn-profile').click()
+        page.locator('#portal-source-details > summary').click()
+        page.wait_for_function("document.querySelector('#portal-summary').innerText.includes('Tổng kết nguồn giả lập')")
         assert 'Tổng kết nguồn giả lập' in page.locator('#portal-summary').inner_text()
         totals = page.locator('#portal-summary').inner_text()
         assert 'Total credits: 6' in totals

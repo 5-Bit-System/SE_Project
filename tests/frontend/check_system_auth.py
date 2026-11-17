@@ -11,12 +11,14 @@ import time
 import uuid
 from contextlib import contextmanager
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import uvicorn
 from playwright.sync_api import sync_playwright
 
 from app.config import get_settings
+from tests.frontend.presentation_fixture import open_plan_tools
 
 
 def main():
@@ -62,7 +64,7 @@ def main():
                     'cookies': [{'name': 'synthetic', 'value': 'private-synthetic-browser-cookie',
                                  'domain': 'daotao.vnu.edu.vn', 'path': '/dkmh/', 'expires': -1}]}
 
-        with contextmanager(runtime_engine.__wrapped__)() as engine, \
+        with contextmanager(runtime_engine.__wrapped__)(SimpleNamespace(param='head')) as engine, \
                 patch.object(repository, 'engine', lambda: engine), patch.object(store, 'engine', lambda: engine), \
                 patch.object(seeder, 'engine', lambda: engine), patch('app.catalog.DATA_ROOT', catalogs), \
                 patch.object(runtime, 'collect', collect):
@@ -116,23 +118,25 @@ def main():
                         assert page.locator('#system-admin-open').count() == 0
                         assert page.request.get(base+'/admin/users').status==403
                         page.locator('#tab-btn-rules').click()
-                        page.locator('#academic-program-choice').wait_for(state='visible')
-                        assert page.locator('#academic-program-choice').input_value() == 'khmtt_7480113qtd_2022'
                         source_before = page.request.get(base+'/me/profile').json()
-                        page.locator('#academic-program-consent').check()
-                        page.get_by_role('button', name='Xác nhận và đối chiếu bảng điểm', exact=True).click()
                         board = page.locator('#course-status-board')
                         board.locator('[data-course-code="PHI1006"]').wait_for(state='visible')
-                        board.get_by_label('Hướng chuyên ngành', exact=True).select_option('synthetic_track')
-                        board.get_by_label('Nhánh tốt nghiệp', exact=True).select_option('thesis')
+                        assert page.locator('.course-program-confirmation').count() == 0
+                        assert not any(url.endswith('/me/academic-program') for url in submissions)
+                        page.locator('#tab-btn-recommend').click()
+                        open_plan_tools(page)
+                        planner = page.locator('#course-planning-panel')
+                        planner.get_by_label('Hướng chuyên ngành', exact=True).select_option('synthetic_track')
+                        planner.get_by_label('Nhánh tốt nghiệp', exact=True).select_option('thesis')
                         page.wait_for_function("document.querySelectorAll('.course-state-eligible .course-status-card').length > 0")
+                        page.locator('#tab-btn-rules').click()
                         assert board.locator('.course-status-column').count() == 3
                         assert board.locator('.course-state-completed .course-status-card').count() == 1
                         assert page.locator('#course-credit-budget').input_value() == '20'
                         source_after = page.request.get(base+'/me/profile').json()
                         assert source_after['snapshot'] == source_before['snapshot']
                         assert source_after['last_synced_at'] == source_before['last_synced_at']
-                        assert source_after['profile']['academic_binding']['cohort'] == 68
+                        assert 'academic_binding' not in source_after['profile']
                         page.screenshot(path=str(evidence/'rules-real-api.png'), full_page=True)
                         page.locator('#tab-btn-profile').click()
                         page.locator('#portal-profile').wait_for(state='visible')
@@ -175,7 +179,7 @@ def main():
                         page.screenshot(path=str(evidence/'admin-mobile.png'),full_page=True)
                         page.on('dialog',lambda dialog:dialog.accept())
                         row=page.locator('#admin-users tbody tr').filter(has_text='synthetic-browser-vnu')
-                        row.locator('button').click()
+                        row.get_by_role('button', name='Khóa synthetic-browser-vnu', exact=True).click()
                         page.wait_for_function("document.querySelector('#admin-users tbody').textContent.includes('kh\u00f3a')")
                         page.locator('#system-menu-toggle').click()
                         page.locator('#system-logout').click()

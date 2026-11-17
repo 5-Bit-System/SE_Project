@@ -11,4 +11,6 @@ branch and a GitHub pull request. Merge with **Create a merge commit** so team
 members' original commits and authors remain in `main` history. Do not squash,
 rebase-merge, or replace teammates' contributions with copied code committed only
 under the integrator's identity. Preserve genuine author metadata; do not invent
-commits or authorship. See `.agent/AGENTS.md` for the full workflow and exceptions.
+commits or authorship. Every commit/push and branch merge must verify that **all
+GitHub Actions CI checks pass (100% green)** both on the PR before merging and on
+`main` after merging. See `.agent/AGENTS.md` for the full workflow and exceptions.

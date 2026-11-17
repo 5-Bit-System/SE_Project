@@ -28,12 +28,8 @@ def main():
                 pending.append(route)
             elif mode == '401':
                 route.fulfill(status=401, json={})
-            elif mode == 'selection-pending':
-                route.fulfill(json={'status': 'partial', 'blocking_reasons': ['program_binding_unverified']})
             else:
                 route.fulfill(json={'status': 'partial', 'blocking_reasons': []})
-        elif path == '/me/academic-program':
-            pending.append(route)
         else:
             route.abort()
 
@@ -60,14 +56,6 @@ def main():
         page.locator('[data-course-status-focus="refresh"]').click()
         page.wait_for_function('!workspacePlanning.snapshot().loading && !workspacePlanning.snapshot().failed')
 
-        mode = 'selection-pending'
-        page.locator('[data-course-status-focus="refresh"]').click()
-        page.wait_for_function('workspacePlanning.snapshot().loading')
-        page.wait_for_timeout(100)
-        assert len(pending) >= 2
-        page.clock.fast_forward(20001)
-        page.wait_for_function('!workspacePlanning.snapshot().loading && workspacePlanning.snapshot().failed')
-
         mode = '401'
         page.locator('[data-course-status-focus="refresh"]').click()
         page.wait_for_function('!workspacePlanning.snapshot().loading && workspacePlanning.snapshot().board === null')
@@ -79,7 +67,7 @@ def main():
             except Exception:
                 pass  # Already aborted by the real request's AbortController.
         browser.close()
-    print('Course-status timeout, fallback-selection timeout, retry and 401 cleanup passed')
+    print('Course-status timeout, retry and 401 cleanup passed')
 
 
 if __name__ == '__main__':

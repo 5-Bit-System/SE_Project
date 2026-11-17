@@ -180,7 +180,7 @@ def main():
                     heading_selector = ".course-status-heading h2" if name == "courses" else ".tab-panel.active h2"
                     heading_size = page.locator(heading_selector).first.evaluate(
                         "n => parseFloat(getComputedStyle(n).fontSize)")
-                    assert 24 <= heading_size <= (42 if name == 'recommend' else 36), (theme, width, name, heading_size)
+                    assert 22 <= heading_size <= 26, (theme, width, name, heading_size)
                     selectors = [".tab-btn.active", ".sidebar-profile strong"]
                     if name in ("courses", "recommend"):
                         selectors.append(".tab-panel.active .source-notice p")

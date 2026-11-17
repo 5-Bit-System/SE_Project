@@ -4,6 +4,8 @@ import hashlib
 import json
 import re
 
+from app.integrations.daotao.text import repair_source_text
+
 
 class PortalFailure(Exception):
     """Only a safe, predefined code may cross the portal boundary."""
@@ -45,7 +47,9 @@ def source_profile(texts: list[str]) -> dict:
     candidates = {key: set() for key in ("name", "program", "cohort")}
     management_classes = set()
     for body in texts:
-        lines = [line.strip() for line in body.splitlines() if line.strip()]
+        # Keep C1 bytes inside a misdecoded name until its UTF-8 is restored;
+        # str.splitlines() would treat U+0085 as a newline and lose evidence.
+        lines = [line for line in re.split(r"\r\n|[\r\n]", body) if line.strip()]
         for line in lines:
             parts = re.split(r"[:：\t]+", line, maxsplit=1)
             label = parts[0].strip().casefold()
@@ -54,7 +58,10 @@ def source_profile(texts: list[str]) -> dict:
                 continue
             if label not in labels:
                 continue
-            value = parts[1].strip() if len(parts) == 2 else ""
+            value = parts[1] if len(parts) == 2 else ""
+            if labels[label] == "name":
+                value = repair_source_text(value)
+            value = value.strip()
             if (value and len(value) <= 200 and not re.search(r"[:：\t]", value)
                     and value.casefold() not in labels):
                 candidates[labels[label]].add(value)

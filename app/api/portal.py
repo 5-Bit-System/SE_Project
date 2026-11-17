@@ -16,6 +16,7 @@ from app.auth.dependencies import call as auth_call
 from app.auth.dependencies import require_account
 from app.integrations.daotao import runtime, store
 from app.integrations.daotao.snapshot import PortalFailure, collection_review
+from app.integrations.daotao.text import repair_source_text
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -153,10 +154,22 @@ async def profile(request: Request):
     link = await auth_call(auth_repository.portal_link, principal['account_id'])
     if not link:
         return {'subject': None, 'profile': {}, 'snapshot': None, 'fetched_at': None,
-                'last_synced_at': None, 'expires_in': principal['expires_in']}
+                'last_synced_at': None, 'expires_in': principal['expires_in'],
+                'display_names': {}, 'display_profile': {}}
     value = account_portal.connection(principal, link)
     result = await safe_call(store.profile, value.owner)
     await auth_call(account_portal.check, value)
+    # Saved snapshots and their digests remain immutable. This separate view
+    # also avoids changing a storage adapter's retained result object.
+    result = dict(result)
+    name = (result.get('profile') or {}).get('name')
+    result['display_profile'] = {'name': repair_source_text(name)} if isinstance(name, str) else {}
+    snapshot = result.get('snapshot') or {}
+    result['display_names'] = {
+        attempt['row_key']: repair_source_text(attempt['name'])
+        for attempt in snapshot.get('attempts', [])
+        if isinstance(attempt.get('row_key'), str) and isinstance(attempt.get('name'), str)
+    }
     result["expires_in"] = principal['expires_in']
     result['latest_collection'] = value.latest_collection
     return result

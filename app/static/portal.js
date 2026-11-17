@@ -3,6 +3,7 @@
   const $ = id => document.getElementById(`portal-${id}`);
   const copy = {
     vi: {
+      sourceSummary: 'Xem tổng kết nguyên bản từ VNU',
       heading: 'Hồ sơ học tập', open: 'Đăng nhập VNU', profile: 'Hồ sơ của tôi', intro: 'Đăng nhập bằng tài khoản VNU để xem bảng điểm đã lưu. Mật khẩu chỉ dùng cho lần kết nối này.',
       username: 'Tài khoản VNU', password: 'Mật khẩu VNU', show: 'Hiện mật khẩu', hide: 'Ẩn mật khẩu', login: 'Kết nối VNU', processing: 'Đang lấy dữ liệu…',
       sync: 'Cập nhật bảng điểm', logout: 'Ngắt phiên VNU', delete: 'Xóa bảng điểm VNU', cancel: 'Hủy cập nhật', keep: 'Giữ dữ liệu',
@@ -43,6 +44,7 @@
         fallback: 'Chưa lấy được dữ liệu từ VNU. Kiểm tra tài khoản hoặc thử lại sau; dữ liệu đã lưu được giữ nguyên.'}
     },
     en: {
+      sourceSummary: 'View original VNU summary',
       heading: 'Academic profile', open: 'Sign in with VNU', profile: 'My profile', intro: 'Sign in with your VNU account to view saved grades. Your password is used for this connection only.',
       username: 'VNU account', password: 'VNU password', show: 'Show password', hide: 'Hide password', login: 'Connect VNU', processing: 'Retrieving your data…',
       sync: 'Update transcript', logout: 'Disconnect VNU session', delete: 'Delete VNU data', cancel: 'Cancel update', keep: 'Keep data',
@@ -106,6 +108,7 @@
     clearTimeout(expiryTimer); clearTimeout(reminderTimer);
     requestedTerm = null; requestedLetter = null; requestedYear = null;
     epoch++; profile = null; job = null; signedOut = true; lock(false); $('table').replaceChildren(); $('summary').textContent = '';
+    $('source-details').hidden = true; $('source-details').open = false;
     $('unparsed').querySelector('pre').textContent = ''; $('identity').textContent = ''; $('updated').textContent = '';
     ['name', 'program', 'cohort', 'earned-credits', 'gpa4'].forEach(key => { $(key).textContent = ''; });
     $('search').value = ''; $('term').replaceChildren(); $('row-count').textContent = '';
@@ -173,7 +176,8 @@
     $('grade-filter-label').textContent = `${t.gradeFilter}: ${requestedLetter || t.noLetterGrade}${requestedYear ? ` · ${t.academicYear} ${requestedYear}` : ''}`;
     if (!profile) return;
     ['name', 'program', 'cohort'].forEach(key => {
-      const value = profile.profile?.[key];
+      const displayName = key === 'name' ? profile.display_profile?.name : undefined;
+      const value = typeof displayName === 'string' ? displayName : profile.profile?.[key];
       $(key).textContent = typeof value === 'string' && value.trim() ? value : t.unavailable;
     });
     $('earned-credits').textContent = sourceSummaryValue(profile.snapshot?.source_summary, 'Tổng tín chỉ tích lũy');
@@ -183,7 +187,12 @@
     $('table').replaceChildren(); const head = $('table').createTHead().insertRow();
     t.columns.forEach(value => cell(head, value, 'th').scope = 'col');
     const snap = profile.snapshot;
+    const courseName = attempt => {
+      const display = profile.display_names?.[attempt.row_key];
+      return typeof display === 'string' ? display : attempt.name;
+    };
     $('summary').textContent = (snap?.source_summary || []).map(row => window.workspaceI18n.formatSourceSummary(row)).join('\n');
+    $('source-details').hidden = !$('summary').textContent.trim();
     const groups = new Map();
     (snap?.attempts || []).forEach(row => { const key = row.term || '—'; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); });
     function termOrder(term) {
@@ -203,12 +212,12 @@
       const termYear = term.match(/(\d{4})\s*[-–]\s*(\d{4})/)?.slice(1).join('–');
       const rows = sourceRows.filter(row => (requestedLetter === null || String(row.letter ?? '').trim() === requestedLetter)
         && (!requestedYear || termYear === requestedYear)
-        && (!query || `${row.code} ${row.name}`.toLocaleLowerCase().includes(query)));
+        && (!query || `${row.code} ${courseName(row)}`.toLocaleLowerCase().includes(query)));
       if (!rows.length) return;
       shown += rows.length;
       const body = $('table').createTBody();
       const heading = body.insertRow(); heading.className = 'portal-term'; cell(heading, term, 'th').scope = 'rowgroup'; heading.firstElementChild.colSpan = 6;
-      rows.forEach(attempt => { const row = body.insertRow(); ['code', 'name', 'credits', 'grade10', 'letter', 'grade4'].forEach(key => cell(row, attempt[key])); });
+      rows.forEach(attempt => { const row = body.insertRow(); ['code', 'name', 'credits', 'grade10', 'letter', 'grade4'].forEach(key => cell(row, key === 'name' ? courseName(attempt) : attempt[key])); });
     });
     $('row-count').textContent = `${shown} / ${snap?.attempts?.length || 0} ${t.rows}`;
     if (!shown) cell($('table').createTBody().insertRow(), t.noResults).colSpan = 6;

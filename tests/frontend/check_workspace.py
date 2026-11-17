@@ -54,6 +54,7 @@ def main():
         assert page.locator("#tab-dashboard").is_visible()
         assert page.locator(".tab-panel.active").count() == 1
         page.wait_for_function("document.querySelectorAll('#analytics-trend .chart-point').length>0")
+        assert page.locator('#tab-dashboard .profile-overview').count() == 0
         assert page.locator('#tab-transcript, #dashboard-manual-plan').count() == 0
         assert page.locator(".workspace-body > .tab-panel").count() == 5
         assert page.evaluate("new Set([...document.querySelectorAll('[id]')].map(e=>e.id)).size === document.querySelectorAll('[id]').length")
@@ -61,6 +62,7 @@ def main():
         page.wait_for_function("!document.getElementById('portal-profile').hidden")
         assert page.locator("#analytics-detail").is_hidden()
         assert page.locator("#portal-dialog").is_visible()
+        assert page.locator('#portal-dialog .profile-overview').is_visible()
         assert page.evaluate("location.hash") == "#profile"
         assert page.locator("#portal-table tbody tr:not(.portal-term)").count() == 2
         page.locator("#portal-search").fill("TEST001")

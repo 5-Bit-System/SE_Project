@@ -25,12 +25,11 @@ def main():
         elif path == '/programs':
             result, code = [{"program_id": "synthetic", "name": "Chương trình thử"}], 200
         elif path.startswith('/me/academic-context?'):
-            result, code = {"status": "needs_program_binding", "blocking_reasons": [
-                "source_incomplete", "program_binding_unverified"]}, 200
+            result, code = {"status": "needs_source_review", "blocking_reasons": [
+                "source_incomplete", "source_enrollment_unresolved"]}, 200
         elif path.startswith('/me/course-status?'):
-            result, code = {"status": "needs_program_binding", "courses": None,
-                            "blocking_reasons": ["source_incomplete", "program_binding_unverified"],
-                            "program_selection": {"programs": [], "cohorts": []}}, 200
+            result, code = {"status": "needs_source_review", "courses": None,
+                            "blocking_reasons": ["source_incomplete", "source_enrollment_unresolved"]}, 200
         elif path == '/me/semester-plans':
             result, code = {"plans": []}, 200
         elif path == '/me/portal-connection':
@@ -81,13 +80,13 @@ def main():
         assert page.locator('#tab-rules #semester-plans, #tab-rules select, #tab-rules input[type=number]').count() == 0
         page.locator('#tab-btn-recommend').click()
         open_plan_tools(page)
-        page.wait_for_function("document.getElementById('tab-recommend').textContent.includes('Chưa xác minh chương trình')")
+        page.wait_for_function("document.getElementById('tab-recommend').textContent.includes('Chưa xác định được chương trình')")
         assert 'Chưa xác minh bảng điểm' in page.locator('#tab-recommend').inner_text()
         page.locator('[data-language-choice="en"]').focus()
         page.locator('[data-language-choice="en"]').press('Enter')
         assert page.locator('[data-language-choice="en"]').get_attribute('aria-pressed') == 'true'
         assert page.locator('[data-language-choice="vi"]').get_attribute('aria-pressed') == 'false'
-        assert 'applicable program' in page.locator('#tab-recommend').inner_text()
+        assert 'portal program and cohort' in page.locator('#tab-recommend').inner_text()
         assert page.locator('#workspace-program').inner_text() == sample['profile']['program']
         assert page.locator('#workspace-cohort').inner_text() == '79'
         page.reload()

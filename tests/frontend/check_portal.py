@@ -76,7 +76,10 @@ def main():
         assert page.locator("#portal-cohort").inner_text() == "79"
         assert page.locator("#portal-earned-credits").inner_text() == "110"
         assert page.locator("#portal-gpa4").inner_text() == "3.37"
+        page.locator('#portal-source-details > summary').click()
+        page.wait_for_function("document.querySelector('#portal-summary').innerText.startsWith('Tổng tín chỉ: 6')")
         assert page.locator("#portal-summary").inner_text().startswith("Tổng tín chỉ: 6")
+        page.locator('#portal-source-details > summary').click()
         assert page.locator("#portal-sync").inner_text() == "Cập nhật bảng điểm"
         assert page.locator("#portal-sync").is_hidden()
         assert page.locator("#portal-table tbody tr:not(.portal-term)").count() == 2
@@ -91,7 +94,10 @@ def main():
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
         page.locator('[data-language-choice="en"]').click()
         assert page.locator("#portal-heading").inner_text() == "Academic profile"
+        page.locator('#portal-source-details > summary').click()
+        page.wait_for_function("document.querySelector('#portal-summary').innerText.startsWith('Total credits: 6')")
         assert page.locator("#portal-summary").inner_text().startswith("Total credits: 6")
+        page.locator('#portal-source-details > summary').click()
         assert page.locator("#portal-name").inner_text() == "Sinh viên giả lập"
         assert page.locator("#portal-program").inner_text() == "Ngành nguồn thử"
         assert page.locator("#portal-cohort").inner_text() == "79"

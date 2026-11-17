@@ -178,15 +178,17 @@ if (typeof document !== 'undefined') {
       empty(container, four ? t('Chưa có điểm hệ 4 hợp lệ để vẽ biểu đồ.', 'No valid 4-point grades to plot.')
         : t('Chưa có điểm hệ 10 hợp lệ để vẽ biểu đồ.', 'No valid 10-point grades to plot.')); return;
     }
-    const width = Math.max(540, stats.groups.length * 120 + 140), height = 285, left = 70, right = width - 70;
+    const manyTerms = stats.groups.length > 5;
+    const width = manyTerms ? Math.max(540, stats.groups.length * 116 + 100) : 440, height = 248, left = 46, right = width - 34;
+    const baseline = 192, plotHeight = 156;
     const svg = svgRoot(four ? t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 4', 'Credit-weighted mean by semester, from 0 to 4')
       : t('Điểm trung bình gia quyền theo tín chỉ từng học kỳ, thang 0 đến 10', 'Credit-weighted mean by semester, from 0 to 10'), width, height);
     svg.style.minWidth = `${width}px`;
     svg.setAttribute('role', 'group');
     for (const value of four ? [0, 1, 2, 3, 4] : [0, 2, 4, 6, 8, 10]) {
-      const y = 218 - value * 180 / scale;
+      const y = baseline - value * plotHeight / scale;
       svg.append(svgElement('line', {x1: left, x2: right, y1: y, y2: y, class: 'chart-grid-line'}));
-      const label = svgElement('text', {x: left - 30, y: y + 4, 'text-anchor': 'end', class: 'chart-axis'});
+      const label = svgElement('text', {x: left - 14, y: y + 4, 'text-anchor': 'end', class: 'chart-axis'});
       label.textContent = value; svg.append(label);
     }
     const xAt = i => stats.groups.length === 1 ? (left + right) / 2 : left + i * (right - left) / (stats.groups.length - 1);
@@ -197,15 +199,15 @@ if (typeof document !== 'undefined') {
     }
     stats.groups.forEach((group, index) => {
       const x = xAt(index);
-      const label = svgElement('text', {x, y: 255, 'text-anchor': 'middle', class: 'chart-axis'});
+      const label = svgElement('text', {x, y: 226, 'text-anchor': 'middle', class: 'chart-axis'});
       label.textContent = termLabel(group); svg.append(label);
       // No numeric zero or connecting line is invented for a semester without grades.
       if (group[meanKey] === null) { flush(); return; }
-      segment.push(`${x},${218 - group[meanKey] * 180 / scale}`);
+      segment.push(`${x},${baseline - group[meanKey] * plotHeight / scale}`);
     }); flush();
     stats.groups.forEach((group, index) => {
       if (group[meanKey] === null) return;
-      const x = xAt(index), y = 218 - group[meanKey] * 180 / scale;
+      const x = xAt(index), y = baseline - group[meanKey] * plotHeight / scale;
       const dot = svgElement('circle', {cx: x, cy: y, r: 5, tabindex: group.term ? 0 : -1,
         ...(group.term ? {role: 'button', 'aria-controls': 'analytics-detail', 'aria-haspopup': 'dialog', 'aria-expanded': false,
           'data-detail-term': group.term, 'data-detail-scale': scale} : {}), class: 'chart-point',
@@ -291,6 +293,19 @@ if (typeof document !== 'undefined') {
     years.forEach(value => $('year').add(new Option(value, value))); $('year').value = years.includes(year) ? year : '';
     $('year').disabled = !attempts.length;
     const stats = sourceStatistics(attempts, $('year').value);
+    const totalCredits = stats.groups.reduce((sum, group) => sum + (group.knownCredits ? group.credits : 0), 0);
+    if ($('shared-note')) $('shared-note').textContent = t(
+      'Điểm trung bình các biểu đồ bên dưới là trung bình gia quyền theo tín chỉ của các lượt có điểm hợp lệ; không phải GPA tích lũy chính thức.',
+      'Credit-weighted mean of graded attempts per semester; not an official cumulative GPA.');
+    if ($('year-label')) $('year-label').textContent = t('Năm học', 'Academic year');
+    if ($('kpi-label-mean10')) $('kpi-label-mean10').textContent = t('Trung bình hệ 10', 'Scale-10 mean');
+    if ($('kpi-label-mean4')) $('kpi-label-mean4').textContent = t('Trung bình hệ 4', 'Scale-4 mean');
+    if ($('kpi-label-attempts')) $('kpi-label-attempts').textContent = t('Số lượt học', 'Attempts');
+    if ($('kpi-label-terms')) $('kpi-label-terms').textContent = t('Học kỳ / Tín chỉ ghi nhận', 'Semesters / Recorded credits');
+    if ($('kpi-mean10')) $('kpi-mean10').textContent = stats.weightedMean10 === null ? '—' : `${number(stats.weightedMean10)} / 10`;
+    if ($('kpi-mean4')) $('kpi-mean4').textContent = stats.weightedMean4 === null ? '—' : `${number(stats.weightedMean4)} / 4`;
+    if ($('kpi-attempts')) $('kpi-attempts').textContent = String(stats.count || 0);
+    if ($('kpi-terms')) $('kpi-terms').textContent = stats.groups.length ? `${stats.groups.length} ${t('kỳ', 'sem')} · ${number(totalCredits)} ${t('TC', 'cr')}` : '—';
     $('status').textContent = source ? t('Nguồn: bảng điểm VNU đã lưu', 'Source: saved VNU transcript')
       + (source.fetched_at ? ` · ${t('Cập nhật', 'Updated')}: ${new Date(source.fetched_at).toLocaleString(window.workspaceI18n.language === 'en' ? 'en-GB' : 'vi-VN')}` : '')
       + (source.snapshot?.completeness !== 'complete' ? t(' · Chưa xác minh độ đầy đủ', ' · Completeness unverified') : '')
