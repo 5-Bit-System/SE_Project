@@ -12,6 +12,7 @@ from typing import Any
 
 from app.catalog_validation import validate_catalog
 from app.models import Catalog, Course, Program
+from app.recommendation.vocabulary import CAREER_IDS, TOPIC_ALIASES
 from database.hus_db.prerequisites import expression_key, parse_prerequisites
 
 PROGRAM_IDS = {
@@ -23,7 +24,16 @@ PROGRAM_IDS = {
 EXCLUDED = frozenset({"CME1000", "PES1000", "HUS1012"})
 LANGUAGES = frozenset({f"FLF1{i}07" for i in range(1, 8)})
 BLOCKS = {"I": "general", "II": "field", "III": "discipline", "IV": "group", "V": "major"}
-VOCABULARY = {"vocabulary_version": "1.0", "topics": [], "career_paths": [], "enums": {}}
+VOCABULARY = {
+    "vocabulary_version": "1.0",
+    "topics": list(TOPIC_ALIASES),
+    "career_paths": list(CAREER_IDS),
+    "enums": {
+        "orientation": ["theory", "practice", "research"],
+        "difficulty": ["easy", "moderate", "advanced"],
+        "workload": ["light", "moderate", "heavy"],
+    },
+}
 
 
 def _unique(rows: list[dict], key: str, table: str) -> dict[Any, dict]:
@@ -92,7 +102,7 @@ def _reviewed_evidence(evidence: dict[str, list[dict]], review: dict | None) -> 
         reviewed = []
         for item in items:
             row = dict(item)
-            if row.get("status") == "draft_unverified":
+            if row.get("status") == "draft_unverified" and row.get("method", "transcription") == "transcription":
                 row.update(status="verified", reviewed_at=review["reviewed_at"],
                            reviewed_by=review["reviewer"], review_basis=review["basis"])
                 note = row.get("note", "")

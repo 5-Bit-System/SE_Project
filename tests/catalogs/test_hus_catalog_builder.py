@@ -42,8 +42,20 @@ def test_four_stable_source_preserving_catalogs(bundle, catalogs):
     assert all(c.program.catalog_review is None for pid, c in catalogs.items()
                if pid != VERIFIED_PROGRAM_ID)
     assert all(c.metadata_schema_version == "1.0" for c in catalogs.values())
-    assert all(course.difficulty is None and course.topics is None and course.workload is None
-               for c in catalogs.values() for course in c.courses)
+    for c in catalogs.values():
+        allowed_topics = set(c.vocabulary["topics"])
+        allowed_careers = set(c.vocabulary["career_paths"])
+        for course in c.courses:
+            assert 1 <= len(course.topics or []) <= 3
+            assert set(course.topics) <= allowed_topics
+            assert 0 <= len(course.career_paths or []) <= 3
+            assert set(course.career_paths) <= allowed_careers
+            assert course.orientation in {"theory", "practice", "research"}
+            assert course.difficulty in {"easy", "moderate", "advanced"}
+            assert course.workload in {"light", "moderate", "heavy"}
+            for field in ("topics", "career_paths", "orientation", "difficulty", "workload"):
+                ev = course.field_evidence[field]
+                assert ev and ev[0]["method"] == "curated_mapping" and ev[0]["status"] == "draft_unverified"
     changed = copy.deepcopy(bundle)
     for row in changed["tables"]["curricula"]:
         old = row["curriculum_id"]

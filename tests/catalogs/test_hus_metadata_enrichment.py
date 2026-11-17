@@ -30,7 +30,13 @@ def test_enrichment_preserves_eligibility_and_bilingual_source_values(source):
                 old.prerequisite_variants, old.external_prerequisite_codes)
             assert new.name_en and new.field_evidence["name_en"]
             assert new.hours is not None or new.code in {"CME1000", "PES1000"}
-            assert new.difficulty is None and new.workload is None
+            assert new.topics and 1 <= len(new.topics) <= 3
+            assert new.career_paths is not None and 0 <= len(new.career_paths) <= 3
+            assert new.orientation in {"theory", "practice", "research"}
+            assert new.difficulty in {"easy", "moderate", "advanced"}
+            assert new.workload in {"light", "moderate", "heavy"}
+            for field in ("topics", "career_paths", "orientation", "difficulty", "workload"):
+                assert new.field_evidence[field][0]["status"] == "draft_unverified"
     computer = next(c for c in after if c.program.program_id.startswith("khmtt_"))
     embedded = next(c for c in computer.courses if c.code == "MAT1208")
     assert embedded.hours == {"lecture": 0, "practice": 30, "self_study": 70}
@@ -87,5 +93,33 @@ def test_api_preserves_both_names_and_hours(source, monkeypatch):
     assert row["name_en"] == "Overview of Computer Systems for Non-Majors"
     assert row["hours"] == {"lecture": 40, "practice": 10, "self_study": 100}
     assert row["field_evidence"]["name_en"]
-    assert row["difficulty"] is None
+    assert row["difficulty"] == "moderate"
+    assert row["workload"] == "moderate"
+    assert row["orientation"] == "theory"
+    assert row["topics"] == ["computer_architecture_and_embedded", "operating_systems"]
+    assert row["career_paths"] == ["software_engineer", "embedded_systems_engineer"]
     assert next(g for g in catalog.program.choice_groups if g.id == "V.2.2").name.endswith("Tính toán khoa học")
+
+
+def test_enriched_advisory_metadata_powers_recommendation_scoring(source):
+    from app.models import RecommendationRequest, StructuredPreference
+    from app.services.recommendation_service import recommend
+
+    khmtt = next(c for c in build_catalogs(source) if c.program.program_id == "khmtt_7480113qtd_2022")
+    req = RecommendationRequest(
+        program_id=khmtt.program.program_id,
+        passed_course_codes=["HUS1011", "MAT2505", "MAT2501", "MAT2502", "MAT2400", "MAT2323"],
+        max_credits=12,
+        limit=4,
+        preference=StructuredPreference(
+            interest_topics=["machine_learning", "artificial_intelligence"],
+            career_paths=["ai_engineer"],
+            orientation="theory",
+            difficulty="advanced",
+            workload="moderate",
+        ),
+    )
+    res = recommend(khmtt, req)
+    assert res.recommendations
+    assert any(item.code == "MAT3533" for item in res.recommendations)
+    assert not any("thiếu metadata tư vấn" in w or "Metadata chủ đề" in w for w in res.warnings)
