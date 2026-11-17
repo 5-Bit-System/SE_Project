@@ -8,6 +8,10 @@ const {
   renderSafeMarkdown,
   groupCitations,
 } = require('../../app/static/hus-rag-demo.js');
+const {
+  isFollowUpCourseQuery,
+  extractCourseCode,
+} = require('../../app/static/hus-lookup.js');
 const origin = 'http://127.0.0.1:8000';
 const sha = 'a'.repeat(64);
 const pdf = page => ({evidence_kind:'pdf', availability:'available', document_sha256:sha,
@@ -199,4 +203,26 @@ test('groupCitations keeps PDF citations on different pages separate while mergi
   assert.equal(grouped[0].pdf_page, 10);
   assert.equal(grouped[1].citation_id, '2');
   assert.equal(grouped[1].pdf_page, 12);
+});
+
+test('isFollowUpCourseQuery detects follow-up course pronouns and rejects specific/major queries', () => {
+  assert.equal(isFollowUpCourseQuery('môn đó có mấy tín chỉ'), true);
+  assert.equal(isFollowUpCourseQuery('học phần này học kỳ mấy'), true);
+  assert.equal(isFollowUpCourseQuery('môn này có tiên quyết không'), true);
+  assert.equal(isFollowUpCourseQuery('môn đó học như thế nào'), true);
+  assert.equal(isFollowUpCourseQuery('môn đấy có khó không'), true);
+  // Negative cases: contains specific course code or name
+  assert.equal(isFollowUpCourseQuery('môn MAT1041 có mấy tín chỉ'), false);
+  assert.equal(isFollowUpCourseQuery('môn Giải tích 1 có mấy tín chỉ'), false);
+  assert.equal(isFollowUpCourseQuery('giới thiệu ngành khoa học dữ liệu'), false);
+  assert.equal(isFollowUpCourseQuery('tổng tín chỉ chương trình'), false);
+  assert.equal(isFollowUpCourseQuery(''), false);
+  assert.equal(isFollowUpCourseQuery(null), false);
+});
+
+test('extractCourseCode extracts uppercase course codes from reply and facts', () => {
+  assert.equal(extractCourseCode('CME1000 — Giáo dục quốc phòng'), 'CME1000');
+  assert.equal(extractCourseCode('Môn học MAT3507 (Lập trình nâng cao)'), 'MAT3507');
+  assert.equal(extractCourseCode('Không có mã môn ở đây'), null);
+  assert.equal(extractCourseCode(null), null);
 });
