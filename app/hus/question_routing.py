@@ -75,8 +75,26 @@ UNSUPPORTED = ("hoc phi", "diem chuan", "chi tieu", "tuyen sinh", "luong", "lich
                "mo lop", "cho trong", "han dang ky", "hien tai", "hien nay", "nam nay")
 
 
+NEGATED_OUT_OF_SCOPE = (
+    "chua can ket luan du dieu kien",
+    "chua can du dieu kien",
+    "khong can ket luan du dieu kien",
+    "khong can du dieu kien",
+    "thay vi xep hang",
+    "khong can xep hang",
+    "khong xep hang",
+    "chua can xep hang",
+    "thay vi chon",
+    "khong can chon",
+    "chua can chon",
+)
+
+
 def out_of_scope(question: str) -> bool:
-    return has(requested_text(question), *RECOMMENDATION, *EXTERNAL_ACTIONS)
+    text = requested_text(question)
+    for phrase in NEGATED_OUT_OF_SCOPE:
+        text = text.replace(phrase, " ")
+    return has(text, *RECOMMENDATION, *EXTERNAL_ACTIONS)
 
 
 def unsupported_request(question: str) -> bool:
@@ -154,7 +172,7 @@ COURSE_FIELD_TERMS = {
         "hoc nhu the nao", "hoc ra sao", "day nhu the nao", "day gi", "day nhung gi",
     ),
     "objectives": ("muc tieu", "chuan dau ra", "nang luc", "huong toi", "dao tao de", "muc dich dao tao"),
-    "suggested_assessment": ("danh gia", "thi", "kiem tra"),
+    "suggested_assessment": ("danh gia", "thi", "bai kiem tra", "hinh thuc kiem tra", "kiem tra danh gia", "thi giua ky", "thi cuoi ky"),
 }
 
 COURSE_OVERVIEW_TERMS = (
@@ -185,6 +203,8 @@ def requested_course_fields(question: str) -> tuple[str, ...]:
         active = _prerequisite_text(clauses) if field == "prerequisites" else text
         if field == "content":
             active = " ".join(content_parts)
+            active = re.sub(r"\bnoi dung (?:ai|do ai|tham khao|sinh)\b", " ", active)
+            active = re.sub(r"\bcho phep dung noi dung\b", " ", active)
         if has(active, *terms):
             fields.append(field)
     return tuple(fields)
@@ -192,7 +212,8 @@ def requested_course_fields(question: str) -> tuple[str, ...]:
 
 PROGRAM_FIELDS = {"program_credits", "program_groups", "group_rules"}
 CAREER_TERMS = ("nghe nghiep", "viec lam", "lam nghe", "sau tot nghiep", "ra truong",
-                "lam o dau", "noi lam viec", "cong viec", "vi tri", "nghien cuu phat trien")
+                "lam o dau", "noi lam viec", "cong viec", "vi tri", "nghien cuu phat trien",
+                "nghien cuu va phat trien", "co hoi lam")
 
 
 def question_group_keys(question: str) -> set[str]:

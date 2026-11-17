@@ -1,6 +1,7 @@
 """Attachment scope, storage, and skip reporting with the shipped source configuration."""
 
 import json
+import os
 from pathlib import Path
 
 import httpx
@@ -11,6 +12,14 @@ from app.hus.pipeline import HUSPipeline
 from app.hus.state import CrawlStateManager
 from app.hus.storage import ProcessedStorage, RawStorage
 from app.hus.urls import CrawlError
+
+
+def _safe_path(path: Path) -> Path:
+    if os.name == "nt":
+        resolved = str(path.resolve())
+        if not resolved.startswith("\\\\?\\"):
+            return Path("\\\\?\\" + resolved)
+    return path
 
 HOST = "https://tuyensinh.hus.vnu.edu.vn"
 CONFIG = Path(__file__).parents[1] / "data/hus/config/sources.json"
@@ -103,7 +112,7 @@ def test_pipeline_downloads_tuyensinh_pdfs_and_reports_unique_skips(tmp_path, re
 
     raw_files = list((tmp_path / "raw/documents").rglob("*.pdf"))
     assert len(raw_files) == 2
-    assert all(path.read_bytes() == pdf for path in raw_files)
+    assert all(_safe_path(path).read_bytes() == pdf for path in raw_files)
     catalog = json.loads((tmp_path / "processed/catalog.json").read_text(encoding="utf-8"))
     attachments = [doc for doc in catalog["documents"].values() if doc["parent_url"]]
     assert {doc["source_url"] for doc in attachments} == {HOST + path for path in PDF_PATHS}
@@ -111,4 +120,4 @@ def test_pipeline_downloads_tuyensinh_pdfs_and_reports_unique_skips(tmp_path, re
         assert doc["parent_url"] == seeds[0]
         assert "Official course information" in doc["content_markdown"]
         markdown = list((tmp_path / "processed/documents").rglob(f'*{doc["document_id"][:8]}.md'))[0]
-        assert "Official course information" in markdown.read_text(encoding="utf-8")
+        assert "Official course information" in _safe_path(markdown).read_text(encoding="utf-8")
