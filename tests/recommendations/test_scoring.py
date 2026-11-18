@@ -144,3 +144,51 @@ def test_transcript_need_score_retake_dag_and_required():
     )
     assert score_retake > score_leaf
     assert score_retake >= 0.4
+
+
+
+def test_combine_scores_alpha_blending():
+    from app.recommendation.scoring import combine_scores
+
+    pref = 0.8
+    need = 0.4
+
+    # Balanced alpha=0.5
+    assert combine_scores(pref, need, alpha=0.5) == pytest.approx(0.6)
+
+    # Preference-oriented alpha=0.7
+    assert combine_scores(pref, need, alpha=0.7) == pytest.approx(0.68)
+
+    # Progress/graduation-oriented alpha=0.3
+    assert combine_scores(pref, need, alpha=0.3) == pytest.approx(0.52)
+
+    # Boundary alpha
+    assert combine_scores(pref, need, alpha=1.0) == pytest.approx(pref)
+    assert combine_scores(pref, need, alpha=0.0) == pytest.approx(need)
+
+
+def test_softmax_probabilities_properties():
+    from app.recommendation.scoring import softmax_probabilities
+
+    # 1. Test with list
+    scores = [0.2, 0.5, 0.8]
+    probs = softmax_probabilities(scores, temperature=1.0)
+    assert sum(probs) == pytest.approx(1.0)
+    assert probs[2] > probs[1] > probs[0]
+
+    # 2. Test with dict (course_code -> score)
+    scores_dict = {"CS101": 0.8, "CS102": 0.6, "CS103": 0.3}
+    probs_dict = softmax_probabilities(scores_dict, temperature=1.0)
+    assert isinstance(probs_dict, dict)
+    assert sum(probs_dict.values()) == pytest.approx(1.0)
+    assert probs_dict["CS101"] > probs_dict["CS102"] > probs_dict["CS103"]
+
+    # 3. Empty or single element
+    assert softmax_probabilities([]) == []
+    assert softmax_probabilities([0.5]) == [1.0]
+
+    # 4. Numerical stability with large scores
+    large_scores = [1000.0, 1001.0, 1002.0]
+    large_probs = softmax_probabilities(large_scores)
+    assert sum(large_probs) == pytest.approx(1.0)
+    assert large_probs[2] > large_probs[1] > large_probs[0]
