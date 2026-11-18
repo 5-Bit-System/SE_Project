@@ -148,3 +148,68 @@ def fit_reason(course: Course, preference: StructuredPreference, score: float) -
     if score > 0:
         return "Môn có một phần từ khóa trùng với mục tiêu đã nhập."
     return "Catalog hiện chưa có metadata đủ để xác định điểm phù hợp cụ thể cho preference này."
+
+
+
+def count_dag_dependents(course_code: str, catalog_courses: list[Course] | None = None) -> int:
+    """Đếm số học phần trong catalog phụ thuộc (yêu cầu tiên quyết) vào course_code."""
+    if not catalog_courses:
+        return 0
+    count = 0
+    target = course_code.casefold()
+    for c in catalog_courses:
+        if c.code.casefold() == target:
+            continue
+        # c.prerequisites is list[list[str]] (outer AND, inner OR)
+        prereqs = [code.casefold() for alt in (c.prerequisites or []) for code in alt]
+        if target in prereqs:
+            count += 1
+    return count
+
+
+def transcript_need_score(
+    course: Course,
+    catalog_courses: list[Course] | None = None,
+    failed_course_codes: set[str] | list[str] | None = None,
+    choice_group_deficits: dict[str, int] | None = None,
+    is_track_course: bool = False,
+) -> float:
+    """Tính điểm cấp thiết học vụ (transcript_need_score) trong khoảng [0..1].
+
+    Bao gồm:
+    - Học lại môn bị điểm F (ưu tiên trả nợ môn).
+    - Môn bắt buộc khối kiến thức hoặc môn thuộc nhánh chuyên ngành đã chọn.
+    - Mở khóa các môn tiếp theo trên đồ thị có hướng tiên quyết (DAG).
+    - Đáp ứng nhóm tự chọn còn thiếu nhiều tín chỉ nhất.
+    """
+    failed_set = set(failed_course_codes or [])
+    retake_score = 1.0 if course.code in failed_set else 0.0
+
+    if course.block == "required":
+        req_score = 1.0
+    elif is_track_course:
+        req_score = 0.7
+    else:
+        req_score = 0.3
+
+    dependents_count = count_dag_dependents(course.code, catalog_courses)
+    dag_score = min(dependents_count / 2.0, 1.0)
+
+    if choice_group_deficits and course.choice_group_ids:
+        deficits = [choice_group_deficits.get(gid, 0) for gid in course.choice_group_ids]
+        max_deficit = max(deficits) if deficits else 0
+        quota_score = min(max_deficit / 10.0, 1.0) if max_deficit > 0 else 0.2
+    else:
+        quota_score = 0.5
+
+    w_retake = 0.35
+    w_req = 0.25
+    w_dag = 0.25
+    w_quota = 0.15
+    total = (
+        w_retake * retake_score
+        + w_req * req_score
+        + w_dag * dag_score
+        + w_quota * quota_score
+    )
+    return round(min(1.0, max(0.0, total)), 4)
