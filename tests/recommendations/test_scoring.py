@@ -78,3 +78,69 @@ def test_pref_fit_score_topic_career_and_gaussian():
     score_partial = pref_fit_score(course, pref_partial)
     assert 0.0 < score_partial < score_full
     assert 0.4 <= score_partial <= 0.8
+
+
+def test_transcript_need_score_retake_dag_and_required():
+    from app.recommendation.scoring import transcript_need_score
+
+    # Setup catalog courses for DAG dependency check
+    course_foundation = Course(
+        code="MAT101",
+        name="Giải tích cơ sở",
+        credits=4,
+        block="required",
+        prerequisites=[],
+        source_status="verified",
+        prerequisite_status="verified",
+    )
+    course_dep1 = Course(
+        code="MAT102",
+        name="Giải tích 2",
+        credits=4,
+        block="required",
+        prerequisites=[["MAT101"]],
+        source_status="verified",
+        prerequisite_status="verified",
+    )
+    course_dep2 = Course(
+        code="MAT103",
+        name="Phương trình vi phân",
+        credits=3,
+        block="elective",
+        prerequisites=[["MAT101"]],
+        source_status="verified",
+        prerequisite_status="verified",
+    )
+    course_leaf = Course(
+        code="ENG101",
+        name="Tiếng Anh chuyên ngành",
+        credits=2,
+        block="elective",
+        prerequisites=[],
+        source_status="verified",
+        prerequisite_status="verified",
+    )
+    catalog_courses = [course_foundation, course_dep1, course_dep2, course_leaf]
+
+    # 1. Foundation course unlocks MAT102 & MAT103 -> higher DAG score than leaf
+    score_foundation = transcript_need_score(
+        course_foundation,
+        catalog_courses=catalog_courses,
+        failed_course_codes=set(),
+    )
+    score_leaf = transcript_need_score(
+        course_leaf,
+        catalog_courses=catalog_courses,
+        failed_course_codes=set(),
+    )
+    assert score_foundation > score_leaf
+    assert score_foundation >= 0.5
+
+    # 2. Retake of a failed course gets prioritized
+    score_retake = transcript_need_score(
+        course_leaf,
+        catalog_courses=catalog_courses,
+        failed_course_codes={"ENG101"},
+    )
+    assert score_retake > score_leaf
+    assert score_retake >= 0.4
