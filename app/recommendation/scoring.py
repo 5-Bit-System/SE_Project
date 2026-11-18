@@ -213,3 +213,51 @@ def transcript_need_score(
         + w_quota * quota_score
     )
     return round(min(1.0, max(0.0, total)), 4)
+
+
+
+def combine_scores(pref_score: float, need_score: float, alpha: float = 0.5) -> float:
+    """Kết hợp điểm phù hợp sở thích và điểm cấp thiết học vụ theo hệ số alpha [0..1].
+
+    - alpha = 0.7: Ưu tiên sở thích, định hướng cá nhân (Phương án Đam mê).
+    - alpha = 0.3: Ưu tiên tiến độ tốt nghiệp, mở khóa điều kiện (Phương án Tiến độ).
+    - alpha = 0.5: Cân bằng hài hòa giữa sở thích và tiến độ.
+    """
+    alpha_clamped = max(0.0, min(1.0, float(alpha)))
+    score = alpha_clamped * float(pref_score) + (1.0 - alpha_clamped) * float(need_score)
+    return round(max(0.0, min(1.0, score)), 4)
+
+
+def softmax_probabilities(
+    scores: list[float] | dict[str, float],
+    temperature: float = 1.0,
+) -> list[float] | dict[str, float]:
+    """Tính phân phối xác suất softmax (~%) từ danh sách hoặc dict điểm số của các môn ứng viên."""
+    temp = max(1e-6, float(temperature))
+    if isinstance(scores, dict):
+        if not scores:
+            return {}
+        keys = list(scores.keys())
+        vals = [float(scores[k]) for k in keys]
+        max_v = max(vals)
+        exp_vals = [math.exp((v - max_v) / temp) for v in vals]
+        sum_exp = sum(exp_vals)
+        probs = [round(v / sum_exp, 4) for v in exp_vals]
+        diff = round(1.0 - sum(probs), 4)
+        if probs:
+            probs[0] = round(probs[0] + diff, 4)
+        return dict(zip(keys, probs, strict=True))
+
+    if not scores:
+        return []
+    if len(scores) == 1:
+        return [1.0]
+    vals = [float(s) for s in scores]
+    max_val = max(vals)
+    exp_vals = [math.exp((s - max_val) / temp) for s in vals]
+    sum_exp = sum(exp_vals)
+    probs = [round(v / sum_exp, 4) for v in exp_vals]
+    diff = round(1.0 - sum(probs), 4)
+    if probs:
+        probs[0] = round(probs[0] + diff, 4)
+    return probs
