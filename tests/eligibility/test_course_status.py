@@ -215,15 +215,21 @@ def test_map_follows_available_prerequisite_chains_without_completing_or_plannin
     assert {"B", "C", "CHAIN"} <= available.keys()
     assert available["C"]["eligibility_basis"] == "available_prerequisites"
     assert available["C"]["prerequisite_clauses"] == [["B"]]
+    assert available["C"]["planning_eligible"] is True
     assert available["CHAIN"]["prerequisite_clauses"] == [["C"]]
+    assert available["CHAIN"]["planning_eligible"] is True
     assert available["C"]["suggested"] is False
     assert [row["code"] for row in view["courses"]["completed"]] == ["A"]
     assert view["progress"]["total"]["earned_credits"] == 3
     assert view["plan"]["course_codes"] == ["B", "E1"]
     assert view["plan"]["suggested_credits"] == 6
     for candidate in (board, view):
-        with pytest.raises(AcademicContextError, match="course_unavailable"):
-            validate_plan_courses(candidate, ["B", "C"], 20)
+        for orphan in (["C"], ["CHAIN"], ["B", "CHAIN"]):
+            with pytest.raises(AcademicContextError, match="course_unavailable"):
+                validate_plan_courses(candidate, orphan, 20)
+        assert [row["code"] for row in validate_plan_courses(candidate, ["B", "C"], 20)] == ["B", "C"]
+        assert [row["code"] for row in validate_plan_courses(candidate, ["C", "B"], 20)] == ["C", "B"]
+        assert [row["code"] for row in validate_plan_courses(candidate, ["CHAIN", "C", "B"], 20)] == ["CHAIN", "C", "B"]
     assert board == before
     assert course_board_display(view) == view
 
@@ -334,9 +340,11 @@ def test_planning_review_never_shrinks_the_available_prerequisite_sequence(curri
     assert course_board_display(view) == view
     if gate == "pending":
         assert view["can_plan"] is True
-        for code in ("B", "C"):
+        for combo in (["B"], ["C"], ["B", "C"]):
             with pytest.raises(AcademicContextError, match="course_unavailable"):
-                validate_plan_courses(view, [code], 20)
+                validate_plan_courses(view, combo, 20)
+        with pytest.raises(AcademicContextError, match="course_unavailable"):
+            validate_plan_courses(board, ["B", "C"], 20)
     else:
         assert view["can_plan"] is False
         assert view["plan"]["course_codes"] == []

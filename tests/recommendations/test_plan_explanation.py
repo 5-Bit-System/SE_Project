@@ -644,3 +644,61 @@ def test_llm_text_uses_header_key_and_falls_back_on_503(monkeypatch):
         rec_llm._llm_text("hello")
     assert secret not in str(exc_info.value)
     assert "[REDACTED_API_KEY]" in str(exc_info.value)
+
+
+def test_plan_explanation_handles_co_enrolled_prerequisites():
+    catalog = _make_catalog(catalog_status="verified", course_count=5)
+    by_code = {c.code: c for c in catalog.courses}
+    ctx = compute_transcript_context(catalog, passed_codes={"MAT2501"})
+    selected = _to_selected([by_code["MAT3533"], by_code["MAT3561E"]])
+    co_map = {"MAT3561E": ["MAT3533"]}
+
+    det = build_deterministic_plan_explanation(
+        catalog,
+        selected,
+        by_code,
+        StructuredPreference(interest_topics=["machine_learning"]),
+        ctx,
+        target_credits=6,
+        selected_credits=6,
+        co_enrolled_prereqs=co_map,
+    )
+    assert "MAT3561E" in det.bundle_rationale and "MAT3533" in det.bundle_rationale
+    assert any("MAT3561E" in h and "MAT3533" in h for h in det.highlights)
+
+    compressed = compress_plan_context(
+        catalog,
+        selected,
+        by_code,
+        StructuredPreference(interest_topics=["machine_learning"]),
+        ctx,
+        target_credits=6,
+        selected_credits=6,
+        co_enrolled_prereqs=co_map,
+    )
+    assert "cung_ky:MAT3533" in compressed.compact_text
+    assert len(compressed.compact_text) <= 1200
+
+    explainer = LLMPlanExplainer(
+        provider=lambda _prompt: json.dumps(
+            {
+                "headline": "Học cùng kỳ MAT3533 và MAT3561E",
+                "bundle_rationale": "Xếp học song hành MAT3533 cùng MAT3561E trong kỳ này.",
+                "highlights": ["MAT3561E học song hành cùng MAT3533."],
+            },
+            ensure_ascii=False,
+        )
+    )
+    llm_res = explainer.explain(
+        catalog,
+        selected,
+        by_code,
+        StructuredPreference(interest_topics=["machine_learning"]),
+        ctx,
+        target_credits=6,
+        selected_credits=6,
+        fallback=det,
+        co_enrolled_prereqs=co_map,
+    )
+    assert llm_res.explanation_source == "llm_grounded"
+    assert "MAT3561E" in llm_res.headline and "MAT3533" in llm_res.headline

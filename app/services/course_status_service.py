@@ -51,6 +51,14 @@ def course_board_display(board: dict) -> dict:
     available = {row["code"] for row in rows["eligible"]}
     pending = {item["code"] for item in board.get("review_items", [])
                if item["state"] == "unresolved"}
+    plannable = {
+        row["code"]
+        for row in rows["eligible"]
+        if board.get("can_plan") is not False
+        and row.get("planning_eligible", True)
+        and not row.get("result_pending")
+        and row["code"] not in pending
+    }
     kept = []
     for row in rows["blocked"]:
         # These rows passed the source/prerequisite/track/quota rule engine and
@@ -75,9 +83,15 @@ def course_board_display(board: dict) -> dict:
             if (reasons and all(reason["kind"] == "missing_prerequisites" for reason in reasons)
                     and clauses and all(any(code in available for code in clause)
                                         for clause in clauses)):
+                can_coplan = (
+                    board.get("can_plan") is not False
+                    and row["code"] not in pending
+                    and not row.get("result_pending")
+                    and all(any(code in plannable for code in clause) for clause in clauses)
+                )
                 promoted.append({**row, "reasons": [], "suggested": False,
                                  "eligibility_basis": "available_prerequisites",
-                                 "planning_eligible": False,
+                                 "planning_eligible": can_coplan,
                                  "result_pending": row["code"] in pending,
                                  "prerequisite_clauses": clauses})
             else:
@@ -87,6 +101,7 @@ def course_board_display(board: dict) -> dict:
         rows["eligible"].extend(promoted)
         rows["blocked"] = remaining
         available.update(row["code"] for row in promoted)
+        plannable.update(row["code"] for row in promoted if row["planning_eligible"])
     rows["eligible"].sort(key=lambda row: (
         row["requirement_type"] not in {"required", "required_excluded"}, row["code"]))
     result = {**board, "courses": rows}
@@ -252,16 +267,79 @@ def reviewed_course_board(catalog: Catalog, context: dict, max_credits: int = 20
 
 
 def validate_plan_courses(board: dict, codes: list[str], budget: int) -> list[dict]:
-    """Validate the whole bundle without treating selected courses as completed."""
+    """Validate the whole bundle including acyclic same-term prerequisite co-enrollment."""
     if board.get('status') not in {'ready', 'partial'} or board.get('can_plan') is False:
         raise AcademicContextError('semester_plan_not_ready')
     if len(codes) != len(set(codes)):
         raise AcademicContextError('semester_plan_duplicate_course')
-    available = {row['code']: row for row in board['courses']['eligible']
-                 if row.get('planning_eligible', True)
-                 and row.get('eligibility_basis') != 'available_prerequisites'}
+    pending = {
+        item['code']
+        for item in board.get('review_items', [])
+        if item.get('state') == 'unresolved'
+    }
+    base_available: dict[str, dict] = {}
+    co_eligible: dict[str, tuple[dict, list[list[str]]]] = {}
+    for row in board['courses']['eligible']:
+        if not row.get('planning_eligible', True):
+            continue
+        if row.get('eligibility_basis') == 'available_prerequisites':
+            clauses = row.get('prerequisite_clauses') or []
+            if (
+                row.get('counted_in_total', True)
+                and not row.get('result_pending')
+                and row['code'] not in pending
+                and clauses
+            ):
+                co_eligible[row['code']] = (row, clauses)
+        else:
+            base_available[row['code']] = row
+    for row in board['courses'].get('blocked', []):
+        if (
+            row['code'] in base_available
+            or row['code'] in co_eligible
+            or not row.get('counted_in_total', True)
+            or row.get('result_pending')
+            or row['code'] in pending
+        ):
+            continue
+        reasons = row.get('reasons') or []
+        if not reasons or any(reason.get('kind') != 'missing_prerequisites' for reason in reasons):
+            continue
+        clauses = [
+            clause
+            for reason in reasons
+            for clause in reason.get('missing_prerequisites', [])
+        ]
+        if clauses:
+            co_eligible[row['code']] = (row, clauses)
+
+    available = {**base_available, **{code: row for code, (row, _) in co_eligible.items()}}
     if set(codes) - available.keys():
         raise AcademicContextError('semester_plan_course_unavailable')
+
+    reached = {
+        code
+        for code in codes
+        if code in base_available
+        and base_available[code].get('counted_in_total', True)
+        and not base_available[code].get('result_pending')
+        and code not in pending
+    }
+    co_pending = [code for code in codes if code in co_eligible]
+    while co_pending:
+        next_pending = []
+        progressed = False
+        for code in co_pending:
+            _, clauses = co_eligible[code]
+            if all(any(req in reached for req in clause) for clause in clauses):
+                reached.add(code)
+                progressed = True
+            else:
+                next_pending.append(code)
+        if not progressed:
+            raise AcademicContextError('semester_plan_course_unavailable')
+        co_pending = next_pending
+
     selected, used = [], {}
     for code in codes:
         row = available[code]

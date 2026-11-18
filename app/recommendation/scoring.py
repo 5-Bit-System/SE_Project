@@ -6,7 +6,7 @@ import math
 from dataclasses import dataclass, field
 
 from app.models import Catalog, Course, RankingWeights, StructuredPreference
-from app.progress import CurriculumProgress, calculate_progress
+from app.progress import CurriculumProgress, calculate_progress, counts_toward_total
 from app.recommendation.constraint_parser import fold
 from app.recommendation.vocabulary import (
     format_career_label,
@@ -49,6 +49,10 @@ class TranscriptContext:
     path_prereq_codes: set[str] = field(default_factory=set)
     remaining_total_credits: int | None = None
     target_remaining_terms: int | None = None
+    unpassed_required_credits: int = 0
+    unpassed_required_unlockers: int = 0
+    unmet_group_credits: int = 0
+    unpassed_non_grad_credits: int = 0
 
 
 def _metadata(course: Course) -> dict:
@@ -260,6 +264,7 @@ def compute_transcript_context(
     group_required: dict[str, int] = {}
     group_earned: dict[str, int] = {}
     group_names: dict[str, str] = {}
+    unmet_group_credits = 0
     for g in progress.choice_groups:
         group_earned[g.id] = g.earned_credits
         group_names[g.id] = g.name
@@ -270,6 +275,31 @@ def compute_transcript_context(
             group_gap_ratios[g.id] = (
                 min(1.0, rem / g.required_credits) if g.required_credits > 0 else 0.0
             )
+            if not (selected_track_id and g.id in all_track_groups and g.id not in selected_track_groups):
+                unmet_group_credits += rem
+
+    unpassed_required_courses = [
+        c
+        for c in in_scope_courses.values()
+        if c.requirement_type == "required" and counts_toward_total(catalog, c)
+    ]
+    unpassed_required_credits = sum(c.credits for c in unpassed_required_courses)
+    unpassed_non_grad_credits = sum(
+        c.credits
+        for c in in_scope_courses.values()
+        if c.requirement_type != "graduation" and counts_toward_total(catalog, c)
+    )
+    req_or_path_targets = {c.code for c in unpassed_required_courses} | {
+        c.code
+        for c in in_scope_courses.values()
+        if c.requirement_type == "graduation"
+        and (not selected_graduation_path_id or c.code in selected_path_courses)
+    }
+    unpassed_required_unlockers = sum(
+        1
+        for c in unpassed_required_courses
+        if any(dep in req_or_path_targets for dep in dependents.get(c.code, ()))
+    )
 
     return TranscriptContext(
         progress=progress,
@@ -284,6 +314,73 @@ def compute_transcript_context(
         path_prereq_codes=path_prereq_codes,
         remaining_total_credits=progress.total.remaining_credits,
         target_remaining_terms=target_remaining_terms,
+        unpassed_required_credits=unpassed_required_credits,
+        unpassed_required_unlockers=unpassed_required_unlockers,
+        unmet_group_credits=unmet_group_credits,
+        unpassed_non_grad_credits=unpassed_non_grad_credits,
+    )
+
+
+def is_thesis_course(course: Course) -> bool:
+    """Nhận diện học phần Khóa luận tốt nghiệp (thường đăng ký ở kỳ cuối)."""
+    if course.requirement_type != "graduation":
+        return False
+    folded_name = fold(course.name)
+    return "khoa luan" in folded_name or "thesis" in folded_name
+
+
+def early_thesis_reason(course: Course, ctx: TranscriptContext) -> str | None:
+    """Trả về lý do nếu là khóa luận nhưng sinh viên chưa ở kỳ tốt nghiệp cuối."""
+    if not is_thesis_course(course):
+        return None
+    if ctx.target_remaining_terms is not None and ctx.target_remaining_terms > 1:
+        return (
+            "Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; "
+            f"đang bị giảm ưu tiên mạnh vì mục tiêu tốt nghiệp còn {ctx.target_remaining_terms} học kỳ."
+        )
+    earned_credits = ctx.progress.total.earned_credits
+    required_credits = ctx.progress.total.required_credits
+    if earned_credits == 0 and required_credits is not None and required_credits > course.credits:
+        return (
+            "Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối khi đã tích lũy phần lớn học phần; "
+            "bảng điểm hiện chưa ghi nhận tín chỉ tích lũy."
+        )
+    non_thesis_remaining = (
+        max(0, ctx.remaining_total_credits - course.credits)
+        if ctx.remaining_total_credits is not None
+        else 0
+    )
+    if non_thesis_remaining >= 12 and ctx.unpassed_non_grad_credits >= 12:
+        return (
+            "Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối khi gần hoàn tất chương trình; "
+            f"bảng điểm hiện còn {non_thesis_remaining} tín chỉ học phần khác chưa hoàn thành."
+        )
+    if ctx.unpassed_required_credits >= 9 or (
+        ctx.unpassed_required_credits >= 6 and non_thesis_remaining >= 10
+    ):
+        return (
+            "Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; "
+            f"hiện còn {ctx.unpassed_required_credits} tín chỉ học phần bắt buộc chưa hoàn thành."
+        )
+    if ctx.unpassed_required_unlockers > 0:
+        return (
+            "Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; "
+            "hiện còn chuỗi học phần bắt buộc tiên quyết cần hoàn thành trước."
+        )
+    return None
+
+
+def is_early_thesis(
+    course: Course,
+    context_or_terms: TranscriptContext | int | None,
+) -> bool:
+    """Trả True nếu là khóa luận nhưng người dùng chưa ở kỳ tốt nghiệp cuối."""
+    if isinstance(context_or_terms, TranscriptContext):
+        return early_thesis_reason(course, context_or_terms) is not None
+    return (
+        context_or_terms is not None
+        and context_or_terms > 1
+        and is_thesis_course(course)
     )
 
 
@@ -293,8 +390,13 @@ def transcript_need_score(
 ) -> tuple[float, list[str]]:
     """Chấm mức độ cần thiết theo bảng điểm thực tế [0, 1] kèm lý do giải thích."""
     signals: list[str] = []
+    thesis_block_reason = early_thesis_reason(course, ctx)
+    early_thesis = thesis_block_reason is not None
 
-    if course.code in ctx.path_prereq_codes or course.requirement_type == "graduation":
+    if thesis_block_reason is not None:
+        req_score = 0.0
+        signals.append(thesis_block_reason)
+    elif course.code in ctx.path_prereq_codes or course.requirement_type == "graduation":
         req_score = 1.0
         if course.requirement_type == "graduation":
             signals.append("Thuộc nhóm học phần tốt nghiệp của nhánh bạn đã chọn.")
@@ -341,6 +443,8 @@ def transcript_need_score(
         + 0.20 * gap_score
         + 0.15 * retake_score
     )
+    if early_thesis:
+        total *= 0.05
     return round(min(1.0, max(0.0, total)), 4), signals
 
 
@@ -362,9 +466,14 @@ def combine_scores(
     pref_score: float,
     need_score: float,
     weights: RankingWeights | None = None,
+    *,
+    early_thesis_penalty: bool = False,
 ) -> float:
     alpha = preference_blend_alpha(weights)
-    return round(min(1.0, max(0.0, alpha * pref_score + (1.0 - alpha) * need_score)), 4)
+    blended = alpha * pref_score + (1.0 - alpha) * need_score
+    if early_thesis_penalty:
+        blended *= 0.04
+    return round(min(1.0, max(0.0, blended)), 4)
 
 
 def softmax_probabilities(scores: list[float], temperature: float = 0.25) -> list[float]:

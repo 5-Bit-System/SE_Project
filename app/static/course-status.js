@@ -186,12 +186,11 @@
     term.onchange = () => { planSemester = Number(term.value); planDirty = true; saveDraft(); }; termLabel.append(term); fields.append(termLabel); form.append(fields);
     const selected = el('ul', undefined, 'semester-plan-courses');
     const known = new Map([...(activePlan?.courses || []), ...(board?.courses?.eligible || [])].map(course => [course.code, course]));
+    const validCodes = reachablePlanCodes(board, chosen);
     chosen.forEach(code => {
       const course = known.get(code), row = el('li');
       row.dataset.planCourse = code;
-      const valid = board?.courses?.eligible?.some(item => item.code === code
-        && item.planning_eligible !== false
-        && item.eligibility_basis !== 'available_prerequisites');
+      const valid = validCodes.has(code);
       row.append(el('span', `${code} · ${course?.name || ''} · ${credits(course?.credits || 0)}${valid ? '' : copy(' — Cần kiểm tra', ' — Needs review')}`));
       const remove = el('button', copy('Bỏ môn', 'Remove'), 'text-action'); remove.type = 'button'; remove.disabled = planBusy;
       remove.setAttribute('aria-label', `${copy('Bỏ', 'Remove')} ${code}`);
@@ -284,6 +283,37 @@
     return fragment;
   }
 
+  function reachablePlanCodes(targetBoard, codes) {
+    const eligible = targetBoard?.courses?.eligible || [];
+    const byCode = new Map();
+    const base = new Set();
+    for (const item of eligible) {
+      if (item.counted_in_total === false || item.planning_eligible === false) continue;
+      byCode.set(item.code, item);
+      if (item.eligibility_basis !== 'available_prerequisites') base.add(item.code);
+    }
+    const chosenSet = new Set(codes || []);
+    const reached = new Set([...chosenSet].filter(code => base.has(code) && !byCode.get(code)?.result_pending));
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const code of chosenSet) {
+        if (reached.has(code)) continue;
+        const item = byCode.get(code);
+        if (!item || item.eligibility_basis !== 'available_prerequisites' || item.result_pending) continue;
+        const clauses = item.prerequisite_clauses || [];
+        if (clauses.length && clauses.every(clause => clause.some(req => reached.has(req)))) {
+          reached.add(code);
+          changed = true;
+        }
+      }
+    }
+    for (const code of chosenSet) {
+      if (base.has(code)) reached.add(code);
+    }
+    return reached;
+  }
+
   function planCredits() {
     return (board?.courses?.eligible || []).filter(course => chosen.has(course.code)).reduce((sum, course) => sum + course.credits, 0);
   }
@@ -313,7 +343,9 @@
       if (basis === 'available_prerequisites') {
         availability.append(copy('Tiên quyết nằm trong nhóm Có thể học: ', 'Prerequisites are in Available to study: '),
           prerequisiteLabels(course.prerequisite_clauses || [], courseLookup),
-          copy('. Cần hoàn thành các môn tiên quyết trước khi học môn này.', '. Complete those prerequisites before taking this course.'));
+          course.planning_eligible !== false
+            ? copy('. Cần hoàn thành các môn tiên quyết trước khi học môn này. Có thể xếp học cùng kỳ với môn tiên quyết nếu đủ điều kiện.', '. Complete those prerequisites before taking this course. May be co-enrolled in the same term when eligible.')
+            : copy('. Cần hoàn thành các môn tiên quyết trước khi học môn này.', '. Complete those prerequisites before taking this course.'));
       } else availability.textContent = basis === 'no_prerequisites'
           ? copy('Có thể học theo mặc định: môn không có điều kiện tiên quyết.', 'Available by default: this course has no prerequisites.')
           : basis === 'requested_default'
@@ -622,9 +654,7 @@
     },
     useDraft({codes, title, year, semester}) {
       if (!source || !board || loading || !Array.isArray(codes)) return false;
-      const valid = new Set((board.courses?.eligible || [])
-        .filter(course => course.planning_eligible !== false && course.counted_in_total !== false)
-        .map(course => course.code));
+      const valid = reachablePlanCodes(board, codes);
       if (codes.some(code => !valid.has(code))) return false;
       activePlan = null; chosen = new Set(codes); planTitle = title.slice(0, 100);
       planYear = year; planSemester = semester; planDirty = true; render();

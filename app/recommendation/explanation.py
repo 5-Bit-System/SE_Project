@@ -185,6 +185,7 @@ def _render_compact_plan(
     goal_limit: int,
     program_limit: int,
     max_tags: int,
+    co_enrolled_prereqs: dict[str, list[str]] | None = None,
 ) -> str:
     lines: list[str] = [
         f"CT: {_truncate_text(catalog.program.name, program_limit)} | Trang thai: {catalog.program.catalog_status}",
@@ -226,6 +227,9 @@ def _render_compact_plan(
         tags: list[str] = []
         if item.is_retake:
             tags.append("hoc_lai_F")
+        co_prereqs = (co_enrolled_prereqs or {}).get(item.code)
+        if co_prereqs:
+            tags.append("cung_ky:" + "+".join(co_prereqs[:2]))
         unlocks = transcript_ctx.unlock_counts.get(item.code, 0)
         if unlocks > 0:
             tags.append(f"mo_khoa:{unlocks}")
@@ -260,6 +264,7 @@ def compress_plan_context(
     credit_tolerance: int = 2,
     omitted_eligible_count: int = 0,
     ranking_weights: RankingWeights | None = None,
+    co_enrolled_prereqs: dict[str, list[str]] | None = None,
 ) -> CompressedPlanContext:
     """Nén thông tin tổ hợp môn và ngữ cảnh bảng điểm xuống <= 1200 ký tự."""
     strategy = _strategy_label(ranking_weights)
@@ -289,6 +294,7 @@ def compress_plan_context(
             goal_limit=goal_limit,
             program_limit=program_limit,
             max_tags=max_tags,
+            co_enrolled_prereqs=co_enrolled_prereqs,
         )
         if len(compact_text) <= _MAX_COMPACT_CHARS:
             break
@@ -363,6 +369,7 @@ def build_deterministic_plan_explanation(
     omitted_eligible_count: int = 0,
     ranking_weights: RankingWeights | None = None,
     warnings: list[str] | None = None,
+    co_enrolled_prereqs: dict[str, list[str]] | None = None,
 ) -> PlanExplanation:
     """Sinh giải thích kế hoạch học kỳ hoàn toàn deterministic từ facts đã xác minh."""
     strategy = _strategy_label(ranking_weights)
@@ -441,6 +448,12 @@ def build_deterministic_plan_explanation(
                 if label not in matched_careers:
                     matched_careers.append(label)
 
+    co_pairs = [
+        (item.code, co_enrolled_prereqs[item.code])
+        for item in selected
+        if co_enrolled_prereqs and co_enrolled_prereqs.get(item.code)
+    ]
+
     retake_headline = f" · ưu tiên học lại {len(retake_codes)} môn" if retake_codes else ""
     headline = _truncate_text(
         f"Đề xuất {len(selected)} môn ({selected_credits} TC) — {strategy}{retake_headline}",
@@ -453,6 +466,13 @@ def build_deterministic_plan_explanation(
     if retake_codes:
         rationale_parts.append(
             f"Ưu tiên học lại {', '.join(retake_codes)} để khắc phục điểm F và giữ nhịp tiến độ."
+        )
+    if co_pairs:
+        pair_labels = ", ".join(
+            f"{code} (cùng {', '.join(prereqs)})" for code, prereqs in co_pairs[:3]
+        )
+        rationale_parts.append(
+            f"Xếp học cùng kỳ {pair_labels} để giữ mạch tiến độ liên tục trong học kỳ này."
         )
     if unlocker_pairs:
         top_code, top_unlocks = unlocker_pairs[0]
@@ -478,6 +498,16 @@ def build_deterministic_plan_explanation(
         highlights.append(
             _truncate_text(
                 f"Học lại điểm F: {', '.join(retake_codes)} được ưu tiên đưa vào kế hoạch kỳ này.",
+                300,
+            )
+        )
+    if co_pairs:
+        hl_labels = ", ".join(
+            f"{code} cùng {' & '.join(prereqs)}" for code, prereqs in co_pairs[:3]
+        )
+        highlights.append(
+            _truncate_text(
+                f"Học song hành tiên quyết trong kỳ: {hl_labels}.",
                 300,
             )
         )
@@ -716,6 +746,7 @@ class LLMPlanExplainer:
         ranking_weights: RankingWeights | None = None,
         warnings: list[str] | None = None,
         fallback: PlanExplanation | None = None,
+        co_enrolled_prereqs: dict[str, list[str]] | None = None,
     ) -> PlanExplanation:
         fallback_plan = fallback or build_deterministic_plan_explanation(
             catalog,
@@ -729,6 +760,7 @@ class LLMPlanExplainer:
             omitted_eligible_count=omitted_eligible_count,
             ranking_weights=ranking_weights,
             warnings=warnings,
+            co_enrolled_prereqs=co_enrolled_prereqs,
         )
         if not selected:
             return fallback_plan
@@ -744,6 +776,7 @@ class LLMPlanExplainer:
             credit_tolerance=credit_tolerance,
             omitted_eligible_count=omitted_eligible_count,
             ranking_weights=ranking_weights,
+            co_enrolled_prereqs=co_enrolled_prereqs,
         )
         provider_scope = (
             "default"

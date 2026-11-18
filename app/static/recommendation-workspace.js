@@ -1,5 +1,6 @@
 import {VARIANTS, comparePlans, constrainRecommendations, creditLimits, creditsForWorkload,
-  defaultTerm, graduationWindow, recommendationPayload, validGraduationGoal} from './recommendation-model.mjs';
+  defaultGraduationGoal, defaultTerm, estimateRemainingTerms, graduationWindow, recommendationPayload,
+  validGraduationGoal} from './recommendation-model.mjs';
 
 const root = document.getElementById('recommendation-workspace');
 const tools = document.getElementById('academic-plan-tools');
@@ -56,7 +57,7 @@ let requestEpoch = 0, requestController, enhanceController, generationRevision =
 let catalogProgram = '', catalogSequence = 0, saved = new Set(), draftText = '';
 const uncertainSaves = new Set();
 let generationPassed = new Set();
-let pendingSave = false, introShown = false, reviewMode = false, customDirectionOpen = false, guideOpen = false;
+let pendingSave = false, introShown = false, reviewMode = false, customDirectionOpen = false, guideOpen = false, deadlineTouched = false;
 let planningStateKey = '';
 const animations = new Set();
 const dialog = node('dialog', undefined, 'rec-dialog');
@@ -67,11 +68,11 @@ dialog.addEventListener('close', () => { if (!dialog.open) dialog.replaceChildre
 
 function initialAnswers() {
   const term = defaultTerm();
-  const window = graduationWindow(live.profile?.cohort);
+  const goal = defaultGraduationGoal(live.profile?.cohort, live.board?.progress?.total?.remaining_credits, 20);
   return {direction: '', directionLabel: '', workload: 'moderate', credits: 20,
     track: live.track || '', path: live.path || '', goal: '',
     customDirection: '', cohort: live.profile?.cohort || '',
-    targetYear: window.years.includes(window.admissionYear + 3) ? window.admissionYear + 3 : window.years[0] ?? null, targetSemester: 2,
+    targetYear: goal.targetYear, targetSemester: goal.targetSemester,
     year: term.year, semester: term.semester, creditsExplicit: false, confirmedWorkload: false, confirmedDeadline: false, includeNarrative: false};
 }
 answers = initialAnswers();
@@ -132,7 +133,13 @@ function choose(key, value, element) {
     customDirectionOpen = false;
     if (value.track) { answers.track = value.track; answers.path = ''; }
   }
-  if (key === 'workload') { answers.workload = value; answers.confirmedWorkload = true; }
+  if (key === 'workload') {
+    answers.workload = value; answers.confirmedWorkload = true;
+    if (!answers.confirmedDeadline && !deadlineTouched) {
+      const goal = defaultGraduationGoal(live.profile?.cohort, live.board?.progress?.total?.remaining_credits, answers.credits);
+      answers.targetYear = goal.targetYear; answers.targetSemester = goal.targetSemester;
+    }
+  }
   if (key === 'deadline') answers.confirmedDeadline = true;
   if (key === 'graduation') answers.path = value;
   step = Math.min(step + 1, steps().length - 1);
@@ -210,11 +217,12 @@ function render(transition = false) {
   if (readyToGenerate() && reviewMode) conversation.append(renderComposer());
   const footer = node('div', undefined, 'rec-conversation-foot');
   footer.append(node('span', copy('Bảng điểm của bạn là điểm bắt đầu.', 'Your transcript is the starting point.')),
-    button(copy('Làm lại', 'Start over'), () => { clearResults(); answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; render(); }, 'rec-text-button'));
+    button(copy('Làm lại', 'Start over'), () => { clearResults(); deadlineTouched = false; answers = initialAnswers(); step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; render(); }, 'rec-text-button'));
   conversation.append(footer);
-  shell.append(conversation, renderRoadmap()); root.append(shell, renderAlgorithmGuide());
+  shell.append(conversation, renderRoadmap()); root.append(shell);
   const resultsArea = node('section', undefined, 'rec-results'); resultsArea.id = 'rec-results'; root.append(resultsArea);
   renderResults();
+  root.append(renderAlgorithmGuide());
   const mobile = button(copy('Xem lộ trình của bạn', 'View your study path'), openMobileRoadmap, 'rec-mobile-roadmap');
   mobile.prepend(icon('branch')); root.append(mobile);
   const toolsLabel = document.querySelector('[data-rec-tools-label]');
@@ -329,13 +337,22 @@ function renderQuestion() {
       ? copy(`K${window.cohort} vào học năm ${window.admissionYear}. Giao diện cho chọn mục tiêu trong khoảng 6 năm, đến năm học ${window.lastYear}–${window.lastYear + 1}; thời hạn học thực tế cần xác nhận với nhà trường.`, `K${window.cohort} entered in ${window.admissionYear}. This goal selector covers six years, through academic year ${window.lastYear}–${window.lastYear + 1}; confirm your actual study deadline with the university.`)
       : copy(`Khóa K${window.cohort} đã ngoài khoảng mục tiêu 6 năm của giao diện tính từ ${window.admissionYear}. Kiểm tra hồ sơ và xác nhận thời hạn học thực tế với nhà trường.`, `K${window.cohort} is outside this selector's six-year goal window from ${window.admissionYear}. Review your profile and confirm your actual study deadline with the university.`), 'rec-question-hint'));
     const form = node('form', undefined, 'rec-deadline-form');
-    form.append(termSelect('rec-target-semester', copy('Học kỳ', 'Semester'), answers.targetSemester, value => { answers.targetSemester = value; }, 2),
-      yearSelect('rec-target-year', copy('Năm học dự kiến tốt nghiệp', 'Expected graduation academic year'), answers.targetYear, value => { answers.targetYear = value; }, window.years));
+    const termsHint = node('p', '', 'rec-question-hint'); termsHint.id = 'rec-deadline-terms-hint';
+    const syncTermsHint = () => {
+      const est = estimateRemainingTerms(answers.targetYear, answers.targetSemester);
+      termsHint.textContent = !est ? '' : est === 1
+        ? copy('Mốc này xem học kỳ sắp tới là học kỳ tốt nghiệp cuối cùng.', 'This treats the upcoming semester as your final graduation semester.')
+        : copy(`Mốc này còn khoảng ${est} học kỳ nữa (tính cả học kỳ sắp tới).`, `This milestone is about ${est} semesters away (including the upcoming semester).`);
+    };
+    form.append(
+      termSelect('rec-target-semester', copy('Học kỳ', 'Semester'), answers.targetSemester, value => { answers.targetSemester = value; deadlineTouched = true; syncTermsHint(); }, 2),
+      yearSelect('rec-target-year', copy('Năm học dự kiến tốt nghiệp', 'Expected graduation academic year'), answers.targetYear, value => { answers.targetYear = value; deadlineTouched = true; syncTermsHint(); }, window.years)
+    );
     const confirm = node('button', copy('Ghi nhận mục tiêu', 'Set my goal'), 'rec-button rec-primary'); confirm.type = 'submit';
     confirm.disabled = !window.years.length;
     form.append(confirm); form.onsubmit = event => {
       event.preventDefault(); if (validGraduationGoal(live.profile?.cohort, answers.targetYear, answers.targetSemester)) choose('deadline', null, confirm);
-    }; section.append(form);
+    }; syncTermsHint(); section.append(form, termsHint);
   } else {
     const paths = (live.board?.selections?.paths || []).filter(path => !answers.track || !path.allowed_track_ids?.length || path.allowed_track_ids.includes(answers.track));
     section.append(node('p', copy('Các lựa chọn dưới đây lấy từ đúng chương trình áp dụng cho bạn.', 'These options come from your applicable curriculum.'), 'rec-question-hint'));
@@ -466,7 +483,11 @@ function renderRoadmap(mobile = false) {
   } else {
     const sketch = node('div', undefined, 'rec-paper-sketch'); sketch.setAttribute('aria-hidden', 'true');
     for (let index = 0; index < 3; index++) sketch.append(node('i'));
-    upcoming.append(sketch, node('small', busy ? copy('Đang tìm các lựa chọn phù hợp…', 'Finding suitable choices…') : copy('Phương án của bạn sẽ hiện ở đây', 'Your course plan will appear here')));
+    upcoming.append(sketch, node('small', busy
+      ? copy('Đang tìm các lựa chọn phù hợp…', 'Finding suitable choices…')
+      : plan?.status === 'error'
+        ? copy('Cần xem thông báo bên dưới để hoàn tất lựa chọn.', 'Review the notice below to complete your choices.')
+        : copy('Phương án của bạn sẽ hiện ở đây', 'Your course plan will appear here')));
   }
   timeline.append(upcoming);
   const end = node('div', undefined, 'rec-milestone rec-milestone-goal');
@@ -492,7 +513,7 @@ function renderAlgorithmGuide() {
   const items = [
     [
       copy('1. Kiểm tra điều kiện cứng (Eligibility)', '1. Hard eligibility filtering'),
-      copy('Chỉ giữ các môn bạn chưa qua, thuộc đúng ngành/hướng đã chọn, đã đạt đủ môn tiên quyết (AND/OR) và còn chỗ trong nhóm tự chọn. Môn bị chặn hoặc chưa xác minh không bao giờ được đề xuất.', 'Keeps only unpassed courses in your program/track whose prerequisites (AND/OR) and elective-group quotas are satisfied. Blocked or unverified courses are never recommended.'),
+      copy('Chỉ giữ các môn bạn chưa qua, thuộc đúng ngành/hướng đã chọn, còn chỗ trong nhóm tự chọn và đã đạt đủ môn tiên quyết — hoặc học cùng kỳ với học phần tiên quyết trong cùng tổ hợp (không học trước tiên quyết). Môn bị chặn hoặc chưa xác minh không bao giờ được đề xuất.', 'Keeps only unpassed courses in your program/track within elective-group quotas whose prerequisites (AND/OR) are met — or co-enrolled alongside their prerequisites in the same semester bundle. Blocked or unverified courses are never recommended.'),
     ],
     [
       copy('2. Đo độ phù hợp với mục tiêu (PrefFit)', '2. Scoring alignment with your goals (PrefFit)'),
@@ -591,9 +612,16 @@ function openCourse(course) {
         if (index) row.append(node('span', copy('hoặc', 'or'), 'rec-prerequisite-or'));
         const prerequisite = catalog.get(code) || live.board?.prerequisite_courses?.[code];
         const label = node('span', undefined, 'rec-prerequisite-node');
-        const completed = generationPassed.has(code); label.classList.toggle('is-completed', completed);
-        label.append(icon(completed ? 'check' : 'clock'), node('span', `${code}${prerequisite ? ': ' + courseName(prerequisite) : ''}`));
-        label.setAttribute('title', completed ? copy('Đã hoàn thành', 'Completed') : copy('Không ghi nhận hoàn thành', 'Not recorded as completed')); row.append(label);
+        const completed = generationPassed.has(code);
+        const coEnrolled = !completed && Boolean(results[selected]?.rows?.some(item => item.code === code));
+        label.classList.toggle('is-completed', completed);
+        label.classList.toggle('is-co-enrolled', coEnrolled);
+        label.append(icon(completed ? 'check' : 'clock'), node('span', `${code}${prerequisite ? ': ' + courseName(prerequisite) : ''}${coEnrolled ? copy(' (học cùng kỳ)', ' (co-enrolled)') : ''}`));
+        label.setAttribute('title', completed
+          ? copy('Đã hoàn thành', 'Completed')
+          : coEnrolled
+            ? copy('Chưa hoàn thành — đang xếp học cùng kỳ trong phương án này', 'Not yet completed — co-enrolled in this term plan')
+            : copy('Không ghi nhận hoàn thành', 'Not recorded as completed')); row.append(label);
       }); graph.append(row);
     });
     const connector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -716,7 +744,9 @@ function renderResults() {
   } else {
     const caption = node('div', undefined, 'rec-plan-caption');
     const delta = plan.credits - Number(answers.credits);
-    const deltaText = delta === 0 ? '' : ` (${delta > 0 ? '+' : ''}${delta} ${copy('TC · biên ±2 TC', 'cr · ±2 cr band')})`;
+    const deltaText = delta === 0 ? ''
+      : Math.abs(delta) <= 2 ? ` (${delta > 0 ? '+' : ''}${delta} ${copy('TC · biên ±2 TC', 'cr · ±2 cr band')})`
+      : ` (${delta > 0 ? '+' : ''}${delta} ${copy('TC so với mục tiêu', 'cr vs target')})`;
     caption.append(node('p', hintFor(selected)), node('strong', `${plan.credits} / ${answers.credits} ${copy('tín chỉ', 'credits')}${deltaText}`)); panel.append(caption);
     const explanationCard = renderPlanExplanation(plan);
     if (explanationCard) panel.append(explanationCard);
@@ -816,6 +846,33 @@ function openComparison() {
   draw(); dialog.showModal();
 }
 
+function formatClarification(questions) {
+  const fieldLabels = {
+    interest_topics: copy('Chủ đề quan tâm', 'Focus topics'),
+    career_paths: copy('Định hướng nghề nghiệp', 'Career paths'),
+    workload: copy('Tải học', 'Study load'),
+    orientation: copy('Phong cách học', 'Study orientation'),
+    difficulty: copy('Độ khó', 'Content depth'),
+    target_credits: copy('Số tín chỉ mục tiêu', 'Target credits'),
+    course_type: copy('Loại môn', 'Course type'),
+  };
+  const lines = (questions || []).filter(Boolean).map(raw => {
+    const text = String(raw).trim();
+    const match = /^([a-z_]+):\s*(.+)$/.exec(text);
+    if (!match) return translateText(text);
+    const label = fieldLabels[match[1]];
+    return label ? `${label}: ${translateText(match[2])}` : translateText(text);
+  });
+  const joined = lines.join(' ');
+  if (!joined) return '';
+  const needsTopicTip = (questions || []).some(q => String(q).includes('bổ sung lựa chọn khác biểu mẫu')
+    || String(q).includes('lựa chọn biểu mẫu khác nhau'));
+  if (needsTopicTip) {
+    return `${joined} ${copy('Gợi ý: Nếu muốn giữ cả hai, hãy dùng từ “thêm” hoặc “và” trong câu nhắn (ví dụ: “học thêm trí tuệ nhân tạo”); hoặc bấm Sửa ở Bước 1 và chọn “Tự chọn” để mô tả tự do bằng câu chat.', 'Tip: To combine both, add “and” or “also” to your note, or edit Step 1 to “Your own direction” to describe your goals freely.')}`;
+  }
+  return joined;
+}
+
 function errorMessage(failure) {
   if (failure?.clarification) return failure.clarification;
   const planErrors = {
@@ -881,7 +938,7 @@ async function generate() {
         if (response.context_revision !== context.revision) throw Object.assign(new Error('context_changed'), {status: 409});
         if (response.intent?.status === 'needs_clarification') {
           throw Object.assign(new Error('study_intent_needs_clarification'), {
-            clarification: (response.intent.questions || []).join(' ')});
+            clarification: formatClarification(response.intent.questions)});
         }
         results[id] = {...constrainRecommendations(response, board, Number(answers.credits)), status: 'done', enhancing: false, enhanceNotice: ''};
       } catch (failure) {
@@ -896,6 +953,10 @@ async function generate() {
     clearTimeout(timeout);
     if (current === requestEpoch) {
       busy = false; render();
+      const resultsArea = root.querySelector('#rec-results');
+      if (resultsArea?.childElementCount && document.documentElement.dataset.view === 'tab-recommend') {
+        resultsArea.scrollIntoView({behavior: reduced.matches ? 'instant' : 'smooth', block: 'start'});
+      }
       root.querySelectorAll('[data-rec-course]').forEach((element, index) =>
         animate(element, [{opacity: 0, transform: 'translateY(14px) rotateX(-4deg)'}, {opacity: 1, transform: 'translateY(0) rotateX(0)'}],
           {duration: 500, delay: Math.min(index * 70, 280)}));
@@ -1027,7 +1088,7 @@ async function loadCatalog(program) {
 function resetSession() {
   clearResults(); cancelMotion(); catalogSequence++; catalogProgram = ''; catalog.clear();
   if (dialog.open) dialog.close(); pendingSave = false;
-  step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; answers = initialAnswers();
+  step = 0; draftText = ''; reviewMode = false; customDirectionOpen = false; deadlineTouched = false; answers = initialAnswers();
 }
 document.addEventListener('workspace:planning-state', event => {
   const next = event.detail;
@@ -1056,10 +1117,14 @@ document.addEventListener('workspace:planning-state', event => {
     }
   }
   if (!changedOwner && changedCohort) {
+    deadlineTouched = false;
     const defaults = initialAnswers(); answers.cohort = defaults.cohort;
     answers.targetYear = defaults.targetYear; answers.targetSemester = defaults.targetSemester;
     answers.confirmedDeadline = false; reviewMode = false; clearResults();
     if (step >= steps().indexOf('deadline')) step = steps().indexOf('deadline');
+  } else if (!changedOwner && !answers.confirmedDeadline && !deadlineTouched && next.board?.progress?.total) {
+    const goal = defaultGraduationGoal(live.profile?.cohort, next.board.progress.total.remaining_credits, answers.credits);
+    answers.targetYear = goal.targetYear; answers.targetSemester = goal.targetSemester;
   }
   if (next.board?.program_id) loadCatalog(next.board.program_id);
   render();

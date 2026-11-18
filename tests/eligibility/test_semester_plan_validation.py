@@ -16,8 +16,13 @@ def test_valid_bundle_uses_server_credits_and_keeps_selected_courses_unpassed(cu
     board = course_board(curriculum, context('A'))
     rows = validate_plan_courses(board, ['B', 'X'], 5)
     assert sum(row['credits'] for row in rows) == 5
-    with pytest.raises(AcademicContextError, match='course_unavailable'):
-        validate_plan_courses(board, ['B', 'C'], 20)
+    for orphan in (['C'], ['C', 'X']):
+        with pytest.raises(AcademicContextError, match='course_unavailable'):
+            validate_plan_courses(board, orphan, 20)
+    co_rows = validate_plan_courses(board, ['C', 'B'], 20)
+    assert [row['code'] for row in co_rows] == ['C', 'B']
+    assert sum(row['credits'] for row in co_rows) == 6
+    assert [row['code'] for row in board['courses']['completed']] == ['A']
 
 
 @pytest.mark.parametrize(('codes', 'budget', 'error'), [
@@ -85,3 +90,42 @@ def test_defaults_cannot_be_saved_across_global_planning_gates(curriculum, gate,
     assert {'E1', 'X'} <= {row['code'] for row in board['courses']['eligible']}
     with pytest.raises(AcademicContextError, match='not_ready'):
         validate_plan_courses(board, codes, 20)
+
+
+def test_khmtt_co_enrolled_plan_validates_and_rejects_orphan():
+    import json
+
+    from app.config import PROJECT_ROOT
+    from app.services.course_status_service import course_board_display
+    from database.hus_db.catalog_builder import build_catalogs
+
+    bundle = json.loads((PROJECT_ROOT / 'database/data/hus_source.json').read_text(encoding='utf-8'))
+    khmtt = next(c for c in build_catalogs(bundle) if c.program.program_id == 'khmtt_7480113qtd_2022')
+    req_minus_three = [
+        c.code
+        for c in khmtt.courses
+        if c.requirement_type == 'required'
+        and c.counted_in_total
+        and c.code not in {'MAT3374', 'MAT1207', 'MAT3373E'}
+    ]
+    passed_107 = [
+        *req_minus_three,
+        'FLF1107',
+        'HUS1021',
+        'HUS1022',
+        'MAT1208',
+        'MAT3519',
+        'MAT2034',
+        'MAT3148',
+    ]
+    raw_board = course_board(khmtt, context(*passed_107), max_credits=20, selected_graduation_path_id='V.3.1')
+    display_board = course_board_display(raw_board)
+
+    # Dependent MAT1207 before prerequisite MAT3374 succeeds on both raw board (used by save_plan) and display view.
+    for target in (raw_board, display_board):
+        saved = validate_plan_courses(
+            target, ['MAT1207', 'MAT3374', 'MAT3373E', 'MAT3538', 'MAT3561E'], 20
+        )
+        assert sum(row['credits'] for row in saved) == 15
+        with pytest.raises(AcademicContextError, match='semester_plan_course_unavailable'):
+            validate_plan_courses(target, ['MAT1207', 'MAT3373E'], 20)

@@ -270,7 +270,10 @@
     "Phóng to khung chat": "Maximize chat",
     "Thu nhỏ về 1/4 màn hình": "Restore chat window",
     "Trạng thái mở lớp kỳ tới chưa được xác minh; hãy đối chiếu thời khóa biểu chính thức khi đăng ký.": "Next-term course offerings are not verified; check the official timetable when registering.",
-    "Dữ liệu chương trình đào tạo chưa được xác minh đầy đủ; kết quả chỉ mang tính tham khảo học vụ.": "Curriculum data is not fully verified; results are for academic reference only."
+    "Dữ liệu chương trình đào tạo chưa được xác minh đầy đủ; kết quả chỉ mang tính tham khảo học vụ.": "Curriculum data is not fully verified; results are for academic reference only.",
+    "câu nhập bổ sung lựa chọn khác biểu mẫu; hãy xác nhận lại.": "your note adds an option different from the form selection; please confirm.",
+    "câu nhập và lựa chọn biểu mẫu khác nhau; hãy chọn lại.": "your note differs from the form selection; please choose again.",
+    "lựa chọn biểu mẫu mâu thuẫn câu nhập; hãy xác nhận lại.": "form selection conflicts with your note; please confirm."
   };
 
   const storageKey = "study-workspace-language";
@@ -383,11 +386,19 @@
       [/^Thuộc nhóm học phần (.+) đúng theo ưu tiên của bạn\.$/, (_, req) => `In your preferred course category (${reqEn[req] || req}).`],
       [/^Giúp mở khóa (\d+) học phần tiếp theo trong chương trình\.$/, 'Unlocks $1 downstream courses in your curriculum.'],
       [/^Bổ sung tín chỉ cho nhóm tự chọn (.+)\.$/, (_, list) => `Contributes credits to unmet elective group(s): ${list.replaceAll('còn thiếu', 'remaining').replaceAll(' TC)', ' cr)')}.`],
+      [/^Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; đang bị giảm ưu tiên mạnh vì mục tiêu tốt nghiệp còn (\d+) học kỳ\.$/, 'Graduation thesis is typically taken in the final semester; heavily down-weighted because your graduation goal is still $1 semester(s) away.'],
+      [/^Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối khi đã tích lũy phần lớn học phần; bảng điểm hiện chưa ghi nhận tín chỉ tích lũy\.$/, 'Graduation thesis is typically taken in the final semester after completing most coursework; your transcript shows no earned credits yet.'],
+      [/^Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối khi gần hoàn tất chương trình; bảng điểm hiện còn (\d+) tín chỉ học phần khác chưa hoàn thành\.$/, 'Graduation thesis is typically taken in the final semester near degree completion; your transcript still has $1 non-thesis credits remaining.'],
+      [/^Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; hiện còn (\d+) tín chỉ học phần bắt buộc chưa hoàn thành\.$/, 'Graduation thesis is typically taken in the final semester; $1 required course credits still remain uncompleted.'],
+      [/^Học phần khóa luận tốt nghiệp thường đăng ký ở kỳ cuối; hiện còn chuỗi học phần bắt buộc tiên quyết cần hoàn thành trước\.$/, 'Graduation thesis is typically taken in the final semester; required prerequisite chains still remain to be completed first.'],
+      [/^Đã tạm hoãn ([^()]+) \(Khóa luận tốt nghiệp\) khỏi gợi ý kỳ tới vì mục tiêu tốt nghiệp còn (\d+) học kỳ\.$/, 'Deferred $1 (Graduation Thesis) from next-term suggestions because your graduation goal is still $2 semester(s) away.'],
+      [/^Đã tạm hoãn ([^()]+) \(Khóa luận tốt nghiệp\) khỏi gợi ý kỳ tới do bảng điểm hiện chưa ở giai đoạn tốt nghiệp cuối khóa\.$/, 'Deferred $1 (Graduation Thesis) from next-term suggestions because your transcript profile is not yet at the final graduation stage.'],
       [/^Đề xuất (\d+) môn \((\d+) TC\) — ([^·]+)$/, (_, count, cr, strategy) => `Suggested ${count} courses (${cr} cr) — ${strategyEn[strategy.trim()] || strategy.trim()}`],
       [/^ưu tiên học lại (\d+) môn$/, 'prioritizing $1 retake(s)'],
       [/^Chưa tìm thấy tổ hợp môn phù hợp \(([^,]+), mục tiêu (\d+) TC\)$/, (_, strategy, target) => `No matching bundle found (${strategyEn[strategy] || strategy}, target ${target} cr)`],
       [/^Tổ hợp gồm (\d+) học phần với tổng (\d+) TC \(mục tiêu (\d+) TC, biên ±(\d+) TC\) theo chiến lược ([^.]+)\.$/, (_, count, cr, target, tol, strategy) => `Bundle of ${count} courses totaling ${cr} cr (target ${target} cr, ±${tol} cr band) under the ${strategyEn[strategy] || strategy} strategy.`],
       [/^Ưu tiên học lại ([^.]+?) để khắc phục điểm F và giữ nhịp tiến độ\.$/, 'Prioritizes retaking $1 to recover from grade F and stay on track.'],
+      [/^Xếp học cùng kỳ (.+?) để giữ mạch tiến độ liên tục trong học kỳ này\.$/, (_, pairs) => `Schedules same-term co-enrollment for ${pairs.replaceAll('(cùng ', '(with ')} to keep progress moving without delay.`],
       [/^Học phần ([^.]+?) giúp mở khóa (\d+) môn tiếp theo trong sơ đồ tiên quyết\.$/, 'Course $1 unlocks $2 downstream courses in the prerequisite graph.'],
       [/^Bổ sung tín chỉ cho các nhóm tự chọn còn thiếu: ([^.]+)\.$/, 'Adds credits to unmet elective groups: $1.'],
       [/^Nội dung gắn với chủ đề: ([^.]+)\.$/, (_, list) => `Aligned with topics: ${translateTerms(list, topicEn)}.`],
@@ -402,6 +413,7 @@
       [/^Số tín chỉ còn thiếu theo khung chương trình: (\d+) TC\.$/, 'Remaining credits in curriculum: $1 cr.'],
       [/^Các học phần chưa đạt cần lưu ý học lại: ([^.]+)\.$/, 'Unpassed courses to consider retaking: $1.'],
       [/^Học lại điểm F: ([^.]+?) được ưu tiên đưa vào kế hoạch kỳ này\.$/, 'F-grade retake: $1 prioritized in this term plan.'],
+      [/^Học song hành tiên quyết trong kỳ: (.+)\.$/, (_, pairs) => `Same-term prerequisite co-enrollment: ${pairs.replaceAll(' cùng ', ' with ')}.`],
       [/^Mở đường tiên quyết cho các kỳ sau: ([^.]+)\.$/, (_, list) => `Unlocks prerequisites for upcoming terms: ${list.replace(/\(mở khóa (\d+) môn\)/g, '(unlocks $1 courses)')}.`],
       [/^Lấp khoảng trống nhóm tự chọn còn thiếu: ([^.]+)\.$/, 'Closes gaps in unmet elective groups: $1.'],
       [/^Bám sát mục tiêu học tập về ([^.]+)\.$/, (_, bits) => `Aligns with your study focus on ${bits.replace(/chủ đề ([^.]+?)(?= và nghề nghiệp |$)/, (_, t) => `topics ${translateTerms(t, topicEn)}`).replace(/nghề nghiệp (.+)$/, (_, c) => `career focus ${translateTerms(c, careerEn)}`).replace(' và ', ' and ')}.`],
@@ -409,6 +421,8 @@
       [/^Cân đối tải học kỳ ở mức (\d+)\/(\d+) TC\.$/, 'Balances semester load at $1/$2 cr.'],
       [/^Đủ điều kiện: (.+) Phù hợp: (.+?) Tiến độ bảng điểm: (.+)$/, (_, eligible, fit, signals) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)} Progress impact: ${signals.split('. ').filter(Boolean).map(s => translate(s.endsWith('.') ? s : s + '.')).join(' ')}`],
       [/^Đủ điều kiện: (.+) Phù hợp: (.+)$/, (_, eligible, fit) => `Eligibility: ${translate(eligible)} Fit: ${translate(fit)}`],
+      [/^Đủ điều kiện học cùng kỳ với học phần tiên quyết (.+)\.$/, 'Eligible to co-enroll in the same term with prerequisite(s) $1.'],
+      [/^Học song hành cùng học phần tiên quyết (.+) trong học kỳ này\.$/, 'Co-enrolled in the same term alongside prerequisite(s) $1.'],
       [/^(⚠️\s*)?Chưa hoàn thành môn tiên quyết: (.+)$/, (_, icon, codes) => `${icon || ''}Missing prerequisites: ${codes.replaceAll(' hoặc ', ' or ')}`],
       [/^(⚠️\s*)?Môn thuộc hướng khác với track đã chọn: (.+)$/, (_, icon, track) => `${icon || ''}Outside the selected specialization: ${track}`],
       [/^(⚠️\s*)?Môn thuộc nhánh tốt nghiệp khác với nhánh đã chọn: (.+)$/, (_, icon, path) => `${icon || ''}Outside the selected graduation path: ${path}`],

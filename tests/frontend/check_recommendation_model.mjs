@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {comparePlans, constrainRecommendations, creditLimits, creditsForWorkload,
-  graduationWindow, normalizePlanExplanation, recommendationPayload, validGraduationGoal} from '../../app/static/recommendation-model.mjs';
+  defaultGraduationGoal, defaultTerm, estimateRemainingTerms, graduationWindow,
+  normalizePlanExplanation, recommendationPayload, validGraduationGoal} from '../../app/static/recommendation-model.mjs';
 
 const group = {id: 'elective', required_credits: 3, earned_credits: 0};
 const course = (code, credits = 3, extra = {}) => ({code, credits, name: `Catalog ${code}`, groups: [], counted_in_total: true, ...extra});
@@ -96,3 +97,69 @@ assert.equal(constrainRecommendations({
   recommendations: [{code: 'FOREIGN', credits: 3}],
   plan_explanation: {headline: 'Hợp lệ', bundle_rationale: 'Có môn'},
 }, board, 20).planExplanation, null);
+
+const autumnNow = new Date(2026, 10, 17);
+assert.deepEqual(defaultTerm(autumnNow), {year: 2026, semester: 2});
+assert.deepEqual(defaultTerm(new Date(2027, 0, 15)), {year: 2026, semester: 2});
+assert.deepEqual(defaultTerm(new Date(2026, 7, 15)), {year: 2026, semester: 1});
+assert.deepEqual(defaultTerm(new Date(2027, 3, 15)), {year: 2027, semester: 1});
+assert.deepEqual(defaultGraduationGoal('68', 22, 20, autumnNow), {targetYear: 2027, targetSemester: 1});
+assert.deepEqual(defaultGraduationGoal('68', 10, 20, autumnNow), {targetYear: 2026, targetSemester: 2});
+assert.deepEqual(defaultGraduationGoal('68', 117, 20, autumnNow), {targetYear: 2028, targetSemester: 2});
+assert.equal(estimateRemainingTerms(2026, 2, autumnNow), 1);
+assert.equal(estimateRemainingTerms(2027, 1, autumnNow), 2);
+assert.equal(recommendationPayload(board, {...answers, confirmedDeadline: true, cohort: '68', targetYear: 2026, targetSemester: 1}, 'balanced', 'rev', {now: autumnNow}).target_remaining_terms, 1);
+assert.equal(recommendationPayload(board, {...answers, confirmedDeadline: true, cohort: '68', targetYear: 2026, targetSemester: 2}, 'balanced', 'rev', {now: autumnNow}).target_remaining_terms, 1);
+assert.equal(recommendationPayload(board, {...answers, confirmedDeadline: true, cohort: '68', targetYear: 2027, targetSemester: 1}, 'balanced', 'rev', {now: autumnNow}).target_remaining_terms, 2);
+assert.equal(recommendationPayload(board, {...answers, confirmedDeadline: true, cohort: '68', targetYear: 2027, targetSemester: 2}, 'balanced', 'rev', {now: autumnNow}).target_remaining_terms, 3);
+
+// Same-semester prerequisite co-enrollment checks in constrainRecommendations
+const coBoard = {
+  program_id: 'co-test',
+  courses: {
+    eligible: [
+      course('PRE', 3),
+      course('DEP', 3, {planning_eligible: true, eligibility_basis: 'available_prerequisites', prerequisite_clauses: [['PRE']]}),
+      course('DEP2', 3, {planning_eligible: true, eligibility_basis: 'available_prerequisites', prerequisite_clauses: [['DEP']]}),
+      course('UNSAFE', 3, {planning_eligible: false, eligibility_basis: 'available_prerequisites', prerequisite_clauses: [['PRE']]}),
+      course('LOOP1', 3, {planning_eligible: true, eligibility_basis: 'available_prerequisites', prerequisite_clauses: [['LOOP2']]}),
+      course('LOOP2', 3, {planning_eligible: true, eligibility_basis: 'available_prerequisites', prerequisite_clauses: [['LOOP1']]}),
+    ],
+  },
+};
+// Order-independent: DEP listed BEFORE PRE still keeps both when budget allows.
+const coOrdered = constrainRecommendations({
+  credit_tolerance: 0,
+  recommendations: ['DEP2', 'DEP', 'PRE', 'UNSAFE'].map(code => ({code, credits: 3})),
+  plan_explanation: {headline: 'Gợi ý DEP2, DEP, PRE', bundle_rationale: 'Học cùng kỳ DEP2 và DEP với PRE.', highlights: ['Loại UNSAFE.']},
+}, coBoard, 9);
+assert.deepEqual(coOrdered.rows.map(row => row.code), ['DEP2', 'DEP', 'PRE']);
+assert.equal(coOrdered.credits, 9);
+assert.deepEqual(coOrdered.omitted, ['UNSAFE']);
+assert.deepEqual(coOrdered.planExplanation.highlights, []);
+
+// Orphan DEP without PRE must be omitted cleanly.
+const coOrphan = constrainRecommendations({
+  credit_tolerance: 0,
+  recommendations: [{code: 'DEP', credits: 3}],
+  plan_explanation: {headline: 'Orphan', bundle_rationale: 'Only DEP'},
+}, coBoard, 20);
+assert.deepEqual(coOrphan.rows, []);
+assert.deepEqual(coOrphan.omitted, ['DEP']);
+assert.equal(coOrphan.planExplanation, null);
+
+// Tight budget (3 TC): DEP cannot fit with PRE, so DEP is omitted and PRE is kept!
+const coTight = constrainRecommendations({
+  credit_tolerance: 0,
+  recommendations: [{code: 'DEP', credits: 3}, {code: 'PRE', credits: 3}],
+}, coBoard, 3);
+assert.deepEqual(coTight.rows.map(row => row.code), ['PRE']);
+assert.equal(coTight.credits, 3);
+assert.deepEqual(coTight.omitted, ['DEP']);
+
+// Self-cycle LOOP1 <-> LOOP2 must never be accepted without a grounded root.
+const coCycle = constrainRecommendations({
+  credit_tolerance: 0,
+  recommendations: [{code: 'LOOP1', credits: 3}, {code: 'LOOP2', credits: 3}],
+}, coBoard, 20);
+assert.deepEqual(coCycle.rows, []);

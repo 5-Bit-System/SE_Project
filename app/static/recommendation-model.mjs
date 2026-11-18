@@ -42,8 +42,48 @@ export function validGraduationGoal(cohort, year, semester, date = new Date()) {
 }
 
 export function defaultTerm(date = new Date()) {
-  const autumn = date.getMonth() >= 7;
-  return {year: date.getFullYear(), semester: autumn ? 2 : 1};
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  if (month === 0) return {year: year - 1, semester: 2};
+  if (month >= 8) return {year, semester: 2};
+  return {year, semester: 1};
+}
+
+export function estimateRemainingTerms(targetYear, targetSemester, date = new Date()) {
+  if (!Number.isInteger(Number(targetYear)) || !Number.isInteger(Number(targetSemester))) return null;
+  const nowTerm = defaultTerm(date);
+  const diff = (Number(targetYear) - nowTerm.year) * 2 + (Number(targetSemester) - nowTerm.semester) + 1;
+  if (diff < 0 || diff > 20) return null;
+  return Math.max(1, diff);
+}
+
+export function defaultGraduationGoal(cohort, remainingCredits = null, budget = 20, date = new Date()) {
+  const window = graduationWindow(cohort, date);
+  if (!window.years.length) return {targetYear: null, targetSemester: 2};
+  const nominalYear = window.years.includes(window.admissionYear + 3) ? window.admissionYear + 3 : window.years[0];
+  let targetYear = nominalYear;
+  let targetSemester = 2;
+  const remaining = Number(remainingCredits);
+  const perTerm = Math.max(1, Number(budget) || 20);
+  if (Number.isFinite(remaining) && remaining > 0) {
+    const nowTerm = defaultTerm(date);
+    const nominalTerms = (nominalYear - nowTerm.year) * 2 + (2 - nowTerm.semester) + 1;
+    const neededTerms = Math.max(1, Math.ceil(remaining / perTerm));
+    const goalTerms = Math.max(nominalTerms, neededTerms);
+    if (goalTerms > nominalTerms) {
+      const zeroBased = (nowTerm.year * 2 + (nowTerm.semester - 1)) + (goalTerms - 1);
+      const computedYear = Math.floor(zeroBased / 2);
+      const computedSemester = (zeroBased % 2) + 1;
+      if (computedYear > window.lastYear) {
+        targetYear = window.lastYear;
+        targetSemester = 2;
+      } else if (window.years.includes(computedYear)) {
+        targetYear = computedYear;
+        targetSemester = computedSemester;
+      }
+    }
+  }
+  return {targetYear, targetSemester};
 }
 
 export function recommendationPayload(board, answers, variant, revision, options = {}) {
@@ -56,12 +96,9 @@ export function recommendationPayload(board, answers, variant, revision, options
   }
   const milestone = answers.confirmedDeadline
     ? `Graduation goal: semester ${answers.targetSemester}, academic year ${answers.targetYear}-${answers.targetYear + 1}` : '';
-  let remainingTerms = null;
-  if (answers.confirmedDeadline && Number.isInteger(Number(answers.targetYear)) && Number.isInteger(Number(answers.targetSemester))) {
-    const nowTerm = defaultTerm();
-    const diff = (Number(answers.targetYear) - nowTerm.year) * 2 + (Number(answers.targetSemester) - nowTerm.semester) + 1;
-    if (diff >= 1 && diff <= 20) remainingTerms = diff;
-  }
+  const remainingTerms = answers.confirmedDeadline
+    ? estimateRemainingTerms(answers.targetYear, answers.targetSemester, options?.now)
+    : null;
   // Translated labels are presentation only. Custom text remains free text.
   const goal = [answers.goal, answers.direction === 'custom' ? answers.customDirection : '', milestone].filter(Boolean).join('. ').slice(0, 500);
   const topics = ({ai: ['artificial_intelligence'], software: ['software_engineering'],
@@ -126,34 +163,92 @@ export function normalizePlanExplanation(raw, omittedCodes = []) {
 }
 
 export function constrainRecommendations(response, board, budget) {
-  const available = new Map((board?.courses?.eligible || [])
-    .filter(course => course.counted_in_total !== false && course.planning_eligible !== false
-      && course.eligibility_basis !== 'available_prerequisites')
-    .map(course => [course.code, course]));
+  const available = new Map();
+  const baseEligible = new Set();
+  for (const course of board?.courses?.eligible || []) {
+    if (course.counted_in_total === false || course.planning_eligible === false) continue;
+    if (course.eligibility_basis === 'available_prerequisites') {
+      if (course.result_pending === true || !Array.isArray(course.prerequisite_clauses) || !course.prerequisite_clauses.length) {
+        continue;
+      }
+    } else {
+      baseEligible.add(course.code);
+    }
+    available.set(course.code, course);
+  }
   const tolerance = Number.isInteger(response?.credit_tolerance) ? response.credit_tolerance : 2;
   const maxBudget = Math.min(30, budget + tolerance);
-  const seen = new Set(), used = new Map(), rows = [], omitted = [];
-  let credits = 0;
-  for (const recommendation of response?.recommendations || []) {
-    const course = available.get(recommendation.code);
-    if (!course || seen.has(course.code)) { omitted.push(recommendation.code); continue; }
-    seen.add(course.code);
-    const groups = (course.groups || []).filter(group => Number.isFinite(group.required_credits));
-    if (credits + course.credits > maxBudget || (groups.length && groups.every(group =>
-      group.earned_credits + (used.get(group.id) || 0) >= group.required_credits))) {
-      omitted.push(course.code); continue;
+  const recommendations = response?.recommendations || [];
+  const rejectedCo = new Set();
+  let finalSelection = [];
+  let finalCredits = 0;
+
+  while (true) {
+    const seen = new Set(), used = new Map(), picked = [];
+    let credits = 0;
+    for (const recommendation of recommendations) {
+      const course = available.get(recommendation.code);
+      if (!course || seen.has(course.code) || rejectedCo.has(course.code)) continue;
+      seen.add(course.code);
+      const groups = (course.groups || []).filter(group => Number.isFinite(group.required_credits));
+      if (credits + course.credits > maxBudget || (groups.length && groups.every(group =>
+        group.earned_credits + (used.get(group.id) || 0) >= group.required_credits))) {
+        continue;
+      }
+      picked.push({...recommendation, name: course.name, name_en: course.name_en,
+        credits: course.credits, requirement_type: course.requirement_type});
+      credits += course.credits;
+      groups.forEach(group => used.set(group.id, (used.get(group.id) || 0) + course.credits));
     }
-    rows.push({...recommendation, name: course.name, name_en: course.name_en,
-      credits: course.credits, requirement_type: course.requirement_type});
-    credits += course.credits;
-    groups.forEach(group => used.set(group.id, (used.get(group.id) || 0) + course.credits));
+
+    const pickedCodes = new Set(picked.map(row => row.code));
+    const reached = new Set([...pickedCodes].filter(code => baseEligible.has(code) && !available.get(code)?.result_pending));
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const row of picked) {
+        if (reached.has(row.code)) continue;
+        const course = available.get(row.code);
+        if (!course || course.eligibility_basis !== 'available_prerequisites') continue;
+        const clauses = course.prerequisite_clauses || [];
+        if (clauses.length && clauses.every(clause => clause.some(req => reached.has(req)))) {
+          reached.add(row.code);
+          changed = true;
+        }
+      }
+    }
+    for (const code of pickedCodes) {
+      if (baseEligible.has(code)) reached.add(code);
+    }
+
+    const invalid = picked.filter(row => !reached.has(row.code)).map(row => row.code);
+    if (!invalid.length) {
+      finalSelection = picked;
+      finalCredits = credits;
+      break;
+    }
+    invalid.forEach(code => rejectedCo.add(code));
+  }
+
+  const keptByCode = new Map(finalSelection.map(row => [row.code, row]));
+  const seenOutput = new Set();
+  const rows = [];
+  const omitted = [];
+  for (const recommendation of recommendations) {
+    const kept = keptByCode.get(recommendation.code);
+    if (kept && !seenOutput.has(recommendation.code)) {
+      seenOutput.add(recommendation.code);
+      rows.push(kept);
+    } else {
+      omitted.push(recommendation.code);
+    }
   }
   const rowCodes = new Set(rows.map(row => row.code));
   const droppedCodes = omitted.filter(code => !rowCodes.has(code));
-  const planExplanation = rows.length === 0 && (response?.recommendations || []).length > 0
+  const planExplanation = rows.length === 0 && recommendations.length > 0
     ? null
     : normalizePlanExplanation(response?.plan_explanation, droppedCodes);
-  return {rows, credits, omitted, warnings: response?.warnings || [], planExplanation};
+  return {rows, credits: finalCredits, omitted, warnings: response?.warnings || [], planExplanation};
 }
 
 export function comparePlans(left, right) {

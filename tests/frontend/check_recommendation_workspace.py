@@ -25,9 +25,13 @@ def main():
             course('D301', 'Môn tự chọn minh họa', 3, requirement_type='elective', groups=[group]),
             course('E400', '<img src=x onerror=alert(1)>', 4),
             course('F500', 'Môn nối tiếp không được lưu', 3, planning_eligible=False,
-                   eligibility_basis='available_prerequisites')]
+                   eligibility_basis='available_prerequisites'),
+            course('G600', 'Môn nối tiếp học cùng kỳ', 3, requirement_type='required',
+                   planning_eligible=True, eligibility_basis='available_prerequisites',
+                   prerequisite_clauses=[['B200']])]
     metadata = {row['code']: {**row, 'prerequisites': [['A100']],
                 'prerequisite_status': 'verified', 'source_status': 'verified'} for row in rows}
+    metadata['G600']['prerequisites'] = [['B200']]
     metadata['A100'] = {**course('A100', 'Môn nền tảng đã hoàn thành', 3), 'prerequisites': []}
     source = {'subject': 'synthetic-only', 'profile': {'program': 'Chương trình minh họa', 'cohort': '68'},
               'snapshot': {'digest': 'synthetic-snapshot', 'completeness': 'complete', 'attempts': []}}
@@ -87,7 +91,7 @@ def main():
             if mode == 'clarification':
                 route.fulfill(json={'context_revision': payload['expected_revision'], 'recommendations': [],
                     'intent': {'status': 'needs_clarification',
-                               'questions': ['Số tín chỉ mâu thuẫn tải học; hãy xác nhận lại.']}})
+                               'questions': ['interest_topics: câu nhập bổ sung lựa chọn khác biểu mẫu; hãy xác nhận lại.']}})
                 return
             if mode == 'pending':
                 pending.append(route)
@@ -99,7 +103,8 @@ def main():
                 route.fulfill(status=503, json={'detail': 'narrative_temporarily_unavailable'})
                 return
             weights = payload['ranking_weights']
-            selected = ['B200', 'E400'] if weights['course_type'] > .4 else ['C300', 'D301', 'F500'] if weights['topic'] > .4 else ['B200', 'C300', 'E400']
+            # In graduation variant, G600 (dependent on B200) deliberately precedes B200 to test order-independence.
+            selected = ['G600', 'B200', 'E400'] if weights['course_type'] > .4 else ['C300', 'D301', 'F500'] if weights['topic'] > .4 else ['B200', 'C300', 'E400']
             strategy_label = 'Ưu tiên tốt nghiệp' if weights['course_type'] > .4 else 'Sát định hướng' if weights['topic'] > .4 else 'Cân bằng'
             if payload['include_narrative'] and enhance_mode == 'llm':
                 plan_explanation = {
@@ -126,10 +131,23 @@ def main():
             route.fulfill(json={'context_revision': payload['expected_revision'], 'catalog_status': 'verified',
                 'recommendations': [{**next(row for row in rows if row['code'] == code),
                     'fit_probability': 0.42,
-                    'eligibility_reason': ['Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog.'],
-                    'transcript_signals': ['Học phần bắt buộc còn thiếu trong chương trình đào tạo.'],
+                    'eligibility_reason': (
+                        ['Đủ điều kiện học cùng kỳ với học phần tiên quyết B200.']
+                        if code == 'G600'
+                        else ['Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog.']
+                    ),
+                    'transcript_signals': (
+                        ['Học phần bắt buộc còn thiếu trong chương trình đào tạo.',
+                         'Học song hành cùng học phần tiên quyết B200 trong học kỳ này.']
+                        if code == 'G600'
+                        else ['Học phần bắt buộc còn thiếu trong chương trình đào tạo.']
+                    ),
                     'fit_reason': 'Phù hợp chủ đề bạn quan tâm: Học máy.',
-                    'reason': 'Đủ điều kiện: Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog. Phù hợp: Phù hợp chủ đề bạn quan tâm: Học máy. Tiến độ bảng điểm: Học phần bắt buộc còn thiếu trong chương trình đào tạo.'} for code in selected],
+                    'reason': (
+                        'Đủ điều kiện: Đủ điều kiện học cùng kỳ với học phần tiên quyết B200. Phù hợp: Phù hợp chủ đề bạn quan tâm: Học máy. Tiến độ bảng điểm: Học song hành cùng học phần tiên quyết B200 trong học kỳ này.'
+                        if code == 'G600'
+                        else 'Đủ điều kiện: Chưa hoàn thành môn này và đã thỏa các prerequisite trong catalog. Phù hợp: Phù hợp chủ đề bạn quan tâm: Học máy. Tiến độ bảng điểm: Học phần bắt buộc còn thiếu trong chương trình đào tạo.'
+                    )} for code in selected],
                 'warnings': ['Lịch mở lớp chưa xác nhận.'],
                 'plan_explanation': plan_explanation})
         elif path == '/me/semester-plans' and request.method == 'GET':
@@ -142,6 +160,9 @@ def main():
             payload = request.post_data_json
             assert payload['expected_basis'] == 'a' * 64
             assert 'F500' not in payload['course_codes']
+            if 'G600' in payload['course_codes'] and 'B200' not in payload['course_codes']:
+                route.fulfill(status=409, json={'detail': 'semester_plan_course_unavailable'})
+                return
             saved_rows = [row for row in rows if row['code'] in payload['course_codes']]
             result = {**payload, 'id': str(len(plans) + 1), 'version': 1, 'courses': saved_rows,
                 'program_id': 'synthetic-program', 'total_credits': sum(row['credits'] for row in saved_rows),
@@ -280,6 +301,31 @@ def main():
         page.keyboard.press('Escape')
         page.locator('[data-rec-variant="balanced"]').click()
         expect(page.locator('.rec-plan-explanation')).to_have_attribute('data-explanation-source', 'llm_grounded')
+        # Co-enrolled bundle (G600 + B200 + E400) where dependent G600 precedes B200:
+        page.locator('[data-rec-variant="graduation"]').click()
+        expect(page.locator('.rec-course')).to_have_count(3)
+        assert page.locator('[data-rec-course]').nth(0).get_attribute('data-rec-course') == 'G600'
+        page.locator('[data-rec-course="G600"]').get_by_role('button', name='Vì sao môn này?', exact=True).click()
+        expect(page.locator('.rec-dialog')).to_contain_text('Đủ điều kiện học cùng kỳ với học phần tiên quyết B200.')
+        expect(page.locator('.rec-dialog')).to_contain_text('B200: Môn bắt buộc minh họa (học cùng kỳ)')
+        page.keyboard.press('Escape')
+        page.get_by_role('button', name='Chỉnh sửa phương án', exact=True).click()
+        expect(page.locator('#academic-plan-tools')).to_have_attribute('open', '')
+        expect(page.locator('#semester-plans [data-plan-course="G600"]')).to_be_visible()
+        assert 'Cần kiểm tra' not in page.locator('#semester-plans [data-plan-course="G600"]').inner_text()
+        page.locator('#semester-plans [data-plan-course="B200"] button').click()
+        expect(page.locator('#semester-plans [data-plan-course="G600"]')).to_contain_text('Cần kiểm tra')
+        page.locator('#semester-plan-form button[type=submit]').click()
+        expect(page.locator('#semester-plans')).to_contain_text('Có môn không còn đủ điều kiện')
+        page.locator('[data-rec-variant="graduation"]').click()
+        save_mode = 'saved'
+        page.locator('#rec-save').click()
+        page.get_by_role('button', name='Xác nhận lưu', exact=True).click()
+        expect(page.locator('.rec-save-success')).to_contain_text('Đã lưu phương án')
+        assert set(plans[-1]['course_codes']) == {'G600', 'B200', 'E400'}
+        page.keyboard.press('Escape')
+        plans.clear()
+        page.locator('[data-rec-variant="balanced"]').click()
         save_mode = 'failed'
         page.locator('#rec-save').click()
         page.get_by_role('button', name='Xác nhận lưu', exact=True).click()
@@ -329,6 +375,12 @@ def main():
         page.locator('.rec-course').first.get_by_role('button', name='Why this course?', exact=True).click()
         expect(page.locator('.rec-dialog')).to_contain_text('Goal alignment:')
         expect(page.locator('.rec-dialog')).to_contain_text('Remaining required course in your curriculum.')
+        page.keyboard.press('Escape')
+        page.locator('[data-rec-variant="graduation"]').click()
+        page.locator('[data-rec-course="G600"]').get_by_role('button', name='Why this course?', exact=True).click()
+        expect(page.locator('.rec-dialog')).to_contain_text('Eligible to co-enroll in the same term with prerequisite(s) B200.')
+        expect(page.locator('.rec-dialog')).to_contain_text('Co-enrolled in the same term alongside prerequisite(s) B200.')
+        expect(page.locator('.rec-dialog')).to_contain_text('(co-enrolled)')
         page.keyboard.press('Escape')
         page.emulate_media(reduced_motion='reduce')
         page.locator('[data-rec-variant="direction"]').click()
@@ -380,7 +432,10 @@ def main():
         assert page.locator('.rec-course').count() == 0
         mode = 'clarification'
         page.locator('#rec-generate').click()
-        expect(page.locator('#rec-plan-content .rec-error')).to_contain_text('hãy xác nhận lại')
+        expect(page.locator('#rec-plan-content .rec-error')).to_contain_text('Chủ đề quan tâm: câu nhập bổ sung lựa chọn khác biểu mẫu; hãy xác nhận lại.')
+        expect(page.locator('#rec-plan-content .rec-error')).to_contain_text('Gợi ý:')
+        expect(page.locator('#rec-roadmap')).to_contain_text('Cần xem thông báo bên dưới')
+        assert page.evaluate("Boolean(document.getElementById('rec-results').compareDocumentPosition(document.querySelector('.rec-algorithm-guide')) & Node.DOCUMENT_POSITION_FOLLOWING)")
         assert page.locator('.rec-course').count() == 0
         assert not page.locator('#rec-save').count() or not page.locator('#rec-save').is_enabled()
         page.emulate_media(reduced_motion='no-preference')
