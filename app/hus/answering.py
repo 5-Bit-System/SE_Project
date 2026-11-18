@@ -307,8 +307,6 @@ class HUSAnswerer:
                         "gioi thieu", "tong quan", "nen tang", "lich su hinh thanh")
                 or (field == "program_credits" and _has(text.replace("ma mon", ""), "mon", "hoc phan"))):
             return self._missing(request, "f2", "Mỗi lượt hỏi một loại thông tin: tổng tín chỉ hoặc các nhóm kiến thức.", clarify=True)
-        if _has(text, "nhom") and _has(text, "mon nao", "hoc phan nao", "danh sach mon", "cac mon"):
-            return self._missing(request, "f2", "Phần này trả quy định/ghi chú nhóm, chưa hỗ trợ danh sách học phần theo nhóm.")
         if not request.version:
             return self._missing(request, "f2", "Cần phiên bản chương trình; không cần mã môn cho câu hỏi cấp chương trình.", clarify=True)
         program = self.data.get_f2_program(major=request.major, version=request.version)
@@ -354,6 +352,40 @@ class HUSAnswerer:
                 f"Yêu cầu tối thiểu nếu chọn: {shown(row['min_credits_if_selected'])} tín chỉ; "
                 f"tín chỉ được liệt kê: {shown(row['offered_credits'])}.\n"
                 f"Ghi chú nguồn: {row['group_note'] or 'chưa ghi'}." for i, row in enumerate(values, 1))
+            is_course_list = _has(
+                text,
+                "mon nao",
+                "mon hoc nao",
+                "hoc phan nao",
+                "danh sach mon",
+                "danh sach hoc phan",
+                "cac mon",
+                "nhung mon",
+                "co nhung mon",
+                "bao gom mon",
+            )
+            if field == "group_rules" and is_course_list:
+                courses = self.data.f2_courses_in_group(key, major=request.major, version=request.version)
+                if courses:
+                    course_lines = [
+                        f"  - {c.course_code}: {c.course.get('course_name') or c.course_code} "
+                        f"({shown(c.course.get('credits'))} tín chỉ"
+                        f"{', ' + ('Bắt buộc' if c.membership.get('course_type') == 'compulsory' else 'Tự chọn') if c.membership.get('course_type') in ('compulsory', 'elective') else ''})"
+                        for c in courses
+                    ]
+                    rendered += "\n\nDanh sách học phần thuộc nhóm:\n" + "\n".join(course_lines)
+                    value["course_count"] = len(courses)
+                    value["courses"] = [
+                        {
+                            "course_code": c.course_code,
+                            "course_name": c.course.get("course_name"),
+                            "credits": c.course.get("credits"),
+                            "course_type": c.membership.get("course_type"),
+                        }
+                        for c in courses
+                    ]
+                else:
+                    rendered += "\n\nHiện chưa có danh sách học phần cụ thể cho nhóm này trong dữ liệu chương trình."
             warnings.append("Các nhóm cha/con và số liệu khác nhau được giữ riêng; không cộng hoặc tự sửa số liệu.")
         citations = [self.citation_resolver.program_record(row, val, i)
                      for i, (row, val) in enumerate(zip(records, values, strict=True), 1)]

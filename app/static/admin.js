@@ -2229,9 +2229,8 @@
     if (!previewProgramsLoaded) {
       try {
         const progs = await adminRequest('/admin/programs');
-        progSelect.innerHTML = progs.map(p => `
-          <option value="${p.program_id}">${p.name} (${p.program_id})</option>
-        `).join('');
+        progSelect.replaceChildren(...progs.map(p =>
+          new Option(`${p.name} (${p.program_id})`, p.program_id)));
         previewProgramsLoaded = true;
         if (progs.length > 0) {
           loadPreviewCourses(progs[0].program_id);
@@ -2267,16 +2266,23 @@
       return;
     }
 
-    picker.innerHTML = courses.map(c => `
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 8px; border-radius: 6px; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <input type="checkbox" value="${c.code}" class="admin-preview-chk" style="cursor: pointer;">
-        <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><strong>${c.code}</strong>: ${c.name}</span>
-      </label>
-    `).join('');
-
-    picker.querySelectorAll('.admin-preview-chk').forEach(chk => {
+    picker.replaceChildren(...courses.map(c => {
+      const label = document.createElement('label');
+      label.style.cssText = 'display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 8px; border-radius: 6px; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-subtle);';
+      const chk = document.createElement('input');
+      chk.type = 'checkbox';
+      chk.value = c.code;
+      chk.className = 'admin-preview-chk';
+      chk.style.cursor = 'pointer';
       chk.addEventListener('change', updateSelectedPreviewCount);
-    });
+      const text = document.createElement('span');
+      text.style.cssText = 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;';
+      const code = document.createElement('strong');
+      code.textContent = c.code;
+      text.append(code, `: ${c.name}`);
+      label.append(chk, text);
+      return label;
+    }));
     updateSelectedPreviewCount();
   }
 
@@ -2355,14 +2361,14 @@
     let bannerHtml = `
       <div style="background: rgba(67, 97, 238, 0.08); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
         <span class="admin-status-badge badge-success" style="font-size: 11px;">MÔ PHỎNG GIẢ ĐỊNH</span>
-        <span style="font-size: 13px; color: var(--text-main);">${data.simulation_disclaimer}</span>
+        <span style="font-size: 13px; color: var(--text-main);">${escapeHtml(data.simulation_disclaimer)}</span>
       </div>
     `;
     if (data.catalog?.is_unverified) {
       bannerHtml += `
         <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #b45309; display: flex; align-items: center; gap: 8px;">
           <svg viewBox="0 0 16 16" fill="none" class="badge-icon" style="width: 16px; height: 16px; flex-shrink: 0;"><path d="M8 2.5 14 13H2L8 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <span>${data.catalog.warning}</span>
+          <span>${escapeHtml(data.catalog.warning)}</span>
         </div>
       `;
     }
@@ -2382,14 +2388,14 @@
       } else {
         tbodyRec.innerHTML = recs.map(r => `
           <tr>
-            <td style="text-align: center;"><span class="admin-source-tag" style="font-weight: 700;">#${r.rank}</span></td>
-            <td><strong>${r.code}</strong></td>
-            <td>${r.name}</td>
-            <td style="text-align: right; font-variant-numeric: tabular-nums;">${r.credits}</td>
+            <td style="text-align: center;"><span class="admin-source-tag" style="font-weight: 700;">#${escapeHtml(r.rank)}</span></td>
+            <td><strong>${escapeHtml(r.code)}</strong></td>
+            <td>${escapeHtml(r.name)}</td>
+            <td style="text-align: right; font-variant-numeric: tabular-nums;">${escapeHtml(r.credits)}</td>
             <td>
               <span class="admin-status-badge badge-success" style="font-size: 11px;">Điểm: ${Math.round(r.score * 100)}%</span>
             </td>
-            <td style="font-size: 12px;">${r.reason || r.fit_reason || '-'}</td>
+            <td style="font-size: 12px;">${escapeHtml(r.reason || r.fit_reason || '-')}</td>
           </tr>
         `).join('');
       }
@@ -2404,11 +2410,11 @@
       } else {
         tbodyEli.innerHTML = elis.map(c => `
           <tr>
-            <td><strong>${c.code}</strong></td>
-            <td>${c.name}</td>
-            <td style="text-align: right; font-variant-numeric: tabular-nums;">${c.credits}</td>
-            <td><span class="admin-meta-tag">${c.block || '-'}</span></td>
-            <td>${c.term || '-'}</td>
+            <td><strong>${escapeHtml(c.code)}</strong></td>
+            <td>${escapeHtml(c.name)}</td>
+            <td style="text-align: right; font-variant-numeric: tabular-nums;">${escapeHtml(c.credits)}</td>
+            <td><span class="admin-meta-tag">${escapeHtml(c.block || '-')}</span></td>
+            <td>${escapeHtml(c.term || '-')}</td>
           </tr>
         `).join('');
       }
@@ -2424,14 +2430,14 @@
         tbodyBlk.innerHTML = blks.map(b => {
           const reasonsText = (b.reasons || []).map(rs => {
             const prereqs = (rs.missing_prerequisites || []).flat().join(', ');
-            return `<div>• ${rs.message}${prereqs ? ` (Thiếu: <span class="admin-reason-tag">${prereqs}</span>)` : ''}</div>`;
+            return `<div>• ${escapeHtml(rs.message)}${prereqs ? ` (Thiếu: <span class="admin-reason-tag">${escapeHtml(prereqs)}</span>)` : ''}</div>`;
           }).join('');
           return `
             <tr>
-              <td><strong>${b.code}</strong></td>
-              <td>${b.name}</td>
-              <td style="text-align: right; font-variant-numeric: tabular-nums;">${b.credits}</td>
-              <td><span class="admin-meta-tag">${b.block || '-'}</span></td>
+              <td><strong>${escapeHtml(b.code)}</strong></td>
+              <td>${escapeHtml(b.name)}</td>
+              <td style="text-align: right; font-variant-numeric: tabular-nums;">${escapeHtml(b.credits)}</td>
+              <td><span class="admin-meta-tag">${escapeHtml(b.block || '-')}</span></td>
               <td style="font-size: 12px; color: #dc2626;">${reasonsText || 'Bị chặn'}</td>
             </tr>
           `;

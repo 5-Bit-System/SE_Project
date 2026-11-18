@@ -182,11 +182,7 @@ def test_schema_serialization():
 def test_api_get_history_without_auth():
     with TestClient(app) as client:
         res = client.get("/hus/chat/history", params={"major": "data_science"})
-        assert res.status_code == 200
-        data = res.json()
-        assert data["account_id"] is None
-        assert data["major"] == "data_science"
-        assert data["messages"] == []
+        assert res.status_code == 401
 
 
 def test_api_post_history_guest_ignored():
@@ -198,90 +194,19 @@ def test_api_post_history_guest_ignored():
             "citations": [],
         }
         res = client.post("/hus/chat/history", json=payload)
-        assert res.status_code == 200
-        assert res.json() == {"status": "guest_ignored"}
+        assert res.status_code == 401
 
 
 def test_api_delete_history_no_account():
     with TestClient(app) as client:
         res = client.delete("/hus/chat/history", params={"major": "data_science"})
-        assert res.status_code == 200
-        assert res.json() == {"status": "no_account"}
-
-
-def test_api_chat_history_lifecycle_with_dev_header():
-    headers = {"X-Account-ID": "acc-dev-123"}
-    with TestClient(app) as client:
-        # 1. Initially empty
-        res = client.get(
-            "/hus/chat/history", params={"major": "data_science"}, headers=headers
-        )
-        assert res.status_code == 200
-        assert res.json()["messages"] == []
-        assert res.json()["account_id"] == "acc-dev-123"
-
-        # 2. Append user message
-        res_post1 = client.post(
-            "/hus/chat/history",
-            headers=headers,
-            json={
-                "major": "data_science",
-                "role": "user",
-                "reply": "học môn gì trước?",
-                "citations": [],
-            },
-        )
-        assert res_post1.status_code == 200
-        assert res_post1.json() == {"status": "saved", "count": 1}
-
-        # 3. Append assistant message
-        res_post2 = client.post(
-            "/hus/chat/history",
-            headers=headers,
-            json={
-                "major": "data_science",
-                "role": "assistant",
-                "reply": "Nên học MAT2400 trước.",
-                "citations": [{"citation_id": "c1", "label": "QĐ 3569"}],
-                "generation_mode": "grounded_llm",
-            },
-        )
-        assert res_post2.status_code == 200
-        assert res_post2.json() == {"status": "saved", "count": 2}
-
-        # 4. Get history and verify contents
-        res_get = client.get(
-            "/hus/chat/history", params={"major": "data_science"}, headers=headers
-        )
-        assert res_get.status_code == 200
-        data = res_get.json()
-        assert len(data["messages"]) == 2
-        assert data["messages"][0]["role"] == "user"
-        assert data["messages"][0]["reply"] == "học môn gì trước?"
-        assert data["messages"][1]["role"] == "assistant"
-        assert data["messages"][1]["reply"] == "Nên học MAT2400 trước."
-        assert data["messages"][1]["generation_mode"] == "grounded_llm"
-        assert len(data["messages"][1]["citations"]) == 1
-
-        # 5. Clear specific major
-        res_del = client.delete(
-            "/hus/chat/history", params={"major": "data_science"}, headers=headers
-        )
-        assert res_del.status_code == 200
-        assert res_del.json() == {"status": "cleared"}
-
-        # 6. Verify now empty
-        res_get_after = client.get(
-            "/hus/chat/history", params={"major": "data_science"}, headers=headers
-        )
-        assert res_get_after.status_code == 200
-        assert res_get_after.json()["messages"] == []
+        assert res.status_code == 401
 
 
 def test_api_chat_history_with_mocked_cookie_auth():
     mock_principal = {"account_id": "auth-user-999", "role": "student"}
     mock_auth_dep = MagicMock()
-    mock_auth_dep.optional_account = AsyncMock(return_value=mock_principal)
+    mock_auth_dep.require_account = AsyncMock(return_value=mock_principal)
     with patch.dict("sys.modules", {"app.auth.dependencies": mock_auth_dep}):
         with TestClient(app) as client:
             client.cookies.set("study_app_session", "valid-token")
@@ -331,25 +256,25 @@ def test_corrupted_majors_null_returns_empty_list(tmp_path):
     assert chat_history_repository.get_history(account_id, major=None) == []
 
 
-def test_api_invalid_account_id_header_returns_400():
+def test_api_invalid_account_id_header_cannot_authenticate():
     headers = {"X-Account-ID": "../../etc/passwd"}
     with TestClient(app) as client:
         res = client.get(
             "/hus/chat/history", params={"major": "data_science"}, headers=headers
         )
-        assert res.status_code == 400
-        assert res.json()["detail"] == "invalid_account_id"
+        assert res.status_code == 401
+        assert res.json()["detail"] == "session_expired"
 
         res_post = client.post(
             "/hus/chat/history",
             headers=headers,
             json={"major": "data_science", "role": "user", "reply": "hi"},
         )
-        assert res_post.status_code == 400
-        assert res_post.json()["detail"] == "invalid_account_id"
+        assert res_post.status_code == 401
+        assert res_post.json()["detail"] == "session_expired"
 
         res_del = client.delete(
             "/hus/chat/history", params={"major": "data_science"}, headers=headers
         )
-        assert res_del.status_code == 400
-        assert res_del.json()["detail"] == "invalid_account_id"
+        assert res_del.status_code == 401
+        assert res_del.json()["detail"] == "session_expired"

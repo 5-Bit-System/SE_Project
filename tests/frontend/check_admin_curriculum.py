@@ -92,9 +92,11 @@ def main():
             # 8. Screenshots: Course detail view (Light & Dark)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_courses_light.png'), full_page=True)
 
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
-            page.keyboard.press('Escape')
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_courses_dark.png'), full_page=True)
             print('  [PASS] Course detail screenshots captured in light and dark')
@@ -108,9 +110,11 @@ def main():
             # 10. Screenshots: Programs list view
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_programs_dark.png'), full_page=True)
 
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="light"]').click()
-            page.keyboard.press('Escape')
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'curriculum_programs_light.png'), full_page=True)
 

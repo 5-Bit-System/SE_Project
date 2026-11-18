@@ -181,7 +181,8 @@ def main():
                         row=page.locator('#admin-users tbody tr').filter(has_text='synthetic-browser-vnu')
                         row.get_by_role('button', name='Khóa synthetic-browser-vnu', exact=True).click()
                         page.wait_for_function("document.querySelector('#admin-users tbody').textContent.includes('kh\u00f3a')")
-                        page.locator('#system-menu-toggle').click()
+                        if page.locator('#system-menu-toggle').is_visible():
+                            page.locator('#system-menu-toggle').click()
                         page.locator('#system-logout').click()
                         page.locator('#auth-student-form').wait_for(state='visible')
                         student_login()

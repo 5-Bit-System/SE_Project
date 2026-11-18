@@ -23,6 +23,7 @@ REQUEST_WORDS = frozenset(_tokens(
     "gợi ý đề xuất tham khảo mức do AI sinh đồng ý cho phép bật quyền nhớ rõ nguồn gốc "
     "cũng và hay hoặc chưa chính đủ riêng với còn của về tại đến một hai ba "
     "mà như sẽ ghi nhé sao xong nhắc tục chuyên khung kỳ tiết "
+    "bằng rồi ngoài vào tập coi đạt "
     + " ".join(FIELD_LABELS.values()))) | STOP_WORDS
 
 

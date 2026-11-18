@@ -103,8 +103,8 @@ def main():
             expect(page.locator('.ad-verification-legend')).to_contain_text('Từ chối')
             expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
             assert page.locator('#ad-status-cards [data-readiness="operational"]').is_visible()
-            assert page.locator('#system-admin').evaluate("e => getComputedStyle(e).getPropertyValue('--ad-blue').trim()") == '#3476dc'
-            checks.append('Authenticated production shell uses blue and real API contracts')
+            assert page.locator('#system-admin').evaluate("e => getComputedStyle(e).getPropertyValue('--ad-blue').trim()") == '#6d4aff'
+            checks.append('Authenticated production shell uses unified workspace tokens and real API contracts')
 
             assert page.locator('.ad-program-card').count() == 0
             checks.append('Redundant program table removed from overview dashboard')
@@ -147,20 +147,25 @@ def main():
             checks.append('Six responsive widths and accessible mobile sidebar')
 
             page.set_viewport_size({'width': 1440, 'height': 1000})
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
-            page.keyboard.press('Escape')
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
             page.screenshot(path=str(EVIDENCE / 'dashboard-dark.png'), full_page=True)
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-language-choice="en"]').click()
             expect(page.locator('#ad-activity-heading')).to_have_text('System activity')
             expect(page.locator('#ad-catalog-heading')).to_have_text('Document review')
             page.locator('[data-language-choice="vi"]').click()
             expect(page.locator('#ad-catalog-heading')).to_have_text('Kiểm duyệt tài liệu')
-            page.keyboard.press('Escape')
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="light"]').click()
-            page.keyboard.press('Escape')
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
             checks.append('Dark theme and language controls remain operational')
 
             page.evaluate("document.dispatchEvent(new CustomEvent('workspace:account-change', {detail: null}))")

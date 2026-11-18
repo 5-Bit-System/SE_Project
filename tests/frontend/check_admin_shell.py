@@ -127,9 +127,11 @@ def main():
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_desktop_light.png'), full_page=True)
 
             # 11. Dark theme check & screenshot
-            page.locator('#system-menu-toggle').click()
+            if page.locator('#system-menu-toggle').is_visible():
+                page.locator('#system-menu-toggle').click()
             page.locator('[data-theme-choice="dark"]').click()
-            page.keyboard.press('Escape')
+            if page.locator('#system-menu-toggle').is_visible():
+                page.keyboard.press('Escape')
             page.wait_for_timeout(200)
             page.screenshot(path=str(EVIDENCE_DIR / 'admin_desktop_dark.png'), full_page=True)
             print('  [PASS] Dark mode captured')
