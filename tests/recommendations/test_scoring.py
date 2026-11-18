@@ -192,3 +192,39 @@ def test_softmax_probabilities_properties():
     large_probs = softmax_probabilities(large_scores)
     assert sum(large_probs) == pytest.approx(1.0)
     assert large_probs[2] > large_probs[1] > large_probs[0]
+
+
+
+def test_score_course_backward_compatibility_and_dual_mode():
+    from app.recommendation.scoring import score_course
+
+    course = Course(
+        code="CS201",
+        name="Cơ sở dữ liệu",
+        credits=3,
+        block="required",
+        topics=["databases"],
+        difficulty="moderate",
+        workload="moderate",
+        source_status="verified",
+        prerequisite_status="verified",
+    )
+    pref = StructuredPreference(
+        interest_topics=["databases"],
+        difficulty="moderate",
+        workload="moderate",
+    )
+
+    # 1. Backward compatible mode (alpha=None)
+    score_compat = score_course(course, pref)
+    assert 0.4 <= score_compat <= 1.0
+
+    # 2. Dual mode with alpha=0.5 blending
+    score_dual = score_course(
+        course,
+        pref,
+        catalog_courses=[course],
+        failed_course_codes={"CS201"},
+        alpha=0.5,
+    )
+    assert 0.0 <= score_dual <= 1.0

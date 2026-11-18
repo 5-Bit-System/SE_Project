@@ -119,12 +119,36 @@ def score_course(
     course: Course,
     preference: StructuredPreference,
     weights: RankingWeights | None = None,
+    catalog_courses: list[Course] | None = None,
+    failed_course_codes: set[str] | list[str] | None = None,
+    choice_group_deficits: dict[str, int] | None = None,
+    is_track_course: bool = False,
+    alpha: float | None = None,
 ) -> float:
-    """Trả về điểm [0, 1]; giữ tương thích ngược hoàn toàn với các caller hiện có."""
-    return pref_fit_score(course, preference, weights)
+    """Trả về điểm [0, 1].
+
+    - Nếu alpha is None (mặc định): Trả về pref_fit_score giữ tương thích ngược 100%.
+    - Nếu alpha is not None: Kết hợp pref_fit_score và transcript_need_score theo hệ số alpha.
+    """
+    pref = pref_fit_score(course, preference, weights)
+    if alpha is None:
+        return pref
+    need = transcript_need_score(
+        course,
+        catalog_courses=catalog_courses,
+        failed_course_codes=failed_course_codes,
+        choice_group_deficits=choice_group_deficits,
+        is_track_course=is_track_course,
+    )
+    return combine_scores(pref, need, alpha=alpha)
 
 
-def fit_reason(course: Course, preference: StructuredPreference, score: float) -> str:
+def fit_reason(
+    course: Course,
+    preference: StructuredPreference,
+    score: float,
+    need_score: float | None = None,
+) -> str:
     metadata = _metadata(course)
     matches: list[str] = []
     searchable = " ".join(
@@ -138,13 +162,21 @@ def fit_reason(course: Course, preference: StructuredPreference, score: float) -
     for topic in preference.interest_topics:
         if topic in (course.topics or []) or topic.casefold().replace("_", " ") in searchable:
             matches.append(topic)
+    reasons: list[str] = []
     if matches:
-        return f"Tên hoặc metadata môn có chứa chủ đề người học nêu: {', '.join(matches)}."
+        reasons.append(f"Tên hoặc metadata môn có chứa chủ đề người học nêu: {', '.join(matches)}.")
     for field in ("orientation", "difficulty", "workload"):
         if _metadata_match(course, field, getattr(preference, field)):
-            return f"Metadata {field} của môn khớp sở thích đã nêu."
+            reasons.append(f"Metadata {field} của môn khớp sở thích đã nêu.")
     if preference.course_type and metadata.get("requirement_type") == preference.course_type:
-        return f"Môn có loại {preference.course_type} đúng với preference đã chuẩn hóa."
+        reasons.append(f"Môn có loại {preference.course_type} đúng với preference đã chuẩn hóa.")
+    if need_score is not None and need_score >= 0.5:
+        if course.block == "required":
+            reasons.append("Môn học bắt buộc quan trọng trong khung chương trình.")
+        else:
+            reasons.append("Môn có vai trò mở khóa điều kiện tiên quyết cho các kỳ tiếp theo.")
+    if reasons:
+        return " ".join(reasons)
     if score > 0:
         return "Môn có một phần từ khóa trùng với mục tiêu đã nhập."
     return "Catalog hiện chưa có metadata đủ để xác định điểm phù hợp cụ thể cho preference này."
