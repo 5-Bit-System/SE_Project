@@ -64,15 +64,31 @@
     return {label, message};
   }
 
-  function displayReply(reply, citations) {
-    // Presentation only: backend evidence and real-document citations stay intact.
-    const ids = (Array.isArray(citations) ? citations : []).filter(isAI)
-      .map(citation => String(citation.citation_id)).filter(id => /^\d+$/.test(id));
-    if (!ids.length) return reply;
-    const marker = new RegExp('\\[(' + ids.join('|') + ')\\]', 'g');
-    const footer = new RegExp('^Nguồn \\[(' + ids.join('|') + ')\\]:');
-    return reply.split('\n').filter(line => !footer.test(line.trim())).join('\n')
-      .replace(marker, '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+  function displayReply(reply, answer) {
+    if (answer?.status !== 'answered') return reply;
+    const citations = answer.citations || [];
+    const ids = new Set(citations.map(citation => String(citation.citation_id)));
+    const aiIds = new Set(citations.filter(isAI).map(citation => String(citation.citation_id)));
+    const reviewNotices = new Set([
+      'Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.',
+      'Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.',
+      'Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.',
+    ]);
+    const aiNotice = /^Nội dung tham khảo do AI (?:biên soạn|sinh)[;,.]/;
+    const notices = new Set((answer.warnings || []).filter(warning =>
+      reviewNotices.has(warning) || /^Trạng thái (?:xác minh|review):/.test(warning)
+      || (aiIds.size > 0 && aiNotice.test(warning))));
+    const text = answer.dataset === 'f2' && typeof answer.reply === 'string' ? answer.reply : reply;
+    const compact = text.split(/\r?\n/).filter(line => {
+      const trimmed = line.trim();
+      const footer = /^Nguồn \[(\d+)\]:/.exec(trimmed);
+      return !notices.has(trimmed) && !(footer && ids.has(footer[1]));
+    }).map(line => line
+      .replace(/^(\s*(?:\[\d+\][ \t]+)?)#{1,6}[ \t]+/, '$1')
+      .replace(/\[(\d+)\]/g, (marker, id) => aiIds.has(id) ? '' : marker)
+      .trimEnd()
+    ).join('\n').replace(/\n{3,}/g, '\n\n').trim();
+    return compact || reply;
   }
 
   function generationInfo(result, requested) {
@@ -85,9 +101,7 @@
     if (metadata?.used === true) {
       if (!requested || !answered || typeof metadata.model !== 'string' || !metadata.model.trim()
           || metadata.fallback_reason != null) throw new Error('invalid_generation');
-      return {kind: 'used', label: aiOnly ? 'AI diễn đạt' : 'AI diễn đạt từ nguồn',
-        note: aiOnly ? 'AI đã diễn đạt từ hồ sơ tham khảo đã lưu.'
-          : 'AI đã diễn đạt từ bằng chứng được chọn. Hãy đối chiếu nguồn dẫn bên dưới.'};
+      return {kind: 'used', label: aiOnly ? 'AI diễn đạt' : 'AI diễn đạt từ nguồn'};
     }
     if (!requested || !answered) return null;
     const reasons = {
@@ -291,15 +305,13 @@
   }
 
   function appendCitation(container, citation) {
-    if (!citation || typeof citation !== 'object') return;
-    const ai = isAI(citation);
     const card = document.createElement('div');
-    card.className = 'rag-citation' + (ai ? ' rag-citation-ai' : '');
+    card.className = 'rag-citation';
     const heading = document.createElement('p');
     heading.className = 'rag-citation-title';
     const kind = document.createElement('span');
     kind.className = 'rag-citation-kind';
-    kind.textContent = ai ? 'AI' : ({pdf: 'PDF', web: 'WEB', file: 'TỆP'}[citation.evidence_kind] || 'NGUỒN');
+    kind.textContent = 'Nguồn' + (citation.citation_id ? ' [' + citation.citation_id + ']' : '');
     heading.appendChild(kind);
     const url = citationURL(citation, window.location.origin);
     const label = document.createElement(url ? 'a' : 'span');
@@ -310,22 +322,29 @@
       label.rel = 'noopener noreferrer';
     }
     heading.appendChild(label);
-    card.appendChild(heading);
     const details = [];
-    if (citation.pdf_page) details.push('Trang ' + citation.pdf_page);
-    if (ai) details.push('Nội dung tham khảo do AI sinh; không phải nguồn chính thức.');
-    else if (!url) details.push(citation.availability_note || 'Chưa có liên kết nguồn khả dụng.');
-    if (citation.review_status) details.push('Trạng thái nguồn: ' + citation.review_status);
+    if (citation.pdf_pages?.length) details.push('Trang ' + citation.pdf_pages.join(', '));
+    else if (citation.pdf_page) details.push('Trang ' + citation.pdf_page);
+    if (citation.dataset === 'f1') {
+      const scope = citation.metadata?.scope;
+      const edition = scope?.curriculum_version || citation.metadata?.program_version;
+      const variant = {standard: 'Hệ chuẩn', high_quality: 'Hệ chất lượng cao',
+        talent: 'Hệ tài năng', advanced: 'Hệ tiên tiến'}[scope?.program_variant];
+      if (edition && edition !== 'unknown') details.push(edition);
+      if (variant) details.push(variant);
+    }
     if (details.length) {
-      const detail = document.createElement('p');
+      const detail = document.createElement('span');
       detail.className = 'rag-citation-detail';
       detail.textContent = details.join(' · ');
-      card.appendChild(detail);
+      heading.appendChild(detail);
     }
+    card.appendChild(heading);
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, citations = [], generation = null, diagnostic = null) {
+  function appendMessage(role, reply, answer = null) {
+    const citations = answer?.citations || [];
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
     const avatar = document.createElement('span');
@@ -339,36 +358,19 @@
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
     const text = document.createElement('p');
     text.className = 'rag-message-text';
-    text.textContent = role === 'assistant' ? displayReply(reply, citations) : reply;
+    text.textContent = displayReply(reply, answer);
     body.append(speaker, text);
-    const diagnosis = diagnosticInfo(diagnostic);
-    if (diagnosis) {
-      const label = document.createElement('p');
-      label.className = 'rag-diagnostic';
-      label.textContent = diagnosis.label;
-      body.appendChild(label);
-    }
-    if (Array.isArray(citations) && citations.some(isAI)) {
+    if (citations.some(isAI)) {
       const notice = document.createElement('p');
       notice.className = 'rag-ai-notice';
-      notice.textContent = 'kiến thức AI — Nội dung tham khảo, không phải đề cương chính thức.';
-      body.appendChild(notice);
+      notice.textContent = 'kiến thức AI · tham khảo';
+      body.insertBefore(notice, text);
     }
-    if (generation) {
-      const badge = document.createElement('p');
-      badge.className = 'rag-generation-label';
-      badge.dataset.kind = generation.kind;
-      badge.textContent = generation.label;
-      const note = document.createElement('p');
-      note.className = 'rag-generation-note';
-      note.textContent = generation.note;
-      body.append(badge, note);
-    }
-    const visibleCitations = Array.isArray(citations) ? citations.filter(citation => !isAI(citation)) : [];
+    const visibleCitations = citations.filter(citation => !isAI(citation));
     if (visibleCitations.length) {
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
-      sources.setAttribute('aria-label', 'Dẫn chứng');
+      sources.setAttribute('aria-label', 'Nguồn');
       for (const citation of visibleCitations) appendCitation(sources, citation);
       body.appendChild(sources);
     }
@@ -445,8 +447,7 @@
         item => item?.fallback_reason === 'http_error' && item.http_status === 429)) {
         config.llm_quota_exhausted = true;
       }
-      appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : [], info, result.hus_answer?.diagnostic);
+      appendMessage('assistant', result.reply, result.hus_answer);
       if (result.hus_answer?.status === 'needs_clarification'
           && Array.isArray(result.hus_answer.source_choices)) {
         const choices = document.createElement('div');
@@ -486,17 +487,17 @@
           : 'Đã trả lời theo phạm vi dữ liệu đã chọn.';
       }
       const diagnosis = diagnosticInfo(result.hus_answer?.diagnostic);
-      const statusMessage = [message, diagnosis?.message, info?.note].filter(Boolean).join(' ');
+      const statusMessage = [message, diagnosis?.message, info?.label,
+        info?.kind === 'fallback' ? info.note : null].filter(Boolean).join(' ');
       if (statusMessage) setStatus(statusMessage);
     } catch (error) {
       if (epoch !== scopeGeneration || requestController !== controller || error.name === 'AbortError') return;
       const unavailable = error.message === 'http_503';
       if (error.message === 'http_502' && config.llm_auto) {
         const diagnosis = diagnosticInfo(error.diagnostic);
-        const note = (diagnosis?.message || 'AI chưa trả lời được. Kiểm tra kết nối, cấu hình hoặc thử lại sau.') + ' '
-          + 'Chỉ chuyển offline khi dịch vụ báo chạm hạn mức (429).';
-        appendMessage('assistant', note, [], null, error.diagnostic);
-        setStatus(note, true);
+        const note = diagnosis?.message || 'AI chưa trả lời được. Kiểm tra kết nối, cấu hình hoặc thử lại sau.';
+        appendMessage('assistant', note);
+        setStatus(diagnosis?.label || note, true);
         return;
       }
       setStatus(unavailable ? 'Dữ liệu HUS chưa sẵn sàng. Hãy kiểm tra máy chủ trước khi hỏi lại.'

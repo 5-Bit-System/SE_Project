@@ -6,7 +6,7 @@ import unicodedata
 import pytest
 from playwright.sync_api import expect, sync_playwright
 
-from tools.run_hus_rag_demo import demo_server
+from tools.run_hus_rag_demo import check_displayed_reply, demo_server
 
 
 @pytest.fixture(scope='module')
@@ -31,13 +31,7 @@ def click_and_answer(page, button):
     with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as event:
         button.click()
     result = event.value.json()
-    text = page.locator('.rag-message-assistant .rag-message-text').last
-    citations = (result.get('hus_answer') or {}).get('citations', [])
-    if citations and all(c['evidence_kind'] == 'ai' for c in citations):
-        for citation in citations:
-            expect(text).to_contain_text(citation['quote'])
-    else:
-        expect(text).to_have_text(result['reply'])
+    check_displayed_reply(page, result)
     return json.loads(event.value.request.post_data), result
 
 

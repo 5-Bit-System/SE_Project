@@ -4,6 +4,7 @@ from playwright.sync_api import expect
 
 from tests.hus.test_question_catalog_ui import browser_app as browser_app
 from tests.hus.test_question_catalog_ui import page as page
+from tools.run_hus_rag_demo import check_displayed_reply
 
 
 def send(page, question):
@@ -11,7 +12,7 @@ def send(page, question):
     with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as event:
         page.locator('#rag-send').click()
     response = event.value.json()
-    expect(page.locator('.rag-message-assistant .rag-message-text').last).to_have_text(response['reply'])
+    check_displayed_reply(page, response)
     return response
 
 
@@ -43,7 +44,19 @@ def test_multifield_and_followup_show_clarification_without_citations(page):
 def test_no_information_and_basic_reply_have_correct_status(page):
     answer = send(page, 'Số tín chỉ MAT9999?')['hus_answer']
     assert answer['status'] == 'no_information'
+    expect(page.locator('.rag-message-assistant').last.locator('.rag-citations')).to_have_count(0)
     expect(page.locator('#rag-status')).to_contain_text('Chưa có thông tin')
     expect(page.locator('#rag-status')).to_contain_text('Dữ liệu hiện có chưa cung cấp thông tin cần hỏi')
     assert send(page, 'Xin chào')['mode'] == 'basic_chat'
     expect(page.locator('#rag-status')).to_contain_text('hội thoại')
+
+
+def test_credits_show_the_fact_and_one_source_without_review_boilerplate(page):
+    page.locator('#rag-major').select_option('computer_science')
+    answer = send(page, 'MAT3562E có bao nhiêu tín chỉ?')['hus_answer']
+    assert answer['facts']['value'] == 3
+    message = page.locator('.rag-message-assistant').last
+    expect(message.locator('.rag-message-text')).to_contain_text('Số tín chỉ: 3')
+    expect(message).not_to_contain_text('verified theo sign-off')
+    expect(message.locator('.rag-citations a')).to_have_count(1)
+    expect(message.locator('.rag-citations')).to_contain_text('Trang 12')

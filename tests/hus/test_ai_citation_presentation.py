@@ -1,4 +1,4 @@
-"""Only known AI reference markers are hidden; real references remain visible."""
+"""Keep real reference markers and render sources once for the compact reply."""
 from pathlib import Path
 
 from tests.hus.test_question_catalog_ui import browser_app  # noqa: F401
@@ -15,14 +15,16 @@ def test_ai_and_real_references_are_separated_without_changing_evidence(browser_
         {citation_id: '2', evidence_kind: 'pdf', content_origin: 'structured_source_draft'}];
       const original = '[1] Ý AI: 42. [1]\\nNguồn [1]: kiến thức AI\\n'
         + '[2] Dữ kiện: 4 tín chỉ. [2]\\nNguồn [2]: PDF\\nGiữ ký hiệu [99].';
-      return {clean: module.exports.displayReply(original, citations),
-        original, realOnly: module.exports.displayReply(original, [citations[1]]),
-        noEvidence: module.exports.displayReply(original, []), citations};
+      const show = refs => module.exports.displayReply(original, {status: 'answered', citations: refs});
+      return {clean: show(citations), original, realOnly: show([citations[1]]),
+        noEvidence: show([]), citations};
     }''', source)
     page.close()
     assert '[1]' not in result['clean'] and 'Nguồn [1]' not in result['clean']
     assert 'Ý AI: 42.' in result['clean']
     assert '[2] Dữ kiện: 4 tín chỉ. [2]' in result['clean']
-    assert 'Nguồn [2]: PDF' in result['clean'] and '[99]' in result['clean']
-    assert result['realOnly'] == result['noEvidence'] == result['original']
+    assert 'Nguồn [2]: PDF' not in result['clean'] and '[99]' in result['clean']
+    assert 'Nguồn [1]: kiến thức AI' in result['realOnly']
+    assert 'Nguồn [2]: PDF' not in result['realOnly']
+    assert result['noEvidence'] == result['original']
     assert len(result['citations']) == 2

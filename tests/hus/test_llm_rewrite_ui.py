@@ -11,6 +11,7 @@ from playwright.sync_api import expect
 from app.hus.llm.capacity import llm_call_slot
 from tests.hus.llm.test_pipeline import completion, transport
 from tests.hus.test_question_catalog_ui import browser_app  # noqa: F401
+from tools.run_hus_rag_demo import check_displayed_reply
 
 
 @pytest.fixture
@@ -64,7 +65,7 @@ def test_wrong_scope_explains_selected_and_requested_major(llm_ui):
     assert result['hus_answer']['diagnostic']['code'] == 'scope_conflict'
     expect(answer).to_contain_text('Khoa học dữ liệu')
     expect(answer).to_contain_text('Khoa học máy tính và thông tin')
-    expect(answer.locator('.rag-diagnostic')).to_contain_text('Chọn lại phạm vi')
+    expect(page.locator('#rag-status')).to_contain_text('Kiểm tra ngành và phiên bản')
     assert page.locator('#rag-major').input_value() == 'data_science'
     assert calls == []
 
@@ -88,7 +89,7 @@ def test_auto_errors_show_correct_block_stage(llm_ui, monkeypatch, failure, code
     assert result.status == 502 and len(calls) == 1
     assert result.json()['detail']['diagnostic']['code'] == code
     answer = page.locator('.rag-message-assistant').last
-    expect(answer.locator('.rag-diagnostic')).to_have_text(label)
+    expect(page.locator('#rag-status')).to_have_text(label)
     expect(answer.locator('.rag-citations')).to_have_count(0)
     expect(answer).not_to_contain_text('synthetic-ui-key')
     expect(answer).not_to_contain_text('3 tín chỉ')
@@ -155,7 +156,7 @@ def test_auto_ui_other_error_reports_without_offline_answer(llm_ui, monkeypatch)
         page.locator('#rag-send').click()
     assert pending.value.status == 502 and len(calls) == 1
     answer = page.locator('.rag-message-assistant').last
-    expect(answer).to_contain_text('Chỉ chuyển offline')
+    expect(answer).to_contain_text('Dịch vụ AI chưa kết nối được hoặc tạm thời chưa sẵn sàng')
     expect(answer.locator('.rag-citations')).to_have_count(0)
     expect(answer).not_to_contain_text('3 tín chỉ')
 
@@ -166,13 +167,7 @@ def ask(page, question='MAT3533 có bao nhiêu tín chỉ?'):
         page.locator('#rag-send').click()
     result = event.value.json()
     expect(page.locator('#rag-form')).to_have_attribute('aria-busy', 'false')
-    text = page.locator('.rag-message-assistant .rag-message-text').last
-    citations = (result.get('hus_answer') or {}).get('citations', [])
-    if citations and all(c['evidence_kind'] == 'ai' for c in citations):
-        for citation in citations:
-            expect(text).to_contain_text(citation['quote'])
-    else:
-        expect(text).to_have_text(result['reply'])
+    check_displayed_reply(page, result)
     return json.loads(event.value.request.post_data), result
 
 
@@ -196,7 +191,11 @@ def test_default_off_disclosed_and_independent_from_f3(llm_ui):
     assert len(calls) == 1
     assert result['reply'].endswith(result['hus_answer']['reply'])
     assert result['hus_answer']['facts']['value'] == 3
-    expect(page.locator('.rag-generation-label').last).to_have_text('AI diễn đạt từ nguồn')
+    expect(page.locator('#rag-status')).to_contain_text('AI diễn đạt từ nguồn')
+    answer = page.locator('.rag-message-assistant').last
+    expect(answer).not_to_contain_text('Dưới đây là dữ kiện và trạng thái')
+    expect(answer).not_to_contain_text('Trạng thái xác minh')
+    expect(answer.locator('.rag-citations')).to_contain_text('Trang')
 
 
 def test_f3_shows_one_ai_notice_without_citation_cards(llm_ui):
@@ -206,12 +205,11 @@ def test_f3_shows_one_ai_notice_without_citation_cards(llm_ui):
     _, result = ask(page, 'Nội dung MAT3533?')
     assert result['generation']['used'] is True and len(calls) == 1
     answer = page.locator('.rag-message-assistant').last
-    expect(answer.locator('.rag-generation-label')).to_have_text('AI diễn đạt')
-    expect(answer.locator('.rag-ai-notice')).to_have_count(1)
-    expect(answer).to_contain_text('kiến thức AI')
+    expect(page.locator('#rag-status')).to_contain_text('AI diễn đạt')
+    expect(answer.locator('.rag-ai-notice')).to_have_text('kiến thức AI · tham khảo')
     expect(answer.locator('.rag-citations')).to_have_count(0)
     expect(answer.locator('.rag-message-text')).not_to_contain_text(re.compile(r'\[\d+\]|Nguồn \['))
-    expect(answer.locator('.rag-generation-note')).not_to_contain_text('nguồn dẫn bên dưới')
+    expect(answer).not_to_contain_text('Nội dung tham khảo do AI biên soạn')
 
 
 @pytest.mark.parametrize('failure', [None, 'quota'])
@@ -229,8 +227,8 @@ def test_f3_saved_or_fallback_content_has_no_ai_citation_clutter(llm_ui, failure
     expect(answer.locator('.rag-message-text')).not_to_contain_text(re.compile(r'\[\d+\]|Nguồn \['))
     if failure:
         assert result['generation']['used'] is False
-        expect(answer.locator('.rag-generation-label')).to_have_text('Nội dung AI tham khảo')
-        expect(answer.locator('.rag-generation-note')).to_contain_text('hạn mức')
+        expect(page.locator('#rag-status')).to_contain_text('Nội dung AI tham khảo')
+        expect(page.locator('#rag-status')).to_contain_text('hạn mức')
     else:
         assert calls == []
 
@@ -241,7 +239,8 @@ def test_f1_shows_actual_use_and_original_citation_links(llm_ui):
     _, result = ask(page, 'Giới thiệu ngành')
     assert result['generation']['used'] is True and len(calls) == 1
     assert result['hus_answer']['dataset'] == 'f1'
-    expect(page.locator('.rag-generation-label').last).to_have_text('AI diễn đạt từ nguồn')
+    expect(page.locator('#rag-status')).to_contain_text('AI diễn đạt từ nguồn')
+    expect(page.locator('.rag-message-assistant').last).not_to_contain_text('Chỉ mô tả theo nguồn đã lưu')
     expect(page.locator('.rag-message-assistant').last.locator('.rag-citations a')).not_to_have_count(0)
 
 
@@ -275,7 +274,7 @@ def test_server_disabled_after_opt_in_shows_canonical_fallback(llm_ui, monkeypat
     payload, result = ask(page)
     assert payload['allow_llm_rewrite'] is True
     assert 'generation' not in result and calls == []
-    expect(page.locator('.rag-generation-label').last).to_have_text('Bản trích nguồn')
+    expect(page.locator('#rag-status')).to_contain_text('Bản trích nguồn')
 
 
 @pytest.mark.parametrize('failure,note', [('quota', 'hạn mức'), ('timeout', 'thời gian'), ('busy', 'bận')])
@@ -291,8 +290,8 @@ def test_actual_pipeline_failure_has_canonical_label(llm_ui, failure, note):
     assert result['generation']['used'] is False
     assert result['reply'] == result['hus_answer']['reply']
     assert len(calls) == (0 if failure == 'busy' else 1)
-    expect(page.locator('.rag-generation-label').last).to_have_text('Bản trích nguồn')
-    expect(page.locator('.rag-generation-note').last).to_contain_text(note)
+    expect(page.locator('#rag-status')).to_contain_text('Bản trích nguồn')
+    expect(page.locator('#rag-status')).to_contain_text(note)
     expect(page.locator('#rag-messages')).not_to_contain_text('synthetic-ui-key')
     expect(page.locator('#rag-messages')).not_to_contain_text('private-')
 
@@ -306,8 +305,8 @@ def test_provider_http_status_is_explained_without_losing_sources(llm_ui, status
     assert len(calls) == 1 and result['generation']['used'] is False
     assert result['generation']['http_status'] == status
     assert result['reply'] == result['hus_answer']['reply']
-    expect(page.locator('.rag-generation-label').last).to_have_text('Bản trích nguồn')
-    expect(page.locator('.rag-generation-note').last).to_contain_text(note)
+    expect(page.locator('#rag-status')).to_contain_text('Bản trích nguồn')
+    expect(page.locator('#rag-status')).to_contain_text(note)
     expect(page.locator('.rag-message-assistant').last.locator('.rag-citations a')).not_to_have_count(0)
     expect(page.locator('#rag-messages')).not_to_contain_text('private-provider')
     expect(page.locator('#rag-messages')).not_to_contain_text('synthetic-ui-key')
@@ -338,13 +337,13 @@ def test_accessible_description_matches_current_availability(llm_ui, monkeypatch
 
 
 @pytest.mark.parametrize('question', ['Xin chào', 'Môn này có bao nhiêu tín chỉ?', 'zzzz_no_course_xyz'])
-def test_non_answers_have_no_ai_or_fallback_badge(llm_ui, question):
+def test_non_answers_have_no_ai_or_fallback_status(llm_ui, question):
     page, calls, _ = llm_ui
     page.locator('#rag-rewrite').check()
     _, result = ask(page, question)
     assert result['generation']['used'] is False
     assert calls == []
-    expect(page.locator('.rag-generation-label')).to_have_count(0)
+    expect(page.locator('#rag-status')).not_to_contain_text(re.compile(r'AI diễn đạt|Bản trích nguồn'))
 
 
 def test_major_switch_drops_both_consents_and_late_ai_response(llm_ui):
@@ -382,7 +381,6 @@ def test_major_switch_drops_both_consents_and_late_ai_response(llm_ui):
     page.wait_for_function('window.lateRead === true')
     expect(page.locator('#rag-rewrite')).not_to_be_checked()
     expect(page.locator('#rag-generated')).not_to_be_checked()
-    expect(page.locator('.rag-generation-label')).to_have_count(0)
     expect(page.locator('.rag-message-user')).to_have_count(0)
     expect(page.locator('.rag-message-assistant')).to_have_count(1)
     expect(page.locator('#rag-status')).to_have_text(status)
@@ -414,6 +412,6 @@ def test_major_switch_does_not_free_a_provider_call_still_running(llm_ui):
         _, result = ask(page, 'MAT3300 có bao nhiêu tín chỉ?')
         assert result['generation']['fallback_reason'] == 'busy'
         assert len(calls) == 1
-        expect(page.locator('.rag-generation-label').last).to_have_text('Bản trích nguồn')
+        expect(page.locator('#rag-status')).to_contain_text('Bản trích nguồn')
     finally:
         mode['release'].set()

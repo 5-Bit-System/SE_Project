@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import socket
 import threading
 import time
@@ -46,6 +47,26 @@ def demo_server():
         sock.close()
 
 
+def check_displayed_reply(page, value):
+    """Check the visible body separately from the API's full evidence record."""
+    from playwright.sync_api import expect
+
+    text = page.locator(".rag-message-assistant .rag-message-text").last
+    answer = value.get("hus_answer") or {}
+    if answer.get("status") != "answered":
+        expect(text).to_have_text(value["reply"])
+        return
+    expect(text).not_to_be_empty()
+    expect(text).not_to_contain_text(re.compile(r"Nguồn \[\d+\]:"))
+    citations = answer["citations"]
+    if answer["dataset"] == "f2":
+        expect(text).to_contain_text(answer["reply"].split("\n\n", 1)[0])
+    elif not (value.get("generation") or {}).get("used") or all(c["evidence_kind"] == "ai" for c in citations):
+        for citation in citations:
+            quote = re.sub(r"(?m)^[ \t]*#{1,6}[ \t]+", "", citation["quote"])
+            expect(text).to_contain_text(quote)
+
+
 def smoke(page, base, out):
     """Exercise real mixed chat and a late-response scope switch in the dedicated UI."""
     from playwright.sync_api import expect
@@ -63,13 +84,7 @@ def smoke(page, base, out):
         response = event.value
         assert response.status == 200, (question, response.status)
         value = response.json()
-        text = page.locator(".rag-message-assistant .rag-message-text").last
-        citations = (value.get("hus_answer") or {}).get("citations", [])
-        if citations and all(c["evidence_kind"] == "ai" for c in citations):
-            for citation in citations:
-                expect(text).to_contain_text(citation["quote"])
-        else:
-            expect(text).to_have_text(value["reply"])
+        check_displayed_reply(page, value)
         expect(page.locator("#rag-question")).to_be_enabled()
         records.append({"major": page.locator("#rag-major").input_value(), "question": question,
                         "mode": value["mode"], "status": "pass"})
