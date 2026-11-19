@@ -1,0 +1,1566 @@
+[
+  {
+    "call": null,
+    "end_to_end_ms": 2.951,
+    "error": null,
+    "id": "FOC-01",
+    "response": {
+      "generation": {
+        "fallback_reason": "not_answered",
+        "model": null,
+        "requested_model": null,
+        "used": false
+      },
+      "hus_answer": {
+        "citations": [],
+        "dataset": "f1",
+        "diagnostic": {
+          "code": "clarification_required"
+        },
+        "facts": {},
+        "generated_reference_allowed": false,
+        "major": "computer_science",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Có nhiều nguồn/phiên bản/hệ phù hợp. Hãy chọn một nguồn để tránh trộn thông tin.",
+        "source_choices": [
+          {
+            "label": "Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf",
+            "program_variant": "standard",
+            "review_status": "include_markdown",
+            "source_id": "1e3ad5f9915aa051",
+            "version": "2015"
+          },
+          {
+            "label": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf",
+            "program_variant": "high_quality",
+            "review_status": "include_markdown",
+            "source_id": "1c16ddf8a6f1f409",
+            "version": "2019"
+          },
+          {
+            "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "program_variant": "standard",
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "version": "2023"
+          },
+          {
+            "label": "Máy tính và Khoa học thông tin CLC",
+            "program_variant": "high_quality",
+            "review_status": "include",
+            "source_id": "f8672cafba05d016",
+            "version": "unknown"
+          },
+          {
+            "label": "Ngành Khoa học máy tính và thông tin",
+            "program_variant": "unknown",
+            "review_status": "include",
+            "source_id": "d6370261338de29f",
+            "version": "unknown"
+          }
+        ],
+        "status": "needs_clarification",
+        "version": null,
+        "warnings": []
+      },
+      "mode": "hus_rag",
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Có nhiều nguồn/phiên bản/hệ phù hợp. Hãy chọn một nguồn để tránh trộn thông tin."
+    }
+  },
+  {
+    "call": {
+      "actual_model": "gemini-3.5-flash-lite",
+      "attempted": true,
+      "http_status": 200,
+      "pacing_ms": 0,
+      "prompt_sha256": "2e09d4fc3c2c6e5b9027563ca42a9ebf043e3c398608bdb53357c95b3098f9b6",
+      "provider_envelope": {
+        "content_chars": 451,
+        "content_kind": "text",
+        "finish_reason": "stop",
+        "has_tool_call": false,
+        "stage": "provider_envelope"
+      },
+      "provider_ms": 2289.502099971287,
+      "usage": {
+        "completion_tokens": 127,
+        "prompt_tokens": 719,
+        "total_tokens": 846
+      }
+    },
+    "end_to_end_ms": 2305.223,
+    "error": null,
+    "id": "FOC-02",
+    "response": {
+      "generation": {
+        "fallback_reason": null,
+        "model": "gemini-3.5-flash-lite",
+        "prompt_sha256": "2e09d4fc3c2c6e5b9027563ca42a9ebf043e3c398608bdb53357c95b3098f9b6",
+        "requested_model": "gemini-3.5-flash-lite",
+        "usage": {
+          "completion_tokens": 127,
+          "prompt_tokens": 719,
+          "total_tokens": 846
+        },
+        "used": true
+      },
+      "hus_answer": {
+        "citations": [
+          {
+            "availability": "available",
+            "availability_note": "Tệp DOCX nguồn; không phải PDF.",
+            "citation_id": "1",
+            "content_origin": "crawled_source_quote",
+            "dataset": "f1",
+            "display_label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+            "evidence_kind": "file",
+            "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "locator": {
+              "end_char": 8991,
+              "evidence_path": "evidence/f1/f7f470e712738589.txt",
+              "field": "content_markdown",
+              "release_id": "hus-data-20261111-v4",
+              "start_char": 8629
+            },
+            "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "metadata": {
+              "academic_verified": false,
+              "admission_cohort": "unknown",
+              "answer_eligible": true,
+              "answer_policy": "source_cited_description",
+              "authorizes_eligibility": false,
+              "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+              "citation": {
+                "end_char": 8991,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "raw_original_verified": false,
+                "review_status": "include_markdown",
+                "source_id": "f7f470e712738589",
+                "source_kind": "crawled_prose",
+                "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                "start_char": 8629,
+                "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+              },
+              "citation_title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "disclosure_required": false,
+              "display_edits": [],
+              "document_id": "f7f470e712738589",
+              "family": "F1",
+              "field": "further_study",
+              "format": "portable-2.0",
+              "locator": {
+                "end_char": 8991,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 8629
+              },
+              "major": "computer_science",
+              "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "portable_chunk": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+                "citation": {
+                  "end_char": 8991,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "raw_original_verified": false,
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "start_char": 8629,
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "further_study",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "2023",
+                  "major": "computer_science",
+                  "program_id": null,
+                  "program_variant": "standard",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+                "source_unit_id": "1a51c461819d0ef2cd6c4757",
+                "text": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan."
+              },
+              "program_variant": "standard",
+              "program_version": "2023",
+              "raw_original_verified": false,
+              "record_id": null,
+              "recovered_source_comparison": {
+                "comparison": "selected_F1_normalized_prose_match",
+                "historical_byte_equality": "unknown",
+                "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                "whole_document_verified": false
+              },
+              "release_id": "hus-data-20261111-v4",
+              "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+              "review": {
+                "status": "include_markdown"
+              },
+              "review_scope": "selected_F1_sections",
+              "review_status": "include_markdown",
+              "schema_version": "2.0",
+              "scope": {
+                "applicability_status": "descriptive_not_student_curriculum_binding",
+                "cohort_year": null,
+                "curriculum_version": "2023",
+                "major": "computer_science",
+                "program_id": null,
+                "program_variant": "standard",
+                "validity_status": "unknown"
+              },
+              "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+              "source_quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+              "source_record": {
+                "academic_verified": false,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "evidence_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                "family": "F1",
+                "raw_available": true,
+                "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                "raw_evidence_path": null,
+                "raw_original_verified": false,
+                "recovered_capture": {
+                  "academic_verified": false,
+                  "bytes": 404363,
+                  "document_id": "f7f470e712738589",
+                  "extractor": "python-docx/1.2.0",
+                  "fetched_at": "2026-10-31T07:03:59.631066+00:00",
+                  "file_type": "docx",
+                  "final_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                  "historical_byte_equality": "unknown",
+                  "major": "computer_science",
+                  "original_binary_in_portable_release": false,
+                  "page_count": 1,
+                  "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                  "path_scope": "recovery_archive_root",
+                  "repository_asset_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                  "requested_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                  "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+                },
+                "review_scope": "selected_F1_sections",
+                "review_status": "include_markdown",
+                "source_id": "f7f470e712738589",
+                "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+              },
+              "source_state": "selected_for_local_rag_demo",
+              "source_unit_id": "1a51c461819d0ef2cd6c4757",
+              "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "unit_id": "1a51c461819d0ef2cd6c4757",
+              "usage_scope": "descriptive",
+              "validity_status": "unknown"
+            },
+            "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+            "pdf_page": null,
+            "pdf_pages": [],
+            "quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          }
+        ],
+        "dataset": "f1",
+        "facts": {},
+        "generated_reference_allowed": false,
+        "major": "computer_science",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp [1]\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan. [1]\n\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.",
+        "status": "answered",
+        "version": "2023",
+        "warnings": [
+          "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+          "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+        ]
+      },
+      "mode": "hus_rag",
+      "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp [1]\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan. [1]"
+    }
+  },
+  {
+    "call": {
+      "actual_model": "gemini-3.5-flash-lite",
+      "attempted": true,
+      "http_status": 200,
+      "pacing_ms": 2657.0000000065193,
+      "prompt_sha256": "2849801c67e29b3cffe2f5d95a7167fcc149516a3afd32d89e1c591b82069fe9",
+      "provider_envelope": {
+        "content_chars": 591,
+        "content_kind": "text",
+        "finish_reason": "stop",
+        "has_tool_call": false,
+        "stage": "provider_envelope"
+      },
+      "provider_ms": 1263.296499964781,
+      "usage": {
+        "completion_tokens": 159,
+        "prompt_tokens": 919,
+        "total_tokens": 1078
+      }
+    },
+    "end_to_end_ms": 3966.544,
+    "error": null,
+    "id": "FOC-03",
+    "response": {
+      "generation": {
+        "fallback_reason": null,
+        "model": "gemini-3.5-flash-lite",
+        "prompt_sha256": "2849801c67e29b3cffe2f5d95a7167fcc149516a3afd32d89e1c591b82069fe9",
+        "requested_model": "gemini-3.5-flash-lite",
+        "usage": {
+          "completion_tokens": 159,
+          "prompt_tokens": 919,
+          "total_tokens": 1078
+        },
+        "used": true
+      },
+      "hus_answer": {
+        "citations": [
+          {
+            "availability": "available",
+            "availability_note": null,
+            "citation_id": "1",
+            "content_origin": "generated",
+            "dataset": "f3",
+            "display_label": "kiến thức AI",
+            "document_sha256": null,
+            "evidence_kind": "ai",
+            "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+            "locator": {
+              "end_char": 1012,
+              "evidence_path": "f3_records.jsonl",
+              "field": "content",
+              "offset_scope": "rendered_field_text_excluding_repeated_context",
+              "record_id": "toan_tin_7460117_2022:MAT1202",
+              "release_id": "hus-data-20261111-v4",
+              "start_char": 503
+            },
+            "media_type": null,
+            "metadata": {
+              "academic_verified": false,
+              "answer_policy": "disclosed_generated_reference",
+              "authorizes_eligibility": false,
+              "chunk_id": "aec1732cc5511ce494b74818dd12477d",
+              "citation": {
+                "authored_by": "Codex",
+                "canonical_identity_citation": {
+                  "evidence_path": "evidence/canonical_f2.json",
+                  "json_pointer": "/tables/curriculum_courses/66",
+                  "json_pointers": [
+                    "/tables/official_curriculum_entries/66"
+                  ],
+                  "pdf_locators": [
+                    {
+                      "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                      "page": 10,
+                      "row": 32,
+                      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                    }
+                  ],
+                  "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                  "source_id": "canonical_f2",
+                  "source_kind": "curriculum_transcription",
+                  "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "title": "Toán tin",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                },
+                "end_char": 1012,
+                "evidence_path": "f3_records.jsonl",
+                "field": "content",
+                "method": "codex_authored_detailed_reference_v2",
+                "official_source_citation": false,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                "source_kind": "ai_generated_reference",
+                "start_char": 503,
+                "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                "url": null
+              },
+              "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+              "cohort_year": 2022,
+              "content_origin": "generated",
+              "course_code": "MAT1202",
+              "course_name": "Lập trình hướng đối tượng",
+              "curriculum_version": "QD3567-2023",
+              "dataset_kind": "generated_f3_reference_v2",
+              "disclosure_required": true,
+              "family": "F3",
+              "field": "content",
+              "format": "portable-2.0",
+              "locator": {
+                "end_char": 1012,
+                "evidence_path": "f3_records.jsonl",
+                "field": "content",
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 503
+              },
+              "major": "mathematics_informatics",
+              "major_name": "Toán tin",
+              "official_answer_available": false,
+              "official_assessment": null,
+              "official_content": null,
+              "official_objectives": null,
+              "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "portable_chunk": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "aec1732cc5511ce494b74818dd12477d",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 1012,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 503,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nĐối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm.",
+                "unit_index": 0
+              },
+              "program_id": "toan_tin_7460117_2022",
+              "program_variant": "standard",
+              "provenance": {
+                "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                "identity_source_release": "hus-data-20261031-v3",
+                "profile_input": {
+                  "line": 19,
+                  "path": "profiles_a.jsonl",
+                  "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                },
+                "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+              },
+              "record_id": "toan_tin_7460117_2022:MAT1202",
+              "release_id": "hus-data-20261111-v4",
+              "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+              "review_status": "needs_review",
+              "schema_version": "2.0",
+              "scope": {
+                "applicability_status": "catalog_cohort_not_individual_account_binding",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "major": "mathematics_informatics",
+                "program_id": "toan_tin_7460117_2022",
+                "program_variant": "standard",
+                "validity_status": "as_declared_in_canonical_F2"
+              },
+              "source_state": "selected_for_local_rag_demo",
+              "source_url": null,
+              "unit_index": 0,
+              "usage_scope": "reference_only",
+              "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+            },
+            "open_url": null,
+            "pdf_page": null,
+            "pdf_pages": [],
+            "quote": "Đối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm.",
+            "review_status": "needs_review",
+            "source_id": "toan_tin_7460117_2022:MAT1202",
+            "source_url": null
+          },
+          {
+            "availability": "available",
+            "availability_note": null,
+            "citation_id": "2",
+            "content_origin": "generated",
+            "dataset": "f3",
+            "display_label": "kiến thức AI",
+            "document_sha256": null,
+            "evidence_kind": "ai",
+            "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+            "locator": {
+              "end_char": 2059,
+              "evidence_path": "f3_records.jsonl",
+              "field": "content",
+              "offset_scope": "rendered_field_text_excluding_repeated_context",
+              "record_id": "toan_tin_7460117_2022:MAT1202",
+              "release_id": "hus-data-20261111-v4",
+              "start_char": 1539
+            },
+            "media_type": null,
+            "metadata": {
+              "academic_verified": false,
+              "answer_policy": "disclosed_generated_reference",
+              "authorizes_eligibility": false,
+              "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+              "citation": {
+                "authored_by": "Codex",
+                "canonical_identity_citation": {
+                  "evidence_path": "evidence/canonical_f2.json",
+                  "json_pointer": "/tables/curriculum_courses/66",
+                  "json_pointers": [
+                    "/tables/official_curriculum_entries/66"
+                  ],
+                  "pdf_locators": [
+                    {
+                      "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                      "page": 10,
+                      "row": 32,
+                      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                    }
+                  ],
+                  "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                  "source_id": "canonical_f2",
+                  "source_kind": "curriculum_transcription",
+                  "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "title": "Toán tin",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                },
+                "end_char": 2059,
+                "evidence_path": "f3_records.jsonl",
+                "field": "content",
+                "method": "codex_authored_detailed_reference_v2",
+                "official_source_citation": false,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                "source_kind": "ai_generated_reference",
+                "start_char": 1539,
+                "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                "url": null
+              },
+              "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+              "cohort_year": 2022,
+              "content_origin": "generated",
+              "course_code": "MAT1202",
+              "course_name": "Lập trình hướng đối tượng",
+              "curriculum_version": "QD3567-2023",
+              "dataset_kind": "generated_f3_reference_v2",
+              "disclosure_required": true,
+              "family": "F3",
+              "field": "content",
+              "format": "portable-2.0",
+              "locator": {
+                "end_char": 2059,
+                "evidence_path": "f3_records.jsonl",
+                "field": "content",
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 1539
+              },
+              "major": "mathematics_informatics",
+              "major_name": "Toán tin",
+              "official_answer_available": false,
+              "official_assessment": null,
+              "official_content": null,
+              "official_objectives": null,
+              "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "portable_chunk": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2059,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1539,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nKế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+                "unit_index": 2
+              },
+              "program_id": "toan_tin_7460117_2022",
+              "program_variant": "standard",
+              "provenance": {
+                "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                "identity_source_release": "hus-data-20261031-v3",
+                "profile_input": {
+                  "line": 19,
+                  "path": "profiles_a.jsonl",
+                  "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                },
+                "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+              },
+              "record_id": "toan_tin_7460117_2022:MAT1202",
+              "release_id": "hus-data-20261111-v4",
+              "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+              "review_status": "needs_review",
+              "schema_version": "2.0",
+              "scope": {
+                "applicability_status": "catalog_cohort_not_individual_account_binding",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "major": "mathematics_informatics",
+                "program_id": "toan_tin_7460117_2022",
+                "program_variant": "standard",
+                "validity_status": "as_declared_in_canonical_F2"
+              },
+              "source_state": "selected_for_local_rag_demo",
+              "source_url": null,
+              "unit_index": 2,
+              "usage_scope": "reference_only",
+              "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+            },
+            "open_url": null,
+            "pdf_page": null,
+            "pdf_pages": [],
+            "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+            "review_status": "needs_review",
+            "source_id": "toan_tin_7460117_2022:MAT1202",
+            "source_url": null
+          }
+        ],
+        "dataset": "f3",
+        "facts": {},
+        "generated_reference_allowed": true,
+        "major": "mathematics_informatics",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu. [1]\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức. [2]\n\nNguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng\n\nNguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+        "status": "answered",
+        "version": "QD3567-2023",
+        "warnings": [
+          "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+        ]
+      },
+      "mode": "hus_rag",
+      "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu. [1]\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức. [2]"
+    }
+  },
+  {
+    "call": null,
+    "end_to_end_ms": 26.986,
+    "error": null,
+    "id": "FOC-04",
+    "response": {
+      "generation": {
+        "fallback_reason": "not_answered",
+        "model": null,
+        "requested_model": null,
+        "used": false
+      },
+      "hus_answer": {
+        "citations": [],
+        "dataset": "f3",
+        "diagnostic": {
+          "code": "permission_required"
+        },
+        "facts": {},
+        "generated_reference_allowed": false,
+        "major": "mathematics_informatics",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh.",
+        "status": "needs_clarification",
+        "version": "QD3567-2023",
+        "warnings": []
+      },
+      "mode": "hus_rag",
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh."
+    }
+  },
+  {
+    "call": {
+      "actual_model": "gemini-3.5-flash-lite",
+      "attempted": true,
+      "http_status": 200,
+      "pacing_ms": 3672.000000020489,
+      "prompt_sha256": "284ad4752ec3b5c70ed3b25b88258373142a8ad7ff011f10e2ccd3dfa7f3fee6",
+      "provider_envelope": {
+        "content_chars": 113,
+        "content_kind": "text",
+        "finish_reason": "stop",
+        "has_tool_call": false,
+        "stage": "provider_envelope"
+      },
+      "provider_ms": 1598.236900055781,
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 3274,
+        "total_tokens": 3305
+      }
+    },
+    "end_to_end_ms": 5290.757,
+    "error": null,
+    "id": "FOC-05",
+    "response": {
+      "generation": {
+        "fallback_reason": null,
+        "model": "gemini-3.5-flash-lite",
+        "prompt_sha256": "284ad4752ec3b5c70ed3b25b88258373142a8ad7ff011f10e2ccd3dfa7f3fee6",
+        "requested_model": "gemini-3.5-flash-lite",
+        "usage": {
+          "completion_tokens": 31,
+          "prompt_tokens": 3274,
+          "total_tokens": 3305
+        },
+        "used": true
+      },
+      "hus_answer": {
+        "citations": [
+          {
+            "availability": "unverified",
+            "availability_note": "Vị trí JSON theo bản chép nguồn đã ghim; chưa xác minh hiệu lực hoặc truy cập lại URL.",
+            "citation_id": "1",
+            "content_origin": "structured_source_draft",
+            "dataset": "f2",
+            "display_label": "Toán học",
+            "document_sha256": null,
+            "evidence_kind": "web",
+            "label": "Toán học",
+            "locator": {
+              "evidence_path": "evidence/canonical_f2.json",
+              "json_pointers": [
+                "/tables/official_curriculum_entries/0",
+                "/tables/official_curriculum_entries/109",
+                "/tables/official_curriculum_entries/119",
+                "/tables/official_curriculum_entries/12",
+                "/tables/official_curriculum_entries/126",
+                "/tables/official_curriculum_entries/127",
+                "/tables/official_curriculum_entries/128",
+                "/tables/official_curriculum_entries/129",
+                "/tables/official_curriculum_entries/130",
+                "/tables/official_curriculum_entries/131",
+                "/tables/official_curriculum_entries/132",
+                "/tables/official_curriculum_entries/133",
+                "/tables/official_curriculum_entries/134",
+                "/tables/official_curriculum_entries/135",
+                "/tables/official_curriculum_entries/136",
+                "/tables/official_curriculum_entries/137",
+                "/tables/official_curriculum_entries/138",
+                "/tables/official_curriculum_entries/139",
+                "/tables/official_curriculum_entries/140",
+                "/tables/official_curriculum_entries/141",
+                "/tables/official_curriculum_entries/142",
+                "/tables/official_curriculum_entries/143",
+                "/tables/official_curriculum_entries/146",
+                "/tables/official_curriculum_entries/147",
+                "/tables/official_curriculum_entries/148",
+                "/tables/official_curriculum_entries/149",
+                "/tables/official_curriculum_entries/150",
+                "/tables/official_curriculum_entries/151",
+                "/tables/official_curriculum_entries/153",
+                "/tables/official_curriculum_entries/154",
+                "/tables/official_curriculum_entries/156",
+                "/tables/official_curriculum_entries/158",
+                "/tables/official_curriculum_entries/16",
+                "/tables/official_curriculum_entries/160",
+                "/tables/official_curriculum_entries/161",
+                "/tables/official_curriculum_entries/162",
+                "/tables/official_curriculum_entries/163",
+                "/tables/official_curriculum_entries/164",
+                "/tables/official_curriculum_entries/165",
+                "/tables/official_curriculum_entries/166",
+                "/tables/official_curriculum_entries/168",
+                "/tables/official_curriculum_entries/169",
+                "/tables/official_curriculum_entries/170",
+                "/tables/official_curriculum_entries/176",
+                "/tables/official_curriculum_entries/198",
+                "/tables/official_curriculum_entries/20",
+                "/tables/official_curriculum_entries/202",
+                "/tables/official_curriculum_entries/203",
+                "/tables/official_curriculum_entries/204",
+                "/tables/official_curriculum_entries/205",
+                "/tables/official_curriculum_entries/207",
+                "/tables/official_curriculum_entries/208",
+                "/tables/official_curriculum_entries/209",
+                "/tables/official_curriculum_entries/210",
+                "/tables/official_curriculum_entries/211",
+                "/tables/official_curriculum_entries/212",
+                "/tables/official_curriculum_entries/213",
+                "/tables/official_curriculum_entries/214",
+                "/tables/official_curriculum_entries/24",
+                "/tables/official_curriculum_entries/246",
+                "/tables/official_curriculum_entries/266",
+                "/tables/official_curriculum_entries/267",
+                "/tables/official_curriculum_entries/268",
+                "/tables/official_curriculum_entries/273",
+                "/tables/official_curriculum_entries/277",
+                "/tables/official_curriculum_entries/28",
+                "/tables/official_curriculum_entries/281",
+                "/tables/official_curriculum_entries/285",
+                "/tables/official_curriculum_entries/289",
+                "/tables/official_curriculum_entries/293",
+                "/tables/official_curriculum_entries/32",
+                "/tables/official_curriculum_entries/36",
+                "/tables/official_curriculum_entries/4",
+                "/tables/official_curriculum_entries/40",
+                "/tables/official_curriculum_entries/44",
+                "/tables/official_curriculum_entries/48",
+                "/tables/official_curriculum_entries/52",
+                "/tables/official_curriculum_entries/56",
+                "/tables/official_curriculum_entries/60",
+                "/tables/official_curriculum_entries/64",
+                "/tables/official_curriculum_entries/79",
+                "/tables/official_curriculum_entries/8",
+                "/tables/official_curriculum_entries/81",
+                "/tables/official_curriculum_entries/83",
+                "/tables/official_curriculum_entries/85",
+                "/tables/official_curriculum_entries/87",
+                "/tables/official_curriculum_entries/89",
+                "/tables/official_curriculum_entries/90",
+                "/tables/official_curriculum_entries/91",
+                "/tables/official_curriculum_entries/92",
+                "/tables/official_curriculum_entries/93",
+                "/tables/official_curriculum_entries/94",
+                "/tables/official_curriculum_entries/96",
+                "/tables/official_curriculum_entries/97",
+                "/tables/official_curriculum_entries/98",
+                "/tables/official_curriculum_entries/99"
+              ]
+            },
+            "media_type": null,
+            "metadata": {
+              "calculation": {
+                "basis": "scoped_curriculum_membership",
+                "course_codes": [
+                  "CME1000",
+                  "FLF1107",
+                  "FLF1207",
+                  "FLF1307",
+                  "FLF1407",
+                  "FLF1507",
+                  "FLF1607",
+                  "FLF1707",
+                  "HIS1001",
+                  "HIS1056",
+                  "HUS1011",
+                  "HUS1012",
+                  "HUS1021",
+                  "HUS1022",
+                  "HUS1023",
+                  "HUS1024",
+                  "MAT1076",
+                  "MAT2300",
+                  "MAT2301",
+                  "MAT2302",
+                  "MAT2303",
+                  "MAT2304",
+                  "MAT2306",
+                  "MAT2307",
+                  "MAT2308",
+                  "MAT2310",
+                  "MAT2311",
+                  "MAT2314",
+                  "MAT2315",
+                  "MAT2316",
+                  "MAT2318",
+                  "MAT2319",
+                  "MAT2407",
+                  "MAT2505",
+                  "MAT3300",
+                  "MAT3301",
+                  "MAT3302",
+                  "MAT3304",
+                  "MAT3305",
+                  "MAT3306",
+                  "MAT3307",
+                  "MAT3310",
+                  "MAT3311",
+                  "MAT3313",
+                  "MAT3317",
+                  "MAT3318",
+                  "MAT3321",
+                  "MAT3322",
+                  "MAT3323",
+                  "MAT3324",
+                  "MAT3325",
+                  "MAT3326",
+                  "MAT3327",
+                  "MAT3329",
+                  "MAT3333",
+                  "MAT3334",
+                  "MAT3335",
+                  "MAT3337",
+                  "MAT3339",
+                  "MAT3344",
+                  "MAT3345",
+                  "MAT3347",
+                  "MAT3359",
+                  "MAT3360",
+                  "MAT3361",
+                  "MAT3362",
+                  "MAT3370",
+                  "MAT3396",
+                  "MAT3401",
+                  "MAT3406",
+                  "MAT3407",
+                  "MAT3408",
+                  "MAT3411",
+                  "MAT3412",
+                  "MAT3413",
+                  "MAT3415",
+                  "MAT3418",
+                  "MAT3422",
+                  "MAT3423",
+                  "MAT3452",
+                  "MAT3539",
+                  "MAT4070",
+                  "MAT4071",
+                  "MAT4072",
+                  "PEC1008",
+                  "PES1000",
+                  "PHI1002",
+                  "PHI1006",
+                  "POL1001",
+                  "THL1057"
+                ],
+                "operation": "count_unique_course_code",
+                "source_row_pointers": [
+                  "/tables/official_curriculum_entries/0",
+                  "/tables/official_curriculum_entries/109",
+                  "/tables/official_curriculum_entries/119",
+                  "/tables/official_curriculum_entries/12",
+                  "/tables/official_curriculum_entries/126",
+                  "/tables/official_curriculum_entries/127",
+                  "/tables/official_curriculum_entries/128",
+                  "/tables/official_curriculum_entries/129",
+                  "/tables/official_curriculum_entries/130",
+                  "/tables/official_curriculum_entries/131",
+                  "/tables/official_curriculum_entries/132",
+                  "/tables/official_curriculum_entries/133",
+                  "/tables/official_curriculum_entries/134",
+                  "/tables/official_curriculum_entries/135",
+                  "/tables/official_curriculum_entries/136",
+                  "/tables/official_curriculum_entries/137",
+                  "/tables/official_curriculum_entries/138",
+                  "/tables/official_curriculum_entries/139",
+                  "/tables/official_curriculum_entries/140",
+                  "/tables/official_curriculum_entries/141",
+                  "/tables/official_curriculum_entries/142",
+                  "/tables/official_curriculum_entries/143",
+                  "/tables/official_curriculum_entries/146",
+                  "/tables/official_curriculum_entries/147",
+                  "/tables/official_curriculum_entries/148",
+                  "/tables/official_curriculum_entries/149",
+                  "/tables/official_curriculum_entries/150",
+                  "/tables/official_curriculum_entries/151",
+                  "/tables/official_curriculum_entries/153",
+                  "/tables/official_curriculum_entries/154",
+                  "/tables/official_curriculum_entries/156",
+                  "/tables/official_curriculum_entries/158",
+                  "/tables/official_curriculum_entries/16",
+                  "/tables/official_curriculum_entries/160",
+                  "/tables/official_curriculum_entries/161",
+                  "/tables/official_curriculum_entries/162",
+                  "/tables/official_curriculum_entries/163",
+                  "/tables/official_curriculum_entries/164",
+                  "/tables/official_curriculum_entries/165",
+                  "/tables/official_curriculum_entries/166",
+                  "/tables/official_curriculum_entries/168",
+                  "/tables/official_curriculum_entries/169",
+                  "/tables/official_curriculum_entries/170",
+                  "/tables/official_curriculum_entries/176",
+                  "/tables/official_curriculum_entries/198",
+                  "/tables/official_curriculum_entries/20",
+                  "/tables/official_curriculum_entries/202",
+                  "/tables/official_curriculum_entries/203",
+                  "/tables/official_curriculum_entries/204",
+                  "/tables/official_curriculum_entries/205",
+                  "/tables/official_curriculum_entries/207",
+                  "/tables/official_curriculum_entries/208",
+                  "/tables/official_curriculum_entries/209",
+                  "/tables/official_curriculum_entries/210",
+                  "/tables/official_curriculum_entries/211",
+                  "/tables/official_curriculum_entries/212",
+                  "/tables/official_curriculum_entries/213",
+                  "/tables/official_curriculum_entries/214",
+                  "/tables/official_curriculum_entries/24",
+                  "/tables/official_curriculum_entries/246",
+                  "/tables/official_curriculum_entries/266",
+                  "/tables/official_curriculum_entries/267",
+                  "/tables/official_curriculum_entries/268",
+                  "/tables/official_curriculum_entries/273",
+                  "/tables/official_curriculum_entries/277",
+                  "/tables/official_curriculum_entries/28",
+                  "/tables/official_curriculum_entries/281",
+                  "/tables/official_curriculum_entries/285",
+                  "/tables/official_curriculum_entries/289",
+                  "/tables/official_curriculum_entries/293",
+                  "/tables/official_curriculum_entries/32",
+                  "/tables/official_curriculum_entries/36",
+                  "/tables/official_curriculum_entries/4",
+                  "/tables/official_curriculum_entries/40",
+                  "/tables/official_curriculum_entries/44",
+                  "/tables/official_curriculum_entries/48",
+                  "/tables/official_curriculum_entries/52",
+                  "/tables/official_curriculum_entries/56",
+                  "/tables/official_curriculum_entries/60",
+                  "/tables/official_curriculum_entries/64",
+                  "/tables/official_curriculum_entries/79",
+                  "/tables/official_curriculum_entries/8",
+                  "/tables/official_curriculum_entries/81",
+                  "/tables/official_curriculum_entries/83",
+                  "/tables/official_curriculum_entries/85",
+                  "/tables/official_curriculum_entries/87",
+                  "/tables/official_curriculum_entries/89",
+                  "/tables/official_curriculum_entries/90",
+                  "/tables/official_curriculum_entries/91",
+                  "/tables/official_curriculum_entries/92",
+                  "/tables/official_curriculum_entries/93",
+                  "/tables/official_curriculum_entries/94",
+                  "/tables/official_curriculum_entries/96",
+                  "/tables/official_curriculum_entries/97",
+                  "/tables/official_curriculum_entries/98",
+                  "/tables/official_curriculum_entries/99"
+                ]
+              },
+              "catalog_review": {
+                "basis": null,
+                "institutional_certification": false,
+                "status": "draft_unverified"
+              },
+              "format": "portable-2.0",
+              "release_id": "hus-data-20261111-v4",
+              "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+              "scope": {
+                "applicability_status": "catalog_cohort_not_individual_account_binding",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3565-2023",
+                "major": "mathematics",
+                "program_id": "toan_hoc_7460101_2022",
+                "program_variant": "standard",
+                "validity_status": "as_declared_in_canonical_F2"
+              },
+              "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+              "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "source_state": "selected_for_local_rag_demo"
+            },
+            "open_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+            "pdf_page": null,
+            "pdf_pages": [],
+            "quote": "{\"course_codes\": [\"CME1000\", \"FLF1107\", \"FLF1207\", \"FLF1307\", \"FLF1407\", \"FLF1507\", \"FLF1607\", \"FLF1707\", \"HIS1001\", \"HIS1056\", \"HUS1011\", \"HUS1012\", \"HUS1021\", \"HUS1022\", \"HUS1023\", \"HUS1024\", \"MAT1076\", \"MAT2300\", \"MAT2301\", \"MAT2302\", \"MAT2303\", \"MAT2304\", \"MAT2306\", \"MAT2307\", \"MAT2308\", \"MAT2310\", \"MAT2311\", \"MAT2314\", \"MAT2315\", \"MAT2316\", \"MAT2318\", \"MAT2319\", \"MAT2407\", \"MAT2505\", \"MAT3300\", \"MAT3301\", \"MAT3302\", \"MAT3304\", \"MAT3305\", \"MAT3306\", \"MAT3307\", \"MAT3310\", \"MAT3311\", \"MAT3313\", \"MAT3317\", \"MAT3318\", \"MAT3321\", \"MAT3322\", \"MAT3323\", \"MAT3324\", \"MAT3325\", \"MAT3326\", \"MAT3327\", \"MAT3329\", \"MAT3333\", \"MAT3334\", \"MAT3335\", \"MAT3337\", \"MAT3339\", \"MAT3344\", \"MAT3345\", \"MAT3347\", \"MAT3359\", \"MAT3360\", \"MAT3361\", \"MAT3362\", \"MAT3370\", \"MAT3396\", \"MAT3401\", \"MAT3406\", \"MAT3407\", \"MAT3408\", \"MAT3411\", \"MAT3412\", \"MAT3413\", \"MAT3415\", \"MAT3418\", \"MAT3422\", \"MAT3423\", \"MAT3452\", \"MAT3539\", \"MAT4070\", \"MAT4071\", \"MAT4072\", \"PEC1008\", \"PES1000\", \"PHI1002\", \"PHI1006\", \"POL1001\", \"THL1057\"]}",
+            "review_status": "draft_unverified",
+            "source_id": "canonical_f2",
+            "source_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          }
+        ],
+        "dataset": "f2",
+        "facts": {
+          "catalog_review": {
+            "basis": null,
+            "institutional_certification": false,
+            "status": "draft_unverified"
+          },
+          "field": "program_course_list",
+          "program_id": "toan_hoc_7460101_2022",
+          "review_status": "draft_unverified",
+          "scope": {
+            "applicability_status": "catalog_cohort_not_individual_account_binding",
+            "cohort_year": 2022,
+            "curriculum_version": "QD3565-2023",
+            "major": "mathematics",
+            "program_id": "toan_hoc_7460101_2022",
+            "program_variant": "standard",
+            "validity_status": "as_declared_in_canonical_F2"
+          },
+          "value": {
+            "catalog_course_count": 90,
+            "courses": [
+              {
+                "course_code": "CME1000",
+                "course_name": "Giáo dục quốc phòng - an ninh"
+              },
+              {
+                "course_code": "FLF1107",
+                "course_name": "Tiếng Anh B1"
+              },
+              {
+                "course_code": "FLF1207",
+                "course_name": "Tiếng Nga B1"
+              },
+              {
+                "course_code": "FLF1307",
+                "course_name": "Tiếng Pháp B1"
+              },
+              {
+                "course_code": "FLF1407",
+                "course_name": "Tiếng Trung Quốc B1"
+              },
+              {
+                "course_code": "FLF1507",
+                "course_name": "Tiếng Đức B1"
+              },
+              {
+                "course_code": "FLF1607",
+                "course_name": "Tiếng Nhật Bản B1"
+              },
+              {
+                "course_code": "FLF1707",
+                "course_name": "Tiếng Hàn Quốc B1"
+              },
+              {
+                "course_code": "HIS1001",
+                "course_name": "Lịch sử Đảng Cộng sản Việt Nam"
+              },
+              {
+                "course_code": "HIS1056",
+                "course_name": "Cơ sở văn hóa Việt Nam"
+              },
+              {
+                "course_code": "HUS1011",
+                "course_name": "Tin học cơ sở"
+              },
+              {
+                "course_code": "HUS1012",
+                "course_name": "Kỹ năng bổ trợ"
+              },
+              {
+                "course_code": "HUS1021",
+                "course_name": "Khoa học Trái Đất và sự sống"
+              },
+              {
+                "course_code": "HUS1022",
+                "course_name": "Nhập môn Internet kết nối vạn vật"
+              },
+              {
+                "course_code": "HUS1023",
+                "course_name": "Nhập môn phân tích dữ liệu"
+              },
+              {
+                "course_code": "HUS1024",
+                "course_name": "Nhập môn Robotic"
+              },
+              {
+                "course_code": "MAT1076",
+                "course_name": "Cơ học lý thuyết"
+              },
+              {
+                "course_code": "MAT2300",
+                "course_name": "Đại số tuyến tính 1"
+              },
+              {
+                "course_code": "MAT2301",
+                "course_name": "Đại số tuyến tính 2"
+              },
+              {
+                "course_code": "MAT2302",
+                "course_name": "Giải tích 1"
+              },
+              {
+                "course_code": "MAT2303",
+                "course_name": "Giải tích 2"
+              },
+              {
+                "course_code": "MAT2304",
+                "course_name": "Giải tích 3"
+              },
+              {
+                "course_code": "MAT2306",
+                "course_name": "Phương trình đạo hàm riêng 1"
+              },
+              {
+                "course_code": "MAT2307",
+                "course_name": "Giải tích số 1"
+              },
+              {
+                "course_code": "MAT2308",
+                "course_name": "Xác suất 1"
+              },
+              {
+                "course_code": "MAT2310",
+                "course_name": "Hình học giải tích"
+              },
+              {
+                "course_code": "MAT2311",
+                "course_name": "Thống kê ứng dụng"
+              },
+              {
+                "course_code": "MAT2314",
+                "course_name": "Phương trình vi phân"
+              },
+              {
+                "course_code": "MAT2315",
+                "course_name": "Phương pháp nghiên cứu khoa học"
+              },
+              {
+                "course_code": "MAT2316",
+                "course_name": "Lập trình C/C++"
+              },
+              {
+                "course_code": "MAT2318",
+                "course_name": "Lập trình Python"
+              },
+              {
+                "course_code": "MAT2319",
+                "course_name": "Lập trình Julia"
+              },
+              {
+                "course_code": "MAT2407",
+                "course_name": "Tối ưu hóa"
+              },
+              {
+                "course_code": "MAT2505",
+                "course_name": "Lập trình cơ bản"
+              },
+              {
+                "course_code": "MAT3300",
+                "course_name": "Đại số đại cương"
+              },
+              {
+                "course_code": "MAT3301",
+                "course_name": "Giải tích hàm"
+              },
+              {
+                "course_code": "MAT3302",
+                "course_name": "Toán rời rạc"
+              },
+              {
+                "course_code": "MAT3304",
+                "course_name": "Thực hành tính toán"
+              },
+              {
+                "course_code": "MAT3305",
+                "course_name": "Tôpô đại cương"
+              },
+              {
+                "course_code": "MAT3306",
+                "course_name": "Cơ sở hình học vi phân"
+              },
+              {
+                "course_code": "MAT3307",
+                "course_name": "Lý thuyết độ đo và tích phân"
+              },
+              {
+                "course_code": "MAT3310",
+                "course_name": "Cơ sở tôpô đại số"
+              },
+              {
+                "course_code": "MAT3311",
+                "course_name": "Lý thuyết nhóm và biểu diễn nhóm"
+              },
+              {
+                "course_code": "MAT3313",
+                "course_name": "Lý thuyết số"
+              },
+              {
+                "course_code": "MAT3317",
+                "course_name": "Phương trình đạo hàm riêng 2"
+              },
+              {
+                "course_code": "MAT3318",
+                "course_name": "Giải tích trên đa tạp"
+              },
+              {
+                "course_code": "MAT3321",
+                "course_name": "Quá trình ngẫu nhiên"
+              },
+              {
+                "course_code": "MAT3322",
+                "course_name": "Xác suất 2"
+              },
+              {
+                "course_code": "MAT3323",
+                "course_name": "Tối ưu rời rạc"
+              },
+              {
+                "course_code": "MAT3324",
+                "course_name": "Tổ hợp"
+              },
+              {
+                "course_code": "MAT3325",
+                "course_name": "Lịch sử toán học"
+              },
+              {
+                "course_code": "MAT3326",
+                "course_name": "Xêmina Toán lý thuyết"
+              },
+              {
+                "course_code": "MAT3327",
+                "course_name": "Điều khiển tối ưu"
+              },
+              {
+                "course_code": "MAT3329",
+                "course_name": "Giải tích số 2"
+              },
+              {
+                "course_code": "MAT3333",
+                "course_name": "Các mô hình toán ứng dụng 1"
+              },
+              {
+                "course_code": "MAT3334",
+                "course_name": "Các mô hình toán ứng dụng 2"
+              },
+              {
+                "course_code": "MAT3335",
+                "course_name": "Đại số máy tính"
+              },
+              {
+                "course_code": "MAT3337",
+                "course_name": "Xêmina Toán ứng dụng"
+              },
+              {
+                "course_code": "MAT3339",
+                "course_name": "Đại số tuyến tính 3"
+              },
+              {
+                "course_code": "MAT3344",
+                "course_name": "Giải tích phức"
+              },
+              {
+                "course_code": "MAT3345",
+                "course_name": "Lý thuyết ổn định của phương trình vi phân"
+              },
+              {
+                "course_code": "MAT3347",
+                "course_name": "Lý thuyết Galois"
+              },
+              {
+                "course_code": "MAT3359",
+                "course_name": "Thực tập chuyên ngành"
+              },
+              {
+                "course_code": "MAT3360",
+                "course_name": "Tối ưu hóa nâng cao"
+              },
+              {
+                "course_code": "MAT3361",
+                "course_name": "Cơ học lý thuyết nâng cao"
+              },
+              {
+                "course_code": "MAT3362",
+                "course_name": "Một số vấn đề chọn lọc trong Cơ học"
+              },
+              {
+                "course_code": "MAT3370",
+                "course_name": "Thống kê Bayes"
+              },
+              {
+                "course_code": "MAT3396",
+                "course_name": "Sức bền vật liệu"
+              },
+              {
+                "course_code": "MAT3401",
+                "course_name": "Phép tính biến phân"
+              },
+              {
+                "course_code": "MAT3406",
+                "course_name": "Lý thuyết dao động"
+              },
+              {
+                "course_code": "MAT3407",
+                "course_name": "Lý thuyết đàn hồi"
+              },
+              {
+                "course_code": "MAT3408",
+                "course_name": "Cơ học chất lỏng"
+              },
+              {
+                "course_code": "MAT3411",
+                "course_name": "Phương pháp phần tử hữu hạn"
+              },
+              {
+                "course_code": "MAT3412",
+                "course_name": "Lý thuyết dẻo"
+              },
+              {
+                "course_code": "MAT3413",
+                "course_name": "Cơ học giải tích"
+              },
+              {
+                "course_code": "MAT3415",
+                "course_name": "Cơ học vật liệu composite"
+              },
+              {
+                "course_code": "MAT3418",
+                "course_name": "Phương pháp số trong cơ học"
+              },
+              {
+                "course_code": "MAT3422",
+                "course_name": "Lý thuyết bản và vỏ mỏng"
+              },
+              {
+                "course_code": "MAT3423",
+                "course_name": "Cơ học môi trường liên tục"
+              },
+              {
+                "course_code": "MAT3452",
+                "course_name": "Phân tích thống kê nhiều chiều"
+              },
+              {
+                "course_code": "MAT3539",
+                "course_name": "Mật mã và an toàn dữ liệu"
+              },
+              {
+                "course_code": "MAT4070",
+                "course_name": "Khóa luận tốt nghiệp"
+              },
+              {
+                "course_code": "MAT4071",
+                "course_name": "Một số vấn đề chọn lọc trong Toán học"
+              },
+              {
+                "course_code": "MAT4072",
+                "course_name": "Một số vấn đề chọn lọc trong tính toán khoa học"
+              },
+              {
+                "course_code": "PEC1008",
+                "course_name": "Kinh tế chính trị Mác - Lênin"
+              },
+              {
+                "course_code": "PES1000",
+                "course_name": "Giáo dục thể chất"
+              },
+              {
+                "course_code": "PHI1002",
+                "course_name": "Chủ nghĩa xã hội khoa học"
+              },
+              {
+                "course_code": "PHI1006",
+                "course_name": "Triết học Mác - Lênin"
+              },
+              {
+                "course_code": "POL1001",
+                "course_name": "Tư tưởng Hồ Chí Minh"
+              },
+              {
+                "course_code": "THL1057",
+                "course_name": "Nhà nước và pháp luật đại cương"
+              }
+            ],
+            "student_required_course_count": null
+          }
+        },
+        "generated_reference_allowed": false,
+        "major": "mathematics",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Toán học (QD3565-2023): danh mục có 90 học phần. [1]\n- CME1000 — Giáo dục quốc phòng - an ninh\n- FLF1107 — Tiếng Anh B1\n- FLF1207 — Tiếng Nga B1\n- FLF1307 — Tiếng Pháp B1\n- FLF1407 — Tiếng Trung Quốc B1\n- FLF1507 — Tiếng Đức B1\n- FLF1607 — Tiếng Nhật Bản B1\n- FLF1707 — Tiếng Hàn Quốc B1\n- HIS1001 — Lịch sử Đảng Cộng sản Việt Nam\n- HIS1056 — Cơ sở văn hóa Việt Nam\n- HUS1011 — Tin học cơ sở\n- HUS1012 — Kỹ năng bổ trợ\n- HUS1021 — Khoa học Trái Đất và sự sống\n- HUS1022 — Nhập môn Internet kết nối vạn vật\n- HUS1023 — Nhập môn phân tích dữ liệu\n- HUS1024 — Nhập môn Robotic\n- MAT1076 — Cơ học lý thuyết\n- MAT2300 — Đại số tuyến tính 1\n- MAT2301 — Đại số tuyến tính 2\n- MAT2302 — Giải tích 1\n- MAT2303 — Giải tích 2\n- MAT2304 — Giải tích 3\n- MAT2306 — Phương trình đạo hàm riêng 1\n- MAT2307 — Giải tích số 1\n- MAT2308 — Xác suất 1\n- MAT2310 — Hình học giải tích\n- MAT2311 — Thống kê ứng dụng\n- MAT2314 — Phương trình vi phân\n- MAT2315 — Phương pháp nghiên cứu khoa học\n- MAT2316 — Lập trình C/C++\n- MAT2318 — Lập trình Python\n- MAT2319 — Lập trình Julia\n- MAT2407 — Tối ưu hóa\n- MAT2505 — Lập trình cơ bản\n- MAT3300 — Đại số đại cương\n- MAT3301 — Giải tích hàm\n- MAT3302 — Toán rời rạc\n- MAT3304 — Thực hành tính toán\n- MAT3305 — Tôpô đại cương\n- MAT3306 — Cơ sở hình học vi phân\n- MAT3307 — Lý thuyết độ đo và tích phân\n- MAT3310 — Cơ sở tôpô đại số\n- MAT3311 — Lý thuyết nhóm và biểu diễn nhóm\n- MAT3313 — Lý thuyết số\n- MAT3317 — Phương trình đạo hàm riêng 2\n- MAT3318 — Giải tích trên đa tạp\n- MAT3321 — Quá trình ngẫu nhiên\n- MAT3322 — Xác suất 2\n- MAT3323 — Tối ưu rời rạc\n- MAT3324 — Tổ hợp\n- MAT3325 — Lịch sử toán học\n- MAT3326 — Xêmina Toán lý thuyết\n- MAT3327 — Điều khiển tối ưu\n- MAT3329 — Giải tích số 2\n- MAT3333 — Các mô hình toán ứng dụng 1\n- MAT3334 — Các mô hình toán ứng dụng 2\n- MAT3335 — Đại số máy tính\n- MAT3337 — Xêmina Toán ứng dụng\n- MAT3339 — Đại số tuyến tính 3\n- MAT3344 — Giải tích phức\n- MAT3345 — Lý thuyết ổn định của phương trình vi phân\n- MAT3347 — Lý thuyết Galois\n- MAT3359 — Thực tập chuyên ngành\n- MAT3360 — Tối ưu hóa nâng cao\n- MAT3361 — Cơ học lý thuyết nâng cao\n- MAT3362 — Một số vấn đề chọn lọc trong Cơ học\n- MAT3370 — Thống kê Bayes\n- MAT3396 — Sức bền vật liệu\n- MAT3401 — Phép tính biến phân\n- MAT3406 — Lý thuyết dao động\n- MAT3407 — Lý thuyết đàn hồi\n- MAT3408 — Cơ học chất lỏng\n- MAT3411 — Phương pháp phần tử hữu hạn\n- MAT3412 — Lý thuyết dẻo\n- MAT3413 — Cơ học giải tích\n- MAT3415 — Cơ học vật liệu composite\n- MAT3418 — Phương pháp số trong cơ học\n- MAT3422 — Lý thuyết bản và vỏ mỏng\n- MAT3423 — Cơ học môi trường liên tục\n- MAT3452 — Phân tích thống kê nhiều chiều\n- MAT3539 — Mật mã và an toàn dữ liệu\n- MAT4070 — Khóa luận tốt nghiệp\n- MAT4071 — Một số vấn đề chọn lọc trong Toán học\n- MAT4072 — Một số vấn đề chọn lọc trong tính toán khoa học\n- PEC1008 — Kinh tế chính trị Mác - Lênin\n- PES1000 — Giáo dục thể chất\n- PHI1002 — Chủ nghĩa xã hội khoa học\n- PHI1006 — Triết học Mác - Lênin\n- POL1001 — Tư tưởng Hồ Chí Minh\n- THL1057 — Nhà nước và pháp luật đại cương\n\nĐếm mỗi mã học phần một lần trong danh mục ngành/phiên bản đã chọn; không có nghĩa mỗi sinh viên phải học toàn bộ số môn này.\n\nTrạng thái review: draft_unverified; chưa xác minh hiệu lực hiện tại hoặc áp dụng cho từng sinh viên.\n\nNguồn [1]: Toán học; https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json; Vị trí JSON theo bản chép nguồn đã ghim; chưa xác minh hiệu lực hoặc truy cập lại URL.",
+        "status": "answered",
+        "version": "QD3565-2023",
+        "warnings": [
+          "Đếm mỗi mã học phần một lần trong danh mục ngành/phiên bản đã chọn; không có nghĩa mỗi sinh viên phải học toàn bộ số môn này.",
+          "Trạng thái review: draft_unverified; chưa xác minh hiệu lực hiện tại hoặc áp dụng cho từng sinh viên."
+        ]
+      },
+      "mode": "hus_rag",
+      "reply": "Thông tin theo nguồn đã chọn:\n\nToán học (QD3565-2023): danh mục có 90 học phần. [1]\n- CME1000 — Giáo dục quốc phòng - an ninh\n- FLF1107 — Tiếng Anh B1\n- FLF1207 — Tiếng Nga B1\n- FLF1307 — Tiếng Pháp B1\n- FLF1407 — Tiếng Trung Quốc B1\n- FLF1507 — Tiếng Đức B1\n- FLF1607 — Tiếng Nhật Bản B1\n- FLF1707 — Tiếng Hàn Quốc B1\n- HIS1001 — Lịch sử Đảng Cộng sản Việt Nam\n- HIS1056 — Cơ sở văn hóa Việt Nam\n- HUS1011 — Tin học cơ sở\n- HUS1012 — Kỹ năng bổ trợ\n- HUS1021 — Khoa học Trái Đất và sự sống\n- HUS1022 — Nhập môn Internet kết nối vạn vật\n- HUS1023 — Nhập môn phân tích dữ liệu\n- HUS1024 — Nhập môn Robotic\n- MAT1076 — Cơ học lý thuyết\n- MAT2300 — Đại số tuyến tính 1\n- MAT2301 — Đại số tuyến tính 2\n- MAT2302 — Giải tích 1\n- MAT2303 — Giải tích 2\n- MAT2304 — Giải tích 3\n- MAT2306 — Phương trình đạo hàm riêng 1\n- MAT2307 — Giải tích số 1\n- MAT2308 — Xác suất 1\n- MAT2310 — Hình học giải tích\n- MAT2311 — Thống kê ứng dụng\n- MAT2314 — Phương trình vi phân\n- MAT2315 — Phương pháp nghiên cứu khoa học\n- MAT2316 — Lập trình C/C++\n- MAT2318 — Lập trình Python\n- MAT2319 — Lập trình Julia\n- MAT2407 — Tối ưu hóa\n- MAT2505 — Lập trình cơ bản\n- MAT3300 — Đại số đại cương\n- MAT3301 — Giải tích hàm\n- MAT3302 — Toán rời rạc\n- MAT3304 — Thực hành tính toán\n- MAT3305 — Tôpô đại cương\n- MAT3306 — Cơ sở hình học vi phân\n- MAT3307 — Lý thuyết độ đo và tích phân\n- MAT3310 — Cơ sở tôpô đại số\n- MAT3311 — Lý thuyết nhóm và biểu diễn nhóm\n- MAT3313 — Lý thuyết số\n- MAT3317 — Phương trình đạo hàm riêng 2\n- MAT3318 — Giải tích trên đa tạp\n- MAT3321 — Quá trình ngẫu nhiên\n- MAT3322 — Xác suất 2\n- MAT3323 — Tối ưu rời rạc\n- MAT3324 — Tổ hợp\n- MAT3325 — Lịch sử toán học\n- MAT3326 — Xêmina Toán lý thuyết\n- MAT3327 — Điều khiển tối ưu\n- MAT3329 — Giải tích số 2\n- MAT3333 — Các mô hình toán ứng dụng 1\n- MAT3334 — Các mô hình toán ứng dụng 2\n- MAT3335 — Đại số máy tính\n- MAT3337 — Xêmina Toán ứng dụng\n- MAT3339 — Đại số tuyến tính 3\n- MAT3344 — Giải tích phức\n- MAT3345 — Lý thuyết ổn định của phương trình vi phân\n- MAT3347 — Lý thuyết Galois\n- MAT3359 — Thực tập chuyên ngành\n- MAT3360 — Tối ưu hóa nâng cao\n- MAT3361 — Cơ học lý thuyết nâng cao\n- MAT3362 — Một số vấn đề chọn lọc trong Cơ học\n- MAT3370 — Thống kê Bayes\n- MAT3396 — Sức bền vật liệu\n- MAT3401 — Phép tính biến phân\n- MAT3406 — Lý thuyết dao động\n- MAT3407 — Lý thuyết đàn hồi\n- MAT3408 — Cơ học chất lỏng\n- MAT3411 — Phương pháp phần tử hữu hạn\n- MAT3412 — Lý thuyết dẻo\n- MAT3413 — Cơ học giải tích\n- MAT3415 — Cơ học vật liệu composite\n- MAT3418 — Phương pháp số trong cơ học\n- MAT3422 — Lý thuyết bản và vỏ mỏng\n- MAT3423 — Cơ học môi trường liên tục\n- MAT3452 — Phân tích thống kê nhiều chiều\n- MAT3539 — Mật mã và an toàn dữ liệu\n- MAT4070 — Khóa luận tốt nghiệp\n- MAT4071 — Một số vấn đề chọn lọc trong Toán học\n- MAT4072 — Một số vấn đề chọn lọc trong tính toán khoa học\n- PEC1008 — Kinh tế chính trị Mác - Lênin\n- PES1000 — Giáo dục thể chất\n- PHI1002 — Chủ nghĩa xã hội khoa học\n- PHI1006 — Triết học Mác - Lênin\n- POL1001 — Tư tưởng Hồ Chí Minh\n- THL1057 — Nhà nước và pháp luật đại cương\n\nĐếm mỗi mã học phần một lần trong danh mục ngành/phiên bản đã chọn; không có nghĩa mỗi sinh viên phải học toàn bộ số môn này.\n\nTrạng thái review: draft_unverified; chưa xác minh hiệu lực hiện tại hoặc áp dụng cho từng sinh viên.\n\nNguồn [1]: Toán học; https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json; Vị trí JSON theo bản chép nguồn đã ghim; chưa xác minh hiệu lực hoặc truy cập lại URL."
+    }
+  }
+]
