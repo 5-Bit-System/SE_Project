@@ -1,7 +1,8 @@
-# Kịch bản demo chatbot HUS — 5 đến7phút
+# Kịch bản demo chatbot HUS — 6 phút
 
-Phạm vi đồ án sinh viên, cập nhật14/11/2026. Dùng source/venv trên máy người
-trình bày, không cần đường dẫn tác giả, database hoặc Playwright để mở giao diện.
+Phạm vi đồ án sinh viên, cập nhật **19/11/2026**. Kịch bản chính dùng
+**v4 / lexical / legacy** trên Windows 64-bit/Python 3.11, với source và venv
+của người trình bày.
 [Báo cáo phân hệ](HUS_RAG_PROJECT_REPORT.md) · [Quickstart](HUS_RAG_QUICKSTART.md).
 
 ## 1. Chuẩn bị trước buổi trình bày
@@ -16,27 +17,29 @@ Cài theo quickstart trên Windows64-bit/Python3.11. Tại thư mục source, ch
 Mở **http://127.0.0.1:8011/**. Nếu đổi cổng bằng `--port 8012`, mở cổng8012.
 Giữ terminal, Ctrl+C để dừng. Không mở file HTML trực tiếp.
 
-Lệnh này luôn tắt LLM và không gọi Google. **F3 vẫn dùng hồ sơ AI đã lưu**;
-phải giải thích rõ đây là nội dung tham khảo, không phải model vừa sinh câu trả
-lời. Không cần Playwright/Chromium riêng cho người chỉ muốn dùng ứng dụng.
+Lệnh này tắt LLM. **F3 hiển thị hồ sơ AI tham khảo đã lưu** khi người dùng bật
+quyền F3. Thành viên có thể dùng trình duyệt đang có trên máy.
 
-Chuẩn bị sẵn [bảng30 câu và nguồn](RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md),
-[call F2 xác nhận](RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md) và
-[CSV nhóm review](../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv)
-để minh họa kết quả đã lưu khi không chạy Gemini live.
+Chuẩn bị sẵn [bộ 30 câu](RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md) và
+[lượt Gemini focused](RAG_FOCUSED_LIVE_2026_11_19.md) để mở ở phút cuối.
 
 ## 2. Trình bày RAG và giao diện — không tiêu call Google
 
 | Thời gian | Thao tác | Nội dung giải thích/kỳ vọng |
 | --- | --- | --- |
 | 0:00–0:40 |Giới thiệu bốn ngành và chọn KHMTTT |“Chatbot tra thông tin ngành, dữ kiện chương trình và nội dung môn từ dữ liệu đã lưu.” Chỉ rõ ngành/phiên bản đang chọn. |
-| 0:40–1:30 |Hỏi “Cho em hỏi cơ hội nghề nghiệp ngành KHMTTT như thế nào?” |F1 trả theo nguồn; mở thẻ nguồn khi có link. Đọc edition/hệ thực tế trên thẻ, không mặc định tài liệu đang có hiệu lực. |
-| 1:30–2:20 |Đổi sang Toán học, hỏi “MAT2300 có bao nhiêu tín chỉ?” |F2 phải hiện **4 tín chỉ**, giữ tên/mã và nguồn PDF. Mở thẻ PDF để chỉ vị trí nguồn, không suy thành xác nhận điều kiện học. |
-| 2:20–2:50 |Hỏi “Tiên quyết MAT2300 là gì?” |Nguồn trống → **chưa rõ**; không nói chắc “không có tiên quyết”. |
-| 2:50–3:40 |Đổi KHMTTT, bật “Cho phép kiến thức AI tham khảo”, hỏi “Mục tiêu MAT1204?” |F3 có nhãn **kiến thức AI**, không giả link đề cương chính thức. Checkbox diễn đạt đang tắt nên không gọi Google. |
-| 3:40–4:20 |Hỏi “Môn đó có bao nhiêu tín chỉ?”, rồi “Hãy chuyển tiền giúp tôi.” |Câu đầu cần làm rõ mã môn; câu sau ngoài phạm vi. Không lấy môn ngầm từ lịch sử hoặc thực hiện hành động. |
-| 4:20–4:50 |Đổi sang KHDL |Hội thoại/nguồn cũ bị bỏ, quyền F3 tắt lại. Khi backend có quyền diễn đạt, quyền đó cũng reset. |
-| 4:50–6:00 |Mở bảng kết quả đã lưu |Giải thích23 dùng Gemini/1 fallback/6 control; call F2 thành công sau sửa là lượt riêng. Nêu review nhóm còn pending và vài giới hạn. |
+| 0:40–1:30 | Hỏi “Cho em hỏi cơ hội nghề nghiệp ngành KHMTTT như thế nào?” | F1 trả về các hướng nghề nghiệp. Mở nguồn DOCX, chỉ rõ phiên bản/hệ của tài liệu và trạng thái xác minh. |
+| 1:30–2:20 | Đổi sang Toán học, hỏi “MAT2300 có bao nhiêu tín chỉ?” | F2 hiển thị **4 tín chỉ**. Mở PDF trang 9 và đối chiếu mã môn, tên môn, tín chỉ. |
+| 2:20–2:50 | Hỏi “Tiên quyết MAT2300 là gì?” | Ô nguồn trống. Hệ thống trả **chưa rõ từ nguồn**. |
+| 2:50–3:40 | Đổi KHMTTT, hỏi “Mục tiêu MAT1204?” khi quyền F3 đang tắt. Bật “Cho phép kiến thức AI tham khảo” rồi hỏi lại. | Lần đầu nhắc bật quyền. Lần sau hiện mục tiêu tham khảo và nhãn **kiến thức AI**. |
+| 3:40–4:20 | Hỏi “Môn đó có bao nhiêu tín chỉ?”, rồi “Hãy chuyển tiền giúp tôi.” | Câu đầu cần làm rõ môn. Câu sau nhận phản hồi ngoài phạm vi. |
+| 4:20–4:50 | Đổi sang KHDL | Hội thoại và nguồn của ngành cũ được xóa, quyền F3 tắt lại. |
+| 4:50–6:00 | Mở kết quả Gemini đã lưu | Giải thích bảng dưới và phân biệt lượt demo offline, câu dùng Gemini, lỗi, fallback và đối chứng. |
+
+| Lượt đã lưu | Dùng đầu ra Gemini | Lỗi | Fallback | Đối chứng không gọi model |
+| --- | ---: | --- | ---: | ---: |
+| Bộ 30 câu | 23/24 call | 1 đầu ra F2 bị từ chối, chính là ca fallback | 1 | 6 |
+| `focused` ngày 19/11 | 3/3 call | 0 | 0 | 2 |
 
 Giữ phần trả lời gọn. Nếu câu trả lời dài hoặc dữ liệu khác kỳ vọng, ghi nguyên
 câu hỏi/ngành/phiên bản/kết quả, dùng mục lỗi thực tế bên dưới; không chỉnh đáp
@@ -49,15 +52,22 @@ với trợ lý, mọi budget test trước đã dùng hết; trợ lý chỉ th
 khi thống nhất số call. Thành viên sử dụng app trực tiếp chịu quota/chi phí của
 project Google đã cấu hình, cần dự trù trước buổi demo.
 
-1. Dừng launcher RAG. Dùng [profile Gemini của quickstart](HUS_RAG_QUICKSTART.md): `python -m tools.run_hus_llm` tự đọc key backend đã lưu.
+1. Dừng launcher RAG. Chạy `.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_llm` từ thư mục gốc. Launcher tự đọc key backend đã lưu. [Quickstart Gemini](HUS_RAG_QUICKSTART.md#2-bật-gemini-thật-trên-backend--tùy-chọn).
 2. Tải lại trang, chọn Toán học. Kiểm thông báo **Tự động dùng Gemini**; không cần tick diễn đạt. Quyền F3 không cần cho câu F2 này.
 3. Nếu có ngân sách cho một call, hỏi **“MAT2300 có bao nhiêu tín chỉ?”** đúng một lượt.
 4. Đọc trạng thái thực tế: chỉ nói “đã dùng Gemini” nếu có nhãn **AI diễn đạt từ nguồn**. Giá trị vẫn phải4 tín chỉ và có nguồn.
 5. Nếu hiện **Bản trích nguồn**, trình bày đó là fallback, không gọi là model thành công. Không gửi lại tự động để cố lấy kết quả đẹp.
 
-Lần xác nhận đã lưu trả HTTP200/`used=true`, khoảng1,62giây; đây là một lần đã
-đo, không hứa lần demo tiếp theo có cùng thời gian hoặc luôn thành công. Không
-hiển thị key hay raw lỗi provider lên slide, frontend hoặc chat.
+Lần xác nhận đã lưu trả HTTP 200, `used=true`, khoảng 1,62 giây. Khi demo, ghi
+trạng thái thực tế của lần chạy và dùng mã lỗi an toàn nếu có.
+
+### Minh họa chọn nguồn với focused
+
+Để làm thêm một ca offline, khởi động lại bằng launcher RAG và thêm
+`--answer-policy focused`. Chọn KHMTTT và hỏi “Ngành KHMTTT có thể học tiếp
+sau đại học như thế nào?”. Chọn tài liệu hệ chuẩn **2023** trong danh sách rồi
+kiểm tra câu trả lời giữ đúng nguồn đã chọn. Có thể dùng ca này thay phần
+câu ngoài phạm vi trong kịch bản chính. [Đáp án đã lưu](RAG_FOCUSED_LIVE_2026_11_19.md).
 
 ## 4. Giải thích khi lỗi hoặc không có mạng
 
@@ -94,14 +104,17 @@ Nếu thành viên khác gặp lỗi, ghi: hệ điều hành/kiến trúc, phi�
 lệnh đã chạy, mã lỗi an toàn và câu hỏi/ngành/phiên bản. Không đính kèm key,
 file secret hoặc bảng điểm.
 
-## 6. Bằng chứng hiện có và phần chưa làm
+## 6. Kết quả chạy thử local
 
-Đã kiểm local29 test browser; source chuyển thư mục + venv tối thiểu mới đạt
-`--check`20 ca API/2.124 menu/4 hash nguồn, server HTTP5 chat. Đây là kiểm **cùng
-máy Windows**, không phải máy khác/clone remote; xem [receipt](RAG_UI_QUICKSTART_2026_11_14.md).
-Nhận xét AI30 câu không thay review nhóm. F3 còn câu dư chủ đề và ví dụ cần xem
-lại; nguồn chưa có xác nhận hiệu lực/học vụ toàn bộ.
+Ngày 19/11, kịch bản chính chạy **7 lượt hỏi trên Chromium**. Đã kiểm hash
+nguồn DOCX/PDF trả qua API, nhãn AI của F3 và thao tác đổi ngành. `--check`
+đạt **20 ca API, 2.124 câu menu và 4 hash nguồn**. Lượt chạy thử có 0 lời
+gọi Google.
 
-Hướng dẫn này thay lệnh demo cũ gắn đường dẫn cá nhân/venv trong `backups/`.
-Các receipt/trạng thái kiểm lịch sử vẫn giữ nguyên; không cần tạo ZIP, chạy CI
-hoặc deploy để thực hiện kịch bản local này.
+Sáu test Chromium liên quan đạt, gồm chọn nguồn `focused`, chế độ Gemini tự
+động, lỗi dịch vụ, lỗi kiểm đầu ra và fallback 429. Các test gọi Gemini dùng
+provider giả lập. Có cảnh báo deprecation từ dependency.
+
+Nhóm điền checklist khi chạy trên máy thành viên và đối chiếu đáp án với
+nguồn. [Bằng chứng cài đặt trước đây](RAG_UI_QUICKSTART_2026_11_14.md) ·
+[Bảng 12 câu ngoài menu](RAG_STUDENT_CONTENT_FOLLOWUP_2026_11_19.md).

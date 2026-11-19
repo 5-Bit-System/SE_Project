@@ -1,11 +1,15 @@
 # Báo cáo phân hệ chatbot HUS dùng RAG và LLM
 
-Ngày tổng hợp: **14/11/2026** · Nhánh làm việc: `hus-llm-rag` · Phạm vi: đồ án sinh viên.
+Cập nhật **19/11/2026** · Nhánh `hus-llm-rag` · Phạm vi đồ án sinh viên.
 
 Tài liệu này mô tả phân hệ hỏi đáp độc lập. Nhóm bổ sung tên học phần, giảng viên,
 thành viên và phân công thực tế vào bản báo cáo nộp; các thông tin đó chưa được
 cung cấp ở đây. Các kết quả dưới đây có bằng chứng lưu riêng, chưa thay xác nhận
 nội dung của nhóm.
+
+Luồng **F1/F2/F3 có thể demo bằng dữ liệu v4**. Kịch bản chính dùng
+`lexical / legacy` và chạy offline. Phần Gemini trình bày từ nguồn đã
+kiểm live cho cả ba nhóm. [Kịch bản 6 phút](HUS_RAG_MANUAL_DEMO.md).
 
 ## 1. Mục tiêu và phạm vi
 
@@ -42,10 +46,10 @@ kiện chép từ nguồn hoặc hồ sơ AI không tự trở thành xác nhậ
 
 ## 3. Công nghệ và luồng xử lý
 
-Backend dùng **Python3.11, FastAPI, HTTPX**, giao diện HTML/CSS/JavaScript. Tìm
-kiếm mặc định là **lexical/BM25**, chưa cần vector index. LLM cấu hình là
-`gemini-3.5-flash-lite`, gọi trực tiếp Google bằng API tương thích OpenAI,
-không qua 9Router.
+Backend dùng **Python 3.11, FastAPI, HTTPX**, giao diện HTML/CSS/JavaScript.
+Tìm kiếm mặc định là **lexical/BM25**. Hybrid là tùy chọn ghép BM25 và ChromaDB
+bằng RRF trên index v4 đã ghim. LLM cấu hình là `gemini-3.5-flash-lite`, gọi
+trực tiếp Google bằng API tương thích OpenAI.
 
 ```mermaid
 flowchart TD
@@ -67,16 +71,19 @@ JSON, backend kiểm và phục hồi citation/bố cục. Validator hiện thi�
 toàn từ ngữ nguồn; chưa chứng minh khả năng diễn đạt linh hoạt hoặc suy luận
 ngoài bằng chứng.
 
-F2 dùng prompt riêng với bốn trường output: `kind="facts"`, `style`, `fact_keys`,
-`citation_ids`. Model không được tự trả giá trị tín chỉ/tiên quyết thay thế.
-Backend giữ facts, quote, cảnh báo và câu trả lời canonical; vì thế thông tin
-F2 vẫn nguyên trạng cả khi model lỗi.
+F2 dùng prompt riêng với bốn trường output `kind="facts"`, `style`, `fact_keys`
+và `citation_ids`. Prompt nêu chính xác tập khóa và ID cần trả. Gemini chọn
+cách trình bày, còn backend giữ tín chỉ, tiên quyết, quote và cảnh báo.
+
+Chế độ `focused` hỗ trợ chọn nguồn khi có nhiều phiên bản và giới hạn F1/F3 vào
+các đoạn cần để trả lời. Kết quả Gemini vẫn qua kiểm tra bảo toàn từ, số và
+điều kiện. [Kết quả focused](RAG_FOCUSED_LIVE_2026_11_19.md).
 
 | API chính | Vai trò |
 | --- | --- |
 | `GET /hus/config` |Danh sách ngành/phiên bản, release và khả năng bật LLM |
 | `GET /hus/questions` |Menu câu hỏi theo ngành/phiên bản |
-| `POST /hus/chat` |Hỏi đáp và metadata used/fallback khi người dùng yêu cầu LLM |
+| `POST /hus/chat` | Hỏi đáp và metadata `used` hoặc fallback của lượt Gemini |
 | `GET /hus/sources/{source_id}` |Mở file nguồn local đã kiểm tra |
 
 Profile `tools.run_hus_llm` tự gửi câu hỏi/bằng chứng phù hợp tới Google, không
@@ -122,6 +129,29 @@ tách riêng và kiểm offline. **Một call xác nhận mới** trả HTTP200/
 không thay dòng fallback trong run cũ và không chứng minh mọi lần gọi F2 đều
 ổn định. Không biết giá trị output bị từ chối của các call cũ.
 
+### Kết quả bổ sung ngày 19/11
+
+| Lượt | Dùng đầu ra Gemini | Lỗi | Fallback | Đối chứng |
+| --- | ---: | --- | ---: | --- |
+| Bộ 30 câu lịch sử | 23/24 | 1 đầu ra bị từ chối, cùng ca với fallback | 1 | 6 câu không gọi |
+| Kiểm `focused` trên v4/lexical | 3/3 | 0 | 0 | 2 câu không gọi |
+
+Trong lượt `focused`, F1 giữ đúng DOCX KHMTTT hệ chuẩn 2023 đã chọn, F3 giữ đủ
+hai đoạn của MAT1202 và nhãn AI, F2 giữ đủ **90 dòng mã–tên học phần** của danh
+mục Toán học. Độ trễ riêng Gemini khoảng **1,26–2,29 giây/câu** trong lượt đo.
+[Đáp án và số liệu](RAG_FOCUSED_LIVE_2026_11_19.md).
+
+Lượt đối chiếu retrieval trên 20 câu dev cho kết quả 13 câu trả lời ở cả hai
+chế độ. Median RAG có search trong lượt này là **0,0035 giây lexical** và
+**1,522 giây hybrid**. Chọn lexical cho kịch bản chính.
+[Đối chiếu lexical và hybrid](RAG_HYBRID_DEMO_CHECK_2026_11_19.md).
+
+Kịch bản 6 phút đã chạy offline trên Chromium với **7 lượt hỏi**, mở được
+liên kết DOCX/PDF đúng hash, kiểm nhãn AI và reset quyền khi đổi ngành.
+`--check` đạt **20 ca API, 2.124 câu menu và 4 hash nguồn**. Sáu test Chromium
+bổ sung về chọn nguồn, chế độ tự động, lỗi và quota đạt với provider giả lập
+ở các ca cần model. [Kết quả chạy demo local](HUS_RAG_MANUAL_DEMO.md#6-kết-quả-chạy-thử-local).
+
 | Kiểm local đã lưu | Bằng chứng |
 | --- | --- |
 | UI trên Chromium |29 test đạt về opt-in, AI/fallback, lỗi API, nguồn, đổi ngành/response muộn, mobile/bàn phím; provider giả lập |
@@ -140,9 +170,11 @@ máy Windows; chưa kiểm máy khác, clone GitHub hoặc cài Windows sạch. 
 
 ## 6. Review nội dung của nhóm
 
-Đã có **30 nhận xét sơ bộ của Codex(AI)** ở bản trả riêng. Hiện **0 xác nhận
-người thật/30 pending**, chưa có tên/ngày review do nhóm điền. Nhận xét AI
-không thay việc thành viên đọc câu hỏi, đáp án và nguồn.
+Đã có **30 nhận xét sơ bộ của Codex** cho bộ đã chạy và **12 câu hỏi mới ngoài
+menu** có đáp án, nguồn và trạng thái để nhóm kiểm. Lượt 12 câu ghi nhận 7 câu
+có đáp án. Các ca còn vướng được ghi kèm ngành và phiên bản trong báo cáo.
+Nhóm còn phần xác nhận tên, ngày, đúng ý, đủ ý, dữ kiện và nguồn.
+[Lượt ngoài menu](RAG_STUDENT_CONTENT_FOLLOWUP_2026_11_19.md).
 
 | Việc cần nhóm bổ sung | File/thao tác |
 | --- | --- |
@@ -166,10 +198,10 @@ Người nhận đủ source dùng **Windows64-bit/Python3.11**, tạo venv và 
 .\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag
 ```
 
-Mở `http://127.0.0.1:8011/`. Muốn Gemini thật, dùng profile backend trong
-[quickstart](HUS_RAG_QUICKSTART.md), đặt key của mình trong terminal backend và
-Gemini tự động được dùng. Launcher RAG luôn ép LLM tắt. Key không nằm trong
-frontend/file mẫu, startup không gọi provider để kiểm key.
+Mở `http://127.0.0.1:8011/`. Để thử Gemini trực tiếp, dừng server offline
+và chạy `.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_llm`. Launcher
+tự đọc key backend đã lưu và bật Gemini cho process đang chạy.
+[Hướng dẫn key và cấu hình](HUS_RAG_QUICKSTART.md).
 
 Theo chính sách mới, profile tự động chuyển RAG offline sau HTTP429, ngừng gọi
 đến khi restart. Lỗi quyền/mạng/timeout/503 hoặc đầu ra không đạt kiểm được báo
@@ -182,8 +214,7 @@ còn hạn chế diễn đạt; Gemini phụ thuộc key/quota/mạng. Chưa tri
 hoặc kiểm tải, chưa kiểm mọi cách hỏi. Source còn local chưa tự xuất hiện trên
 GitHub khi chưa đưa qua quy trình nhóm.
 
-Phân hệ đã có luồng chạy thử, nguồn và bằng chứng kiểm đủ để nhóm tiếp tục hoàn
-thiện đồ án. Phần nộp cuối cần bổ sung review thực tế và ghi trung thực lỗi còn
-lại, thay vì coi một call thành công hoặc số test đạt là nghiệm thu toàn bộ.
+Kịch bản local đã xác nhận luồng và nguồn của các câu được chọn. Phần nộp cuối
+cần nhận xét của nhóm và kết quả chạy từ source trên máy một thành viên khác.
 
-[Kịch bản demo5–7phút](HUS_RAG_MANUAL_DEMO.md) · [Tiến độ/các bước tiếp theo](RAG_PROGRESS_AND_NEXT_PLAN.md).
+[Kịch bản demo 6 phút](HUS_RAG_MANUAL_DEMO.md) · [Tiến độ và các bước tiếp theo](RAG_PROGRESS_AND_NEXT_PLAN.md).

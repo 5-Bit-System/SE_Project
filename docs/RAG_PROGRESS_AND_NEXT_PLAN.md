@@ -1,30 +1,45 @@
 # Chatbot HUS — Tiến độ và các bước tiếp theo
 
-Cập nhật **15/11/2026** · Nhánh **`hus-llm-rag`** · Phạm vi **đồ án sinh viên**.
+Cập nhật **19/11/2026** · Nhánh **`hus-llm-rag`** · Phạm vi **đồ án sinh viên**.
 
-**Yêu cầu GitHub mới:** người dùng đã cho phép chia thay đổi thành10 commit và
-push nhánh `hus-llm-rag`; quyết định này thay yêu cầu giữ local trước đó cho lượt
-đưa code này lên GitHub. Không merge `main`, tạo PR hoặc deploy trong yêu cầu này.
+**Mốc bàn giao source:** tại thời điểm cập nhật tài liệu, nhánh local và ref theo
+dõi `origin/hus-llm-rag` trong workspace cùng ở commit `08b72a5`.
 
-**Có thể chạy thử chatbot ngay khi đã cài dependency và cấu hình key backend hợp lệ.**
-Luồng RAG → Gemini → kiểm đầu ra → hiển thị đã có kết quả thật ở các lượt trước;
-những bước tiếp theo là kiểm phần mới và cải thiện các ca còn lỗi, không phải
-điều kiện phải làm xong hết mới được chạy đồ án.
+**LLM đã tích hợp xong cho phạm vi đồ án và dùng được để demo F1/F2/F3.**
+Backend đã gọi trực tiếp Gemini và sử dụng đầu ra hợp lệ cho cả ba nhóm.
+Lượt `focused` gần nhất đạt **3/3 câu dùng Gemini**, gồm một câu mỗi nhóm,
+với 0 lỗi, 0 fallback 429 và hai ca đối chứng không gọi model. Phần còn lại
+là nhóm chạy thử trên máy thành viên, đọc đáp án và diễn tập theo kịch bản
+đã kiểm local.
+[Kết quả ngày 19/11](RAG_FOCUSED_LIVE_2026_11_19.md).
 
 | Chế độ | Đã kiểm đến đâu? | Phần còn thiếu |
 | --- | --- | --- |
-| **Mặc định `legacy`** |Đã gọi Gemini thật cho F1/F2/F3 trong các lượt đã lưu; có đáp án được hệ thống dùng, không chỉ HTTP200. [Bộ30 câu](RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md), [xác nhận F2](RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md), [ý định/F2 live](RAG_INTENT_F2_PRACTICAL_LIVE_2026_11_14.md). |Vẫn có lỗi/từ chối/cần làm rõ ở một số cách hỏi; chưa được nhóm nghiệm thu toàn bộ nội dung. Các kết quả live là bằng chứng lịch sử, không tự chứng minh mọi bản sửa mới đã kiểm Google. |
-| **Lựa chọn mới `focused`** |Đã kiểm offline/đầu ra giả lập, UI và5 search hybrid/Chroma thật; [báo cáo](RAG_FOCUSED_ANSWER_2026_11_15.md). |**Chưa gọi Gemini với prompt/protocol focused mới**. Cần một lượt live riêng trước khi kết luận model tuân thủ tốt; test xanh hoặc retrieval thật không thay phép kiểm này. |
+| **Mặc định `legacy`** | Bộ 30 câu ghi nhận 23 câu dùng Gemini thật (F1 8/8, F2 7/8, F3 8/8), 1 fallback và 6 control. Lần kiểm riêng sau khi tách prompt F2 dùng được output Gemini và giữ đúng 4 tín chỉ của MAT2300. [Bộ 30 câu](RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md), [xác nhận F2](RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md). | Nhóm thử thêm câu hỏi tự viết và đối chiếu đáp án với nguồn. |
+| **Tùy chọn `focused`** | F1 giữ đúng nguồn KHMTTT hệ chuẩn 2023, F3 giữ đủ hai đoạn MAT1202 và nhãn AI, backend F2 giữ đủ 90 dòng mã–tên học phần Toán học. Thời gian gọi Gemini khoảng 1,26–2,29 giây/câu trong lượt v4/lexical. [Kết quả live](RAG_FOCUSED_LIVE_2026_11_19.md). | Nhóm cân nhắc dùng khi demo chọn nguồn. Hybrid có kết quả offline riêng. [Báo cáo hybrid](RAG_HYBRID_DEMO_CHECK_2026_11_19.md). |
 
-Lệnh chạy luồng mặc định bằng key đã lưu, không nhập lại key:
+Chạy từ thư mục gốc dự án bằng PowerShell. Để kiểm và mở bản RAG không cần key:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag --check
+.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag
+```
+
+Để chạy cấu hình demo mặc định `v4 / lexical / legacy` với key Gemini đã lưu ở
+backend:
 
 ```powershell
 .\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_llm
 ```
 
-Nếu đã chuẩn bị hybrid/cache, dùng Python `.venv-hybrid` và thêm `--retrieval hybrid`.
-Thêm `--answer-policy focused` khi muốn thử chế độ mới. Server đang chạy cần restart
-để nhận code/cờ mới; [hướng dẫn đầy đủ](HUS_RAG_QUICKSTART.md).
+Mở **http://127.0.0.1:8011/** sau khi server sẵn sàng. Launcher dùng key đã lưu
+và tự gọi Gemini cho câu đủ bằng chứng. F3 cần bật quyền tham khảo AI. Khi nhận
+HTTP 429, server chuyển sang RAG offline. Các lỗi dịch vụ hoặc đầu ra khác
+được báo trên giao diện.
+Nếu chưa có `.venv`, cài dependency theo quickstart. Thêm
+`--answer-policy focused` để thử chọn nguồn, hoặc dùng Python của
+`.venv-hybrid` và `--retrieval hybrid` khi đã chuẩn bị index và cache model.
+Dừng server cũ trước khi đổi launcher hoặc cờ. [Hướng dẫn chạy](HUS_RAG_QUICKSTART.md).
 
 ## 1. Mục tiêu đã thống nhất
 
@@ -45,6 +60,14 @@ hạ tầng nhiều người dùng và kiểm Linux/macOS nằm ngoài kế ho�
 
 ## 2. Hiện tại đã có gì?
 
+**Câu hỏi tự nhiên — đã sửa và kiểm offline ngày 19/11.** Câu nghề nghiệp Toán
+tin có “em” trả lời kèm nguồn. Khi thiếu dữ liệu đánh giá, phản hồi nêu rõ field
+còn thiếu. Câu đếm/liệt kê ngắn tra trực tiếp F2 theo phạm vi đã chọn, còn prompt
+trình bày F2 có sẵn tập khóa và ID nguồn cần trả. Kết quả v4 là 68 mã Toán tin
+và 90 dòng Toán học. Lượt live focused sau đó xác nhận Gemini dùng prompt
+F2 mới cho danh mục Toán học. [Kết quả live](RAG_FOCUSED_LIVE_2026_11_19.md).
+[Kết quả lượt mới](RAG_NATURAL_QUESTION_FOLLOWUP_2026_11_19.md).
+
 | Thành phần | Trạng thái thực tế |
 | --- | --- |
 | **Review ý định/F2 — đã đối chiếu12 ca, chờ nhóm** |Sáu đáp án live khớp nguồn/canonical/preflight; hai danh sách68/65 mã-tên đủ từng dòng; bốn control giữ biên.002 bị generation `fact_keys`, bundle cần4 khóa ngoài nhưng không có raw để biết model sai khóa nào;004 chỉ làm rõ, chưa đếm. Lưu nhận xét AI/CSV riêng,19 file cũ giữ hash, Google0; không sửa prompt/runtime.12 review người thật pending. [Review và hướng sửa](RAG_INTENT_F2_CONTENT_REVIEW_2026_11_15.md). |
@@ -60,14 +83,14 @@ hạ tầng nhiều người dùng và kiểm Linux/macOS nằm ngoài kế ho�
 | **Kiểm F2 mới — đã xác định nhánh kind** |Dùng1/1 call riêng sau diagnostic: HTTP200≈2,18s nhưng `used=false`, `output_schema/facts_issue=kind`. Trường `kind` thiếu hoặc không hợp lệ với F2; không lưu giá trị bị từ chối, không suy lỗi này cho call cũ. Fallback giữ4 tín chỉ/citation; ở lượt kiểm đó chưa sửa prompt hoặc nới validator. [Báo cáo](RAG_F2_LIVE_CHECK_2026_11_14.md). |
 | **Prompt F2 riêng — đã sửa và có xác nhận live** |Tách hướng dẫn F2, bắt buộc `kind=facts`;13 test mới/nhóm liên quan42 và nhóm LLM rộng680 đạt. Prompt F1/F3, payload/validator/dữ kiện giữ nguyên. Call MAT2300 riêng sau sửa: **HTTP200/used=true≈1,62s**,775 input/53 output token, giữ4 tín chỉ/citation; dùng hết1/1 call được duyệt. Không chấm lại run30 câu hoặc khẳng định mọi F2 đều ổn định. [Sửa offline](RAG_F2_DEDICATED_PROMPT_2026_11_14.md), [xác nhận](RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md). |
 | **UI và hướng dẫn Windows — đã chốt/kiểm local** |Làm rõ nhãn dùng AI/fallback và lỗi quyền/hạn mức/503; hướng dẫn RAG không key và Gemini qua biến backend riêng.29 test browser,14 citation,27 wrapper/package đạt. Venv tối thiểu mới + source chuyển thư mục chạy `--check`20 ca/2.124 menu/4 file nguồn và server HTTP5 chat đạt. Không gọi Google; chưa kiểm máy khác/clone remote. [Quickstart](HUS_RAG_QUICKSTART.md), [receipt/báo cáo](RAG_UI_QUICKSTART_2026_11_14.md). |
-| **Báo cáo và demo — đã chuẩn bị** |Có [báo cáo phân hệ](HUS_RAG_PROJECT_REPORT.md): luồng RAG–LLM, ví dụ F1/F2/F3, số liệu và giới hạn; [kịch bản demo 5–7 phút](HUS_RAG_MANUAL_DEMO.md) dùng quickstart, không gắn đường dẫn cá nhân. Sáu câu demo kiểm offline đạt, không gọi Google. Phần Gemini live là tùy chọn cần key/backend và ngân sách phù hợp. Chưa có thông tin học phần/thành viên hoặc xác nhận review/cài thử từ nhóm. |
+| **Báo cáo và kịch bản demo — đã chốt, kiểm local** | [Kịch bản 6 phút](HUS_RAG_MANUAL_DEMO.md) dùng v4/lexical/legacy, đã chạy 7 lượt hỏi trên Chromium và kiểm nguồn DOCX/PDF, nhãn F3, đổi ngành. `--check` đạt 20 ca API và 4 hash nguồn. [Báo cáo đồ án](HUS_RAG_PROJECT_REPORT.md) ghi riêng kết quả Gemini, lỗi, fallback và đối chứng. Nhóm còn cài thử trên máy thành viên và xác nhận nội dung. |
 | **Chất lượng RAG** |Bộ30 câu đã có phản hồi thật và lỗi còn lại; chưa được nhóm xác nhận đúng/đủ ý hoặc có cải thiện diễn đạt. Vẫn có giới hạn câu hỏi và F3 dài. Nguồn F1 KHDL giữ hệ/edition unknown, F3 giữ nhãn AI. A7B cũ giữ Recall22/24, đủ ý27/36; không chấm lại để nâng điểm. [Review lịch sử](RAG_A7B_FAILURE_REVIEW_2026_11_13.md). |
 | **Chẩn đoán bước bị chặn — đã triển khai/kiểm offline** |API gắn mã tại routing/scope/thao tác/retrieval/guard; phân biệt output bị chặn và lỗi dịch vụ trong HTTP502. UI có nhãn/hướng xử lý; sai ngành nêu ngành đang chọn và ngành cần chọn lại, không tự đổi ngành. Log `hus_chat_block code=...` không ghi key/câu hỏi/body lỗi.155 test liên quan đạt, có warning Starlette cũ; rà soát không ghi nhận lỗi quan trọng. Không đổi chính sách offline chỉ sau429; chưa gọi Google thật ở lượt này. |
 | **20 câu tự nhiên/latency — đã đo, bản nháp AI cho nhóm** |20 câu/5 mỗi ngành được lưu kỳ vọng/nguồn trước inference, không sao chép nguyên menu. Cùng v4/code/index, lexical và hybrid đều9 answered/6 no-information/5 cần làm rõ.9 câu search có cùng tập top5; chưa thêm câu trả lời nhờ hybrid. Median RAG của9 câu search: lexical0,007s/hybrid6,058s; cold155,333s. Google0. Câu/review do Codex(AI) soạn,20 xác nhận người thật pending; không là điểm chính xác hoặc bộ nhóm đã nghiệm thu. [Báo cáo](RAG_HYBRID_NATURAL20_2026_11_14.md), [đáp án/nguồn](RAG_HYBRID_NATURAL20_RESPONSES_2026_11_14.md), [CSV nhóm điền](../data/hus/review/hybrid_natural20_20261114_r1/review_group_return.csv). |
 | **Hiểu ý định + đếm/liệt kê F2 — đã triển khai** |Launcher Gemini gọi bộ hiểu JSON khi luật trả `routing_unknown`; backend kiểm thao tác/mã môn, giữ câu gốc/edition/hệ/quyền F3. Đếm/liệt kê mã môn duy nhất đúng ngành/phiên bản, có nguồn và metadata phép tính; không đếm menu hoặc để model tạo số. Câu hỏi lệch ngành yêu cầu chọn lại; số môn phải học/bắt buộc và lọc có điều kiện chưa hỗ trợ sẽ làm rõ. Một câu có thể cần2 call (ý định + diễn đạt), metadata riêng;429 khóa cả hai bước, lỗi khác báo lỗi.177 test/`--check` là kiểm offline của bước triển khai; đã có lượt Gemini thật riêng ghi ở dòng “Kiểm thực tế ý định/F2” bên dưới. [Hợp đồng/giới hạn](RAG_INTENT_F2_CATALOG_2026_11_14.md). |
 | **Cú pháp/router — đã sửa offline** |Phân biệt “thì” có dấu với thi thật trước bỏ dấu; nhận làm việc ở đâu, phải hoàn thành môn nào trước và câu hỏi khái niệm. F2 tiên quyết không cần quyền F3; F3 giữ opt-in/nhãn AI.001/017 hỏi rõ mục tiêu/nghề nghiệp/danh mục môn. Diagnostic code mới:002/004/005/008 trả lời từ đúng nhóm dữ liệu;001/017 cần làm rõ.53 regression mới/reviewer53 ca đạt; lượt rộng cuối636 test, Ruff5 file và `--check` đạt, Google0.30 file pack/run/review cũ giữ nguyên hash; không chấm lại run. [Chi tiết](RAG_ROUTER_GRAMMAR_REPAIR_2026_11_14.md). |
 | **Kiểm thực tế ý định/F2 — đã chạy Gemini** |Người dùng duyệt tối đa12 call mới; dùng11, tất cảHTTP200/actual model `gemini-3.5-flash-lite`:6/8 câu F2 có đáp án dùng model,IF2-002 lỗi `output_coverage/fact_keys`,IF2-004 cần làm rõ;4 control0call,0fallback offline.21.316 input/653 output token.74pins/prompt/canonical khớp; review người thật pending. Không retry hoặc dùng1 call còn lại cho việc khác. [Kết quả/CSV](RAG_INTENT_F2_PRACTICAL_LIVE_2026_11_14.md). |
-| **Guard/nguồn/context tập trung — đã triển khai opt-in** |Có `--answer-policy focused`: chọn edition/hệ/source trước retrieval, UI chọn nguồn, lấy đủ đoạn mô tả theo ý hỏi; protocol `focused_rewrite_v1` giữ từ/số/toán tử/điều kiện, không sửa citation/quote/facts.1072 test liên quan và49 lượt tập trung sau sửa đạt (có giao nhau), Ruff/CLI/browser đạt;5 search hybrid thật đúng index/nguồn, không fallback retrieval, Google0. Mặc định legacy/v3; chưa paraphrase tự do hoặc nghiệm thu Gemini/người thật. [Triển khai và CSV](RAG_FOCUSED_ANSWER_2026_11_15.md). |
+| **Guard/nguồn/context tập trung — đã triển khai opt-in** | Có `--answer-policy focused` để chọn phiên bản, hệ và nguồn trước retrieval. Protocol `focused_rewrite_v1` giữ từ, số, toán tử và điều kiện trong các đoạn được chọn. Lượt offline ban đầu đạt 1.072 test liên quan và 49 test tập trung có giao nhau, cùng 5 search hybrid thật. Lượt Gemini sau đó có 3 câu dùng output, 0 lỗi và 0 fallback 429. [Triển khai và CSV](RAG_FOCUSED_ANSWER_2026_11_15.md), [kết quả live](RAG_FOCUSED_LIVE_2026_11_19.md). |
 | **Latency hybrid — đã đo và tối ưu local** |Bỏ lần sao chép metadata đệ quy dư trong fingerprint; vẫn kiểm đầy đủ snapshot/index/inventory/scope. Lượt cặp20 câu,10 có search: median RAG hybrid **6,591→3,327s, giảm49,5%**;10 no-search tách riêng.20/20 response/trace cũ–mới giống nhau,37 file được bảo vệ giữ hash.173 test đạt/1 skip symlink Windows, Ruff và `--check` đạt; Google0. Chưa là đo Gemini/điểm chất lượng,20 review người thật pending. [Báo cáo](RAG_HYBRID_LATENCY_2026_11_15.md), [CSV mới](../data/hus/review/hybrid_latency_paired_20261114_r1/review_group_return.csv). |
 
 **Dữ liệu vẫn v4; lexical mặc định, hybrid có lựa chọn explicit. Launcher RAG tắt LLM; launcher Gemini tự động dùng LLM.** Luồng bằng chứng → LLM
@@ -75,9 +98,10 @@ hạ tầng nhiều người dùng và kiểm Linux/macOS nằm ngoài kế ho�
 cần key; muốn dùng Gemini thật thì cần internet và key Google hợp lệ ở backend.
 [Hướng dẫn chạy](HUS_RAG_QUICKSTART.md).
 
-**Lựa chọn mới:** thêm `--answer-policy focused` để thử chọn nguồn/context và
-protocol mới; không có cờ này vẫn legacy/v3. Chỉ kiểm offline/giả lập và hybrid
-local, chưa đo Gemini với prompt mới. Không đổi key/release/index hoặc tự restart.
+Thêm `--answer-policy focused` để thử chọn nguồn và trả lời theo đoạn được chọn.
+Launcher mặc định dùng `legacy`. Lượt Gemini ghim v4/lexical đã kiểm một câu
+F1 chọn nguồn, một câu F3 có quyền AI và một câu F2 danh mục.
+[Chi tiết](RAG_FOCUSED_LIVE_2026_11_19.md).
 
 **Chạy Gemini bằng key đã lưu:** `python -m tools.run_hus_llm` (dùng Python của
 `.venv`) tự đọc `HUS_LLM_API_KEY` từ `.env` gốc, không nhập lại key.32 test
@@ -172,6 +196,11 @@ Gemini tổng hợp/giải thích theo câu hỏi → kiểm dữ kiện → tr�
 
 ### Hybrid v4 — đã chuẩn bị và kiểm local
 
+**Kiểm lại cho demo ngày 19/11:** cùng v4 và 20 câu dev, cả hai chế độ trả lời
+13/20. Hybrid chạy đúng index trên 10 câu có search, chưa có thêm câu trả lời
+hoặc đoạn tham chiếu dev vào top 5. Median RAG của các lượt có search là
+0,0035 giây lexical và 1,522 giây hybrid. [Kết quả đo và CSV](RAG_HYBRID_DEMO_CHECK_2026_11_19.md).
+
 Đã có [HUSHybridRetriever/RRF](../app/hus/hybrid_retrieval.py),
 [service chọn retrieval](../app/services/hus_service.py) và
 [runtime ChromaDB + E5 local](../app/hus/vector_runtime.py). Policy hiện có lấy
@@ -220,17 +249,14 @@ tự biết chính xác chỉ từ kiến thức huấn luyện.
 
 ## 5. Các bước tiếp theo
 
-**Nhóm có thể chạy/demo bản mặc định ngay.** Ưu tiên dưới đây giúp xác nhận
-focused và xử lý các lỗi đã biết; phần review/báo cáo tiếp tục song song, không
-phải một chuỗi chặn việc chạy thử.
+Các bước bàn giao tập trung vào chạy thử trên máy thành viên, nhận xét nội dung
+và diễn tập theo kịch bản demo.
 
 | Ưu tiên | Công việc | Hoàn thành khi |
 | --- | --- | --- |
-| **1 — Xác nhận Gemini thật với focused khi có budget** |[Chế độ mới đã kiểm offline](RAG_FOCUSED_ANSWER_2026_11_15.md). Chọn vài câu đại diện F1/F2/F3 và chọn nguồn, chuẩn bị/pin bộ mới, thống nhất số call rồi chạy một lượt live riêng. Đọc đáp án/nguồn; ghi riêng model used, lỗi và offline sau429. |Có bằng chứng model trả được và output được hệ thống dùng theo prompt mới; không coi mock/5 search Chroma là đã test Gemini focused. Không dùng1 call cũ hoặc sửa run lịch sử; bản mặc định vẫn chạy thử được trong lúc chờ. |
-| **2 — Nhóm review24 câu và chọn sửa xưng hô** |[Lượt nội dung mới](RAG_ROUTER_CONTENT_REVIEW_2026_11_15.md) đã có đáp án/quote/nhận xét AI riêng. Nhóm điền CSV, thêm câu tự viết; đọc các câu làm rõ001/017. Nếu chọn sửa: xử lý xưng hô “em” bị coi là nội dung cần nguồn và lời nhắc thiếu field đánh giá, thêm regression tương tự/negative rồi lưu run mới. |24 review người thật còn pending;11 answered không đồng nghĩa đúng/đủ ý. Không bỏ token toàn cục, nới guard hoặc chấm lại run20/run24. Giữ thi thật, điều kiện/phủ định, scope và quyền F3; Google thêm cần budget mới. |
-| **3 — Nhóm review IF2 và chọn cải thiện prompt/câu đếm** |[Review12 ca đã có bản AI riêng](RAG_INTENT_F2_CONTENT_REVIEW_2026_11_15.md), nhóm điền CSV. Nếu chọn sửa: làm rõ danh sách khóa ngoài F2 cần copy; nhận câu đếm đơn giản từ scope đã chọn hoặc bổ sung ví dụ ý định, thêm regression tương tự/negative.004 chưa có số,002 chưa biết khóa model trả sai; prompt/runtime chưa đổi ở lượt review. |Không suy nguyên nhân raw đã mất, nới schema hoặc coi khả năng backend68 môn là đáp án004. Giữ11call/6used/0fallback và run cũ; live tiếp cần prepare mới theo code pins hiện tại và budget mới, không dùng lại1 call cũ. |
-| **4 — Review câu tự nhiên sau tối ưu latency** |Profile và lượt cặp đã xong: median hybrid6,591→3,327s trên10ca search,20/20 cặp giữ đáp án/trace. Nhóm điền [CSV mới](../data/hus/review/hybrid_latency_paired_20261114_r1/review_group_return.csv), bổ sung câu tự viết và ghi lỗi/nội dung/độ trễ thực tế. Chỉ tối ưu thêm khi còn nhu cầu và có số đo. |Giữ run cũ, tách10no-search, không bỏ pin/scope/inventory. Chưa chứng minh chất lượng tốt hơn hoặc latency Gemini. Live tiếp cần budget mới và prepare lại vì code pins của packet ý định/F2 cũ đã khác; không sửa packet/run cũ. |
-| **5 — Nhóm review và hoàn thiện báo cáo/demo** |Đọc [CSV6 tình huống focused](../data/hus/review/focused_answer_offline_20261115_r2/review_group_return.csv), [CSV20 câu](../data/hus/review/hybrid_natural20_20261114_r1/review_group_return.csv) và [CSV30 câu](../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv); cập nhật [báo cáo](HUS_RAG_PROJECT_REPORT.md), [demo](HUS_RAG_MANUAL_DEMO.md), để thành viên khác cài thử. |Review AI không thay người thật. Giữ run cũ23used/1fallback/6control; phân biệt rõ legacy đã có live và focused mới kiểm offline, không coi một call thành công là nghiệm thu toàn bộ. |
+| **1 — Thành viên cài và chạy thử** | Dùng Windows 64-bit/Python 3.11, chạy `--check` rồi thử F1/F2/F3 trong trình duyệt. [Quickstart](HUS_RAG_QUICKSTART.md), [kịch bản demo](HUS_RAG_MANUAL_DEMO.md). | Một thành viên khác chạy được từ source đã nhận, kiểm nguồn F1/F2, nhãn AI của F3 và ghi lỗi môi trường nếu gặp. |
+| **2 — Nhóm xác nhận nội dung sau lượt kiểm ngoài menu** | Đã đối chiếu 40 citation của bộ 30 câu và thử 12 câu mới trên v4/lexical, 7 câu có đáp án. Đã ghi phạm vi cho ca guard từ chối nghề nghiệp, ca chưa nhận diện tiên quyết và ca nhắc quyền F3 chưa sát. [Kết quả và CSV 12 câu](RAG_STUDENT_CONTENT_FOLLOWUP_2026_11_19.md), [CSV 30 câu](../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv). | Nhóm đọc đáp án và ghi đúng ý, đủ ý, dữ kiện và nguồn. Nếu một câu còn vướng, ghi ngành, phiên bản và nguyên văn câu hỏi để đối chiếu. |
+| **3 — Nhóm diễn tập theo kịch bản đã chốt** | [Kịch bản 6 phút](HUS_RAG_MANUAL_DEMO.md) và [báo cáo đã cập nhật](HUS_RAG_PROJECT_REPORT.md). Luồng chính v4/lexical/legacy đã chạy offline trên Chromium. Có ca chọn nguồn `focused` tùy chọn. | Nhóm chạy F1/F2/F3 trên máy trình bày, đối chiếu nguồn và nhãn AI, rồi ghi vào checklist. Khi demo Gemini trực tiếp, ghi riêng câu dùng model, lỗi, fallback và đối chứng. |
 
 **Cách làm từ đây:** ưu tiên hoàn thiện luồng hỏi đáp trước. Các quy trình A7/L5/L6
 chi tiết, A/B nhiều lượt, review chuyên môn toàn bộ dữ liệu và đóng gói nhiều
@@ -243,13 +269,11 @@ diagnostic đã dùng đủ **1/1 call riêng**, xác nhận prompt F2 sau sửa
 **1/1 call mới**; không retry/đổi model.1 call chưa dùng của tác vụ trước đã dừng, không chuyển sang
 tác vụ này. Đợt live tiếp theo cần thống nhất số call mới. Trước mắt giữ cap
 1.024 output token/call; chỉ điều chỉnh sau khi thấy nhu cầu thực tế và được thống
-nhất. Không đưa key vào source/file mẫu. Người dùng nay cho phép commit/push
-feature branch theo ghi chú đầu trang; không tự tạo PR/deploy hoặc chạy workflow
-thủ công. CI có trigger push sẵn có có thể chạy trên GitHub. Khi đưa thay đổi vào `main`, dùng feature branch + PR
-và **Create a merge commit** theo quy định nhóm.
+nhất. Key lưu ở backend. Lượt cập nhật tài liệu này thực hiện local. Khi đưa
+thay đổi vào `main`, dùng feature branch, PR và **Create a merge commit**
+theo quy định nhóm.
 
-Riêng cohort ý định/F2 mới được duyệt tối đa12 call và đã kết thúc với **11 call**;
-1 call chưa dùng không tự chuyển sang retry hoặc review guard. Giữ cap
-1.024 token/call, không đổi model. Focused đã triển khai opt-in và kiểm offline,
-không gọi Google; muốn đo protocol/context mới cần prepare/pin mới và thống nhất
-budget riêng. Các packet/code pins lịch sử không được cập nhật đè để khớp code mới.
+Lượt ý định/F2 trước đây đã kết thúc với **11/12 call**. Lượt focused ngày
+19/11 đã dùng đủ **3/3 call**. Lượt mới cần thống nhất ngân sách riêng và ghim
+code, dữ liệu, prompt và model trước khi chạy. Cap hiện tại là 1.024 output
+token/call. Các bộ đã lưu là mốc đối chiếu của từng lượt.
