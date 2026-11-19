@@ -1,0 +1,42 @@
+{
+  "Q015_target_intervention_not_retrieval_or_prediction": true,
+  "additional_guard_checks": 8,
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "causes": {
+    "Q013": "presentation/request kem treated as missing factual token",
+    "Q015": "role_at_work recognises company/business workplaces only; no school/institute role rule, falls back to introduction",
+    "Q027": "non-initial presentation verb phrase leaves missing bay token",
+    "Q037": "passive presentation tail leaves missing bay token"
+  },
+  "cohort_manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+  "current_A7S_and_L5r3_pins_match": true,
+  "date": "2026-11-13",
+  "diagnostic_probes_are_not_regression_test_suite_or_quality_acceptance": true,
+  "fixed_saved_hit_contrasts": true,
+  "guard_probes": 20,
+  "human_reviews": 0,
+  "immutable_A7S_score": {
+    "complete": "32/36",
+    "controls": "12/12",
+    "routed_recall_at_5": "23/24"
+  },
+  "independent_acceptance": false,
+  "kind": "exposed_cached_diagnostic_review_not_new_measurement",
+  "new_end_to_end_A7_inferences": 0,
+  "new_repository_tests_added_or_run": false,
+  "next_action": "Select general grammar/role-scope repair, add positive/negative regressions before changing runtime; retire exposed cohort to dev for future tuning and freeze successor afterward.",
+  "protected_prior_files_unchanged": 2859,
+  "provider_calls": 0,
+  "replay_attempts": {
+    "answerer": 0,
+    "network": 0,
+    "provider": 0,
+    "search": 0
+  },
+  "reviewed_overlay_manifest_sha256": "52b11aab7a53080ffccd1ad2315b98805bc516d5205c4dc1fef6e41656f737cb",
+  "router_probes": 11,
+  "runtime_data_gold_review_changed": false,
+  "stage_commit_push_PR_Actions_deploy": false,
+  "status": "root_causes_identified_runtime_not_changed"
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:26.553172+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://hus.vnu.edu.vn/tin-tuc-su-kien/hoi-nghi-tong-ket-va-danh-gia-chuong-trinh-dao-tao-chuan-trinh-do-dai-hoc-nganh-may-tinh-va-khoa-hoc-thong-tin-71731",
+    "source_id": "N01",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:26.555177+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://vnu.edu.vn/thong-tin-va-chi-tieu-truyen-sinh-dai-hoc-chinh-quy-nam-2012-vao-cac-nganh-thuoc-dhqghn-chinh-sua-cap-nhat-2322012-post12413.html",
+    "source_id": "N02",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:26.555177+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://hus.vnu.edu.vn/sites/default/files/huongdan/09_0.pdf",
+    "source_id": "N03",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:26.555177+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://ori.hhs.gov/ori-introduction-responsible-conduct-research",
+    "source_id": "N04",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:26.555177+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://ori.hhs.gov/education/products/n_illinois_u/datamanagement/dmtopics.html",
+    "source_id": "N05",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:27.005383+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://fncbook.com/",
+    "source_id": "N06",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:27.005383+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    "source_id": "N07",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:27.024032+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://docs.python.org/3/tutorial/classes.html",
+    "source_id": "N08",
+    "status": "request_error"
+  },
+  {
+    "authentication": false,
+    "captured_utc": "2026-11-13T08:33:27.064513+00:00",
+    "error_type": "ConnectError",
+    "requested_url": "https://www.omg.org/spec/UML/",
+    "source_id": "N09",
+    "status": "request_error"
+  }
+]

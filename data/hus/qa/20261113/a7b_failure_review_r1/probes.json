@@ -1,0 +1,434 @@
+{
+  "basic_probes": [
+    {
+      "basic_reply": "Chào bạn! Bạn muốn tìm hiểu về ngành học, chương trình đào tạo hay một học phần?",
+      "question": "Chào bạn!",
+      "route": [
+        null,
+        null
+      ]
+    },
+    {
+      "basic_reply": null,
+      "question": "Chào bạn, chúc một ngày học tập thuận lợi!",
+      "route": [
+        null,
+        null
+      ]
+    },
+    {
+      "basic_reply": null,
+      "question": "Xin chào, chúc bạn học tốt.",
+      "route": [
+        null,
+        null
+      ]
+    },
+    {
+      "basic_reply": null,
+      "question": "Chào bạn, tín chỉ MAT2501 là bao nhiêu?",
+      "route": [
+        "f2",
+        "credits"
+      ]
+    },
+    {
+      "basic_reply": null,
+      "question": "Chào bạn, tôi đủ điều kiện đăng ký MAT2501 không?",
+      "route": [
+        null,
+        null
+      ]
+    },
+    {
+      "basic_reply": null,
+      "question": "Cảm ơn bạn, giúp mình lấy điểm thi hiện tại.",
+      "route": [
+        "f3",
+        "suggested_assessment"
+      ]
+    }
+  ],
+  "direct_gold_guard_probes": [
+    {
+      "case": 14,
+      "kept_gold_target_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "question": "Nguồn giới thiệu KHDL edition chưa xác định nêu những vai trò công tác nào ở các đơn vị trường, viện?",
+      "warning": "Gold source supplied only to direct guard; no search or answer was run. Does not improve old recall."
+    }
+  ],
+  "edited_guard_probes": [
+    {
+      "case": 1,
+      "edited_question": "Trang giới thiệu KHMTTT hệ chất lượng cao, edition chưa xác định, ghi bắt đầu tuyển sinh từ năm nào?",
+      "kept_ids": [
+        "f77eafbc905ff1efb3ab3f841b00fae3"
+      ],
+      "warning": "Edited-question cached-hit diagnostic only; not new response, fix, retrieval result or A7score."
+    },
+    {
+      "case": 15,
+      "edited_question": "Ở trang giới thiệu KHDL edition chưa xác định, khả năng học tiếp sau tốt nghiệp được mô tả thế nào?",
+      "kept_ids": [
+        "fff32c3b35802b8f2d4f999460bfe349"
+      ],
+      "warning": "Edited-question cached-hit diagnostic only; not new response, fix, retrieval result or A7score."
+    },
+    {
+      "case": 27,
+      "edited_question": "Theo bản edition 2015 hệ chuẩn ngành Toán học, khả năng học tiếp dựa trên những kiến thức và kỹ năng nào?",
+      "kept_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "warning": "Edited-question cached-hit diagnostic only; not new response, fix, retrieval result or A7score."
+    },
+    {
+      "case": 9,
+      "edited_question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu của môn MAT3552E là gì?",
+      "kept_ids": [
+        "fe4e61ab66946a4cdcbd5a8acb2bcc2c"
+      ],
+      "warning": "Explicit AI locator variant, not a newpermission or a replacement of original request."
+    },
+    {
+      "case": 21,
+      "edited_question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu của môn MAT3390 là gì?",
+      "kept_ids": [
+        "7150556812550aa589e7073ea6b88f37"
+      ],
+      "warning": "Explicit AI locator variant, not a newpermission or a replacement of original request."
+    },
+    {
+      "case": 33,
+      "edited_question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu của môn MAT3311 là gì?",
+      "kept_ids": [
+        "3ec307479ebbaaf97909cf94f0ecaaf2"
+      ],
+      "warning": "Explicit AI locator variant, not a newpermission or a replacement of original request."
+    },
+    {
+      "case": 45,
+      "edited_question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu của môn MAT3456 là gì?",
+      "kept_ids": [
+        "4e4031c63239313e2fa3b71a16c45482"
+      ],
+      "warning": "Explicit AI locator variant, not a newpermission or a replacement of original request."
+    }
+  ],
+  "guard_boundary_probes": [
+    {
+      "case": 1,
+      "kept_ids": [],
+      "quality_score": null,
+      "question": "Trang giới thiệu KHMTTT hệ chất lượng cao edition chưa xác định tuyển sinh vào năm nào?"
+    },
+    {
+      "case": 15,
+      "kept_ids": [
+        "fff32c3b35802b8f2d4f999460bfe349"
+      ],
+      "quality_score": null,
+      "question": "Khả năng học tiếp sau tốt nghiệp KHDL theo nguồn edition chưa xác định thế nào?"
+    },
+    {
+      "case": 15,
+      "kept_ids": [],
+      "quality_score": null,
+      "question": "Khả năng học tiếp sau tốt nghiệp KHDL không yêu cầu điều kiện gì?"
+    },
+    {
+      "case": 9,
+      "kept_ids": [],
+      "quality_score": null,
+      "question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu MAT3552E về số học p-adic là gì?"
+    },
+    {
+      "case": 9,
+      "kept_ids": [],
+      "quality_score": null,
+      "question": "Theo hồ sơ AI tham khảo đã lưu, mục tiêu MAT3552E không ghi những gì?"
+    }
+  ],
+  "kind": "pure_diagnostic_probes_not_regression_or_quality_score",
+  "meaning_preservation_note": "Some probes deliberately change wording or remove locator; not proof a general safe fix exists. Never rewrite frozen requests/gold from these results.",
+  "new_end_to_end_requests": 0,
+  "new_search_calls": 0,
+  "provider_calls": 0,
+  "router_probes": [
+    {
+      "course_fields": [],
+      "name": "role_without_source_locator",
+      "quality_score": null,
+      "question": "KHDL nêu những vai trò công tác nào ở các đơn vị trường, viện?",
+      "role_clauses": [
+        {
+          "clause": "khdl neu nhung vai tro cong tac nao o cac don vi truong",
+          "role_requested": true
+        },
+        {
+          "clause": "vien",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [],
+      "name": "role_with_source_locator",
+      "quality_score": null,
+      "question": "Nguồn giới thiệu KHDL nêu những vai trò công tác nào ở các đơn vị trường, viện?",
+      "role_clauses": [
+        {
+          "clause": "nguon gioi thieu khdl neu nhung vai tro cong tac nao o cac don vi truong",
+          "role_requested": false
+        },
+        {
+          "clause": "vien",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f1",
+        "introduction"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [],
+      "name": "institution_actor",
+      "quality_score": null,
+      "question": "Vai trò của trường trong chương trình KHDL là gì?",
+      "role_clauses": [
+        {
+          "clause": "vai tro cua truong trong chuong trinh khdl la gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f1",
+        "introduction"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "objectives"
+      ],
+      "name": "teaching_goal_course",
+      "quality_score": null,
+      "question": "Mục tiêu MAT1204 về năng lực giảng dạy tại trường là gì?",
+      "role_clauses": [
+        {
+          "clause": "muc tieu mat1204 ve nang luc giang day tai truong la gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "objectives"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [],
+      "name": "role_graduate_simple",
+      "quality_score": null,
+      "question": "Cử nhân KHDL có vai trò công tác nào tại trường và viện?",
+      "role_clauses": [
+        {
+          "clause": "cu nhan khdl co vai tro cong tac nao tai truong va vien",
+          "role_requested": true
+        }
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "content",
+        "suggested_assessment"
+      ],
+      "name": "scientific_check_title",
+      "quality_score": null,
+      "question": "Xin trích mục Dự báo và kiểm tra mô hình trong phần nội dung AI của học phần MAT3370.",
+      "role_clauses": [
+        {
+          "clause": "xin trich muc du bao va kiem tra mo hinh trong phan noi dung ai cua hoc phan mat3370",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "content",
+        "suggested_assessment"
+      ],
+      "name": "quoted_scientific_title",
+      "quality_score": null,
+      "question": "Xin trích mục “Dự báo và kiểm tra mô hình” trong phần nội dung AI của học phần MAT3370.",
+      "role_clauses": [
+        {
+          "clause": "xin trich muc du bao va kiem tra mo hinh trong phan noi dung ai cua hoc phan mat3370",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "content",
+        "suggested_assessment"
+      ],
+      "name": "two_independent_fields",
+      "quality_score": null,
+      "question": "Nội dung MAT3370 là gì và gợi ý đánh giá gồm gì?",
+      "role_clauses": [
+        {
+          "clause": "noi dung mat3370 la gi va goi y danh gia gom gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "suggested_assessment"
+      ],
+      "name": "assessment_content",
+      "quality_score": null,
+      "question": "Nội dung của gợi ý đánh giá MAT3370 là gì?",
+      "role_clauses": [
+        {
+          "clause": "noi dung cua goi y danh gia mat3370 la gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "suggested_assessment"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "content"
+      ],
+      "name": "scientific_domain",
+      "quality_score": null,
+      "question": "Nội dung MAT3370 về dự báo hậu nghiệm là gì?",
+      "role_clauses": [
+        {
+          "clause": "noi dung mat3370 ve du bao hau nghiem la gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "content"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "content"
+      ],
+      "name": "programme_comparison",
+      "quality_score": null,
+      "question": "Hãy đối chiếu nội dung hai chương trình Toán học hệ chuẩn với hệ tài năng giúp tôi.",
+      "role_clauses": [
+        {
+          "clause": "hay doi chieu noi dung hai chuong trinh toan hoc he chuan voi he tai nang giup toi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "content"
+      ],
+      "variants": [
+        "standard",
+        "talent"
+      ]
+    },
+    {
+      "course_fields": [],
+      "name": "programme_intro",
+      "quality_score": null,
+      "question": "Giới thiệu chương trình Toán học hệ chuẩn và hệ tài năng theo nguồn.",
+      "role_clauses": [
+        {
+          "clause": "gioi thieu chuong trinh toan hoc he chuan va he tai nang theo nguon",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f1",
+        "introduction"
+      ],
+      "variants": [
+        "standard",
+        "talent"
+      ]
+    },
+    {
+      "course_fields": [
+        "content"
+      ],
+      "name": "single_course_content",
+      "quality_score": null,
+      "question": "Nội dung học phần MAT3370 có gì?",
+      "role_clauses": [
+        {
+          "clause": "noi dung hoc phan mat3370 co gi",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f3",
+        "content"
+      ],
+      "variants": []
+    },
+    {
+      "course_fields": [
+        "credits"
+      ],
+      "name": "programme_total",
+      "quality_score": null,
+      "question": "Tổng tín chỉ chương trình Toán học là bao nhiêu?",
+      "role_clauses": [
+        {
+          "clause": "tong tin chi chuong trinh toan hoc la bao nhieu",
+          "role_requested": false
+        }
+      ],
+      "route": [
+        "f2",
+        "program_credits"
+      ],
+      "variants": []
+    }
+  ]
+}

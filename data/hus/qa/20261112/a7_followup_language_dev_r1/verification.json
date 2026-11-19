@@ -1,0 +1,202 @@
+{
+  "old_a7_cached_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "old_l5_cached_replay": {
+    "metrics": {
+      "actual_models": {
+        "gemini-3.5-flash-lite": 24
+      },
+      "baseline_false_refusals": 0,
+      "by_family": {
+        "basic_chat": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "clarification_required": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "f1": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 5
+        },
+        "f2": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 8
+        },
+        "f3": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 3
+        },
+        "missing_evidence": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "opt_in_required": {
+          "cases": 4,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "out_of_scope": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        }
+      },
+      "by_major": {
+        "computer_science": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 4
+        },
+        "data_science": {
+          "cases": 12,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 5
+        },
+        "mathematics": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 4
+        },
+        "mathematics_informatics": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 3
+        }
+      },
+      "cases": 36,
+      "control_status_mismatches": 0,
+      "eligible": 24,
+      "eligible_not_attempted": 0,
+      "errors": {
+        "invalid_response": 3
+      },
+      "fallback": 8,
+      "fallback_reasons": {
+        "evidence_coverage": 4,
+        "invalid_output": 1,
+        "invalid_response": 3
+      },
+      "guard_skipped": 12,
+      "http_status": {
+        "200": 24
+      },
+      "latency": {
+        "baseline": {
+          "count": 36,
+          "max_ms": 72.55579996854067,
+          "min_ms": 0.054900068789720535,
+          "p50_ms": 24.627499980852008,
+          "p95_ms": 63.56080016121268
+        },
+        "provider": {
+          "count": 24,
+          "max_ms": 6453.525000018999,
+          "min_ms": 1432.1498998906463,
+          "p50_ms": 4075.3665999509394,
+          "p95_ms": 6444.636899977922
+        },
+        "rewrite_fallback": {
+          "count": 8,
+          "max_ms": 6410.314100096002,
+          "min_ms": 2175.4379998892546,
+          "p50_ms": 3388.5981999337673,
+          "p95_ms": 6410.314100096002
+        },
+        "rewrite_used": {
+          "count": 16,
+          "max_ms": 6456.259700004011,
+          "min_ms": 1433.6196000222117,
+          "p50_ms": 4086.5055001340806,
+          "p95_ms": 6456.259700004011
+        }
+      },
+      "provider_requests": 24,
+      "source_audit_failures": 0,
+      "token_counter_unknown_requests": {
+        "completion_tokens": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0
+      },
+      "token_usage": {
+        "completion_tokens": 6916,
+        "prompt_tokens": 28349,
+        "total_tokens": 35265
+      },
+      "token_usage_known_subtotal": {
+        "completion_tokens": 6916,
+        "prompt_tokens": 28349,
+        "total_tokens": 35265
+      },
+      "usage_known_requests": 24,
+      "usage_unknown_requests": 0,
+      "used": 16,
+      "used_rate_among_eligible": 0.6666666666666666
+    },
+    "new_provider_calls": 0,
+    "new_retrieval_calls": 0,
+    "reproduced": true
+  },
+  "protected_unchanged_except_runtime": [
+    "app/hus/answer_support.py",
+    "app/hus/question_routing.py"
+  ],
+  "raw_evidence_sha256": {
+    "before_diagnostic.json": "dc4359d491bc334b2699fea8d2493147caccd934994085bdd36a572987113bbf",
+    "compound-red.log": "54ad631c1b761dfd2dfa97689c051fc168fc563375d6aeb9a251a877ed752910",
+    "compound-red.xml": "3fe760f570df253a5df1b8d2548cfad0dd5a787376e237b61254d61f548c5934",
+    "dev_audits.json": "2f7977f37cddc2dd06b9397610117d4a97e03fb090d79905eceaa9610a3b51b7",
+    "dev_check.py": "d4b09f5e1cde5c1e80580404a7e6a5f321c0915b36d72430c9278af8384a2fca",
+    "dev_observations.json": "1dffca8b2f9a8c59d76ae5b46690d4adfc239ac2d718a1720f909b4f25337ad8",
+    "dev_summary.json": "f705132cef546aa0921a8692993c3a6915741e6486c345156eba6900927e2771",
+    "green-r2.log": "1390fe5f5c13a1743f40b6627fb9c5a4887dc28217721613daf7390b9adcd2dc",
+    "green-r2.xml": "06b3191a9ede0d98e4e94dda5e1ddaea60655c1ef2fc7bf7f93fe90658211ccd",
+    "green.log": "c1a99dfc1645464b9a1608ed6bcf310242b7790abf2fb13a17217e4fddcfaff4",
+    "green.xml": "42eeb6f2ed3781bd19eab7d0ebc6778daba49249a4d55676d1e297b31b613278",
+    "llm.log": "3d4975864715c32b242d92331b60782b3d729fc416237ed78215178c1837f934",
+    "llm.xml": "7d69649ca41b02e7b455738793b6729d08b30f2853dcc4c597d2d237fed5e2ee",
+    "new_examples.json": "5c2e522604bbb4ee1b9322e675f338b4850b393fba2317686dc06585f4ce5268",
+    "protect_and_diagnose.py": "6d80d8aff49d802a09597516e5f8e68f5e1959d2c01bd65c4bd840996e8c8b11",
+    "protected_before.json": "f1ef9ccaad8b8db4efaaa6a2cdf60cdec10c9145c669919aee906e1e7a7918ca",
+    "red.log": "84ab97cd14a46ffcb9fda91df04d05aeb822f2f55e263dbc9b60f71b0707d836",
+    "red.xml": "3913f21ef10fe5e55e79852c4abd551322dfa7f22c7ebe8836b3bac20a614952",
+    "regression.log": "3c3a483113b6e227f42679d4e7694879c07f7f03ba5d1e4b6e57828fff0fc7f9",
+    "regression.xml": "f44cf6c93758f8c2c68b6ec60fe57cf305fd03f34f24d71764354d2f533f7ce7",
+    "seal_receipt.py": "f81bb0abd99fe8d9fcb48104922c6ef0b0e31ea8da3f4511d5d920a36d2aa90c"
+  }
+}

@@ -1,5 +1,6 @@
 """F1/F2/F3 and basic conversation, with no course recommendation dependencies."""
 
+import re
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -17,6 +18,7 @@ class HUSChatReply(BaseModel):
     reply: str
     hus_answer: HUSAnswer | None = None
     generation: HUSGeneration | None = Field(default=None, exclude_if=lambda value: value is None)
+    interpretation: HUSGeneration | None = Field(default=None, exclude_if=lambda value: value is None)
 
 
 def basic_reply(question: str) -> str | None:
@@ -31,7 +33,8 @@ def basic_reply(question: str) -> str | None:
         return ('Đánh dấu “Cho phép kiến thức AI tham khảo” bên dưới ô nhập câu hỏi, '
                 'rồi chọn câu trong mục Tìm hiểu môn học. Bạn tự quyết định quyền này; '
                 'đổi ngành sẽ tắt lại. Nội dung AI không phải đề cương hay quy định đánh giá chính thức.')
-    if text in {"chao", "xin chao", "chao ban", "xin chao ban", "hi", "hello", "alo"}:
+    if (text in {"chao", "xin chao", "chao ban", "xin chao ban", "hi", "hello", "alo"}
+            or re.fullmatch(r'(?:xin )?chao(?: ban)? chuc (?:ban )?(?:mot )?ngay (?:tot lanh|vui ve)', text)):
         return "Chào bạn! Bạn muốn tìm hiểu về ngành học, chương trình đào tạo hay một học phần?"
     if text in {"cam on", "cam on ban", "thanks", "thank you", "ok cam on"}:
         return "Rất vui được giúp bạn. Bạn có thể hỏi tiếp về ngành học hoặc học phần."
@@ -59,6 +62,15 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
     if request.dataset == "auto" and dataset == "f1" and request.version in decision_versions:
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
-    answer = answerer.answer(request)
-    reply, generation = generate_reply(request, answer, answer.reply, rewriter=rewriter)
+    prepare = getattr(answerer, 'prepare_evidence', None)
+    if request.allow_llm_rewrite and callable(prepare):
+        plan = prepare(request)
+        evidence = plan.evidence
+        reply, generation = generate_reply(request, evidence, evidence.reply, rewriter=rewriter)
+        answer = plan.materialize()
+        if generation is None or not generation.used:
+            reply = answer.reply
+    else:
+        answer = answerer.answer(request)
+        reply, generation = generate_reply(request, answer, answer.reply, rewriter=rewriter)
     return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer, generation=generation)

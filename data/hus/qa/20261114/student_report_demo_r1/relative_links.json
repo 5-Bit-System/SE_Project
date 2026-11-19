@@ -1,0 +1,158 @@
+[
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_UI_QUICKSTART_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_F2_DEDICATED_PROMPT_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "HUS_RAG_MANUAL_DEMO.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_STUDENT30_AI_REVIEW_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "HUS_RAG_QUICKSTART.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "HUS_RAG_MANUAL_DEMO.md"
+  },
+  {
+    "document": "docs/HUS_RAG_PROJECT_REPORT.md",
+    "target": "RAG_PROGRESS_AND_NEXT_PLAN.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "HUS_RAG_PROJECT_REPORT.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "HUS_RAG_QUICKSTART.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "HUS_RAG_QUICKSTART.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md"
+  },
+  {
+    "document": "docs/HUS_RAG_MANUAL_DEMO.md",
+    "target": "RAG_UI_QUICKSTART_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F1_F2_F3_INTEGRATION_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F1_LLM_WORKING_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "../data/hus/review/student_content_live_20261114_r1/review.csv"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_STUDENT30_AI_REVIEW_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F2_OUTPUT_DIAGNOSTIC_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F2_LIVE_CHECK_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F2_DEDICATED_PROMPT_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_QUICKSTART.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_UI_QUICKSTART_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_PROJECT_REPORT.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_MANUAL_DEMO.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_A7B_FAILURE_REVIEW_2026_11_13.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_QUICKSTART.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "../data/hus/review/student_content_ai_draft_20261114_r1/review_group_return.csv"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "RAG_STUDENT30_AI_REVIEW_2026_11_14.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_PROJECT_REPORT.md"
+  },
+  {
+    "document": "docs/RAG_PROGRESS_AND_NEXT_PLAN.md",
+    "target": "HUS_RAG_MANUAL_DEMO.md"
+  }
+]

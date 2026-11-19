@@ -1,0 +1,23 @@
+{
+  "attempts": {
+    "freeze_answerer": 0,
+    "freeze_retrieval": 0,
+    "network": 0,
+    "provider": 0
+  },
+  "candidate": "data/hus/evaluation/candidates/a7_scope_assessment_20261113_r1",
+  "frozen_at_utc": "2026-11-13T04:43:52.414931+00:00",
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+  "prediction_runs": 0,
+  "prior_a7_target_identity_reuse": 6,
+  "prior_cohort_now_dev": {
+    "manifest_sha256": "f6dc71af1a0110a304a90d9c905b43c91875b437a68bce293c88d34075eef7bf",
+    "path": "data/hus/evaluation/a7_after_followup_20261112_r1",
+    "reason": "Used to guide scope/assessment repairs. Original frozen bytes and score remain unchanged."
+  },
+  "questions": 48,
+  "source_evidence": 36,
+  "wording_overlap": 0
+}

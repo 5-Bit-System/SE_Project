@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "boundary_probes.json": "3c4cc86b0bf78bdbf04e1f0b7381d9510fe126ca738e5003f48c9ffab58dcfd2",
+    "diagnostic.json": "4c1e4316b581bf5414c7c678db64c2072963939ca5b32c142e47649e42df09c6",
+    "integrity.json": "bf384dbc80ccbb6cf72aa7e03a5d98791b25a0c29080ffe6c0e5abb8b5ec3736",
+    "report.json": "63b1140c2594cef133f0b5752ba8b02b57ccd455120ac8ad5a159ce9c988ad4f",
+    "source_context.json": "8471c82c4279dd1107e0b54ee59151878de6cac6355de1dcf0800cc239495d16"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

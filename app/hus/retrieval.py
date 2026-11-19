@@ -72,6 +72,17 @@ class RetrievalHit:
     matched_terms: tuple[str, ...]
 
 
+def restrict_parents(candidates, parent_ids):
+    """Optional backend source selection, applied before scoring in every leg."""
+    if parent_ids is None:
+        return candidates
+    if (type(parent_ids) is not tuple or any(type(p) is not str or not p for p in parent_ids)
+            or len(set(parent_ids)) != len(parent_ids)):
+        raise RAGDataError('Invalid parent selection')
+    allowed = set(parent_ids)
+    return tuple(c for c in candidates if c.chunk_id in allowed)
+
+
 class HUSRAGRetriever:
     """BM25 keyword search, Vietnamese accent-insensitive, deterministic tie ordering.
 
@@ -93,6 +104,7 @@ class HUSRAGRetriever:
         self, query: str, *, dataset: ChunkDataset, major: str, version: str | None = None,
         course_code: str | None = None, field: str | None = None,
         program_variant: str | None = None, top_k: int = 5, allow_generated: bool = False,
+        parent_ids: tuple[str, ...] | None = None,
     ) -> tuple[RetrievalHit, ...]:
         """Filter first, then rank positive keyword matches within that exact scope.
 
@@ -107,6 +119,7 @@ class HUSRAGRetriever:
         candidates = self._data.chunks(dataset, major=major, version=version,
                                        course_code=course_code, field=field,
                                        program_variant=program_variant, allow_generated=allow_generated)
+        candidates = restrict_parents(candidates, parent_ids)
         query_terms = set(_tokens(query)) - STOP_WORDS
         codes = {term.upper() for term in query_terms if COURSE_CODE.fullmatch(term)}
         if codes:

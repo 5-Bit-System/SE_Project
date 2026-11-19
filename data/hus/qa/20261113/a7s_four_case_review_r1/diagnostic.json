@@ -1,0 +1,1850 @@
+{
+  "Q015_target_only_diagnostic_intervention": {
+    "filtered_ids": [
+      "940a3740794040de84617af7e9aa78fd"
+    ],
+    "input_ids": [
+      "940a3740794040de84617af7e9aa78fd"
+    ],
+    "kept_ids": [
+      "940a3740794040de84617af7e9aa78fd"
+    ],
+    "last_line": 272,
+    "missing_body_tokens_last_group": [],
+    "query_after_scope_and_syntax": "theo   nganh khdl co nhung vai tro nao tai don vi truong va vien",
+    "question": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?",
+    "requested_variants": [],
+    "requested_versions": [
+      "unknown"
+    ],
+    "route": [
+      "f1",
+      "introduction"
+    ],
+    "specific_tokens": [],
+    "supported": true
+  },
+  "attempts": {
+    "answerer": 0,
+    "network": 0,
+    "provider": 0,
+    "search": 0
+  },
+  "cases": [
+    {
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7S-Q013-source"
+        ],
+        "expected_answer": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7S-Q013",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7S-Q013",
+      "saved_request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search": {
+        "hits": [
+          {
+            "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "careers",
+            "major": "data_science",
+            "matched_terms": [
+              "du",
+              "lap",
+              "quan",
+              "tri",
+              "trinh",
+              "vien"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 4.904224398965136,
+            "version": "unknown"
+          },
+          {
+            "chunk_id": "940a3740794040de84617af7e9aa78fd",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "careers",
+            "major": "data_science",
+            "matched_terms": [
+              "du",
+              "vi",
+              "vien"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 2.0236084307593503,
+            "version": "unknown"
+          },
+          {
+            "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "careers",
+            "major": "data_science",
+            "matched_terms": [
+              "du",
+              "quan"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 1.0993358662958406,
+            "version": "unknown"
+          },
+          {
+            "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "careers",
+            "major": "data_science",
+            "matched_terms": [
+              "du",
+              "vien"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 0.5554580019000195,
+            "version": "unknown"
+          }
+        ],
+        "parameters": {
+          "allow_generated": false,
+          "course_code": null,
+          "dataset": "f1",
+          "field": "careers",
+          "major": "data_science",
+          "program_variant": null,
+          "top_k": 5,
+          "version": null
+        },
+        "query": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?"
+      },
+      "trace": {
+        "filtered_ids": [
+          "251ab61e0d6a58faa68914d59fa45516",
+          "940a3740794040de84617af7e9aa78fd",
+          "d844e5fa88b2bf746f918a39a67aa2bb",
+          "52b2b2acd330744f909bc2ea49cf5fb7"
+        ],
+        "input_ids": [
+          "251ab61e0d6a58faa68914d59fa45516",
+          "940a3740794040de84617af7e9aa78fd",
+          "d844e5fa88b2bf746f918a39a67aa2bb",
+          "52b2b2acd330744f909bc2ea49cf5fb7"
+        ],
+        "kept_ids": [],
+        "last_line": 273,
+        "missing_body_tokens_last_group": [
+          "kem"
+        ],
+        "query_after_scope_and_syntax": "o   vi tri lap trinh vien va quan tri du an cua khdl duoc neu kem dieu kien nao",
+        "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?",
+        "requested_variants": [],
+        "requested_versions": [
+          "unknown"
+        ],
+        "route": [
+          "f1",
+          "careers"
+        ],
+        "specific_tokens": [
+          "kem",
+          "lap"
+        ],
+        "supported": false
+      }
+    },
+    {
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7S-Q015-source"
+        ],
+        "expected_answer": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7S-Q015",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7S-Q015",
+      "saved_request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [
+            {
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "citation_id": "1",
+              "content_origin": "crawled_source_quote",
+              "dataset": "f1",
+              "display_label": "Khoa học Dữ liệu",
+              "document_sha256": null,
+              "evidence_kind": "web",
+              "label": "Khoa học Dữ liệu",
+              "locator": {
+                "end_char": 718,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 364
+              },
+              "media_type": null,
+              "metadata": {
+                "academic_verified": false,
+                "admission_cohort": "unknown",
+                "answer_eligible": true,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "7170857aebdc027daccc37102dd937bd",
+                "citation": {
+                  "end_char": 718,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 364,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "citation_title": "Khoa học Dữ liệu",
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "tổ chức tổ chức",
+                    "to": "tổ chức"
+                  }
+                ],
+                "document_id": "055c47bf412172c0",
+                "family": "F1",
+                "field": "introduction",
+                "format": "portable-2.0",
+                "locator": {
+                  "end_char": 718,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4",
+                  "start_char": 364
+                },
+                "major": "data_science",
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "7170857aebdc027daccc37102dd937bd",
+                  "citation": {
+                    "end_char": 718,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 364,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "tổ chức tổ chức",
+                      "to": "tổ chức"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "introduction",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.",
+                  "source_unit_id": "cb96b7ebe379863ada36f971",
+                  "text": "Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới."
+                },
+                "program_variant": "unknown",
+                "program_version": "unknown",
+                "raw_original_verified": true,
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "review": {
+                  "status": "include"
+                },
+                "review_scope": "whole_document",
+                "review_status": "include",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "source_quote": "Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.",
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "source_state": "selected_for_local_rag_demo",
+                "source_unit_id": "cb96b7ebe379863ada36f971",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "title": "Khoa học Dữ liệu",
+                "unit_id": "cb96b7ebe379863ada36f971",
+                "usage_scope": "descriptive",
+                "validity_status": "unknown"
+              },
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "quote": "Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.",
+              "review_status": "include",
+              "source_id": "055c47bf412172c0",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+            },
+            {
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "citation_id": "2",
+              "content_origin": "crawled_source_quote",
+              "dataset": "f1",
+              "display_label": "Khoa học Dữ liệu",
+              "document_sha256": null,
+              "evidence_kind": "web",
+              "label": "Khoa học Dữ liệu",
+              "locator": {
+                "end_char": 1043,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 863
+              },
+              "media_type": null,
+              "metadata": {
+                "academic_verified": false,
+                "admission_cohort": "unknown",
+                "answer_eligible": true,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+                "citation": {
+                  "end_char": 1043,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 863,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "citation_title": "Khoa học Dữ liệu",
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "document_id": "055c47bf412172c0",
+                "family": "F1",
+                "field": "introduction",
+                "format": "portable-2.0",
+                "locator": {
+                  "end_char": 1043,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4",
+                  "start_char": 863
+                },
+                "major": "data_science",
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+                  "citation": {
+                    "end_char": 1043,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 863,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "introduction",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+                  "source_unit_id": "44b8c1f141e02b71989797f8",
+                  "text": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp."
+                },
+                "program_variant": "unknown",
+                "program_version": "unknown",
+                "raw_original_verified": true,
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "review": {
+                  "status": "include"
+                },
+                "review_scope": "whole_document",
+                "review_status": "include",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "source_quote": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "source_state": "selected_for_local_rag_demo",
+                "source_unit_id": "44b8c1f141e02b71989797f8",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "title": "Khoa học Dữ liệu",
+                "unit_id": "44b8c1f141e02b71989797f8",
+                "usage_scope": "descriptive",
+                "validity_status": "unknown"
+              },
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "quote": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+              "review_status": "include",
+              "source_id": "055c47bf412172c0",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+            },
+            {
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "citation_id": "3",
+              "content_origin": "crawled_source_quote",
+              "dataset": "f1",
+              "display_label": "Khoa học Dữ liệu",
+              "document_sha256": null,
+              "evidence_kind": "web",
+              "label": "Khoa học Dữ liệu",
+              "locator": {
+                "end_char": 1276,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 1044
+              },
+              "media_type": null,
+              "metadata": {
+                "academic_verified": false,
+                "admission_cohort": "unknown",
+                "answer_eligible": true,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "a02e3fe443e340a42147fca61503d628",
+                "citation": {
+                  "end_char": 1276,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 1044,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "citation_title": "Khoa học Dữ liệu",
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "dữ iệu",
+                    "to": "dữ liệu"
+                  }
+                ],
+                "document_id": "055c47bf412172c0",
+                "family": "F1",
+                "field": "introduction",
+                "format": "portable-2.0",
+                "locator": {
+                  "end_char": 1276,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4",
+                  "start_char": 1044
+                },
+                "major": "data_science",
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "a02e3fe443e340a42147fca61503d628",
+                  "citation": {
+                    "end_char": 1276,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 1044,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "dữ iệu",
+                      "to": "dữ liệu"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "introduction",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.",
+                  "source_unit_id": "cba566cf01a829fd179a3fa5",
+                  "text": "Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ liệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu."
+                },
+                "program_variant": "unknown",
+                "program_version": "unknown",
+                "raw_original_verified": true,
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "review": {
+                  "status": "include"
+                },
+                "review_scope": "whole_document",
+                "review_status": "include",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "source_quote": "Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.",
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "source_state": "selected_for_local_rag_demo",
+                "source_unit_id": "cba566cf01a829fd179a3fa5",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "title": "Khoa học Dữ liệu",
+                "unit_id": "cba566cf01a829fd179a3fa5",
+                "usage_scope": "descriptive",
+                "validity_status": "unknown"
+              },
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "quote": "Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.",
+              "review_status": "include",
+              "source_id": "055c47bf412172c0",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+            }
+          ],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "version": null,
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ]
+        },
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown"
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search": {
+        "hits": [
+          {
+            "chunk_id": "7170857aebdc027daccc37102dd937bd",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "introduction",
+            "major": "data_science",
+            "matched_terms": [
+              "nganh",
+              "theo",
+              "truong"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 2.237272463689755,
+            "version": "unknown"
+          },
+          {
+            "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "introduction",
+            "major": "data_science",
+            "matched_terms": [
+              "nganh",
+              "vien"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 0.6555715712872222,
+            "version": "unknown"
+          },
+          {
+            "chunk_id": "a02e3fe443e340a42147fca61503d628",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "introduction",
+            "major": "data_science",
+            "matched_terms": [
+              "nganh",
+              "vien"
+            ],
+            "program_variant": "unknown",
+            "review_status": "include",
+            "score": 0.6304823687007517,
+            "version": "unknown"
+          }
+        ],
+        "parameters": {
+          "allow_generated": false,
+          "course_code": null,
+          "dataset": "f1",
+          "field": "introduction",
+          "major": "data_science",
+          "program_variant": null,
+          "top_k": 5,
+          "version": null
+        },
+        "query": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?"
+      },
+      "trace": {
+        "filtered_ids": [
+          "7170857aebdc027daccc37102dd937bd",
+          "21625268a830b8656f4b5bd4f07a9f80",
+          "a02e3fe443e340a42147fca61503d628"
+        ],
+        "input_ids": [
+          "7170857aebdc027daccc37102dd937bd",
+          "21625268a830b8656f4b5bd4f07a9f80",
+          "a02e3fe443e340a42147fca61503d628"
+        ],
+        "kept_ids": [
+          "7170857aebdc027daccc37102dd937bd",
+          "21625268a830b8656f4b5bd4f07a9f80",
+          "a02e3fe443e340a42147fca61503d628"
+        ],
+        "last_line": 272,
+        "missing_body_tokens_last_group": [],
+        "query_after_scope_and_syntax": "theo   nganh khdl co nhung vai tro nao tai don vi truong va vien",
+        "question": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?",
+        "requested_variants": [],
+        "requested_versions": [
+          "unknown"
+        ],
+        "route": [
+          "f1",
+          "introduction"
+        ],
+        "specific_tokens": [],
+        "supported": true
+      }
+    },
+    {
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7S-Q027-source"
+        ],
+        "expected_answer": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên\nnhững kiến thức, kỹ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic,\nphương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng,\nmô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để\ngiải quyết;\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng\ncao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân,\ncủa công việc và của nền kinh tế.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "question_id": "A7S-Q027",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7S-Q027",
+      "saved_request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "further_study",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search": {
+        "hits": [
+          {
+            "chunk_id": "bdc3538f018be0658be658d8ccaf6e8e",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "further_study",
+            "major": "mathematics",
+            "matched_terms": [
+              "cao",
+              "hoc",
+              "hon",
+              "kha",
+              "lieu",
+              "nang",
+              "nganh",
+              "nhu",
+              "tai",
+              "toan",
+              "trinh"
+            ],
+            "program_variant": "standard",
+            "review_status": "include_markdown",
+            "score": 4.415330441429403,
+            "version": "2015"
+          }
+        ],
+        "parameters": {
+          "allow_generated": false,
+          "course_code": null,
+          "dataset": "f1",
+          "field": "further_study",
+          "major": "mathematics",
+          "program_variant": "standard",
+          "top_k": 5,
+          "version": null
+        },
+        "query": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?"
+      },
+      "trace": {
+        "filtered_ids": [
+          "bdc3538f018be0658be658d8ccaf6e8e"
+        ],
+        "input_ids": [
+          "bdc3538f018be0658be658d8ccaf6e8e"
+        ],
+        "kept_ids": [],
+        "last_line": 273,
+        "missing_body_tokens_last_group": [
+          "bay"
+        ],
+        "query_after_scope_and_syntax": "theo     tai lieu nganh toan hoc trinh bay kha nang hoc cao hon nhu the nao",
+        "question": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?",
+        "requested_variants": [
+          "standard"
+        ],
+        "requested_versions": [
+          "2015"
+        ],
+        "route": [
+          "f1",
+          "further_study"
+        ],
+        "specific_tokens": [
+          "bay"
+        ],
+        "supported": false
+      }
+    },
+    {
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7S-Q037-source"
+        ],
+        "expected_answer": "2. Mục tiêu đào tạo\nChương trình đào tạo đại học ngành Toán - Tin ứng dụng nhằm trang bị cho\nsinh viên những kiến thức cơ sở vững chắc về Toán học và Tin học, và các kiến\nthức chuyên ngành mang tính liên ngành Toán ứng dụng và Tin học. Sinh viên\nđược đào tạo ngành này do vậy có thể tham gia nhiều vị trí và lĩnh vực công tác\nkhác nhau, từ các vị trí nghiên cứu chuyên sâu về Toán ứng dụng nhằm đưa ra\nvà phát triển các phương pháp luận, mô hình trong các lĩnh vực tính toán hình\n6\n\n<!-- Page 5 -->\nthức, bảo mật thông tin, tính toán mềm v.v. đến các vị trí đòi hỏi kiến thức Tin\nhọc như xây dựng các công cụ, chương trình máy tính, phục vụ trở lại các mô\nhình tính toán phức tạp trong các lĩnh vực tính toán khoa học.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7S-Q037",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7S-Q037",
+      "saved_request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search": {
+        "hits": [
+          {
+            "chunk_id": "1648ebdddb5ae44b8b34dc340deff05a",
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "dataset": "f1",
+            "field": "objectives",
+            "major": "mathematics_informatics",
+            "matched_terms": [
+              "chuan",
+              "dao",
+              "muc",
+              "nganh",
+              "ra",
+              "tao",
+              "tieu",
+              "tin",
+              "toan",
+              "trinh"
+            ],
+            "program_variant": "standard",
+            "review_status": "include_markdown",
+            "score": 4.321675700809799,
+            "version": "2015"
+          }
+        ],
+        "parameters": {
+          "allow_generated": false,
+          "course_code": null,
+          "dataset": "f1",
+          "field": "objectives",
+          "major": "mathematics_informatics",
+          "program_variant": "standard",
+          "top_k": 5,
+          "version": null
+        },
+        "query": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?"
+      },
+      "trace": {
+        "filtered_ids": [
+          "1648ebdddb5ae44b8b34dc340deff05a"
+        ],
+        "input_ids": [
+          "1648ebdddb5ae44b8b34dc340deff05a"
+        ],
+        "kept_ids": [],
+        "last_line": 273,
+        "missing_body_tokens_last_group": [
+          "bay"
+        ],
+        "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin duoc trinh bay ra sao",
+        "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?",
+        "requested_variants": [
+          "standard"
+        ],
+        "requested_versions": [
+          "2015"
+        ],
+        "route": [
+          "f1",
+          "objectives"
+        ],
+        "specific_tokens": [
+          "bay"
+        ],
+        "supported": false
+      }
+    }
+  ],
+  "current_pins_match": true,
+  "gold_modified": false,
+  "guard_probes": [
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [
+        "251ab61e0d6a58faa68914d59fa45516"
+      ],
+      "kind": "minimal_request_word_contrast",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien va quan tri du an cua khdl co dieu kien nao",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL có điều kiện nào?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "lap"
+      ],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [
+        "251ab61e0d6a58faa68914d59fa45516"
+      ],
+      "kind": "minimal_request_word_contrast",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien va quan tri du an cua khdl duoc neu dieu kien nao",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu điều kiện nào?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "lap"
+      ],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "kind": "minimal_request_word_contrast",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "kem"
+      ],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien va quan tri du an cua khdl co kem dieu kien nao",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL có kèm điều kiện nào?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "kem",
+        "lap"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "kind": "minimal_request_word_contrast",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "kem"
+      ],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien va quan tri du an cua khdl duoc neu kem dieu kien nao",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "kem",
+        "lap"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q027",
+      "filtered_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "input_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kept_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "theo     kha nang hoc cao hon nganh toan hoc the nao",
+      "question": "Theo edition 2015 hệ chuẩn, khả năng học cao hơn ngành Toán học thế nào?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "further_study"
+      ],
+      "specific_tokens": [],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q027",
+      "filtered_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "input_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kept_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "theo       kha nang hoc cao hon nganh toan hoc",
+      "question": "Theo edition 2015 hệ chuẩn, hãy trình bày khả năng học cao hơn ngành Toán học.",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "further_study"
+      ],
+      "specific_tokens": [],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q027",
+      "filtered_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "input_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kept_ids": [],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "bay"
+      ],
+      "query_after_scope_and_syntax": "theo     tai lieu nganh toan hoc trinh bay kha nang hoc cao hon nhu the nao",
+      "question": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "further_study"
+      ],
+      "specific_tokens": [
+        "bay"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q027",
+      "filtered_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "input_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "kept_ids": [],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "bay"
+      ],
+      "query_after_scope_and_syntax": "theo     nganh toan hoc co nang luc trinh bay bao cao khong",
+      "question": "Theo edition 2015 hệ chuẩn, ngành Toán học có năng lực trình bày báo cáo không?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "bay"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin la gi",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin là gì?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 272,
+      "missing_body_tokens_last_group": [],
+      "query_after_scope_and_syntax": "theo       muc tieu dao tao cua nganh toan tin",
+      "question": "Theo edition 2015 hệ chuẩn, hãy trình bày mục tiêu đào tạo của ngành Toán tin.",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [],
+      "supported": true
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "bay"
+      ],
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin duoc trinh bay ra sao",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "bay"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "presentation_grammar_vs_skill",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "bay"
+      ],
+      "query_after_scope_and_syntax": "theo     nganh toan tin dao tao nang luc trinh bay bao cao the nao",
+      "question": "Theo edition 2015 hệ chuẩn, ngành Toán tin đào tạo năng lực trình bày báo cáo thế nào?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "bay"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "scope_domain_and_factual_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": null,
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin la gi",
+      "question": "Theo edition 2008 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin là gì?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2008"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "scope_domain_and_factual_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": null,
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin la gi",
+      "question": "Theo edition 2015 hệ CLC, mục tiêu đào tạo của ngành Toán tin là gì?",
+      "requested_variants": [
+        "high_quality"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "scope_domain_and_factual_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": null,
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao nganh toan tin ve luong tu la gi",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo ngành Toán tin về lượng tử là gì?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "luong"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "scope_domain_and_factual_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "997"
+      ],
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao nganh toan tin co 997 huong",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo ngành Toán tin có 997 hướng?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "997"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q037",
+      "filtered_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "input_ids": [
+        "1648ebdddb5ae44b8b34dc340deff05a"
+      ],
+      "kept_ids": [],
+      "kind": "scope_domain_and_factual_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "thiet"
+      ],
+      "query_after_scope_and_syntax": "theo     muc tieu dao tao cua nganh toan tin duoc thiet ke ra sao",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được thiết kế ra sao?",
+      "requested_variants": [
+        "standard"
+      ],
+      "requested_versions": [
+        "2015"
+      ],
+      "route": [
+        "f1",
+        "objectives"
+      ],
+      "specific_tokens": [
+        "thiet"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "kind": "factual_attribute_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "hang"
+      ],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien nganh khdl tai doanh nghiep hang khong co dieu kien gi",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên ngành KHDL tại doanh nghiệp hàng không có điều kiện gì?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "hang",
+        "lap"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "kind": "factual_attribute_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": [
+        "27001",
+        "chung",
+        "iso"
+      ],
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien nganh khdl duoc chung nhan iso 27001 khong",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên ngành KHDL được chứng nhận ISO 27001 không?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "27001",
+        "chung",
+        "iso",
+        "lap"
+      ],
+      "supported": false
+    },
+    {
+      "cached_hits_from": "A7S-Q013",
+      "filtered_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "kind": "factual_attribute_negative",
+      "last_line": 273,
+      "missing_body_tokens_last_group": null,
+      "query_after_scope_and_syntax": "o   vi tri lap trinh vien nganh khdl da co kinh nghiem 5 nam chua",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên ngành KHDL đã có kinh nghiệm 5 năm chưa?",
+      "requested_variants": [],
+      "requested_versions": [
+        "unknown"
+      ],
+      "route": [
+        "f1",
+        "careers"
+      ],
+      "specific_tokens": [
+        "5",
+        "kinh",
+        "lap",
+        "nghiem"
+      ],
+      "supported": false
+    }
+  ],
+  "kind": "cached_exposed_router_guard_diagnostic_not_new_A7_score",
+  "route_probes": [
+    {
+      "question": "Ngành KHDL có những vai trò nào tại đơn vị trường và viện?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Ngành KHDL có những công việc nào tại đơn vị trường và viện?",
+      "route": [
+        "f1",
+        "careers"
+      ]
+    },
+    {
+      "question": "Ngành KHDL có những vai trò nào tại doanh nghiệp?",
+      "route": [
+        "f1",
+        "careers"
+      ]
+    },
+    {
+      "question": "Vai trò của trường và viện trong đào tạo ngành KHDL là gì?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Vai trò của doanh nghiệp trong đào tạo ngành KHDL là gì?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Vai trò của môn MAT1202 trong chương trình Toán tin là gì?",
+      "route": [
+        null,
+        null
+      ]
+    },
+    {
+      "question": "Những vai trò nào của ngành KHDL trong bệnh viện?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Ngành KHDL có những vai trò nào tại viện nghiên cứu?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Ngành KHDL có những vai trò nào tại trường đại học?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Ngành KHDL có cơ hội giảng dạy ở doanh nghiệp không?",
+      "route": [
+        "f1",
+        "introduction"
+      ]
+    },
+    {
+      "question": "Không hỏi giảng dạy tại trường; chỉ hỏi nghề nghiệp ở doanh nghiệp.",
+      "route": [
+        "f1",
+        "careers"
+      ]
+    }
+  ],
+  "runtime_modified": false
+}

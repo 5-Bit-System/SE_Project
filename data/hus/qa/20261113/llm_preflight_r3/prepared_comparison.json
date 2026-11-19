@@ -1,0 +1,539 @@
+{
+  "attempts": {
+    "network": 0,
+    "provider_construction": 0
+  },
+  "baseline_request_gold_evidence_retrieval_prompt_exact_matches": 36,
+  "cases": 36,
+  "comparison": [
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q001"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q002"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q003"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q004"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q005"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q006"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q007"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q008"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q009"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q010"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q011"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q012"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q013"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q014"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q015"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q016"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q017"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q018"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q019"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q020"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q021"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q022"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q023"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q024"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q025"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q026"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q027"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q028"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q029"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q030"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q031"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q032"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q033"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q034"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q035"
+    },
+    {
+      "equal_fields": {
+        "baseline": true,
+        "effective_request": true,
+        "gold": true,
+        "gold_evidence": true,
+        "prompt": true,
+        "question_id": true,
+        "request": true,
+        "retrieval_calls": true,
+        "source_audit": true
+      },
+      "question_id": "L5V4-Q036"
+    }
+  ],
+  "controls": 12,
+  "current_pins_match": true,
+  "export": {
+    "positive_cases": 24,
+    "possible_http_calls": 24,
+    "prompt_budget_fallbacks": 0,
+    "raw_headers_or_keys": false
+  },
+  "live_calls_authorized": 0,
+  "old_r2_pins_match": false,
+  "payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+  "payloads_byte_equal_previously_reviewed": true,
+  "pins_sha256": "a13f21c4883707ac4be51c1260e70cc5c8efbae33bf864128dad4214c3bc3982",
+  "positive_family_counts": {
+    "f1": 8,
+    "f2": 8,
+    "f3": 8
+  },
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r3",
+  "prepared_manifest_sha256": "a18e1ca9924e71ad4bfc112f3b976dfe39c03c953dd60b04040a2cf443760587",
+  "privacy_review": "Prior full public-payload review reusable only where payload bytes are identical; no backend key read.",
+  "prompt_chars": 98268,
+  "provider_access_verified": false,
+  "source_audits_passed": 36,
+  "valid_positive_prompts": 24
+}

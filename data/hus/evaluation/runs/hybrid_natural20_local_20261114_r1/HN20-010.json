@@ -1,0 +1,90 @@
+{
+  "id": "HN20-010",
+  "request": {
+    "question": "Ngành Khoa học dữ liệu có định hướng nghề nghiệp nào?",
+    "major": "mathematics_informatics",
+    "version": "QD3567-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f1",
+    "field": "careers",
+    "course_code": null,
+    "outcome": "scope_conflict",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": []
+  },
+  "raw_question_route": [
+    "f1",
+    "careers"
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "scope_conflict",
+            "suggested_major": "data_science"
+          }
+        }
+      },
+      "seconds": 0.0021766999852843583,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "scope_conflict",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "scope_conflict",
+            "suggested_major": "data_science"
+          }
+        }
+      },
+      "seconds": 0.0018693999736569822,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "scope_conflict",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

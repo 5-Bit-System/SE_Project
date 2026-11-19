@@ -1,0 +1,7 @@
+{
+  "status": "aborted_before_native",
+  "reason": "diagnostic helper used UI F2 version instead of effective F1 version; canonical scope validator rejected it",
+  "google_calls": 0,
+  "native_hybrid_searches": 0,
+  "superseded_by_separate_run": "focused_answer_offline_20261115_r2"
+}

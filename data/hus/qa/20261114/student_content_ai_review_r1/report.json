@@ -1,0 +1,38 @@
+{
+  "F2_canonical_values_checked": 8,
+  "Google_calls": 0,
+  "controls_no_call": 6,
+  "document_sha256_at_creation": "30aa89233b46b0b570230348e89f3abfca7f39e2c26abd5a0459a9b0e437df2b",
+  "draft_created_at_utc": "2026-11-14T10:19:27.396984+00:00",
+  "draft_files_sha256_at_creation": {
+    "README.md": "38139cfd5e74e1e4f1ef05ad357a14aced69ce27e3788d9a2369bee6e3f79047",
+    "ai_preliminary_review.json": "3e05ce1f36efe7cfaccc60480ce02d2e4b11c1f5fff1b756624b2e50ad666228",
+    "review_group_return.csv": "acaa445c66a73dbae0c130c08fdf63c0cab032f4a1b5baf722189dbc60f26e5f",
+    "summary.json": "05ce2654813fe1928cb98b5600881b64059a72ad530d70562b2b590eff910c70"
+  },
+  "exact_source_quotes_checked": 32,
+  "example_assumption_notes_cases": [
+    "SV30-005",
+    "SV30-017"
+  ],
+  "focus_findings_cases": [
+    "SV30-005",
+    "SV30-011",
+    "SV30-017",
+    "SV30-023"
+  ],
+  "historical_live_used": 23,
+  "historical_positive_fallback": 1,
+  "human_edit_policy": "Return CSV may be edited by group. Receipt hashes describe creation only; do not overwrite subsequent user edits.",
+  "kind": "AI_preliminary_student30_review_not_team_acceptance",
+  "new_accuracy_score": null,
+  "note": "Comments authored after reading all30 replies; source/hash assertions support integrity, not semantic truth. Human columns intentionally blank.",
+  "original_review_csv_sha256": "58b3d3843ad70ddcaac888f6e26a964d74bf343cda6301f9969fe11a073921a6",
+  "pack_manifest_sha256": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+  "protected_files_unchanged": 3095,
+  "reviewed_by_AI": 30,
+  "run_manifest_sha256": "7790d63e69b6d46d7e58f040a1bb10123560c11f2dc627b3b2ae54bd0ff96980",
+  "runtime_changed": false,
+  "team_pending": 30,
+  "team_reviewed": 0
+}

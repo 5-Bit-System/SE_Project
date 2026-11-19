@@ -1,0 +1,59 @@
+{
+  "actual_human_reviews": 0,
+  "date": "2026-11-12",
+  "f3_binding": {
+    "S06_matches_pinned_sha256": true,
+    "S07_matches_pinned_sha256": true
+  },
+  "http_404_captures": [
+    "S03",
+    "S08"
+  ],
+  "independent_acceptance": false,
+  "inventory": {
+    "academic_verified": 0,
+    "ai_cases_reviewed": 4,
+    "ai_disclosure_required": 290,
+    "ai_fields_reviewed": 8,
+    "all_corpus_scientific_or_syllabus_review_claimed": false,
+    "candidate_by_major": {
+      "computer_science": 44,
+      "mathematics_informatics": 62
+    },
+    "candidate_documents": 2,
+    "candidate_syllabi": 106,
+    "canonical_candidate_links": 84,
+    "f3_majors": {
+      "computer_science": 67,
+      "data_science": 65,
+      "mathematics": 90,
+      "mathematics_informatics": 68
+    },
+    "f3_records": 290,
+    "links_do_not_authorize_retrieval_or_validity": true,
+    "official_fields_non_null": 0
+  },
+  "kind": "bounded_source_scope_review",
+  "limits": [
+    "A live URL/hash confirms bytes at capture time, not amendment/current-validity/student applicability.",
+    "Q001 still lacks approved variant binding for selected admission quote; no CLC inference.",
+    "Indexed2012PDF is a lead only: direct HTTP/HTTPS404, no fresh binary or image review.",
+    "Bounded official searches did not produce a complete adoption/amendment chain; absence not proved.",
+    "Four conceptual references checked via web, not a sentence-by-sentence reference audit or HUS certification."
+  ],
+  "llm_enabled": false,
+  "new_academic_verification_granted": 0,
+  "new_official_f3_fields_approved": 0,
+  "new_provider_calls": 0,
+  "physical_pdf_pages_observed": 11,
+  "q001_verdict": "partial_corroboration_historical_2012_supported_explicit_variant_binding_still_open",
+  "retrieval": "lexical",
+  "reviewer_kind": "ai",
+  "runtime_metadata_or_gold_modified": false,
+  "runtime_release_selected": "hus-data-20261111-v4",
+  "scope": "Q001 historical admission variant; four AI F3 cases/eight fields; two current syllabus binaries; validity limitations.",
+  "successful_current_captures": 6,
+  "web_index_pdf_lead_not_recovered": [
+    "S03"
+  ]
+}

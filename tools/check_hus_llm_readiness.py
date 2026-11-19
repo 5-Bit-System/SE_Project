@@ -14,6 +14,51 @@ from tools.hus_rag_metrics_v2 import digest_json
 from tools.validate_hus_holdout import ROOT
 
 
+def evidence_pins(prepared: dict) -> tuple[dict, dict]:
+    """Bind v4 source identity without rebuilding historical prompts or running RAG."""
+    provenance = prepared.get('provenance', {})
+    is_v4 = ('v4_source_pack' in prepared['pins']
+             or 'source_pack' in provenance or 'v4' in provenance.get('kind', ''))
+    if not is_v4:
+        return current_pins(), {'evidence_version': 'legacy'}
+    from tools import evaluate_hus_llm_v4 as v4
+
+    if (provenance.get('kind') != 'AI-authored exposed v4 development'
+            or not isinstance(provenance.get('source_pack'), str)):
+        raise ValueError('Missing or unknown v4 source pack provenance')
+    pack = (ROOT / provenance['source_pack']).resolve()
+    source = v4.checked_pack(pack)
+    if (digest(pack / 'manifest.json') != provenance.get('source_pack_manifest_sha256')
+            or provenance.get('release') != source['release']):
+        raise ValueError('V4 source pack/release binding changed')
+    records = prepared['records']
+    if (len(records) != len(source['cases']) or prepared['model'] != source['model']
+            or prepared['base_url'] != BASE_URL):
+        raise ValueError('V4 prepared cohort/model differs from pack')
+    oracle = v4.V4EvidenceOracle()
+    for record, case in zip(records, source['cases'], strict=True):
+        if any(record.get(key) != value for key, value in case.items()):
+            raise ValueError('V4 prepared case differs from source pack')
+        original = v4.HUSQuestion.model_validate(case['request'])
+        effective = v4.HUSQuestion.model_validate(record['effective_request'])
+        if (effective.question != original.question or effective.major != original.major
+                or effective.allow_llm_rewrite
+                or effective.allow_generated_reference != original.allow_generated_reference
+                or (original.version is not None and effective.version != original.version)):
+            raise ValueError('V4 effective request differs from frozen cohort intent')
+        audit = oracle.audit(record)
+        if not audit['passed'] or record.get('source_audit') != audit:
+            raise ValueError('V4 prepared baseline fails source audit')
+    # Prompt hashes remain bound to the saved responses by replay(). Comparing
+    # current pins below blocks reuse after a protocol/code/source change, rather
+    # than trying to validate an old prompt with the new prompt builder.
+    return v4.current_pins(pack), {
+        'evidence_version': 'v4', 'source_pack': pack.relative_to(ROOT).as_posix(),
+        'source_pack_manifest_sha256': digest(pack / 'manifest.json'),
+        'source_release': source['release'],
+    }
+
+
 def assess(folder: Path, *, model: str = MODEL) -> dict:
     """Only verified, current, live, semantically reviewed evidence can qualify.
 
@@ -32,9 +77,11 @@ def assess(folder: Path, *, model: str = MODEL) -> dict:
         reasons.add('no_live_measurement')
     if report['requested_model'] != model:
         reasons.add('requested_model_changed')
+    if not metrics['actual_models'] or set(metrics['actual_models']) != {model}:
+        reasons.add('observed_model_changed')
     if report.get('base_url') != BASE_URL:
         reasons.add('google_https_endpoint_required')
-    pins = current_pins()
+    pins, evidence = evidence_pins(prepared)
     if pins != prepared['pins']:
         reasons.add('pins_changed')
     if not report['collection_complete'] or metrics['eligible_not_attempted']:
@@ -86,7 +133,7 @@ def assess(folder: Path, *, model: str = MODEL) -> dict:
             or (all(type(v) in {int, float} for v in samples) and samples[1] < samples[0])):
         reasons.add('latency_unavailable')
     qualifies = not reasons and not blocked
-    return {'schema_version': 'hus-llm-readiness-1.0',
+    return {'schema_version': 'hus-llm-readiness-1.0', **evidence,
         'scope': 'L5 evidence readiness only; operator rollback/latency acceptance remains separate',
         'source_manifest_sha256': digest(Path(folder) / 'manifest.json'),
         'assessor_sha256': digest(Path(__file__)),
@@ -99,6 +146,8 @@ def assess(folder: Path, *, model: str = MODEL) -> dict:
         'reasons': sorted(reasons), 'blocked_cases': blocked,
         'used': metrics['used'], 'fallback': metrics['fallback'], 'provider_requests': metrics['provider_requests'],
         'token_usage': metrics['token_usage'], 'used_latency': latency,
+        'fallback_latency': metrics['latency'].get('rewrite_fallback'),
+        'fallback_reasons': metrics.get('fallback_reasons', {}),
         'supported_complete_readability_gains': gain,
         'reviewer_kind': semantic.get('reviewer_kind'), 'actual_human_reviews': report['actual_human_reviews'],
         'independent_holdout_accepted': False,

@@ -1,0 +1,85 @@
+{
+  "all_reference_full_coverage_approved": false,
+  "all_sentence_entailment_approved": false,
+  "analytic_illustrations": 12,
+  "cached_a7r_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "cohort2022_in2023decisions": "direct Article2 in4official captures",
+  "current_validity_and_complete_amendment_chain": "not verified",
+  "defaults": "v4/lexical/LLMoff",
+  "examples": 18,
+  "expert_reviews": 0,
+  "fields": 58,
+  "flagged_examples": 3,
+  "flagged_locations": [
+    {
+      "course_code": "MAT1204",
+      "json_pointer": "/profile/units/1/example",
+      "reason": "Cần reviewer chốt chữ “vì”: chỉ là tình huống giả định về khả năng khác biệt do nhóm/cách đo, không phải kết luận nhân quả về hai nghiên cứu có thật."
+    },
+    {
+      "course_code": "MAT2300",
+      "json_pointer": "/profile/units/2/example",
+      "reason": "Cần reviewer làm rõ tập vectơ sinh có ít nhất một vectơ khác 0; nếu chỉ gồm vectơ 0 thì span có chiều 0. Đường thẳng không qua gốc bị loại khi nhân 0."
+    },
+    {
+      "course_code": "MAT2300",
+      "json_pointer": "/profile/units/4/example",
+      "reason": "Cần reviewer chốt mặt phẳng đi qua gốc và phép chiếu tuyến tính (vuông góc cho cách nói phương vuông góc). Chiếu lên z=1 là affine, 0 không đi về 0 nên không dùng kernel/rank-nullity như ví dụ."
+    }
+  ],
+  "glossary_units": 18,
+  "human_review_status": "pending; user confirms no reviewer yet, prepare packet first",
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "kind": "reviewer_preparation_not_expert_acceptance",
+  "l5_r5_pins": "still stale, no new prepare",
+  "live_budgets": "all spent",
+  "llm_code_bindings_match_last_receipt": true,
+  "new_google_calls": 0,
+  "new_pdf_bytes_equal_repository_copies": 4,
+  "new_pdf_images_rendered_and_viewed": 8,
+  "new_public_capture_200": 6,
+  "new_public_capture_errors": [
+    "H25"
+  ],
+  "new_rag_inference": false,
+  "new_repository_tests": false,
+  "next": "Assign expert and return separate exact-hash sentence/assumption/syllabus review; candidate+integration+rollback required before any content/reference runtime change.",
+  "official_promotions": 0,
+  "old_s06_chapter_pages_text_reread": [
+    52,
+    53,
+    54
+  ],
+  "old_s06_cover_images_viewed": 2,
+  "pdf_scope": "First2pages of4curriculum PDFs, S06cover1-2; no claim of full PDF image review",
+  "prior_anchors_verified": 51,
+  "prior_core_items": 36,
+  "profiles": 4,
+  "protected_unchanged_files": 2971,
+  "publication": "no stage/commit/push/PR/Actions/deploy",
+  "q001_current_runtime_scope": "unchanged unknown",
+  "q001_first_intake_year": "direct2012industry evidence, standard-variant binding still open",
+  "review_manifest_sha256": "5c9755787347a55663c95c774f485db63e369f7767fb01cd9df8747fca8e7203",
+  "runtime_data_gold_run_oldreview_changed": false,
+  "sentences": 80,
+  "supplementary_editions": "MIT2011/2014/2016, OracleJDK8, GeorgiaTech2019, Liskov-Wing1994, FNC captured web/SciPy1.18 etc are references, not HUS edition equivalence",
+  "tests_note": "No runtime/test changes, no suite repetition; reference/hash/locator/analytic checks only, not semantic unit tests"
+}

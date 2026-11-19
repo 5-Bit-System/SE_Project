@@ -1,0 +1,16 @@
+{
+  "academic_verified": false,
+  "content_origin_still_generated": true,
+  "full_item_coverage_verified": false,
+  "human_reviews": 0,
+  "independent_review": false,
+  "official_HUS_alignment_promoted": 0,
+  "previous_15_core_rows_unchanged": true,
+  "prior_manifest_sha256": "c31f9eb00b25083e7f44be985da51338363aed224cd3dd1ab46dacfaae68ad44",
+  "prior_review": "data/hus/review/field_edition_20261113_r1",
+  "status_definition": {
+    "core_supported": "Selected core concept has a specific reference anchor, not full sentence/example or HUS verification.",
+    "open": "No direct paragraph in checked selection; not proof claim is false.",
+    "partial": "Some concept support exists; the recorded remaining limits stay open."
+  }
+}

@@ -6,6 +6,14 @@ Client HTTP gọi trực tiếp Google Gemini cho chatbot hỏi đáp HUS, dùng
 Import package, đọc cấu hình và khởi tạo client đều không kết nối provider.
 Client không import cấu hình hoặc dịch vụ recommendation.
 
+Launcher Gemini hiện tự bật thêm `HUS_LLM_INTENT_ENABLED=true` trong process:
+`intent.py` chỉ xử lý câu `routing_unknown`, kiểm JSON ý định và mã/tên môn của
+phạm vi đã chọn, giữ câu gốc/phiên bản/quyền. Backend tự tính đếm/liệt kê danh mục
+F2; không nhận giá trị do model tạo. Một câu có thể cần2 call (ý định + diễn đạt),
+metadata `interpretation` và `generation` riêng. Quota429 dùng chung khóa process;
+lỗi khác báo API502 theo profile auto. Offline/API manual không tự bật bước này.
+[Hợp đồng và giới hạn](../../../docs/RAG_INTENT_F2_CATALOG_2026_11_14.md).
+
 Mẫu cấu hình trong `.env.example`:
 
 ```dotenv
@@ -223,8 +231,15 @@ Tách used/fallback/guard/not-attempted, lỗi, quota và latency provider/diễ
 Latency incremental bỏ thời gian pacing của phép đo, không phải SLO production.
 
 CLI live yêu cầu `--live --env-file`, tối đa 24 lời gọi, cách nhau ít nhất 5 giây;
-429 đóng circuit trước khi đọc body, không retry hoặc chuyển model/provider.
+401/429 đóng circuit ngay; hai403 liên tiếp đóng circuit cho phần còn lại của
+batch, kể cả khi body lỗi/timeout. Phản hồi HTTP khác hoặc transport error ngắt
+chuỗi403. Không retry hoặc chuyển model/provider. Đây là circuit của runner L5,
+không phải circuit dùng chung giữa các request chatbot.
+Client chỉ phân loại JSON lỗi tối đa16.384 bytes thành mã/nhóm cố định; không
+lưu thông báo thô, header, project ID hoặc key. Nhóm lỗi là thông tin provider
+báo, không tự xác minh trạng thái tài khoản. HTTP403 chung vẫn chưa rõ nguyên nhân.
 Chỉ bật cờ trong process đo rồi khôi phục, không sửa `.env` hoặc bật LLM mặc định.
+[Chẩn đoán403, prepared mới và điều kiện gọi tiếp](../../../docs/RAG_LLM_ACCESS_DIAGNOSTIC_2026_11_13.md).
 Các lệnh tạo artifact yêu cầu đường dẫn mới dưới `data/hus/evaluation/runs`:
 
 ```powershell

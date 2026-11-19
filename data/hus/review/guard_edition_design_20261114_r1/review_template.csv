@@ -1,0 +1,6 @@
+﻿case_id,question,ai_issue,ai_proposal,reviewer,review_date,source_scope_correct,required_ideas_complete,comments
+HN20-006,Cho mình một bức tranh khái quát về ngành Toán tin.,bounded request grammar,Whole overview request phrase; preserve unknown source identity and other requirements.,,,,,
+HN20-009,"Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",domain tokens removed as course-name tokens,Separate objects/inheritance aspects; full title only as locator; require direct definitions.,,,,,
+HN20-012,Nếu muốn học tiếp sau KHMTTT thì có những hướng nào?,edition and variant/source ambiguity,Ask source edition/variant before generation; never blend standard/high-quality/unknown sources.,,,,,
+HN20-014,Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?,partial token match expands all units,Focused required explanation/condition spans for research question and scope.,,,,,
+HN20-019,Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?,concept paraphrase rejected lexically,"Reviewed concept candidate mapping; preserve modality, noise/training/new-data qualifications and alternatives.",,,,,

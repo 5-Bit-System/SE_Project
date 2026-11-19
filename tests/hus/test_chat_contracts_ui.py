@@ -34,6 +34,8 @@ def test_multifield_and_followup_show_clarification_without_citations(page):
         answer = send(page, question)['hus_answer']
         assert answer['status'] == 'needs_clarification'
         expect(page.locator('#rag-status')).to_contain_text('làm rõ')
+        if answer['diagnostic']['code'] == 'unsupported_operation':
+            expect(page.locator('#rag-status')).to_contain_text('Yêu cầu này chưa được triển khai')
         expect(page.locator('.rag-message-assistant').last.locator('.rag-citations a')).to_have_count(0)
     expect(page.locator('#rag-question')).to_have_attribute('aria-describedby', 'rag-single-turn')
 
@@ -42,5 +44,6 @@ def test_no_information_and_basic_reply_have_correct_status(page):
     answer = send(page, 'Số tín chỉ MAT9999?')['hus_answer']
     assert answer['status'] == 'no_information'
     expect(page.locator('#rag-status')).to_contain_text('Chưa có thông tin')
+    expect(page.locator('#rag-status')).to_contain_text('Dữ liệu hiện có chưa cung cấp thông tin cần hỏi')
     assert send(page, 'Xin chào')['mode'] == 'basic_chat'
     expect(page.locator('#rag-status')).to_contain_text('hội thoại')

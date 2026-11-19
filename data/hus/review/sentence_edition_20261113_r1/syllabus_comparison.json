@@ -1,0 +1,30 @@
+{
+  "MAT1202": {
+    "decision": "Oracle/MIT/Liskov-Wing references are supplementary only; keep AI label",
+    "evidence": "H23 curriculum identity/cohort, no exact same-major detailed syllabus approved here",
+    "rejected_transfer": "MAT3372 in other2021 source is not MAT1202; S06 MAT1202 is another programme"
+  },
+  "MAT1204": {
+    "decision": "partial topic overlap, no full official-alignment approval",
+    "evidence": "S06 physical52-54, correct code/title; document header references3568/2023",
+    "not_full_coverage": [
+      "scientific database skills",
+      "authorship/copyright roles",
+      "presentation software and oral presentation",
+      "teamwork, autonomy and responsibility outcomes"
+    ],
+    "overlap": [
+      "question/scope and research design",
+      "literature and sources",
+      "scientific reporting and integrity"
+    ]
+  },
+  "MAT2034": {
+    "decision": "FNC/SciPy are conceptual references, not HUS teaching contract",
+    "evidence": "H24 curriculum identity/cohort, no detailed course syllabus approved here"
+  },
+  "MAT2300": {
+    "decision": "MIT/GeorgiaTech references differ from HUS edition, no full coverage approval",
+    "evidence": "H22 curriculum identity/cohort, no detailed course syllabus approved here"
+  }
+}

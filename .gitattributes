@@ -68,3 +68,49 @@ docs/superpowers/specs/2026-11-10-hus-hybrid-retrieval-v5-design.md text eol=crl
 docs/superpowers/plans/2026-11-09-hus-offline-vector-index-v3.md -text
 docs/superpowers/plans/2026-11-09-hus-vector-query-v4.md text eol=crlf
 docs/superpowers/plans/2026-11-10-hus-hybrid-retrieval-v5.md text eol=crlf
+
+# HUS 2026-11-12..15 captured source pins and QA receipts retain exact bytes.
+app/static/hus-rag-demo.css -text
+app/static/hus-rag-demo.html -text
+app/static/hus-rag-demo.js -text
+app/hus/answer_support.py -text
+app/hus/answering.py -text
+app/hus/chat.py -text
+app/hus/demo.py -text
+app/hus/diagnostics.py -text
+app/hus/focused.py -text
+app/hus/llm/adapter.py -text
+app/hus/llm/auto.py -text
+app/hus/llm/client.py -text
+app/hus/llm/diagnostics.py -text
+app/hus/llm/document.py -text
+app/hus/llm/evidence.py -text
+app/hus/llm/focused.py -text
+app/hus/llm/intent.py -text
+app/hus/llm/output.py -text
+app/hus/llm/output_v3.py -text
+app/hus/llm/prompts.py -text
+app/hus/program_catalog.py -text
+app/hus/question_routing.py -text
+app/hus/retrieval.py -text
+app/hus/retrieval_config.py -text
+app/hus/retrieval_profile.py -text
+app/schemas/hus.py -text
+app/services/hus_service.py -text
+tools/check_hus_llm_readiness.py -text
+tools/check_hus_submission_target.py -text
+tools/evaluate_hus_a7.py -text
+tools/evaluate_hus_llm.py -text
+tools/hus_a7_after_followup_cases.py -text
+tools/hus_a7_bounded_cases.py -text
+tools/hus_a7_cases.py -text
+tools/hus_a7_postfix_cases.py -text
+tools/hus_a7_scope_cases.py -text
+tools/hus_a7_successor_cases.py -text
+tools/package_hus_demo.py -text
+tools/run_hus_llm.py -text
+tools/run_hus_rag.py -text
+tools/run_hus_submission.py -text
+data/hus/qa/20261112/** -text
+data/hus/qa/20261113/** -text
+data/hus/qa/20261114/** -text

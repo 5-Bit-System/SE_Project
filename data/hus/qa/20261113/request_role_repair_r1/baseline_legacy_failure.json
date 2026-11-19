@@ -1,0 +1,14 @@
+{
+  "all_three_runtime_file_hashes_match_before_snapshot": {
+    "app/hus/answer_support.py": "fb0c2197163f961857c8a221b3adcf88900bbee6b8419e1e4d6215db4dac9bda",
+    "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+    "app/hus/question_routing.py": "c5a0c5612c7b74f6efc687e8df9749e8631669f4f3748dfc2c50e9a36c2b77c0"
+  },
+  "baseline_junit_sha256": "8a7aa306de7abcf9c596be4fd37266889456b9ab6d08350bff14aca5d6c00abf",
+  "no_source_test_gold_or_run_changes": true,
+  "policy": "Preserve old test/gold/run/review and strict scope. Review legacy-test contract separately, do not weaken scope to turn this run green.",
+  "pre_repair_source_copy": "backups/hus_scope_assessment_fix_20261113/fresh checkout λ",
+  "reason": "Old dev gold expects answered for standard+talent enumeration; current single-variant contract requires clarification before search.",
+  "same_failure_reproduced_before_this_repair": true,
+  "test": "tests/hus/test_routing_diagnostic.py::test_exposed_dev_requests_preserve_facts_scope_and_consent[DEV-Q002]"
+}

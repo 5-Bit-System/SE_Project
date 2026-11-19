@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from .client import HUSLLMClient, HUSLLMError
 from .config import HUSLLMSettings
 from .contracts import HUSRewriteContext, HUSRewriteHandler
+from .diagnostics import HUSLLMDiagnostic
 from .evidence import build_evidence
 from .output import validate_output
 from .prompts import build_prompt
@@ -20,14 +21,28 @@ class HUSGroundedAdapter:
             raise HUSLLMError('disabled')
         if context.requested_model != settings.model:
             raise HUSLLMError('configuration')
-        evidence = build_evidence(context)
-        prompt = build_prompt(evidence)
+        focused = context.answer.dataset in {'f1', 'f3'} and context.answer.focus_plan is not None
+        if focused:
+            from .focused import build_focused_document, build_focused_prompt
+
+            evidence = build_focused_document(context)
+            prompt = build_focused_prompt(evidence)
+        else:
+            evidence = build_evidence(context)
+            prompt = build_prompt(evidence)
         if settings.api_key in prompt.system or settings.api_key in prompt.user:
             raise HUSLLMError('unsafe_prompt')
         response = self.client.complete_result(prompt.messages)
         if settings.api_key in response.content or settings.api_key in response.model:
-            raise HUSLLMError('invalid_output')
-        return validate_output(response.content, evidence, model=response.model,
+            diagnostic = (HUSLLMDiagnostic(stage='output_schema', facts_issue='credential_echo')
+                          if context.answer.dataset == 'f2' else None)
+            raise HUSLLMError('invalid_output', diagnostic=diagnostic)
+        validator = validate_output
+        if focused:
+            from .focused import validate_focused_output
+
+            validator = validate_focused_output
+        return validator(response.content, evidence, model=response.model,
                                prompt_sha256=prompt.sha256, usage=response.usage)
 
 

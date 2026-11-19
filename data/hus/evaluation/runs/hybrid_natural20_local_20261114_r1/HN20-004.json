@@ -1,0 +1,95 @@
+{
+  "id": "HN20-004",
+  "request": {
+    "question": "Tôi muốn biết trong môn Đại số tuyến tính 1 sẽ gặp các khái niệm gì?",
+    "major": "mathematics",
+    "version": "QD3565-2023",
+    "allow_generated_reference": true,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f3",
+    "field": "content",
+    "course_code": "MAT2300",
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "278542bcc0625ae1afe5ebb3b97314f7",
+      "4b7caa6c46c6aa36c085561f6fe8bb21",
+      "58b26ba1bbbacf4dfd618a4054b714f4",
+      "64ff9dac2bb3fc70466d843d47c41141",
+      "97eb478e4994fe486e06ce8808a0e53d",
+      "b4c4778e7253edf47d08d88f60e31538"
+    ]
+  },
+  "raw_question_route": [
+    null,
+    null
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.",
+          "status": "no_information",
+          "dataset": null,
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true,
+          "diagnostic": {
+            "code": "routing_unknown"
+          }
+        }
+      },
+      "seconds": 0.001998600026126951,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "routing_unknown",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.",
+          "status": "no_information",
+          "dataset": null,
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true,
+          "diagnostic": {
+            "code": "routing_unknown"
+          }
+        }
+      },
+      "seconds": 0.0017325999797321856,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "routing_unknown",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

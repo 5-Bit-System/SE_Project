@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "basis_boundary.json": "b791c0ae77fad6fa0b42249d33cb7c35c35659cacebdb6f1dea8be10acd6bb4c",
+    "diagnostic.json": "8da4694fe722e16ce53d8987ddc7b614907c9d976ae1d4d8ef7f321ad827963a",
+    "integrity.json": "fe3e8300a33b8ba48c076b4e7bde012c9152fbb1ce1dfd0ac80925e341e44bda",
+    "probes.json": "df7cbaef0401660645961b4b4a99ad7ac32975fd18bf870afa893ea536652cca",
+    "report.json": "b99d928f8e6bf39855b279d2d45cfd5cb977fbe213b688848ea8dc7b4187c09a"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

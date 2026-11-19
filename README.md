@@ -21,13 +21,61 @@ Các gợi ý không xác nhận môn có được mở trong một học kỳ c
 
 ## Giới hạn và phạm vi chưa triển khai
 
-- Đã có đăng nhập VNU qua connector, phiên app trong DB, lưu/cập nhật bảng điểm và đăng nhập admin riêng. Chưa tích hợp OAuth/SSO chính thức, OCR bảng điểm hoặc RAG HUS hoạt động.
+- Đã có đăng nhập VNU qua connector, phiên app trong DB, lưu/cập nhật bảng điểm và đăng nhập admin riêng. Chưa tích hợp OAuth/SSO chính thức, OCR bảng điểm hoặc RAG HUS vào ứng dụng chính.
 - API cá nhân dùng `/me/profile`; các `/profiles/...` legacy đã đóng với 410. Không có tự động đồng bộ VNU hằng tuần.
 - `data/curricula/` chỉ giữ một mẫu metadata Khoa học dữ liệu 2022; mẫu này không phải nguồn catalog runtime và không đủ để seed bốn catalog.
 - `database/data/hus_source.json` là nguồn catalog HUS dùng bởi publisher. Không chứa hồ sơ sinh viên.
 - Không có tự động fallback sang JSON khi PostgreSQL lỗi. Muốn dùng JSON phải chọn rõ backend và cung cấp bộ catalog phù hợp.
 
 Xem [lưu nhiều kế hoạch học kỳ](docs/SEMESTER_PLANS.md) trong tab Gợi ý kỳ tới.
+
+## Chạy và test HUS RAG từ bản clone
+
+F1/F2/F3 trên bốn ngành chạy độc lập từ source và dữ liệu có trong Git, không
+phụ thuộc máy demo, ZIP trong `backups/` hoặc đường dẫn tác giả. Không cần tài
+khoản, PostgreSQL/Docker, `.env`, API key, Gemini/9Router hoặc vector model.
+Dùng Windows64-bit/Python3.11 và venv riêng. Ví dụ PowerShell:
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-rag.txt -c requirements-lock.txt
+.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag --check
+.\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag
+```
+
+Mở <http://127.0.0.1:8011/> trên máy vừa chạy. `--check` kiểm20 ca API/menu/nguồn
+với provider bị chặn rồi thoát; không cần pytest/Playwright. Profile mặc định
+v4/lexical/LLMoff; F3 giữ nhãn AI và opt-in riêng. Xem [quickstart Windows 64-bit/Python 3.11](docs/HUS_RAG_QUICKSTART.md)
+và [tiến độ/các bước tiếp theo](docs/RAG_PROGRESS_AND_NEXT_PLAN.md).
+Tài liệu trình bày đồ án: [báo cáo phân hệ RAG–LLM](docs/HUS_RAG_PROJECT_REPORT.md)
+và [kịch bản demo5–7phút](docs/HUS_RAG_MANUAL_DEMO.md). Phần review nhóm và ghi
+nhận thành viên khác cài thử đang có chỗ điền riêng, chưa được tự xác nhận.
+Muốn dùng **Gemini thật**, xem phần [bật key trên backend](docs/HUS_RAG_QUICKSTART.md#2-bật-gemini-thật-trên-backend--tùy-chọn):
+chạy `python -m tools.run_hus_llm` bằng Python trong `.venv` để đọc key backend đã lưu. Launcher
+`tools.run_hus_rag` luôn tắt LLM; không cần sửa file mẫu hoặc đưa key vào frontend.
+Profile Gemini tự dùng LLM, không cần tick diễn đạt; F3 cần quyền tham khảo AI riêng.
+Muốn hybrid v4, dùng Python của `.venv-hybrid` với
+`-m tools.run_hus_llm --retrieval hybrid`; chạy thêm `--check` để kiểm offline
+đúng index/hai nhánh trước. Model/cache/Chroma binary cần chuẩn bị riêng trên máy
+khác; xem [hướng dẫn hybrid](docs/HUS_RAG_QUICKSTART.md#chạy-hybrid-bm25--chromadb-với-v4).
+Khi gặp429, process dùng RAG offline đến khi restart. Các lỗi khác báo lỗi,
+không trả offline thay thế. Luồng này chưa nối vào tài khoản/tư vấn môn của app chính.
+
+Workflow `hus-rag.yml` cấu hình Windows64-bit/Python3.11; chưa có kết quả CI
+cho thay đổi local này. Source/launcher/requirements mới còn local, người clone
+GitHub chỉ nhận được sau commit/push theo quy trình repository; chưa tự publish.
+
+[Bộ30 câu đã kiểm Google](docs/RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md) có23 câu
+dùng Gemini/1 fallback/6 control không gọi; nhóm vẫn cần review nội dung.
+[Prompt F2 riêng](docs/RAG_F2_DEDICATED_PROMPT_2026_11_14.md) đã sửa và có
+[một call MAT2300 xác nhận dùng được Gemini](docs/RAG_F2_PROMPT_CONFIRMATION_2026_11_14.md),
+giữ4 tín chỉ/citation; kết quả run30 câu cũ không đổi. Launcher RAG tắt LLM, launcher Gemini tự bật; mọi đợt test Google mới với trợ lý
+cần ngân sách call riêng; run/gold/review lịch sử được giữ nguyên.
+
+[Các gói Windows offline đã kiểm trước đây](docs/RAG_A8_REPACKAGE_2026_11_13.md)
+được giữ nguyên để đối chiếu/bàn giao tùy chọn; chúng chứa code trước lần sửa
+hiện tại. Người clone dùng quickstart ở trên, không cần các ZIP trong `backups/`
+hoặc máy nộp của tác giả. Kiểm một cấu hình nộp cụ thể là bước nghiệm thu riêng.
 
 ## Cấu trúc repository
 

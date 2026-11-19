@@ -1,0 +1,38 @@
+{
+  "backend_key_read": false,
+  "changed_runtime_expected": [
+    "app/hus/answer_support.py",
+    "app/hus/answering.py",
+    "app/hus/chat.py",
+    "app/hus/question_routing.py"
+  ],
+  "contracts": [
+    "F1/F3 evidence before extractive presentation",
+    "F2 canonical credit/prerequisite facts and source rows unchanged",
+    "F3 AI labels and explicit permission retained",
+    "No-source/ambiguity/basic chat do not call provider",
+    "API failure restores exact canonical reply",
+    "Server flag off preserves legacy response"
+  ],
+  "independent_or_live_quality_acceptance": false,
+  "kind": "offline_evidence_first_integration_not_live_quality_measurement",
+  "known_limitations": [
+    "No fresh live F2/F3 or browser verification.",
+    "Compact validator still conservatively retains original source words; no paraphrase gain claim.",
+    "Existing DEV-Q002 contract and wider legacy scope questions not resolved or regraded."
+  ],
+  "new_google_calls": 0,
+  "new_regression_tests": 66,
+  "persistent_default_changed": false,
+  "protected_unchanged": 3032,
+  "provider_transport": "synthetic only",
+  "source_data_old_gold_runs_reviews_unchanged": true,
+  "verification": {
+    "api_scope_topic_and_f3_release_group": "181 passed",
+    "broad_llm_and_language_before_final_topic_opening_refinements": "1057 passed",
+    "final_support_language_topic_and_evidence_flow": "256 passed",
+    "four_major_api_including_prerequisites_and_text_consent": "24 passed",
+    "ruff": "8 files passed",
+    "warning": "Existing Starlette/httpx deprecation; groups overlap, do not sum."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "F1_F3_wires_unchanged": true,
+  "F2_evidence_payloads_unchanged": true,
+  "Google_calls": 0,
+  "MAT2300_prompt": {
+    "id": "SV30-003",
+    "new_chars": 2599,
+    "new_prompt_sha256": "018be31d2d504cbb228be18decbccd0029f68353d9a46587f6dc414360f5dcc4",
+    "old_chars": 3932,
+    "old_prompt_sha256": "9519e93ca040b1169416f4e7a888d6bb134564b4a0d60b06e3dda32f30caf5c7",
+    "payload_unchanged": true
+  },
+  "backend_key_read": false,
+  "code_review": "Fresh-context reviewer: no substantive prompt-selection/contract/privacy regressions.",
+  "historical_live_records_and_scores_unchanged": true,
+  "kind": "offline_F2_prompt_clarification_not_live_confirmation",
+  "live_fix_proven": false,
+  "new_test": "tests/hus/llm/test_f2_dedicated_prompt.py",
+  "next": "If separately authorized, freeze new prompt/code and run a new bounded F2 Google check. Keep old failures and never reuse spent grants.",
+  "observed_reason_for_change": "New live response had output_schema/kind; exact rejected value and causal link to mixed instructions remain unknown.",
+  "old_files_unchanged": 3080,
+  "old_pins_stale_after_prompt_change": true,
+  "only_runtime_file_changed": "app/hus/llm/prompts.py",
+  "persistent_default_changed": false,
+  "tests": {
+    "final_two_tests_in_final_42_group": true,
+    "llm_group_collected_before_last_two_prompt_tests": true,
+    "llm_group_passed": 680,
+    "llm_group_seconds": 202.97,
+    "new_prompt_regressions_final": 13,
+    "related_final_group_passed": 42,
+    "ruff_two_files": "passed",
+    "warning": "One existing Starlette/httpx deprecation; groups overlap, do not sum."
+  },
+  "validator_schema_facts_citations_fallback_unchanged": true
+}

@@ -1,0 +1,6 @@
+{
+  "app/hus/llm/client.py": "79fd5a019e21906909c2cabc72aca0cf180095f22687cc5e87953a20eebd1d78",
+  "app/hus/llm/diagnostics.py": "83bfda42ed6e809e00ccdc35ff6ac9f171b063b5b744d325601048981c347309",
+  "tests/hus/llm/test_access_failures.py": "b92953d2a018a37bce7c7cbf6a6a9c8221b76e6a3579b2b0ed6e9cfcd8a68b0c",
+  "tests/hus/llm/test_singleton_error_diagnostic.py": "50df2e1642fad2d848d256f00ed2d57115fd4332cf39b8ffc1ea42778f7c23e6"
+}

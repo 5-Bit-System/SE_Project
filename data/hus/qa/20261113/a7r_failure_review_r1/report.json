@@ -1,0 +1,292 @@
+{
+  "a7r_cached_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "bindings": {
+    "app/hus/answer_support.py": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac",
+    "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+    "app/hus/chat.py": "89ab48389351d30f5d4fa178a90667dd768042ec589382d325c2c3d78f37f28c",
+    "app/hus/question_routing.py": "8716c2eb090ddd2fcee700ba41c5cd848e081fbe1a8ea8d1e2258ae42424d676",
+    "app/schemas/hus.py": "5c9771360486e60193d5ad57a0adee0e08c032b7aaf3624e474dd95ef08bf34a",
+    "docs/HUS_F1_SOURCE_EDITION_POLICY.md": "cc73c54e66af9b04ff4fd00babb1bc4b3c73c00e84a4738f3e7a66d2634a5f68"
+  },
+  "cases_reviewed": 18,
+  "constraints": "v4/lexical/LLMoff; no env/key/DB/Google/Git/publication changes. Previous full-suite DEV-Q002 failure unresolved.",
+  "diagnostic_counts": {
+    "additional_router_probes": 12,
+    "cached_hit_guard_probes": 10,
+    "condition_detector_probes": 5,
+    "edited_question_guard_probes": 9,
+    "saved_request_router_probes": 18,
+    "synthetic_guard_boundary_probes": 12
+  },
+  "exposure": {
+    "a7r_used_for_diagnostic_repair_design": true,
+    "actual_human_reviews": 0,
+    "blind": false,
+    "disposition": "Keep A7R as exposed development for any follow-up tuning; freeze different48/12 after implementation.",
+    "holdout_eligible": false,
+    "independent": false,
+    "reviewer": "root AI",
+    "source_runtime_and_outputs_seen": true
+  },
+  "interpretation": "Function probes and token/density tracing are diagnostic evidence, not passing regressions or an updated A7 result.",
+  "kind": "read_only_A7R_failure_review_not_new_score",
+  "known_probe_mismatches_retained": [
+    "bare_source_condition",
+    "bare_eligibility"
+  ],
+  "llm_r4_pins_match": false,
+  "new_end_to_end_rag_requests": 0,
+  "new_google_calls": 0,
+  "new_quality_score": null,
+  "new_regression_tests": 0,
+  "new_search_calls": 0,
+  "old_test_gold_run_review_changed": false,
+  "preserved_metrics": {
+    "abstention": {
+      "control_audit_failures": 0,
+      "control_failures": 0,
+      "correct_contract_clarification": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "correct_missing_or_out_of_scope": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "correct_opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "false_abstention": {
+        "denominator": 36,
+        "numerator": 17,
+        "value": 0.4722222222222222
+      },
+      "http_errors": 0
+    },
+    "cases": 48,
+    "citation_source_support": {
+      "actual_human_reviews": 0,
+      "ai_completeness": {
+        "denominator": 36,
+        "numerator": 18,
+        "value": 0.5
+      },
+      "ai_end_to_end_supported_complete": {
+        "denominator": 36,
+        "numerator": 18,
+        "value": 0.5
+      },
+      "ai_entailment": {
+        "denominator": 19,
+        "numerator": 19,
+        "value": 1.0
+      },
+      "ai_review_coverage": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+      "gold_quote_coverage_proxy": {
+        "denominator": 24,
+        "numerator": 10,
+        "value": 0.4166666666666667
+      },
+      "integrity_among_answered_positive": {
+        "denominator": 19,
+        "numerator": 19,
+        "value": 1.0
+      },
+      "reviewer_kind": "ai"
+    },
+    "f2": {
+      "by_field": {
+        "credits": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "name": {
+          "denominator": 4,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "prerequisites": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        }
+      },
+      "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+      "source_contract_success": {
+        "denominator": 12,
+        "numerator": 8,
+        "value": 0.6666666666666666
+      }
+    },
+    "filters": {
+      "anchor_excluded_by_observed_filter": 1,
+      "errors": {
+        "ai_opt_in": 0,
+        "course_code": 0,
+        "major": 0,
+        "program_variant": 0,
+        "review": 0,
+        "version": 0
+      },
+      "observed_search_cases": 21
+    },
+    "latency": {
+      "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+      "http_ms": {
+        "count": 48,
+        "max_ms": 69.5222,
+        "min_ms": 3.363,
+        "p50_ms": 27.1063,
+        "p95_ms": 64.9523
+      }
+    },
+    "raw_legacy": null,
+    "retrieval": {
+      "conditional_recall_at_5": {
+        "denominator": 21,
+        "numerator": 20.0,
+        "value": 0.9523809523809523
+      },
+      "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+      "no_call_misses": 3,
+      "post_retrieval_false_abstention": 10,
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 20.0,
+        "value": 0.8333333333333334
+      },
+      "search_call_coverage": {
+        "denominator": 24,
+        "numerator": 21,
+        "value": 0.875
+      }
+    },
+    "routing": {
+      "missing_observation_cases": 0,
+      "positive_dataset_and_field": {
+        "denominator": 36,
+        "numerator": 28,
+        "value": 0.7777777777777778
+      },
+      "stage": "classifier_before_scope_and_evidence_guards"
+    }
+  },
+  "protected_files_unchanged": 2939,
+  "recommendation": "First implement general bounded routing/syntax/condition fixes with similar and negative regressions after selecting repair; hold Q025/Q037/DEV-Q002 contract decisions separately. Preserve all source qualifiers and semantic requirements.",
+  "repository_suite_rerun": false,
+  "root_causes": [
+    {
+      "cases": [
+        "A7R-Q014",
+        "A7R-Q026",
+        "A7R-Q039"
+      ],
+      "finding": "Missing profession-title/teaching-opportunity phrasing and role-at-work regex requires vai tro nao/gi adjacency, omitting cong tac.",
+      "kind": "router_lexical_coverage"
+    },
+    {
+      "cases": [
+        "A7R-Q027"
+      ],
+      "finding": "Hoc tap nang cao not in further-study terms; nganh fallback selects introduction, whose cached search has no target.",
+      "kind": "router_further_study_heading"
+    },
+    {
+      "cases": [
+        "A7R-Q006",
+        "A7R-Q018",
+        "A7R-Q030",
+        "A7R-Q042"
+      ],
+      "finding": "Ten tieng Viet cua ma hoc phan not among bounded name request forms.",
+      "kind": "router_vietnamese_course_name"
+    },
+    {
+      "cases": [
+        "A7R-Q002",
+        "A7R-Q038"
+      ],
+      "finding": "Residual pdf (both) and bo (Q002) required literally in body/purpose words. PDF metadata exists but is not consumed as source-selector grammar. Toan bo still requires full coverage, not a global neutral word.",
+      "kind": "source_format_and_coverage_syntax"
+    },
+    {
+      "cases": [
+        "A7R-Q003"
+      ],
+      "finding": "Original nonadjacent ghi...kem form leaves kem literal; edited recognized syntax still rejects bare Sinh vien du dieu kien va co nhu cau because CONDITION_SOURCE recognizes prefix if/when/with or tuy rather than this conditional construction.",
+      "kind": "condition_question_and_source_detector"
+    },
+    {
+      "cases": [
+        "A7R-Q015"
+      ],
+      "finding": "Ban nguon prefix falls outside bounded source-subject syntax, leaving bay as a factual token.",
+      "kind": "source_subject_prefix"
+    },
+    {
+      "cases": [
+        "A7R-Q009",
+        "A7R-Q021",
+        "A7R-Q033",
+        "A7R-Q045"
+      ],
+      "finding": "Ho/so from ho so AI tham khao are not recognized as source locator; body missing ho and sometimes so.",
+      "kind": "stored_ai_profile_locator"
+    },
+    {
+      "cases": [
+        "A7R-Q037"
+      ],
+      "finding": "Dinh from dinh huong remains factual; source explicitly supports history/name/update context but not unambiguous training orientation. Removing the requested phrase changes meaning, not a proven grammar fix.",
+      "kind": "hold_for_semantic_scope_review"
+    },
+    {
+      "cases": [
+        "A7R-Q025"
+      ],
+      "finding": "Unknown edition does not select unknown variant. Talent and unknown same-page groups both survive and both purpose_density1; existing rank order selects talent. Gold target is present rank4; no cross-scope merge observed. Wording fails to uniquely choose pinned branch; no ranking patch or post-output alternative-gold acceptance.",
+      "kind": "hold_for_source_selection_contract"
+    },
+    {
+      "cases": [
+        "DEV-Q002"
+      ],
+      "finding": "Same intro quote lists both programmes, metadata unknown; strict multi-variant guard clarifies before search. Distinguish enumeration from comparison/filter conflict in a reviewed design, preserve old failing assertion.",
+      "kind": "hold_for_enumeration_contract"
+    }
+  ],
+  "runtime_changed": false,
+  "source_context_limit": "Neighboring standard2023 link is only a placement cue; no variant/edition relabeling, applicability or equivalence certification. PDF resolver metadata is not whole-document visual/academic review.",
+  "source_manifests_sha256": {
+    "data/hus/evaluation/candidates/a7_request_role_20261113_r1/manifest.json": "771b0722f3d2983ea17c700f0e7545a184cf17197ed15169ab9daeff9a1263f8",
+    "data/hus/evaluation/runs/a7_request_role_ai_review_20261113_r1/manifest.json": "f7d3c0baee840c86329df4ea504a1b1e7a13a10500a6d3a90ef4e5b6c3a3048a",
+    "data/hus/evaluation/runs/a7_request_role_lexical_20261113_r2/manifest.json": "dbc4e28a876b727041dbd4dbd1b7423cefc1b79d2fb160863414d04d97efd8af"
+  }
+}

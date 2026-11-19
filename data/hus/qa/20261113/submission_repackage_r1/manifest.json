@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "api_check.json": "9b6a217acd5447c2194950725b5df8b1f49ae58fcea50d4077752f89bfa84240",
+    "browser_smoke.json": "16c0c6a6e1411f4570b60976482c66c2a874424e9e1c5fe13271179999f809ab",
+    "checker_local_install.json": "ccae22529c3fbbc1b4e4abf4f89ee046d094081755f907b8713765457e3bfd38",
+    "environment.json": "ad36614f23cc83a717dfc4236b205371e210c4dc4f4c4a22692e5b2c9d963d9e",
+    "exact_response_compatibility.json": "1fe076a219311f7eab089f6d5460b7c5e49129909279bf7ffecdc45da075acb9",
+    "existing_root_probe.json": "eaa9e89417fbff4cc2c3b31541aee545571c1045eb69232405fd50e277aa70be",
+    "local_http_rollback.json": "d048ba0cbc5879e9f1515610db62449b98058f5aff7e58085db91ae192902727",
+    "operator_target_template.json": "0fb72ce27716dfb6f1398d5a307be64e7923343031a38f20a46595204f4db16f",
+    "report.json": "28a2cb91c69a0a05063bbcbbb7aa12b24aa930c2759a834d12c51b2cce6e64e6"
+  },
+  "schema_version": "hus-a8-repackage-1.0"
+}

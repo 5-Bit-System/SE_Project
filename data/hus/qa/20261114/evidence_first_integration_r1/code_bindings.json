@@ -1,0 +1,10 @@
+{
+  "app/hus/answer_support.py": "e835a1fca30c1463fd4bce1847b602da95b06a96d89987b38a3bfc914eb475b6",
+  "app/hus/answering.py": "54fce756c66cece7116a4fd8d0b9b1dfa6452f898c8174bd362e74f04056a397",
+  "app/hus/chat.py": "14c0c128031d681ad775663c1be699eccd13d7dbfb096c371f77d974d51775d9",
+  "app/hus/question_routing.py": "a9908a33f4c940fcc1e668d87a610cdbe0fbf5b93eaaa2fe5832c648a0aa892b",
+  "tests/hus/llm/test_evidence_first_chat.py": "c73165c766fed6c53d7d4f319f2a7b4f4955f2d71aac7f260da41e6d268d46b0",
+  "tests/hus/llm/test_four_major_evidence_api.py": "e1069ee11a225eb04b528f6735f4755ee5cffa712f8414a9c338e73ed6db3962",
+  "tests/hus/test_common_question_language.py": "8d451b3cb86ec037fa32f7cb5b852e0b81d675b9aee9cb34b281f591c75cf006",
+  "tests/hus/test_named_content_topic.py": "78337703b95587f742f0bec1de27c526b617ec490cee33647bd976731ee43ced"
+}

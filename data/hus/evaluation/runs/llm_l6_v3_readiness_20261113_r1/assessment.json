@@ -1,0 +1,66 @@
+{
+  "activation_performed": false,
+  "actual_human_reviews": 0,
+  "assessor_sha256": "673c3540778c0b3a49575379349029f06526eaac97b4b550e62db5b458ebc4e5",
+  "blocked_cases": [],
+  "changes_environment": false,
+  "current_pins_sha256": "c8b580a7630e5e37891ff734e667f9e7a55772a1daaf2a667359d14f13b1edc3",
+  "eligible_for_manual_acceptance": false,
+  "evidence_version": "v4",
+  "fallback": 24,
+  "fallback_latency": {
+    "count": 24,
+    "max_ms": 840.7621000078507,
+    "min_ms": 657.3277000134112,
+    "p50_ms": 722.4034999962896,
+    "p95_ms": 798.79910001182
+  },
+  "fallback_reasons": {
+    "http_error": 24
+  },
+  "independent_holdout_accepted": false,
+  "limits": [
+    "No production SLO or total20s deadline inferred.",
+    "Evidence assessment does not perform activation or replace operator acceptance."
+  ],
+  "new_provider_calls": 0,
+  "new_retrieval_calls": 0,
+  "observed_models": {},
+  "provider_requests": 24,
+  "reasons": [
+    "latency_unavailable",
+    "no_generated_output",
+    "no_supported_readability_gain",
+    "no_used_output_f1",
+    "no_used_output_f2",
+    "no_used_output_f3",
+    "observed_model_changed"
+  ],
+  "recommended_action": "keep_disabled",
+  "recorded_pins_sha256": "c8b580a7630e5e37891ff734e667f9e7a55772a1daaf2a667359d14f13b1edc3",
+  "requested_model": "gemini-3.5-flash-lite",
+  "reviewer_kind": "ai",
+  "schema_version": "hus-llm-readiness-1.0",
+  "scope": "L5 evidence readiness only; operator rollback/latency acceptance remains separate",
+  "source_manifest_sha256": "08c01abf625238991c9cf386f8ff6a1e78bc6320135a1c67f7761dc42664d0a1",
+  "source_pack": "data/hus/evaluation/llm_v3_v4_dev_20261113_r1",
+  "source_pack_manifest_sha256": "8e8b0c0a8fb73c840685c756a3216e578072640b71260c452a2ef828464d69ca",
+  "source_release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "supported_complete_readability_gains": 0,
+  "token_usage": {
+    "completion_tokens": null,
+    "prompt_tokens": null,
+    "total_tokens": null
+  },
+  "used": 0,
+  "used_latency": {
+    "count": 0,
+    "max_ms": null,
+    "min_ms": null,
+    "p50_ms": null,
+    "p95_ms": null
+  }
+}

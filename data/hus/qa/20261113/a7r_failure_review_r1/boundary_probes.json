@@ -1,0 +1,136 @@
+{
+  "detectors": [
+    {
+      "actual": false,
+      "body": "Sinh viên đủ điều kiện và có nhu cầu sẽ có thể học tiếp Thạc sĩ, Tiến sĩ.",
+      "name": "bare_source_condition",
+      "proposed_semantic_expectation": true
+    },
+    {
+      "actual": true,
+      "body": "Nếu đủ điều kiện và có nhu cầu, sinh viên có thể học tiếp.",
+      "name": "explicit_if_condition",
+      "proposed_semantic_expectation": true
+    },
+    {
+      "actual": false,
+      "body": "Sinh viên có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+      "name": "no_condition",
+      "proposed_semantic_expectation": false
+    },
+    {
+      "actual": false,
+      "body": "Không yêu cầu đủ điều kiện để học tiếp.",
+      "name": "requirement_negated",
+      "proposed_semantic_expectation": false
+    },
+    {
+      "actual": true,
+      "body": "Lập trình viên (tùy theo năng lực).",
+      "name": "work_condition",
+      "proposed_semantic_expectation": true
+    }
+  ],
+  "guards": [
+    {
+      "actual": true,
+      "body": "Lập trình viên (tùy theo năng lực).",
+      "field": "careers",
+      "name": "bounded_condition",
+      "proposed_semantic_expectation": true,
+      "question": "Vị trí lập trình viên được nêu kèm điều kiện nào?"
+    },
+    {
+      "actual": false,
+      "body": "Lập trình viên tại doanh nghiệp.",
+      "field": "careers",
+      "name": "missing_condition",
+      "proposed_semantic_expectation": false,
+      "question": "Vị trí lập trình viên được nêu kèm điều kiện nào?"
+    },
+    {
+      "actual": false,
+      "body": "Lập trình viên (tùy theo năng lực).",
+      "field": "careers",
+      "name": "invented_condition",
+      "proposed_semantic_expectation": false,
+      "question": "Vị trí lập trình viên được nêu kèm điều kiện chứng nhận ISO nào?"
+    },
+    {
+      "actual": false,
+      "body": "Sinh viên đủ điều kiện và có nhu cầu sẽ có thể học tiếp Thạc sĩ, Tiến sĩ.",
+      "field": "further_study",
+      "name": "bare_eligibility",
+      "proposed_semantic_expectation": true,
+      "question": "Khả năng học tiếp được ghi kèm điều kiện gì?"
+    },
+    {
+      "actual": true,
+      "body": "Nếu đủ điều kiện và có nhu cầu, sinh viên có thể học tiếp Thạc sĩ, Tiến sĩ.",
+      "field": "further_study",
+      "name": "if_eligibility",
+      "proposed_semantic_expectation": true,
+      "question": "Khả năng học tiếp được ghi kèm điều kiện gì?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "presentation_skill_missing",
+      "proposed_semantic_expectation": false,
+      "question": "Mục tiêu về năng lực trình bày báo cáo?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "aircraft_topic_missing",
+      "proposed_semantic_expectation": false,
+      "question": "Mục tiêu về lập trình máy bay?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "record_as_fact_missing",
+      "proposed_semantic_expectation": false,
+      "question": "Mục tiêu về lập hồ sơ khoa học?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "pdf_as_fact_missing",
+      "proposed_semantic_expectation": false,
+      "question": "Mục tiêu về kỹ năng đọc PDF?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "wrong_edition",
+      "proposed_semantic_expectation": false,
+      "question": "Theo edition 1999, mục tiêu đào tạo là gì?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "wrong_variant",
+      "proposed_semantic_expectation": false,
+      "question": "Theo hệ CLC, mục tiêu đào tạo là gì?"
+    },
+    {
+      "actual": false,
+      "body": "Mục tiêu đào tạo nhân lực có kiến thức khoa học.",
+      "field": "objectives",
+      "name": "extra_number",
+      "proposed_semantic_expectation": false,
+      "question": "Mục tiêu đào tạo yêu cầu 997 năm kinh nghiệm?"
+    }
+  ],
+  "kind": "diagnostic_probes_not_regression_or_quality_score",
+  "meaning": "Expected values are review hypotheses; known mismatches retained, not a passing test suite.",
+  "new_end_to_end_requests": 0,
+  "provider_calls": 0
+}

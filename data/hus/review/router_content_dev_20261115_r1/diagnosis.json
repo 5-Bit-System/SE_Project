@@ -1,0 +1,147 @@
+{
+  "kind": "post-observation-diagnostic-not-score-or-fix",
+  "google_calls": 0,
+  "rows": [
+    {
+      "label": "frozen_case",
+      "question": "Sau khi tốt nghiệp ngành Toán tin, em có thể làm việc ở những đâu?",
+      "guard": {
+        "query": "sau khi tot nghiep nganh toan tin em co the lam viec o nhung dau",
+        "specific": [
+          "em"
+        ],
+        "qualifiers": [],
+        "workplaces": [],
+        "source_group_count": 2,
+        "specific_absent_from_raw_top5": [
+          "em"
+        ]
+      },
+      "status": "no_information",
+      "raw_top5": [
+        {
+          "id": "8a8318039dbb5d75c52bbdc90ad37955",
+          "major": "mathematics_informatics",
+          "version": "2015",
+          "field": "careers",
+          "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin"
+        },
+        {
+          "id": "091e59489b7bdd59594687d6a7cd1aa3",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin"
+        },
+        {
+          "id": "29eae8734736c0e9d8e2fe500ce56d90",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ..."
+        }
+      ],
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi."
+    },
+    {
+      "label": "remove_only_em_diagnostic",
+      "question": "Sau khi tốt nghiệp ngành Toán tin, có thể làm việc ở những đâu?",
+      "guard": {
+        "query": "sau khi tot nghiep nganh toan tin co the lam viec o nhung dau",
+        "specific": [],
+        "qualifiers": [],
+        "workplaces": [],
+        "source_group_count": 2,
+        "specific_absent_from_raw_top5": []
+      },
+      "status": "answered",
+      "raw_top5": [
+        {
+          "id": "8a8318039dbb5d75c52bbdc90ad37955",
+          "major": "mathematics_informatics",
+          "version": "2015",
+          "field": "careers",
+          "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin"
+        },
+        {
+          "id": "091e59489b7bdd59594687d6a7cd1aa3",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin"
+        },
+        {
+          "id": "29eae8734736c0e9d8e2fe500ce56d90",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ..."
+        }
+      ],
+      "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] 4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin\nNguồn [1]: Tài liệu đính kèm: CTDT-TTUD-130815.pdf; trang PDF 9; /hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=9#page=9; Bản PDF khôi phục; chưa xác minh tương đương bản gốc lịch sử.; phiên bản: 2015; hệ: standard"
+    },
+    {
+      "label": "previous_working_style_diagnostic",
+      "question": "Học xong ngành Toán tin thì làm việc ở đâu?",
+      "guard": {
+        "query": "hoc xong nganh toan tin lam viec o dau",
+        "specific": [],
+        "qualifiers": [],
+        "workplaces": [],
+        "source_group_count": 2,
+        "specific_absent_from_raw_top5": []
+      },
+      "status": "answered",
+      "raw_top5": [
+        {
+          "id": "091e59489b7bdd59594687d6a7cd1aa3",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin"
+        },
+        {
+          "id": "29eae8734736c0e9d8e2fe500ce56d90",
+          "major": "mathematics_informatics",
+          "version": "unknown",
+          "field": "careers",
+          "quote": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ..."
+        },
+        {
+          "id": "8a8318039dbb5d75c52bbdc90ad37955",
+          "major": "mathematics_informatics",
+          "version": "2015",
+          "field": "careers",
+          "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin"
+        }
+      ],
+      "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] - Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin\nNguồn [2]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown"
+    }
+  ],
+  "further_study_source_inventory": [
+    {
+      "id": "44955940d64d25b5b729f5b30d98718f",
+      "version": "unknown",
+      "variant": "unknown",
+      "quote": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ."
+    },
+    {
+      "id": "5576ba104d8ba5bc443df772cbb04162",
+      "version": "2015",
+      "variant": "talent",
+      "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo Cử nhân Khoa học Tài năng ngành Toán học chủ yếu\ncung cấp cho sinh viên những kiến thức, kỹ năng cơ bản và quan trọng hơn cả là\nphương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề;\nphương pháp tư duy trừu tượng, mô hình hóa; phân tích, thiết lập bài toán và sử\ndụng công cụ toán học để giải quyết.\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học,\nnâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của\nbản thân, của công việc và của nền kinh tế."
+    },
+    {
+      "id": "77255979680ee28cfa517a7704832bc3",
+      "version": "unknown",
+      "variant": "unknown",
+      "quote": "Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp Chương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên những kiến thức, kĩ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng, mô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để giải quyết. Những kĩ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân, của công việc và của nền kinh tế."
+    },
+    {
+      "id": "bdc3538f018be0658be658d8ccaf6e8e",
+      "version": "2015",
+      "variant": "standard",
+      "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên\nnhững kiến thức, kỹ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic,\nphương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng,\nmô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để\ngiải quyết;\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng\ncao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân,\ncủa công việc và của nền kinh tế."
+    }
+  ]
+}

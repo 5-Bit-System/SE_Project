@@ -1,0 +1,228 @@
+{
+  "a7_portability_check": {
+    "current_completeness": "33/36",
+    "current_routed_recall": "23/24",
+    "exact_response_matches": 48,
+    "fully_accepted": false,
+    "historical_completeness": "27/36",
+    "historical_routed_recall": "19/24",
+    "human_reviews": 0,
+    "known_refusals_preserved": [
+      {
+        "exact_response_equal": true,
+        "question_id": "A7P-Q013",
+        "status": "needs_clarification"
+      },
+      {
+        "exact_response_equal": true,
+        "question_id": "A7P-Q020",
+        "status": "no_information"
+      },
+      {
+        "exact_response_equal": true,
+        "question_id": "A7P-Q027",
+        "status": "no_information"
+      }
+    ],
+    "new_semantic_score_or_review": false
+  },
+  "api_cases": 20,
+  "artifact": {
+    "bytes": 67070408,
+    "files": 205,
+    "llm_enabled": false,
+    "path": "backups/hus_submission_20261112_r2/hus-rag-demo.zip",
+    "release_id": "hus-data-20261111-v4",
+    "verified": true,
+    "zip_sha256": "b228bbad1353e2f11a655b50a1cd456ccdf9e8d116edf139f8da5fcdb75e0df8"
+  },
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "browser_smoke": {
+    "external_requests": [],
+    "full_a6_repeated": false,
+    "page_errors": [],
+    "passed": true,
+    "rows": [
+      {
+        "f1_after_switch": true,
+        "f3_ai_label_and_opt_in": true,
+        "keyboard_f3": true,
+        "major_switch_clears": true,
+        "menu_f2": true,
+        "no_horizontal_overflow": true,
+        "viewport_width": 1380
+      },
+      {
+        "f1_after_switch": true,
+        "f3_ai_label_and_opt_in": true,
+        "keyboard_f3": true,
+        "major_switch_clears": true,
+        "menu_f2": true,
+        "no_horizontal_overflow": true,
+        "viewport_width": 390
+      }
+    ]
+  },
+  "created_at": "2026-11-12T13:24:36.704821+00:00",
+  "environment": {
+    "app_import": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_targetcheck_20261112_r1\\extracted\\app\\__init__.py",
+    "architecture": "AMD64",
+    "executable": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_targetcheck_20261112_r1\\clean_venv\\Scripts\\python.exe",
+    "fresh_venv": true,
+    "include_system_site_packages": false,
+    "packages": {
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "certifi": "2026.7.22",
+      "cffi": "2.1.1",
+      "charset-normalizer": "3.5.2",
+      "click": "8.5.0",
+      "cryptography": "50.0.2",
+      "fastapi": "0.143.0",
+      "h11": "0.16.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "idna": "3.20",
+      "opentelemetry-api": "1.45.1",
+      "pdfminer.six": "20260107",
+      "pdfplumber": "0.11.10",
+      "pillow": "13.0.0",
+      "pip": "24.0",
+      "pycparser": "3.12",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pypdfium2": "5.14.0",
+      "setuptools": "65.5.0",
+      "starlette": "1.8.0",
+      "typing-inspection": "0.4.4",
+      "typing_extensions": "4.16.0",
+      "uvicorn": "0.54.0"
+    },
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.9",
+    "user_site_enabled": false
+  },
+  "forbidden_external_or_provider_attempts": 0,
+  "installation": {
+    "dependency_download_calls": 0,
+    "fresh_venv": true,
+    "inherited_site_packages": false,
+    "install_flags": "--isolated --disable-pip-version-check install --no-cache-dir --no-index --find-links wheelhouse -r requirements-rag-demo.txt -c requirements-lock.txt",
+    "installed_runtime_wheels": 25,
+    "isolated_python": true,
+    "new_os_or_python_installation": false,
+    "pip_check": "No broken requirements found.",
+    "wheel_origin": "Unchanged compatible local pip cache wheels; hashes recorded."
+  },
+  "kind": "A8_local_clean_install_and_loopback_verification",
+  "l6_enabled": false,
+  "limitations": [
+    "Same Windows host/base Python; not a different OS/machine or fresh Python install.",
+    "Wheel bundle targets Windows amd64/CPython 3.11; no other-platform installation tested.",
+    "Browser smoke is not a repeat of complete A6 or manual operator acceptance.",
+    "A7 still has three refusals; LLM v3 live quality/budget and L6 operator acceptance pending.",
+    "Remote source health, public API/security/load/production latency not evaluated."
+  ],
+  "load_or_public_security_accepted": false,
+  "menu_items": 2124,
+  "new_provider_calls": 0,
+  "offline_wheel_bundle": {
+    "bytes": 25814762,
+    "path": "backups/hus_submission_20261112_r2/wheelhouse-win-py311.zip",
+    "sha256": "b176282aeeba6bcc48fa5fc62af8e14be18bc3bfc6e00411d25d102c04234b9b",
+    "wheels": 25
+  },
+  "overall_status": "local_clean_install_verified_target_identity_pending",
+  "preservation": {
+    "all_new_packaged_bytes_match_current_allowlist": true,
+    "changed": [],
+    "l5_v3_prepared_pins_still_match": true,
+    "old_zip_unchanged": true,
+    "protected_preexisting_files": 2570,
+    "runtime_data_ui_golds_runs_reviews_unchanged": true
+  },
+  "privacy": {
+    "accounts_transcripts_database_accessed": false,
+    "env_or_template_read": false,
+    "full_environment_dumped": false,
+    "keys_read_printed_or_packaged": false
+  },
+  "probe_failure_history": [
+    {
+      "attempt": 1,
+      "log_sha256": "0ba515e93e9acc5b6d9267b71c5197584720ab15ae009dcc2c0bd9c45a575500",
+      "product_bug": false,
+      "reason": "Probe supplied viewport to BrowserContext.new_page; TypeError before UI tests."
+    },
+    {
+      "attempt": 2,
+      "log_sha256": "767ac18b56281c6aaa443549127cfa2768701052bdf861d7de030bdb22b50967",
+      "product_bug": false,
+      "reason": "Probe expected no assistant after switching major; existing contract renders one welcome. Corrected to assert no user/old citations plus exact new-major welcome."
+    }
+  ],
+  "profile": {
+    "bind": "127.0.0.1",
+    "llm_enabled": false,
+    "retrieval": "lexical",
+    "workers": 1
+  },
+  "public_deployment_performed": false,
+  "real_http_rollback": [
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v4-before",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261111-v4",
+      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+      "source_get_hashes_and_heads_passed": true
+    },
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v3-rollback",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261031-v3",
+      "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+      "source_get_hashes_and_heads_passed": true
+    },
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v4-restored",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261111-v4",
+      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+      "source_get_hashes_and_heads_passed": true
+    }
+  ],
+  "schema_version": "hus-a8-clean-install-1.0",
+  "selector_and_extracted_manifest_restored": true,
+  "source_identity": "Existing WIP; exact source bytes bound by package manifest, not HEAD alone.",
+  "target_machine": {
+    "different_machine_verified": false,
+    "status": "Current Windows installation verified with fresh venv; submission-machine identity awaiting user confirmation.",
+    "user_confirmation": null
+  },
+  "tests": {
+    "full_suite_repeated": false,
+    "junit_sha256": "32eb6469803ab70ea692cf4e475032fe9d89dc7dd9bd00cde9a117306c21da4c",
+    "package_unit_passed": 16,
+    "ruff": "passed package_hus_demo.py and run_hus_submission.py"
+  }
+}

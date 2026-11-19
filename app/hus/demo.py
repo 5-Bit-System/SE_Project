@@ -10,14 +10,18 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.hus.chat import HUSChatReply, chat
+from app.hus.diagnostics import generation_diagnostic, log_block, model_error_message
+from app.hus.llm.auto import AutoLLMPolicy, AutoLLMUnavailable, auto_enabled
 from app.hus.llm.config import llm_rewrite_available
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
+from app.hus.retrieval_config import HUSRetrievalSettings
 from app.hus.source_response import source_response
 from app.schemas.hus import HUSMajor, HUSQuestion
 from app.services.hus_service import get_hus_answerer
 
 app = FastAPI(title="HUS RAG — demo local", docs_url=None, redoc_url=None)
+auto_policy = AutoLLMPolicy()
 STATIC = Path(__file__).resolve().parents[1] / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 LABELS = {"mathematics": "Toán học", "mathematics_informatics": "Toán tin",
@@ -50,13 +54,26 @@ def config():
     if len({major for major, _ in scopes}) != len(scopes):
         raise HTTPException(503, "Phiên bản chương trình chưa xác định duy nhất.")
     return {"majors": [{"id": major, "label": LABELS[major], "version": version} for major, version in scopes],
-            **answerer.data.release_identity, 'llm_rewrite_available': llm_rewrite_available()}
+            **answerer.data.release_identity, 'llm_rewrite_available': llm_rewrite_available(),
+            'retrieval_mode': HUSRetrievalSettings.from_env().mode,
+            'llm_auto': auto_enabled(),
+            'llm_quota_exhausted': auto_enabled() and auto_policy.quota_exhausted}
 
 
 @app.post("/hus/chat", response_model=HUSChatReply)
 def reply(request: HUSQuestion):
     try:
-        return chat(request, current_answerer())
+        if auto_enabled():
+            result = auto_policy.reply(request, current_answerer())
+        else:
+            result = chat(request, current_answerer())
+        log_block((result.hus_answer.diagnostic if result.hus_answer else None)
+                  or generation_diagnostic(result.generation))
+        return result
+    except AutoLLMUnavailable as error:
+        log_block(error.diagnostic)
+        raise HTTPException(502, {'diagnostic': error.diagnostic.model_dump(mode='json'),
+                                 'message': model_error_message(error.diagnostic)}) from None
     except RAGDataError:
         raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
 

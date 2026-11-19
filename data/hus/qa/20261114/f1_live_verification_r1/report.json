@@ -1,0 +1,31 @@
+{
+  "actual_model": "gemini-3.5-flash-lite",
+  "api_generation_used": true,
+  "api_hus_answer_equal_baseline": true,
+  "api_reply_equal_live": true,
+  "citations_retained": true,
+  "default_changed": false,
+  "google_calls_total": 2,
+  "granted_max": 3,
+  "key_read": false,
+  "kind": "offline_API_replay_of_accepted_live_result",
+  "limitation": "One F1 question accepted; local HTTP replay uses cached typed live result, not a second live API/browser request. Does not prove F2/F3 quality or rewriting gain.",
+  "live_http_status": 200,
+  "live_used": true,
+  "local_api_status": 200,
+  "pins_match": true,
+  "protected_changed_expected": [
+    "app/hus/llm/document.py"
+  ],
+  "protected_unchanged": 3027,
+  "provider_ms": 1885.2714000095148,
+  "stopped_on_success": true,
+  "test_result": "139 passed, 1 existing Starlette warning; new regression RED8/GREEN14",
+  "third_call_not_made": true,
+  "usage": {
+    "completion_tokens": 243,
+    "prompt_tokens": 935,
+    "total_tokens": 1178
+  },
+  "verification_provider_calls": 0
+}

@@ -1,0 +1,6 @@
+{
+  "exit_code": 2,
+  "original_report_unchanged": true,
+  "stderr": "usage: CHECK_TARGET.py [-h] [--root ROOT] [--run-demo]\nCHECK_TARGET.py: error: Choose a fresh --root directory; existing files are never overwritten.\n",
+  "stdout": ""
+}

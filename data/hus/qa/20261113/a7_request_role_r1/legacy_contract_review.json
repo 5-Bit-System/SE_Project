@@ -1,0 +1,128 @@
+{
+  "current_v3_assertion": "legacy.xml: 1 failure, expected answered but received needs_clarification",
+  "current_v4_answer": {
+    "citations": [],
+    "dataset": "f1",
+    "facts": {},
+    "generated_reference_allowed": false,
+    "major": "mathematics",
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần một hệ đào tạo thống nhất giữa câu hỏi và phạm vi đã chọn.",
+    "status": "needs_clarification",
+    "version": null,
+    "warnings": []
+  },
+  "disposition": "Open contract gap. Preserve old test/gold and strict guard; no xfail/skip, no score change. Separate enumeration/compare policy requires a reviewed design and regressions before runtime changes.",
+  "evidence": {
+    "citation": {
+      "end_char": 105,
+      "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+      "raw_original_verified": true,
+      "review_status": "include",
+      "source_id": "ce8df97fe49665e9",
+      "source_kind": "crawled_prose",
+      "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+      "start_char": 0,
+      "title": "Ngành Toán học",
+      "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+    },
+    "content_origin": "crawled_source_quote",
+    "evidence_id": "P11-E001",
+    "major": "mathematics",
+    "purpose": "positive_support",
+    "review_status": "include",
+    "source_ref": {
+      "identity": "e7864b281332873d47213bf53a1bf0f7",
+      "identity_field": "chunk_id",
+      "json_pointer": "/source_quote",
+      "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+    },
+    "value": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+    "version": "unknown"
+  },
+  "frozen_gold": {
+    "academic_verified": false,
+    "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+    "authorizes_eligibility": false,
+    "category": "f1",
+    "evidence_ids": [
+      "P11-E001"
+    ],
+    "evidence_label": null,
+    "expected_answer": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+    "expected_dataset": "f1",
+    "expected_facts": {},
+    "expected_field": "introduction",
+    "expected_status": "answered",
+    "must_abstain_from": [],
+    "question_id": "DEV-Q002",
+    "review_status": "pending_independent_review"
+  },
+  "historical_pre_repair_proof": "data/hus/qa/20261113/request_role_repair_r1/baseline_legacy_failure.json",
+  "historical_source_quote_and_span_verified": true,
+  "independent_human_review": false,
+  "interpretation": "Source supports enumerating both variants, but strict runtime treats them as incompatible filters. Not proof old gold is false or runtime should drop either qualifier.",
+  "new_provider_calls": 0,
+  "new_retrieval_calls": 0,
+  "paths_sha256": {
+    "app/hus/answer_support.py": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac",
+    "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+    "data/hus/evaluation/diagnostic_dev_v1/gold.jsonl": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+    "data/hus/evaluation/diagnostic_dev_v1/manifest.json": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+    "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+    "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+    "tests/hus/test_routing_diagnostic.py": "043e6cc2b324a3310b8dea57d6ead1adc8c1d546e8de11868b00caf2d5d6c7d9"
+  },
+  "question": {
+    "question_id": "DEV-Q002",
+    "request": {
+      "allow_generated_reference": false,
+      "major": "mathematics",
+      "question": "Theo trang giới thiệu đã lưu, Toán học có hệ chuẩn và hệ tài năng như thế nào?",
+      "version": null
+    }
+  },
+  "recognized_variants": [
+    "standard",
+    "talent"
+  ],
+  "source": {
+    "academic_verified": false,
+    "answer_policy": "source_cited_description",
+    "authorizes_eligibility": false,
+    "chunk_id": "e7864b281332873d47213bf53a1bf0f7",
+    "citation": {
+      "end_char": 105,
+      "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+      "raw_original_verified": true,
+      "review_status": "include",
+      "source_id": "ce8df97fe49665e9",
+      "source_kind": "crawled_prose",
+      "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+      "start_char": 0,
+      "title": "Ngành Toán học",
+      "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+    },
+    "content_origin": "crawled_source_quote",
+    "course_code": null,
+    "disclosure_required": false,
+    "display_edits": [],
+    "family": "F1",
+    "field": "introduction",
+    "record_id": null,
+    "schema_version": "2.0",
+    "scope": {
+      "applicability_status": "descriptive_not_student_curriculum_binding",
+      "cohort_year": null,
+      "curriculum_version": "unknown",
+      "major": "mathematics",
+      "program_id": null,
+      "program_variant": "unknown",
+      "validity_status": "unknown"
+    },
+    "source_quote": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+    "source_unit_id": "028448678709e5a6d222a145",
+    "text": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học"
+  }
+}

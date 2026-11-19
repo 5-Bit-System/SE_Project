@@ -1,0 +1,9 @@
+{
+  "attempts": {
+    "provider": 0,
+    "external_socket": 0
+  },
+  "pins_stable": true,
+  "candidate_unchanged": true,
+  "new_observations": 48
+}

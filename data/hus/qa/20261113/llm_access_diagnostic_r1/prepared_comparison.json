@@ -1,0 +1,22 @@
+{
+  "blocked_attempts": {
+    "network": 0,
+    "provider_construction": 0
+  },
+  "cases": 36,
+  "controls": 12,
+  "current_pins_match": true,
+  "exact_previous_baseline_request_gold_source_retrieval_prompt_matches": 36,
+  "live_calls_authorized": 0,
+  "payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+  "payloads_byte_equal": true,
+  "payloads_equal_previously_reviewed": true,
+  "pins_sha256": "33ab82eefad8ee70028abe084a729ce9331dd2111a1596cb0e38240877972e4f",
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r2",
+  "prepared_manifest_sha256": "f8c5fbd0808343c91220d20798410f93483336bb08a22a557fdf8f5948d6fd52",
+  "previous_prepared_pins_match": false,
+  "privacy_review": "Reused prior full manual public-payload privacy review by verified byte equality; no new manual reading or comparison to actual backend key.",
+  "prompt_chars": 98268,
+  "provider_access_verified": false,
+  "valid_positive_prompts": 24
+}

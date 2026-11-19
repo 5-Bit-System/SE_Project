@@ -1,0 +1,13 @@
+﻿case_id,major,version,question,expected_status,actual_status,interpretation_calls,interpretation_used_in_response,generation_calls,generation_used,actual_models,input_tokens,output_tokens,wall_seconds_with_pacing,safe_error,automation_canonical_equal,reviewer,review_date,correct_intent,facts_correct,list_complete,citation_correct,notes
+IF2-001,mathematics,QD3565-2023,Ngành Toán học có bao nhiêu môn học?,answered,answered,0,False,1,True,gemini-3.5-flash-lite,1308,70,1.666,,True,,,,,,,
+IF2-002,mathematics,QD3565-2023,Cho mình xem toàn bộ danh sách học phần,answered,api_error,1,not_returned,1,False,gemini-3.5-flash-lite,5857,108,10.018,"{""code"": ""output_rejected""}",,,,,,,,
+IF2-003,mathematics_informatics,QD3567-2023,Liệt kê các môn trong chương trình,answered,answered,0,False,1,True,gemini-3.5-flash-lite,2592,70,5.057,,True,,,,,,,
+IF2-004,mathematics_informatics,QD3567-2023,Đếm học phần giúp tôi,answered,needs_clarification,1,True,0,False,gemini-3.5-flash-lite,2097,30,4.572,,False,,,,,,,
+IF2-005,computer_science,QD3568-2023,Ngành khoa học máy tính có bao nhiêu môn học?,answered,answered,0,False,1,True,gemini-3.5-flash-lite,1143,70,4.959,,True,,,,,,,
+IF2-006,computer_science,QD3568-2023,MAT1204 được tính mấy TC?,answered,answered,1,True,1,True,gemini-3.5-flash-lite,2894,143,10.057,,True,,,,,,,
+IF2-007,data_science,QD3569-2023,Liệt kê các môn trong chương trình,answered,answered,0,False,1,True,gemini-3.5-flash-lite,2552,70,4.94,,True,,,,,,,
+IF2-008,data_science,QD3569-2023,MAT3533 được tính mấy TC?,answered,answered,1,True,1,True,gemini-3.5-flash-lite,2873,92,9.938,,True,,,,,,,
+IF2-009,data_science,QD3569-2023,Ngành khoa học máy tính có bao nhiêu môn học?,no_information,no_information,0,False,0,False,,0,0,0.001,,True,,,,,,,
+IF2-010,mathematics,QD3565-2023,Ngành Toán học phải học bao nhiêu môn?,needs_clarification,needs_clarification,0,False,0,False,,0,0,0.002,,True,,,,,,,
+IF2-011,data_science,QD3569-2023,Nội dung MAT3533?,needs_clarification,needs_clarification,0,False,0,False,,0,0,0.014,,True,,,,,,,
+IF2-012,data_science,QD3569-2023,MAT9999 có bao nhiêu tín chỉ?,no_information,no_information,0,False,0,False,,0,0,0.015,,True,,,,,,,

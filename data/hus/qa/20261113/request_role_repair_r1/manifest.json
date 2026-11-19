@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "baseline_legacy_failure.json": "ceab60c5cb2bb09ea2d5263f2db85fb6eb03b4e3b9c44b194a9f14e175f6b384",
+    "code_bindings.json": "234888599499247abdb37fb9de9f76ce43388bbf779f31713a5d8aabe1da1d83",
+    "development_checks.json": "7b5ac2fc69eeb1e828e585d902be925e050100c957f55741c8fa9d2ad8a9be4b",
+    "integrity.json": "751bd2f8068cd3955796c214c37bfa97230b3ad3e98a923eae61479b59629389",
+    "report.json": "583e3ffc11487a6e91bfe0c271bb7719b264c1fa15a4a81cdf7b7afc1110b970"
+  },
+  "schema_version": "hus-request-role-repair-1.0"
+}

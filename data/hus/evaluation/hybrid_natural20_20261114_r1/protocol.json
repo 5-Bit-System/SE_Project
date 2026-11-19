@@ -1,0 +1,37 @@
+{
+  "kind": "AI_authored_student_diagnostic_not_independent_gold",
+  "author": "Codex (AI)",
+  "created_utc": "2026-11-14T15:04:34.958696+00:00",
+  "human_group_authorship": false,
+  "human_review": "pending",
+  "exposure": "Dev diagnostic; informed by previous failures and public menu/schema. Not holdout.",
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "cases": 20,
+  "cases_per_major": 5,
+  "Google_calls_budget": 0,
+  "LLM_enabled": false,
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+  "measurement": "one measured answer per case per mode; order alternates by case index; one separate cold hybrid preflight",
+  "comparison_limit": "Normal lexical top5 vs hybrid20+20->5. End-to-end operational comparison, not budget-matched semantic ablation.",
+  "classification": "Record intended family/field, actual route, no-search, raw top5/target ranks, support selection, final status/diagnostic, reply/facts and timings separately.",
+  "review_limit": "Source targets authored before inference; same field targets are not proof of entailment/coverage. Read exact output and canonical sources.",
+  "code_sha256": {
+    "app/hus/answering.py": "c3fb714a0e470dbceb3c75cadab2326ac68b9be741769100bdd9523fcb3bd23c",
+    "app/hus/answer_support.py": "8b127114a36625b72d95211fea2dc38434235fa4c9b893682315c4f49c66b116",
+    "app/hus/chat.py": "14c0c128031d681ad775663c1be699eccd13d7dbfb096c371f77d974d51775d9",
+    "app/hus/question_routing.py": "db8b7d574b3a25e461e0657adc2383bab7ef7e57dade08a90c9484f1ff11e379",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/hybrid_retrieval.py": "d3c6d9177304b0fe1f58b8c0f7fa4f31a8ad5c1a50b025fcc4b107b393a9aaec",
+    "app/hus/vector_query.py": "173a99f6b9c7328dbf28ff61385b989aa14fcd5534b75d30ee2dceaa61b9b361",
+    "app/hus/vector_runtime.py": "71b2c888e7c2012ee49fa59f81fc510b1d6b35800a0d398e262c604e1631b40d",
+    "app/hus/retrieval_profile.py": "2ad58569b2b445b9d986510621e5e4c12ad293ff970ed0237d9db8111593ee31",
+    "data/hus/vector_profiles/hybrid_v4_20261114.json": "7812ddbba23b3d40b69bbb6a2ba13e0ce16fedb090004b129408f4f7f18165be",
+    "data/hus/rag/CURRENT.json": "6924808bec6e3e6e3af065d0ded89c5764f7f6eb2b29fb1aa70042edb1fe4d94"
+  }
+}

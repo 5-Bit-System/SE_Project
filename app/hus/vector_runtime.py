@@ -32,6 +32,8 @@ class LocalVectorRuntime:
                 or re.fullmatch('[0-9a-f]{64}', settings.expected_index_id) is None):
             raise VectorQueryError('vector_configuration')
         self.folder = Path(settings.index_path)
+        contract_path = getattr(settings, 'contract_path', None) or CONTRACT_PATH
+        passage_path = getattr(settings, 'passage_path', None) or PASSAGE_PATH
         required = ['manifest.json', 'vectors.jsonl', 'chroma/chroma.sqlite3']
         if any(not (self.folder / name).is_file() for name in required):
             raise VectorQueryError('index_missing')
@@ -44,7 +46,7 @@ class LocalVectorRuntime:
         self.index_id = settings.expected_index_id
         self._lock = Lock()
         try:
-            manifest = vector_index.verify_index(self.folder, CONTRACT_PATH, PASSAGE_PATH, data,
+            manifest = vector_index.verify_index(self.folder, contract_path, passage_path, data,
                                                  settings.model_cache, expected_index_id=self.index_id)
             self._manifest_raw = (self.folder / 'manifest.json').read_bytes()
             self._inventory_raw = (self.folder / 'vectors.jsonl').read_bytes()
@@ -54,7 +56,7 @@ class LocalVectorRuntime:
                     or digest_json({k: v for k, v in loaded.items() if k != 'index_id'}) != self.index_id
                     or vector_index.digest_bytes(self._inventory_raw) != manifest['vectors_sha256']):
                 raise ValueError('Index changed during verification')
-            rows = [json.loads(line) for line in (PASSAGE_PATH / 'passages.jsonl').read_bytes().splitlines()]
+            rows = [json.loads(line) for line in (Path(passage_path) / 'passages.jsonl').read_bytes().splitlines()]
             inventory = [json.loads(line) for line in self._inventory_raw.splitlines()]
             vector_index.validate_inventory(inventory, rows)
             self.rows = {row['passage_id']: row for row in rows}
@@ -67,7 +69,7 @@ class LocalVectorRuntime:
                 'index_id': self.index_id,
             }
             self._check_index()
-            contract = verify_contract_files(CONTRACT_PATH, data)
+            contract = verify_contract_files(contract_path, data)
         except RAGDataError:
             raise
         except ImportError as exc:

@@ -1,0 +1,51 @@
+{
+  "actual_target_verified": false,
+  "created_at": "2026-11-12T13:37:34.328110+00:00",
+  "deployment_performed": false,
+  "env_key_read_or_changed": false,
+  "kit": {
+    "directory": "backups/hus_submission_20261112_r2",
+    "files_sha256": {
+      "CHECK_TARGET.py": "2bd78346e5ce6b5a11b97cc4da022f167eb623301d77720f6367096cee0ae7a4",
+      "hus-rag-demo.zip": "b228bbad1353e2f11a655b50a1cd456ccdf9e8d116edf139f8da5fcdb75e0df8",
+      "wheelhouse-win-py311.zip": "b176282aeeba6bcc48fa5fc62af8e14be18bc3bfc6e00411d25d102c04234b9b"
+    }
+  },
+  "local_script_validation": {
+    "api_cases": 20,
+    "earlier_utf8_probe_failure_preserved": "backups/hus_target_transfer_script_20261112_r1/target-receipt",
+    "existing_report_unchanged": true,
+    "menu_items": 2124,
+    "overwrite_refused_exit_code": 2,
+    "pip_check_passed": true,
+    "receipt_directory": "backups/hus_target_transfer_script_20261112_r3/target-receipt",
+    "receipt_manifest_sha256": "85697624a2681477e643c262ba898cab7c4b8e88d59408d4a671477cae083237",
+    "report_sha256": "2cd9355781a01e77e755f2711eba616d6d7fd8dd75266d4188e9a7c01a044bf5",
+    "ruff": "passed",
+    "scope": "Separate fresh install on current host only; not the submission host",
+    "script_sha256": "2bd78346e5ce6b5a11b97cc4da022f167eb623301d77720f6367096cee0ae7a4"
+  },
+  "new_google_calls": 0,
+  "pending_on_target": [
+    "Run CHECK_TARGET.py with both ZIPs in a fresh directory",
+    "Keep target-receipt even on failure",
+    "Manual browser/source/major-switch and rollback check",
+    "Operator acceptance"
+  ],
+  "prior_local_manifest_sha256": "34fa61e01682aaeb7b8d4bc22c53346ca7e73bc73fe03df25a5adb2d0024caea",
+  "prior_local_receipt": "data/hus/qa/20261112/submission_clean_install_r1",
+  "prior_receipt_unchanged": true,
+  "profile": {
+    "llm_enabled": false,
+    "release": "hus-data-20261111-v4",
+    "retrieval": "lexical"
+  },
+  "schema_version": "hus-a8-target-clarification-1.0",
+  "target_status": "awaiting execution and operator review on other machine",
+  "user_confirmed": {
+    "submission_is_current_host": false,
+    "target_architecture_verified_on_target": false,
+    "target_os": "Windows 64-bit",
+    "target_python": "3.11"
+  }
+}

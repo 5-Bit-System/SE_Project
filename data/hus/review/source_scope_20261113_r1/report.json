@@ -1,0 +1,57 @@
+{
+  "F3_objectives_read": 18,
+  "F3_topics_read": 18,
+  "HTTP_404": [
+    "N03"
+  ],
+  "actual_human_reviews": 0,
+  "all_F3_records_still_AI_needs_review": 290,
+  "cached_PDF_source_ids": [
+    "S06",
+    "S07"
+  ],
+  "cached_PDFs_downloaded_this_turn": false,
+  "candidate_syllabi_excluded_from_default_retrieval": 106,
+  "captured_public_sources_only": true,
+  "configuration_review": {
+    "dependencies": [
+      "requirements-rag.txt",
+      "requirements-lock.txt"
+    ],
+    "new_offline_kit_created": false,
+    "no_author_machine_dependency": true,
+    "old_kits": "Keep historical bytes; code predates scope/assessment repair. Build new revision only when handoff requested.",
+    "private_env_database_key_required": false,
+    "profile": {
+      "llm_enabled": false,
+      "release": "hus-data-20261111-v4",
+      "retrieval": "lexical"
+    },
+    "public_deploy": "Not requested; would require separate API/secret/load/health/log/rollback acceptance.",
+    "python": "3.11",
+    "self_check": "python -m tools.run_hus_rag --check",
+    "source_entrypoint": "python -m tools.run_hus_rag",
+    "submission_target_not_tested_this_turn": true
+  },
+  "date": "2026-11-13",
+  "f3_fields_reviewed": 8,
+  "f3_records_reviewed": 4,
+  "independent_acceptance": false,
+  "initial_sandbox_network_failures": 9,
+  "limitations": [
+    "Historical scope corroboration is not current validity/adoption proof.",
+    "Bounded F3 content/objectives review is not review of all 174 codes/290 programme profiles.",
+    "Conceptual references are not HUS syllabus evidence; identity/edition/student applicability still needs review.",
+    "No clean other-machine install or public deployment was attempted."
+  ],
+  "new_academic_verifications": 0,
+  "new_official_F3_fields_approved": 0,
+  "new_provider_calls": 0,
+  "physical_PDF_images_rendered": 7,
+  "physical_PDF_images_viewed": 5,
+  "q001_decision": "keep_unknown_no_runtime_relabel_or_gold_regrade",
+  "reviewer_kind": "ai",
+  "runtime_data_gold_old_review_changed": false,
+  "scope": "Bounded source/validity review; no release/source metadata changes",
+  "successful_new_HTTP_captures": 11
+}

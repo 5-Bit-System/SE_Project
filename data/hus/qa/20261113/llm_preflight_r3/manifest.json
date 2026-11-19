@@ -1,0 +1,12 @@
+{
+  "files": {
+    "historical_403_evidence.json": "bf605aadac83721daa1250ee411a02926bb603334dfd0e813fde167876188e0b",
+    "integrity.json": "a24d1f11611bfe11778d9c52fc6273a9f014e4d66f7f4cd218b0f0808c1ffe90",
+    "preflight_tests.xml": "1d5176672cb7dc0876d011ca6e84c3b39e3d7ccff524c5f48a26032c5ec22a7c",
+    "prepared_comparison.json": "4ab2c620d99e23a750cb64fb31467291e31317b207225c14bf5e471fb47a6e70",
+    "proposed_diagnostic.json": "f457e1ae87cd43d909f9f8d5a86d7cdb58b0df69ffb00fa2db29ef3cad8e6d3e",
+    "replay.json": "cd0519d3463cbbc92fe7b1936cd2ad03b9cbd67ddbdf91f530b7cc636410dd6b",
+    "report.json": "6e629e7b92d1acf405767170f1617afd217aed55c630b3eaae58ba9d78cc2bc8"
+  },
+  "schema": "hus-llm-preflight-r3-qa-1.0"
+}

@@ -1,0 +1,12 @@
+{
+  "files": {
+    "collection_guard.json": "ffcbae138a3a4e2a43b102e0360e907838e0c23afb63d37212db034c1fedb702",
+    "evaluator_checks.xml": "7e9d1369487995031b1a6ec6ba315c84a7f467a0892ab41b2d6aefda8200accf",
+    "failure_traces.json": "d24d687716a7cdc2bb07f5f73156ba90d433e373e7761fdb43e9d48c107b316e",
+    "integrity.json": "e29b58c86a575b641e193b9b24e060f0550274c798c0fdd25d6a43c0870cab08",
+    "preflight.json": "0a8dd0a629006b371ac8d3529b42e37543d732024a44c0df956ee242e06fce0f",
+    "replay.json": "839af4907695b586b0e44b71dab2425eec293b2e6e9558c47001b5975eb83173",
+    "report.json": "b4e3f306c930251c37ad3ff96bc6c8d08818af4d876afd1bbc5bf390fb825005"
+  },
+  "schema": "hus-a7-scope-qa-1.0"
+}

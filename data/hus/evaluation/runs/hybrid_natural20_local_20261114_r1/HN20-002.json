@@ -1,0 +1,93 @@
+{
+  "id": "HN20-002",
+  "request": {
+    "question": "Tốt nghiệp Toán học thì có thể làm việc ở những đâu?",
+    "major": "mathematics",
+    "version": "QD3565-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f1",
+    "field": "careers",
+    "course_code": null,
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "576a32614c1a16f7799e722bd1bd1313",
+      "8a4879289cc14b5965647a6c376e2aec",
+      "ad667609e5801d74c146610cb5ffcf00",
+      "e10eb3bab40d2e220787788f53ab58d8"
+    ]
+  },
+  "raw_question_route": [
+    "f3",
+    "suggested_assessment"
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.02985869999974966,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.03231510001933202,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "actual_model": "gemini-3.5-flash-lite",
+  "budget_remaining": 0,
+  "calls_used": 1,
+  "canonical_facts_citations_unchanged": true,
+  "canonical_reply_retained": true,
+  "credits": 4,
+  "default_or_runtime_changed": false,
+  "http_status": 200,
+  "key_read_during_verification": false,
+  "kind": "cached_accepted_F2_prompt_confirmation_verification",
+  "limitation": "One new F2 response accepted, not proof of all F2 questions, repeated reliability, academic review, or the precise cause of old failures.",
+  "live_manifest_sha256": "67569dcd6aa77fcc1e8366dbf577e9e1260b65cf2f6b44e042511d33f2264a92",
+  "old_failures_reclassified": false,
+  "old_run_scores_and_review_CSV_unchanged": true,
+  "pins_match": true,
+  "protected_files_unchanged": 3091,
+  "provider_ms": 1623.8128000113647,
+  "suite_rerun": false,
+  "usage": {
+    "completion_tokens": 53,
+    "prompt_tokens": 775,
+    "total_tokens": 828
+  },
+  "used": true,
+  "verification_Google_calls": 0
+}

@@ -1,0 +1,211 @@
+{
+  "missing": {},
+  "network_requests": 0,
+  "original_cache_modified": false,
+  "python": "3.11.9",
+  "required_versions": {
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "certifi": "2026.7.22",
+    "cffi": "2.1.1",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "cryptography": "50.0.2",
+    "fastapi": "0.143.0",
+    "h11": "0.16.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "idna": "3.20",
+    "opentelemetry-api": "1.45.1",
+    "pdfminer-six": "20260107",
+    "pdfplumber": "0.11.10",
+    "pillow": "13.0.0",
+    "pycparser": "3.12",
+    "pydantic": "2.14.1",
+    "pydantic-core": "2.50.1",
+    "pypdfium2": "5.14.0",
+    "starlette": "1.8.0",
+    "typing-extensions": "4.16.0",
+    "typing-inspection": "0.4.4",
+    "uvicorn": "0.54.0"
+  },
+  "unreadable_or_invalid_candidates": 0,
+  "wheels": {
+    "annotated-doc": {
+      "bytes": 5302,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "version": "0.0.5",
+      "wheel": "annotated_doc-0.0.5-py3-none-any.whl"
+    },
+    "annotated-types": {
+      "bytes": 13427,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "version": "0.8.0",
+      "wheel": "annotated_types-0.8.0-py3-none-any.whl"
+    },
+    "anyio": {
+      "bytes": 132079,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+      "version": "4.15.1",
+      "wheel": "anyio-4.15.1-py3-none-any.whl"
+    },
+    "certifi": {
+      "bytes": 136983,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "version": "2026.7.22",
+      "wheel": "certifi-2026.7.22-py3-none-any.whl"
+    },
+    "cffi": {
+      "bytes": 185096,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "42f6930c31dc7f50732c9ae793c2786c7b6b044195967bbdde40bb9be81c4cc0",
+      "version": "2.1.1",
+      "wheel": "cffi-2.1.1-cp311-cp311-win_amd64.whl"
+    },
+    "charset-normalizer": {
+      "bytes": 214932,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "87e50a3e7cb90af586b6c5faf23e302a970415ac73bd7bd90a515a04b427ef96",
+      "version": "3.5.2",
+      "wheel": "charset_normalizer-3.5.2-cp311-cp311-win_amd64.whl"
+    },
+    "click": {
+      "bytes": 125251,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "version": "8.5.0",
+      "wheel": "click-8.5.0-py3-none-any.whl"
+    },
+    "cryptography": {
+      "bytes": 3824692,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c",
+      "version": "50.0.2",
+      "wheel": "cryptography-50.0.2-cp311-abi3-win_amd64.whl"
+    },
+    "fastapi": {
+      "bytes": 144665,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "3e9395fd35276425b61b516a31fdd7c77fe2af83e41b4da22e30696fb1304c5d",
+      "version": "0.143.0",
+      "wheel": "fastapi-0.143.0-py3-none-any.whl"
+    },
+    "h11": {
+      "bytes": 37515,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "version": "0.16.0",
+      "wheel": "h11-0.16.0-py3-none-any.whl"
+    },
+    "httpcore": {
+      "bytes": 78784,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "version": "1.0.9",
+      "wheel": "httpcore-1.0.9-py3-none-any.whl"
+    },
+    "httpx": {
+      "bytes": 73517,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "version": "0.28.1",
+      "wheel": "httpx-0.28.1-py3-none-any.whl"
+    },
+    "idna": {
+      "bytes": 69583,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "version": "3.20",
+      "wheel": "idna-3.20-py3-none-any.whl"
+    },
+    "opentelemetry-api": {
+      "bytes": 60256,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "b31553efa588ae44bc306f863c785c5333a9ecc091248c6ee68b4b6c87fdedfb",
+      "version": "1.45.1",
+      "wheel": "opentelemetry_api-1.45.1-py3-none-any.whl"
+    },
+    "pdfminer-six": {
+      "bytes": 6592252,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "366585ba97e80dffa8f00cebe303d2f381884d8637af4ce422f1df3ef38111a9",
+      "version": "20260107",
+      "wheel": "pdfminer_six-20260107-py3-none-any.whl"
+    },
+    "pdfplumber": {
+      "bytes": 60047,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "7741ea81bf165b474b153e6789d10d18e06b6ddcf3ec84289c3ef2fed6802580",
+      "version": "0.11.10",
+      "wheel": "pdfplumber-0.11.10-py3-none-any.whl"
+    },
+    "pillow": {
+      "bytes": 7278471,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "d7710eb676e9bb68965cb045be0d333b4c0d7f9dfbaa7fbf121385b1588683d3",
+      "version": "13.0.0",
+      "wheel": "pillow-13.0.0-cp311-cp311-win_amd64.whl"
+    },
+    "pycparser": {
+      "bytes": 62600,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+      "version": "3.12",
+      "wheel": "pycparser-3.12-py3-none-any.whl"
+    },
+    "pydantic": {
+      "bytes": 488106,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "9195d967ec791692a04438115466764fb8b9a27b31f14a760437694f40d6b454",
+      "version": "2.14.1",
+      "wheel": "pydantic-2.14.1-py3-none-any.whl"
+    },
+    "pydantic-core": {
+      "bytes": 2176332,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "0048b6dddc8ef4b64fccaad878bd143b0c3882ea9936279dc11d613f6b7dd1bc",
+      "version": "2.50.1",
+      "wheel": "pydantic_core-2.50.1-cp311-cp311-win_amd64.whl"
+    },
+    "pypdfium2": {
+      "bytes": 3947280,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "149fd5c6397b8df8bf7911a93506eff0be874f877afe7ac936cf5d37d21a6a06",
+      "version": "5.14.0",
+      "wheel": "pypdfium2-5.14.0-py3-none-win_amd64.whl"
+    },
+    "starlette": {
+      "bytes": 79612,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "dfdd6b29c26483288088d990eee59631dedadd66ce20d203402a7ca8e3c4656f",
+      "version": "1.8.0",
+      "wheel": "starlette-1.8.0-py3-none-any.whl"
+    },
+    "typing-extensions": {
+      "bytes": 45571,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "version": "4.16.0",
+      "wheel": "typing_extensions-4.16.0-py3-none-any.whl"
+    },
+    "typing-inspection": {
+      "bytes": 14750,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "version": "0.4.4",
+      "wheel": "typing_inspection-0.4.4-py3-none-any.whl"
+    },
+    "uvicorn": {
+      "bytes": 87427,
+      "origin": "existing local pip cache wheel bytes; not installed-package reconstruction",
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "version": "0.54.0",
+      "wheel": "uvicorn-0.54.0-py3-none-any.whl"
+    }
+  }
+}

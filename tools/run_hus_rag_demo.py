@@ -63,7 +63,13 @@ def smoke(page, base, out):
         response = event.value
         assert response.status == 200, (question, response.status)
         value = response.json()
-        expect(page.locator(".rag-message-assistant .rag-message-text").last).to_have_text(value["reply"])
+        text = page.locator(".rag-message-assistant .rag-message-text").last
+        citations = (value.get("hus_answer") or {}).get("citations", [])
+        if citations and all(c["evidence_kind"] == "ai" for c in citations):
+            for citation in citations:
+                expect(text).to_contain_text(citation["quote"])
+        else:
+            expect(text).to_have_text(value["reply"])
         expect(page.locator("#rag-question")).to_be_enabled()
         records.append({"major": page.locator("#rag-major").input_value(), "question": question,
                         "mode": value["mode"], "status": "pass"})
@@ -95,7 +101,8 @@ def smoke(page, base, out):
                 assert answer["dataset"] == dataset and answer["citations"]
                 if dataset == "f3":
                     assert all(c["display_label"] == "kiến thức AI" and c["open_url"] is None for c in answer["citations"])
-                    expect(page.locator(".rag-message-assistant").last.locator(".rag-citation-ai")).to_have_count(len(answer["citations"]))
+                    expect(page.locator(".rag-message-assistant").last.locator(".rag-ai-notice")).to_have_count(1)
+                    expect(page.locator(".rag-message-assistant").last.locator(".rag-citations")).to_have_count(0)
                 if dataset == "f2":
                     link = page.locator(".rag-message-assistant").last.locator(".rag-citations a").first
                     expect(link).to_be_visible()

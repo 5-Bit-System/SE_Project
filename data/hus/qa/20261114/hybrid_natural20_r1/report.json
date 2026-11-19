@@ -1,0 +1,82 @@
+{
+  "kind": "natural20_local_diagnostic_integrity_verification_not_semantic_acceptance",
+  "verified_utc": "2026-11-14T15:27:28.896158+00:00",
+  "paired_observations": 40,
+  "native_hybrid_calls": 9,
+  "Google_calls": 0,
+  "production_code_changed": false,
+  "old_hybrid_receipt_and_13_old_artifacts_unchanged": true,
+  "frozen_questions_expectations_unchanged": true,
+  "stats": {
+    "lexical": {
+      "statuses": {
+        "no_information": 6,
+        "needs_clarification": 5,
+        "answered": 9
+      },
+      "retrieval_cases": 9,
+      "no_retrieval_cases": 11,
+      "searching_end_to_end_seconds": {
+        "n": 9,
+        "min": 0.0030403999844565988,
+        "median": 0.007481599983293563,
+        "max": 0.032498500018846244
+      },
+      "diagnostics": {
+        "evidence_rejected": 3,
+        "clarification_required": 3,
+        "answered": 9,
+        "routing_unknown": 1,
+        "permission_required": 2,
+        "scope_conflict": 1,
+        "evidence_unavailable": 1
+      }
+    },
+    "hybrid": {
+      "statuses": {
+        "no_information": 6,
+        "needs_clarification": 5,
+        "answered": 9
+      },
+      "retrieval_cases": 9,
+      "no_retrieval_cases": 11,
+      "searching_end_to_end_seconds": {
+        "n": 9,
+        "min": 5.733668099972419,
+        "median": 6.058133799990173,
+        "max": 6.566123600001447
+      },
+      "diagnostics": {
+        "evidence_rejected": 3,
+        "clarification_required": 3,
+        "answered": 9,
+        "routing_unknown": 1,
+        "permission_required": 2,
+        "scope_conflict": 1,
+        "evidence_unavailable": 1
+      }
+    }
+  },
+  "pack_manifest_sha256": "124005b9776f0882bb23c80b7ed995ddd1979a35dd5085a6354ed04731d9eb74",
+  "run_manifest_sha256": "a316e67ed207af1e0bb5e5417613aa0069e45ad07df2ceab91cc526f2b9ff53d",
+  "AI_authorship_explicit": true,
+  "human_review_pending": 20,
+  "new_accuracy_Recall_or_LLM_score": null,
+  "review_csv_creation_sha256": "20cf10028647b135e6ce3e77594d8ea7b994c098a74efd65203d9ebb6d109821",
+  "review_csv_edit_policy": "Editable group return. Creation hash only; never overwrite later human edits to match it.",
+  "documents_sha256_at_creation": {
+    "docs/RAG_HYBRID_NATURAL20_2026_11_14.md": "2ca90281554c6715d2ed38931c6238c4a2903abb8af93c8fcde937ef44f740b9",
+    "docs/RAG_HYBRID_NATURAL20_RESPONSES_2026_11_14.md": "a28f8a4319b83e6c837ebd2eec55bec49f460434a37008431996bddf41553018"
+  },
+  "review_files_sha256_at_creation": {
+    "analysis.json": "ab8507aa11247ab91d6c1798f0b073832e8b952032e90bb91d5abb298b20386d",
+    "review_group_return.csv": "20cf10028647b135e6ce3e77594d8ea7b994c098a74efd65203d9ebb6d109821",
+    "summary.json": "15e22c837b5a4a7581c69ac5ea0c1c1e9b6a46d247e234045c71926a9c612577"
+  },
+  "limits": [
+    "AI-authored exposed diagnostic, not group-authored or independent expert review.",
+    "One observation per question per mode, one Windows machine; no speed guarantee.",
+    "Normal top5 vs20+20->5 operational comparison; not budget-matched ablation.",
+    "No runtime fix/test-suite rerun/new model API request/Git publication."
+  ]
+}

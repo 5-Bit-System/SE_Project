@@ -6,25 +6,63 @@ recommendation hoặc tài khoản/bảng điểm. Google Gemini HTTPS trực ti
 
 ## Trạng thái hiện tại
 
-**Giữ `HUS_LLM_ENABLED=false`.** L5 có19/24 bản sinh dùng và5 fallback, nhưng một
-bản dùng (`DEV-Q025`) bỏ ý nguồn. Chưa đạt điều kiện đủ ý để bật mặc định L6.
+**Giữ `HUS_LLM_ENABLED=false`.** [L5 v3 live13/11](RAG_LLM_L5_V3_2026_11_13.md)
+đã dùng hết24 calls được duyệt mới:24 HTTP403,0 used/24 fallback;12 controls
+không gọi. Reply/canonical36 cặp giữ nguyên, không có bản sinh để nghiệm thu
+diễn đạt/latency; token/chi phí chưa biết. Checker mới `keep_disabled`.
+Đã [kiểm lại L6 trên code hiện tại](RAG_L6_KEEP_DISABLED_2026_11_13.md):
+assessment13/11 r2 vẫn giữ tắt, thêm pins_changed;60 test readiness/rollback
+đạt, gồm6 ca401/403 mới. Operator/content/latency sinh thật còn pending.
 Các lệnh khởi động với cờ true bên dưới dành cho đợt nghiệm thu tương lai đã đạt
 và được người vận hành chấp nhận; không phải chỉ dẫn bật ở trạng thái hiện tại.
 
-Guard coverage v2 đã chặn diagnostic thiếu ý này offline. Chưa có phép đo live
-mới, và code/prompt pins đã khác run L5 cũ; phải prepare/run/review mới trước khi
-xét bật. Không đổi assessment/review cũ thành kết quả sau sửa.
+Run lịch sử không lưu error body nên chưa xác định nguyên nhân403 cụ thể. Kiểm
+trạng thái key/project trong AI Studio theo thông báo thực tế; không đưa key
+vào chat/log/repo. Không gọi thêm smoke/model-list/tokenizer trong ngân sách đã
+hết. Sau xử lý quyền, cần ngân sách riêng và kiểm pins trước run mới.
+[Diagnostic/circuit mới đã kiểm offline](RAG_LLM_ACCESS_DIAGNOSTIC_2026_11_13.md):
+hai403 liên tiếp dừng batch,401/429 dừng ngay, trước khi đọc body; HTTP khác hoặc
+transport error ngắt chuỗi403. Client chỉ lưu mã/nhóm cố định; không lưu error
+message/header/key/project ID. Không retry/đổi model; circuit chỉ áp dụng batch
+L5, không dùng chung qua các request chatbot. Chưa xác minh quyền tài khoản thật.
+
+L5 v4 lịch sử có16 used/8 fallback, readability2 tốt hơn/13 same/1 kém hơn;
+không thay kết quả v3 bằng số cũ. Profile [nộp demo](HUS_RAG_SUBMISSION.md) ép LLM
+tắt. Review mới tái dùng A cũ sau exact answer/request/gold/evidence binding;
+human0, không là nghiệm thu độc lập hoặc chứng minh gain từ fallback.
+
+[Prepared13/11 r1](RAG_LLM_V3_PREFLIGHT_2026_11_13.md) khớp pins trong collection:
+36 audits/24 prompt/12 controls,98.268 prompt chars;67 test preflight đạt.
+Prepared12/11 và13/11 r1 nay là lịch sử, pins khác sau sửa code. Prepared mới
+`llm_v3_v4_prepared_20261113_r2` khớp code diagnostic/circuit:36 audits/24 prompt/
+12 controls,24 payload nguyên byte;519 test LLM đạt. Đề nghị chẩn đoán tối đa1
+call public L5V4-Q001/3.607 prompt chars/1.024 output token, **chưa được duyệt**.
+Không sửa run/review/gold đã seal; nếu code/data/config đổi tiếp thì prepare lại.
+
+**Sau sửa CLC/assessment:** r2 cũng đã stale. [Prepared/preflight r3](RAG_LLM_V3_PREFLIGHT_R3_2026_11_13.md)
+khớp pins mới,36 A/retrieval/prompt và24 payload không đổi;61 test preflight đạt.
+Chưa xác minh quyền thực, không có phiên AI Studio kết nối để agent đọc trạng
+thái riêng. Đề nghị1call chẩn đoán nay ghim r3, vẫn chưa được duyệt; chưa cho
+phép cohort24calls mới. RAG lexical/LLMoff vẫn là luồng test không cần key.
+
+Người dùng báo banner gần bandwidth limit. Đây chưa phải error body403 hoặc
+trạng thái riêng key/project; chưa đủ kết luận bật billing sẽ sửa lỗi. Không
+thay key/billing hoặc gọi API mới từ banner; xem đối chiếu Google trong hồ sơ L6.
 
 ## Kiểm bằng chứng trước khi quyết định
 
 ```powershell
-python -m tools.check_hus_llm_readiness --review-run data/hus/evaluation/runs/llm_l5_ai_review_20261110_r1 --out data/hus/evaluation/runs/llm_l6_readiness_20261110_r1
+python -m tools.check_hus_llm_readiness --review-run data/hus/evaluation/runs/llm_l5_v3_ai_review_20261113_r1 --out data/hus/evaluation/runs/llm_l6_v3_readiness_20261113_r3
 ```
 
 Dùng một tên output mới nếu đã tồn tại. Công cụ chỉ replay/đọc cache và hash nguồn/
 code; không gọi model/retrieval, đọc key, sửa `.env` hay đổi cờ. Bằng chứng có lỗi
 binding/hash sẽ bị từ chối; code/source/model khác run đo không đủ điều kiện reuse.
 Report tách bản sinh dùng/fallback, lý do, ca thiếu ý và latency model thực đã đo.
+Checker tự chọn pins theo pack v4 đã ghim, kiểm hash manifest/release/câu hỏi/
+baseline bằng source oracle; không dựng lại prompt v2 cũ bằng builder v3 mới.
+Run v4 lịch sử bị chặn bởi `pins_changed` và `readability_regressed`. Model trả
+về phải khớp model yêu cầu; schema/hash đúng không thay nghiệm thu ngữ nghĩa.
 100% fallback không được tính thành công LLM. `operator_review_required` chỉ có
 nghĩa evidence đủ để người vận hành xét tiếp; không phải tự bật hoặc production sign-off.
 
@@ -96,9 +134,10 @@ Lỗi canonical vẫn503 ở cả bật/tắt; rollback model không sửa ngu�
 
 ## Bằng chứng và phép đo
 
-L5 đã đo provider thật trên máy này, dùng19 bản: incremental p50/p95=2,692/10,444s;
-5 fallback p50/p95=5,070/6,248s, không gồm pacing5s. Tổng23.539 token có cả6.482
-token cho output bị loại. Đây không phải full HTTP SLO hoặc tỷ lệ chất lượng mới.
+L5 v4 lịch sử đã đo provider thật trên máy này: 16 bản dùng p50/p95=4,087/6,456s;
+8 fallback p50/p95=3,389/6,410s, không gồm pacing5s. Tổng35.265 token, trong đó
+16.393 token cho fallback. Đây là protocol v2, không phải latency/chất lượng v3
+hoặc full HTTP SLO. Chưa có phép đo provider mới trên code baseline sau sửa.
 
 L6 kiểm API off→on→off và fallback→off bằng RAG/adapter/client thật với transport
 provider giả, không dùng key Google. Các test chứng minh contract rollback và quyền;

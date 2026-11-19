@@ -1,0 +1,29 @@
+{
+  "L2_replay": {
+    "generation": {
+      "fallback_reason": "http_error",
+      "http_status": 503,
+      "model": null,
+      "requested_model": "gemini-3.5-flash-lite",
+      "used": false
+    },
+    "key_read": false,
+    "reply_and_hus_answer_unchanged": true,
+    "synthetic_not_second_live_call": true
+  },
+  "budget_remaining": 0,
+  "fallback_exact_canonical": true,
+  "generated_rewrite_used": false,
+  "http_status": 503,
+  "kind": "cached_verification_and_synthetic_L2_error_replay",
+  "live_calls_this_grant": 1,
+  "live_manifest_sha256": "93ecbaa3754a516fd7b903f6fd5f3a3d34e3de6025bf1d94497523708a976224",
+  "new_L5_or_L6_acceptance": false,
+  "persistent_default_changed": false,
+  "prepared_current_pins_match": true,
+  "prepared_manifest_sha256": "d0bfe7a95addc56cbd735fb225ff0f2dcfefafa1cdd732f874f41ef8f97175ca",
+  "protected_files_unchanged": 3020,
+  "provider_status": "UNAVAILABLE",
+  "tests": "No suite rerun or runtime changes; single offline L2 replay only.",
+  "verification_live_calls": 0
+}

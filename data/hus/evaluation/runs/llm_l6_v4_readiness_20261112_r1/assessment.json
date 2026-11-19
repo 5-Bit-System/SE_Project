@@ -1,0 +1,65 @@
+{
+  "activation_performed": false,
+  "actual_human_reviews": 0,
+  "assessor_sha256": "673c3540778c0b3a49575379349029f06526eaac97b4b550e62db5b458ebc4e5",
+  "blocked_cases": [],
+  "changes_environment": false,
+  "current_pins_sha256": "46cc8dee231a55297dfc8e960c1f9c80aa40211793536c101b772bc712e55a21",
+  "eligible_for_manual_acceptance": false,
+  "evidence_version": "v4",
+  "fallback": 8,
+  "fallback_latency": {
+    "count": 8,
+    "max_ms": 6410.314100096002,
+    "min_ms": 2175.4379998892546,
+    "p50_ms": 3388.5981999337673,
+    "p95_ms": 6410.314100096002
+  },
+  "fallback_reasons": {
+    "evidence_coverage": 4,
+    "invalid_output": 1,
+    "invalid_response": 3
+  },
+  "independent_holdout_accepted": false,
+  "limits": [
+    "No production SLO or total20s deadline inferred.",
+    "Evidence assessment does not perform activation or replace operator acceptance."
+  ],
+  "new_provider_calls": 0,
+  "new_retrieval_calls": 0,
+  "observed_models": {
+    "gemini-3.5-flash-lite": 24
+  },
+  "provider_requests": 24,
+  "reasons": [
+    "pins_changed",
+    "readability_regressed"
+  ],
+  "recommended_action": "keep_disabled",
+  "recorded_pins_sha256": "80205f8d28439adc40c4bcb2232ef67d179c98f5603be6a3e30aa278d793edb7",
+  "requested_model": "gemini-3.5-flash-lite",
+  "reviewer_kind": "ai",
+  "schema_version": "hus-llm-readiness-1.0",
+  "scope": "L5 evidence readiness only; operator rollback/latency acceptance remains separate",
+  "source_manifest_sha256": "f1664f0aa0c77c1c0dbf95b2958158df6046d7ee9336c41c3e51b8dece5ff703",
+  "source_pack": "data/hus/evaluation/llm_v4_dev_20261111_r1",
+  "source_pack_manifest_sha256": "8e8b0c0a8fb73c840685c756a3216e578072640b71260c452a2ef828464d69ca",
+  "source_release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "supported_complete_readability_gains": 2,
+  "token_usage": {
+    "completion_tokens": 6916,
+    "prompt_tokens": 28349,
+    "total_tokens": 35265
+  },
+  "used": 16,
+  "used_latency": {
+    "count": 16,
+    "max_ms": 6456.259700004011,
+    "min_ms": 1433.6196000222117,
+    "p50_ms": 4086.5055001340806,
+    "p95_ms": 6456.259700004011
+  }
+}

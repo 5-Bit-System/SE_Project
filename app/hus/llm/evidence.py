@@ -46,6 +46,24 @@ def _facts(source: dict) -> dict:
             _invalid()
         if any(type(v) not in {str, int, float, type(None)} for v in value.values()):
             _invalid()
+    elif field in {'program_course_count', 'program_course_list'}:
+        keys = {'catalog_course_count', 'student_required_course_count'}
+        if field == 'program_course_list':
+            keys.add('courses')
+        if (type(value) is not dict or set(value) != keys
+                or type(value.get('catalog_course_count')) is not int
+                or value['catalog_course_count'] < 1
+                or value.get('student_required_course_count') is not None):
+            _invalid()
+        if field == 'program_course_list':
+            rows = value['courses']
+            if (type(rows) is not list or len(rows) != value['catalog_course_count']
+                    or any(type(row) is not dict or set(row) != {'course_code', 'course_name'}
+                           or type(row['course_code']) is not str
+                           or not re.fullmatch(r'[A-Z]{3}\d{4}[A-Z]?', row['course_code'])
+                           or type(row['course_name']) is not str for row in rows)
+                    or len({row['course_code'] for row in rows}) != len(rows)):
+                _invalid()
     elif field == 'program_groups':
         if not isinstance(value, list):
             _invalid()
@@ -85,7 +103,7 @@ class HUSEvidenceBundle:
         return json.loads(self.json_text)
 
 
-def build_bundle(context: HUSRewriteContext) -> HUSEvidenceBundle:
+def build_bundle(context: HUSRewriteContext, *, check_budget=True) -> HUSEvidenceBundle:
     question, answer = context.question, context.answer
     if not question.allow_llm_rewrite:
         raise HUSLLMError('disabled')
@@ -180,7 +198,7 @@ def build_bundle(context: HUSRewriteContext) -> HUSEvidenceBundle:
                              separators=(',', ':'), allow_nan=False)
     except (ValueError, TypeError):
         _invalid()
-    if len(encoded) > MAX_PROMPT_CHARS:
+    if check_budget and len(encoded) > MAX_PROMPT_CHARS:
         raise HUSLLMError('prompt_budget')
     return HUSEvidenceBundle(encoded)
 

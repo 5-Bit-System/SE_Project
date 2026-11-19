@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "anchors.json": "f9554be7ed756fbf5e58f857ae9e8a67b009b9a9a2262147aeb054d6cdd2d11e",
+    "field_matrix.json": "9909759186d0a30f1adb9e4b773fb61bcf262bc1e33bea32e1ea2d5371cb8528",
+    "pdf_review.json": "30968865d9c9760ffff55d078baab606d30953f76414ee529cc537e75ffcd21d",
+    "q001_chain.json": "1642ebe0e60e077e6fd032d7309597c3f3e2e5e47721c7e67aabd21cffa7ffc8",
+    "reference_registry.json": "ca66d17381a91af75cf3af652e01a71a8f1825b1fd5a37a46606248478cfa000",
+    "report.json": "5d2d3844f8568d536ff7061ec71c11f53a906fcee7d6ac62f13a1f8f17f1dcb3",
+    "sources.json": "0c022fcc5d37a5264c6d3ebfcdb18dd69985ded9289d46ce78de4b1bf11ed052"
+  },
+  "schema_version": "hus-field-edition-review-1.0"
+}

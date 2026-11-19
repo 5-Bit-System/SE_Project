@@ -1,0 +1,1029 @@
+{
+  "kind": "pre-optimization-profile-not-quality-score",
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+  "cold_seconds": 139.0737172999652,
+  "cold_spans": [
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.355992899974808,
+      "exclusive_seconds": 1.355992899974808
+    },
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.3651031999615952,
+      "exclusive_seconds": 1.3651031999615952
+    },
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.1429169999901205,
+      "exclusive_seconds": 1.1429169999901205
+    },
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.3840858999756165,
+      "exclusive_seconds": 1.3840858999756165
+    },
+    {
+      "name": "inventory_read",
+      "children_seconds": 0.0,
+      "seconds": 0.6482142000459135,
+      "exclusive_seconds": 0.6482142000459135
+    },
+    {
+      "name": "inventory_json_serialization",
+      "children_seconds": 0.0,
+      "seconds": 0.6066909999935888,
+      "exclusive_seconds": 0.6066909999935888
+    },
+    {
+      "name": "inventory_read",
+      "children_seconds": 0.0,
+      "seconds": 0.672563599946443,
+      "exclusive_seconds": 0.672563599946443
+    },
+    {
+      "name": "inventory_json_serialization",
+      "children_seconds": 0.0,
+      "seconds": 0.5951313000405207,
+      "exclusive_seconds": 0.5951313000405207
+    },
+    {
+      "name": "index_check",
+      "children_seconds": 1.2676948999869637,
+      "seconds": 1.3094787999871187,
+      "exclusive_seconds": 0.04178390000015497
+    },
+    {
+      "name": "encoding",
+      "children_seconds": 0.0,
+      "seconds": 0.10849259997485206,
+      "exclusive_seconds": 0.10849259997485206
+    },
+    {
+      "name": "inventory_read",
+      "children_seconds": 0.0,
+      "seconds": 0.3917535000364296,
+      "exclusive_seconds": 0.3917535000364296
+    },
+    {
+      "name": "inventory_json_serialization",
+      "children_seconds": 0.0,
+      "seconds": 0.5867650000145659,
+      "exclusive_seconds": 0.5867650000145659
+    },
+    {
+      "name": "index_check",
+      "children_seconds": 0.9785185000509955,
+      "seconds": 1.0169350000214763,
+      "exclusive_seconds": 0.0384164999704808
+    },
+    {
+      "name": "result_resolution",
+      "children_seconds": 0.0,
+      "seconds": 0.007201200001873076,
+      "exclusive_seconds": 0.007201200001873076
+    },
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.4734428999945521,
+      "exclusive_seconds": 1.4734428999945521
+    },
+    {
+      "name": "canonical_signature",
+      "children_seconds": 0.0,
+      "seconds": 1.1641142999869771,
+      "exclusive_seconds": 1.1641142999869771
+    }
+  ],
+  "observations": [
+    {
+      "id": "HN20-006",
+      "seconds": 6.281164499989245,
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2243575000320561,
+          "exclusive_seconds": 1.2243575000320561
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.5432535999570973,
+          "exclusive_seconds": 1.5432535999570973
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.046427000022958964,
+          "exclusive_seconds": 0.046427000022958964
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3759495000122115,
+          "exclusive_seconds": 0.3759495000122115
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.5931779000093229,
+          "exclusive_seconds": 0.5931779000093229
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9691274000215344,
+          "seconds": 1.0075592000503093,
+          "exclusive_seconds": 0.03843180002877489
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.014092500030528754,
+          "exclusive_seconds": 0.014092500030528754
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.0031664000125601888,
+          "exclusive_seconds": 0.0031664000125601888
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2535200999700464,
+          "exclusive_seconds": 1.2535200999700464
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.1814890000387095,
+          "exclusive_seconds": 1.1814890000387095
+        }
+      ],
+      "trace": {
+        "requested_mode": "hybrid",
+        "actual_mode": "hybrid",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"introduction\",\"major\":\"mathematics_informatics\",\"program_variant\":null,\"version\":null}",
+        "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+        "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+        "lexical": [
+          {
+            "parent_id": "44d598308d53629fef5b3c8a7ec61495",
+            "rank": 1,
+            "raw_score": 1.6010329547833009
+          }
+        ],
+        "vector": [
+          {
+            "parent_id": "44d598308d53629fef5b3c8a7ec61495",
+            "rank": 1,
+            "raw_score": 0.8528114557266235
+          }
+        ],
+        "vector_trace": {
+          "mode_requested": "vector",
+          "mode_used": "vector",
+          "fallback_reason": null,
+          "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+          "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics_informatics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"44d598308d53629fef5b3c8a7ec61495\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"introduction\"}]}",
+          "passage_ids": [
+            "44d598308d53629fef5b3c8a7ec61495#p000"
+          ],
+          "parent_ids": [
+            "44d598308d53629fef5b3c8a7ec61495"
+          ]
+        },
+        "candidate_union": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "fused": [
+          {
+            "parent_id": "44d598308d53629fef5b3c8a7ec61495",
+            "lexical_rank": 1,
+            "vector_rank": 1,
+            "rrf_score": 0.03278688524590164
+          }
+        ],
+        "final_top5": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "fallback_reason": null,
+        "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+      }
+    },
+    {
+      "id": "HN20-009",
+      "seconds": 6.6436701999627985,
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.4877464000019245,
+          "exclusive_seconds": 1.4877464000019245
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2032458999892697,
+          "exclusive_seconds": 1.2032458999892697
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.041654400003608316,
+          "exclusive_seconds": 0.041654400003608316
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.33930280001368374,
+          "exclusive_seconds": 0.33930280001368374
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6124964999617077,
+          "exclusive_seconds": 0.6124964999617077
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9517992999753915,
+          "seconds": 0.9873809000127949,
+          "exclusive_seconds": 0.035581600037403405
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.035376899992115796,
+          "exclusive_seconds": 0.035376899992115796
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.2851956999511458,
+          "exclusive_seconds": 0.2851956999511458
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.506982400023844,
+          "exclusive_seconds": 1.506982400023844
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.0735997000010684,
+          "exclusive_seconds": 1.0735997000010684
+        }
+      ],
+      "trace": {
+        "requested_mode": "hybrid",
+        "actual_mode": "hybrid",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT1202\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"mathematics_informatics\",\"program_variant\":null,\"version\":\"QD3567-2023\"}",
+        "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+        "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+        "lexical": [
+          {
+            "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+            "rank": 1,
+            "raw_score": 2.3663348991399458
+          },
+          {
+            "parent_id": "ac957870ee51d7e485956bae14962db3",
+            "rank": 2,
+            "raw_score": 2.2808662860606934
+          },
+          {
+            "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "rank": 3,
+            "raw_score": 1.684731913746604
+          },
+          {
+            "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+            "rank": 4,
+            "raw_score": 0.6372040962374763
+          },
+          {
+            "parent_id": "aec1732cc5511ce494b74818dd12477d",
+            "rank": 5,
+            "raw_score": 0.600990354189623
+          }
+        ],
+        "vector": [
+          {
+            "parent_id": "ac957870ee51d7e485956bae14962db3",
+            "rank": 1,
+            "raw_score": 0.857120156288147
+          },
+          {
+            "parent_id": "aec1732cc5511ce494b74818dd12477d",
+            "rank": 2,
+            "raw_score": 0.8413540720939636
+          },
+          {
+            "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+            "rank": 3,
+            "raw_score": 0.841314971446991
+          },
+          {
+            "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "rank": 4,
+            "raw_score": 0.8086020946502686
+          },
+          {
+            "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+            "rank": 5,
+            "raw_score": 0.7854204177856445
+          }
+        ],
+        "vector_trace": {
+          "mode_requested": "vector",
+          "mode_used": "vector",
+          "fallback_reason": null,
+          "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+          "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"mathematics_informatics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"2a7593fe45600a82e5e97ee008ef7062\",\"571f815f9fbe0e6d32d0c4061c1273d5\",\"9bdfb7fc10a3f6ae786c7579e6d60b4d\",\"ac957870ee51d7e485956bae14962db3\",\"aec1732cc5511ce494b74818dd12477d\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3567-2023\"},{\"course_code\":\"MAT1202\"},{\"field\":\"content\"}]}",
+          "passage_ids": [
+            "ac957870ee51d7e485956bae14962db3#p000",
+            "aec1732cc5511ce494b74818dd12477d#p000",
+            "571f815f9fbe0e6d32d0c4061c1273d5#p000",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d#p000",
+            "2a7593fe45600a82e5e97ee008ef7062#p000"
+          ],
+          "parent_ids": [
+            "ac957870ee51d7e485956bae14962db3",
+            "aec1732cc5511ce494b74818dd12477d",
+            "571f815f9fbe0e6d32d0c4061c1273d5",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "2a7593fe45600a82e5e97ee008ef7062"
+          ]
+        },
+        "candidate_union": [
+          "2a7593fe45600a82e5e97ee008ef7062",
+          "571f815f9fbe0e6d32d0c4061c1273d5",
+          "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+          "ac957870ee51d7e485956bae14962db3",
+          "aec1732cc5511ce494b74818dd12477d"
+        ],
+        "fused": [
+          {
+            "parent_id": "ac957870ee51d7e485956bae14962db3",
+            "lexical_rank": 2,
+            "vector_rank": 1,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+            "lexical_rank": 1,
+            "vector_rank": 3,
+            "rrf_score": 0.032266458495966696
+          },
+          {
+            "parent_id": "aec1732cc5511ce494b74818dd12477d",
+            "lexical_rank": 5,
+            "vector_rank": 2,
+            "rrf_score": 0.0315136476426799
+          },
+          {
+            "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "lexical_rank": 3,
+            "vector_rank": 4,
+            "rrf_score": 0.03149801587301587
+          },
+          {
+            "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+            "lexical_rank": 4,
+            "vector_rank": 5,
+            "rrf_score": 0.031009615384615385
+          }
+        ],
+        "final_top5": [
+          "ac957870ee51d7e485956bae14962db3",
+          "571f815f9fbe0e6d32d0c4061c1273d5",
+          "aec1732cc5511ce494b74818dd12477d",
+          "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+          "2a7593fe45600a82e5e97ee008ef7062"
+        ],
+        "fallback_reason": null,
+        "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+      }
+    },
+    {
+      "id": "HN20-012",
+      "seconds": 6.275669599999674,
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.316941199998837,
+          "exclusive_seconds": 1.316941199998837
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.4752365999738686,
+          "exclusive_seconds": 1.4752365999738686
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.03979419998358935,
+          "exclusive_seconds": 0.03979419998358935
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.382369099999778,
+          "exclusive_seconds": 0.382369099999778
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6266334000392817,
+          "exclusive_seconds": 0.6266334000392817
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 1.0090025000390597,
+          "seconds": 1.0452273999690078,
+          "exclusive_seconds": 0.03622489992994815
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.014846800011582673,
+          "exclusive_seconds": 0.014846800011582673
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.018359399982728064,
+          "exclusive_seconds": 0.018359399982728064
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.3851677000056952,
+          "exclusive_seconds": 1.3851677000056952
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.9609867999679409,
+          "exclusive_seconds": 0.9609867999679409
+        }
+      ],
+      "trace": {
+        "requested_mode": "hybrid",
+        "actual_mode": "hybrid",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"further_study\",\"major\":\"computer_science\",\"program_variant\":null,\"version\":null}",
+        "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+        "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+        "lexical": [
+          {
+            "parent_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+            "rank": 1,
+            "raw_score": 2.4950420916040406
+          },
+          {
+            "parent_id": "b45d00fe80539319273406967ae12a65",
+            "rank": 2,
+            "raw_score": 0.41510040900336675
+          },
+          {
+            "parent_id": "56dc11d1be420dbfde4bcc3786d1276b",
+            "rank": 3,
+            "raw_score": 0.410662932222957
+          },
+          {
+            "parent_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+            "rank": 4,
+            "raw_score": 0.4019849636953088
+          },
+          {
+            "parent_id": "7770981a0105a0e83d57880b591dd3b7",
+            "rank": 5,
+            "raw_score": 0.36794730875914206
+          }
+        ],
+        "vector": [
+          {
+            "parent_id": "b45d00fe80539319273406967ae12a65",
+            "rank": 1,
+            "raw_score": 0.8360874652862549
+          },
+          {
+            "parent_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+            "rank": 2,
+            "raw_score": 0.8317543864250183
+          },
+          {
+            "parent_id": "7770981a0105a0e83d57880b591dd3b7",
+            "rank": 3,
+            "raw_score": 0.8252599835395813
+          },
+          {
+            "parent_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+            "rank": 4,
+            "raw_score": 0.8234249949455261
+          },
+          {
+            "parent_id": "56dc11d1be420dbfde4bcc3786d1276b",
+            "rank": 5,
+            "raw_score": 0.7980673313140869
+          }
+        ],
+        "vector_trace": {
+          "mode_requested": "vector",
+          "mode_used": "vector",
+          "fallback_reason": null,
+          "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+          "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"computer_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"56dc11d1be420dbfde4bcc3786d1276b\",\"7770981a0105a0e83d57880b591dd3b7\",\"b45d00fe80539319273406967ae12a65\",\"e29e0cbb74eb7a68f3992ec91f5dd4e9\",\"e5a82ded76438ecd8803b9c5e5d2e9c1\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"further_study\"}]}",
+          "passage_ids": [
+            "b45d00fe80539319273406967ae12a65#p000",
+            "e5a82ded76438ecd8803b9c5e5d2e9c1#p000",
+            "7770981a0105a0e83d57880b591dd3b7#p000",
+            "e29e0cbb74eb7a68f3992ec91f5dd4e9#p000",
+            "56dc11d1be420dbfde4bcc3786d1276b#p000"
+          ],
+          "parent_ids": [
+            "b45d00fe80539319273406967ae12a65",
+            "e5a82ded76438ecd8803b9c5e5d2e9c1",
+            "7770981a0105a0e83d57880b591dd3b7",
+            "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+            "56dc11d1be420dbfde4bcc3786d1276b"
+          ]
+        },
+        "candidate_union": [
+          "56dc11d1be420dbfde4bcc3786d1276b",
+          "7770981a0105a0e83d57880b591dd3b7",
+          "b45d00fe80539319273406967ae12a65",
+          "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+          "e5a82ded76438ecd8803b9c5e5d2e9c1"
+        ],
+        "fused": [
+          {
+            "parent_id": "b45d00fe80539319273406967ae12a65",
+            "lexical_rank": 2,
+            "vector_rank": 1,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "parent_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+            "lexical_rank": 1,
+            "vector_rank": 2,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "parent_id": "56dc11d1be420dbfde4bcc3786d1276b",
+            "lexical_rank": 3,
+            "vector_rank": 5,
+            "rrf_score": 0.03125763125763126
+          },
+          {
+            "parent_id": "7770981a0105a0e83d57880b591dd3b7",
+            "lexical_rank": 5,
+            "vector_rank": 3,
+            "rrf_score": 0.03125763125763126
+          },
+          {
+            "parent_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+            "lexical_rank": 4,
+            "vector_rank": 4,
+            "rrf_score": 0.03125
+          }
+        ],
+        "final_top5": [
+          "b45d00fe80539319273406967ae12a65",
+          "e5a82ded76438ecd8803b9c5e5d2e9c1",
+          "56dc11d1be420dbfde4bcc3786d1276b",
+          "7770981a0105a0e83d57880b591dd3b7",
+          "e29e0cbb74eb7a68f3992ec91f5dd4e9"
+        ],
+        "fallback_reason": null,
+        "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+      }
+    },
+    {
+      "id": "HN20-014",
+      "seconds": 6.602783800044563,
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.4635473000234924,
+          "exclusive_seconds": 1.4635473000234924
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.0627739999908954,
+          "exclusive_seconds": 1.0627739999908954
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.03943330002948642,
+          "exclusive_seconds": 0.03943330002948642
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3405606000451371,
+          "exclusive_seconds": 0.3405606000451371
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6053400000091642,
+          "exclusive_seconds": 0.6053400000091642
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9459006000543013,
+          "seconds": 0.9827542999992147,
+          "exclusive_seconds": 0.03685369994491339
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.027845699980389327,
+          "exclusive_seconds": 0.027845699980389327
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.29582749999826774,
+          "exclusive_seconds": 0.29582749999826774
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.1089437000337057,
+          "exclusive_seconds": 1.1089437000337057
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.6010205000056885,
+          "exclusive_seconds": 1.6010205000056885
+        }
+      ],
+      "trace": {
+        "requested_mode": "hybrid",
+        "actual_mode": "hybrid",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT1204\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"computer_science\",\"program_variant\":null,\"version\":\"QD3568-2023\"}",
+        "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+        "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+        "lexical": [
+          {
+            "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "rank": 1,
+            "raw_score": 4.339047031553131
+          },
+          {
+            "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+            "rank": 2,
+            "raw_score": 4.216857154622196
+          },
+          {
+            "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+            "rank": 3,
+            "raw_score": 3.7476628152825526
+          },
+          {
+            "parent_id": "277fe511403034379893f46341b6b429",
+            "rank": 4,
+            "raw_score": 2.998458797629469
+          },
+          {
+            "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+            "rank": 5,
+            "raw_score": 0.8455711689159379
+          }
+        ],
+        "vector": [
+          {
+            "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "rank": 1,
+            "raw_score": 0.8703689575195312
+          },
+          {
+            "parent_id": "277fe511403034379893f46341b6b429",
+            "rank": 2,
+            "raw_score": 0.8529725074768066
+          },
+          {
+            "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+            "rank": 3,
+            "raw_score": 0.8332118391990662
+          },
+          {
+            "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+            "rank": 4,
+            "raw_score": 0.8188672065734863
+          },
+          {
+            "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+            "rank": 5,
+            "raw_score": 0.7990264892578125
+          }
+        ],
+        "vector_trace": {
+          "mode_requested": "vector",
+          "mode_used": "vector",
+          "fallback_reason": null,
+          "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+          "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"computer_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"06a4f73df61f8a9493c5f7ee296b1824\",\"277fe511403034379893f46341b6b429\",\"34d0edb54b3722c051ba1b9e2eb07334\",\"bb93fa28e9829ba7f5d46fc4ece9a19f\",\"fbef7824e6826bc004fbc9bc02a993d9\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3568-2023\"},{\"course_code\":\"MAT1204\"},{\"field\":\"content\"}]}",
+          "passage_ids": [
+            "bb93fa28e9829ba7f5d46fc4ece9a19f#p000",
+            "277fe511403034379893f46341b6b429#p000",
+            "fbef7824e6826bc004fbc9bc02a993d9#p000",
+            "34d0edb54b3722c051ba1b9e2eb07334#p000",
+            "06a4f73df61f8a9493c5f7ee296b1824#p000"
+          ],
+          "parent_ids": [
+            "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "277fe511403034379893f46341b6b429",
+            "fbef7824e6826bc004fbc9bc02a993d9",
+            "34d0edb54b3722c051ba1b9e2eb07334",
+            "06a4f73df61f8a9493c5f7ee296b1824"
+          ]
+        },
+        "candidate_union": [
+          "06a4f73df61f8a9493c5f7ee296b1824",
+          "277fe511403034379893f46341b6b429",
+          "34d0edb54b3722c051ba1b9e2eb07334",
+          "bb93fa28e9829ba7f5d46fc4ece9a19f",
+          "fbef7824e6826bc004fbc9bc02a993d9"
+        ],
+        "fused": [
+          {
+            "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "lexical_rank": 1,
+            "vector_rank": 1,
+            "rrf_score": 0.03278688524590164
+          },
+          {
+            "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+            "lexical_rank": 2,
+            "vector_rank": 3,
+            "rrf_score": 0.03200204813108039
+          },
+          {
+            "parent_id": "277fe511403034379893f46341b6b429",
+            "lexical_rank": 4,
+            "vector_rank": 2,
+            "rrf_score": 0.031754032258064516
+          },
+          {
+            "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+            "lexical_rank": 3,
+            "vector_rank": 5,
+            "rrf_score": 0.03125763125763126
+          },
+          {
+            "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+            "lexical_rank": 5,
+            "vector_rank": 4,
+            "rrf_score": 0.031009615384615385
+          }
+        ],
+        "final_top5": [
+          "bb93fa28e9829ba7f5d46fc4ece9a19f",
+          "fbef7824e6826bc004fbc9bc02a993d9",
+          "277fe511403034379893f46341b6b429",
+          "06a4f73df61f8a9493c5f7ee296b1824",
+          "34d0edb54b3722c051ba1b9e2eb07334"
+        ],
+        "fallback_reason": null,
+        "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+      }
+    },
+    {
+      "id": "HN20-019",
+      "seconds": 6.60601809999207,
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2338238999946043,
+          "exclusive_seconds": 1.2338238999946043
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.223052599991206,
+          "exclusive_seconds": 1.223052599991206
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.05269809998571873,
+          "exclusive_seconds": 0.05269809998571873
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.36922759999288246,
+          "exclusive_seconds": 0.36922759999288246
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6484366999939084,
+          "exclusive_seconds": 0.6484366999939084
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 1.0176642999867909,
+          "seconds": 1.0565733999828808,
+          "exclusive_seconds": 0.038909099996089935
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.022860699973534793,
+          "exclusive_seconds": 0.022860699973534793
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.5751053999993019,
+          "exclusive_seconds": 0.5751053999993019
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2391188999754377,
+          "exclusive_seconds": 1.2391188999754377
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.18058749998454,
+          "exclusive_seconds": 1.18058749998454
+        }
+      ],
+      "trace": {
+        "requested_mode": "hybrid",
+        "actual_mode": "hybrid",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT3533\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"data_science\",\"program_variant\":null,\"version\":\"QD3569-2023\"}",
+        "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+        "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+        "lexical": [
+          {
+            "parent_id": "e3016230b7adc54e13dfa486fd969847",
+            "rank": 1,
+            "raw_score": 2.737745197783975
+          },
+          {
+            "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+            "rank": 2,
+            "raw_score": 2.44431269129368
+          },
+          {
+            "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+            "rank": 3,
+            "raw_score": 2.091089931668969
+          },
+          {
+            "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+            "rank": 4,
+            "raw_score": 1.852262415784065
+          },
+          {
+            "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+            "rank": 5,
+            "raw_score": 1.7712778694288749
+          }
+        ],
+        "vector": [
+          {
+            "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+            "rank": 1,
+            "raw_score": 0.8758147954940796
+          },
+          {
+            "parent_id": "e3016230b7adc54e13dfa486fd969847",
+            "rank": 2,
+            "raw_score": 0.8572090268135071
+          },
+          {
+            "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+            "rank": 3,
+            "raw_score": 0.8482437133789062
+          },
+          {
+            "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+            "rank": 4,
+            "raw_score": 0.8420246243476868
+          },
+          {
+            "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+            "rank": 5,
+            "raw_score": 0.8389066457748413
+          }
+        ],
+        "vector_trace": {
+          "mode_requested": "vector",
+          "mode_used": "vector",
+          "fallback_reason": null,
+          "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+          "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"data_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"096e4f54f1338174cf06aad0e18a2da8\",\"273e8ece7e6db1f8c532c7975f9021e4\",\"a3e9d09144bd6da73e8d355722b4e7f3\",\"dd643c3c0c3230450d67f473878f0ddd\",\"e3016230b7adc54e13dfa486fd969847\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3569-2023\"},{\"course_code\":\"MAT3533\"},{\"field\":\"content\"}]}",
+          "passage_ids": [
+            "a3e9d09144bd6da73e8d355722b4e7f3#p000",
+            "e3016230b7adc54e13dfa486fd969847#p000",
+            "dd643c3c0c3230450d67f473878f0ddd#p000",
+            "096e4f54f1338174cf06aad0e18a2da8#p000",
+            "273e8ece7e6db1f8c532c7975f9021e4#p000"
+          ],
+          "parent_ids": [
+            "a3e9d09144bd6da73e8d355722b4e7f3",
+            "e3016230b7adc54e13dfa486fd969847",
+            "dd643c3c0c3230450d67f473878f0ddd",
+            "096e4f54f1338174cf06aad0e18a2da8",
+            "273e8ece7e6db1f8c532c7975f9021e4"
+          ]
+        },
+        "candidate_union": [
+          "096e4f54f1338174cf06aad0e18a2da8",
+          "273e8ece7e6db1f8c532c7975f9021e4",
+          "a3e9d09144bd6da73e8d355722b4e7f3",
+          "dd643c3c0c3230450d67f473878f0ddd",
+          "e3016230b7adc54e13dfa486fd969847"
+        ],
+        "fused": [
+          {
+            "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+            "lexical_rank": 2,
+            "vector_rank": 1,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "parent_id": "e3016230b7adc54e13dfa486fd969847",
+            "lexical_rank": 1,
+            "vector_rank": 2,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+            "lexical_rank": 3,
+            "vector_rank": 5,
+            "rrf_score": 0.03125763125763126
+          },
+          {
+            "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+            "lexical_rank": 5,
+            "vector_rank": 3,
+            "rrf_score": 0.03125763125763126
+          },
+          {
+            "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+            "lexical_rank": 4,
+            "vector_rank": 4,
+            "rrf_score": 0.03125
+          }
+        ],
+        "final_top5": [
+          "a3e9d09144bd6da73e8d355722b4e7f3",
+          "e3016230b7adc54e13dfa486fd969847",
+          "273e8ece7e6db1f8c532c7975f9021e4",
+          "dd643c3c0c3230450d67f473878f0ddd",
+          "096e4f54f1338174cf06aad0e18a2da8"
+        ],
+        "fallback_reason": null,
+        "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+      }
+    }
+  ],
+  "google_calls": 0,
+  "code_sha256": {
+    "app/hus/vector_runtime.py": "71b2c888e7c2012ee49fa59f81fc510b1d6b35800a0d398e262c604e1631b40d",
+    "app/hus/vector_index.py": "7f27b7f2b38f1534a77d2f81637390d911bbb9bc81cef447162cd21cc8ac15e2",
+    "app/hus/vector_query.py": "173a99f6b9c7328dbf28ff61385b989aa14fcd5534b75d30ee2dceaa61b9b361",
+    "app/hus/hybrid_retrieval.py": "d3c6d9177304b0fe1f58b8c0f7fa4f31a8ad5c1a50b025fcc4b107b393a9aaec",
+    "app/hus/embedding.py": "e141333cfb0dd352d4e25bc11ede37dc9b3a6860c34c00a7d06c82bb40446482"
+  }
+}

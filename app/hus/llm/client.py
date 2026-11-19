@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import httpx
 
 from .config import HUSLLMSettings
-from .diagnostics import HUSLLMDiagnostic, envelope_diagnostic
+from .diagnostics import HUSLLMDiagnostic, envelope_diagnostic, http_error_diagnostic
 from .usage import HUSUsage
 
 
@@ -75,7 +75,13 @@ class HUSLLMClient:
         except httpx.RequestError:
             raise HUSLLMError('transport_error') from None
         if not 200 <= response.status_code < 300:
-            raise HUSLLMError('http_error', status_code=response.status_code) from None
+            # Only inspect a bounded JSON body; never retain text/headers/error details.
+            try:
+                body = response.json() if len(response.content) <= 16384 else None
+            except ValueError:
+                body = None
+            diagnostic = http_error_diagnostic(body, response.status_code)
+            raise HUSLLMError('http_error', status_code=response.status_code, diagnostic=diagnostic) from None
         diagnostic = HUSLLMDiagnostic(stage='provider_envelope')
         try:
             data = response.json()

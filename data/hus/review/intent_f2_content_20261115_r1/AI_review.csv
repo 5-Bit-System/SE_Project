@@ -1,0 +1,13 @@
+﻿id,reviewer_type,review_date,human_acceptance,note
+IF2-001,Codex(AI),2026-11-15,pending,"Đúng số danh mục90 mã duy nhất Toán học, giữ student_required_count unknown và cảnh báo không phải mọi sinh viên học hết. Nguồn draft_unverified."
+IF2-002,Codex(AI),2026-11-15,pending,"Chưa có đáp án.1call ý định đã qua kiểm,1call generation bị fact_keys chặn. Bundle cần4 khóa root; chưa biết khóa model trả sai, không suy thiếu/thừa/trùng hoặc nhầm khóa lồng. Không phải bằng chứng model đếm sai90."
+IF2-003,Codex(AI),2026-11-15,pending,Danh sách68 mã/tên Toán tin khớp đầy đủ nguồn và mọi dòng xuất hiện trong reply. Nguồn draft_unverified; danh mục không là danh sách bắt buộc của một sinh viên.
+IF2-004,Codex(AI),2026-11-15,pending,"Chưa đếm được.1call hiểu ý định rồi yêu cầu làm rõ,0generation. Nguồn có danh mục68 nhưng đó là khả năng backend, không là kết quả model. Lời nhắc chung chưa nói rõ đếm toàn danh mục hay theo điều kiện."
+IF2-005,Codex(AI),2026-11-15,pending,"Đúng số danh mục67 KHMTTT, cùng scope/edition, verified là review cấp dự án; chưa xác minh hiệu lực hiện tại hoặc áp dụng cá nhân."
+IF2-006,Codex(AI),2026-11-15,pending,"MAT1204 KHMTTT3 tín chỉ khớp dòng PDF trang10. Cảnh báo verified theo sign-off dự án, không là chứng nhận của trường được giữ."
+IF2-007,Codex(AI),2026-11-15,pending,"Danh sách65 mã/tên KHDL khớp đủ nguồn, mọi dòng trong reply. Không suy thành số môn phải học; draft_unverified được giữ."
+IF2-008,Codex(AI),2026-11-15,pending,"MAT3533 KHDL3 tín chỉ đúng PDF trang11, giữ draft_unverified và cảnh báo unresolved MAT2406; không tự sửa dữ liệu tiên quyết."
+IF2-009,Codex(AI),2026-11-15,pending,"Sai ngành chọn KHDL nhưng hỏi KHMTTT: không gọi provider, nêu đúng ngành cần chọn, không âm thầm đổi/trộn dữ liệu."
+IF2-010,Codex(AI),2026-11-15,pending,"Số môn phải học không đồng nghĩa tổng danh mục90; yêu cầu làm rõ điều kiện, không gọi provider hoặc đoán số."
+IF2-011,Codex(AI),2026-11-15,pending,"F3 chưa opt-in: nhắc quyền AI, không gọi provider hoặc trả nội dung AI."
+IF2-012,Codex(AI),2026-11-15,pending,"MAT9999 không có trong scope dữ liệu: từ chối thiếu nguồn, không gọi provider hoặc bịa tín chỉ."

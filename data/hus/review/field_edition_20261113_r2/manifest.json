@@ -1,0 +1,15 @@
+{
+  "files_sha256": {
+    "anchors.json": "ebb7a2ebbb09ed50e374c6fc7919ea26486dd7c24a408866106533d2cc9024fc",
+    "captures.json": "feced1e44acf27a6605fced1c0d231a3ba1526e108aaf83d9c647cde1cc22428",
+    "delta.json": "78ff5064161a844c269fac5674407aa2c4349ba981606e33e832cdf750458ba0",
+    "field_matrix.json": "a9a57d40a2ca9e12650b69326928e04f030e3d28544bab0d0bc3d1f70723a52a",
+    "pdf_review.json": "af19c62e07e70f74594fb5838010cc6da0742cfde55dd035efc7167ac190c183",
+    "provenance.json": "6be771bbf5c9aec55ed2da1d4411ec51cd7f21c7e0f95054fdbcf24a454dde96",
+    "q001_chain.json": "de0245ee3f17e15db6695edd23e84b638e14ea364fce32b72e4f9857a403785c",
+    "reference_registry.json": "baa7c3b7c69b599c68474fff6fd5fd3ced2321743d6c1f171b277b2a8ad831fb",
+    "report.json": "449a60e666aaf710b4444fa94b03ade1dcc36a4bccb6bc248daf93f99c62ed4c",
+    "selected_example_checks.json": "5d89ede53158cde0ebc242f8c657f8773ee9c9b4626b15276125bdb0d6861e8d"
+  },
+  "schema_version": "hus-field-edition-review-2.0"
+}

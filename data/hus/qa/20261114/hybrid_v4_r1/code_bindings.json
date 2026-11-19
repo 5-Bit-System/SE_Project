@@ -1,0 +1,12 @@
+{
+  "app/hus/retrieval_config.py": "fc8a7966fc523f72d7182e1ec270c28e5271a0080f26bdb12b09129f135c9273",
+  "app/hus/retrieval_profile.py": "2ad58569b2b445b9d986510621e5e4c12ad293ff970ed0237d9db8111593ee31",
+  "app/hus/vector_runtime.py": "71b2c888e7c2012ee49fa59f81fc510b1d6b35800a0d398e262c604e1631b40d",
+  "app/hus/hybrid_retrieval.py": "d3c6d9177304b0fe1f58b8c0f7fa4f31a8ad5c1a50b025fcc4b107b393a9aaec",
+  "app/hus/vector_query.py": "173a99f6b9c7328dbf28ff61385b989aa14fcd5534b75d30ee2dceaa61b9b361",
+  "app/hus/demo.py": "0bfa17377261d443062161fc8f25c1b85abb7836557bde6d7260a23850b61fa8",
+  "tools/run_hus_llm.py": "ab95b0d5dc6cd5a0183316282f41cecb3f28639abb5ff5b7de2b40933e0f0e65",
+  "tools/run_hus_rag.py": "bd6891d7bed1b168753289c07f8674074aadf064544839d7744d675384ab132e",
+  "tests/hus/test_hybrid_v4_profile.py": "a11e37c8d0b574010a2ffc5ec6124b0d2f4a41510de6d6ec3197c6e7ba337d6c",
+  "data/hus/vector_profiles/hybrid_v4_20261114.json": "7812ddbba23b3d40b69bbb6a2ba13e0ce16fedb090004b129408f4f7f18165be"
+}

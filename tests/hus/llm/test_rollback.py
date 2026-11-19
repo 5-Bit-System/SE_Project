@@ -70,7 +70,7 @@ def test_off_on_off_restores_exact_legacy_response_and_needs_no_key(monkeypatch,
 
 
 @pytest.mark.parametrize('family', ['f1', 'f2', 'f3'])
-@pytest.mark.parametrize('failure', ['timeout', 'transport', 'quota', 'invalid_output'])
+@pytest.mark.parametrize('failure', ['timeout', 'transport', 'quota', 'permission', 'authentication', 'invalid_output'])
 def test_failure_fallback_then_disable_uses_canonical_without_another_http(monkeypatch, family, failure):
     from app.hus.demo import app
 
@@ -81,6 +81,11 @@ def test_failure_fallback_then_disable_uses_canonical_without_another_http(monke
             raise httpx.ConnectError('private-provider-error', request=request)
         if failure == 'quota':
             return httpx.Response(429, text='private-provider-error synthetic-l6-key')
+        if failure in {'permission', 'authentication'}:
+            return httpx.Response(403 if failure == 'permission' else 401, json={'error': {
+                'status': 'PERMISSION_DENIED' if failure == 'permission' else 'UNAUTHENTICATED',
+                'message': 'Your API key was reported as leaked. private-provider-error synthetic-l6-key',
+                'details': [{'project': 'private-project'}]}})
         return httpx.Response(200, json=completion({'kind': 'wrong'}))
 
     calls = transport(monkeypatch, fail)
@@ -94,6 +99,9 @@ def test_failure_fallback_then_disable_uses_canonical_without_another_http(monke
         assert response['generation']['used'] is False and len(calls) == 1
         assert response['reply'] == original['reply'] and response['hus_answer'] == original['hus_answer']
         assert 'private-provider-error' not in failed.text and 'synthetic-l6-key' not in failed.text
+        assert 'private-project' not in failed.text
+        if failure in {'permission', 'authentication'}:
+            assert response['generation']['fallback_reason'] == 'http_error'
         monkeypatch.setenv('HUS_LLM_ENABLED', 'false')
         assert client.post('/hus/chat', json=payload).json() == original
     assert len(calls) == 1

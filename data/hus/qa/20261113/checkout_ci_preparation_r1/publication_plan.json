@@ -1,0 +1,20 @@
+{
+  "base_head": "f61b0fdf8657848e1d9b27b2340ff4d93fdd815b",
+  "branch": "hus-llm-rag",
+  "scope": [
+    "requirements-rag.txt",
+    "tools/run_hus_rag.py",
+    "tools/run_hus_submission.py",
+    ".github/workflows/hus-rag.yml",
+    "docs/HUS_RAG_QUICKSTART.md",
+    "README.md"
+  ],
+  "source": "HEAD tracked public RAG files plus six scoped changes; excludes other working-tree code and evaluation artifacts",
+  "existing_files_exported": 218,
+  "new_google_calls": 0,
+  "patch_sha256": "c84174d393fecc805da95298702c62ec883a0f0dfbd5ea9b6b6f5877fde41c1a",
+  "commit_push_pr_ci": "not performed",
+  "other_os_verified": false,
+  "patch_applies_to_HEAD_index": true,
+  "patch_newline_normalized_after_initial_check_failure": true
+}

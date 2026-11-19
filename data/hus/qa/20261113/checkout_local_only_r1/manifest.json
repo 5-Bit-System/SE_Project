@@ -1,0 +1,9 @@
+{
+  "schema": "hus-checkout-local-only-1.0",
+  "files": {
+    "api_check.json": "26a90db4f0071fde4f624b343ed2d011d21aba9939b3c36150749193421f41f9",
+    "check.stderr.txt": "218c3a2f527ca82d9be848b47f8aaa15b7450716359a5f466e3c48d9669136cd",
+    "report.json": "2a91c56484db5d81b687a097f40e1f889a03d3172166df8ec4cf32576c81918d",
+    "server.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

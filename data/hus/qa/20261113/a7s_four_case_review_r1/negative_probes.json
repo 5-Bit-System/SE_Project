@@ -1,0 +1,98 @@
+{
+  "attempts": {
+    "answerer": 0,
+    "network": 0,
+    "provider": 0,
+    "search": 0
+  },
+  "checks": [
+    {
+      "actual_supported": true,
+      "expected_supported": true,
+      "input_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "kept_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "question": "Theo edition chưa xác định, nghề nghiệp ngành KHDL tại trường và viện thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition 2015, nghề nghiệp ngành KHDL tại trường và viện thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition chưa xác định hệ CLC, nghề nghiệp ngành KHDL tại trường và viện thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition chưa xác định, nghề nghiệp ngành KHDL tại trường và viện về lượng tử thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "940a3740794040de84617af7e9aa78fd"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition chưa xác định, nghề nghiệp ngành KHDL tại trường và viện có 997 vị trí?"
+    },
+    {
+      "actual_supported": true,
+      "expected_supported": true,
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "251ab61e0d6a58faa68914d59fa45516"
+      ],
+      "question": "Theo edition chưa xác định, vị trí lập trình viên ngành KHDL ở doanh nghiệp thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition chưa xác định, vị trí lập trình máy bay ngành KHDL ở doanh nghiệp thế nào?"
+    },
+    {
+      "actual_supported": false,
+      "expected_supported": false,
+      "input_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb",
+        "52b2b2acd330744f909bc2ea49cf5fb7"
+      ],
+      "kept_ids": [],
+      "question": "Theo edition chưa xác định, vị trí lập trình viên ngành KHDL có năng lực trình bày báo cáo không?"
+    }
+  ],
+  "kind": "cached_exposed_direct_guard_checks_not_A7_score",
+  "pure_checks_passed": 8
+}

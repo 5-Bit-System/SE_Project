@@ -1,0 +1,4 @@
+{
+  "app/hus/llm/prompts.py": "58a4b80f1695927c927f6e31329d46a66012c57a1bff41716d0fbf9a78ad04bc",
+  "tests/hus/llm/test_f2_dedicated_prompt.py": "619eacac6fdc9c99916b2ba10b65032524eae5d043a8f9d744b18dad05a9367c"
+}

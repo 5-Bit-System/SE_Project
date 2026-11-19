@@ -11,6 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from .client import HUSLLMError
 from .contracts import HUSF2Presentation, HUSTextRewrite
 from .coverage import require_qualitative_coverage
+from .diagnostics import HUSLLMDiagnostic
 from .document import HUSRewriteDocument
 from .evidence import HUSEvidenceBundle
 from .usage import HUSUsage
@@ -73,6 +74,38 @@ def _bad(code='invalid_output'):
     raise HUSLLMError(code)
 
 
+def _facts_bad(stage, issue, code='invalid_output'):
+    raise HUSLLMError(code, diagnostic=HUSLLMDiagnostic(stage=stage, facts_issue=issue)) from None
+
+
+def _validate_facts(raw, payload, sources, *, model, prompt_sha256, usage):
+    """Same strict F2 decisions, with fixed internal labels and no rejected values."""
+    try:
+        parsed = json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
+    except (ValueError, TypeError, KeyError, RecursionError):
+        _facts_bad('output_json', 'json')
+    try:
+        result = _FactsOutput.model_validate(parsed)
+    except ValidationError as error:
+        locations = {e['loc'] for e in error.errors(include_input=False, include_url=False)}
+        issue = 'kind' if ('kind',) in locations else 'style' if ('style',) in locations else 'schema'
+        _facts_bad('output_schema', issue)
+    checks = (
+        (len(result.fact_keys) != len(set(result.fact_keys)), 'duplicate_fact_keys'),
+        (len(result.citation_ids) != len(set(result.citation_ids)), 'duplicate_citation_ids'),
+        (set(result.fact_keys) != set(payload['facts']), 'fact_keys'),
+        (set(result.citation_ids) != set(sources), 'citation_ids'),
+    )
+    for failed, issue in checks:
+        if failed:
+            _facts_bad('output_coverage', issue, 'evidence_coverage')
+    try:
+        return HUSF2Presentation(style=result.style, model=model,
+                                 prompt_sha256=prompt_sha256, usage=usage)
+    except (ValueError, TypeError, KeyError, RecursionError):
+        _facts_bad('output_schema', 'presentation')
+
+
 def validate_output(raw: str, bundle: HUSEvidenceBundle | HUSRewriteDocument, *, model: str,
                     prompt_sha256: str, usage: HUSUsage | None = None):
     if isinstance(bundle, HUSRewriteDocument):
@@ -80,20 +113,15 @@ def validate_output(raw: str, bundle: HUSEvidenceBundle | HUSRewriteDocument, *,
 
         return validate_compact_output(raw, bundle, model=model, prompt_sha256=prompt_sha256, usage=usage)
     if len(raw) > MAX_OUTPUT_CHARS:
+        if bundle.payload['scope']['dataset'] == 'f2':
+            _facts_bad('output_budget', 'budget', 'output_budget')
         _bad('output_budget')
     payload = bundle.payload
     sources = {source['citation_id']: source for source in payload['sources']}
+    if payload['scope']['dataset'] == 'f2':
+        return _validate_facts(raw, payload, sources, model=model, prompt_sha256=prompt_sha256, usage=usage)
     try:
         parsed = json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
-        if payload['scope']['dataset'] == 'f2':
-            result = _FactsOutput.model_validate(parsed)
-            if (len(result.fact_keys) != len(set(result.fact_keys))
-                    or len(result.citation_ids) != len(set(result.citation_ids))
-                    or set(result.fact_keys) != set(payload['facts'])
-                    or set(result.citation_ids) != set(sources)):
-                _bad('evidence_coverage')
-            return HUSF2Presentation(style=result.style, model=model,
-                prompt_sha256=prompt_sha256, usage=usage)
         result = _TextOutput.model_validate(parsed)
         coverage = {cid: (set(), set()) for cid in sources}
         rendered, seen = [], set()

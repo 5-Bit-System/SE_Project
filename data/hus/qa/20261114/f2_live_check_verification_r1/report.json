@@ -1,0 +1,24 @@
+{
+  "budget_remaining": 0,
+  "calls_used_this_grant": 1,
+  "credit_value": 4,
+  "fallback_exact_canonical": true,
+  "historical_scores_or_CSV_changed": false,
+  "historical_validation_remains_unknown": true,
+  "http_status": 200,
+  "key_read_during_verification": false,
+  "kind": "cached_F2_live_check_verification",
+  "limitation": "Kind is missing or invalid in the new response. Its exact rejected value and any additional schema issues were not retained; no claim about the old response.",
+  "live_manifest_sha256": "19dd1599b530d2592b0e01e4d7f10e55717e56d7bedfe73c08f75a5e6ed64517",
+  "new_generated_used": false,
+  "new_validation": {
+    "facts_issue": "kind",
+    "stage": "output_schema"
+  },
+  "pins_match": true,
+  "prompt_unchanged_from_historical": true,
+  "protected_files_unchanged": 3077,
+  "runtime_or_default_changed": false,
+  "suite_rerun": false,
+  "verification_Google_calls": 0
+}

@@ -1,0 +1,1068 @@
+{
+  "blocked_attempts": {
+    "end_to_end_answer": 0,
+    "network": 0,
+    "retrieval": 0
+  },
+  "cases": [
+    {
+      "cached_reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+      "cached_status": "no_information",
+      "cached_trace": [
+        {
+          "hits": [
+            {
+              "chunk_id": "291b6949cf13e7e60e54762b0d09ae77",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "careers",
+              "major": "computer_science",
+              "matched_terms": [
+                "clc",
+                "du",
+                "hoc",
+                "ke",
+                "khoa",
+                "may",
+                "nghe",
+                "nghiep",
+                "phan",
+                "thiet",
+                "thong",
+                "tich",
+                "tin",
+                "tinh",
+                "tro",
+                "tu",
+                "vai",
+                "van"
+              ],
+              "program_variant": "high_quality",
+              "review_status": "include",
+              "score": 13.954636065570224,
+              "version": "unknown"
+            },
+            {
+              "chunk_id": "490cb4103718f52c80496be4f8d33a69",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "careers",
+              "major": "computer_science",
+              "matched_terms": [
+                "clc",
+                "du",
+                "hoc",
+                "ke",
+                "khoa",
+                "may",
+                "nganh",
+                "nghe",
+                "nghiep",
+                "phan",
+                "thiet",
+                "thong",
+                "tich",
+                "tin",
+                "tinh",
+                "tro",
+                "tu",
+                "vai",
+                "van"
+              ],
+              "program_variant": "high_quality",
+              "review_status": "include_markdown",
+              "score": 8.767660975658412,
+              "version": "2019"
+            },
+            {
+              "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "careers",
+              "major": "computer_science",
+              "matched_terms": [
+                "du",
+                "hoc",
+                "ke",
+                "khoa",
+                "may",
+                "nganh",
+                "nghe",
+                "nghiep",
+                "phan",
+                "thiet",
+                "thong",
+                "tich",
+                "tin",
+                "tinh",
+                "tro",
+                "tu",
+                "vai",
+                "van"
+              ],
+              "program_variant": "standard",
+              "review_status": "include_markdown",
+              "score": 7.889857027980888,
+              "version": "2023"
+            },
+            {
+              "chunk_id": "e3dc4d4d8054d927400b121d04d92bef",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "careers",
+              "major": "computer_science",
+              "matched_terms": [
+                "hoc",
+                "khoa",
+                "may",
+                "nganh",
+                "nghe",
+                "nghiep",
+                "phan",
+                "thong",
+                "tin",
+                "tinh"
+              ],
+              "program_variant": "unknown",
+              "review_status": "include",
+              "score": 3.0046247502106285,
+              "version": "unknown"
+            },
+            {
+              "chunk_id": "8955584f15e681b65a6f55b257e09970",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "careers",
+              "major": "computer_science",
+              "matched_terms": [
+                "hoc",
+                "khoa",
+                "may",
+                "nganh",
+                "nghe",
+                "nghiep",
+                "thong",
+                "tin",
+                "tinh"
+              ],
+              "program_variant": "unknown",
+              "review_status": "include",
+              "score": 1.8282663683852918,
+              "version": "unknown"
+            }
+          ],
+          "parameters": {
+            "allow_generated": false,
+            "course_code": null,
+            "dataset": "f1",
+            "field": "careers",
+            "major": "computer_science",
+            "program_variant": null,
+            "top_k": 5,
+            "version": null
+          },
+          "query": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?"
+        }
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7F-Q002-source"
+        ],
+        "expected_answer": "- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7F-Q002",
+        "v2_expected_facts": {}
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "A7F-Q002-source",
+          "major": "computer_science",
+          "source_ref": {
+            "identity": "291b6949cf13e7e60e54762b0d09ae77",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+            "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+          },
+          "source_scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "high_quality",
+            "validity_status": "unknown"
+          },
+          "value": "- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin.",
+          "version": "unknown"
+        }
+      ],
+      "gold_sha256": "24430bc49d72fdc6d14b801d1dc77d3f71054d418c06ed829d0ec4e73372bc43",
+      "guard_specific_tokens": [
+        "clc",
+        "thiet",
+        "tich"
+      ],
+      "missing_per_hit": {
+        "291b6949cf13e7e60e54762b0d09ae77": [
+          "clc"
+        ],
+        "3d5549c23ea06616555c5f6917ccfa12": [
+          "clc"
+        ],
+        "490cb4103718f52c80496be4f8d33a69": [
+          "clc"
+        ],
+        "8955584f15e681b65a6f55b257e09970": [
+          "clc",
+          "thiet",
+          "tich"
+        ],
+        "e3dc4d4d8054d927400b121d04d92bef": [
+          "clc",
+          "thiet",
+          "tich"
+        ]
+      },
+      "observation_sha256": "09487aa22878a5584d8e518943994328e5d46f1a847946b70d13414cf8e191c1",
+      "probes": [
+        {
+          "label": "original_cached_top5",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": []
+        },
+        {
+          "label": "remove_scope_word_diagnostic_only",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": [
+            "291b6949cf13e7e60e54762b0d09ae77"
+          ]
+        },
+        {
+          "label": "expand_scope_long_form",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin hệ chất lượng cao với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": [
+            "490cb4103718f52c80496be4f8d33a69"
+          ]
+        },
+        {
+          "label": "explicit_2019_edition",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC theo edition 2019 với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": []
+        },
+        {
+          "label": "unknown_factual_topic",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin với vai trò tư vấn, phân tích và thiết kế dự án? về lượng tử?",
+          "selected_ids": []
+        },
+        {
+          "label": "synthetic_same_body_wrong_variant",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": []
+        },
+        {
+          "label": "synthetic_same_body_unknown_variant",
+          "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?",
+          "selected_ids": []
+        }
+      ],
+      "question_id": "A7F-Q002",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Cơ hội nghề nghiệp ngành Máy tính và Khoa học thông tin CLC với vai trò tư vấn, phân tích và thiết kế dự án?",
+        "version": "QD3568-2023"
+      },
+      "response_sha256": "f3c69215278b6b6afa59fae132f77535b12872b1a2eb01fa10620963316a36f3",
+      "routing_observation": {
+        "dataset": "f1",
+        "field": "careers",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "sources": [
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f8672cafba05d016.txt",
+          "chunk_id": "291b6949cf13e7e60e54762b0d09ae77",
+          "citation": {
+            "end_char": 1561,
+            "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "f8672cafba05d016",
+            "source_kind": "crawled_prose",
+            "source_sha256": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+            "start_char": 1455,
+            "title": "Máy tính và Khoa học thông tin CLC",
+            "url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "high_quality",
+          "quote": "- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin.",
+          "review_status": "include",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "high_quality",
+            "validity_status": "unknown"
+          },
+          "title": "Máy tính và Khoa học thông tin CLC",
+          "version": "unknown"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1c16ddf8a6f1f409.txt",
+          "chunk_id": "490cb4103718f52c80496be4f8d33a69",
+          "citation": {
+            "end_char": 18502,
+            "evidence_path": "evidence/f1/1c16ddf8a6f1f409.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "1c16ddf8a6f1f409",
+            "source_kind": "crawled_prose",
+            "source_sha256": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+            "start_char": 17783,
+            "title": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "high_quality",
+          "quote": "5. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nSinh viên tốt nghiệp ngành Máy tính và Khoa học thông tin chất lượng cao có\nthể:\n- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển\ntrong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ\nnhân tạo;\n- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ\nthống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự\nán công nghệ thông tin;\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+          "review_status": "include_markdown",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2019",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "high_quality",
+            "validity_status": "unknown"
+          },
+          "title": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf",
+          "version": "2019"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f7f470e712738589.txt",
+          "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+          "citation": {
+            "end_char": 8627,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "source_kind": "crawled_prose",
+            "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+            "start_char": 7923,
+            "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "standard",
+          "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+          "review_status": "include_markdown",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "version": "2023"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d6370261338de29f.txt",
+          "chunk_id": "e3dc4d4d8054d927400b121d04d92bef",
+          "citation": {
+            "end_char": 1349,
+            "evidence_path": "evidence/f1/d6370261338de29f.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "d6370261338de29f",
+            "source_kind": "crawled_prose",
+            "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+            "start_char": 1277,
+            "title": "Ngành Khoa học máy tính và thông tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "unknown",
+          "quote": "- Phát triển phần mềm tại các cơ quan, doanh nghiệp công nghệ thông tin.",
+          "review_status": "include",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "title": "Ngành Khoa học máy tính và thông tin",
+          "version": "unknown"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d6370261338de29f.txt",
+          "chunk_id": "8955584f15e681b65a6f55b257e09970",
+          "citation": {
+            "end_char": 1276,
+            "evidence_path": "evidence/f1/d6370261338de29f.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "d6370261338de29f",
+            "source_kind": "crawled_prose",
+            "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+            "start_char": 1172,
+            "title": "Ngành Khoa học máy tính và thông tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "unknown",
+          "quote": "- Làm nghiên cứu và phát triển tại các viện, các trung tâm nghiên cứu và phát triển công nghệ thông tin.",
+          "review_status": "include",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "title": "Ngành Khoa học máy tính và thông tin",
+          "version": "unknown"
+        }
+      ]
+    },
+    {
+      "cached_reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+      "cached_status": "answered",
+      "cached_trace": [
+        {
+          "hits": [
+            {
+              "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "further_study",
+              "major": "computer_science",
+              "matched_terms": [
+                "bac",
+                "hoc",
+                "khmttt",
+                "linh",
+                "nganh",
+                "si",
+                "thac",
+                "tien",
+                "tiep",
+                "vuc"
+              ],
+              "program_variant": "standard",
+              "review_status": "include_markdown",
+              "score": 6.7492111446586325,
+              "version": "2023"
+            },
+            {
+              "chunk_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "further_study",
+              "major": "computer_science",
+              "matched_terms": [
+                "bac",
+                "hoc",
+                "linh",
+                "nganh",
+                "si",
+                "thac",
+                "tien",
+                "tiep",
+                "vuc"
+              ],
+              "program_variant": "unknown",
+              "review_status": "include",
+              "score": 5.426867235668673,
+              "version": "unknown"
+            },
+            {
+              "chunk_id": "b45d00fe80539319273406967ae12a65",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "further_study",
+              "major": "computer_science",
+              "matched_terms": [
+                "bac",
+                "hoc",
+                "linh",
+                "si",
+                "thac",
+                "tien",
+                "tiep",
+                "vuc"
+              ],
+              "program_variant": "standard",
+              "review_status": "include_markdown",
+              "score": 4.047775938151533,
+              "version": "2015"
+            },
+            {
+              "chunk_id": "7770981a0105a0e83d57880b591dd3b7",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "further_study",
+              "major": "computer_science",
+              "matched_terms": [
+                "hoc",
+                "nganh",
+                "theo",
+                "tiep"
+              ],
+              "program_variant": "high_quality",
+              "review_status": "include_markdown",
+              "score": 1.927015182214185,
+              "version": "2019"
+            },
+            {
+              "chunk_id": "56dc11d1be420dbfde4bcc3786d1276b",
+              "content_origin": "crawled_source_quote",
+              "course_code": null,
+              "dataset": "f1",
+              "field": "further_study",
+              "major": "computer_science",
+              "matched_terms": [
+                "hoc",
+                "theo",
+                "tiep"
+              ],
+              "program_variant": "high_quality",
+              "review_status": "include",
+              "score": 1.2183445453850474,
+              "version": "unknown"
+            }
+          ],
+          "parameters": {
+            "allow_generated": false,
+            "course_code": null,
+            "dataset": "f1",
+            "field": "further_study",
+            "major": "computer_science",
+            "program_variant": null,
+            "top_k": 5,
+            "version": null
+          },
+          "query": "Học tiếp ngành KHMTTT ở bậc Thạc sĩ, Tiến sĩ có những lĩnh vực nào theo nguồn?"
+        }
+      ],
+      "docx_binary_check": {
+        "academic_validity_verified": false,
+        "exact_paragraph_text_matches": [
+          "   Sinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan."
+        ],
+        "path": "data/hus/citation_assets/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+        "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "whole_document_verified": false
+      },
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Học tiếp ngành KHMTTT ở bậc Thạc sĩ, Tiến sĩ có những lĩnh vực nào theo nguồn?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7F-Q003-source"
+        ],
+        "expected_answer": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "question_id": "A7F-Q003",
+        "v2_expected_facts": {}
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "A7F-Q003-source",
+          "major": "computer_science",
+          "source_ref": {
+            "identity": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f1_chunks.jsonl",
+            "sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+          },
+          "source_scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "value": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu.",
+          "version": "unknown"
+        }
+      ],
+      "gold_sha256": "c9dc90b62f1847ef5154e12f846527f88279d8603a503fc9f8f22185b79d9ade",
+      "guard_selection_cached_order": [
+        "e5a82ded76438ecd8803b9c5e5d2e9c1"
+      ],
+      "guard_selection_each_source_alone": {
+        "56dc11d1be420dbfde4bcc3786d1276b": [],
+        "7770981a0105a0e83d57880b591dd3b7": [],
+        "b45d00fe80539319273406967ae12a65": [
+          "b45d00fe80539319273406967ae12a65"
+        ],
+        "e29e0cbb74eb7a68f3992ec91f5dd4e9": [
+          "e29e0cbb74eb7a68f3992ec91f5dd4e9"
+        ],
+        "e5a82ded76438ecd8803b9c5e5d2e9c1": [
+          "e5a82ded76438ecd8803b9c5e5d2e9c1"
+        ]
+      },
+      "guard_selection_swapped_first_two": [
+        "e29e0cbb74eb7a68f3992ec91f5dd4e9"
+      ],
+      "observation_sha256": "b6835816a2c55fd559d16cf4bd738ae3f2f93c2e823a15daf1beeb7e52e6e337",
+      "question_id": "A7F-Q003",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Học tiếp ngành KHMTTT ở bậc Thạc sĩ, Tiến sĩ có những lĩnh vực nào theo nguồn?",
+        "version": "QD3568-2023"
+      },
+      "response_sha256": "8ed7e054ec3fca2c42a258977dd6856d0d46870493ec33aa80877c446bda02ca",
+      "routing_observation": {
+        "dataset": "f1",
+        "field": "further_study",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "sources": [
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f7f470e712738589.txt",
+          "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+          "citation": {
+            "end_char": 8991,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "source_kind": "crawled_prose",
+            "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+            "start_char": 8629,
+            "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "standard",
+          "quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+          "review_status": "include_markdown",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "version": "2023"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/d6370261338de29f.txt",
+          "chunk_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+          "citation": {
+            "end_char": 1801,
+            "evidence_path": "evidence/f1/d6370261338de29f.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "d6370261338de29f",
+            "source_kind": "crawled_prose",
+            "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+            "start_char": 1578,
+            "title": "Ngành Khoa học máy tính và thông tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "unknown",
+          "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu.",
+          "review_status": "include",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "unknown",
+            "validity_status": "unknown"
+          },
+          "title": "Ngành Khoa học máy tính và thông tin",
+          "version": "unknown"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1e3ad5f9915aa051.txt",
+          "chunk_id": "b45d00fe80539319273406967ae12a65",
+          "citation": {
+            "end_char": 11937,
+            "evidence_path": "evidence/f1/1e3ad5f9915aa051.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "1e3ad5f9915aa051",
+            "source_kind": "crawled_prose",
+            "source_sha256": "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+            "start_char": 11737,
+            "title": "Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "standard",
+          "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực\nchuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+          "review_status": "include_markdown",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2015",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "title": "Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf",
+          "version": "2015"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/1c16ddf8a6f1f409.txt",
+          "chunk_id": "7770981a0105a0e83d57880b591dd3b7",
+          "citation": {
+            "end_char": 19074,
+            "evidence_path": "evidence/f1/1c16ddf8a6f1f409.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "1c16ddf8a6f1f409",
+            "source_kind": "crawled_prose",
+            "source_sha256": "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+            "start_char": 18524,
+            "title": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "high_quality",
+          "quote": "6. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nSinh viên hoàn thành chương trình đào tạo chất lượng cao ngành Máy tính và\nKhoa học Thông tin được trang bị tốt các kiến thức cơ sở và chuyên ngành, có kĩ năng\nthực hành tốt, có khả năng tư duy, nghiên cứu độc lập và làm việc theo nhóm. Do vậy,\nsau khi tốt nghiệp sinh viên có khả năng theo học sau đại học tại các trường đại học uy\ntín trên thế giới cũng như trong nước, tham gia nghiên cứu, triển khai ứng dụng khoa\nhọc công nghệ trong các trường đại học, viện nghiên cứu và cơ sở sản xuất.",
+          "review_status": "include_markdown",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2019",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "high_quality",
+            "validity_status": "unknown"
+          },
+          "title": "Tài liệu đính kèm: 4. KCTĐT-CLC MTKHTT 10082020.pdf",
+          "version": "2019"
+        },
+        {
+          "archive_hash_verified": true,
+          "archive_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/f8672cafba05d016.txt",
+          "chunk_id": "56dc11d1be420dbfde4bcc3786d1276b",
+          "citation": {
+            "end_char": 2023,
+            "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "f8672cafba05d016",
+            "source_kind": "crawled_prose",
+            "source_sha256": "ddb1c4430d42899f9af918cd907abbf52e63522506533256e568b931d0a1ae05",
+            "start_char": 1766,
+            "title": "Máy tính và Khoa học thông tin CLC",
+            "url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc"
+          },
+          "exact_locator_verified": true,
+          "major": "computer_science",
+          "program_variant": "high_quality",
+          "quote": "Sinh viên sau khi tốt nghiệp sinh viên có khả năng theo học sau đại học tại các trường đại học uy tín trên thế giới cũng như trong nước, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường đại học, viện nghiên cứu và cơ sở sản xuất.",
+          "review_status": "include",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "unknown",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "high_quality",
+            "validity_status": "unknown"
+          },
+          "title": "Máy tính và Khoa học thông tin CLC",
+          "version": "unknown"
+        }
+      ]
+    },
+    {
+      "cached_reply": "Chưa có thông tin đủ căn cứ để trả lời. Mỗi lượt hỏi một loại thông tin của một môn. Bạn muốn hỏi tên, tín chỉ, tiên quyết, số giờ, nội dung, mục tiêu hay gợi ý đánh giá?",
+      "cached_status": "needs_clarification",
+      "cached_trace": [],
+      "effective_request": {
+        "allow_generated_reference": true,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Gợi ý đánh giá MAT3557 theo phần tham khảo AI đã lưu có nội dung gì?",
+        "version": "QD3568-2023"
+      },
+      "f3_chunk_field_inventory": {
+        "content": 1463,
+        "objectives": 290
+      },
+      "f3_record": {
+        "academic_verified": false,
+        "content_origin": "generated",
+        "course_code": "MAT3557",
+        "curriculum_version": "QD3568-2023",
+        "major": "computer_science",
+        "official_assessment": null,
+        "profile_keys": [
+          "course_code",
+          "objectives",
+          "overview",
+          "references",
+          "units"
+        ],
+        "record_id": "khmtt_7480113qtd_2022:MAT3557",
+        "review_status": "needs_review"
+      },
+      "gold": {
+        "category": "missing_evidence",
+        "evidence_ids": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "suggested_assessment",
+        "expected_status": "no_information",
+        "question_id": "A7F-Q011",
+        "v2_expected_facts": {}
+      },
+      "gold_evidence": [],
+      "gold_sha256": "689adde73b75139619b137b42f6ad8ca4daa10b049fc106531dcb03a40d07ed3",
+      "observation_sha256": "60d0f06d85eb3b2a6e88b409909aeaae55f3c69fbe1c94a8a272898d772b779b",
+      "probes": [
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Gợi ý đánh giá MAT3557 theo phần tham khảo AI đã lưu có nội dung gì?",
+          "requested_fields": [
+            "content",
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Gợi ý đánh giá MAT3557 theo phần tham khảo AI đã lưu?",
+          "requested_fields": [
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Phần gợi ý đánh giá MAT3557 gồm những gì?",
+          "requested_fields": [
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Nội dung của phần gợi ý đánh giá MAT3557 là gì?",
+          "requested_fields": [
+            "content",
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Nội dung MAT3557 và gợi ý đánh giá MAT3557?",
+          "requested_fields": [
+            "content",
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f2",
+            "credits"
+          ],
+          "question": "MAT3557 có bao nhiêu tín chỉ và thi thế nào?",
+          "requested_fields": [
+            "credits",
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "suggested_assessment"
+          ],
+          "question": "Không hỏi nội dung MAT3557, chỉ hỏi gợi ý đánh giá.",
+          "requested_fields": [
+            "suggested_assessment"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "content"
+          ],
+          "question": "Nội dung MAT3557?",
+          "requested_fields": [
+            "content"
+          ]
+        },
+        {
+          "intent": [
+            "f3",
+            "official_assessment"
+          ],
+          "question": "Tỷ lệ thi cuối kỳ chính thức MAT3557 là bao nhiêu?",
+          "requested_fields": [
+            "suggested_assessment"
+          ]
+        }
+      ],
+      "question_id": "A7F-Q011",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Gợi ý đánh giá MAT3557 theo phần tham khảo AI đã lưu có nội dung gì?",
+        "version": "QD3568-2023"
+      },
+      "response_sha256": "bd227eed12969b5dd9bf9da877cf9b0111c3463f7faeddd1a2bde313336fd1c0",
+      "routing_observation": {
+        "dataset": "f3",
+        "field": "suggested_assessment",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "sources": []
+    }
+  ],
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "kind": "cached_A7_source_contract_diagnostic",
+  "limits": [
+    "Pure existing guard/router probes on cached hits or diagnostic wording; no new search or API answer.",
+    "Probes are exposed development diagnostics, not a fresh A7 score or runtime repair.",
+    "No independent mapping of different academic field lists or source current validity."
+  ],
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "replay_measurement": {
+    "current_pins_match": true,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": false,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "replay_review": {
+    "current_pins_match": true,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": false,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "reviewer_kind": "ai"
+}

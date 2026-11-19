@@ -1,0 +1,8 @@
+{
+  "kind": "frozen_hybrid_natural20_diagnostic",
+  "files_sha256": {
+    "cases.json": "1b927684ede10d34ede7684f336b502a0190b614b32debde9224be5ca7877cf0",
+    "protocol.json": "8251aa51e1e0527c5f8fa7cc0044b8c6cd691f383e1d867ffe83ffa8c9e5c1da",
+    "source_packets.json": "7ebcf935302fab126f64df429ffc965657b33a439cbe3fea52c5e4958ab60f61"
+  }
+}

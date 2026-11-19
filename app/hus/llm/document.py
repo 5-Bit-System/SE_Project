@@ -13,7 +13,9 @@ MAX_LEAVES = 64
 MAX_UNITS = 128
 MAX_LEAF_CHARS = 3000
 SCHEMA = 'hus-llm-document-v3'
-_PREFIX = re.compile(r'^[ \t]*(?:(?:[-*•]|\d+[.)]|#{1,6})[ \t]+)?')
+# A heading may also contain a numbered item ("## 4. Title"). Keep every
+# source-owned marker out of provider text and restore the exact prefix later.
+_PREFIX = re.compile(r'^[ \t]*(?:(?:[-*•]|\d+[.)]|#{1,6})[ \t]+)*')
 _LIST = re.compile(r'^[ \t]*(?:[-*•]|\d+[.)])[ \t]+')
 
 

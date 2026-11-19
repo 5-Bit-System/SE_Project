@@ -1,0 +1,139 @@
+{
+  "cases": [
+    {
+      "major": "data_science",
+      "question": "Giới thiệu ngành",
+      "status": "answered"
+    },
+    {
+      "major": "data_science",
+      "question": "Số tín chỉ MAT3533?",
+      "status": "answered"
+    },
+    {
+      "major": "data_science",
+      "question": "Nội dung MAT3533?",
+      "status": "needs_clarification"
+    },
+    {
+      "major": "data_science",
+      "question": "Nội dung MAT3533?",
+      "status": "answered"
+    },
+    {
+      "major": "data_science",
+      "question": "MAT3533 thi cuối kỳ bao nhiêu phần trăm?",
+      "status": "no_information"
+    },
+    {
+      "major": "mathematics",
+      "question": "Giới thiệu ngành",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics",
+      "question": "Số tín chỉ MAT3300?",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics",
+      "question": "Nội dung MAT3300?",
+      "status": "needs_clarification"
+    },
+    {
+      "major": "mathematics",
+      "question": "Nội dung MAT3300?",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics",
+      "question": "MAT3300 thi cuối kỳ bao nhiêu phần trăm?",
+      "status": "no_information"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Giới thiệu ngành",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Số tín chỉ MAT3539?",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Nội dung MAT3539?",
+      "status": "needs_clarification"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "Nội dung MAT3539?",
+      "status": "answered"
+    },
+    {
+      "major": "mathematics_informatics",
+      "question": "MAT3539 thi cuối kỳ bao nhiêu phần trăm?",
+      "status": "no_information"
+    },
+    {
+      "major": "computer_science",
+      "question": "Giới thiệu ngành",
+      "status": "answered"
+    },
+    {
+      "major": "computer_science",
+      "question": "Số tín chỉ MAT3507?",
+      "status": "answered"
+    },
+    {
+      "major": "computer_science",
+      "question": "Nội dung MAT3507?",
+      "status": "needs_clarification"
+    },
+    {
+      "major": "computer_science",
+      "question": "Nội dung MAT3507?",
+      "status": "answered"
+    },
+    {
+      "major": "computer_science",
+      "question": "MAT3507 thi cuối kỳ bao nhiêu phần trăm?",
+      "status": "no_information"
+    }
+  ],
+  "downloaded_source_hashes": [
+    "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+    "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+    "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+    "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+  ],
+  "environment": {
+    "packages": {
+      "fastapi": "0.143.0",
+      "httpx": "0.28.1",
+      "pdfplumber": "0.11.10",
+      "pydantic": "2.14.1",
+      "starlette": "1.8.0",
+      "uvicorn": "0.54.0"
+    },
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.9"
+  },
+  "external_network_allowed": false,
+  "limits": [
+    "Local in-process API check, not browser/network/load or external-machine acceptance.",
+    "Latest A7: routed recall 23/24, completeness 33/36; three refusals remain, not fully accepted.",
+    "Historical A7 remains recall 19/24 and completeness 27/36; LLM stays off."
+  ],
+  "menu_items": 2124,
+  "new_provider_calls": 0,
+  "passed": true,
+  "profile": {
+    "bind": "127.0.0.1",
+    "llm_enabled": false,
+    "retrieval": "lexical"
+  },
+  "release_id": "hus-data-20261111-v4",
+  "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+  "schema_version": "hus-submission-check-1.0"
+}

@@ -6,6 +6,7 @@ import json
 import os
 from collections import Counter
 from copy import deepcopy
+from datetime import datetime, timezone
 from pathlib import Path
 from time import perf_counter
 from unittest.mock import patch
@@ -132,7 +133,17 @@ def pins():
     snapshot = current_snapshot()
     snapshot['evaluators'].update({name: digest(ROOT / name) for name in (
         'tools/evaluate_hus_a7.py', 'tools/hus_a7_cases.py', 'tools/hus_llm_v4_audit.py',
-        'tests/hus/test_a7_evaluation.py')})
+        'tests/hus/test_a7_evaluation.py', 'tools/hus_a7_postfix_cases.py',
+        'tests/hus/test_a7_postfix.py')})
+    snapshot['evaluators'].update({name: digest(ROOT / name) for name in (
+        'tools/hus_a7_after_followup_cases.py', 'tests/hus/test_a7_after_followup.py')})
+    snapshot['evaluators'].update({name: digest(ROOT / name) for name in (
+        'tools/hus_a7_scope_cases.py', 'tests/hus/test_a7_scope_candidate.py',
+        'docs/HUS_F1_SOURCE_EDITION_POLICY.md')})
+    snapshot['evaluators'].update({name: digest(ROOT / name) for name in (
+        'tools/hus_a7_successor_cases.py', 'tests/hus/test_a7_successor.py')})
+    snapshot['evaluators'].update({name: digest(ROOT / name) for name in (
+        'tools/hus_a7_bounded_cases.py', 'tests/hus/test_a7_bounded_candidate.py')})
     snapshot['configuration'] = {'retrieval': 'lexical', 'index': None, 'llm_enabled': False,
         'model': 'gemini-3.5-flash-lite', 'actual_model': None, 'model_inference': 'not_run',
         'dormant_prompt_sha256': digest_json(SYSTEM_PROMPT_V3),
@@ -174,13 +185,36 @@ def fresh_output(folder, *, run):
     return reserve(folder)
 
 
-def freeze(folder):
-    from tools.hus_a7_cases import build_pack
+def freeze(folder, *, cohort='original'):
+    if cohort == 'original':
+        from tools.hus_a7_cases import build_pack
+    elif cohort == 'postfix-20261112':
+        from tools.hus_a7_postfix_cases import build_pack
+    elif cohort == 'after-followup-20261112':
+        from tools.hus_a7_after_followup_cases import build_pack
+    elif cohort == 'scope-assessment-20261113':
+        from tools.hus_a7_scope_cases import build_pack
+    elif cohort == 'request-role-20261113':
+        from tools.hus_a7_successor_cases import build_pack
+    elif cohort == 'bounded-request-20261113':
+        from tools.hus_a7_bounded_cases import build_pack
+    else:
+        raise ValueError('Unknown A7 cohort')
 
     require_submission_settings()
     before = pins()
     pack = build_pack()
+    if cohort in {'postfix-20261112', 'after-followup-20261112'} and any(
+            c['normalized_exact_overlap_in_checked_inputs'] or c['prior_a7_target_identity_overlap']
+            for c in pack['exposure']['cases']):
+        raise ValueError('Overlap/reused A7 target is not allowed in this fresh cohort')
+    if cohort in {'scope-assessment-20261113', 'request-role-20261113', 'bounded-request-20261113'} and any(
+            c['normalized_exact_overlap_in_checked_inputs'] for c in pack['exposure']['cases']):
+        raise ValueError('Repeated wording is not allowed in the successor candidate')
     check_sources(pack)
+    if cohort in {'after-followup-20261112', 'scope-assessment-20261113', 'request-role-20261113',
+                  'bounded-request-20261113'}:
+        pack['frozen_at_utc'] = datetime.now(timezone.utc).isoformat()
     pack['pins'] = before
     if before != pins():
         raise ValueError('Pins changed while freezing A7')
@@ -215,6 +249,9 @@ def collect_run(pack_path, out):
     before = pins()
     if pack['pins'] != before:
         raise ValueError('Code/data/config changed after freezing A7')
+    collection_started_at = datetime.now(timezone.utc).isoformat()
+    if pack.get('frozen_at_utc') and pack['frozen_at_utc'] > collection_started_at:
+        raise ValueError('A7 must be frozen before collection starts')
     get_hus_answerer.cache_clear()
     answerer = get_hus_answerer()
     if (any(answerer.data.release_identity.get(k) != v for k, v in pack['release'].items())
@@ -273,6 +310,8 @@ def collect_run(pack_path, out):
         raise ValueError('A7 pins/inputs changed or outbound call attempted')
     result = score_observations(pack, observations, audits)
     report = {'kind': KIND, 'stage': 'measurement', 'release': pack['release'],
+        'collection_started_at_utc': collection_started_at,
+        'collection_finished_at_utc': datetime.now(timezone.utc).isoformat(),
         'pack_path': Path(pack_path).resolve().relative_to(ROOT).as_posix(),
         'pack_manifest_sha256': digest(Path(pack_path) / 'manifest.json'),
         'result': result, 'technical_gates': technical_gates(result),
@@ -360,9 +399,13 @@ def main():
     action.add_argument('--replay', type=Path)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--review', type=Path)
+    parser.add_argument('--cohort', choices=('original', 'postfix-20261112', 'after-followup-20261112',
+                                           'scope-assessment-20261113', 'request-role-20261113',
+                                           'bounded-request-20261113'), default='original',
+                        help='Source-authored cohort to freeze; ignored for run/score/replay')
     args = parser.parse_args()
     if args.freeze:
-        result = freeze(args.freeze)
+        result = freeze(args.freeze, cohort=args.cohort)
     elif args.replay:
         result = replay(args.replay)
     elif args.run and args.out:

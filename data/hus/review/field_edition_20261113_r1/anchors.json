@@ -1,0 +1,292 @@
+{
+  "C01": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 8169,
+    "normalized_start_char": 3669,
+    "normalized_text_sha256": "c02c91859473f7832b1d0079435c59b64bef4e4e1f2c6056d719f2611658b910",
+    "range_sha256": "2b09500f0cd825b52cc029437d98d4cd4fcc223b5e1df4d5611fb0af73cd1b5b",
+    "source_id": "C01",
+    "source_sha256": "8e00e1d68df2d14fbb68a0e165994ba2a8ba0d3eb3efc0c1808e7edbe40d97e3",
+    "url": "https://fncbook.com/conditioning/"
+  },
+  "C02": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 3430,
+    "normalized_start_char": 930,
+    "normalized_text_sha256": "095197db85106166e0603665662fc3746732a6ee109bf301ed5ec3d66c59b928",
+    "range_sha256": "7b2d60bf2c990d2ea4b4aef3d0e686fb831e5f499289c2aa3056cb5ff4646d9e",
+    "source_id": "C02",
+    "source_sha256": "1841e9a83c2d60e54d1bf41762110b8b81a83619d2cea919d5356698ed50bf1b",
+    "url": "https://fncbook.com/stability/"
+  },
+  "L01": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 2952,
+    "normalized_start_char": 1152,
+    "normalized_text_sha256": "19338f628387d02b2cc425724268dbf7ca41ee6a21212867f76ba3c36a59b56b",
+    "range_sha256": "c981d000458dff4e238d46c3674bc68c2287921bf2198647c0655d6475ba4c2b",
+    "source_id": "L01",
+    "source_sha256": "363a203e001b6b45e62c379224fac52097f6d92ff4d9a17503341d1cd44ecb9e",
+    "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-30-linear-transformations-and-their-matrices/"
+  },
+  "L02": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4737,
+    "normalized_start_char": 3837,
+    "normalized_text_sha256": "e4ffcd8b3dda0f9c413714c9becc04632dd35b5a5ad32f8780f3e8dd353b400d",
+    "range_sha256": "13c9afa29773061de1072e174e557b7b543dc9826fa822eb63c3a918591dc0d2",
+    "source_id": "L02",
+    "source_sha256": "50da86ccfaa0b6e00b8b8bdd391b26fc23495178c7d1dcf9f0165865ba13efdc",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/"
+  },
+  "L03": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4721,
+    "normalized_start_char": 3821,
+    "normalized_text_sha256": "1a10720efae2cf7d8e74b246cd636abc9cbb9ab6f98207b61e0ea22708a2b5a7",
+    "range_sha256": "727f595ccb3473c838e1f6c4e16d682f2fc4874d3fc835c4d2d85d848f174d78",
+    "source_id": "L03",
+    "source_sha256": "d8941993f8fe32d0f0aa990f7521490d3fc76e7ffddfd102541b60c96eb02801",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/elimination-with-matrices/"
+  },
+  "L04": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4723,
+    "normalized_start_char": 3823,
+    "normalized_text_sha256": "ef378139ec328bb60cbba127566626ab1e6ff0e3e4db9e3e5051c42cd9bbb6bf",
+    "range_sha256": "ff9d0ef7608fdfaf76c4bf20512533b1188bedbeb86d7c0bcdbc556f03181b33",
+    "source_id": "L04",
+    "source_sha256": "b4efcd28f298b3c65bc0192844bc937be09a5570efeff43304afd81fc4dba352",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/column-space-and-nullspace/"
+  },
+  "L05": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4831,
+    "normalized_start_char": 3831,
+    "normalized_text_sha256": "4488f6457de4bdcabcf79194b952689e3fa75e5874bc37c8b01f679c6105f405",
+    "range_sha256": "9ab248f886cf3282d94af336ba92093289039dd6bf0126da6847e7d0eb438ae4",
+    "source_id": "L05",
+    "source_sha256": "0df630dcb657abc232a772c63614e86a05771a1307300889a61652ac191057df",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/the-four-fundamental-subspaces/"
+  },
+  "L06": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4871,
+    "normalized_start_char": 3871,
+    "normalized_text_sha256": "6dd78a24992d7d28e0d72ad0d56449deca3d9c81aae183c6d0fbddbc959b0e23",
+    "range_sha256": "6fc054098edac8a1f62fd7f84d63cc0d1b6c9d36aabe2e386faca8898b6ad6a4",
+    "source_id": "L06",
+    "source_sha256": "01387b0bd3220dfa060586251bc82ab5479f6e37b0015c7189c3a95315126752",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/solving-ax-0-pivot-variables-special-solutions/"
+  },
+  "L07": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 3166,
+    "normalized_start_char": 166,
+    "normalized_text_sha256": "9061f642d5f2d5498f076acb8834dc5933ddb55ea6857ddb3a22d21a566d5214",
+    "range_sha256": "ec9b71a5685e5070452b57c64fe6f856da53695b663c9a08a284908702415bd4",
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/0bbc30e3f1d7933ea07a2d2e9ab050d9_MIT18_06SCF11_Ses1.9sum.pdf"
+  },
+  "L07-rank": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 3854,
+    "normalized_start_char": 3516,
+    "normalized_text_sha256": "9061f642d5f2d5498f076acb8834dc5933ddb55ea6857ddb3a22d21a566d5214",
+    "range_sha256": "a216e276a3fc58f4217d6dfea0dd1f9992f87f28d1d4a1e4aa0e52b3df3c6510",
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/0bbc30e3f1d7933ea07a2d2e9ab050d9_MIT18_06SCF11_Ses1.9sum.pdf"
+  },
+  "N01": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 17413,
+    "normalized_start_char": 15813,
+    "normalized_text_sha256": "711cd6e91afe85ba1a7d9e1021ba631c5883e7516a066f86e295a0167ee38fb1",
+    "range_sha256": "102caaa8b6521fa54092d7a2fefc7aa05271ddefaa938947d998c4d17aef58ff",
+    "source_id": "N01",
+    "source_sha256": "7feca3b379c3e1f80f2b53accb9383965b5ccecd60f80a9bb79a7e546596c3c6",
+    "url": "https://fncbook.com/newton/"
+  },
+  "N02": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 11283,
+    "normalized_start_char": 6783,
+    "normalized_text_sha256": "9f6e2b3627d306755c25e1b33da7d3a97ef1fb7dbd955ef401daf4f82e813bed",
+    "range_sha256": "1ed6aa9dd7872a4d7170dd687688aa0d2d0b0f18d17190900a9a0fda5bc19786",
+    "source_id": "N02",
+    "source_sha256": "8d3ba5f7f438ebf0f3ca5c2a5c094b8685ea63ce739864489507ccf6a9766aa5",
+    "url": "https://fncbook.com/rootproblem/"
+  },
+  "N02-residual": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 15526,
+    "normalized_start_char": 13726,
+    "normalized_text_sha256": "9f6e2b3627d306755c25e1b33da7d3a97ef1fb7dbd955ef401daf4f82e813bed",
+    "range_sha256": "d53995d2436e445b3a590f376b7d59f77ebd1ba15bf7d9d358162fb18fb4844d",
+    "source_id": "N02",
+    "source_sha256": "8d3ba5f7f438ebf0f3ca5c2a5c094b8685ea63ce739864489507ccf6a9766aa5",
+    "url": "https://fncbook.com/rootproblem/"
+  },
+  "N03": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4585,
+    "normalized_start_char": 1085,
+    "normalized_text_sha256": "b1641dc99ff854e1c0ced3a433e6a5ec08696e91636fe80813acfc7f7aa1a7bc",
+    "range_sha256": "8ca2ee760268d5ad76050d20ae8588f34097be751d5ff23991a6afef7527a85a",
+    "source_id": "N03",
+    "source_sha256": "a1d4b74c530c7200da7bef93449f1ea465eba0494ad697f6f201be8ee13fad62",
+    "url": "https://fncbook.com/lu/"
+  },
+  "N04": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 5180,
+    "normalized_start_char": 1180,
+    "normalized_text_sha256": "edfb63678cee3e3bdc8f67e133d86791756955c22fe82568b87b0aa68fdefcb1",
+    "range_sha256": "96aa2bbb9ff5cf2f2010ed7cf91a68a8bc79719cb7fe3d7e5b669c5fc11b77c5",
+    "source_id": "N04",
+    "source_sha256": "4cda8fa415a449d956a68ff256a01779e3ed65c255951657ed0b4385afcb8571",
+    "url": "https://fncbook.com/pivoting/"
+  },
+  "N05": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 5313,
+    "normalized_start_char": 1113,
+    "normalized_text_sha256": "6013439ba4728fe0322c9a88d7313d799f9dcacc5f2cac512cb8e7e40ef783ee",
+    "range_sha256": "1da7e1d8ddd840bc619f0fb6117cc2f54d248ba29fb4e87f2331ac584cf6745f",
+    "source_id": "N05",
+    "source_sha256": "63fc126199dab8d2784c5302fb71d67ccd1df5e3df665c0a743b6e780e6de907",
+    "url": "https://fncbook.com/condition-number/"
+  },
+  "N06": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 5259,
+    "normalized_start_char": 1059,
+    "normalized_text_sha256": "96329eff6ba9a49645bef47e6aa35a1737ccc4703fc9170d220ef0beefd09213",
+    "range_sha256": "c4262e2bbde959cf5e080b3d81e87333360085000adfe3d43584ed52fd689ae2",
+    "source_id": "N06",
+    "source_sha256": "3527b2bc73f3500442cb51f00cdc2ff3f88218ff7e819b55a0033e6f22cf819b",
+    "url": "https://fncbook.com/interpolation/"
+  },
+  "N07": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 10131,
+    "normalized_start_char": 7931,
+    "normalized_text_sha256": "332aafcbb3f1174ff30916cb2a1dfab66790a592f3f4748ffaf53875ea3bd096",
+    "range_sha256": "064f7f1539ffdf5902d4b9c296740dd28b80fb18a0342ca7b1e27e255377c4b0",
+    "source_id": "N07",
+    "source_sha256": "81e26b4895d123faffc635869e555c9a21b39c6541d185eb7194b0832683f350",
+    "url": "https://fncbook.com/integration/"
+  },
+  "N07-simpson": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 21249,
+    "normalized_start_char": 19449,
+    "normalized_text_sha256": "332aafcbb3f1174ff30916cb2a1dfab66790a592f3f4748ffaf53875ea3bd096",
+    "range_sha256": "e8bcef433f5d546752fe828670bea5806b4703944b998cd0376e69997481f8e6",
+    "source_id": "N07",
+    "source_sha256": "81e26b4895d123faffc635869e555c9a21b39c6541d185eb7194b0832683f350",
+    "url": "https://fncbook.com/integration/"
+  },
+  "N08": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 16164,
+    "normalized_start_char": 14664,
+    "normalized_text_sha256": "57a4523dca9d7238fc5f56aaea662773323ed7f9cfff25edc20f84f3ea108a47",
+    "range_sha256": "c2585be2ae7f593aeb0e0f47ccb1fdca1f8754e1b66f9e20c476ac9d5652cdd0",
+    "source_id": "N08",
+    "source_sha256": "9ad2855679b6d517e8df1e857471c3e51f395fa105cfdd84c71419340c35d7f1",
+    "url": "https://fncbook.com/adaptive/"
+  },
+  "N09": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 2869,
+    "normalized_start_char": 1069,
+    "normalized_text_sha256": "92097acc7dd9b7923a4c9a45476f29187e306fea807926d70c113fded9c91995",
+    "range_sha256": "394d9f5009eddfa927463fde9db99b15694b96f58e96fd0a706740bb1a796450",
+    "source_id": "N09",
+    "source_sha256": "b8d4e7a3461d689c227e491260e71f742c314ccf10800f91b9188a132cbdb508",
+    "url": "https://fncbook.com/pwlin/"
+  },
+  "N10": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 2835,
+    "normalized_start_char": 1035,
+    "normalized_text_sha256": "99e5d782eec2efd98761e754352e2925f7be54f1cb46e9bc5c936da693613a1c",
+    "range_sha256": "f280563acde467ec5c9273b464701f9ed5a092fc394fa1fee4fa6d181be81dab",
+    "source_id": "N10",
+    "source_sha256": "337dd5bd9894f5ca94d1c7ad982fbb099649f0236118815bfd401adba60d41ff",
+    "url": "https://fncbook.com/splines/"
+  },
+  "O01": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4777,
+    "normalized_start_char": 2530,
+    "normalized_text_sha256": "3b6d9832c95aaf79c1d5e3077c6aafc7dcf9af65b0f7e45d2428d0f51405e449",
+    "range_sha256": "b96606464b28c7ecb884ff1a1cc0f41e7e8b7bcd6c1cfcd59952a74ff15ba5e1",
+    "source_id": "O01",
+    "source_sha256": "ca1d90bf5b95ec214f7668e017527e8accb5351c73a86772add492121a6a2e5b",
+    "url": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html"
+  },
+  "O02": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 6306,
+    "normalized_start_char": 1306,
+    "normalized_text_sha256": "b99ae9b3760ed703992583a251fc50d3126cbdd34f065815398800dd8302ed42",
+    "range_sha256": "143dcaced9e7a2a7fea0ea188f0186b8262de0c14c66d6fc6d76a860c082c151",
+    "source_id": "O02",
+    "source_sha256": "4667d629a307738cb84edfd2c38061ff865aff0854e6afb9b5fed53d41ed636a",
+    "url": "https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html"
+  },
+  "O03": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 5475,
+    "normalized_start_char": 1331,
+    "normalized_text_sha256": "86fd404368210aa09182d032eb35ffd6a6788eb05628c835c9b01aaacdb12989",
+    "range_sha256": "e5d1b213b62b34d73a34295b4c68cfbe043e380f139c1b370e6435f2f16bac7e",
+    "source_id": "O03",
+    "source_sha256": "6947ba0eed8c2504a53143b94be1705b4f9778ee6c63aad27535fd7f27b9f29e",
+    "url": "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html"
+  },
+  "R01": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 2615,
+    "normalized_start_char": 15,
+    "normalized_text_sha256": "ccd109efb2e45895bedbc1f86b5ecb63482a922361886dbc01c4d3f1ff454f7d",
+    "range_sha256": "f40aebea8e20c0810628ca8ef546091d86d6e59835d52ba81bb5bfaf05800b8b",
+    "source_id": "R01",
+    "source_sha256": "60914f94407ef762fcec1292f50d7ada53683873227d9123d980187b9685f030",
+    "url": "https://ori.hhs.gov/education/products/n_illinois_u/datamanagement/dstopic.html"
+  },
+  "R02": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 3514,
+    "normalized_start_char": 14,
+    "normalized_text_sha256": "44c2653ec07e31e6a88edc5c49c8ca0eebe6104dadb9885e9e6f897dd875088a",
+    "range_sha256": "e49ce335c2f4dbbb476dcf13f68a8a6808779c9227ec7a78681b1a048f0827b5",
+    "source_id": "R02",
+    "source_sha256": "c35edb2d1637298456cb3275721a8caeb190047c16462abf1b1e9877ff000f92",
+    "url": "https://ori.hhs.gov/education/products/n_illinois_u/datamanagement/datopic.html"
+  },
+  "R03": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 5151,
+    "normalized_start_char": 1551,
+    "normalized_text_sha256": "2debc02cfc4cbaccd3f0bd5429f35d1fa6ef995cecc42a55d3c6b9527c83484a",
+    "range_sha256": "cd4d2c358172d05aa65fbfe68a546b2566cd319b400543adc7d69402a561eb56",
+    "source_id": "R03",
+    "source_sha256": "02c91fd7f7fa19d761a46fcdd0684b5b9c83aa5e17ee5eb1b0e874db8a9b59d6",
+    "url": "https://ori.hhs.gov/education/products/n_illinois_u/datamanagement/dprtopic.html"
+  },
+  "R04": {
+    "normalization": "BeautifulSoup text for HTML or extracted PDF text; NFC as stored; whitespace collapsed",
+    "normalized_end_char": 4514,
+    "normalized_start_char": 14,
+    "normalized_text_sha256": "8adb2a3f5288ef82a1e9487e641601bcfd11386981060e030b26c31e391386fb",
+    "range_sha256": "9ccae6a62f9c9c458672aa1fe30ae9fc55f008ee84bea7e3da1386a70fa1b169",
+    "source_id": "R04",
+    "source_sha256": "6b6dc5c6967740e513bd8b374e522598c9d3a6c0db9edac0994ee125bb5e8d59",
+    "url": "https://ori.hhs.gov/education/products/n_illinois_u/datamanagement/dhtopic.html"
+  }
+}

@@ -1,0 +1,335 @@
+[
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q001"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q002"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q003"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q004",
+    "source_f2_contract": {
+      "course_code": "MAT1203",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": 4
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q005",
+    "source_f2_contract": {
+      "course_code": "MAT1202",
+      "field": "prerequisites",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": [
+        "MAT2505"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q006",
+    "source_f2_contract": {
+      "course_code": "MAT1206E",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": "Nhập môn Trí tuệ nhân tạo"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q007"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q008"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q009"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q010"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q011"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q012"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q013"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q014"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q015"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q016",
+    "source_f2_contract": {
+      "course_code": "MAT3378",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 3
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q017",
+    "source_f2_contract": {
+      "course_code": "MAT3383",
+      "field": "prerequisites",
+      "prerequisite_status": "unknown",
+      "review_status": "draft_unverified",
+      "value": [
+        null
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q018",
+    "source_f2_contract": {
+      "course_code": "MAT3382",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": "Lập trình cho Khoa học dữ liệu"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q019"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q020"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q021"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q022"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q023"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q024"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q025"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q026"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q027"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q028",
+    "source_f2_contract": {
+      "course_code": "MAT2306",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 3
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q029",
+    "source_f2_contract": {
+      "course_code": "MAT3325",
+      "field": "prerequisites",
+      "prerequisite_status": "conflict",
+      "review_status": "draft_unverified",
+      "value": [
+        "MAT2304/\nMAT2322\nMAT2314",
+        "MAT2314\nMAT2304"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q030",
+    "source_f2_contract": {
+      "course_code": "MAT2319",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": "Lập trình Julia"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q031"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q032"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q033"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q034"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q035"
+  },
+  {
+    "kind": "basic_no_citations",
+    "passed": true,
+    "question_id": "A7P-Q036"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q037"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q038"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q039"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q040",
+    "source_f2_contract": {
+      "course_code": "MAT3148",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 3
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q041",
+    "source_f2_contract": {
+      "course_code": "MAT3335",
+      "field": "prerequisites",
+      "prerequisite_status": "unresolved",
+      "review_status": "draft_unverified",
+      "value": [
+        "MAT2316/\nMAT2505/\nMAT2318/\nMAT2319\nMAT2301"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q042",
+    "source_f2_contract": {
+      "course_code": "MAT2404",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": "Giải tích số"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q043"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q044"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q045"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q046"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q047"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7P-Q048"
+  }
+]

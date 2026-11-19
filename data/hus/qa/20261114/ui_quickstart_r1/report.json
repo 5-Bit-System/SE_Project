@@ -1,0 +1,63 @@
+{
+  "UI": {
+    "browser_group_GREEN": 29,
+    "messages": "Permission401/403, quota429, temporary503, timeout and canonical fallback",
+    "mobile_keyboard_major_switch_late_response_sources": true,
+    "new_browser_regressions_RED": "3 fail on expected missing401/403/503 notes",
+    "provider": "Mocked HTTP transport, no Google"
+  },
+  "code_review": "Fresh-context reviewer no substantive behavior/security/instruction findings.",
+  "docs_updated": [
+    "README.md",
+    "docs/HUS_RAG_QUICKSTART.md",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md"
+  ],
+  "expected_changed_protected_files": [
+    "app/static/hus-rag-demo.js",
+    "tests/hus/test_llm_rewrite_ui.py",
+    "tools/run_hus_rag.py"
+  ],
+  "kind": "Windows_UI_quickstart_local_portability_check",
+  "limits": [
+    "Same Windows machine; not a second machine or remote clone.",
+    "Browser uses installed development test tooling; relocated source uses fresh minimal dependencies.",
+    "Real key entry and Google success not exercised; commands parsed and provider behavior mocked.",
+    "Not a public deployment, load test, semantic review or new LLM quality score."
+  ],
+  "minimal_dependency_install": {
+    "fresh_venv": true,
+    "package_install": "requirements-rag.txt with requirements-lock.txt constraints, local wheelhouse/no-index",
+    "packages_installed": 25,
+    "pip_check": "No broken requirements found",
+    "pip_or_source_online_download_not_tested": true,
+    "python": "3.11.9"
+  },
+  "new_Google_calls": 0,
+  "no_zip_publish_or_deploy": true,
+  "old_data_gold_run_review_unchanged": true,
+  "other_tests": {
+    "PowerShell_blocks_parsed": 2,
+    "citation_contracts": 14,
+    "package_boundary": 27,
+    "ruff": "launcher and browser test passed",
+    "warning": "One existing Starlette/httpx deprecation in browser/citation groups."
+  },
+  "persistent_default_changed": false,
+  "profile": {
+    "bind": "127.0.0.1",
+    "llm_enabled": false,
+    "retrieval": "lexical"
+  },
+  "protected_files_unchanged": 3083,
+  "real_backend_key_read": false,
+  "relocated_public_source": {
+    "actual_loopback_chat_cases": 5,
+    "check_API_cases": 20,
+    "child_PYTHONPATH_removed": true,
+    "files": 214,
+    "local_file_source_hashes_checked": 4,
+    "menu_items": 2124,
+    "old_machine_settings_overridden": true,
+    "private_env_or_DB_copied": false
+  }
+}

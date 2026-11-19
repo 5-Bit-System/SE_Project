@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "captures.json": "5f5c2769950b0acd65986a3ae48a39985a314eb863fbbdd55922d27bbfe5f8ce",
+    "f3_review.json": "9bc619a61d3ac6d39cb0dfbd3a573cad5f501a68c29539e54111cb95a259d34e",
+    "image_review.json": "fa76b3b4b82e85e799dcae28c0d9386a3a91536c1d0d17dcfc8a0b812da6b3b7",
+    "q001_review.json": "930a8c33b6d813c5956cfc0ec6d2aa7e844b428fdfbdb736d614314a6f870ee9",
+    "report.json": "37008fbaac1e56578a5e6dfc757b04ac6760486f9b79ab83225f490c05afbdd9",
+    "validity_matrix.json": "734163a1213890321f4a7191b86ae9ec447332476f7ada74920fc173cae9f639",
+    "verification.json": "817758df7defd78da6cf4e2d5e64795a5b5bbe51f3da33e3f786154d94c85175"
+  },
+  "schema_version": "hus-source-scope-review-1.0"
+}

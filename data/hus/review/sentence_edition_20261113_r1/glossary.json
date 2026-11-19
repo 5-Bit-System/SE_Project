@@ -1,0 +1,236 @@
+[
+  {
+    "concepts": [
+      "sai số làm tròn",
+      "sai số cắt cụt",
+      "số điều kiện",
+      "ổn định"
+    ],
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Sai số, điều kiện và ổn định",
+    "unit_index": 0,
+    "unit_sha256": "b92bbeec0d163117a8adc16dd047468901f53679a5c1efa24a4c60f09efeffb1"
+  },
+  {
+    "concepts": [
+      "chia đôi",
+      "Newton",
+      "sai số dư",
+      "hội tụ"
+    ],
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Nghiệm phi tuyến và phép lặp",
+    "unit_index": 1,
+    "unit_sha256": "28fcec3067ae0f6b6db51b17a1200d1cecf44f6947a5875402ca73a4bd089017"
+  },
+  {
+    "concepts": [
+      "khử Gauss",
+      "chọn trụ",
+      "phân rã LU",
+      "số điều kiện ma trận"
+    ],
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Hệ tuyến tính và phép phân rã",
+    "unit_index": 2,
+    "unit_sha256": "3263d9f41d639d98608311686007ec079a2e00e9ff07106d54ed503726f9f6f0"
+  },
+  {
+    "concepts": [
+      "nút nội suy",
+      "đa thức nội suy",
+      "spline",
+      "dao động"
+    ],
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Nội suy và xấp xỉ hàm",
+    "unit_index": 3,
+    "unit_sha256": "c448807ae9bc6643e7a333c5bdc6c6d1021ee3e1b28cf731906e6306b82b9700"
+  },
+  {
+    "concepts": [
+      "quy tắc hình thang",
+      "Simpson",
+      "bước lưới",
+      "tích phân thích nghi"
+    ],
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Tích phân số và ước lượng sai lệch",
+    "unit_index": 4,
+    "unit_sha256": "416920c8cc55318a1b997caedd8068da3de45d737285e8abf9a6ac73f585a100"
+  },
+  {
+    "concepts": [
+      "câu hỏi nghiên cứu",
+      "phạm vi",
+      "khái niệm",
+      "thao tác hóa"
+    ],
+    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Câu hỏi, phạm vi và khái niệm",
+    "unit_index": 0,
+    "unit_sha256": "24f219fdb768fd768ade69b59374cbe1ac2cbf4576924908d29253e273c1ca38"
+  },
+  {
+    "concepts": [
+      "công trình gốc",
+      "tổng quan tài liệu",
+      "trích dẫn",
+      "khoảng trống tri thức"
+    ],
+    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Tài liệu và cấu trúc bằng chứng",
+    "unit_index": 1,
+    "unit_sha256": "803a72e8e32015154ac160caa94b8d5e7520995d04b3de5a7a07bc64a53b6e9f"
+  },
+  {
+    "concepts": [
+      "thiết kế nghiên cứu",
+      "giả định",
+      "dữ liệu gốc",
+      "khả năng tái lập"
+    ],
+    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Thiết kế phương pháp và quản lý dữ liệu",
+    "unit_index": 2,
+    "unit_sha256": "64a278c1f2a4d10fa79690dbd1a1e530f59679852a20a5c80b75c3d840dd13f6"
+  },
+  {
+    "concepts": [
+      "kết quả",
+      "diễn giải",
+      "liêm chính",
+      "giới hạn nghiên cứu"
+    ],
+    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Lập luận và liêm chính trong báo cáo",
+    "unit_index": 3,
+    "unit_sha256": "d7469e9ba0efe03651e75ca0b6d12b06712df8be1ca474735138f85359fa2f83"
+  },
+  {
+    "concepts": [
+      "phép biến đổi hàng",
+      "phần tử trụ",
+      "biến tự do",
+      "tập nghiệm"
+    ],
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Hệ tuyến tính và phép khử",
+    "unit_index": 0,
+    "unit_sha256": "4f73b32b97c61d2a2e24244419e29239ced55ab820111a9309af0b3e5237ce90"
+  },
+  {
+    "concepts": [
+      "cột ma trận",
+      "ánh xạ tuyến tính",
+      "hợp thành",
+      "ma trận đơn vị"
+    ],
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Ma trận và ánh xạ tuyến tính",
+    "unit_index": 1,
+    "unit_sha256": "8cea81ae620a8981461c2ed703ff61675227046b18e35765541ea4a6a3e23116"
+  },
+  {
+    "concepts": [
+      "không gian con",
+      "tổ hợp tuyến tính",
+      "tập sinh",
+      "độc lập tuyến tính"
+    ],
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Không gian con, sinh và độc lập",
+    "unit_index": 2,
+    "unit_sha256": "da2f6de6bb98b07af7da83c468d38918c3f199e90cc71a1fc681f001e4c1682c"
+  },
+  {
+    "concepts": [
+      "cơ sở",
+      "số chiều",
+      "tọa độ",
+      "đổi cơ sở"
+    ],
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Cơ sở, số chiều và tọa độ",
+    "unit_index": 3,
+    "unit_sha256": "49ebac97aa99204a01c8df5d3671f35f880ef8f1d483a308679841c56dc5c25b"
+  },
+  {
+    "concepts": [
+      "hạt nhân",
+      "ảnh",
+      "hạng",
+      "định lý hạng"
+    ],
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Hạt nhân, ảnh và hạng",
+    "unit_index": 4,
+    "unit_sha256": "e5182afffa463292dba68d0ae0c502b0484e5f0a19a45bdf05cc2f5d7b7aefc0"
+  },
+  {
+    "concepts": [
+      "lớp",
+      "đối tượng",
+      "đóng gói",
+      "bất biến"
+    ],
+    "record_id": "toan_tin_7460117_2022:MAT1202",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Đối tượng, lớp và bất biến",
+    "unit_index": 0,
+    "unit_sha256": "601cc020ed035ff56aeb8994d3996b0a53e09d2f9805d3743a244b903a7b1a6f"
+  },
+  {
+    "concepts": [
+      "giao diện",
+      "trách nhiệm",
+      "kết dính",
+      "phụ thuộc"
+    ],
+    "record_id": "toan_tin_7460117_2022:MAT1202",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Giao diện và phân chia trách nhiệm",
+    "unit_index": 1,
+    "unit_sha256": "3b24c26ae588cf073300d41353c8d4bc23bc1cb405e54623c9e21fd751399b14"
+  },
+  {
+    "concepts": [
+      "kế thừa",
+      "đa hình",
+      "ghi đè",
+      "khả năng thay thế"
+    ],
+    "record_id": "toan_tin_7460117_2022:MAT1202",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Kế thừa, đa hình và khả năng thay thế",
+    "unit_index": 2,
+    "unit_sha256": "61726bc141e8eb2f0a4fcd2d5812c3d457f8bdd53645ea2cf31c4d738b19f0b5"
+  },
+  {
+    "concepts": [
+      "hợp thành",
+      "ủy quyền",
+      "hành vi quan sát được",
+      "trạng thái biên"
+    ],
+    "record_id": "toan_tin_7460117_2022:MAT1202",
+    "reference_role": "prior core concept mapping only, not full sentence coverage",
+    "title": "Hợp thành và kiểm tra hành vi",
+    "unit_index": 3,
+    "unit_sha256": "d0022c78c17ab1de7aa4d1efc5ccc2de2091806550f578fca02a348ac61e718f"
+  }
+]

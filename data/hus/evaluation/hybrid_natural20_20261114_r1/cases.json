@@ -1,0 +1,441 @@
+[
+  {
+    "id": "HN20-001",
+    "request": {
+      "question": "Ngành Toán học đào tạo người học theo định hướng nào?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "objectives",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "34707fd2672e540ed3b65cfed19f5ee7",
+        "3f891edef65b80a30ed9fdee73b47984",
+        "4104b80c6606e7a73108d521fe73a2a1",
+        "adad11c3c68978324eda714ffc880d40",
+        "ba1b006436207d86df58106033a3edf4",
+        "ee98f5ea44906381ac1ed747fbeb89c2",
+        "f8458f2c9484aa0823f83faaa575004c"
+      ]
+    }
+  },
+  {
+    "id": "HN20-002",
+    "request": {
+      "question": "Tốt nghiệp Toán học thì có thể làm việc ở những đâu?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "576a32614c1a16f7799e722bd1bd1313",
+        "8a4879289cc14b5965647a6c376e2aec",
+        "ad667609e5801d74c146610cb5ffcf00",
+        "e10eb3bab40d2e220787788f53ab58d8"
+      ]
+    }
+  },
+  {
+    "id": "HN20-003",
+    "request": {
+      "question": "Môn Đại số tuyến tính 1 có số tín chỉ là mấy?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "credits",
+      "course_code": "MAT2300",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "course_name": "Đại số tuyến tính 1",
+      "credits": 4,
+      "prerequisite_source_text": [
+        null
+      ],
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-004",
+    "request": {
+      "question": "Tôi muốn biết trong môn Đại số tuyến tính 1 sẽ gặp các khái niệm gì?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT2300",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "278542bcc0625ae1afe5ebb3b97314f7",
+        "4b7caa6c46c6aa36c085561f6fe8bb21",
+        "58b26ba1bbbacf4dfd618a4054b714f4",
+        "64ff9dac2bb3fc70466d843d47c41141",
+        "97eb478e4994fe486e06ce8808a0e53d",
+        "b4c4778e7253edf47d08d88f60e31538"
+      ]
+    }
+  },
+  {
+    "id": "HN20-005",
+    "request": {
+      "question": "Nếu tính mỗi mã học phần một lần thì ngành Toán học có bao nhiêu môn trong danh mục?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "program_course_count",
+      "course_code": null,
+      "outcome": "unsupported_operation",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "unique_catalog_course_count": 90,
+      "note": "Count catalog membership only; not number every student must take. Runtime operation not yet implemented.",
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-006",
+    "request": {
+      "question": "Cho mình một bức tranh khái quát về ngành Toán tin.",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "introduction",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "44d598308d53629fef5b3c8a7ec61495"
+      ]
+    }
+  },
+  {
+    "id": "HN20-007",
+    "request": {
+      "question": "Học xong Toán tin có thể tiếp tục học lên những bậc nào?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "further_study",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "06eab91c8c35db1572e17ad73748840b",
+        "658c9ab088735ae6c0d75ff4278f5bef"
+      ]
+    }
+  },
+  {
+    "id": "HN20-008",
+    "request": {
+      "question": "Muốn học Lập trình hướng đối tượng thì phải hoàn thành môn nào trước?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "prerequisites",
+      "course_code": "MAT1202",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "course_name": "Lập trình hướng đối tượng",
+      "credits": 3,
+      "prerequisite_source_text": [
+        "MAT2505"
+      ],
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-009",
+    "request": {
+      "question": "Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT1202",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "571f815f9fbe0e6d32d0c4061c1273d5"
+      ]
+    }
+  },
+  {
+    "id": "HN20-010",
+    "request": {
+      "question": "Ngành Khoa học dữ liệu có định hướng nghề nghiệp nào?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "outcome": "scope_conflict",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-011",
+    "request": {
+      "question": "Người tốt nghiệp KHMTTT có thể đảm nhiệm những công việc gì?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "12c82116f32f08a1ff215fc63cb8a122",
+        "291b6949cf13e7e60e54762b0d09ae77",
+        "2f9e999a85042b779208802aac26b4bb",
+        "3d5549c23ea06616555c5f6917ccfa12",
+        "490cb4103718f52c80496be4f8d33a69",
+        "4a3c645ebb71689c470787ee07190461",
+        "7c20f023d64e599313eb7fb61771be75",
+        "8955584f15e681b65a6f55b257e09970",
+        "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+        "e3dc4d4d8054d927400b121d04d92bef"
+      ]
+    }
+  },
+  {
+    "id": "HN20-012",
+    "request": {
+      "question": "Nếu muốn học tiếp sau KHMTTT thì có những hướng nào?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "further_study",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "56dc11d1be420dbfde4bcc3786d1276b",
+        "7770981a0105a0e83d57880b591dd3b7",
+        "b45d00fe80539319273406967ae12a65",
+        "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+        "e5a82ded76438ecd8803b9c5e5d2e9c1"
+      ]
+    }
+  },
+  {
+    "id": "HN20-013",
+    "request": {
+      "question": "Cho mình biết số tín chỉ của môn Phương pháp nghiên cứu khoa học.",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "credits",
+      "course_code": "MAT1204",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "course_name": "Phương pháp nghiên cứu khoa học",
+      "credits": 3,
+      "prerequisite_source_text": [
+        "MAT3507\nMAT3514"
+      ],
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-014",
+    "request": {
+      "question": "Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT1204",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "bb93fa28e9829ba7f5d46fc4ece9a19f"
+      ]
+    }
+  },
+  {
+    "id": "HN20-015",
+    "request": {
+      "question": "Giải thích nội dung MAT1204 giúp mình.",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT1204",
+      "outcome": "permission_required",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-016",
+    "request": {
+      "question": "Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "251ab61e0d6a58faa68914d59fa45516",
+        "52b2b2acd330744f909bc2ea49cf5fb7",
+        "940a3740794040de84617af7e9aa78fd",
+        "d844e5fa88b2bf746f918a39a67aa2bb"
+      ]
+    }
+  },
+  {
+    "id": "HN20-017",
+    "request": {
+      "question": "Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f1",
+      "field": "introduction",
+      "course_code": null,
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "21625268a830b8656f4b5bd4f07a9f80",
+        "7170857aebdc027daccc37102dd937bd",
+        "a02e3fe443e340a42147fca61503d628"
+      ]
+    }
+  },
+  {
+    "id": "HN20-018",
+    "request": {
+      "question": "MAT3533 được ghi nhận bao nhiêu tín chỉ trong khung chương trình?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "credits",
+      "course_code": "MAT3533",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "course_name": "Học máy",
+      "credits": 3,
+      "prerequisite_source_text": [
+        "MAT2406/\nMAT2323"
+      ],
+      "target_ids": []
+    }
+  },
+  {
+    "id": "HN20-019",
+    "request": {
+      "question": "Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT3533",
+      "outcome": "answer",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": [
+        "273e8ece7e6db1f8c532c7975f9021e4"
+      ]
+    }
+  },
+  {
+    "id": "HN20-020",
+    "request": {
+      "question": "Mã MAT9999 có số tín chỉ là bao nhiêu?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "expected": {
+      "dataset": "f2",
+      "field": "credits",
+      "course_code": "MAT9999",
+      "outcome": "evidence_unavailable",
+      "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+      "target_ids": []
+    }
+  }
+]

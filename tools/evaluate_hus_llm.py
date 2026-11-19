@@ -41,6 +41,7 @@ from tools.validate_hus_holdout import ROOT
 
 MODEL = 'gemini-3.5-flash-lite'
 BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/openai'
+FAILURE_POLICY = {'stop_after_consecutive_403': 2, 'stop_after_401': 1, 'stop_after_429': 1}
 
 
 def current_pins():
@@ -94,9 +95,20 @@ class Budget:
         self.max_calls, self.min_interval = max_calls, min_interval
         self.clock, self.sleep = clock, sleep
         self.attempts, self.last, self.quota = 0, None, False
+        self.permission_errors, self.stop_reason = 0, None
+
+    def observe_status(self, status):
+        """Close before reading the body, including malformed/timeout error bodies."""
+        self.permission_errors = self.permission_errors + 1 if status == 403 else 0
+        if status == 429:
+            self.quota, self.stop_reason = True, 'quota'
+        elif status == 401:
+            self.stop_reason = 'authentication'
+        elif self.permission_errors >= FAILURE_POLICY['stop_after_consecutive_403']:
+            self.stop_reason = 'permission_denied'
 
     def reserve(self):
-        if self.quota or self.attempts >= self.max_calls:
+        if self.stop_reason or self.quota or self.attempts >= self.max_calls:
             raise HUSLLMError('provider_error')
         wait = max(0, self.min_interval - (self.clock() - self.last)) if self.last is not None else 0
         if wait:
@@ -111,10 +123,13 @@ class ObservedTransport(httpx.BaseTransport):
         self.inner, self.trace, self.budget, self.secret = inner, trace, budget, secret
 
     def handle_request(self, request):
-        response = self.inner.handle_request(request)
+        try:
+            response = self.inner.handle_request(request)
+        except httpx.RequestError:
+            self.budget.observe_status(None)
+            raise
         self.trace['http_status'] = response.status_code
-        if response.status_code == 429:
-            self.budget.quota = True
+        self.budget.observe_status(response.status_code)
         try:
             response.read()
         except BaseException:
@@ -151,7 +166,7 @@ class ObservedClient:
         try:
             self.trace['pacing_ms'] = self.budget.reserve()
         except HUSLLMError:
-            self.trace['evaluation_stop'] = 'quota' if self.budget.quota else 'call_budget'
+            self.trace['evaluation_stop'] = self.budget.stop_reason or 'call_budget'
             raise
         self.trace['attempted'] = True
         started = time.perf_counter()
@@ -160,6 +175,8 @@ class ObservedClient:
             return HUSLLMClient(self.settings, transport=transport).complete_result(messages)
         except HUSLLMError as error:
             self.trace['error'] = error.code
+            if error.diagnostic is not None and error.diagnostic.stage == 'provider_http':
+                self.trace['provider_error'] = error.diagnostic.model_dump(exclude_none=True)
             raise
         finally:
             self.trace['provider_ms'] = (time.perf_counter() - started) * 1000
@@ -235,6 +252,7 @@ def run(prepared, out, settings, *, transport_factory=None, allow_live=False, ma
         'prepared_sha256': digest_json(document), 'requested_model': settings.model, 'base_url': settings.base_url,
         'transport': 'live_google' if transport_factory is None else 'synthetic_transport',
         'max_calls': max_calls, 'min_interval_seconds': min_interval,
+        'failure_policy': dict(FAILURE_POLICY), 'evaluation_stop_reason': budget.stop_reason,
         'collection_complete': not any(o['trace']['evaluation_stop'] for o in observations),
         'metrics': measured, 'semantic_review': 'pending', 'recommended_enabled': False,
         'holdout_eligible': False, 'actual_human_reviews': 0,
@@ -263,6 +281,24 @@ def replay(folder):
     if (sum(o['trace']['attempted'] for o in observations) > report['max_calls']
             or (report['transport'] == 'live_google' and report['min_interval_seconds'] < 5)):
         raise ValueError('Cached measurement budget metadata differs')
+    if 'failure_policy' in report:
+        if report['failure_policy'] != FAILURE_POLICY:
+            raise ValueError('Cached failure policy differs')
+        circuit = Budget(report['max_calls'], 0)
+        for observation in observations:
+            trace = observation['trace']
+            if trace['attempted']:
+                if circuit.stop_reason:
+                    raise ValueError('Cached provider call escaped failure circuit')
+                circuit.attempts += 1
+                circuit.observe_status(trace.get('http_status'))
+            elif trace.get('evaluation_stop') is not None:
+                expected_stop = circuit.stop_reason or 'call_budget'
+                if (trace['evaluation_stop'] != expected_stop
+                        or (not circuit.stop_reason and circuit.attempts < circuit.max_calls)):
+                    raise ValueError('Cached evaluation stop differs from failure circuit')
+        if report.get('evaluation_stop_reason') != circuit.stop_reason:
+            raise ValueError('Cached failure circuit outcome differs')
     if (report['prepared_sha256'] != digest_json(document)
             or metrics(document['records'], observations) != report['metrics']
             or review_template(report['measurement_id'], document['records'], observations) != saved['review_template.json']):

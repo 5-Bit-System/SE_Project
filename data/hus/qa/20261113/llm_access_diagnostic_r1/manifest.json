@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "prepared_comparison.json": "ff57a42e89f58ce229959a6792d2408e688a8b052b91476dc94ce37b94322483",
+    "proposed_diagnostic.json": "ceeed87b7737f51107756f6e9a9a7347240525b3a01c14e17ee75e75957e18e5",
+    "report.json": "9251cbfa9efdbafb805768ba472b6e94599b4fac280c2f7234a9a1e91632090b"
+  },
+  "schema_version": "hus-llm-access-offline-1.0"
+}

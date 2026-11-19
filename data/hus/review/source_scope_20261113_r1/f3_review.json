@@ -1,0 +1,174 @@
+[
+  {
+    "course_code": "MAT2034",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "FNC conditioning/stability pages directly ground that distinction; remaining root-finding/LU/interpolation/quadrature topics still need targeted section/condition mapping.",
+      "No selected official KHDL syllabus for this record; cannot transfer another programme syllabus."
+    ],
+    "human_reviews": 0,
+    "independent_review": false,
+    "major": "data_science",
+    "objectives_read": 5,
+    "official_comparison": null,
+    "record_id": "khdl_7460108_2022:MAT2034",
+    "record_sha256": "26185395ac0c1f4c985c30d940e76990690caa035ce9fc4cf37f46af40af61e1",
+    "references_checked": [
+      "N06",
+      "N10",
+      "N11"
+    ],
+    "reviewer_kind": "ai",
+    "scope": {
+      "applicability_status": "catalog_cohort_not_individual_account_binding",
+      "cohort_year": 2022,
+      "curriculum_version": "QD3569-2023",
+      "major": "data_science",
+      "program_id": "khdl_7460108_2022",
+      "program_variant": "standard",
+      "validity_status": "as_declared_in_canonical_F2"
+    },
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "strengths": [
+      "Distinguishes conditioning from algorithmic stability; cancellation example and warnings about residual versus solution error are bounded."
+    ],
+    "units_read": 5
+  },
+  {
+    "course_code": "MAT1204",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Not full coverage of publication/authorship ethics, scientific databases, report tools/presentation, teamwork/autonomy outcomes in examined syllabus pages.",
+      "ORI references ground integrity/data management; index pages do not establish every method claim or HUS applicability."
+    ],
+    "human_reviews": 0,
+    "independent_review": false,
+    "major": "computer_science",
+    "objectives_read": 4,
+    "official_comparison": {
+      "candidate_id": "098df9e79c1391af:8:MAT1204",
+      "declared_decision": "QD3568-2023",
+      "finding": "Code/title match and overlapping objectives. Adoption/current-student applicability and complete field alignment unverified.",
+      "pages": [
+        52,
+        53,
+        54
+      ],
+      "source_id": "S06",
+      "source_publication_year": 2024
+    },
+    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+    "record_sha256": "09e0f121c7d65999a63ecf082784b3548cb1545d829de16065556e669dbefbfb",
+    "references_checked": [
+      "N04",
+      "N05"
+    ],
+    "reviewer_kind": "ai",
+    "scope": {
+      "applicability_status": "catalog_cohort_not_individual_account_binding",
+      "cohort_year": 2022,
+      "curriculum_version": "QD3568-2023",
+      "major": "computer_science",
+      "program_id": "khmtt_7480113qtd_2022",
+      "program_variant": "standard",
+      "validity_status": "as_declared_in_canonical_F2"
+    },
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "strengths": [
+      "Research question/scope, literature comparison, design/evidence limits, raw data and reporting traceability are explicit."
+    ],
+    "units_read": 4
+  },
+  {
+    "course_code": "MAT2300",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "MIT course calendar corroborates topic coverage, not every theorem/example or HUS field/semester applicability.",
+      "No selected official Toán học syllabus for this record. A full sentence/assumption audit remains outstanding."
+    ],
+    "human_reviews": 0,
+    "independent_review": false,
+    "major": "mathematics",
+    "objectives_read": 5,
+    "official_comparison": null,
+    "record_id": "toan_hoc_7460101_2022:MAT2300",
+    "record_sha256": "e4121425e9ea7b624a48faee37fa146775a3a9240d48ebd222ace7a41dc9bd51",
+    "references_checked": [
+      "N07",
+      "N12"
+    ],
+    "reviewer_kind": "ai",
+    "scope": {
+      "applicability_status": "catalog_cohort_not_individual_account_binding",
+      "cohort_year": 2022,
+      "curriculum_version": "QD3565-2023",
+      "major": "mathematics",
+      "program_id": "toan_hoc_7460101_2022",
+      "program_variant": "standard",
+      "validity_status": "as_declared_in_canonical_F2"
+    },
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "strengths": [
+      "Row operations/pivots, linear maps, span/independence, basis/coordinates and kernel/image are consistent conceptual goals with counterexamples."
+    ],
+    "units_read": 5
+  },
+  {
+    "course_code": "MAT1202",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Python class tutorial supports language-specific concepts; UML landing page is not paragraph-level evidence for every design principle.",
+      "2021 PDF pages167-168 mentioning OOP are headed MAT3372 Software Components, not MAT1202. They cannot certify this record or import assessment/prerequisites."
+    ],
+    "human_reviews": 0,
+    "independent_review": false,
+    "major": "mathematics_informatics",
+    "objectives_read": 4,
+    "official_comparison": {
+      "finding": "Identity mismatch, rejected as official MAT1202 evidence; no syllabus_links candidate for this record.",
+      "pages": [
+        167,
+        168
+      ],
+      "printed_course_code": "MAT3372",
+      "source_id": "S07"
+    },
+    "record_id": "toan_tin_7460117_2022:MAT1202",
+    "record_sha256": "d0e5613ec36c1892cbadd74d9349cb7fc2da2ff59152d738a1cca810700f586a",
+    "references_checked": [
+      "N08",
+      "N09"
+    ],
+    "reviewer_kind": "ai",
+    "scope": {
+      "applicability_status": "catalog_cohort_not_individual_account_binding",
+      "cohort_year": 2022,
+      "curriculum_version": "QD3567-2023",
+      "major": "mathematics_informatics",
+      "program_id": "toan_tin_7460117_2022",
+      "program_variant": "standard",
+      "validity_status": "as_declared_in_canonical_F2"
+    },
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "strengths": [
+      "Object invariants, interfaces/responsibility, substitutability and composition are described with bounded examples."
+    ],
+    "units_read": 4
+  }
+]

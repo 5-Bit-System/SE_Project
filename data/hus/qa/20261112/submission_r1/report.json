@@ -1,0 +1,75 @@
+{
+  "api_cases": 20,
+  "artifact": {
+    "bytes": 67062026,
+    "files": 203,
+    "llm_enabled": false,
+    "release_id": "hus-data-20261111-v4",
+    "verified": true,
+    "zip_sha256": "fdb3df4c915c2fff27585350cc8ef79df8ead61e2cb551ffc68fefbc9e2d449d"
+  },
+  "baseline_validation_manifest_sha256": "d0bfeaecf0f00a2ae2b4f6fd3131504f2d1cf83e222e811647ed61ed563718ed",
+  "browser_acceptance_repeated": false,
+  "date": "2026-11-12",
+  "dependency_check": "pip check: No broken requirements found.",
+  "deployment_performed": false,
+  "different_target_machine_verified": false,
+  "environment": {
+    "packages": {
+      "fastapi": "0.143.0",
+      "httpx": "0.28.1",
+      "pdfplumber": "0.11.10",
+      "pydantic": "2.14.1",
+      "starlette": "1.8.0",
+      "uvicorn": "0.54.0"
+    },
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.9"
+  },
+  "fresh_install_verified": false,
+  "historical_a7_accepted": false,
+  "kind": "A8_local_package_verification",
+  "l6_assessment_path": "data/hus/evaluation/runs/llm_l6_v4_readiness_20261112_r2/assessment.json",
+  "l6_assessment_sha256": "38d1653bec3e82db65044fa64965806c6b7c6e62205466018eb77e642c0c6e2a",
+  "limitations": [
+    "Existing Python/site-packages; source path isolated, not a fresh pip install or a different machine.",
+    "A7 r1/r2 exposed dev; fresh evaluation required.",
+    "Compact LLM v3 has no new live measurement or operator activation acceptance."
+  ],
+  "load_or_public_security_accepted": false,
+  "menu_items": 2124,
+  "new_provider_calls": 0,
+  "package_unit_tests": 16,
+  "private_env_files_read_or_packaged": false,
+  "profile": {
+    "bind": "127.0.0.1",
+    "llm_enabled": false,
+    "retrieval": "lexical"
+  },
+  "rollback": {
+    "matrix": [
+      {
+        "docx": 2,
+        "f2_credits": 3,
+        "pdf": 12,
+        "release_id": "hus-data-20261111-v4"
+      },
+      {
+        "docx": 2,
+        "f2_credits": 3,
+        "pdf": 12,
+        "release_id": "hus-data-20261031-v3"
+      },
+      {
+        "docx": 2,
+        "f2_credits": 3,
+        "pdf": 12,
+        "release_id": "hus-data-20261111-v4"
+      }
+    ],
+    "passed": true,
+    "selector_restored": true
+  },
+  "runtime_source_isolated": true,
+  "zip_path": "backups/hus_submission_20261112_r1/hus-rag-demo.zip"
+}

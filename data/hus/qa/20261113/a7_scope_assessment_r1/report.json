@@ -1,0 +1,244 @@
+{
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "by_major_review": {
+    "computer_science": {
+      "complete_positives": 9,
+      "positive_denominator": 9,
+      "questions": 12
+    },
+    "data_science": {
+      "complete_positives": 7,
+      "positive_denominator": 9,
+      "questions": 12
+    },
+    "mathematics": {
+      "complete_positives": 8,
+      "positive_denominator": 9,
+      "questions": 12
+    },
+    "mathematics_informatics": {
+      "complete_positives": 8,
+      "positive_denominator": 9,
+      "questions": 12
+    }
+  },
+  "collection_finished_at_utc": "2026-11-13T08:17:49.788360+00:00",
+  "collection_started_at_utc": "2026-11-13T08:17:29.448762+00:00",
+  "date": "2026-11-13",
+  "exposure": {
+    "human_reviews": 0,
+    "not_independent_acceptance": true,
+    "prior_target_identity_reuse": 6,
+    "reviewer": "root AI exposed/nonblind/nonindependent",
+    "wording_overlap": 0
+  },
+  "focused_evaluator_tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "DESKTOP-T8GM5MN",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "61",
+    "time": "29.183",
+    "timestamp": "2026-11-13T15:20:50.711514+07:00"
+  },
+  "frozen_at_utc": "2026-11-13T04:43:52.414931+00:00",
+  "incomplete_question_ids": [
+    "A7S-Q013",
+    "A7S-Q015",
+    "A7S-Q027",
+    "A7S-Q037"
+  ],
+  "limits": [
+    "Windows local TestClient only, not otherOS/remoteclone or network latency.",
+    "33/33 source-relative entailment does not establish relevance: Q015 wrong requested field remains completeness fail.",
+    "F3 reference remains AI/unverified; source hash checks do not certify academic validity.",
+    "If this cohort is used for future tuning, retire to dev and freeze another set; do not regrade this run."
+  ],
+  "metrics": {
+    "abstention": {
+      "control_audit_failures": 0,
+      "control_failures": 0,
+      "correct_contract_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "correct_missing_or_out_of_scope": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "correct_opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "false_abstention": {
+        "denominator": 36,
+        "numerator": 3,
+        "value": 0.08333333333333333
+      },
+      "http_errors": 0
+    },
+    "cases": 48,
+    "citation_source_support": {
+      "actual_human_reviews": 0,
+      "ai_completeness": {
+        "denominator": 36,
+        "numerator": 32,
+        "value": 0.8888888888888888
+      },
+      "ai_end_to_end_supported_complete": {
+        "denominator": 36,
+        "numerator": 32,
+        "value": 0.8888888888888888
+      },
+      "ai_entailment": {
+        "denominator": 33,
+        "numerator": 33,
+        "value": 1.0
+      },
+      "ai_review_coverage": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+      "gold_quote_coverage_proxy": {
+        "denominator": 24,
+        "numerator": 20,
+        "value": 0.8333333333333334
+      },
+      "integrity_among_answered_positive": {
+        "denominator": 33,
+        "numerator": 33,
+        "value": 1.0
+      },
+      "reviewer_kind": "ai"
+    },
+    "f2": {
+      "by_field": {
+        "credits": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "name": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "prerequisites": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        }
+      },
+      "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+      "source_contract_success": {
+        "denominator": 12,
+        "numerator": 12,
+        "value": 1.0
+      }
+    },
+    "filters": {
+      "anchor_excluded_by_observed_filter": 1,
+      "errors": {
+        "ai_opt_in": 0,
+        "course_code": 0,
+        "major": 0,
+        "program_variant": 0,
+        "review": 0,
+        "version": 0
+      },
+      "observed_search_cases": 24
+    },
+    "latency": {
+      "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+      "http_ms": {
+        "count": 48,
+        "max_ms": 85.6917,
+        "min_ms": 2.1463,
+        "p50_ms": 30.2289,
+        "p95_ms": 74.462
+      }
+    },
+    "raw_legacy": null,
+    "retrieval": {
+      "conditional_recall_at_5": {
+        "denominator": 24,
+        "numerator": 23.0,
+        "value": 0.9583333333333334
+      },
+      "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+      "no_call_misses": 0,
+      "post_retrieval_false_abstention": 3,
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 23.0,
+        "value": 0.9583333333333334
+      },
+      "search_call_coverage": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      }
+    },
+    "routing": {
+      "missing_observation_cases": 0,
+      "positive_dataset_and_field": {
+        "denominator": 36,
+        "numerator": 35,
+        "value": 0.9722222222222222
+      },
+      "stage": "classifier_before_scope_and_evidence_guards"
+    }
+  },
+  "new_model_quality_measurement": false,
+  "overlay_manifest_sha256": "52b11aab7a53080ffccd1ad2315b98805bc516d5205c4dc1fef6e41656f737cb",
+  "pack_manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+  "pins_stable": true,
+  "profile": {
+    "actual_model": null,
+    "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+    "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+    "entrypoint": "app.hus.demo:app",
+    "f1_f3_protocol": "hus-llm-document-v3",
+    "f2_protocol": "hus-llm-evidence-v1",
+    "index": null,
+    "llm_enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "model_inference": "not_run",
+    "retrieval": "lexical"
+  },
+  "protected_prior_files": 2819,
+  "protected_prior_files_unchanged": 2819,
+  "provider_calls": 0,
+  "replay_no_inference_attempts": {
+    "answerer": 0,
+    "network": 0,
+    "provider": 0,
+    "retrieval": 0
+  },
+  "review_sha256": "840befdd3367cd1dc614f3b8f107058ef52664adcc18966a51e45f59fdc50a69",
+  "run_manifest_sha256": "0a800e1b456406d006aafa6b6bf2ad9f750c1ad013c0aa197a2a399a2113a25f",
+  "runtime_data_gold_changed": false,
+  "sealed_historical_runs_reviews_changed": false,
+  "source_audits_passed": 48,
+  "stage_commit_push_PR_Actions_deploy": false,
+  "status": "recall_threshold_met_but_not_all_technical_gates",
+  "technical_gates": {
+    "ai_content_review_all_complete": false,
+    "all_technical_gates_met": false,
+    "answered_source_integrity": true,
+    "controls_all_correct": true,
+    "f2_source_facts_all_correct": true,
+    "independent_or_human_acceptance": false,
+    "no_false_abstention": false,
+    "no_http_errors": true,
+    "no_scope_filter_errors": true,
+    "recall_at_5_met": true
+  }
+}

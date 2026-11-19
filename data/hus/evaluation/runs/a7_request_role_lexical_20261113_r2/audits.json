@@ -1,0 +1,306 @@
+[
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q001"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q002"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q003"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q004",
+    "source_f2_contract": {
+      "course_code": "MAT2034",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": 3
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q005",
+    "source_f2_contract": {
+      "course_code": "MAT2323",
+      "field": "prerequisites",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": [
+        "MAT2502"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q006"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q007"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q008"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q009"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q010"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q011"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q012"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q013"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q014"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q015"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q016",
+    "source_f2_contract": {
+      "course_code": "MAT2323",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 4
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q017",
+    "source_f2_contract": {
+      "course_code": "MAT2400",
+      "field": "prerequisites",
+      "prerequisite_status": "unknown",
+      "review_status": "draft_unverified",
+      "value": [
+        null
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q018"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q019"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q020"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q021"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q022"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q023"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q024"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q025"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q026"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q027"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q028",
+    "source_f2_contract": {
+      "course_code": "MAT2304",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 4
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q029",
+    "source_f2_contract": {
+      "course_code": "MAT2307",
+      "field": "prerequisites",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": [
+        "MAT2314\nMAT2316/\nMAT2505/\nMAT2318/\nMAT2319"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q030"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q031"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q032"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q033"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q034"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q035"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q036"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q037"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q038"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q039"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q040",
+    "source_f2_contract": {
+      "course_code": "MAT2301",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 4
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q041",
+    "source_f2_contract": {
+      "course_code": "MAT2302",
+      "field": "prerequisites",
+      "prerequisite_status": "unknown",
+      "review_status": "draft_unverified",
+      "value": [
+        null
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q042"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q043"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q044"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q045"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q046"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q047"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7R-Q048"
+  }
+]

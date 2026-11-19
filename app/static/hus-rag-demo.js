@@ -34,17 +34,60 @@
     return citation.display_label || citation.label || 'Nguồn dữ liệu';
   }
 
+  function onlyAI(citations) {
+    return Array.isArray(citations) && citations.length > 0 && citations.every(isAI);
+  }
+
+  function diagnosticInfo(diagnostic) {
+    const labels = {
+      routing_unknown: ['Chưa hiểu yêu cầu', 'Hãy nêu rõ ngành/môn và loại thông tin cần hỏi.'],
+      scope_conflict: ['Chọn lại phạm vi', 'Kiểm tra ngành và phiên bản đang chọn theo hướng dẫn trong câu trả lời.'],
+      unsupported_operation: ['Chưa hỗ trợ thao tác này', 'Yêu cầu này chưa được triển khai; không phải lỗi kết nối Gemini.'],
+      retrieval_empty: ['Chưa tìm thấy dữ liệu', 'Xem chi tiết trong câu trả lời.'],
+      evidence_rejected: ['Chưa đủ căn cứ trả lời', 'Đã tìm thấy đoạn liên quan nhưng chưa đáp ứng đủ yêu cầu/điều kiện. Hãy làm rõ ý hỏi.'],
+      evidence_unavailable: ['Chưa có thông tin nguồn', 'Dữ liệu hiện có chưa cung cấp thông tin cần hỏi.'],
+      clarification_required: ['Cần làm rõ câu hỏi', 'Bổ sung ngành/mã môn/phiên bản hoặc chọn một ý cần hỏi.'],
+      permission_required: ['Chưa cho phép nội dung AI', 'Bật quyền kiến thức AI tham khảo nếu muốn dùng F3.'],
+      output_rejected: ['Phản hồi AI bị chặn', 'AI đã phản hồi nhưng đầu ra chưa đạt kiểm tra nội dung/định dạng. Không hiển thị câu trả lời bị chặn.'],
+      provider_error: ['Lỗi dịch vụ AI', 'Dịch vụ AI chưa kết nối được hoặc tạm thời chưa sẵn sàng. Hãy kiểm tra mạng hoặc thử lại sau.'],
+      configuration_error: ['Cần kiểm tra cấu hình AI', 'Kiểm tra key/project ở backend; không gửi key qua chat.'],
+      context_budget: ['Cần thu hẹp câu hỏi', 'Bằng chứng chưa gửi được tới AI vì vượt giới hạn hoặc không phù hợp. Hãy hỏi phạm vi hẹp hơn.'],
+      busy: ['AI đang bận', 'Đang xử lý yêu cầu AI khác; hãy thử lại sau.'],
+      quota: ['AI chạm hạn mức', 'Đang dùng RAG offline sau429; khởi động lại khi hạn mức hồi phục.'],
+    };
+    if (!diagnostic || !Object.hasOwn(labels, diagnostic.code)) return null;
+    let [label, message] = labels[diagnostic.code];
+    if (diagnostic.code === 'provider_error' && [401, 403].includes(diagnostic.http_status)) {
+      label = 'Lỗi quyền truy cập AI';
+      message = 'Kiểm tra key/project và quyền dịch vụ ở backend; không gửi key qua chat.';
+    }
+    return {label, message};
+  }
+
+  function displayReply(reply, citations) {
+    // Presentation only: backend evidence and real-document citations stay intact.
+    const ids = (Array.isArray(citations) ? citations : []).filter(isAI)
+      .map(citation => String(citation.citation_id)).filter(id => /^\d+$/.test(id));
+    if (!ids.length) return reply;
+    const marker = new RegExp('\\[(' + ids.join('|') + ')\\]', 'g');
+    const footer = new RegExp('^Nguồn \\[(' + ids.join('|') + ')\\]:');
+    return reply.split('\n').filter(line => !footer.test(line.trim())).join('\n')
+      .replace(marker, '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+  }
+
   function generationInfo(result, requested) {
     const metadata = result.generation;
     const answered = result.mode === 'hus_rag' && result.hus_answer?.status === 'answered';
+    const aiOnly = onlyAI(result.hus_answer?.citations);
     if (metadata != null && (typeof metadata !== 'object' || typeof metadata.used !== 'boolean')) {
       throw new Error('invalid_generation');
     }
     if (metadata?.used === true) {
       if (!requested || !answered || typeof metadata.model !== 'string' || !metadata.model.trim()
           || metadata.fallback_reason != null) throw new Error('invalid_generation');
-      return {kind: 'used', label: 'AI diễn đạt từ nguồn',
-        note: 'AI đã diễn đạt từ bằng chứng được chọn. Hãy đối chiếu nguồn dẫn bên dưới.'};
+      return {kind: 'used', label: aiOnly ? 'AI diễn đạt' : 'AI diễn đạt từ nguồn',
+        note: aiOnly ? 'AI đã diễn đạt từ hồ sơ tham khảo đã lưu.'
+          : 'AI đã diễn đạt từ bằng chứng được chọn. Hãy đối chiếu nguồn dẫn bên dưới.'};
     }
     if (!requested || !answered) return null;
     const reasons = {
@@ -52,7 +95,11 @@
       timeout: 'Dịch vụ AI vượt thời gian chờ; hiển thị bản trích nguồn.',
       http_error: metadata?.http_status === 429
         ? 'Dịch vụ AI đã chạm hạn mức; hiển thị bản trích nguồn.'
-        : 'Không kết nối được dịch vụ AI; hiển thị bản trích nguồn.',
+        : [401, 403].includes(metadata?.http_status)
+          ? 'Cấu hình hoặc quyền truy cập dịch vụ AI chưa hợp lệ; hiển thị bản trích nguồn.'
+          : metadata?.http_status === 503
+            ? 'Dịch vụ AI tạm thời chưa sẵn sàng; hiển thị bản trích nguồn.'
+            : 'Không kết nối được dịch vụ AI; hiển thị bản trích nguồn.',
       transport_error: 'Không kết nối được dịch vụ AI; hiển thị bản trích nguồn.',
       prompt_budget: 'Bằng chứng vượt giới hạn diễn đạt; hiển thị bản trích nguồn.',
       output_budget: 'Phản hồi AI vượt giới hạn; hiển thị bản trích nguồn.',
@@ -61,13 +108,14 @@
       invalid_response: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
       invalid_result: 'Phản hồi AI chưa đạt kiểm tra; hiển thị bản trích nguồn.',
     };
-    return {kind: 'fallback', label: 'Bản trích nguồn',
-      note: Object.hasOwn(reasons, metadata?.fallback_reason) ? reasons[metadata.fallback_reason]
-        : 'AI chưa sẵn sàng; hiển thị bản trích nguồn.'};
+    const note = Object.hasOwn(reasons, metadata?.fallback_reason) ? reasons[metadata.fallback_reason]
+      : 'AI chưa sẵn sàng; hiển thị bản trích nguồn.';
+    return {kind: 'fallback', label: aiOnly ? 'Nội dung AI tham khảo' : 'Bản trích nguồn',
+      note: aiOnly ? note.replace('bản trích nguồn', 'nội dung AI tham khảo đã lưu') : note};
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {citationURL, citationLabel, generationInfo};
+    module.exports = {citationURL, citationLabel, generationInfo, displayReply};
   }
   if (typeof document === 'undefined') return;
 
@@ -78,6 +126,9 @@
   const generated = document.getElementById('rag-generated');
   const rewrite = document.getElementById('rag-rewrite');
   const rewriteUnavailable = document.getElementById('rag-rewrite-unavailable');
+  const autoNote = document.getElementById('rag-auto-note');
+  const disclosure = document.getElementById('rag-rewrite-disclosure');
+  const manualDisclosure = disclosure.textContent;
   const messages = document.getElementById('rag-messages');
   const status = document.getElementById('rag-status');
   const form = document.getElementById('rag-form');
@@ -104,11 +155,20 @@
 
   function updateControls() {
     const unavailable = !currentMajor();
+    const auto = config?.llm_auto === true;
+    rewrite.parentElement.hidden = auto;
+    autoNote.hidden = !auto;
+    autoNote.textContent = config?.llm_quota_exhausted
+      ? 'Gemini đã báo chạm hạn mức (429); đang trả lời offline từ RAG. Khởi động lại server để thử Gemini khi hạn mức được khôi phục.'
+      : 'Tự động dùng Gemini. Chỉ chuyển sang RAG offline khi dịch vụ báo chạm hạn mức (429); lỗi khác sẽ được thông báo.';
+    disclosure.textContent = auto
+      ? 'Khi hỏi, câu hỏi và bằng chứng phù hợp sẽ được gửi tới Google Gemini. Khi cần hiểu ý hỏi, AI cũng nhận ngành/phiên bản và danh mục mã/tên môn. Không gửi lịch sử hội thoại, tài khoản hay bảng điểm. Đổi ngành tắt quyền F3; chế độ Gemini tự động vẫn giữ.'
+      : manualDisclosure;
     major.disabled = unavailable;
     question.disabled = unavailable || busy;
     generated.disabled = unavailable || busy;
     rewrite.disabled = unavailable || busy || config?.llm_rewrite_available !== true;
-    rewriteUnavailable.hidden = config?.llm_rewrite_available === true;
+    rewriteUnavailable.hidden = auto || config?.llm_rewrite_available === true;
     rewrite.setAttribute('aria-describedby', 'rag-rewrite-disclosure'
       + (rewriteUnavailable.hidden ? '' : ' rag-rewrite-unavailable'));
     send.disabled = unavailable || busy || !question.value.trim();
@@ -116,6 +176,9 @@
     form.setAttribute('aria-busy', String(busy));
     for (const {button, item} of catalogEntries) {
       button.disabled = unavailable || busy || (item.requires_ai && !generated.checked);
+    }
+    for (const button of messages.querySelectorAll('.rag-source-choice')) {
+      button.disabled = unavailable || busy;
     }
   }
 
@@ -262,7 +325,7 @@
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, citations = [], generation = null) {
+  function appendMessage(role, reply, citations = [], generation = null, diagnostic = null) {
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
     const avatar = document.createElement('span');
@@ -276,8 +339,21 @@
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
     const text = document.createElement('p');
     text.className = 'rag-message-text';
-    text.textContent = reply;
+    text.textContent = role === 'assistant' ? displayReply(reply, citations) : reply;
     body.append(speaker, text);
+    const diagnosis = diagnosticInfo(diagnostic);
+    if (diagnosis) {
+      const label = document.createElement('p');
+      label.className = 'rag-diagnostic';
+      label.textContent = diagnosis.label;
+      body.appendChild(label);
+    }
+    if (Array.isArray(citations) && citations.some(isAI)) {
+      const notice = document.createElement('p');
+      notice.className = 'rag-ai-notice';
+      notice.textContent = 'kiến thức AI — Nội dung tham khảo, không phải đề cương chính thức.';
+      body.appendChild(notice);
+    }
     if (generation) {
       const badge = document.createElement('p');
       badge.className = 'rag-generation-label';
@@ -288,11 +364,12 @@
       note.textContent = generation.note;
       body.append(badge, note);
     }
-    if (Array.isArray(citations) && citations.length) {
+    const visibleCitations = Array.isArray(citations) ? citations.filter(citation => !isAI(citation)) : [];
+    if (visibleCitations.length) {
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
       sources.setAttribute('aria-label', 'Dẫn chứng');
-      for (const citation of citations) appendCitation(sources, citation);
+      for (const citation of visibleCitations) appendCitation(sources, citation);
       body.appendChild(sources);
     }
     article.append(avatar, body);
@@ -332,7 +409,8 @@
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
       allow_generated_reference: generated.checked === true};
-    const wantsRewrite = rewrite.checked === true && config.llm_rewrite_available === true;
+    const wantsRewrite = config.llm_auto === true
+      || (rewrite.checked === true && config.llm_rewrite_available === true);
     // Catalog requests supply scope hints, never permission to send data externally.
     if (wantsRewrite) payload.allow_llm_rewrite = true;
     else delete payload.allow_llm_rewrite;
@@ -345,7 +423,16 @@
       const response = await fetch('/hus/chat', {method: 'POST',
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload),
         signal: controller.signal, cache: 'no-store'});
-      if (!response.ok) throw new Error('http_' + response.status);
+      if (!response.ok) {
+        const error = new Error('http_' + response.status);
+        if (response.status === 502) {
+          try {
+            const body = await response.json();
+            if (diagnosticInfo(body?.detail?.diagnostic)) error.diagnostic = body.detail.diagnostic;
+          } catch { /* Keep the safe generic error; never render a raw error body. */ }
+        }
+        throw error;
+      }
       const result = await response.json();
       if (epoch !== scopeGeneration || requestController !== controller) return;
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
@@ -353,24 +440,65 @@
       if (result.mode === 'hus_rag' && !['answered', 'needs_clarification', 'no_information']
         .includes(result.hus_answer?.status)) throw new Error('invalid_response');
       const info = generationInfo(result, wantsRewrite);
+      if (config.llm_auto && result.generation?.used === true) config.llm_quota_exhausted = false;
+      if (config.llm_auto && [result.generation, result.interpretation].some(
+        item => item?.fallback_reason === 'http_error' && item.http_status === 429)) {
+        config.llm_quota_exhausted = true;
+      }
       appendMessage('assistant', result.reply,
-        result.mode === 'hus_rag' ? result.hus_answer?.citations : [], info);
+        result.mode === 'hus_rag' ? result.hus_answer?.citations : [], info, result.hus_answer?.diagnostic);
+      if (result.hus_answer?.status === 'needs_clarification'
+          && Array.isArray(result.hus_answer.source_choices)) {
+        const choices = document.createElement('div');
+        choices.className = 'rag-source-choices';
+        choices.setAttribute('aria-label', 'Chọn nguồn thông tin');
+        for (const choice of result.hus_answer.source_choices) {
+          if (typeof choice.source_id !== 'string' || typeof choice.version !== 'string'
+              || typeof choice.label !== 'string' || typeof choice.review_status !== 'string') continue;
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'rag-source-choice';
+          const variants = {standard: 'Hệ chuẩn', high_quality: 'Hệ chất lượng cao',
+            talent: 'Hệ tài năng', advanced: 'Hệ tiên tiến', unknown: 'Chưa rõ hệ'};
+          button.textContent = choice.label + ' · ' + choice.version + ' · '
+            + (variants[choice.program_variant] || 'Chưa rõ hệ') + ' · ' + choice.review_status;
+          button.addEventListener('click', () => {
+            if (busy || epoch !== scopeGeneration || selected.id !== currentMajor()?.id) return;
+            question.value = text;
+            submit(null, {...payload, source_id: choice.source_id, version: choice.version,
+              program_variant: choice.program_variant});
+          });
+          choices.appendChild(button);
+        }
+        messages.lastElementChild.querySelector('.rag-message-content').appendChild(choices);
+      }
+      let message = '';
       if (result.mode === 'basic_chat') {
-        setStatus('Đã phản hồi hội thoại.');
+        message = 'Đã phản hồi hội thoại.';
       } else if (result.hus_answer?.status === 'needs_clarification') {
-        setStatus('Cần làm rõ câu hỏi; xem hướng dẫn trong phản hồi.');
+        message = 'Cần làm rõ câu hỏi; xem hướng dẫn trong phản hồi.';
       } else if (result.hus_answer?.status === 'no_information') {
-        setStatus('Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.');
+        message = 'Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.';
       } else if (result.hus_answer?.status === 'answered') {
-        setStatus(result.hus_answer.facts?.field === 'prerequisites'
+        message = result.hus_answer.facts?.field === 'prerequisites'
           && result.hus_answer.facts?.prerequisite_status === 'unknown'
           ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
-          : 'Đã trả lời theo phạm vi dữ liệu đã chọn.');
+          : 'Đã trả lời theo phạm vi dữ liệu đã chọn.';
       }
-      if (info) setStatus(status.textContent + ' ' + info.note);
+      const diagnosis = diagnosticInfo(result.hus_answer?.diagnostic);
+      const statusMessage = [message, diagnosis?.message, info?.note].filter(Boolean).join(' ');
+      if (statusMessage) setStatus(statusMessage);
     } catch (error) {
       if (epoch !== scopeGeneration || requestController !== controller || error.name === 'AbortError') return;
       const unavailable = error.message === 'http_503';
+      if (error.message === 'http_502' && config.llm_auto) {
+        const diagnosis = diagnosticInfo(error.diagnostic);
+        const note = (diagnosis?.message || 'AI chưa trả lời được. Kiểm tra kết nối, cấu hình hoặc thử lại sau.') + ' '
+          + 'Chỉ chuyển offline khi dịch vụ báo chạm hạn mức (429).';
+        appendMessage('assistant', note, [], null, error.diagnostic);
+        setStatus(note, true);
+        return;
+      }
       setStatus(unavailable ? 'Dữ liệu HUS chưa sẵn sàng. Hãy kiểm tra máy chủ trước khi hỏi lại.'
         : 'Không nhận được câu trả lời. Bạn có thể nhập và gửi lại câu hỏi.', true);
     } finally {

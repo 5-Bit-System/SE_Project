@@ -31,7 +31,13 @@ def click_and_answer(page, button):
     with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as event:
         button.click()
     result = event.value.json()
-    expect(page.locator('.rag-message-assistant .rag-message-text').last).to_have_text(result['reply'])
+    text = page.locator('.rag-message-assistant .rag-message-text').last
+    citations = (result.get('hus_answer') or {}).get('citations', [])
+    if citations and all(c['evidence_kind'] == 'ai' for c in citations):
+        for citation in citations:
+            expect(text).to_contain_text(citation['quote'])
+    else:
+        expect(text).to_have_text(result['reply'])
     return json.loads(event.value.request.post_data), result
 
 

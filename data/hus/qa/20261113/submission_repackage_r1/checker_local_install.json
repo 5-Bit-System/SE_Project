@@ -1,0 +1,27 @@
+{
+  "a7": "Recall24/24, completeness34/36, controls11/12; Q002/Q003/Q011 remain. AI review, human0.",
+  "api_cases": 20,
+  "archive_sha256": {
+    "hus-rag-demo.zip": "fa0ebcc27a041c348ee0f36c543d469e546a133a278318c544fd0bfeba3c71cc",
+    "wheelhouse-win-py311.zip": "b176282aeeba6bcc48fa5fc62af8e14be18bc3bfc6e00411d25d102c04234b9b"
+  },
+  "browser_and_rollback_on_this_machine": "pending manual check",
+  "finished_at": "2026-11-12T19:12:34.327511+00:00",
+  "llm_enabled": false,
+  "manual_operator_acceptance": false,
+  "menu_items": 2124,
+  "public_deployment": false,
+  "python": {
+    "bits": 64,
+    "implementation": "CPython",
+    "machine": "AMD64",
+    "system": "Windows",
+    "version": "3.11.9"
+  },
+  "release_id": "hus-data-20261111-v4",
+  "schema_version": "hus-target-install-1.0",
+  "script_sha256": "0e8da83d641ea549829815137fe0ea3ad616ebfef8b9054d005d2d7834fa024b",
+  "started_at": "2026-11-12T19:11:35.183235+00:00",
+  "status": "checks_passed_manual_operator_review_pending",
+  "target_checks_passed": true
+}

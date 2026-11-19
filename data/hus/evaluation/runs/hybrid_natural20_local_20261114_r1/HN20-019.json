@@ -1,0 +1,413 @@
+{
+  "id": "HN20-019",
+  "request": {
+    "question": "Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": true,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f3",
+    "field": "content",
+    "course_code": "MAT3533",
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "273e8ece7e6db1f8c532c7975f9021e4"
+    ]
+  },
+  "raw_question_route": [
+    "f3",
+    "content"
+  ],
+  "order": [
+    "lexical",
+    "hybrid"
+  ],
+  "modes": {
+    "lexical": {
+      "retrieval_calls": [
+        {
+          "query": "Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?",
+          "scope": {
+            "dataset": "f3",
+            "major": "data_science",
+            "version": "QD3569-2023",
+            "course_code": "MAT3533",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "seconds": 0.0026172000216320157,
+          "hits": [
+            {
+              "id": "e3016230b7adc54e13dfa486fd969847",
+              "score": 2.737745197783975,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Phân tích hành vi mô hình\nTách dữ liệu theo đơn vị độc lập, thời gian hoặc nhóm giúp mô phỏng cách mô hình gặp trường hợp mới. Phân tích lỗi theo từng nhóm và bối cảnh cho thấy hạn chế mà một con số trung bình có thể che khuất.\nKhái niệm thành phần: tập huấn luyện; tập kiểm chứng; dịch chuyển phân phối.\nVí dụ minh họa do AI biên soạn: Nếu cùng một người có ảnh ở cả hai phần dữ liệu, mô hình có thể nhận dạng dấu hiệu cá nhân thay vì học quy luật cần dùng cho người mới."
+            },
+            {
+              "id": "a3e9d09144bd6da73e8d355722b4e7f3",
+              "score": 2.44431269129368,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nHọc máy nghiên cứu cách xây dựng mô hình từ dữ liệu để dự đoán hoặc tìm cấu trúc trên những trường hợp chưa quan sát. Hướng tham khảo nối biểu diễn đặc trưng, tối ưu và khả năng khái quát, nhấn mạnh sự khác nhau giữa khớp dữ liệu đã thấy và hoạt động đáng tin cậy trên dữ liệu mới.\nCác chủ đề tham khảo:\n- Dữ liệu và biểu diễn\n- Mô hình và hàm mất mát\n- Khái quát và điều chuẩn\n- Phân tích hành vi mô hình"
+            },
+            {
+              "id": "273e8ece7e6db1f8c532c7975f9021e4",
+              "score": 2.091089931668969,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn."
+            },
+            {
+              "id": "096e4f54f1338174cf06aad0e18a2da8",
+              "score": 1.852262415784065,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Mô hình và hàm mất mát\nHàm mất mát định lượng sự khác nhau giữa dự đoán và mục tiêu theo ý nghĩa của nhiệm vụ. Tối ưu điều chỉnh tham số giảm mất mát trên mẫu, nhưng nghiệm tối ưu của mục tiêu đã chọn chưa bảo đảm phù hợp mọi quyết định thực tế.\nKhái niệm thành phần: hồi quy; phân loại; gradient; hàm mất mát.\nVí dụ minh họa do AI biên soạn: Dự đoán giá trị liên tục có thể dùng sai số bình phương, còn xác suất cho nhiều lớp cần mục tiêu gắn với phân phối nhãn."
+            },
+            {
+              "id": "dd643c3c0c3230450d67f473878f0ddd",
+              "score": 1.7712778694288749,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Dữ liệu và biểu diễn\nMô hình nhận dữ liệu qua đặc trưng nên lựa chọn biểu diễn quyết định phần thông tin có thể khai thác. Biến đổi dựa trên thống kê của dữ liệu phải học từ phần huấn luyện để không đưa thông tin tương lai vào quá trình học.\nKhái niệm thành phần: đặc trưng; nhãn; chuẩn hóa; rò rỉ dữ liệu.\nVí dụ minh họa do AI biên soạn: Trung bình dùng để chuẩn hóa một biến được tính từ tập huấn luyện rồi áp sang dữ liệu mới, thay vì tính lại trên cả bộ dữ liệu chung."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "e3016230b7adc54e13dfa486fd969847",
+            "a3e9d09144bd6da73e8d355722b4e7f3",
+            "273e8ece7e6db1f8c532c7975f9021e4",
+            "096e4f54f1338174cf06aad0e18a2da8",
+            "dd643c3c0c3230450d67f473878f0ddd"
+          ],
+          "selected_ids": [],
+          "seconds": 0.0021062999730929732
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+          "status": "no_information",
+          "dataset": "f3",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true,
+          "diagnostic": {
+            "code": "evidence_rejected"
+          }
+        }
+      },
+      "seconds": 0.03214500000467524,
+      "search_called": true,
+      "target_raw_rank": 3,
+      "target_selected": false,
+      "diagnostic": "evidence_rejected",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "hybrid": {
+      "retrieval_calls": [
+        {
+          "query": "Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?",
+          "scope": {
+            "dataset": "f3",
+            "major": "data_science",
+            "version": "QD3569-2023",
+            "course_code": "MAT3533",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT3533\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"data_science\",\"program_variant\":null,\"version\":\"QD3569-2023\"}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "e3016230b7adc54e13dfa486fd969847",
+                "rank": 1,
+                "raw_score": 2.737745197783975
+              },
+              {
+                "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+                "rank": 2,
+                "raw_score": 2.44431269129368
+              },
+              {
+                "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+                "rank": 3,
+                "raw_score": 2.091089931668969
+              },
+              {
+                "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+                "rank": 4,
+                "raw_score": 1.852262415784065
+              },
+              {
+                "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+                "rank": 5,
+                "raw_score": 1.7712778694288749
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+                "rank": 1,
+                "raw_score": 0.8758147954940796
+              },
+              {
+                "parent_id": "e3016230b7adc54e13dfa486fd969847",
+                "rank": 2,
+                "raw_score": 0.8572090268135071
+              },
+              {
+                "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+                "rank": 3,
+                "raw_score": 0.8482437133789062
+              },
+              {
+                "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+                "rank": 4,
+                "raw_score": 0.8420246243476868
+              },
+              {
+                "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+                "rank": 5,
+                "raw_score": 0.8389066457748413
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"data_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"096e4f54f1338174cf06aad0e18a2da8\",\"273e8ece7e6db1f8c532c7975f9021e4\",\"a3e9d09144bd6da73e8d355722b4e7f3\",\"dd643c3c0c3230450d67f473878f0ddd\",\"e3016230b7adc54e13dfa486fd969847\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3569-2023\"},{\"course_code\":\"MAT3533\"},{\"field\":\"content\"}]}",
+              "passage_ids": [
+                "a3e9d09144bd6da73e8d355722b4e7f3#p000",
+                "e3016230b7adc54e13dfa486fd969847#p000",
+                "dd643c3c0c3230450d67f473878f0ddd#p000",
+                "096e4f54f1338174cf06aad0e18a2da8#p000",
+                "273e8ece7e6db1f8c532c7975f9021e4#p000"
+              ],
+              "parent_ids": [
+                "a3e9d09144bd6da73e8d355722b4e7f3",
+                "e3016230b7adc54e13dfa486fd969847",
+                "dd643c3c0c3230450d67f473878f0ddd",
+                "096e4f54f1338174cf06aad0e18a2da8",
+                "273e8ece7e6db1f8c532c7975f9021e4"
+              ]
+            },
+            "candidate_union": [
+              "096e4f54f1338174cf06aad0e18a2da8",
+              "273e8ece7e6db1f8c532c7975f9021e4",
+              "a3e9d09144bd6da73e8d355722b4e7f3",
+              "dd643c3c0c3230450d67f473878f0ddd",
+              "e3016230b7adc54e13dfa486fd969847"
+            ],
+            "fused": [
+              {
+                "parent_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+                "lexical_rank": 2,
+                "vector_rank": 1,
+                "rrf_score": 0.03252247488101534
+              },
+              {
+                "parent_id": "e3016230b7adc54e13dfa486fd969847",
+                "lexical_rank": 1,
+                "vector_rank": 2,
+                "rrf_score": 0.03252247488101534
+              },
+              {
+                "parent_id": "273e8ece7e6db1f8c532c7975f9021e4",
+                "lexical_rank": 3,
+                "vector_rank": 5,
+                "rrf_score": 0.03125763125763126
+              },
+              {
+                "parent_id": "dd643c3c0c3230450d67f473878f0ddd",
+                "lexical_rank": 5,
+                "vector_rank": 3,
+                "rrf_score": 0.03125763125763126
+              },
+              {
+                "parent_id": "096e4f54f1338174cf06aad0e18a2da8",
+                "lexical_rank": 4,
+                "vector_rank": 4,
+                "rrf_score": 0.03125
+              }
+            ],
+            "final_top5": [
+              "a3e9d09144bd6da73e8d355722b4e7f3",
+              "e3016230b7adc54e13dfa486fd969847",
+              "273e8ece7e6db1f8c532c7975f9021e4",
+              "dd643c3c0c3230450d67f473878f0ddd",
+              "096e4f54f1338174cf06aad0e18a2da8"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "seconds": 6.261283100000583,
+          "hits": [
+            {
+              "id": "a3e9d09144bd6da73e8d355722b4e7f3",
+              "score": 0.03252247488101534,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nHọc máy nghiên cứu cách xây dựng mô hình từ dữ liệu để dự đoán hoặc tìm cấu trúc trên những trường hợp chưa quan sát. Hướng tham khảo nối biểu diễn đặc trưng, tối ưu và khả năng khái quát, nhấn mạnh sự khác nhau giữa khớp dữ liệu đã thấy và hoạt động đáng tin cậy trên dữ liệu mới.\nCác chủ đề tham khảo:\n- Dữ liệu và biểu diễn\n- Mô hình và hàm mất mát\n- Khái quát và điều chuẩn\n- Phân tích hành vi mô hình"
+            },
+            {
+              "id": "e3016230b7adc54e13dfa486fd969847",
+              "score": 0.03252247488101534,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Phân tích hành vi mô hình\nTách dữ liệu theo đơn vị độc lập, thời gian hoặc nhóm giúp mô phỏng cách mô hình gặp trường hợp mới. Phân tích lỗi theo từng nhóm và bối cảnh cho thấy hạn chế mà một con số trung bình có thể che khuất.\nKhái niệm thành phần: tập huấn luyện; tập kiểm chứng; dịch chuyển phân phối.\nVí dụ minh họa do AI biên soạn: Nếu cùng một người có ảnh ở cả hai phần dữ liệu, mô hình có thể nhận dạng dấu hiệu cá nhân thay vì học quy luật cần dùng cho người mới."
+            },
+            {
+              "id": "273e8ece7e6db1f8c532c7975f9021e4",
+              "score": 0.03125763125763126,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn."
+            },
+            {
+              "id": "dd643c3c0c3230450d67f473878f0ddd",
+              "score": 0.03125763125763126,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Dữ liệu và biểu diễn\nMô hình nhận dữ liệu qua đặc trưng nên lựa chọn biểu diễn quyết định phần thông tin có thể khai thác. Biến đổi dựa trên thống kê của dữ liệu phải học từ phần huấn luyện để không đưa thông tin tương lai vào quá trình học.\nKhái niệm thành phần: đặc trưng; nhãn; chuẩn hóa; rò rỉ dữ liệu.\nVí dụ minh họa do AI biên soạn: Trung bình dùng để chuẩn hóa một biến được tính từ tập huấn luyện rồi áp sang dữ liệu mới, thay vì tính lại trên cả bộ dữ liệu chung."
+            },
+            {
+              "id": "096e4f54f1338174cf06aad0e18a2da8",
+              "score": 0.03125,
+              "dataset": "f3",
+              "major": "data_science",
+              "version": "QD3569-2023",
+              "field": "content",
+              "course_code": "MAT3533",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Mô hình và hàm mất mát\nHàm mất mát định lượng sự khác nhau giữa dự đoán và mục tiêu theo ý nghĩa của nhiệm vụ. Tối ưu điều chỉnh tham số giảm mất mát trên mẫu, nhưng nghiệm tối ưu của mục tiêu đã chọn chưa bảo đảm phù hợp mọi quyết định thực tế.\nKhái niệm thành phần: hồi quy; phân loại; gradient; hàm mất mát.\nVí dụ minh họa do AI biên soạn: Dự đoán giá trị liên tục có thể dùng sai số bình phương, còn xác suất cho nhiều lớp cần mục tiêu gắn với phân phối nhãn."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "a3e9d09144bd6da73e8d355722b4e7f3",
+            "e3016230b7adc54e13dfa486fd969847",
+            "273e8ece7e6db1f8c532c7975f9021e4",
+            "dd643c3c0c3230450d67f473878f0ddd",
+            "096e4f54f1338174cf06aad0e18a2da8"
+          ],
+          "selected_ids": [],
+          "seconds": 0.0027870999765582383
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+          "status": "no_information",
+          "dataset": "f3",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true,
+          "diagnostic": {
+            "code": "evidence_rejected"
+          }
+        }
+      },
+      "seconds": 6.290705999999773,
+      "search_called": true,
+      "target_raw_rank": 3,
+      "target_selected": false,
+      "diagnostic": "evidence_rejected",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

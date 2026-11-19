@@ -1,0 +1,7 @@
+{
+  "files_sha256": {
+    "preflight.json": "06b3972c961ecc34de0e65ac10e83dc8360d59813f80bf82a823d46ed67b94af",
+    "report.json": "5cf456f0ee40c6af42b548b5a5af37cc1dbdfce221bc61c397bf4cd488ac89a3"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

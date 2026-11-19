@@ -1,0 +1,211 @@
+{
+  "generation": {
+    "fallback_reason": null,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_sha256": "38b63a525ec4f657b7cbfec13775646560a530b48df9055add328d4fae87a594",
+    "requested_model": "gemini-3.5-flash-lite",
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 935,
+      "total_tokens": 1178
+    },
+    "used": true
+  },
+  "hus_answer": {
+    "citations": [
+      {
+        "availability": "available",
+        "availability_note": "Tệp DOCX nguồn; không phải PDF.",
+        "citation_id": "1",
+        "content_origin": "crawled_source_quote",
+        "dataset": "f1",
+        "display_label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+        "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "evidence_kind": "file",
+        "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+        "locator": {
+          "end_char": 8627,
+          "evidence_path": "evidence/f1/f7f470e712738589.txt",
+          "field": "content_markdown",
+          "release_id": "hus-data-20261111-v4",
+          "start_char": 7923
+        },
+        "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "metadata": {
+          "academic_verified": false,
+          "admission_cohort": "unknown",
+          "answer_eligible": true,
+          "answer_policy": "source_cited_description",
+          "authorizes_eligibility": false,
+          "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+          "citation": {
+            "end_char": 8627,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "source_kind": "crawled_prose",
+            "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+            "start_char": 7923,
+            "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          },
+          "citation_title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "disclosure_required": false,
+          "display_edits": [],
+          "document_id": "f7f470e712738589",
+          "family": "F1",
+          "field": "careers",
+          "format": "portable-2.0",
+          "locator": {
+            "end_char": 8627,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "field": "content_markdown",
+            "release_id": "hus-data-20261111-v4",
+            "start_char": 7923
+          },
+          "major": "computer_science",
+          "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+          "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+          "portable_chunk": {
+            "academic_verified": false,
+            "answer_policy": "source_cited_description",
+            "authorizes_eligibility": false,
+            "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+            "citation": {
+              "end_char": 8627,
+              "evidence_path": "evidence/f1/f7f470e712738589.txt",
+              "raw_original_verified": false,
+              "review_status": "include_markdown",
+              "source_id": "f7f470e712738589",
+              "source_kind": "crawled_prose",
+              "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+              "start_char": 7923,
+              "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+            },
+            "content_origin": "crawled_source_quote",
+            "course_code": null,
+            "disclosure_required": false,
+            "display_edits": [],
+            "family": "F1",
+            "field": "careers",
+            "record_id": null,
+            "recovered_source_comparison": {
+              "comparison": "selected_F1_normalized_prose_match",
+              "historical_byte_equality": "unknown",
+              "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "whole_document_verified": false
+            },
+            "schema_version": "2.0",
+            "scope": {
+              "applicability_status": "descriptive_not_student_curriculum_binding",
+              "cohort_year": null,
+              "curriculum_version": "2023",
+              "major": "computer_science",
+              "program_id": null,
+              "program_variant": "standard",
+              "validity_status": "unknown"
+            },
+            "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+            "source_unit_id": "5b99f8135abed4d2d2d77155",
+            "text": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin."
+          },
+          "program_variant": "standard",
+          "program_version": "2023",
+          "raw_original_verified": false,
+          "record_id": null,
+          "recovered_source_comparison": {
+            "comparison": "selected_F1_normalized_prose_match",
+            "historical_byte_equality": "unknown",
+            "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+            "whole_document_verified": false
+          },
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "review": {
+            "status": "include_markdown"
+          },
+          "review_scope": "selected_F1_sections",
+          "review_status": "include_markdown",
+          "schema_version": "2.0",
+          "scope": {
+            "applicability_status": "descriptive_not_student_curriculum_binding",
+            "cohort_year": null,
+            "curriculum_version": "2023",
+            "major": "computer_science",
+            "program_id": null,
+            "program_variant": "standard",
+            "validity_status": "unknown"
+          },
+          "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+          "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+          "source_record": {
+            "academic_verified": false,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "evidence_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+            "family": "F1",
+            "raw_available": true,
+            "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+            "raw_evidence_path": null,
+            "raw_original_verified": false,
+            "recovered_capture": {
+              "academic_verified": false,
+              "bytes": 404363,
+              "document_id": "f7f470e712738589",
+              "extractor": "python-docx/1.2.0",
+              "fetched_at": "2026-10-31T07:03:59.631066+00:00",
+              "file_type": "docx",
+              "final_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "historical_byte_equality": "unknown",
+              "major": "computer_science",
+              "original_binary_in_portable_release": false,
+              "page_count": 1,
+              "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+              "path_scope": "recovery_archive_root",
+              "repository_asset_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+              "requested_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+            },
+            "review_scope": "selected_F1_sections",
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          },
+          "source_state": "selected_for_local_rag_demo",
+          "source_unit_id": "5b99f8135abed4d2d2d77155",
+          "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+          "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+          "unit_id": "5b99f8135abed4d2d2d77155",
+          "usage_scope": "descriptive",
+          "validity_status": "unknown"
+        },
+        "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+        "pdf_page": null,
+        "pdf_pages": [],
+        "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "review_status": "include_markdown",
+        "source_id": "f7f470e712738589",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+      }
+    ],
+    "dataset": "f1",
+    "facts": {},
+    "generated_reference_allowed": false,
+    "major": "computer_science",
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+    "status": "answered",
+    "version": null,
+    "warnings": [
+      "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+      "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+    ]
+  },
+  "mode": "hus_rag",
+  "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp [1]\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể: [1]\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả; [1]\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin; [1]\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo; [1]\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin. [1]"
+}

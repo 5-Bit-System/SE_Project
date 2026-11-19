@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "initial_network_failures.json": "31d3081faf6ed15bba6f5479be05b6fe5a270ae430484aab0160d5697f61bf85",
+    "integrity.json": "53503ed4c015d98ebff315d1b3a3d11b436eab8546e2c8d5d493842829c976d7",
+    "report.json": "97494cdda6ec6d0fbce2d3deefc36ad6869cebfbefcae656b43f6bb342827ca2"
+  },
+  "schema_version": "hus-source-qa-1.0"
+}

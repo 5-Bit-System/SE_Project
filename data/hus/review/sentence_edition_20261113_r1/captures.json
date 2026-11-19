@@ -1,0 +1,139 @@
+{
+  "network_capture": [
+    {
+      "authentication": false,
+      "bytes": 19361810,
+      "captured_utc": "2026-11-13T16:05:09.731182+00:00",
+      "final_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/104.-khmttt-chuan-final-qd-3568-scan-final.pdf",
+      "http_status": 200,
+      "is_pdf": true,
+      "path": "backups/hus_sentence_edition_review_20261113/H21.pdf",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/104.-khmttt-chuan-final-qd-3568-scan-final.pdf",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "source_id": "H21"
+    },
+    {
+      "authentication": false,
+      "bytes": 21509533,
+      "captured_utc": "2026-11-13T16:05:09.731182+00:00",
+      "final_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/101.-toan-hoc-chuan-final-qd-3565-scan.pdf",
+      "http_status": 200,
+      "is_pdf": true,
+      "path": "backups/hus_sentence_edition_review_20261113/H22.pdf",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/101.-toan-hoc-chuan-final-qd-3565-scan.pdf",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+      "source_id": "H22"
+    },
+    {
+      "authentication": false,
+      "bytes": 18438317,
+      "captured_utc": "2026-11-13T16:05:09.731182+00:00",
+      "final_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/103.-toan-tin-chuan-final-qd-3567-scan.pdf",
+      "http_status": 200,
+      "is_pdf": true,
+      "path": "backups/hus_sentence_edition_review_20261113/H23.pdf",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/103.-toan-tin-chuan-final-qd-3567-scan.pdf",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+      "source_id": "H23"
+    },
+    {
+      "authentication": false,
+      "bytes": 19334830,
+      "captured_utc": "2026-11-13T16:05:09.731182+00:00",
+      "final_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/105.-khoa-hoc-du-lieu-chuan-final-qd-3569-scan.pdf",
+      "http_status": 200,
+      "is_pdf": true,
+      "path": "backups/hus_sentence_edition_review_20261113/H24.pdf",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/105.-khoa-hoc-du-lieu-chuan-final-qd-3569-scan.pdf",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "source_id": "H24"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:05:10.921658+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://tuyensinh.vnu.edu.vn/files/QHT%20VNU/De%20an%20TS%20QHT%202021.pdf",
+      "source_id": "H25"
+    },
+    {
+      "authentication": false,
+      "bytes": 539458,
+      "captured_utc": "2026-11-13T16:05:11.110227+00:00",
+      "final_url": "https://vnu.edu.vn/truc-tuyen-tu-van-tuyen-sinh-dai-hoc-2012-tren-website-dhqghn-post12528.html",
+      "http_status": 200,
+      "is_pdf": false,
+      "normalized_path": "backups/hus_sentence_edition_review_20261113/H26-normalized.txt",
+      "normalized_sha256": "1e3d9310065b8adcd37cc46813bc32ccad2e3fb611e389d4caba280fdfa91bca",
+      "path": "backups/hus_sentence_edition_review_20261113/H26.html",
+      "requested_url": "https://vnu.edu.vn/truc-tuyen-tu-van-tuyen-sinh-dai-hoc-2012-tren-website-dhqghn-post12528.html",
+      "sha256": "6e740b4af58303305c7a5dc3f829760135f3e397011fe8da01366c03f78fcca9",
+      "source_id": "H26"
+    },
+    {
+      "authentication": false,
+      "bytes": 38015,
+      "captured_utc": "2026-11-13T16:05:11.119185+00:00",
+      "final_url": "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc",
+      "http_status": 200,
+      "is_pdf": false,
+      "normalized_path": "backups/hus_sentence_edition_review_20261113/H27-normalized.txt",
+      "normalized_sha256": "33e1b751f4284641299e1c2d26974d7bb4cb7164b064987f0f66946002893606",
+      "path": "backups/hus_sentence_edition_review_20261113/H27.html",
+      "requested_url": "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc",
+      "sha256": "96daec8029b5612e353b84f89b6d4023e1dbaedf20b90cdc269104115e4dc897",
+      "source_id": "H27"
+    }
+  ],
+  "sandbox_failures": [
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:44.849767+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/104.-khmttt-chuan-final-qd-3568-scan-final.pdf",
+      "source_id": "H21"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:44.849767+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/101.-toan-hoc-chuan-final-qd-3565-scan.pdf",
+      "source_id": "H22"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:44.849767+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/103.-toan-tin-chuan-final-qd-3567-scan.pdf",
+      "source_id": "H23"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:44.849767+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/105.-khoa-hoc-du-lieu-chuan-final-qd-3569-scan.pdf",
+      "source_id": "H24"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:45.269142+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://tuyensinh.vnu.edu.vn/files/QHT%20VNU/De%20an%20TS%20QHT%202021.pdf",
+      "source_id": "H25"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:45.270130+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://vnu.edu.vn/truc-tuyen-tu-van-tuyen-sinh-dai-hoc-2012-tren-website-dhqghn-post12528.html",
+      "source_id": "H26"
+    },
+    {
+      "authentication": false,
+      "captured_utc": "2026-11-13T16:04:45.271132+00:00",
+      "error_kind": "ConnectError",
+      "requested_url": "https://hus.vnu.edu.vn/dao-tao/bac-dai-hoc/toan-toan-ung-dung-va-tin-hoc",
+      "source_id": "H27"
+    }
+  ],
+  "web_tool_limits": "Four official PDF clicks failed in web tool; direct public GET captured all4. Admissions2021 web502/directConnectError retained as lead only."
+}

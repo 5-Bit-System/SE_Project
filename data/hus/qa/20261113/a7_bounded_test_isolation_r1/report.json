@@ -1,0 +1,60 @@
+{
+  "a7b_current_pins_match": false,
+  "a7b_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": false,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "after_sha256": "a880c53eb1914dfd43ca9b89dde87b17a54b727d0103436b42f114fb17ede09e",
+  "before_sha256": "20b03ca03b10f61b32e6014f615a5f36e0926836f2aa4575a4ecc47c4a22b592",
+  "cause": "Shape test asserted zero real wording overlap after its own candidate was added. Production correctly records that overlap.",
+  "changed_file": "tests/hus/test_a7_bounded_candidate.py",
+  "code_review": "author self-review, not independent; no new fresh-review success claim",
+  "fix": "Mock known-wording set only in new shape/source test; dedicated overlap/samecohort/repeat-freeze tests remain. No production builder/authoring/scorer changes.",
+  "interpretation": "OriginalQA pins_current True is history at its seal time; now stale ONLY on this test hash. Do not edit old pins/regrade/remeasure to call it current.",
+  "new_provider_calls": 0,
+  "new_rag_inference": false,
+  "next": "Keep measured results with original code/test pins. Any later evaluation requires fresh candidate/currentpins; tuning retiresA7B todev.",
+  "old_measurement_and_scores_changed": false,
+  "old_protected_files_match_previous_after": true,
+  "original_qa_manifest": "99343a1befa247563215e7aba3b8a1a58e98264cfc40cefeeea90b63dd7a6607",
+  "overlay_manifest": "52850c206bda6c786d19f941417dccefe887c9e6e53f01fd9fe8ee71e14e9025",
+  "pack_manifest": "d3bf687366e7e07e60f8b9499535679ffae2510275647737a3ca3413ed556d81",
+  "pins_difference": {
+    "evaluators": [
+      "tests/hus/test_a7_bounded_candidate.py"
+    ]
+  },
+  "publication": "local only, no stage/commit/push/PR/Actions/deploy",
+  "runtime_data_oldtests_oldgold_changed": false,
+  "task": "A7B shape-test isolation from own frozen candidate",
+  "tests": {
+    "postfreeze_test_green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "e600f2d36b3e9134186789e427c9ab9a4fee2a4f05c028fff3d761322f1e225e",
+      "skipped": 0,
+      "tests": 113
+    },
+    "postfreeze_test_red.xml": {
+      "errors": 0,
+      "failures": 1,
+      "sha256": "8a369c48c35862fa465509a833ad0a53532246f0843b9e233f2ebfcada1efb96",
+      "skipped": 0,
+      "tests": 1
+    }
+  }
+}

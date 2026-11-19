@@ -1,0 +1,110 @@
+[
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/O11-p1.png",
+    "image_sha256": "33851d7096eb0c48b294f6fe22462036d4ae6b58a6d0a43bef158e9a2eaf2e5e",
+    "image_viewed_by_root_AI": true,
+    "page": 1,
+    "source_id": "O11",
+    "text_path": "backups/hus_source_gap_review_20261113/O11-p1.txt",
+    "text_sha256": "641389fb7a43190625ae2aafcf29ea674d1b4ef2ecfee84f2a3a3fcafaee4c2a"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/O11-p13.png",
+    "image_sha256": "fbb66d22d5305fa3d0b91858384e44892d419da62a16a3bb05febc024799756c",
+    "image_viewed_by_root_AI": true,
+    "page": 13,
+    "source_id": "O11",
+    "text_path": "backups/hus_source_gap_review_20261113/O11-p13.txt",
+    "text_sha256": "0f34993398c75a59a61d98a827c9481ae1b0c943719d16afcf7c28cdc579ddea"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L11P-p1.png",
+    "image_sha256": "59559830431dadab354a8d2b7b723e0f9c7dd8737c9c931c9ab1c5f5f7983923",
+    "image_viewed_by_root_AI": false,
+    "page": 1,
+    "source_id": "L11P",
+    "text_path": "backups/hus_source_gap_review_20261113/L11P-p1.txt",
+    "text_sha256": "47d9de147214f7c41797ec6c157f5c14ef53afe29c45ebc2efd0e8621eb00c8f"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L11P-p2.png",
+    "image_sha256": "e5ea9931db568bdb767f3b11e81ebf59415ac06a36a664702adf2eab237f33bb",
+    "image_viewed_by_root_AI": false,
+    "page": 2,
+    "source_id": "L11P",
+    "text_path": "backups/hus_source_gap_review_20261113/L11P-p2.txt",
+    "text_sha256": "3f5e275604df80bf9dfede03b4d3753403c9a6c3e2c305179142a2f49ed1efda"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L12P-p1.png",
+    "image_sha256": "2cb0f53416a0226db993d97c8640f9828b3ec1d6ae6f8923d9393512a8478870",
+    "image_viewed_by_root_AI": false,
+    "page": 1,
+    "source_id": "L12P",
+    "text_path": "backups/hus_source_gap_review_20261113/L12P-p1.txt",
+    "text_sha256": "9489e0b13f9414474dbeda47850b8222193cd989545b3ede6c7b061e4d2ee863"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L12P-p2.png",
+    "image_sha256": "fe9b46254bf6494f091be592c1e0fad3f36c394c360d0ba3c9ab74a960427ccb",
+    "image_viewed_by_root_AI": false,
+    "page": 2,
+    "source_id": "L12P",
+    "text_path": "backups/hus_source_gap_review_20261113/L12P-p2.txt",
+    "text_sha256": "a841f31ad95881bd56dfa1037a442549f1b3b91255696220ea91339030a59aeb"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L13P-p1.png",
+    "image_sha256": "f6dc9a1c1a5ee5fe7abc8d030e55604f78c2868e103d9bfc11c2b9e6fa2140af",
+    "image_viewed_by_root_AI": false,
+    "page": 1,
+    "source_id": "L13P",
+    "text_path": "backups/hus_source_gap_review_20261113/L13P-p1.txt",
+    "text_sha256": "10e7bd379d05224977687b68bd35a55def8901d81fc1ceababd73b9eeeacc422"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L13P-p2.png",
+    "image_sha256": "e14b858e3a1868d8c6a9dcd03764dbe9d416821c23bdf703bcf2057384a94ab8",
+    "image_viewed_by_root_AI": true,
+    "page": 2,
+    "source_id": "L13P",
+    "text_path": "backups/hus_source_gap_review_20261113/L13P-p2.txt",
+    "text_sha256": "fa34bc4752db65e665ba633869cb4a499a2bf412dc0f34451cb398bd2bf7e1e0"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/R17-p1.png",
+    "image_sha256": "4abafab965328052a5ae07510dea53c893b1c7582d01cf835cbd6fd6c54cfebc",
+    "image_viewed_by_root_AI": true,
+    "page": 1,
+    "source_id": "R17",
+    "text_path": "backups/hus_source_gap_review_20261113/R17-p1.txt",
+    "text_sha256": "45bb1a3500e71bc85a5c512d8f7e1c5d5000571c43d1f4fdcdabeb8624a01034"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/R17-p2.png",
+    "image_sha256": "98bc2ae9d5329d5eb39edd80afc462e40917e71750fdb6b741190001d5ed829f",
+    "image_viewed_by_root_AI": false,
+    "page": 2,
+    "source_id": "R17",
+    "text_path": "backups/hus_source_gap_review_20261113/R17-p2.txt",
+    "text_sha256": "ccc2e31f8afd56625c717ead3048d0ea6116f3be36848a9e27f7f1a6cce0f51f"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L11P-p3.png",
+    "image_sha256": "a49ed7757479c0fcd8d3e658a2d9cb6cf4f69b0d6e90e4babdab836596a02dfa",
+    "image_viewed_by_root_AI": true,
+    "page": 3,
+    "source_id": "L11P",
+    "text_path": "backups/hus_source_gap_review_20261113/L11P-p3.txt",
+    "text_sha256": "f2f66ac7a4dccc9ea8a5854b25b6551235d1984704812c2589d8f3d9c22c3022"
+  },
+  {
+    "image_path": "backups/hus_source_gap_review_20261113/L11P-p4.png",
+    "image_sha256": "b2376c2b673f058f6a2e6b33fcdae97b65b4d1a59dd96ea01dc2e3e6372a88f9",
+    "image_viewed_by_root_AI": true,
+    "page": 4,
+    "source_id": "L11P",
+    "text_path": "backups/hus_source_gap_review_20261113/L11P-p4.txt",
+    "text_sha256": "71de87265d2de65693fe1aa2da7828ba77b0a1cbbcbbf78bf27fb46ac8a97666"
+  }
+]

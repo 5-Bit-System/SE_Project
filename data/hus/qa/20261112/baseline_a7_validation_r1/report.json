@@ -1,0 +1,53 @@
+{
+  "a7_r1_r2_retired_to_exposed_dev": true,
+  "additional_checks": {
+    "javascript_tests": 8,
+    "package_tests": 16,
+    "ruff": "passed"
+  },
+  "data_preservation": {
+    "cached_replays": {
+      "a7_v4_ai_review_20261111_r1": true,
+      "a7_v4_ai_review_20261111_r2": true,
+      "llm_l5_ai_review_20261110_r1": true,
+      "llm_l5_v4_ai_review_20261111_r1": true
+    },
+    "changed": [],
+    "new_provider_calls": 0,
+    "new_retrieval_calls_for_replay": 0,
+    "protected_preexisting_data_files": 2585
+  },
+  "dev_manifest_sha256": "29a75a6b31d79943d5d2f08f219702d98bdcdcd02261aec5ee0a9068c824b2a9",
+  "historical_scores_changed": false,
+  "independent_acceptance": false,
+  "kind": "baseline_development_validation",
+  "llm_enabled": false,
+  "new_language_tests": 50,
+  "new_readiness_v4_tests": 9,
+  "no_google_calls": true,
+  "remaining_source_gap": "Q001 requires standard; 2012 source variant is unknown. No inference or gold change.",
+  "tests": {
+    "final_guard": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 430,
+      "xml_sha256": "28f2b0f0ccfbb357ffcb56581b1fc50123a2056bd651cd1f1400beef047497d9"
+    },
+    "final_llm": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 489,
+      "xml_sha256": "fe95d9ee628673228dfe2eeadb906eb503392154dc5a8b01c62febf879168791"
+    },
+    "regression": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 782,
+      "xml_sha256": "55ebb7f24814370e0eae6e42db557c0c5960a9d36ce913e25d26c4672b0e951a"
+    }
+  },
+  "verification_order": "782 broad tests before two narrow final guard fixes; 430 relevant guard tests and 489 LLM tests on final code. Counts overlap."
+}

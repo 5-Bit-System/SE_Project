@@ -1,0 +1,6 @@
+{
+  "app/hus/answer_support.py": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac",
+  "app/hus/question_routing.py": "8716c2eb090ddd2fcee700ba41c5cd848e081fbe1a8ea8d1e2258ae42424d676",
+  "docs/superpowers/plans/2026-11-13-hus-request-role-repair.md": "0447f1831638af9b3778fd72b84cdd24cf06627dfdf134c79f83c140a42f8f01",
+  "tests/hus/test_request_role_language.py": "74bb0e366368861e450bcbd9d1ca5cbcaccc773ca4aed0d6ee374aa97a8812be"
+}

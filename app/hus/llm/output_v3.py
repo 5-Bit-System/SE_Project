@@ -57,8 +57,9 @@ class _Output(BaseModel):
     items: list[_Item] = Field(min_length=1, max_length=MAX_LEAVES)
 
 
-def _fail(code, stage, leaf=None):
-    raise HUSLLMError(code, diagnostic=HUSLLMDiagnostic(stage=stage, leaf_id=leaf.id if leaf else None)) from None
+def _fail(code, stage, leaf=None, *, text_issue=None):
+    raise HUSLLMError(code, diagnostic=HUSLLMDiagnostic(
+        stage=stage, leaf_id=leaf.id if leaf else None, text_issue=text_issue)) from None
 
 
 def validate_compact_output(raw: str, document: HUSRewriteDocument, *, model: str,
@@ -86,12 +87,19 @@ def validate_compact_output(raw: str, document: HUSRewriteDocument, *, model: st
         source = sources[leaf.citation_id]
         text = by_id[leaf.id].strip()
         content = _normal(html.unescape(html.unescape(text)))
-        if (not text or _BREAK.search(text) or _BREAK.search(content)
-                or _STRUCTURE.search(content) or _LINK_OR_HTML.search(content)):
-            _fail('invalid_output', 'output_text', leaf)
+        if not text:
+            _fail('invalid_output', 'output_text', leaf, text_issue='blank')
+        if _BREAK.search(text):
+            _fail('invalid_output', 'output_text', leaf, text_issue='raw_line_break')
+        if _BREAK.search(content):
+            _fail('invalid_output', 'output_text', leaf, text_issue='decoded_line_break')
+        if _STRUCTURE.search(content):
+            _fail('invalid_output', 'output_text', leaf, text_issue='structure')
+        if _LINK_OR_HTML.search(content):
+            _fail('invalid_output', 'output_text', leaf, text_issue='link_or_html')
         restored = leaf.prefix + text
         if len(restored) > MAX_LEAF_CHARS:
-            _fail('invalid_output', 'output_text', leaf)
+            _fail('invalid_output', 'output_text', leaf, text_issue='restored_length')
         original = source['quote'][leaf.start:leaf.end]
         scope = ' '.join(v for v in source['scope'].values() if isinstance(v, str))
         allowed, actual = _atoms(original + ' ' + scope), _atoms(restored)

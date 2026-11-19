@@ -68,12 +68,15 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 .rag-avatar { display: grid; flex: 0 0 auto; place-items: center; width: 28px; height: 28px; border: 1px solid #dce7db; border-radius: 8px; color: #426448; background: #f0f5eb; font-size: 10px; font-weight: 700; }
 .rag-message-user .rag-avatar { background: #f2f3f2; color: #657067; border-color: #e3e7e3; }
 .rag-message-content { min-width: 0; flex: 1; padding-top: 3px; }
+.rag-source-choices { display: grid; gap: 8px; margin-top: 12px; }
+.rag-source-choice { max-width: 100%; padding: 9px 12px; border: 1px solid var(--rag-line); border-radius: 8px; background: #f5f7f4; color: inherit; text-align: left; white-space: normal; overflow-wrap: anywhere; }
 .rag-message-speaker { color: #6d7c70; font-size: 10px; font-weight: 600; margin: 0 0 7px; }
 .rag-message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; font-size: 13px; margin: 0; color: #2d4136; }
 .rag-message-user .rag-message-text { color: #4b5950; }
 .rag-generation-label { display: inline-block; margin: 10px 0 0; padding: 3px 7px; border-radius: 4px; background: #edf4e9; color: #315c43; font-size: 10px; font-weight: 600; }
 .rag-generation-label[data-kind="fallback"] { background: #f3f1eb; color: #6b5d41; }
-.rag-generation-note { margin: 5px 0 0; font-size: 10px; line-height: 1.6; color: var(--rag-muted); }
+.rag-generation-note, .rag-ai-notice { margin: 5px 0 0; font-size: 10px; line-height: 1.6; color: var(--rag-muted); }
+.rag-diagnostic { margin: 8px 0 0; font-size: 11px; font-weight: 600; color: #80612d; }
 .rag-citations { display: grid; gap: 7px; margin-top: 13px; }
 .rag-citation { border: 1px solid #e1e8df; border-radius: 7px; padding: 10px 12px; background: #fafcf8; }
 .rag-citation-title { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: 0; font-size: 11px; line-height: 1.6; }
@@ -82,6 +85,7 @@ h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.045em; font
 .rag-citation a { color: #23634d; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .rag-citation-detail { margin: 5px 0 0; font-size: 10px; line-height: 1.7; color: #71806f; overflow-wrap: anywhere; }
 .rag-composer { padding: 19px 26px 15px; border-top: 1px solid var(--rag-line); }
+.rag-composer [hidden] { display: none !important; }
 .rag-question-label { display: block; color: #607265; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
 .rag-input-row { display: flex; align-items: stretch; gap: 10px; }
 #rag-question { min-width: 0; flex: 1; min-height: 68px; max-height: 200px; resize: vertical; border: 1px solid #d8e1d6; border-radius: 8px; color: #263e2d; background: #fff; padding: 12px 14px; font-size: 13px; line-height: 1.5; }

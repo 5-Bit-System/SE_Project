@@ -1,0 +1,9 @@
+{
+  "api_requests": 0,
+  "pack_manifest_sha256": "771b0722f3d2983ea17c700f0e7545a184cf17197ed15169ab9daeff9a1263f8",
+  "provider_calls": 0,
+  "rag_inference": false,
+  "reason": "Harness socket guard blocked Windows asyncio socketpair self-pipe before any API request. No runtime/data/gold correction.",
+  "stage": "aborted_before_testclient_startup",
+  "successor_run": "data/hus/evaluation/runs/a7_request_role_lexical_20261113_r2"
+}

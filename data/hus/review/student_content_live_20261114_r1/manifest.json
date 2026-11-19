@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "answers_and_sources.md": "3b8bdfaff451006a01fd433fecd4eb5ea048c24000e5596e6e698ce1d3783b57",
+    "exact_observations.json": "b0a5a9b8013b88619498daa73fce4f05c66c139636e440bee1942411f72d915d",
+    "review.csv": "58b3d3843ad70ddcaac888f6e26a964d74bf343cda6301f9969fe11a073921a6",
+    "summary.json": "7100b7857bd2f6ea2117b0d25e27a807c4b5c54c6a6bc306bde0273433e06d47",
+    "team_review_template.json": "48e489a300ee0776f99df2c5cacad7c1d90e9eb6f5178faf8e18bcddf994862c"
+  },
+  "kind": "hus-student-human-review-packet-1"
+}

@@ -1,0 +1,29 @@
+{
+  "checked_prior_files": 25,
+  "inference_disabled_during_freeze": true,
+  "manifest_sha256": "f6dc71af1a0110a304a90d9c905b43c91875b437a68bce293c88d34075eef7bf",
+  "pack": "data/hus/evaluation/a7_after_followup_20261112_r1",
+  "pack_frozen_at_utc": "2026-11-12T17:08:38.480633+00:00",
+  "pack_sha256": "ffd439c74a0959b53e652b9af95fa0215b92c3b1ae9be706fdb4c385efe7a5be",
+  "planned_reviewer": {
+    "blind": false,
+    "identity": "root",
+    "independent": false,
+    "kind": "ai"
+  },
+  "recorded_at_utc": "2026-11-12T17:08:38.934666+00:00",
+  "same_gold_as_preinference_source_draft": true,
+  "stage": "frozen_before_inference",
+  "structure": {
+    "by_major": {
+      "computer_science": 12,
+      "data_science": 12,
+      "mathematics": 12,
+      "mathematics_informatics": 12
+    },
+    "controls": 12,
+    "f2_lookups": 12,
+    "questions": 48,
+    "retrieval_eligible": 24
+  }
+}

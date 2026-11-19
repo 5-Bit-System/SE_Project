@@ -15,6 +15,7 @@ from tests.hus.test_question_catalog_ui import browser_app  # noqa: F401
 
 @pytest.fixture
 def llm_ui(monkeypatch, browser_app):  # noqa: F811 - imported pytest fixture
+    monkeypatch.setenv('HUS_LLM_AUTO', 'false')
     monkeypatch.setenv('HUS_LLM_ENABLED', 'true')
     monkeypatch.setenv('HUS_LLM_API_KEY', 'synthetic-ui-key')
     monkeypatch.setenv('HUS_LLM_MODEL', 'gemini-3.5-flash-lite')
@@ -30,6 +31,10 @@ def llm_ui(monkeypatch, browser_app):  # noqa: F811 - imported pytest fixture
             raise httpx.ReadTimeout('private-timeout', request=request)
         if mode['failure'] == 'quota':
             return httpx.Response(429, text='private-quota synthetic-ui-key')
+        if mode.get('http_status'):
+            return httpx.Response(mode['http_status'], text='private-provider synthetic-ui-key')
+        if mode['failure'] == 'invalid':
+            return httpx.Response(200, json=completion({'kind': 'unknown'}))
         bundle = json.loads(json.loads(request.content)['messages'][1]['content'])
         sources = bundle['sources']
         if bundle['scope']['dataset'] == 'f2':
@@ -51,13 +56,123 @@ def llm_ui(monkeypatch, browser_app):  # noqa: F811 - imported pytest fixture
     page.close()
 
 
+def test_wrong_scope_explains_selected_and_requested_major(llm_ui):
+    page, calls, _ = llm_ui
+    page.locator('#rag-major').select_option('data_science')
+    _, result = ask(page, 'Ngành khoa học máy tính có bao nhiêu môn học?')
+    answer = page.locator('.rag-message-assistant').last
+    assert result['hus_answer']['diagnostic']['code'] == 'scope_conflict'
+    expect(answer).to_contain_text('Khoa học dữ liệu')
+    expect(answer).to_contain_text('Khoa học máy tính và thông tin')
+    expect(answer.locator('.rag-diagnostic')).to_contain_text('Chọn lại phạm vi')
+    assert page.locator('#rag-major').input_value() == 'data_science'
+    assert calls == []
+
+
+@pytest.mark.parametrize('failure,code,label', [
+    ('invalid', 'output_rejected', 'Phản hồi AI bị chặn'),
+    ('timeout', 'provider_error', 'Lỗi dịch vụ AI'),
+])
+def test_auto_errors_show_correct_block_stage(llm_ui, monkeypatch, failure, code, label):
+    from app.hus import demo
+    from app.hus.llm.auto import AutoLLMPolicy
+    page, calls, mode = llm_ui
+    monkeypatch.setenv('HUS_LLM_AUTO', 'true')
+    monkeypatch.setattr(demo, 'auto_policy', AutoLLMPolicy())
+    mode['failure'] = failure
+    page.reload(wait_until='networkidle')
+    page.locator('#rag-question').fill('MAT3533 có bao nhiêu tín chỉ?')
+    with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as pending:
+        page.locator('#rag-send').click()
+    result = pending.value
+    assert result.status == 502 and len(calls) == 1
+    assert result.json()['detail']['diagnostic']['code'] == code
+    answer = page.locator('.rag-message-assistant').last
+    expect(answer.locator('.rag-diagnostic')).to_have_text(label)
+    expect(answer.locator('.rag-citations')).to_have_count(0)
+    expect(answer).not_to_contain_text('synthetic-ui-key')
+    expect(answer).not_to_contain_text('3 tín chỉ')
+
+
+def test_auto_ui_calls_by_default_and_keeps_auto_across_major_switch(llm_ui, monkeypatch):
+    from app.hus import demo
+    from app.hus.llm.auto import AutoLLMPolicy
+    page, calls, _ = llm_ui
+    monkeypatch.setenv('HUS_LLM_AUTO', 'true')
+    monkeypatch.setattr(demo, 'auto_policy', AutoLLMPolicy())
+    page.reload(wait_until='networkidle')
+    expect(page.locator('#rag-auto-note')).to_be_visible()
+    expect(page.get_by_label('AI diễn đạt từ nguồn', exact=True)).not_to_be_visible()
+    _, result = ask(page)
+    assert result['generation']['used'] is True and len(calls) == 1
+    page.locator('#rag-major').select_option('mathematics')
+    _, result = ask(page, 'MAT2300 có bao nhiêu tín chỉ?')
+    assert result['generation']['used'] is True and len(calls) == 2
+
+
+def test_auto_ui_quota_stops_further_calls(llm_ui, monkeypatch):
+    from app.hus import demo
+    from app.hus.llm.auto import AutoLLMPolicy
+    page, calls, mode = llm_ui
+    monkeypatch.setenv('HUS_LLM_AUTO', 'true')
+    monkeypatch.setattr(demo, 'auto_policy', AutoLLMPolicy())
+    mode['failure'] = 'quota'
+    page.reload(wait_until='networkidle')
+    _, first = ask(page)
+    _, second = ask(page)
+    assert len(calls) == 1
+    assert first['generation']['http_status'] == second['generation']['http_status'] == 429
+    expect(page.locator('#rag-auto-note')).to_contain_text('offline')
+
+
+def test_auto_ui_intent_quota_shows_offline_and_stops_calls(llm_ui, monkeypatch):
+    from app.hus import demo
+    from app.hus.llm.auto import AutoLLMPolicy
+    page, calls, mode = llm_ui
+    monkeypatch.setenv('HUS_LLM_AUTO', 'true')
+    monkeypatch.setenv('HUS_LLM_INTENT_ENABLED', 'true')
+    monkeypatch.setattr(demo, 'auto_policy', AutoLLMPolicy())
+    mode['failure'] = 'quota'
+    page.reload(wait_until='networkidle')
+    _, first = ask(page, 'MAT3533 được tính mấy TC?')
+    assert first['interpretation']['http_status'] == 429
+    expect(page.locator('#rag-auto-note')).to_contain_text('Gemini đã báo chạm hạn mức (429)')
+    _, second = ask(page)
+    assert second['generation']['http_status'] == 429
+    assert len(calls) == 1
+
+
+def test_auto_ui_other_error_reports_without_offline_answer(llm_ui, monkeypatch):
+    from app.hus import demo
+    from app.hus.llm.auto import AutoLLMPolicy
+    page, calls, mode = llm_ui
+    monkeypatch.setenv('HUS_LLM_AUTO', 'true')
+    monkeypatch.setattr(demo, 'auto_policy', AutoLLMPolicy())
+    mode['http_status'] = 503
+    page.reload(wait_until='networkidle')
+    page.locator('#rag-question').fill('MAT3533 có bao nhiêu tín chỉ?')
+    with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as pending:
+        page.locator('#rag-send').click()
+    assert pending.value.status == 502 and len(calls) == 1
+    answer = page.locator('.rag-message-assistant').last
+    expect(answer).to_contain_text('Chỉ chuyển offline')
+    expect(answer.locator('.rag-citations')).to_have_count(0)
+    expect(answer).not_to_contain_text('3 tín chỉ')
+
+
 def ask(page, question='MAT3533 có bao nhiêu tín chỉ?'):
     page.locator('#rag-question').fill(question)
     with page.expect_response(lambda r: r.url.endswith('/hus/chat')) as event:
         page.locator('#rag-send').click()
     result = event.value.json()
     expect(page.locator('#rag-form')).to_have_attribute('aria-busy', 'false')
-    expect(page.locator('.rag-message-assistant .rag-message-text').last).to_have_text(result['reply'])
+    text = page.locator('.rag-message-assistant .rag-message-text').last
+    citations = (result.get('hus_answer') or {}).get('citations', [])
+    if citations and all(c['evidence_kind'] == 'ai' for c in citations):
+        for citation in citations:
+            expect(text).to_contain_text(citation['quote'])
+    else:
+        expect(text).to_have_text(result['reply'])
     return json.loads(event.value.request.post_data), result
 
 
@@ -84,16 +199,40 @@ def test_default_off_disclosed_and_independent_from_f3(llm_ui):
     expect(page.locator('.rag-generation-label').last).to_have_text('AI diễn đạt từ nguồn')
 
 
-def test_f3_still_labels_ai_knowledge_and_keeps_sources(llm_ui):
+def test_f3_shows_one_ai_notice_without_citation_cards(llm_ui):
     page, calls, _ = llm_ui
     page.locator('#rag-rewrite').check()
     page.locator('#rag-generated').check()
     _, result = ask(page, 'Nội dung MAT3533?')
     assert result['generation']['used'] is True and len(calls) == 1
-    expect(page.locator('.rag-generation-label').last).to_have_text('AI diễn đạt từ nguồn')
-    expect(page.locator('.rag-message-assistant').last.locator('.rag-citation-ai')).not_to_have_count(0)
-    expect(page.locator('.rag-message-assistant').last).to_contain_text('kiến thức AI')
-    expect(page.locator('.rag-message-assistant').last.locator('.rag-citations a')).to_have_count(0)
+    answer = page.locator('.rag-message-assistant').last
+    expect(answer.locator('.rag-generation-label')).to_have_text('AI diễn đạt')
+    expect(answer.locator('.rag-ai-notice')).to_have_count(1)
+    expect(answer).to_contain_text('kiến thức AI')
+    expect(answer.locator('.rag-citations')).to_have_count(0)
+    expect(answer.locator('.rag-message-text')).not_to_contain_text(re.compile(r'\[\d+\]|Nguồn \['))
+    expect(answer.locator('.rag-generation-note')).not_to_contain_text('nguồn dẫn bên dưới')
+
+
+@pytest.mark.parametrize('failure', [None, 'quota'])
+def test_f3_saved_or_fallback_content_has_no_ai_citation_clutter(llm_ui, failure):
+    page, calls, mode = llm_ui
+    page.locator('#rag-generated').check()
+    if failure:
+        mode['failure'] = failure
+        page.locator('#rag-rewrite').check()
+    _, result = ask(page, 'Nội dung MAT3533?')
+    answer = page.locator('.rag-message-assistant').last
+    assert result['hus_answer']['citations']  # Backend evidence remains intact.
+    expect(answer.locator('.rag-citations')).to_have_count(0)
+    expect(answer.locator('.rag-ai-notice')).to_have_count(1)
+    expect(answer.locator('.rag-message-text')).not_to_contain_text(re.compile(r'\[\d+\]|Nguồn \['))
+    if failure:
+        assert result['generation']['used'] is False
+        expect(answer.locator('.rag-generation-label')).to_have_text('Nội dung AI tham khảo')
+        expect(answer.locator('.rag-generation-note')).to_contain_text('hạn mức')
+    else:
+        assert calls == []
 
 
 def test_f1_shows_actual_use_and_original_citation_links(llm_ui):
@@ -156,6 +295,22 @@ def test_actual_pipeline_failure_has_canonical_label(llm_ui, failure, note):
     expect(page.locator('.rag-generation-note').last).to_contain_text(note)
     expect(page.locator('#rag-messages')).not_to_contain_text('synthetic-ui-key')
     expect(page.locator('#rag-messages')).not_to_contain_text('private-')
+
+
+@pytest.mark.parametrize('status,note', [(401, 'quyền'), (403, 'quyền'), (503, 'tạm thời')])
+def test_provider_http_status_is_explained_without_losing_sources(llm_ui, status, note):
+    page, calls, mode = llm_ui
+    mode['http_status'] = status
+    page.locator('#rag-rewrite').check()
+    _, result = ask(page)
+    assert len(calls) == 1 and result['generation']['used'] is False
+    assert result['generation']['http_status'] == status
+    assert result['reply'] == result['hus_answer']['reply']
+    expect(page.locator('.rag-generation-label').last).to_have_text('Bản trích nguồn')
+    expect(page.locator('.rag-generation-note').last).to_contain_text(note)
+    expect(page.locator('.rag-message-assistant').last.locator('.rag-citations a')).not_to_have_count(0)
+    expect(page.locator('#rag-messages')).not_to_contain_text('private-provider')
+    expect(page.locator('#rag-messages')).not_to_contain_text('synthetic-ui-key')
 
 
 def test_server_off_only_disables_rewrite(llm_ui, monkeypatch):

@@ -1,0 +1,434 @@
+[
+  {
+    "id": "RC24-001",
+    "group": "careers",
+    "request": {
+      "question": "Học xong ngành Toán học thì có thể làm việc ở đâu?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-002",
+    "group": "careers",
+    "request": {
+      "question": "Sau khi tốt nghiệp ngành Toán tin, em có thể làm việc ở những đâu?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-003",
+    "group": "careers",
+    "request": {
+      "question": "Tốt nghiệp Khoa học máy tính và thông tin thì có thể làm việc ở đâu?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-004",
+    "group": "careers",
+    "request": {
+      "question": "Học xong Khoa học dữ liệu thì có thể làm việc trong lĩnh vực nào?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f1",
+      "field": "careers",
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-005",
+    "group": "concepts",
+    "request": {
+      "question": "Trong học phần MAT2300 sẽ học những khái niệm nào?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT2300",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-006",
+    "group": "concepts",
+    "request": {
+      "question": "Tôi muốn biết trong môn Lập trình hướng đối tượng sẽ gặp các khái niệm gì?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT1202",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-007",
+    "group": "concepts",
+    "request": {
+      "question": "Trong học phần MAT1202 sẽ học những khái niệm nào?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT1202",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-008",
+    "group": "concepts",
+    "request": {
+      "question": "Tôi muốn biết trong môn Học máy sẽ gặp các khái niệm gì?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f3",
+      "field": "content",
+      "course_code": "MAT3533",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-009",
+    "group": "prerequisites",
+    "request": {
+      "question": "Để học MAT2300 cần hoàn thành học phần nào trước?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "course_code": "MAT2300",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-010",
+    "group": "prerequisites",
+    "request": {
+      "question": "Trước khi học Lập trình hướng đối tượng, em phải học những môn nào?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "course_code": "MAT1202",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-011",
+    "group": "prerequisites",
+    "request": {
+      "question": "Muốn học MAT1202 thì phải hoàn thành môn nào trước?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "course_code": "MAT1202",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-012",
+    "group": "prerequisites",
+    "request": {
+      "question": "Để học Học máy cần hoàn thành học phần nào trước?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "answer",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "course_code": "MAT3533",
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-013",
+    "group": "clarification_001_017",
+    "request": {
+      "question": "Ngành Toán học đào tạo người học theo định hướng nào?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "clarify",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-014",
+    "group": "clarification_001_017",
+    "request": {
+      "question": "Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "clarify",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-015",
+    "group": "clarification_001_017",
+    "request": {
+      "question": "Ngành Toán tin học những môn gì?",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "clarify",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-016",
+    "group": "clarification_001_017",
+    "request": {
+      "question": "Ngành Khoa học máy tính và thông tin đào tạo theo định hướng nào?",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "clarify",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-017",
+    "group": "real_exam",
+    "request": {
+      "question": "Nếu học MAT2300 thì thi cuối kỳ chiếm bao nhiêu phần trăm?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-018",
+    "group": "bare_thi",
+    "request": {
+      "question": "MAT2300 thi gi?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-019",
+    "group": "negative_condition",
+    "request": {
+      "question": "Nếu chưa đủ điều kiện thì có thể học tiếp sau đại học ngành Toán học?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-020",
+    "group": "desire_condition",
+    "request": {
+      "question": "Nếu muốn học tiếp mà chưa đủ điều kiện thì có thể học tiếp sau đại học ngành Toán học?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-021",
+    "group": "wrong_major",
+    "request": {
+      "question": "Tốt nghiệp Toán học thì có thể làm việc ở đâu?",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-022",
+    "group": "f3_opt_out",
+    "request": {
+      "question": "Trong môn MAT2300 sẽ học những khái niệm nào?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-023",
+    "group": "unsupported_filter",
+    "request": {
+      "question": "Nếu không tính môn tự chọn thì ngành Toán học có bao nhiêu môn?",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  },
+  {
+    "id": "RC24-024",
+    "group": "unknown_topic",
+    "request": {
+      "question": "Giải thích khái niệm vật lý lượng tử trong MAT2300.",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false
+    },
+    "review_expectation": {
+      "policy": "no_answer",
+      "dataset": null,
+      "field": null,
+      "course_code": null,
+      "authority": "AI dev expectation, not expert gold"
+    }
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "creation_hashes": {
+    "automation_checks.json": "7a61d2ccf22b2071df9d1943ab00c2283aba7bcbc3bf94bb0d713b97c9656720",
+    "review.csv": "f619c4c43f37f455b408e1ea9171a92182b59934fef97fedfa4c11ac2b24a95b",
+    "summary.json": "c8ed35f7cae197e860ebe228ceacd096ed242cfa1371b28ee86e737a3f2e8c08"
+  },
+  "review_csv_editable": true
+}

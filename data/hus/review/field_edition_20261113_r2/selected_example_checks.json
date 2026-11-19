@@ -1,0 +1,49 @@
+{
+  "all_other_AI_examples_independently_verified": false,
+  "checks": [
+    {
+      "RS": [
+        [
+          0,
+          -1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "SR": [
+        [
+          0,
+          -2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "commute": false,
+      "example": "anisotropic axis scaling and90degree rotation"
+    },
+    {
+      "example": "nonorigin affine line y=1",
+      "lies_on_y1": false,
+      "zero_multiple": [
+        0,
+        0
+      ]
+    },
+    {
+      "example": "same vector[3,4] in standard and basis[(1,0),(1,1)]",
+      "other_basis": [
+        -1,
+        4
+      ],
+      "standard": [
+        3,
+        4
+      ]
+    }
+  ],
+  "kind": "root_AI_exact_arithmetic_illustrations_not_source_quotes_or_independent_review"
+}

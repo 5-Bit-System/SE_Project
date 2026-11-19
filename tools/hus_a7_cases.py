@@ -215,6 +215,8 @@ def check_source_evidence(pack):
                 raise ValueError('Gold source major differs')
             if source['scope']['curriculum_version'] != e['version']:
                 raise ValueError('Gold source version differs')
+            if 'source_scope' in e and e['source_scope'] != source['scope']:
+                raise ValueError('Declared gold source scope differs from bound source')
             if family in {'f2', 'f3'}:
                 codes = set(re.findall(r'\b[A-Z]{3}\d{4}[A-Z]?\b', q['request']['question'].upper()))
                 if codes != {source['course_code']} or q['request']['version'] != e['version']:

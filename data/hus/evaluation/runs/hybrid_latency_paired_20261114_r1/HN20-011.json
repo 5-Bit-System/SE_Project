@@ -1,0 +1,1275 @@
+{
+  "id": "HN20-011",
+  "request": {
+    "question": "Người tốt nghiệp KHMTTT có thể đảm nhiệm những công việc gì?",
+    "major": "computer_science",
+    "version": "QD3568-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "lexical_reference",
+    "hybrid_legacy_signature",
+    "hybrid_optimized_signature"
+  ],
+  "modes": {
+    "lexical_reference": {
+      "seconds": 0.013769500015769154,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 0.0037443999899551272,
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "computer_science",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "3d5549c23ea06616555c5f6917ccfa12",
+            "490cb4103718f52c80496be4f8d33a69",
+            "291b6949cf13e7e60e54762b0d09ae77",
+            "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+            "e3dc4d4d8054d927400b121d04d92bef"
+          ]
+        }
+      ],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "computer_science",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+              "locator": {
+                "start_char": 7923,
+                "end_char": 8627,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include_markdown",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "citation": {
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "raw_original_verified": false,
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "start_char": 7923,
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "2023",
+                  "major": "computer_science",
+                  "program_id": null,
+                  "program_variant": "standard",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                "source_unit_id": "5b99f8135abed4d2d2d77155",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                  "citation": {
+                    "end_char": 8627,
+                    "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                    "raw_original_verified": false,
+                    "review_status": "include_markdown",
+                    "source_id": "f7f470e712738589",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                    "start_char": 7923,
+                    "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                    "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "2023",
+                    "major": "computer_science",
+                    "program_id": null,
+                    "program_variant": "standard",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                  "source_unit_id": "5b99f8135abed4d2d2d77155",
+                  "text": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                "document_id": "f7f470e712738589",
+                "unit_id": "5b99f8135abed4d2d2d77155",
+                "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "citation_title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "program_version": "2023",
+                "admission_cohort": "unknown",
+                "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                "review_status": "include_markdown",
+                "review_scope": "selected_F1_sections",
+                "review": {
+                  "status": "include_markdown"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "evidence_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": null,
+                  "raw_original_verified": false,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 404363,
+                    "document_id": "f7f470e712738589",
+                    "extractor": "python-docx/1.2.0",
+                    "fetched_at": "2026-10-31T07:03:59.631066+00:00",
+                    "file_type": "docx",
+                    "final_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "historical_byte_equality": "unknown",
+                    "major": "computer_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "requested_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+                  },
+                  "review_scope": "selected_F1_sections",
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "raw_original_verified": false,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 7923,
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "file",
+              "display_label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_id": "f7f470e712738589",
+              "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": "Tệp DOCX nguồn; không phải PDF.",
+              "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 6.466232899983879,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 6.458335400035139,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"careers\",\"major\":\"computer_science\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "rank": 1,
+                "raw_score": 6.154948654563388
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "rank": 2,
+                "raw_score": 3.6317283153794664
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "rank": 3,
+                "raw_score": 2.750675279005358
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "rank": 4,
+                "raw_score": 2.047379527756683
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "rank": 5,
+                "raw_score": 0.31899781662305915
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "rank": 6,
+                "raw_score": 0.2931124466098475
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "rank": 7,
+                "raw_score": 0.2917465350587163
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "rank": 8,
+                "raw_score": 0.2852667573823384
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "rank": 9,
+                "raw_score": 0.27159814442562596
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "rank": 10,
+                "raw_score": 0.1254144087676654
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "rank": 1,
+                "raw_score": 0.8674449920654297
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "rank": 2,
+                "raw_score": 0.8591030240058899
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "rank": 3,
+                "raw_score": 0.8515006899833679
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "rank": 4,
+                "raw_score": 0.829860508441925
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "rank": 5,
+                "raw_score": 0.8282585740089417
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "rank": 6,
+                "raw_score": 0.8243118524551392
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "rank": 7,
+                "raw_score": 0.8234197497367859
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "rank": 8,
+                "raw_score": 0.81712406873703
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "rank": 9,
+                "raw_score": 0.8157253265380859
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "rank": 10,
+                "raw_score": 0.79884272813797
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"computer_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"12c82116f32f08a1ff215fc63cb8a122\",\"291b6949cf13e7e60e54762b0d09ae77\",\"2f9e999a85042b779208802aac26b4bb\",\"3d5549c23ea06616555c5f6917ccfa12\",\"490cb4103718f52c80496be4f8d33a69\",\"4a3c645ebb71689c470787ee07190461\",\"7c20f023d64e599313eb7fb61771be75\",\"8955584f15e681b65a6f55b257e09970\",\"cc9519ceb5c2b5eb461ebfbd3e813e6f\",\"e3dc4d4d8054d927400b121d04d92bef\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"careers\"}]}",
+              "passage_ids": [
+                "3d5549c23ea06616555c5f6917ccfa12#p000",
+                "490cb4103718f52c80496be4f8d33a69#p000",
+                "cc9519ceb5c2b5eb461ebfbd3e813e6f#p000",
+                "291b6949cf13e7e60e54762b0d09ae77#p000",
+                "12c82116f32f08a1ff215fc63cb8a122#p000",
+                "2f9e999a85042b779208802aac26b4bb#p000",
+                "4a3c645ebb71689c470787ee07190461#p000",
+                "e3dc4d4d8054d927400b121d04d92bef#p000",
+                "7c20f023d64e599313eb7fb61771be75#p000",
+                "8955584f15e681b65a6f55b257e09970#p000"
+              ],
+              "parent_ids": [
+                "3d5549c23ea06616555c5f6917ccfa12",
+                "490cb4103718f52c80496be4f8d33a69",
+                "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "291b6949cf13e7e60e54762b0d09ae77",
+                "12c82116f32f08a1ff215fc63cb8a122",
+                "2f9e999a85042b779208802aac26b4bb",
+                "4a3c645ebb71689c470787ee07190461",
+                "e3dc4d4d8054d927400b121d04d92bef",
+                "7c20f023d64e599313eb7fb61771be75",
+                "8955584f15e681b65a6f55b257e09970"
+              ]
+            },
+            "candidate_union": [
+              "12c82116f32f08a1ff215fc63cb8a122",
+              "291b6949cf13e7e60e54762b0d09ae77",
+              "2f9e999a85042b779208802aac26b4bb",
+              "3d5549c23ea06616555c5f6917ccfa12",
+              "490cb4103718f52c80496be4f8d33a69",
+              "4a3c645ebb71689c470787ee07190461",
+              "7c20f023d64e599313eb7fb61771be75",
+              "8955584f15e681b65a6f55b257e09970",
+              "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+              "e3dc4d4d8054d927400b121d04d92bef"
+            ],
+            "fused": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "lexical_rank": 2,
+                "vector_rank": 2,
+                "rrf_score": 0.03225806451612903
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "lexical_rank": 3,
+                "vector_rank": 4,
+                "rrf_score": 0.03149801587301587
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "lexical_rank": 4,
+                "vector_rank": 3,
+                "rrf_score": 0.03149801587301587
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "lexical_rank": 5,
+                "vector_rank": 8,
+                "rrf_score": 0.030090497737556562
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "lexical_rank": 7,
+                "vector_rank": 6,
+                "rrf_score": 0.03007688828584351
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "lexical_rank": 10,
+                "vector_rank": 5,
+                "rrf_score": 0.02967032967032967
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "lexical_rank": 8,
+                "vector_rank": 7,
+                "rrf_score": 0.029631255487269532
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "lexical_rank": 6,
+                "vector_rank": 10,
+                "rrf_score": 0.029437229437229435
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "lexical_rank": 9,
+                "vector_rank": 9,
+                "rrf_score": 0.028985507246376812
+              }
+            ],
+            "final_top5": [
+              "3d5549c23ea06616555c5f6917ccfa12",
+              "490cb4103718f52c80496be4f8d33a69",
+              "291b6949cf13e7e60e54762b0d09ae77",
+              "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+              "e3dc4d4d8054d927400b121d04d92bef"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "computer_science",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "3d5549c23ea06616555c5f6917ccfa12",
+            "490cb4103718f52c80496be4f8d33a69",
+            "291b6949cf13e7e60e54762b0d09ae77",
+            "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+            "e3dc4d4d8054d927400b121d04d92bef"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2102826000191271,
+          "exclusive_seconds": 1.2102826000191271
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.3256907999748364,
+          "exclusive_seconds": 1.3256907999748364
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.042460299970116466,
+          "exclusive_seconds": 0.042460299970116466
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3484575000475161,
+          "exclusive_seconds": 0.3484575000475161
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.5752878000494093,
+          "exclusive_seconds": 0.5752878000494093
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9237453000969253,
+          "seconds": 0.9625285000074655,
+          "exclusive_seconds": 0.038783199910540134
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.01394919998710975,
+          "exclusive_seconds": 0.01394919998710975
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.03772929997649044,
+          "exclusive_seconds": 0.03772929997649044
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.5500501000205986,
+          "exclusive_seconds": 1.5500501000205986
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.2869366999948397,
+          "exclusive_seconds": 1.2869366999948397
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "computer_science",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+              "locator": {
+                "start_char": 7923,
+                "end_char": 8627,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include_markdown",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "citation": {
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "raw_original_verified": false,
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "start_char": 7923,
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "2023",
+                  "major": "computer_science",
+                  "program_id": null,
+                  "program_variant": "standard",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                "source_unit_id": "5b99f8135abed4d2d2d77155",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                  "citation": {
+                    "end_char": 8627,
+                    "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                    "raw_original_verified": false,
+                    "review_status": "include_markdown",
+                    "source_id": "f7f470e712738589",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                    "start_char": 7923,
+                    "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                    "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "2023",
+                    "major": "computer_science",
+                    "program_id": null,
+                    "program_variant": "standard",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                  "source_unit_id": "5b99f8135abed4d2d2d77155",
+                  "text": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                "document_id": "f7f470e712738589",
+                "unit_id": "5b99f8135abed4d2d2d77155",
+                "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "citation_title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "program_version": "2023",
+                "admission_cohort": "unknown",
+                "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                "review_status": "include_markdown",
+                "review_scope": "selected_F1_sections",
+                "review": {
+                  "status": "include_markdown"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "evidence_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": null,
+                  "raw_original_verified": false,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 404363,
+                    "document_id": "f7f470e712738589",
+                    "extractor": "python-docx/1.2.0",
+                    "fetched_at": "2026-10-31T07:03:59.631066+00:00",
+                    "file_type": "docx",
+                    "final_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "historical_byte_equality": "unknown",
+                    "major": "computer_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "requested_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+                  },
+                  "review_scope": "selected_F1_sections",
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "raw_original_verified": false,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 7923,
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "file",
+              "display_label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_id": "f7f470e712738589",
+              "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": "Tệp DOCX nguồn; không phải PDF.",
+              "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_optimized_signature": {
+      "seconds": 3.6627939000027254,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 3.654651799995918,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"careers\",\"major\":\"computer_science\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "rank": 1,
+                "raw_score": 6.154948654563388
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "rank": 2,
+                "raw_score": 3.6317283153794664
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "rank": 3,
+                "raw_score": 2.750675279005358
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "rank": 4,
+                "raw_score": 2.047379527756683
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "rank": 5,
+                "raw_score": 0.31899781662305915
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "rank": 6,
+                "raw_score": 0.2931124466098475
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "rank": 7,
+                "raw_score": 0.2917465350587163
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "rank": 8,
+                "raw_score": 0.2852667573823384
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "rank": 9,
+                "raw_score": 0.27159814442562596
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "rank": 10,
+                "raw_score": 0.1254144087676654
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "rank": 1,
+                "raw_score": 0.8674449920654297
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "rank": 2,
+                "raw_score": 0.8591030240058899
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "rank": 3,
+                "raw_score": 0.8515006899833679
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "rank": 4,
+                "raw_score": 0.829860508441925
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "rank": 5,
+                "raw_score": 0.8282585740089417
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "rank": 6,
+                "raw_score": 0.8243118524551392
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "rank": 7,
+                "raw_score": 0.8234197497367859
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "rank": 8,
+                "raw_score": 0.81712406873703
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "rank": 9,
+                "raw_score": 0.8157253265380859
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "rank": 10,
+                "raw_score": 0.79884272813797
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"computer_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"12c82116f32f08a1ff215fc63cb8a122\",\"291b6949cf13e7e60e54762b0d09ae77\",\"2f9e999a85042b779208802aac26b4bb\",\"3d5549c23ea06616555c5f6917ccfa12\",\"490cb4103718f52c80496be4f8d33a69\",\"4a3c645ebb71689c470787ee07190461\",\"7c20f023d64e599313eb7fb61771be75\",\"8955584f15e681b65a6f55b257e09970\",\"cc9519ceb5c2b5eb461ebfbd3e813e6f\",\"e3dc4d4d8054d927400b121d04d92bef\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"careers\"}]}",
+              "passage_ids": [
+                "3d5549c23ea06616555c5f6917ccfa12#p000",
+                "490cb4103718f52c80496be4f8d33a69#p000",
+                "cc9519ceb5c2b5eb461ebfbd3e813e6f#p000",
+                "291b6949cf13e7e60e54762b0d09ae77#p000",
+                "12c82116f32f08a1ff215fc63cb8a122#p000",
+                "2f9e999a85042b779208802aac26b4bb#p000",
+                "4a3c645ebb71689c470787ee07190461#p000",
+                "e3dc4d4d8054d927400b121d04d92bef#p000",
+                "7c20f023d64e599313eb7fb61771be75#p000",
+                "8955584f15e681b65a6f55b257e09970#p000"
+              ],
+              "parent_ids": [
+                "3d5549c23ea06616555c5f6917ccfa12",
+                "490cb4103718f52c80496be4f8d33a69",
+                "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "291b6949cf13e7e60e54762b0d09ae77",
+                "12c82116f32f08a1ff215fc63cb8a122",
+                "2f9e999a85042b779208802aac26b4bb",
+                "4a3c645ebb71689c470787ee07190461",
+                "e3dc4d4d8054d927400b121d04d92bef",
+                "7c20f023d64e599313eb7fb61771be75",
+                "8955584f15e681b65a6f55b257e09970"
+              ]
+            },
+            "candidate_union": [
+              "12c82116f32f08a1ff215fc63cb8a122",
+              "291b6949cf13e7e60e54762b0d09ae77",
+              "2f9e999a85042b779208802aac26b4bb",
+              "3d5549c23ea06616555c5f6917ccfa12",
+              "490cb4103718f52c80496be4f8d33a69",
+              "4a3c645ebb71689c470787ee07190461",
+              "7c20f023d64e599313eb7fb61771be75",
+              "8955584f15e681b65a6f55b257e09970",
+              "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+              "e3dc4d4d8054d927400b121d04d92bef"
+            ],
+            "fused": [
+              {
+                "parent_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              },
+              {
+                "parent_id": "490cb4103718f52c80496be4f8d33a69",
+                "lexical_rank": 2,
+                "vector_rank": 2,
+                "rrf_score": 0.03225806451612903
+              },
+              {
+                "parent_id": "291b6949cf13e7e60e54762b0d09ae77",
+                "lexical_rank": 3,
+                "vector_rank": 4,
+                "rrf_score": 0.03149801587301587
+              },
+              {
+                "parent_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+                "lexical_rank": 4,
+                "vector_rank": 3,
+                "rrf_score": 0.03149801587301587
+              },
+              {
+                "parent_id": "e3dc4d4d8054d927400b121d04d92bef",
+                "lexical_rank": 5,
+                "vector_rank": 8,
+                "rrf_score": 0.030090497737556562
+              },
+              {
+                "parent_id": "2f9e999a85042b779208802aac26b4bb",
+                "lexical_rank": 7,
+                "vector_rank": 6,
+                "rrf_score": 0.03007688828584351
+              },
+              {
+                "parent_id": "12c82116f32f08a1ff215fc63cb8a122",
+                "lexical_rank": 10,
+                "vector_rank": 5,
+                "rrf_score": 0.02967032967032967
+              },
+              {
+                "parent_id": "4a3c645ebb71689c470787ee07190461",
+                "lexical_rank": 8,
+                "vector_rank": 7,
+                "rrf_score": 0.029631255487269532
+              },
+              {
+                "parent_id": "8955584f15e681b65a6f55b257e09970",
+                "lexical_rank": 6,
+                "vector_rank": 10,
+                "rrf_score": 0.029437229437229435
+              },
+              {
+                "parent_id": "7c20f023d64e599313eb7fb61771be75",
+                "lexical_rank": 9,
+                "vector_rank": 9,
+                "rrf_score": 0.028985507246376812
+              }
+            ],
+            "final_top5": [
+              "3d5549c23ea06616555c5f6917ccfa12",
+              "490cb4103718f52c80496be4f8d33a69",
+              "291b6949cf13e7e60e54762b0d09ae77",
+              "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+              "e3dc4d4d8054d927400b121d04d92bef"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "computer_science",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "3d5549c23ea06616555c5f6917ccfa12",
+            "490cb4103718f52c80496be4f8d33a69",
+            "291b6949cf13e7e60e54762b0d09ae77",
+            "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+            "e3dc4d4d8054d927400b121d04d92bef"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.595253599982243,
+          "exclusive_seconds": 0.595253599982243
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5573896000278182,
+          "exclusive_seconds": 0.5573896000278182
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.045186599949374795,
+          "exclusive_seconds": 0.045186599949374795
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3852259000414051,
+          "exclusive_seconds": 0.3852259000414051
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6178872000309639,
+          "exclusive_seconds": 0.6178872000309639
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 1.003113100072369,
+          "seconds": 1.0425709999981336,
+          "exclusive_seconds": 0.03945789992576465
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.01254480000352487,
+          "exclusive_seconds": 0.01254480000352487
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.03627109999069944,
+          "exclusive_seconds": 0.03627109999069944
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.49753559997770935,
+          "exclusive_seconds": 0.49753559997770935
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.8316777999862097,
+          "exclusive_seconds": 0.8316777999862097
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.\n\nChỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.\nNguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "computer_science",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+              "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+              "locator": {
+                "start_char": 7923,
+                "end_char": 8627,
+                "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include_markdown",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                "citation": {
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "raw_original_verified": false,
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "start_char": 7923,
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "2023",
+                  "major": "computer_science",
+                  "program_id": null,
+                  "program_variant": "standard",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                "source_unit_id": "5b99f8135abed4d2d2d77155",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+                  "citation": {
+                    "end_char": 8627,
+                    "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                    "raw_original_verified": false,
+                    "review_status": "include_markdown",
+                    "source_id": "f7f470e712738589",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                    "start_char": 7923,
+                    "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                    "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "2023",
+                    "major": "computer_science",
+                    "program_id": null,
+                    "program_variant": "standard",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+                  "source_unit_id": "5b99f8135abed4d2d2d77155",
+                  "text": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                "document_id": "f7f470e712738589",
+                "unit_id": "5b99f8135abed4d2d2d77155",
+                "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "citation_title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                "program_version": "2023",
+                "admission_cohort": "unknown",
+                "source_content_hash": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                "review_status": "include_markdown",
+                "review_scope": "selected_F1_sections",
+                "review": {
+                  "status": "include_markdown"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "evidence_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": null,
+                  "raw_original_verified": false,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 404363,
+                    "document_id": "f7f470e712738589",
+                    "extractor": "python-docx/1.2.0",
+                    "fetched_at": "2026-10-31T07:03:59.631066+00:00",
+                    "file_type": "docx",
+                    "final_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "historical_byte_equality": "unknown",
+                    "major": "computer_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517.docx",
+                    "requested_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+                    "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+                  },
+                  "review_scope": "selected_F1_sections",
+                  "review_status": "include_markdown",
+                  "source_id": "f7f470e712738589",
+                  "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+                  "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+                },
+                "raw_original_verified": false,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 7923,
+                  "end_char": 8627,
+                  "evidence_path": "evidence/f1/f7f470e712738589.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "file",
+              "display_label": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+              "source_id": "f7f470e712738589",
+              "open_url": "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "document_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": "Tệp DOCX nguồn; không phải PDF.",
+              "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.",
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

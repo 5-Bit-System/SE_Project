@@ -1,0 +1,248 @@
+{
+  "a7r_cached_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "allowed_changed": {
+    "app/hus/llm/diagnostics.py": {
+      "after": "83bfda42ed6e809e00ccdc35ff6ac9f171b063b5b744d325601048981c347309",
+      "before": "8da4f2eecb4d798599b3ed8c4ee8ec2b055ab07509a8541f26f63e53c6ae78e8"
+    },
+    "tests/hus/llm/test_access_failures.py": {
+      "after": "b92953d2a018a37bce7c7cbf6a6a9c8221b76e6a3579b2b0ed6e9cfcd8a68b0c",
+      "before": "68418778a3efd5677c6159661cabbace9e60db4afcd44a481e2b73fb4a923778"
+    }
+  },
+  "change": "Unwrap exactly one top-level dictionary array before existing HTTP error label classification.",
+  "code_review": {
+    "critical": 0,
+    "important": 0,
+    "independently_repeated_focused_tests": 53,
+    "kind": "fresh-context AI read-only",
+    "minor": 0
+  },
+  "historical_full_suite": "3058pass/1fail/2skip/90deselected/3warnings; not rerun. DEV-Q002 remains unresolved; no all-suite-green claim.",
+  "key_or_billing_changed": false,
+  "l5_cached_replay": {
+    "metrics": {
+      "actual_models": {},
+      "baseline_false_refusals": 0,
+      "by_family": {
+        "basic_chat": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "clarification_required": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "f1": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 0
+        },
+        "f2": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 0
+        },
+        "f3": {
+          "cases": 8,
+          "eligible": 8,
+          "provider_requests": 8,
+          "used": 0
+        },
+        "missing_evidence": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "opt_in_required": {
+          "cases": 4,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        },
+        "out_of_scope": {
+          "cases": 2,
+          "eligible": 0,
+          "provider_requests": 0,
+          "used": 0
+        }
+      },
+      "by_major": {
+        "computer_science": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 0
+        },
+        "data_science": {
+          "cases": 12,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 0
+        },
+        "mathematics": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 0
+        },
+        "mathematics_informatics": {
+          "cases": 8,
+          "eligible": 6,
+          "provider_requests": 6,
+          "used": 0
+        }
+      },
+      "cases": 36,
+      "control_status_mismatches": 0,
+      "eligible": 24,
+      "eligible_not_attempted": 0,
+      "errors": {
+        "http_error": 24
+      },
+      "fallback": 24,
+      "fallback_reasons": {
+        "http_error": 24
+      },
+      "guard_skipped": 12,
+      "http_status": {
+        "403": 24
+      },
+      "latency": {
+        "baseline": {
+          "count": 36,
+          "max_ms": 96.31149999040645,
+          "min_ms": 0.07729999197181314,
+          "p50_ms": 25.524800003040582,
+          "p95_ms": 70.06420000107028
+        },
+        "provider": {
+          "count": 24,
+          "max_ms": 835.9189000038896,
+          "min_ms": 656.587599994964,
+          "p50_ms": 721.1753000010503,
+          "p95_ms": 797.3112000036053
+        },
+        "rewrite_fallback": {
+          "count": 24,
+          "max_ms": 840.7621000078507,
+          "min_ms": 657.3277000134112,
+          "p50_ms": 722.4034999962896,
+          "p95_ms": 798.79910001182
+        },
+        "rewrite_used": {
+          "count": 0,
+          "max_ms": null,
+          "min_ms": null,
+          "p50_ms": null,
+          "p95_ms": null
+        }
+      },
+      "provider_requests": 24,
+      "source_audit_failures": 0,
+      "token_counter_unknown_requests": {
+        "completion_tokens": 24,
+        "prompt_tokens": 24,
+        "total_tokens": 24
+      },
+      "token_usage": {
+        "completion_tokens": null,
+        "prompt_tokens": null,
+        "total_tokens": null
+      },
+      "token_usage_known_subtotal": {
+        "completion_tokens": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0
+      },
+      "usage_known_requests": 0,
+      "usage_unknown_requests": 24,
+      "used": 0,
+      "used_rate_among_eligible": 0.0
+    },
+    "new_provider_calls": 0,
+    "new_retrieval_calls": 0,
+    "reproduced": true
+  },
+  "l5_r4_changed_pin_entries": {
+    "artifacts": [
+      "app/hus/llm/diagnostics.py"
+    ]
+  },
+  "l5_r4_current_pins_match": false,
+  "l6_recommended_enabled": false,
+  "live_google_calls": 0,
+  "new_rag_inference": false,
+  "next_steps": [
+    "Operator rotates Google key in own AI Studio/backend and disables blocked key; never send key in chat/templates.",
+    "After key replacement and new budget, prepare/preflight a new directory with current pins; do not edit r4 or old runs.",
+    "Access check then separate authorized A/B cohort on same A/retrieval/snapshot; exact review/model/usage/latency/used/fallback.",
+    "Keep defaultLLMoff until real gain, completeness/facts/citation/latency evidence and operator acceptance."
+  ],
+  "offline_parser_repair_complete": true,
+  "old_data_gold_run_review_files_unchanged": true,
+  "operator_key_rotation_verified": false,
+  "preserved": [
+    "fixed status/access enums only; no provider text/headers/unknown IDs",
+    "empty, multi-entry, non-object or nested arrays unspecified",
+    "HTTP403 gate and existing object behavior; no HTTP200 completion-array unwrapping",
+    "16KiB client error body cap and8192-character message cap",
+    "canonical baseline/citation/facts, opt-in, no retry/model switch,1024output cap",
+    "one-call budget/circuit/controls and cached replay"
+  ],
+  "protected_files": 2934,
+  "provider_access_restored": false,
+  "publication": "No stage/commit/push/PR/Actions/deploy",
+  "real_key_or_private_env_read": false,
+  "rewrite_quality_measured": false,
+  "scoped_ruff": "pass",
+  "task": "Singleton provider HTTP-error diagnostic, offline only",
+  "tests": {
+    "green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "40d01c4033d292b6274a34722280fb57b10bf2847dbbda071758abc82eba5825",
+      "skipped": 0,
+      "tests": 53
+    },
+    "llm_suite.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "4280a95464a3491d7d9e2befa1032b7f138d2e76f29767ea4238bb4664112ab3",
+      "skipped": 0,
+      "tests": 564
+    },
+    "red.xml": {
+      "errors": 0,
+      "failures": 7,
+      "sha256": "6c0aa4f83a2bf3a4c7c5c88079452bd9511a1d5a3dfddf5573adc884d59de3df",
+      "skipped": 0,
+      "tests": 53
+    }
+  },
+  "unchanged_files": 2932
+}

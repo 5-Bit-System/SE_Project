@@ -1,0 +1,49 @@
+{
+  "rows": [
+    {
+      "id": "HN20-006",
+      "ai_reviewer": "Codex(AI)",
+      "issue": "bounded request grammar",
+      "proposal": "Whole overview request phrase; preserve unknown source identity and other requirements.",
+      "human_review": "pending",
+      "runtime_implemented": false
+    },
+    {
+      "id": "HN20-009",
+      "ai_reviewer": "Codex(AI)",
+      "issue": "domain tokens removed as course-name tokens",
+      "proposal": "Separate objects/inheritance aspects; full title only as locator; require direct definitions.",
+      "human_review": "pending",
+      "runtime_implemented": false
+    },
+    {
+      "id": "HN20-012",
+      "ai_reviewer": "Codex(AI)",
+      "issue": "edition and variant/source ambiguity",
+      "proposal": "Ask source edition/variant before generation; never blend standard/high-quality/unknown sources.",
+      "human_review": "pending",
+      "runtime_implemented": false
+    },
+    {
+      "id": "HN20-014",
+      "ai_reviewer": "Codex(AI)",
+      "issue": "partial token match expands all units",
+      "proposal": "Focused required explanation/condition spans for research question and scope.",
+      "human_review": "pending",
+      "runtime_implemented": false
+    },
+    {
+      "id": "HN20-019",
+      "ai_reviewer": "Codex(AI)",
+      "issue": "concept paraphrase rejected lexically",
+      "proposal": "Reviewed concept candidate mapping; preserve modality, noise/training/new-data qualifications and alternatives.",
+      "human_review": "pending",
+      "runtime_implemented": false
+    }
+  ],
+  "quote_hashes_verified": 42,
+  "unique_chunks": 21,
+  "google_calls_for_review": 0,
+  "no_new_score": true,
+  "human_acceptance": false
+}

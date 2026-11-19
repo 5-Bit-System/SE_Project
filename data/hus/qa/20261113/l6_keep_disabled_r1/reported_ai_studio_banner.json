@@ -1,0 +1,14 @@
+{
+  "access_issue_resolved": false,
+  "billing_change_authorized": false,
+  "message": "You are approaching a bandwidth limit. Configure your billing to increase your limits and support the development of your projects.",
+  "new_google_call_authorized": false,
+  "next_check": "Inspect actual project/key status or obtain a separately approved bounded diagnostic; do not share key.",
+  "observation": "Near-limit UI warning, not an inference HTTP error body or a specific key/project status.",
+  "official_sources": [
+    "https://aistudio.google.com/docs/rate-limits",
+    "https://aistudio.google.com/docs/troubleshooting#project-unavailable"
+  ],
+  "source": "User reply to call_61ceb10b35f1423ea344d18ba97b761e:0",
+  "specific_403_cause_established": false
+}

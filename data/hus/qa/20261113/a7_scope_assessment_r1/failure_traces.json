@@ -1,0 +1,361 @@
+[
+  {
+    "AI_review": {
+      "audit_sha256": "1cebdaaf2db4cb960bb7f97288e0c7e06556a472d0a8f89d19c580a3576ce408",
+      "completeness": "fail",
+      "entailment": "not_applicable",
+      "gold_sha256": "370a7d782ad12841c99a7c5bc1b271bc37b4367d76ce0c18af2d806bbaef010c",
+      "notes": "Positive career/condition question refused: frozen programming/project-management/department-head target and ability condition not delivered. Completeness fail; no answer to judge entailment.",
+      "question_id": "A7S-Q013",
+      "raw_request_sha256": "3f4ccd32542d4ae7a9477513054e5ddbb6b32af1fbdf7f3bc71bb576dca3f25a",
+      "request_sha256": "b85f57841279a0d2988f02a3fb7698df7505f07139201dd1207b898b47f502b8",
+      "response_sha256": "96c7011212bdd05748e505b3f972c120ad87f63ee05172de4f765ab780458c48",
+      "reviewer": "root AI; source/runtime/author exposed; nonblind; nonindependent; human0",
+      "reviewer_kind": "ai"
+    },
+    "diagnostic_scope": "Saved trace only; no new probe, no root cause proven for guard refusals",
+    "first_search": {
+      "hits": [
+        {
+          "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "careers",
+          "major": "data_science",
+          "matched_terms": [
+            "du",
+            "lap",
+            "quan",
+            "tri",
+            "trinh",
+            "vien"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 4.904224398965136,
+          "version": "unknown"
+        },
+        {
+          "chunk_id": "940a3740794040de84617af7e9aa78fd",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "careers",
+          "major": "data_science",
+          "matched_terms": [
+            "du",
+            "vi",
+            "vien"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 2.0236084307593503,
+          "version": "unknown"
+        },
+        {
+          "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "careers",
+          "major": "data_science",
+          "matched_terms": [
+            "du",
+            "quan"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 1.0993358662958406,
+          "version": "unknown"
+        },
+        {
+          "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "careers",
+          "major": "data_science",
+          "matched_terms": [
+            "du",
+            "vien"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 0.5554580019000195,
+          "version": "unknown"
+        }
+      ],
+      "parameters": {
+        "allow_generated": false,
+        "course_code": null,
+        "dataset": "f1",
+        "field": "careers",
+        "major": "data_science",
+        "program_variant": null,
+        "top_k": 5,
+        "version": null
+      },
+      "query": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?"
+    },
+    "frozen_target_ids": [
+      "251ab61e0d6a58faa68914d59fa45516"
+    ],
+    "question_id": "A7S-Q013",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "data_science",
+      "question": "Ở edition chưa xác định, vị trí lập trình viên và quản trị dự án của KHDL được nêu kèm điều kiện nào?",
+      "version": "QD3569-2023"
+    },
+    "routing_observation": {
+      "dataset": "f1",
+      "field": "careers",
+      "stage": "classifier_before_scope_and_evidence_guards"
+    },
+    "status": "no_information"
+  },
+  {
+    "AI_review": {
+      "audit_sha256": "3e87d8bd85f971ef38c77ce39cbb27150c0121ffa4435c53914ed7237d49401d",
+      "completeness": "fail",
+      "entailment": "pass",
+      "gold_sha256": "c42c9c145b7b9db563d4e3e972d6bdf50252ce4b965b5c6f409dd946d4c804fb",
+      "notes": "Reply quotes introduction/training pillars and skills from real KHDL source, so source-relative entailment passes. It does NOT state lecturer/researcher/technical roles at schools/institutes; responsiveness and completeness fail. No automatic credit for citation integrity.",
+      "question_id": "A7S-Q015",
+      "raw_request_sha256": "76ad2d1c36edd37a770da5122fac17b03c940391c9beeca105d879e8c078988e",
+      "request_sha256": "ac9b06bb6ded572dd56045cdea7afb47bdc058f11d9a2ec5a12a444cf0f0e154",
+      "response_sha256": "e31d2714c385ec23a297f0bf3722d58017d0324c3995052c10f773147b2928e0",
+      "reviewer": "root AI; source/runtime/author exposed; nonblind; nonindependent; human0",
+      "reviewer_kind": "ai"
+    },
+    "diagnostic_scope": "Saved trace only; no new probe, no root cause proven for guard refusals",
+    "first_search": {
+      "hits": [
+        {
+          "chunk_id": "7170857aebdc027daccc37102dd937bd",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "introduction",
+          "major": "data_science",
+          "matched_terms": [
+            "nganh",
+            "theo",
+            "truong"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 2.237272463689755,
+          "version": "unknown"
+        },
+        {
+          "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "introduction",
+          "major": "data_science",
+          "matched_terms": [
+            "nganh",
+            "vien"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 0.6555715712872222,
+          "version": "unknown"
+        },
+        {
+          "chunk_id": "a02e3fe443e340a42147fca61503d628",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "introduction",
+          "major": "data_science",
+          "matched_terms": [
+            "nganh",
+            "vien"
+          ],
+          "program_variant": "unknown",
+          "review_status": "include",
+          "score": 0.6304823687007517,
+          "version": "unknown"
+        }
+      ],
+      "parameters": {
+        "allow_generated": false,
+        "course_code": null,
+        "dataset": "f1",
+        "field": "introduction",
+        "major": "data_science",
+        "program_variant": null,
+        "top_k": 5,
+        "version": null
+      },
+      "query": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?"
+    },
+    "frozen_target_ids": [
+      "940a3740794040de84617af7e9aa78fd"
+    ],
+    "question_id": "A7S-Q015",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "data_science",
+      "question": "Theo edition chưa xác định, ngành KHDL có những vai trò nào tại đơn vị trường và viện?",
+      "version": "QD3569-2023"
+    },
+    "routing_observation": {
+      "dataset": "f1",
+      "field": "introduction",
+      "stage": "classifier_before_scope_and_evidence_guards"
+    },
+    "status": "answered"
+  },
+  {
+    "AI_review": {
+      "audit_sha256": "5fbc041dc30c4c854bde58c65cd6e211b9749f87cd1f360ab46b6861c26982ad",
+      "completeness": "fail",
+      "entailment": "not_applicable",
+      "gold_sha256": "8d265bdc7e7b380a340a399b1a4c3e6b484f1cbcd83ef6483f4421b212262a92",
+      "notes": "Positive further-study request refused; source reasoning/modelling skills as foundation for continued study and personal/work/economic needs not delivered. Completeness fail.",
+      "question_id": "A7S-Q027",
+      "raw_request_sha256": "e138b3493ffef2d98f90f458d8c0933a8aa25725244cf4f03a1a9c6829cc4e9e",
+      "request_sha256": "3ec7fe05631ab3be200503a93504a7c1f4c403034d508dde834e058352f55f42",
+      "response_sha256": "c0f1d265c19681c2e1aebe833ac4f10506c785aa43185f10410f8481e6cf5628",
+      "reviewer": "root AI; source/runtime/author exposed; nonblind; nonindependent; human0",
+      "reviewer_kind": "ai"
+    },
+    "diagnostic_scope": "Saved trace only; no new probe, no root cause proven for guard refusals",
+    "first_search": {
+      "hits": [
+        {
+          "chunk_id": "bdc3538f018be0658be658d8ccaf6e8e",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "further_study",
+          "major": "mathematics",
+          "matched_terms": [
+            "cao",
+            "hoc",
+            "hon",
+            "kha",
+            "lieu",
+            "nang",
+            "nganh",
+            "nhu",
+            "tai",
+            "toan",
+            "trinh"
+          ],
+          "program_variant": "standard",
+          "review_status": "include_markdown",
+          "score": 4.415330441429403,
+          "version": "2015"
+        }
+      ],
+      "parameters": {
+        "allow_generated": false,
+        "course_code": null,
+        "dataset": "f1",
+        "field": "further_study",
+        "major": "mathematics",
+        "program_variant": "standard",
+        "top_k": 5,
+        "version": null
+      },
+      "query": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?"
+    },
+    "frozen_target_ids": [
+      "bdc3538f018be0658be658d8ccaf6e8e"
+    ],
+    "question_id": "A7S-Q027",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "mathematics",
+      "question": "Theo edition 2015 hệ chuẩn, tài liệu ngành Toán học trình bày khả năng học cao hơn như thế nào?",
+      "version": "QD3565-2023"
+    },
+    "routing_observation": {
+      "dataset": "f1",
+      "field": "further_study",
+      "stage": "classifier_before_scope_and_evidence_guards"
+    },
+    "status": "no_information"
+  },
+  {
+    "AI_review": {
+      "audit_sha256": "e3516f70d050657d55d688525c993cb0f2c032fb28fa09343a08c66cc7b68b44",
+      "completeness": "fail",
+      "entailment": "not_applicable",
+      "gold_sha256": "48c92bd55057dec16bb053d824802405b6579099bb218bcba713368a35caff62",
+      "notes": "Positive 2015-standard Toán tin objectives refused; interdisciplinary foundations and application/research roles in frozen target omitted. Completeness fail.",
+      "question_id": "A7S-Q037",
+      "raw_request_sha256": "72aa541d43ecb05e5d0b171c1d19af4acf2f06472efa3506b3dd474554ac71a6",
+      "request_sha256": "0ecc2091cd43a515a817773a4f811dda143b0b53baee4dbb1581e1e5a39d9b74",
+      "response_sha256": "d0c8b6eb23e8f1e1b994e0a9f07e400848afe81dd28c6a3d756202ca433b4939",
+      "reviewer": "root AI; source/runtime/author exposed; nonblind; nonindependent; human0",
+      "reviewer_kind": "ai"
+    },
+    "diagnostic_scope": "Saved trace only; no new probe, no root cause proven for guard refusals",
+    "first_search": {
+      "hits": [
+        {
+          "chunk_id": "1648ebdddb5ae44b8b34dc340deff05a",
+          "content_origin": "crawled_source_quote",
+          "course_code": null,
+          "dataset": "f1",
+          "field": "objectives",
+          "major": "mathematics_informatics",
+          "matched_terms": [
+            "chuan",
+            "dao",
+            "muc",
+            "nganh",
+            "ra",
+            "tao",
+            "tieu",
+            "tin",
+            "toan",
+            "trinh"
+          ],
+          "program_variant": "standard",
+          "review_status": "include_markdown",
+          "score": 4.321675700809799,
+          "version": "2015"
+        }
+      ],
+      "parameters": {
+        "allow_generated": false,
+        "course_code": null,
+        "dataset": "f1",
+        "field": "objectives",
+        "major": "mathematics_informatics",
+        "program_variant": "standard",
+        "top_k": 5,
+        "version": null
+      },
+      "query": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?"
+    },
+    "frozen_target_ids": [
+      "1648ebdddb5ae44b8b34dc340deff05a"
+    ],
+    "question_id": "A7S-Q037",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "mathematics_informatics",
+      "question": "Theo edition 2015 hệ chuẩn, mục tiêu đào tạo của ngành Toán tin được trình bày ra sao?",
+      "version": "QD3567-2023"
+    },
+    "routing_observation": {
+      "dataset": "f1",
+      "field": "objectives",
+      "stage": "classifier_before_scope_and_evidence_guards"
+    },
+    "status": "no_information"
+  }
+]

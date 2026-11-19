@@ -1,0 +1,264 @@
+{
+  "F3_objectives_read": 18,
+  "F3_topics_read": 18,
+  "HTTP_404": [
+    "N03"
+  ],
+  "actual_human_reviews": 0,
+  "all_F3_records_still_AI_needs_review": 290,
+  "cached_PDF_source_ids": [
+    "S06",
+    "S07"
+  ],
+  "cached_PDFs_downloaded_this_turn": false,
+  "candidate_syllabi_excluded_from_default_retrieval": 106,
+  "captured_public_sources_only": true,
+  "configuration_review": {
+    "dependencies": [
+      "requirements-rag.txt",
+      "requirements-lock.txt"
+    ],
+    "new_offline_kit_created": false,
+    "no_author_machine_dependency": true,
+    "old_kits": "Keep historical bytes; code predates scope/assessment repair. Build new revision only when handoff requested.",
+    "private_env_database_key_required": false,
+    "profile": {
+      "llm_enabled": false,
+      "release": "hus-data-20261111-v4",
+      "retrieval": "lexical"
+    },
+    "public_deploy": "Not requested; would require separate API/secret/load/health/log/rollback acceptance.",
+    "python": "3.11",
+    "self_check": "python -m tools.run_hus_rag --check",
+    "source_entrypoint": "python -m tools.run_hus_rag",
+    "submission_target_not_tested_this_turn": true
+  },
+  "current_A7S_and_L5r3_pins_match": true,
+  "date": "2026-11-13",
+  "f3_fields_reviewed": 8,
+  "f3_records_reviewed": 4,
+  "independent_acceptance": false,
+  "initial_sandbox_network_failures": 9,
+  "limitations": [
+    "Historical scope corroboration is not current validity/adoption proof.",
+    "Bounded F3 content/objectives review is not review of all 174 codes/290 programme profiles.",
+    "Conceptual references are not HUS syllabus evidence; identity/edition/student applicability still needs review.",
+    "No clean other-machine install or public deployment was attempted."
+  ],
+  "new_academic_verifications": 0,
+  "new_official_F3_fields_approved": 0,
+  "new_provider_calls": 0,
+  "physical_PDF_images_rendered": 7,
+  "physical_PDF_images_viewed": 5,
+  "protected_prior_files_unchanged": 2848,
+  "q001_decision": "keep_unknown_no_runtime_relabel_or_gold_regrade",
+  "replay_attempts": {
+    "network": 0,
+    "provider": 0
+  },
+  "replays": {
+    "a7f": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": false,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "a7s": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "l5v3": {
+      "metrics": {
+        "actual_models": {},
+        "baseline_false_refusals": 0,
+        "by_family": {
+          "basic_chat": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "clarification_required": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "f1": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 0
+          },
+          "f2": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 0
+          },
+          "f3": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 0
+          },
+          "missing_evidence": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "opt_in_required": {
+            "cases": 4,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "out_of_scope": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          }
+        },
+        "by_major": {
+          "computer_science": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 0
+          },
+          "data_science": {
+            "cases": 12,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 0
+          },
+          "mathematics": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 0
+          },
+          "mathematics_informatics": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 0
+          }
+        },
+        "cases": 36,
+        "control_status_mismatches": 0,
+        "eligible": 24,
+        "eligible_not_attempted": 0,
+        "errors": {
+          "http_error": 24
+        },
+        "fallback": 24,
+        "fallback_reasons": {
+          "http_error": 24
+        },
+        "guard_skipped": 12,
+        "http_status": {
+          "403": 24
+        },
+        "latency": {
+          "baseline": {
+            "count": 36,
+            "max_ms": 96.31149999040645,
+            "min_ms": 0.07729999197181314,
+            "p50_ms": 25.524800003040582,
+            "p95_ms": 70.06420000107028
+          },
+          "provider": {
+            "count": 24,
+            "max_ms": 835.9189000038896,
+            "min_ms": 656.587599994964,
+            "p50_ms": 721.1753000010503,
+            "p95_ms": 797.3112000036053
+          },
+          "rewrite_fallback": {
+            "count": 24,
+            "max_ms": 840.7621000078507,
+            "min_ms": 657.3277000134112,
+            "p50_ms": 722.4034999962896,
+            "p95_ms": 798.79910001182
+          },
+          "rewrite_used": {
+            "count": 0,
+            "max_ms": null,
+            "min_ms": null,
+            "p50_ms": null,
+            "p95_ms": null
+          }
+        },
+        "provider_requests": 24,
+        "source_audit_failures": 0,
+        "token_counter_unknown_requests": {
+          "completion_tokens": 24,
+          "prompt_tokens": 24,
+          "total_tokens": 24
+        },
+        "token_usage": {
+          "completion_tokens": null,
+          "prompt_tokens": null,
+          "total_tokens": null
+        },
+        "token_usage_known_subtotal": {
+          "completion_tokens": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0
+        },
+        "usage_known_requests": 0,
+        "usage_unknown_requests": 24,
+        "used": 0,
+        "used_rate_among_eligible": 0.0
+      },
+      "new_provider_calls": 0,
+      "new_retrieval_calls": 0,
+      "reproduced": true
+    }
+  },
+  "review_manifest_sha256": "25e05ab52c58b5b15155ed33309cacd1edaacc4e24fb3b5c7800b90448d83162",
+  "reviewer_kind": "ai",
+  "runtime_data_gold_old_review_changed": false,
+  "scope": "Bounded source/validity review; no release/source metadata changes",
+  "stage_commit_push_PR_Actions_deploy": false,
+  "successful_new_HTTP_captures": 11,
+  "tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "DESKTOP-T8GM5MN",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "70",
+    "time": "248.603",
+    "timestamp": "2026-11-13T15:36:07.763779+07:00"
+  }
+}

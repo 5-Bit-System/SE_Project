@@ -1,0 +1,25 @@
+{
+  "status": "local_preparation_passed_remote_permission_pending",
+  "base_head": "f61b0fdf8657848e1d9b27b2340ff4d93fdd815b",
+  "branch": "hus-llm-rag",
+  "proposed_file_count": 6,
+  "patch_applies_to_HEAD_index": true,
+  "scope": [
+    "requirements-rag.txt",
+    "tools/run_hus_rag.py",
+    "tools/run_hus_submission.py",
+    ".github/workflows/hus-rag.yml",
+    "docs/HUS_RAG_QUICKSTART.md",
+    "README.md"
+  ],
+  "windows_API_cases_passed": 20,
+  "menu_items": 2124,
+  "other_local_WIP_excluded": true,
+  "git_index_modified": false,
+  "commit_push_PR_created": false,
+  "github_actions_executed": false,
+  "linux_macos_verified": false,
+  "new_google_calls": 0,
+  "secrets_database_required": false,
+  "authorization": "Asked async for explicit commit/push/PR permission due user condition when requested/no automatic publish; no answer received at receipt time."
+}

@@ -1,0 +1,1272 @@
+{
+  "id": "HN20-013",
+  "request": {
+    "question": "Cho mình biết số tín chỉ của môn Phương pháp nghiên cứu khoa học.",
+    "major": "computer_science",
+    "version": "QD3568-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "lexical_reference",
+    "hybrid_legacy_signature",
+    "hybrid_optimized_signature"
+  ],
+  "modes": {
+    "lexical_reference": {
+      "seconds": 0.056501700018998235,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+        "hus_answer": {
+          "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+          "status": "answered",
+          "dataset": "f2",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f2",
+              "label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf",
+              "quote": "{\"entry_id\": 499, \"curriculum_id\": 3, \"group_key\": \"IV\", \"source_row_number\": 25, \"course_code\": \"MAT1204\", \"credits_in_source\": 3, \"prerequisite_source_text\": \"MAT3507\\nMAT3514\", \"prerequisite_parse_status\": \"normalized\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 10}",
+              "locator": {
+                "entry_id": 499,
+                "curriculum_id": 3,
+                "group_key": "IV",
+                "source_row_number": 25,
+                "course_code": "MAT1204",
+                "credits_in_source": 3,
+                "prerequisite_source_text": "MAT3507\nMAT3514",
+                "prerequisite_parse_status": "normalized",
+                "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "pdf_page": 10
+              },
+              "review_status": "verified",
+              "content_origin": "structured_source_draft",
+              "metadata": {
+                "provenance": {
+                  "package_path": "f2/hus_source.json",
+                  "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+                  "source_comparison": {
+                    "source": {
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+                      "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+                    },
+                    "release_identity": {
+                      "release_id": "hus-data-20261111-v4",
+                      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                      "format": "portable-2.0",
+                      "source_state": "selected_for_local_rag_demo"
+                    }
+                  },
+                  "metadata_source_archive": {
+                    "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+                    "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+                    "documents": [
+                      {
+                        "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+                  },
+                  "source_manifests": [
+                    {
+                      "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "decision": "QD3568-2023",
+                      "cohort_year": 2022,
+                      "pdf_table_pages": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                      ],
+                      "scope": [
+                        "name_en",
+                        "hours"
+                      ],
+                      "status": "verified",
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "review_basis": "explicit_user_attestation",
+                      "review_record_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                    }
+                  ],
+                  "prerequisite_pdf_review": {
+                    "date": "2026-10-20",
+                    "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+                    "scope": "Prerequisite cells only; not full academic-policy certification",
+                    "documents": [
+                      {
+                        "file": "103.pdf",
+                        "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "file": "105.pdf",
+                        "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "file": "104.pdf",
+                        "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "file": "101.pdf",
+                        "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "file": "102.pdf",
+                        "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "reference_only_courses": [
+                      {
+                        "course_code": "MAT2320",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 20
+                      },
+                      {
+                        "course_code": "MAT2321",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 21
+                      },
+                      {
+                        "course_code": "MAT2322",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 24
+                      },
+                      {
+                        "course_code": "MAT2313",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 26
+                      },
+                      {
+                        "course_code": "MAT3340",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 11,
+                        "printed_page": 9,
+                        "source_row_number": 38
+                      }
+                    ],
+                    "unresolved_codes": [
+                      "MAT3402"
+                    ],
+                    "conflicting_courses": [
+                      {
+                        "major_code": "7460101",
+                        "course_code": "MAT3325"
+                      }
+                    ],
+                    "corrected_locators": [
+                      {
+                        "major_code": "7460117",
+                        "course_code": "MAT3327",
+                        "old_pdf_page": 12,
+                        "pdf_page": 11
+                      },
+                      {
+                        "major_code": "7460108",
+                        "course_code": "MAT2034",
+                        "old_pdf_page": 11,
+                        "pdf_page": 10
+                      }
+                    ]
+                  },
+                  "source_row_pointers": [
+                    "/tables/official_curriculum_entries/70"
+                  ],
+                  "catalog_review": {
+                    "basis": "explicit_user_attestation",
+                    "institutional_certification": false,
+                    "reviewed_at": "2026-10-30T20:15:35Z",
+                    "reviewer": "user",
+                    "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                    "status": "verified"
+                  },
+                  "prerequisite_review": {
+                    "authorizes_eligibility": false,
+                    "empty_means_no_prerequisite": false,
+                    "external_codes": [],
+                    "has_conflict": false,
+                    "options": [
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 1,
+                        "prerequisite_course_code": "MAT3507"
+                      },
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 2,
+                        "prerequisite_course_code": "MAT3514"
+                      }
+                    ],
+                    "parse_statuses": [
+                      "normalized"
+                    ],
+                    "raw_variants": [
+                      "MAT3507\nMAT3514"
+                    ],
+                    "status": "catalog_verified"
+                  },
+                  "portable_record": {
+                    "catalog_review": {
+                      "basis": "explicit_user_attestation",
+                      "institutional_certification": false,
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "status": "verified"
+                    },
+                    "citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "course_code": "MAT1204",
+                    "course_name": "Phương pháp nghiên cứu khoa học",
+                    "credits": 3,
+                    "current_offering": null,
+                    "major": "computer_science",
+                    "membership": {
+                      "course_code": "MAT1204",
+                      "course_group": "IV",
+                      "course_type": "required",
+                      "curriculum_id": 3,
+                      "suggested_semester": null
+                    },
+                    "name_en": "Research Methodology",
+                    "official_syllabus": null,
+                    "prerequisites": {
+                      "authorizes_eligibility": false,
+                      "empty_means_no_prerequisite": false,
+                      "external_codes": [],
+                      "has_conflict": false,
+                      "options": [
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 1,
+                          "prerequisite_course_code": "MAT3507"
+                        },
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 2,
+                          "prerequisite_course_code": "MAT3514"
+                        }
+                      ],
+                      "parse_statuses": [
+                        "normalized"
+                      ],
+                      "raw_variants": [
+                        "MAT3507\nMAT3514"
+                      ],
+                      "status": "catalog_verified"
+                    },
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "scope": {
+                      "applicability_status": "catalog_cohort_not_individual_account_binding",
+                      "cohort_year": 2022,
+                      "curriculum_version": "QD3568-2023",
+                      "major": "computer_science",
+                      "program_id": "khmtt_7480113qtd_2022",
+                      "program_variant": "standard",
+                      "validity_status": "as_declared_in_canonical_F2"
+                    },
+                    "source_occurrences": [
+                      {
+                        "course_code": "MAT1204",
+                        "credits_in_source": 3,
+                        "curriculum_id": 3,
+                        "entry_id": 499,
+                        "group_key": "IV",
+                        "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "pdf_page": 10,
+                        "prerequisite_parse_status": "normalized",
+                        "prerequisite_source_text": "MAT3507\nMAT3514",
+                        "source_row_number": 25
+                      }
+                    ]
+                  },
+                  "release_identity": {
+                    "release_id": "hus-data-20261111-v4",
+                    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                    "format": "portable-2.0",
+                    "source_state": "selected_for_local_rag_demo"
+                  }
+                },
+                "course_metadata": {
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "code": "MAT1204",
+                  "values": {
+                    "name_en": "Research Methodology",
+                    "hours": {
+                      "lecture": 15,
+                      "practice": 60,
+                      "self_study": 75
+                    }
+                  },
+                  "field_evidence": {
+                    "name_en": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=name_en",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ],
+                    "hours": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=hours",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ]
+                  }
+                },
+                "source_row_pointer": "/tables/official_curriculum_entries/70"
+              },
+              "evidence_kind": "pdf",
+              "display_label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_id": "canonical_f2:104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "open_url": "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10",
+              "document_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "pdf_page": 10,
+              "pdf_pages": [
+                10
+              ],
+              "availability": "available",
+              "availability_note": "Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+              "media_type": "application/pdf"
+            }
+          ],
+          "facts": {
+            "course_code": "MAT1204",
+            "course_name": "Phương pháp nghiên cứu khoa học",
+            "field": "credits",
+            "value": 3,
+            "review_status": "verified",
+            "prerequisite_status": "present",
+            "has_prerequisite_conflict": false,
+            "unresolved_prerequisites": [],
+            "catalog_review": {
+              "basis": "explicit_user_attestation",
+              "institutional_certification": false,
+              "reviewed_at": "2026-10-30T20:15:35Z",
+              "reviewer": "user",
+              "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "status": "verified"
+            }
+          },
+          "warnings": [
+            "Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 0.07649479998508468,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+        "hus_answer": {
+          "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+          "status": "answered",
+          "dataset": "f2",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f2",
+              "label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf",
+              "quote": "{\"entry_id\": 499, \"curriculum_id\": 3, \"group_key\": \"IV\", \"source_row_number\": 25, \"course_code\": \"MAT1204\", \"credits_in_source\": 3, \"prerequisite_source_text\": \"MAT3507\\nMAT3514\", \"prerequisite_parse_status\": \"normalized\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 10}",
+              "locator": {
+                "entry_id": 499,
+                "curriculum_id": 3,
+                "group_key": "IV",
+                "source_row_number": 25,
+                "course_code": "MAT1204",
+                "credits_in_source": 3,
+                "prerequisite_source_text": "MAT3507\nMAT3514",
+                "prerequisite_parse_status": "normalized",
+                "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "pdf_page": 10
+              },
+              "review_status": "verified",
+              "content_origin": "structured_source_draft",
+              "metadata": {
+                "provenance": {
+                  "package_path": "f2/hus_source.json",
+                  "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+                  "source_comparison": {
+                    "source": {
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+                      "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+                    },
+                    "release_identity": {
+                      "release_id": "hus-data-20261111-v4",
+                      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                      "format": "portable-2.0",
+                      "source_state": "selected_for_local_rag_demo"
+                    }
+                  },
+                  "metadata_source_archive": {
+                    "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+                    "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+                    "documents": [
+                      {
+                        "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+                  },
+                  "source_manifests": [
+                    {
+                      "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "decision": "QD3568-2023",
+                      "cohort_year": 2022,
+                      "pdf_table_pages": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                      ],
+                      "scope": [
+                        "name_en",
+                        "hours"
+                      ],
+                      "status": "verified",
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "review_basis": "explicit_user_attestation",
+                      "review_record_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                    }
+                  ],
+                  "prerequisite_pdf_review": {
+                    "date": "2026-10-20",
+                    "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+                    "scope": "Prerequisite cells only; not full academic-policy certification",
+                    "documents": [
+                      {
+                        "file": "103.pdf",
+                        "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "file": "105.pdf",
+                        "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "file": "104.pdf",
+                        "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "file": "101.pdf",
+                        "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "file": "102.pdf",
+                        "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "reference_only_courses": [
+                      {
+                        "course_code": "MAT2320",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 20
+                      },
+                      {
+                        "course_code": "MAT2321",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 21
+                      },
+                      {
+                        "course_code": "MAT2322",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 24
+                      },
+                      {
+                        "course_code": "MAT2313",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 26
+                      },
+                      {
+                        "course_code": "MAT3340",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 11,
+                        "printed_page": 9,
+                        "source_row_number": 38
+                      }
+                    ],
+                    "unresolved_codes": [
+                      "MAT3402"
+                    ],
+                    "conflicting_courses": [
+                      {
+                        "major_code": "7460101",
+                        "course_code": "MAT3325"
+                      }
+                    ],
+                    "corrected_locators": [
+                      {
+                        "major_code": "7460117",
+                        "course_code": "MAT3327",
+                        "old_pdf_page": 12,
+                        "pdf_page": 11
+                      },
+                      {
+                        "major_code": "7460108",
+                        "course_code": "MAT2034",
+                        "old_pdf_page": 11,
+                        "pdf_page": 10
+                      }
+                    ]
+                  },
+                  "source_row_pointers": [
+                    "/tables/official_curriculum_entries/70"
+                  ],
+                  "catalog_review": {
+                    "basis": "explicit_user_attestation",
+                    "institutional_certification": false,
+                    "reviewed_at": "2026-10-30T20:15:35Z",
+                    "reviewer": "user",
+                    "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                    "status": "verified"
+                  },
+                  "prerequisite_review": {
+                    "authorizes_eligibility": false,
+                    "empty_means_no_prerequisite": false,
+                    "external_codes": [],
+                    "has_conflict": false,
+                    "options": [
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 1,
+                        "prerequisite_course_code": "MAT3507"
+                      },
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 2,
+                        "prerequisite_course_code": "MAT3514"
+                      }
+                    ],
+                    "parse_statuses": [
+                      "normalized"
+                    ],
+                    "raw_variants": [
+                      "MAT3507\nMAT3514"
+                    ],
+                    "status": "catalog_verified"
+                  },
+                  "portable_record": {
+                    "catalog_review": {
+                      "basis": "explicit_user_attestation",
+                      "institutional_certification": false,
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "status": "verified"
+                    },
+                    "citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "course_code": "MAT1204",
+                    "course_name": "Phương pháp nghiên cứu khoa học",
+                    "credits": 3,
+                    "current_offering": null,
+                    "major": "computer_science",
+                    "membership": {
+                      "course_code": "MAT1204",
+                      "course_group": "IV",
+                      "course_type": "required",
+                      "curriculum_id": 3,
+                      "suggested_semester": null
+                    },
+                    "name_en": "Research Methodology",
+                    "official_syllabus": null,
+                    "prerequisites": {
+                      "authorizes_eligibility": false,
+                      "empty_means_no_prerequisite": false,
+                      "external_codes": [],
+                      "has_conflict": false,
+                      "options": [
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 1,
+                          "prerequisite_course_code": "MAT3507"
+                        },
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 2,
+                          "prerequisite_course_code": "MAT3514"
+                        }
+                      ],
+                      "parse_statuses": [
+                        "normalized"
+                      ],
+                      "raw_variants": [
+                        "MAT3507\nMAT3514"
+                      ],
+                      "status": "catalog_verified"
+                    },
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "scope": {
+                      "applicability_status": "catalog_cohort_not_individual_account_binding",
+                      "cohort_year": 2022,
+                      "curriculum_version": "QD3568-2023",
+                      "major": "computer_science",
+                      "program_id": "khmtt_7480113qtd_2022",
+                      "program_variant": "standard",
+                      "validity_status": "as_declared_in_canonical_F2"
+                    },
+                    "source_occurrences": [
+                      {
+                        "course_code": "MAT1204",
+                        "credits_in_source": 3,
+                        "curriculum_id": 3,
+                        "entry_id": 499,
+                        "group_key": "IV",
+                        "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "pdf_page": 10,
+                        "prerequisite_parse_status": "normalized",
+                        "prerequisite_source_text": "MAT3507\nMAT3514",
+                        "source_row_number": 25
+                      }
+                    ]
+                  },
+                  "release_identity": {
+                    "release_id": "hus-data-20261111-v4",
+                    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                    "format": "portable-2.0",
+                    "source_state": "selected_for_local_rag_demo"
+                  }
+                },
+                "course_metadata": {
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "code": "MAT1204",
+                  "values": {
+                    "name_en": "Research Methodology",
+                    "hours": {
+                      "lecture": 15,
+                      "practice": 60,
+                      "self_study": 75
+                    }
+                  },
+                  "field_evidence": {
+                    "name_en": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=name_en",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ],
+                    "hours": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=hours",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ]
+                  }
+                },
+                "source_row_pointer": "/tables/official_curriculum_entries/70"
+              },
+              "evidence_kind": "pdf",
+              "display_label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_id": "canonical_f2:104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "open_url": "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10",
+              "document_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "pdf_page": 10,
+              "pdf_pages": [
+                10
+              ],
+              "availability": "available",
+              "availability_note": "Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+              "media_type": "application/pdf"
+            }
+          ],
+          "facts": {
+            "course_code": "MAT1204",
+            "course_name": "Phương pháp nghiên cứu khoa học",
+            "field": "credits",
+            "value": 3,
+            "review_status": "verified",
+            "prerequisite_status": "present",
+            "has_prerequisite_conflict": false,
+            "unresolved_prerequisites": [],
+            "catalog_review": {
+              "basis": "explicit_user_attestation",
+              "institutional_certification": false,
+              "reviewed_at": "2026-10-30T20:15:35Z",
+              "reviewer": "user",
+              "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "status": "verified"
+            }
+          },
+          "warnings": [
+            "Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_optimized_signature": {
+      "seconds": 0.02935029997024685,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+        "hus_answer": {
+          "reply": "MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)\nSố tín chỉ: 3\n\nTrạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.\n\nNguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+          "status": "answered",
+          "dataset": "f2",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f2",
+              "label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf",
+              "quote": "{\"entry_id\": 499, \"curriculum_id\": 3, \"group_key\": \"IV\", \"source_row_number\": 25, \"course_code\": \"MAT1204\", \"credits_in_source\": 3, \"prerequisite_source_text\": \"MAT3507\\nMAT3514\", \"prerequisite_parse_status\": \"normalized\", \"pdf_document\": \"104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf\", \"pdf_page\": 10}",
+              "locator": {
+                "entry_id": 499,
+                "curriculum_id": 3,
+                "group_key": "IV",
+                "source_row_number": 25,
+                "course_code": "MAT1204",
+                "credits_in_source": 3,
+                "prerequisite_source_text": "MAT3507\nMAT3514",
+                "prerequisite_parse_status": "normalized",
+                "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "pdf_page": 10
+              },
+              "review_status": "verified",
+              "content_origin": "structured_source_draft",
+              "metadata": {
+                "provenance": {
+                  "package_path": "f2/hus_source.json",
+                  "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+                  "source_comparison": {
+                    "source": {
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+                      "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+                    },
+                    "release_identity": {
+                      "release_id": "hus-data-20261111-v4",
+                      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                      "format": "portable-2.0",
+                      "source_state": "selected_for_local_rag_demo"
+                    }
+                  },
+                  "metadata_source_archive": {
+                    "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+                    "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+                    "documents": [
+                      {
+                        "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+                  },
+                  "source_manifests": [
+                    {
+                      "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "decision": "QD3568-2023",
+                      "cohort_year": 2022,
+                      "pdf_table_pages": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13
+                      ],
+                      "scope": [
+                        "name_en",
+                        "hours"
+                      ],
+                      "status": "verified",
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "review_basis": "explicit_user_attestation",
+                      "review_record_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                    }
+                  ],
+                  "prerequisite_pdf_review": {
+                    "date": "2026-10-20",
+                    "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+                    "scope": "Prerequisite cells only; not full academic-policy certification",
+                    "documents": [
+                      {
+                        "file": "103.pdf",
+                        "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                      },
+                      {
+                        "file": "105.pdf",
+                        "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                      },
+                      {
+                        "file": "104.pdf",
+                        "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                      },
+                      {
+                        "file": "101.pdf",
+                        "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                      },
+                      {
+                        "file": "102.pdf",
+                        "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                      }
+                    ],
+                    "reference_only_courses": [
+                      {
+                        "course_code": "MAT2320",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 20
+                      },
+                      {
+                        "course_code": "MAT2321",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 21
+                      },
+                      {
+                        "course_code": "MAT2322",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 24
+                      },
+                      {
+                        "course_code": "MAT2313",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 10,
+                        "printed_page": 8,
+                        "source_row_number": 26
+                      },
+                      {
+                        "course_code": "MAT3340",
+                        "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                        "pdf_page": 11,
+                        "printed_page": 9,
+                        "source_row_number": 38
+                      }
+                    ],
+                    "unresolved_codes": [
+                      "MAT3402"
+                    ],
+                    "conflicting_courses": [
+                      {
+                        "major_code": "7460101",
+                        "course_code": "MAT3325"
+                      }
+                    ],
+                    "corrected_locators": [
+                      {
+                        "major_code": "7460117",
+                        "course_code": "MAT3327",
+                        "old_pdf_page": 12,
+                        "pdf_page": 11
+                      },
+                      {
+                        "major_code": "7460108",
+                        "course_code": "MAT2034",
+                        "old_pdf_page": 11,
+                        "pdf_page": 10
+                      }
+                    ]
+                  },
+                  "source_row_pointers": [
+                    "/tables/official_curriculum_entries/70"
+                  ],
+                  "catalog_review": {
+                    "basis": "explicit_user_attestation",
+                    "institutional_certification": false,
+                    "reviewed_at": "2026-10-30T20:15:35Z",
+                    "reviewer": "user",
+                    "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                    "status": "verified"
+                  },
+                  "prerequisite_review": {
+                    "authorizes_eligibility": false,
+                    "empty_means_no_prerequisite": false,
+                    "external_codes": [],
+                    "has_conflict": false,
+                    "options": [
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 1,
+                        "prerequisite_course_code": "MAT3507"
+                      },
+                      {
+                        "course_code": "MAT1204",
+                        "curriculum_id": 3,
+                        "group_no": 2,
+                        "prerequisite_course_code": "MAT3514"
+                      }
+                    ],
+                    "parse_statuses": [
+                      "normalized"
+                    ],
+                    "raw_variants": [
+                      "MAT3507\nMAT3514"
+                    ],
+                    "status": "catalog_verified"
+                  },
+                  "portable_record": {
+                    "catalog_review": {
+                      "basis": "explicit_user_attestation",
+                      "institutional_certification": false,
+                      "reviewed_at": "2026-10-30T20:15:35Z",
+                      "reviewer": "user",
+                      "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                      "status": "verified"
+                    },
+                    "citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "course_code": "MAT1204",
+                    "course_name": "Phương pháp nghiên cứu khoa học",
+                    "credits": 3,
+                    "current_offering": null,
+                    "major": "computer_science",
+                    "membership": {
+                      "course_code": "MAT1204",
+                      "course_group": "IV",
+                      "course_type": "required",
+                      "curriculum_id": 3,
+                      "suggested_semester": null
+                    },
+                    "name_en": "Research Methodology",
+                    "official_syllabus": null,
+                    "prerequisites": {
+                      "authorizes_eligibility": false,
+                      "empty_means_no_prerequisite": false,
+                      "external_codes": [],
+                      "has_conflict": false,
+                      "options": [
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 1,
+                          "prerequisite_course_code": "MAT3507"
+                        },
+                        {
+                          "course_code": "MAT1204",
+                          "curriculum_id": 3,
+                          "group_no": 2,
+                          "prerequisite_course_code": "MAT3514"
+                        }
+                      ],
+                      "parse_statuses": [
+                        "normalized"
+                      ],
+                      "raw_variants": [
+                        "MAT3507\nMAT3514"
+                      ],
+                      "status": "catalog_verified"
+                    },
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "scope": {
+                      "applicability_status": "catalog_cohort_not_individual_account_binding",
+                      "cohort_year": 2022,
+                      "curriculum_version": "QD3568-2023",
+                      "major": "computer_science",
+                      "program_id": "khmtt_7480113qtd_2022",
+                      "program_variant": "standard",
+                      "validity_status": "as_declared_in_canonical_F2"
+                    },
+                    "source_occurrences": [
+                      {
+                        "course_code": "MAT1204",
+                        "credits_in_source": 3,
+                        "curriculum_id": 3,
+                        "entry_id": 499,
+                        "group_key": "IV",
+                        "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "pdf_page": 10,
+                        "prerequisite_parse_status": "normalized",
+                        "prerequisite_source_text": "MAT3507\nMAT3514",
+                        "source_row_number": 25
+                      }
+                    ]
+                  },
+                  "release_identity": {
+                    "release_id": "hus-data-20261111-v4",
+                    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                    "format": "portable-2.0",
+                    "source_state": "selected_for_local_rag_demo"
+                  }
+                },
+                "course_metadata": {
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "code": "MAT1204",
+                  "values": {
+                    "name_en": "Research Methodology",
+                    "hours": {
+                      "lecture": 15,
+                      "practice": 60,
+                      "self_study": 75
+                    }
+                  },
+                  "field_evidence": {
+                    "name_en": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=name_en",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ],
+                    "hours": [
+                      {
+                        "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "locator": "PDF page=10; printed page=8; row=25; code=MAT1204; column=hours",
+                        "method": "transcription",
+                        "status": "draft_unverified",
+                        "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+                      }
+                    ]
+                  }
+                },
+                "source_row_pointer": "/tables/official_curriculum_entries/70"
+              },
+              "evidence_kind": "pdf",
+              "display_label": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "source_id": "canonical_f2:104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "open_url": "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10",
+              "document_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "pdf_page": 10,
+              "pdf_pages": [
+                10
+              ],
+              "availability": "available",
+              "availability_note": "Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+              "media_type": "application/pdf"
+            }
+          ],
+          "facts": {
+            "course_code": "MAT1204",
+            "course_name": "Phương pháp nghiên cứu khoa học",
+            "field": "credits",
+            "value": 3,
+            "review_status": "verified",
+            "prerequisite_status": "present",
+            "has_prerequisite_conflict": false,
+            "unresolved_prerequisites": [],
+            "catalog_review": {
+              "basis": "explicit_user_attestation",
+              "institutional_certification": false,
+              "reviewed_at": "2026-10-30T20:15:35Z",
+              "reviewer": "user",
+              "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+              "status": "verified"
+            }
+          },
+          "warnings": [
+            "Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

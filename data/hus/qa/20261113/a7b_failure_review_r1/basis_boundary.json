@@ -1,0 +1,26 @@
+{
+  "kind": "direct_guard_diagnostic_not_regression",
+  "new_search_or_answer": false,
+  "probes": [
+    {
+      "kept_ids": [
+        "bdc3538f018be0658be658d8ccaf6e8e"
+      ],
+      "probe": "positive_same_PDF_edition_variant",
+      "question": "Theo bản PDF edition 2015 hệ chuẩn ngành Toán học, khả năng học tiếp dựa trên những kiến thức và kỹ năng nào?"
+    },
+    {
+      "kept_ids": [],
+      "probe": "synthetic_no_explicit_basis"
+    },
+    {
+      "kept_ids": [],
+      "probe": "synthetic_negated_basis"
+    },
+    {
+      "kept_ids": [],
+      "probe": "wrong_edition"
+    }
+  ],
+  "source_runtime_unchanged": true
+}

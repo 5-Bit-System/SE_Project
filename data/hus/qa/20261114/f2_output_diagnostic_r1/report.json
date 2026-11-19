@@ -1,0 +1,44 @@
+{
+  "Google_calls": 0,
+  "backend_key_read": false,
+  "code_review": "Fresh-context reviewer: no substantive findings; minor model-echo test gap addressed.",
+  "confirmed_code_gap": "F2 parser/schema/coverage/result and credential guard discarded validation substage.",
+  "content_review_not_changed": true,
+  "decisions_unchanged_in_synthetic_differential": 61,
+  "default_changed": false,
+  "expected_runtime_changed": [
+    "app/hus/llm/adapter.py",
+    "app/hus/llm/diagnostics.py",
+    "app/hus/llm/output.py"
+  ],
+  "historical_case": "SV30-003",
+  "historical_code": "invalid_output",
+  "historical_limits": "No raw response retained; do not reconstruct a specific JSON/schema/credential violation.",
+  "historical_metadata": {
+    "completion_tokens": 255,
+    "content_chars": 695,
+    "fallback_credit_value": 4,
+    "finish_reason": "stop",
+    "http_status": 200
+  },
+  "historical_unchanged": true,
+  "historical_validation_branch": "unknown",
+  "kind": "offline_F2_fixed_label_diagnostic_not_historical_root_cause_recovery",
+  "new_diagnostic": "Fixed facts_issue labels bound to output_json/schema/coverage/budget stages; no raw values.",
+  "new_test": "tests/hus/llm/test_f2_output_diagnostic.py",
+  "next": "If new live call is explicitly budgeted, freeze current pins/prompt and record only safe branch metadata; no old run edits or retry of spent budgets.",
+  "old_files_unchanged": 3069,
+  "old_pins_now_stale": true,
+  "schema_prompt_facts_or_acceptance_policy_relaxed": false,
+  "synthetic_differential_accepted": 4,
+  "synthetic_differential_rejected": 57,
+  "verification": {
+    "final_targeted_regressions_passed": 29,
+    "llm_suite_collected_before_minor_model_echo_test_parameter": true,
+    "llm_suite_passed": 668,
+    "llm_suite_seconds": 191.19,
+    "new_regressions_passed": 29,
+    "ruff_four_files": "passed",
+    "warning": "One existing Starlette/httpx deprecation. Groups overlap; do not sum."
+  }
+}

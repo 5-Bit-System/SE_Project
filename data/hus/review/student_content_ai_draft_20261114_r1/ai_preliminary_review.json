@@ -1,0 +1,842 @@
+[
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ nhóm nơi làm việc và giảng dạy trong quote2015. Xuống dòng giữa câu và citation dày gây khó đọc; chưa xác minh hiệu lực hiện tại.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-001",
+    "observation_sha256": "d84a9c82164aabe2207a4e66acdaed606d27e0a71dc93c58d4a4dbbbb11d3c1b",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ vai trò kiến thức/kỹ năng làm tiền đề học tiếp và điều kiện nhu cầu cá nhân/công việc. Nên nối dòng trình bày; không suy thành cam kết tuyển cao học.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-002",
+    "observation_sha256": "07c4ac47faaf439c4d3a16068dac3458ae9afe44dfd080dc454fdfceb2478c9f",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Đáp án hiển thị đúng4 tín chỉ và PDFtrang9. Đây vẫn là fallback trong run gốc; lần xác nhận prompt mới dùng Gemini được ghi riêng, không thay ô Gemini_used của dòng này.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-003",
+    "observation_sha256": "5ee96a4162f4493b6046b66b00f836e55af380e9bfc9fd10aeb426361344c571",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Nguồn tiên quyết null; trả chưa rõ và không kết luận không có tiên quyết hoặc đủ điều kiện đăng ký là phù hợp.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-004",
+    "observation_sha256": "f26c7424848fcb1ccfaca09f07e085a939c92cc7175780ba0d6ad444c7bf7381",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Rà soát chọn unit F3 và đọc lại ví dụ trước khi sửa",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức; cần làm rõ giả định/wording của ví dụ",
+      "ai_du_y": "Có đủ chủ đề được hỏi; dư các unit/tổng quan khác",
+      "ai_dung_y": "Có phần đúng yêu cầu nhưng phạm vi trả lời rộng hơn câu hỏi",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Có đủ phần Ma trận và ánh xạ tuyến tính[2], nhưng thêm tổng quan[1] và Hạt nhân/ảnh/hạng[3]. Ví dụ phép chiếu tuyến tính nên làm rõ mặt phẳng qua gốc; hồ sơ AI hiện cũng chưa nêu giả định này. Cần nhóm xem lại, chưa sửa dữ liệu.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-005",
+    "observation_sha256": "e128d9edf094aa31e5de14b6bd707d4d3017888a1c0f590e785cc3a570d697f3",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ5 mục tiêu trong hồ sơ AI và cảnh báo tham khảo; phù hợp câu hỏi mục tiêu, chưa là chuẩn đầu ra chính thức.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-006",
+    "observation_sha256": "c1980b05a2fe531a04d085d92ed67707dce4d9b26db0fcf37d39e71b8a017615",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Đủ hai nhóm làm việc/giảng dạy theo quote2015. Cụm “các việc nghiên cứu” có ngay trong nguồn, không coi là model tự thêm; nên đối chiếu bản gốc trước khi sửa.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-007",
+    "observation_sha256": "5f57e3af8169019bf62e6947725a20f5892b7f6520c550d63c04b44b0b55c653",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ điều kiện/nhu cầu và bậc Thạc sĩ, Tiến sĩ theo nguồn; không biến khả năng học tiếp thành bảo đảm nhập học.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-008",
+    "observation_sha256": "7eca52b3fb6ea88272e9106191f2bd9092da988b1591404574363c80778c5738",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Tên/mã MAT1202 và3 tín chỉ khớp dòng nguồn QD3567-2023, trangPDF10; trạng thái draft_unverified được giữ.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-009",
+    "observation_sha256": "99e366facdde30c06f4ef3d96c0787f8f9f870a29bfb44e8be651a68e83a2810",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ nguyên tiên quyết MAT2505 và cảnh báo không kết luận điều kiện đăng ký; không thêm môn hoặc diễn giải luật đăng ký.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-010",
+    "observation_sha256": "99812da6fba496fae5f77cf1070a77f49f309ecb3a6d03d04c0ed35250cb3ed7",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Rà soát chọn unit F3 cho câu chỉ rõ chủ đề",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Có đủ chủ đề được hỏi; dư các unit/tổng quan khác",
+      "ai_dung_y": "Có phần đúng yêu cầu nhưng phạm vi trả lời rộng hơn câu hỏi",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Phần Giao diện và phân chia trách nhiệm[3] đúng yêu cầu, nhưng kèm tổng quan và3 unit khác. Có đủ ý được hỏi nhưng quá rộng; ưu tiên chỉ chọn unit được gọi tên.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-011",
+    "observation_sha256": "523c55022dda437331e12096e17b40fa1253f6dbae50625cd21fb1a1145fc0ee",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ4 mục tiêu OOP trong quoteAI; không gán thành đề cương/chuẩn đầu ra chính thức.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-012",
+    "observation_sha256": "f674b42bb6cf8c37120c6d4c8e31d49e10607a18a178f072e253870e9efb3797",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Đủ bốn hướng kỹ thuật, dự ánCNTT, nghiên cứu và giảng dạy theo DOCX2023; giữ điều kiện/mức độ trong nguồn và cảnh báo chưa xác minh hiệu lực.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-013",
+    "observation_sha256": "8b209d67dbaa942057ba46945a5ba873d7e3d1f389e946fe5c441c6604f6ec9c",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ điều kiện/nhu cầu, bậc học và các lĩnh vực học tiếp trong nguồn2023; không khẳng định đủ điều kiện của từng sinh viên.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-014",
+    "observation_sha256": "58d85bf98f5bebf188114d331466a68d0dde160e9b10a9ff5956f0d00d0716a9",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "MAT1204 có3 tín chỉ khớp nguồn QD3568-2023/PDFtrang10. verified được giải thích là sign-off dự án, không phải chứng nhận của trường.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-015",
+    "observation_sha256": "44312e86b9524f90b5d0ecf22ce645e44ebd6942b7ea7c88a45b316c8f363ef7",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Hai dòng MAT3507/MAT3514 giữ đúng raw nguồn. Không tự chuyển xuống dòng thành luật AND/OR hoặc xét đủ điều kiện cho tài khoản.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-016",
+    "observation_sha256": "28ade682cb73346cc1a2f86277f433e6cb51db4d5559d27e977e47f1c3497927",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Rà soát chọn unit F3 và đọc lại ví dụ trước khi sửa",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức; cần làm rõ giả định/wording của ví dụ",
+      "ai_du_y": "Có đủ chủ đề được hỏi; dư các unit/tổng quan khác",
+      "ai_dung_y": "Có phần đúng yêu cầu nhưng phạm vi trả lời rộng hơn câu hỏi",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Đúng phần Tài liệu và cấu trúc bằng chứng[3] nhưng trả thêm tổng quan và3 unit khác. Ví dụ hai nghiên cứu khác kết quả “vì” khác nhóm/cách đo nên nêu rõ là giả thiết minh họa hoặc khả năng, không tự coi là chứng minh nhân quả.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-017",
+    "observation_sha256": "d460543ed302e78e191a1f59045b67a27017c270eb256d2181eaf6806f2b667b",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ4 mục tiêu nghiên cứu/phạm vi/tài liệu/thiết kế/truy vết trong hồ sơAI; cảnh báo tham khảo còn nguyên.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-018",
+    "observation_sha256": "3370437eab662531e5d9b03f46648f6f73e7a1d641ca4fffe7a2a2583d09adad",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Đủ4 nhóm nghề nghiệp và điều kiện “tùy theo năng lực”. Hệ/edition nguồn unknown vẫn giữ; lỗi chữ “dữ iệu” có trong nguồn, cần review nguồn trước khi chỉnh.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-019",
+    "observation_sha256": "0c959e564c83dcaf4460f9004d42b510b4b01e9e10c5472bdd49837993189a3d",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ khả năng học sau đại học/nghiên cứu/ứng dụng theo quote. Các mô tả “uy tín” là lời nguồn, không phải kiểm chứng độc lập; scope nguồn vẫn unknown.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-020",
+    "observation_sha256": "e6a347dce60ada9d0bb3e7fa31e66fdf9d6550cd99bd8df0bdd0d840efad47fa",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "MAT2034 có3 tín chỉ, khớp dòng nguồn QD3569-2023/PDFtrang10; giữ trạng thái draft_unverified.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-021",
+    "observation_sha256": "296e03b9801f1addd2aa983d4bbacb5466a762d6326d60ffb8c6ab90ffff34f9",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Quote và ID nguồn đúng bản dữ liệu; chưa review toàn tài liệu gốc",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp dữ kiện/quote đã lưu; không xác nhận hiệu lực học vụ",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ nguyên MAT2502/MAT2403 theo raw nguồn và cảnh báo; không suy thành đánh giá đăng ký cá nhân.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-022",
+    "observation_sha256": "c91055e4b84cd3edd0ccc434c18dcc7bc1a365251ebe6d97ef112e8e0b3dadcc",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Rà soát chọn unit F3 cho câu chỉ rõ chủ đề",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Có đủ chủ đề được hỏi; dư các unit/tổng quan khác",
+      "ai_dung_y": "Có phần đúng yêu cầu nhưng phạm vi trả lời rộng hơn câu hỏi",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Phần Nội suy và xấp xỉ hàm[3] đủ ý yêu cầu nhưng thêm tổng quan, Nghiệm phi tuyến[2] và Tích phân số[4]. Không thiếu phần được hỏi, nhưng cần thu gọn phạm vi bằng chứng.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-023",
+    "observation_sha256": "607e732a4aca0662e4160405091e0826fc95dc6121a2377ad4e870180df4515b",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Đúng quote/ID, giữ nhãn kiến thức AI; không phải citation chính thức HUS",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Khớp hồ sơ AI; chưa xác nhận học thuật hoặc đề cương chính thức",
+      "ai_du_y": "Đủ ý yêu cầu so với quote/expectation đã lưu",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Giữ đủ5 mục tiêu giải tích số theo quoteAI; có nhãn/cảnh báo tham khảo, chưa xác nhận học thuật/đề cương.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-024",
+    "observation_sha256": "6be503d8b83377660e198c100dbbfdfaaa50cf93cbd525676244fac1f1a0f999",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Chào hỏi đúng ngữ cảnh, không cần nguồn và không gọi model.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-025",
+    "observation_sha256": "f8fdaf676c84a7755144868e8ee133ee5ef91a27b95fdfbfdcfc5dcfc6715953",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Chào kèm lời chúc được xử lý như hội thoại cơ bản, không gọi model hoặc tạo nguồn giả.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-026",
+    "observation_sha256": "3a14856e1e8718562b56bd1ead95e22ae937320b519a51d35ef85f30ab04fea3",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Yêu cầu làm rõ khi thiếu mã/tên môn là đúng. Phiên bản đã có trong request nên lời nhắc có thể chỉ hỏi phần thông tin còn thiếu.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-027",
+    "observation_sha256": "7fcced8a44413fac82a334635028792942006b11a72ac4f41674ad33d6671fa8",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Thông báo không có môn MAT9999 trong đúng ngành/phiên bản đã chọn; không suy rộng thành không tồn tại ở mọi chương trình, không tạo tín chỉ.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-028",
+    "observation_sha256": "fbdec039f7e49f5b8e19d5cc832a4d5bd29f7bc3464c16f264b4a224c067a55c",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Yêu cầu bật quyền F3 trước khi trả nội dung tham khảo; không tự cho phép AI hoặc gọi Gemini.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-029",
+    "observation_sha256": "081e87253360f0a345a783e6196e3bec757c39709d5696703fdd810d372fd27c",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  },
+  {
+    "date": "2026-11-14",
+    "findings": {
+      "ai_citation": "Không cần citation cho control này; không tạo nguồn",
+      "ai_de_xuat": "Nhóm xác nhận sau khi đọc đáp án và nguồn",
+      "ai_du_kien": "Không tự tạo dữ kiện hoặc thực hiện hành động",
+      "ai_du_y": "Đủ cho chào hỏi/làm rõ/giới hạn phạm vi",
+      "ai_dung_y": "Đúng yêu cầu theo dữ liệu đã lưu",
+      "ai_ngay_review": "2026-11-14",
+      "ai_nhan_xet": "Từ chối thao tác chuyển tiền đúng phạm vi chatbot; không gọi model hoặc thực hiện hành động.",
+      "ai_reviewer": "Codex (AI)"
+    },
+    "id": "SV30-030",
+    "observation_sha256": "e108d6efeef823ca6e5babc38378519cad19c6ed4afed167331deff69ead2b7f",
+    "review_scope": "Preliminary exact-response/source-snapshot reading; no independent academic sign-off.",
+    "reviewer": "Codex (AI)",
+    "reviewer_kind": "ai",
+    "team_review": {
+      "citations_support_answer": null,
+      "complete": null,
+      "date": null,
+      "facts_correct": null,
+      "meaning_correct": null,
+      "notes": "",
+      "reviewer": "",
+      "status": "pending"
+    }
+  }
+]

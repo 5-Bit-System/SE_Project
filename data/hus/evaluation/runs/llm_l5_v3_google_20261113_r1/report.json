@@ -1,0 +1,163 @@
+{
+  "actual_human_reviews": 0,
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "collection_complete": true,
+  "holdout_eligible": false,
+  "kind": "measurement",
+  "latency_definition": "Local baseline; incremental validated rewrite/provider wall time excludes evaluation pacing. Not production SLO.",
+  "max_calls": 24,
+  "measurement_id": "28f5b4b2e93c48a398b37b7c76401eb9",
+  "metrics": {
+    "actual_models": {},
+    "baseline_false_refusals": 0,
+    "by_family": {
+      "basic_chat": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "clarification_required": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "f1": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 0
+      },
+      "f2": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 0
+      },
+      "f3": {
+        "cases": 8,
+        "eligible": 8,
+        "provider_requests": 8,
+        "used": 0
+      },
+      "missing_evidence": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "opt_in_required": {
+        "cases": 4,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      },
+      "out_of_scope": {
+        "cases": 2,
+        "eligible": 0,
+        "provider_requests": 0,
+        "used": 0
+      }
+    },
+    "by_major": {
+      "computer_science": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 0
+      },
+      "data_science": {
+        "cases": 12,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 0
+      },
+      "mathematics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 0
+      },
+      "mathematics_informatics": {
+        "cases": 8,
+        "eligible": 6,
+        "provider_requests": 6,
+        "used": 0
+      }
+    },
+    "cases": 36,
+    "control_status_mismatches": 0,
+    "eligible": 24,
+    "eligible_not_attempted": 0,
+    "errors": {
+      "http_error": 24
+    },
+    "fallback": 24,
+    "fallback_reasons": {
+      "http_error": 24
+    },
+    "guard_skipped": 12,
+    "http_status": {
+      "403": 24
+    },
+    "latency": {
+      "baseline": {
+        "count": 36,
+        "max_ms": 96.31149999040645,
+        "min_ms": 0.07729999197181314,
+        "p50_ms": 25.524800003040582,
+        "p95_ms": 70.06420000107028
+      },
+      "provider": {
+        "count": 24,
+        "max_ms": 835.9189000038896,
+        "min_ms": 656.587599994964,
+        "p50_ms": 721.1753000010503,
+        "p95_ms": 797.3112000036053
+      },
+      "rewrite_fallback": {
+        "count": 24,
+        "max_ms": 840.7621000078507,
+        "min_ms": 657.3277000134112,
+        "p50_ms": 722.4034999962896,
+        "p95_ms": 798.79910001182
+      },
+      "rewrite_used": {
+        "count": 0,
+        "max_ms": null,
+        "min_ms": null,
+        "p50_ms": null,
+        "p95_ms": null
+      }
+    },
+    "provider_requests": 24,
+    "source_audit_failures": 0,
+    "token_counter_unknown_requests": {
+      "completion_tokens": 24,
+      "prompt_tokens": 24,
+      "total_tokens": 24
+    },
+    "token_usage": {
+      "completion_tokens": null,
+      "prompt_tokens": null,
+      "total_tokens": null
+    },
+    "token_usage_known_subtotal": {
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "total_tokens": 0
+    },
+    "usage_known_requests": 0,
+    "usage_unknown_requests": 24,
+    "used": 0,
+    "used_rate_among_eligible": 0.0
+  },
+  "min_interval_seconds": 5,
+  "prepared_sha256": "9a820fa550f868f72d862a428c153e84521e6a9568a1ffdfd15e5add16fdaa1b",
+  "recommended_enabled": false,
+  "requested_model": "gemini-3.5-flash-lite",
+  "schema_version": "hus-llm-paired-1.0",
+  "semantic_review": "pending",
+  "transport": "live_google"
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "hus-checkout-ci-preparation-1.0",
+  "files": {
+    "candidate_proof.json": "6e9c9d9748e2c8e1e98844477cda857a92ee7586e117786fcff364403dff65df",
+    "publication_plan.json": "fbf6ef94f6fd5e387111a2f09f1230d7c69f83801fca4e34dbe69d0d87e8bfad",
+    "report.json": "d619c446a430017cef0fd078c139fae177852129ba594b5d6139b13e598a4780"
+  }
+}

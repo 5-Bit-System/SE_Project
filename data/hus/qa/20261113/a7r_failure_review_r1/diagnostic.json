@@ -1,0 +1,2567 @@
+{
+  "a7r_used_for_diagnostic_repair_design": true,
+  "actual_human_reviews": 0,
+  "blocked_attempts": {
+    "answer": 0,
+    "provider": 0,
+    "search": 0,
+    "socket": 0
+  },
+  "cases": [
+    {
+      "cached_hits": [
+        {
+          "id": "a434674194e7e8479130328b923bf7a3",
+          "variant": "high_quality",
+          "version": "2019"
+        },
+        {
+          "id": "f7d2bb473e6aa0795c134ad738ff5d66",
+          "variant": "high_quality",
+          "version": "unknown"
+        },
+        {
+          "id": "4ec16dfc23b4f24c36223e80f48a874e",
+          "variant": "high_quality",
+          "version": "unknown"
+        },
+        {
+          "id": "414a56225bceb83e8de5de2eed9e9d25",
+          "variant": "high_quality",
+          "version": "unknown"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Bản PDF edition 2019 hệ CLC của KHMTTT nêu toàn bộ mục tiêu đào tạo như thế nào?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q002-source"
+        ],
+        "expected_answer": "2. Mục tiêu của chương trình đào tạo\nMục tiêu chung của chương trình Máy tính và Khoa học Thông tin chất lượng\ncao (MT&KHTT CLC) là đào tạo nguồn nhân lực chất lượng cao, có tính cạnh tranh\ncao trên thị trường lao động trong thời kì hội nhập kinh tế khu vực và thế giới.\nChương trình MT&KHTT CLC là chương trình đào tạo được đầu tư ưu tiên với\nmôi trường quản lý, giảng dạy, học tập hiện đại tiên tiến hiệu quả, cùng với đội ngũ\ngiảng viên và trợ giảng giỏi, nhiệt tình, áp dụng phương pháp dạy - học tiên tiến, có sự\ntham gia của các chuyên gia và doanh nghiệp thuộc lĩnh vực MT&KHTT trong quá\n4\n\n<!-- Page 5 -->\ntrình đào tạo, qua đó nâng cao khả năng làm việc thực tế và cơ hội tuyển dụng cho\nsinh viên sau tốt nghiệp. Đồng thời, sinh viên được trau dồi và nâng cao trình độ tiếng\nAnh trong quá trình đào tạo. Chương trình đào tạo được thiết kế linh hoạt giúp sinh\nviên chủ động và phát huy sáng tạo trong quá trình học. Từ đó, đảm bảo được mục tiêu\nđào tạo cụ thể như sau:\n+ Chương trình đào tạo MT&KHTT CLC trang bị cho sinh viên kiến thức, trình\nđộ chuyên môn tốt, các kiến thức và kỹ năng sâu về MT&KHTT, khả năng thực hành\nnghề nghiệp nhằm đảm bảo cho sinh viên thích ứng cao với môi trường làm việc.\n+ Nâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn\ncho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương\nđương bậc 4 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong\ngiao tiếp và có khả năng giao tiếp trong trao đổi chuyên môn.\n+ Nâng cao kĩ năng thực hành, thực tập; có khả năng nắm bắt, tiếp cận và bước\nđầu ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp.\n+ Rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q002",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "a434674194e7e8479130328b923bf7a3"
+            ],
+            "missing_body_words": [
+              "bo",
+              "pdf"
+            ],
+            "missing_purpose_words": [
+              "bo",
+              "pdf"
+            ],
+            "purpose_density": 0.3451086956521739,
+            "scope": [
+              "f1",
+              "computer_science",
+              "2019",
+              "high_quality",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1c16ddf8a6f1f409",
+              "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+              "evidence/f1/1c16ddf8a6f1f409.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "ban pdf cua khmttt neu toan bo muc tieu dao tao nhu the nao",
+        "specific_words": [
+          "bo",
+          "pdf"
+        ],
+        "variants": [
+          "high_quality"
+        ],
+        "versions": [
+          "2019"
+        ]
+      },
+      "question_id": "A7R-Q002",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Bản PDF edition 2019 hệ CLC của KHMTTT nêu toàn bộ mục tiêu đào tạo như thế nào?",
+        "version": "QD3568-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "computer_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+          "variant": "standard",
+          "version": "2023"
+        },
+        {
+          "id": "b45d00fe80539319273406967ae12a65",
+          "variant": "standard",
+          "version": "2015"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "further_study"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Tại edition 2015 hệ chuẩn KHMTTT, nguồn ghi khả năng học tiếp kèm điều kiện gì?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q003-source"
+        ],
+        "expected_answer": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực\nchuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "question_id": "A7R-Q003",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "b45d00fe80539319273406967ae12a65"
+            ],
+            "missing_body_words": [
+              "kem"
+            ],
+            "missing_purpose_words": [
+              "kem"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "computer_science",
+              "2015",
+              "standard",
+              "further_study",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1e3ad5f9915aa051",
+              "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+              "evidence/f1/1e3ad5f9915aa051.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "tai khmttt nguon ghi kha nang hoc tiep kem dieu kien gi",
+        "specific_words": [
+          "kem"
+        ],
+        "variants": [
+          "standard"
+        ],
+        "versions": [
+          "2015"
+        ]
+      },
+      "question_id": "A7R-Q003",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Tại edition 2015 hệ chuẩn KHMTTT, nguồn ghi khả năng học tiếp kèm điều kiện gì?",
+        "version": "QD3568-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "computer_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "further_study",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Theo danh mục ngành KHMTTT, tên tiếng Việt của mã học phần MAT2403 là gì?",
+        "version": "QD3568-2023"
+      },
+      "gold": {
+        "category": "f2",
+        "evidence_ids": [
+          "A7R-Q006-source"
+        ],
+        "expected_answer": "Phương trình vi phân",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "name": "Phương trình vi phân"
+        },
+        "expected_field": "name",
+        "expected_status": "answered",
+        "question_id": "A7R-Q006",
+        "v2_expected_facts": {
+          "course_code": "MAT2403",
+          "field": "name",
+          "prerequisite_status": "present",
+          "value": "Phương trình vi phân"
+        }
+      },
+      "question_id": "A7R-Q006",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Theo danh mục ngành KHMTTT, tên tiếng Việt của mã học phần MAT2403 là gì?",
+        "version": "QD3568-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "computer_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3568-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "701e6d3d846d3609fac0c02efee16993",
+          "variant": "standard",
+          "version": "QD3568-2023"
+        }
+      ],
+      "current_router_probe": [
+        "f3",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": true,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "computer_science",
+        "program_variant": null,
+        "question": "Học phần MAT1205E có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3568-2023"
+      },
+      "gold": {
+        "category": "f3",
+        "evidence_ids": [
+          "A7R-Q009-source"
+        ],
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Giải nghĩa thuật ngữ khoa học máy tính dựa trên cụm từ và ngữ cảnh.\n- Đọc mô tả API để xác định đầu vào, đầu ra, điều kiện và khả năng lỗi.\n- Tóm tắt cơ chế kỹ thuật bằng trình tự và quan hệ nhân quả rõ ràng.\n- Trình bày lựa chọn thiết kế bằng tiếng Anh với lý do, đánh đổi và mức độ chắc chắn phù hợp.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q009",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "701e6d3d846d3609fac0c02efee16993"
+            ],
+            "missing_body_words": [
+              "ho",
+              "so"
+            ],
+            "missing_purpose_words": [
+              "ho",
+              "so"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "computer_science",
+              "QD3568-2023",
+              "standard",
+              "objectives",
+              "MAT1205E",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:khmtt_7480113qtd_2022:MAT1205E",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat1205e co cac muc tieu nao trong ho so ai tham khao da luu",
+        "specific_words": [
+          "ho",
+          "so"
+        ],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q009",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Học phần MAT1205E có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3568-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f3",
+          "facts": {},
+          "generated_reference_allowed": true,
+          "major": "computer_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": "QD3568-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f3",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "data_science",
+        "program_variant": null,
+        "question": "Theo edition chưa xác định của KHDL, các chức danh lập trình viên và quản trị dự án được liệt kê kèm điều kiện gì?",
+        "version": "QD3569-2023"
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q014-source"
+        ],
+        "expected_answer": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7R-Q014",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7R-Q014",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Theo edition chưa xác định của KHDL, các chức danh lập trình viên và quản trị dự án được liệt kê kèm điều kiện gì?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3569-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "fff32c3b35802b8f2d4f999460bfe349",
+          "variant": "unknown",
+          "version": "unknown"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "further_study"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "data_science",
+        "program_variant": null,
+        "question": "Bản nguồn edition chưa xác định trình bày khả năng học sau đại học của KHDL ra sao?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q015-source"
+        ],
+        "expected_answer": "Sau khi tốt nghiệp, sinh viên còn có khả năng theo học sau đại học tại các khoa hoặc các trường Đại học khác có uy tín trong nước cũng như trên thế giới, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường ĐH, viện nghiên cứu, doanh nghiệp và cơ sở sản xuất.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "question_id": "A7R-Q015",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "fff32c3b35802b8f2d4f999460bfe349"
+            ],
+            "missing_body_words": [
+              "bay"
+            ],
+            "missing_purpose_words": [
+              "bay"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "data_science",
+              "unknown",
+              "unknown",
+              "further_study",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "055c47bf412172c0",
+              "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+              "evidence/f1/055c47bf412172c0.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "ban nguon trinh bay kha nang hoc sau dai hoc cua khdl ra sao",
+        "specific_words": [
+          "bay"
+        ],
+        "variants": [],
+        "versions": [
+          "unknown"
+        ]
+      },
+      "question_id": "A7R-Q015",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Bản nguồn edition chưa xác định trình bày khả năng học sau đại học của KHDL ra sao?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "further_study",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "data_science",
+        "program_variant": null,
+        "question": "Theo danh mục ngành KHDL, tên tiếng Việt của mã học phần MAT2403 là gì?",
+        "version": "QD3569-2023"
+      },
+      "gold": {
+        "category": "f2",
+        "evidence_ids": [
+          "A7R-Q018-source"
+        ],
+        "expected_answer": "Phương trình vi phân",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "name": "Phương trình vi phân"
+        },
+        "expected_field": "name",
+        "expected_status": "answered",
+        "question_id": "A7R-Q018",
+        "v2_expected_facts": {
+          "course_code": "MAT2403",
+          "field": "name",
+          "prerequisite_status": "present",
+          "value": "Phương trình vi phân"
+        }
+      },
+      "question_id": "A7R-Q018",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Theo danh mục ngành KHDL, tên tiếng Việt của mã học phần MAT2403 là gì?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3569-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "d49140d3dd2dd4200f9e3d81fb328f48",
+          "variant": "standard",
+          "version": "QD3569-2023"
+        }
+      ],
+      "current_router_probe": [
+        "f3",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": true,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "data_science",
+        "program_variant": null,
+        "question": "Học phần MAT2323 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3569-2023"
+      },
+      "gold": {
+        "category": "f3",
+        "evidence_ids": [
+          "A7R-Q021-source"
+        ],
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Biểu diễn hiện tượng ngẫu nhiên bằng biến cố và giả định có điều kiện rõ ràng.\n- Liên hệ đặc trưng phân phối với cơ chế sinh biến ngẫu nhiên.\n- Phân biệt tham số tổng thể, thống kê mẫu và bất định do lấy mẫu.\n- Diễn giải ước lượng và kiểm định mà không chuyển tương quan thành kết luận nhân quả.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q021",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "d49140d3dd2dd4200f9e3d81fb328f48"
+            ],
+            "missing_body_words": [
+              "ho"
+            ],
+            "missing_purpose_words": [
+              "ho",
+              "so"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "data_science",
+              "QD3569-2023",
+              "standard",
+              "objectives",
+              "MAT2323",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:khdl_7460108_2022:MAT2323",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2323 co cac muc tieu nao trong ho so ai tham khao da luu",
+        "specific_words": [
+          "ho",
+          "so"
+        ],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q021",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Học phần MAT2323 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3569-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f3",
+          "facts": {},
+          "generated_reference_allowed": true,
+          "major": "data_science",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": "QD3569-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f3",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "3f891edef65b80a30ed9fdee73b47984",
+          "variant": "talent",
+          "version": "2015"
+        },
+        {
+          "id": "34707fd2672e540ed3b65cfed19f5ee7",
+          "variant": "standard",
+          "version": "2015"
+        },
+        {
+          "id": "4104b80c6606e7a73108d521fe73a2a1",
+          "variant": "talent",
+          "version": "unknown"
+        },
+        {
+          "id": "f8458f2c9484aa0823f83faaa575004c",
+          "variant": "unknown",
+          "version": "unknown"
+        },
+        {
+          "id": "ba1b006436207d86df58106033a3edf4",
+          "variant": "advanced",
+          "version": "2008"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics",
+        "program_variant": null,
+        "question": "Theo trang giới thiệu edition chưa xác định, mục tiêu đào tạo cử nhân Toán học chuyên sâu là gì?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q025-source"
+        ],
+        "expected_answer": "Mục tiêu đào tạo Chương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q025",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "4104b80c6606e7a73108d521fe73a2a1"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 1.0,
+            "scope": [
+              "f1",
+              "mathematics",
+              "unknown",
+              "talent",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "ce8df97fe49665e9",
+              "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+              "evidence/f1/ce8df97fe49665e9.txt"
+            ]
+          },
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "f8458f2c9484aa0823f83faaa575004c"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 1.0,
+            "scope": [
+              "f1",
+              "mathematics",
+              "unknown",
+              "unknown",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "ce8df97fe49665e9",
+              "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+              "evidence/f1/ce8df97fe49665e9.txt"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "4104b80c6606e7a73108d521fe73a2a1"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "theo trang gioi thieu muc tieu dao tao cu nhan toan hoc chuyen sau la gi",
+        "specific_words": [],
+        "variants": [],
+        "versions": [
+          "unknown"
+        ]
+      },
+      "q025_scope_sources": [
+        {
+          "body": "2. Mục tiêu đào tạo\nChương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân\nkhoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp\ndụng Toán học ở trình độ cao. Ngoài các kiến thức, kỹ năng, và phẩm chất chung\ncủa cử nhân Toán học chương trình đào tạo chuẩn, sinh viên chương trình đào tạo\ntài năng được trang bị một số kiến thức và kĩ năng nâng cao, có khả năng sáng tạo,\ngiao tiếp và sử dụng được một ngoại ngữ (tiếng Anh) trong học tập, nghiên cứu, và\ntrong công việc sau khi tốt nghiệp. Nếu có đủ điều kiện, cử nhân khoa học tài năng\nToán học được chuyển tiếp hay đăng kí đào tạo tiếp ở bậc sau đại học, đặc biệt có\nthể tiếp tục học tập ở các chương trình đào tạo sau đại học quốc tế ở trong nước và\nnước ngoài.",
+          "citation": {
+            "end_char": 2639,
+            "evidence_path": "evidence/f1/d4fae066858f0b94.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "d4fae066858f0b94",
+            "source_kind": "crawled_prose",
+            "source_sha256": "f438675f720b4654ea8dd9b8a496d3888eb1b6bfb0b4b642e27ffc488167ffe7",
+            "start_char": 1890,
+            "title": "Tài liệu đính kèm: CTDT-CNKHTN-Toanhoc-13815.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf"
+          },
+          "id": "3f891edef65b80a30ed9fdee73b47984",
+          "variant": "talent",
+          "version": "2015"
+        },
+        {
+          "body": "2. Mục tiêu đào tạo\nChương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về\nToán học. Sinh viên sẽ được trang bị các kiến thức, kỹ năng, và phẩm chất cần thiết để\nsau khi tốt nghiệp có thể đảm nhận các công việc có sử dụng kiến thức Toán học như\ngiảng dạy, nghiên cứu, và ứng dụng Toán học vào các lĩnh vực khoa học, công nghệ,\nkinh tế, xã hội. Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc\nThạc sĩ, Tiến sĩ.",
+          "citation": {
+            "end_char": 2477,
+            "evidence_path": "evidence/f1/89d4b39494d72217.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "89d4b39494d72217",
+            "source_kind": "crawled_prose",
+            "source_sha256": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+            "start_char": 2021,
+            "title": "Tài liệu đính kèm: CTDT-Toanhoc-130815.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf"
+          },
+          "id": "34707fd2672e540ed3b65cfed19f5ee7",
+          "variant": "standard",
+          "version": "2015"
+        },
+        {
+          "body": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+          "citation": {
+            "end_char": 2445,
+            "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "ce8df97fe49665e9",
+            "source_kind": "crawled_prose",
+            "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+            "start_char": 2271,
+            "title": "Ngành Toán học",
+            "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+          },
+          "id": "4104b80c6606e7a73108d521fe73a2a1",
+          "variant": "talent",
+          "version": "unknown"
+        },
+        {
+          "body": "Mục tiêu đào tạo Chương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học.",
+          "citation": {
+            "end_char": 654,
+            "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "ce8df97fe49665e9",
+            "source_kind": "crawled_prose",
+            "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+            "start_char": 550,
+            "title": "Ngành Toán học",
+            "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+          },
+          "id": "f8458f2c9484aa0823f83faaa575004c",
+          "variant": "unknown",
+          "version": "unknown"
+        },
+        {
+          "body": "1. MỤC TIÊU ĐÀO TẠO - Educational Objectives\nĐào tạo cử nhân Toán học đạt chất lƣợng Quốc tế với những năng lực và phẩm\nchất chủ yếu sau đây :\n- Trung thực.\n- Nắm vững các kiến thức cơ bản, cơ sở của chuyên ngành.\n- Có năng lực nghiên cứu khoa học; có khả năng tự học; nắm vững một số kỹ\nnăng “mềm” cần thiết nhƣ làm việc nhóm, giao tiếp, lãnh đạo….\n- Có kỹ năng thực hành tốt, sử dụng thành thạo một số thiết bị hiện đại trong\nnghiên cứu khoa học.\n- Sử dụng thành thạo Tiếng Anh trong chuyên môn và giao tiếp quốc tế, đồng\nthời đáp ứng yêu cầu làm việc cao ở trong và ngoài nƣớc.\nIt is expected that students who graduate from this program have the following\nqualifications:\n- Maintain the highest academic standards of honesty.\n- Obtain firm background knowledge in the fundamentals of mathematics.\n- Obtain essential skills in scientific research; improving the ability to self-study;\nand possess essential “soft skills” such as team work, communication,\nleadership… to excel in later career life.\n6\n\n<!-- Page 7 -->\n- Obtain essential knowledge of the basic of scientific computing.\n- Communicate effectively, in writing and orally in Vietnamese as well as\nEnglish, meeting the demand for skilled workforce.",
+          "citation": {
+            "end_char": 14487,
+            "evidence_path": "evidence/f1/d006f60211246633.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "d006f60211246633",
+            "source_kind": "crawled_prose",
+            "source_sha256": "7a1d06c689e2e604401366d2d121b80f6e77a25b89b9310c9d388b4fbcbad66d",
+            "start_char": 13276,
+            "title": "Tài liệu đính kèm: KCT_TTToan_Final.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf"
+          },
+          "id": "ba1b006436207d86df58106033a3edf4",
+          "variant": "advanced",
+          "version": "2008"
+        }
+      ],
+      "question_id": "A7R-Q025",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Theo trang giới thiệu edition chưa xác định, mục tiêu đào tạo cử nhân Toán học chuyên sâu là gì?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [
+            {
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "citation_id": "1",
+              "content_origin": "crawled_source_quote",
+              "dataset": "f1",
+              "display_label": "Ngành Toán học",
+              "document_sha256": null,
+              "evidence_kind": "web",
+              "label": "Ngành Toán học",
+              "locator": {
+                "end_char": 2445,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4",
+                "start_char": 2271
+              },
+              "media_type": null,
+              "metadata": {
+                "academic_verified": false,
+                "admission_cohort": "unknown",
+                "answer_eligible": true,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "4104b80c6606e7a73108d521fe73a2a1",
+                "citation": {
+                  "end_char": 2445,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 2271,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "citation_title": "Ngành Toán học",
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "document_id": "ce8df97fe49665e9",
+                "family": "F1",
+                "field": "objectives",
+                "format": "portable-2.0",
+                "locator": {
+                  "end_char": 2445,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4",
+                  "start_char": 2271
+                },
+                "major": "mathematics",
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "4104b80c6606e7a73108d521fe73a2a1",
+                  "citation": {
+                    "end_char": 2445,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 2271,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "objectives",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "talent",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+                  "source_unit_id": "00cea5abe62d68d7972e2998",
+                  "text": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao."
+                },
+                "program_variant": "talent",
+                "program_version": "unknown",
+                "raw_original_verified": true,
+                "record_id": null,
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "review": {
+                  "status": "include"
+                },
+                "review_scope": "whole_document",
+                "review_status": "include",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "talent",
+                  "validity_status": "unknown"
+                },
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "source_quote": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "source_state": "selected_for_local_rag_demo",
+                "source_unit_id": "00cea5abe62d68d7972e2998",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "title": "Ngành Toán học",
+                "unit_id": "00cea5abe62d68d7972e2998",
+                "usage_scope": "descriptive",
+                "validity_status": "unknown"
+              },
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "pdf_page": null,
+              "pdf_pages": [],
+              "quote": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+              "review_status": "include",
+              "source_id": "ce8df97fe49665e9",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+            }
+          ],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: talent",
+          "status": "answered",
+          "version": null,
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ]
+        },
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: talent"
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics",
+        "program_variant": null,
+        "question": "Nguồn edition chưa xác định ghi cơ hội giảng dạy tại trường của cử nhân Toán học như thế nào?",
+        "version": "QD3565-2023"
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q026-source"
+        ],
+        "expected_answer": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7R-Q026",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7R-Q026",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Nguồn edition chưa xác định ghi cơ hội giảng dạy tại trường của cử nhân Toán học như thế nào?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3565-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        "f1",
+        "introduction"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics",
+        "program_variant": null,
+        "question": "Theo bản PDF edition 2015 hệ tài năng ngành Toán học, khả năng học tập nâng cao được trình bày thế nào?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q027-source"
+        ],
+        "expected_answer": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo Cử nhân Khoa học Tài năng ngành Toán học chủ yếu\ncung cấp cho sinh viên những kiến thức, kỹ năng cơ bản và quan trọng hơn cả là\nphương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề;\nphương pháp tư duy trừu tượng, mô hình hóa; phân tích, thiết lập bài toán và sử\ndụng công cụ toán học để giải quyết.\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học,\nnâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của\nbản thân, của công việc và của nền kinh tế.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "further_study",
+        "expected_status": "answered",
+        "question_id": "A7R-Q027",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7R-Q027",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Theo bản PDF edition 2015 hệ tài năng ngành Toán học, khả năng học tập nâng cao được trình bày thế nào?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics",
+        "program_variant": null,
+        "question": "Theo danh mục ngành Toán học, tên tiếng Việt của mã học phần MAT2308 là gì?",
+        "version": "QD3565-2023"
+      },
+      "gold": {
+        "category": "f2",
+        "evidence_ids": [
+          "A7R-Q030-source"
+        ],
+        "expected_answer": "Xác suất 1",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "name": "Xác suất 1"
+        },
+        "expected_field": "name",
+        "expected_status": "answered",
+        "question_id": "A7R-Q030",
+        "v2_expected_facts": {
+          "course_code": "MAT2308",
+          "field": "name",
+          "prerequisite_status": "unresolved",
+          "value": "Xác suất 1"
+        }
+      },
+      "question_id": "A7R-Q030",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Theo danh mục ngành Toán học, tên tiếng Việt của mã học phần MAT2308 là gì?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3565-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "08147d75b7c4bc5688a76f7a57d48c4d",
+          "variant": "standard",
+          "version": "QD3565-2023"
+        }
+      ],
+      "current_router_probe": [
+        "f3",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": true,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics",
+        "program_variant": null,
+        "question": "Học phần MAT2302 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3565-2023"
+      },
+      "gold": {
+        "category": "f3",
+        "evidence_ids": [
+          "A7R-Q033-source"
+        ],
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt giới hạn tại điểm, giá trị hàm và tính liên tục.\n- Diễn giải đạo hàm như tốc độ thay đổi và xấp xỉ tuyến tính.\n- Phân tích tăng giảm, độ cong và các ứng viên cực trị với điều kiện đầy đủ.\n- Liên hệ tổng tích lũy, nguyên hàm và định lý cơ bản của giải tích.\n- Giải thích kết quả mô hình bằng miền xác định, dấu và đơn vị.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q033",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [
+              "08147d75b7c4bc5688a76f7a57d48c4d"
+            ],
+            "ids": [
+              "08147d75b7c4bc5688a76f7a57d48c4d"
+            ],
+            "missing_body_words": [
+              "ho",
+              "so"
+            ],
+            "missing_purpose_words": [
+              "ho",
+              "so"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "mathematics",
+              "QD3565-2023",
+              "standard",
+              "objectives",
+              "MAT2302",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:toan_hoc_7460101_2022:MAT2302",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2302 co cac muc tieu nao trong ho so ai tham khao da luu",
+        "specific_words": [
+          "ho",
+          "so"
+        ],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q033",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Học phần MAT2302 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3565-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f3",
+          "facts": {},
+          "generated_reference_allowed": true,
+          "major": "mathematics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": "QD3565-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f3",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "44d598308d53629fef5b3c8a7ec61495",
+          "variant": "unknown",
+          "version": "unknown"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "introduction"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics_informatics",
+        "program_variant": null,
+        "question": "Trang giới thiệu Toán tin edition chưa xác định kể lịch sử và định hướng chương trình ra sao?",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q037-source"
+        ],
+        "expected_answer": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "introduction",
+        "expected_status": "answered",
+        "question_id": "A7R-Q037",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "44d598308d53629fef5b3c8a7ec61495"
+            ],
+            "missing_body_words": [
+              "dinh"
+            ],
+            "missing_purpose_words": [
+              "dinh"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "mathematics_informatics",
+              "unknown",
+              "unknown",
+              "introduction",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1b525683101bf943",
+              "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+              "evidence/f1/1b525683101bf943.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "trang gioi thieu toan tin ke lich su va dinh huong chuong trinh ra sao",
+        "specific_words": [
+          "dinh"
+        ],
+        "variants": [],
+        "versions": [
+          "unknown"
+        ]
+      },
+      "question_id": "A7R-Q037",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Trang giới thiệu Toán tin edition chưa xác định kể lịch sử và định hướng chương trình ra sao?",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "introduction",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "1648ebdddb5ae44b8b34dc340deff05a",
+          "variant": "standard",
+          "version": "2015"
+        }
+      ],
+      "current_router_probe": [
+        "f1",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics_informatics",
+        "program_variant": null,
+        "question": "Theo bản PDF edition 2015 hệ chuẩn, hãy đọc mục tiêu đào tạo Toán tin trong nguồn.",
+        "version": null
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q038-source"
+        ],
+        "expected_answer": "2. Mục tiêu đào tạo\nChương trình đào tạo đại học ngành Toán - Tin ứng dụng nhằm trang bị cho\nsinh viên những kiến thức cơ sở vững chắc về Toán học và Tin học, và các kiến\nthức chuyên ngành mang tính liên ngành Toán ứng dụng và Tin học. Sinh viên\nđược đào tạo ngành này do vậy có thể tham gia nhiều vị trí và lĩnh vực công tác\nkhác nhau, từ các vị trí nghiên cứu chuyên sâu về Toán ứng dụng nhằm đưa ra\nvà phát triển các phương pháp luận, mô hình trong các lĩnh vực tính toán hình\n6\n\n<!-- Page 5 -->\nthức, bảo mật thông tin, tính toán mềm v.v. đến các vị trí đòi hỏi kiến thức Tin\nhọc như xây dựng các công cụ, chương trình máy tính, phục vụ trở lại các mô\nhình tính toán phức tạp trong các lĩnh vực tính toán khoa học.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q038",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "1648ebdddb5ae44b8b34dc340deff05a"
+            ],
+            "missing_body_words": [
+              "pdf"
+            ],
+            "missing_purpose_words": [
+              "pdf"
+            ],
+            "purpose_density": 0.6751592356687898,
+            "scope": [
+              "f1",
+              "mathematics_informatics",
+              "2015",
+              "standard",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "23a0c1df14a5708a",
+              "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+              "evidence/f1/23a0c1df14a5708a.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "theo ban pdf hay doc muc tieu dao tao toan tin trong nguon",
+        "specific_words": [
+          "pdf"
+        ],
+        "variants": [
+          "standard"
+        ],
+        "versions": [
+          "2015"
+        ]
+      },
+      "question_id": "A7R-Q038",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Theo bản PDF edition 2015 hệ chuẩn, hãy đọc mục tiêu đào tạo Toán tin trong nguồn.",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f1",
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": null,
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f1",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics_informatics",
+        "program_variant": null,
+        "question": "Ở edition chưa xác định của Toán tin, nguồn liệt kê những vai trò công tác nào tại trường viện?",
+        "version": "QD3567-2023"
+      },
+      "gold": {
+        "category": "f1",
+        "evidence_ids": [
+          "A7R-Q039-source"
+        ],
+        "expected_answer": "- Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "question_id": "A7R-Q039",
+        "v2_expected_facts": {}
+      },
+      "question_id": "A7R-Q039",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Ở edition chưa xác định của Toán tin, nguồn liệt kê những vai trò công tác nào tại trường viện?",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3567-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [],
+      "current_router_probe": [
+        null,
+        null
+      ],
+      "effective_request": {
+        "allow_generated_reference": false,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics_informatics",
+        "program_variant": null,
+        "question": "Theo danh mục ngành Toán tin, tên tiếng Việt của mã học phần MAT2304 là gì?",
+        "version": "QD3567-2023"
+      },
+      "gold": {
+        "category": "f2",
+        "evidence_ids": [
+          "A7R-Q042-source"
+        ],
+        "expected_answer": "Giải tích 3",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "name": "Giải tích 3"
+        },
+        "expected_field": "name",
+        "expected_status": "answered",
+        "question_id": "A7R-Q042",
+        "v2_expected_facts": {
+          "course_code": "MAT2304",
+          "field": "name",
+          "prerequisite_status": "present",
+          "value": "Giải tích 3"
+        }
+      },
+      "question_id": "A7R-Q042",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Theo danh mục ngành Toán tin, tên tiếng Việt của mã học phần MAT2304 là gì?",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": null,
+          "facts": {},
+          "generated_reference_allowed": false,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần.",
+          "status": "no_information",
+          "version": "QD3567-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Phạm vi hiện có là giới thiệu ngành, dữ kiện chương trình và học phần."
+      },
+      "saved_route": {
+        "dataset": null,
+        "field": null,
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 0
+    },
+    {
+      "cached_hits": [
+        {
+          "id": "e0412963f7c8b2c6b9fc6acc9a5a07f2",
+          "variant": "standard",
+          "version": "QD3567-2023"
+        }
+      ],
+      "current_router_probe": [
+        "f3",
+        "objectives"
+      ],
+      "effective_request": {
+        "allow_generated_reference": true,
+        "course_code": null,
+        "dataset": "auto",
+        "field": null,
+        "group_key": null,
+        "major": "mathematics_informatics",
+        "program_variant": null,
+        "question": "Học phần MAT2301 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3567-2023"
+      },
+      "gold": {
+        "category": "f3",
+        "evidence_ids": [
+          "A7R-Q045-source"
+        ],
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt bội đại số với số chiều không gian riêng.\n- Giải thích điều kiện chéo hóa và dùng cấu trúc riêng để hiểu tác động lặp.\n- Mô tả phép chiếu trực giao và quan hệ với bình phương tối thiểu.\n- Phân tích dấu của dạng toàn phương qua cấu trúc phổ của ma trận đối xứng.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "question_id": "A7R-Q045",
+        "v2_expected_facts": {}
+      },
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "e0412963f7c8b2c6b9fc6acc9a5a07f2"
+            ],
+            "missing_body_words": [
+              "ho"
+            ],
+            "missing_purpose_words": [
+              "ho"
+            ],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "mathematics_informatics",
+              "QD3567-2023",
+              "standard",
+              "objectives",
+              "MAT2301",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:toan_tin_7460117_2022:MAT2301",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2301 co cac muc tieu nao trong ho so ai tham khao da luu",
+        "specific_words": [
+          "ho"
+        ],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q045",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Học phần MAT2301 có các mục tiêu nào trong hồ sơ AI tham khảo đã lưu?",
+        "version": "QD3567-2023"
+      },
+      "saved_response": {
+        "hus_answer": {
+          "citations": [],
+          "dataset": "f3",
+          "facts": {},
+          "generated_reference_allowed": true,
+          "major": "mathematics_informatics",
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+          "status": "no_information",
+          "version": "QD3567-2023",
+          "warnings": []
+        },
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+      },
+      "saved_route": {
+        "dataset": "f3",
+        "field": "objectives",
+        "stage": "classifier_before_scope_and_evidence_guards"
+      },
+      "saved_search_calls": 1
+    }
+  ],
+  "guard_ablations": [
+    {
+      "diagnostic_question": "Bản edition 2019 hệ CLC của KHMTTT nêu  mục tiêu đào tạo như thế nào?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "a434674194e7e8479130328b923bf7a3"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.3451086956521739,
+            "scope": [
+              "f1",
+              "computer_science",
+              "2019",
+              "high_quality",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1c16ddf8a6f1f409",
+              "61aa227a8d6b7dd1b101d4f7afc66fa44d224a132ffff8f71fc062823c5276b0",
+              "evidence/f1/1c16ddf8a6f1f409.txt"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "a434674194e7e8479130328b923bf7a3"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "ban cua khmttt neu muc tieu dao tao nhu the nao",
+        "specific_words": [],
+        "variants": [
+          "high_quality"
+        ],
+        "versions": [
+          "2019"
+        ]
+      },
+      "question_id": "A7R-Q002",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Tại edition 2015 hệ chuẩn KHMTTT, khả năng học tiếp được ghi kèm điều kiện gì?",
+      "guard": {
+        "condition_requested": true,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "b45d00fe80539319273406967ae12a65"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "computer_science",
+              "2015",
+              "standard",
+              "further_study",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1e3ad5f9915aa051",
+              "f2bfd8ec18cfc8538f0c23bedf28743d02ee0b491c1f5c34d6481981baff7968",
+              "evidence/f1/1e3ad5f9915aa051.txt"
+            ]
+          }
+        ],
+        "kept_ids": [],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "tai khmttt kha nang hoc tiep  ",
+        "specific_words": [],
+        "variants": [
+          "standard"
+        ],
+        "versions": [
+          "2015"
+        ]
+      },
+      "question_id": "A7R-Q003",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Học phần MAT1205E có các mục tiêu nào trong  AI tham khảo đã lưu?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "701e6d3d846d3609fac0c02efee16993"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "computer_science",
+              "QD3568-2023",
+              "standard",
+              "objectives",
+              "MAT1205E",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:khmtt_7480113qtd_2022:MAT1205E",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "701e6d3d846d3609fac0c02efee16993"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat1205e co cac muc tieu nao trong ai tham khao da luu",
+        "specific_words": [],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q009",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Nguồn edition chưa xác định trình bày khả năng học sau đại học của KHDL ra sao?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "fff32c3b35802b8f2d4f999460bfe349"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "data_science",
+              "unknown",
+              "unknown",
+              "further_study",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "055c47bf412172c0",
+              "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+              "evidence/f1/055c47bf412172c0.txt"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "fff32c3b35802b8f2d4f999460bfe349"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "nguon  kha nang hoc sau dai hoc cua khdl ra sao",
+        "specific_words": [],
+        "variants": [],
+        "versions": [
+          "unknown"
+        ]
+      },
+      "question_id": "A7R-Q015",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Học phần MAT2323 có các mục tiêu nào trong  AI tham khảo đã lưu?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "d49140d3dd2dd4200f9e3d81fb328f48"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "data_science",
+              "QD3569-2023",
+              "standard",
+              "objectives",
+              "MAT2323",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:khdl_7460108_2022:MAT2323",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "d49140d3dd2dd4200f9e3d81fb328f48"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2323 co cac muc tieu nao trong ai tham khao da luu",
+        "specific_words": [],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q021",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Học phần MAT2302 có các mục tiêu nào trong  AI tham khảo đã lưu?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [
+              "08147d75b7c4bc5688a76f7a57d48c4d"
+            ],
+            "ids": [
+              "08147d75b7c4bc5688a76f7a57d48c4d"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "mathematics",
+              "QD3565-2023",
+              "standard",
+              "objectives",
+              "MAT2302",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:toan_hoc_7460101_2022:MAT2302",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "08147d75b7c4bc5688a76f7a57d48c4d"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2302 co cac muc tieu nao trong ai tham khao da luu",
+        "specific_words": [],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q033",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Trang giới thiệu Toán tin edition chưa xác định kể lịch sử  chương trình ra sao?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "44d598308d53629fef5b3c8a7ec61495"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f1",
+              "mathematics_informatics",
+              "unknown",
+              "unknown",
+              "introduction",
+              null,
+              "crawled_source_quote",
+              "include",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "1b525683101bf943",
+              "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+              "evidence/f1/1b525683101bf943.txt"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "44d598308d53629fef5b3c8a7ec61495"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "trang gioi thieu toan tin ke lich su chuong trinh ra sao",
+        "specific_words": [],
+        "variants": [],
+        "versions": [
+          "unknown"
+        ]
+      },
+      "question_id": "A7R-Q037",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Theo bản edition 2015 hệ chuẩn, hãy đọc mục tiêu đào tạo Toán tin trong nguồn.",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "1648ebdddb5ae44b8b34dc340deff05a"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.6751592356687898,
+            "scope": [
+              "f1",
+              "mathematics_informatics",
+              "2015",
+              "standard",
+              "objectives",
+              null,
+              "crawled_source_quote",
+              "include_markdown",
+              "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+              "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+              "23a0c1df14a5708a",
+              "0b3e76fe680a87b32c35da344b4218c67f000d517dcc4f1ffa314792ffd29151",
+              "evidence/f1/23a0c1df14a5708a.txt"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "1648ebdddb5ae44b8b34dc340deff05a"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "theo ban hay doc muc tieu dao tao toan tin trong nguon",
+        "specific_words": [],
+        "variants": [
+          "standard"
+        ],
+        "versions": [
+          "2015"
+        ]
+      },
+      "question_id": "A7R-Q038",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    },
+    {
+      "diagnostic_question": "Học phần MAT2301 có các mục tiêu nào trong  AI tham khảo đã lưu?",
+      "guard": {
+        "condition_requested": false,
+        "groups": [
+          {
+            "condition_body_ids": [],
+            "ids": [
+              "e0412963f7c8b2c6b9fc6acc9a5a07f2"
+            ],
+            "missing_body_words": [],
+            "missing_purpose_words": [],
+            "purpose_density": 0.0,
+            "scope": [
+              "f3",
+              "mathematics_informatics",
+              "QD3567-2023",
+              "standard",
+              "objectives",
+              "MAT2301",
+              "generated",
+              "needs_review",
+              "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+              "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+              "generated_f3:toan_tin_7460117_2022:MAT2301",
+              null,
+              "f3_records.jsonl"
+            ]
+          }
+        ],
+        "kept_ids": [
+          "e0412963f7c8b2c6b9fc6acc9a5a07f2"
+        ],
+        "qualifiers": [],
+        "query_after_scope_and_syntax": "hoc phan mat2301 co cac muc tieu nao trong ai tham khao da luu",
+        "specific_words": [],
+        "variants": [],
+        "versions": []
+      },
+      "question_id": "A7R-Q045",
+      "warning": "Deliberate edited-question guard probe only, not a fix/new score; Q037 removes a requested meaning."
+    }
+  ],
+  "holdout_eligible": false,
+  "kind": "read_only_exposed_development_diagnostic",
+  "legacy_contract": {
+    "current_guard_location": "app/hus/answering.py:134; before search",
+    "disposition": "Keep old failure/gold; enumeration vs multi-scope comparison requires explicit reviewed contract, no global variant bypass.",
+    "enumeration_source": {
+      "body": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+      "id": "e7864b281332873d47213bf53a1bf0f7",
+      "variant": "unknown"
+    },
+    "question": {
+      "question_id": "DEV-Q002",
+      "request": {
+        "allow_generated_reference": false,
+        "major": "mathematics",
+        "question": "Theo trang giới thiệu đã lưu, Toán học có hệ chuẩn và hệ tài năng như thế nào?",
+        "version": null
+      }
+    },
+    "variants": [
+      "standard",
+      "talent"
+    ]
+  },
+  "new_end_to_end_rag_requests": 0,
+  "new_provider_calls": 0,
+  "new_search_calls": 0,
+  "replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "router_probes": [
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "career_title",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "careers"
+      ],
+      "quality_score": false,
+      "question": "Theo nguồn KHDL, chức danh lập trình viên tại doanh nghiệp là gì?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "career_title_paraphrase",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "careers"
+      ],
+      "quality_score": false,
+      "question": "Nguồn liệt kê chức danh của cử nhân KHDL tại công ty ra sao?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "teaching_opportunity",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "careers"
+      ],
+      "quality_score": false,
+      "question": "Cử nhân Toán học có cơ hội giảng dạy tại trường nào theo nguồn?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "graduate_role",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "careers"
+      ],
+      "quality_score": false,
+      "question": "Toán tin có những vai trò công tác nào tại trường và viện?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "further_study_heading",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "further_study"
+      ],
+      "quality_score": false,
+      "question": "Khả năng học tập nâng cao của người tốt nghiệp Toán học là gì?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "f2_vietnamese_name",
+      "proposed_or_negative_expectation": [
+        "f2",
+        "name"
+      ],
+      "quality_score": false,
+      "question": "Tên tiếng Việt của mã MAT2304 trong danh mục là gì?"
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "f2_name_paraphrase",
+      "proposed_or_negative_expectation": [
+        "f2",
+        "name"
+      ],
+      "quality_score": false,
+      "question": "Xin đọc tên bằng tiếng Việt của học phần MAT2403."
+    },
+    {
+      "actual": [
+        null,
+        null
+      ],
+      "name": "institution_actor",
+      "proposed_or_negative_expectation": [
+        null,
+        null
+      ],
+      "quality_score": false,
+      "question": "Vai trò của viện nghiên cứu trong đào tạo Toán tin là gì?"
+    },
+    {
+      "actual": [
+        "f3",
+        "objectives"
+      ],
+      "name": "course_skill",
+      "proposed_or_negative_expectation": [
+        "f3",
+        "objectives"
+      ],
+      "quality_score": false,
+      "question": "Mục tiêu MAT1204 về năng lực giảng dạy gồm gì?"
+    },
+    {
+      "actual": [
+        "f3",
+        "objectives"
+      ],
+      "name": "factual_presentation",
+      "proposed_or_negative_expectation": [
+        "f3",
+        "objectives"
+      ],
+      "quality_score": false,
+      "question": "Mục tiêu MAT1204 về kỹ năng trình bày báo cáo là gì?"
+    },
+    {
+      "actual": [
+        "f3",
+        "content"
+      ],
+      "name": "vietnamese_topic",
+      "proposed_or_negative_expectation": [
+        "f3",
+        "content"
+      ],
+      "quality_score": false,
+      "question": "Nội dung MAT1204 về phương pháp viết tiếng Việt là gì?"
+    },
+    {
+      "actual": [
+        "f1",
+        "introduction"
+      ],
+      "name": "single_variant",
+      "proposed_or_negative_expectation": [
+        "f1",
+        "introduction"
+      ],
+      "quality_score": false,
+      "question": "Giới thiệu chương trình Toán học hệ tài năng theo nguồn."
+    }
+  ],
+  "runtime_bindings": {
+    "app/hus/answer_support.py": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac",
+    "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+    "app/hus/question_routing.py": "8716c2eb090ddd2fcee700ba41c5cd848e081fbe1a8ea8d1e2258ae42424d676"
+  },
+  "runtime_changed": false,
+  "source_run_manifest_sha256": "f7d3c0baee840c86329df4ea504a1b1e7a13a10500a6d3a90ef4e5b6c3a3048a"
+}

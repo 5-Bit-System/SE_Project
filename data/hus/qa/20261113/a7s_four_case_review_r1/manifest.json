@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "cohort_exposure.json": "39615576797b393d5317fc79aeacd8a096b7fffa7e3c13e821877d184979460d",
+    "diagnostic.json": "bd8c09a50d4fa4b9ac2256aa15e3dc90ac15a5d3754849d45528d2cb018bc98e",
+    "integrity.json": "0fc8639235748b72b7084d7f6e506f645f7f47cdac5cf38b1bfedd7da6d3b58a",
+    "negative_probes.json": "049074185cf0396afe0fa30b8710e739a481eb88472dbbb76a8bba0ffd74dc88",
+    "regression_requirements.json": "1350e468096610c895739a7f38c0f6a7111ee53635ffa01a7378983623d86544",
+    "replays.json": "62ed558ad5078901b22b884b7921c81bc358f7b9c89550570b13e52d077071c4",
+    "report.json": "5eee8679e618cdc532cdaf4431f8d5ac4413c56387f4b9bde48a29d45c29c181"
+  },
+  "schema_version": "hus-a7s-four-case-review-1.0"
+}

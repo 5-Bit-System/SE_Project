@@ -1,0 +1,130 @@
+{
+  "LLM_default": false,
+  "TDD": {
+    "initial": {
+      "failed": 24,
+      "passed": 28
+    },
+    "initial_62_new_tests_passed_before_final_review": true,
+    "institute_personnel": {
+      "failed": 4,
+      "passed": 2
+    },
+    "negative_source_claim": {
+      "failed": 3,
+      "passed": 2
+    },
+    "review_boundaries": {
+      "failed": 13,
+      "passed": 2
+    }
+  },
+  "allowed_old_code_changes": [
+    "app/hus/answer_support.py",
+    "app/hus/question_routing.py"
+  ],
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "cached_A7S_replay_reproduced": true,
+  "cohort_exposure": "A7S used for tuning; development only. Freeze another cohort after code changes.",
+  "current_A7S_L5r3_pins_match": false,
+  "date": "2026-11-13",
+  "development_checks": {
+    "Q013_original_ability_condition_retained": true,
+    "Q015_returns_broader_career_quotes_not_only_school_roles": true,
+    "canonical_quotes_retained": true,
+    "not_a_new_measurement_or_score": true,
+    "saved_exposed_requests_answered": 4
+  },
+  "external_provider_calls": 0,
+  "immutable_A7S_score": {
+    "complete": "32/36",
+    "controls": "12/12",
+    "routed_recall": "23/24"
+  },
+  "new_regression_cases": 77,
+  "next": "Freeze successor A7 with gold before inference; prepare L5 anew only when selected and approved budget before any Google call.",
+  "preexisting_full_suite_failure": {
+    "all_three_runtime_file_hashes_match_before_snapshot": {
+      "app/hus/answer_support.py": "fb0c2197163f961857c8a221b3adcf88900bbee6b8419e1e4d6215db4dac9bda",
+      "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+      "app/hus/question_routing.py": "c5a0c5612c7b74f6efc687e8df9749e8631669f4f3748dfc2c50e9a36c2b77c0"
+    },
+    "baseline_junit_sha256": "8a7aa306de7abcf9c596be4fd37266889456b9ab6d08350bff14aca5d6c00abf",
+    "no_source_test_gold_or_run_changes": true,
+    "policy": "Preserve old test/gold/run/review and strict scope. Review legacy-test contract separately, do not weaken scope to turn this run green.",
+    "pre_repair_source_copy": "backups/hus_scope_assessment_fix_20261113/fresh checkout λ",
+    "reason": "Old dev gold expects answered for standard+talent enumeration; current single-variant contract requires clarification before search.",
+    "same_failure_reproduced_before_this_repair": true,
+    "test": "tests/hus/test_routing_diagnostic.py::test_exposed_dev_requests_preserve_facts_scope_and_consent[DEV-Q002]"
+  },
+  "protected_prior_files": 2878,
+  "public_network_calls": 0,
+  "release": "hus-data-20261111-v4",
+  "repository_suite_all_green": false,
+  "retrieval": "lexical",
+  "review": {
+    "academic_independent_acceptance": false,
+    "findings": [
+      "school_vs_market_compounds",
+      "comma_workplace_lists",
+      "institution_actor_determiners",
+      "negative_factual_conditions"
+    ],
+    "fixed_with_failed_then_passing_regressions": 4,
+    "human_reviews": 0,
+    "important_findings": 4,
+    "kind": "fresh_context_AI_code_review"
+  },
+  "scope": [
+    "bounded_accompanying_condition_request",
+    "source_subject_and_passive_presentation",
+    "graduate_roles_at_school_or_institute",
+    "literal_scoped_workplace_evidence"
+  ],
+  "secret_env_key_DB_access": false,
+  "source_data_gold_old_run_review_changed": false,
+  "stage_commit_push_PR_Actions_deploy": false,
+  "status": "repair_focused_tests_pass_full_suite_has_preexisting_contract_failure",
+  "superseded_full_run": "Interrupted via its exec session after review changed code; final complete run is separately recorded.",
+  "tests": {
+    "new_regressions_and_existing_guards": {
+      "errors": 0,
+      "failed_cases": [],
+      "failures": 0,
+      "junit_path": "backups/hus_request_role_repair_20261113/review-green.xml",
+      "junit_sha256": "4e7b4b3387acf2d5531826ba6ac3fe63fcce24cd69f9e4f329918a585bb2db2a",
+      "seconds": 45.97,
+      "skipped": 0,
+      "skipped_cases": [],
+      "tests": 233
+    },
+    "repository_offline": {
+      "errors": 0,
+      "failed_cases": [
+        "tests.hus.test_routing_diagnostic::test_exposed_dev_requests_preserve_facts_scope_and_consent[DEV-Q002]"
+      ],
+      "failures": 1,
+      "junit_path": "backups/hus_request_role_repair_20261113/offline-final.xml",
+      "junit_sha256": "cf18710b067cd4e90c6f9b751e12fb207f93641984cc0f38b22acf0e2feeeb36",
+      "seconds": 1141.629,
+      "skipped": 2,
+      "skipped_cases": [
+        {
+          "reason": "Windows symlink creation not permitted; redirected-root guard covered",
+          "test": "tests.hus.test_passage_artifact::test_symlink_and_redirected_root_escape_are_rejected"
+        },
+        {
+          "reason": "Windows symlink creation not permitted; path escape still covered",
+          "test": "tests.hus.test_vector_index_contract::test_symlink_escape_is_rejected"
+        }
+      ],
+      "tests": 3061
+    }
+  },
+  "unchanged_prior_files": 2876,
+  "warnings": [
+    "Existing Starlette/httpx deprecation",
+    "Two subprocess reader UnicodeDecodeError warnings in tests/catalogs/test_metadata_builder.py; tests pass but warnings retained."
+  ]
+}
