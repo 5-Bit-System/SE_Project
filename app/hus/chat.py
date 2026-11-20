@@ -63,7 +63,8 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
         if reply is not None:
             reply, generation = generate_reply(request, None, reply, rewriter=rewriter)
             return HUSChatReply(mode="basic_chat", reply=reply, generation=generation)
-    dataset, _ = question_intent(request.question)
+    route_question = getattr(answerer, "route_question", question_intent)
+    dataset, _ = route_question(request.question)
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
     match_codes = getattr(answerer, "_matched_course_codes", None)
     if (request.dataset == "auto" and dataset == "f1" and request.version in decision_versions

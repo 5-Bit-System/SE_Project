@@ -18,13 +18,13 @@ from app.hus.answering import HUSAnswerer, question_intent
 from app.hus.question_routing import (
     CAREER_TERMS,
     COURSE_FIELD_TERMS,
-    COURSE_OVERVIEW_TERMS,
     TEACHING_TERMS,
     _assessment_text,
     _prerequisite_text,
     _requested_clauses,
     assessment_fact_request,
     career_exclusions,
+    course_overview_requested,
     has,
     out_of_scope,
     requested_program_fields,
@@ -82,7 +82,7 @@ def _workspace_rule(question: str) -> tuple[str | None, str | None]:
         return ("f3", "objectives") if course else ("f1", "objectives")
     if has(text, *WORKSPACE_FIELDS["content"]):
         return "f3", "content"
-    if course and has(text, *COURSE_OVERVIEW_TERMS):
+    if course and course_overview_requested(text):
         return "f3", "content"
     if not course and has(text, "gioi thieu", "tong quan", "nganh", "chuong trinh", "nen tang", "lich su hinh thanh"):
         return "f1", "introduction"

@@ -16,7 +16,7 @@ from app.hus.question_routing import (
     has as _has, assessment_fact_request as assessment_fact_request,
     is_hus_question as is_hus_question, question_intent as _rule_question_intent,
     out_of_scope, requested_text, requested_course_fields, unsupported_request, verified_requested as _verified_requested,
-    PROGRAM_FIELDS, CATALOG_FIELDS, CAREER_TERMS, COURSE_FIELD_TERMS, COURSE_OVERVIEW_TERMS, requested_program_fields, question_group_keys, program_total_request,
+    PROGRAM_FIELDS, CATALOG_FIELDS, CAREER_TERMS, COURSE_FIELD_TERMS, course_overview_requested, requested_program_fields, question_group_keys, program_total_request,
     requested_program_variants, requested_name_languages, variant_enumeration_requested,
     ambiguous_major_request,
 )
@@ -61,7 +61,7 @@ def question_intent(question: str, *, rule=_rule_question_intent) -> tuple[str |
             )
         )
         and (has_alias or has_code)
-        and _has(req_text, *COURSE_OVERVIEW_TERMS)
+        and course_overview_requested(req_text)
     ):
         return "f3", "content"
     if (
@@ -205,11 +205,12 @@ class HUSAnswerer:
                 "muc tieu dao tao cua nganh", "chuan dau ra cua nganh",
             ):
                 dataset, field = "f3", "objectives"
-            elif dataset is None and not _verified_requested(request.question):
+            elif (dataset is None and not _verified_requested(request.question)
+                    and course_overview_requested(requested_text(request.question))):
                 dataset, field, _ = semantic_question_intent(
                     request.question, has_course=True, threshold=0.52,
                 )
-                if dataset is None and _has(requested_text(request.question), *COURSE_OVERVIEW_TERMS):
+                if dataset is None:
                     dataset, field = "f3", "content"
         program_fields = requested_program_fields(request.question)
         if dataset == "f2" and program_fields and request.field and field not in program_fields:

@@ -47,6 +47,7 @@ def test_course_overview_still_needs_consent(answerer):
 
 @pytest.mark.parametrize('question', [
     'Tìm hiểu về môn thiên văn ngoài vũ trụ',
+    'Tôi không muốn tìm hiểu về môn MAT3562',
     'Tìm hiểu về môn MAT9999',
     'Tìm hiểu về môn MAT3562 thuộc ngành Toán tin',
 ])

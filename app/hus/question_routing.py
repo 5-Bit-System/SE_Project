@@ -287,6 +287,11 @@ COURSE_OVERVIEW_TERMS = (
 )
 
 
+def course_overview_requested(text: str) -> bool:
+    return (has(text, *COURSE_OVERVIEW_TERMS)
+            and not has(text, "khong muon", "khong can", "khong hoi", "khong yeu cau"))
+
+
 def _name_languages(text: str, *, assume_course: bool = False) -> set[str]:
     """A language-qualified name object, not a writing/naming skill topic."""
     course = any(COURSE_CODE.fullmatch(t) for t in _tokens(text)) or has(text, 'mon', 'hoc phan')
@@ -501,7 +506,7 @@ def question_intent(question: str) -> tuple[str | None, str | None]:
         if not course and has(text, 'chuong trinh', 'ctdt'):
             return 'f1', 'introduction'
         return "f3", "content"
-    if any(COURSE_OVERVIEW.match(clause) for clause in clauses) or (course and has(text, *COURSE_OVERVIEW_TERMS)):
+    if any(COURSE_OVERVIEW.match(clause) for clause in clauses):
         return 'f3', 'content'
     if not course and has(text, "gioi thieu", "tong quan", "nganh", "chuong trinh", "nen tang", "lich su"):
         return "f1", "introduction"
