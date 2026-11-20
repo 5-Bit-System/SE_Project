@@ -188,7 +188,7 @@ def _match_scoped_phrases(
     field_terms: dict[str, tuple[str, ...]] | None = None,
 ) -> tuple[set[str], set[str], set[str]]:
     """Consume longest phrases first and return (matched_codes, alias_tokens_used, name_matched_codes)."""
-    from app.hus.question_routing import COURSE_FIELD_TERMS, requested_text
+    from app.hus.question_routing import COURSE_FIELD_TERMS, CREDIT_TERMS, requested_text
 
     active_major_aliases = DEFAULT_MAJOR_ALIASES if major_aliases is None else major_aliases
     active_field_terms = COURSE_FIELD_TERMS if field_terms is None else field_terms
@@ -223,11 +223,13 @@ def _match_scoped_phrases(
             norm_alias = " ".join(_tokens(alias))
             if norm_alias:
                 by_phrase.setdefault(norm_alias, set())
-    for terms in active_field_terms.values():
-        for term in terms:
-            norm_term = " ".join(_tokens(term))
-            if norm_term:
-                by_phrase.setdefault(norm_term, set())
+    # Credit wording can overlap the normalized name "hoc may".
+    # Consume the whole credit expression before matching the course name.
+    field_phrases = (*CREDIT_TERMS, *(term for terms in active_field_terms.values() for term in terms))
+    for term in field_phrases:
+        norm_term = " ".join(_tokens(term))
+        if norm_term:
+            by_phrase.setdefault(norm_term, set())
 
     matched_codes: set[str] = set()
     alias_tokens_used: set[str] = set()
