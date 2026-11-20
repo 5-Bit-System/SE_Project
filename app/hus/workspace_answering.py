@@ -18,7 +18,6 @@ from app.hus.answering import HUSAnswerer, question_intent
 from app.hus.question_routing import (
     CAREER_TERMS,
     COURSE_FIELD_TERMS,
-    CREDIT_TERMS,
     TEACHING_TERMS,
     _assessment_text,
     _prerequisite_text,
@@ -40,7 +39,6 @@ WORKSPACE_REQUEST_WORDS = REQUEST_WORDS | frozenset((
 WORKSPACE_CAREER_TERMS = (*CAREER_TERMS, "nghien cuu va phat trien", "co hoi lam")
 WORKSPACE_FIELDS = {
     **COURSE_FIELD_TERMS,
-    "credits": CREDIT_TERMS,
     "suggested_assessment": (
         "danh gia", "thi", "bai kiem tra", "hinh thuc kiem tra",
         "kiem tra danh gia", "thi giua ky", "thi cuoi ky",

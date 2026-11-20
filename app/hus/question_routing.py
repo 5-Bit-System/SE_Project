@@ -255,8 +255,16 @@ PROGRAM_CREDIT_PHRASES = (
 )
 
 
+# Counting an abbreviated credit amount can concern transfer or retake rules.
+# Let the validated interpreter distinguish that wording from a catalog lookup.
+CREDIT_APPLICATION_REQUEST = re.compile(
+    r"\b(?:duoc tinh|(?<!may )tinh) (?:la |duoc )?(?:bao nhieu|may|so|tong(?: so)?) "
+    r"(?:tc|tin(?! chi\b))\b"
+)
+
+
 COURSE_FIELD_TERMS = {
-    "credits": ("tin chi",),
+    "credits": CREDIT_TERMS,
     "prerequisites": (
         "tien quyet", "hoc truoc", "truoc mon",
         "dieu kien tien quyet", "yeu cau tien quyet",
@@ -481,7 +489,7 @@ def question_intent(question: str) -> tuple[str | None, str | None]:
     program_fields = requested_program_fields(question)
     if program_fields:
         return "f2", program_fields[0]
-    if has(text, *COURSE_FIELD_TERMS["credits"]):
+    if has(text, *COURSE_FIELD_TERMS["credits"]) and not CREDIT_APPLICATION_REQUEST.search(text):
         return "f2", "credits"
     if _prerequisites_requested(clauses):
         return "f2", "prerequisites"
