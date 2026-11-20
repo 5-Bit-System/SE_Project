@@ -4,7 +4,7 @@ import logging
 import pytest
 from fastapi.testclient import TestClient
 
-from app.hus import answering, demo
+from app.hus import demo
 from app.hus.answering import HUSAnswerer
 from app.hus.chat import chat
 from app.schemas.hus import HUSQuestion
@@ -56,7 +56,7 @@ def test_missing_assessment_names_the_missing_field(answerer, policy):
 
 
 def test_retrieved_but_unsupported_has_own_label(answerer, monkeypatch):
-    monkeypatch.setattr(answering, 'supported_hits', lambda *a, **k: ())
+    monkeypatch.setattr(answerer, 'select_evidence', lambda *a, **k: ())
     assert ask(answerer, 'Giới thiệu ngành').diagnostic.code == 'evidence_rejected'
 
 
