@@ -44,7 +44,7 @@ def score_course(
     hits = sum(
         1
         for topic in preference.interest_topics
-        if topic.casefold().replace("_", " ") in searchable
+        if topic in (course.topics or []) or topic.casefold().replace("_", " ") in searchable
     )
     topic_score = (
         min(hits / max(len(preference.interest_topics), 1), 1.0)
@@ -65,6 +65,7 @@ def score_course(
     weights = weights or RankingWeights()
     weighted_total = (
         weights.topic * topic_score
+        + weights.career * len(set(preference.career_paths) & set(course.career_paths or [])) / max(len(preference.career_paths), 1)
         + weights.keyword * name_score
         + weights.course_type * type_score
         + weights.orientation * orientation_score
@@ -87,10 +88,13 @@ def fit_reason(course: Course, preference: StructuredPreference, score: float) -
         ]
     ).casefold()
     for topic in preference.interest_topics:
-        if topic.casefold().replace("_", " ") in searchable:
+        if topic in (course.topics or []) or topic.casefold().replace("_", " ") in searchable:
             matches.append(topic)
     if matches:
         return f"Tên hoặc metadata môn có chứa chủ đề người học nêu: {', '.join(matches)}."
+    for field in ("orientation", "difficulty", "workload"):
+        if _metadata_match(course, field, getattr(preference, field)):
+            return f"Metadata {field} của môn khớp sở thích đã nêu."
     if preference.course_type and metadata.get("requirement_type") == preference.course_type:
         return f"Môn có loại {preference.course_type} đúng với preference đã chuẩn hóa."
     if score > 0:

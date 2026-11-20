@@ -1,6 +1,6 @@
 # Cài đặt và chạy local
 
-Cập nhật 28/10/2026. Chạy các lệnh từ thư mục gốc chứa `app/`, `database/`
+Cập nhật 03/11/2026. Chạy các lệnh từ thư mục gốc chứa `app/`, `database/`
 và `requirements.txt`. Hướng dẫn dành cho local; không phải quy trình triển khai
 production. Dùng PostgreSQL HUS database `ai07`, qua Neon hoặc Docker.
 Nếu chưa có mã nguồn, clone rồi chuyển vào thư mục dự án:
@@ -33,8 +33,13 @@ Cài dependency ứng dụng, test và connector trong cùng môi trường:
 
 ```bash
 python -m pip install -r requirements-dev.txt -c requirements-lock.txt
-python -m pip install -r requirements-portal.txt -c requirements-lock.txt
+python -m pip check
 ```
+
+`requirements-dev.txt` nạp `requirements-portal.txt`, rồi nạp core. Playwright
+được ghim cùng bản **1.64.1** trong portal và lock; không cài riêng bản 1.58 từ
+hướng dẫn RAG cũ. Nếu chỉ chạy ứng dụng với VNU, dùng
+`python -m pip install -r requirements-portal.txt -c requirements-lock.txt`.
 
 Không dùng Conda thì tạo `.venv` bằng `python -m venv .venv`; kích hoạt bằng
 `source .venv/bin/activate` trên Linux/macOS hoặc `.venv\Scripts\Activate.ps1`
@@ -54,11 +59,17 @@ python -m playwright install chrome
 
 Lệnh cài có thể cần quyền quản trị tùy hệ điều hành. Đừng chỉ cài Chromium rồi
 cho rằng worker đã có Chrome: `channel="chrome"` yêu cầu đúng Google Chrome.
-CLI chẩn đoán `tools.try_daotao` dùng Chromium riêng; chỉ khi dùng CLI này mới cần:
+Demo HUS RAG và CLI chẩn đoán `tools.try_daotao` dùng Chromium riêng.
+Kiểm tra UI có quay video còn cần FFmpeg của Playwright:
 
 ```bash
-python -m playwright install chromium
+python -m playwright install chromium ffmpeg
 ```
+
+Chạy lại lệnh này sau khi đổi phiên bản Playwright vì mỗi bản cần browser binary
+tương ứng. Trên Linux/CI dùng `python -m playwright install --with-deps chromium`;
+job browser hiện ghim Ubuntu 24.04. Xem
+[tài liệu browser của Playwright](https://playwright.dev/python/docs/browsers).
 
 ## 3. File cấu hình
 
@@ -234,7 +245,9 @@ không tạo lại cấu hình, sinh khóa mới hoặc publish/seed lại mỗi
 | `HUS database migrations are not current` | Kiểm tra hai URL cùng DB rồi chạy migration và `current`. |
 | `Can't locate revision ...hus_20261023_04` | Cập nhật đủ code có migration khôi phục; xem [database README](../database/README.md). Không stamp/reset. |
 | `Auth configuration requires a server secret` | `.env.auth` phải có `AUTH_TOKEN_PEPPER` ngẫu nhiên ≥32 ký tự; shell có thể ghi đè. |
-| `Executable doesn't exist` / `browser_unavailable` | Worker cần Chrome; Chromium chỉ phục vụ CLI. |
+| `ResolutionImpossible` liên quan Playwright | Cập nhật đủ ba file requirements, cài bộ dev với lock trong cùng Python; portal và lock phải cùng phiên bản. |
+| `No module named bs4/docx/openpyxl/yaml/pdfplumber` | Cài lại bộ dev với lock sau pull; bộ HUS có thêm dependency đọc tài liệu. |
+| `Executable doesn't exist` / `browser_unavailable` | VNU cần Chrome; demo RAG cần Chromium đúng bản Playwright. Chạy `python -m playwright install chromium ffmpeg` để bổ sung binary cho RAG/video. |
 | `origin_rejected` / `csrf_rejected` | Mở đúng URL/port cấu hình, đăng nhập lại từ UI; không tắt kiểm tra bảo vệ. |
 | Cổng 8000 đã được dùng | Dừng server cũ trước; đổi port phải đổi cả base URL/origin auth. |
 | DB mới báo thiếu catalog | Migration chỉ tạo schema; thực hiện bước publish cho DB mới. |

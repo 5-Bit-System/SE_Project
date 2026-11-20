@@ -61,6 +61,53 @@ def verified_login(client, messages, email='admin@sohoctap.test'):
     return state['account']
 
 
+def test_admin_account_detail_reads_login_and_consultation_metadata(system):
+    client, db, messages = system
+    principal = verified_login(client, messages)
+    account_id = principal['account_id']
+    with db.begin() as conn:
+        conn.execute(text("""INSERT INTO portal_users(id,subject,profile)
+            VALUES('00000000-0000-4000-8000-000000000456','synthetic-student',
+                   '{"name":"Student from VNU","program":"Computer science","cohort":"K68"}'::jsonb)"""))
+        conn.execute(text("""INSERT INTO account_portal_links(account_id,portal_owner_id)
+            VALUES(:account_id,'00000000-0000-4000-8000-000000000456')"""),
+            {'account_id': account_id})
+    repository.record_activity(account_id, 'advisor')
+    repository.record_activity(account_id, 'recommendation')
+    assert client.post('/auth/logout').status_code == 200
+    assert client.post('/auth/login', json={'email': 'admin@sohoctap.test',
+                                            'password': PASSWORD}).status_code == 200
+
+    response = client.get(f'/admin/users/{account_id}')
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data['account']['id'] == account_id
+    assert data['account']['profile_name'] == 'Student from VNU'
+    assert data['account']['profile_program'] == 'Computer science'
+    assert data['account']['profile_cohort'] == 'K68'
+    assert data['account']['last_login_at'] is not None
+    assert data['account']['last_logout_at'] is not None
+    assert {event['kind'] for event in data['events']} == {'login', 'logout', 'advisor', 'recommendation'}
+    assert len(data['events']) == 5
+    assert 'password_hash' not in data['account']
+    assert all(set(event) == {'kind', 'created_at'} for event in data['events'])
+
+
+def test_admin_account_detail_without_vnu_profile_or_logout(system):
+    client, _, messages = system
+    principal = verified_login(client, messages)
+
+    response = client.get(f"/admin/users/{principal['account_id']}")
+    assert response.status_code == 200, response.text
+    account = response.json()['account']
+    assert account['email'] == 'admin@sohoctap.test'
+    assert account['profile_name'] is None
+    assert account['profile_program'] is None
+    assert account['profile_cohort'] is None
+    assert account['last_login_at'] is not None
+    assert account['last_logout_at'] is None
+
+
 def test_password_change_rotates_and_revokes_old_session(system):
     client, _, messages = system
     verified_login(client, messages)

@@ -1,38 +1,31 @@
 """New source-owned boundary must reject anonymous/tampered requests before cutover."""
 
-import copy
-
 import pytest
-from fastapi.testclient import TestClient
 
-from app.integrations.daotao import runtime, store
-from app.main import app
-
-
-@pytest.fixture
-def client(monkeypatch, fake_accounts):
-    runtime.sessions.clear()
-    seen = []
-    data = {"subject": "synthetic", "profile": {}, "snapshot": {
-        "schema_version": 1, "completeness": "unknown", "digest": "synthetic",
-        "attempts": [], "unknown_rows": []}, "fetched_at": None}
-
-    def profile(owner):
-        seen.append(owner)
-        return copy.deepcopy(data)
-
-    monkeypatch.setattr(store, "profile", profile)
-    with TestClient(app, base_url="http://127.0.0.1:8000") as value:
-        value.headers["origin"] = "http://127.0.0.1:8000"
-        value.seen_owners = seen
-        value.profile_data = data
-        value.fake_accounts = fake_accounts
-        yield value
-    runtime.sessions.clear()
+from app.integrations.daotao import runtime
 
 
 def authenticated(client, owner="synthetic-owner"):
     client.fake_accounts.issue(client, owner, 'synthetic', linked=True)
+
+
+@pytest.mark.parametrize('path', ['/me/recommendations', '/me/advisor/chat'])
+def test_activity_storage_failure_does_not_discard_valid_answer(client, ready_context, monkeypatch, caplog, path):
+    from app.auth import repository
+
+    def unavailable(*_):
+        raise RuntimeError('private-database-message-must-not-leak')
+
+    monkeypatch.setattr(repository, 'record_activity', unavailable)
+    response = client.post(path, json={
+        'program_id': 'khdl', 'expected_revision': ready_context['revision'],
+        'message': 'Goi y mon hoc',
+    })
+    assert response.status_code == 200, response.text
+    assert response.json()['context_revision'] == ready_context['revision']
+    assert 'private-database-message-must-not-leak' not in response.text
+    assert 'private-database-message-must-not-leak' not in caplog.text
+    assert 'Account activity storage unavailable' in caplog.text
 
 
 def test_context_requires_authenticated_session(client):
@@ -87,36 +80,6 @@ def test_legacy_calculation_routes_require_a_verified_system_account(client):
     assert response.status_code == 200
 
 
-@pytest.fixture
-def ready_context(client, monkeypatch):
-    # Test-only evidence/policy. Never enable these settings for a real account.
-    import importlib.util
-    assert importlib.util.find_spec('app.api.academic') is not None, 'Source-owned API missing'
-    from app.academic_context import AcademicPolicy
-    from app.api import academic
-    from app.api.academic import POLICIES
-    from tests.support.catalog_fixtures import mark_catalog_reviewed_for_test
-
-    load_catalog = academic.load_catalog
-    monkeypatch.setattr(academic, 'load_catalog', lambda program_id:
-                        mark_catalog_reviewed_for_test(load_catalog(program_id)))
-
-    authenticated(client)
-    preview = client.get('/me/academic-context?program_id=khdl').json()
-    client.profile_data['profile']['academic_binding'] = {
-        'program_id': 'khdl_7460108_2022', 'catalog_revision': preview['catalog_revision'],
-        'verified': True, 'evidence_ref': 'synthetic-only:review', 'policy_version': 'test-only-v1'}
-    client.profile_data['snapshot'].update(completeness='complete', attempts=[{
-        'row_key': '0', 'code': 'PHI1006', 'credits': '3', 'grade10': '4.2',
-        'letter': 'D', 'grade4': '1'}])
-    monkeypatch.setitem(POLICIES, 'test-only-v1', AcademicPolicy(
-        'test-only-v1', 'synthetic:test-spec', ('khdl_7460108_2022',), {'D': (4, 4.9, 1)}))
-    context = client.get('/me/academic-context?program_id=khdl').json()
-    assert context['status'] == 'ready'
-    assert context['completed_course_codes'] == ['PHI1006']
-    return context
-
-
 def test_ready_server_source_drives_eligibility_and_recommendations(client, ready_context):
     context = ready_context
     response = client.get('/me/eligibility?program_id=khdl')
@@ -127,8 +90,10 @@ def test_ready_server_source_drives_eligibility_and_recommendations(client, read
     assert response.status_code == 200
     assert response.json()['context_revision'] == context['revision']
     assert 'PHI1006' not in [course['code'] for course in response.json()['recommendations']]
+    assert client.fake_accounts.activities[-1][1] == 'recommendation'
     client.profile_data['snapshot']['digest'] = 'newer-synthetic-source'
     assert client.post('/me/recommendations', json=body).status_code == 409
+    assert len(client.fake_accounts.activities) == 1
 
 
 @pytest.mark.parametrize('change,expected', [('source', 409), ('logout', 401)])
@@ -150,6 +115,7 @@ def test_slow_recommendation_never_returns_results_after_source_or_session_chang
         'program_id': 'khdl', 'expected_revision': ready_context['revision']})
     assert response.status_code == expected
     assert 'recommendations' not in response.json()
+    assert client.fake_accounts.activities == []
 
 
 def test_ready_progress_and_advisor_share_source_owned_completed_facts(client, ready_context):
@@ -162,6 +128,7 @@ def test_ready_progress_and_advisor_share_source_owned_completed_facts(client, r
         'message': 'Goi y mon hoc'})
     assert response.status_code == 200
     assert response.json()['context_revision'] == ready_context['revision']
+    assert client.fake_accounts.activities[-1][1] == 'advisor'
 
 
 def test_what_if_requires_a_server_baseline_even_when_context_is_ready(client, ready_context):

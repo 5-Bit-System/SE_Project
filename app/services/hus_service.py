@@ -33,3 +33,19 @@ def get_hus_answerer() -> HUSAnswerer:
         from app.hus.hybrid_retrieval import HUSHybridRetriever
         return HUSAnswerer(data, retriever=HUSHybridRetriever(data, vector=vector), answer_policy=policy)
     return HUSAnswerer(data, retriever=vector, answer_policy=policy)
+
+
+
+@lru_cache(maxsize=1)
+def _workspace_answerer(answerer: HUSAnswerer) -> HUSAnswerer:
+    from app.hus.workspace_answering import WorkspaceAnswerer
+
+    workspace = WorkspaceAnswerer(answerer.data, retriever=answerer.retriever)
+    workspace.citation_resolver = answerer.citation_resolver
+    return workspace
+
+
+def workspace_answerer(answerer: HUSAnswerer) -> HUSAnswerer:
+    if isinstance(answerer, HUSAnswerer) and answerer.answer_policy == 'legacy':
+        return _workspace_answerer(answerer)
+    return answerer

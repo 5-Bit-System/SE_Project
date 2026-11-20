@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 from playwright.sync_api import sync_playwright
 
 from tests.frontend.auth_fixture import session_payload
-from tests.frontend.presentation_fixture import common_route
+from tests.frontend.presentation_fixture import common_route, open_plan_tools
 
 KHMT = "khmtt_7480113qtd_2022"
 KHDL = "khdl_7460108_2022"
@@ -113,12 +113,18 @@ def main():
         page.goto("http://127.0.0.1:8000/?course-mode=personal#rules")
         page.wait_for_selector("#course-status-board")
         root = page.locator("#course-status-board")
+        planner = page.locator("#course-planning-panel")
+
+        def open_confirmation():
+            page.locator("#tab-btn-recommend").click()
+            open_plan_tools(page)
+            page.wait_for_selector("#academic-program-choice")
 
         def emit():
             page.evaluate("value => document.dispatchEvent(new CustomEvent('workspace:portal-data', {detail:value}))", source())
 
         # Restore the existing session from HTTP on page load, then open personal mode.
-        page.wait_for_selector("#academic-program-choice")
+        open_confirmation()
         assert page.locator("#academic-program-choice").input_value() == KHMT
         assert page.locator("#academic-cohort-choice").input_value() == "68"
         assert not writes
@@ -130,7 +136,8 @@ def main():
         page.screenshot(path=str(evidence / "confirmation-mobile.png"), full_page=True)
         page.set_viewport_size({"width": 1440, "height": 1050})
         page.locator("#academic-program-consent").check()
-        root.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
+        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
+        page.locator("#tab-btn-rules").click()
         page.wait_for_selector('[data-course-code="TESTA"]')
         assert root.locator(".course-state-completed .course-status-card").count() == 1
         assert root.locator(".course-state-eligible .course-status-card").count() == 1
@@ -142,15 +149,16 @@ def main():
         owner = "b"
         page.evaluate("window.systemAuth.refresh()")
         emit()
-        page.wait_for_selector("#academic-program-choice")
+        open_confirmation()
         assert page.locator("#academic-program-choice").input_value() == KHDL
         assert page.locator("#academic-cohort-choice").input_value() == "67"
         page.locator("#academic-program-consent").check()
-        root.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
-        page.wait_for_function("document.querySelector('#course-status-board').textContent.includes('bộ đọc mới')")
+        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
+        page.wait_for_function("document.querySelector('#course-planning-panel').textContent.includes('bộ đọc mới')")
         assert root.locator(".course-status-card").count() == 0
         complete["b"] = True
         emit()
+        page.locator("#tab-btn-rules").click()
         page.wait_for_selector('[data-course-code="TESTB"]')
         assert root.locator('[data-course-code="TESTA"]').count() == 0
         assert writes == ["a", "b"]
@@ -170,23 +178,26 @@ def main():
         complete["b"] = False
         page.evaluate("document.dispatchEvent(new Event('visibilitychange'))")
         root.get_by_role("button", name="Cập nhật", exact=True).click()
-        root.get_by_role("button", name="Cập nhật bảng điểm VNU", exact=True).click()
+        page.locator("#tab-btn-recommend").click()
+        open_plan_tools(page)
+        planner.get_by_role("button", name="Cập nhật bảng điểm VNU", exact=True).click()
         assert page.locator("#portal-dialog").is_visible()
         page.locator("#tab-btn-rules").click()
         complete["b"] = True
         confirmed["b"] = False
         emit()
-        page.wait_for_selector("#academic-program-choice")
+        open_confirmation()
         delayed = True
         page.locator("#academic-program-consent").check()
-        root.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
+        planner.get_by_role("button", name="Xác nhận và đối chiếu bảng điểm", exact=True).click()
         page.wait_for_timeout(100)
         assert waiting
         page.evaluate("document.dispatchEvent(new Event('workspace:session-expired'))")
         for route in waiting:
             route.fulfill(content_type="application/json", body='{"confirmed":true}')
         page.wait_for_timeout(100)
-        assert root.locator(".course-status-card, #academic-program-choice").count() == 0
+        assert root.locator(".course-status-card").count() == 0
+        assert planner.locator("#academic-program-choice").count() == 0
         assert 'Đăng nhập VNU' in root.inner_text()
         assert not errors, errors
         browser.close()

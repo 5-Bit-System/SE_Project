@@ -7,7 +7,7 @@ của người trình bày.
 
 ## 1. Chuẩn bị trước buổi trình bày
 
-Cài theo quickstart trên Windows64-bit/Python3.11. Tại thư mục source, chạy:
+Cài theo quickstart trên Windows 64-bit với Python 3.11. Tại thư mục gốc, chạy:
 
 ```powershell
 .\.venv\Scripts\python.exe -X utf8 -m tools.run_hus_rag --check
@@ -19,6 +19,13 @@ Giữ terminal, Ctrl+C để dừng. Không mở file HTML trực tiếp.
 
 Lệnh này tắt LLM. **F3 hiển thị hồ sơ AI tham khảo đã lưu** khi người dùng bật
 quyền F3. Thành viên có thể dùng trình duyệt đang có trên máy.
+
+Trong **Danh mục câu hỏi**, mở một nhóm F1, F2, F3 hoặc Hướng dẫn, rồi bấm câu hỏi để gửi.
+Có thể tìm theo tên, mã môn hoặc nội dung câu hỏi bằng tiếng Việt không dấu.
+F1 ghi phiên bản và hệ của nguồn. F2 và F3 dùng chương trình đã chọn.
+
+Bản chạy trong Workspace mở qua tab **Tra cứu thông tin** của ứng dụng chính.
+Các bước và số liệu trong kịch bản này được ghi trên demo độc lập.
 
 Chuẩn bị sẵn [bộ 30 câu](RAG_STUDENT_CONTENT_30_LIVE_2026_11_14.md) và
 [lượt Gemini focused](RAG_FOCUSED_LIVE_2026_11_19.md) để mở ở phút cuối.

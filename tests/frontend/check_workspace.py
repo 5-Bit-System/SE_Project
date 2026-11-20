@@ -34,6 +34,8 @@ def main():
                 'status': 'needs_program_binding', 'can_plan': False,
                 'blocking_reasons': ['source_incomplete', 'program_binding_unverified'],
                 'courses': None, 'progress': None, 'plan': None})
+        elif '/me/academic-program' in url:
+            route.fulfill(status=404, json={'detail': 'not_found'})
         elif "/me/" in url or "/auth/" in url:
             requests.append(url)
             route.fulfill(content_type="application/json", body=json.dumps(sample))
@@ -53,7 +55,7 @@ def main():
         assert page.locator(".tab-panel.active").count() == 1
         page.wait_for_function("document.querySelectorAll('#analytics-trend .chart-point').length>0")
         assert page.locator('#tab-transcript, #dashboard-manual-plan').count() == 0
-        assert page.locator(".workspace-body > .tab-panel").count() == 4
+        assert page.locator(".workspace-body > .tab-panel").count() == 5
         assert page.evaluate("new Set([...document.querySelectorAll('[id]')].map(e=>e.id)).size === document.querySelectorAll('[id]').length")
         page.locator("#tab-btn-profile").click()
         page.wait_for_function("!document.getElementById('portal-profile').hidden")
@@ -78,7 +80,7 @@ def main():
         page.locator("#tab-btn-dashboard").click()
         assert "Study dashboard" in page.locator("#dashboard-content").inner_text()
         page.set_viewport_size({"width": 390, "height": 900})
-        for panel in ("tab-btn-dashboard", "tab-btn-profile", "tab-btn-rules", "tab-btn-recommend"):
+        for panel in ("tab-btn-dashboard", "tab-btn-profile", "tab-btn-rules", "tab-btn-recommend", "tab-btn-lookup"):
             page.locator(f"#{panel}").click()
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), panel
             if panel in {"tab-btn-dashboard", "tab-btn-profile"}:

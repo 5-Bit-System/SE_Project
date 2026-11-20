@@ -1,9 +1,13 @@
 # Chatbot HUS — Tiến độ và các bước tiếp theo
 
-Cập nhật **19/11/2026** · Nhánh **`hus-llm-rag`** · Phạm vi **đồ án sinh viên**.
+Các lượt kiểm demo dưới đây được ghi đến **19/11/2026** trên nhánh `hus-llm-rag`
+trong phạm vi đồ án sinh viên. Mốc tài liệu của lượt đó là commit `08b72a5`.
 
-**Mốc bàn giao source:** tại thời điểm cập nhật tài liệu, nhánh local và ref theo
-dõi `origin/hus-llm-rag` trong workspace cùng ở commit `08b72a5`.
+Ứng dụng chính có tab **Tra cứu thông tin** và lưu lịch sử chat theo tài khoản
+và ngành. Bản demo chạy độc lập bằng các launcher dưới đây. Xem cấu hình
+ứng dụng trong [README](../README.md) và lượt kiểm 48 câu của Workspace trong
+[báo cáo A7](RAG_FINAL_EVALUATION_A7.md). Kết quả A7 thuộc cấu hình đã ghi trong
+báo cáo. Các lượt Gemini bên dưới đo cấu hình demo v4.
 
 **LLM đã tích hợp xong cho phạm vi đồ án và dùng được để demo F1/F2/F3.**
 Backend đã gọi trực tiếp Gemini và sử dụng đầu ra hợp lệ cho cả ba nhóm.
@@ -269,8 +273,8 @@ diagnostic đã dùng đủ **1/1 call riêng**, xác nhận prompt F2 sau sửa
 **1/1 call mới**; không retry/đổi model.1 call chưa dùng của tác vụ trước đã dừng, không chuyển sang
 tác vụ này. Đợt live tiếp theo cần thống nhất số call mới. Trước mắt giữ cap
 1.024 output token/call; chỉ điều chỉnh sau khi thấy nhu cầu thực tế và được thống
-nhất. Key lưu ở backend. Lượt cập nhật tài liệu này thực hiện local. Khi đưa
-thay đổi vào `main`, dùng feature branch, PR và **Create a merge commit**
+nhất. Key lưu ở backend. Khi đưa thay đổi vào `main`, dùng feature branch, PR và
+**Create a merge commit**
 theo quy định nhóm.
 
 Lượt ý định/F2 trước đây đã kết thúc với **11/12 call**. Lượt focused ngày

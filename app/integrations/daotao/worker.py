@@ -4,7 +4,7 @@ import json
 import sys
 from urllib.parse import urlsplit
 
-from app.integrations.daotao.client import DaotaoClient
+from app.integrations.daotao.client import DaotaoClient, navigation_interrupted
 from app.integrations.daotao.session_state import HOST, MAX_INPUT_BYTES, validated_cookies
 from app.integrations.daotao.snapshot import (
     PortalFailure,
@@ -31,6 +31,20 @@ def browser_error_code(stage, error):
     if "net::ERR_NETWORK_ACCESS_DENIED" in str(error):
         return "network_access_denied"
     return "portal_unavailable"
+
+
+def browser_error_kind(error):
+    """Bounded diagnostics help identify failures without logging source content."""
+    if navigation_interrupted(error):
+        return 'navigation_interrupted'
+    message = str(error)
+    if 'net::ERR_ABORTED' in message:
+        return 'request_aborted'
+    if 'net::ERR_' in message:
+        return 'network_error'
+    if 'strict mode violation' in message:
+        return 'selector_ambiguous'
+    return 'browser_error'
 
 
 def write_result(result):
@@ -76,9 +90,7 @@ def collect(credentials):
                                      authenticated_subject=authenticated_subject)
                     stage = "transcript"
                     client.open_transcript()
-                    for page in context.pages:
-                        for frame in page.frames:
-                            texts.append(frame.locator("body").inner_text())
+                    texts.extend(client.frame_texts())
                     stage = "identity"
                     subject = verified_subject("\n".join(texts), expected_subject,
                                                authenticated_subject=authenticated_subject)
@@ -107,7 +119,7 @@ def collect(credentials):
         code, kind = "timeout", "timeout"
     except Error as exc:
         code = browser_error_code(stage, exc)
-        kind = "browser_error"
+        kind = browser_error_kind(exc)
     except Exception:
         code, kind = "portal_unavailable", "unexpected_error"
     # Never include exception messages, DOM, credentials or provider responses.

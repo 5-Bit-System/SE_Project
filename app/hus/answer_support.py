@@ -3,7 +3,7 @@
 import re
 import unicodedata
 from collections import defaultdict
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 
 from app.hus.question_routing import (
     ASSESSMENT_COMPOUNDS,
@@ -251,7 +251,8 @@ def _study_request_condition(condition, aliases, codes, hits):
 def supported_hits(question: str, hits: tuple[RetrievalHit, ...], *,
                    aliases: dict[str, tuple[str, ...]], codes: set[str],
                    format_supported: Callable[[RetrievalHit, str], bool] | None = None,
-                   source_catalog: Callable[[], tuple[RAGChunk, ...]] | None = None) -> tuple[RetrievalHit, ...]:
+                   source_catalog: Callable[[], tuple[RAGChunk, ...]] | None = None,
+                   extra_neutral: Iterable[str] = ()) -> tuple[RetrievalHit, ...]:
     """Cover factual requirements with exact excerpts from one scoped source.
 
     Metadata can satisfy explicit edition identity, never a numerical/domain
@@ -353,6 +354,7 @@ def supported_hits(question: str, hits: tuple[RetrievalHit, ...], *,
         for name in names:
             neutral.update(_tokens(name))
     neutral.update(c.lower() for c in codes)
+    neutral.update(_tokens(" ".join(extra_neutral)))
     for hit in hits:
         neutral.update(_tokens(hit.chunk.metadata.get("course_name", "")))
     specific = set(_tokens(query)) - neutral

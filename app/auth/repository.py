@@ -240,6 +240,53 @@ def list_users(principal, page, query):
         return {'items': [dict(row) for row in rows], 'total': total, 'page': page, 'page_size': 25}
 
 
+def record_activity(account_id: str, kind: str) -> None:
+    if kind not in {'advisor', 'recommendation'}:
+        raise ValueError('invalid_activity_kind')
+    with engine().begin() as conn:
+        conn.execute(text("""INSERT INTO account_activity_events(account_id,kind)
+            VALUES(:account_id,:kind)"""), {'account_id': account_id, 'kind': kind})
+
+
+def account_detail(principal, account_id: str) -> dict:
+    with engine().connect() as conn:
+        actor = current(conn, principal['session_id'])
+        if actor['role'] != 'admin':
+            raise AuthFailure('forbidden', 403)
+        account = conn.execute(text("""SELECT a.id::text,a.email,a.vnu_subject,a.display_name,
+            a.role,a.is_active,a.email_verified_at,a.created_at,
+            p.profile->>'name' AS profile_name,
+            p.profile->>'program' AS profile_program,
+            p.profile->>'cohort' AS profile_cohort
+            FROM accounts a
+            LEFT JOIN account_portal_links l ON l.account_id=a.id
+            LEFT JOIN portal_users p ON p.id=l.portal_owner_id
+            WHERE a.id=:account_id"""),
+            {'account_id': account_id}).mappings().one_or_none()
+        if account is None:
+            raise AuthFailure('account_not_found', 404)
+        login_times = conn.execute(text("""
+            SELECT
+              (SELECT created_at FROM auth_audit_events
+               WHERE target_id=:account_id AND action IN ('login','login_vnu')
+               ORDER BY created_at DESC LIMIT 1) AS last_login_at,
+              (SELECT created_at FROM auth_audit_events
+               WHERE target_id=:account_id AND action='logout'
+               ORDER BY created_at DESC LIMIT 1) AS last_logout_at
+        """), {'account_id': account_id}).mappings().one()
+        events = conn.execute(text("""
+            SELECT kind,created_at FROM (
+                SELECT action AS kind,created_at FROM auth_audit_events
+                WHERE target_id=:account_id AND action IN ('login','login_vnu','logout')
+                UNION ALL
+                SELECT kind,created_at FROM account_activity_events
+                WHERE account_id=:account_id
+            ) activity ORDER BY created_at DESC,kind LIMIT 30
+        """), {'account_id': account_id}).mappings().all()
+        return {'account': {**dict(account), **dict(login_times)},
+                'events': [dict(event) for event in events]}
+
+
 def update_user(principal, target, changes):
     with engine().begin() as conn:
         conn.execute(text('SELECT pg_advisory_xact_lock(18107025)'))
@@ -264,3 +311,22 @@ def update_user(principal, target, changes):
                      {'role': role, 'active': active, 'id': target})
         conn.execute(text('UPDATE auth_sessions SET revoked_at=now() WHERE account_id=:id'), {'id': target})
         audit(conn, actor['account_id'], target, 'update_user')
+        try:
+            from app.audit.service import log_admin_action
+
+            log_admin_action(
+                conn,
+                actor_id=actor['account_id'],
+                actor_email=actor.get('email'),
+                action="account.update_user",
+                target_type="account",
+                target_id=str(target),
+                summary=f"Updated account {row.get('email') or target} (role={role}, is_active={active})",
+                details={"changes": changes, "target_email": row.get('email')},
+            )
+        except Exception:
+            pass
+
+def count_accounts() -> int:
+    with engine().connect() as conn:
+        return conn.execute(text('SELECT count(*) FROM accounts')).scalar_one()

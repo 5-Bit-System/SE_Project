@@ -18,7 +18,7 @@ from app.models import Catalog
 from app.transcript import resolve_program_id
 
 logger = logging.getLogger(__name__)
-HEAD = "hus_20261028_08"
+HEAD = "hus_20261105_13"
 
 
 class HusRepository:
@@ -60,16 +60,26 @@ class HusRepository:
         return catalog
 
     def _load_catalog(self, conn: Connection, program_id: str) -> Catalog:
-        row = conn.execute(text("""
+        row = (
+            conn.execute(
+                text("""
             SELECT r.revision_id, r.program_id, r.curriculum_id, r.source_digest, r.payload,
                    c.curriculum_id AS source_curriculum_id, c.program_id AS source_program_id,
                    c.major_code, c.runtime_rules
             FROM hus_catalog_revisions r JOIN curricula c ON c.curriculum_id=r.curriculum_id
             WHERE r.program_id=:program_id AND r.active
-        """), {"program_id": resolve_program_id(program_id)}).mappings().one_or_none()
+        """),
+                {"program_id": resolve_program_id(program_id)},
+            )
+            .mappings()
+            .one_or_none()
+        )
         if row is None:
             raise CatalogError(f"Unknown HUS program: {program_id}")
-        identity = {"program_id": row["source_program_id"], "curriculum_id": row["source_curriculum_id"]}
+        identity = {
+            "program_id": row["source_program_id"],
+            "curriculum_id": row["source_curriculum_id"],
+        }
         catalog = self._validated(row, identity)
         if PROGRAM_MAJOR_IDS.get(catalog.program.program_id) != row["major_code"]:
             raise StorageDataError("HUS major identity mismatch")
@@ -81,7 +91,15 @@ class HusRepository:
 
     def list_catalogs(self) -> list[Catalog]:
         with self.connection() as conn:
-            ids = conn.execute(text("SELECT program_id FROM hus_catalog_revisions WHERE active ORDER BY program_id")).scalars().all()
+            ids = (
+                conn.execute(
+                    text(
+                        "SELECT program_id FROM hus_catalog_revisions WHERE active ORDER BY program_id"
+                    )
+                )
+                .scalars()
+                .all()
+            )
             return [self._load_catalog(conn, program_id) for program_id in ids]
 
     def read_profiles(self) -> list[dict[str, Any]]:
@@ -91,10 +109,20 @@ class HusRepository:
 
     def ready(self) -> None:
         with self.connection() as conn:
-            head = conn.execute(text("SELECT version_num FROM hus_alembic_version")).scalar_one_or_none()
+            head = conn.execute(
+                text("SELECT version_num FROM hus_alembic_version")
+            ).scalar_one_or_none()
             if head != HEAD:
                 raise StorageDataError("HUS database migrations are not current")
-            ids = conn.execute(text("SELECT program_id FROM hus_catalog_revisions WHERE active ORDER BY program_id")).scalars().all()
+            ids = (
+                conn.execute(
+                    text(
+                        "SELECT program_id FROM hus_catalog_revisions WHERE active ORDER BY program_id"
+                    )
+                )
+                .scalars()
+                .all()
+            )
             if set(ids) != EXPECTED_PROGRAM_IDS or len(ids) != 4:
                 raise StorageDataError("HUS database requires four active catalogs")
             for program_id in ids:

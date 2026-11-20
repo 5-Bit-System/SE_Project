@@ -229,7 +229,8 @@ def test_worker_diagnoses_failed_stage_without_provider_details(monkeypatch, sta
         Error=BrowserError, TimeoutError=BrowserTimeout, sync_playwright=Playwright))
     monkeypatch.setattr(worker, "DaotaoClient", Client)
     result = worker.collect({"username": "synthetic", "password": private})
-    assert result == {"error": expected_code, "stage": stage, "kind": "browser_error"}
+    assert result == {"error": expected_code, "stage": stage,
+                      "kind": "network_error" if network_error else "browser_error"}
     assert private not in json.dumps(result)
     assert browser.closed == (stage != "browser_start")
 
@@ -258,3 +259,15 @@ def test_runtime_logs_only_allowlisted_worker_diagnostics(monkeypatch, caplog, h
         asyncio.run(runtime.collect({"username": "synthetic", "password": private}))
     assert f"stage={'unknown' if hostile else 'profile'}" in caplog.text
     assert private not in caplog.text
+
+
+@pytest.mark.parametrize('message,kind', [
+    ('Execution context was destroyed', 'navigation_interrupted'),
+    ('net::ERR_ABORTED', 'request_aborted'),
+    ('net::ERR_CONNECTION_RESET', 'network_error'),
+    ('strict mode violation', 'selector_ambiguous'),
+    ('Unknown browser failure', 'browser_error'),
+])
+def test_browser_failure_kind_does_not_expose_provider_details(message, kind):
+    assert worker.browser_error_kind(Exception(message + ' private-cookie-grade')) == kind
+    assert kind in runtime.WORKER_KINDS

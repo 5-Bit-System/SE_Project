@@ -131,6 +131,32 @@ def test_deleted_source_identity_cannot_be_linked_to_another_account(system):
     assert login(client)['account_id'] == student['account_id']
 
 
+def test_admin_can_sign_in_as_existing_vnu_student_without_transferring_ownership(system):
+    client, engine, messages = system
+    student = login(client)
+    with engine.connect() as conn:
+        owner = conn.execute(text('SELECT portal_owner_id FROM account_portal_links '
+                                  'WHERE account_id=:id'), {'id': student['account_id']}).scalar_one()
+    admin = verified_login(client, messages)
+    old_admin_token = client.cookies.get('study_app_session')
+    assert client.post('/me/portal-connection', json={
+        'username': 'synthetic-vnu', 'password': 'synthetic-private'}).json() == {'detail': 'vnu_already_linked'}
+    switched = login(client)
+    assert switched['account_id'] == student['account_id']
+    assert switched['role'] == 'student'
+    assert repository.session_from_token(old_admin_token) is None
+    assert client.get('/admin/users').status_code == 403
+    assert client.get('/me/profile').json()['snapshot']
+    with engine.connect() as conn:
+        assert conn.execute(text('SELECT count(*) FROM accounts')).scalar_one() == 2
+        assert conn.execute(text('SELECT count(*) FROM account_portal_links '
+                                 'WHERE account_id=:id'), {'id': admin['account_id']}).scalar_one() == 0
+        assert conn.execute(text('SELECT portal_owner_id FROM account_portal_links '
+                                 'WHERE account_id=:id'), {'id': student['account_id']}).scalar_one() == owner
+        assert conn.execute(text('SELECT role FROM accounts WHERE id=:id'),
+                            {'id': admin['account_id']}).scalar_one() == 'admin'
+
+
 def test_source_failure_after_proven_login_preserves_existing_data(system, monkeypatch):
     client, _, _ = system
     original = login(client)

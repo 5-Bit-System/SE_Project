@@ -67,9 +67,10 @@ def main():
                 assert client.read_transcript()[1][1] == "TEST001"
                 context.close()
             check_profile_module(browser)
+            check_navigation_interruption(browser)
         finally:
             browser.close()
-    print("Portal profile: fixed authenticated landing URL, early capture, transcript preserved")
+    print("Portal profile: landing/module capture, transcript preserved, real navigation interruption retried")
 
 
 def check_profile_module(browser):
@@ -133,6 +134,40 @@ def check_profile_module(browser):
         assert not client.page.locator('iframe').count()
         assert source_profile(texts) == details
         assert client.read_transcript()[1][1] == "TEST001"
+        context.close()
+
+
+def check_navigation_interruption(browser):
+    """Cause Chrome to replace its execution context during a source read."""
+    context = browser.new_context()
+    context.set_offline(True)
+    requests = []
+
+    def intercept(route):
+        requests.append(route.request.url)
+        assert route.request.method == 'GET', 'Never repeat a credential submission'
+        route.fulfill(content_type='text/html; charset=utf-8', body=LANDING)
+
+    context.route('**/*', intercept)
+    try:
+        client = DaotaoClient(context)
+        client.page.goto(PROFILE_URL)
+        reads = []
+
+        def read(frame):
+            reads.append(frame.url)
+            if len(reads) == 1:
+                # A pending JavaScript result is destroyed by a real navigation;
+                # this produces Chrome's actual Error, not an invented exception.
+                frame.evaluate("() => new Promise(() => { location.replace('?synthetic-reload=1'); })")
+            return [frame.locator('body').inner_text()]
+
+        texts = client._read_frames(read, timeout_ms=3000)
+        assert len(reads) == 2
+        assert len(requests) == 2
+        assert verified_subject('\n'.join(texts), 'synthetic001') == 'synthetic001'
+        assert 'Sinh viên giả lập' in texts[0]
+    finally:
         context.close()
 
 

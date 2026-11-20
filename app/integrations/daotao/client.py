@@ -19,6 +19,16 @@ ENROLLMENT_MENU = ('[id^="PortalModule_"][title="Cập nhật hồ sơ sinh viê
                    '[id^="PortalModule_"]:text-is("Cập nhật hồ sơ sinh viên")')
 
 
+def navigation_interrupted(error) -> bool:
+    """Recognize document replacement only; never retry credentials/network errors."""
+    message = str(error).casefold()
+    return any(code in message for code in (
+        'execution context was destroyed', 'cannot find context with specified id',
+        'frame was detached', 'frame has been detached',
+        'interrupted by another navigation',
+    ))
+
+
 class DaotaoClient:
     """Operate inside a caller-owned, ephemeral Playwright browser context."""
 
@@ -106,30 +116,27 @@ class DaotaoClient:
                         for element in frame.locator(selector).all():
                             if element.is_visible():
                                 return element
-                    except Error:
-                        if not frame.is_detached() and not page.is_closed():
+                    except Error as exc:
+                        if (not navigation_interrupted(exc)
+                                and not frame.is_detached() and not page.is_closed()):
                             raise
             sleep(0.2)
         raise TimeoutError("Không thấy mục xem điểm hoặc bảng điểm trong thời gian chờ.")
 
     def _check_interaction(self):
         """Recognize explicit visible challenges without guessing from body text."""
-        from playwright.sync_api import Error
-
         selector = ('input[autocomplete="one-time-code"], '
                     'input[name*="captcha" i], input[id*="captcha" i], '
                     'iframe[src*="recaptcha"], iframe[src*="hcaptcha"], '
                     '.g-recaptcha, .h-captcha')
-        for page in self.context.pages:
-            for frame in page.frames:
-                try:
-                    if any(node.is_visible() for node in frame.locator(selector).all()):
-                        raise PortalFailure("interaction_required")
-                    if self.resuming and frame.locator('#frmLogin').is_visible():
-                        raise PortalFailure("vnu_reauth_required")
-                except Error:
-                    if not frame.is_detached() and not page.is_closed():
-                        raise
+        def check(frame):
+            if any(node.is_visible() for node in frame.locator(selector).all()):
+                raise PortalFailure("interaction_required")
+            if self.resuming and frame.locator('#frmLogin').is_visible():
+                raise PortalFailure("vnu_reauth_required")
+            return []
+
+        self._read_frames(check, 15000)
 
     def open_transcript(self, timeout_ms: int = 30000) -> None:
         """Wait for the authenticated menu and invoke its existing showApp handler."""
@@ -156,23 +163,29 @@ class DaotaoClient:
         by a browser request. No profile values are authentication evidence.
         """
         if self.page.url != PROFILE_URL:
-            self.page.goto(PROFILE_URL, wait_until="domcontentloaded")
+            from playwright.sync_api import Error
+
+            try:
+                self.page.goto(PROFILE_URL, wait_until="domcontentloaded", timeout=timeout_ms)
+            except Error as exc:
+                if not navigation_interrupted(exc):
+                    raise
+                # The accepted login may still be redirecting. Wait for its
+                # authenticated menu below, without submitting credentials again.
         self._wait_for_element('#PortalModule_374[title="Xem điểm sinh viên"]', timeout_ms)
-        texts = [frame.locator("body").inner_text() for frame in self.page.frames]
+        texts = self.frame_texts(timeout_ms)
         # default.asp is a shell: its existing menu handler loads the profile.
         # Use the observed menu label, never guess a module ID or frame URL.
-        menus = [node for page in self.context.pages for frame in page.frames
-                 for node in frame.locator(PROFILE_MENU).all() if node.is_visible()]
+        menus = self._visible_menus(PROFILE_MENU, timeout_ms)
         if menus:
             menus[0].click(timeout=timeout_ms)
             deadline = monotonic() + timeout_ms / 1000
             while monotonic() < deadline:
                 self._check_interaction()
-                details = self._profile_cell_texts()
+                details = self._profile_cell_texts(timeout_ms=max(1, int((deadline - monotonic()) * 1000)))
                 if source_profile(details)["name"]:
                     texts.extend(details)
-                    texts.extend(frame.locator("body").inner_text()
-                                 for page in self.context.pages for frame in page.frames)
+                    texts.extend(self.frame_texts(timeout_ms))
                     return [*texts, *self._enrollment_texts(timeout_ms)]
                 sleep(0.2)
             from playwright.sync_api import TimeoutError
@@ -183,15 +196,15 @@ class DaotaoClient:
 
     def _enrollment_texts(self, timeout_ms: int) -> list[str]:
         """Read the disabled management-class select; never edit/submit the form."""
-        menus = [node for page in self.context.pages for frame in page.frames
-                 for node in frame.locator(ENROLLMENT_MENU).all() if node.is_visible()]
+        menus = self._visible_menus(ENROLLMENT_MENU, timeout_ms)
         if not menus:
             return []
         menus[0].click(timeout=timeout_ms)
         deadline = monotonic() + timeout_ms / 1000
         while monotonic() < deadline:
             self._check_interaction()
-            details = self._profile_cell_texts(labels=("Lớp quản lý",))
+            details = self._profile_cell_texts(labels=("Lớp quản lý",),
+                timeout_ms=max(1, int((deadline - monotonic()) * 1000)))
             if details:
                 return details
             sleep(0.2)
@@ -199,19 +212,40 @@ class DaotaoClient:
 
         raise TimeoutError("Student enrollment fields did not load.")
 
-    def _profile_cell_texts(self, labels=PROFILE_LABELS) -> list[str]:
+    def _read_frames(self, read, timeout_ms: int):
+        """Restart an interrupted scan so no partial/old document is returned."""
+        from playwright.sync_api import Error, TimeoutError
+
+        deadline = monotonic() + timeout_ms / 1000
+        while True:
+            try:
+                values = []
+                for page in self.context.pages:
+                    for frame in page.frames:
+                        values.extend(read(frame))
+                return values
+            except Error as exc:
+                if not navigation_interrupted(exc):
+                    raise
+                if monotonic() >= deadline:
+                    raise TimeoutError('Portal documents did not finish navigating.') from None
+                sleep(0.1)
+
+    def frame_texts(self, timeout_ms: int = 30000) -> list[str]:
+        return self._read_frames(lambda frame: [frame.locator('body').inner_text(
+            timeout=timeout_ms)], timeout_ms)
+
+    def _visible_menus(self, selector, timeout_ms):
+        return self._read_frames(lambda frame: [node for node in frame.locator(selector).all()
+                                               if node.is_visible()], timeout_ms)
+
+    def _profile_cell_texts(self, labels=PROFILE_LABELS, timeout_ms: int = 30000) -> list[str]:
         """Read allowlisted adjacent cells, including multi-column layout rows.
 
         Never flatten a whole row: it can contain unrelated personal fields.
         Nested layout cells and hidden controls are not profile values.
         """
-        from playwright.sync_api import Error
-
-        texts = []
-        for page in self.context.pages:
-            for frame in page.frames:
-                try:
-                    texts.extend(frame.locator("body").evaluate(r"""(body, labels) => {
+        return self._read_frames(lambda frame: frame.locator("body").evaluate(r"""(body, labels) => {
                         const normalize = s => s.replace(/\s+/g, ' ').trim();
                         const results = [];
                         for (const cell of body.querySelectorAll('td, th')) {
@@ -240,11 +274,7 @@ class DaotaoClient:
                             }
                         }
                         return results;
-                    }""", labels))
-                except Error:
-                    if not frame.is_detached() and not page.is_closed():
-                        raise
-        return texts
+                    }""", labels, timeout=timeout_ms), timeout_ms)
 
     def read_transcript(self, timeout_ms: int = 30000) -> list[list[str]]:
         """Read grade rows plus cumulative totals rendered under the table."""

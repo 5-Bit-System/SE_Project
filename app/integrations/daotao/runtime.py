@@ -25,7 +25,8 @@ WORKER_ERRORS = {"identity_unverified", "interaction_required", "structure_chang
 WORKER_STAGES = {"browser_start", "browser_context", "login", "resume", "profile", "transcript",
                  "identity", "parse"}
 WORKER_KINDS = {"missing_dependency", "source_rejected", "timeout", "browser_error",
-                "unexpected_error"}
+                "unexpected_error", "navigation_interrupted", "request_aborted",
+                "network_error", "selector_ambiguous"}
 
 
 @dataclass

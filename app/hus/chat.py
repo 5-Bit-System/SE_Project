@@ -3,11 +3,12 @@
 import re
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr
 
 from app.hus.answering import HUSAnswerer, question_intent
 from app.hus.llm.contracts import HUSGeneration, HUSRewriteHandler
 from app.hus.llm.generation import generate_reply
+from app.hus.llm_answerer import generate_grounded_answer
 from app.hus.retrieval import _tokens
 from app.schemas.hus import HUSAnswer, HUSQuestion
 
@@ -19,6 +20,11 @@ class HUSChatReply(BaseModel):
     hus_answer: HUSAnswer | None = None
     generation: HUSGeneration | None = Field(default=None, exclude_if=lambda value: value is None)
     interpretation: HUSGeneration | None = Field(default=None, exclude_if=lambda value: value is None)
+    _generation_mode: Literal["grounded_llm", "extractive"] | None = PrivateAttr(default=None)
+
+    @property
+    def generation_mode(self) -> Literal["grounded_llm", "extractive"] | None:
+        return self._generation_mode
 
 
 def basic_reply(question: str) -> str | None:
@@ -59,7 +65,9 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
             return HUSChatReply(mode="basic_chat", reply=reply, generation=generation)
     dataset, _ = question_intent(request.question)
     decision_versions = {version for major, version in answerer.programs.values() if major == request.major}
-    if request.dataset == "auto" and dataset == "f1" and request.version in decision_versions:
+    match_codes = getattr(answerer, "_matched_course_codes", None)
+    if (request.dataset == "auto" and dataset == "f1" and request.version in decision_versions
+            and not (match_codes and match_codes(request))):
         # The selector's decision version belongs to F2/F3, not F1 source editions.
         request = request.model_copy(update={"version": None})
     prepare = getattr(answerer, 'prepare_evidence', None)
@@ -74,3 +82,24 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
         answer = answerer.answer(request)
         reply, generation = generate_reply(request, answer, answer.reply, rewriter=rewriter)
     return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer, generation=generation)
+
+
+def workspace_chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
+    result = chat(request, answerer)
+    answer = result.hus_answer
+    if answer is None or answer.status != "answered":
+        return result
+    if request.allow_llm_rewrite:
+        mode = "grounded_llm" if result.generation and result.generation.used else "extractive"
+        result._generation_mode = mode
+        return result
+    result._generation_mode = "extractive"
+    grounded = generate_grounded_answer(request, answerer, answer=answer)
+    if grounded is not None:
+        reply, citations = grounded if isinstance(grounded, tuple) else (grounded, None)
+        if reply:
+            result.reply = reply
+            result._generation_mode = "grounded_llm"
+        if citations:
+            result.hus_answer = answer.model_copy(update={"citations": citations})
+    return result

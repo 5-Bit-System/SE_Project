@@ -116,7 +116,7 @@ def test_parent_child_values_are_never_reconciled_or_summed(client):
     ('Tổng tín chỉ chương trình và giới thiệu chương trình?', {}, 'needs_clarification'),
     ('Giới thiệu ngành?', {'dataset': 'f2', 'field': 'program_credits'}, 'needs_clarification'),
     ('Các nhóm kiến thức chương trình?', {'dataset': 'f2', 'field': 'credits', 'course_code': 'MAT3533'}, 'needs_clarification'),
-    ('Nhóm II gồm những học phần nào?', {}, 'no_information'),
+    ('Nhóm X.9.9 gồm những học phần nào?', {}, 'no_information'),
     ('Tổng tín chỉ chương trình theo xác nhận hiện hành?', {}, 'no_information'),
     ('Nhóm II giúp tôi đủ điều kiện tốt nghiệp không?', {}, 'no_information'),
     ('Chọn môn nhóm II cho tôi?', {}, 'no_information'),
@@ -244,3 +244,18 @@ def test_career_groups_are_not_curriculum_knowledge_groups(client):
     assert question_intent(question) == ('f1', 'careers')
     answer = ask(client, question)
     assert answer['dataset'] == 'f1' and not answer['facts']
+
+
+def test_program_and_group_credit_shorthand_variants(client):
+    answer = ask(client, 'Chương trình ngành Khoa học máy tính cần tổng bao nhiêu tín?',
+                 major='computer_science', version='QD3568-2023')
+    assert answer['status'] == 'answered'
+    assert answer['facts']['field'] == 'program_credits'
+    assert answer['facts']['value']['credits_required'] == 129
+
+    group_answer = ask(client, 'Nhóm II cần bao nhiêu tín?',
+                       major='computer_science', version='QD3568-2023')
+    assert group_answer['status'] == 'answered'
+    assert group_answer['facts']['field'] == 'group_rules'
+    assert group_answer['facts']['value']['group_key'] == 'II'
+

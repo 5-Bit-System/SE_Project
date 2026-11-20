@@ -13,11 +13,13 @@ from app.integrations.daotao.snapshot import PortalFailure
 
 class SyntheticAccounts:
     def __init__(self, monkeypatch):
-        self.sessions, self.links = {}, {}
+        self.sessions, self.links, self.activities = {}, {}, []
         monkeypatch.setattr(repository, 'session_from_token', self.resolve)
         monkeypatch.setattr(repository, 'portal_link', lambda account: self.links.get(account))
         monkeypatch.setattr(repository, 'revoke_token', self.revoke)
         monkeypatch.setattr(repository, 'rate', lambda *args: None)
+        monkeypatch.setattr(repository, 'record_activity',
+                            lambda account_id, kind: self.activities.append((account_id, kind)))
         monkeypatch.setattr(portal, 'check', self.check)
         monkeypatch.setattr(portal, 'connect', self.connect)
         monkeypatch.setattr(portal, 'save', self.save)

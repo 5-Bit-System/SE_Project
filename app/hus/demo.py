@@ -16,6 +16,7 @@ from app.hus.llm.config import llm_rewrite_available
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.retrieval_config import HUSRetrievalSettings
+from app.hus.router import LABELS, support_router
 from app.hus.source_response import source_response
 from app.schemas.hus import HUSMajor, HUSQuestion
 from app.services.hus_service import get_hus_answerer
@@ -24,8 +25,7 @@ app = FastAPI(title="HUS RAG — demo local", docs_url=None, redoc_url=None)
 auto_policy = AutoLLMPolicy()
 STATIC = Path(__file__).resolve().parents[1] / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
-LABELS = {"mathematics": "Toán học", "mathematics_informatics": "Toán tin",
-          "computer_science": "Khoa học máy tính và thông tin", "data_science": "Khoa học dữ liệu"}
+app.include_router(support_router, prefix="/hus", tags=["hus"])
 
 
 def current_answerer():

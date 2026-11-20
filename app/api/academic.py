@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+import logging
 from pathlib import Path
 from typing import Any
 from uuid import UUID
@@ -21,7 +22,8 @@ from app.academic_context import AcademicContextError, build_context, require_re
 from app.academic_policies import POLICIES
 from app.api.portal import safe_call, session
 from app.auth import portal as account_portal
-from app.auth.dependencies import COOKIE, require_account
+from app.auth import repository as auth_repository
+from app.auth.dependencies import COOKIE, optional_account, require_account
 from app.auth.dependencies import call as auth_call
 from app.catalog import load_catalog
 from app.catalog_contracts import digest
@@ -34,17 +36,34 @@ from app.progress import calculate_progress
 from app.recommendation.llm import configured_adapters
 from app.rules import _prepare_selection_context, evaluate_eligibility
 from app.schemas.advisor import AdvisorMessage, AdvisorRequest
+from app.schemas.study_intent import FormInput
 from app.services import semester_plan_service as plans
-from app.services.advisor_service import chat_advisor
+from app.services import study_intent_state
+from app.services.advisor_service import chat_advisor, check_scope_guardrails
 from app.services.course_status_service import (
     course_board,
     course_board_display,
     reviewed_course_board,
 )
+from app.services.operational_metrics import measured_consultation, metrics_recorder
 from app.services.recommendation_service import recommend
+from app.services.study_intent_service import resolve_study_intent
 
 router = APIRouter()
 # Server-reviewed policies only; no route accepts a policy or review flag from a student.
+
+logger = logging.getLogger(__name__)
+
+
+async def record_activity_safely(account_id: str, kind: str) -> None:
+    """A failed metadata write must not discard an already validated answer."""
+    try:
+        await auth_call(auth_repository.record_activity, account_id, kind)
+    except HTTPException as exc:
+        if exc.status_code != 503:
+            raise
+        # Do not include account IDs, message content, credentials or DB errors.
+        logger.warning("Account activity storage unavailable for %s", kind)
 
 
 @router.get("/academic-policy/vnu-3626-2022")
@@ -52,6 +71,17 @@ def policy_source():
     path = Path(__file__).resolve().parents[2] / "docs/policies/vnu_3626_2022.pdf"
     return FileResponse(path, media_type="application/pdf", filename="vnu_3626_2022.pdf",
                         content_disposition_type="inline")
+
+
+@router.get("/academic/documents/published")
+def get_published_academic_documents(major: str | None = None) -> list[dict]:
+    """Return only approved and published academic documents for user-facing readers."""
+    from app.api.admin import engine
+    from app.curriculum.publication_gate import get_published_documents
+
+    with engine().connect() as conn:
+        return get_published_documents(conn, major=major)
+
 
 
 class AcademicQuery(BaseModel):
@@ -70,6 +100,9 @@ class AcademicOperation(AcademicQuery):
     ranking_weights: RankingWeights | None = None
     message: str = Field(default="", max_length=1000)
     history: list[AdvisorMessage] = Field(default_factory=list, max_length=20)
+    form_input: FormInput | None = None
+    intent_version: int | None = Field(default=None, ge=0, strict=True)
+    reset_intent: bool = Field(default=False, strict=True)
 
 
 def parse_query(request: Request) -> AcademicQuery:
@@ -349,16 +382,23 @@ async def operation(request: Request):
 
 
 @router.post("/me/recommendations")
+@measured_consultation('recommendation')
 async def recommendations(request: Request):
     query, catalog, context, passed = await operation(request)
     internal = RecommendationRequest(**query.model_dump(include={
         "goal", "max_credits", "limit", "selected_track_id", "selected_graduation_path_id",
-        "preference", "ranking_weights"}), program_id=catalog.program.program_id,
+        "preference", "ranking_weights", "form_input"}), program_id=catalog.program.program_id,
         passed_course_codes=sorted(passed))
-    extractor, ranker = configured_adapters()
+    extractor, ranker = configured_adapters(catalog)
     result = await asyncio.to_thread(recommend, catalog, internal,
                                      preference_extractor=extractor, llm_ranker=ranker)
     await ensure_current(request, query, context)
+    principal = await require_account(request)
+    await record_activity_safely(principal['account_id'], 'recommendation')
+    metrics_recorder.record_recommendation(
+        [(item.code, item.score) for item in result.recommendations],
+        [item.fit_reason for item in result.recommendations],
+    )
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
@@ -374,12 +414,34 @@ async def advisor(request: Request):
     query, catalog, context, passed = await operation(request)
     if not query.message.strip():
         raise HTTPException(422, "academic_message_required")
+    value = await session(request)
+    # Session identity already binds account/owner. Revision also binds selection/source.
+    key = context["revision"]
+    try:
+        version, previous = study_intent_state.begin(value, key,
+            expected_version=query.intent_version, reset=query.reset_intent,
+            has_history=bool(query.history))
+    except study_intent_state.IntentStateConflict:
+        raise HTTPException(409, "intent_version_changed") from None
+    extractor = None
+    if not check_scope_guardrails(query.message)[0]:
+        extractor, _ = configured_adapters(catalog)
+    resolved = await asyncio.to_thread(resolve_study_intent, query.message, catalog,
+        form_input=query.form_input, previous_state=previous, extractor=extractor,
+        max_credits=30, max_courses=20)
     internal = AdvisorRequest(program_id=catalog.program.program_id, message=query.message,
-        history=query.history, passed_course_codes=sorted(passed),
+        history=query.history, passed_course_codes=sorted(passed), form_input=query.form_input,
         selected_track_id=query.selected_track_id,
         selected_graduation_path_id=query.selected_graduation_path_id)
-    result = await asyncio.to_thread(chat_advisor, catalog, internal)
+    result = await asyncio.to_thread(chat_advisor, catalog, internal, resolved_intent=resolved)
     await ensure_current(request, query, context)
+    if not result.is_guardrail_triggered:
+        try:
+            result.intent_version = study_intent_state.commit(value, key, version, resolved.state)
+        except study_intent_state.IntentStateConflict:
+            raise HTTPException(409, "intent_version_changed") from None
+    principal = await require_account(request)
+    await record_activity_safely(principal['account_id'], 'advisor')
     return {**result.model_dump(mode="json"), "context_revision": context["revision"]}
 
 
@@ -440,3 +502,37 @@ async def semester_plan_delete(plan_id: UUID, request: Request):
         raise HTTPException(422, 'semester_plan_version_required')
     await auth_call(plans.delete_plan, principal, plan_id, int(raw))
     return {'deleted': True}
+
+
+@router.get('/academic/announcements')
+async def list_active_announcements(
+    request: Request,
+    audience: str | None = None,
+) -> list[dict[str, Any]]:
+    """Return active published academic announcements with valid attributable source."""
+    principal = await optional_account(request)
+
+    if audience is not None and audience not in {'all', 'students', 'faculty'}:
+        raise HTTPException(400, 'invalid_audience')
+
+    if audience is None:
+        effective_audience = 'students' if (principal and principal.get('role') in {'student', 'admin'}) else 'all'
+    else:
+        effective_audience = audience
+
+    if effective_audience == 'all':
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='all')
+
+    if not principal:
+        raise HTTPException(401, 'authentication_required')
+
+    role = principal.get('role')
+    if effective_audience == 'students' and role in {'student', 'admin'}:
+        from app.announcements.service import get_public_announcements
+        return get_public_announcements(audience='students')
+
+    if effective_audience == 'faculty':
+        raise HTTPException(403, 'faculty_audience_forbidden')
+
+    raise HTTPException(403, 'audience_forbidden')

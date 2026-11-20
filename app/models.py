@@ -2,6 +2,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from app.schemas.study_intent import FormInput, IntentDiagnostics
+
 
 class ChoiceGroup(BaseModel):
     model_config = ConfigDict(extra="allow")
@@ -120,10 +122,12 @@ class StructuredPreference(BaseModel):
     difficulty: Literal["easy", "moderate", "advanced"] | None = None
     orientation: Literal["theory", "practice", "research"] | None = None
     interest_topics: list[str] = Field(default_factory=list, max_length=20)
+    career_paths: list[str] = Field(default_factory=list, max_length=20)
     career_goal: str | None = Field(default=None, max_length=200)
     target_credits: int | None = Field(default=None, ge=1, le=30)
     target_course_count: int | None = Field(default=None, ge=1, le=20)
     course_type: Literal["required", "elective"] | None = None
+    course_type_mode: Literal["prefer", "only"] = "prefer"
     prerequisite_tolerance: Literal["low", "medium", "high"] | None = None
 
 
@@ -133,9 +137,10 @@ class RankingWeights(BaseModel):
     topic: float = Field(default=0.6, ge=0, le=1)
     keyword: float = Field(default=0.25, ge=0, le=1)
     course_type: float = Field(default=0.15, ge=0, le=1)
-    orientation: float = Field(default=0.0, ge=0, le=1)
-    difficulty: float = Field(default=0.0, ge=0, le=1)
-    workload: float = Field(default=0.0, ge=0, le=1)
+    orientation: float = Field(default=0.1, ge=0, le=1)
+    difficulty: float = Field(default=0.1, ge=0, le=1)
+    workload: float = Field(default=0.1, ge=0, le=1)
+    career: float = Field(default=0.1, ge=0, le=1)
 
     @model_validator(mode="after")
     def require_positive_total(self) -> "RankingWeights":
@@ -154,6 +159,7 @@ class RecommendationRequest(BaseModel):
     selected_graduation_path_id: str | None = None
     preference: StructuredPreference | None = None
     ranking_weights: RankingWeights | None = None
+    form_input: FormInput | None = None
 
 
 class WhatIfRequest(RecommendationRequest):
@@ -187,6 +193,7 @@ class RecommendationResponse(BaseModel):
     blocked_summary: dict[str, int] = Field(default_factory=dict)
     ranking_weights: RankingWeights = Field(default_factory=RankingWeights)
     what_if: bool = False
+    intent: IntentDiagnostics = Field(default_factory=IntentDiagnostics)
 
 
 class BlockedReason(BaseModel):

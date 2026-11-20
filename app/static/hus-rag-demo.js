@@ -64,7 +64,7 @@
     return {label, message};
   }
 
-  function displayReply(reply, answer) {
+  function displayReply(reply, answer, keepMarkdown = false) {
     if (answer?.status !== 'answered') return reply;
     const citations = answer.citations || [];
     const ids = new Set(citations.map(citation => String(citation.citation_id)));
@@ -78,13 +78,13 @@
     const notices = new Set((answer.warnings || []).filter(warning =>
       reviewNotices.has(warning) || /^Trạng thái (?:xác minh|review):/.test(warning)
       || (aiIds.size > 0 && aiNotice.test(warning))));
-    const text = answer.dataset === 'f2' && typeof answer.reply === 'string' ? answer.reply : reply;
+    const text = !keepMarkdown && answer.dataset === 'f2' && typeof answer.reply === 'string'
+      ? answer.reply : reply;
     const compact = text.split(/\r?\n/).filter(line => {
       const trimmed = line.trim();
       const footer = /^Nguồn \[(\d+)\]:/.exec(trimmed);
       return !notices.has(trimmed) && !(footer && ids.has(footer[1]));
-    }).map(line => line
-      .replace(/^(\s*(?:\[\d+\][ \t]+)?)#{1,6}[ \t]+/, '$1')
+    }).map(line => (keepMarkdown ? line : line.replace(/^(\s*(?:\[\d+\][ \t]+)?)#{1,6}[ \t]+/, '$1'))
       .replace(/\[(\d+)\]/g, (marker, id) => aiIds.has(id) ? '' : marker)
       .trimEnd()
     ).join('\n').replace(/\n{3,}/g, '\n\n').trim();
@@ -103,7 +103,7 @@
           || metadata.fallback_reason != null) throw new Error('invalid_generation');
       return {kind: 'used', label: aiOnly ? 'AI diễn đạt' : 'AI diễn đạt từ nguồn'};
     }
-    if (!requested || !answered) return null;
+    if (!requested || !answered || (metadata == null && result.generation_mode === 'grounded_llm')) return null;
     const reasons = {
       busy: 'Dịch vụ AI đang bận; hiển thị bản trích nguồn.',
       timeout: 'Dịch vụ AI vượt thời gian chờ; hiển thị bản trích nguồn.',
@@ -128,8 +128,145 @@
       note: aiOnly ? note.replace('bản trích nguồn', 'nội dung AI tham khảo đã lưu') : note};
   }
 
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatInlineMarkdown(raw) {
+    if (!raw) return '';
+    const safe = escapeHtml(raw);
+    return safe
+      .replace(/`([^`]+)`/g, '<code class="rag-inline-code">$1</code>')
+      .replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[(\d+)\]/g, '<span class="rag-inline-cite" title="Trích dẫn nguồn [$1]">[$1]</span>');
+  }
+
+  function createElement(tag, className) {
+    if (typeof document !== 'undefined') {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      return el;
+    }
+    return {
+      tagName: tag.toUpperCase(),
+      className: className || '',
+      innerHTML: '',
+      children: [],
+      appendChild(child) {
+        this.children.push(child);
+        return child;
+      },
+      get textContent() {
+        return this.innerHTML.replace(/<[^>]+>/g, '');
+      },
+    };
+  }
+
+  function renderSafeMarkdown(text, container) {
+    if (!container || typeof text !== 'string') return;
+    const lines = text.split(/\r?\n/);
+    let inCourseCard = false;
+    let courseCardEl = null;
+    let cardHasList = false;
+    let currentList = null;
+    let currentPara = null;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        currentList = null;
+        currentPara = null;
+        if (inCourseCard && cardHasList) {
+          inCourseCard = false;
+          courseCardEl = null;
+        }
+        continue;
+      }
+
+      const headingMatch = /^(#{1,4})\s*(.*)$/.exec(trimmed);
+      if (headingMatch) {
+        currentList = null;
+        currentPara = null;
+        const headingText = headingMatch[2].trim();
+        const isCourseCardHeading = /(?:Phần\s*\d+\s*[:.-]?\s*)?Thông tin (?:học phần|môn học)/i.test(headingText);
+
+        if (isCourseCardHeading) {
+          inCourseCard = true;
+          courseCardEl = createElement('div', 'rag-course-card');
+          cardHasList = false;
+          const header = createElement('div', 'rag-course-card-header');
+          header.innerHTML = formatInlineMarkdown(headingText);
+          courseCardEl.appendChild(header);
+          container.appendChild(courseCardEl);
+        } else {
+          inCourseCard = false;
+          courseCardEl = null;
+          const h = createElement('h4', 'rag-heading');
+          h.innerHTML = formatInlineMarkdown(headingText);
+          container.appendChild(h);
+        }
+        continue;
+      }
+
+      const listMatch = /^[-*]\s+(.*)$/.exec(trimmed);
+      if (listMatch) {
+        currentPara = null;
+        const itemContent = listMatch[1].trim();
+        if (inCourseCard && courseCardEl) {
+          cardHasList = true;
+          if (!currentList || currentList.className !== 'rag-course-card-list') {
+            currentList = createElement('ul', 'rag-course-card-list');
+            courseCardEl.appendChild(currentList);
+          }
+        } else {
+          if (!currentList || currentList.className !== 'rag-content-list') {
+            currentList = createElement('ul', 'rag-content-list');
+            container.appendChild(currentList);
+          }
+        }
+        const li = createElement('li');
+        li.innerHTML = formatInlineMarkdown(itemContent);
+        currentList.appendChild(li);
+        continue;
+      }
+
+      // If text line arrives after course card list is already built, exit course card
+      if (inCourseCard && cardHasList) {
+        inCourseCard = false;
+        courseCardEl = null;
+      }
+
+      currentList = null;
+      const target = (inCourseCard && courseCardEl) ? courseCardEl : container;
+      if (!currentPara) {
+        currentPara = createElement('p', 'rag-para');
+        currentPara.innerHTML = formatInlineMarkdown(trimmed);
+        target.appendChild(currentPara);
+      } else {
+        currentPara.innerHTML += ' ' + formatInlineMarkdown(trimmed);
+      }
+    }
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {citationURL, citationLabel, generationInfo, displayReply};
+    module.exports = {
+      citationURL,
+      citationLabel,
+      generationInfo,
+      displayReply,
+      escapeHtml,
+      formatInlineMarkdown,
+      renderSafeMarkdown,
+      groupCitations,
+    };
   }
   if (typeof document === 'undefined') return;
 
@@ -304,14 +441,51 @@
     }
   }
 
+  function groupCitations(citations, origin) {
+    if (!Array.isArray(citations) || !citations.length) return [];
+    const groups = new Map();
+    for (const citation of citations) {
+      if (!citation || typeof citation !== 'object') continue;
+      const url = citationURL(citation, origin);
+      const scope = citation.metadata?.scope;
+      const key = JSON.stringify([
+        url, citation.evidence_kind, citation.source_id, citationLabel(citation),
+        citation.document_sha256, citation.pdf_page, citation.pdf_pages,
+        citation.availability, citation.availability_note, citation.review_status,
+        scope?.curriculum_version || citation.metadata?.program_version, scope?.program_variant,
+      ]);
+
+      const existing = groups.get(key);
+      if (existing) {
+        if (citation.citation_id && !existing.ids.includes(String(citation.citation_id))) {
+          existing.ids.push(String(citation.citation_id));
+        }
+      } else {
+        const ids = citation.citation_id ? [String(citation.citation_id)] : [];
+        groups.set(key, { citation, ids });
+      }
+    }
+    return Array.from(groups.values()).map(g => ({
+      ...g.citation,
+      citation_ids: g.ids,
+      citation_id: g.ids.join(', '),
+    }));
+  }
+
   function appendCitation(container, citation) {
     const card = document.createElement('div');
     card.className = 'rag-citation';
     const heading = document.createElement('p');
     heading.className = 'rag-citation-title';
+    if (citation.citation_id) {
+      const num = document.createElement('span');
+      num.className = 'rag-citation-num';
+      num.textContent = `[${citation.citation_id}]`;
+      heading.appendChild(num);
+    }
     const kind = document.createElement('span');
     kind.className = 'rag-citation-kind';
-    kind.textContent = 'Nguồn' + (citation.citation_id ? ' [' + citation.citation_id + ']' : '');
+    kind.textContent = ({pdf: 'PDF', web: 'WEB', file: 'TỆP'}[citation.evidence_kind] || 'NGUỒN');
     heading.appendChild(kind);
     const url = citationURL(citation, window.location.origin);
     const label = document.createElement(url ? 'a' : 'span');
@@ -333,6 +507,8 @@
       if (edition && edition !== 'unknown') details.push(edition);
       if (variant) details.push(variant);
     }
+    if (!url) details.push(citation.availability_note || 'Chưa có liên kết nguồn khả dụng.');
+    if (citation.review_status) details.push('Trạng thái nguồn: ' + citation.review_status);
     if (details.length) {
       const detail = document.createElement('span');
       detail.className = 'rag-citation-detail';
@@ -343,7 +519,7 @@
     container.appendChild(card);
   }
 
-  function appendMessage(role, reply, answer = null) {
+  function appendMessage(role, reply, answer = null, legacyMarkdown = false) {
     const citations = answer?.citations || [];
     const article = document.createElement('article');
     article.className = 'rag-message rag-message-' + role;
@@ -356,9 +532,17 @@
     const speaker = document.createElement('p');
     speaker.className = 'rag-message-speaker';
     speaker.textContent = role === 'user' ? 'Bạn' : 'Hỏi đáp HUS';
-    const text = document.createElement('p');
+    if (legacyMarkdown) {
+      const badge = document.createElement('span');
+      badge.className = 'rag-badge-llm';
+      badge.textContent = 'Trợ lý AI HUS';
+      speaker.appendChild(badge);
+    }
+    const text = document.createElement(legacyMarkdown ? 'div' : 'p');
     text.className = 'rag-message-text';
-    text.textContent = displayReply(reply, answer);
+    const visibleReply = displayReply(reply, answer, legacyMarkdown);
+    if (legacyMarkdown) renderSafeMarkdown(visibleReply, text);
+    else text.textContent = visibleReply;
     body.append(speaker, text);
     if (citations.some(isAI)) {
       const notice = document.createElement('p');
@@ -366,7 +550,8 @@
       notice.textContent = 'kiến thức AI · tham khảo';
       body.insertBefore(notice, text);
     }
-    const visibleCitations = citations.filter(citation => !isAI(citation));
+    const visibleCitations = groupCitations(citations.filter(citation => !isAI(citation)),
+      window.location.origin);
     if (visibleCitations.length) {
       const sources = document.createElement('div');
       sources.className = 'rag-citations';
@@ -439,22 +624,24 @@
       if (epoch !== scopeGeneration || requestController !== controller) return;
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
+      const answer = result.mode === 'hus_rag' ? result.hus_answer : null;
       if (result.mode === 'hus_rag' && !['answered', 'needs_clarification', 'no_information']
-        .includes(result.hus_answer?.status)) throw new Error('invalid_response');
+        .includes(answer?.status)) throw new Error('invalid_response');
       const info = generationInfo(result, wantsRewrite);
       if (config.llm_auto && result.generation?.used === true) config.llm_quota_exhausted = false;
       if (config.llm_auto && [result.generation, result.interpretation].some(
         item => item?.fallback_reason === 'http_error' && item.http_status === 429)) {
         config.llm_quota_exhausted = true;
       }
-      appendMessage('assistant', result.reply, result.hus_answer);
-      if (result.hus_answer?.status === 'needs_clarification'
-          && Array.isArray(result.hus_answer.source_choices)) {
+      const legacyMarkdown = answer?.status === 'answered'
+        && result.generation_mode === 'grounded_llm' && result.generation == null;
+      appendMessage('assistant', result.reply, answer, legacyMarkdown);
+      if (answer?.status === 'needs_clarification' && Array.isArray(answer.source_choices)) {
         const choices = document.createElement('div');
         choices.className = 'rag-source-choices';
         choices.setAttribute('aria-label', 'Chọn nguồn thông tin');
-        for (const choice of result.hus_answer.source_choices) {
-          if (typeof choice.source_id !== 'string' || typeof choice.version !== 'string'
+        for (const choice of answer.source_choices) {
+          if (typeof choice?.source_id !== 'string' || typeof choice.version !== 'string'
               || typeof choice.label !== 'string' || typeof choice.review_status !== 'string') continue;
           const button = document.createElement('button');
           button.type = 'button';
@@ -471,22 +658,22 @@
           });
           choices.appendChild(button);
         }
-        messages.lastElementChild.querySelector('.rag-message-content').appendChild(choices);
+        if (choices.childElementCount) messages.lastElementChild.querySelector('.rag-message-content').appendChild(choices);
       }
       let message = '';
       if (result.mode === 'basic_chat') {
         message = 'Đã phản hồi hội thoại.';
-      } else if (result.hus_answer?.status === 'needs_clarification') {
+      } else if (answer.status === 'needs_clarification') {
         message = 'Cần làm rõ câu hỏi; xem hướng dẫn trong phản hồi.';
-      } else if (result.hus_answer?.status === 'no_information') {
+      } else if (answer.status === 'no_information') {
         message = 'Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.';
-      } else if (result.hus_answer?.status === 'answered') {
-        message = result.hus_answer.facts?.field === 'prerequisites'
-          && result.hus_answer.facts?.prerequisite_status === 'unknown'
+      } else {
+        message = answer.facts?.field === 'prerequisites'
+          && answer.facts?.prerequisite_status === 'unknown'
           ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
           : 'Đã trả lời theo phạm vi dữ liệu đã chọn.';
       }
-      const diagnosis = diagnosticInfo(result.hus_answer?.diagnostic);
+      const diagnosis = diagnosticInfo(answer?.diagnostic);
       const statusMessage = [message, diagnosis?.message, info?.label,
         info?.kind === 'fallback' ? info.note : null].filter(Boolean).join(' ');
       if (statusMessage) setStatus(statusMessage);
